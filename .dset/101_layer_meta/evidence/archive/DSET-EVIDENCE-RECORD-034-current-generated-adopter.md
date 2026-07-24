@@ -17,7 +17,7 @@ polarity: "supports"
 currentness: "current"
 reopen_when: "Bootstrap inputs, schema 1.2 layout or Work Area rules, release branch configuration, Change workspace selection, generated-adopter validation, or the subject revision changes."
 subject:
-  id: "DSET-TEST-PLAN-META-011"
+  id: "DSET-TEST-CASE-META-011"
   revision: "347df79ba1d1310476ff587e55489b8d723576dd"
   intended_use: "Support the bounded claim that a newly generated schema 1.2 adopter validates Work Areas and both configured Change workspace modes."
 producer:
@@ -31,8 +31,8 @@ llm_session_ids:
 relations:
   - type: "evidence_for"
     targets:
-      - "DSET-TEST-PLAN-META-011"
-      - "DSET-TEST-PLAN-OPS-005"
+      - "DSET-TEST-CASE-META-011"
+      - "DSET-TEST-CASE-OPS-005"
 ---
 
 # Test result — Current generated adopter

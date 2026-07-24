@@ -17,7 +17,7 @@ polarity: "supports"
 currentness: "current"
 reopen_when: "A DSET-owned YAML carrier or YAML frontmatter is added, a migrated carrier/reference/generated view changes, the migration implementation changes, or the subject revision changes."
 subject:
-  id: "DSET-TEST-PLAN-GOV-043"
+  id: "DSET-TEST-CASE-GOV-043"
   revision: "483ea2af321505f40713a73a51b3b68f327ba7f3"
   intended_use: "Support the bounded claim that all DSET-owned artifact carriers use TOML and the completed migration is idempotent and repository-valid."
 producer:
@@ -31,7 +31,7 @@ llm_session_ids:
 relations:
   - type: "evidence_for"
     targets:
-      - "DSET-TEST-PLAN-GOV-043"
+      - "DSET-TEST-CASE-GOV-043"
 ---
 
 # Test result — Complete TOML cutover

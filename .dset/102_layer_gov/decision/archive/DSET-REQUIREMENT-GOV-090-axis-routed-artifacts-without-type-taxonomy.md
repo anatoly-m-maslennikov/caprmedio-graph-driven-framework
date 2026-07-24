@@ -45,7 +45,7 @@ These fields are sufficient for routing, validation, lifecycle selection,
 matrix placement, and project overview. DSET does not maintain a canonical
 artifact Type or subtype taxonomy.
 
-Human-facing names such as Requirement, Question, Test Plan, Evaluation Plan,
+Human-facing names such as Requirement, Question, Test Case, Evaluation Case,
 Problem, Commit, or Evidence may remain as optional labels, templates, views,
 or interface vocabulary. They do not establish identity, routing, validation,
 priority, authority, or lifecycle behavior.

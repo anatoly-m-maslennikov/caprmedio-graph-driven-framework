@@ -25,7 +25,7 @@ DSET uses exactly these general forward artifact relations:
 | `analysis_of` | Interprets named inputs without becoming their authority or evidence |
 | `projection_of` | Binds a maintained view to one registered atomic type and exact scope through its latest included identity |
 | `implementation_of` | Connects code, configuration, documentation, migration, or a commit to the authority it realizes |
-| `check_of` | Connects a Test Plan or Evaluation Plan to the claim it checks |
+| `check_of` | Connects a Test Case or Evaluation Case to the claim it checks |
 | `evidence_for` | Connects a bounded observation to the check, result, or Verification it supports |
 | `resolution_of` | Closes a Question or Problem other than a Conflict |
 | `solution_for` | Supplies the accepted solution that closes a Conflict |

@@ -10,7 +10,7 @@ llm_session_ids:
 relations:
   - type: "evidence_for"
     targets:
-      - "DSET-TEST-PLAN-GOV-038"
+      - "DSET-TEST-CASE-GOV-038"
   - type: "relates_to"
     targets:
       - "DSET-REQUIREMENT-GOV-037"
@@ -22,12 +22,12 @@ relations:
 
 Implementation commits `ecfc9cd8957439a6a1cee3167f2cc2e5c48ef045` and
 `ac5a0b7b4ec5707fcdcc5f75bd984ef88bc44387` for Requirement
-`DSET-REQUIREMENT-GOV-037` and deterministic Test `DSET-TEST-PLAN-GOV-038`.
+`DSET-REQUIREMENT-GOV-037` and deterministic Test `DSET-TEST-CASE-GOV-038`.
 
 This record supports the canonical `dset_settings.toml` cut only. It does not
 claim that every preserved historical YAML or JSON artifact has been migrated
 to TOML, nor does it satisfy qualitative Evaluation
-`DSET-EVAL-PLAN-GOV-028`.
+`DSET-EVALUATION-CASE-GOV-028`.
 
 ## Observed result
 

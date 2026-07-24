@@ -17,7 +17,7 @@ Development is the default flow:
 
 ```text
 active atomic authority
-→ Test and Evaluation Plans
+→ Test and Evaluation Cases
 → implementation
 → executable Tests and Evaluations
 → factual Observations and Evidence

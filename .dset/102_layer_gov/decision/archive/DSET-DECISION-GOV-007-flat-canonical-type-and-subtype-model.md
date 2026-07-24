@@ -178,7 +178,7 @@ truth, implementation, QA, and Verification rather than a semantic Type.
 
 This Decision must compile into the public Type catalog, repository-local
 governing rules and templates, self-hosted domain/specification, Test and
-Evaluation plans, README workflow, and generated traceability.
+Evaluation cases, README workflow, and generated traceability.
 
 Schemas, validators, templates, fixtures, health views, and skills must migrate
 before DSET claims end-to-end enforcement. Existing emitted atoms remain

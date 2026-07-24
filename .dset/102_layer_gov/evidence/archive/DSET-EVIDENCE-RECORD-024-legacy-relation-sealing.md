@@ -10,7 +10,7 @@ llm_session_ids:
 relations:
   - type: "evidence_for"
     targets:
-      - "DSET-TEST-PLAN-GOV-036"
+      - "DSET-TEST-CASE-GOV-036"
   - type: "relates_to"
     targets:
       - "DSET-DEFECT-TOOL-002"
@@ -28,11 +28,11 @@ relations:
 Corrective implementation commit
 `23fe405a9c705b323ffcf2fb8d82d7151c27cfb5` for
 `DSET-DECISION-GOV-013`, resolved Problem `DSET-DEFECT-TOOL-002`, and
-deterministic Test `DSET-TEST-PLAN-GOV-036`.
+deterministic Test `DSET-TEST-CASE-GOV-036`.
 
 This record replaces the current deterministic conclusion drawn from Evidence
 Record 023 without editing that historical observation. It does not satisfy
-qualitative Evaluation `DSET-EVAL-PLAN-GOV-026`, hosted CI, release
+qualitative Evaluation `DSET-EVALUATION-CASE-GOV-026`, hosted CI, release
 readiness, or publication.
 
 ## Observed result

@@ -15,7 +15,7 @@ polarity: "supports"
 currentness: "current"
 reopen_when: "The settings schema, defaults, reader precedence, bootstrap writer, selected workflow behavior, or subject revision changes."
 subject:
-  id: "DSET-TEST-PLAN-GOV-039"
+  id: "DSET-TEST-CASE-GOV-039"
   revision: "b7d79ec08c9a446f8a5358ac44c4c26bf7486d42"
   intended_use: "Support the bounded claim that canonical settings select naming, creation strictness, and implementation preparation without a legacy write path."
 producer:
@@ -29,7 +29,7 @@ llm_session_ids:
 relations:
   - type: "evidence_for"
     targets:
-      - "DSET-TEST-PLAN-GOV-039"
+      - "DSET-TEST-CASE-GOV-039"
 ---
 
 # Test result — Canonical settings selections

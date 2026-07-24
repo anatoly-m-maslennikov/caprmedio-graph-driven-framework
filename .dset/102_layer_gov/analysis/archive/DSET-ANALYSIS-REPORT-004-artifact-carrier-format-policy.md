@@ -115,7 +115,7 @@ Use Markdown with YAML frontmatter for nearly all semantic DSET artifacts:
 - Requirements, Constraints, Contracts, and Implementation Decisions;
 - Questions and Problems;
 - Rationales and Analysis Reports;
-- Test and Evaluation Plans;
+- Test and Evaluation Cases;
 - Evidence and Verification records;
 - evergreen specifications and plans;
 - hubs and architecture views;

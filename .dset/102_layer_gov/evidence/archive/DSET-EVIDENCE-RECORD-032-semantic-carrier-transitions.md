@@ -16,7 +16,7 @@ polarity: "supports"
 currentness: "current"
 reopen_when: "A transitioned carrier, original/current seal, transition schema, normalization rule, source-return address, or subject revision changes."
 subject:
-  id: "DSET-TEST-PLAN-GOV-042"
+  id: "DSET-TEST-CASE-GOV-042"
   revision: "483ea2af321505f40713a73a51b3b68f327ba7f3"
   intended_use: "Support the bounded claim that carrier conversion preserves immutable semantic identity and lossless source return."
 producer:
@@ -30,7 +30,7 @@ llm_session_ids:
 relations:
   - type: "evidence_for"
     targets:
-      - "DSET-TEST-PLAN-GOV-042"
+      - "DSET-TEST-CASE-GOV-042"
 ---
 
 # Test result — Semantic carrier transitions

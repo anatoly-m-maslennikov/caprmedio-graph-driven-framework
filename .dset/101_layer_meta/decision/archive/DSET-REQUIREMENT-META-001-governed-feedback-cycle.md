@@ -14,7 +14,7 @@ relations:
 
 # Requirement — Governed feedback cycle
 
-Test plans, evaluation plans, and implementation plans are Methods. Code and
+Test cases, evaluation cases, and implementation plans are Methods. Code and
 generated operative outputs are Implementations. Test and evaluation results
 are Observations. Each governed artifact has one primary content role while
 relations connect it to other roles.

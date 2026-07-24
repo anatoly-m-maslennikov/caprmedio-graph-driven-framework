@@ -24,7 +24,7 @@ Decision uses the direct subtypes `requirement`, `constraint`, `contract`, and
 `CONTRACT`, and `IMPL`. An empty-subtype Decision continues to use `DECISION`.
 
 QA uses the required direct subtypes `test_plan` and `evaluation_plan`. Their
-ID kinds are `TEST-PLAN` and `EVAL-PLAN`. A QA atom defines intended proof; Test
+ID kinds are `TEST-CASE` and `EVALUATION-CASE`. A QA atom defines intended proof; Test
 code and Evaluation prompts, datasets, fixtures, harnesses, and runners are
 Implementation artifacts, while observed results are Evidence Records.
 
@@ -37,8 +37,8 @@ project-wide sequences do not collide.
 
 ## Primary claim
 
-DSET uses the canonical semantic ID kinds REQUIREMENT, CONSTRAINT, CONTRACT, IMPL, TEST-PLAN, and EVAL-PLAN; QA atoms are plans rather than executable checks, and adopting this vocabulary requires a complete historical identity migration without retained short aliases.
+DSET uses the canonical semantic ID kinds REQUIREMENT, CONSTRAINT, CONTRACT, IMPL, TEST-CASE, and EVALUATION-CASE; QA atoms are plans rather than executable checks, and adopting this vocabulary requires a complete historical identity migration without retained short aliases.
 
 ## Rationale
 
-Verbose identity kinds are understandable from a file list, while Test Plan and Evaluation Plan preserve the boundary between a QA definition and its executable implementation or evidence. IMPL remains short to keep the implementation kind readable and distinct from the longer authority kinds.
+Verbose identity kinds are understandable from a file list, while Test Case and Evaluation Case preserve the boundary between a QA definition and its executable implementation or evidence. IMPL remains short to keep the implementation kind readable and distinct from the longer authority kinds.

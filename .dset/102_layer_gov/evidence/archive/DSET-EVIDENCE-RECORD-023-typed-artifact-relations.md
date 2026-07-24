@@ -10,7 +10,7 @@ llm_session_ids:
 relations:
   - type: "evidence_for"
     targets:
-      - "DSET-TEST-PLAN-GOV-036"
+      - "DSET-TEST-CASE-GOV-036"
 ---
 
 # Test result — typed artifact relations
@@ -22,9 +22,9 @@ relations:
 ## Subject and intended use
 
 Implementation commit `cbddc0ab00606aa79b47dc7deced66dca73a1f56` for
-`DSET-DECISION-GOV-013` and deterministic Test `DSET-TEST-PLAN-GOV-036`.
+`DSET-DECISION-GOV-013` and deterministic Test `DSET-TEST-CASE-GOV-036`.
 This evidence supports the local executable relation contract only. It does
-not satisfy qualitative Evaluation `DSET-EVAL-PLAN-GOV-026`, hosted CI,
+not satisfy qualitative Evaluation `DSET-EVALUATION-CASE-GOV-026`, hosted CI,
 release readiness, or publication.
 
 ## Observed result

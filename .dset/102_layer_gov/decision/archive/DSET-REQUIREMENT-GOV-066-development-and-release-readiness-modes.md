@@ -31,7 +31,7 @@ Development mode is the default:
 
 ```text
 accepted Atomic Artifacts
-→ Test Plan and Evaluation Plan
+→ Test Case and Evaluation Case
 → implementation
 → executable Tests and Evaluations
 → Evidence Records
@@ -78,7 +78,7 @@ silently rewriting the project's configured development default.
 
 ## Primary claim
 
-DSET defines a development mode that moves accepted Atomic Artifacts through Test and Evaluation planning, implementation, execution, and evidence, plus a mandatory release-readiness mode that first compiles active Atomic Artifacts into evergreen specifications, resolves conflicts to a fixed point, and then refreshes implementation and assurance evidence at the exact release head.
+DSET defines a development mode that moves accepted Atomic Artifacts through Test and Evaluation casening, implementation, execution, and evidence, plus a mandatory release-readiness mode that first compiles active Atomic Artifacts into evergreen specifications, resolves conflicts to a fixed point, and then refreshes implementation and assurance evidence at the exact release head.
 
 ## Rationale
 

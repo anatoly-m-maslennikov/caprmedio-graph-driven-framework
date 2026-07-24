@@ -19,7 +19,7 @@ polarity: "supports"
 currentness: "current"
 reopen_when: "The .dset control boundary, .dset_runtime storage boundary, temporary-directory helper, bootstrap/self-host lifecycle, atomic-publication mechanism, migration, ignore rules, or configured verification commands change."
 subject:
-  id: "DSET-TEST-PLAN-GOV-048"
+  id: "DSET-TEST-CASE-GOV-048"
   revision: "57dd0a1a17f0c85118e10e628180c2222834df22"
   intended_use: "Verify separate committed-control, ignored-runtime, disposable-scratch, and bounded atomic-publication boundaries at one exact implementation commit."
 producer:
@@ -33,7 +33,7 @@ llm_session_ids:
 relations:
   - type: "evidence_for"
     targets:
-      - "DSET-TEST-PLAN-GOV-048"
+      - "DSET-TEST-CASE-GOV-048"
 ---
 
 # Test result — runtime and scratch boundaries
@@ -67,4 +67,4 @@ and was removed.
 The managed Codex sandbox did not permit a direct filesystem write to `/tmp`;
 therefore this record proves the production POSIX path choice deterministically
 but does not claim a native-host `/tmp` creation receipt. Qualitative boundary
-interpretation remains separate under `DSET-EVAL-PLAN-GOV-032`.
+interpretation remains separate under `DSET-EVALUATION-CASE-GOV-032`.

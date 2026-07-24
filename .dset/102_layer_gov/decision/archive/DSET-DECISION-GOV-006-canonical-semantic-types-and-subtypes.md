@@ -147,8 +147,8 @@ This Decision must compile into:
 - the canonical public Type/subtype definitions and README workflow;
 - repository-local work-item, artifact-maintenance, and architecture rules plus
   their distributed templates;
-- the self-hosted GOV domain, specification, deterministic Test plan, and
-  qualitative Evaluation plan; and
+- the self-hosted GOV domain, specification, deterministic Test case, and
+  qualitative Evaluation case; and
 - schemas, validators, templates, fixtures, traceability, and health views
   before DSET claims the representation is implemented end to end.
 

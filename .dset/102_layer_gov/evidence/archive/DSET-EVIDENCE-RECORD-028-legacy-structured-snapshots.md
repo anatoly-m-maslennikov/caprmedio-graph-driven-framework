@@ -15,7 +15,7 @@ polarity: "supports"
 currentness: "current"
 reopen_when: "A registered legacy snapshot, current TOML owner, retained historical link, classification entry, migration rule, or subject revision changes."
 subject:
-  id: "DSET-TEST-PLAN-GOV-041"
+  id: "DSET-TEST-CASE-GOV-041"
   revision: "b7d79ec08c9a446f8a5358ac44c4c26bf7486d42"
   intended_use: "Support the bounded claim that exactly registered YAML snapshots remain byte-stable while current readers and writers use TOML only."
 producer:
@@ -29,7 +29,7 @@ llm_session_ids:
 relations:
   - type: "evidence_for"
     targets:
-      - "DSET-TEST-PLAN-GOV-041"
+      - "DSET-TEST-CASE-GOV-041"
 ---
 
 # Test result — Legacy structured snapshots

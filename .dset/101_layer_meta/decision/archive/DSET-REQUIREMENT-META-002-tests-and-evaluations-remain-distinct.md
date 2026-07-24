@@ -14,9 +14,9 @@ relations:
 
 # Requirement — Tests and Evaluations remain distinct
 
-Behavior with one exact expected result belongs to deterministic Test planning.
+Behavior with one exact expected result belongs to deterministic Test casening.
 Behavior with multiple acceptable results judged by criteria belongs to
-Evaluation planning. Their execution results remain distinct Observations.
+Evaluation casening. Their execution results remain distinct Observations.
 
 ## Primary claim
 

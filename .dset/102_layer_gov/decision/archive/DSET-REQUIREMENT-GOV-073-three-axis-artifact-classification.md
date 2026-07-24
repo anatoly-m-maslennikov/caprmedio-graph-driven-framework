@@ -71,7 +71,7 @@ authority_origin = "internal"  # internal | external
 | Rationale | atomic | why | internal or external |
 | Current specification | evergreen | to_be | internal |
 
-Test Plans and Evaluation Plans define intended checks; executable Test and
+Test Cases and Evaluation Cases define intended checks; executable Test and
 Evaluation implementations perform those checks; results record what was
 observed. These remain distinct artifacts.
 

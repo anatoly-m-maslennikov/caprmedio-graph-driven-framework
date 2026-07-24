@@ -21,7 +21,7 @@ polarity: "inconclusive"
 currentness: "current"
 reopen_when: "Claude Code can authenticate through an allowed API domain, or any packet commit, reviewed input, resolved rule, scope, criterion, or pinned host version changes."
 subject:
-  id: "DSET-EVAL-PLAN-GOV-015"
+  id: "DSET-EVALUATION-CASE-GOV-015"
   revision: "231c56db48a9d1805efdc42f48767e55387dbbe1"
   intended_use: "Record whether the repaired exact DSET review packet received an independent qualitative governance audit without promoting an authentication failure as review evidence."
 producer:
@@ -36,7 +36,7 @@ llm_session_ids:
 relations:
   - type: "evidence_for"
     targets:
-      - "DSET-EVAL-PLAN-GOV-015"
+      - "DSET-EVALUATION-CASE-GOV-015"
 ---
 
 # Evaluation result — Claude review packet 007

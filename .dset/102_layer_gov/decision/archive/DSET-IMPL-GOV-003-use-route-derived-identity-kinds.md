@@ -29,8 +29,8 @@ Artifact IDs and filenames use the registered visible identity kind:
 | `constraint` | `CONSTRAINT` |
 | `contract` | `CONTRACT` |
 | `implementation_decision` | `IMPL` |
-| `test_plan` | `TEST-PLAN` |
-| `evaluation_plan` | `EVAL-PLAN` |
+| `test_plan` | `TEST-CASE` |
+| `evaluation_plan` | `EVALUATION-CASE` |
 
 Other registered types use their own unambiguous configured kind. Optional
 subtype-bearing names use the subtype kind only when project settings enable

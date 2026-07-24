@@ -15,7 +15,7 @@ polarity: "supports"
 currentness: "current"
 reopen_when: "A package registry, selector seal, package reader, migration transaction, or subject revision changes."
 subject:
-  id: "DSET-TEST-PLAN-GOV-040"
+  id: "DSET-TEST-CASE-GOV-040"
   revision: "b7d79ec08c9a446f8a5358ac44c4c26bf7486d42"
   intended_use: "Support the bounded claim that each shared package has one native TOML current owner while selector-sealed YAML remains byte-stable history."
 producer:
@@ -29,7 +29,7 @@ llm_session_ids:
 relations:
   - type: "evidence_for"
     targets:
-      - "DSET-TEST-PLAN-GOV-040"
+      - "DSET-TEST-CASE-GOV-040"
 ---
 
 # Test result — Native package successors

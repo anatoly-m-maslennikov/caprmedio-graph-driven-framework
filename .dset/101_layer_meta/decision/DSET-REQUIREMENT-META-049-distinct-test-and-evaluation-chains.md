@@ -21,8 +21,8 @@ relations:
 
 Tests and Evaluations are separate assurance chains.
 
-A Test Plan defines one deterministic check with controlled conditions and an
-exact expected disposition. An Evaluation Plan defines one qualitative,
+A Test Case defines one deterministic check with controlled conditions and an
+exact expected disposition. An Evaluation Case defines one qualitative,
 probabilistic, statistical, rubric-based, or model-judged assessment with
 explicit criteria and an interpretation rule.
 

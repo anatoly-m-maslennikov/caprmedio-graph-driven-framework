@@ -18,7 +18,7 @@ polarity: "supports"
 currentness: "current"
 reopen_when: "Artifact classification, Version lifecycle authority, registries, templates, active Version carriers or IDs, settings examples, release/runtime behavior, projection scopes, generated views, or the subject revision changes."
 subject:
-  id: "DSET-TEST-PLAN-GOV-044"
+  id: "DSET-TEST-CASE-GOV-044"
   revision: "86cad6406c56124813d6208dd546efe2e3a731a4"
   intended_use: "Support the bounded claim that Version is the only current release-lifecycle artifact Type and its six flat subtypes work consistently across authority and implementation."
 producer:
@@ -32,7 +32,7 @@ llm_session_ids:
 relations:
   - type: "evidence_for"
     targets:
-      - "DSET-TEST-PLAN-GOV-044"
+      - "DSET-TEST-CASE-GOV-044"
 ---
 
 # Test result — Version artifact Type
@@ -49,5 +49,5 @@ frontiers. The exact subject revision passes the focused 89-test migration
 matrix, traceability regression tests, Ruff formatting and lint, strict mypy,
 canonical DSET validation, diff hygiene, and all 312 repository Tests.
 
-`DSET-EVAL-PLAN-GOV-029` remains pending because reader interpretation is a
+`DSET-EVALUATION-CASE-GOV-029` remains pending because reader interpretation is a
 qualitative claim, not a deterministic Test result.

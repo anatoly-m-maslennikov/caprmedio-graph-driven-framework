@@ -73,7 +73,7 @@ This Decision is compiled into:
 - `DSET-REQUIREMENT-TOOL-018..019` and
   `DSET-INVARIANT-TOOL-004..005` for planned deterministic rendering and
   pairwise conflict disposition;
-- the accepted GOV/TOOL test and eval plans;
+- the accepted GOV/TOOL test and evaluation cases;
 - `DSET-RULE-ARCHITECTURE` and `DSET-RULE-ARTIFACT-MAINTENANCE`; and
 - the active Change's specification connections, tasks, implementation plan,
   verification matrix, and intake gaps.
