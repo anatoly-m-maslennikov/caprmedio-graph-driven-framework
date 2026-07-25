@@ -1,27 +1,19 @@
 ---
-artifact_type: "requirement"
-artifact_id: "DSET-REQUIREMENT-GOV-069"
-scope_path:
-  - "layer:gov"
-priority: "medium"
-promotion:
-  affected_children:
-    - "governance"
-    - "tool"
-    - "skill"
-    - "implementation"
-    - "ops"
-  applies_unchanged: false
-  local_context_required: true
+artifact_type: requirement
+artifact_id: DSET-REQUIREMENT-GOV-069
+scope_path: layer:gov
+subject_scopes:
+  - lifecycle
+priority: medium
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: "replacement_of"
+  - type: replacement_of
     targets:
-      - "DSET-REQUIREMENT-GOV-068"
-  - type: "child_of"
+      - DSET-REQUIREMENT-GOV-068
+  - type: child_of
     targets:
-      - "DSET-REQUIREMENT-GOV-049"
+      - DSET-REQUIREMENT-GOV-049
 ---
 
 # Requirement — Make artifact commit lifecycle explicit
@@ -77,3 +69,18 @@ The canonical artifact catalog begins with a field legend, uses source_of_truth 
 ## Rationale
 
 Creation and in-place update are different lifecycle operations, while the former changed_through_git field obscures the difference between immutable and mutable artifacts.
+
+
+## Historical frontmatter metadata
+
+```yaml
+promotion:
+  affected_children:
+    - "governance"
+    - "tool"
+    - "skill"
+    - "implementation"
+    - "ops"
+  applies_unchanged: false
+  local_context_required: true
+```

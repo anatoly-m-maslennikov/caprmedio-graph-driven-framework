@@ -1,18 +1,20 @@
 ---
 artifact_type: implementation_decision
 artifact_id: DSET-IMPL-GOV-009
-scope_path: ["layer:gov"]
+scope_path: layer:gov
+subject_scopes:
+  - artifact-catalog
 priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   - type: replacement_of
     targets:
-      - "DSET-IMPL-GOV-003"
+      - DSET-IMPL-GOV-003
   - type: child_of
     targets:
-      - "DSET-REQUIREMENT-META-035"
-      - "DSET-REQUIREMENT-GOV-071"
+      - DSET-REQUIREMENT-META-035
+      - DSET-REQUIREMENT-GOV-071
 ---
 
 # Implementation Decision — Derive identity kind from the registered route

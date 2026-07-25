@@ -1,15 +1,16 @@
 ---
-artifact_type: "implementation_decision"
-artifact_id: "DSET-IMPL-GOV-001"
-scope_path:
-  - "layer:gov"
-priority: "medium"
+artifact_type: implementation_decision
+artifact_id: DSET-IMPL-GOV-001
+scope_path: layer:gov
+subject_scopes:
+  - methodology
+priority: medium
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: "relates_to"
+  - type: relates_to
     targets:
-      - "DSET-REQUIREMENT-GOV-055"
+      - DSET-REQUIREMENT-GOV-055
 ---
 
 # Implementation Decision — Bounded scripted migrations

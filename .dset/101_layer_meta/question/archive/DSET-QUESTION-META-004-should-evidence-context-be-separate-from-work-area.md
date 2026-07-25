@@ -1,11 +1,12 @@
 ---
-artifact_type: "question"
-artifact_id: "DSET-QUESTION-META-004"
-scope_path:
-  - "layer:meta"
-priority: "medium"
+artifact_type: question
+artifact_id: DSET-QUESTION-META-004
+scope_path: layer:meta
+subject_scopes:
+  - scope
+priority: medium
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 ---
 
 # Question — Should evidence context be separate from Work Area?

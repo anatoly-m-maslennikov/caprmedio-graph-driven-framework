@@ -1,11 +1,12 @@
 ---
-artifact_type: "problem"
-artifact_id: "DSET-PROBLEM-GOV-005"
-scope_path:
-  - "layer:gov"
-priority: "medium"
+artifact_type: problem
+artifact_id: DSET-PROBLEM-GOV-005
+scope_path: layer:gov
+subject_scopes:
+  - external-boundary
+priority: medium
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 ---
 
 # Problem — External review handoff has no executable artifact flow

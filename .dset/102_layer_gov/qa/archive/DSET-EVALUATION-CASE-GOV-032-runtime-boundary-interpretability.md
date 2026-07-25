@@ -1,18 +1,19 @@
 ---
-artifact_type: "evaluation_plan"
-artifact_id: "DSET-EVALUATION-CASE-GOV-032"
-scope_path:
-  - "layer:gov"
-priority: "medium"
+artifact_type: evaluation_plan
+artifact_id: DSET-EVALUATION-CASE-GOV-032
+scope_path: layer:gov
+subject_scopes:
+  - assurance
+priority: medium
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: "check_of"
+  - type: check_of
     targets:
-      - "DSET-REQUIREMENT-GOV-043"
-  - type: "replacement_of"
+      - DSET-REQUIREMENT-GOV-043
+  - type: replacement_of
     targets:
-      - "DSET-EVALUATION-CASE-GOV-031"
+      - DSET-EVALUATION-CASE-GOV-031
 ---
 
 # Evaluation Case — Interpret the three state boundaries

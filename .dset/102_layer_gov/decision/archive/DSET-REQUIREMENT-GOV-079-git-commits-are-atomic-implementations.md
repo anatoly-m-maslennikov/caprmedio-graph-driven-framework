@@ -1,24 +1,16 @@
 ---
-artifact_type: "requirement"
-artifact_id: "DSET-REQUIREMENT-GOV-079"
-scope_path:
-  - "layer:gov"
-priority: "high"
-promotion:
-  affected_children:
-    - "governance"
-    - "tool"
-    - "skill"
-    - "implementation"
-    - "ops"
-  applies_unchanged: true
-  local_context_required: false
+artifact_type: requirement
+artifact_id: DSET-REQUIREMENT-GOV-079
+scope_path: layer:gov
+subject_scopes:
+  - provenance
+priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: "child_of"
+  - type: child_of
     targets:
-      - "DSET-REQUIREMENT-GOV-076"
+      - DSET-REQUIREMENT-GOV-076
 ---
 
 # Requirement — Git commits are Atomic Implementations
@@ -58,3 +50,18 @@ A Git commit is classified as atomic + implementation, uses its native commit SH
 ## Rationale
 
 A Git commit is already an immutable, content-addressed implementation snapshot; duplicating it as a Markdown Atomic Artifact would create competing identities and provenance.
+
+
+## Historical frontmatter metadata
+
+```yaml
+promotion:
+  affected_children:
+    - "governance"
+    - "tool"
+    - "skill"
+    - "implementation"
+    - "ops"
+  applies_unchanged: true
+  local_context_required: false
+```

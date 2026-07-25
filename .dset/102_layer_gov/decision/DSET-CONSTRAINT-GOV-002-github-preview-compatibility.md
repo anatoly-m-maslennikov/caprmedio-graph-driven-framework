@@ -1,21 +1,17 @@
 ---
 artifact_type: constraint
 artifact_id: DSET-CONSTRAINT-GOV-002
-scope_path: ["layer:gov"]
+scope_path: layer:gov
+subject_scopes:
+  - external-boundary
 priority: high
-source_refs:
-  - "https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax"
-  - "https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams"
-  - "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes"
-  - "https://docs.github.com/en/repositories/working-with-files/using-files/working-with-non-code-files"
-  - "https://docs.github.com/en/contributing/writing-for-github-docs/using-yaml-frontmatter"
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   - type: relates_to
     targets:
-      - "DSET-REQUIREMENT-GOV-093"
-      - "DSET-REQUIREMENT-GOV-094"
+      - DSET-REQUIREMENT-GOV-093
+      - DSET-REQUIREMENT-GOV-094
 ---
 
 # Constraint — Preserve GitHub preview compatibility
@@ -43,3 +39,15 @@ TOML artifacts must:
 
 GitHub-preview compatibility does not require GitHub Pages publication or
 prevent other consumers from rendering the same portable files.
+
+
+## Historical frontmatter metadata
+
+```yaml
+source_refs:
+  - "https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax"
+  - "https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams"
+  - "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes"
+  - "https://docs.github.com/en/repositories/working-with-files/using-files/working-with-non-code-files"
+  - "https://docs.github.com/en/contributing/writing-for-github-docs/using-yaml-frontmatter"
+```

@@ -1,14 +1,16 @@
 ---
 artifact_type: question
 artifact_id: DSET-QUESTION-GOV-015
-scope_path: ["layer:gov"]
+scope_path: layer:gov
+subject_scopes:
+  - external-boundary
 priority: medium
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   - type: replacement_of
     targets:
-      - "DSET-QUESTION-GOV-007"
+      - DSET-QUESTION-GOV-007
 ---
 
 # Question — What external-review envelope is sufficient?

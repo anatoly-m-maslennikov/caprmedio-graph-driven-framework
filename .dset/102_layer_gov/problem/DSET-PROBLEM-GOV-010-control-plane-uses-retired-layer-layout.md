@@ -1,17 +1,19 @@
 ---
 artifact_type: problem
 artifact_id: DSET-PROBLEM-GOV-010
-scope_path: ["layer:gov"]
+scope_path: layer:gov
+subject_scopes:
+  - layout
 priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   - type: relates_to
     targets:
-      - "DSET-REQUIREMENT-META-065"
-      - "DSET-IMPL-GOV-007"
-      - "DSET-EVALUATION-CASE-GOV-038"
-      - "DSET-TEST-CASE-GOV-057"
+      - DSET-REQUIREMENT-META-065
+      - DSET-IMPL-GOV-007
+      - DSET-EVALUATION-CASE-GOV-038
+      - DSET-TEST-CASE-GOV-057
 ---
 
 # Problem — Control plane uses the retired layer layout

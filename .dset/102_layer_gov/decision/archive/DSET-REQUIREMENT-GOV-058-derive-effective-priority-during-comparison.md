@@ -1,24 +1,16 @@
 ---
-artifact_type: "requirement"
-artifact_id: "DSET-REQUIREMENT-GOV-058"
-scope_path:
-  - "layer:gov"
-priority: "high"
-promotion:
-  affected_children:
-    - "governance"
-    - "tool"
-    - "skill"
-    - "implementation"
-    - "ops"
-  applies_unchanged: false
-  local_context_required: true
+artifact_type: requirement
+artifact_id: DSET-REQUIREMENT-GOV-058
+scope_path: layer:gov
+subject_scopes:
+  - priority
+priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: "replacement_of"
+  - type: replacement_of
     targets:
-      - "DSET-DECISION-GOV-010"
+      - DSET-DECISION-GOV-010
 ---
 
 # Requirement — Derive effective priority during comparison
@@ -63,3 +55,18 @@ DSET assigns high, medium, or low base priority by artifact role and derives a c
 ## Rationale
 
 Role defaults express normal authority weight, while bounded comparison bonuses let broader project authority and earlier-layer authority govern narrower or downstream realizations without permanently inflating stored priority or adding separate precedence fields.
+
+
+## Historical frontmatter metadata
+
+```yaml
+promotion:
+  affected_children:
+    - "governance"
+    - "tool"
+    - "skill"
+    - "implementation"
+    - "ops"
+  applies_unchanged: false
+  local_context_required: true
+```

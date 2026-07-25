@@ -1,24 +1,16 @@
 ---
-artifact_type: "requirement"
-artifact_id: "DSET-REQUIREMENT-META-024"
-scope_path:
-  - "layer:meta"
-priority: "high"
-promotion:
-  affected_children:
-    - "governance"
-    - "tool"
-    - "skill"
-    - "implementation"
-    - "operations"
-  applies_unchanged: true
-  local_context_required: false
+artifact_type: requirement
+artifact_id: DSET-REQUIREMENT-META-024
+scope_path: layer:meta
+subject_scopes:
+  - topology
+priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: "relates_to"
+  - type: relates_to
     targets:
-      - "DSET-REQUIREMENT-META-023"
+      - DSET-REQUIREMENT-META-023
 ---
 
 # Requirement — Define layer handoffs
@@ -46,3 +38,18 @@ Every adjacent DSET layer boundary declares the accepted input, produced output,
 ## Rationale
 
 Explicit handoffs prevent layers from sharing vague ownership or silently importing implementation details across boundaries.
+
+
+## Historical frontmatter metadata
+
+```yaml
+promotion:
+  affected_children:
+    - "governance"
+    - "tool"
+    - "skill"
+    - "implementation"
+    - "operations"
+  applies_unchanged: true
+  local_context_required: false
+```

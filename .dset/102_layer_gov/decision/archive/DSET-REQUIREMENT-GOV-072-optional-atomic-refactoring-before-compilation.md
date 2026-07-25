@@ -1,27 +1,19 @@
 ---
-artifact_type: "requirement"
-artifact_id: "DSET-REQUIREMENT-GOV-072"
-scope_path:
-  - "layer:gov"
-priority: "high"
-promotion:
-  affected_children:
-    - "governance"
-    - "tool"
-    - "skill"
-    - "implementation"
-    - "ops"
-  applies_unchanged: true
-  local_context_required: false
+artifact_type: requirement
+artifact_id: DSET-REQUIREMENT-GOV-072
+scope_path: layer:gov
+subject_scopes:
+  - lifecycle
+priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: "resolution_of"
+  - type: resolution_of
     targets:
-      - "DSET-QUESTION-GOV-011"
-  - type: "child_of"
+      - DSET-QUESTION-GOV-011
+  - type: child_of
     targets:
-      - "DSET-REQUIREMENT-GOV-048"
+      - DSET-REQUIREMENT-GOV-048
 ---
 
 # Requirement — Allow atomic refactoring before compilation
@@ -79,3 +71,18 @@ DSET supports optional atomic refactoring between atomic-artifact intake and eve
 ## Rationale
 
 Semantic-density signals identify when consolidation improves clarity without making every compilation pay the cost or treating a large but well-partitioned atom set as defective.
+
+
+## Historical frontmatter metadata
+
+```yaml
+promotion:
+  affected_children:
+    - "governance"
+    - "tool"
+    - "skill"
+    - "implementation"
+    - "ops"
+  applies_unchanged: true
+  local_context_required: false
+```

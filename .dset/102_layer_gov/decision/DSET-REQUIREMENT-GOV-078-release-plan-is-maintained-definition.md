@@ -1,24 +1,16 @@
 ---
-artifact_type: "requirement"
-artifact_id: "DSET-REQUIREMENT-GOV-078"
-scope_path:
-  - "layer:gov"
-priority: "high"
-promotion:
-  affected_children:
-    - "governance"
-    - "tool"
-    - "skill"
-    - "implementation"
-    - "ops"
-  applies_unchanged: true
-  local_context_required: false
+artifact_type: requirement
+artifact_id: DSET-REQUIREMENT-GOV-078
+scope_path: layer:gov
+subject_scopes:
+  - artifact-catalog
+priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: "child_of"
+  - type: child_of
     targets:
-      - "DSET-REQUIREMENT-GOV-076"
+      - DSET-REQUIREMENT-GOV-076
 ---
 
 # Requirement — Release Plan is a maintained Definition
@@ -47,3 +39,18 @@ A Release Plan is a maintained, internal Definition artifact because it directly
 ## Rationale
 
 A Release Plan governs what the release is intended to contain and satisfy; release tooling is Method, delivered release assets are Implementation, and readiness or publication records are Observation.
+
+
+## Historical frontmatter metadata
+
+```yaml
+promotion:
+  affected_children:
+    - "governance"
+    - "tool"
+    - "skill"
+    - "implementation"
+    - "ops"
+  applies_unchanged: true
+  local_context_required: false
+```

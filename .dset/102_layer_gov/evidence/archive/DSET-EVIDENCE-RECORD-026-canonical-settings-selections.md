@@ -1,10 +1,31 @@
 ---
-artifact_type: "evidence_record"
-artifact_subtype: "test_result"
-artifact_id: "DSET-EVIDENCE-RECORD-026"
-scope_path:
-  - "layer:gov"
-priority: "high"
+artifact_type: evidence_record
+artifact_subtype: test_result
+artifact_id: DSET-EVIDENCE-RECORD-026
+scope_path: layer:gov
+priority: high
+llm_session_ids:
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+relations:
+  - type: evidence_for
+    targets:
+      - DSET-TEST-CASE-GOV-039
+---
+
+# Test result — Canonical settings selections
+
+The complete suite passed: 310 Tests in 114.795 seconds. Ruff format and lint,
+strict mypy, DSET compilation, traceability, health, recursive validation, and
+diff hygiene passed. A second TOML preview and apply both reported
+`changes=0` and `references=0`.
+
+This record does not satisfy the separate qualitative settings Evaluation or
+hosted operating-system proof.
+
+
+## Historical frontmatter metadata
+
+```yaml
 schema_version: "1.0"
 context:
   - "repository=anatoly-m-maslennikov/dset-specs-loops-framework"
@@ -24,20 +45,4 @@ producer:
 method:
   description: "Execute the settings, bootstrap, migration, and full self-host regression paths, then repeat the migration in preview and apply modes."
   setup: "Python 3.14.6; Ruff 0.15.21; mypy 2.3.0; local macOS repository checkout on branch dev."
-llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
-relations:
-  - type: "evidence_for"
-    targets:
-      - "DSET-TEST-CASE-GOV-039"
----
-
-# Test result — Canonical settings selections
-
-The complete suite passed: 310 Tests in 114.795 seconds. Ruff format and lint,
-strict mypy, DSET compilation, traceability, health, recursive validation, and
-diff hygiene passed. A second TOML preview and apply both reported
-`changes=0` and `references=0`.
-
-This record does not satisfy the separate qualitative settings Evaluation or
-hosted operating-system proof.
+```

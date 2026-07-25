@@ -1,21 +1,23 @@
 ---
 artifact_type: requirement
 artifact_id: DSET-REQUIREMENT-GOV-114
-scope_path: ["layer:gov"]
+scope_path: layer:gov
+subject_scopes:
+  - subject-scope
 priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   - type: replacement_of
     targets:
-      - "DSET-REQUIREMENT-GOV-071"
+      - DSET-REQUIREMENT-GOV-071
   - type: child_of
     targets:
-      - "DSET-REQUIREMENT-META-052"
+      - DSET-REQUIREMENT-META-052
   - type: relates_to
     targets:
-      - "DSET-REQUIREMENT-GOV-113"
-      - "DSET-IMPL-GOV-009"
+      - DSET-REQUIREMENT-GOV-113
+      - DSET-IMPL-GOV-009
 ---
 
 # Requirement — Use expandable scope paths in identities

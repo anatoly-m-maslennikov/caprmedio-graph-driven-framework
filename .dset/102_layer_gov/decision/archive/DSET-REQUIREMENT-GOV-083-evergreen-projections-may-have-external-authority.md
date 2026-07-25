@@ -1,33 +1,25 @@
 ---
-artifact_type: "requirement"
-artifact_id: "DSET-REQUIREMENT-GOV-083"
-scope_path:
-  - "layer:gov"
-priority: "high"
-promotion:
-  affected_children:
-    - "governance"
-    - "tool"
-    - "skill"
-    - "implementation"
-    - "ops"
-  applies_unchanged: true
-  local_context_required: false
+artifact_type: requirement
+artifact_id: DSET-REQUIREMENT-GOV-083
+scope_path: layer:gov
+subject_scopes:
+  - external-boundary
+priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: "child_of"
+  - type: child_of
     targets:
-      - "DSET-REQUIREMENT-GOV-076"
-  - type: "replacement_of"
+      - DSET-REQUIREMENT-GOV-076
+  - type: replacement_of
     targets:
-      - "DSET-REQUIREMENT-GOV-077"
-  - type: "override_of"
+      - DSET-REQUIREMENT-GOV-077
+  - type: override_of
     targets:
-      - "DSET-REQUIREMENT-GOV-081"
-  - type: "relates_to"
+      - DSET-REQUIREMENT-GOV-081
+  - type: relates_to
     targets:
-      - "DSET-REQUIREMENT-GOV-082"
+      - DSET-REQUIREMENT-GOV-082
 ---
 
 # Requirement — Evergreen projections may have external authority
@@ -77,3 +69,18 @@ Evergreen artifacts are mutable current projections and may have internal or ext
 ## Rationale
 
 A current projection may be governed by the project or by an upstream authority. Treating every Evergreen artifact as internal loses the authority of evolving external constraint sets, methodologies, implementation references, and overviews.
+
+
+## Historical frontmatter metadata
+
+```yaml
+promotion:
+  affected_children:
+    - "governance"
+    - "tool"
+    - "skill"
+    - "implementation"
+    - "ops"
+  applies_unchanged: true
+  local_context_required: false
+```

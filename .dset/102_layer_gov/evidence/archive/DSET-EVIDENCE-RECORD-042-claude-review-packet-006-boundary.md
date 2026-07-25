@@ -1,10 +1,37 @@
 ---
-artifact_type: "evidence_record"
-artifact_subtype: "evaluation_result"
-artifact_id: "DSET-EVIDENCE-RECORD-042"
-scope_path:
-  - "layer:gov"
-priority: "high"
+artifact_type: evidence_record
+artifact_subtype: evaluation_result
+artifact_id: DSET-EVIDENCE-RECORD-042
+scope_path: layer:gov
+priority: high
+llm_session_ids:
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+relations:
+  - type: evidence_for
+    targets:
+      - DSET-EVALUATION-CASE-GOV-015
+---
+
+# Evaluation result — Claude review packet 006 approval boundary
+
+`DSET-REVIEW-PACKET-006` binds the portable fixed-point candidate at commit
+`a3100b59497298a74c43ec90612be20db7343499`, ten exact reviewed inputs, the
+resolved repository rules, a bounded scope, and four explicit criteria.
+
+The attempted Claude Code launch was rejected before process creation because
+it would send unpublished workspace content to an external service without a
+fresh, informed operator approval. No repository content was sent, Claude did
+not receive a prompt, and no session, token use, tool use, PASS judgment, or
+finding exists.
+
+The packet is ready for the explicitly approved read-only review. This record
+does not promote an independent audit, finding reconciliation, or native Claude
+skill invocation. `DSET-TASK-GOV-044` remains open.
+
+
+## Historical frontmatter metadata
+
+```yaml
 schema_version: "1.0"
 context:
   - "packet=DSET-REVIEW-PACKET-006"
@@ -27,26 +54,4 @@ producer:
 method:
   description: "Bound ten reviewed inputs, the resolved local rules, a narrow DSET 0.4 scope, and four criteria to the current substantive candidate; requested an independent high-effort read-only report with no edit or repair authority."
   setup: "Codex Desktop managed workspace on macOS; Claude Code 2.1.205; external execution required explicit operator approval after repository-data disclosure."
-llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
-relations:
-  - type: "evidence_for"
-    targets:
-      - "DSET-EVALUATION-CASE-GOV-015"
----
-
-# Evaluation result — Claude review packet 006 approval boundary
-
-`DSET-REVIEW-PACKET-006` binds the portable fixed-point candidate at commit
-`a3100b59497298a74c43ec90612be20db7343499`, ten exact reviewed inputs, the
-resolved repository rules, a bounded scope, and four explicit criteria.
-
-The attempted Claude Code launch was rejected before process creation because
-it would send unpublished workspace content to an external service without a
-fresh, informed operator approval. No repository content was sent, Claude did
-not receive a prompt, and no session, token use, tool use, PASS judgment, or
-finding exists.
-
-The packet is ready for the explicitly approved read-only review. This record
-does not promote an independent audit, finding reconciliation, or native Claude
-skill invocation. `DSET-TASK-GOV-044` remains open.
+```

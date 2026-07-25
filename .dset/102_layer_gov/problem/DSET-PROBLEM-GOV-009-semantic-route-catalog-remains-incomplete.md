@@ -1,20 +1,22 @@
 ---
 artifact_type: problem
 artifact_id: DSET-PROBLEM-GOV-009
-scope_path: ["layer:gov"]
+scope_path: layer:gov
+subject_scopes:
+  - artifact-catalog
 priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   - type: replacement_of
     targets:
-      - "DSET-PROBLEM-GOV-008"
+      - DSET-PROBLEM-GOV-008
   - type: relates_to
     targets:
-      - "DSET-REQUIREMENT-META-035"
-      - "DSET-REQUIREMENT-META-041"
-      - "DSET-REQUIREMENT-META-070"
-      - "DSET-REQUIREMENT-GOV-121"
+      - DSET-REQUIREMENT-META-035
+      - DSET-REQUIREMENT-META-041
+      - DSET-REQUIREMENT-META-070
+      - DSET-REQUIREMENT-GOV-121
 ---
 
 # Problem — Semantic route catalog remains incomplete

@@ -1,15 +1,17 @@
 ---
 artifact_type: question
 artifact_id: DSET-QUESTION-GOV-016
-scope_path: ["layer:gov"]
+scope_path: layer:gov
+subject_scopes:
+  - provenance
 priority: medium
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   - type: replacement_of
     targets:
-      - "DSET-QUESTION-GOV-006"
-      - "DSET-OPPORTUNITY-GOV-001"
+      - DSET-QUESTION-GOV-006
+      - DSET-OPPORTUNITY-GOV-001
 ---
 
 # Question — How should proof currentness be represented?

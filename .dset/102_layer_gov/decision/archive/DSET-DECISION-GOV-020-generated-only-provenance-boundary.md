@@ -1,18 +1,19 @@
 ---
-artifact_type: "implementation_decision"
-artifact_id: "DSET-DECISION-GOV-020"
-scope_path:
-  - "layer:gov"
-priority: "high"
+artifact_type: implementation_decision
+artifact_id: DSET-DECISION-GOV-020
+scope_path: layer:gov
+subject_scopes:
+  - provenance
+priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: "resolution_of"
+  - type: resolution_of
     targets:
-      - "DSET-DEFECT-GOV-007"
-  - type: "child_of"
+      - DSET-DEFECT-GOV-007
+  - type: child_of
     targets:
-      - "DSET-REQUIREMENT-GOV-024"
+      - DSET-REQUIREMENT-GOV-024
 ---
 
 # Decision — Exclude generated-only commits from derived relations

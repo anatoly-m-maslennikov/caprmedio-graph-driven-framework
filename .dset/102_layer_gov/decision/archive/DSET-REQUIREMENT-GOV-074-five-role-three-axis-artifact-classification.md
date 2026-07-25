@@ -1,24 +1,16 @@
 ---
-artifact_type: "requirement"
-artifact_id: "DSET-REQUIREMENT-GOV-074"
-scope_path:
-  - "layer:gov"
-priority: "high"
-promotion:
-  affected_children:
-    - "governance"
-    - "tool"
-    - "skill"
-    - "implementation"
-    - "ops"
-  applies_unchanged: true
-  local_context_required: false
+artifact_type: requirement
+artifact_id: DSET-REQUIREMENT-GOV-074
+scope_path: layer:gov
+subject_scopes:
+  - artifact-catalog
+priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: "replacement_of"
+  - type: replacement_of
     targets:
-      - "DSET-REQUIREMENT-GOV-073"
+      - DSET-REQUIREMENT-GOV-073
 ---
 
 # Requirement — Use five content roles across three artifact axes
@@ -86,3 +78,18 @@ DSET classifies governed artifacts through artifact_type = atomic | evergreen | 
 ## Rationale
 
 The five content roles distinguish desired truth, reasoning, mechanisms, realized project assets, and observations without overlapping phase-role and answer-to axes or conflating code with Test and Evaluation results.
+
+
+## Historical frontmatter metadata
+
+```yaml
+promotion:
+  affected_children:
+    - "governance"
+    - "tool"
+    - "skill"
+    - "implementation"
+    - "ops"
+  applies_unchanged: true
+  local_context_required: false
+```

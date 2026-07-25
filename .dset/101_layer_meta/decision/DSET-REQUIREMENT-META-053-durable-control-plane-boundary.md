@@ -1,18 +1,20 @@
 ---
 artifact_type: requirement
 artifact_id: DSET-REQUIREMENT-META-053
-scope_path: ["layer:meta"]
+scope_path: layer:meta
+subject_scopes:
+  - governance-surface
 priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   - type: replacement_of
     targets:
-      - "DSET-REQUIREMENT-META-032"
+      - DSET-REQUIREMENT-META-032
   - type: relates_to
     targets:
-      - "DSET-REQUIREMENT-META-021"
-      - "DSET-REQUIREMENT-META-041"
+      - DSET-REQUIREMENT-META-021
+      - DSET-REQUIREMENT-META-041
 ---
 
 # Requirement — Bound the durable control plane

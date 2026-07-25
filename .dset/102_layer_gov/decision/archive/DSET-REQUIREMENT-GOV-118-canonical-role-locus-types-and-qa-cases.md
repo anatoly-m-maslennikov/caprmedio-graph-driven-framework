@@ -1,21 +1,23 @@
 ---
 artifact_type: requirement
 artifact_id: DSET-REQUIREMENT-GOV-118
-scope_path: ["layer:gov"]
+scope_path: layer:gov
+subject_scopes:
+  - artifact-catalog
 priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   - type: child_of
     targets:
-      - "DSET-REQUIREMENT-META-061"
+      - DSET-REQUIREMENT-META-061
   - type: replacement_of
     targets:
-      - "DSET-REQUIREMENT-GOV-117"
+      - DSET-REQUIREMENT-GOV-117
   - type: relates_to
     targets:
-      - "DSET-REQUIREMENT-GOV-070"
-      - "DSET-REQUIREMENT-GOV-102"
+      - DSET-REQUIREMENT-GOV-070
+      - DSET-REQUIREMENT-GOV-102
 ---
 
 # Requirement — Register canonical role-locus types and QA Cases

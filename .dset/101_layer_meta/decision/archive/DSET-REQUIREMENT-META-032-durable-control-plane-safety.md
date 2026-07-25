@@ -1,25 +1,17 @@
 ---
-artifact_type: "requirement"
-artifact_id: "DSET-REQUIREMENT-META-032"
-scope_path:
-  - "layer:meta"
-priority: "high"
-promotion:
-  affected_children:
-    - "governance"
-    - "tool"
-    - "skill"
-    - "implementation"
-    - "operations"
-  applies_unchanged: true
-  local_context_required: false
+artifact_type: requirement
+artifact_id: DSET-REQUIREMENT-META-032
+scope_path: layer:meta
+subject_scopes:
+  - governance-surface
+priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: "relates_to"
+  - type: relates_to
     targets:
-      - "DSET-REQUIREMENT-META-021"
-      - "DSET-REQUIREMENT-META-022"
+      - DSET-REQUIREMENT-META-021
+      - DSET-REQUIREMENT-META-022
 ---
 
 # Requirement — Protect the durable control plane
@@ -47,3 +39,18 @@ The durable DSET control plane admits only accepted current project truth, exclu
 ## Rationale
 
 One universal admissibility boundary prevents security leakage, provider lock-in, roadmap confusion, and exploratory candidates from contaminating current governed truth.
+
+
+## Historical frontmatter metadata
+
+```yaml
+promotion:
+  affected_children:
+    - "governance"
+    - "tool"
+    - "skill"
+    - "implementation"
+    - "operations"
+  applies_unchanged: true
+  local_context_required: false
+```

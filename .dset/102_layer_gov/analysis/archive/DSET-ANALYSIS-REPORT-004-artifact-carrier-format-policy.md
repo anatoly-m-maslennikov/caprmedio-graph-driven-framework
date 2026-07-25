@@ -2,26 +2,18 @@
 artifact_type: analysis_report
 artifact_subtype: technical_investigation
 artifact_id: DSET-ANALYSIS-REPORT-004
-scope_path: ["layer:gov"]
+scope_path: layer:gov
+subject_scopes:
+  - carrier-format
 priority: high
-observed_at: 2026-07-24
-source_refs:
-  - "https://docs.github.com/en/enterprise-cloud@latest/contributing/writing-for-github-docs/using-yaml-frontmatter"
-  - "https://toml.io/en/v1.0.0"
-  - "https://www.rfc-editor.org/info/rfc8259/"
-  - "https://json-schema.org/draft/2020-12/json-schema-core"
-  - "https://docs.npmjs.com/files/package.json/"
-  - "https://code.visualstudio.com/api/references/extension-manifest"
-  - "https://spec.openapis.org/oas/latest.html"
-  - "https://jsonlines.org/"
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   - type: analysis_of
     targets:
-      - "DSET-REQUIREMENT-GOV-056"
-      - "DSET-REQUIREMENT-GOV-095"
-      - "DSET-CONSTRAINT-GOV-002"
+      - DSET-REQUIREMENT-GOV-056
+      - DSET-REQUIREMENT-GOV-095
+      - DSET-CONSTRAINT-GOV-002
 ---
 
 # Analysis Report — Artifact carrier format policy
@@ -381,3 +373,19 @@ That Requirement should replace `DSET-REQUIREMENT-GOV-056`, specialize
 - [VS Code extension manifest](https://code.visualstudio.com/api/references/extension-manifest)
 - [OpenAPI specification](https://spec.openapis.org/oas/latest.html)
 - [JSON Lines](https://jsonlines.org/)
+
+
+## Historical frontmatter metadata
+
+```yaml
+observed_at: 2026-07-24
+source_refs:
+  - "https://docs.github.com/en/enterprise-cloud@latest/contributing/writing-for-github-docs/using-yaml-frontmatter"
+  - "https://toml.io/en/v1.0.0"
+  - "https://www.rfc-editor.org/info/rfc8259/"
+  - "https://json-schema.org/draft/2020-12/json-schema-core"
+  - "https://docs.npmjs.com/files/package.json/"
+  - "https://code.visualstudio.com/api/references/extension-manifest"
+  - "https://spec.openapis.org/oas/latest.html"
+  - "https://jsonlines.org/"
+```

@@ -1,15 +1,16 @@
 ---
-artifact_type: "requirement"
-artifact_id: "DSET-REQUIREMENT-META-017"
-scope_path:
-  - "layer:meta"
-priority: "high"
+artifact_type: requirement
+artifact_id: DSET-REQUIREMENT-META-017
+scope_path: layer:meta
+subject_scopes:
+  - artifact-model
+priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: "child_of"
+  - type: child_of
     targets:
-      - "DSET-REQUIREMENT-META-018"
+      - DSET-REQUIREMENT-META-018
 ---
 
 # Requirement — Generated and maintained Implementations

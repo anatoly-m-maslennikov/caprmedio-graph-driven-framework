@@ -3,7 +3,7 @@ artifact_type: requirement
 artifact_id: DSET-REQUIREMENT-META-071
 scope_path: layer:meta
 subject_scopes:
-  - atomic-scope
+  - scope
 priority: high
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d

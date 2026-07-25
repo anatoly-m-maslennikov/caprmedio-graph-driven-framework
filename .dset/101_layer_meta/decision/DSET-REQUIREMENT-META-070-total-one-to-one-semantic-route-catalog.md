@@ -1,20 +1,22 @@
 ---
 artifact_type: requirement
 artifact_id: DSET-REQUIREMENT-META-070
-scope_path: ["layer:meta"]
+scope_path: layer:meta
+subject_scopes:
+  - artifact-model
 priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   - type: replacement_of
     targets:
-      - "DSET-REQUIREMENT-META-060"
+      - DSET-REQUIREMENT-META-060
   - type: child_of
     targets:
-      - "DSET-REQUIREMENT-META-035"
-      - "DSET-REQUIREMENT-META-041"
-      - "DSET-REQUIREMENT-META-051"
-      - "DSET-REQUIREMENT-META-069"
+      - DSET-REQUIREMENT-META-035
+      - DSET-REQUIREMENT-META-041
+      - DSET-REQUIREMENT-META-051
+      - DSET-REQUIREMENT-META-069
 ---
 
 # Requirement — Keep the semantic route catalog total and one-to-one

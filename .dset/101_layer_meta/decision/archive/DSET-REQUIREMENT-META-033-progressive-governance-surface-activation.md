@@ -1,25 +1,17 @@
 ---
-artifact_type: "requirement"
-artifact_id: "DSET-REQUIREMENT-META-033"
-scope_path:
-  - "layer:meta"
-priority: "high"
-promotion:
-  affected_children:
-    - "governance"
-    - "tool"
-    - "skill"
-    - "implementation"
-    - "operations"
-  applies_unchanged: true
-  local_context_required: false
+artifact_type: requirement
+artifact_id: DSET-REQUIREMENT-META-033
+scope_path: layer:meta
+subject_scopes:
+  - governance-surface
+priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: "relates_to"
+  - type: relates_to
     targets:
-      - "DSET-REQUIREMENT-META-020"
-      - "DSET-REQUIREMENT-META-029"
+      - DSET-REQUIREMENT-META-020
+      - DSET-REQUIREMENT-META-029
 ---
 
 # Requirement — Activate governance surfaces progressively
@@ -48,3 +40,18 @@ DSET starts atomic-first without requiring evergreen or maintained governance su
 ## Rationale
 
 Small projects should receive immutable authority and traceability without maintaining views or plans whose coordination value has not yet exceeded their cost.
+
+
+## Historical frontmatter metadata
+
+```yaml
+promotion:
+  affected_children:
+    - "governance"
+    - "tool"
+    - "skill"
+    - "implementation"
+    - "operations"
+  applies_unchanged: true
+  local_context_required: false
+```

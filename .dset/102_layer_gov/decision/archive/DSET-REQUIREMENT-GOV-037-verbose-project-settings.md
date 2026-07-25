@@ -1,15 +1,16 @@
 ---
-artifact_type: "requirement"
-artifact_id: "DSET-REQUIREMENT-GOV-037"
-scope_path:
-  - "layer:gov"
-priority: "high"
+artifact_type: requirement
+artifact_id: DSET-REQUIREMENT-GOV-037
+scope_path: layer:gov
+subject_scopes:
+  - settings
+priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: "replacement_of"
+  - type: replacement_of
     targets:
-      - "DSET-REQUIREMENT-GOV-036"
+      - DSET-REQUIREMENT-GOV-036
 ---
 
 # Requirement — Publish verbose project settings

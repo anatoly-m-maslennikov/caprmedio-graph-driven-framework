@@ -1,27 +1,19 @@
 ---
-artifact_type: "requirement"
-artifact_id: "DSET-REQUIREMENT-GOV-068"
-scope_path:
-  - "layer:gov"
-priority: "medium"
-promotion:
-  affected_children:
-    - "governance"
-    - "tool"
-    - "skill"
-    - "implementation"
-    - "ops"
-  applies_unchanged: false
-  local_context_required: true
+artifact_type: requirement
+artifact_id: DSET-REQUIREMENT-GOV-068
+scope_path: layer:gov
+subject_scopes:
+  - runtime
+priority: medium
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: "replacement_of"
+  - type: replacement_of
     targets:
-      - "DSET-REQUIREMENT-GOV-067"
-  - type: "child_of"
+      - DSET-REQUIREMENT-GOV-067
+  - type: child_of
     targets:
-      - "DSET-REQUIREMENT-GOV-049"
+      - DSET-REQUIREMENT-GOV-049
 ---
 
 # Requirement — Name the catalog truth-owner field literally
@@ -59,3 +51,18 @@ The canonical artifact catalog uses source_of_truth as the Boolean field that st
 ## Rationale
 
 The field name authoritative is broader and less literal than the intended source-of-truth classification.
+
+
+## Historical frontmatter metadata
+
+```yaml
+promotion:
+  affected_children:
+    - "governance"
+    - "tool"
+    - "skill"
+    - "implementation"
+    - "ops"
+  applies_unchanged: false
+  local_context_required: true
+```

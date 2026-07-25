@@ -1,15 +1,16 @@
 ---
-artifact_type: "requirement"
-artifact_id: "DSET-REQUIREMENT-GOV-054"
-scope_path:
-  - "layer:gov"
-priority: "high"
+artifact_type: requirement
+artifact_id: DSET-REQUIREMENT-GOV-054
+scope_path: layer:gov
+subject_scopes:
+  - artifact-catalog
+priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: "child_of"
+  - type: child_of
     targets:
-      - "DSET-REQUIREMENT-GOV-030"
+      - DSET-REQUIREMENT-GOV-030
 ---
 
 # Requirement — Subtype-bearing atomic filenames

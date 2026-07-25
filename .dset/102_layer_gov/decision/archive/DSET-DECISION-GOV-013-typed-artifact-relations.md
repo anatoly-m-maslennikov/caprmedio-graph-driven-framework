@@ -1,21 +1,22 @@
 ---
-artifact_type: "implementation_decision"
-artifact_id: "DSET-DECISION-GOV-013"
-scope_path:
-  - "layer:gov"
-priority: "high"
+artifact_type: implementation_decision
+artifact_id: DSET-DECISION-GOV-013
+scope_path: layer:gov
+subject_scopes:
+  - relation-model
+priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: "resolution_of"
+  - type: resolution_of
     targets:
-      - "DSET-QUESTION-GOV-004"
-      - "DSET-DEFECT-TOOL-002"
-      - "DSET-DEFECT-TOOL-003"
-  - type: "replacement_of"
+      - DSET-QUESTION-GOV-004
+      - DSET-DEFECT-TOOL-002
+      - DSET-DEFECT-TOOL-003
+  - type: replacement_of
     targets:
-      - "DSET-REQUIREMENT-GOV-033"
-      - "DSET-REQUIREMENT-GOV-034"
+      - DSET-REQUIREMENT-GOV-033
+      - DSET-REQUIREMENT-GOV-034
 ---
 
 # Decision — Use typed artifact relations

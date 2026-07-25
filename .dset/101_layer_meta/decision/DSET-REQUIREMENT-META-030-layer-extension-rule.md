@@ -1,25 +1,17 @@
 ---
-artifact_type: "requirement"
-artifact_id: "DSET-REQUIREMENT-META-030"
-scope_path:
-  - "layer:meta"
-priority: "high"
-promotion:
-  affected_children:
-    - "governance"
-    - "tool"
-    - "skill"
-    - "implementation"
-    - "operations"
-  applies_unchanged: true
-  local_context_required: false
+artifact_type: requirement
+artifact_id: DSET-REQUIREMENT-META-030
+scope_path: layer:meta
+subject_scopes:
+  - topology
+priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: "relates_to"
+  - type: relates_to
     targets:
-      - "DSET-REQUIREMENT-META-024"
-      - "DSET-REQUIREMENT-META-025"
+      - DSET-REQUIREMENT-META-024
+      - DSET-REQUIREMENT-META-025
 ---
 
 # Requirement — Govern layer extensions
@@ -44,3 +36,18 @@ A proposed DSET layer is admitted only when it has one non-overlapping responsib
 ## Rationale
 
 An explicit admission test keeps the layer model extensible without allowing every profile, feature, or organizational preference to become a new layer.
+
+
+## Historical frontmatter metadata
+
+```yaml
+promotion:
+  affected_children:
+    - "governance"
+    - "tool"
+    - "skill"
+    - "implementation"
+    - "operations"
+  applies_unchanged: true
+  local_context_required: false
+```

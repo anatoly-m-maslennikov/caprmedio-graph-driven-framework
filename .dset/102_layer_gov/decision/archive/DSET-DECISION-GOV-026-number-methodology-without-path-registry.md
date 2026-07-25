@@ -1,18 +1,19 @@
 ---
-artifact_type: "implementation_decision"
-artifact_id: "DSET-DECISION-GOV-026"
-scope_path:
-  - "layer:gov"
-priority: "high"
+artifact_type: implementation_decision
+artifact_id: DSET-DECISION-GOV-026
+scope_path: layer:gov
+subject_scopes:
+  - layout
+priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: "replacement_of"
+  - type: replacement_of
     targets:
-      - "DSET-DECISION-GOV-024"
-  - type: "child_of"
+      - DSET-DECISION-GOV-024
+  - type: child_of
     targets:
-      - "DSET-DECISION-GOV-025"
+      - DSET-DECISION-GOV-025
 ---
 
 # Decision — Number methodology without a path registry

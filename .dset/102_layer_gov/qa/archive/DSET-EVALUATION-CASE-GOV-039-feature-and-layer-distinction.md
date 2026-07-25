@@ -1,19 +1,21 @@
 ---
 artifact_type: evaluation_case
 artifact_id: DSET-EVALUATION-CASE-GOV-039
-scope_path: ["layer:gov"]
+scope_path: layer:gov
+subject_scopes:
+  - assurance
 priority: medium
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   - type: replacement_of
     targets:
-      - "DSET-EVALUATION-CASE-GOV-034"
+      - DSET-EVALUATION-CASE-GOV-034
   - type: check_of
     targets:
-      - "DSET-REQUIREMENT-META-024"
-      - "DSET-REQUIREMENT-META-025"
-      - "DSET-REQUIREMENT-META-052"
+      - DSET-REQUIREMENT-META-024
+      - DSET-REQUIREMENT-META-025
+      - DSET-REQUIREMENT-META-052
 ---
 
 # Evaluation Case — Assess feature and layer distinction

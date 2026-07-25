@@ -1,27 +1,19 @@
 ---
-artifact_type: "requirement"
-artifact_id: "DSET-REQUIREMENT-META-034"
-scope_path:
-  - "layer:meta"
-priority: "high"
-promotion:
-  affected_children:
-    - "governance"
-    - "tool"
-    - "skill"
-    - "implementation"
-    - "operations"
-  applies_unchanged: true
-  local_context_required: false
+artifact_type: requirement
+artifact_id: DSET-REQUIREMENT-META-034
+scope_path: layer:meta
+subject_scopes:
+  - authority
+priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: "relates_to"
+  - type: relates_to
     targets:
-      - "DSET-REQUIREMENT-META-021"
-      - "DSET-REQUIREMENT-META-022"
-      - "DSET-REQUIREMENT-META-027"
-      - "DSET-REQUIREMENT-META-031"
+      - DSET-REQUIREMENT-META-021
+      - DSET-REQUIREMENT-META-022
+      - DSET-REQUIREMENT-META-027
+      - DSET-REQUIREMENT-META-031
 ---
 
 # Requirement — Close constitutional amendments
@@ -57,3 +49,18 @@ Every semantic change to META follows a closed amendment protocol from Explorati
 ## Rationale
 
 A constitution that governs its own evolution needs a replayable amendment boundary; otherwise a valid local edit can silently change downstream meaning, lose rationale, or create backward governance.
+
+
+## Historical frontmatter metadata
+
+```yaml
+promotion:
+  affected_children:
+    - "governance"
+    - "tool"
+    - "skill"
+    - "implementation"
+    - "operations"
+  applies_unchanged: true
+  local_context_required: false
+```

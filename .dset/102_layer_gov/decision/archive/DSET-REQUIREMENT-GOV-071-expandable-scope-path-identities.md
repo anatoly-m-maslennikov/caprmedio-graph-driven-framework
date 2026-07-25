@@ -1,25 +1,17 @@
 ---
-artifact_type: "requirement"
-artifact_id: "DSET-REQUIREMENT-GOV-071"
-scope_path:
-  - "layer:gov"
-priority: "high"
-promotion:
-  affected_children:
-    - "governance"
-    - "tool"
-    - "skill"
-    - "implementation"
-    - "ops"
-  applies_unchanged: true
-  local_context_required: false
+artifact_type: requirement
+artifact_id: DSET-REQUIREMENT-GOV-071
+scope_path: layer:gov
+subject_scopes:
+  - subject-scope
+priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: "relates_to"
+  - type: relates_to
     targets:
-      - "DSET-DECISION-GOV-034"
-      - "DSET-REQUIREMENT-GOV-064"
+      - DSET-DECISION-GOV-034
+      - DSET-REQUIREMENT-GOV-064
 ---
 
 # Requirement — Use expandable scope paths in artifact identities
@@ -68,3 +60,18 @@ Governed artifact IDs and filenames use <PROJECT>-<SCOPE_PATH>-<ARTIFACT_TYPE>-<
 ## Rationale
 
 A single ordered scope path preserves readable identities without hard-coding the framework to only layers or features, while keeping future structural axes extensible.
+
+
+## Historical frontmatter metadata
+
+```yaml
+promotion:
+  affected_children:
+    - "governance"
+    - "tool"
+    - "skill"
+    - "implementation"
+    - "ops"
+  applies_unchanged: true
+  local_context_required: false
+```

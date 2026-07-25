@@ -1,16 +1,17 @@
 ---
-artifact_type: "problem"
-artifact_subtype: "gap"
-artifact_id: "DSET-GAP-GOV-003"
-scope_path:
-  - "layer:gov"
-priority: "high"
+artifact_type: problem
+artifact_subtype: gap
+artifact_id: DSET-GAP-GOV-003
+scope_path: layer:gov
+subject_scopes:
+  - carrier-format
+priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: "child_of"
+  - type: child_of
     targets:
-      - "DSET-CONSTRAINT-GOV-001"
+      - DSET-CONSTRAINT-GOV-001
 ---
 
 # Gap — Live YAML and JSON remain in Python-owned DSET carriers

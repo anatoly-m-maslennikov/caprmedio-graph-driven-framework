@@ -1,20 +1,21 @@
 ---
-artifact_type: "test_plan"
-artifact_id: "DSET-TEST-CASE-GOV-043"
-scope_path:
-  - "layer:gov"
-priority: "high"
+artifact_type: test_plan
+artifact_id: DSET-TEST-CASE-GOV-043
+scope_path: layer:gov
+subject_scopes:
+  - assurance
+priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: "check_of"
+  - type: check_of
     targets:
-      - "DSET-REQUIREMENT-GOV-040"
-  - type: "replacement_of"
+      - DSET-REQUIREMENT-GOV-040
+  - type: replacement_of
     targets:
-      - "DSET-TEST-CASE-GOV-038"
-      - "DSET-TEST-CASE-GOV-040"
-      - "DSET-TEST-CASE-GOV-041"
+      - DSET-TEST-CASE-GOV-038
+      - DSET-TEST-CASE-GOV-040
+      - DSET-TEST-CASE-GOV-041
 ---
 
 # Test Case — Complete the all-TOML artifact cutover

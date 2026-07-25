@@ -1,19 +1,21 @@
 ---
 artifact_type: requirement
 artifact_id: DSET-REQUIREMENT-META-035
-scope_path: ["layer:meta"]
+scope_path: layer:meta
+subject_scopes:
+  - artifact-model
 priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   - type: replacement_of
     targets:
-      - "DSET-REQUIREMENT-META-012"
-      - "DSET-REQUIREMENT-META-018"
+      - DSET-REQUIREMENT-META-012
+      - DSET-REQUIREMENT-META-018
   - type: relates_to
     targets:
-      - "DSET-REQUIREMENT-META-013"
-      - "DSET-REQUIREMENT-GOV-094"
+      - DSET-REQUIREMENT-META-013
+      - DSET-REQUIREMENT-GOV-094
 ---
 
 # Requirement — Derive artifact routes from registered types

@@ -1,15 +1,16 @@
 ---
 artifact_type: implementation_decision
 artifact_id: DSET-DECISION-GOV-008
-scope_path: ["layer:gov"]
+scope_path: layer:gov
+subject_scopes:
+  - artifact-catalog
 priority: high
-decided_at: 2026-07-20
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   - type: replacement_of
     targets:
-      - "DSET-DECISION-GOV-007"
+      - DSET-DECISION-GOV-007
 ---
 
 # Decision — FPF-aligned boundaries for the flat Type model
@@ -235,3 +236,10 @@ pretending ordinary language categories are perfectly disjoint.
 This emitted Decision atom is immutable. Any later correction, status change,
 counter-evidence, absorption, or retirement must be a new atom or append-only
 lifecycle event.
+
+
+## Historical frontmatter metadata
+
+```yaml
+decided_at: 2026-07-20
+```

@@ -1,16 +1,17 @@
 ---
 artifact_type: requirement
 artifact_id: DSET-REQUIREMENT-GOV-098
-scope_path:
-  - "layer:gov"
+scope_path: layer:gov
+subject_scopes:
+  - interaction
 priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   - type: relates_to
     targets:
-      - "DSET-REQUIREMENT-META-036"
-      - "DSET-REQUIREMENT-META-037"
+      - DSET-REQUIREMENT-META-036
+      - DSET-REQUIREMENT-META-037
 ---
 
 # Requirement — Configure interaction reporting mode

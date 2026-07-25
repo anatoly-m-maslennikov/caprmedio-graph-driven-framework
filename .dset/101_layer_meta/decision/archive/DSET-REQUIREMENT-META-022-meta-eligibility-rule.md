@@ -1,20 +1,12 @@
 ---
-artifact_type: "requirement"
-artifact_id: "DSET-REQUIREMENT-META-022"
-scope_path:
-  - "layer:meta"
-priority: "high"
-promotion:
-  affected_children:
-    - "governance"
-    - "tool"
-    - "skill"
-    - "implementation"
-    - "operations"
-  applies_unchanged: true
-  local_context_required: false
+artifact_type: requirement
+artifact_id: DSET-REQUIREMENT-META-022
+scope_path: layer:meta
+subject_scopes:
+  - authority
+priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 ---
 
 # Requirement — Apply the META eligibility rule
@@ -40,3 +32,18 @@ META owns only invariants that remain valid across downstream technologies, gove
 ## Rationale
 
 A stable constitutional layer must govern later layers without accumulating volatile Git, language, CLI, host, provider, or deployment mechanisms.
+
+
+## Historical frontmatter metadata
+
+```yaml
+promotion:
+  affected_children:
+    - "governance"
+    - "tool"
+    - "skill"
+    - "implementation"
+    - "operations"
+  applies_unchanged: true
+  local_context_required: false
+```

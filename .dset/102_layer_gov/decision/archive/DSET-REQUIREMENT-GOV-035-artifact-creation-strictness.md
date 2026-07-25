@@ -1,16 +1,17 @@
 ---
-artifact_type: "requirement"
-artifact_id: "DSET-REQUIREMENT-GOV-035"
-scope_path:
-  - "layer:gov"
-priority: "high"
+artifact_type: requirement
+artifact_id: DSET-REQUIREMENT-GOV-035
+scope_path: layer:gov
+subject_scopes:
+  - settings
+priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: "child_of"
+  - type: child_of
     targets:
-      - "DSET-REQUIREMENT-GOV-032"
-      - "DSET-REQUIREMENT-GOV-033"
+      - DSET-REQUIREMENT-GOV-032
+      - DSET-REQUIREMENT-GOV-033
 ---
 
 # Requirement — Gate atom creation and propose broader scope

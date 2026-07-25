@@ -1,16 +1,18 @@
 ---
 artifact_type: problem
 artifact_id: DSET-PROBLEM-GOV-008
-scope_path: ["layer:gov"]
+scope_path: layer:gov
+subject_scopes:
+  - artifact-catalog
 priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   - type: relates_to
     targets:
-      - "DSET-REQUIREMENT-META-045"
-      - "DSET-REQUIREMENT-META-046"
-      - "DSET-REQUIREMENT-GOV-102"
+      - DSET-REQUIREMENT-META-045
+      - DSET-REQUIREMENT-META-046
+      - DSET-REQUIREMENT-GOV-102
 ---
 
 # Problem — Route catalog is not total or one-to-one

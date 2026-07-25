@@ -1,27 +1,19 @@
 ---
-artifact_type: "implementation_decision"
-artifact_id: "DSET-DECISION-GOV-035"
-scope_path:
-  - "layer:gov"
-priority: "high"
-promotion:
-  affected_children:
-    - "governance"
-    - "tool"
-    - "skill"
-    - "implementation"
-    - "ops"
-  applies_unchanged: false
-  local_context_required: true
+artifact_type: implementation_decision
+artifact_id: DSET-DECISION-GOV-035
+scope_path: layer:gov
+subject_scopes:
+  - lifecycle
+priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: "resolution_of"
+  - type: resolution_of
     targets:
-      - "DSET-QUESTION-GOV-010"
-  - type: "replacement_of"
+      - DSET-QUESTION-GOV-010
+  - type: replacement_of
     targets:
-      - "DSET-REQUIREMENT-GOV-050"
+      - DSET-REQUIREMENT-GOV-050
 ---
 
 # Decision — Use an archive-based Atomic Artifact lifecycle
@@ -87,3 +79,18 @@ DSET removes lifecycle_event artifacts and models an Atomic Artifact as either a
 ## Rationale
 
 Standalone lifecycle-event carriers duplicate typed relations and add a second atomic state model when active/archive placement, successor atoms, Version artifacts, provenance, and Git already preserve the required history.
+
+
+## Historical frontmatter metadata
+
+```yaml
+promotion:
+  affected_children:
+    - "governance"
+    - "tool"
+    - "skill"
+    - "implementation"
+    - "ops"
+  applies_unchanged: false
+  local_context_required: true
+```

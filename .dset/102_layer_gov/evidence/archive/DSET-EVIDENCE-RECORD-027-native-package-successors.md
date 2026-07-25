@@ -1,10 +1,31 @@
 ---
-artifact_type: "evidence_record"
-artifact_subtype: "test_result"
-artifact_id: "DSET-EVIDENCE-RECORD-027"
-scope_path:
-  - "layer:gov"
-priority: "high"
+artifact_type: evidence_record
+artifact_subtype: test_result
+artifact_id: DSET-EVIDENCE-RECORD-027
+scope_path: layer:gov
+priority: high
+llm_session_ids:
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+relations:
+  - type: evidence_for
+    targets:
+      - DSET-TEST-CASE-GOV-040
+---
+
+# Test result — Native package successors
+
+All five shared packages retain their registered historical YAML carriers and
+have one current `package.toml` successor. The complete 310-Test suite passed,
+and repeat preview/apply runs were no-ops with zero planned writes or reference
+updates.
+
+This record proves repository behavior, not semantic equivalence beyond the
+registered values or hosted release readiness.
+
+
+## Historical frontmatter metadata
+
+```yaml
 schema_version: "1.0"
 context:
   - "repository=anatoly-m-maslennikov/dset-specs-loops-framework"
@@ -24,20 +45,4 @@ producer:
 method:
   description: "Compare registered legacy digests, native successor parsing and precedence, transaction rollback behavior, and second-run idempotency."
   setup: "Python 3.14.6; local macOS repository checkout on branch dev; exact committed migration input and output carriers."
-llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
-relations:
-  - type: "evidence_for"
-    targets:
-      - "DSET-TEST-CASE-GOV-040"
----
-
-# Test result — Native package successors
-
-All five shared packages retain their registered historical YAML carriers and
-have one current `package.toml` successor. The complete 310-Test suite passed,
-and repeat preview/apply runs were no-ops with zero planned writes or reference
-updates.
-
-This record proves repository behavior, not semantic equivalence beyond the
-registered values or hosted release readiness.
+```

@@ -1,18 +1,19 @@
 ---
-artifact_type: "implementation_decision"
-artifact_id: "DSET-DECISION-GOV-031"
-scope_path:
-  - "layer:gov"
-priority: "high"
+artifact_type: implementation_decision
+artifact_id: DSET-DECISION-GOV-031
+scope_path: layer:gov
+subject_scopes:
+  - methodology
+priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: "replacement_of"
+  - type: replacement_of
     targets:
-      - "DSET-DECISION-GOV-030"
-  - type: "child_of"
+      - DSET-DECISION-GOV-030
+  - type: child_of
     targets:
-      - "DSET-DECISION-GOV-022"
+      - DSET-DECISION-GOV-022
 ---
 
 # Decision — Place executable methodology by semantic role

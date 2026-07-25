@@ -1,25 +1,17 @@
 ---
-artifact_type: "requirement"
-artifact_id: "DSET-REQUIREMENT-GOV-076"
-scope_path:
-  - "layer:gov"
-priority: "high"
-promotion:
-  affected_children:
-    - "governance"
-    - "tool"
-    - "skill"
-    - "implementation"
-    - "ops"
-  applies_unchanged: true
-  local_context_required: false
+artifact_type: requirement
+artifact_id: DSET-REQUIREMENT-GOV-076
+scope_path: layer:gov
+subject_scopes:
+  - relation-model
+priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: "replacement_of"
+  - type: replacement_of
     targets:
-      - "DSET-REQUIREMENT-GOV-074"
-      - "DSET-REQUIREMENT-GOV-075"
+      - DSET-REQUIREMENT-GOV-074
+      - DSET-REQUIREMENT-GOV-075
 ---
 
 # Requirement — Separate standalone origin from relational endpoints
@@ -75,3 +67,18 @@ DSET classifies all governed artifacts by artifact type and content role; standa
 ## Rationale
 
 A Contract is defined by the scopes or parties it binds rather than by one internal or external owner, so forcing it into an ownership cell destroys the distinction between artifact origin and endpoint structure.
+
+
+## Historical frontmatter metadata
+
+```yaml
+promotion:
+  affected_children:
+    - "governance"
+    - "tool"
+    - "skill"
+    - "implementation"
+    - "ops"
+  applies_unchanged: true
+  local_context_required: false
+```

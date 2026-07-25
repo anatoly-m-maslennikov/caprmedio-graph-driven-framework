@@ -1,10 +1,36 @@
 ---
-artifact_type: "evidence_record"
-artifact_subtype: "evaluation_result"
-artifact_id: "DSET-EVIDENCE-RECORD-040"
-scope_path:
-  - "layer:gov"
-priority: "high"
+artifact_type: evidence_record
+artifact_subtype: evaluation_result
+artifact_id: DSET-EVIDENCE-RECORD-040
+scope_path: layer:gov
+priority: high
+llm_session_ids:
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+  - claude:f7c5b086-779c-4169-80c9-7b565abff121
+relations:
+  - type: evidence_for
+    targets:
+      - DSET-DECISION-GOV-002
+---
+
+# Evaluation result — Claude review packet 005
+
+`DSET-REVIEW-PACKET-005` binds the current DSET `0.4` review to commit
+`9b8c411c2bbd0dade2a66c5ceff29e20afddef17`, ten reviewed-input digests,
+the resolved local rule set, a bounded scope, and four explicit criteria.
+
+Claude Code stopped before inference with `403 Domain not in allowlist`. The
+host reported zero input/output tokens, zero tool use, and no permission
+denials. It produced no PASS judgment, finding, or reconciliation input.
+
+The packet is current and ready for an authenticated reviewer, but the
+independent qualitative audit and Codex-to-Claude-to-DSET reconciliation gate
+remain open.
+
+
+## Historical frontmatter metadata
+
+```yaml
 schema_version: "1.0"
 context:
   - "packet=DSET-REVIEW-PACKET-005"
@@ -28,25 +54,4 @@ producer:
 method:
   description: "Requested a high-effort read-only audit against only packet 005's exact commit, ten reviewed inputs, resolved rules, bounded scope, and four criteria; required PASS or stable critical/high finding IDs and prohibited edits or repair authorization."
   setup: "Claude Code 2.1.205 invoked non-interactively with plan permissions and only Read, Glob, and Grep allowed."
-llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
-  - "claude:f7c5b086-779c-4169-80c9-7b565abff121"
-relations:
-  - type: "evidence_for"
-    targets:
-      - "DSET-DECISION-GOV-002"
----
-
-# Evaluation result — Claude review packet 005
-
-`DSET-REVIEW-PACKET-005` binds the current DSET `0.4` review to commit
-`9b8c411c2bbd0dade2a66c5ceff29e20afddef17`, ten reviewed-input digests,
-the resolved local rule set, a bounded scope, and four explicit criteria.
-
-Claude Code stopped before inference with `403 Domain not in allowlist`. The
-host reported zero input/output tokens, zero tool use, and no permission
-denials. It produced no PASS judgment, finding, or reconciliation input.
-
-The packet is current and ready for an authenticated reviewer, but the
-independent qualitative audit and Codex-to-Claude-to-DSET reconciliation gate
-remain open.
+```

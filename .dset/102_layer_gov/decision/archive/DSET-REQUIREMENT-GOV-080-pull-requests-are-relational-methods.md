@@ -1,27 +1,19 @@
 ---
-artifact_type: "requirement"
-artifact_id: "DSET-REQUIREMENT-GOV-080"
-scope_path:
-  - "layer:gov"
-priority: "high"
-promotion:
-  affected_children:
-    - "governance"
-    - "tool"
-    - "skill"
-    - "implementation"
-    - "ops"
-  applies_unchanged: true
-  local_context_required: false
+artifact_type: requirement
+artifact_id: DSET-REQUIREMENT-GOV-080
+scope_path: layer:gov
+subject_scopes:
+  - relation-model
+priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: "child_of"
+  - type: child_of
     targets:
-      - "DSET-REQUIREMENT-GOV-076"
-  - type: "relates_to"
+      - DSET-REQUIREMENT-GOV-076
+  - type: relates_to
     targets:
-      - "DSET-REQUIREMENT-GOV-079"
+      - DSET-REQUIREMENT-GOV-079
 ---
 
 # Requirement — Pull requests are relational Methods
@@ -73,3 +65,18 @@ A pull request is classified as maintained + method + relational, retains its na
 ## Rationale
 
 A pull request is a mutable review and integration mechanism connecting two branches or repositories; merging it produces an immutable commit but does not transform the mutable PR record into an Atomic Implementation.
+
+
+## Historical frontmatter metadata
+
+```yaml
+promotion:
+  affected_children:
+    - "governance"
+    - "tool"
+    - "skill"
+    - "implementation"
+    - "ops"
+  applies_unchanged: true
+  local_context_required: false
+```

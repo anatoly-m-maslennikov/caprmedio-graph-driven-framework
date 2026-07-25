@@ -1,19 +1,21 @@
 ---
 artifact_type: requirement
 artifact_id: DSET-REQUIREMENT-META-050
-scope_path: ["layer:meta"]
+scope_path: layer:meta
+subject_scopes:
+  - profile
 priority: medium
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   - type: replacement_of
     targets:
-      - "DSET-REQUIREMENT-META-009"
-      - "DSET-REQUIREMENT-META-010"
+      - DSET-REQUIREMENT-META-009
+      - DSET-REQUIREMENT-META-010
   - type: relates_to
     targets:
-      - "DSET-REQUIREMENT-META-047"
-      - "DSET-REQUIREMENT-META-048"
+      - DSET-REQUIREMENT-META-047
+      - DSET-REQUIREMENT-META-048
 ---
 
 # Requirement — Keep product framing optional

@@ -1,15 +1,16 @@
 ---
-artifact_type: "implementation_decision"
-artifact_id: "DSET-DECISION-GOV-023"
-scope_path:
-  - "layer:gov"
-priority: "high"
+artifact_type: implementation_decision
+artifact_id: DSET-DECISION-GOV-023
+scope_path: layer:gov
+subject_scopes:
+  - artifact-catalog
+priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: "child_of"
+  - type: child_of
     targets:
-      - "DSET-DECISION-GOV-013"
+      - DSET-DECISION-GOV-013
 ---
 
 # Decision — Reference artifacts by identity

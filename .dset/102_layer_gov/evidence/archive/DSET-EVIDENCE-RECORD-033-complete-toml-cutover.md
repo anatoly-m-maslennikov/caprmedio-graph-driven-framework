@@ -1,10 +1,34 @@
 ---
-artifact_type: "evidence_record"
-artifact_subtype: "test_result"
-artifact_id: "DSET-EVIDENCE-RECORD-033"
-scope_path:
-  - "layer:gov"
-priority: "high"
+artifact_type: evidence_record
+artifact_subtype: test_result
+artifact_id: DSET-EVIDENCE-RECORD-033
+scope_path: layer:gov
+priority: high
+llm_session_ids:
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+relations:
+  - type: evidence_for
+    targets:
+      - DSET-TEST-CASE-GOV-043
+---
+
+# Test result — Complete TOML cutover
+
+The repository contains zero `.yaml`/`.yml` files under `dset/` and zero DSET
+Markdown YAML-frontmatter carriers. Ten standalone snapshots now use adjacent
+`.legacy.toml` envelopes and seventy-one immutable Markdown records use TOML
+frontmatter. A repeated migration preview reports zero blockers and zero
+changes; the repeated apply is also a no-op.
+
+All 312 Tests, Ruff formatting and lint, strict mypy, `dset check`, compilation,
+traceability, project health, bootstrap regeneration, diff hygiene, and the
+canonical aggregate `dset verify` gate pass. Externally prescribed GitHub and
+host-skill YAML remains outside the DSET artifact-carrier claim.
+
+
+## Historical frontmatter metadata
+
+```yaml
 schema_version: "1.0"
 context:
   - "repository=anatoly-m-maslennikov/dset-specs-loops-framework"
@@ -26,23 +50,4 @@ producer:
 method:
   description: "Counted DSET YAML paths/frontmatter, repeated migration preview and apply, checked compilation/traceability/health/diff hygiene, and ran canonical dset verify plus the 312-Test suite, Ruff formatting/lint, and strict mypy."
   setup: "Commit 483ea2af321505f40713a73a51b3b68f327ba7f3; project .venv; local macOS; uv synchronization disabled against the existing locked environment; execution temp/cache state outside the governed repository."
-llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
-relations:
-  - type: "evidence_for"
-    targets:
-      - "DSET-TEST-CASE-GOV-043"
----
-
-# Test result — Complete TOML cutover
-
-The repository contains zero `.yaml`/`.yml` files under `dset/` and zero DSET
-Markdown YAML-frontmatter carriers. Ten standalone snapshots now use adjacent
-`.legacy.toml` envelopes and seventy-one immutable Markdown records use TOML
-frontmatter. A repeated migration preview reports zero blockers and zero
-changes; the repeated apply is also a no-op.
-
-All 312 Tests, Ruff formatting and lint, strict mypy, `dset check`, compilation,
-traceability, project health, bootstrap regeneration, diff hygiene, and the
-canonical aggregate `dset verify` gate pass. Externally prescribed GitHub and
-host-skill YAML remains outside the DSET artifact-carrier claim.
+```

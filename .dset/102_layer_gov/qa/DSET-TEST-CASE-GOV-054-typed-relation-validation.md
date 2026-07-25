@@ -1,17 +1,19 @@
 ---
 artifact_type: test_case
 artifact_id: DSET-TEST-CASE-GOV-054
-scope_path: ["layer:gov"]
+scope_path: layer:gov
+subject_scopes:
+  - assurance
 priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   - type: replacement_of
     targets:
-      - "DSET-TEST-CASE-GOV-036"
+      - DSET-TEST-CASE-GOV-036
   - type: check_of
     targets:
-      - "DSET-IMPL-GOV-004"
+      - DSET-IMPL-GOV-004
 ---
 
 # Test Case — Validate the canonical relation vocabulary

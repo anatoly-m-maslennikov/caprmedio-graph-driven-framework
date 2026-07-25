@@ -1,13 +1,16 @@
 ---
 artifact_type: requirement
 artifact_id: DSET-REQUIREMENT-GOV-093
-scope_path: ["layer:gov"]
+scope_path: layer:gov
+subject_scopes:
+  - carrier-format
 priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   - type: replacement_of
-    targets: ["DSET-REQUIREMENT-GOV-040"]
+    targets:
+      - DSET-REQUIREMENT-GOV-040
 ---
 
 # Requirement — Use YAML frontmatter for Markdown

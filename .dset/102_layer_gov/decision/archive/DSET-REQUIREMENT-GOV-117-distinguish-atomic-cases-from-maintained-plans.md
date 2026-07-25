@@ -1,15 +1,17 @@
 ---
 artifact_type: requirement
 artifact_id: DSET-REQUIREMENT-GOV-117
-scope_path: ["layer:gov"]
+scope_path: layer:gov
+subject_scopes:
+  - assurance
 priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   - type: relates_to
     targets:
-      - "DSET-REQUIREMENT-META-049"
-      - "DSET-REQUIREMENT-GOV-102"
+      - DSET-REQUIREMENT-META-049
+      - DSET-REQUIREMENT-GOV-102
 ---
 
 # Requirement — Distinguish atomic cases from maintained plans

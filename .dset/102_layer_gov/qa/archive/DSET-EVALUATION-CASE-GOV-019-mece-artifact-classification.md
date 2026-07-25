@@ -1,11 +1,12 @@
 ---
-artifact_type: "evaluation_plan"
-artifact_id: "DSET-EVALUATION-CASE-GOV-019"
-scope_path:
-  - "layer:gov"
-priority: "medium"
+artifact_type: evaluation_plan
+artifact_id: DSET-EVALUATION-CASE-GOV-019
+scope_path: layer:gov
+subject_scopes:
+  - assurance
+priority: medium
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 ---
 
 # Historical QA plan — DSET-EVALUATION-CASE-GOV-019

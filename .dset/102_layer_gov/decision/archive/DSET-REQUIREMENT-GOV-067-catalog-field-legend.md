@@ -1,24 +1,16 @@
 ---
-artifact_type: "requirement"
-artifact_id: "DSET-REQUIREMENT-GOV-067"
-scope_path:
-  - "layer:gov"
-priority: "medium"
-promotion:
-  affected_children:
-    - "governance"
-    - "tool"
-    - "skill"
-    - "implementation"
-    - "ops"
-  applies_unchanged: false
-  local_context_required: true
+artifact_type: requirement
+artifact_id: DSET-REQUIREMENT-GOV-067
+scope_path: layer:gov
+subject_scopes:
+  - runtime
+priority: medium
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: "child_of"
+  - type: child_of
     targets:
-      - "DSET-REQUIREMENT-GOV-049"
+      - DSET-REQUIREMENT-GOV-049
 ---
 
 # Requirement — Explain catalog fields in the catalog
@@ -49,3 +41,18 @@ The canonical artifact catalog begins with an in-file legend that defines every 
 ## Rationale
 
 Without a local legend, Boolean fields such as authoritative and changed_through_git are easy to interpret as overlapping authority rules even though they govern different concerns.
+
+
+## Historical frontmatter metadata
+
+```yaml
+promotion:
+  affected_children:
+    - "governance"
+    - "tool"
+    - "skill"
+    - "implementation"
+    - "ops"
+  applies_unchanged: false
+  local_context_required: true
+```

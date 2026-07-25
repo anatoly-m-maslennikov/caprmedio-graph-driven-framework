@@ -1,27 +1,19 @@
 ---
-artifact_type: "requirement"
-artifact_id: "DSET-REQUIREMENT-META-025"
-scope_path:
-  - "layer:meta"
-priority: "high"
-promotion:
-  affected_children:
-    - "governance"
-    - "tool"
-    - "skill"
-    - "implementation"
-    - "operations"
-  applies_unchanged: true
-  local_context_required: false
+artifact_type: requirement
+artifact_id: DSET-REQUIREMENT-META-025
+scope_path: layer:meta
+subject_scopes:
+  - topology
+priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: "replacement_of"
+  - type: replacement_of
     targets:
-      - "DSET-REQUIREMENT-GOV-045"
-  - type: "relates_to"
+      - DSET-REQUIREMENT-GOV-045
+  - type: relates_to
     targets:
-      - "DSET-REQUIREMENT-META-023"
+      - DSET-REQUIREMENT-META-023
 ---
 
 # Requirement — Keep layer dependencies acyclic
@@ -50,3 +42,18 @@ DSET layer dependencies form an acyclic graph in which authority and refinement 
 ## Rationale
 
 Separating authority flow, dependency direction, specialization, and feedback protects stable layers from volatile downstream mechanisms.
+
+
+## Historical frontmatter metadata
+
+```yaml
+promotion:
+  affected_children:
+    - "governance"
+    - "tool"
+    - "skill"
+    - "implementation"
+    - "operations"
+  applies_unchanged: true
+  local_context_required: false
+```

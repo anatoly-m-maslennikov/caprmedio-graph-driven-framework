@@ -1,15 +1,16 @@
 ---
-artifact_type: "test_plan"
-artifact_id: "DSET-TEST-CASE-GOV-040"
-scope_path:
-  - "layer:gov"
-priority: "high"
+artifact_type: test_plan
+artifact_id: DSET-TEST-CASE-GOV-040
+scope_path: layer:gov
+subject_scopes:
+  - assurance
+priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: "check_of"
+  - type: check_of
     targets:
-      - "DSET-DECISION-GOV-016"
+      - DSET-DECISION-GOV-016
 ---
 
 # Test Case — Validate native package-registry successors

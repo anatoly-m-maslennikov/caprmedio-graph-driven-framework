@@ -1,25 +1,17 @@
 ---
-artifact_type: "requirement"
-artifact_id: "DSET-REQUIREMENT-META-018"
-scope_path:
-  - "layer:meta"
-priority: "high"
-promotion:
-  affected_children:
-    - "governance"
-    - "tool"
-    - "skill"
-    - "implementation"
-    - "ops"
-  applies_unchanged: true
-  local_context_required: false
+artifact_type: requirement
+artifact_id: DSET-REQUIREMENT-META-018
+scope_path: layer:meta
+subject_scopes:
+  - artifact-model
+priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: "replacement_of"
+  - type: replacement_of
     targets:
-      - "DSET-REQUIREMENT-GOV-090"
-      - "DSET-REQUIREMENT-GOV-091"
+      - DSET-REQUIREMENT-GOV-090
+      - DSET-REQUIREMENT-GOV-091
 ---
 
 # Requirement — Three-axis artifact routing
@@ -62,3 +54,18 @@ DSET routes every governed artifact through exactly three independent semantic a
 ## Rationale
 
 FPF E.24 warns against names and local frames creating a shadow ontology, A.6.P requires relations to expose their participants, and A.02.01 keeps contextual roles and optional slots explicit. A sparse three-axis route preserves these boundaries without recreating a Type hierarchy.
+
+
+## Historical frontmatter metadata
+
+```yaml
+promotion:
+  affected_children:
+    - "governance"
+    - "tool"
+    - "skill"
+    - "implementation"
+    - "ops"
+  applies_unchanged: true
+  local_context_required: false
+```

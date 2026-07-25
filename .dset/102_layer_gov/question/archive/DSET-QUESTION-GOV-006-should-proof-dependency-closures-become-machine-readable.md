@@ -1,11 +1,12 @@
 ---
-artifact_type: "question"
-artifact_id: "DSET-QUESTION-GOV-006"
-scope_path:
-  - "layer:gov"
-priority: "medium"
+artifact_type: question
+artifact_id: DSET-QUESTION-GOV-006
+scope_path: layer:gov
+subject_scopes:
+  - relation-model
+priority: medium
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 ---
 
 # Question — Should proof dependency closures become machine-readable?

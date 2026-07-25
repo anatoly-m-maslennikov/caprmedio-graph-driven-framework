@@ -1,24 +1,16 @@
 ---
-artifact_type: "requirement"
-artifact_id: "DSET-REQUIREMENT-GOV-087"
-scope_path:
-  - "layer:gov"
-priority: "high"
-promotion:
-  affected_children:
-    - "governance"
-    - "tool"
-    - "skill"
-    - "implementation"
-    - "ops"
-  applies_unchanged: true
-  local_context_required: false
+artifact_type: requirement
+artifact_id: DSET-REQUIREMENT-GOV-087
+scope_path: layer:gov
+subject_scopes:
+  - artifact-catalog
+priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: "relates_to"
+  - type: relates_to
     targets:
-      - "DSET-REQUIREMENT-GOV-086"
+      - DSET-REQUIREMENT-GOV-086
 ---
 
 # Requirement — Inquiry Content Role
@@ -48,3 +40,18 @@ DSET content_role includes inquiry for persisted artifacts whose primary contrib
 ## Rationale
 
 A Question is mandatory in DSET but is not honestly a Definition, Rationale, Method, Implementation, or Observation. FPF strict distinction requires inquiry to remain separate from both observed claims and accepted definitions.
+
+
+## Historical frontmatter metadata
+
+```yaml
+promotion:
+  affected_children:
+    - "governance"
+    - "tool"
+    - "skill"
+    - "implementation"
+    - "ops"
+  applies_unchanged: true
+  local_context_required: false
+```

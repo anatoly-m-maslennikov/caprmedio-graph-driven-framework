@@ -1,24 +1,16 @@
 ---
-artifact_type: "requirement"
-artifact_id: "DSET-REQUIREMENT-GOV-066"
-scope_path:
-  - "layer:gov"
-priority: "high"
-promotion:
-  affected_children:
-    - "governance"
-    - "tool"
-    - "skill"
-    - "implementation"
-    - "ops"
-  applies_unchanged: false
-  local_context_required: true
+artifact_type: requirement
+artifact_id: DSET-REQUIREMENT-GOV-066
+scope_path: layer:gov
+subject_scopes:
+  - interaction
+priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: "child_of"
+  - type: child_of
     targets:
-      - "DSET-REQUIREMENT-GOV-048"
+      - DSET-REQUIREMENT-GOV-048
 ---
 
 # Requirement — Separate development and release-readiness modes
@@ -83,3 +75,18 @@ DSET defines a development mode that moves accepted Atomic Artifacts through Tes
 ## Rationale
 
 Compiling every accepted atom immediately creates avoidable churn during development, while releasing without a full authority-to-specification reconciliation risks shipping implementation and evidence against stale current truth.
+
+
+## Historical frontmatter metadata
+
+```yaml
+promotion:
+  affected_children:
+    - "governance"
+    - "tool"
+    - "skill"
+    - "implementation"
+    - "ops"
+  applies_unchanged: false
+  local_context_required: true
+```

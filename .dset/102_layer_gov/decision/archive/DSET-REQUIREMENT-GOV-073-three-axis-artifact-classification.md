@@ -1,27 +1,19 @@
 ---
-artifact_type: "requirement"
-artifact_id: "DSET-REQUIREMENT-GOV-073"
-scope_path:
-  - "layer:gov"
-priority: "high"
-promotion:
-  affected_children:
-    - "governance"
-    - "tool"
-    - "skill"
-    - "implementation"
-    - "ops"
-  applies_unchanged: true
-  local_context_required: false
+artifact_type: requirement
+artifact_id: DSET-REQUIREMENT-GOV-073
+scope_path: layer:gov
+subject_scopes:
+  - artifact-catalog
+priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: "resolution_of"
+  - type: resolution_of
     targets:
-      - "DSET-QUESTION-GOV-012"
-  - type: "replacement_of"
+      - DSET-QUESTION-GOV-012
+  - type: replacement_of
     targets:
-      - "DSET-REQUIREMENT-GOV-047"
+      - DSET-REQUIREMENT-GOV-047
 ---
 
 # Requirement — Classify artifacts through three independent axes
@@ -85,3 +77,18 @@ DSET classifies governed artifacts through three independent axes: artifact_type
 ## Rationale
 
 Revision semantics, lifecycle meaning, and authority origin are independent concerns; classifying realized code as current state and assurance implementations as checking mechanisms removes the overlapping phase-role, answer-to, and special Implementation-class model.
+
+
+## Historical frontmatter metadata
+
+```yaml
+promotion:
+  affected_children:
+    - "governance"
+    - "tool"
+    - "skill"
+    - "implementation"
+    - "ops"
+  applies_unchanged: true
+  local_context_required: false
+```

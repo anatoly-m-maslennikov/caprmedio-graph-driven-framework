@@ -1,17 +1,19 @@
 ---
 artifact_type: requirement
 artifact_id: DSET-REQUIREMENT-GOV-115
-scope_path: ["layer:gov"]
+scope_path: layer:gov
+subject_scopes:
+  - settings
 priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   - type: replacement_of
     targets:
-      - "DSET-REQUIREMENT-GOV-092"
+      - DSET-REQUIREMENT-GOV-092
   - type: child_of
     targets:
-      - "DSET-REQUIREMENT-META-054"
+      - DSET-REQUIREMENT-META-054
 ---
 
 # Requirement — Configure optional governance surfaces

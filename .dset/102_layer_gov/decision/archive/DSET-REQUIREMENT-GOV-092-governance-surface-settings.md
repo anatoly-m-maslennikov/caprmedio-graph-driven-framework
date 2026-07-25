@@ -1,26 +1,19 @@
 ---
-artifact_type: "requirement"
-artifact_id: "DSET-REQUIREMENT-GOV-092"
-scope_path:
-  - "layer:gov"
-priority: "high"
-promotion:
-  affected_children:
-    - "tool"
-    - "skill"
-    - "implementation"
-    - "operations"
-  applies_unchanged: true
-  local_context_required: false
+artifact_type: requirement
+artifact_id: DSET-REQUIREMENT-GOV-092
+scope_path: layer:gov
+subject_scopes:
+  - settings
+priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: "child_of"
+  - type: child_of
     targets:
-      - "DSET-REQUIREMENT-META-033"
-  - type: "relates_to"
+      - DSET-REQUIREMENT-META-033
+  - type: relates_to
     targets:
-      - "DSET-REQUIREMENT-GOV-049"
+      - DSET-REQUIREMENT-GOV-049
 ---
 
 # Requirement — Store governance-surface activation
@@ -50,3 +43,17 @@ dset_settings.toml owns an explicit boolean activation state for every registere
 ## Rationale
 
 One documented settings owner makes progressive activation deterministic while preserving the distinction between semantic revision mode and optional governance participation.
+
+
+## Historical frontmatter metadata
+
+```yaml
+promotion:
+  affected_children:
+    - "tool"
+    - "skill"
+    - "implementation"
+    - "operations"
+  applies_unchanged: true
+  local_context_required: false
+```

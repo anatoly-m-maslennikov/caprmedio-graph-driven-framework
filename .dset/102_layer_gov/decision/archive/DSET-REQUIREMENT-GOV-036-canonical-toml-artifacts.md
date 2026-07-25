@@ -1,11 +1,12 @@
 ---
-artifact_type: "requirement"
-artifact_id: "DSET-REQUIREMENT-GOV-036"
-scope_path:
-  - "layer:gov"
-priority: "high"
+artifact_type: requirement
+artifact_id: DSET-REQUIREMENT-GOV-036
+scope_path: layer:gov
+subject_scopes:
+  - carrier-format
+priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 ---
 
 # Requirement — Use canonical TOML artifacts

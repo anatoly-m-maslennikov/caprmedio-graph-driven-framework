@@ -1,21 +1,23 @@
 ---
 artifact_type: requirement
 artifact_id: DSET-REQUIREMENT-META-055
-scope_path: ["layer:meta"]
+scope_path: layer:meta
+subject_scopes:
+  - authority
 priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   - type: replacement_of
     targets:
-      - "DSET-REQUIREMENT-META-034"
+      - DSET-REQUIREMENT-META-034
   - type: relates_to
     targets:
-      - "DSET-REQUIREMENT-META-021"
-      - "DSET-REQUIREMENT-META-022"
-      - "DSET-REQUIREMENT-META-027"
-      - "DSET-REQUIREMENT-META-031"
-      - "DSET-REQUIREMENT-META-054"
+      - DSET-REQUIREMENT-META-021
+      - DSET-REQUIREMENT-META-022
+      - DSET-REQUIREMENT-META-027
+      - DSET-REQUIREMENT-META-031
+      - DSET-REQUIREMENT-META-054
 ---
 
 # Requirement — Close every constitutional amendment

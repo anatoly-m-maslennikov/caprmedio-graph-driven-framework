@@ -1,17 +1,18 @@
 ---
-artifact_type: "test_plan"
-artifact_id: "DSET-TEST-CASE-GOV-039"
-scope_path:
-  - "layer:gov"
-priority: "high"
+artifact_type: test_plan
+artifact_id: DSET-TEST-CASE-GOV-039
+scope_path: layer:gov
+subject_scopes:
+  - assurance
+priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: "check_of"
+  - type: check_of
     targets:
-      - "DSET-REQUIREMENT-GOV-038"
-      - "DSET-REQUIREMENT-GOV-039"
-      - "DSET-REQUIREMENT-SKILL-013"
+      - DSET-REQUIREMENT-GOV-038
+      - DSET-REQUIREMENT-GOV-039
+      - DSET-REQUIREMENT-SKILL-013
 ---
 
 # Test Case — Validate canonical settings selections

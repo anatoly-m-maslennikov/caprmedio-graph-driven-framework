@@ -1,18 +1,19 @@
 ---
-artifact_type: "implementation_decision"
-artifact_id: "DSET-DECISION-GOV-032"
-scope_path:
-  - "layer:gov"
-priority: "high"
+artifact_type: implementation_decision
+artifact_id: DSET-DECISION-GOV-032
+scope_path: layer:gov
+subject_scopes:
+  - artifact-catalog
+priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: "replacement_of"
+  - type: replacement_of
     targets:
-      - "DSET-DECISION-GOV-008"
-  - type: "resolution_of"
+      - DSET-DECISION-GOV-008
+  - type: resolution_of
     targets:
-      - "DSET-QUESTION-GOV-008"
+      - DSET-QUESTION-GOV-008
 ---
 
 # Decision — Separate Requirements from Decisions

@@ -1,18 +1,20 @@
 ---
 artifact_type: problem
 artifact_id: DSET-PROBLEM-GOV-012
-scope_path: ["layer:gov"]
+scope_path: layer:gov
+subject_scopes:
+  - artifact-catalog
 priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   - type: relates_to
     targets:
-      - "DSET-REQUIREMENT-GOV-108"
-      - "DSET-REQUIREMENT-GOV-113"
-      - "DSET-REQUIREMENT-GOV-114"
-      - "DSET-REQUIREMENT-GOV-119"
-      - "DSET-PROBLEM-GOV-011"
+      - DSET-REQUIREMENT-GOV-108
+      - DSET-REQUIREMENT-GOV-113
+      - DSET-REQUIREMENT-GOV-114
+      - DSET-REQUIREMENT-GOV-119
+      - DSET-PROBLEM-GOV-011
 ---
 
 # Problem — Atomic identities use the retired grammar

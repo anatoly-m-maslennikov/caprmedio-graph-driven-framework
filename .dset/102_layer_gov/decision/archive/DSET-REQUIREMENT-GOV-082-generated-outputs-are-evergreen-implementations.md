@@ -1,27 +1,19 @@
 ---
-artifact_type: "requirement"
-artifact_id: "DSET-REQUIREMENT-GOV-082"
-scope_path:
-  - "layer:gov"
-priority: "high"
-promotion:
-  affected_children:
-    - "governance"
-    - "tool"
-    - "skill"
-    - "implementation"
-    - "ops"
-  applies_unchanged: true
-  local_context_required: false
+artifact_type: requirement
+artifact_id: DSET-REQUIREMENT-GOV-082
+scope_path: layer:gov
+subject_scopes:
+  - artifact-catalog
+priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: "child_of"
+  - type: child_of
     targets:
-      - "DSET-REQUIREMENT-GOV-077"
-  - type: "override_of"
+      - DSET-REQUIREMENT-GOV-077
+  - type: override_of
     targets:
-      - "DSET-REQUIREMENT-GOV-081"
+      - DSET-REQUIREMENT-GOV-081
 ---
 
 # Requirement — Generated outputs are Evergreen Implementations
@@ -55,3 +47,18 @@ Evergreen + Implementation uses the internal Type Generated Implementation for e
 ## Rationale
 
 The maintained generator and its generated output have different revision semantics: the generator is directly maintained implementation, while the replaceable output is an evergreen implementation compiled from current governed inputs.
+
+
+## Historical frontmatter metadata
+
+```yaml
+promotion:
+  affected_children:
+    - "governance"
+    - "tool"
+    - "skill"
+    - "implementation"
+    - "ops"
+  applies_unchanged: true
+  local_context_required: false
+```

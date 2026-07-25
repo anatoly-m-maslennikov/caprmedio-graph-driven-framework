@@ -1,12 +1,12 @@
 ---
 artifact_type: contract
 artifact_id: DSET-CONTRACT-META-001
-scope_path: ["layer:meta"]
+scope_path: layer:meta
+subject_scopes:
+  - scope
 priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
-source_refs:
-  - "DSET-REQUIREMENT-META-011"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relation_kind: scope_declaration_for
 endpoints:
   - role: declarer
@@ -18,7 +18,7 @@ endpoints:
 relations:
   - type: child_of
     targets:
-      - "DSET-REQUIREMENT-META-011"
+      - DSET-REQUIREMENT-META-011
 ---
 
 # Contract — Repository Work Area declaration
@@ -56,3 +56,11 @@ may remain one repository-level scope.
 Repository folders are neutral governance boundaries. They must support code,
 documentation, methodology, data, and mixed projects without silently
 inventing services, modules, deployment units, or features.
+
+
+## Historical frontmatter metadata
+
+```yaml
+source_refs:
+  - "DSET-REQUIREMENT-META-011"
+```

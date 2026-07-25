@@ -1,30 +1,19 @@
 ---
-artifact_type: "implementation_decision"
-artifact_id: "DSET-DECISION-GOV-019"
-scope_path:
-  - "layer:gov"
-priority: "high"
-promotion:
-  affected_children:
-    - "meta"
-    - "gov"
-    - "tool"
-    - "skill"
-    - "ops"
-  applies_unchanged: false
-  local_context_required: true
-  parent_scope:
-    kind: "project"
-    id: "dset-specs-loops-framework"
+artifact_type: implementation_decision
+artifact_id: DSET-DECISION-GOV-019
+scope_path: layer:gov
+subject_scopes:
+  - artifact-catalog
+priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: "replacement_of"
+  - type: replacement_of
     targets:
-      - "DSET-DECISION-GOV-012"
-  - type: "relates_to"
+      - DSET-DECISION-GOV-012
+  - type: relates_to
     targets:
-      - "DSET-DECISION-OPS-007"
+      - DSET-DECISION-OPS-007
 ---
 
 # Decision — Classify release lifecycle artifacts as Version
@@ -54,3 +43,21 @@ The artifact registry classifies the six release-lifecycle roles under the prima
 ## Rationale
 
 Version identifies the governed artifact subject without requiring readers to distinguish DSET's prior use of Delivery from deployment or workflow delivery.
+
+
+## Historical frontmatter metadata
+
+```yaml
+promotion:
+  affected_children:
+    - "meta"
+    - "gov"
+    - "tool"
+    - "skill"
+    - "ops"
+  applies_unchanged: false
+  local_context_required: true
+  parent_scope:
+    kind: "project"
+    id: "dset-specs-loops-framework"
+```

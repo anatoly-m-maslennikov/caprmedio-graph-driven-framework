@@ -1,30 +1,21 @@
 ---
-artifact_type: "test_plan"
-artifact_id: "DSET-TEST-CASE-GOV-044"
-scope_path:
-  - "layer:gov"
-priority: "high"
-promotion:
-  affected_children:
-    - "gov"
-    - "tool"
-    - "ops"
-  applies_unchanged: false
-  local_context_required: true
-  parent_scope:
-    kind: "project"
-    id: "dset-specs-loops-framework"
+artifact_type: test_plan
+artifact_id: DSET-TEST-CASE-GOV-044
+scope_path: layer:gov
+subject_scopes:
+  - assurance
+priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: "check_of"
+  - type: check_of
     targets:
-      - "DSET-DECISION-GOV-019"
-      - "DSET-DECISION-OPS-007"
-  - type: "replacement_of"
+      - DSET-DECISION-GOV-019
+      - DSET-DECISION-OPS-007
+  - type: replacement_of
     targets:
-      - "DSET-TEST-CASE-GOV-029"
-      - "DSET-TEST-CASE-OPS-016"
+      - DSET-TEST-CASE-GOV-029
+      - DSET-TEST-CASE-OPS-016
 ---
 
 # Test Case — Enforce the Version artifact classification
@@ -47,3 +38,19 @@ Test and append-only lifecycle event.
 ## Primary claim
 
 Deterministic validation requires Version and its six exact direct subtypes across current authority, registries, templates, active carriers, generated views, settings examples, and release behavior, while rejecting Delivery as a current artifact Type.
+
+
+## Historical frontmatter metadata
+
+```yaml
+promotion:
+  affected_children:
+    - "gov"
+    - "tool"
+    - "ops"
+  applies_unchanged: false
+  local_context_required: true
+  parent_scope:
+    kind: "project"
+    id: "dset-specs-loops-framework"
+```

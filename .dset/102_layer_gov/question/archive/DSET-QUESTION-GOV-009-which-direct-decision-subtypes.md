@@ -1,15 +1,16 @@
 ---
-artifact_type: "question"
-artifact_id: "DSET-QUESTION-GOV-009"
-scope_path:
-  - "layer:gov"
-priority: "high"
+artifact_type: question
+artifact_id: DSET-QUESTION-GOV-009
+scope_path: layer:gov
+subject_scopes:
+  - artifact-catalog
+priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: "relates_to"
+  - type: relates_to
     targets:
-      - "DSET-DECISION-GOV-032"
+      - DSET-DECISION-GOV-032
 ---
 
 # Question — Which direct Decision subtypes?

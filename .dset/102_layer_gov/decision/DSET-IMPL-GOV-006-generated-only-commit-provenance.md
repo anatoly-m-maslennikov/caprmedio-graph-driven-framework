@@ -1,17 +1,19 @@
 ---
 artifact_type: implementation_decision
 artifact_id: DSET-IMPL-GOV-006
-scope_path: ["layer:gov"]
+scope_path: layer:gov
+subject_scopes:
+  - provenance
 priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   - type: replacement_of
     targets:
-      - "DSET-DECISION-GOV-020"
+      - DSET-DECISION-GOV-020
   - type: resolution_of
     targets:
-      - "DSET-DEFECT-GOV-007"
+      - DSET-DEFECT-GOV-007
 ---
 
 # Implementation Decision — Exclude generated-only implementation edges

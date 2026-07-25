@@ -1,20 +1,22 @@
 ---
 artifact_type: requirement
 artifact_id: DSET-REQUIREMENT-GOV-120
-scope_path: ["layer:gov"]
+scope_path: layer:gov
+subject_scopes:
+  - lifecycle
 priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   - type: child_of
     targets:
-      - "DSET-REQUIREMENT-META-064"
+      - DSET-REQUIREMENT-META-064
   - type: relates_to
     targets:
-      - "DSET-REQUIREMENT-GOV-096"
-      - "DSET-REQUIREMENT-GOV-108"
-      - "DSET-REQUIREMENT-GOV-112"
-      - "DSET-REQUIREMENT-GOV-119"
+      - DSET-REQUIREMENT-GOV-096
+      - DSET-REQUIREMENT-GOV-108
+      - DSET-REQUIREMENT-GOV-112
+      - DSET-REQUIREMENT-GOV-119
 ---
 
 # Requirement — Derive atomic lifecycle from Type-local placement

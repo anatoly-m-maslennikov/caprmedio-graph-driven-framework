@@ -1,25 +1,26 @@
 ---
-artifact_type: "question"
-artifact_subtype: "conflict"
-artifact_id: "DSET-CONFLICT-GOV-001"
-scope_path:
-  - "layer:gov"
-priority: "high"
-relation_kind: "conflict_between"
-endpoints:
-  - role: "party"
-    target: "DSET-DECISION-GOV-003"
-    origin: "internal"
-  - role: "party"
-    target: "DSET-REQUIREMENT-GOV-037"
-    origin: "internal"
+artifact_type: question
+artifact_subtype: conflict
+artifact_id: DSET-CONFLICT-GOV-001
+scope_path: layer:gov
+subject_scopes:
+  - carrier-format
+priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+relation_kind: conflict_between
+endpoints:
+  - role: party
+    target: DSET-DECISION-GOV-003
+    origin: internal
+  - role: party
+    target: DSET-REQUIREMENT-GOV-037
+    origin: internal
 relations:
-  - type: "relates_to"
+  - type: relates_to
     targets:
-      - "DSET-DECISION-GOV-003"
-      - "DSET-REQUIREMENT-GOV-037"
+      - DSET-DECISION-GOV-003
+      - DSET-REQUIREMENT-GOV-037
 ---
 
 # Conflict — All-TOML carriers versus byte-stable YAML history

@@ -1,17 +1,19 @@
 ---
 artifact_type: problem
 artifact_id: DSET-PROBLEM-GOV-011
-scope_path: ["layer:gov"]
+scope_path: layer:gov
+subject_scopes:
+  - carrier-format
 priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   - type: relates_to
     targets:
-      - "DSET-REQUIREMENT-GOV-108"
-      - "DSET-REQUIREMENT-GOV-120"
-      - "DSET-REQUIREMENT-GOV-121"
-      - "DSET-PROBLEM-GOV-009"
+      - DSET-REQUIREMENT-GOV-108
+      - DSET-REQUIREMENT-GOV-120
+      - DSET-REQUIREMENT-GOV-121
+      - DSET-PROBLEM-GOV-009
 ---
 
 # Problem — Atomic carriers are not Type-local

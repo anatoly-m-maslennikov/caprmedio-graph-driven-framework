@@ -1,24 +1,16 @@
 ---
-artifact_type: "requirement"
-artifact_id: "DSET-REQUIREMENT-GOV-059"
-scope_path:
-  - "layer:gov"
-priority: "high"
-promotion:
-  affected_children:
-    - "governance"
-    - "tool"
-    - "skill"
-    - "implementation"
-    - "ops"
-  applies_unchanged: false
-  local_context_required: true
+artifact_type: requirement
+artifact_id: DSET-REQUIREMENT-GOV-059
+scope_path: layer:gov
+subject_scopes:
+  - settings
+priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: "child_of"
+  - type: child_of
     targets:
-      - "DSET-REQUIREMENT-GOV-058"
+      - DSET-REQUIREMENT-GOV-058
 ---
 
 # Requirement — Configure conflict selection mode
@@ -48,3 +40,18 @@ Each project selects ask_always or auto_by_effective_priority conflict handling,
 ## Rationale
 
 Operator confirmation is the safest general default, while an explicit project opt-in can remove routine structural conflicts without guessing through ties, incomparable scopes, or unsatisfiable authority.
+
+
+## Historical frontmatter metadata
+
+```yaml
+promotion:
+  affected_children:
+    - "governance"
+    - "tool"
+    - "skill"
+    - "implementation"
+    - "ops"
+  applies_unchanged: false
+  local_context_required: true
+```

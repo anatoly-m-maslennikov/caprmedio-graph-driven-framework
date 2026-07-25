@@ -1,16 +1,18 @@
 ---
 artifact_type: requirement
 artifact_id: DSET-REQUIREMENT-META-064
-scope_path: ["layer:meta"]
+scope_path: layer:meta
+subject_scopes:
+  - lifecycle
 priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   - type: relates_to
     targets:
-      - "DSET-REQUIREMENT-META-038"
-      - "DSET-REQUIREMENT-META-041"
-      - "DSET-REQUIREMENT-META-058"
+      - DSET-REQUIREMENT-META-038
+      - DSET-REQUIREMENT-META-041
+      - DSET-REQUIREMENT-META-058
 ---
 
 # Requirement — Drafts precede atomic admission

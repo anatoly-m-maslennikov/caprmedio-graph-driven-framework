@@ -1,10 +1,32 @@
 ---
-artifact_type: "evidence_record"
-artifact_subtype: "test_result"
-artifact_id: "DSET-EVIDENCE-RECORD-028"
-scope_path:
-  - "layer:gov"
-priority: "high"
+artifact_type: evidence_record
+artifact_subtype: test_result
+artifact_id: DSET-EVIDENCE-RECORD-028
+scope_path: layer:gov
+priority: high
+llm_session_ids:
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+relations:
+  - type: evidence_for
+    targets:
+      - DSET-TEST-CASE-GOV-041
+---
+
+# Test result — Legacy structured snapshots
+
+Ten YAML files remain as exact registered historical snapshots. Current
+DSET-owned mutable structured artifacts and new Markdown frontmatter use TOML;
+JSON Schema remains JSON as an external contract. The complete 310-Test suite
+passed, and repeat preview/apply runs planned no writes.
+
+The 71 immutable Markdown atoms and promoted proof records with historical YAML
+frontmatter remain byte-stable by design; they are not competing current
+writers.
+
+
+## Historical frontmatter metadata
+
+```yaml
 schema_version: "1.0"
 context:
   - "repository=anatoly-m-maslennikov/dset-specs-loops-framework"
@@ -24,21 +46,4 @@ producer:
 method:
   description: "Validate every registered snapshot against its whole-file digest and current owner, then exercise drift, missing-owner, dual-owner, fallback, and repeat-run stops."
   setup: "Python 3.14.6; local macOS repository checkout on branch dev; ten registered historical YAML snapshots."
-llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
-relations:
-  - type: "evidence_for"
-    targets:
-      - "DSET-TEST-CASE-GOV-041"
----
-
-# Test result — Legacy structured snapshots
-
-Ten YAML files remain as exact registered historical snapshots. Current
-DSET-owned mutable structured artifacts and new Markdown frontmatter use TOML;
-JSON Schema remains JSON as an external contract. The complete 310-Test suite
-passed, and repeat preview/apply runs planned no writes.
-
-The 71 immutable Markdown atoms and promoted proof records with historical YAML
-frontmatter remain byte-stable by design; they are not competing current
-writers.
+```

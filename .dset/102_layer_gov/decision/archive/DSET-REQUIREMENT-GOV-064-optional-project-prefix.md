@@ -1,24 +1,16 @@
 ---
-artifact_type: "requirement"
-artifact_id: "DSET-REQUIREMENT-GOV-064"
-scope_path:
-  - "layer:gov"
-priority: "medium"
-promotion:
-  affected_children:
-    - "governance"
-    - "tool"
-    - "skill"
-    - "implementation"
-    - "ops"
-  applies_unchanged: false
-  local_context_required: true
+artifact_type: requirement
+artifact_id: DSET-REQUIREMENT-GOV-064
+scope_path: layer:gov
+subject_scopes:
+  - artifact-catalog
+priority: medium
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: "relates_to"
+  - type: relates_to
     targets:
-      - "DSET-DECISION-GOV-034"
+      - DSET-DECISION-GOV-034
 ---
 
 # Requirement — Make the project prefix optional
@@ -53,3 +45,18 @@ Each DSET project explicitly enables or disables a project prefix in dset_settin
 ## Rationale
 
 A mandatory project token adds noise without disambiguating a small single-project repository, while an explicit setting preserves collision-free identities for monorepos and multi-project control planes.
+
+
+## Historical frontmatter metadata
+
+```yaml
+promotion:
+  affected_children:
+    - "governance"
+    - "tool"
+    - "skill"
+    - "implementation"
+    - "ops"
+  applies_unchanged: false
+  local_context_required: true
+```

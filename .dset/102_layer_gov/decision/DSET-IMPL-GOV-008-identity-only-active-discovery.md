@@ -1,18 +1,20 @@
 ---
 artifact_type: implementation_decision
 artifact_id: DSET-IMPL-GOV-008
-scope_path: ["layer:gov"]
+scope_path: layer:gov
+subject_scopes:
+  - artifact-catalog
 priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   - type: replacement_of
     targets:
-      - "DSET-DECISION-GOV-025"
-      - "DSET-DECISION-GOV-028"
+      - DSET-DECISION-GOV-025
+      - DSET-DECISION-GOV-028
   - type: child_of
     targets:
-      - "DSET-REQUIREMENT-META-053"
+      - DSET-REQUIREMENT-META-053
 ---
 
 # Implementation Decision — Discover active authority by identity

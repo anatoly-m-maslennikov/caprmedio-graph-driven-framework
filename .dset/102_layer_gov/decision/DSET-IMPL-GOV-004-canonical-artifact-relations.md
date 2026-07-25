@@ -1,18 +1,20 @@
 ---
 artifact_type: implementation_decision
 artifact_id: DSET-IMPL-GOV-004
-scope_path: ["layer:gov"]
+scope_path: layer:gov
+subject_scopes:
+  - relation-model
 priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   - type: replacement_of
     targets:
-      - "DSET-DECISION-GOV-013"
+      - DSET-DECISION-GOV-013
   - type: resolution_of
     targets:
-      - "DSET-DEFECT-TOOL-002"
-      - "DSET-DEFECT-TOOL-003"
+      - DSET-DEFECT-TOOL-002
+      - DSET-DEFECT-TOOL-003
 ---
 
 # Implementation Decision — Use the canonical artifact relations

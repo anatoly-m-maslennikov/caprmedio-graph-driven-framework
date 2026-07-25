@@ -1,27 +1,19 @@
 ---
-artifact_type: "requirement"
-artifact_id: "DSET-REQUIREMENT-GOV-089"
-scope_path:
-  - "layer:gov"
-priority: "high"
-promotion:
-  affected_children:
-    - "governance"
-    - "tool"
-    - "skill"
-    - "implementation"
-    - "ops"
-  applies_unchanged: true
-  local_context_required: false
+artifact_type: requirement
+artifact_id: DSET-REQUIREMENT-GOV-089
+scope_path: layer:gov
+subject_scopes:
+  - artifact-catalog
+priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: "child_of"
+  - type: child_of
     targets:
-      - "DSET-REQUIREMENT-GOV-086"
-  - type: "relates_to"
+      - DSET-REQUIREMENT-GOV-086
+  - type: relates_to
     targets:
-      - "DSET-REQUIREMENT-GOV-087"
+      - DSET-REQUIREMENT-GOV-087
 ---
 
 # Requirement — Canonical Content Role loop
@@ -60,3 +52,18 @@ DSET uses the canonical content-role loop Inquiry to Definition to Rationale to 
 ## Rationale
 
 The loop separates uncertainty, intended truth, justification, reusable approach, operative realization, and observed state while making feedback explicitly recursive.
+
+
+## Historical frontmatter metadata
+
+```yaml
+promotion:
+  affected_children:
+    - "governance"
+    - "tool"
+    - "skill"
+    - "implementation"
+    - "ops"
+  applies_unchanged: true
+  local_context_required: false
+```

@@ -1,11 +1,12 @@
 ---
-artifact_type: "problem"
-artifact_id: "DSET-PROBLEM-GOV-002"
-scope_path:
-  - "layer:gov"
-priority: "medium"
+artifact_type: problem
+artifact_id: DSET-PROBLEM-GOV-002
+scope_path: layer:gov
+subject_scopes:
+  - assurance
+priority: medium
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 ---
 
 # Problem — Roadmap redeclared accepted Test and Eval IDs

@@ -1,11 +1,12 @@
 ---
-artifact_type: "requirement"
-artifact_id: "DSET-REQUIREMENT-GOV-032"
-scope_path:
-  - "layer:gov"
-priority: "medium"
+artifact_type: requirement
+artifact_id: DSET-REQUIREMENT-GOV-032
+scope_path: layer:gov
+subject_scopes:
+  - subject-scope
+priority: medium
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 ---
 
 # Requirement — Own cross-child truth at the narrowest common scope

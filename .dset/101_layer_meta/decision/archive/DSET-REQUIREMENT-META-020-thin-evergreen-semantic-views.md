@@ -1,26 +1,20 @@
 ---
-artifact_type: "requirement"
-artifact_id: "DSET-REQUIREMENT-META-020"
-scope_path:
-  - "layer:meta"
-priority: "high"
-promotion:
-  affected_children:
-    - "governance"
-    - "tool"
-    - "skill"
-  applies_unchanged: true
-  local_context_required: false
+artifact_type: requirement
+artifact_id: DSET-REQUIREMENT-META-020
+scope_path: layer:meta
+subject_scopes:
+  - governance-surface
+priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: "replacement_of"
+  - type: replacement_of
     targets:
-      - "DSET-REQUIREMENT-GOV-048"
-      - "DSET-REQUIREMENT-GOV-072"
-  - type: "relates_to"
+      - DSET-REQUIREMENT-GOV-048
+      - DSET-REQUIREMENT-GOV-072
+  - type: relates_to
     targets:
-      - "DSET-REQUIREMENT-META-019"
+      - DSET-REQUIREMENT-META-019
 ---
 
 # Requirement — Thin evergreen semantic views
@@ -69,3 +63,16 @@ Evergreen documents are thin, reasoned semantic views over authoritative atomic 
 ## Rationale
 
 Thin views preserve a readable current model without duplicating atomic authority. Ordered definitions prevent circular meaning, lifecycle tables make behavior operational, and direct atomic links keep every summarized claim traceable.
+
+
+## Historical frontmatter metadata
+
+```yaml
+promotion:
+  affected_children:
+    - "governance"
+    - "tool"
+    - "skill"
+  applies_unchanged: true
+  local_context_required: false
+```

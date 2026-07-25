@@ -1,24 +1,16 @@
 ---
-artifact_type: "question"
-artifact_id: "DSET-QUESTION-GOV-010"
-scope_path:
-  - "layer:gov"
-priority: "medium"
-promotion:
-  affected_children:
-    - "governance"
-    - "tool"
-    - "skill"
-    - "implementation"
-    - "ops"
-  applies_unchanged: false
-  local_context_required: true
+artifact_type: question
+artifact_id: DSET-QUESTION-GOV-010
+scope_path: layer:gov
+subject_scopes:
+  - lifecycle
+priority: medium
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: "relates_to"
+  - type: relates_to
     targets:
-      - "DSET-QUESTION-GOV-005"
+      - DSET-QUESTION-GOV-005
 ---
 
 # Question — Should lifecycle-event artifacts be removed?
@@ -61,3 +53,18 @@ Should DSET remove lifecycle_event as a standalone artifact type and derive atom
 ## Rationale
 
 Lifecycle-event files preserve changes to immutable atoms, but the current repository contains 110 additional carriers and many duplicate information already expressed by typed relations.
+
+
+## Historical frontmatter metadata
+
+```yaml
+promotion:
+  affected_children:
+    - "governance"
+    - "tool"
+    - "skill"
+    - "implementation"
+    - "ops"
+  applies_unchanged: false
+  local_context_required: true
+```

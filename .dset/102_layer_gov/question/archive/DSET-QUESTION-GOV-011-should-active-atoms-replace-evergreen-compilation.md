@@ -1,25 +1,17 @@
 ---
-artifact_type: "question"
-artifact_id: "DSET-QUESTION-GOV-011"
-scope_path:
-  - "layer:gov"
-priority: "high"
-promotion:
-  affected_children:
-    - "governance"
-    - "tool"
-    - "skill"
-    - "implementation"
-    - "ops"
-  applies_unchanged: false
-  local_context_required: true
+artifact_type: question
+artifact_id: DSET-QUESTION-GOV-011
+scope_path: layer:gov
+subject_scopes:
+  - artifact-catalog
+priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: "relates_to"
+  - type: relates_to
     targets:
-      - "DSET-REQUIREMENT-GOV-048"
-      - "DSET-DECISION-GOV-001"
+      - DSET-REQUIREMENT-GOV-048
+      - DSET-DECISION-GOV-001
 ---
 
 # Question — Should active atoms replace evergreen compilation?
@@ -50,3 +42,18 @@ Should DSET replace semantic compilation into evergreen specifications and plans
 ## Rationale
 
 Making the active atomic set the complete current specification could remove a competing truth layer, but it also changes how skills consume project truth and how long-form specifications, plans, and release snapshots are represented.
+
+
+## Historical frontmatter metadata
+
+```yaml
+promotion:
+  affected_children:
+    - "governance"
+    - "tool"
+    - "skill"
+    - "implementation"
+    - "ops"
+  applies_unchanged: false
+  local_context_required: true
+```

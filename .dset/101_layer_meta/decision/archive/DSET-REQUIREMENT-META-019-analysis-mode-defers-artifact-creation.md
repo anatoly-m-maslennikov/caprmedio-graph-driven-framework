@@ -1,22 +1,16 @@
 ---
-artifact_type: "requirement"
-artifact_id: "DSET-REQUIREMENT-META-019"
-scope_path:
-  - "layer:meta"
-priority: "high"
-promotion:
-  affected_children:
-    - "governance"
-    - "tool"
-    - "skill"
-  applies_unchanged: true
-  local_context_required: false
+artifact_type: requirement
+artifact_id: DSET-REQUIREMENT-META-019
+scope_path: layer:meta
+subject_scopes:
+  - interaction
+priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: "relates_to"
+  - type: relates_to
     targets:
-      - "DSET-REQUIREMENT-META-018"
+      - DSET-REQUIREMENT-META-018
 ---
 
 # Requirement — Analysis Mode defers artifact creation
@@ -55,3 +49,16 @@ DSET Analysis Mode permits brainstorming, research, comparison, and read-only in
 ## Rationale
 
 Exploration produces overlapping and short-lived candidates. Deferring durable emission until explicit acceptance prevents artifact churn while preserving atomic immutability and clear operator authority.
+
+
+## Historical frontmatter metadata
+
+```yaml
+promotion:
+  affected_children:
+    - "governance"
+    - "tool"
+    - "skill"
+  applies_unchanged: true
+  local_context_required: false
+```

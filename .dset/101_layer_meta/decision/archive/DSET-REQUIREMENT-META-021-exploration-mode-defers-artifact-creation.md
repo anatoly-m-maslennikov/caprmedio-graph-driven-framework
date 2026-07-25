@@ -1,25 +1,19 @@
 ---
-artifact_type: "requirement"
-artifact_id: "DSET-REQUIREMENT-META-021"
-scope_path:
-  - "layer:meta"
-priority: "high"
-promotion:
-  affected_children:
-    - "governance"
-    - "tool"
-    - "skill"
-  applies_unchanged: true
-  local_context_required: false
+artifact_type: requirement
+artifact_id: DSET-REQUIREMENT-META-021
+scope_path: layer:meta
+subject_scopes:
+  - interaction
+priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: "replacement_of"
+  - type: replacement_of
     targets:
-      - "DSET-REQUIREMENT-META-019"
-  - type: "relates_to"
+      - DSET-REQUIREMENT-META-019
+  - type: relates_to
     targets:
-      - "DSET-REQUIREMENT-META-020"
+      - DSET-REQUIREMENT-META-020
 ---
 
 # Requirement — Exploration Mode defers artifact creation
@@ -61,3 +55,16 @@ DSET Exploration Mode permits brainstorming, discussion, research, analysis, com
 ## Rationale
 
 Exploration is broader and more provider-neutral than analysis, discussion, or brainstorming alone. It covers divergent and convergent work across every project scope and routing axis while clearly separating candidate thinking from accepted governance.
+
+
+## Historical frontmatter metadata
+
+```yaml
+promotion:
+  affected_children:
+    - "governance"
+    - "tool"
+    - "skill"
+  applies_unchanged: true
+  local_context_required: false
+```

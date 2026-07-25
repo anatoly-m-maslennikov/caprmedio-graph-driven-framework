@@ -1,17 +1,19 @@
 ---
 artifact_type: requirement
 artifact_id: DSET-REQUIREMENT-GOV-119
-scope_path: ["layer:gov"]
+scope_path: layer:gov
+subject_scopes:
+  - artifact-catalog
 priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   - type: relates_to
     targets:
-      - "DSET-REQUIREMENT-GOV-102"
-      - "DSET-REQUIREMENT-GOV-113"
-      - "DSET-REQUIREMENT-GOV-114"
-      - "DSET-REQUIREMENT-GOV-118"
+      - DSET-REQUIREMENT-GOV-102
+      - DSET-REQUIREMENT-GOV-113
+      - DSET-REQUIREMENT-GOV-114
+      - DSET-REQUIREMENT-GOV-118
 ---
 
 # Requirement — Use four-character Type prefixes in artifact identities

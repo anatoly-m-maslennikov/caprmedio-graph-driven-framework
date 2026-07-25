@@ -1,20 +1,12 @@
 ---
-artifact_type: "requirement"
-artifact_id: "DSET-REQUIREMENT-GOV-065"
-scope_path:
-  - "layer:gov"
-priority: "high"
-promotion:
-  affected_children:
-    - "governance"
-    - "tool"
-    - "skill"
-    - "implementation"
-    - "ops"
-  applies_unchanged: false
-  local_context_required: true
+artifact_type: requirement
+artifact_id: DSET-REQUIREMENT-GOV-065
+scope_path: layer:gov
+subject_scopes:
+  - provenance
+priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 ---
 
 # Requirement — Require Git and commit coverage
@@ -56,3 +48,18 @@ Every DSET-managed project uses Git, dset-init requires an existing enclosing re
 ## Rationale
 
 Development without versioned history makes rollback, review, provenance, bisecting, and support investigation unreliable. Commit coverage connects each delivered behavior or correction to its governing reason without forcing unrelated work into one commit.
+
+
+## Historical frontmatter metadata
+
+```yaml
+promotion:
+  affected_children:
+    - "governance"
+    - "tool"
+    - "skill"
+    - "implementation"
+    - "ops"
+  applies_unchanged: false
+  local_context_required: true
+```

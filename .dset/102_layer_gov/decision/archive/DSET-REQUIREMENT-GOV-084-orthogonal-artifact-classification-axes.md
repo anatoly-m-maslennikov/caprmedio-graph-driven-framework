@@ -1,32 +1,24 @@
 ---
-artifact_type: "requirement"
-artifact_id: "DSET-REQUIREMENT-GOV-084"
-scope_path:
-  - "layer:gov"
-priority: "high"
-promotion:
-  affected_children:
-    - "governance"
-    - "tool"
-    - "skill"
-    - "implementation"
-    - "ops"
-  applies_unchanged: true
-  local_context_required: false
+artifact_type: requirement
+artifact_id: DSET-REQUIREMENT-GOV-084
+scope_path: layer:gov
+subject_scopes:
+  - artifact-catalog
+priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: "replacement_of"
+  - type: replacement_of
     targets:
-      - "DSET-REQUIREMENT-GOV-076"
-      - "DSET-REQUIREMENT-GOV-081"
-      - "DSET-REQUIREMENT-GOV-082"
-      - "DSET-REQUIREMENT-GOV-083"
-  - type: "relates_to"
+      - DSET-REQUIREMENT-GOV-076
+      - DSET-REQUIREMENT-GOV-081
+      - DSET-REQUIREMENT-GOV-082
+      - DSET-REQUIREMENT-GOV-083
+  - type: relates_to
     targets:
-      - "DSET-REQUIREMENT-GOV-079"
-      - "DSET-REQUIREMENT-GOV-080"
-      - "DSET-DECISION-OPS-013"
+      - DSET-REQUIREMENT-GOV-079
+      - DSET-REQUIREMENT-GOV-080
+      - DSET-DECISION-OPS-013
 ---
 
 # Requirement — Orthogonal artifact-classification axes
@@ -175,3 +167,18 @@ DSET classifies every governed artifact through independent revision_mode, conte
 ## Rationale
 
 FPF strict-distinction, method-work, provenance, relational-precision, and anti-explosion principles require change semantics, semantic contribution, relational arity, governance origin, and structural scope to remain separate rather than being encoded in Type names or workflow stages.
+
+
+## Historical frontmatter metadata
+
+```yaml
+promotion:
+  affected_children:
+    - "governance"
+    - "tool"
+    - "skill"
+    - "implementation"
+    - "ops"
+  applies_unchanged: true
+  local_context_required: false
+```

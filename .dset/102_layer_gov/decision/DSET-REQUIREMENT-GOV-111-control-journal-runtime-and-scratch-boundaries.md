@@ -1,18 +1,20 @@
 ---
 artifact_type: requirement
 artifact_id: DSET-REQUIREMENT-GOV-111
-scope_path: ["layer:gov"]
+scope_path: layer:gov
+subject_scopes:
+  - runtime
 priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   - type: replacement_of
     targets:
-      - "DSET-REQUIREMENT-GOV-043"
-      - "DSET-REQUIREMENT-GOV-100"
+      - DSET-REQUIREMENT-GOV-043
+      - DSET-REQUIREMENT-GOV-100
   - type: child_of
     targets:
-      - "DSET-REQUIREMENT-META-053"
+      - DSET-REQUIREMENT-META-053
 ---
 
 # Requirement — Separate control, journal, runtime, and scratch state

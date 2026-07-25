@@ -1,18 +1,19 @@
 ---
-artifact_type: "evaluation_plan"
-artifact_id: "DSET-EVALUATION-CASE-GOV-028"
-scope_path:
-  - "layer:gov"
-priority: "medium"
+artifact_type: evaluation_plan
+artifact_id: DSET-EVALUATION-CASE-GOV-028
+scope_path: layer:gov
+subject_scopes:
+  - assurance
+priority: medium
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: "check_of"
+  - type: check_of
     targets:
-      - "DSET-REQUIREMENT-GOV-037"
-  - type: "replacement_of"
+      - DSET-REQUIREMENT-GOV-037
+  - type: replacement_of
     targets:
-      - "DSET-EVALUATION-CASE-GOV-027"
+      - DSET-EVALUATION-CASE-GOV-027
 ---
 
 # Evaluation Case — Judge settings discoverability

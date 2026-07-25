@@ -1,18 +1,19 @@
 ---
-artifact_type: "implementation_decision"
-artifact_id: "DSET-DECISION-GOV-027"
-scope_path:
-  - "layer:gov"
-priority: "high"
+artifact_type: implementation_decision
+artifact_id: DSET-DECISION-GOV-027
+scope_path: layer:gov
+subject_scopes:
+  - carrier-format
+priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: "replacement_of"
+  - type: replacement_of
     targets:
-      - "DSET-DECISION-GOV-018"
-  - type: "child_of"
+      - DSET-DECISION-GOV-018
+  - type: child_of
     targets:
-      - "DSET-DECISION-GOV-025"
+      - DSET-DECISION-GOV-025
 ---
 
 # Decision — Atomize carrier transitions

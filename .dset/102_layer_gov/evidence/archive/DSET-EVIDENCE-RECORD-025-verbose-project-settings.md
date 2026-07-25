@@ -1,19 +1,18 @@
 ---
-artifact_type: "evidence_record"
-artifact_subtype: "test_result"
-artifact_id: "DSET-EVIDENCE-RECORD-025"
-scope_path:
-  - "layer:gov"
-priority: "high"
+artifact_type: evidence_record
+artifact_subtype: test_result
+artifact_id: DSET-EVIDENCE-RECORD-025
+scope_path: layer:gov
+priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: "evidence_for"
+  - type: evidence_for
     targets:
-      - "DSET-TEST-CASE-GOV-038"
-  - type: "relates_to"
+      - DSET-TEST-CASE-GOV-038
+  - type: relates_to
     targets:
-      - "DSET-REQUIREMENT-GOV-037"
+      - DSET-REQUIREMENT-GOV-037
 ---
 
 # Test result — Verbose project settings

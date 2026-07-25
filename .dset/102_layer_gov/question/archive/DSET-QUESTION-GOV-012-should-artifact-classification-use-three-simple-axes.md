@@ -1,24 +1,16 @@
 ---
-artifact_type: "question"
-artifact_id: "DSET-QUESTION-GOV-012"
-scope_path:
-  - "layer:gov"
-priority: "high"
-promotion:
-  affected_children:
-    - "governance"
-    - "tool"
-    - "skill"
-    - "implementation"
-    - "ops"
-  applies_unchanged: false
-  local_context_required: true
+artifact_type: question
+artifact_id: DSET-QUESTION-GOV-012
+scope_path: layer:gov
+subject_scopes:
+  - artifact-catalog
+priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: "relates_to"
+  - type: relates_to
     targets:
-      - "DSET-REQUIREMENT-GOV-047"
+      - DSET-REQUIREMENT-GOV-047
 ---
 
 # Question — Should artifact classification use three simple axes?
@@ -70,3 +62,18 @@ Should DSET replace the current artifact-classification axes with artifact_type 
 ## Rationale
 
 The proposed axes directly separate revision semantics, lifecycle meaning, and authority origin while eliminating overlapping phase-role and answer-to classifications and the special Implementation artifact class.
+
+
+## Historical frontmatter metadata
+
+```yaml
+promotion:
+  affected_children:
+    - "governance"
+    - "tool"
+    - "skill"
+    - "implementation"
+    - "ops"
+  applies_unchanged: false
+  local_context_required: true
+```

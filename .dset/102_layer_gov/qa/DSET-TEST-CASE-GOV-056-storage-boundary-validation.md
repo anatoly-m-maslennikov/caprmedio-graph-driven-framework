@@ -1,17 +1,19 @@
 ---
 artifact_type: test_case
 artifact_id: DSET-TEST-CASE-GOV-056
-scope_path: ["layer:gov"]
+scope_path: layer:gov
+subject_scopes:
+  - assurance
 priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   - type: replacement_of
     targets:
-      - "DSET-TEST-CASE-GOV-048"
+      - DSET-TEST-CASE-GOV-048
   - type: check_of
     targets:
-      - "DSET-REQUIREMENT-GOV-111"
+      - DSET-REQUIREMENT-GOV-111
 ---
 
 # Test Case — Validate storage boundaries

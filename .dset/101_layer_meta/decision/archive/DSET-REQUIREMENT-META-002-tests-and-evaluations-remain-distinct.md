@@ -1,15 +1,16 @@
 ---
-artifact_type: "requirement"
-artifact_id: "DSET-REQUIREMENT-META-002"
-scope_path:
-  - "layer:meta"
-priority: "high"
+artifact_type: requirement
+artifact_id: DSET-REQUIREMENT-META-002
+scope_path: layer:meta
+subject_scopes:
+  - assurance
+priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: "relates_to"
+  - type: relates_to
     targets:
-      - "DSET-REQUIREMENT-META-001"
+      - DSET-REQUIREMENT-META-001
 ---
 
 # Requirement — Tests and Evaluations remain distinct

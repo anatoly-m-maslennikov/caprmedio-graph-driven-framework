@@ -1,18 +1,20 @@
 ---
 artifact_type: test_case
 artifact_id: DSET-TEST-CASE-GOV-058
-scope_path: ["layer:gov"]
+scope_path: layer:gov
+subject_scopes:
+  - assurance
 priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   - type: replacement_of
     targets:
-      - "DSET-TEST-CASE-GOV-051"
-      - "DSET-TEST-CASE-GOV-052"
+      - DSET-TEST-CASE-GOV-051
+      - DSET-TEST-CASE-GOV-052
   - type: check_of
     targets:
-      - "DSET-REQUIREMENT-GOV-108"
+      - DSET-REQUIREMENT-GOV-108
 ---
 
 # Test Case — Validate semantic immutability and lossless recoding

@@ -1,15 +1,17 @@
 ---
 artifact_type: requirement
 artifact_id: DSET-REQUIREMENT-GOV-108
-scope_path: ["layer:gov"]
+scope_path: layer:gov
+subject_scopes:
+  - lifecycle
 priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   - type: replacement_of
     targets:
-      - "DSET-REQUIREMENT-GOV-060"
-      - "DSET-REQUIREMENT-GOV-061"
+      - DSET-REQUIREMENT-GOV-060
+      - DSET-REQUIREMENT-GOV-061
 ---
 
 # Requirement — Preserve semantic atoms through lossless recoding

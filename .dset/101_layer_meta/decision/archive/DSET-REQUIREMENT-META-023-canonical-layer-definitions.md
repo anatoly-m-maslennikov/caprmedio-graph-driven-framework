@@ -1,27 +1,19 @@
 ---
-artifact_type: "requirement"
-artifact_id: "DSET-REQUIREMENT-META-023"
-scope_path:
-  - "layer:meta"
-priority: "high"
-promotion:
-  affected_children:
-    - "governance"
-    - "tool"
-    - "skill"
-    - "implementation"
-    - "operations"
-  applies_unchanged: true
-  local_context_required: false
+artifact_type: requirement
+artifact_id: DSET-REQUIREMENT-META-023
+scope_path: layer:meta
+subject_scopes:
+  - topology
+priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: "replacement_of"
+  - type: replacement_of
     targets:
-      - "DSET-DECISION-GOV-031"
-  - type: "relates_to"
+      - DSET-DECISION-GOV-031
+  - type: relates_to
     targets:
-      - "DSET-REQUIREMENT-META-022"
+      - DSET-REQUIREMENT-META-022
 ---
 
 # Requirement — Define the canonical layers
@@ -47,3 +39,18 @@ DSET uses the ordered layers META, GOV, TOOL, SKILL, IMPL, and OPS, with one can
 ## Rationale
 
 Stable layer definitions make ownership and dependency direction understandable without relying on directory names or current implementation details.
+
+
+## Historical frontmatter metadata
+
+```yaml
+promotion:
+  affected_children:
+    - "governance"
+    - "tool"
+    - "skill"
+    - "implementation"
+    - "operations"
+  applies_unchanged: true
+  local_context_required: false
+```

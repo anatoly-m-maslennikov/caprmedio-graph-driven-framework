@@ -1,17 +1,19 @@
 ---
 artifact_type: requirement
 artifact_id: DSET-REQUIREMENT-GOV-105
-scope_path: ["layer:gov"]
+scope_path: layer:gov
+subject_scopes:
+  - subject-scope
 priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   - type: replacement_of
     targets:
-      - "DSET-REQUIREMENT-GOV-032"
+      - DSET-REQUIREMENT-GOV-032
   - type: child_of
     targets:
-      - "DSET-REQUIREMENT-META-052"
+      - DSET-REQUIREMENT-META-052
 ---
 
 # Requirement — Own truth at the narrowest common scope

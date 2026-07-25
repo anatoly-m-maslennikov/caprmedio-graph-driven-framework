@@ -1,18 +1,19 @@
 ---
 artifact_type: requirement
 artifact_id: DSET-REQUIREMENT-META-037
-scope_path:
-  - "layer:meta"
+scope_path: layer:meta
+subject_scopes:
+  - interaction
 priority: high
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   - type: child_of
     targets:
-      - "DSET-REQUIREMENT-META-021"
+      - DSET-REQUIREMENT-META-021
   - type: relates_to
     targets:
-      - "DSET-REQUIREMENT-META-036"
+      - DSET-REQUIREMENT-META-036
 ---
 
 # Requirement — Idea input enters Exploration Mode
