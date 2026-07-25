@@ -49,3 +49,5 @@ delivery/runtime configuration stays in OPS.
 - `000_dset-implementation-evaluations-hub.md`
 - `000_dset-implementation-schemas-hub.md`
 - `000_dset-implementation-templates-hub.md`
+- [Migration tools](tools/migrations/README.md) — reusable migration safety
+  mechanisms and bounded recipes.
