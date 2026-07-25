@@ -72,7 +72,7 @@ session.
 | `dset-prototype` | Explicit bounded experiment where solution uncertainty blocks a decision; returns comparable disposable evidence | Stops before production adoption or promotion |
 | `dset-decisions` | Reconcile accepted directives from available current input/session and repository evidence into missing atomic records; acceptance and owning scope must be clear | Returns emitted IDs and affected evergreen owners; stops on uncertain acceptance, unresolved meaning, missing authority, semantic compilation, or implementation |
 | `dset-compile` | An explicit compilation request or a downstream entry gate requires affected evergreen truth to include accepted atoms beyond its recorded frontier | Returns semantically synthesized owner updates, unchanged owners, pending atoms, conflicts, and frontier state; stops before implementation, testing, evaluation, or release |
-| `dset-plan-proof` | Accepted behavior lacks complete deterministic tests or applicable qualitative evals; returns separate current test and eval plans | Stops before implementation or proof execution |
+| `dset-plan-proof` | Accepted behavior lacks complete deterministic tests or applicable qualitative evals; returns separate current test and evaluation cases | Stops before implementation or proof execution |
 | `dset-plan-implementation` | Accepted behavior and proof obligations exist but executable work is incomplete; returns a dependency-ordered build plan and Change tasks | Stops before implementation |
 | `dset-implement` | A bounded implementation outcome is requested; the chain first reconciles Decisions, then requires complete separate proof plans, an executable implementation plan, and implementation authorization | Returns bounded implementation plus test/eval assets and provenance; stops before claiming verification or release readiness |
 | `dset-verify` | Implementation or governing artifacts changed after applicable proof; returns deterministic test results, eval evidence where applicable, and conformance status | Stops before repairing failures or releasing |
@@ -140,7 +140,7 @@ The `implement` closure is ordered:
    the DSET checkpoint and run records, Git, and current artifacts;
 2. invoke `compile` only when an affected evergreen owner must be current for
    this implementation and accepted atoms remain beyond its frontier;
-3. invoke `plan-proof` when separate Test or applicable Evaluation plans are
+3. invoke `plan-proof` when separate Test or applicable Evaluation cases are
    incomplete;
 4. invoke `plan-implementation` when the executable plan is incomplete; and
 5. invoke `implement` only when all resolved entry criteria and authorization

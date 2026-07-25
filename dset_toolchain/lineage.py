@@ -694,9 +694,9 @@ def _source_error(node: RelationNode, relation_type: str) -> str | None:
     ):
         return "projection_of must originate from an evergreen artifact"
     if relation_type == "check_of" and not (
-        node.semantic_type == "qa" and node.subtype in {"test_plan", "evaluation_plan"}
+        node.semantic_type == "qa" and node.subtype in {"test_case", "evaluation_case"}
     ):
-        return "check_of must originate from a Test Plan or Evaluation Plan atom"
+        return "check_of must originate from a Test Case or Evaluation Case atom"
     if relation_type == "evidence_for" and node.artifact_type != "evidence_record":
         return "evidence_for must originate from an Evidence Record"
     if relation_type == "override_of" and node.semantic_type != "decision":

@@ -7,7 +7,6 @@ Host requirements: an isolated supported Python environment.
 
 from __future__ import annotations
 
-import json
 import unittest
 from pathlib import Path
 
@@ -264,19 +263,34 @@ class ProjectSettingsTests(unittest.TestCase):
 
     def test_published_priority_schemas_defer_vocabulary_to_settings(self) -> None:
         paths = {
-            "atom": ROOT / ".dset/02_layer_gov/schemas/atom.schema.toml",
-            "change": ROOT / ".dset/02_layer_gov/schemas/change.schema.toml",
-            "review": ROOT / ".dset/02_layer_gov/schemas/review-report.schema.toml",
-            "conflict": (
-                ROOT / ".dset/02_layer_gov/schemas/conflict-candidate.schema.toml"
+            "atom": (
+                ROOT / "12_layer_gov/120_schemas/010_dset-gov-schemas-atom.schema.toml"
             ),
-            "lifecycle": ROOT / ".dset/02_layer_gov/schemas/lifecycle.schema.toml",
+            "change": (
+                ROOT
+                / "12_layer_gov/120_schemas/020_dset-gov-schemas-change.schema.toml"
+            ),
+            "review": (
+                ROOT
+                / "12_layer_gov"
+                / "120_schemas"
+                / "110_dset-gov-schemas-review-report.schema.toml"
+            ),
+            "conflict": (
+                ROOT
+                / "12_layer_gov"
+                / "120_schemas"
+                / "040_dset-gov-schemas-conflict-candidate.schema.toml"
+            ),
             "traceability": (
-                ROOT / ".dset/03_layer_tool/schemas/traceability.schema.toml"
+                ROOT
+                / "13_layer_tool"
+                / "080_schemas"
+                / "030_dset-tool-schemas-traceability.schema.toml"
             ),
         }
         schemas = {
-            name: json.loads(path.read_text(encoding="utf-8"))
+            name: load_toml(path.read_text(encoding="utf-8"))
             for name, path in paths.items()
         }
         definitions = (
@@ -285,9 +299,6 @@ class ProjectSettingsTests(unittest.TestCase):
             schemas["review"]["properties"]["priority"],
             schemas["review"]["$defs"]["finding"]["properties"]["priority"],
             schemas["conflict"]["$defs"]["priority"],
-            schemas["lifecycle"]["properties"]["events"]["items"]["properties"][
-                "priority"
-            ],
             schemas["traceability"]["$defs"]["semantic_atom"]["properties"]["priority"],
         )
         for definition in definitions:

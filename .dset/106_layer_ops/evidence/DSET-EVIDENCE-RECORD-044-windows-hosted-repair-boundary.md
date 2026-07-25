@@ -13,7 +13,7 @@ currentness = "current"
 reopen_when = "The repaired candidate is published and receives a completed hosted matrix, or its path/newline policy, migration byte handling, fixture policy, or configured verification commands change."
 
 [subject]
-id = "DSET-TEST-PLAN-OPS-021"
+id = "DSET-TEST-CASE-OPS-021"
 revision = "92fd2a8df05ff37eecc3c45a0143466b36ba1be9"
 intended_use = "Bind the locally passing Windows repair candidate and the failing hosted predecessor without claiming exact-head hosted success."
 
@@ -27,7 +27,7 @@ setup = "GitHub-hosted Ubuntu, macOS, and native Windows for the remote predeces
 
 [[relations]]
 type = "evidence_for"
-target = "DSET-TEST-PLAN-OPS-021"
+target = "DSET-TEST-CASE-OPS-021"
 +++
 
 # Test result — Windows hosted repair boundary

@@ -1,5 +1,5 @@
-# Test plan — Small fixture
+# Test case — Small fixture
 
 | Test ID | Requirement | Proof |
 |---|---|---|
-| **DSET-TEST-PLAN-001** | DSET-REQUIREMENT-001 | Assert exact output `ok` |
+| **DSET-TEST-CASE-001** | DSET-REQUIREMENT-001 | Assert exact output `ok` |

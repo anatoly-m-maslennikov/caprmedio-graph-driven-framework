@@ -12,7 +12,7 @@ llm_session_ids = ["codex:019f591f-04f6-70f2-8de7-828b7cccc69d"]
 ## Purpose
 
 Hold possible 0.6 work without creating current Decisions, Requirements,
-Questions, Problems, Test Plans, or Evaluation Plans before that work starts.
+Questions, Problems, Test Cases, or Evaluation Cases before that work starts.
 
 ## Candidate operator scenarios
 
@@ -36,6 +36,22 @@ Questions, Problems, Test Plans, or Evaluation Plans before that work starts.
 - Prioritization beyond the single generic execution priority.
 - Feedback and analytics.
 - Generated roadmap and release views.
+
+## Withdrawn current questions retained as future intent
+
+The following archived Questions no longer belong to the current work surface.
+Their possible future intent is retained here without reopening or modifying
+the immutable atoms:
+
+- `DSET-QUESTION-META-001`
+- `DSET-QUESTION-META-002`
+- `DSET-QUESTION-META-003`
+- `DSET-QUESTION-META-004`
+- `DSET-QUESTION-META-005`
+
+If any topic becomes current during 0.6, emit one or more new atomic artifacts
+for the accepted scope. A new Question or Problem that repeats a previously
+archived concern uses `recurrence_of` to link the archived predecessor.
 
 ## Activation rule
 

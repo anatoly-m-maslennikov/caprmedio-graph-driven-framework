@@ -22,7 +22,7 @@ from dset_toolchain.conflicts import (
     write_conflict_result,
 )
 from dset_toolchain.semantic_atoms import (
-    append_lifecycle_event,
+    archive_atom,
     collect_semantic_atoms,
     seal_atom,
 )
@@ -126,7 +126,7 @@ class PriorityConflictTests(unittest.TestCase):
         self.assertEqual(priority["disposition"], "selected_by_priority")
         self.assertEqual(precedence["selected_id"], "APP-RULE-LEFT-001")
         self.assertEqual(precedence["disposition"], "selected_by_precedence")
-        self.assertTrue(priority["resolution_event_required"])
+        self.assertTrue(priority["resolution_artifact_required"])
 
     def test_equal_or_immutable_unsatisfiable_authority_stops(self) -> None:
         equal = resolve_conflict(
@@ -197,7 +197,7 @@ class PriorityConflictTests(unittest.TestCase):
 
     def test_relation_and_precedence_assertion_mismatches_are_rejected(self) -> None:
         candidate = self._candidate("atomic_authority", "atomic_authority")
-        candidate["relation"] = "absorption"
+        candidate["relation"] = "replacement"
         candidate["relation_winner"] = "APP-LEFT-001"
         with self.assertRaisesRegex(ValueError, "relation assertion mismatches"):
             resolve_conflict(self.root, candidate)
@@ -258,42 +258,19 @@ class PriorityConflictTests(unittest.TestCase):
         self.assertTrue(result["conflict_atom_required"])
         self.assertEqual(atoms["DSET-CONFLICT-003"].subtype, "conflict")
 
-    def test_absorption_and_priority_lifecycle_are_repository_derived(self) -> None:
+    def test_replacement_is_derived_from_relation_and_archive(self) -> None:
         root = create_adopter(ROOT, self.root / "adopter")
         self._seed_parties(root, replacement=True)
+        archive_atom(root, "DSET-DECISION-001")
         candidate = self._atomic_candidate(root)
-        recorded = resolve_conflict(root, candidate)
-        self.assertTrue(conflict_result_is_fresh(root, candidate, recorded))
-
-        append_lifecycle_event(
-            root,
-            {
-                "id": "DSET-LIFECYCLE-EVENT-001",
-                "atom_id": "DSET-DECISION-001",
-                "event": "priority_changed",
-                "occurred_at": "2026-07-20T00:00:00+04:00",
-                "priority": "high",
-                "related": [],
-                "llm_session_ids": ["codex:test-session"],
-            },
-        )
-        self.assertFalse(conflict_result_is_fresh(root, candidate, recorded))
-
-        append_lifecycle_event(
-            root,
-            {
-                "id": "DSET-LIFECYCLE-EVENT-002",
-                "atom_id": "DSET-DECISION-001",
-                "event": "absorbed",
-                "occurred_at": "2026-07-20T01:00:00+04:00",
-                "related": ["DSET-CONTRACT-002"],
-                "llm_session_ids": ["codex:test-session"],
-            },
-        )
         candidate["context"]["applicable"] = False
-        absorbed = resolve_conflict(root, candidate)
-        self.assertEqual(absorbed["conflict_class"], "absorption")
-        self.assertEqual(absorbed["selected_id"], "DSET-CONTRACT-002")
+        replacement = resolve_conflict(root, candidate)
+        self.assertEqual(replacement["conflict_class"], "replacement")
+        self.assertEqual(replacement["selected_id"], "DSET-CONTRACT-002")
+        self.assertEqual(
+            replacement["disposition"],
+            "replacement_atom_governs",
+        )
 
     def _candidate(
         self,

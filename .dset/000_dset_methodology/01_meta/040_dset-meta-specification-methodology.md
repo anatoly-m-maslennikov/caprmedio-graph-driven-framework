@@ -13,7 +13,7 @@ priority: high
 Atomic source: `DSET-REQUIREMENT-META-047`.
 
 The methodology defines one six-role feedback cycle: Inquiry; Analysis;
-Definition; Method; Implementation; and Observation. Test plans, evaluation
+Definition; Method; Implementation; and Observation. Test cases, evaluation
 plans, and implementation plans are Methods. Code and generated operative
 outputs are Implementations. Test and evaluation results are Observations.
 Rationale is Analysis content rather than a separate Content role.
@@ -26,15 +26,15 @@ connect it to the other roles without duplicating ownership.
 
 Atomic source: `DSET-REQUIREMENT-META-049`.
 
-The methodology must keep deterministic Test Plans separate from
-probabilistic or qualitative Evaluation Plans. Each atomic plan defines one
+The methodology must keep deterministic Test Cases separate from
+probabilistic or qualitative Evaluation Cases. Each atomic plan defines one
 check obligation. Optional maintained test-plan and evaluation-plan views may
 organize applicable atoms without changing them. Both forms are Methods; their
 execution results remain distinct Observations.
 
 **Scenario DSET-SCENARIO-META-002:** Given behavior with one exact expected
-output, emit a Test Plan even when the check is automated. Given multiple
-acceptable outputs judged by criteria or a rubric, emit an Evaluation Plan.
+output, emit a Test Case even when the check is automated. Given multiple
+acceptable outputs judged by criteria or a rubric, emit an Evaluation Case.
 When a maintained planning surface is enabled, it organizes those atoms rather
 than replacing their immutable definitions.
 
@@ -121,7 +121,7 @@ Split independently enforceable acceptance criteria into sibling atomic
 Definitions.
 
 **Scenario DSET-SCENARIO-META-010:** A contributor story explains why a host
-integration matters, while separate Definition, Test Plan, and Evaluation Plan
+integration matters, while separate Definition, Test Case, and Evaluation Case
 artifacts own the behavior and proof.
 
 ### Outcome framing

@@ -21,8 +21,8 @@ from .semantic_atoms import (
     seal_atom,
 )
 from .settings import load_project_settings
-from .toml_codec import loads as load_toml
 from .structured_data import load as load_structured
+from .toml_codec import loads as load_toml
 
 # ROLES defines roles; this module owns the default.
 ROLES = frozenset(
@@ -61,7 +61,7 @@ class ConflictParty:
     subtype: str | None
     carrier_id: str | None
     relations: tuple[dict[str, Any], ...]
-    absorbed_by: tuple[str, ...]
+    replaced_by: tuple[str, ...]
     evidence: tuple[dict[str, str], ...]
 
 
@@ -142,15 +142,15 @@ def resolve_conflict(root: Path, candidate: dict[str, Any]) -> dict[str, Any]:
         ),
         "conflict_atom_required": False,
         "selected_id": None,
-        "resolution_event_required": False,
+        "resolution_artifact_required": False,
         "stale_when": "Either party, priority source, relation, or context changes.",
     }
-    if relation == "absorption":
+    if relation == "replacement":
         assert relation_winner is not None
         return _result(
             base,
-            conflict_class="absorption",
-            disposition="absorbing_atom_governs",
+            conflict_class="replacement",
+            disposition="replacement_atom_governs",
             selected_id=relation_winner,
         )
     if relation == "source_projection":
@@ -249,7 +249,7 @@ def resolve_conflict(root: Path, candidate: dict[str, Any]) -> dict[str, Any]:
             disposition="stop_for_decision",
         )
     if precedence is not None:
-        base["resolution_event_required"] = True
+        base["resolution_artifact_required"] = True
         return _result(
             base,
             conflict_class="selectable_policy",
@@ -263,7 +263,7 @@ def resolve_conflict(root: Path, candidate: dict[str, Any]) -> dict[str, Any]:
             conflict_class="selectable_policy",
             disposition="stop_on_equal_unknown_or_incomparable_priority",
         )
-    base["resolution_event_required"] = True
+    base["resolution_artifact_required"] = True
     return _result(
         base,
         conflict_class="selectable_policy",
@@ -292,7 +292,7 @@ def conflict_result_is_fresh(
             "disposition",
             "selected_id",
             "conflict_atom_required",
-            "resolution_event_required",
+            "resolution_artifact_required",
         )
     )
 
@@ -453,8 +453,7 @@ def _party(
             priority_source=str(row["priority_source"]),
             immutable=True,
             external=external,
-            applicable=current_status
-            not in {"proposed", "absorbed", "rejected", "retired", "withdrawn"},
+            applicable=current_status not in {"proposed", "archived"},
             scope=_scope(metadata.get("scope")),
             current_status=current_status,
             semantic_type=atom.semantic_type,
@@ -463,8 +462,8 @@ def _party(
             relations=tuple(
                 item for item in row["relations"] if isinstance(item, dict)
             ),
-            absorbed_by=tuple(str(item) for item in row["absorbed_by"]),
-            evidence=tuple(_atom_evidence(root, path, row)),
+            replaced_by=tuple(str(item) for item in row["replaced_by"]),
+            evidence=tuple(_atom_evidence(root, path)),
         )
     elif identifier in rules:
         rule = rules[identifier]
@@ -492,7 +491,7 @@ def _party(
             subtype=None,
             carrier_id=None,
             relations=(),
-            absorbed_by=(),
+            replaced_by=(),
             evidence=tuple(evidence),
         )
     else:
@@ -531,7 +530,7 @@ def _party(
             subtype=None,
             carrier_id=None,
             relations=tuple(_metadata_relations(metadata)),
-            absorbed_by=(),
+            replaced_by=(),
             evidence=(source_identity,),
         )
     if party.priority not in {*priority_scale, "unknown"}:
@@ -677,17 +676,9 @@ def _asserted_identity(root: Path, value: object, label: str) -> dict[str, str]:
     return current
 
 
-def _atom_evidence(root: Path, path: Path, row: dict[str, Any]) -> list[dict[str, str]]:
+def _atom_evidence(root: Path, path: Path) -> list[dict[str, str]]:
     """Handle evidence using the declared repository contract."""
-    evidence = [_derived_identity(root, path)]
-    if row.get("lifecycle_events"):
-        layout = discover_layout(root)
-        lifecycle_path = layout.structured_file(
-            layout.project_state_root, "lifecycle.toml"
-        )
-        if lifecycle_path.is_file():
-            evidence.append(_derived_identity(root, lifecycle_path))
-    return evidence
+    return [_derived_identity(root, path)]
 
 
 def _metadata_role(metadata: dict[str, Any]) -> str:
@@ -723,7 +714,7 @@ def _metadata_applicable(metadata: dict[str, Any], status: str) -> bool:
         return explicit
     if isinstance(explicit, str) and explicit in {"applicable", "not_applicable"}:
         return explicit == "applicable"
-    return status not in {"proposed", "absorbed", "rejected", "retired", "withdrawn"}
+    return status not in {"proposed", "archived"}
 
 
 def _scope(value: object) -> dict[str, Any] | None:
@@ -772,10 +763,10 @@ def _derived_relation(
     left: ConflictParty, right: ConflictParty
 ) -> tuple[str, str | None]:
     """Handle relation using the declared repository contract."""
-    if right.id in left.absorbed_by:
-        return "absorption", right.id
-    if left.id in right.absorbed_by:
-        return "absorption", left.id
+    if right.id in left.replaced_by:
+        return "replacement", right.id
+    if left.id in right.replaced_by:
+        return "replacement", left.id
     if left.role == "evergreen_projection" and _projects(left, right):
         return "source_projection", None
     if right.role == "evergreen_projection" and _projects(right, left):
@@ -906,7 +897,7 @@ def _party_dict(party: ConflictParty) -> dict[str, object]:
         "subtype": party.subtype,
         "carrier_id": party.carrier_id,
         "relations": list(party.relations),
-        "absorbed_by": list(party.absorbed_by),
+        "replaced_by": list(party.replaced_by),
         "evidence": list(party.evidence),
     }
 

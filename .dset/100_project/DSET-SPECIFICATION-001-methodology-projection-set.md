@@ -127,8 +127,8 @@ This evergreen carrier binds the current project and layer semantic frontiers
 to the package fragments that compile them:
 
 - Behavior specification: `080_dset-gov-specification-methodology.md`
-- Deterministic Test plan: `DSET-GOV-plan-tests.md`
-- Qualitative Evaluation plan: `DSET-GOV-plan-evaluations.md`
+- Deterministic Test case: `DSET-GOV-plan-tests.md`
+- Qualitative Evaluation case: `DSET-GOV-plan-evaluations.md`
 - TOOL executable specification: `DSET-TOOL-REFERENCE-specification-methodology.toml`
 - IMPL profile and methodology specifications: `DSET-IMPL-REFERENCE-profile-local-python-tools.toml`
 - OPS operational specification: `DSET-OPS-REFERENCE-specification-methodology.toml`

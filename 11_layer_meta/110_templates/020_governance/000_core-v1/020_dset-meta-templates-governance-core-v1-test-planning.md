@@ -5,9 +5,9 @@ priority: medium
 artifact_subtype: playbook
 ---
 
-# Deterministic test planning
+# Deterministic test casening
 
-**Rule ID:** `DSET-RULE-TEST-PLAN`
+**Rule ID:** `DSET-RULE-TEST-CASE`
 
 ## Rules
 

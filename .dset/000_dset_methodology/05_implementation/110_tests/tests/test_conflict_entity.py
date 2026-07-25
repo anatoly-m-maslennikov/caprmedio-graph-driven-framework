@@ -65,8 +65,8 @@ class ConflictEntityTests(unittest.TestCase):
         )
         assert isinstance(package, dict)
         self.assertIn("DSET-REQUIREMENT-GOV-027", package["requirements"])
-        self.assertIn("DSET-TEST-PLAN-GOV-027", package["tests"])
-        self.assertIn("DSET-EVAL-PLAN-GOV-017", package["evals"])
+        self.assertIn("DSET-TEST-CASE-GOV-027", package["tests"])
+        self.assertIn("DSET-EVALUATION-CASE-GOV-017", package["evals"])
 
     def test_absorbing_decision_preserves_immutable_predecessor(self) -> None:
         predecessor = DECISIONS / (

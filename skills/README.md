@@ -43,7 +43,7 @@ project policy is retained or copied across that boundary.
 - [`dset-prototype`](dset-prototype/SKILL.md) — run bounded disposable design experiments and feed evidence into the Solution Landscape and Decision.
 - [`dset-decisions`](dset-decisions/SKILL.md) — reconcile accepted session intent into immutable atomic records and compiled handoffs.
 - [`dset-compile`](dset-compile/SKILL.md) — semantically synthesize pending accepted atoms into only the affected evergreen specifications and plans when compilation is requested or required by an entry gate.
-- [`dset-plan-proof`](dset-plan-proof/SKILL.md) — maintain separate deterministic test and qualitative eval plans.
+- [`dset-plan-proof`](dset-plan-proof/SKILL.md) — maintain separate deterministic test and qualitative evaluation cases.
 - [`dset-plan-implementation`](dset-plan-implementation/SKILL.md) — create dependency-ordered implementation work and Change tasks.
 - [`dset-triage`](dset-triage/SKILL.md) — classify and route Questions, including Conflicts and Opportunities, and Problems.
 - [`dset-complete`](dset-complete/SKILL.md) — confirm terminal state and report residual obligations without inventing work.

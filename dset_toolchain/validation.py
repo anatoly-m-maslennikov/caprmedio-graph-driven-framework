@@ -77,8 +77,8 @@ TRACE_TYPES = (
     "DEFECT",
     "GAP",
     "DEBT",
-    "TEST-PLAN",
-    "EVAL-PLAN",
+    "TEST-CASE",
+    "EVALUATION-CASE",
     "TASK",
     "CHANGE",
 )
@@ -144,8 +144,8 @@ ARTIFACT_TYPE_SUBTYPES: dict[str, frozenset[str]] = {
     "plan": frozenset(
         {
             "implementation_plan",
-            "test_plan",
-            "evaluation_plan",
+            "test_case",
+            "evaluation_case",
         }
     ),
     "version": frozenset(
@@ -976,8 +976,8 @@ def _validate_packages(root: Path, manifest: dict[str, Any]) -> list[Diagnostic]
         return diagnostics
     group_types = {
         "requirements": "REQUIREMENT",
-        "tests": "TEST-PLAN",
-        "evals": "EVAL-PLAN",
+        "tests": "TEST-CASE",
+        "evals": "EVALUATION-CASE",
         "contracts": "CONTRACT",
         "stories": "STORY",
         "outcomes": "OUTCOME",
@@ -1096,8 +1096,8 @@ def _validate_layered_packages(
     owners: dict[str, Path] = {}
     group_types = {
         "requirements": "REQUIREMENT",
-        "tests": "TEST-PLAN",
-        "evals": "EVAL-PLAN",
+        "tests": "TEST-CASE",
+        "evals": "EVALUATION-CASE",
         "contracts": "CONTRACT",
         "stories": "STORY",
         "outcomes": "OUTCOME",
@@ -2996,8 +2996,8 @@ def _validate_change_ids(
     }
     group_types = {
         "requirements": "REQUIREMENT",
-        "tests": "TEST-PLAN",
-        "evals": "EVAL-PLAN",
+        "tests": "TEST-CASE",
+        "evals": "EVALUATION-CASE",
     }
     if legacy:
         if "adrs" not in data or "decisions" in data:
@@ -3168,8 +3168,8 @@ def _validate_slim_change_ids(
                 known.update(item for item in values if isinstance(item, str))
     groups = {
         "requirements": ("REQUIREMENT",),
-        "tests": ("TEST-PLAN",),
-        "evals": ("EVAL-PLAN",),
+        "tests": ("TEST-CASE",),
+        "evals": ("EVALUATION-CASE",),
         "decisions": ("DECISION",),
         "contracts": ("CONTRACT",),
         "stories": ("STORY",),

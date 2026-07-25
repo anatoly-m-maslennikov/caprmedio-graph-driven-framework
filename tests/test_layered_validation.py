@@ -43,8 +43,8 @@ class LayeredValidationTests(unittest.TestCase):
             (self.root / "src" / work_area).mkdir(parents=True)
         self._write_project()
         self._write_control_files()
-        self._write_fragment("meta", "DSET-REQUIREMENT-001", "DSET-TEST-PLAN-001")
-        self._write_fragment("tool", "DSET-REQUIREMENT-TOOL-001", "DSET-TEST-PLAN-TOOL-001")
+        self._write_fragment("meta", "DSET-REQUIREMENT-001", "DSET-TEST-CASE-001")
+        self._write_fragment("tool", "DSET-REQUIREMENT-TOOL-001", "DSET-TEST-CASE-TOOL-001")
 
     def tearDown(self) -> None:
         """Handle tear down using the declared repository contract."""
@@ -60,8 +60,8 @@ class LayeredValidationTests(unittest.TestCase):
         assert isinstance(manifest, dict)
         native_ids = {
             "requirements": "DSET-REQUIREMENT-TOOL-100",
-            "tests": "DSET-TEST-PLAN-TOOL-100",
-            "evals": "DSET-EVAL-PLAN-TOOL-100",
+            "tests": "DSET-TEST-CASE-TOOL-100",
+            "evals": "DSET-EVALUATION-CASE-TOOL-100",
         }
         for sequence, (group, identifier) in enumerate(native_ids.items(), start=100):
             values = manifest[group]
@@ -315,7 +315,7 @@ class LayeredValidationTests(unittest.TestCase):
         self.assertIn(
             "DSET-E144", {item.code for item in validate_repository(self.root)}
         )
-        self._write_fragment("tool", "DSET-REQUIREMENT-TOOL-001", "DSET-TEST-PLAN-TOOL-001")
+        self._write_fragment("tool", "DSET-REQUIREMENT-TOOL-001", "DSET-TEST-CASE-TOOL-001")
         path = self._fragment_path("tool")
         data = load(path)
         assert isinstance(data, dict)
@@ -880,7 +880,7 @@ class LayeredValidationTests(unittest.TestCase):
         root = self.scopes / layer / "changes" / change_slug
         (root / "specs").mkdir(parents=True)
         requirement = f"DSET-REQUIREMENT-{id_layer}-099"
-        test = f"DSET-TEST-PLAN-{id_layer}-099"
+        test = f"DSET-TEST-CASE-{id_layer}-099"
         data = {
             "schema_version": "1.2",
             "id": stable_id or f"DSET-CHANGE-{id_layer}-099",
@@ -919,7 +919,7 @@ class LayeredValidationTests(unittest.TestCase):
         (root / "specs/feature.md").write_text(f"# {requirement}\n", encoding="utf-8")
         (root / "test-plan.md").write_text(f"# {test}\n", encoding="utf-8")
         (root / "eval-plan.md").write_text(
-            "# Eval plan\n\nNot applicable to this fixture.\n", encoding="utf-8"
+            "# Evaluation case\n\nNot applicable to this fixture.\n", encoding="utf-8"
         )
         return root
 

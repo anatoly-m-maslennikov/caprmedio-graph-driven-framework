@@ -1,6 +1,6 @@
 ---
 name: dset-verify
-description: Check current implementation and governance against accepted DSET truth, implementation plans, deterministic tests, and applicable eval plans. Use after relevant changes or when proof freshness is uncertain; report conformance and evidence, then stop before repairing failures or releasing.
+description: Check current implementation and governance against accepted DSET truth, implementation plans, deterministic tests, and applicable evaluation cases. Use after relevant changes or when proof freshness is uncertain; report conformance and evidence, then stop before repairing failures or releasing.
 ---
 
 # DSET Verify

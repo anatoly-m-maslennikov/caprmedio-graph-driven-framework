@@ -17,7 +17,7 @@ and must not infer intended answers from filenames, prior results, or operator
 preferences.
 
 Resolve the requested Evaluation ID inside the selected project's `.dset`.
-Read its accepted QA atom, applicable evergreen Evaluation plan, criterion,
+Read its accepted QA atom, applicable evergreen Evaluation case, criterion,
 threshold, scenario set, and explicitly linked governing claims. Stop if any
 owner is missing, ambiguous, inactive, or contradictory.
 

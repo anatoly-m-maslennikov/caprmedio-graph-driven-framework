@@ -9,6 +9,14 @@ scope_path = ["layer:tool"]
 status = "accepted"
 priority = "high"
 llm_session_ids = ["codex:019f591f-04f6-70f2-8de7-828b7cccc69d"]
+
+[[relations]]
+type = "resolution_of"
+target = "DSET-PROBLEM-GOV-004"
+
+[[relations]]
+type = "replacement_of"
+target = "DSET-REQUIREMENT-TOOL-020"
 +++
 
 # Requirement — Derive the TypeScript profile from a pinned pilot

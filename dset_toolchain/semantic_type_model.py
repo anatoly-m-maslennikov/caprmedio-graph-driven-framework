@@ -16,7 +16,7 @@ SEMANTIC_SUBTYPES: Final[dict[str, frozenset[str]]] = {
     ),
     "question": frozenset({"conflict", "risk", "opportunity"}),
     "problem": frozenset({"defect", "gap", "debt"}),
-    "qa": frozenset({"test_plan", "evaluation_plan"}),
+    "qa": frozenset({"test_case", "evaluation_case"}),
 }
 # SEMANTIC_ID_KINDS maps each current classification to its subtype-aware token.
 SEMANTIC_ID_KINDS: Final[dict[tuple[str, str | None], str]] = {
@@ -33,8 +33,8 @@ SEMANTIC_ID_KINDS: Final[dict[tuple[str, str | None], str]] = {
     ("problem", "defect"): "DEFECT",
     ("problem", "gap"): "GAP",
     ("problem", "debt"): "DEBT",
-    ("qa", "test_plan"): "TEST-PLAN",
-    ("qa", "evaluation_plan"): "EVAL-PLAN",
+    ("qa", "test_case"): "TEST-CASE",
+    ("qa", "evaluation_case"): "EVALUATION-CASE",
 }
 # SEMANTIC_TYPE_ID_KINDS maps Types to their type-only filename tokens.
 SEMANTIC_TYPE_ID_KINDS: Final[dict[str, str]] = {
@@ -58,8 +58,8 @@ FIELD_CLASSIFICATION: Final[dict[str, tuple[str, str | None]]] = {
     "contracts": ("decision", "contract"),
     "stories": ("decision", "requirement"),
     "outcomes": ("decision", "requirement"),
-    "tests": ("qa", "test_plan"),
-    "evals": ("qa", "evaluation_plan"),
+    "tests": ("qa", "test_case"),
+    "evals": ("qa", "evaluation_case"),
 }
 # LEGACY_INTAKE_CLASSIFICATION translates historical intake vocabulary.
 LEGACY_INTAKE_CLASSIFICATION: Final[dict[str, tuple[str, str | None]]] = {
@@ -80,8 +80,8 @@ LEGACY_INTAKE_CLASSIFICATION: Final[dict[str, tuple[str, str | None]]] = {
     "defect": ("problem", "defect"),
     "gap": ("problem", "gap"),
     "debt": ("problem", "debt"),
-    "test_plan": ("qa", "test_plan"),
-    "evaluation_plan": ("qa", "evaluation_plan"),
+    "test_case": ("qa", "test_case"),
+    "evaluation_case": ("qa", "evaluation_case"),
 }
 
 

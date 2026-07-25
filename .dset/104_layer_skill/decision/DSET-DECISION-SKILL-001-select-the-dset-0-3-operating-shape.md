@@ -40,7 +40,7 @@ winners.
 
 Normative consequences are discharged to the layer-owned
 [Requirements](specs/methodology.md), [Contracts](specs/contracts.md),
-[test plan](test-plan.md), [eval plan](eval-plan.md), [Design](design.md),
+[test case](test-plan.md), [evaluation case](eval-plan.md), [Design](design.md),
 repository governance, and release policy. The Decision retains rationale only.
 Implementation remains bounded by the active [tasks](tasks.md) and
 [verification](verification.md).

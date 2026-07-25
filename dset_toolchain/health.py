@@ -16,14 +16,12 @@ from .frontmatter import render as render_frontmatter
 from .identity import logical_part
 from .layout import discover_layout
 from .lineage import build_relation_index
-from .project_data import lifecycle_events, project_section
+from .project_data import project_section
 from .semantic_atoms import collect_semantic_atoms, effective_priority
 from .semantic_types import build_semantic_classification_index
 from .settings import load_project_settings
 from .structured_data import StructuredDataError, load
 
-# INACTIVE_STATUSES defines inactive statuses; this module owns the default.
-INACTIVE_STATUSES = frozenset({"absorbed", "rejected", "retired", "withdrawn"})
 # IGNORED_PARTS defines ignored parts; this module owns the default.
 IGNORED_PARTS = frozenset(
     {
@@ -62,11 +60,15 @@ def build_health_model(root: Path) -> dict[str, Any]:
         raise ValueError(issues[0])
     artifacts = _classified_artifacts(root)
     semantic_classifications = build_semantic_classification_index(root)
+    archived_ids = {
+        str(item["id"])
+        for item in semantic_classifications
+        if item.get("archived") is True
+    }
     atoms, atom_diagnostics = collect_semantic_atoms(root)
     if atom_diagnostics:
         raise ValueError(atom_diagnostics[0].message)
-    lifecycle = _lifecycle_events(root)
-    intake = _intake_items(root, layout.intake_path, lifecycle)
+    intake = _intake_items(root, layout.intake_path, archived_ids)
     authorities = active_authority_ids(root)
     modern_authorities = {
         atom.semantic_id
@@ -76,7 +78,7 @@ def build_health_model(root: Path) -> dict[str, Any]:
         and atom.semantic_id in authorities
     }
     relations = build_relation_index(root)
-    qa_ids = _qa_ids(root, atoms, lifecycle)
+    qa_ids = _qa_ids(root, atoms, archived_ids)
     commit_edges = {
         str(item["target"])
         for item in relations
@@ -113,17 +115,14 @@ def build_health_model(root: Path) -> dict[str, Any]:
     for atom in atoms.values():
         priority, source = effective_priority(root, atom)
         priority_counts[priority] += 1
-        status_counts[
-            _current_status(atom.semantic_id, atom.emission_status, lifecycle)
-        ] += 1
+        status = _current_status(atom.emission_status, atom.semantic_id in archived_ids)
+        status_counts[status] += 1
         atom_rows.append(
             {
                 "id": atom.semantic_id,
                 "type": atom.semantic_type,
                 "subtype": atom.subtype or "none",
-                "status": _current_status(
-                    atom.semantic_id, atom.emission_status, lifecycle
-                ),
+                "status": status,
                 "priority": priority,
                 "priority_source": source,
                 "carrier": Path(atom.path).name,
@@ -135,18 +134,22 @@ def build_health_model(root: Path) -> dict[str, Any]:
     work_areas = _work_area_counts(root, artifacts)
     packages = _package_counts(root, artifacts)
     unresolved = [item for item in intake if item["effective_status"] == "open"]
+    conflict_resolutions: dict[str, set[str]] = {}
+    for item in relations:
+        target = str(item.get("target", ""))
+        if (
+            item.get("type") == "resolution_of"
+            and "CONFLICT" in target.split("-")
+        ):
+            conflict_resolutions.setdefault(target, set()).add(str(item["source"]))
     resolved_conflicts = [
-        event
-        for event in lifecycle
-        if event.get("event") == "resolved"
-        and "CONFLICT" in str(event.get("atom_id", "")).split("-")
+        {"id": target, "resolved_by": sorted(sources)}
+        for target, sources in sorted(conflict_resolutions.items())
     ]
     open_conflicts = [
         row
         for row in atom_rows
-        if row["subtype"] == "conflict"
-        and row["status"]
-        not in {"answered", "resolved", "rejected", "retired", "withdrawn"}
+        if row["subtype"] == "conflict" and row["status"] != "archived"
     ]
     manifest = load(layout.manifest_path)
     project = manifest.get("project", {}) if isinstance(manifest, dict) else {}
@@ -316,12 +319,11 @@ def render_health(root: Path) -> str:
         lines.append("- None")
     lines.extend(["", "## Conflict outcomes", ""])
     if model["resolved_conflicts"]:
-        for event in model["resolved_conflicts"]:
-            related = ", ".join(f"`{item}`" for item in event.get("related", []))
-            lines.append(
-                f"- `{event['atom_id']}` resolved by `{event['id']}`"
-                + (f"; related: {related}" if related else "")
+        for outcome in model["resolved_conflicts"]:
+            resolvers = ", ".join(
+                f"`{identifier}`" for identifier in outcome["resolved_by"]
             )
+            lines.append(f"- `{outcome['id']}` resolved by {resolvers}")
     else:
         lines.append("- None")
     lines.extend(["", "## Drill-downs", ""])
@@ -429,17 +431,14 @@ def _classified_artifacts(root: Path) -> list[dict[str, Any]]:
     return artifacts
 
 
-def _qa_ids(
-    root: Path, atoms: dict[str, Any], lifecycle: list[dict[str, Any]]
-) -> set[str]:
+def _qa_ids(root: Path, atoms: dict[str, Any], archived_ids: set[str]) -> set[str]:
     """Handle ids using the declared repository contract."""
     identifiers = {
         atom.semantic_id
         for atom in atoms.values()
         if atom.semantic_type == "qa"
         and atom.emission_status == "accepted"
-        and _current_status(atom.semantic_id, atom.emission_status, lifecycle)
-        not in INACTIVE_STATUSES
+        and atom.semantic_id not in archived_ids
     }
     for path in discover_layout(root).structured_named_files(root, "package"):
         if not _canonical_package_manifest(root, path):
@@ -456,9 +455,7 @@ def _qa_ids(
                 identifiers.update(
                     str(item)
                     for item in values
-                    if isinstance(item, str)
-                    and _current_status(str(item), "accepted", lifecycle)
-                    not in INACTIVE_STATUSES
+                    if isinstance(item, str) and str(item) not in archived_ids
                 )
     return identifiers
 
@@ -544,12 +541,8 @@ def _coverage_proof(qa_ids: set[str], relations: list[dict[str, Any]]) -> Covera
     )
 
 
-def _lifecycle_events(root: Path) -> list[dict[str, Any]]:
-    return lifecycle_events(root)
-
-
 def _intake_items(
-    root: Path, path: Path, lifecycle: list[dict[str, Any]]
+    root: Path, path: Path, archived_ids: set[str]
 ) -> list[dict[str, Any]]:
     """Handle items using the declared repository contract."""
     if path.is_dir():
@@ -563,16 +556,17 @@ def _intake_items(
                 "subtype": atom.subtype,
                 "title": Path(atom.path).stem,
                 "effective_status": _current_status(
-                    atom.semantic_id, atom.emission_status, lifecycle
+                    atom.emission_status,
+                    atom.semantic_id in archived_ids,
                 ),
                 "carrier": Path(atom.path).name,
             }
             for atom in atoms.values()
             if atom.semantic_type in {"problem", "question"}
+            and atom.semantic_id not in archived_ids
         ]
     data = load(path)
     raw = data.get("items", []) if isinstance(data, dict) else []
-    latest = {str(item.get("atom_id")): str(item.get("event")) for item in lifecycle}
     items: list[dict[str, Any]] = []
     for item in raw:
         if not isinstance(item, dict):
@@ -580,8 +574,8 @@ def _intake_items(
         identifier = str(item.get("id"))
         semantic_type, subtype = _legacy_intake_type(identifier, str(item.get("type")))
         status = str(item.get("status"))
-        if latest.get(identifier) in {"answered", "resolved", "rejected", "retired"}:
-            status = "resolved"
+        if identifier in archived_ids:
+            status = "archived"
         items.append(
             {
                 "id": identifier,
@@ -595,12 +589,8 @@ def _intake_items(
     return items
 
 
-def _current_status(identifier: str, emitted: str, events: list[dict[str, Any]]) -> str:
-    status = emitted
-    for event in events:
-        if event.get("atom_id") == identifier:
-            status = str(event.get("event"))
-    return status
+def _current_status(emitted: str, archived: bool) -> str:
+    return "archived" if archived else emitted
 
 
 def _work_area_counts(root: Path, artifacts: list[dict[str, Any]]) -> dict[str, int]:

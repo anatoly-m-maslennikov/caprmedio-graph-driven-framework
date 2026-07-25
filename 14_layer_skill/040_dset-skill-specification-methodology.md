@@ -34,7 +34,7 @@ repositories and monorepo Work Areas. Starting from the requested target, it
 discovers exactly one owning DSET root, validates that root's selected local
 registry, and reads only the rule documents returned by that project's
 resolver before governed work. Settings, methodology, evergreen artifacts,
-atomic artifacts, lifecycle events, and other governed DSET state are searched
+atomic artifacts, evidence, Version records, and other governed DSET state are searched
 only below that repository's `.dset` control root. Product source and other
 Work Area files may be read only after the governed workflow selects them as
 implementation inputs or targets.
@@ -153,7 +153,7 @@ implementation plans where needed, then implements. An automation selecting
 strict mode runs only implementation from its prepared accepted inputs and
 stops rather than creating a missing Decision or plan.
 
-`DSET-REQUIREMENT-SKILL-012` is absorbed by
+`DSET-REQUIREMENT-SKILL-012` is replaced and archived by
 `DSET-REQUIREMENT-SKILL-013`; both it and its earlier predecessor remain
 immutable history.
 

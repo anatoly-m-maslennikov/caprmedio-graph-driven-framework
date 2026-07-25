@@ -6,9 +6,9 @@ scope_path:
 priority: medium
 ---
 
-# Deterministic test planning
+# Deterministic test casening
 
-**Rule ID:** `DSET-RULE-TEST-PLAN`
+**Rule ID:** `DSET-RULE-TEST-CASE`
 
 ## Rules
 

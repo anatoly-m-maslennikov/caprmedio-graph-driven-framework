@@ -1,7 +1,7 @@
 # Independent provider-neutral DSET Evaluation prompt
 
 Use this prompt for one isolated reviewer and exactly one accepted Evaluation
-ID. The accepted QA atom and Evaluation plan own meaning; this prompt only
+ID. The accepted QA atom and Evaluation case own meaning; this prompt only
 implements one run under `llm-evaluations-v1`.
 
 ## Inputs
@@ -22,7 +22,7 @@ and must not infer intended answers from filenames, prior results, or operator
 preferences.
 
 Resolve the requested Evaluation ID inside the selected project's `.dset`.
-Read its accepted QA atom, applicable evergreen Evaluation plan, criterion,
+Read its accepted QA atom, applicable evergreen Evaluation case, criterion,
 threshold, scenario set, and explicitly linked governing claims. Stop if any
 owner is missing, ambiguous, inactive, contradictory, or not bound to the
 supplied revision and definition identities.

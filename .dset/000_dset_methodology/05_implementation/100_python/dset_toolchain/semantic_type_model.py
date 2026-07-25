@@ -33,8 +33,8 @@ SEMANTIC_ID_KINDS: Final[dict[tuple[str, str | None], str]] = {
     ("problem", "defect"): "DEFECT",
     ("problem", "gap"): "GAP",
     ("problem", "debt"): "DEBT",
-    ("qa", "test_plan"): "TEST-PLAN",
-    ("qa", "evaluation_plan"): "EVAL-PLAN",
+    ("qa", "test_plan"): "TEST-CASE",
+    ("qa", "evaluation_plan"): "EVALUATION-CASE",
 }
 # SEMANTIC_TYPE_ID_KINDS maps Types to their type-only filename tokens.
 SEMANTIC_TYPE_ID_KINDS: Final[dict[str, str]] = {

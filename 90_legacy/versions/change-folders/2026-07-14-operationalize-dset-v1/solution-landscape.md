@@ -4,11 +4,11 @@
 
 | Capability | Requirement/test IDs | Needed behavior |
 |---|---|---|
-| Project/change validation | `DSET-REQUIREMENT-TOOL-001`, `DSET-REQUIREMENT-TOOL-002`; `DSET-TEST-PLAN-TOOL-001`, `DSET-TEST-PLAN-TOOL-002` | Cross-platform, deterministic, actionable diagnostics |
-| Scaffolding and archive safety | `DSET-REQUIREMENT-TOOL-001`, `DSET-REQUIREMENT-TOOL-004`; `DSET-TEST-PLAN-TOOL-003`, `DSET-TEST-PLAN-TOOL-005` | Explicit writes, no overwrite, lifecycle gates |
-| Traceability generation | `DSET-REQUIREMENT-TOOL-003`; `DSET-TEST-PLAN-TOOL-004` | Stable output from committed metadata and PR identity |
-| Agent workflows | `DSET-REQUIREMENT-SKILL-001`; `DSET-TEST-PLAN-SKILL-001`; `DSET-EVAL-PLAN-SKILL-001` | Three distinct, portable, concise skills |
-| Delivery diagnostics | `DSET-REQUIREMENT-OPS-007`; `DSET-TEST-PLAN-OPS-007`; `DSET-EVAL-PLAN-OPS-005` | GitHub-hosted evidence and recovery routing |
+| Project/change validation | `DSET-REQUIREMENT-TOOL-001`, `DSET-REQUIREMENT-TOOL-002`; `DSET-TEST-CASE-TOOL-001`, `DSET-TEST-CASE-TOOL-002` | Cross-platform, deterministic, actionable diagnostics |
+| Scaffolding and archive safety | `DSET-REQUIREMENT-TOOL-001`, `DSET-REQUIREMENT-TOOL-004`; `DSET-TEST-CASE-TOOL-003`, `DSET-TEST-CASE-TOOL-005` | Explicit writes, no overwrite, lifecycle gates |
+| Traceability generation | `DSET-REQUIREMENT-TOOL-003`; `DSET-TEST-CASE-TOOL-004` | Stable output from committed metadata and PR identity |
+| Agent workflows | `DSET-REQUIREMENT-SKILL-001`; `DSET-TEST-CASE-SKILL-001`; `DSET-EVALUATION-CASE-SKILL-001` | Three distinct, portable, concise skills |
+| Delivery diagnostics | `DSET-REQUIREMENT-OPS-007`; `DSET-TEST-CASE-OPS-007`; `DSET-EVALUATION-CASE-OPS-005` | GitHub-hosted evidence and recovery routing |
 
 ## Candidates
 

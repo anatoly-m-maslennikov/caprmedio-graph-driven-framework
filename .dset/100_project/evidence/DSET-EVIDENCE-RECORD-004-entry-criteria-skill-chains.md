@@ -15,7 +15,7 @@ llm_session_ids = ["codex:019f591f-04f6-70f2-8de7-828b7cccc69d"]
   proof and implementation plans, and local governance bounds the chain by
   observable criterion progress rather than a fixed transition count.
 - **Intended use:** Support `DSET-REQUIREMENT-SKILL-010`,
-  `DSET-INVARIANT-SKILL-009`, `DSET-TEST-PLAN-SKILL-012`, and
+  `DSET-INVARIANT-SKILL-009`, `DSET-TEST-CASE-SKILL-012`, and
   `DSET-TASK-SKILL-024`.
 - **Producer/performed work:** Main-session specification compilation, wrapper
   and workflow rename, registry/schema/runtime migration, distribution-bundle
@@ -32,7 +32,7 @@ llm_session_ids = ["codex:019f591f-04f6-70f2-8de7-828b7cccc69d"]
 - **Unsupported uses:** this proof does not claim that every host exposes full
   conversation history, that missing acceptance can be inferred, that native
   Codex/Claude invocation has been re-proved, or that qualitative
-  `DSET-EVAL-PLAN-SKILL-010` has run.
+  `DSET-EVALUATION-CASE-SKILL-010` has run.
 
 ## Deterministic results
 
@@ -40,7 +40,7 @@ llm_session_ids = ["codex:019f591f-04f6-70f2-8de7-828b7cccc69d"]
 |---|---|---|
 | Operator surface | Five base outcome skills are prominent; all 16 direct/advanced packages remain available | Pass |
 | Decision reconciliation | `dset-decisions` resolves the registered `decisions` workflow and treats session evidence as non-authoritative | Pass |
-| Implementation order | Rules and wrapper require Decisions, then conditional Test/Evaluation planning, then implementation planning, then implementation | Pass |
+| Implementation order | Rules and wrapper require Decisions, then conditional Test/Evaluation casening, then implementation planning, then implementation | Pass |
 | Finite closure | Every transition removes a missing criterion; repeated state, cycles, no progress, ambiguity, failure, and new authorization stop | Pass |
 | Continuity | Every public direct entrypoint is schema-valid and child runs retain DSET/session provenance | Pass |
 | Distribution | Registry paths/digests and the generated bootstrap bundle contain `dset-decisions` and no current `dset-decide` package | Pass |

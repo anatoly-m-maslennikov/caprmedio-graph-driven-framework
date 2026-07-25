@@ -9,14 +9,12 @@ from typing import Any
 
 from .identity import iter_control_files, logical_part
 from .layout import LAYERS, discover_layout
-from .project_data import lifecycle_events
 from .semantic_atoms import collect_semantic_atoms
+from .semantic_types import build_semantic_classification_index
 from .structured_data import StructuredDataError, dump, load
 
 # DECISION_FIELDS defines decision fields; this module owns the default.
 DECISION_FIELDS = ("requirements", "contracts", "stories", "outcomes")
-# INACTIVE_EVENTS defines inactive events; this module owns the default.
-INACTIVE_EVENTS = frozenset({"absorbed", "rejected", "retired", "withdrawn"})
 # IGNORED_PARTS defines ignored parts; this module owns the default.
 IGNORED_PARTS = frozenset(
     {
@@ -27,6 +25,7 @@ IGNORED_PARTS = frozenset(
         "dist",
         "generated",
         "templates",
+        "archive",
     }
 )
 
@@ -131,16 +130,20 @@ def projected_authority_ids(root: Path) -> set[str]:
 
 def _authority_sources(root: Path) -> dict[str, Path]:
     """Collect every active Decision authority carrier."""
-    lifecycle = _lifecycle_status(root)
+    archived = {
+        str(item["id"])
+        for item in build_semantic_classification_index(root)
+        if item.get("archived") is True
+    }
     sources: dict[str, Path] = {}
-    _collect_atomic_authority(root, lifecycle, sources)
-    _collect_legacy_decisions(root, lifecycle, sources)
-    _collect_package_authority(root, lifecycle, sources)
+    _collect_atomic_authority(root, archived, sources)
+    _collect_legacy_decisions(root, archived, sources)
+    _collect_package_authority(root, archived, sources)
     return sources
 
 
 def _collect_atomic_authority(
-    root: Path, lifecycle: dict[str, str], sources: dict[str, Path]
+    root: Path, archived: set[str], sources: dict[str, Path]
 ) -> None:
     """Collect accepted atomic Decisions that remain active."""
     atoms, diagnostics = collect_semantic_atoms(root)
@@ -150,13 +153,13 @@ def _collect_atomic_authority(
         if (
             atom.semantic_type == "decision"
             and atom.emission_status == "accepted"
-            and lifecycle.get(atom.semantic_id) not in INACTIVE_EVENTS
+            and atom.semantic_id not in archived
         ):
             sources[atom.semantic_id] = root / atom.path
 
 
 def _collect_legacy_decisions(
-    root: Path, lifecycle: dict[str, str], sources: dict[str, Path]
+    root: Path, archived: set[str], sources: dict[str, Path]
 ) -> None:
     """Collect accepted pre-atom Decision documents."""
     layout = discover_layout(root)
@@ -172,12 +175,12 @@ def _collect_legacy_decisions(
         if not match or "**Status:** accepted" not in text:
             continue
         identifier = match.group(1)
-        if lifecycle.get(identifier) not in INACTIVE_EVENTS:
+        if identifier not in archived:
             sources[identifier] = path
 
 
 def _collect_package_authority(
-    root: Path, lifecycle: dict[str, str], sources: dict[str, Path]
+    root: Path, archived: set[str], sources: dict[str, Path]
 ) -> None:
     """Collect compatibility Decision lists from package carriers."""
     for path in discover_layout(root).structured_named_files(root, "package"):
@@ -194,10 +197,7 @@ def _collect_package_authority(
             if not isinstance(values, list):
                 continue
             for identifier in values:
-                if (
-                    isinstance(identifier, str)
-                    and lifecycle.get(identifier) not in INACTIVE_EVENTS
-                ):
+                if isinstance(identifier, str) and identifier not in archived:
                     sources.setdefault(identifier, path)
 
 
@@ -235,13 +235,6 @@ def _projection_paths(root: Path) -> list[Path]:
         if not _ignored(root, path)
         and ("specs" in path.parts or "governance" in path.parts)
     ]
-
-
-def _lifecycle_status(root: Path) -> dict[str, str]:
-    return {
-        str(item.get("atom_id")): str(item.get("event"))
-        for item in lifecycle_events(root)
-    }
 
 
 def _ignored(root: Path, path: Path) -> bool:

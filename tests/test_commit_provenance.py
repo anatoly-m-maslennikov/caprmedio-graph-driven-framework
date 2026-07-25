@@ -27,7 +27,7 @@ class CommitProvenanceTests(unittest.TestCase):
         """Handle set up using the declared repository contract."""
         self.known = {
             "APP-REQUIREMENT-001": ("decision", "requirement"),
-            "APP-TEST-PLAN-001": ("qa", "test_plan"),
+            "APP-TEST-CASE-001": ("qa", "test_case"),
             "APP-DEFECT-001": ("problem", "defect"),
         }
 
@@ -45,7 +45,7 @@ class CommitProvenanceTests(unittest.TestCase):
         message = (
             "test: record proof\n\n"
             "Decision: APP-REQUIREMENT-001\n"
-            "Verifies: APP-TEST-PLAN-001\n"
+            "Verifies: APP-TEST-CASE-001\n"
             "Session: codex:test-session\n"
         )
 
@@ -55,12 +55,12 @@ class CommitProvenanceTests(unittest.TestCase):
         self.assertTrue(validate_commit_message("fix: no trailers", self.known))
         problems = validate_commit_message(
             "fix: wrong\n\n"
-            "Implements: APP-TEST-PLAN-001, APP-UNKNOWN-001\n"
+            "Implements: APP-TEST-CASE-001, APP-UNKNOWN-001\n"
             "Session: codex:test-session\n",
             self.known,
         )
         self.assertIn(
-            "Implements must reference a Decision: APP-TEST-PLAN-001",
+            "Implements must reference a Decision: APP-TEST-CASE-001",
             problems,
         )
         self.assertIn("Implements references unknown ID: APP-UNKNOWN-001", problems)
@@ -69,7 +69,7 @@ class CommitProvenanceTests(unittest.TestCase):
         record = self._record(
             "a" * 40,
             "fix: legacy\n\n"
-            "Implements: APP-REQUIREMENT-001, APP-TEST-PLAN-001\n"
+            "Implements: APP-REQUIREMENT-001, APP-TEST-CASE-001\n"
             "Session: codex:test-session\n",
         )
         correction = self._correction(record)
@@ -120,11 +120,11 @@ class CommitProvenanceTests(unittest.TestCase):
 
         invalid = self._record("e" * 40, "fix: no trailers\n")
         correction = self._correction(invalid)
-        correction["decision_ids"] = ["APP-TEST-PLAN-001"]
+        correction["decision_ids"] = ["APP-TEST-CASE-001"]
         semantic_problems = validate_commit_history([invalid], self.known, [correction])
         self.assertIn(
             f"correction for commit {invalid.commit}: Implements must reference "
-            "a Decision: APP-TEST-PLAN-001",
+            "a Decision: APP-TEST-CASE-001",
             semantic_problems,
         )
 

@@ -5,7 +5,7 @@ priority: medium
 artifact_subtype: evaluation_plan
 ---
 
-# Eval plan — {{title}}
+# Evaluation plan — {{title}}
 
 ## Applicability
 
@@ -19,7 +19,7 @@ eval.
 
 | Eval ID | Case | Comparator | Criterion | Threshold | Abstain/inconclusive rule |
 |---|---|---|---|---|---|
-| `{{project_key}}-EVAL-PLAN{{id_layer}}-001` | Define a variable or qualitative case | Name the baseline | Define the rubric | Define acceptance | Define when evidence cannot decide |
+| `{{project_key}}-EVALUATION-CASE{{id_layer}}-001` | Define a variable or qualitative case | Name the baseline | Define the rubric | Define acceptance | Define when evidence cannot decide |
 
 Keep criterion-level results, costs, failures, and uncertainty. Do not create a
 universal winner score across incompatible criteria or contexts.

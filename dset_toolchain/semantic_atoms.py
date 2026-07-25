@@ -4,9 +4,7 @@ from __future__ import annotations
 
 import hashlib
 import re
-from collections.abc import Sequence
 from dataclasses import dataclass
-from datetime import datetime
 from pathlib import Path
 from typing import Any
 
@@ -14,11 +12,9 @@ from .diagnostics import Diagnostic
 from .frontmatter import FrontmatterError
 from .frontmatter import metadata as frontmatter_metadata
 from .identity import has_logical_part, iter_control_files
-from .layout import LAYERS, discover_layout
-from .legacy_authority import legacy_authority_ids, validate_legacy_authority_ledger
+from .layout import discover_layout
+from .legacy_authority import validate_legacy_authority_ledger
 from .lineage import ArtifactRelation, parse_authored_relations
-from .project_data import lifecycle_events as load_lifecycle_events
-from .project_data import project_section
 from .semantic_types import (
     SEMANTIC_ID_KINDS,
     SEMANTIC_SUBTYPES,
@@ -34,25 +30,6 @@ from .structured_data import StructuredDataError, dump, load
 ID_PATTERN = re.compile(r"^[A-Z][A-Z0-9]*(?:-[A-Z0-9]+)+$")
 # SESSION_PATTERN validates session pattern; this module owns the accepted syntax.
 SESSION_PATTERN = re.compile(r"^[a-z][a-z0-9_-]*:[A-Za-z0-9._:-]+$")
-# EVENTS defines events; this module owns the default.
-EVENTS = frozenset(
-    {
-        "accepted",
-        "answered",
-        "absorbed",
-        "confirmed",
-        "priority_changed",
-        "reopened",
-        "rejected",
-        "resolved",
-        "retired",
-        "withdrawn",
-    }
-)
-# TERMINAL_STATES defines terminal states; this module owns the default.
-TERMINAL_STATES = frozenset({"absorbed", "rejected", "retired", "withdrawn"})
-# REOPENABLE_STATES defines reopenable states; this module owns the default.
-REOPENABLE_STATES = frozenset({"answered", "confirmed", "resolved"})
 
 
 @dataclass(frozen=True)
@@ -123,13 +100,6 @@ def collect_semantic_atoms(
 def validate_semantic_atoms(root: Path) -> list[Diagnostic]:
     """Validate semantic atoms using the declared repository contract."""
     atoms, diagnostics = collect_semantic_atoms(root)
-    diagnostics.extend(
-        _validate_lifecycle(
-            root,
-            _known_semantic_ids(root, atoms),
-            {identifier: atom.emission_status for identifier, atom in atoms.items()},
-        )
-    )
     layout = discover_layout(root)
     if not (layout.recursive or layout.separated):
         diagnostics.extend(_validate_ledger(root, atoms))
@@ -216,100 +186,29 @@ def seal_atom(root: Path, path: Path) -> Path:
     return ledger_path
 
 
-def append_lifecycle_event(root: Path, event: dict[str, Any]) -> Path:
-    """Append lifecycle event using the declared repository contract."""
-    root = root.resolve()
-    atoms, diagnostics = collect_semantic_atoms(root)
-    if diagnostics:
-        raise ValueError(diagnostics[0].message)
-    known_ids = _known_semantic_ids(root, atoms)
-    normalized = _validate_event(root, event, known_ids)
-    layout = discover_layout(root)
-    if layout.recursive or layout.separated:
-        events = _lifecycle_events(root)
-        event_id = str(normalized["id"])
-        if any(item.get("id") == event_id for item in events):
-            raise FileExistsError(f"lifecycle event already exists: {event_id}")
-        _validate_event_graph(
-            [*events, normalized],
-            {identifier: atom.emission_status for identifier, atom in atoms.items()},
-        )
-        atom = atoms.get(str(normalized["atom_id"]))
-        owner = layout.project_root
-        if atom is not None:
-            atom_path = root / atom.path
-            candidates = (
-                layout.project_root,
-                *(layout.layer_root(layer) for layer in LAYERS),
-            )
-            owner = next(
-                (
-                    candidate
-                    for candidate in candidates
-                    if atom_path.is_relative_to(candidate)
-                ),
-                layout.project_root,
-            )
-        destination = owner / "lifecycle" / _event_filename(normalized)
-        carrier = {
-            "schema_version": "1.0",
-            "artifact_type": "lifecycle_event",
-            "artifact_id": event_id,
-            **{key: value for key, value in normalized.items() if key != "id"},
-        }
-        _atomic_dump(destination, carrier)
-        return destination
-    lifecycle_path = _lifecycle_path(root)
-    data = _load_or_empty(lifecycle_path, "events")
-    events = data["events"]
-    assert isinstance(events, list)
-    event_id = normalized["id"]
-    if any(isinstance(item, dict) and item.get("id") == event_id for item in events):
-        raise FileExistsError(f"lifecycle event already exists: {event_id}")
-    events.append(normalized)
-    _validate_event_graph(
-        events,
-        {identifier: atom.emission_status for identifier, atom in atoms.items()},
-    )
-    _atomic_dump(lifecycle_path, data)
-    return lifecycle_path
-
-
 def effective_priority(root: Path, atom: SemanticAtom) -> tuple[str, str]:
     """Handle priority using the declared repository contract."""
-    changes = [
-        item
-        for item in _lifecycle_events(root)
-        if item.get("atom_id") == atom.semantic_id
-        and item.get("event") == "priority_changed"
-    ]
-    if changes:
-        latest = changes[-1]
-        return str(latest["priority"]), f"lifecycle:{latest['id']}"
     if atom.priority == "unknown":
         return "unknown", f"atom:{atom.semantic_id}"
     return atom.priority, f"atom:{atom.semantic_id}"
 
 
 def build_semantic_atom_index(root: Path) -> list[dict[str, Any]]:
-    """Build current atom/lifecycle/priority/archive lookup for derived views."""
+    """Build current atom, priority, relation, and archive lookup."""
     atoms, diagnostics = collect_semantic_atoms(root)
     if diagnostics:
         raise ValueError(diagnostics[0].message)
-    events = _lifecycle_events(root)
+    replaced_by: dict[str, list[str]] = {}
+    for candidate in atoms.values():
+        for relation in candidate.relations:
+            if relation.type == "replacement_of" and relation.target is not None:
+                replaced_by.setdefault(relation.target, []).append(
+                    candidate.semantic_id
+                )
     rows: list[dict[str, Any]] = []
     for atom in atoms.values():
-        atom_events = [
-            event for event in events if event.get("atom_id") == atom.semantic_id
-        ]
         priority, priority_source = effective_priority(root, atom)
-        absorbed_by = [
-            str(event["related"][0])
-            for event in atom_events
-            if event.get("event") == "absorbed"
-            and isinstance(event.get("related"), list)
-            and event["related"]
-        ]
+        archived = "archive" in Path(atom.path).parts
         rows.append(
             {
                 "id": atom.semantic_id,
@@ -319,20 +218,19 @@ def build_semantic_atom_index(root: Path) -> list[dict[str, Any]]:
                 "type": atom.semantic_type,
                 "subtype": atom.subtype or "none",
                 "emission_status": atom.emission_status,
-                "current_status": _current_status(atom, atom_events),
+                "current_status": "archived" if archived else atom.emission_status,
                 "priority": priority,
                 "priority_source": priority_source,
                 "relations": [relation.as_dict() for relation in atom.relations],
-                "lifecycle_events": [str(event["id"]) for event in atom_events],
-                "absorbed_by": absorbed_by,
-                "archived": "archive" in Path(atom.path).parts,
+                "replaced_by": sorted(replaced_by.get(atom.semantic_id, [])),
+                "archived": archived,
             }
         )
     return sorted(rows, key=lambda item: str(item["id"]))
 
 
 def archive_atom(root: Path, semantic_id: str) -> Path:
-    """Move a fully retired atom byte-for-byte and update canonical lookup."""
+    """Move an inactive atom byte-for-byte into its Type-local archive."""
     root = root.resolve()
     atoms, diagnostics = collect_semantic_atoms(root)
     if diagnostics:
@@ -343,10 +241,6 @@ def archive_atom(root: Path, semantic_id: str) -> Path:
     source = root / atom.path
     if "archive" in source.relative_to(root).parts:
         raise ValueError(f"semantic atom is already archived: {semantic_id}")
-    events = _lifecycle_events(root)
-    atom_events = [event for event in events if event.get("atom_id") == semantic_id]
-    if _current_status(atom, atom_events) != "retired":
-        raise ValueError("semantic atom must be explicitly retired before archival")
     active_dependants = [
         candidate.semantic_id
         for candidate in atoms.values()
@@ -355,25 +249,33 @@ def archive_atom(root: Path, semantic_id: str) -> Path:
             and relation.type in {"child_of", "override_of"}
             for relation in candidate.relations
         )
-        and _current_status(
-            candidate,
-            [
-                event
-                for event in events
-                if event.get("atom_id") == candidate.semantic_id
-            ],
-        )
-        not in {"absorbed", "rejected", "retired", "withdrawn"}
+        and "archive" not in Path(candidate.path).parts
     ]
     if active_dependants:
         raise ValueError(
             "semantic atom has active child reliance: "
             + ", ".join(sorted(active_dependants))
         )
-
-    raise ValueError(
-        "atom archival requires an authorized registered carrier transition"
-    )
+    destination = source.parent / "archive" / source.name
+    if destination.exists():
+        raise FileExistsError(f"archive destination already exists: {source.name}")
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    source.replace(destination)
+    layout = discover_layout(root)
+    if not (layout.recursive or layout.separated):
+        ledger_path = _ledger_path(root)
+        data = _load_or_empty(ledger_path, "records")
+        records = data["records"]
+        assert isinstance(records, list)
+        for record in records:
+            if isinstance(record, dict) and record.get("semantic_id") == semantic_id:
+                record["path"] = destination.relative_to(root).as_posix()
+                break
+        else:
+            destination.replace(source)
+            raise ValueError(f"semantic atom is not sealed: {semantic_id}")
+        _atomic_dump(ledger_path, data)
+    return destination
 
 
 def _parse_atom(
@@ -403,11 +305,11 @@ def _parse_atom(
     elif subtype is not None and subtype not in SEMANTIC_SUBTYPES[semantic_type]:
         diagnostics.append(_atom_diag(path, "atom has an invalid direct subtype"))
     elif semantic_type == "qa" and subtype not in {
-        "test_plan",
-        "evaluation_plan",
+        "test_case",
+        "evaluation_case",
     }:
         diagnostics.append(
-            _atom_diag(path, "QA atom requires test_plan or evaluation_plan")
+            _atom_diag(path, "QA atom requires test_case or evaluation_case")
         )
     if not isinstance(semantic_id, str) or not ID_PATTERN.fullmatch(semantic_id):
         diagnostics.append(_atom_diag(path, "atom requires a canonical semantic_id"))
@@ -470,256 +372,6 @@ def _material_relation_links(data: dict[str, Any], path: Path) -> list[str]:
         elif relation.range is not None:
             links.append(relation.range.through)
     return links
-
-
-def _validate_lifecycle(
-    root: Path,
-    known_ids: set[str],
-    initial_statuses: dict[str, str],
-) -> list[Diagnostic]:
-    """Validate lifecycle using the declared repository contract."""
-    path = _lifecycle_path(root)
-    try:
-        events = _lifecycle_events(root)
-    except (OSError, UnicodeError, ValueError, StructuredDataError) as error:
-        return [Diagnostic("DSET-E160", path, f"invalid lifecycle registry: {error}")]
-    diagnostics: list[Diagnostic] = []
-    seen: set[str] = set()
-    normalized_events: list[dict[str, Any]] = []
-    for event in events:
-        try:
-            normalized = _validate_event(root, event, known_ids)
-        except ValueError as error:
-            diagnostics.append(Diagnostic("DSET-E160", path, str(error)))
-            continue
-        normalized_events.append(normalized)
-        event_id = str(normalized["id"])
-        if event_id in seen:
-            diagnostics.append(
-                Diagnostic("DSET-E160", path, f"duplicate lifecycle event: {event_id}")
-            )
-        seen.add(event_id)
-    try:
-        _validate_event_graph(normalized_events, initial_statuses)
-    except ValueError as error:
-        diagnostics.append(Diagnostic("DSET-E160", path, str(error)))
-    return diagnostics
-
-
-def _validate_event(root: Path, event: object, known_ids: set[str]) -> dict[str, Any]:
-    """Validate event using the declared repository contract."""
-    if not isinstance(event, dict):
-        raise ValueError("every lifecycle event must be a mapping")
-    event_id = event.get("id")
-    atom_id = event.get("atom_id")
-    event_kind = event.get("event")
-    allowed_fields = {
-        "id",
-        "atom_id",
-        "event",
-        "occurred_at",
-        "priority",
-        "related",
-        "llm_session_ids",
-        "rationale",
-    }
-    unknown_fields = sorted(set(event) - allowed_fields)
-    if unknown_fields:
-        raise ValueError(
-            "lifecycle event has unknown fields: " + ", ".join(unknown_fields)
-        )
-    if not isinstance(event_id, str) or not re.fullmatch(
-        r"[A-Z][A-Z0-9]*-LIFECYCLE-EVENT-[0-9]{3,}", event_id
-    ):
-        raise ValueError("lifecycle event requires a canonical ID")
-    if not isinstance(atom_id, str) or atom_id not in known_ids:
-        raise ValueError(f"lifecycle event has unresolved atom_id: {atom_id}")
-    if event_kind not in EVENTS:
-        raise ValueError(f"unknown lifecycle event: {event_kind}")
-    occurred_at = event.get("occurred_at")
-    try:
-        observed = datetime.fromisoformat(str(occurred_at))
-    except ValueError as error:
-        raise ValueError("lifecycle event requires an ISO timestamp") from error
-    if observed.tzinfo is None:
-        raise ValueError("lifecycle event timestamp requires a timezone")
-    if not _valid_sessions(event.get("llm_session_ids")):
-        raise ValueError("lifecycle event requires valid llm_session_ids")
-    related = event.get("related", [])
-    if not isinstance(related, list) or not all(
-        isinstance(item, str) and ID_PATTERN.fullmatch(item) for item in related
-    ):
-        raise ValueError("lifecycle related IDs must be canonical")
-    if event_kind == "absorbed" and (len(related) != 1 or related[0] not in known_ids):
-        raise ValueError("absorbed event requires one resolving atom")
-    if event_kind == "priority_changed":
-        settings, _ = load_project_settings(root)
-        if event.get("priority") not in settings.priority_scale:
-            raise ValueError("priority_changed requires a project priority value")
-    elif "priority" in event:
-        raise ValueError("priority is valid only for priority_changed events")
-    rationale = event.get("rationale")
-    if rationale is not None and (
-        not isinstance(rationale, str) or not 1 <= len(rationale) <= 4096
-    ):
-        raise ValueError("lifecycle rationale must be non-empty and bounded")
-    return dict(event)
-
-
-def _validate_event_graph(
-    events: Sequence[object], initial_statuses: dict[str, str] | None = None
-) -> None:
-    """Validate event graph using the declared repository contract."""
-    edges: dict[str, str] = {}
-    states = dict(initial_statuses or {})
-    explicit_acceptance: set[str] = set()
-    for event in events:
-        if not isinstance(event, dict):
-            continue
-        atom_id = str(event.get("atom_id"))
-        event_kind = str(event.get("event"))
-        state = states.get(atom_id, "accepted")
-        if event_kind == "absorbed" and atom_id in edges:
-            raise ValueError(f"atom has multiple absorption successors: {atom_id}")
-        if state in TERMINAL_STATES:
-            raise ValueError(
-                f"terminal atom {atom_id} cannot transition from {state} "
-                f"through {event_kind}"
-            )
-        if event_kind == "priority_changed":
-            continue
-        if event_kind == "accepted":
-            if state == "proposed" or (
-                state == "accepted" and atom_id not in explicit_acceptance
-            ):
-                states[atom_id] = "accepted"
-            else:
-                raise ValueError(
-                    f"atom {atom_id} cannot transition from {state} through accepted"
-                )
-            explicit_acceptance.add(atom_id)
-            continue
-        if event_kind == "reopened":
-            if state not in REOPENABLE_STATES:
-                raise ValueError(
-                    f"atom {atom_id} cannot transition from {state} through reopened"
-                )
-            states[atom_id] = "reopened"
-            continue
-        if event_kind in {"answered", "confirmed", "resolved"}:
-            if state not in {"accepted", "reopened"}:
-                raise ValueError(
-                    f"atom {atom_id} cannot transition from {state} "
-                    f"through {event_kind}"
-                )
-            states[atom_id] = event_kind
-            continue
-        if event_kind in {"rejected", "withdrawn"}:
-            if state not in {"proposed", "accepted", "reopened"}:
-                raise ValueError(
-                    f"atom {atom_id} cannot transition from {state} "
-                    f"through {event_kind}"
-                )
-            states[atom_id] = event_kind
-            continue
-        if event_kind in {"absorbed", "retired"}:
-            if state not in {
-                "accepted",
-                "answered",
-                "confirmed",
-                "reopened",
-                "resolved",
-            }:
-                raise ValueError(
-                    f"atom {atom_id} cannot transition from {state} "
-                    f"through {event_kind}"
-                )
-            states[atom_id] = event_kind
-        if event_kind != "absorbed":
-            continue
-        related = event.get("related")
-        if isinstance(related, list) and len(related) == 1:
-            edges[atom_id] = str(related[0])
-    for start in edges:
-        seen: set[str] = set()
-        current = start
-        while current in edges:
-            if current in seen:
-                raise ValueError(f"atom absorption cycle includes {current}")
-            seen.add(current)
-            current = edges[current]
-
-
-def _known_semantic_ids(root: Path, atoms: dict[str, SemanticAtom]) -> set[str]:
-    """Handle semantic ids using the declared repository contract."""
-    layout = discover_layout(root)
-    identifiers = set(atoms)
-    if not (layout.recursive or layout.separated):
-        identifiers.update(legacy_authority_ids(root))
-    else:
-        for event in _lifecycle_events(root):
-            identifiers.add(str(event.get("atom_id", "")))
-            identifiers.update(str(item) for item in event.get("related", []))
-    if not (layout.recursive or layout.separated) and layout.intake_path.is_file():
-        data = load(layout.intake_path)
-        items = data.get("items", []) if isinstance(data, dict) else []
-        identifiers.update(
-            str(item["id"])
-            for item in items
-            if isinstance(item, dict) and isinstance(item.get("id"), str)
-        )
-    decision_paths = (
-        iter_control_files(root, "decision-*.md")
-        if layout.separated
-        else sorted(root.rglob("decision-*.md"))
-    )
-    for path in decision_paths:
-        text = path.read_text(encoding="utf-8")
-        match = re.search(r"-\s*\*\*Decision ID:\*\*\s*`([^`]+)`", text)
-        if match:
-            identifiers.add(match.group(1))
-    if layout.separated:
-        catalog = project_section(root, "package_catalog")
-        packages = catalog.get("packages", [])
-        for package in packages if isinstance(packages, list) else []:
-            if not isinstance(package, dict):
-                continue
-            for field in (
-                "requirements",
-                "tests",
-                "evals",
-                "contracts",
-                "stories",
-                "outcomes",
-            ):
-                values = package.get(field, [])
-                if isinstance(values, list):
-                    identifiers.update(
-                        str(item) for item in values if isinstance(item, str)
-                    )
-        return identifiers
-    for path in layout.structured_named_files(root, "package"):
-        try:
-            data = load(path)
-        except (OSError, UnicodeError, StructuredDataError):
-            continue
-        if not isinstance(data, dict):
-            continue
-        fields = (
-            "requirements",
-            "tests",
-            "evals",
-            "contracts",
-            "stories",
-            "outcomes",
-        )
-        for field in fields:
-            values = data.get(field, [])
-            if isinstance(values, list):
-                identifiers.update(
-                    str(item) for item in values if isinstance(item, str)
-                )
-    return identifiers
 
 
 def _validate_ledger(root: Path, atoms: dict[str, SemanticAtom]) -> list[Diagnostic]:
@@ -785,31 +437,6 @@ def _validate_ledger(root: Path, atoms: dict[str, SemanticAtom]) -> list[Diagnos
                 Diagnostic("DSET-E161", path, f"sealed atom is missing: {identifier}")
             )
     return diagnostics
-
-
-def _lifecycle_events(root: Path) -> list[dict[str, Any]]:
-    return load_lifecycle_events(root)
-
-
-def _event_filename(event: dict[str, Any]) -> str:
-    identifier = str(event["id"])
-    kind = str(event["event"])
-    target = str(event["atom_id"])
-    return f"{identifier}-{kind}-{target}.toml"
-
-
-def _current_status(atom: SemanticAtom, events: list[dict[str, Any]]) -> str:
-    """Handle status using the declared repository contract."""
-    status = atom.emission_status
-    for event in events:
-        kind = event.get("event")
-        if kind == "priority_changed":
-            continue
-        if kind == "accepted":
-            status = "accepted"
-        elif isinstance(kind, str):
-            status = kind
-    return status
 
 
 def _ledger_record(atom: SemanticAtom) -> dict[str, Any]:
@@ -884,13 +511,6 @@ def _digest(path: Path) -> str:
 def _ledger_path(root: Path) -> Path:
     layout = discover_layout(root)
     return layout.structured_file(layout.project_state_root, "atoms.toml")
-
-
-def _lifecycle_path(root: Path) -> Path:
-    layout = discover_layout(root)
-    if layout.recursive or layout.separated:
-        return layout.project_root / "lifecycle"
-    return layout.structured_file(layout.project_state_root, "lifecycle.toml")
 
 
 def _atom_diag(path: Path, message: str) -> Diagnostic:

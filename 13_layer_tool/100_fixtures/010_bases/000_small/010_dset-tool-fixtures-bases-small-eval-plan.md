@@ -1,4 +1,4 @@
-# Eval plan — Small fixture
+# Evaluation case — Small fixture
 
 ## Applicability
 

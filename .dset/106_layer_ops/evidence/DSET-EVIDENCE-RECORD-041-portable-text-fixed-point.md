@@ -13,7 +13,7 @@ currentness = "current"
 reopen_when = "The repository text-attribute policy, carrier hashing, commit-relation path filter, bootstrap template/bundle, or covered validation commands change; hosted platform proof remains independently open."
 
 [subject]
-id = "DSET-TEST-PLAN-OPS-017"
+id = "DSET-TEST-CASE-OPS-017"
 revision = "a473c29073a9660b35f2a7f78d3d715609b063fe"
 intended_use = "Prove the local portable-text repair and the generated-view fixed point without claiming fresh hosted Windows or WSL execution."
 
@@ -27,7 +27,7 @@ setup = "macOS Codex workspace; existing locked .venv; direct .venv executables 
 
 [[relations]]
 type = "evidence_for"
-target = "DSET-TEST-PLAN-OPS-017"
+target = "DSET-TEST-CASE-OPS-017"
 +++
 
 # Test result — Portable text and generated-view fixed point

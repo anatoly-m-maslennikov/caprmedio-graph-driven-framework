@@ -42,10 +42,10 @@ declared separately below.
 | **Exploration Mode** | A session state that permits candidate reasoning without creating a Governed artifact until explicit operator acceptance; question and idea intent enter it unless the same input explicitly authorizes a governed change | `DSET-REQUIREMENT-META-058`, `DSET-REQUIREMENT-META-053` |
 | **Design** | Internal structure and logic selected to satisfy accepted Definitions and external boundary obligations | `DSET-REQUIREMENT-META-056` |
 | **Implementation plan** | An ordered Method for realizing accepted Project truth and Design | `DSET-REQUIREMENT-META-047` |
-| **Test Plan** | An atomic Method that defines one deterministic check obligation, its exact conditions, and its pass/fail disposition | `DSET-REQUIREMENT-META-049`, `DSET-REQUIREMENT-META-041`, `DSET-REQUIREMENT-META-047` |
-| **Evaluation Plan** | An atomic Method that defines one qualitative, probabilistic, statistical, or model-judged assessment obligation, its criteria, and its disposition rule | `DSET-REQUIREMENT-META-049`, `DSET-REQUIREMENT-META-041`, `DSET-REQUIREMENT-META-047` |
-| **Test-plan view** | A maintained Method that organizes applicable Test Plans without changing their check definitions | `DSET-REQUIREMENT-META-049`, `DSET-REQUIREMENT-META-041`, `DSET-REQUIREMENT-META-054` |
-| **Evaluation-plan view** | A maintained Method that organizes applicable Evaluation Plans without changing their assessment definitions | `DSET-REQUIREMENT-META-049`, `DSET-REQUIREMENT-META-041`, `DSET-REQUIREMENT-META-054` |
+| **Test Case** | An atomic Method that defines one deterministic check obligation, its exact conditions, and its pass/fail disposition | `DSET-REQUIREMENT-META-049`, `DSET-REQUIREMENT-META-041`, `DSET-REQUIREMENT-META-047` |
+| **Evaluation Case** | An atomic Method that defines one qualitative, probabilistic, statistical, or model-judged assessment obligation, its criteria, and its disposition rule | `DSET-REQUIREMENT-META-049`, `DSET-REQUIREMENT-META-041`, `DSET-REQUIREMENT-META-047` |
+| **Test-plan view** | A maintained Method that organizes applicable Test Cases without changing their check definitions | `DSET-REQUIREMENT-META-049`, `DSET-REQUIREMENT-META-041`, `DSET-REQUIREMENT-META-054` |
+| **Evaluation-plan view** | A maintained Method that organizes applicable Evaluation Cases without changing their assessment definitions | `DSET-REQUIREMENT-META-049`, `DSET-REQUIREMENT-META-041`, `DSET-REQUIREMENT-META-054` |
 | **Runtime risk profile** | A selection of recovery and operational semantics triggered by persistence, retry, concurrency, or external effects | `DSET-REQUIREMENT-META-003`, `DSET-REQUIREMENT-META-006`, `DSET-REQUIREMENT-META-029` |
 | **Durability topology** | A selection of authoritative files, a local database, or external backing services based on deployment, write volume, and concurrency | `DSET-REQUIREMENT-META-003`, `DSET-REQUIREMENT-META-006`, `DSET-REQUIREMENT-META-029` |
 
@@ -60,8 +60,8 @@ declared separately below.
 | `summarizes` | Maintained semantic view | Atomic record | `DSET-REQUIREMENT-META-054` |
 | `constrains` | External boundary obligation | Design | `DSET-REQUIREMENT-META-056` |
 | `plans_realization_of` | Implementation plan | Design | `DSET-REQUIREMENT-META-028`, `DSET-REQUIREMENT-META-047` |
-| `organizes` | Test-plan view | Test Plan | `DSET-REQUIREMENT-META-049`, `DSET-REQUIREMENT-META-054` |
-| `organizes` | Evaluation-plan view | Evaluation Plan | `DSET-REQUIREMENT-META-049`, `DSET-REQUIREMENT-META-054` |
+| `organizes` | Test-plan view | Test Case | `DSET-REQUIREMENT-META-049`, `DSET-REQUIREMENT-META-054` |
+| `organizes` | Evaluation-plan view | Evaluation Case | `DSET-REQUIREMENT-META-049`, `DSET-REQUIREMENT-META-054` |
 
 ## Stateful entity lifecycles
 

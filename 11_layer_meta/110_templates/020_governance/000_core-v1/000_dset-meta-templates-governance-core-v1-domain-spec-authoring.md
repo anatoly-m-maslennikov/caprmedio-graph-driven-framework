@@ -23,7 +23,7 @@ artifact_subtype: playbook
    Write a material internal HOW choice as an Implementation Decision. Keep
    rationale explicit when it materially improves interpretation, but do not
    hide another normative claim inside it.
-7. Route exact proof to the deterministic test plan and variable or rubric-based proof to the eval plan.
+7. Route exact proof to the deterministic test case and variable or rubric-based proof to the evaluation case.
 8. After accepted atomic change, refresh the owning thin maintained view only
    when requested or required by a downstream gate. Summarize current meaning
    without duplicating atomic authority, and link every semantic location

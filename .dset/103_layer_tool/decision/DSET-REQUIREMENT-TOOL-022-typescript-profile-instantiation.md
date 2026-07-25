@@ -8,8 +8,11 @@ relation_shape = "standalone"
 scope_path = ["layer:tool"]
 status = "accepted"
 priority = "high"
-child_of = ["DSET-REQUIREMENT-TOOL-021"]
 llm_session_ids = ["codex:019f591f-04f6-70f2-8de7-828b7cccc69d"]
+
+[[relations]]
+type = "child_of"
+target = "DSET-REQUIREMENT-TOOL-021"
 +++
 
 # Requirement — Separate profile references from applied instances

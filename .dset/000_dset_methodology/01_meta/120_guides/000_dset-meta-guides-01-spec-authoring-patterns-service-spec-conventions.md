@@ -8,7 +8,7 @@ priority: medium
 
 # 01_Spec Authoring Patterns — Service Spec Conventions
 
-**Thesis:** When you write the spec for a **deployed service**—including a stateless service whose durable state lives in backing systems—don't invent ad-hoc structure; reuse the named patterns below. The spec must declare its runtime risk profile, durability ownership per concern, and risk-scaled production supportability contract before it selects event sourcing, reconciliation, or durable execution. This is **stage 1** of `00_Tool Development Playbook.md`: the spec comes first; its separate deterministic **test plan** and probabilistic/qualitative **eval plan** are authored with it per `02_Test and Eval Plan Patterns — Proof Artifact Conventions.md`; and the code-side conventions live in `04_General Build Rules — Tool Code Conventions.md`. The catalog is §1, ordered by importance; the apply-it checklist is §2.
+**Thesis:** When you write the spec for a **deployed service**—including a stateless service whose durable state lives in backing systems—don't invent ad-hoc structure; reuse the named patterns below. The spec must declare its runtime risk profile, durability ownership per concern, and risk-scaled production supportability contract before it selects event sourcing, reconciliation, or durable execution. This is **stage 1** of `00_Tool Development Playbook.md`: the spec comes first; its separate deterministic **test case** and probabilistic/qualitative **evaluation case** are authored with it per `02_Test and Evaluation Case Patterns — Proof Artifact Conventions.md`; and the code-side conventions live in `04_General Build Rules — Tool Code Conventions.md`. The catalog is §1, ordered by importance; the apply-it checklist is §2.
 
 ```mermaid
 graph TD
@@ -20,7 +20,7 @@ graph TD
     WHAT --> DUR["Durability contract<br/>owner · backend · recovery"]
     DUR --> OPT["Conditional patterns<br/>event log · reconcile · workflow"]
     WHAT --> SUPPORT["Supportability contract<br/>signals · identity · diagnostics · runbook"]
-    WHAT --> TEST["Linked test plan + eval plan<br/>deterministic vs probabilistic"]
+    WHAT --> TEST["Linked test case + evaluation case<br/>deterministic vs probabilistic"]
     WHAT --> REVIEW["Independent adversarial<br/>spec review"]
     style WHAT fill:#e3f2fd,stroke:#1565c0
     style WHY fill:#fff3e0,stroke:#ef6c00
@@ -51,7 +51,7 @@ graph TD
 | 10 | Safety | A **composed gate** (confidence/policy from many inputs) with **human-in-the-loop escalation** that hands off instead of dead-stopping | **human-in-the-loop**; **graceful degradation** (established fault-tolerance principle, not coined by Nygard); gate = a **policy** composed at decision time |
 | 11 | Safety | A **shadow vs live role** so a change can be evaluated on real input with zero external effect | **shadow deployment / dark launch** (sibling of canary); **shadow testing** |
 | 12 | Architecture | An **engine-vs-authoring contract** — a stable code engine owns the I/O contract; editable domain content (runbooks / prompts) is injected | **separation of mechanism and policy** (Brinch Hansen, RC 4000, 1970; popularized as Unix’s *mechanism, not policy*) + **policy-as-configuration**; the wrapper owns the structured I/O a runbook doesn’t specify |
-| 13 | Proof | Link two proof artifacts from the spec: a **test plan** for deterministic unit → integration → end-to-end checks and an **eval plan** for probabilistic, qualitative, or LLM behavior | owned by `02_Test and Eval Plan Patterns — Proof Artifact Conventions.md` (test pyramid, Humble Object / test doubles, contract tests, calibrated evals) |
+| 13 | Proof | Link two proof artifacts from the spec: a **test case** for deterministic unit → integration → end-to-end checks and an **evaluation case** for probabilistic, qualitative, or LLM behavior | owned by `02_Test and Evaluation Case Patterns — Proof Artifact Conventions.md` (test pyramid, Humble Object / test doubles, contract tests, calibrated evals) |
 | 14 | Proof | **Make the spec agent-verifiable** — every invariant names the command, fixture diff, screenshot comparison, smoke check, or eval that will prove it | **executable specification**; acceptance tests; reinforced by `06_External Grounding — LLM Power-User Practice.md` |
 | 15 | Change control | **Package spec changes as delta specs inside a change folder** — each change is one bounded work unit; delta specs declare ADDED/MODIFIED/REMOVED requirements against the current-truth spec; archiving the change merges resolved deltas back into truth | **delta-spec / change-folder / archive** model (OpenSpec, Fission-AI) |
 | 16 | Scope control | **Spec-ahead-of-code is fine** — define the current target; move future items to a named **Version Roadmap** and mark exclusions explicitly | **design-first / spec-first**; explicit **out-of-scope** to fence **scope creep** |
@@ -85,7 +85,7 @@ graph TD
 - [ ] **Composed gate + escalation** — the gate's inputs named; escalation hands off to a human (note + alert) and the run still completes — no dead-stop, no indefinite pause.
 - [ ] **Shadow vs live role** — a non-acting role to evaluate a change on real input with zero external effect.
 - [ ] **Engine vs authoring contract** — the stable engine owns the I/O contract; editable domain content (runbooks/prompts) is injected, not hard-coded.
-- [ ] **Separate proof artifacts linked from the spec** — `test-plan.md` owns deterministic unit, integration, and end-to-end checks; `eval-plan.md` owns probabilistic, qualitative, and real-LLM evaluation. Author both with the spec, before code, per `02_Test and Eval Plan Patterns — Proof Artifact Conventions.md`.
+- [ ] **Separate proof artifacts linked from the spec** — `test-plan.md` owns deterministic unit, integration, and end-to-end checks; `eval-plan.md` owns probabilistic, qualitative, and real-LLM evaluation. Author both with the spec, before code, per `02_Test and Evaluation Case Patterns — Proof Artifact Conventions.md`.
 - [ ] **Agent-verifiable acceptance** — every important claim points to a runnable check/eval, not only a paragraph a reviewer must believe.
 - [ ] **Context budget** — include only the facts an agent needs to implement and verify the service; move bulky rationale, prior art, and raw source material behind links.
 - [ ] **Spec-ahead-of-code** — define the current target; move future items to a named Version Roadmap and state exclusions explicitly (don't silently drop scope or smuggle in code-state asides).

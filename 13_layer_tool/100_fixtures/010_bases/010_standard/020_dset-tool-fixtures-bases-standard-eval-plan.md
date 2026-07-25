@@ -1,5 +1,5 @@
-# Eval plan — Standard fixture
+# Evaluation case — Standard fixture
 
 | Eval ID | Criterion | Threshold |
 |---|---|---|
-| **DSET-EVAL-PLAN-TOOL-001** | Message usefulness | A reviewer can take the correct next action |
+| **DSET-EVALUATION-CASE-TOOL-001** | Message usefulness | A reviewer can take the correct next action |

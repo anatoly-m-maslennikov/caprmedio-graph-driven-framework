@@ -8,7 +8,6 @@ Host requirements: an isolated supported Python environment.
 from __future__ import annotations
 
 import hashlib
-import json
 import unittest
 from pathlib import Path
 
@@ -19,7 +18,6 @@ from dset_toolchain.legacy_authority import (
     validate_legacy_authority_ledger,
 )
 from dset_toolchain.semantic_atoms import (
-    append_lifecycle_event,
     archive_atom,
     build_semantic_atom_index,
     collect_semantic_atoms,
@@ -27,8 +25,9 @@ from dset_toolchain.semantic_atoms import (
     validate_semantic_atoms,
 )
 from dset_toolchain.semantic_types import build_semantic_classification_index
-from dset_toolchain.temp_paths import temporary_directory
 from dset_toolchain.structured_data import dump, load
+from dset_toolchain.temp_paths import temporary_directory
+from dset_toolchain.toml_codec import loads as load_toml
 from tests import repository_root
 
 # ROOT locates the repository fixture; repository layout is authoritative.
@@ -50,20 +49,17 @@ class SemanticAtomTests(unittest.TestCase):
         """Handle tear down using the declared repository contract."""
         self.temporary.cleanup()
 
-    def test_repository_ledger_lifecycle_and_schemas_are_valid(self) -> None:
+    def test_repository_atom_and_conflict_schemas_are_valid(self) -> None:
         self.assertEqual(validate_semantic_atoms(ROOT), [])
-        schema_root = ROOT / ".dset/02_layer_gov/schemas"
+        schema_root = ROOT / "12_layer_gov/120_schemas"
         schemas = (
-            "atom.schema.toml",
-            "atom-ledger.schema.toml",
-            "conflict-candidate.schema.toml",
-            "conflict-result.schema.toml",
-            "lifecycle.schema.toml",
-            "legacy-authority-ledger.schema.toml",
+            "010_dset-gov-schemas-atom.schema.toml",
+            "040_dset-gov-schemas-conflict-candidate.schema.toml",
+            "050_dset-gov-schemas-conflict-result.schema.toml",
         )
         for name in schemas:
             with self.subTest(name=name):
-                json.loads((schema_root / name).read_text(encoding="utf-8"))
+                load_toml((schema_root / name).read_text(encoding="utf-8"))
 
     def test_legacy_authority_fragments_are_immutable(self) -> None:
         package_root = self.root / "dset/specs/packages/sample"
@@ -189,128 +185,42 @@ class SemanticAtomTests(unittest.TestCase):
 
         self.assertIn("atom has an invalid direct subtype", messages)
 
-    def test_lifecycle_is_append_only_and_absorption_cycles_stop(self) -> None:
-        self._write_atom()
-        seal_atom(self.root, self.atom_path)
-        second = self.root / "dset/changes/DSET-ATOMIC-RECORD-002-format.md"
-        second.write_text(
-            self._atom_text(
-                carrier="DSET-ATOMIC-RECORD-002",
-                semantic="DSET-CONTRACT-002",
-            ),
-            encoding="utf-8",
-        )
-        seal_atom(self.root, second)
-        append_lifecycle_event(
-            self.root,
-            self._event(
-                "DSET-LIFECYCLE-EVENT-001",
-                "DSET-DECISION-001",
-                "DSET-CONTRACT-002",
-            ),
-        )
-
-        with self.assertRaisesRegex(ValueError, "absorption cycle"):
-            append_lifecycle_event(
-                self.root,
-                self._event(
-                    "DSET-LIFECYCLE-EVENT-002",
-                    "DSET-CONTRACT-002",
-                    "DSET-DECISION-001",
-                ),
-            )
-
-    def test_second_absorption_successor_is_rejected(self) -> None:
-        self._write_atom()
-        seal_atom(self.root, self.atom_path)
-        for number in (2, 3):
-            path = self.root / f"dset/changes/DSET-ATOMIC-RECORD-00{number}.md"
-            path.write_text(
-                self._atom_text(
-                    carrier=f"DSET-ATOMIC-RECORD-00{number}",
-                    semantic=f"DSET-CONTRACT-00{number}",
-                ),
-                encoding="utf-8",
-            )
-            seal_atom(self.root, path)
-        append_lifecycle_event(
-            self.root,
-            self._event(
-                "DSET-LIFECYCLE-EVENT-001",
-                "DSET-DECISION-001",
-                "DSET-CONTRACT-002",
-            ),
-        )
-
-        with self.assertRaisesRegex(ValueError, "multiple absorption successors"):
-            append_lifecycle_event(
-                self.root,
-                self._event(
-                    "DSET-LIFECYCLE-EVENT-002",
-                    "DSET-DECISION-001",
-                    "DSET-CONTRACT-003",
-                ),
-            )
-
-    def test_terminal_atom_cannot_be_reaccepted(self) -> None:
-        self._write_atom()
-        seal_atom(self.root, self.atom_path)
-        second = self.root / "dset/changes/DSET-ATOMIC-RECORD-002-format.md"
-        second.write_text(
-            self._atom_text(
-                carrier="DSET-ATOMIC-RECORD-002",
-                semantic="DSET-CONTRACT-002",
-            ),
-            encoding="utf-8",
-        )
-        seal_atom(self.root, second)
-        append_lifecycle_event(
-            self.root,
-            self._event(
-                "DSET-LIFECYCLE-EVENT-001",
-                "DSET-DECISION-001",
-                "DSET-CONTRACT-002",
-            ),
-        )
-
-        with self.assertRaisesRegex(ValueError, "terminal atom"):
-            append_lifecycle_event(
-                self.root,
-                {
-                    "id": "DSET-LIFECYCLE-EVENT-002",
-                    "atom_id": "DSET-DECISION-001",
-                    "event": "accepted",
-                    "occurred_at": "2026-07-20T00:01:00+04:00",
-                    "related": [],
-                    "llm_session_ids": ["codex:test-session"],
-                },
-            )
-
-    def test_retired_atom_requires_registered_carrier_transition(self) -> None:
+    def test_archive_moves_atom_byte_for_byte_and_updates_lookup(self) -> None:
         self._write_atom()
         original = self.atom_path.read_bytes()
         seal_atom(self.root, self.atom_path)
-        append_lifecycle_event(
-            self.root,
-            {
-                "id": "DSET-LIFECYCLE-EVENT-001",
-                "atom_id": "DSET-DECISION-001",
-                "event": "retired",
-                "occurred_at": "2026-07-20T00:00:00+04:00",
-                "related": [],
-                "llm_session_ids": ["codex:test-session"],
-            },
-        )
 
-        with self.assertRaisesRegex(ValueError, "registered carrier transition"):
-            archive_atom(self.root, "DSET-DECISION-001")
+        destination = archive_atom(self.root, "DSET-DECISION-001")
 
-        self.assertEqual(self.atom_path.read_bytes(), original)
+        self.assertEqual(destination.read_bytes(), original)
+        self.assertFalse(self.atom_path.exists())
         self.assertEqual(validate_semantic_atoms(self.root), [])
         row = build_semantic_atom_index(self.root)[0]
-        self.assertFalse(row["archived"])
-        self.assertEqual(row["current_status"], "retired")
-        self.assertEqual(row["path"], self.atom_path.relative_to(self.root).as_posix())
+        self.assertTrue(row["archived"])
+        self.assertEqual(row["current_status"], "archived")
+        self.assertEqual(row["path"], destination.relative_to(self.root).as_posix())
+
+    def test_archive_rejects_active_structural_dependants(self) -> None:
+        self._write_atom()
+        seal_atom(self.root, self.atom_path)
+        second = self.root / "dset/changes/DSET-ATOMIC-RECORD-002-format.md"
+        second.write_text(
+            self._atom_text(
+                carrier="DSET-ATOMIC-RECORD-002",
+                semantic="DSET-CONTRACT-002",
+            ).replace(
+                "llm_session_ids:\n",
+                "relations:\n"
+                "  - type: child_of\n"
+                "    target: DSET-DECISION-001\n"
+                "llm_session_ids:\n",
+            ),
+            encoding="utf-8",
+        )
+        seal_atom(self.root, second)
+
+        with self.assertRaisesRegex(ValueError, "active child reliance"):
+            archive_atom(self.root, "DSET-DECISION-001")
 
     def _write_atom(self) -> str:
         """Write atom using the declared repository contract."""
@@ -345,18 +255,6 @@ llm_session_ids:
 
 # Contract
 """
-
-    @staticmethod
-    def _event(event_id: str, atom_id: str, successor: str) -> dict[str, object]:
-        """Handle event using the declared repository contract."""
-        return {
-            "id": event_id,
-            "atom_id": atom_id,
-            "event": "absorbed",
-            "occurred_at": "2026-07-20T00:00:00+04:00",
-            "related": [successor],
-            "llm_session_ids": ["codex:test-session"],
-        }
 
 
 if __name__ == "__main__":

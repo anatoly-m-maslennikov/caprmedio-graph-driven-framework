@@ -14,7 +14,7 @@ evidence_location: path/to/evidence
 polarity: inconclusive
 reopen_when: The subject revision, method, setup, or applicable context changes.
 subject:
-  id: APP-TEST-PLAN-001
+  id: APP-TEST-CASE-001
   revision: "0000000000000000000000000000000000000000"
   intended_use: Support one bounded Verification claim.
 producer:
@@ -26,7 +26,7 @@ method:
 relations:
   - type: evidence_for
     targets:
-      - APP-TEST-PLAN-001
+      - APP-TEST-CASE-001
 ---
 
 # Evidence Record

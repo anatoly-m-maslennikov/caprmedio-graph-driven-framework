@@ -13,7 +13,7 @@ currentness = "current"
 reopen_when = "A real Codex process can initialize writable host state, Claude Code can authenticate through an allowed API domain, the DSET distribution changes, or either pinned host version changes."
 
 [subject]
-id = "DSET-TEST-PLAN-SKILL-018"
+id = "DSET-TEST-CASE-SKILL-018"
 revision = "b09cd0fe2beb7e14326c0f8bcb3693c032afada0"
 intended_use = "Bound repository-scoped installation and real-process invocation claims for the seventeen-skill distribution without treating deterministic discoverability as observed host load."
 
@@ -27,7 +27,7 @@ setup = "Codex Desktop managed workspace on macOS; repository virtual environmen
 
 [[relations]]
 type = "evidence_for"
-target = "DSET-TEST-PLAN-SKILL-018"
+target = "DSET-TEST-CASE-SKILL-018"
 +++
 
 # Test result — Project-scoped host boundary

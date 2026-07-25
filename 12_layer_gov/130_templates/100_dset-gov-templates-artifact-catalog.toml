@@ -75,8 +75,8 @@ carrier = "markdown_yaml_frontmatter"
 commit_on_create = true
 
 [[types]]
-name = "test_plan"
-identity_kind = "TEST-PLAN"
+name = "test_case"
+identity_kind = "TEST-CASE"
 revision_mode = "atomic"
 content_role = "method"
 governance_locus = "internal"
@@ -84,8 +84,8 @@ carrier = "markdown_yaml_frontmatter"
 commit_on_create = true
 
 [[types]]
-name = "evaluation_plan"
-identity_kind = "EVAL-PLAN"
+name = "evaluation_case"
+identity_kind = "EVALUATION-CASE"
 revision_mode = "atomic"
 content_role = "method"
 governance_locus = "internal"

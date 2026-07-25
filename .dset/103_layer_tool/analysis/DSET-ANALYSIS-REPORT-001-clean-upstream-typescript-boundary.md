@@ -3,8 +3,11 @@ artifact_type = "analysis_report"
 artifact_subtype = "technical_investigation"
 artifact_id = "DSET-ANALYSIS-REPORT-001"
 priority = "high"
-child_of = ["DSET-EVAL-PLAN-TOOL-003"]
 llm_session_ids = ["codex:019f591f-04f6-70f2-8de7-828b7cccc69d"]
+
+[[relations]]
+type = "child_of"
+target = "DSET-EVALUATION-CASE-TOOL-003"
 +++
 
 # Analysis report — clean-upstream TypeScript boundary

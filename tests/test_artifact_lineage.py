@@ -37,7 +37,7 @@ class ArtifactRelationTests(unittest.TestCase):
                 "child_of": ("atomic_record", "decision", None),
                 "analysis_of": ("analysis_report", None, None),
                 "implementation_of": ("implementation", None, None),
-                "check_of": ("atomic_record", "qa", "test_plan"),
+                "check_of": ("atomic_record", "qa", "test_case"),
                 "evidence_for": ("evidence_record", None, None),
                 "resolution_of": ("atomic_record", "decision", None),
                 "override_of": ("atomic_record", "decision", None),
@@ -61,6 +61,7 @@ class ArtifactRelationTests(unittest.TestCase):
             self._atom(root, 10, "APP-DECISION-GOV-010")
             self._projection(root, through="APP-ATOMIC-RECORD-010")
             self._replacement_fixture(root)
+            self._recurrence_fixture(root)
 
             nodes, diagnostics = collect_artifact_relations(root)
             rows = build_relation_index(root)
@@ -152,7 +153,7 @@ class ArtifactRelationTests(unittest.TestCase):
             self.assertTrue(any("itself" in item for item in messages))
             self.assertTrue(any("relation cycle" in item for item in messages))
 
-    def test_replacement_requires_matching_absorption(self) -> None:
+    def test_replacement_requires_archived_predecessor(self) -> None:
         with temporary_directory() as raw:
             root = Path(raw).resolve()
             self._artifact(root, "OLD", "APP-DECISION-001")
@@ -166,7 +167,10 @@ class ArtifactRelationTests(unittest.TestCase):
             )
             messages = [item.message for item in validate_artifact_relations(root)]
             self.assertTrue(
-                any("matching append-only absorption" in item for item in messages)
+                any(
+                    "replacement_of target must be archived" in item
+                    for item in messages
+                )
             )
 
     def test_inactive_legacy_child_of_remains_readable(self) -> None:
@@ -179,13 +183,9 @@ class ArtifactRelationTests(unittest.TestCase):
                 artifact_type="atomic_record",
                 semantic_id="APP-REQUIREMENT-GOV-001",
                 child_of=["APP-LEGACY-DECISION-001"],
+                archived=True,
             )
             self._artifact(root, "NEW", "APP-REQUIREMENT-GOV-002")
-            self._lifecycle(
-                root,
-                "APP-REQUIREMENT-GOV-001",
-                "APP-REQUIREMENT-GOV-002",
-            )
 
             nodes, diagnostics = collect_artifact_relations(root)
 
@@ -270,21 +270,45 @@ class ArtifactRelationTests(unittest.TestCase):
         cls._artifact(
             root,
             "OLD-REPLACE",
-            "APP-TEST-PLAN-GOV-020",
+            "APP-TEST-CASE-GOV-020",
             artifact_type="atomic_record",
+            semantic_id="APP-TEST-CASE-GOV-020",
             semantic_type="qa",
-            subtype="test_plan",
+            subtype="test_case",
+            archived=True,
         )
         cls._artifact(
             root,
             "NEW-REPLACE",
-            "APP-TEST-PLAN-GOV-021",
+            "APP-TEST-CASE-GOV-021",
             artifact_type="atomic_record",
+            semantic_id="APP-TEST-CASE-GOV-021",
             semantic_type="qa",
-            subtype="test_plan",
-            relations=[{"type": "replacement_of", "target": "APP-TEST-PLAN-GOV-020"}],
+            subtype="test_case",
+            relations=[{"type": "replacement_of", "target": "APP-TEST-CASE-GOV-020"}],
         )
-        cls._lifecycle(root, "APP-TEST-PLAN-GOV-020", "APP-TEST-PLAN-GOV-021")
+
+    @classmethod
+    def _recurrence_fixture(cls, root: Path) -> None:
+        """Create a new occurrence without reactivating its predecessor."""
+        cls._artifact(
+            root,
+            "OLD-QUESTION",
+            "APP-ATOMIC-RECORD-030",
+            artifact_type="atomic_record",
+            semantic_id="APP-QUESTION-GOV-030",
+            semantic_type="question",
+            archived=True,
+        )
+        cls._artifact(
+            root,
+            "NEW-QUESTION",
+            "APP-ATOMIC-RECORD-031",
+            artifact_type="atomic_record",
+            semantic_id="APP-QUESTION-GOV-031",
+            semantic_type="question",
+            relations=[{"type": "recurrence_of", "target": "APP-QUESTION-GOV-030"}],
+        )
 
     @classmethod
     def _projection(cls, root: Path, *, through: str) -> None:
@@ -321,30 +345,6 @@ class ArtifactRelationTests(unittest.TestCase):
         )
 
     @staticmethod
-    def _lifecycle(root: Path, old: str, new: str) -> None:
-        """Handle lifecycle using the declared repository contract."""
-        path = root / "dset/governance/lifecycle.yaml"
-        path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(
-            structured_data.dump(
-                {
-                    "schema_version": "1.0",
-                    "events": [
-                        {
-                            "id": "APP-LIFECYCLE-EVENT-001",
-                            "atom_id": old,
-                            "event": "absorbed",
-                            "occurred_at": "2026-07-20T12:00:00+04:00",
-                            "llm_session_ids": ["codex:test"],
-                            "related": [new],
-                        }
-                    ],
-                }
-            ),
-            encoding="utf-8",
-        )
-
-    @staticmethod
     def _artifact(
         root: Path,
         name: str,
@@ -357,6 +357,7 @@ class ArtifactRelationTests(unittest.TestCase):
         scope: dict[str, str] | None = None,
         relations: list[dict[str, Any]] | None = None,
         child_of: list[str] | None = None,
+        archived: bool = False,
         extra: str = "",
     ) -> None:
         """Handle artifact using the declared repository contract."""
@@ -380,7 +381,11 @@ class ArtifactRelationTests(unittest.TestCase):
         if extra:
             text += extra
         text += f"---\n\n# {name}\n"
-        (root / f"{name}.md").write_text(text, encoding="utf-8")
+        directory = root / ".dset"
+        if archived:
+            directory /= "archive"
+        directory.mkdir(parents=True, exist_ok=True)
+        (directory / f"{name}.md").write_text(text, encoding="utf-8")
 
 
 if __name__ == "__main__":

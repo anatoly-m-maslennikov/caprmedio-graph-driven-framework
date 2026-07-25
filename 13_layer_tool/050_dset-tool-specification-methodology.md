@@ -80,7 +80,7 @@ outside that context.
 
 Other classes produce deterministic dispositions rather than artificial
 winners: an active atomic source beats its stale compiled projection and routes
-recompilation; an absorbing atom beats absorbed predecessors; authority/
+recompilation; a replacement atom beats its archived predecessors; authority/
 evidence conflicts update assurance and affected gates; implementation/
 authority conflicts create a conformance Problem; evidence/evidence conflicts
 apply the registered proof plan and quality/freshness rules or stop for
@@ -89,21 +89,23 @@ implementation conflicts follow the traceable owner or stop when ownership is
 missing. Priority orders handling for every class but cannot convert evidence
 into authority or a failing obligation into compliance.
 
-An archive relocation is valid only for a fully retired atom with no active
-claim, reliance, or unresolved lifecycle work. The toolchain verifies the
-content digest is unchanged, moves it only to the artifact type's `archive/`
-subfolder, updates canonical ID lookup, and rejects partial-absorption moves,
-content edits, broken references, or deletion.
+An archive relocation is valid only when the atom has no active structural
+dependant. The toolchain verifies the content digest is unchanged, moves it
+only to the artifact Type's `archive/` subfolder, updates canonical ID lookup,
+and rejects content edits, broken references, or deletion. A
+`replacement_of` target must be archived and have at most one complete
+successor.
 
-Every emitted Conflict begins open. A deterministic disposition appends a
-lifecycle event linking its resolution record and durable resolving artifacts;
-an unresolved or unsatisfiable Conflict remains open and blocking. Neither the
-Conflict nor its source claims are edited. Non-Conflict dispositions keep their
-own typed evidence or Problem/Question paths and do not emit a false Conflict.
+Every emitted Conflict begins open. A resolving Decision or outcome uses
+`resolution_of`, and the resolved Conflict then moves to its Type-local
+archive. An unresolved or unsatisfiable Conflict remains active and blocking.
+Neither the Conflict nor its source claims are edited. Non-Conflict
+dispositions keep their own typed evidence or Problem/Question paths and do not
+emit a false Conflict.
 
 Equal, unknown, cyclically inherited, or incomparable priorities must stop with
 the artifact IDs, values, sources, context, and safe next action. Every automatic
-resolution is a derived transactional record and Conflict lifecycle event
+resolution is a derived transactional record linked to the resolving artifact,
 containing those same inputs, both artifact roles, the conflict class,
 disposition or selected claim, governing profile edition, and invalidation
 trigger. Atomic sources are never rewritten;
@@ -120,7 +122,7 @@ two incompatible immutable Contracts stops as unsatisfiable regardless of
 priority. An active Decision/spec fixture selects the Decision and emits a
 stale-projection/recompile disposition; a Test/spec fixture emits an
 assurance-change disposition rather than selecting the Test. A successor atom
-beats an absorbed predecessor by lifecycle relation rather than age.
+beats an archived predecessor by `replacement_of` rather than age.
 
 ## DSET-REQUIREMENT-TOOL-021 — TypeScript enforcement starts as an evidence-derived candidate
 

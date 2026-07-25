@@ -1,6 +1,6 @@
 ---
 name: dset-plan-proof
-description: Create or refresh separate DSET deterministic test and qualitative eval plans for accepted behavior. Use when requirements, contracts, decisions, scenarios, or implementation changes lack complete proof obligations; stop before implementation or proof execution.
+description: Create or refresh separate DSET deterministic test and qualitative evaluation cases for accepted behavior. Use when requirements, contracts, decisions, scenarios, or implementation changes lack complete proof obligations; stop before implementation or proof execution.
 ---
 
 # DSET Plan Proof
@@ -16,4 +16,4 @@ This is the thin wrapper for `plan-proof`; resolved repository-local documents o
 
 ## Handoff
 
-Return separate current test and eval plan identities, coverage gaps, proof prerequisites, and available session identity. Route authorized writes through resolved evergreen owners; stop before implementation or execution.
+Return separate current test and evaluation case identities, coverage gaps, proof prerequisites, and available session identity. Route authorized writes through resolved evergreen owners; stop before implementation or execution.

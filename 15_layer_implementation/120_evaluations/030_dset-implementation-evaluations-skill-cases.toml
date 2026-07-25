@@ -64,8 +64,8 @@ ambiguous_routing = "Implementation is requested, but the evergreen specificatio
 ambiguous_expected = "Run dset-compile only when the implementation entry gate requires the affected projection to be current."
 
 [skills."dset-plan-proof"]
-should_trigger = "Create separate deterministic test and qualitative evaluation plans for these accepted requirements."
-should_not_trigger = "Execute the already accepted test and evaluation plans and record evidence."
+should_trigger = "Create separate deterministic test and qualitative evaluation cases for these accepted requirements."
+should_not_trigger = "Execute the already accepted test and evaluation cases and record evidence."
 ambiguous_routing = "Implement the change, but its proof obligations are incomplete."
 ambiguous_expected = "Direct requests for proof design use dset-plan-proof; a lazy dset-implement chain may invoke it as a prerequisite."
 

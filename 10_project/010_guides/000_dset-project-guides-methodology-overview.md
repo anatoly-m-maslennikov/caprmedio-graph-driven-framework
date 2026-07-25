@@ -17,7 +17,7 @@ namespaces. Earlier layouts remain compatibility or migration inputs only.
 
 1. `00_Tool Development Playbook.md` — pipeline, stage routing, and document responsibilities.
 2. `01_Spec Authoring Patterns — Service Spec Conventions.md` — domain and behavioral specification.
-3. `02_Test and Eval Plan Patterns — Proof Artifact Conventions.md` — deterministic tests and qualitative/probabilistic evals as separate proof contracts.
+3. `02_Test and Evaluation Case Patterns — Proof Artifact Conventions.md` — deterministic tests and qualitative/probabilistic evals as separate proof contracts.
 4. `03_Implementation Plan Patterns — Service Build Conventions.md` — dependency-ordered build and rollout planning.
 5. `04_General Build Rules — Tool Code Conventions.md` — runtime risk, durability topology, safety, and supportability patterns.
 6. `05_Layered Build Standard — DDD, TDD, Small Functions, Typed Gates.md` — language-neutral code gates and applied implementation-language profiles.

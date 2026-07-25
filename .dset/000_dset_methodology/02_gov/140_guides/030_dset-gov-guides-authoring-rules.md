@@ -55,7 +55,7 @@ priority: medium
   laundering interpretation into evidence.
 - Do not treat a recommendation as accepted authority. Emit the accepted
   conclusion separately as the applicable Requirement, Constraint, Contract,
-  Implementation Decision, Question, Problem, Test Plan, or Evaluation Plan.
+  Implementation Decision, Question, Problem, Test Case, or Evaluation Case.
 - Omit `artifact_subtype` when no direct subtype fits; never nest subtypes.
 
 ## Specifications

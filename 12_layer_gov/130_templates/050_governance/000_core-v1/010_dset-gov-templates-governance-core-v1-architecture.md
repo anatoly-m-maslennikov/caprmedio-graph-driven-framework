@@ -122,7 +122,7 @@ must keep their meanings and identifiers distinct.
 
 In particular, an operator acceptance act grants authority to applicable
 Requirement, Constraint, Contract, or Implementation Decision content; a Test
-Plan or Evaluation Plan defines a checking Method without authorizing project
+Plan or Evaluation Case defines a checking Method without authorizing project
 behavior; execution performs work; results and logs provide evidence; and
 Verification derives a current bounded reliance statement. A carrier does none
 of those merely by containing readable text. Multi-head claims split into
@@ -142,7 +142,7 @@ DSET separates Revision mode from artifact meaning and Content role:
   ledgers. Accepted records remain ordered and immutable; readers may derive
   maintained catalogs or TOON views without changing the source sequence.
 - **Maintained semantic views** are updatable current views such as specs,
-  implementation plans, deterministic test plans, eval plans, architecture,
+  implementation plans, deterministic test cases, evaluation cases, architecture,
   runbooks, and governing rules. They are reasoned from active source atoms and
   become stale when they disagree with one.
 - **Inquiry and Observation atoms** record unresolved choices, discrepancies,
@@ -266,7 +266,7 @@ authored. One source-target pair has one primary relation.
 
 `child_of` narrows or decomposes a claim and keeps both active. `analysis_of`
 owns investigation. `implementation_of` owns realization. `check_of` owns a
-Test Plan or Evaluation Plan definition. `evidence_for` owns observed support.
+Test Case or Evaluation Case definition. `evidence_for` owns observed support.
 `resolution_of` closes a Question, Conflict, or Problem. `override_of` changes
 authority only in a narrower scope. `replacement_of` completely replaces an
 atom and requires the predecessor to be archived. `recurrence_of` links a new

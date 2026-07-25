@@ -188,7 +188,7 @@
     },
     "trace_id": {
       "type": "string",
-      "pattern": "^[A-Z][A-Z0-9]*-(?:DECISION|REQUIREMENT|CONSTRAINT|CONTRACT|STORY|OUTCOME|SCENARIO|INVARIANT|QUESTION|CONFLICT|RISK|OPPORTUNITY|PROBLEM|DEFECT|GAP|DEBT|TEST-PLAN|EVAL-PLAN|TASK|CHANGE)(?:-(?:META|GOV|TOOL|SKILL|IMPL|OPS))?-[0-9]{3,}$"
+      "pattern": "^[A-Z][A-Z0-9]*-(?:DECISION|REQUIREMENT|CONSTRAINT|CONTRACT|STORY|OUTCOME|SCENARIO|INVARIANT|QUESTION|CONFLICT|RISK|OPPORTUNITY|PROBLEM|DEFECT|GAP|DEBT|TEST-CASE|EVALUATION-CASE|TASK|CHANGE)(?:-(?:META|GOV|TOOL|SKILL|IMPL|OPS))?-[0-9]{3,}$"
     },
     "llm_session_ids": {
       "type": "array",
@@ -228,7 +228,7 @@
       "uniqueItems": true,
       "items": {
         "type": "string",
-        "pattern": "^[A-Z][A-Z0-9]*-TEST-PLAN(?:-(?:META|GOV|TOOL|SKILL|IMPL|OPS))?-[0-9]{3,}$"
+        "pattern": "^[A-Z][A-Z0-9]*-TEST-CASE(?:-(?:META|GOV|TOOL|SKILL|IMPL|OPS))?-[0-9]{3,}$"
       }
     },
     "eval_ids": {
@@ -236,7 +236,7 @@
       "uniqueItems": true,
       "items": {
         "type": "string",
-        "pattern": "^[A-Z][A-Z0-9]*-EVAL-PLAN(?:-(?:META|GOV|TOOL|SKILL|IMPL|OPS))?-[0-9]{3,}$"
+        "pattern": "^[A-Z][A-Z0-9]*-EVALUATION-CASE(?:-(?:META|GOV|TOOL|SKILL|IMPL|OPS))?-[0-9]{3,}$"
       }
     },
     "intake_ids": {

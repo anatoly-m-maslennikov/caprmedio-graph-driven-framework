@@ -83,10 +83,10 @@ Inquiry. Sources: `DSET-REQUIREMENT-META-047` and
 
 ## Assurance meanings
 
-Test Plan and Evaluation Plan are direct atomic Method types.
+Test Case and Evaluation Case are direct atomic Method types.
 
-- Test Plans define deterministic checks under controlled conditions.
-- Evaluation Plans define judgment-dependent or uncertainty-bearing
+- Test Cases define deterministic checks under controlled conditions.
+- Evaluation Cases define judgment-dependent or uncertainty-bearing
   assessments with a method, rubric or metric, threshold, and treatment of
   uncertainty.
 

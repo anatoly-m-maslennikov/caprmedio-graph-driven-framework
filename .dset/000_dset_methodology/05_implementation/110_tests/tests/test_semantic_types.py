@@ -45,7 +45,7 @@ class SemanticTypeClassificationTests(unittest.TestCase):
             classify_semantic_id("APP-OPPORTUNITY-002"), ("question", "opportunity")
         )
         self.assertEqual(
-            classify_semantic_id("APP-EVAL-PLAN-003"),
+            classify_semantic_id("APP-EVALUATION-CASE-003"),
             ("qa", "evaluation_plan"),
         )
         self.assertIsNone(classify_semantic_id("APP-TASK-004"))
@@ -77,7 +77,7 @@ class SemanticTypeClassificationTests(unittest.TestCase):
             (opportunity["type"], opportunity["subtype"]), ("question", "opportunity")
         )
         self.assertFalse(opportunity["historical_carrier"])
-        evaluation = rows["DSET-EVAL-PLAN-OPS-001"]
+        evaluation = rows["DSET-EVALUATION-CASE-OPS-001"]
         self.assertEqual(
             (evaluation["type"], evaluation["subtype"]),
             ("qa", "evaluation_plan"),

@@ -57,8 +57,8 @@ CONFLICT_RESOLUTION_MODES = frozenset({"ask_always", "auto_by_effective_priority
 # GOVERNANCE_SURFACE_KEYS defines optional governed project surfaces.
 GOVERNANCE_SURFACE_KEYS = (
     "maintained_specification",
-    "test_plan",
-    "evaluation_plan",
+    "test_case",
+    "evaluation_case",
     "implementation_plan",
     "project_overview",
     "architecture_view",

@@ -6,9 +6,9 @@ scope_path:
 priority: medium
 ---
 
-# 02_Test and Eval Plan Patterns — Proof Artifact Conventions
+# 02_Test and Evaluation Case Patterns — Proof Artifact Conventions
 
-**Thesis:** Stage 2 produces two authored artifacts, not one blended plan: `test-plan.md` defines deterministic proof, while `eval-plan.md` defines probabilistic or qualitative proof. They are written **with the spec, before code** (`00_Tool Development Playbook.md`), so proof pins the *intent* rather than whatever the first implementation happened to do. A project with no probabilistic behavior may mark the eval plan not applicable with a reason; it must not rename deterministic tests as evals. The catalog is §1; the load-bearing five §2; the artifact contract and checklist are §3. The day-to-day enforcement practice is `05_Layered Build Standard — DDD, TDD, Small Functions, Typed Gates.md` §3.
+**Thesis:** Stage 2 produces two authored artifacts, not one blended plan: `test-plan.md` defines deterministic proof, while `eval-plan.md` defines probabilistic or qualitative proof. They are written **with the spec, before code** (`00_Tool Development Playbook.md`), so proof pins the *intent* rather than whatever the first implementation happened to do. A project with no probabilistic behavior may mark the evaluation case not applicable with a reason; it must not rename deterministic tests as evals. The catalog is §1; the load-bearing five §2; the artifact contract and checklist are §3. The day-to-day enforcement practice is `05_Layered Build Standard — DDD, TDD, Small Functions, Typed Gates.md` §3.
 
 ```mermaid
 graph TD
@@ -54,7 +54,7 @@ graph TD
 | **Real-store smokes for anything that serializes** — one test against a REAL throwaway store (tmp-dir ClickHouse, SQLite file); mock-only suites pass while production crashes | **integration smoke against a real backing service**; the anti-pattern it kills is mock-only false confidence |
 | **A property layer over the pure core** — totality (parsers never raise), idempotence (f(f(x)) == f(x)), round-trips (serialize→parse == id), content preservation; derandomize in CI | **property-based testing** (QuickCheck, Claessen & Hughes, 2000; Hypothesis); **derandomized CI** so a counterexample is a failure, not a flake |
 | **An injection canary for LLM-facing tools** — a hostile input must stay inside its untrusted fence; deterministic, CI-safe | **canary test** for prompt-injection containment |
-| **Declare the six deterministic gate categories in the test plan** — conformance, purity, spec-sync, typing/contracts, lint/static analysis, and secret hygiene run through the selected language profile | **rules as executable tests** — see `05_Layered Build Standard — DDD, TDD, Small Functions, Typed Gates.md` §§5–6 |
+| **Declare the six deterministic gate categories in the test case** — conformance, purity, spec-sync, typing/contracts, lint/static analysis, and secret hygiene run through the selected language profile | **rules as executable tests** — see `05_Layered Build Standard — DDD, TDD, Small Functions, Typed Gates.md` §§5–6 |
 | **Capture red/green evidence for test-driven changes** — the plan says where the failing output and passing output will be recorded, so tests prove intent rather than merely passing after the fact | **red-green-refactor** / strict TDD evidence (superpowers) |
 | **Verification-before-completion — evidence before claims** — before claiming a task is done, run a fresh full verification command, read its output and exit code, verify the claim, then state it with the evidence | **verification-before-completion** (superpowers) |
 | **Subagent review after each implementation task** — a fresh implementer per bounded task; after each task, a reviewer checks spec compliance and quality before the next task starts | **subagent-driven development** (superpowers) |
@@ -64,7 +64,7 @@ graph TD
 
 ## §2 | The five load-bearing ones
 
-¶1 If you take only five ideas to the next test plan and eval plan, take these — least cost, most leverage.
+¶1 If you take only five ideas to the next test case and evaluation case, take these — least cost, most leverage.
 
 <details>
 

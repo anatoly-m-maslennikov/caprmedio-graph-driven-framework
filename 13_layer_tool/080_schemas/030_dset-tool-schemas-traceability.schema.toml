@@ -149,7 +149,7 @@ pattern = "^[A-Z0-9]+(?:-[A-Z0-9]+)+$"
 
 ["$defs".semantic_atom]
 type = "object"
-required = ["id", "carrier_id", "carrier", "sha256", "type", "subtype", "emission_status", "current_status", "priority", "priority_source", "relations", "lifecycle_events", "absorbed_by", "archived"]
+required = ["id", "carrier_id", "carrier", "sha256", "type", "subtype", "emission_status", "current_status", "priority", "priority_source", "relations", "replaced_by", "archived"]
 additionalProperties = false
 
 ["$defs".semantic_atom.properties]
@@ -178,7 +178,7 @@ enum = ["none", "requirement", "constraint", "contract", "implementation_decisio
 enum = ["proposed", "accepted"]
 
 ["$defs".semantic_atom.properties.current_status]
-enum = ["proposed", "accepted", "answered", "absorbed", "confirmed", "reopened", "rejected", "resolved", "retired", "withdrawn"]
+enum = ["proposed", "accepted", "archived"]
 
 ["$defs".semantic_atom.properties.priority]
 type = "string"
@@ -194,19 +194,11 @@ type = "array"
 ["$defs".semantic_atom.properties.relations.items]
 "$ref" = "#/$defs/atom_relation"
 
-["$defs".semantic_atom.properties.lifecycle_events]
+["$defs".semantic_atom.properties.replaced_by]
 type = "array"
 uniqueItems = true
 
-["$defs".semantic_atom.properties.lifecycle_events.items]
-type = "string"
-pattern = "^[A-Z][A-Z0-9]*-LIFECYCLE-EVENT-[0-9]{3,}$"
-
-["$defs".semantic_atom.properties.absorbed_by]
-type = "array"
-uniqueItems = true
-
-["$defs".semantic_atom.properties.absorbed_by.items]
+["$defs".semantic_atom.properties.replaced_by.items]
 "$ref" = "#/$defs/relation_id"
 
 ["$defs".semantic_atom.properties.archived]
@@ -214,7 +206,7 @@ type = "boolean"
 
 ["$defs".semantic_classification]
 type = "object"
-required = ["id", "type", "subtype", "historical_carrier", "origins", "carriers", "carrier_statuses", "lifecycle_events"]
+required = ["id", "type", "subtype", "historical_carrier", "origins", "carriers", "carrier_statuses", "archived"]
 additionalProperties = false
 
 ["$defs".semantic_classification.properties]
@@ -258,16 +250,11 @@ uniqueItems = true
 type = "string"
 minLength = 1
 
-["$defs".semantic_classification.properties.lifecycle_events]
-type = "array"
-uniqueItems = true
-
-["$defs".semantic_classification.properties.lifecycle_events.items]
-type = "string"
-pattern = "^[A-Z][A-Z0-9]*-LIFECYCLE-EVENT-[0-9]{3,}$"
+["$defs".semantic_classification.properties.archived]
+type = "boolean"
 
 ["$defs".relation_type]
-enum = ["child_of", "analysis_of", "projection_of", "implementation_of", "check_of", "evidence_for", "resolution_of", "override_of", "replacement_of", "relates_to"]
+enum = ["child_of", "analysis_of", "projection_of", "implementation_of", "check_of", "evidence_for", "resolution_of", "override_of", "replacement_of", "recurrence_of", "relates_to"]
 
 ["$defs".projection_range]
 type = "object"
@@ -430,7 +417,7 @@ pattern = "^[A-Z][A-Z0-9]*-CHANGE-(?:META|GOV|TOOL|SKILL|IMPL|OPS)-[0-9]{3,}$"
 
 ["$defs".trace_id]
 type = "string"
-pattern = "^[A-Z][A-Z0-9]*-(?:DECISION|REQUIREMENT|CONSTRAINT|CONTRACT|STORY|OUTCOME|SCENARIO|INVARIANT|QUESTION|CONFLICT|RISK|OPPORTUNITY|PROBLEM|DEFECT|GAP|DEBT|TEST-PLAN|EVAL-PLAN|TASK|CHANGE)(?:-(?:META|GOV|TOOL|SKILL|IMPL|OPS))?-[0-9]{3,}$"
+pattern = "^[A-Z][A-Z0-9]*-(?:DECISION|REQUIREMENT|CONSTRAINT|CONTRACT|STORY|OUTCOME|SCENARIO|INVARIANT|QUESTION|CONFLICT|RISK|OPPORTUNITY|PROBLEM|DEFECT|GAP|DEBT|TEST-CASE|EVALUATION-CASE|TASK|CHANGE)(?:-(?:META|GOV|TOOL|SKILL|IMPL|OPS))?-[0-9]{3,}$"
 
 ["$defs".sha_or_pending]
 

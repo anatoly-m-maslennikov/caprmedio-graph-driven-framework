@@ -23,4 +23,4 @@ contract; OPS remains post-implementation delivery and operation.
 ## Start here
 
 Use the selected profile settings and current profile references first, then
-the Evaluation plan and atomic folders by semantic Type.
+the Evaluation case and atomic folders by semantic Type.

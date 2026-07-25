@@ -85,7 +85,7 @@ path = "dset/scopes/meta/governance/domain-spec-authoring.md"
 sha256 = "320c808a833574582c57910be599a37533785419c0560399066dfe11d3e09007"
 
 [[resolved_rules]]
-id = "DSET-RULE-EVAL-PLAN"
+id = "DSET-RULE-EVALUATION-CASE"
 path = "dset/scopes/meta/governance/eval-planning.md"
 sha256 = "569a38f5974e39dc3bd8092c108b3c14213e646c31041a84fe56d1af25956b5a"
 
@@ -115,7 +115,7 @@ path = "dset/scopes/ops/governance/supportability.md"
 sha256 = "cf1e5c0dea9f1a1690cd962ffd6511fa7e2af6242e3d2340fe7daa603bd1c35f"
 
 [[resolved_rules]]
-id = "DSET-RULE-TEST-PLAN"
+id = "DSET-RULE-TEST-CASE"
 path = "dset/scopes/meta/governance/test-planning.md"
 sha256 = "d35e335fffe73396cc29e7f3d5b268c8a44f249bb8a8426126b8ca15322884b4"
 

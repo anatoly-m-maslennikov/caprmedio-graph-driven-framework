@@ -13,7 +13,7 @@ currentness = "current"
 reopen_when = "A host process can write its supported global skill and runtime roots, the DSET distribution changes, or the Codex/Claude host versions change."
 
 [subject]
-id = "DSET-TEST-PLAN-SKILL-018"
+id = "DSET-TEST-CASE-SKILL-018"
 revision = "3dbd3c42bfa9003718bf415322407241a1cb6ec2"
 intended_use = "Bound the current real-host installation claim for the seventeen-skill DSET distribution without promoting discovery or invocation evidence that was not observed."
 
@@ -27,7 +27,7 @@ setup = "Codex Desktop managed workspace on macOS; repository virtual environmen
 
 [[relations]]
 type = "evidence_for"
-target = "DSET-TEST-PLAN-SKILL-018"
+target = "DSET-TEST-CASE-SKILL-018"
 +++
 
 # Test result — Real host installation boundary

@@ -158,7 +158,7 @@ class ArtifactEmissionTests(unittest.TestCase):
                 "lineage": [],
                 "acceptance": "accepted",
                 "conflict_state": "clear",
-                "verification_obligation": "DSET-TEST-PLAN-TOOL-001",
+                "verification_obligation": "DSET-TEST-CASE-TOOL-001",
             }
         )
         allowed = assess_artifact_candidate(self.root, complete)

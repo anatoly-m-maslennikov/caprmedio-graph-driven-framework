@@ -187,7 +187,7 @@
       "additionalProperties": false
     },
     "change_id": {"type": "string", "pattern": "^[A-Z][A-Z0-9]*-CHANGE-(?:META|GOV|TOOL|SKILL|IMPL|OPS)-[0-9]{3,}$"},
-    "trace_id": {"type": "string", "pattern": "^[A-Z][A-Z0-9]*-(?:DECISION|REQUIREMENT|CONSTRAINT|CONTRACT|STORY|OUTCOME|SCENARIO|INVARIANT|QUESTION|CONFLICT|RISK|OPPORTUNITY|PROBLEM|DEFECT|GAP|DEBT|TEST-PLAN|EVAL-PLAN|TASK|CHANGE)(?:-(?:META|GOV|TOOL|SKILL|IMPL|OPS))?-[0-9]{3,}$"},
+    "trace_id": {"type": "string", "pattern": "^[A-Z][A-Z0-9]*-(?:DECISION|REQUIREMENT|CONSTRAINT|CONTRACT|STORY|OUTCOME|SCENARIO|INVARIANT|QUESTION|CONFLICT|RISK|OPPORTUNITY|PROBLEM|DEFECT|GAP|DEBT|TEST-CASE|EVALUATION-CASE|TASK|CHANGE)(?:-(?:META|GOV|TOOL|SKILL|IMPL|OPS))?-[0-9]{3,}$"},
     "sha_or_pending": {"oneOf": [{"type": "string", "pattern": "^[0-9a-f]{40}$"}, {"const": "pending"}]},
     "pull_request": {
       "type": "object",

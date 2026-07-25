@@ -20,8 +20,8 @@ metadata remains in the wrapper; substantive rules moved to the owners below.
 |---|---|
 | Repository/change discovery, selected authority, and fail-closed bootstrap | `DSET-RULE-ARCHITECTURE` |
 | Facts/decisions/assumptions/unknowns; vocabulary; actors; entities; value objects; ownership; lifecycle state machines; invariants; boundary cases; material questions; what/why separation; requirement/scenario IDs; stop before unresolved domain choices | `DSET-RULE-DOMAIN-SPEC` |
-| Exact proof belongs to deterministic tests | `DSET-RULE-TEST-PLAN` |
-| Variable or rubric-based proof belongs to evals | `DSET-RULE-EVAL-PLAN` |
+| Exact proof belongs to deterministic tests | `DSET-RULE-TEST-CASE` |
+| Variable or rubric-based proof belongs to evals | `DSET-RULE-EVALUATION-CASE` |
 | Authorized artifact writes, Decision routing, single-owner output, and implementation handoff | `DSET-RULE-ARTIFACT-MAINTENANCE` |
 | Run the selected validation gate after authorized writes | `DSET-RULE-BUILD` |
 
@@ -31,8 +31,8 @@ metadata remains in the wrapper; substantive rules moved to the owners below.
 |---|---|
 | Accepted/current authority discovery and state-owner boundaries | `DSET-RULE-ARCHITECTURE` |
 | Reproduce, minimize, separate environment failures, form competing hypotheses, gather discriminating evidence, find the first bad change, trace Back-to-Left provenance, classify upstream artifacts, report inference honestly, contain, and stop at an evidence/authorization boundary | `DSET-RULE-DIAGNOSIS` |
-| Exact regression proof | `DSET-RULE-TEST-PLAN` |
-| Variable baseline and threshold proof | `DSET-RULE-EVAL-PLAN` |
+| Exact regression proof | `DSET-RULE-TEST-CASE` |
+| Variable baseline and threshold proof | `DSET-RULE-EVALUATION-CASE` |
 | Bounded/redacted diagnostics, build/deploy identity, access, retention, volume, and production-effect safety | `DSET-RULE-SUPPORTABILITY` |
 | Write authorization, owning defect artifacts, and fix handoff | `DSET-RULE-ARTIFACT-MAINTENANCE` |
 
@@ -42,8 +42,8 @@ metadata remains in the wrapper; substantive rules moved to the owners below.
 |---|---|
 | Selected requirements, constraints, candidates, and repository authority | `DSET-RULE-ARCHITECTURE` |
 | Falsifiable hypothesis, timebox, representative cases, comparable candidate evidence, provenance/license, cost/lock-in, adopt/adapt/build/defer decision, disposal, promotion, and stop conditions | `DSET-RULE-PROTOTYPING` |
-| Exact candidate thresholds and cases | `DSET-RULE-TEST-PLAN` |
-| Variable or rubric-based candidate thresholds | `DSET-RULE-EVAL-PLAN` |
+| Exact candidate thresholds and cases | `DSET-RULE-TEST-CASE` |
+| Variable or rubric-based candidate thresholds | `DSET-RULE-EVALUATION-CASE` |
 | External access, data class, security/privacy, and operational evidence bounds | `DSET-RULE-SUPPORTABILITY` |
 | Bounded proof placement, solution/Decision links, quarantine/removal, and production handoff | `DSET-RULE-ARTIFACT-MAINTENANCE` |
 

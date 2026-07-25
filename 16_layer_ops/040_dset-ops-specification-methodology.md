@@ -7,8 +7,8 @@
 The Decision compiles as six flat peer roles under the primary Version
 artifact type: Roadmap, Version Scope, Change, Release Plan, Readiness Record,
 and Release Record. Milestone remains a Roadmap entry. Release Record combines
-delivered summary and publication identity. The absorbed OPS Decisions remain
-immutable history and do not participate in active compilation.
+delivered summary and publication identity. The replaced and archived OPS
+Decisions remain immutable history and do not participate in active compilation.
 
 ### DSET-DECISION-OPS-013 — Operate without backward implementation authority
 

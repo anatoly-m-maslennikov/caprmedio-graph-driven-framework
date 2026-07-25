@@ -202,7 +202,7 @@ class TomlMigrationTests(unittest.TestCase):
         )
         self.write(
             "dset/scopes/gov/specs/packages/example/test-plan.md",
-            "# DSET-TEST-PLAN-GOV-040\n",
+            "# DSET-TEST-CASE-GOV-040\n",
         )
         self.write(
             "dset/scopes/gov/atoms/DSET-ATOMIC-RECORD-061.md",
@@ -211,7 +211,7 @@ class TomlMigrationTests(unittest.TestCase):
             'artifact_id = "DSET-ATOMIC-RECORD-061"\n'
             'type = "qa"\n'
             'subtype = "test_plan"\n'
-            'semantic_id = "DSET-TEST-PLAN-GOV-040"\n'
+            'semantic_id = "DSET-TEST-CASE-GOV-040"\n'
             'status = "accepted"\n'
             'priority = "high"\n'
             'llm_session_ids = ["codex:test"]\n'
@@ -474,7 +474,7 @@ class TomlMigrationTests(unittest.TestCase):
         self.assertEqual(package.read_bytes(), before)
         data = load_toml(successor.read_text(encoding="utf-8"))
         self.assertIn("DSET-REQUIREMENT-GOV-001", data["requirements"])
-        self.assertIn("DSET-TEST-PLAN-GOV-040", data["tests"])
+        self.assertIn("DSET-TEST-CASE-GOV-040", data["tests"])
         self.assertIn("package.toml", reference.read_text(encoding="utf-8"))
         selected = RepositoryLayout.structured_named_files(self.root, "package")
         self.assertEqual(selected, (successor,))
@@ -786,7 +786,7 @@ class TomlMigrationTests(unittest.TestCase):
             package.read_text(encoding="utf-8")
             .replace(
                 "tests: []",
-                "tests:\n  - DSET-TEST-PLAN-GOV-012",
+                "tests:\n  - DSET-TEST-CASE-GOV-012",
             )
             .replace("\n", "\r\n")
             .encode("utf-8")
@@ -796,7 +796,7 @@ class TomlMigrationTests(unittest.TestCase):
             atom.read_text(encoding="utf-8").replace(
                 "+++\n\n# Test",
                 '[[relations]]\ntype = "replacement_of"\n'
-                'target = "DSET-TEST-PLAN-GOV-012"\n+++\n\n# Test',
+                'target = "DSET-TEST-CASE-GOV-012"\n+++\n\n# Test',
             ),
             encoding="utf-8",
         )
@@ -806,23 +806,23 @@ class TomlMigrationTests(unittest.TestCase):
             "events:\n"
             "  -\n"
             "    id: DSET-LIFECYCLE-EVENT-001\n"
-            "    atom_id: DSET-TEST-PLAN-GOV-012\n"
+            "    atom_id: DSET-TEST-CASE-GOV-012\n"
             "    event: absorbed\n"
             "    related:\n"
-            "      - DSET-TEST-PLAN-GOV-040\n",
+            "      - DSET-TEST-CASE-GOV-040\n",
         )
 
         apply_toml_migration(self.root, bypass_runtime_readiness=True)
 
         successor = load_toml(package.with_suffix(".toml").read_text(encoding="utf-8"))
-        self.assertNotIn("DSET-TEST-PLAN-GOV-012", successor["tests"])
-        self.assertIn("DSET-TEST-PLAN-GOV-040", successor["tests"])
+        self.assertNotIn("DSET-TEST-CASE-GOV-012", successor["tests"])
+        self.assertIn("DSET-TEST-CASE-GOV-040", successor["tests"])
         messages = [
             diagnostic.message for diagnostic in validate_artifact_relations(self.root)
         ]
         self.assertFalse(
             any(
-                "unresolved relation target: DSET-TEST-PLAN-GOV-012" in item
+                "unresolved relation target: DSET-TEST-CASE-GOV-012" in item
                 for item in messages
             )
         )

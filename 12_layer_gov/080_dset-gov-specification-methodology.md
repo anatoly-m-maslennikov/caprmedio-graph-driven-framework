@@ -111,7 +111,7 @@ Development mode is the default:
 
 ```text
 active atomic authority
-→ Test Plans and Evaluation Plans
+→ Test Cases and Evaluation Cases
 → implementation
 → executable tests and evaluations
 → Evidence Records

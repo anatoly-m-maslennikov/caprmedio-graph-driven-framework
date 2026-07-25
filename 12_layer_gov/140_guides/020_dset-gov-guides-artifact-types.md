@@ -55,7 +55,7 @@ subtypes or store a separate family/parent classification.
 | Conflict vs Defect | Incompatible authority is Conflict; implementation contradicting authority is Defect |
 | Risk vs Problem | Possible future harm is Risk; present harm or insufficiency is Problem |
 | Gap vs Debt | Required absence is Gap; known workable compromise with ongoing cost is Debt |
-| Test Plan vs Evaluation Plan | Exact reproducible predicate is Test Plan; judgment or uncertainty is Evaluation Plan |
+| Test Case vs Evaluation Case | Exact reproducible predicate is Test Case; judgment or uncertainty is Evaluation Case |
 | Analysis vs Evidence | Interpretation is Analysis Report; bounded observation is Evidence Record |
 | Evidence vs Verification | Evidence records what happened; Verification states what that evidence supports |
 

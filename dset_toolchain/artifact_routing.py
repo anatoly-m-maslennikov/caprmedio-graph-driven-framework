@@ -46,8 +46,8 @@ TYPE_ROUTES: Final[
     ("problem", "defect"): ("atomic", "observation", "internal"),
     ("problem", "gap"): ("atomic", "observation", "internal"),
     ("problem", "debt"): ("atomic", "observation", "internal"),
-    ("test_plan", None): ("atomic", "method", "internal"),
-    ("evaluation_plan", None): ("atomic", "method", "internal"),
+    ("test_case", None): ("atomic", "method", "internal"),
+    ("evaluation_case", None): ("atomic", "method", "internal"),
     ("rationale", None): ("atomic", "analysis", "internal"),
     ("analysis_report", None): ("atomic", "analysis", "internal"),
     ("analysis_report", "solution_landscape"): (

@@ -8,8 +8,27 @@ relation_shape = "standalone"
 scope_path = ["layer:skill"]
 status = "accepted"
 priority = "high"
-child_of = ["DSET-REQUIREMENT-SKILL-010"]
 llm_session_ids = ["codex:019f591f-04f6-70f2-8de7-828b7cccc69d"]
+
+[[relations]]
+type = "resolution_of"
+target = "DSET-GAP-TOOL-002"
+
+[[relations]]
+type = "resolution_of"
+target = "DSET-GAP-SKILL-001"
+
+[[relations]]
+type = "resolution_of"
+target = "DSET-DEFECT-SKILL-002"
+
+[[relations]]
+type = "resolution_of"
+target = "DSET-DEFECT-SKILL-003"
+
+[[relations]]
+type = "child_of"
+target = "DSET-REQUIREMENT-SKILL-010"
 +++
 
 # Requirement — Use one deterministic shared skill runtime
