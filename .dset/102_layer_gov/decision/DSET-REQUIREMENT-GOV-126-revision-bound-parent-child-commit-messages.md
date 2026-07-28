@@ -8,6 +8,9 @@ priority: high
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
+  - type: child_of
+    targets:
+      - DSET-REQUIREMENT-META-075
   - type: replacement_of
     targets:
       - DSET-REQUIREMENT-GOV-125
