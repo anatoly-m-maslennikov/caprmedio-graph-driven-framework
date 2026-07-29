@@ -52,13 +52,16 @@ commit_on_update = true
 
 This means every persisted in-place update requires a Git commit.
 
-Atomic Artifact entries do not contain `commit_on_update`. The field is not
-applicable because atomic governed content cannot be updated in place. Changed
-meaning requires a new successor artifact.
+Atomic Artifact entries do not contain `commit_on_update`. The field is not an
+operator-selectable behavior for atoms: every admitted same-ID revision is
+unconditionally committed through the governed revision transaction. The
+absence of the field does not prohibit Atomic Artifact revisions.
 
 A governed identity, filename, path, or carrier-format migration does not
 change the atomic claim and is handled as a separately authorized, fully
-committed migration.
+committed `carrier_only` change. A refinement or semantic revision keeps the
+artifact ID only under the governed change-class boundary. A replacement
+creates a successor ID.
 
 Any permitted removal is also a Git change. Atomic Artifacts are archived or
 replaced through explicit relations and are not deleted as ordinary mutable
@@ -66,11 +69,15 @@ files.
 
 ## Primary claim
 
-The canonical artifact catalog uses commit_on_create for persisted artifacts, uses commit_on_update only for artifact entries whose governed content may be updated in place, and omits commit_on_update entirely for immutable Atomic Artifacts.
+The catalog omits `commit_on_update` from Atomic Artifact entries because
+committing every atomic revision is an invariant rather than configurable
+update behavior.
 
 ## Rationale
 
-Atomic immutability is an invariant, not a configurable false value, and an inapplicable setting should be absent rather than encoded as an option.
+Revision-bound Git history governs Atomic Artifact change directly. Encoding
+that invariant as an optional catalog switch would permit projects to disable
+the history needed for exact dependency and impact replay.
 
 
 ## Historical frontmatter metadata
