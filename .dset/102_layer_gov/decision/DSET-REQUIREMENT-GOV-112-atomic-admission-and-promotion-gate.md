@@ -24,17 +24,22 @@ relations:
 
 At medium strictness, DSET requires accepted authority, one primary claim, one
 enabled artifact type, owning scope, creation provenance, material relations,
-priority, and sufficient precision for the atom to remain immutable. Optional
-non-authoritative context may remain explicitly unknown.
+priority, and sufficient precision to establish a stable artifact identity and
+initial committed revision. Optional non-authoritative context may remain
+explicitly unknown.
 
 At high strictness, DSET stops before emission while any material authority,
 meaning, boundary, classification, scope, lineage, conflict, or assurance
 question remains ambiguous. It asks focused questions until the atom meets the
-same immutable-record standard.
+same one-primary-claim identity standard.
 
 Both levels assess one-step promotion eligibility. Promotion is proposed only
 when the claim applies unchanged at the broader enabled scope and always
 requires explicit operator acceptance.
+
+Admission does not prohibit later same-ID revisions. Every later change passes
+the atomic change-class gate; changing the primary claim identity requires a
+replacement.
 
 ## Primary claim
 
