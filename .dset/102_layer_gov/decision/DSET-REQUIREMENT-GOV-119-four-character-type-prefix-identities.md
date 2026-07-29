@@ -67,6 +67,7 @@ segment when no subtype applies.
 | Evidence Record | `EVRC` |
 | External Evidence Record | `XEVR` |
 | Verification Record | `VERC` |
+| Specification | `SPEC` |
 
 ## Examples
 
@@ -76,11 +77,13 @@ DSET-GOV-QACS-002-EVAL-CASE--relation-interpretability.md
 DSET-TOOL-TDEC-001--use-project-local-resolver.md
 DSET-TOOL-IDEC-001--connect-cli-to-governance.md
 DSET-GOV-EVRC-001--structural-validation-result.md
+DSET-META-SPEC-001--atomic-artifact-domain.md
 ```
 
 The corresponding stable IDs are `DSET-GOV-REQU-001`,
 `DSET-GOV-QACS-002`, `DSET-TOOL-TDEC-001`, `DSET-TOOL-IDEC-001`, and
-`DSET-GOV-EVRC-001`.
+`DSET-GOV-EVRC-001`. The maintained Specification identity is
+`DSET-META-SPEC-001`.
 
 ## Migration boundary
 
