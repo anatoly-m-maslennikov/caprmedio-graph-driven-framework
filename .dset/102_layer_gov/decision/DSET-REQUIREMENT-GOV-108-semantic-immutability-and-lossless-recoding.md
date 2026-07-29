@@ -16,30 +16,33 @@ relations:
 
 # Requirement — Preserve semantic atoms through lossless recoding
 
-An atomic artifact is one independently identified immutable semantic record.
-Its protected content includes its primary claim or proof intent, rationale,
-accepted provenance facts, creation-session provenance, scope and
-applicability, recorded priority, relation meanings and endpoints, and
-applicable assurance conditions, criteria, thresholds, and expected
-disposition.
-
-Correction, withdrawal, replacement, resolution, or recurrence creates another
-atom when needed and moves an inactive predecessor unchanged into its
-type-local archive.
+An Atomic Artifact is one independently identified claim with immutable
+committed revisions. Its primary claim or proof intent determines identity.
+Rationale, accepted provenance facts, creation-session provenance, scope and
+applicability, priority, relation meanings and endpoints, and applicable
+assurance conditions remain governed semantic content.
 
 A governed whole-graph migration may recode an artifact's identifier,
 classification-label spelling, filename, path, heading label, carrier
 encoding, seal, and stored target spelling only when it preserves the protected
-meaning and connected identities. Archive relocation and such lossless
-recoding are not semantic mutation. Any other change requires a successor.
+meaning and connected identities. Archive relocation and lossless recoding are
+`carrier_only` changes. They create committed repository revisions while
+preserving semantic equivalence and existing exact-revision dependencies.
+
+Any change to governed semantic content must be classified as a refinement,
+semantic revision, or replacement. Refinement and semantic revision may keep
+the artifact ID under their identity gates; replacement, resolution, or
+recurrence creates another artifact when the primary claim identity requires
+it.
 
 ## Primary claim
 
-Atomic immutability protects one semantic record while permitting only
-lossless, graph-wide identity or carrier recoding and unchanged archive
-relocation.
+Lossless carrier recoding may revise an Atomic Artifact's representation
+without changing the immutable semantics of either the earlier or resulting
+committed revision.
 
 ## Rationale
 
-The merged rule makes semantic and storage atoms identical without freezing
-historical identifiers or carriers forever.
+Separating carrier-only recoding from semantic change preserves exact
+historical revisions without forcing a new claim identity for every safe
+representation migration.
