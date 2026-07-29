@@ -10,13 +10,13 @@ llm_session_ids:
 relations:
   - type: child_of
     targets:
-      - DSET-REQUIREMENT-META-064
+      - DSET-REQUIREMENT-META-073
   - type: relates_to
     targets:
-      - DSET-REQUIREMENT-GOV-096
       - DSET-REQUIREMENT-GOV-108
       - DSET-REQUIREMENT-GOV-112
       - DSET-REQUIREMENT-GOV-119
+      - DSET-REQUIREMENT-GOV-128
 ---
 
 # Requirement — Derive atomic lifecycle from Type-local placement
@@ -30,7 +30,7 @@ layout:
 ├── drafts/
 │   └── <mutable pre-admission candidates>
 └── archive/
-    └── <inactive immutable artifacts>
+    └── <inactive atomic artifacts>
 ```
 
 Repository placement determines the carrier kind:
@@ -59,15 +59,20 @@ authoring sources without creating canonical relations.
 Promotion requires explicit acceptance and the applicable admission gate. It
 allocates the next Type number, creates the stable artifact ID, replaces
 `DRAFT` in the filename with that number, completes the required atomic
-frontmatter, and moves the carrier to the Type root. The candidate may be
-edited while promotion is being prepared because atomic immutability begins
-only when admission completes.
+frontmatter, moves the carrier to the Type root, and commits the initial
+immutable revision. The candidate may be edited while promotion is being
+prepared because it has not yet become an admitted Atomic Artifact.
+
+An active Atomic Artifact may gain later committed revisions under the same ID
+through the governed change-class and lineage-impact procedures. Earlier
+revisions remain immutable and reachable in Git.
 
 Archiving moves an admitted carrier unchanged from the Type root into its
 Type-local `archive/` directory. It preserves the filename, artifact ID,
 frontmatter, narrative content, and relations, and records the transition
-through the required Git archive trailer. An archived atom never returns to
-Draft; renewed work creates another candidate or successor atom.
+through the governed parent-to-child Git transaction. An archived atom never
+returns to Draft or active placement; renewed work creates another candidate or
+successor atom.
 
 ## Primary claim
 
@@ -78,6 +83,6 @@ promotion and accepted contents preserved during archival.
 ## Rationale
 
 Type-local placement makes lifecycle visible in ordinary file navigation while
-avoiding a second writable status representation. It also lets large atoms be
-revised safely before admission without weakening the immutability of the
-accepted artifact set.
+avoiding a second writable status representation. Git preserves immutable
+committed revisions while placement identifies which artifact IDs currently
+participate in project authority.
