@@ -109,17 +109,17 @@ Atomic Artifacts use Markdown with YAML frontmatter unless an external boundary 
 ```yaml
 ---
 artifact_type: requirement
-artifact_id: DSET-REQUIREMENT-GOV-001
+artifact_id: DSET-GOV-REQU-001
 scope_path: layer:gov
 subject_scopes:
-  - artifact-model
+  - artifact-catalog
 priority: high
 llm_session_ids:
   - codex:session-id
 relations:
   - type: child_of
     targets:
-      - DSET-REQUIREMENT-META-001
+      - DSET-META-REQU-001
 ---
 ```
 
@@ -296,7 +296,7 @@ A Contract is one relational obligation among explicit role-bearing endpoints. I
 ### Required frontmatter extension
 
 ```yaml
-relation_kind: scope-declaration-for
+relation_kind: scope_declaration_for
 endpoints:
   - role: declarer
     identity: adopting-repository-owner
