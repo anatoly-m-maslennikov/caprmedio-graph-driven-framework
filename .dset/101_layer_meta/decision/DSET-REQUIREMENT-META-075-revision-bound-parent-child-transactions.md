@@ -33,10 +33,10 @@ The transaction distinguishes:
 - children created for the first time; and
 - existing children revised by the transaction.
 
-An Atomic Artifact refinement is therefore a new child revision of its earlier
-revision. Existing dependents remain bound to the parent revision their own
-transaction consumed; later dependents may consume a later conservative
-revision of the same Atomic Artifact ID.
+A same-ID Atomic Artifact change is therefore a new child revision of its
+earlier committed revision. Existing dependents remain bound to the parent
+revision their own transaction consumed; later dependents may consume a later
+revision that preserves the Atomic Artifact's primary identity.
 
 All children in one transaction belong to exactly one `scope_path`. Parents may
 come from multiple scopes when one bounded child scope integrates their
