@@ -54,9 +54,12 @@ Atomic Artifacts owned by `layer:gov` use only these subject scopes:
 | `settings` | Project settings, configuration selection, and enabled governance surfaces |
 | `subject-scope` | Subject-scope vocabulary, cardinality, and validation |
 
-The vocabularies are closed for their respective structural owners. A new
-subject requires a new Atomic Artifact that updates this authority through the
-normal immutable replacement mechanism.
+The vocabularies are closed for their respective structural owners. Adding,
+renaming, or removing a subject is a semantic revision of this vocabulary
+authority while its primary claim remains the same. It keeps this artifact ID,
+creates a new committed revision, and triggers lineage-impact review. A new
+artifact ID is required only when the primary vocabulary-governance claim
+changes identity.
 
 ## Primary claim
 
