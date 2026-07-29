@@ -21,13 +21,16 @@ relations:
 
 An operator-accepted DDL, file schema, API, protocol, host format,
 supported-platform interface, CI interface, dependency boundary, or comparable
-participant obligation is an immutable relational Definition with explicit
-participants.
+participant obligation is a relational Definition with explicit participants
+and a pinned external source version or digest.
 
-Implementation must conform to that obligation and cannot rewrite it. A
-complete change requires a new accepted atomic Definition that replaces the
-older one within a declared scope, followed by archive relocation of the
-predecessor.
+Implementation must conform to the exact committed obligation revision it
+consumes and cannot rewrite it. A changed external source creates a new
+committed revision under the same artifact ID when the same participant
+obligation remains identifiable. A different obligation requires a new
+relational Definition with an explicit replacement relation. Existing
+implementations remain bound to their consumed revisions until lineage-impact
+review determines their disposition.
 
 META defines this boundary meaning without assigning its concrete artifact type
 or subtype name. GOV owns the canonical name, carrier, identity, and catalog
