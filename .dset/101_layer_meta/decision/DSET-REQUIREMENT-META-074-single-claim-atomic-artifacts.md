@@ -42,20 +42,24 @@ This invariant applies to every Atomic Artifact Type. In particular:
 - an Assurance atom establishes one check; and
 - an Analysis atom establishes one primary conclusion.
 
-Atomic semantic liveness is binary:
+Atomic identity liveness is binary:
 
-- `active` means the claim remains current; and
-- `dead` means the carrier is archived and the claim is no longer current.
+- `active` means the artifact ID has a current carrier revision; and
+- `dead` means the carrier is archived and the artifact ID is no longer
+  current.
 
 These conditions are derived from placement and relations, not stored as a
 frontmatter status. Partial absorption, partial replacement, and partially
-active atoms are forbidden.
+active artifact identities are forbidden. Earlier committed revisions remain
+immutable Git history and may retain revision-bound dependents.
 
-An unbound multi-claim atom must be split before it freezes. If a frozen
-historical atom contains several claims, one governed transaction creates the
-complete set of single-claim successors and replaces the predecessor in full.
-The predecessor moves unchanged to `archive/` only after no part of its claim
-set remains current solely through that predecessor.
+A multi-claim candidate must be split before admission. If an admitted
+historical artifact contains several independently replaceable claims, one
+governed replacement creates the complete set of single-claim successors and
+replaces the predecessor in full. The predecessor moves unchanged to
+`archive/` only after no part of its claim set remains current solely through
+that predecessor. Its committed revisions and existing dependency bindings
+remain reachable in Git.
 
 ## Primary claim
 
