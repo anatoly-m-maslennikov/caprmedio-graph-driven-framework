@@ -111,7 +111,7 @@ Controlled vocabulary defaults to lowercase kebab-case, while registered grammar
 ```yaml
 ---
 artifact_type: requirement
-artifact_id: DSET-GOV-REQU-001
+artifact_id: PROJ-GOV-REQU-001
 scope_path: layer:gov
 subject_scopes:
   - artifact-catalog
@@ -121,7 +121,7 @@ llm_session_ids:
 relations:
   - type: child_of
     targets:
-      - DSET-META-REQU-001
+      - PROJ-META-REQU-001
 ---
 ```
 
