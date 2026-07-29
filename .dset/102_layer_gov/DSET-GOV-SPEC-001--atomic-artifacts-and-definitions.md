@@ -357,7 +357,7 @@ A reviewer may accept this Specification as current only when:
 - Git provenance is not treated as evidence;
 - lifecycle conditions are derived rather than duplicated in frontmatter;
 - every changed atomic source has a compatible or completed affected lineage disposition; and
-- DSET-QUESTION-GOV-018 remains visible as the unresolved hosted-integration boundary.
+- DSET-GOV-IDEC-001 preserves governed source-commit identities when a reviewed Pull Request is adopted into a protected target branch.
 
 ## Examples
 
