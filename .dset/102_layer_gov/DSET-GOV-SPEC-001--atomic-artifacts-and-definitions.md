@@ -106,6 +106,8 @@ Each definition uses only ordinary language and entities defined above it. Conne
 
 Atomic Artifacts use Markdown with YAML frontmatter unless an external boundary or native artifact Type requires another carrier. Every controlled string value is an unquoted YAML-safe scalar. Atomic sources: DSET-REQUIREMENT-GOV-116, DSET-REQUIREMENT-GOV-123.
 
+Controlled vocabulary defaults to lowercase kebab-case, while registered grammars retain their governed forms, including uppercase artifact identities and underscore-based relation kinds. Atomic source: DSET-REQUIREMENT-GOV-123.
+
 ```yaml
 ---
 artifact_type: requirement
