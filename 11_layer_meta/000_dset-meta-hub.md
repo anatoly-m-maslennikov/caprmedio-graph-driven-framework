@@ -49,7 +49,6 @@ re-enters the solid flow at its proper owning layer.
 
 - `dset_settings.toml`
 - `specification-domain.md`
-- `specification-methodology.md`
 - `navigation-methodology.md`
 - `procedure-domain-spec-authoring.md`
 - Schemas

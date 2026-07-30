@@ -19,7 +19,6 @@ The fragment owns only IDs listed in `package.toml`. Cross-layer connections use
 ## Start here
 
 - `specification-domain.md`
-- `specification-methodology.md`
 - `specification-contracts.md`
 - `plan-tests.md`
 - `plan-evaluations.md`

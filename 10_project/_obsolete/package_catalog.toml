@@ -17,7 +17,6 @@ outcomes = []
 [package_catalog.packages.artifacts]
 hub = "DSET-META-HUB.md"
 domain = "DSET-META-REFERENCE-specification-domain.toml"
-spec = "DSET-META-REFERENCE-specification-methodology.toml"
 contracts = "DSET-META-REFERENCE-specification-contracts.toml"
 stories = "DSET-META-REFERENCE-specification-user-stories.toml"
 outcomes = "DSET-META-REFERENCE-specification-outcomes.toml"
