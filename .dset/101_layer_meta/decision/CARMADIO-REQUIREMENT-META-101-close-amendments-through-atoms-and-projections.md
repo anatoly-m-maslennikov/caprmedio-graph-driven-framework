@@ -21,6 +21,9 @@ relations:
       - CARMADIO-REQUIREMENT-META-057
       - CARMADIO-REQUIREMENT-META-058
       - CARMADIO-REQUIREMENT-META-066
+      - CARMADIO-REQUIREMENT-META-075
+      - CARMADIO-REQUIREMENT-META-077
+      - CARMADIO-REQUIREMENT-META-103
 ---
 
 # Requirement — Close every constitutional amendment
@@ -41,7 +44,10 @@ A failed or ambiguous step leaves the amendment incomplete and cannot claim a ne
 
 ## Primary claim
 
-A META amendment closes only after accepted Atom authority, predecessor archival, descendant impact review, affected Projection refresh, and fixed-point verification agree.
+A META amendment closes only after accepting the exact Atom revision,
+archiving any fully replaced predecessors, reviewing descendant impact,
+refreshing Projections required by the active gate, and verifying the resulting
+fixed point.
 
 ## Rationale
 
