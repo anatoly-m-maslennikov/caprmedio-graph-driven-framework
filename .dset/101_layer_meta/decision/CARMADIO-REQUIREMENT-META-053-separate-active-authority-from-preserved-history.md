@@ -16,23 +16,21 @@ relations:
       - CARMADIO-REQUIREMENT-META-058
 ---
 
-# Requirement — Bound the durable control plane
+# Requirement — Separate active authority from preserved history
 
-The durable CARMADIO control plane is secret-free and LLM-provider agnostic.
+## Primary claim
 
-Its active set contains accepted current project authority, applicable
+CARMADIO's durable control plane distinguishes accepted current project
+authority, applicable
 maintained artifacts, and operative governance. Type-local archives preserve
 accepted historical atoms without making them active authority. Future
 intentions remain in Version Roadmaps, and unaccepted exploration remains
 outside governed state.
 
-Passwords, API keys, tokens, and other secrets never enter CARMADIO artifacts,
-settings, journals, evidence, or runtime logs. Runtime code obtains them only
-through external secret-bearing environment keys or an equivalent governed
-host boundary.
-
 ## Rationale
 
 The corrected boundary distinguishes current authority from preserved history
-without excluding archives from the durable control plane or admitting secrets
-and session speculation.
+without excluding archives from durable history or admitting future intent and
+session speculation into active authority. Secret handling, provider
+portability, and runtime acquisition remain downstream requirements because
+they are implementation mechanisms rather than META invariants.
