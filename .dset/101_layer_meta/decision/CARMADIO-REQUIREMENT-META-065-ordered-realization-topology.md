@@ -39,8 +39,9 @@ META → GOV → SPEC → PROFILES → IMPL → OPS
 | IMPL | Concrete source, skill packages, Test and Eval implementations, configuration, schemas, migrations, adapters, commits, pull requests, and implementation traceability |
 | OPS | Post-implementation delivery, release, publication, runtime supportability, investigation, containment, recovery, and hosted evidence |
 
-META owns semantic dimensions and layer boundaries but never owns the concrete
-artifact Type names assigned by GOV.
+META owns semantic dimensions, layer boundaries, and the derivation of internal
+Atom Type names from Content roles. GOV owns registered external and relational
+Type names plus their concrete carrier rules.
 
 ## Primary claim
 
