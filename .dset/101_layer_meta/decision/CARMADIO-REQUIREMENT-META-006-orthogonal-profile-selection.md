@@ -17,7 +17,9 @@ mechanism mandatory.
 
 ## Primary claim
 
-Implementation-language, artifact-governance, runtime-risk, and durability-topology profiles are selected as independent concerns.
+Each selectable profile specializes exactly one declared concern. Composing
+profiles must not let one profile redefine another concern or make an
+inapplicable mechanism mandatory.
 
 ## Rationale
 
