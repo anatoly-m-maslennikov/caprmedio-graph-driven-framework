@@ -21,11 +21,11 @@ relations:
       - CARMADIO-REQUIREMENT-META-091
 ---
 
-# Requirement — Preserve external boundary obligations
+# Requirement — Preserve external and relational boundary obligations
 
 An operator-accepted DDL, file schema, API, protocol, host format, supported-platform interface, CI interface, dependency boundary, or comparable external obligation is represented by its semantic contribution and locus.
 
-An obligation imposed by one external source is an external Requirement. An obligation that exists between explicit participants is a relation-locus Contract with explicit endpoints. Both pin the applicable external source version or digest.
+An obligation imposed by one external source occupies the Requirement Content role and external Governance locus. An obligation that exists between explicit participants occupies the Requirement Content role and relation Governance locus and declares explicit endpoints. Both pin the applicable external source version or digest.
 
 Implementation must conform to the exact committed obligation revision it consumes and cannot rewrite it. A changed external source creates a new committed revision when the same obligation remains identifiable. A different obligation requires a new Atom with an explicit replacement relation. Existing Implementations remain bound to their consumed revisions until lineage-impact review determines their disposition.
 
@@ -33,8 +33,8 @@ META defines this boundary without assigning concrete external or relational Typ
 
 ## Primary claim
 
-External obligations are external Requirements or endpoint-bound Contracts, preserve their pinned source revision, and cannot be rewritten by their Implementations.
+External and relational boundary obligations use the Requirement Content role, preserve their pinned source revision and locus, and cannot be rewritten by their Implementations.
 
 ## Rationale
 
-Separating externally imposed Requirements from participant Contracts preserves non-negotiable interfaces without reviving the retired Definition role.
+Separating external-source obligations from participant-bound obligations preserves non-negotiable interfaces without letting META assign concrete GOV Type names.
