@@ -23,6 +23,8 @@ relations:
 
 # Contract — Repository Work Area declaration
 
+## Primary claim
+
 An adopting repository owner declares either repository-level scope or one or
 more existing repository-relative folders as Work Areas. The declaration may
 cover local, deployable, library, documentation, methodology, data, or mixed

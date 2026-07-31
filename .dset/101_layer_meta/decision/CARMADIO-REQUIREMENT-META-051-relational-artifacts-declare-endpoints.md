@@ -18,6 +18,8 @@ relations:
 
 # Requirement — Make relational endpoints explicit
 
+## Primary claim
+
 An artifact routed to relational governance declares one stable relation kind
 and at least two role-bearing endpoints. Each endpoint independently declares
 whether its participant is internal or external.

@@ -18,6 +18,8 @@ relations:
 
 # Requirement — Bound recursive self-hosting
 
+## Primary claim
+
 CARMADIO applies the same layer constitution and governance semantics to its own
 repository while keeping reusable framework source, installed methodology, and
 applied project truth under distinct owners.
