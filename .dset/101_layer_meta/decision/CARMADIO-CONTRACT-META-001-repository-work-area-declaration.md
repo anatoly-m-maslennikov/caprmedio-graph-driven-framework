@@ -30,15 +30,14 @@ more existing repository-relative folders as Work Areas. The declaration may
 cover local, deployable, library, documentation, methodology, data, or mixed
 content without requiring code or deployability.
 
-CARMADIO lifecycle, Change, proof, supportability, and session-continuity
-consumers resolve the current accepted declaration before scope-dependent
-work. Session continuity may retain a bounded reference but cannot create,
-rename, reclassify, replace, or supersede the boundary.
+Every scope-dependent CARMADIO consumer resolves the current accepted
+declaration before work. Session continuity may retain a bounded reference but
+cannot create, rename, reclassify, replace, or supersede the boundary.
 
 ## Direction
 
-Repository scope declaration → CARMADIO artifacts, workflows, proof, runs, and
-handoffs.
+Repository scope declaration → CARMADIO artifacts, workflows, assurance, runs,
+and handoffs.
 
 ## Conformance
 
