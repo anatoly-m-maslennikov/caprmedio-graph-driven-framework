@@ -3,7 +3,7 @@ artifact_type: requirement
 artifact_id: CARMADIO-REQUIREMENT-META-094
 scope_path: layer:meta
 subject_scopes:
-  - profile
+  - product-framing
 priority: medium
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
