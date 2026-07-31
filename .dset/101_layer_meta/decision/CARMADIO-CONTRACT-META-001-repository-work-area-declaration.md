@@ -58,11 +58,3 @@ may remain one repository-level scope.
 Repository folders are neutral governance boundaries. They must support code,
 documentation, methodology, data, and mixed projects without silently
 inventing services, modules, deployment units, or features.
-
-
-## Historical frontmatter metadata
-
-```yaml
-source_refs:
-  - "CARMADIO-REQUIREMENT-META-011"
-```

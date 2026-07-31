@@ -35,18 +35,3 @@ Every governed claim has one authoritative owner and is placed in the earliest l
 ## Rationale
 
 One owner and earliest-complete placement prevent duplicated truth, shadow governance, and upstream dependence on volatile realization details.
-
-
-## Historical frontmatter metadata
-
-```yaml
-promotion:
-  affected_children:
-    - "governance"
-    - "tool"
-    - "skill"
-    - "implementation"
-    - "operations"
-  applies_unchanged: true
-  local_context_required: false
-```

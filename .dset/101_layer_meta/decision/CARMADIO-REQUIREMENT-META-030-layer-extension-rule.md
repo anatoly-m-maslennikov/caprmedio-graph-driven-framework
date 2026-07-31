@@ -35,18 +35,3 @@ A proposed CARMADIO layer is admitted only when it has one non-overlapping respo
 ## Rationale
 
 An explicit admission test keeps the layer model extensible without allowing every profile, feature, or organizational preference to become a new layer.
-
-
-## Historical frontmatter metadata
-
-```yaml
-promotion:
-  affected_children:
-    - "governance"
-    - "tool"
-    - "skill"
-    - "implementation"
-    - "operations"
-  applies_unchanged: true
-  local_context_required: false
-```

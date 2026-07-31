@@ -36,18 +36,3 @@ Profiles specialize downstream realization and applicability without weakening M
 ## Rationale
 
 Profiles must support diverse projects without turning local implementation choices into competing constitutional truth.
-
-
-## Historical frontmatter metadata
-
-```yaml
-promotion:
-  affected_children:
-    - "governance"
-    - "tool"
-    - "skill"
-    - "implementation"
-    - "operations"
-  applies_unchanged: true
-  local_context_required: false
-```
