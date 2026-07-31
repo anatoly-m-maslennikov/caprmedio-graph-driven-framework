@@ -21,6 +21,7 @@ relations:
       - DSET-REQUIREMENT-META-051
       - DSET-REQUIREMENT-META-056
       - DSET-REQUIREMENT-GOV-102
+      - DSET-REQUIREMENT-GOV-134
 ---
 
 # Requirement — Register Atom Types by Content role and Governance locus
@@ -43,11 +44,32 @@ Every relational Atom declares explicit endpoints appropriate to its meaning. Ev
 
 ## Assurance boundary
 
-An internal `assurance` Atom that defines a deterministic check declares direct subtype `test_case`. An internal `assurance` Atom that defines a qualitative, probabilistic, statistical, rubric-based, or model-judged assessment declares direct subtype `eval_case`. A Test Case or Eval Case owns one independently replaceable check and states its conditions, criteria, and disposition rule.
+GOV admits two direct internal `assurance` subtypes:
 
-Executable test or evaluation code is internal `implementation`, not Assurance. A test result, evaluation result, or verification outcome is `observation`. Test and evaluation chains remain separate even when they assure the same Requirement.
+- `qa_case` defines one mechanism-neutral bounded check, including the claim
+  checked, applicable conditions, acceptance criteria, and disposition rule;
+  and
+- `assurance_control` defines one condition or invariant continuously checked
+  during real production operation, including its signal, healthy boundary,
+  evaluation window, ownership, and failure response.
 
-Other Assurance patterns may use the top-level `assurance` Type until GOV admits another direct subtype. A subtype is never a sub-subtype and never replaces the canonical top-level Type.
+Automated tests, evaluation prompts, rubrics implemented as executable
+configuration, statistical evaluators, model judges, monitors, alerts, and
+health checks are internal `implementation`, not Assurance subtypes. Their
+results are `observation`.
+
+One QA Case may have distinct Test and Evaluation implementations, and one
+implementation may cover several QA Cases when coverage remains explicit and
+individually attributable. Test and Evaluation chains remain distinguishable
+even when they assure the same Case.
+
+A Production Assurance Checklist is an Assurance-role Catalog Projection over
+applicable `assurance_control` Atoms. The Projection organizes controls but
+does not absorb or restate their claims.
+
+Another Assurance pattern may use the top-level `assurance` Type only when
+neither admitted subtype applies. A subtype is never a sub-subtype and never
+replaces the canonical top-level Type.
 
 ## Method and Implementation boundaries
 
@@ -57,8 +79,15 @@ A Pull Request remains a relational Implementation connecting declared source an
 
 ## Primary claim
 
-GOV registers the canonical Atom-form Type for each Content-role and Governance-locus coordinate, deriving all internal names directly from their Content roles and retaining Test Case and Eval Case as Assurance subtypes.
+GOV registers the canonical Atom-form Type for each Content-role and
+Governance-locus coordinate, derives all internal names directly from their
+Content roles, and distinguishes mechanism-neutral QA Cases from continuous
+production Assurance Controls.
 
 ## Rationale
 
-The predecessor used special internal names such as Problem, Technical Decision, QA Case, Git Commit, and Evidence Record. Direct role-equals-Type naming makes internal Atoms predictable, while GOV retains the contextual names required at external and relational boundaries.
+Direct role-equals-Type naming makes internal Atoms predictable, while direct
+subtypes preserve operationally meaningful Assurance distinctions. A
+mechanism-neutral QA Case avoids duplicating one obligation across Test and
+Evaluation implementations, while Assurance Control keeps real production
+operation distinct from bounded QA.
