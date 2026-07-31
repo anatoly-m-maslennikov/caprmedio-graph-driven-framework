@@ -15,6 +15,7 @@ relations:
     targets:
       - DSET-REQUIREMENT-GOV-124
       - DSET-REQUIREMENT-GOV-131
+      - DSET-REQUIREMENT-GOV-133
 ---
 
 # Requirement — Require production assurance checklists
@@ -25,7 +26,8 @@ checklist states how operators will know that the realized system remains
 healthy, correct, supportable, and within its accepted operating boundaries
 during real work.
 
-Each checklist item owns one operational condition or invariant and identifies:
+Each operational condition or invariant is owned by one `assurance_control`
+Atom. The control identifies:
 
 - the Requirement, Contract, Constraint, Method, or other governed claim being
   assured;
@@ -42,10 +44,14 @@ Each checklist item owns one operational condition or invariant and identifies:
 - known blind spots, sampling limits, unavailable signals, and other assurance
   limitations.
 
-The checklist distinguishes its governed meaning from its realization and
+A Production Assurance Checklist is an Assurance-role Catalog Projection over
+the applicable `assurance_control` Atoms. It organizes and navigates those
+controls without absorbing, paraphrasing, or replacing their claims.
+
+Each control distinguishes its governed meaning from its realization and
 results:
 
-- the checklist defines the production assurance obligation;
+- the Assurance Control defines the production assurance condition;
 - monitors, dashboards, alerts, health checks, and operational automation are
   Implementation;
 - metrics, logs, traces, alerts, incidents, and recorded check outcomes are
@@ -58,13 +64,15 @@ by itself satisfy the production-assurance obligation.
 
 ## Primary claim
 
-Every production-relevant scope defines an actionable Production Assurance
-Checklist that connects governed claims to live signals, ownership, response,
-retention, and known limitations.
+Every production-relevant scope defines independently replaceable Assurance
+Controls and an actionable Production Assurance Checklist Projection that
+connects them to live signals, ownership, response, retention, and known
+limitations.
 
 ## Rationale
 
 Pre-release QA demonstrates behavior under bounded conditions, while production
 assurance must detect degradation, incorrect state, and supportability failures
-during actual operation. A checklist makes that continuing obligation explicit
-without conflating its definition, implementation, and observations.
+during actual operation. Atomic controls preserve independent lifecycle and
+replacement, while the checklist provides a navigable scope view without
+conflating definitions, implementations, and observations.
