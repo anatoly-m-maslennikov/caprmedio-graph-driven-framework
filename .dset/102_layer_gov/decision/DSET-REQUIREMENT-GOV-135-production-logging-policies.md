@@ -18,10 +18,11 @@ relations:
 
 # Requirement — Require production logging policies
 
-Every production-relevant component must define a Logging Policy as part of its
-Production Assurance Checklist. The policy identifies the events and context
-required to understand normal operation, detect failure, correlate distributed
-work, and investigate real production issues.
+Every production-relevant component must define a Logging Policy that supports
+its Assurance Controls and is referenced by its Production Assurance Checklist.
+The policy identifies the events and context required to understand normal
+operation, detect failure, correlate distributed work, and investigate real
+production issues.
 
 ## Severity policy
 
