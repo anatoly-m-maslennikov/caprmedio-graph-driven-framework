@@ -19,25 +19,33 @@ relations:
       - DSET-REQUIREMENT-META-048
 ---
 
-# Requirement — Keep Test and Evaluation chains distinct
+# Requirement — Keep QA Cases mechanism-neutral and assurance chains distinct
 
-Tests and Evaluations are separate assurance chains.
+A QA Case is one mechanism-neutral Assurance atom defining what claim is
+checked, the applicable conditions, the acceptance criteria, and the
+disposition rule. It does not prescribe whether the check is realized by an
+automated test, model-judged evaluation, statistical assessment, rubric,
+manual review, or another implementation mechanism.
 
-A Test Case defines one deterministic check with controlled conditions and an
-exact expected disposition. An Evaluation Case defines one qualitative,
-probabilistic, statistical, rubric-based, or model-judged assessment with
-explicit criteria and an interpretation rule.
+One QA Case may be realized by multiple distinct assurance implementations.
+One implementation may realize multiple QA Cases only when its result remains
+attributable to every covered Case. Coverage is therefore many-to-many but
+never implicit.
 
-Each chain keeps its plan, executable implementation, factual Observation,
-evidence, and Verification judgment distinguishable. A shared runner or report
-does not merge their meanings or coverage.
+Deterministic Test implementations and qualitative, probabilistic,
+statistical, rubric-based, or model-judged Evaluation implementations retain
+distinct chains. Each chain keeps its executable implementation, configuration
+or rubric, factual Observation, evidence, and Verification judgment
+distinguishable. A shared runner, prompt, judge, report, or gate does not merge
+their meanings, observations, or coverage.
 
-Exact resolver, ownership, path, identity, wrapper, and recursion behavior uses
-Test proof. Interpretation, rule-following, navigation, diagnostic usefulness,
-and variable output quality uses Evaluation proof.
+Test and Evaluation describe implementation mechanisms, not Assurance
+subtypes. The QA Case remains the Assurance authority; executable mechanisms
+are Implementation, and their results are Observation.
 
 ## Rationale
 
-Combining the former distinction and proof-routing requirements gives one
-complete boundary from assurance definition through factual result without
-collapsing deterministic correctness into judgment.
+Mechanism-neutral Cases prevent the same assurance obligation from being
+duplicated merely because it has several realizations. Preserving distinct
+implementation and observation chains still prevents deterministic correctness
+from being collapsed into qualitative judgment.
