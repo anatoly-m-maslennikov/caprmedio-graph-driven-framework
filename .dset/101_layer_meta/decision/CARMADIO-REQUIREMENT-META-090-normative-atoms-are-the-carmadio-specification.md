@@ -28,7 +28,7 @@ relations:
 
 Applicable active Requirement, Method, Assurance, and Delivery Atoms across all Governance loci collectively form the project's normative specification. Each Atom owns one independently replaceable outcome, obligation, construction rule, assurance criterion, delivery rule, boundary, invariant, or other normative claim.
 
-A second maintained document must not become another specification authority by rephrasing those claims. Full written Specifications are retired as an independent maintained semantic surface.
+A second mutable document must not become another specification authority by rephrasing those claims. Full written Specifications are retired as an independent authority surface.
 
 Projects may expose thin Projections over the Atom set. A conforming Projection:
 
