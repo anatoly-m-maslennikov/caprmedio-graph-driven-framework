@@ -69,7 +69,8 @@ Examples:
 
 ```text
 DSET-GOV-REQU-001--artifact-form-is-explicit.md
-DSET-GOV-ASSU-002-EVAL-CASE--projection-interpretability.md
+DSET-GOV-ASSU-002-QA-CASE--projection-interpretability.md
+DSET-OPS-ASSU-003-ASSURANCE-CONTROL--queue-stall-detection.md
 DSET-TOOL-IMPL-001--resolve-project-local-governance.md
 DSET-META-CATL-001--requirement-atom-catalog.md
 ```
