@@ -10,10 +10,8 @@ llm_session_ids:
 relations:
   - type: child_of
     targets:
-      - DSET-REQUIREMENT-META-073
-  - type: relates_to
-    targets:
-      - DSET-REQUIREMENT-META-074
+      - DSET-REQUIREMENT-META-080
+      - DSET-REQUIREMENT-META-103
 ---
 
 # Requirement — Model governed change as revision-bound parent and child transactions
@@ -24,7 +22,7 @@ Every governed change is a directed provenance transaction:
 exact parent revisions → new and updated children
 ```
 
-A parent is an exact committed revision of an Atomic Artifact whose claim the
+A parent is an exact committed revision of an Atom whose claim the
 transaction consumes. A child is a governed artifact or native project carrier
 produced or revised by the transaction.
 
@@ -33,17 +31,17 @@ The transaction distinguishes:
 - children created for the first time; and
 - existing children revised by the transaction.
 
-A same-ID Atomic Artifact change is therefore a new child revision of its
+A same-ID Atom change is therefore a new child revision of its
 earlier committed revision. Existing dependents remain bound to the parent
 revision their own transaction consumed; later dependents may consume a later
-revision that preserves the Atomic Artifact's primary identity.
+revision that preserves the Atom's primary identity.
 
 All children in one transaction belong to exactly one `scope_path`. Parents may
 come from multiple scopes when one bounded child scope integrates their
 authority.
 
 Parent revisions must pre-exist the transaction. A transaction cannot depend
-on a revision created by that same transaction. Creating or refining an atom
+on a revision created by that same transaction. Creating or refining an Atom
 and producing children that consume the resulting revision therefore require
 separate ordered transactions.
 
@@ -57,12 +55,12 @@ the concrete carrier contract.
 
 ## Primary claim
 
-Each governed change consumes exact Atomic Artifact revisions and produces new
+Each governed change consumes exact Atom revisions and produces new
 or updated children in one scope through a replayable directed transaction.
 
 ## Rationale
 
 Revision-bound edges preserve the precise authority each child consumed while
-allowing conservative evolution under a stable Atomic Artifact ID. The
+allowing conservative evolution under a stable Atom ID. The
 one-child-scope boundary keeps commits reviewable without preventing
 cross-scope inputs.
