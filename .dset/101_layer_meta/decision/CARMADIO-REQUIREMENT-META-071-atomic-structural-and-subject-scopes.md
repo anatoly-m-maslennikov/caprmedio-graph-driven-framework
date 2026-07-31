@@ -10,18 +10,18 @@ llm_session_ids:
 relations:
   - type: child_of
     targets:
-      - CARMADIO-REQUIREMENT-META-052
+      - CARMADIO-REQUIREMENT-META-100
   - type: relates_to
     targets:
-      - CARMADIO-REQUIREMENT-META-038
+      - CARMADIO-REQUIREMENT-META-099
 ---
 
-# Requirement — Give every Atomic Artifact explicit scope
+# Requirement — Give every Atom explicit scope
 
-Every Atomic Artifact declares exactly one `scope_path` identifying its
+Every Atom declares exactly one `scope_path` identifying its
 project-relative structural owner.
 
-An Atomic Artifact may also declare `subject_scopes` identifying the semantic
+An Atom may also declare `subject_scopes` identifying the semantic
 subjects needed to find, compare, and review related atoms within that
 structural owner. Each subject scope is an unqualified layer-local token. Its
 meaning and allowed vocabulary are selected by `scope_path`; a subject scope
@@ -33,7 +33,7 @@ placement, and explicit relations.
 
 ## Primary claim
 
-Every Atomic Artifact has one structural owner and may carry governed
+Every Atom has one structural owner and may carry governed
 layer-local subject scopes without duplicating its structural path.
 
 ## Rationale
