@@ -21,7 +21,7 @@ relations:
 
 # Requirement — Reconcile the Development Backlog after release
 
-After the release record is accepted, CARMADIO reconciles the Development
+After the Release Record is accepted, CARMADIO reconciles the Development
 Backlog against its exact released manifest.
 
 Candidates whose promoted Atoms were fully delivered in that release are
@@ -31,7 +31,7 @@ target version. A candidate cannot be removed as shipped unless the released
 manifest accounts for its promoted Atoms.
 
 The Development Backlog does not retain a completed-work section. The release
-record and Git history preserve what shipped and how the planning allocation
+Record and Git history preserve what shipped and how the planning allocation
 changed.
 
 ## Primary claim
@@ -43,4 +43,4 @@ the released manifest.
 ## Rationale
 
 The backlog remains a compact statement of future work, while immutable release
-records and Git preserve completed history without a second historical backlog.
+Records and Git preserve completed history without a second historical backlog.
