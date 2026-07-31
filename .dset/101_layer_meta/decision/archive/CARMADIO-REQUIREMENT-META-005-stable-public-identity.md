@@ -17,7 +17,10 @@ may retain prior URLs when redirects preserve provenance.
 
 ## Primary claim
 
-The framework public identity is CARMADIO Spec Loops: A Production Vibecoding Framework; CARMADIO expands to Domain–Supportability–Evals–Tests; the repository slug is dset-specs-loops-framework.
+This predecessor identity claim is retired. CARMADIO-REQUIREMENT-META-087
+governs the current framework name, acronym meaning, product line, and public
+identity; historical repository identifiers remain only where provenance must
+name an actual external object.
 
 ## Rationale
 
