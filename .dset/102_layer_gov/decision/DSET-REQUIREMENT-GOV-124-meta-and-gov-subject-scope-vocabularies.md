@@ -40,7 +40,7 @@ Atomic Artifacts owned by `layer:gov` use only these subject scopes:
 | Subject scope | Governed subject |
 |---|---|
 | `artifact-catalog` | Type, subtype, route, whitelist, and naming catalogs |
-| `assurance` | QA Cases, assurance standards, review protocols, evidence, and verification |
+| `assurance` | QA Cases, production Assurance Controls, logging and observability policies, assurance standards, review protocols, evidence, and verification |
 | `carrier-format` | Markdown properties and other governed storage carriers |
 | `external-boundary` | External constraints, references, reviews, and legal boundaries |
 | `interaction` | Operator-facing settings and artifact admission behavior |
