@@ -15,6 +15,7 @@ relations:
     targets:
       - CARMADIO-REQUIREMENT-META-026
       - CARMADIO-REQUIREMENT-META-065
+      - CARMADIO-REQUIREMENT-META-076
 ---
 
 # Requirement — Apply the META eligibility rule
@@ -29,6 +30,11 @@ A rule belongs in META only when all three conditions hold:
 If any condition fails, place the rule in the earliest downstream layer that
 can own it completely. META owns the invariant; that layer owns the mechanism.
 
+A concrete substrate is eligible for META only when the operator explicitly
+makes it mandatory and non-substitutable for CARMADIO governance. Replacing
+such a substrate is a constitutional amendment rather than a downstream
+implementation choice.
+
 For example, META may require durable changes to be traceable. GOV owns the
 carrier and provenance policy, while IMPL owns applicable executable
 enforcement. META must not absorb either mechanism merely because several
@@ -36,9 +42,9 @@ later layers use it.
 
 ## Primary claim
 
-META owns only invariants that remain valid across downstream technologies,
-govern multiple layers or a layer boundary, and can be stated without importing
-downstream implementation vocabulary.
+META owns only technology-independent cross-layer invariants and explicitly
+operator-mandated, non-substitutable governance substrates whose replacement
+would change the CARMADIO constitution.
 
 ## Rationale
 
