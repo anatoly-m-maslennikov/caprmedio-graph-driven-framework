@@ -13,8 +13,7 @@ relations:
       - CARMADIO-REQUIREMENT-META-014
   - type: relates_to
     targets:
-      - CARMADIO-REQUIREMENT-META-035
-      - CARMADIO-REQUIREMENT-META-045
+      - CARMADIO-REQUIREMENT-META-098
 ---
 
 # Requirement — Make relational endpoints explicit

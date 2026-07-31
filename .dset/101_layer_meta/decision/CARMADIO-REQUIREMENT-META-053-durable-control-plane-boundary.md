@@ -13,8 +13,7 @@ relations:
       - CARMADIO-REQUIREMENT-META-032
   - type: relates_to
     targets:
-      - CARMADIO-REQUIREMENT-META-021
-      - CARMADIO-REQUIREMENT-META-041
+      - CARMADIO-REQUIREMENT-META-058
 ---
 
 # Requirement — Bound the durable control plane

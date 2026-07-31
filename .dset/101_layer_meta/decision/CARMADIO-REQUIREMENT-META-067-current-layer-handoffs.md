@@ -14,7 +14,7 @@ relations:
   - type: relates_to
     targets:
       - CARMADIO-REQUIREMENT-META-065
-      - CARMADIO-REQUIREMENT-META-068
+      - CARMADIO-REQUIREMENT-META-096
 ---
 
 # Requirement — Define current layer handoffs

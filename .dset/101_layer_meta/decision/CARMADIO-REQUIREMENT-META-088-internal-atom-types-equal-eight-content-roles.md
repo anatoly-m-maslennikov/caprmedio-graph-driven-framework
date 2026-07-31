@@ -17,8 +17,8 @@ relations:
       - CARMADIO-REQUIREMENT-META-086
   - type: relates_to
     targets:
-      - CARMADIO-REQUIREMENT-META-035
-      - CARMADIO-REQUIREMENT-META-074
+      - CARMADIO-REQUIREMENT-META-098
+      - CARMADIO-REQUIREMENT-META-103
 ---
 
 # Requirement — Derive internal Atom Types from eight Content roles

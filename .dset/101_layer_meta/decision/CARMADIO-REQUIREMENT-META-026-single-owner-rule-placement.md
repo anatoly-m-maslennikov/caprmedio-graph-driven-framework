@@ -10,8 +10,7 @@ llm_session_ids:
 relations:
   - type: relates_to
     targets:
-      - CARMADIO-REQUIREMENT-META-022
-      - CARMADIO-REQUIREMENT-META-025
+      - CARMADIO-REQUIREMENT-META-066
 ---
 
 # Requirement — Place each claim with one owner

@@ -13,8 +13,8 @@ relations:
       - CARMADIO-REQUIREMENT-META-075
   - type: relates_to
     targets:
-      - CARMADIO-REQUIREMENT-META-073
-      - CARMADIO-REQUIREMENT-META-074
+      - CARMADIO-REQUIREMENT-META-080
+      - CARMADIO-REQUIREMENT-META-103
 ---
 
 # Requirement — Use Git as the canonical history engine

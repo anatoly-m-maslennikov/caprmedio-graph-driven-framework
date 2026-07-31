@@ -10,7 +10,7 @@ llm_session_ids:
 relations:
   - type: relates_to
     targets:
-      - CARMADIO-REQUIREMENT-META-022
+      - CARMADIO-REQUIREMENT-META-066
 ---
 
 # Requirement — Bound profiles and applicability

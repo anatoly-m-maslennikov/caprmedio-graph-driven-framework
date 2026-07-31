@@ -10,8 +10,7 @@ llm_session_ids:
 relations:
   - type: relates_to
     targets:
-      - CARMADIO-REQUIREMENT-META-024
-      - CARMADIO-REQUIREMENT-META-025
+      - CARMADIO-REQUIREMENT-META-067
 ---
 
 # Requirement — Govern layer extensions

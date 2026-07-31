@@ -13,9 +13,7 @@ relations:
       - CARMADIO-REQUIREMENT-META-031
   - type: relates_to
     targets:
-      - CARMADIO-REQUIREMENT-META-023
       - CARMADIO-REQUIREMENT-META-026
-      - CARMADIO-REQUIREMENT-META-054
 ---
 
 # Requirement — Bound recursive self-hosting
