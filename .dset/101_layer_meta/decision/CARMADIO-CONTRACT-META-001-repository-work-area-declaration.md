@@ -13,7 +13,7 @@ endpoints:
     identity: adopting_repository_owner
     origin: internal
   - role: consumer
-    identity: dset_governed_workflows
+    identity: carmadio_governed_workflows
     origin: internal
 relations:
   - type: child_of
