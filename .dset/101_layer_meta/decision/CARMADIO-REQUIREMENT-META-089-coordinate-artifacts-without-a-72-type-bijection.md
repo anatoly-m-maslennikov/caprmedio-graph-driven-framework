@@ -35,9 +35,9 @@ Artifact form × Content role × Governance locus
 
 The Cartesian product of three Artifact forms, eight Content roles, and three Governance loci describes 72 possible coordinates. It is a classification space, not a mandate to invent 72 distinct top-level Type names or enable every coordinate in every project.
 
-META derives Type names only where a universal invariant exists, including the internal Atom rule. GOV may register additional form-local Types and direct subtypes, admit or reject coordinates, and let one operational Type vocabulary recur across coordinates when the complete coordinate remains explicit and unambiguous.
+META derives Type names only where a universal invariant exists, including the internal Atom rule. GOV may register additional form-local Types and direct subtypes and admit or reject coordinates. A top-level Type may recur across coordinates only when distinct direct subtypes make every registered type pair resolve to exactly one coordinate.
 
-Writers and validators must never infer Artifact form, Content role, or Governance locus solely from a Type name when the Type is valid at more than one coordinate. An unknown, disabled, contradictory, or ambiguous coordinate fails closed.
+Writers and validators resolve Artifact form, Content role, and Governance locus from the complete registered type pair. They must never infer a coordinate from the top-level Type alone when that Type recurs. An unknown, disabled, contradictory, or ambiguous pair fails closed.
 
 ## Primary claim
 
@@ -45,4 +45,4 @@ Artifact form, Content role, and Governance locus define an explicit classificat
 
 ## Rationale
 
-Explicit coordinates preserve the orthogonal model while allowing predictable internal Atom names and reusable Journal or Projection vocabularies without artificial names for every cell.
+Unique registered type-pair mappings preserve the orthogonal model while allowing predictable internal Atom names and reusable top-level vocabulary without artificial Type names for every cell.
