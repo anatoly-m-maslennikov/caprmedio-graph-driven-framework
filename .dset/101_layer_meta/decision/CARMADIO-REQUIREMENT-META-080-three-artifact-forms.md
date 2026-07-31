@@ -29,9 +29,9 @@ artifact_form = "atom" # atom | journal | projection
 
 - `atom` is one independently governed unit with a stable identity and one independently replaceable primary claim. An admitted Atom may gain committed revisions only through the governed atomic change and lineage procedures; each committed revision remains immutable and recoverable.
 - `journal` is an ordered sequence of admitted records. New records may be appended, while accepted records cannot be edited, reordered, or removed.
-- `projection` is a rebuildable view derived from declared governed sources. It may organize, select, or render source meaning but has no independent semantic authority over those sources.
+- `projection` is a non-authoritative mutable surface. A source Projection is rebuildable from declared governed sources and may organize, select, or render their meaning. A planning Projection may instead hold unaccepted candidate entries that have not yet been promoted into Atoms. Neither kind establishes semantic authority.
 
-Artifact form states what an artifact is. It does not state how the carrier was created. `append_only`, `generated`, `reasoned`, `manual`, and similar terms describe a change rule or creation procedure, not another artifact form. Journal is intrinsically append-only; a Projection may be generated mechanically or rebuilt through governed reasoning without changing form.
+Artifact form states what an artifact is. It does not state how the carrier was created. `append_only`, `generated`, `reasoned`, `manual`, and similar terms describe a change rule or creation procedure, not another artifact form. Journal is intrinsically append-only; a source Projection may be generated mechanically or rebuilt through governed reasoning, while a planning Projection may be edited directly, without changing form.
 
 `revision_mode` is retired as a primary classification axis. Content role, Governance locus, and `scope_path` remain independent of Artifact form. Implementation is a Content role and is never an Artifact form.
 

@@ -30,7 +30,7 @@ Applicable active Requirement, Method, Assurance, and Delivery Atoms across all 
 
 A second mutable document must not become another specification authority by rephrasing those claims. Full written Specifications are retired as an independent authority surface.
 
-Projects may expose thin Projections over the Atom set. A conforming Projection:
+Projects may expose thin source Projections over the Atom set. A Projection that represents governed Atom authority:
 
 - names its declared source Atoms directly;
 - organizes them through selection, grouping, ordering, navigation, or already-governed relations;
@@ -39,9 +39,10 @@ Projects may expose thin Projections over the Atom set. A conforming Projection:
 - never becomes evidence merely by citing an Atom; and
 - never overrides an Atom or hides which Atom owns a represented claim.
 
-GOV may register Projection vocabularies for selection, organization,
-navigation, and relation rendering. Correct interpretation of an Atom must
-never depend on wording present only in a Projection.
+GOV may register source and candidate-planning Projection vocabularies. Correct
+interpretation of an Atom must never depend on wording present only in a
+Projection, and an unaccepted planning candidate must never be interpreted as
+an Atom merely because it is persisted.
 
 Concern and Analysis Atoms inform normative work, Implementation Atoms realize it, and Ops Atoms record enacted operation or factual results. These roles may appear in role-appropriate Projections but do not become normative merely because a Projection groups them with the distributed specification.
 
