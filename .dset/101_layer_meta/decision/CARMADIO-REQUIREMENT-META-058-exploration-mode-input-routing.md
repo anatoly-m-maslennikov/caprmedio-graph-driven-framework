@@ -31,7 +31,7 @@ An explicit operator request to create or change governed state takes
 precedence over question-shaped wording. Otherwise, Exploration Mode ends only
 when the operator explicitly accepts a conclusion or requests its promotion.
 CARMADIO then emits only the minimum artifacts required to preserve the accepted
-meaning. Any maintained view may refresh only after its atomic sources exist.
+meaning. A Projection may refresh only after its declared source Atoms exist.
 
 Whether a mode transition is announced is a downstream interaction-reporting
 choice and does not change this routing.
