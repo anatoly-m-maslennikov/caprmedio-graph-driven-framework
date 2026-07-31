@@ -59,7 +59,7 @@ results:
 - a Problem or Concern records a material discrepancy requiring disposition.
 
 A Production Assurance Checklist governs real production operation. It is not
-a Test Case or Eval Case, and passing pre-release tests or evaluations does not
+a QA Case, and passing pre-release Test or Evaluation implementations does not
 by itself satisfy the production-assurance obligation.
 
 ## Primary claim
