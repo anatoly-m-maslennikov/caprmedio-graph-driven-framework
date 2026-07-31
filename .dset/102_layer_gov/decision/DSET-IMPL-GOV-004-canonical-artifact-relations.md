@@ -25,10 +25,10 @@ DSET uses exactly these general forward artifact relations:
 |---|---|
 | `child_of` | Narrows, decomposes, or specializes an active parent claim while both remain active |
 | `analysis_of` | Interprets named inputs without becoming their authority or evidence |
-| `projection_of` | Binds a maintained view to one registered atomic type and exact scope through its latest included identity |
-| `implementation_of` | Connects code, configuration, documentation, migration, or a commit to the authority it realizes |
-| `check_of` | Connects a Test Case or Evaluation Case to the claim it checks |
-| `evidence_for` | Connects a bounded observation to the check, result, or Verification it supports |
+| `projection_of` | Binds a Projection to its declared source-Atom frontier without transferring source authority |
+| `implementation_of` | Connects code, configuration, documentation, migration, a commit, or another realized mechanism to the authority it realizes, including a QA Case or Assurance Control |
+| `check_of` | Connects a QA Case or Assurance Control to the claim, condition, or invariant it checks |
+| `evidence_for` | Connects a bounded Observation to the Assurance definition, implementation execution, result, or Verification it supports |
 | `resolution_of` | Closes a Question or Problem other than a Conflict |
 | `solution_for` | Supplies the accepted solution that closes a Conflict |
 | `override_of` | Replaces inherited authority only inside a declared narrower scope |
