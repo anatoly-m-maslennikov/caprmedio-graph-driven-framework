@@ -20,7 +20,7 @@ relations:
 
 # Requirement — Use three Revision modes without Evergreen
 
-DSET has exactly three Revision modes:
+CARMADIO has exactly three Revision modes:
 
 ```toml
 revision_mode = "atomic" # atomic | append_only | maintained
@@ -40,7 +40,7 @@ become a separately governed Atomic Artifact unless promoted into one. A
 current catalog generated from catalog events is `maintained`, while its event
 ledger is `append_only`.
 
-`evergreen` is not part of the DSET artifact model. Current specifications,
+`evergreen` is not part of the CARMADIO artifact model. Current specifications,
 plans, views, catalogs, and generated projections are maintained artifacts.
 Their registered artifact types and update procedures define when and how they
 must be refreshed.
@@ -48,12 +48,12 @@ must be refreshed.
 ## Primary claim
 
 Revision mode classifies governed artifacts as independently immutable atoms,
-append-only record sequences, or mutable maintained artifacts. DSET does not
+append-only record sequences, or mutable maintained artifacts. CARMADIO does not
 use Evergreen as a mode, policy, artifact class, or lifecycle term.
 
 ## Rationale
 
-The three values expose the only permitted change patterns needed by DSET:
+The three values expose the only permitted change patterns needed by CARMADIO:
 never change an accepted unit, add records without rewriting history, or
 maintain current content through an owned update procedure. Removing
 Evergreen avoids a second label for maintained current artifacts.

@@ -36,12 +36,12 @@ explicit acceptance, the result enters the normal forward flow at its proper
 owning layer. This feedback is not a backward authority edge.
 
 If backward coupling cannot be deleted, re-homed, or expressed as feedback,
-DSET proposes remodeling the coupled owners as horizontal scopes or features.
+CARMADIO proposes remodeling the coupled owners as horizontal scopes or features.
 The operator must accept that structural change.
 
 ## Primary claim
 
-DSET layer dependencies form an acyclic graph in which authority and
+CARMADIO layer dependencies form an acyclic graph in which authority and
 refinement follow the current layer order, later layers consume earlier
 authority, and feedback cannot create backward governance.
 

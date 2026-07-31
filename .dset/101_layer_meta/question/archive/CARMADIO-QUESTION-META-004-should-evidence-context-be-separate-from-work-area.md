@@ -11,7 +11,7 @@ llm_session_ids:
 
 # Question — Should evidence context be separate from Work Area?
 
-Should DSET add a compact execution and evidence context for version, environment, assumptions, and time while keeping Work Area only as the repository ownership and target boundary?
+Should CARMADIO add a compact execution and evidence context for version, environment, assumptions, and time while keeping Work Area only as the repository ownership and target boundary?
 
 ## Migrated context
 

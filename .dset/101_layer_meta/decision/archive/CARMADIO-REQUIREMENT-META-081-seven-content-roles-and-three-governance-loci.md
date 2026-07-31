@@ -23,7 +23,7 @@ relations:
 
 # Requirement — Use seven Content roles and three Governance loci
 
-DSET classifies the primary semantic contribution of every governed artifact through exactly seven `content_role` values:
+CARMADIO classifies the primary semantic contribution of every governed artifact through exactly seven `content_role` values:
 
 1. `concern` identifies a matter requiring disposition, including a question, problem, risk, opportunity, or conflict.
 2. `analysis` interprets concerns or observations and develops understanding without independently establishing the desired result.
@@ -49,7 +49,7 @@ Artifact form is an independent structural axis. `scope_path` remains a structur
 
 ## Primary claim
 
-DSET uses Concern, Analysis, Requirement, Method, Assurance, Implementation, and Observation as its seven Content roles and internal, external, and relation as its three Governance loci.
+CARMADIO uses Concern, Analysis, Requirement, Method, Assurance, Implementation, and Observation as its seven Content roles and internal, external, and relation as its three Governance loci.
 
 ## Rationale
 

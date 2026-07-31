@@ -20,7 +20,7 @@ relations:
 
 # Requirement — Use three Revision modes
 
-DSET has exactly three Revision modes:
+CARMADIO has exactly three Revision modes:
 
 ```toml
 revision_mode = "atomic" # atomic | append_only | maintained
@@ -52,7 +52,7 @@ append-only record sequences, or mutable maintained artifacts.
 
 ## Rationale
 
-The three values expose the only permitted change patterns needed by DSET:
+The three values expose the only permitted change patterns needed by CARMADIO:
 never change an accepted unit, add records without rewriting history, or
 maintain current content through an owned update procedure. `append_only`
 states the invariant directly without narrowing it to logs, journals, ledgers,

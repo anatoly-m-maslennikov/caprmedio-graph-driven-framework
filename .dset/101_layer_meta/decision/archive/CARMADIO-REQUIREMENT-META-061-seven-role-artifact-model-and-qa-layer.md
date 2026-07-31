@@ -21,7 +21,7 @@ relations:
 
 # Requirement — Use seven content roles and a downstream QA layer
 
-DSET classifies artifact meaning through seven Content roles:
+CARMADIO classifies artifact meaning through seven Content roles:
 
 1. Problem;
 2. Analysis;

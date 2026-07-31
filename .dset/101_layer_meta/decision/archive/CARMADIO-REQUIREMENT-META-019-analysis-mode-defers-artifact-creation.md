@@ -15,11 +15,11 @@ relations:
 
 # Requirement — Analysis Mode defers artifact creation
 
-DSET enters Analysis Mode when the operator explicitly requests it or clearly
+CARMADIO enters Analysis Mode when the operator explicitly requests it or clearly
 requests brainstorming, exploration, comparison, or discussion without asking
 to record, apply, or implement a conclusion.
 
-While Analysis Mode is active, DSET may:
+While Analysis Mode is active, CARMADIO may:
 
 - inspect the repository and external sources;
 - reason, compare candidates, and create transient examples;
@@ -44,7 +44,7 @@ Evergreen views may be refreshed only after the accepted atomic records exist.
 
 ## Primary claim
 
-DSET Analysis Mode permits brainstorming, research, comparison, and read-only inspection without creating governed artifacts; only explicit operator acceptance ends the mode and authorizes the minimum durable artifacts for accepted conclusions.
+CARMADIO Analysis Mode permits brainstorming, research, comparison, and read-only inspection without creating governed artifacts; only explicit operator acceptance ends the mode and authorizes the minimum durable artifacts for accepted conclusions.
 
 ## Rationale
 

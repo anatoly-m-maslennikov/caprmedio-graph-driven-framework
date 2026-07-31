@@ -28,12 +28,12 @@ Each adjacent boundary owns a handoff:
 Every handoff declares entry criteria, exit criteria, and blocker behavior.
 Adjacent handoffs are preferred. A direct forward skip is allowed only when the
 intermediate layers have no meaningful transformation or ownership to add.
-DSET must not create placeholder artifacts merely to simulate an unnecessary
+CARMADIO must not create placeholder artifacts merely to simulate an unnecessary
 handoff.
 
 ## Primary claim
 
-Every adjacent DSET layer boundary declares the accepted input, produced output, entry criteria, exit criteria, and failure behavior of its handoff.
+Every adjacent CARMADIO layer boundary declares the accepted input, produced output, entry criteria, exit criteria, and failure behavior of its handoff.
 
 ## Rationale
 

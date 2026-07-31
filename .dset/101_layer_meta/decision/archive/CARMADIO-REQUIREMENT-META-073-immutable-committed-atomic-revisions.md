@@ -21,7 +21,7 @@ relations:
 
 # Requirement — Preserve Atomic Artifacts as immutable committed revisions
 
-DSET has exactly three Revision modes:
+CARMADIO has exactly three Revision modes:
 
 ```toml
 revision_mode = "atomic" # atomic | append_only | maintained

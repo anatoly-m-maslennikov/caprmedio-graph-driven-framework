@@ -21,7 +21,7 @@ Evaluation casening. Their execution results remain distinct Observations.
 
 ## Primary claim
 
-DSET keeps deterministic Tests and qualitative, probabilistic, statistical, or model-judged Evaluations in separate plans, implementations, and observation streams.
+CARMADIO keeps deterministic Tests and qualitative, probabilistic, statistical, or model-judged Evaluations in separate plans, implementations, and observation streams.
 
 ## Rationale
 

@@ -16,7 +16,7 @@ relations:
 # Requirement — Question input enters Exploration Mode
 
 When the operator's input primarily asks for information, explanation,
-comparison, critique, alternatives, or a recommendation, DSET enters
+comparison, critique, alternatives, or a recommendation, CARMADIO enters
 Exploration Mode silently.
 
 Entering the mode requires no announcement, confirmation, command, or durable
@@ -26,7 +26,7 @@ on creating or changing governed artifacts and governance commits applies.
 Question intent is semantic rather than punctuation-based. A direct instruction
 to record, accept, apply, implement, fix, or otherwise change governed state
 does not become exploratory merely because it is phrased as a question. When
-one input mixes genuine questions with an explicit change instruction, DSET
+one input mixes genuine questions with an explicit change instruction, CARMADIO
 may answer and explore the questions, but it applies only the explicitly
 authorized change.
 

@@ -49,7 +49,7 @@ explicit metadata outside the route.
 
 ## Primary claim
 
-DSET routes every governed artifact through exactly three independent semantic axes: revision_mode, content_role, and governance_locus; scope_path remains structural, registered names remain sparse interface vocabulary, and relational artifacts declare explicit endpoints.
+CARMADIO routes every governed artifact through exactly three independent semantic axes: revision_mode, content_role, and governance_locus; scope_path remains structural, registered names remain sparse interface vocabulary, and relational artifacts declare explicit endpoints.
 
 ## Rationale
 

@@ -18,13 +18,13 @@ relations:
 
 # Requirement — Define the canonical layers
 
-DSET uses the ordered flow `META → GOV → TOOL → SKILL → IMPL → OPS`.
+CARMADIO uses the ordered flow `META → GOV → TOOL → SKILL → IMPL → OPS`.
 
 | Layer | Canonical responsibility |
 |---|---|
 | META | Meanings, routing axes, universal invariants, layer topology, and inter-layer semantics |
 | GOV | Governed carriers, identity, settings, provenance, lifecycle, applicability, scope, and conflict governance |
-| TOOL | Executable DSET capabilities, validation, resolution, diagnostics, generation, and repository mechanics |
+| TOOL | Executable CARMADIO capabilities, validation, resolution, diagnostics, generation, and repository mechanics |
 | SKILL | Thin provider-neutral orchestration, entry gates, workflow chaining, and session continuity |
 | IMPL | Development environments, implementation profiles, code, automated Test implementations, Evaluation implementations, and code-quality gates |
 | OPS | Post-implementation delivery, release, publication, runtime supportability, investigation, containment, recovery, and hosted evidence |
@@ -34,7 +34,7 @@ earlier truth but cannot redefine an earlier layer's responsibility.
 
 ## Primary claim
 
-DSET uses the ordered layers META, GOV, TOOL, SKILL, IMPL, and OPS, with one canonical non-overlapping responsibility assigned to each layer.
+CARMADIO uses the ordered layers META, GOV, TOOL, SKILL, IMPL, and OPS, with one canonical non-overlapping responsibility assigned to each layer.
 
 ## Rationale
 

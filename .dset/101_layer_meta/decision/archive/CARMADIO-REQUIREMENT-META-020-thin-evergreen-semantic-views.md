@@ -20,7 +20,7 @@ relations:
 # Requirement — Thin evergreen semantic views
 
 An evergreen document is a mutable current view over authoritative atomic
-records. Refreshing it requires semantic reasoning; DSET must not produce it by
+records. Refreshing it requires semantic reasoning; CARMADIO must not produce it by
 concatenating, copying, or mechanically compiling atomic prose.
 
 A domain specification view contains:

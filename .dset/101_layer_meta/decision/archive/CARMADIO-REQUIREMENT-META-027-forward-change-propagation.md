@@ -16,7 +16,7 @@ relations:
 
 # Requirement — Propagate accepted change forward
 
-When accepted authority changes in an earlier layer, DSET:
+When accepted authority changes in an earlier layer, CARMADIO:
 
 1. preserves every historical atomic record;
 2. identifies affected downstream evergreen views, Methods, Implementations,

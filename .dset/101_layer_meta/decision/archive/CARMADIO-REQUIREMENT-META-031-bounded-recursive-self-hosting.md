@@ -16,7 +16,7 @@ relations:
 
 # Requirement — Bound recursive self-hosting
 
-The DSET framework repository obeys the same META constitution and ordered
+The CARMADIO framework repository obeys the same META constitution and ordered
 layers as every adopter.
 
 Reusable methodology, an installed methodology copy, applied project
@@ -34,7 +34,7 @@ knowledge or a generated installation cannot become shadow authority.
 
 ## Primary claim
 
-DSET applies the same layer constitution to its own repository, keeps installed methodology distinct from applied project truth, and terminates recursive self-hosting at a declared fixed point.
+CARMADIO applies the same layer constitution to its own repository, keeps installed methodology distinct from applied project truth, and terminates recursive self-hosting at a declared fixed point.
 
 ## Rationale
 

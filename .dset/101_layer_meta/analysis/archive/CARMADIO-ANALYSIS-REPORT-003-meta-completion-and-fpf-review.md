@@ -24,7 +24,7 @@ relations:
 ## Question and boundary
 
 Is the current root META methodology complete, internally self-applicable, and
-coherent with the FPF principles that DSET intentionally adapts?
+coherent with the FPF principles that CARMADIO intentionally adapts?
 
 The review covers the root META source, active applied META atoms, its settings
 schema and template, and the installed-methodology comparison at the recorded
@@ -34,7 +34,7 @@ source.
 
 ## Inputs and method
 
-Reviewed DSET inputs:
+Reviewed CARMADIO inputs:
 
 - `000_dset-meta-hub.md`
 - `020_dset-meta-specification-contracts.md`
@@ -80,7 +80,7 @@ ontology or a claim of FPF conformance.
 
 ## Completion findings
 
-| ID | Priority | Finding | DSET evidence | FPF consequence |
+| ID | Priority | Finding | CARMADIO evidence | FPF consequence |
 |---|---|---|---|---|
 | META-REVIEW-001 | High | Atomic provenance is incomplete. `CARMADIO-REQUIREMENT-META-001` through `017` appear as evergreen requirements without active atomic carriers, while active `CARMADIO-REQUIREMENT-META-018` is not directly cited by the root evergreen META documents. | `040_dset-meta-specification-methodology.md`; `CARMADIO-REQUIREMENT-META-018-three-axis-artifact-routing.md` | A view cannot provide an auditable return to its governing source. |
 | META-REVIEW-002 | High | The META entity table does not obey its own topological-definition rule. `Project truth` depends on undefined artifact concepts, and `Design` references Requirements, Scenarios, and Contracts before all are defined. | `030_dset-meta-specification-domain.md:7-35`; `CARMADIO-INVARIANT-META-019` | Definition order hides semantic imports and weakens kind recovery. |

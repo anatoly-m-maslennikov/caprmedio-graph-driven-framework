@@ -16,12 +16,12 @@ relations:
 
 # Requirement — Activate governance surfaces progressively
 
-A DSET project begins with atomic authority. Requirements are sufficient for
+A CARMADIO project begins with atomic authority. Requirements are sufficient for
 clear accepted obligations; Questions and Problems remain available whenever
 uncertainty or observed discrepancy exists.
 
 No evergreen specification, maintained plan, architecture view, or generated
-overview is mandatory merely because DSET is initialized. The operator may
+overview is mandatory merely because CARMADIO is initialized. The operator may
 activate a named governance surface when its coordination value becomes useful
 and deactivate it later without deleting its carrier or Git history.
 
@@ -35,7 +35,7 @@ governance surfaces, not to every artifact sharing a revision mode.
 
 ## Primary claim
 
-DSET starts atomic-first without requiring evergreen or maintained governance surfaces, and named optional surfaces may be activated or deactivated later without changing atomic authority.
+CARMADIO starts atomic-first without requiring evergreen or maintained governance surfaces, and named optional surfaces may be activated or deactivated later without changing atomic authority.
 
 ## Rationale
 

@@ -19,7 +19,7 @@ relations:
 # Requirement — Idea input enters Exploration Mode
 
 When the operator's input primarily introduces, explores, or asks for feedback
-on an idea, DSET enters Exploration Mode silently.
+on an idea, CARMADIO enters Exploration Mode silently.
 
 Idea intent includes expressions such as “another idea,” “what if,” “maybe,”
 “could we,” and comparable language that presents a candidate rather than an
@@ -27,7 +27,7 @@ accepted instruction. Detection is semantic rather than a literal substring
 or punctuation rule. Mentioning the word “idea” while giving an explicit
 instruction does not by itself make the instruction exploratory.
 
-Entering the mode creates no governed artifact or governance commit. DSET may
+Entering the mode creates no governed artifact or governance commit. CARMADIO may
 discuss, compare, critique, research, and refine the candidate under the
 ordinary Exploration Mode rules.
 

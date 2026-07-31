@@ -64,7 +64,7 @@ remain reachable in Git.
 ## Primary claim
 
 Every Atomic Artifact is one independently replaceable claim and is either
-fully active or fully dead; DSET has no partial absorption state.
+fully active or fully dead; CARMADIO has no partial absorption state.
 
 ## Rationale
 

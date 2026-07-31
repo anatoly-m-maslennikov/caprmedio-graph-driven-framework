@@ -26,4 +26,4 @@ Scope path is a project-relative extensible structural coordinate for layer, fea
 
 ## Rationale
 
-The repository already identifies the current project. Repeating that identity in every artifact adds no scope information and implies a cross-project address that DSET does not support.
+The repository already identifies the current project. Repeating that identity in every artifact adds no scope information and implies a cross-project address that CARMADIO does not support.

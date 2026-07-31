@@ -24,7 +24,7 @@ relations:
 
 # Requirement — Use scoped SPEC, PROFILES, and IMPL layers
 
-DSET classifies artifact meaning through seven Content roles:
+CARMADIO classifies artifact meaning through seven Content roles:
 
 1. Problem;
 2. Analysis;
@@ -57,7 +57,7 @@ provenance, priority, lifecycle, and `scope_path` remain separate metadata.
 
 ## Canonical layer order
 
-DSET uses six ordered layers:
+CARMADIO uses six ordered layers:
 
 ```text
 META → GOV → SPEC → PROFILES → IMPL → OPS
@@ -77,7 +77,7 @@ META → GOV → SPEC → PROFILES → IMPL → OPS
 GOV registers each project scope once. SPEC, PROFILES, and IMPL reuse the same
 scope IDs without independently redefining them.
 
-For the DSET project, the initial canonical scopes are:
+For the CARMADIO project, the initial canonical scopes are:
 
 - `tools`;
 - `skills`; and
@@ -109,9 +109,9 @@ Project-level surfaces in each layer own cross-scope concerns:
 - IMPL project truth owns shared implementation, repository configuration,
   build integration, and cross-scope traceability.
 
-## DSET scope boundaries
+## CARMADIO scope boundaries
 
-The `tools` scope specifies DSET toolchain capabilities, selects profiles such
+The `tools` scope specifies CARMADIO toolchain capabilities, selects profiles such
 as Local Python Tools, and maps to concrete CLI, resolver, validator, and
 generator implementations.
 
@@ -152,7 +152,7 @@ authority.
 
 ## Rationale
 
-TOOLS, SKILLS, and QA are scopes of the DSET project rather than universal
+TOOLS, SKILLS, and QA are scopes of the CARMADIO project rather than universal
 methodology layers. SPEC makes their required behavior explicit, PROFILES
 selects how each will be developed, and IMPL records the resulting concrete
 realization. The narrow PROFILES name prevents development policy and concrete

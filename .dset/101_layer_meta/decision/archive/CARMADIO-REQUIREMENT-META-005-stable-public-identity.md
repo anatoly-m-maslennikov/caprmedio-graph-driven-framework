@@ -17,7 +17,7 @@ may retain prior URLs when redirects preserve provenance.
 
 ## Primary claim
 
-The framework public identity is DSET Spec Loops: A Production Vibecoding Framework; DSET expands to Domain–Supportability–Evals–Tests; the repository slug is dset-specs-loops-framework.
+The framework public identity is CARMADIO Spec Loops: A Production Vibecoding Framework; CARMADIO expands to Domain–Supportability–Evals–Tests; the repository slug is dset-specs-loops-framework.
 
 ## Rationale
 

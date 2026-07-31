@@ -20,7 +20,7 @@ relations:
 
 # Requirement — Use a streamlined content-role cycle
 
-DSET has exactly six Content roles:
+CARMADIO has exactly six Content roles:
 
 1. Inquiry;
 2. Analysis;

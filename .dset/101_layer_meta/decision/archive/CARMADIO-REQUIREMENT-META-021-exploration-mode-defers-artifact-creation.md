@@ -18,13 +18,13 @@ relations:
 
 # Requirement — Exploration Mode defers artifact creation
 
-DSET enters Exploration Mode when the operator explicitly requests it or
+CARMADIO enters Exploration Mode when the operator explicitly requests it or
 clearly requests brainstorming, discussion, research, analysis, comparison,
 terminology work, scope design, axis design, structural modeling, or other
 candidate exploration without asking to record, apply, or implement a
 conclusion.
 
-While Exploration Mode is active, DSET may:
+While Exploration Mode is active, CARMADIO may:
 
 - inspect the repository and external sources;
 - reason, compare candidates, and create transient examples;
@@ -50,7 +50,7 @@ Evergreen views may be refreshed only after the accepted atomic records exist.
 
 ## Primary claim
 
-DSET Exploration Mode permits brainstorming, discussion, research, analysis, comparison, terminology work, and structural modeling without creating governed artifacts; only explicit operator acceptance ends the mode and authorizes the minimum durable artifacts for accepted conclusions.
+CARMADIO Exploration Mode permits brainstorming, discussion, research, analysis, comparison, terminology work, and structural modeling without creating governed artifacts; only explicit operator acceptance ends the mode and authorizes the minimum durable artifacts for accepted conclusions.
 
 ## Rationale
 

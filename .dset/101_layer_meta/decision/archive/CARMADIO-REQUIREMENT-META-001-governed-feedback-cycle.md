@@ -22,7 +22,7 @@ relations connect it to other roles.
 
 ## Primary claim
 
-DSET uses one six-role feedback cycle: Inquiry, Definition, Rationale, Method, Implementation, and Observation.
+CARMADIO uses one six-role feedback cycle: Inquiry, Definition, Rationale, Method, Implementation, and Observation.
 
 ## Rationale
 

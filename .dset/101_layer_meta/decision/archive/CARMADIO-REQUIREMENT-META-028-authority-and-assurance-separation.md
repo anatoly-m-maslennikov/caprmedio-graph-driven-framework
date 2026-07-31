@@ -15,7 +15,7 @@ relations:
 
 # Requirement — Separate authority from assurance
 
-DSET distinguishes:
+CARMADIO distinguishes:
 
 - authoritative Definitions and Methods;
 - maintained and generated Implementations;
@@ -30,7 +30,7 @@ for the appropriate owner rather than silently changing the governing claim.
 
 ## Primary claim
 
-DSET keeps authoritative claims, checking methods, implementations, observations, evidence, and verification judgments semantically distinct, and assurance cannot establish or override authority.
+CARMADIO keeps authoritative claims, checking methods, implementations, observations, evidence, and verification judgments semantically distinct, and assurance cannot establish or override authority.
 
 ## Rationale
 

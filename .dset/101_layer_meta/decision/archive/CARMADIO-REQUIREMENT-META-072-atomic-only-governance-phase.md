@@ -23,7 +23,7 @@ The applied META and GOV layers currently contain only Atomic Artifacts.
 Maintained hubs, plans, specifications, projections, and generated views are
 not part of the current governance surface.
 
-Existing non-atomic carriers in those layers are deleted. DSET may introduce
+Existing non-atomic carriers in those layers are deleted. CARMADIO may introduce
 maintained artifacts later only after a new Atomic Artifact defines their
 semantics, ownership, lifecycle, and relation to Atomic Artifacts.
 

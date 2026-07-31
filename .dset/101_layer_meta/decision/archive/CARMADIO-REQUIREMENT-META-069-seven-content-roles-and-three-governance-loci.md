@@ -23,7 +23,7 @@ relations:
 
 # Requirement — Use seven Content roles and three Governance loci
 
-DSET classifies governed artifact meaning through exactly seven Content roles:
+CARMADIO classifies governed artifact meaning through exactly seven Content roles:
 
 1. Problem;
 2. Analysis;
@@ -49,7 +49,7 @@ stable semantic dimensions and their meanings.
 
 ## Primary claim
 
-DSET uses seven Content roles and three Governance loci as independent
+CARMADIO uses seven Content roles and three Governance loci as independent
 technology-neutral semantic dimensions, without assigning concrete artifact
 Type names in META.
 

@@ -16,10 +16,10 @@ relations:
 
 # Requirement — Protect the durable control plane
 
-The durable DSET control plane contains accepted current project truth only.
+The durable CARMADIO control plane contains accepted current project truth only.
 
 - Passwords, API keys, tokens, private keys, and comparable secrets never enter
-  DSET artifacts, settings, logs, evidence, generated views, or commits.
+  CARMADIO artifacts, settings, logs, evidence, generated views, or commits.
   Durable artifacts may name runtime lookup keys without storing their values.
 - Methodology semantics and project authority remain independent of Codex,
   Claude, Grok, or any other LLM provider. Provider adapters are downstream
@@ -34,7 +34,7 @@ redaction, and enforcement mechanisms without weakening this boundary.
 
 ## Primary claim
 
-The durable DSET control plane admits only accepted current project truth, excludes secrets, remains LLM-provider agnostic, and keeps future intentions and unaccepted exploration outside current authority.
+The durable CARMADIO control plane admits only accepted current project truth, excludes secrets, remains LLM-provider agnostic, and keeps future intentions and unaccepted exploration outside current authority.
 
 ## Rationale
 

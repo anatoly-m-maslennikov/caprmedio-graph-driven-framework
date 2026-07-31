@@ -24,7 +24,7 @@ relations:
 
 # Requirement — Use seven content roles and seven ordered layers
 
-DSET classifies artifact meaning through seven Content roles:
+CARMADIO classifies artifact meaning through seven Content roles:
 
 1. Problem;
 2. Analysis;
@@ -57,7 +57,7 @@ provenance, priority, lifecycle, and `scope_path` remain separate metadata.
 
 ## Canonical layer order
 
-DSET uses seven ordered layers:
+CARMADIO uses seven ordered layers:
 
 ```text
 META → GOV → TOOLS → SKILLS → QA → IMPL → OPS
@@ -67,7 +67,7 @@ META → GOV → TOOLS → SKILLS → QA → IMPL → OPS
 |---|---|
 | META | Meanings, routing axes, universal invariants, layer topology, and inter-layer semantics |
 | GOV | Governed carriers, identity, settings, provenance, lifecycle, applicability, scope, and conflict governance |
-| TOOLS | Reusable executable DSET mechanisms, validation, resolution, diagnostics, generation, and repository mechanics |
+| TOOLS | Reusable executable CARMADIO mechanisms, validation, resolution, diagnostics, generation, and repository mechanics |
 | SKILLS | Thin provider-neutral orchestration, entry gates, workflow chaining, and session continuity |
 | QA | Assurance definitions, QA Cases, maintained Test and Eval planning surfaces, assurance standards, review protocols, criteria, rubrics, and acceptance gates |
 | IMPL | Development environments, implementation profiles, project code, executable Test and Eval implementations, adapters, migrations, and local execution evidence |

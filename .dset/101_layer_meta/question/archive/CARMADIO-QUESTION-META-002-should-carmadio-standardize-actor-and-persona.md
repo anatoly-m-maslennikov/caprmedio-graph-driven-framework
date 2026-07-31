@@ -1,6 +1,6 @@
 ---
 artifact_type: question
-artifact_id: CARMADIO-QUESTION-META-003
+artifact_id: CARMADIO-QUESTION-META-002
 scope_path: layer:meta
 subject_scopes:
   - profile
@@ -9,9 +9,9 @@ llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 ---
 
-# Question — Should DSET standardize Hypothesis and Experiment?
+# Question — Should CARMADIO standardize Actor and Persona?
 
-Should a later DSET version define Hypothesis and Experiment artifacts, and how should they differ from prototypes, evals, and Decisions?
+Should a later CARMADIO version define Actor and Persona as separate artifact types, fields on existing entities, or optional project vocabulary?
 
 ## Migrated context
 

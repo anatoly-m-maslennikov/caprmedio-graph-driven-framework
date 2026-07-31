@@ -19,7 +19,7 @@ relations:
 
 # Requirement — Make maintained semantic views optional and thin
 
-DSET starts atomic-first. Named maintained semantic views are optional
+CARMADIO starts atomic-first. Named maintained semantic views are optional
 governance surfaces that may be activated or deactivated independently without
 changing atomic authority.
 

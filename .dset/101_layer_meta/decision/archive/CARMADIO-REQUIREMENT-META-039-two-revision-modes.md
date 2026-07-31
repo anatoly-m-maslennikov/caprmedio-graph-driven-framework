@@ -20,7 +20,7 @@ relations:
 
 # Requirement — Use two Revision modes
 
-DSET has exactly two Revision modes:
+CARMADIO has exactly two Revision modes:
 
 ```toml
 revision_mode = "atomic" # atomic | maintained

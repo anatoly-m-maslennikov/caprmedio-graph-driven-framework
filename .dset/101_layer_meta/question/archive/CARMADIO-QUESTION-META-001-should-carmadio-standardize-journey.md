@@ -9,9 +9,9 @@ llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 ---
 
-# Question — Should DSET standardize Journey?
+# Question — Should CARMADIO standardize Journey?
 
-Should a later DSET version define a Journey artifact for a stakeholder experience that spans multiple changes?
+Should a later CARMADIO version define a Journey artifact for a stakeholder experience that spans multiple changes?
 
 ## Migrated context
 
