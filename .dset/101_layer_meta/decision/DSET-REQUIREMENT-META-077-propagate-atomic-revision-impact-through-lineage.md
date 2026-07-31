@@ -18,7 +18,7 @@ relations:
 
 # Requirement — Propagate atomic revision impact through lineage
 
-When an Atomic Artifact receives a new committed revision, DSET must assess the
+When an Atom receives a new committed revision, DSET must assess the
 impact on every reachable lineage branch derived from an earlier revision of
 that atom.
 
@@ -37,7 +37,7 @@ defines that procedure.
 
 ## Primary claim
 
-Every new Atomic Artifact revision requires explicit impact accounting across
+Every new Atom revision requires explicit impact accounting across
 its dependent lineage.
 
 ## Rationale
