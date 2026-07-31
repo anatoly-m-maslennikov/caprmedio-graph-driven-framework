@@ -21,8 +21,7 @@ relations:
 ## Primary claim
 
 CARMADIO's durable control plane distinguishes accepted current project
-authority, applicable
-maintained artifacts, and operative governance. Type-local archives preserve
+authority, applicable current Projections, and operative governance. Type-local archives preserve
 accepted historical atoms without making them active authority. Future
 intentions remain in Version Roadmaps, and unaccepted exploration remains
 outside governed state.
