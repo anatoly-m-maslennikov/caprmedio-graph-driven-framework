@@ -46,7 +46,7 @@ selection mode.
 
 ## Primary claim
 
-DSET derives effective priority from stored priority, ancestor scope, and
+CARMADIO derives effective priority from stored priority, ancestor scope, and
 earlier layer position, while automatic conflict selection is opt-in and
 requires one unique eligible winner.
 
