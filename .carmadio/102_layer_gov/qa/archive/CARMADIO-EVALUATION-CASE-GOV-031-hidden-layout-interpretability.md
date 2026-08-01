@@ -22,7 +22,7 @@ Give independent reviewers a repository tree that includes hidden entries and
 the DSET artifact filenames. Pass when they consistently:
 
 - recognize `.carmadio/` as the project control plane rather than product content;
-- identify `.carmadio/dset_settings.toml` as the sole settings/manifest carrier;
+- identify `.carmadio/carmadio_settings.toml` as the sole settings/manifest carrier;
 - distinguish project-wide records, Version lifecycle artifacts, and direct
   layer-owned truth;
 - interpret stored `.carmadio/...` paths from the repository root;

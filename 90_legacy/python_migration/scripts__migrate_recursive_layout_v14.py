@@ -318,7 +318,7 @@ def _move_licenses(additions: dict[str, Any]) -> None:
 
 
 def _rewrite_settings(additions: dict[str, Any]) -> None:
-    path = DSET / "dset_settings.toml"
+    path = DSET / "carmadio_settings.toml"
     text = path.read_text(encoding="utf-8")
     text = text.replace('schema_version = "1.3"', 'schema_version = "1.4"', 1)
     text = text.replace('Accepted for new writers: "1.3".', 'Accepted for new writers: "1.4".')

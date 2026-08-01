@@ -61,7 +61,7 @@ There is therefore no canonical full type matrix here.
 ## Settings and baseline
 
 The sole settings carrier is
-[`.carmadio/dset_settings.toml`](.carmadio/dset_settings.toml), which declares schema
+[`.carmadio/carmadio_settings.toml`](.carmadio/carmadio_settings.toml), which declares schema
 `1.8`. The coordinated package baseline is `0.3.1`. Neither fact proves a full
 implementation, an exact repository head, verification, or release readiness.
 
@@ -77,7 +77,7 @@ python -m dset_toolchain methodology sync . --execute
 ```
 
 Synchronization is explicit and one-way: source edits do not automatically
-rewrite `.carmadio/000_dset_methodology/`, and installed files are not copied back
+rewrite `.carmadio/000_carmadio_methodology/`, and installed files are not copied back
 to the reusable root. Review the preview before using `--execute`.
 
 Supportability remains a cross-cutting requirement: production work needs the

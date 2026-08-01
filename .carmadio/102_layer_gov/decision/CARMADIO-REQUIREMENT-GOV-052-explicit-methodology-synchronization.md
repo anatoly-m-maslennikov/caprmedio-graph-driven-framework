@@ -17,7 +17,7 @@ relations:
 
 CARMADIO maintainers edit the reusable methodology only in its repository-root
 source. An ordinary source edit never rewrites
-`.carmadio/000_dset_methodology/` and no workflow copies installed files back into
+`.carmadio/000_carmadio_methodology/` and no workflow copies installed files back into
 the root source.
 
 An explicit operator synchronization command performs the one-way

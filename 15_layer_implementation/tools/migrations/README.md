@@ -99,7 +99,8 @@ A successful second preview reports zero writes and deletes.
 
 ## Run the CARMADIO repository-directory migration
 
-This recipe renames the governed and runtime top-level directories while
+This recipe renames the governed and runtime top-level directories, the
+installed methodology directory, and the project-settings stem while
 preserving ignored runtime state and rewriting every tracked text reference.
 Preview the complete tracked-carrier plan:
 

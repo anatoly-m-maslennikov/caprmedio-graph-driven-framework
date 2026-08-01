@@ -618,7 +618,7 @@ class LayeredValidationTests(unittest.TestCase):
         self.assertEqual(isolated_data["workspace"]["branch"], "dset/isolated-change")
         self.assertEqual(isolated_data["workspace"]["base_ref"], "dev")
 
-        (self.root / "dset_settings.toml").write_text(
+        (self.root / "carmadio_settings.toml").write_text(
             "\n".join(
                 (
                     'schema_version = "1.2"',

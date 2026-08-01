@@ -32,4 +32,4 @@ authoring-oriented source paths into adopter repositories.
 
 ## Primary claim
 
-Every committed file and directory below .carmadio/000_dset_methodology uses a stable numeric prefix within its parent, including hubs, schemas, templates, fixtures, guides, and supportability material.
+Every committed file and directory below .carmadio/000_carmadio_methodology uses a stable numeric prefix within its parent, including hubs, schemas, templates, fixtures, guides, and supportability material.

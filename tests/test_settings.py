@@ -188,7 +188,7 @@ class ProjectSettingsTests(unittest.TestCase):
             issues,
             (
                 "DSET settings carriers cannot coexist: "
-                ".carmadio/dset_settings.toml, dset.toml",
+                ".carmadio/carmadio_settings.toml, dset.toml",
             ),
         )
 

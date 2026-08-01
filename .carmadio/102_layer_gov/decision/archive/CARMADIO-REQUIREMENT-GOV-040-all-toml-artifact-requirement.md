@@ -21,7 +21,7 @@ relations:
 
 # Requirement — Use TOML for every DSET artifact carrier
 
-The canonical root settings carrier remains `dset_settings.toml` with the same
+The canonical root settings carrier remains `carmadio_settings.toml` with the same
 documented settings, defaults, accepted values, and settings-versus-manifest-
 versus-governance ownership boundary defined by its predecessor.
 
@@ -47,7 +47,7 @@ append-only lifecycle event.
 
 ## Primary claim
 
-DSET exposes operator-selectable behavior through one verbose dset_settings.toml and uses TOML for every CARMADIO-owned structured artifact and Markdown frontmatter, including historical carriers migrated through governed transitions.
+DSET exposes operator-selectable behavior through one verbose carmadio_settings.toml and uses TOML for every CARMADIO-owned structured artifact and Markdown frontmatter, including historical carriers migrated through governed transitions.
 
 ## Rationale
 

@@ -62,7 +62,7 @@ class ArtifactEmissionTests(unittest.TestCase):
 
     def enable_high_strictness(self) -> None:
         """Handle high strictness using the declared repository contract."""
-        path = self.root / "dset_settings.toml"
+        path = self.root / "carmadio_settings.toml"
         path.write_text(
             path.read_text(encoding="utf-8").replace(
                 'creation_strictness = "medium"',
@@ -100,7 +100,7 @@ class ArtifactEmissionTests(unittest.TestCase):
         )
 
     def test_missing_setting_uses_medium_but_invalid_value_stops(self) -> None:
-        path = self.root / "dset_settings.toml"
+        path = self.root / "carmadio_settings.toml"
         path.write_text(
             path.read_text(encoding="utf-8").replace(
                 'creation_strictness = "medium"\n', ""

@@ -17,7 +17,7 @@ relations:
 
 The canonical current layout is:
 
-- `.carmadio/dset_settings.toml` — the only writable settings and project-manifest
+- `.carmadio/carmadio_settings.toml` — the only writable settings and project-manifest
   carrier;
 - `00_project/` — project-wide evergreen artifacts, atomic/context records,
   evidence, verification, registries, migrations, and generated views;

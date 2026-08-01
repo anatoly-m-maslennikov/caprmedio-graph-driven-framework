@@ -20,7 +20,7 @@ relations:
 The deterministic suite must prove defaults, every accepted value, invalid
 value rejection, and selected runtime behavior for
 `artifacts.subtype_in_names`, `artifacts.creation_strictness`, and
-`workflows.implement.mode` in root `dset_settings.toml`.
+`workflows.implement.mode` in root `carmadio_settings.toml`.
 
 Bootstrap and adopter writers emit only the canonical filename and keys. A
 legacy root `dset.toml` remains read compatibility only, dual roots fail, and

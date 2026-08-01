@@ -43,7 +43,7 @@ project naming policy. Layers, features, nesting depth, folders, and scope
 paths never restart a sequence.
 
 Every scope segment and parent-child scope relationship is registered in
-`dset_settings.toml`. A scope path must match that registry exactly. Artifact
+`carmadio_settings.toml`. A scope path must match that registry exactly. Artifact
 type tokens and other reserved identity tokens cannot be reused as scope
 segments.
 

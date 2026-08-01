@@ -18,7 +18,7 @@ relations:
 The project prefix is an explicit identity setting, not an invariant of every
 DSET project.
 
-`dset_settings.toml` records:
+`carmadio_settings.toml` records:
 
 - whether the project prefix is enabled; and
 - the prefix value when enabled.
@@ -40,7 +40,7 @@ provenance together. It never creates a second accepted identity vocabulary.
 
 ## Primary claim
 
-Each DSET project explicitly enables or disables a project prefix in dset_settings.toml, and dset-init selects that setting while recommending no prefix for a single small project and a prefix where multiple project identities share a repository or artifact namespace.
+Each DSET project explicitly enables or disables a project prefix in carmadio_settings.toml, and dset-init selects that setting while recommending no prefix for a single small project and a prefix where multiple project identities share a repository or artifact namespace.
 
 ## Rationale
 

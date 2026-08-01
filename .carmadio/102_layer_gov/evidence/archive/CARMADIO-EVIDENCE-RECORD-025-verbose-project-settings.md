@@ -23,7 +23,7 @@ Implementation commits `ecfc9cd8957439a6a1cee3167f2cc2e5c48ef045` and
 `ac5a0b7b4ec5707fcdcc5f75bd984ef88bc44387` for Requirement
 `CARMADIO-REQUIREMENT-GOV-037` and deterministic Test `CARMADIO-TEST-CASE-GOV-038`.
 
-This record supports the canonical `dset_settings.toml` cut only. It does not
+This record supports the canonical `carmadio_settings.toml` cut only. It does not
 claim that every preserved historical YAML or JSON artifact has been migrated
 to TOML, nor does it satisfy qualitative Evaluation
 `CARMADIO-EVALUATION-CASE-GOV-028`.
@@ -31,7 +31,7 @@ to TOML, nor does it satisfy qualitative Evaluation
 ## Observed result
 
 The repository and generated adopter fixtures emit a documented
-`dset_settings.toml`. The runtime reads the legacy `dset.toml` name only as a
+`carmadio_settings.toml`. The runtime reads the legacy `dset.toml` name only as a
 migration input, rejects ambiguous dual-file roots, validates unknown settings
 fail-closed, and exposes the selected naming, creation, implementation,
 workspace, delegation, and priority behavior.

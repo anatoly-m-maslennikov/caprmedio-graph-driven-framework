@@ -21,7 +21,7 @@ relations:
 New artifact IDs and filenames include the primary artifact-type token by
 default. An optional direct artifact subtype remains metadata unless
 `artifacts.subtype_in_names = true` is selected in root
-`dset_settings.toml`.
+`carmadio_settings.toml`.
 
 The setting affects only newly emitted carriers. It never renames an immutable
 atom or another already stable artifact identity, and it is independent from
@@ -37,7 +37,7 @@ successor and append-only lifecycle evidence.
 
 ## Primary claim
 
-New artifact names use the primary artifact type by default and the optional subtype only when artifacts.subtype_in_names is enabled in dset_settings.toml.
+New artifact names use the primary artifact type by default and the optional subtype only when artifacts.subtype_in_names is enabled in carmadio_settings.toml.
 
 ## Rationale
 

@@ -15,7 +15,7 @@ from .toml_codec import TomlCodecError
 from .toml_codec import load as load_toml
 
 # SETTINGS_FILENAME defines settings filename; this module owns the default.
-SETTINGS_FILENAME = "dset_settings.toml"
+SETTINGS_FILENAME = "carmadio_settings.toml"
 # SETTINGS_DIRECTORY defines settings directory; this module owns the default.
 SETTINGS_DIRECTORY = ".carmadio"
 # LEGACY_SETTINGS_FILENAME defines the retired settings filename.
@@ -110,7 +110,7 @@ def selected_settings_path(root: Path) -> Path:
 def load_project_settings(root: Path) -> tuple[ProjectSettings, tuple[str, ...]]:
     """Read canonical settings with explicit legacy-name compatibility.
 
-    New writers use ``.carmadio/dset_settings.toml`` and schema 1.8. Earlier
+    New writers use ``.carmadio/carmadio_settings.toml`` and schema 1.8. Earlier
     schemas and retired root filenames are migration inputs only. Competing
     names fail closed instead of selecting by precedence.
     """

@@ -18,7 +18,7 @@ relations:
 
 # Requirement — Select artifact-creation strictness in canonical settings
 
-Root `dset_settings.toml` selects `medium` or `high` through
+Root `carmadio_settings.toml` selects `medium` or `high` through
 `artifacts.creation_strictness`; the default is `medium`.
 
 At medium strictness, DSET requires clear authority, one primary claim,
@@ -44,7 +44,7 @@ successor and append-only lifecycle evidence.
 
 ## Primary claim
 
-Atomic-artifact admission uses medium or high strictness selected by artifacts.creation_strictness in dset_settings.toml.
+Atomic-artifact admission uses medium or high strictness selected by artifacts.creation_strictness in carmadio_settings.toml.
 
 ## Rationale
 

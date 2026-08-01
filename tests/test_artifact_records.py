@@ -20,7 +20,7 @@ class ArtifactRecordTests(unittest.TestCase):
         root = Path(raw)
         control = root / ".carmadio"
         control.mkdir()
-        (control / "dset_settings.toml").write_text(
+        (control / "carmadio_settings.toml").write_text(
             "\n".join(
                 (
                     'schema_version = "1.8"',

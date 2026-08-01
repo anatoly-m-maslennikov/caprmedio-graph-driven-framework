@@ -120,7 +120,7 @@ produces focused clarification instead of an invented immutable claim.
 
 ## CARMADIO-REQUIREMENT-SKILL-013 — Implementation preparation is project-selectable
 
-A public DSET skill accepts the desired outcome. `.carmadio/dset_settings.toml`
+A public DSET skill accepts the desired outcome. `.carmadio/carmadio_settings.toml`
 selects `lazy` or `strict` through `workflows.implement.mode`; missing
 configuration uses the documented `lazy` default. The repository-local
 lifecycle rule owns both modes, their entry criteria, exit criteria, and stops.

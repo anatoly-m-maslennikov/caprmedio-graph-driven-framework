@@ -387,7 +387,7 @@ class ArtifactTypeRegistryTests(unittest.TestCase):
     ) -> None:
         settings = LAYOUT.settings_path.read_text(encoding="utf-8")
         template = (
-            ROOT / ".carmadio/01_layer_meta/templates/dset_settings.toml"
+            ROOT / ".carmadio/01_layer_meta/templates/carmadio_settings.toml"
         ).read_text(encoding="utf-8")
         self.assertIn("subtype_in_names = true", settings)
         self.assertIn("subtype_in_names = false", template)

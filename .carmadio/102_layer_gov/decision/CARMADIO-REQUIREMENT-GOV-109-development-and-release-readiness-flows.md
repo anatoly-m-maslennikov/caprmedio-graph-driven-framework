@@ -53,7 +53,7 @@ Conflict resolution never edits an accepted atom. Any applicable code,
 configuration, Test, Evaluation, or Projection change after an assurance
 run makes the affected release evidence stale.
 
-`.carmadio/dset_settings.toml` records `development` as the default workflow mode
+`.carmadio/carmadio_settings.toml` records `development` as the default workflow mode
 and `release_readiness` as the mandatory pre-release mode.
 
 ## Primary claim

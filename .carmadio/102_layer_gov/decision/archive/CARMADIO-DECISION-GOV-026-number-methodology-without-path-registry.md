@@ -35,4 +35,4 @@ coupling in settings.
 
 ## Primary claim
 
-Every committed file and directory below .carmadio/000_dset_methodology uses a stable numeric prefix within its parent, and deterministic materialization derives those names without a durable source-to-carrier path registry.
+Every committed file and directory below .carmadio/000_carmadio_methodology uses a stable numeric prefix within its parent, and deterministic materialization derives those names without a durable source-to-carrier path registry.

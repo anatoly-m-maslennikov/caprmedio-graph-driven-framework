@@ -1,6 +1,6 @@
 """Configure optional DSET governance surfaces.
 
-Commands inspect or preview one repository-local ``dset_settings.toml``.
+Commands inspect or preview one repository-local ``carmadio_settings.toml``.
 Writes require an explicit execute flag and preserve unrelated TOML text.
 """
 
@@ -217,7 +217,7 @@ def _matching_carriers(root: Path, surface_id: str) -> list[str]:
         if (
             not path.is_file()
             or ".carmadio_runtime" in path.parts
-            or "000_dset_methodology" in path.parts
+            or "000_carmadio_methodology" in path.parts
         ):
             continue
         lowered = path.name.lower()

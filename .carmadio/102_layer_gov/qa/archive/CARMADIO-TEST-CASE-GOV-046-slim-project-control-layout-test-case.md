@@ -18,7 +18,7 @@ relations:
 Run layout, settings, bootstrap, governance, carrier-transition, link,
 classification, traceability, and full repository tests. Prove that:
 
-1. current discovery selects only `dset/dset_settings.toml` and schema 1.3;
+1. current discovery selects only `dset/carmadio_settings.toml` and schema 1.3;
 2. fixed layer roots are direct children of `dset/`;
 3. project-wide and Version artifacts resolve through `project/` and
    `versions/`;

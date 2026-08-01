@@ -9,7 +9,7 @@ scope_path = ["layer:skill"]
 status = "accepted"
 priority = "high"
 authority = "operator:anatoly-m-maslennikov"
-claim = "Each project selects lazy or strict dset-implement preparation through workflows.implement.mode in dset_settings.toml, with lazy as the default."
+claim = "Each project selects lazy or strict dset-implement preparation through workflows.implement.mode in carmadio_settings.toml, with lazy as the default."
 llm_session_ids = ["codex:019f591f-04f6-70f2-8de7-828b7cccc69d"]
 rationale = "The workflow behavior remains accepted, but its source must reference the canonical settings filename and key."
 promotion = {}
@@ -25,7 +25,7 @@ target = "CARMADIO-REQUIREMENT-SKILL-012"
 
 # Requirement — Select implementation preparation in canonical settings
 
-Root `dset_settings.toml` selects `lazy` or `strict` through
+Root `carmadio_settings.toml` selects `lazy` or `strict` through
 `workflows.implement.mode`; the default is `lazy`.
 
 Lazy mode reconciles accepted session intent into missing atoms, completes

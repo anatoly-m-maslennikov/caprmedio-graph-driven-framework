@@ -114,7 +114,7 @@ GOV_POLICY_SECTION_END = (
 GOV_POLICY_SECTION = """## CARMADIO-REQUIREMENT-GOV-040 — Project settings are verbose
 
 The canonical settings and project-manifest carrier is
-`.carmadio/dset_settings.toml`. It must explain its boundary with governing
+`.carmadio/carmadio_settings.toml`. It must explain its boundary with governing
 documents, every setting, every accepted value, the behavior each value
 selects, the default, and practical examples. New writers and bootstraps emit
 only this path. Retired root settings and split manifests are read-only
@@ -130,7 +130,7 @@ verification commands, and commit-provenance boundaries. Governing documents
 own definitions and policy; settings select registered behavior only.
 
 **Scenario CARMADIO-SCENARIO-GOV-037:** A cold reader opens
-`.carmadio/dset_settings.toml`, finds every operator choice and predicts its effect,
+`.carmadio/carmadio_settings.toml`, finds every operator choice and predicts its effect,
 and reads the same carrier for runtime topology and release truth. Bootstrap
 emits only the canonical path; a repository containing competing settings
 carriers fails.

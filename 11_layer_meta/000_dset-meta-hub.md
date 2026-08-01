@@ -47,7 +47,7 @@ re-enters the solid flow at its proper owning layer.
 
 ## Start here
 
-- `dset_settings.toml`
+- `carmadio_settings.toml`
 - `specification-domain.md`
 - `navigation-methodology.md`
 - `procedure-domain-spec-authoring.md`

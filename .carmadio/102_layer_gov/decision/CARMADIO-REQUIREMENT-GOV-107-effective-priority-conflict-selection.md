@@ -32,7 +32,7 @@ During a direct conflict comparison:
 
 An unrelated or incomparable scope receives no scope increment.
 
-`.carmadio/dset_settings.toml` exposes exactly two selection modes:
+`.carmadio/carmadio_settings.toml` exposes exactly two selection modes:
 
 - `ask_always`, the default, explains the conflict and asks the operator; and
 - `auto_by_effective_priority`, which may select only one uniquely eligible

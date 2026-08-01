@@ -3,7 +3,7 @@
 The migration is intentionally repository-specific. It preserves immutable
 carrier bytes, records every such relocation, rewrites mutable links against
 the complete move map, and combines project facts with operator settings in
-one documented ``.carmadio/dset_settings.toml`` carrier.
+one documented ``.carmadio/carmadio_settings.toml`` carrier.
 """
 
 from __future__ import annotations
@@ -38,8 +38,8 @@ CURRENT_DSET = ROOT / ".carmadio"
 LEGACY_RUNTIME = CURRENT_DSET / "runtime"
 CURRENT_RUNTIME = ROOT / ".carmadio_runtime"
 OLD_SCOPES = OLD_DSET / "scopes"
-NEW_SETTINGS = CURRENT_DSET / "dset_settings.toml"
-OLD_SETTINGS = ROOT / "dset_settings.toml"
+NEW_SETTINGS = CURRENT_DSET / "carmadio_settings.toml"
+OLD_SETTINGS = ROOT / "carmadio_settings.toml"
 OLD_MANIFEST = OLD_SCOPES / "meta" / "dset.toml"
 CHANGE_SLUG = "make-dset-self-hosting-and-skills-thin"
 OLD_ACTIVE_CHANGE = OLD_SCOPES / "skill" / "changes" / CHANGE_SLUG
@@ -431,11 +431,11 @@ def _combined_settings() -> str:
         + settings[end:]
     )
     settings = settings.replace(
-        "# New DSET writers use only this filename: dset_settings.toml.\n"
+        "# New DSET writers use only this filename: carmadio_settings.toml.\n"
         "# The retired root name dset.toml is read-only migration input. A repository\n"
         "# containing both filenames is invalid because settings must have one "
         "owner.\n",
-        "# New DSET writers use only this path: .carmadio/dset_settings.toml.\n"
+        "# New DSET writers use only this path: .carmadio/carmadio_settings.toml.\n"
         "# Retired root settings and split manifest paths are read-only migration\n"
         "# inputs. Competing configuration carriers fail closed.\n",
     )
@@ -514,8 +514,8 @@ def _rewrite_text(
     for old, new in replacements:
         text = re.sub(rf"(?<![.A-Za-z0-9_-]){re.escape(old)}", new, text)
     text = re.sub(r"(?<![.A-Za-z0-9_-])dset/scopes/", ".carmadio/", text)
-    text = text.replace("root `dset_settings.toml`", "`.carmadio/dset_settings.toml`")
-    text = text.replace("root dset_settings.toml", ".carmadio/dset_settings.toml")
+    text = text.replace("root `carmadio_settings.toml`", "`.carmadio/carmadio_settings.toml`")
+    text = text.replace("root carmadio_settings.toml", ".carmadio/carmadio_settings.toml")
     return text
 
 
@@ -574,7 +574,7 @@ def _update_artifact_type_registry() -> None:
             ),
             ("**/templates/intake.toml", "implementation", "configuration"),
             ("**/templates/budget.toml", "implementation", "configuration"),
-            ("**/templates/dset_settings.toml", "implementation", "configuration"),
+            ("**/templates/carmadio_settings.toml", "implementation", "configuration"),
             ("**/templates/dependency-policy.toml", "implementation", "configuration"),
             (
                 "**/templates/governance/*/architecture.md",
@@ -655,7 +655,7 @@ def _update_artifact_type_registry() -> None:
             ("**/change.toml", "version", "change"),
             ("**/verification.md", "verification", None),
             ("**/README.md", "navigation", "hub"),
-            (".carmadio/dset_settings.toml", "implementation", "configuration"),
+            (".carmadio/carmadio_settings.toml", "implementation", "configuration"),
             ("00_project/artifact-types.toml", "specification", "governance"),
             ("00_project/artifacts.toml", "implementation", "configuration"),
             ("00_project/governance.toml", "implementation", "configuration"),
@@ -796,7 +796,7 @@ def _repair_mutable_links() -> None:
     path = CURRENT_DSET / "project/verification.md"
     text = path.read_text(encoding="utf-8")
     text = text.replace("../../../../../", "../../")
-    text = text.replace("../../dset_settings.toml", "../dset_settings.toml")
+    text = text.replace("../../carmadio_settings.toml", "../carmadio_settings.toml")
     path.write_text(text, encoding="utf-8", newline="\n")
     adopter = ROOT / "dset_toolchain/adopter.py"
     text = adopter.read_text(encoding="utf-8").replace(
@@ -921,7 +921,7 @@ def apply() -> None:
     root_readme.write_text(
         "# DSET control plane\n\n"
         "- [Project truth and records](project/README.md)\n"
-        "- [Settings and project manifest](dset_settings.toml)\n"
+        "- [Settings and project manifest](carmadio_settings.toml)\n"
         "- [Version lifecycle](versions/README.md)\n"
         "- [META](meta/README.md)\n"
         "- [GOV](gov/README.md)\n"
@@ -978,7 +978,7 @@ def _resume_mutable_rewrites(mapping: dict[Path, Path]) -> None:
     root_readme.write_text(
         "# DSET control plane\n\n"
         "- [Project truth and records](project/README.md)\n"
-        "- [Settings and project manifest](dset_settings.toml)\n"
+        "- [Settings and project manifest](carmadio_settings.toml)\n"
         "- [Version lifecycle](versions/README.md)\n"
         "- [META](meta/README.md)\n"
         "- [GOV](gov/README.md)\n"

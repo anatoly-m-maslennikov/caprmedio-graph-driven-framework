@@ -8,7 +8,7 @@ scope_path = []
 status = "accepted"
 priority = "high"
 authority = "operator:anatoly-m-maslennikov"
-claim = "In the DSET self-hosting repository, root methodology sources and applied project artifacts outside the installed methodology are internally governed, while the installed methodology under .carmadio/000_dset_methodology is externally governed from the consuming project's context."
+claim = "In the DSET self-hosting repository, root methodology sources and applied project artifacts outside the installed methodology are internally governed, while the installed methodology under .carmadio/000_carmadio_methodology is externally governed from the consuming project's context."
 llm_session_ids = ["codex:019f591f-04f6-70f2-8de7-828b7cccc69d"]
 rationale = "Recursive self-hosting gives the same methodology two contextual roles: the repository owns the root framework source, while the applied project consumes the installed copy through the same boundary an adopter uses."
 
@@ -29,7 +29,7 @@ This repository assigns governance locus by contextual boundary:
 | Repository surface | Default governance locus |
 |---|---|
 | Project-root framework and methodology sources outside `.carmadio` | `internal` |
-| Installed framework under `.carmadio/000_dset_methodology` | `external` |
+| Installed framework under `.carmadio/000_carmadio_methodology` | `external` |
 | Other applied project artifacts under `.carmadio` | `internal` |
 
 The installed methodology is external from the consuming project's context even

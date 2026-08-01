@@ -14,7 +14,7 @@ path = "README.md"
 sha256 = "96e3c43e2a72ace3cb72d2d9bfbba26ddc2bf2a3ae1539a3aecb0bc9fed7b204"
 
 [[reviewed_inputs]]
-path = "dset_settings.toml"
+path = "carmadio_settings.toml"
 sha256 = "06bbccd64d9c24550661152f0a48289a0c69c447ba334724ad2a055ace33338d"
 
 [[reviewed_inputs]]

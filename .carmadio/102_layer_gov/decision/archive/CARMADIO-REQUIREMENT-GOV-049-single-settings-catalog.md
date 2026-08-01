@@ -11,7 +11,7 @@ llm_session_ids:
 
 # Requirement — Keep one settings and catalog carrier
 
-`dset_settings.toml` absorbs the active content of `artifact-types.toml`,
+`carmadio_settings.toml` absorbs the active content of `artifact-types.toml`,
 `artifacts.toml`, the governance registry, project/version configuration, and
 other non-artifact registries. It does not absorb atomic claims or evergreen
 specification prose.
@@ -27,4 +27,4 @@ reviewable without reconciling several mutable aggregate registries.
 
 ## Primary claim
 
-The canonical dset_settings.toml owns project settings, structural roots, artifact classification, artifact areas, profiles, and other non-artifact registries without competing aggregate settings files.
+The canonical carmadio_settings.toml owns project settings, structural roots, artifact classification, artifact areas, profiles, and other non-artifact registries without competing aggregate settings files.

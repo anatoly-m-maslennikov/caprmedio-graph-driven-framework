@@ -94,7 +94,7 @@ transition must satisfy a missing criterion and re-read authority; no progress,
 repeated state, cycles, ambiguity, failure, or a new authorization boundary
 stops the finite closure.
 
-`.carmadio/dset_settings.toml` selects `workflows.implement.mode`. Lazy mode invokes
+`.carmadio/carmadio_settings.toml` selects `workflows.implement.mode`. Lazy mode invokes
 `decisions` first, conditionally prepares separate Test/Evaluation and
 implementation plans, and implements only after all entry criteria are
 satisfied. Strict mode performs implementation only and stops on missing

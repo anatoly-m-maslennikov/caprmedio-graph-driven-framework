@@ -19,7 +19,7 @@ relations:
 # Test Case — Validate verbose project settings
 
 Tests must prove that new and bootstrapped repositories emit
-`dset_settings.toml` only; its defaults load without hidden fallback; each
+`carmadio_settings.toml` only; its defaults load without hidden fallback; each
 registered value selects the documented behavior; invalid values fail with the
 owning key; and the skill context exposes the selected strictness,
 implementation mode, workspace default, and delegation budget profile.

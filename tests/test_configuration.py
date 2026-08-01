@@ -33,7 +33,7 @@ class GovernanceSurfaceTests(unittest.TestCase):
     def test_execute_materializes_defaults_and_preserves_existing_text(self) -> None:
         with temporary_directory() as raw:
             root = self._root(Path(raw))
-            path = root / ".carmadio" / "dset_settings.toml"
+            path = root / ".carmadio" / "carmadio_settings.toml"
             original = path.read_text(encoding="utf-8")
             change = plan_surface_change(
                 root,
@@ -52,7 +52,7 @@ class GovernanceSurfaceTests(unittest.TestCase):
     def test_existing_table_update_preserves_comments_and_peer_states(self) -> None:
         with temporary_directory() as raw:
             root = self._root(Path(raw), with_surfaces=True)
-            path = root / ".carmadio" / "dset_settings.toml"
+            path = root / ".carmadio" / "carmadio_settings.toml"
             change = plan_surface_change(
                 root,
                 "architecture-view",
@@ -69,7 +69,7 @@ class GovernanceSurfaceTests(unittest.TestCase):
     def test_recommendation_ignores_external_methodology_carriers(self) -> None:
         with temporary_directory() as raw:
             root = self._root(Path(raw))
-            external = root / ".carmadio" / "000_dset_methodology"
+            external = root / ".carmadio" / "000_carmadio_methodology"
             external.mkdir()
             (external / "architecture.md").write_text("external", encoding="utf-8")
             self.assertEqual(surface_recommendations(root), ())
@@ -102,7 +102,7 @@ class GovernanceSurfaceTests(unittest.TestCase):
                     "",
                 )
             )
-        (control / "dset_settings.toml").write_text(
+        (control / "carmadio_settings.toml").write_text(
             "\n".join(lines),
             encoding="utf-8",
         )

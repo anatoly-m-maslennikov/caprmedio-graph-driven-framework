@@ -18,7 +18,7 @@ relations:
 
 # Requirement — Configure an optional project prefix
 
-`.carmadio/dset_settings.toml` records whether artifact identities use a project
+`.carmadio/carmadio_settings.toml` records whether artifact identities use a project
 prefix and records its value when enabled.
 
 Project initialization recommends:

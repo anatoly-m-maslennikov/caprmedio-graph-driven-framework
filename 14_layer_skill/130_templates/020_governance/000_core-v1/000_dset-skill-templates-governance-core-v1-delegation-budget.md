@@ -30,8 +30,8 @@ quality floor. Every planned/actual difference is recorded. Agents with
 duplicate roles or no independently useful output do not count toward fan-out.
 One root budget is propagated through the delegation tree; a child cannot reset
 the remaining-agent, depth, or round counters. Operator instruction overrides
-the selected project profile. `.carmadio/dset_settings.toml` selects
-`delegation.budget_profile`; `.carmadio/000_dset_methodology/04_skill/budget.toml` defines the named
+the selected project profile. `.carmadio/carmadio_settings.toml` selects
+`delegation.budget_profile`; `.carmadio/000_carmadio_methodology/04_skill/budget.toml` defines the named
 profiles. `budget.toml.default_profile` is compatibility fallback only when
 settings are missing or use a pre-1.2 read contract, and the framework template
 is provenance only after materialization. No override may lower a required

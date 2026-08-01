@@ -63,7 +63,7 @@ assurance runs against the exact candidate head.
 
 ## Settings and invocation
 
-`dset_settings.toml` records `development` as the default workflow mode and
+`carmadio_settings.toml` records `development` as the default workflow mode and
 `release_readiness` as the required pre-release mode. `dset-init` materializes
 these defaults. `dset release` selects release-readiness behavior without
 silently rewriting the project's configured development default.

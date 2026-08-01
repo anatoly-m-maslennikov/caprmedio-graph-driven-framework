@@ -102,7 +102,7 @@ class BootstrapTests(unittest.TestCase):
             self.assertNotIn("delegation_budget", manifest["profiles"])
             self.assertNotIn("workspace_default", manifest["change_contract"])
             self.assertTrue(layout.governance_path.is_file())
-            self.assertTrue((target / ".carmadio/dset_settings.toml").is_file())
+            self.assertTrue((target / ".carmadio/carmadio_settings.toml").is_file())
             self.assertTrue((target / "00_project/README.md").is_file())
             self.assertTrue((target / "10_versions/README.md").is_file())
             self.assertEqual(
@@ -110,7 +110,7 @@ class BootstrapTests(unittest.TestCase):
                 "*\n!.gitignore\n",
             )
             self.assertFalse((target / ".carmadio/runtime").exists())
-            self.assertFalse((target / "dset_settings.toml").exists())
+            self.assertFalse((target / "carmadio_settings.toml").exists())
             self.assertFalse((target / "dset.toml").exists())
             self.assertEqual(
                 (target / "README.md").read_text(encoding="utf-8"), "# Existing\n"
@@ -202,7 +202,7 @@ class BootstrapTests(unittest.TestCase):
     def test_existing_destination_stops_without_partial_write(self) -> None:
         with temporary_directory() as raw:
             target = (Path(raw) / "existing").resolve()
-            manifest = target / ".carmadio" / "dset_settings.toml"
+            manifest = target / ".carmadio" / "carmadio_settings.toml"
             manifest.parent.mkdir(parents=True)
             manifest.write_text("existing\n", encoding="utf-8")
             with self.assertRaises(FileExistsError):

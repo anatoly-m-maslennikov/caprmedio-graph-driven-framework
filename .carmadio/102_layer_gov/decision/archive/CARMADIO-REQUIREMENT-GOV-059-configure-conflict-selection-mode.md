@@ -15,7 +15,7 @@ relations:
 
 # Requirement — Configure conflict selection mode
 
-`.carmadio/dset_settings.toml` exposes exactly two conflict-selection modes:
+`.carmadio/carmadio_settings.toml` exposes exactly two conflict-selection modes:
 
 - `ask_always` is the default. DSET classifies the conflict, explains the
   applicable authority and effective-priority calculation, and asks the

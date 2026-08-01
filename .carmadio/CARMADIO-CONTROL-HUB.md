@@ -9,7 +9,7 @@ authority.
 
 ## Boundaries
 
-`000_dset_methodology` contains methodology only. `100_project` through
+`000_carmadio_methodology` contains methodology only. `100_project` through
 `150_versions` contain applied project artifacts only. `.carmadio_runtime` owns
 ignored runtime state and is not part of this control plane.
 
@@ -26,7 +26,7 @@ Applied QA definitions and proof records remain under applied owners.
 
 ## Start here
 
-- `dset_settings.toml` — settings and identity registries.
+- `carmadio_settings.toml` — settings and identity registries.
 - `000_dset-methodology-hub.md` — installed methodology.
 - `CARMADIO-PROJECT-HUB.md` — applied project-wide truth.
 - `CARMADIO-META-HUB.md`, `CARMADIO-GOV-HUB.md`, `CARMADIO-TOOL-HUB.md`,

@@ -17,7 +17,7 @@ BUNDLE_TEXT_SUFFIXES = {".json", ".md", ".py", ".toml", ".txt", ".yaml", ".yml"}
 
 def selected_files(root: Path = ROOT) -> list[Path]:
     root = root.resolve()
-    selected = [root / ".carmadio" / "dset_settings.toml"]
+    selected = [root / ".carmadio" / "carmadio_settings.toml"]
     methodology = root / ".carmadio" / METHODOLOGY_ROOT
     selected.extend(
         path

@@ -75,7 +75,7 @@ remain mislabeled as roadmap-only work.
 
 - [x] **CARMADIO-TASK-OPS-016:** Establish corrected coordinated DSET product/CLI-package `0.3.1`, keep schema/profile/template versions independent, supersede the unpublished `0.3.0` draft, incomplete `0.2.0` target, and unreleased package `1.0.0` candidate before merge, and preserve archived evidence unchanged.
 - [x] **CARMADIO-TASK-TOOL-011:** Define the last-released-validator versus candidate-validator contract so a candidate is never its own only judge.
-- [x] **CARMADIO-TASK-SKILL-004:** Define the minimum non-project bootstrap protocol that wrappers may contain: locate the repository root, locate schema 1.3 `.carmadio/dset_settings.toml`, schema 1.2 `dset/scopes/meta/dset.toml`, or a legacy central manifest, resolve the layout-owned governance registry, and fail closed on duplicate authority.
+- [x] **CARMADIO-TASK-SKILL-004:** Define the minimum non-project bootstrap protocol that wrappers may contain: locate the repository root, locate schema 1.3 `.carmadio/carmadio_settings.toml`, schema 1.2 `dset/scopes/meta/dset.toml`, or a legacy central manifest, resolve the layout-owned governance registry, and fail closed on duplicate authority.
 - [x] **CARMADIO-TASK-GOV-014:** Open one standard DSET change, `make-dset-self-hosting-and-skills-thin`, with separate requirements, test plan, eval plan, design, implementation batches, evidence, and PR identity.
 
 ## §1 | Add the repository-local governance registry

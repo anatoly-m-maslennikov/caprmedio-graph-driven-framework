@@ -25,7 +25,7 @@ relations:
 
 An operator unfamiliar with the repository can configure reporting mode,
 artifact strictness, and one enabled artifact Type using only
-`.carmadio/dset_settings.toml` and its in-file documentation.
+`.carmadio/carmadio_settings.toml` and its in-file documentation.
 
 ## Applicable conditions
 

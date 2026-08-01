@@ -347,7 +347,7 @@ def _materialize_layered_manifest(
     release = data.get("release")
     if isinstance(release, dict):
         if "policy" in release:
-            release["policy"] = ".carmadio/000_dset_methodology/06_ops/procedure-release.md"
+            release["policy"] = ".carmadio/000_carmadio_methodology/06_ops/procedure-release.md"
         if "owner_change" in release:
             release["owner_change"] = stable_id
     path.write_text(dump(data, path), encoding="utf-8")

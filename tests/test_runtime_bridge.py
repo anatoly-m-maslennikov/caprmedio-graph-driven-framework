@@ -264,7 +264,7 @@ class RuntimeBridgeTests(unittest.TestCase):
         with temporary_directory() as raw:
             adopter = (Path(raw) / "adopter").resolve()
             create_adopter(ROOT, adopter)
-            settings = adopter / "dset_settings.toml"
+            settings = adopter / "carmadio_settings.toml"
             settings.write_text(
                 settings.read_text(encoding="utf-8")
                 .replace('mode = "lazy"', 'mode = "strict"')
@@ -317,7 +317,7 @@ class RuntimeBridgeTests(unittest.TestCase):
         with temporary_directory() as raw:
             adopter = (Path(raw) / "adopter").resolve()
             create_adopter(ROOT, adopter)
-            settings = adopter / "dset_settings.toml"
+            settings = adopter / "carmadio_settings.toml"
             settings.write_text("invalid project setting\n", encoding="utf-8")
             with self.assertRaisesRegex(ValueError, "governance is valid"):
                 resolve_skill_context(

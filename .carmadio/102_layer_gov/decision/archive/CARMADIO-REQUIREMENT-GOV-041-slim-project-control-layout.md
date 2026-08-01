@@ -17,7 +17,7 @@ relations:
 
 The canonical current layout is:
 
-- `dset/dset_settings.toml` — the only writable settings and project-manifest
+- `dset/carmadio_settings.toml` — the only writable settings and project-manifest
   carrier;
 - `dset/project/` — project-wide evergreen artifacts, atomic/context records,
   evidence, verification, registries, migrations, and generated views;
@@ -38,7 +38,7 @@ append-only lifecycle event.
 
 ## Primary claim
 
-A current DSET project uses one documented dset/dset_settings.toml for settings and manifest facts, dset/project for project-wide truth and records, dset/versions for Version lifecycle artifacts, and direct dset/<layer> roots for layer-owned truth.
+A current DSET project uses one documented dset/carmadio_settings.toml for settings and manifest facts, dset/project for project-wide truth and records, dset/versions for Version lifecycle artifacts, and direct dset/<layer> roots for layer-owned truth.
 
 ## Rationale
 

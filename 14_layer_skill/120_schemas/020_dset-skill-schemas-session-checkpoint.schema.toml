@@ -1,5 +1,5 @@
 "$schema" = "https://json-schema.org/draft/2020-12/schema"
-"$id" = "https://raw.githubusercontent.com/anatoly-m-maslennikov/dset-specs-loops-framework/main/.carmadio/000_dset_methodology/04_skill/schemas/session-checkpoint.schema.toml"
+"$id" = "https://raw.githubusercontent.com/anatoly-m-maslennikov/dset-specs-loops-framework/main/.carmadio/000_carmadio_methodology/04_skill/schemas/session-checkpoint.schema.toml"
 title = "DSET local session checkpoint"
 type = "object"
 required = ["schema_version", "session_id", "llm_session_ids", "sequence", "updated_at", "status", "persistence", "public_entrypoint", "root_run_id", "latest_run_id", "active_run_ids", "scope", "objective", "ruleset_identity", "completed", "pending", "authorization", "touched_paths", "authority_snapshot", "closure", "next"]

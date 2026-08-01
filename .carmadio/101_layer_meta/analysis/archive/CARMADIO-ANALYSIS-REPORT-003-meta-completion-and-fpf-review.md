@@ -98,7 +98,7 @@ ontology or a claim of FPF conformance.
 - `git diff --check` passed.
 - The methodology comparison reported extensive changed, missing, and
   unexpected installed files, consistent with a deliberately unsynchronized
-  `.carmadio/000_dset_methodology` snapshot.
+  `.carmadio/000_carmadio_methodology` snapshot.
 
 ## Conclusion
 

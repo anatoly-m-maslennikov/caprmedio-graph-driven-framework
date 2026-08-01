@@ -14,7 +14,7 @@ evidence boundaries; Decisions remain separate records of choices and rationale.
 self-hosting repository:
 
 - root framework and methodology sources outside `.carmadio` are internal;
-- `.carmadio/000_dset_methodology` is the external installed-framework boundary;
+- `.carmadio/000_carmadio_methodology` is the external installed-framework boundary;
 - all other applied project artifacts under `.carmadio` are internal.
 
 The installed copy remains external from the consuming project's perspective
@@ -26,7 +26,7 @@ its endpoints retain independent internal or external origins.
 
 | Concern | Authority | Writer model | Refresh boundary | Failure/recovery proof |
 |---|---|---|---|---|
-| Selected profile | `.carmadio/dset_settings.toml` | Project change | Explicit reviewed edit | Schema and repository check |
+| Selected profile | `.carmadio/carmadio_settings.toml` | Project change | Explicit reviewed edit | Schema and repository check |
 | Rule routing/provenance | `00_project/governance.toml` | Explicit materialize/refresh transaction | Every governed invocation | Governance schema and stable diagnostics |
 | Normative project rules | `dset/<layer>/governance/*.md` | Owning project layer | Next resolution | Digest/customization and mutation proof |
 | Framework defaults | `dset/<layer>/templates/governance/core-v1/` | Framework change | Explicit adopter comparison only | Template/schema tests |

@@ -15,7 +15,7 @@ relations:
 
 # Requirement — Publish verbose project settings
 
-The canonical root settings carrier is `dset_settings.toml`. It must explain
+The canonical root settings carrier is `carmadio_settings.toml`. It must explain
 its purpose, its boundary with the project manifest and governing documents,
 every setting, every accepted value, the behavior each value selects, and the
 default. Examples must cover artifact naming, artifact-creation strictness,
@@ -37,7 +37,7 @@ The settings schema must expose these independent choices:
 - low, medium, or high as the delegation budget profile; and
 - an ordered project priority scale plus default priority.
 
-New writers and bootstraps emit only `dset_settings.toml`. A root `dset.toml`
+New writers and bootstraps emit only `carmadio_settings.toml`. A root `dset.toml`
 may be read only as an explicit migration compatibility input. If both names
 exist, validation must stop rather than guess which file owns settings.
 
@@ -60,7 +60,7 @@ successor and append-only lifecycle evidence.
 
 ## Primary claim
 
-DSET exposes operator-selectable behavior through one verbose dset_settings.toml file while project identity, topology, contracts, and verification remain manifest truth.
+DSET exposes operator-selectable behavior through one verbose carmadio_settings.toml file while project identity, topology, contracts, and verification remain manifest truth.
 
 ## Rationale
 

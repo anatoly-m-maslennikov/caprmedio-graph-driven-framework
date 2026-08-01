@@ -1143,8 +1143,8 @@ def _toml_cutover_complete(root: Path) -> bool:
     return any(
         path.is_file()
         for path in (
-            root / ".carmadio/dset_settings.toml",
-            root / "dset/dset_settings.toml",
+            root / ".carmadio/carmadio_settings.toml",
+            root / "dset/carmadio_settings.toml",
             root / "dset/scopes/meta/dset.toml",
             root / "dset/dset.toml",
         )

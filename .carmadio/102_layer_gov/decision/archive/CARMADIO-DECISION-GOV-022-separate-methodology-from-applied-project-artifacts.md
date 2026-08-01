@@ -19,7 +19,7 @@ relations:
 The project-local DSET control plane uses three visibly distinct carriers:
 
 ```text
-.carmadio/000_dset_methodology/   installed project-local DSET methodology
+.carmadio/000_carmadio_methodology/   installed project-local DSET methodology
 .carmadio/100_project/            applied project-wide artifacts
 .carmadio/101_layer_meta/         applied META artifacts
 .carmadio/102_layer_gov/          applied GOV artifacts
@@ -42,7 +42,7 @@ at the repository root:
 50_versions/
 ```
 
-`000_dset_methodology` contains governing rules, procedures, schemas,
+`000_carmadio_methodology` contains governing rules, procedures, schemas,
 templates, and workflow definitions. It never owns this project's Decisions,
 Questions, Problems, QA atoms, evidence, or applied specifications and plans.
 
@@ -56,4 +56,4 @@ skills.
 
 ## Primary claim
 
-DSET stores the installed project-local methodology only under .carmadio/000_dset_methodology, stores applied project artifacts only under .carmadio/100_project through .carmadio/150_versions, and keeps the reusable framework source in the repository root's 10_project through 50_versions product structure.
+DSET stores the installed project-local methodology only under .carmadio/000_carmadio_methodology, stores applied project artifacts only under .carmadio/100_project through .carmadio/150_versions, and keeps the reusable framework source in the repository root's 10_project through 50_versions product structure.

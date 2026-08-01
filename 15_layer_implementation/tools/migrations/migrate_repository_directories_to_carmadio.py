@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Rename the governed and runtime repository directories to CARMADIO.
+"""Rename framework-owned repository paths and identifiers to CARMADIO.
 
 Invocation:
     python migrate_repository_directories_to_carmadio.py [ROOT]
@@ -8,11 +8,12 @@ Invocation:
     python migrate_repository_directories_to_carmadio.py [ROOT] --check
 
 Preview is the default. The tracked inventory comes exclusively from Git's
-index. Apply first renames each complete top-level directory atomically so
-ignored runtime state is preserved, then transactionally rewrites tracked text
-references. The reviewed plan digest binds every tracked preimage, destination,
-and output byte. Collisions, binary affected carriers, symlinks, unmerged index
-entries, and partial layouts fail closed.
+index. Apply first renames each complete governed directory atomically so
+ignored state is preserved, then transactionally rewrites tracked paths, text
+references, and corresponding Python identifiers. The reviewed plan digest
+binds every tracked preimage, destination, and output byte. Collisions, binary
+affected carriers, symlinks, unmerged index entries, and partial layouts fail
+closed.
 """
 
 from __future__ import annotations
@@ -40,13 +41,21 @@ SOURCE_GOVERNED_DIRECTORY = "." + "dset"
 SOURCE_RUNTIME_DIRECTORY = SOURCE_GOVERNED_DIRECTORY + "_runtime"
 TARGET_GOVERNED_DIRECTORY = ".carmadio"
 TARGET_RUNTIME_DIRECTORY = ".carmadio_runtime"
-DIRECTORY_REPLACEMENTS = (
+SOURCE_METHODOLOGY_DIRECTORY = "000_" + "dset" + "_methodology"
+TARGET_METHODOLOGY_DIRECTORY = "000_carmadio_methodology"
+SOURCE_SETTINGS_STEM = "dset" + "_settings"
+TARGET_SETTINGS_STEM = "carmadio_settings"
+TOP_LEVEL_DIRECTORY_REPLACEMENTS = (
     (SOURCE_RUNTIME_DIRECTORY, TARGET_RUNTIME_DIRECTORY),
     (SOURCE_GOVERNED_DIRECTORY, TARGET_GOVERNED_DIRECTORY),
 )
+NAME_REPLACEMENTS = TOP_LEVEL_DIRECTORY_REPLACEMENTS + (
+    (SOURCE_METHODOLOGY_DIRECTORY, TARGET_METHODOLOGY_DIRECTORY),
+    (SOURCE_SETTINGS_STEM, TARGET_SETTINGS_STEM),
+)
 CONTENT_REPLACEMENTS = tuple(
     (source.encode(), target.encode())
-    for source, target in DIRECTORY_REPLACEMENTS
+    for source, target in NAME_REPLACEMENTS
 )
 IDENTIFIER_REPLACEMENTS = (
     (("dset" + "_root").encode(), b"carmadio_root"),
@@ -90,7 +99,7 @@ def git_index(root: Path) -> tuple[tuple[str, Path], ...]:
 
 def replaced_text(value: str) -> str:
     """Replace exact retired directory tokens, longest token first."""
-    for source, target in DIRECTORY_REPLACEMENTS:
+    for source, target in NAME_REPLACEMENTS:
         value = value.replace(source, target)
     return value
 
@@ -100,33 +109,38 @@ def replaced_path(relative: Path) -> Path:
     return Path(replaced_text(relative.as_posix()))
 
 
+def candidate_paths(relative: Path) -> tuple[Path, ...]:
+    """Return every deterministic intermediate path for compound renames."""
+    candidates = {relative.as_posix()}
+    for source, target in NAME_REPLACEMENTS:
+        candidates.update(
+            value.replace(source, target) for value in tuple(candidates)
+        )
+    return tuple(Path(value) for value in sorted(candidates))
+
+
 def tracked_entries(root: Path) -> tuple[TrackedEntry, ...]:
     """Resolve indexed paths before or after the filesystem cutover."""
     entries: list[TrackedEntry] = []
     desired_owners: dict[Path, Path] = {}
     for mode, indexed_relative in git_index(root):
         desired_relative = replaced_path(indexed_relative)
-        indexed_path = root / indexed_relative
-        desired_path = root / desired_relative
-        indexed_exists = indexed_path.exists()
-        desired_exists = desired_path.exists()
-        if indexed_relative == desired_relative:
-            if not indexed_exists:
-                raise MigrationError(f"tracked file is missing: {indexed_relative}")
-            current_relative = indexed_relative
-        elif indexed_exists and desired_exists:
+        existing = tuple(
+            candidate
+            for candidate in candidate_paths(indexed_relative)
+            if (root / candidate).exists()
+        )
+        if len(existing) > 1:
             raise MigrationError(
-                f"directory migration destination already exists: {desired_relative}"
+                f"multiple migration path variants exist for {indexed_relative}: "
+                + ", ".join(item.as_posix() for item in existing)
             )
-        elif indexed_exists:
-            current_relative = indexed_relative
-        elif desired_exists:
-            current_relative = desired_relative
-        else:
+        if not existing:
             raise MigrationError(
-                "tracked source and expected destination are missing: "
+                "tracked source and all expected path variants are missing: "
                 f"{indexed_relative} -> {desired_relative}"
             )
+        current_relative = existing[0]
         owner = desired_owners.setdefault(desired_relative, indexed_relative)
         if owner != indexed_relative:
             raise MigrationError(
@@ -200,7 +214,7 @@ def build_plan(root: Path) -> MigrationPlan:
 
 def validate_directory_layout(root: Path, allow_source: bool) -> None:
     """Reject ambiguous or partial top-level directory layouts."""
-    for source_name, target_name in DIRECTORY_REPLACEMENTS:
+    for source_name, target_name in TOP_LEVEL_DIRECTORY_REPLACEMENTS:
         source = root / source_name
         target = root / target_name
         if source.exists() and target.exists():
@@ -218,6 +232,29 @@ def validate_directory_layout(root: Path, allow_source: bool) -> None:
             raise MigrationError(
                 f"repository directory cannot be a symlink: {selected}"
             )
+    governed_root = (
+        root / SOURCE_GOVERNED_DIRECTORY
+        if (root / SOURCE_GOVERNED_DIRECTORY).exists()
+        else root / TARGET_GOVERNED_DIRECTORY
+    )
+    source_methodology = governed_root / SOURCE_METHODOLOGY_DIRECTORY
+    target_methodology = governed_root / TARGET_METHODOLOGY_DIRECTORY
+    if source_methodology.exists() and target_methodology.exists():
+        raise MigrationError(
+            "both source and target methodology directories exist: "
+            f"{target_methodology}"
+        )
+    if source_methodology.exists() and not allow_source:
+        raise MigrationError(
+            f"retired methodology directory remains: {source_methodology}"
+        )
+    selected_methodology = (
+        source_methodology if source_methodology.exists() else target_methodology
+    )
+    if not selected_methodology.is_dir() or selected_methodology.is_symlink():
+        raise MigrationError(
+            f"required methodology directory is invalid: {selected_methodology}"
+        )
 
 
 def rename_source_directories(root: Path) -> tuple[tuple[Path, Path], ...]:
@@ -225,13 +262,22 @@ def rename_source_directories(root: Path) -> tuple[tuple[Path, Path], ...]:
     validate_directory_layout(root, allow_source=True)
     renamed: list[tuple[Path, Path]] = []
     try:
-        for source_name, target_name in DIRECTORY_REPLACEMENTS:
+        for source_name, target_name in TOP_LEVEL_DIRECTORY_REPLACEMENTS:
             source = root / source_name
             target = root / target_name
             if not source.exists():
                 continue
             os.replace(source, target)
             renamed.append((source, target))
+        source_methodology = (
+            root / TARGET_GOVERNED_DIRECTORY / SOURCE_METHODOLOGY_DIRECTORY
+        )
+        target_methodology = (
+            root / TARGET_GOVERNED_DIRECTORY / TARGET_METHODOLOGY_DIRECTORY
+        )
+        if source_methodology.exists():
+            os.replace(source_methodology, target_methodology)
+            renamed.append((source_methodology, target_methodology))
     except OSError as error:
         rollback_directory_renames(renamed)
         raise MigrationError(f"directory rename failed: {error}") from error
@@ -259,7 +305,7 @@ def rollback_directory_renames(
 
 def validate_staged(plan: MigrationPlan, staged: dict[Path, Path]) -> None:
     """Prove staged paths and text contain no retired directory identity."""
-    source_tokens = tuple(source for source, _target in DIRECTORY_REPLACEMENTS)
+    source_tokens = tuple(source for source, _target in NAME_REPLACEMENTS)
     for operation in plan.writes:
         relative = operation.path.relative_to(plan.root)
         if any(source in relative.as_posix() for source in source_tokens):
@@ -286,7 +332,7 @@ def verify_complete(root: Path) -> None:
             f"migration is incomplete: writes={len(plan.writes)}, "
             f"deletes={len(plan.deletes)}"
         )
-    source_tokens = tuple(source for source, _target in DIRECTORY_REPLACEMENTS)
+    source_tokens = tuple(source for source, _target in NAME_REPLACEMENTS)
     for entry in tracked_entries(root):
         current = root / entry.current_relative
         relative_text = entry.current_relative.as_posix()

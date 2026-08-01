@@ -175,7 +175,7 @@ artifact_type = "implementation"
 artifact_subtype = "configuration"
 
 [[path_rules]]
-pattern = "**/templates/dset_settings.toml"
+pattern = "**/templates/carmadio_settings.toml"
 artifact_type = "implementation"
 artifact_subtype = "configuration"
 
@@ -358,7 +358,7 @@ artifact_type = "navigation"
 artifact_subtype = "hub"
 
 [[path_rules]]
-pattern = ".carmadio/dset_settings.toml"
+pattern = ".carmadio/carmadio_settings.toml"
 artifact_type = "implementation"
 artifact_subtype = "configuration"
 

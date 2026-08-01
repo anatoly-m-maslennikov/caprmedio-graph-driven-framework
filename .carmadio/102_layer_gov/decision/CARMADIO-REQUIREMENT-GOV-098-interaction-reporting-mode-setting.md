@@ -15,7 +15,7 @@ relations:
 
 # Requirement — Configure interaction reporting mode
 
-`dset_settings.toml` provides one project-owned interaction reporting setting:
+`carmadio_settings.toml` provides one project-owned interaction reporting setting:
 
 ```toml
 [interaction]

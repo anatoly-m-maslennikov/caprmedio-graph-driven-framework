@@ -20,7 +20,7 @@ relations:
 
 Without implementation knowledge, cold readers must find every active setting,
 accepted value, default, effect, and practical example in
-`dset_settings.toml`. They must correctly predict where to change an operator
+`carmadio_settings.toml`. They must correctly predict where to change an operator
 preference and where to inspect project identity, topology, contracts, release
 targets, or verification commands.
 
@@ -34,4 +34,4 @@ separate.
 
 ## Primary claim
 
-Cold readers can configure DSET from dset_settings.toml and correctly distinguish selectable behavior from project truth and governing definitions.
+Cold readers can configure DSET from carmadio_settings.toml and correctly distinguish selectable behavior from project truth and governing definitions.

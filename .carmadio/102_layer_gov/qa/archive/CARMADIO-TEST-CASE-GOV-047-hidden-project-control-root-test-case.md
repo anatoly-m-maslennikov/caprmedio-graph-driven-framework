@@ -21,7 +21,7 @@ relations:
 Run layout, settings, bootstrap, governance, carrier-transition, runtime,
 link, classification, traceability, and full repository tests. Prove that:
 
-1. current discovery selects only `.carmadio/dset_settings.toml` and schema 1.3;
+1. current discovery selects only `.carmadio/carmadio_settings.toml` and schema 1.3;
 2. persisted canonical paths resolve from the repository root;
 3. fixed layer roots are direct children of `.carmadio/`;
 4. project-wide and Version artifacts resolve through `project/` and

@@ -39,7 +39,7 @@ Unknown surfaces, invalid settings, competing settings carriers, or an
 unresolved repository root stop with an actionable diagnostic.
 
 The writer changes only the selected boolean and preserves the rest of
-`dset_settings.toml`, including comments and operator-owned values.
+`carmadio_settings.toml`, including comments and operator-owned values.
 Deactivation never deletes a governed carrier.
 
 Recommendations are advisory. They report the evidence and never activate a

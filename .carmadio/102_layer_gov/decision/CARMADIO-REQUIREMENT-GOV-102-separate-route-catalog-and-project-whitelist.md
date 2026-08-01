@@ -25,7 +25,7 @@ One project-local `artifact_catalog.toml` inside the installed methodology owns
 the registered artifact types, optional direct subtypes, identity kinds,
 derived routes, allowed carriers, and persistence behavior.
 
-`dset_settings.toml` owns only the project selection:
+`carmadio_settings.toml` owns only the project selection:
 
 - enabled artifact types and subtypes;
 - enabled Governance loci;

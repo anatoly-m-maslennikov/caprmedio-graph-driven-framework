@@ -35,7 +35,7 @@ class RepositoryLayoutTest(unittest.TestCase):
                 (dset / layer).mkdir(parents=True)
             (dset / "project").mkdir()
             (dset / "versions").mkdir()
-            (dset / "dset_settings.toml").write_text(
+            (dset / "carmadio_settings.toml").write_text(
                 'schema_version = "1.3"\n\n[structure]\nlayout = "slim-v1"\n',
                 encoding="utf-8",
             )
@@ -45,7 +45,7 @@ class RepositoryLayoutTest(unittest.TestCase):
             self.assertTrue(layout.slim)
             self.assertTrue(layout.layered)
             self.assertEqual(layout.structure_layout, LEGACY_SLIM_LAYOUT)
-            self.assertEqual(layout.settings_path, dset / "dset_settings.toml")
+            self.assertEqual(layout.settings_path, dset / "carmadio_settings.toml")
             self.assertEqual(layout.manifest_path, layout.settings_path)
             self.assertEqual(layout.project_root, dset / "project")
             self.assertEqual(layout.versions_root, dset / "versions")
@@ -56,7 +56,7 @@ class RepositoryLayoutTest(unittest.TestCase):
             self.assertEqual(layout.active_change_roots, (dset / "versions/changes",))
             self.assertEqual(layout.archive_change_roots, (dset / "versions/archive",))
 
-            (root / "dset_settings.toml").write_text("", encoding="utf-8")
+            (root / "carmadio_settings.toml").write_text("", encoding="utf-8")
             with self.assertRaisesRegex(ValueError, "retired root settings coexist"):
                 discover_layout(root)
 
@@ -68,7 +68,7 @@ class RepositoryLayoutTest(unittest.TestCase):
                 (dset / directory).mkdir(parents=True)
             (dset / "project").mkdir()
             (dset / "versions").mkdir()
-            (dset / "dset_settings.toml").write_text(
+            (dset / "carmadio_settings.toml").write_text(
                 'schema_version = "1.3"\n\n'
                 '[structure]\nlayout = "numbered-layers-v1"\n',
                 encoding="utf-8",
@@ -103,7 +103,7 @@ class RepositoryLayoutTest(unittest.TestCase):
 
             self.assertFalse(layout.layered)
             self.assertEqual(layout.schema_version, "1.1")
-            self.assertEqual(layout.settings_path, root / "dset_settings.toml")
+            self.assertEqual(layout.settings_path, root / "carmadio_settings.toml")
             self.assertEqual(layout.manifest_path, dset / "dset.yaml")
             self.assertEqual(layout.governance_path, dset / "governance.yaml")
             self.assertEqual(layout.artifact_registry_path, dset / "artifacts.yaml")
@@ -145,7 +145,7 @@ class RepositoryLayoutTest(unittest.TestCase):
 
             self.assertTrue(layout.layered)
             self.assertEqual(layout.schema_version, "1.2")
-            self.assertEqual(layout.settings_path, root / "dset_settings.toml")
+            self.assertEqual(layout.settings_path, root / "carmadio_settings.toml")
             self.assertEqual(layout.manifest_path, scopes / "meta" / "dset.yaml")
             self.assertEqual(layout.governance_path, scopes / "gov" / "governance.yaml")
             self.assertEqual(

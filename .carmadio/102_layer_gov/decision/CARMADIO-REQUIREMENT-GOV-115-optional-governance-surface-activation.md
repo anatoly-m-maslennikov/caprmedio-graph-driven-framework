@@ -21,7 +21,7 @@ relations:
 
 # Requirement — Configure optional governance surfaces
 
-`.carmadio/dset_settings.toml` owns one documented `governance_surfaces` table.
+`.carmadio/carmadio_settings.toml` owns one documented `governance_surfaces` table.
 Every registered optional surface has one explicit boolean. The initial
 surface keys are:
 

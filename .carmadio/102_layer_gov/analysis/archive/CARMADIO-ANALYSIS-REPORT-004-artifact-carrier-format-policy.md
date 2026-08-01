@@ -63,7 +63,7 @@ Immediately before this report was added, `.carmadio` contained:
 Most committed semantic artifacts are already Markdown. The TOML set consists
 mainly of:
 
-- `dset_settings.toml`;
+- `carmadio_settings.toml`;
 - installed templates, profiles, dependency policies, and fixtures; and
 - identity-only reference carriers across the applied layers.
 
@@ -141,7 +141,7 @@ need nested frontmatter.
 
 Keep TOML for:
 
-- `.carmadio/dset_settings.toml`;
+- `.carmadio/carmadio_settings.toml`;
 - human-edited executable configuration;
 - tool and profile settings consumed directly by deterministic code;
 - dependency and enforcement configuration when the file itself is executable
@@ -165,7 +165,7 @@ TOML should not remain the default for:
 
 Profiles that combine explanation with executable selection should separate
 the concerns without duplicating truth: Markdown owns the profile definition
-and rationale, while `dset_settings.toml` selects the profile by stable ID.
+and rationale, while `carmadio_settings.toml` selects the profile by stable ID.
 Only fields that deterministic code executes belong in TOML.
 
 ## JSON
@@ -293,7 +293,7 @@ make the repository look uniform.
 
 ### TOML carriers likely to remain
 
-- `.carmadio/dset_settings.toml`;
+- `.carmadio/carmadio_settings.toml`;
 - the settings template;
 - executable dependency and enforcement configuration;
 - selected machine-consumed profile configuration where it cannot be expressed

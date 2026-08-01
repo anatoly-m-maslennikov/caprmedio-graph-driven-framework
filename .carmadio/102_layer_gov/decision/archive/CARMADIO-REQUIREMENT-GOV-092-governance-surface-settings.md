@@ -18,7 +18,7 @@ relations:
 
 # Requirement — Store governance-surface activation
 
-`.carmadio/dset_settings.toml` owns one documented `governance_surfaces` table.
+`.carmadio/carmadio_settings.toml` owns one documented `governance_surfaces` table.
 Every registered surface has one explicit boolean:
 
 - `evergreen_specification`;
@@ -38,7 +38,7 @@ reactivation reconciles them against current atomic authority.
 
 ## Primary claim
 
-dset_settings.toml owns an explicit boolean activation state for every registered optional governance surface, with every surface inactive by default and deactivation preserving carriers and history.
+carmadio_settings.toml owns an explicit boolean activation state for every registered optional governance surface, with every surface inactive by default and deactivation preserving carriers and history.
 
 ## Rationale
 

@@ -3311,7 +3311,7 @@ def _validate_layered_change(
         policy = release.get("policy")
         owner = release.get("owner_change")
         expected_policy = (
-            ".carmadio/000_dset_methodology/06_ops/procedure-release.md"
+            ".carmadio/000_carmadio_methodology/06_ops/procedure-release.md"
             if layout.slim
             else "dset/scopes/ops/governance/release.md"
         )

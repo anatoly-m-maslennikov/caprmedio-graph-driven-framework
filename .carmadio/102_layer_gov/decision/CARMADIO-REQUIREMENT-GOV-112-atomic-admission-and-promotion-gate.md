@@ -19,7 +19,7 @@ relations:
 
 # Requirement — Gate atomic admission and promotion
 
-`.carmadio/dset_settings.toml` selects `medium` or `high` through
+`.carmadio/carmadio_settings.toml` selects `medium` or `high` through
 `artifacts.creation_strictness`; the default is `medium`.
 
 At medium strictness, CARMADIO requires accepted authority, one primary claim, one

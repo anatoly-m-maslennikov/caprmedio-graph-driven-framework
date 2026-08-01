@@ -1,7 +1,7 @@
 # DSET artifact route catalog.
 #
 # One installed project-local copy owns artifact routes and identity kinds.
-# dset_settings.toml selects an enabled whitelist; it does not repeat these
+# carmadio_settings.toml selects an enabled whitelist; it does not repeat these
 # mappings. Unknown or ambiguous entries fail closed.
 #
 # Migration notice: this file is currently a pre-META-045/046 inventory. It

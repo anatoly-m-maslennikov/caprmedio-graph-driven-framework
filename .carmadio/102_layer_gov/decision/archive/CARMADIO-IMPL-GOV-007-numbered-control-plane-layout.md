@@ -23,7 +23,7 @@ relations:
 The installed project-local methodology lives only under:
 
 ```text
-.carmadio/000_dset_methodology/
+.carmadio/000_carmadio_methodology/
 ├── 00_project/
 ├── 01_meta/
 ├── 02_gov/
@@ -60,7 +60,7 @@ The reusable framework product source remains distinct at the repository root:
 50_versions/
 ```
 
-Every committed descendant of `000_dset_methodology` uses a stable,
+Every committed descendant of `000_carmadio_methodology` uses a stable,
 zero-padded numeric prefix unique among its siblings. Materialization derives
 these names deterministically and does not persist a source-to-installed path
 registry.

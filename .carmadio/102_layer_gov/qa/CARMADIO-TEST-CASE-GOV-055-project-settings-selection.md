@@ -28,7 +28,7 @@ and fail closed on invalid or unknown selections.
 
 ## Applicable conditions
 
-1. Load `.carmadio/dset_settings.toml` with documented defaults.
+1. Load `.carmadio/carmadio_settings.toml` with documented defaults.
 2. Accept only enabled catalog types, subtypes, and Governance loci.
 3. Accept only `medium` or `high` artifact creation strictness.
 4. Accept only `silent` or `verbose` interaction reporting.

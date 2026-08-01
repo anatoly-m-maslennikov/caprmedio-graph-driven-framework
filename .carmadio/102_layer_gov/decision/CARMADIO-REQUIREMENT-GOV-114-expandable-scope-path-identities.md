@@ -36,7 +36,7 @@ Areas, or future registered scope axes.
 
 Scope does not change numbering. Numeric sequences remain project-wide for
 each registered Type prefix. Every scope segment and
-parent-child relationship is registered in `.carmadio/dset_settings.toml`, and a
+parent-child relationship is registered in `.carmadio/carmadio_settings.toml`, and a
 path must match that registry exactly.
 
 The first implementation and every later vocabulary change perform one

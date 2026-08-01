@@ -479,7 +479,7 @@ class GovernanceTests(unittest.TestCase):
         self.assertNotIn("delegation_budget", manifest["profiles"])
         self.assertEqual(manifest["release"]["status"], "not-applicable")
         self.assertEqual(manifest["work_items"]["registry"], "dset/intake.toml")
-        self.assertTrue((self.root / "dset_settings.toml").is_file())
+        self.assertTrue((self.root / "carmadio_settings.toml").is_file())
         self.assertFalse((self.root / "dset.toml").exists())
         self.assertTrue(layout.artifact_type_registry_path.is_file())
         self.assertTrue(layout.budget_path.is_file())
