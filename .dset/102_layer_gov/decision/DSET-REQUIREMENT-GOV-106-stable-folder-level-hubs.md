@@ -20,8 +20,8 @@ relations:
 # Requirement — Keep durable hubs folder-level
 
 A durable hub may directly list stable child areas and their hubs, folders that
-contain atomic artifacts, enabled maintained artifacts, settings, and other
-long-lived non-atomic carriers.
+contain Atoms, enabled Projections, settings, and other long-lived governed
+carriers.
 
 A hub never enumerates individual atomic carriers. Adding an atom therefore
 does not require a hub edit. A hub also never lists or links descendants of
