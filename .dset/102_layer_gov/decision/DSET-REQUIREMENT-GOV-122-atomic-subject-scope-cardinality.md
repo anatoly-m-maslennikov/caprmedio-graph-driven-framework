@@ -31,11 +31,11 @@ Atomic subject-scope cardinality is:
 
 | Atomic Artifact | `subject_scopes` |
 |---|---|
-| META or GOV authority, inquiry, problem, or QA case | exactly one |
-| Analysis Report | one or more |
-| Evidence Record or Verification Record | zero or more |
-| Implementation carrier | zero or more |
-| Other Atomic Artifact | exactly one unless its registered Type policy says otherwise |
+| META or GOV Requirement, Concern, or QA Case Atom | exactly one |
+| Analysis Atom | one or more |
+| Ops Atom, external Evidence Record, or relational Verification Record | zero or more |
+| Implementation Atom | zero or more |
+| Other Atom | exactly one unless its registered Type policy says otherwise |
 
 An absent optional value is omitted. Empty lists and duplicate tokens are
 invalid. Subject scopes narrow discovery and comparison; tools must still
