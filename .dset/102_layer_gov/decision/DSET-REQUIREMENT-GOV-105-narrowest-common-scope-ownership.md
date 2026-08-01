@@ -18,14 +18,14 @@ relations:
 
 # Requirement — Own truth at the narrowest common scope
 
-Every atomic or maintained artifact belongs to the narrowest enabled
+Every governed artifact belongs to the narrowest enabled
 structural scope that fully contains all affected owners and subjects. A claim
 is not project-level merely because it is abstract, important, or widely
 reused.
 
 Project scope owns only genuinely project-wide obligations, cross-child
 relations and interfaces, end-to-end assurance, cross-cutting constraints,
-system architecture, version governance, and inquiries or observations whose
+system architecture, version governance, and Concern or Ops Atoms whose
 subject crosses immediate child boundaries.
 
 The rule applies recursively. A concern spanning features inside one feature
