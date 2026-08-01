@@ -10,7 +10,7 @@ llm_session_ids:
 relations:
   - type: child_of
     targets:
-      - CARMADIO-REQUIREMENT-META-086
+      - CARMADIO-REQUIREMENT-META-093
   - type: relates_to
     targets:
       - DSET-REQUIREMENT-GOV-124
@@ -41,7 +41,7 @@ Atom. The control identifies:
 - the alert, incident, investigation, degradation, rollback, or recovery action
   triggered by failure;
 - the diagnostic context required to investigate the condition;
-- the required observation and evidence-retention boundary; and
+- the required Ops record and evidence-retention boundary; and
 - known blind spots, sampling limits, unavailable signals, and other assurance
   limitations.
 
@@ -56,8 +56,9 @@ results:
 - monitors, dashboards, alerts, health checks, and operational automation are
   Implementation;
 - metrics, logs, traces, alerts, incidents, and recorded check outcomes are
-  Observation; and
-- a Problem or Concern records a material discrepancy requiring disposition.
+  Ops; and
+- a Concern Atom with the `problem` subtype records a material discrepancy
+  requiring disposition.
 
 A Production Assurance Checklist governs real production operation. It is not
 a QA Case, and passing pre-release Test or Evaluation implementations does not
