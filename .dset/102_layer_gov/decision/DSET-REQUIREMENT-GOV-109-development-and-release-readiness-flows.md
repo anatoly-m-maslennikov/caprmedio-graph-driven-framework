@@ -11,6 +11,11 @@ relations:
   - type: replacement_of
     targets:
       - DSET-REQUIREMENT-GOV-066
+  - type: child_of
+    targets:
+      - CARMADIO-REQUIREMENT-META-090
+      - CARMADIO-REQUIREMENT-META-093
+      - CARMADIO-REQUIREMENT-META-107
 ---
 
 # Requirement — Separate development and release-readiness flows
@@ -19,34 +24,33 @@ Development is the default flow:
 
 ```text
 active atomic authority
-→ Test and Evaluation Cases
-→ implementation
-→ executable Tests and Evaluations
-→ factual Observations and Evidence
+→ QA Cases
+→ Implementation, including executable Tests and Evaluations
+→ factual Ops records
 → development Verification
 ```
 
 Development consumes active atomic authority plus any enabled current
-maintained views. It does not require every enabled view to refresh after every
-new atom unless that view's own gate requires currentness.
+Projections. It does not require every enabled Projection to refresh after
+every new Atom unless that Projection's own gate requires currentness.
 
 Release readiness is mandatory before a Version can be declared ready:
 
 ```text
 all active atomic authority
 → optional atomic refactoring when overlap warrants it
-→ refresh every required maintained view
+→ refresh every required Projection
 → detect conflicts
 → resolve conflicts through new atomic authority
 → repeat to a fixed point
 → reconcile implementation and assurance
 → execute Tests and Evaluations at the exact candidate head
-→ fresh Evidence and Verification
-→ Readiness Record
+→ fresh Ops records and Verification
+→ accepted readiness Verification Record
 ```
 
 Conflict resolution never edits an accepted atom. Any applicable code,
-configuration, Test, Evaluation, or maintained-view change after an assurance
+configuration, Test, Evaluation, or Projection change after an assurance
 run makes the affected release evidence stale.
 
 `.dset/dset_settings.toml` records `development` as the default workflow mode
@@ -55,7 +59,7 @@ and `release_readiness` as the mandatory pre-release mode.
 ## Primary claim
 
 Development may proceed atomic-first, while release readiness must reconcile
-all active authority, required maintained views, implementation, and fresh
+all active authority, required Projections, Implementation, and fresh
 assurance to one exact-head fixed point.
 
 ## Rationale
