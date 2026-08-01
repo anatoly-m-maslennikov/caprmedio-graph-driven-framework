@@ -40,7 +40,7 @@ enum = ["active", "paused", "completed", "stopped"]
 enum = ["persisted", "unavailable"]
 
 [properties.public_entrypoint]
-enum = ["dset", "dset-init", "dset-repair-governance", "dset-decompose", "dset-diagnose", "dset-clarify", "dset-landscape", "dset-prototype", "dset-decisions", "dset-plan-proof", "dset-plan-implementation", "dset-implement", "dset-verify", "dset-overview", "dset-triage", "dset-release", "dset-complete"]
+enum = ["carmadio", "ca-init", "ca-repair-governance", "ca-decompose", "ca-diagnose", "ca-clarify", "ca-landscape", "ca-prototype", "ca-decisions", "ca-plan-proof", "ca-plan-implementation", "ca-implement", "ca-verify", "ca-overview", "ca-triage", "ca-release", "ca-complete"]
 
 [properties.root_run_id]
 "$ref" = "#/$defs/id"

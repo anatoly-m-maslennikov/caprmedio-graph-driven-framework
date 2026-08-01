@@ -73,7 +73,7 @@ class EndToEndCliTests(unittest.TestCase):
                         "diagnosis",
                         str(target),
                         "--entrypoint",
-                        "dset-diagnose",
+                        "ca-diagnose",
                         "--objective",
                         "Diagnose a failing import",
                         "--mode",

@@ -174,7 +174,7 @@ class SkillDistributionTests(unittest.TestCase):
 
         rendered = self.root / "rendered-windows-skill"
         _render_skill_package(
-            self.source / "skills" / "dset-implement",
+            self.source / "skills" / "ca-implement",
             rendered,
             "codex",
             command,
@@ -270,7 +270,7 @@ class SkillDistributionTests(unittest.TestCase):
                 "skills",
                 "context",
                 "--skill",
-                "dset-implement",
+                "ca-implement",
                 "--target",
                 str(target),
                 "--objective",
@@ -286,7 +286,7 @@ class SkillDistributionTests(unittest.TestCase):
         self.assertEqual(completed.returncode, 0, completed.stderr)
         context = json.loads(completed.stdout)
         self.assertEqual(context["repository_root"], str(project))
-        self.assertEqual(context["skill_id"], "dset-implement")
+        self.assertEqual(context["skill_id"], "ca-implement")
         self.assertEqual(context["workflow_id"], "implement")
         self.assertTrue(str(context["ruleset_identity"]).startswith("ruleset:"))
         terminal = subprocess.run(
@@ -324,7 +324,7 @@ class SkillDistributionTests(unittest.TestCase):
     def test_conflicting_destination_stops_without_overwrite(self) -> None:
         destination = self.root / "codex-skills"
         apply_install(plan_install(self.source, "codex", destination))
-        skill = destination / "dset" / "SKILL.md"
+        skill = destination / "carmadio" / "SKILL.md"
         skill.write_text("local operator content\n", encoding="utf-8")
 
         actions = plan_install(self.source, "codex", destination)
@@ -349,7 +349,7 @@ class SkillDistributionTests(unittest.TestCase):
         destination = self.root / "claude-skills"
         runtime = self.install_distribution("claude", destination)
         receipt = invocation_receipt_template(
-            "claude", "dset-diagnose", destination, runtime
+            "claude", "ca-diagnose", destination, runtime
         )
         receipt.update(
             {
@@ -376,7 +376,7 @@ class SkillDistributionTests(unittest.TestCase):
     def test_wrapper_verification_rejects_every_tree_mutation_class(self) -> None:
         destination = self.root / "wrapper-mutation-skills"
         runtime = self.install_distribution("codex", destination)
-        skill = destination / "dset-diagnose"
+        skill = destination / "ca-diagnose"
         backup = self.root / "wrapper-backup"
         shutil.copytree(skill, backup)
         mutations = ("changed", "added", "removed", "substituted")
@@ -393,7 +393,7 @@ class SkillDistributionTests(unittest.TestCase):
                 elif mutation == "removed":
                     (skill / "agents" / "openai.yaml").unlink()
                 else:
-                    source = destination / "dset-clarify" / "SKILL.md"
+                    source = destination / "ca-clarify" / "SKILL.md"
                     (skill / "SKILL.md").write_bytes(source.read_bytes())
                 with self.assertRaises(SkillDistributionError):
                     verify_installation("codex", destination, runtime)
@@ -460,7 +460,7 @@ class SkillDistributionTests(unittest.TestCase):
         destination = self.root / "receipt-skills"
         runtime = self.install_distribution("claude", destination)
         receipt = invocation_receipt_template(
-            "claude", "dset-diagnose", destination, runtime
+            "claude", "ca-diagnose", destination, runtime
         )
         receipt.update(
             {
@@ -475,7 +475,7 @@ class SkillDistributionTests(unittest.TestCase):
                 "stop_boundary_observed": True,
             }
         )
-        wrapper = destination / "dset-diagnose" / "SKILL.md"
+        wrapper = destination / "ca-diagnose" / "SKILL.md"
         wrapper.write_text(
             wrapper.read_text(encoding="utf-8") + "\nchanged\n",
             encoding="utf-8",
@@ -523,7 +523,7 @@ class SkillDistributionTests(unittest.TestCase):
                 ]
             )
         self.assertEqual(status, 0)
-        self.assertTrue((destination / "dset" / "SKILL.md").is_file())
+        self.assertTrue((destination / "carmadio" / "SKILL.md").is_file())
         package = destination.parent / "packages" / "dset"
         self.assertTrue((package / "dset.py").is_file())
         applied = json.loads(applied_output.getvalue())

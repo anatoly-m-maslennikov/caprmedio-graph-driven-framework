@@ -82,7 +82,7 @@ class BootstrapTests(unittest.TestCase):
             )
             self.assertTrue(result.executed)
             self.assertEqual(validate_repository(target), [])
-            self.assertTrue((target / "skills" / "dset" / "SKILL.md").is_file())
+            self.assertTrue((target / "skills" / "carmadio" / "SKILL.md").is_file())
             layout = discover_layout(target)
             self.assertEqual(layout.schema_version, "1.3")
             self.assertEqual(

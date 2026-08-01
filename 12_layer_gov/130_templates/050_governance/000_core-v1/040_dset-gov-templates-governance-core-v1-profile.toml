@@ -222,68 +222,68 @@ rules = ["CARMADIO-RULE-ARCHITECTURE", "CARMADIO-RULE-ARTIFACT-MAINTENANCE", "CA
 
 [[wrappers]]
 workflow = "lifecycle-orchestration"
-skill = "dset"
+skill = "carmadio"
 
 [[wrappers]]
 workflow = "domain-clarification"
-skill = "dset-clarify"
+skill = "ca-clarify"
 
 [[wrappers]]
 workflow = "diagnosis"
-skill = "dset-diagnose"
+skill = "ca-diagnose"
 
 [[wrappers]]
 workflow = "prototyping"
-skill = "dset-prototype"
+skill = "ca-prototype"
 
 [[wrappers]]
 workflow = "release"
-skill = "dset-release"
+skill = "ca-release"
 
 [[wrappers]]
 workflow = "work-triage"
-skill = "dset-triage"
+skill = "ca-triage"
 
 [[wrappers]]
 workflow = "decompose"
-skill = "dset-decompose"
+skill = "ca-decompose"
 
 [[wrappers]]
 workflow = "landscape"
-skill = "dset-landscape"
+skill = "ca-landscape"
 
 [[wrappers]]
 workflow = "decisions"
-skill = "dset-decisions"
+skill = "ca-decisions"
 
 [[wrappers]]
 workflow = "compile"
-skill = "dset-compile"
+skill = "ca-compile"
 
 [[wrappers]]
 workflow = "plan-proof"
-skill = "dset-plan-proof"
+skill = "ca-plan-proof"
 
 [[wrappers]]
 workflow = "plan-implementation"
-skill = "dset-plan-implementation"
+skill = "ca-plan-implementation"
 
 [[wrappers]]
 workflow = "implement"
-skill = "dset-implement"
+skill = "ca-implement"
 
 [[wrappers]]
 workflow = "verify"
-skill = "dset-verify"
+skill = "ca-verify"
 
 [[wrappers]]
 workflow = "complete"
-skill = "dset-complete"
+skill = "ca-complete"
 
 [[wrappers]]
 workflow = "overview"
-skill = "dset-overview"
+skill = "ca-overview"
 
 [[wrappers]]
 workflow = "configure"
-skill = "dset-configure"
+skill = "ca-configure"

@@ -34,11 +34,11 @@ def resolve_skill_context(
     if skill_id not in PUBLIC_SKILL_WORKFLOWS:
         raise ValueError(f"unknown public skill: {skill_id}")
     requested = target.resolve()
-    if skill_id == "dset-init":
+    if skill_id == "ca-init":
         return _initialization_context(requested, skill_id)
 
     root = _find_unique_repository(requested)
-    if skill_id == "dset-repair-governance":
+    if skill_id == "ca-repair-governance":
         return _repair_context(requested, root, skill_id)
 
     settings, settings_issues = load_project_settings(root)
@@ -77,7 +77,7 @@ def _start_skill_runtime(
         llm_session_ids=llm_session_ids,
         scope=scope,
         implementation_mode=(
-            implementation_mode if skill_id == "dset-implement" else None
+            implementation_mode if skill_id == "ca-implement" else None
         ),
     )
 

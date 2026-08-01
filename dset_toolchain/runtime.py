@@ -218,7 +218,7 @@ def start_run(
     )
     expected_mode = PUBLIC_SKILL_MODES[public_entrypoint]
     _require(
-        mode_id is None or public_entrypoint == "dset" or mode_id == expected_mode,
+        mode_id is None or public_entrypoint == "carmadio" or mode_id == expected_mode,
         "public entrypoint and mode do not match",
     )
     _require(invocation_source in _INVOCATION_SOURCES, "unknown invocation source")
@@ -737,7 +737,7 @@ def _read_checkpoint(path: Path) -> dict[str, Any]:
         data["schema_version"] = CHECKPOINT_SCHEMA_VERSION
         if previous_version == "1.1":
             data["closure"] = initial_closure(
-                str(data.get("public_entrypoint", "dset")),
+                str(data.get("public_entrypoint", "carmadio")),
                 _checkpoint_mode(data),
             )
         latest = data.get("latest_run_id")

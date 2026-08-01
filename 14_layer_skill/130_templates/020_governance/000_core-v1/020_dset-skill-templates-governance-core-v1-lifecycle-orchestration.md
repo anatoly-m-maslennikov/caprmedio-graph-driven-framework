@@ -63,24 +63,24 @@ session.
 | Entrypoint | Desired outcome and entry criteria | Exit/stop criteria |
 |---|---|---|
 | `dset` | Catch-all lifecycle request; returns one mode, its evidence, and the next authorized handoff | Does not perform a specialist workflow merely because it can name one |
-| `dset-init` | No valid DSET root exists; returns an exact initialization preview and, only after write authorization, materialization plus validation result | Stops after preview when unauthorized and after validation when authorized; never continues into governed work |
-| `dset-repair-governance` | A DSET root exists but selected ownership is invalid; returns stable diagnostics and proposed local repair paths | Stops before substantive rule resolution or any repair write without separate authorization |
-| `dset-decompose` | Package, feature, service, or Work Area boundaries are materially unresolved; returns a bounded ownership/dependency decomposition | Stops before specification or implementation of a selected unit |
-| `dset-clarify` | Explicit clarification request or blocking open question; returns decision-ready alternatives and remaining unknowns | Stops before choosing a consequential answer or implementing it |
-| `dset-diagnose` | Explicit investigation request, current problem, or failed proof; returns evidence, cause confidence, and repair options | Stops before modifying the system unless repair receives separate authorization |
-| `dset-landscape` | A consequential solution, dependency, framework, or language choice lacks comparable evidence; returns eligible candidates and comparison state | Stops before selection or implementation |
-| `dset-prototype` | Explicit bounded experiment where solution uncertainty blocks a decision; returns comparable disposable evidence | Stops before production adoption or promotion |
-| `dset-decisions` | Reconcile accepted directives from available current input/session and repository evidence into missing atomic records; acceptance and owning scope must be clear | Returns emitted IDs and affected evergreen owners; stops on uncertain acceptance, unresolved meaning, missing authority, semantic compilation, or implementation |
-| `dset-compile` | An explicit compilation request or a downstream entry gate requires affected evergreen truth to include accepted atoms beyond its recorded frontier | Returns semantically synthesized owner updates, unchanged owners, pending atoms, conflicts, and frontier state; stops before implementation, testing, evaluation, or release |
-| `dset-plan-proof` | Accepted behavior lacks complete deterministic tests or applicable qualitative evals; returns separate current test and evaluation cases | Stops before implementation or proof execution |
-| `dset-plan-implementation` | Accepted behavior and proof obligations exist but executable work is incomplete; returns a dependency-ordered build plan and Change tasks | Stops before implementation |
-| `dset-implement` | A bounded implementation outcome is requested; the chain first reconciles Decisions, then requires complete separate proof plans, an executable implementation plan, and implementation authorization | Returns bounded implementation plus test/eval assets and provenance; stops before claiming verification or release readiness |
-| `dset-verify` | Implementation or governing artifacts changed after applicable proof; returns deterministic test results, eval evidence where applicable, and conformance status | Stops before repairing failures or releasing |
-| `dset-overview` | Explicit read-only project-health request; returns current artifact/scope counts, coverage, freshness, open obligations, and a recommended handoff | Stops before refreshing stale derived state or performing the recommended workflow; it is not a lifecycle mode |
-| `dset-configure` | Explicit governance-surface status, recommendation, activation, or deactivation request; returns current state or one exact preview/result | Status and recommendations stay read-only; writes require separate `--execute` authorization; stops after the configuration result and is not a lifecycle mode |
-| `dset-triage` | A Decision, Question, Problem, or QA atom lacks semantic classification, ownership, priority, or Change/tracker linkage; returns Type/subtype routing and priority state | Stops before diagnosis, decision, proof planning, or implementation |
-| `dset-release` | Explicit release request or verified release-ready change; returns prepared/verified release state and, only with release authority, publication result | Stops on any mismatch, missing gate, collision, or new authorization boundary |
-| `dset-complete` | No earlier mode applies; returns terminal Change/session status and any residual open obligations | Stops without creating work solely to keep the workflow active |
+| `ca-init` | No valid DSET root exists; returns an exact initialization preview and, only after write authorization, materialization plus validation result | Stops after preview when unauthorized and after validation when authorized; never continues into governed work |
+| `ca-repair-governance` | A DSET root exists but selected ownership is invalid; returns stable diagnostics and proposed local repair paths | Stops before substantive rule resolution or any repair write without separate authorization |
+| `ca-decompose` | Package, feature, service, or Work Area boundaries are materially unresolved; returns a bounded ownership/dependency decomposition | Stops before specification or implementation of a selected unit |
+| `ca-clarify` | Explicit clarification request or blocking open question; returns decision-ready alternatives and remaining unknowns | Stops before choosing a consequential answer or implementing it |
+| `ca-diagnose` | Explicit investigation request, current problem, or failed proof; returns evidence, cause confidence, and repair options | Stops before modifying the system unless repair receives separate authorization |
+| `ca-landscape` | A consequential solution, dependency, framework, or language choice lacks comparable evidence; returns eligible candidates and comparison state | Stops before selection or implementation |
+| `ca-prototype` | Explicit bounded experiment where solution uncertainty blocks a decision; returns comparable disposable evidence | Stops before production adoption or promotion |
+| `ca-decisions` | Reconcile accepted directives from available current input/session and repository evidence into missing atomic records; acceptance and owning scope must be clear | Returns emitted IDs and affected evergreen owners; stops on uncertain acceptance, unresolved meaning, missing authority, semantic compilation, or implementation |
+| `ca-compile` | An explicit compilation request or a downstream entry gate requires affected evergreen truth to include accepted atoms beyond its recorded frontier | Returns semantically synthesized owner updates, unchanged owners, pending atoms, conflicts, and frontier state; stops before implementation, testing, evaluation, or release |
+| `ca-plan-proof` | Accepted behavior lacks complete deterministic tests or applicable qualitative evals; returns separate current test and evaluation cases | Stops before implementation or proof execution |
+| `ca-plan-implementation` | Accepted behavior and proof obligations exist but executable work is incomplete; returns a dependency-ordered build plan and Change tasks | Stops before implementation |
+| `ca-implement` | A bounded implementation outcome is requested; the chain first reconciles Decisions, then requires complete separate proof plans, an executable implementation plan, and implementation authorization | Returns bounded implementation plus test/eval assets and provenance; stops before claiming verification or release readiness |
+| `ca-verify` | Implementation or governing artifacts changed after applicable proof; returns deterministic test results, eval evidence where applicable, and conformance status | Stops before repairing failures or releasing |
+| `ca-overview` | Explicit read-only project-health request; returns current artifact/scope counts, coverage, freshness, open obligations, and a recommended handoff | Stops before refreshing stale derived state or performing the recommended workflow; it is not a lifecycle mode |
+| `ca-configure` | Explicit governance-surface status, recommendation, activation, or deactivation request; returns current state or one exact preview/result | Status and recommendations stay read-only; writes require separate `--execute` authorization; stops after the configuration result and is not a lifecycle mode |
+| `ca-triage` | A Decision, Question, Problem, or QA atom lacks semantic classification, ownership, priority, or Change/tracker linkage; returns Type/subtype routing and priority state | Stops before diagnosis, decision, proof planning, or implementation |
+| `ca-release` | Explicit release request or verified release-ready change; returns prepared/verified release state and, only with release authority, publication result | Stops on any mismatch, missing gate, collision, or new authorization boundary |
+| `ca-complete` | No earlier mode applies; returns terminal Change/session status and any residual open obligations | Stops without creating work solely to keep the workflow active |
 
 Failed verification routes to `diagnose` when the cause is unknown and to
 `implement` when a known accepted correction exists. Ambiguity routes to
@@ -152,7 +152,7 @@ repair, or compile missing Decisions, Questions, Problems, QA, proof plans, or
 implementation plans and must not fall back to lazy mode. Missing or ambiguous
 input stops with the exact insufficiency.
 
-`dset skills context --skill dset-implement ...` returns the selected
+`dset skills context --skill ca-implement ...` returns the selected
 preparation mode. In lazy mode it starts or resumes the closure and returns its
 persisted criterion state and exact `next_workflow`. Start a returned
 prerequisite as a child with
@@ -202,16 +202,16 @@ from that bounded checkpoint, re-read authoritative state, and recompute the
 next mode before acting. Session continuity is an internal capability, not
 another user-facing skill.
 
-The governed direct-entry map is `decompose` → `dset-decompose`, `diagnose` →
-`dset-diagnose`, `clarify` → `dset-clarify`, `landscape` → `dset-landscape`,
-`prototype` → `dset-prototype`, `decisions` → `dset-decisions`, `compile` →
-`dset-compile`, `plan-proof` →
-`dset-plan-proof`, `plan-implementation` → `dset-plan-implementation`,
-`implement` → `dset-implement`, `verify` → `dset-verify`, `triage-work` →
-`dset-triage`, `release` → `dset-release`, and `complete` → `dset-complete`.
-Each wrapper resolves the registered workflow shown by the mode. `dset-init`
-and `dset-repair-governance` are the two pre-resolution exceptions below.
-`dset-overview` and `dset-configure` are supplemental governed workflows, not
+The governed direct-entry map is `decompose` → `ca-decompose`, `diagnose` →
+`ca-diagnose`, `clarify` → `ca-clarify`, `landscape` → `ca-landscape`,
+`prototype` → `ca-prototype`, `decisions` → `ca-decisions`, `compile` →
+`ca-compile`, `plan-proof` →
+`ca-plan-proof`, `plan-implementation` → `ca-plan-implementation`,
+`implement` → `ca-implement`, `verify` → `ca-verify`, `triage-work` →
+`ca-triage`, `release` → `ca-release`, and `complete` → `ca-complete`.
+Each wrapper resolves the registered workflow shown by the mode. `ca-init`
+and `ca-repair-governance` are the two pre-resolution exceptions below.
+`ca-overview` and `ca-configure` are supplemental governed workflows, not
 lifecycle modes.
 
 ## Rootless initialization exception

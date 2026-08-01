@@ -1,0 +1,4 @@
+interface:
+  display_name: "CARMADIO Verify"
+  short_description: "Verify implementation against CARMADIO truth"
+  default_prompt: "Use $ca-verify to resolve and run the repository-local verification workflow."

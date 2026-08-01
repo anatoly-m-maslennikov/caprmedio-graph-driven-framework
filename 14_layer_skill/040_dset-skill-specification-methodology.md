@@ -11,7 +11,7 @@ bounded-session, integration-first DSET 0.3 operating shape.
 
 The Decision compiles as the public catch-all `dset` wrapper, one thin direct
 wrapper for every registered stable lifecycle mode, and the supplemental
-read-only `dset-overview` wrapper over generated project health.
+read-only `ca-overview` wrapper over generated project health.
 
 ## CARMADIO-REQUIREMENT-SKILL-001 — Workflow skills remain focused
 
@@ -59,15 +59,15 @@ adopter's convention, and report its local rule identities and ruleset identity.
 
 ## CARMADIO-REQUIREMENT-SKILL-004 — Every lifecycle mode has a public wrapper
 
-The release target must expose `dset` as the catch-all lifecycle and next-step orchestrator plus one thin direct-entry wrapper for every stable lifecycle mode: `dset-init`, `dset-repair-governance`, `dset-decompose`, `dset-diagnose`, `dset-clarify`, `dset-landscape`, `dset-prototype`, `dset-decisions`, `dset-plan-proof`, `dset-plan-implementation`, `dset-implement`, `dset-verify`, `dset-triage`, `dset-release`, and `dset-complete`. It must also expose `dset-overview` as a supplemental read-only view over generated project health; Overview is not a lifecycle mode and cannot refresh derived state or perform its recommended handoff. Governed direct wrappers resolve one registered repository-local workflow. Initialization and governance repair are the only bounded pre-resolution exceptions. The project-owned `CARMADIO-RULE-LIFECYCLE` rule defines desired outcomes, entry and exit criteria, trigger precedence, stop boundaries, and allowed prerequisite chaining.
+The release target must expose `dset` as the catch-all lifecycle and next-step orchestrator plus one thin direct-entry wrapper for every stable lifecycle mode: `ca-init`, `ca-repair-governance`, `ca-decompose`, `ca-diagnose`, `ca-clarify`, `ca-landscape`, `ca-prototype`, `ca-decisions`, `ca-plan-proof`, `ca-plan-implementation`, `ca-implement`, `ca-verify`, `ca-triage`, `ca-release`, and `ca-complete`. It must also expose `ca-overview` as a supplemental read-only view over generated project health; Overview is not a lifecycle mode and cannot refresh derived state or perform its recommended handoff. Governed direct wrappers resolve one registered repository-local workflow. Initialization and governance repair are the only bounded pre-resolution exceptions. The project-owned `CARMADIO-RULE-LIFECYCLE` rule defines desired outcomes, entry and exit criteria, trigger precedence, stop boundaries, and allowed prerequisite chaining.
 
-**Scenario CARMADIO-SCENARIO-SKILL-004:** An operator who wants current health invokes `dset-overview` and receives a read-only coverage/freshness summary; an operator who does not know the next action enters through `dset`; an operator or automation that already knows the applicable mode invokes its direct wrapper and receives the same governed workflow and stop boundary.
+**Scenario CARMADIO-SCENARIO-SKILL-004:** An operator who wants current health invokes `ca-overview` and receives a read-only coverage/freshness summary; an operator who does not know the next action enters through `dset`; an operator or automation that already knows the applicable mode invokes its direct wrapper and receives the same governed workflow and stop boundary.
 
 ## CARMADIO-REQUIREMENT-SKILL-005 — The primary skill orchestrates local rules
 
 After a valid local registry resolves, `dset` must use the `lifecycle-orchestration` workflow and stable modes `decompose`, `diagnose`, `clarify`, `landscape`, `prototype`, `decisions`, `plan-proof`, `plan-implementation`, `implement`, `verify`, `triage-work`, `release`, and `complete`. `CARMADIO-RULE-LIFECYCLE` owns precedence, the exact specialist-workflow map, per-concern authority/freshness, finite entry-criteria closure, and authorization stops. A transition is allowed only when it satisfies a missing entry criterion; authoritative state is reread after each transition, and no progress, repeated state, cycles, ambiguity, failure, or a new authorization class stops the chain.
 
-Before local resolution, the distribution owns exactly two bounded direct-entry exceptions: `dset-init` invokes the `dset init` dry-run/authorize/materialize/validate/stop transaction; `dset-repair-governance` invokes `dset rules check`, emits stable validation/ownership diagnostics and a repair handoff, then stops. Neither exception may make project decisions, use invalid local rules, or continue into governed work in the same invocation.
+Before local resolution, the distribution owns exactly two bounded direct-entry exceptions: `ca-init` invokes the `dset init` dry-run/authorize/materialize/validate/stop transaction; `ca-repair-governance` invokes `dset rules check`, emits stable validation/ownership diagnostics and a repair handoff, then stops. Neither exception may make project decisions, use invalid local rules, or continue into governed work in the same invocation.
 
 **Scenario CARMADIO-SCENARIO-SKILL-005:** Byte-identical `dset` wrappers route two repositories differently because their project-owned rules and current artifacts differ, while both report the resolved local identities before acting.
 
@@ -125,7 +125,7 @@ selects `lazy` or `strict` through `workflows.implement.mode`; missing
 configuration uses the documented `lazy` default. The repository-local
 lifecycle rule owns both modes, their entry criteria, exit criteria, and stops.
 
-In `lazy` mode, `dset-implement` first invokes `decisions` to reconcile
+In `lazy` mode, `ca-implement` first invokes `decisions` to reconcile
 available host-session history, bounded DSET continuity records, Git, and
 repository artifacts into missing accepted atomic records. It then invokes
 `plan-proof` when separate Test or applicable Evaluation definitions/plans are
@@ -133,7 +133,7 @@ incomplete and `plan-implementation` when the executable plan is incomplete.
 Only then may implementation begin. Every transition must make observable
 progress and re-read authority.
 
-In `strict` mode, `dset-implement` invokes only `implement`. It never creates,
+In `strict` mode, `ca-implement` invokes only `implement`. It never creates,
 repairs, or compiles missing authority, QA, or plans and never silently falls
 back to lazy preparation. Already accepted inputs must be sufficient; otherwise
 the workflow stops with the exact missing or ambiguous input.
@@ -147,7 +147,7 @@ authorization, run/session and commit provenance, and the stop before
 Verification or release readiness.
 
 **Scenario CARMADIO-SCENARIO-SKILL-012:** An operator using the default lazy mode
-asks `dset-implement` to build a feature described only in the current session;
+asks `ca-implement` to build a feature described only in the current session;
 the same session records accepted atoms, prepares separate Test/Evaluation and
 implementation plans where needed, then implements. An automation selecting
 strict mode runs only implementation from its prepared accepted inputs and
@@ -180,7 +180,7 @@ entrypoint selection, workflow reconstruction, or fallback. Missing
 installation, competing roots, invalid governance, mapping mismatch, or
 required unavailable conflict coverage stops with stable diagnostics.
 
-**Scenario CARMADIO-SCENARIO-SKILL-011:** The same installed `dset-implement`
+**Scenario CARMADIO-SCENARIO-SKILL-011:** The same installed `ca-implement`
 wrapper is invoked from nested paths in two repositories. One shared runtime
 resolves different project roots and rule digests from the explicit targets,
 rejects a mismatched workflow, and records both invocations without scripts or
@@ -190,7 +190,7 @@ governance copied into either skill folder.
 
 Atomic source: `CARMADIO-REQUIREMENT-SKILL-016`.
 
-DSET publishes one supplemental `dset-configure` skill rather than separate
+DSET publishes one supplemental `ca-configure` skill rather than separate
 enable and disable skills. It resolves the target project's `configure`
 workflow through the installed shared runtime, reads only returned
 project-owned rules, and invokes the deterministic configuration command.

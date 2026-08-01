@@ -59,7 +59,7 @@ class SkillProfileTests(unittest.TestCase):
             root = Path(raw)
             copied = root / "skills"
             shutil.copytree(SKILLS, copied)
-            target = copied / "dset" / "SKILL.md"
+            target = copied / "carmadio" / "SKILL.md"
             text = target.read_text(encoding="utf-8")
             target.write_text(text.replace("Use when", "Apply if"), encoding="utf-8")
             with self.assertRaisesRegex(SkillDistributionError, "when to use"):

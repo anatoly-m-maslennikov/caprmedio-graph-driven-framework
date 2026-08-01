@@ -20,7 +20,7 @@ class LifecycleClosureTests(unittest.TestCase):
     """Verify lifecycle closure behavior."""
 
     def test_implementation_closure_is_ordered_and_finite(self) -> None:
-        closure = initial_closure("dset-implement", "implement")
+        closure = initial_closure("ca-implement", "implement")
         self.assertEqual(closure["next_workflow"], "decisions")
 
         closure = advance_closure(
@@ -57,7 +57,7 @@ class LifecycleClosureTests(unittest.TestCase):
 
     def test_unknown_criteria_stop_until_authoritative_observation(self) -> None:
         closure = advance_closure(
-            initial_closure("dset-implement", "implement"),
+            initial_closure("ca-implement", "implement"),
             workflow_id="decisions",
         )
         self.assertEqual(closure["status"], "blocked")
@@ -74,7 +74,7 @@ class LifecycleClosureTests(unittest.TestCase):
         self.assertEqual(closure["next_workflow"], "implement")
 
     def test_mismatch_failure_and_no_progress_fail_closed(self) -> None:
-        initial = initial_closure("dset-implement", "implement")
+        initial = initial_closure("ca-implement", "implement")
         with self.assertRaisesRegex(LifecycleClosureError, "workflow mismatch"):
             advance_closure(initial, workflow_id="plan-proof")
 
@@ -90,7 +90,7 @@ class LifecycleClosureTests(unittest.TestCase):
         self.assertEqual(stopped["reason_code"], "CARMADIO-RUNTIME-NO-PROGRESS")
 
     def test_direct_skill_has_no_prerequisite_closure(self) -> None:
-        direct = initial_closure("dset-verify", "verify")
+        direct = initial_closure("ca-verify", "verify")
         self.assertEqual(direct["status"], "direct")
         with self.assertRaisesRegex(LifecycleClosureError, "no prerequisite"):
             advance_closure(direct, workflow_id="verify")
@@ -99,7 +99,7 @@ class LifecycleClosureTests(unittest.TestCase):
         self,
     ) -> None:
         strict = initial_closure(
-            "dset-implement", "implement", implementation_mode="strict"
+            "ca-implement", "implement", implementation_mode="strict"
         )
         self.assertEqual(strict["implementation_mode"], "strict")
         self.assertEqual(strict["next_workflow"], "implement")
@@ -116,7 +116,7 @@ class LifecycleClosureTests(unittest.TestCase):
 
         authorization = advance_closure(
             initial_closure(
-                "dset-implement", "implement", implementation_mode="strict"
+                "ca-implement", "implement", implementation_mode="strict"
             ),
             observations={"implementation_authorized": False},
         )

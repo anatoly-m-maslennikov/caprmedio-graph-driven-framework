@@ -138,7 +138,7 @@ default_mode = "development"
 release_mode = "release_readiness"
 
 [workflows.implement]
-# Choose what dset-implement may do before implementation begins.
+# Choose what ca-implement may do before implementation begins.
 #
 # Accepted:
 # - "lazy" (default): reconcile missing accepted authority from the session,
@@ -854,88 +854,88 @@ rules = ["CARMADIO-RULE-ARCHITECTURE", "CARMADIO-RULE-ARTIFACT-MAINTENANCE", "CA
 
 [[governance_registry.wrappers]]
 workflow = "lifecycle-orchestration"
-skill = "dset"
-sha256 = "c368338f46adcd5686da5ac0ab0a0aba7db10fbc615957c063948b97b060085f"
+skill = "carmadio"
+sha256 = "cbcb75725ada09e22d69d9eca8303bf0ba5f4c1baf6e0b3aad278b8d348582b1"
 
 [[governance_registry.wrappers]]
 workflow = "domain-clarification"
-skill = "dset-clarify"
-sha256 = "90eb9032c2f8949e0bbbace9b0421e4ce98d9de828a651ca28c2d9b58710df93"
+skill = "ca-clarify"
+sha256 = "b5efa97ffbcc1cd27a09da876adca7a7a497e17e575ace6d600788db05fb57b6"
 
 [[governance_registry.wrappers]]
 workflow = "diagnosis"
-skill = "dset-diagnose"
-sha256 = "4559ed0086a06c8fe9011f80c32a4ba4373fd9798c4f6a7cd4e5d5240bbcb066"
+skill = "ca-diagnose"
+sha256 = "c78eec72abbccf63ba18fb43bcac639c677375115c3ae01b2981d104e8fce15f"
 
 [[governance_registry.wrappers]]
 workflow = "prototyping"
-skill = "dset-prototype"
-sha256 = "631b1558abdf14c83419d79edcff04536cc7680b93198529dc39cf63ec0f036c"
+skill = "ca-prototype"
+sha256 = "0f9f5618374bba271529fc4146d97f7841fcec2115f51a9341e77348cd79b47d"
 
 [[governance_registry.wrappers]]
 workflow = "release"
-skill = "dset-release"
-sha256 = "0bbe31a129bf31acf77b3e90e83888020af5e021bf2b993a2ab9391c51cbf655"
+skill = "ca-release"
+sha256 = "cb6f3cb489f70b36778274d4276740c9bd7202bc272b0545a6357c6588f722eb"
 
 [[governance_registry.wrappers]]
 workflow = "work-triage"
-skill = "dset-triage"
-sha256 = "fb945f0bc5d8dadb07b66b9747a2d2e29aae91f92af83b6533b1f8580051dc1a"
+skill = "ca-triage"
+sha256 = "d2ede1c5424042e8823912da15a006baac9d5532f94efa00b60f7a11267753e4"
 
 [[governance_registry.wrappers]]
 workflow = "decompose"
-skill = "dset-decompose"
-sha256 = "1b78897b9ba7cf4f03efe7f871caed65a019710189515370c6fb7af720ac192b"
+skill = "ca-decompose"
+sha256 = "1f43879acb2e40d683ac5fc9bdd72b960e62e67c2d9891a98e56a5d5ca4d24b6"
 
 [[governance_registry.wrappers]]
 workflow = "landscape"
-skill = "dset-landscape"
-sha256 = "218655d145691ce0300d85fa83fe152d004b589e265686684a788b07d53731ae"
+skill = "ca-landscape"
+sha256 = "19a997959ac6c320adba08f0834fcbc6216aec73de360ba5bf0298b416fd8928"
 
 [[governance_registry.wrappers]]
 workflow = "decisions"
-skill = "dset-decisions"
-sha256 = "965a5b887badae8559f37396724cad1ea4ee6ee8694800f57811073928c8fbf2"
+skill = "ca-decisions"
+sha256 = "02430e9e56bde639f63f56e9284002bfe86bbf572bf065233442e10e1a40fe66"
 
 [[governance_registry.wrappers]]
 workflow = "compile"
-skill = "dset-compile"
-sha256 = "02890fa6d0d6bb980d9a185a009a36262c5ff5710572ad06775c0a177b157aaf"
+skill = "ca-compile"
+sha256 = "a294998c0e9e78166178a7b03315ddb15bb7252a8745a27f515bbc53aff481b1"
 
 [[governance_registry.wrappers]]
 workflow = "plan-proof"
-skill = "dset-plan-proof"
-sha256 = "278317696120827d375c1359ebad28d7a67bca02d1387cc4b85546491f67f0dd"
+skill = "ca-plan-proof"
+sha256 = "ad573a8ca2f5be92de4aba901be4a2d4dac85a38d91a891a93abb80d99af27d6"
 
 [[governance_registry.wrappers]]
 workflow = "plan-implementation"
-skill = "dset-plan-implementation"
-sha256 = "3694ec6daa93473e544ac17b3bfe2b4a8a060c61545fcfd99ced6298be8846ab"
+skill = "ca-plan-implementation"
+sha256 = "e3db9508ce056651332d722f71762487539e508a081604ac2face2e834aa2de0"
 
 [[governance_registry.wrappers]]
 workflow = "implement"
-skill = "dset-implement"
-sha256 = "6f451352db5d2d804c82862c8379bf64081326e658e6fb0293cffc82f82c4455"
+skill = "ca-implement"
+sha256 = "a50ec1d69aa9483011681f7b52123fde59876ba08b110c4fe0b34327d36f93eb"
 
 [[governance_registry.wrappers]]
 workflow = "verify"
-skill = "dset-verify"
-sha256 = "ec3c9643325090b24411016b4fc175f2c01f9ac7dfb24ea7bc444c35850fc117"
+skill = "ca-verify"
+sha256 = "77594ea0e053d3ea6f3ffd88925e66818159635df10455571598253d18145fdd"
 
 [[governance_registry.wrappers]]
 workflow = "complete"
-skill = "dset-complete"
-sha256 = "bee23f861776c3da06a3f72db8074b951b9b8494fc51c3c8ed6f63e4e07c3992"
+skill = "ca-complete"
+sha256 = "2642465dd8eb4765af04a3e591475652af9ce59699d099ce1c12bfa13583f5ab"
 
 [[governance_registry.wrappers]]
 workflow = "overview"
-skill = "dset-overview"
-sha256 = "ad3f814c61d51d5aaf3c7eda9b546f25333ddb498a9559d89848f4784a97ca1f"
+skill = "ca-overview"
+sha256 = "4123bd938d8586f890438f5dc35a1905d3634cf9b70a6316efde430e4bed48f4"
 
 [[governance_registry.wrappers]]
 workflow = "configure"
-skill = "dset-configure"
-sha256 = "5d187009228f771d30858668e084bc59a936cdab0b589fb01c8bf6ae8215abab"
+skill = "ca-configure"
+sha256 = "e0d413c50038beeeade72fbef51d37338504023114cc24dfd598bc1819d6bd5a"
 
 # Migrated canonical settings; this section is not an artifact ledger.
 [source_provenance]

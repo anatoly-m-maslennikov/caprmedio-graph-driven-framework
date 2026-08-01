@@ -95,45 +95,45 @@ class SkillWrapperTests(unittest.TestCase):
         registry = load(discover_layout(ROOT).governance_path)
         workflows = {item["id"]: item["rules"] for item in registry["workflows"]}
         for name, workflow in PUBLIC_SKILL_WORKFLOWS.items():
-            if name in PRE_RESOLUTION_SKILLS or name == "dset":
+            if name in PRE_RESOLUTION_SKILLS or name == "carmadio":
                 continue
             with self.subTest(workflow=workflow):
                 self.assertIn("CARMADIO-RULE-LIFECYCLE", workflows[workflow])
 
     def test_pre_resolution_exceptions_are_bounded(self) -> None:
-        initialize = self._skill_text("dset-init")
+        initialize = self._skill_text("ca-init")
         self.assertIn("without `--execute`", initialize)
         self.assertIn("With authorization", initialize)
         self.assertIn("never overwrite or merge", initialize)
         self.assertIn("continue into another lifecycle mode", initialize)
 
-        repair = self._skill_text("dset-repair-governance")
+        repair = self._skill_text("ca-repair-governance")
         self.assertIn("Require `status: invalid-governance`", repair)
         self.assertIn("Do not resolve substantive rules", repair)
         self.assertIn("Stop before any write", repair)
 
     def test_primary_and_direct_stop_boundaries_are_distinct(self) -> None:
-        primary = self._skill_text("dset")
+        primary = self._skill_text("carmadio")
         self.assertIn("general, multi-stage, or uncertain", primary)
         self.assertNotIn("Route any DSET lifecycle request", primary)
         self.assertNotIn("finite entry-criteria closure", primary)
 
         boundaries = {
-            "dset-decompose": "stop before specification or implementation",
-            "dset-clarify": "stop before consequential selection or implementation",
-            "dset-diagnose": "stop before implementing a fix",
-            "dset-landscape": "stop before a Decision or implementation",
-            "dset-prototype": "stop before adoption or promotion",
-            "dset-decisions": "before implementation",
-            "dset-plan-proof": "stop before implementation or execution",
-            "dset-plan-implementation": "stop before implementation",
-            "dset-implement": "before claiming verification",
-            "dset-verify": "stop before repair or release",
-            "dset-configure": "stop after the configuration result",
-            "dset-overview": "Stay read-only",
-            "dset-triage": "stop before solving the work",
-            "dset-release": "Publication requires separate explicit authority",
-            "dset-complete": "Stop without creating work",
+            "ca-decompose": "stop before specification or implementation",
+            "ca-clarify": "stop before consequential selection or implementation",
+            "ca-diagnose": "stop before implementing a fix",
+            "ca-landscape": "stop before a Decision or implementation",
+            "ca-prototype": "stop before adoption or promotion",
+            "ca-decisions": "before implementation",
+            "ca-plan-proof": "stop before implementation or execution",
+            "ca-plan-implementation": "stop before implementation",
+            "ca-implement": "before claiming verification",
+            "ca-verify": "stop before repair or release",
+            "ca-configure": "stop after the configuration result",
+            "ca-overview": "Stay read-only",
+            "ca-triage": "stop before solving the work",
+            "ca-release": "Publication requires separate explicit authority",
+            "ca-complete": "Stop without creating work",
         }
         for name, boundary in boundaries.items():
             with self.subTest(skill=name):
@@ -188,8 +188,8 @@ class SkillWrapperTests(unittest.TestCase):
         self.assertIn("Every command in one installed skill run", skill_runs)
         self.assertIn("never authorizes an ambient executable", skill_runs)
 
-        implement = self._skill_text("dset-implement")
-        self.assertNotIn("invoke `dset-decisions` first", implement)
+        implement = self._skill_text("ca-implement")
+        self.assertNotIn("invoke `ca-decisions` first", implement)
         self.assertNotIn("conditionally invoke proof", implement)
 
 

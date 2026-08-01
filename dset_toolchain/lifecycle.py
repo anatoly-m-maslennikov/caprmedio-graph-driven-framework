@@ -50,7 +50,7 @@ def initial_closure(
     implementation_mode: str = "lazy",
 ) -> dict[str, Any]:
     """Handle closure using the declared repository contract."""
-    if public_entrypoint != "dset-implement":
+    if public_entrypoint != "ca-implement":
         return {
             "schema_version": "1.0",
             "requested_mode": mode_id,

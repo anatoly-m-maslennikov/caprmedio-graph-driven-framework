@@ -1,0 +1,4 @@
+interface:
+  display_name: "CARMADIO Decisions"
+  short_description: "Reconcile governed atomic decisions"
+  default_prompt: "Use $ca-decisions to reconcile current intent through repository-local governance."

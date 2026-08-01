@@ -1,4 +1,4 @@
-# DSET skill host distribution
+# CARMADIO skill host distribution
 
 The 19 folders listed in the [skills hub](README.md) and the repository's
 `dset_toolchain` package are canonical source artifacts. A host installation
@@ -37,7 +37,7 @@ macOS, native Windows, and WSL.
 
 The combined apply is one transaction across all wrappers and the shared
 runtime. If a later package fails after an earlier new destination was
-committed, DSET removes only transaction-created directories whose digests
+committed, CARMADIO removes only transaction-created directories whose digests
 still equal the preview; an unexpected changed destination stops as an
 incomplete rollback instead of deleting operator content.
 
@@ -53,7 +53,7 @@ resolves the explicit target's repository-local authority.
 
 During installation, each copied wrapper is rendered with the exact current
 Python interpreter and package-local `dset.py` path from the same preview. The
-installer replaces every executable DSET code span, including initialization,
+installer replaces every executable CARMADIO code span, including initialization,
 context, child/closure, handoff, finish, and rule commands. Resolved governance
 uses `dset` only as a logical token; the caller reuses the wrapper's exact
 launcher prefix. POSIX quoting is used on Linux, macOS, and WSL; native Windows
@@ -63,12 +63,12 @@ wrapper therefore does not depend on a global `dset` command or a mutable
 the planned digest and stops an unreviewed replacement.
 
 The installer rejects symlinked source content and creates real copied skill
-folders. It requires the exact 19-skill catalog: `dset`, `dset-init`,
-`dset-repair-governance`, `dset-decompose`, `dset-diagnose`, `dset-clarify`,
-`dset-landscape`, `dset-prototype`, `dset-decisions`, `dset-plan-proof`,
-`dset-compile`, `dset-plan-implementation`, `dset-implement`, `dset-verify`,
-`dset-configure`, `dset-overview`, `dset-triage`, `dset-release`, and
-`dset-complete`.
+folders. It requires the exact 19-skill catalog: `carmadio`, `ca-init`,
+`ca-repair-governance`, `ca-decompose`, `ca-diagnose`, `ca-clarify`,
+`ca-landscape`, `ca-prototype`, `ca-decisions`, `ca-plan-proof`,
+`ca-compile`, `ca-plan-implementation`, `ca-implement`, `ca-verify`,
+`ca-configure`, `ca-overview`, `ca-triage`, `ca-release`, and
+`ca-complete`.
 
 ## Verify discovery
 
@@ -88,7 +88,7 @@ non-default runtime root.
 Generate a receipt template only after installation verification:
 
 ```text
-python -m dset_toolchain.skill_distribution receipt-template --host codex --skill dset
+python -m dset_toolchain.skill_distribution receipt-template --host codex --skill carmadio
 ```
 
 After a real host session invokes the installed skill, fill the bounded receipt
@@ -97,7 +97,7 @@ discovery, load, invocation, local-rule resolution, handoff, and stop-boundary
 results. Validate the saved JSON receipt with:
 
 ```text
-python -m dset_toolchain.skill_distribution verify-invocation --host codex --skill dset --receipt RECEIPT.json
+python -m dset_toolchain.skill_distribution verify-invocation --host codex --skill carmadio --receipt RECEIPT.json
 ```
 
 The verifier rejects a stale installed digest or any missing observation. A

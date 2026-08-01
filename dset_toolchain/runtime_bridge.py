@@ -90,7 +90,7 @@ def _validate_public_binding(
             f"{entrypoint} requires {expected}, received {workflow_id}"
         )
     expected_mode = PUBLIC_SKILL_MODES[entrypoint]
-    if mode_id is not None and entrypoint != "dset" and mode_id != expected_mode:
+    if mode_id is not None and entrypoint != "carmadio" and mode_id != expected_mode:
         raise ValueError(
             "public skill/mode mismatch: "
             f"{entrypoint} requires {expected_mode}, received {mode_id}"
@@ -110,7 +110,7 @@ def _resolved_workflow(root: Path, workflow_id: str) -> Mapping[str, Any]:
 
 def _implementation_mode(root: Path, entrypoint: str, requested: str | None) -> str:
     """Resolve lazy or strict preparation only for implementation runs."""
-    if entrypoint != "dset-implement":
+    if entrypoint != "ca-implement":
         return "lazy"
     settings, issues = load_project_settings(root)
     if issues:

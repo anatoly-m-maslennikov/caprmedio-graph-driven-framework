@@ -2,7 +2,7 @@
 
 ## Skill release target
 
-`dset` is the primary operator entrypoint for lifecycle and next-step advice. Every stable lifecycle mode also has an explicit public direct-entry skill listed in the skills hub. Governed wrappers resolve registered project-local workflows; `dset-init` and `dset-repair-governance` are the only bounded pre-resolution exceptions. Runtime, host-distribution, and publication capability must still be claimed only when its separate proof passes.
+`dset` is the primary operator entrypoint for lifecycle and next-step advice. Every stable lifecycle mode also has an explicit public direct-entry skill listed in the skills hub. Governed wrappers resolve registered project-local workflows; `ca-init` and `ca-repair-governance` are the only bounded pre-resolution exceptions. Runtime, host-distribution, and publication capability must still be claimed only when its separate proof passes.
 
 All governed target skills are thin wrappers over the repository governance registry. The registered `CARMADIO-RULE-LIFECYCLE`, `CARMADIO-RULE-SKILL-RUNS`, `CARMADIO-RULE-RELEASE`, `CARMADIO-RULE-DELEGATION-BUDGET`, and `CARMADIO-RULE-WORK-ITEMS` documents own substantive behavior. Versioned bounded local run records under `.carmadio_runtime/runs/` are operational evidence only and are excluded from committed project truth.
 

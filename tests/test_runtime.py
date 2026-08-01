@@ -49,7 +49,7 @@ class RuntimeTests(unittest.TestCase):
     def test_run_and_checkpoint_lifecycle_is_atomic_and_schema_shaped(self) -> None:
         invocation = start_run(
             self.root,
-            public_entrypoint="dset",
+            public_entrypoint="carmadio",
             objective="Route the active change",
             workflow_id="lifecycle-orchestration",
             mode_id="verify",
@@ -145,7 +145,7 @@ class RuntimeTests(unittest.TestCase):
         }
         first = start_run(
             self.root,
-            public_entrypoint="dset",
+            public_entrypoint="carmadio",
             objective="First session",
             workflow_id="lifecycle-orchestration",
             scope=scope,
@@ -161,7 +161,7 @@ class RuntimeTests(unittest.TestCase):
 
         second = start_run(
             self.root,
-            public_entrypoint="dset-clarify",
+            public_entrypoint="ca-clarify",
             objective="Second session",
             workflow_id="domain-clarification",
             session_id="session-second",
@@ -173,7 +173,7 @@ class RuntimeTests(unittest.TestCase):
 
         resumed = start_run(
             self.root,
-            public_entrypoint="dset-diagnose",
+            public_entrypoint="ca-diagnose",
             objective="Continue first session",
             workflow_id="diagnosis",
             session_id=first.session_id,
@@ -187,7 +187,7 @@ class RuntimeTests(unittest.TestCase):
         absent = self.root / "missing-project"
         invocation = start_run(
             absent,
-            public_entrypoint="dset",
+            public_entrypoint="carmadio",
             objective="Explain initialization",
             workflow_id=None,
             next_mode="initialize",
@@ -202,7 +202,7 @@ class RuntimeTests(unittest.TestCase):
         ordinary.mkdir()
         second = start_run(
             ordinary,
-            public_entrypoint="dset",
+            public_entrypoint="carmadio",
             objective="No implicit adoption",
             workflow_id=None,
             next_mode="initialize",
@@ -214,7 +214,7 @@ class RuntimeTests(unittest.TestCase):
         runs = self.root / ".carmadio_runtime" / "runs"
         seed = start_run(
             self.root,
-            public_entrypoint="dset",
+            public_entrypoint="carmadio",
             objective="Create runtime directories",
             workflow_id="lifecycle-orchestration",
         )
@@ -230,7 +230,7 @@ class RuntimeTests(unittest.TestCase):
 
         trigger = start_run(
             self.root,
-            public_entrypoint="dset",
+            public_entrypoint="carmadio",
             objective="Apply retention",
             workflow_id="lifecycle-orchestration",
             session_id="retention-session",

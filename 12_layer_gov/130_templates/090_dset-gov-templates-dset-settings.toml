@@ -106,7 +106,7 @@ default_mode = "development"
 release_mode = "release_readiness"
 
 [workflows.implement]
-# Choose what dset-implement may do before implementation begins.
+# Choose what ca-implement may do before implementation begins.
 #
 # Accepted:
 # - "lazy" (default): reconcile missing accepted authority from the session,

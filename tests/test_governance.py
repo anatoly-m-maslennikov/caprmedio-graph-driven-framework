@@ -182,7 +182,7 @@ class GovernanceTests(unittest.TestCase):
         self.assertEqual([item.code for item in diagnostics], ["CARMADIO-E136"])
 
     def test_customization_changes_rules_not_wrapper(self) -> None:
-        wrapper = self.root / "skills" / "dset-clarify" / "SKILL.md"
+        wrapper = self.root / "skills" / "ca-clarify" / "SKILL.md"
         before = hashlib.sha256(wrapper.read_bytes()).hexdigest()
         rule = self.root / "dset" / "governance" / "domain-spec-authoring.md"
         rule.write_text(
@@ -229,7 +229,7 @@ class GovernanceTests(unittest.TestCase):
                     for item in cast(list[dict[str, Any]], resolved["rules"])
                     if item["id"] == "CARMADIO-RULE-DOMAIN-SPEC"
                 )
-                wrapper = project / "skills" / "dset-clarify" / "SKILL.md"
+                wrapper = project / "skills" / "ca-clarify" / "SKILL.md"
                 results[label] = {
                     "root": discovered,
                     "wrapper_sha": hashlib.sha256(wrapper.read_bytes()).hexdigest(),
@@ -514,7 +514,7 @@ class GovernanceTests(unittest.TestCase):
         self.assertNotIn("release", {item["id"] for item in workflows})
         wrappers = cast(list[dict[str, Any]], registry["wrappers"])
         self.assertNotIn("release", {item["workflow"] for item in wrappers})
-        self.assertFalse((self.root / "skills" / "dset-release").exists())
+        self.assertFalse((self.root / "skills" / "ca-release").exists())
         self.assertTrue(
             all(
                 "CARMADIO-RULE-RELEASE" not in cast(list[str], item["rules"])
@@ -789,20 +789,20 @@ class GovernanceTests(unittest.TestCase):
 
     def test_wrappers_are_thin_and_registered(self) -> None:
         workflows = {
-            "lifecycle-orchestration": "dset",
-            "domain-clarification": "dset-clarify",
-            "diagnosis": "dset-diagnose",
-            "prototyping": "dset-prototype",
-            "release": "dset-release",
-            "work-triage": "dset-triage",
-            "decompose": "dset-decompose",
-            "landscape": "dset-landscape",
-            "decisions": "dset-decisions",
-            "plan-proof": "dset-plan-proof",
-            "plan-implementation": "dset-plan-implementation",
-            "implement": "dset-implement",
-            "verify": "dset-verify",
-            "complete": "dset-complete",
+            "lifecycle-orchestration": "carmadio",
+            "domain-clarification": "ca-clarify",
+            "diagnosis": "ca-diagnose",
+            "prototyping": "ca-prototype",
+            "release": "ca-release",
+            "work-triage": "ca-triage",
+            "decompose": "ca-decompose",
+            "landscape": "ca-landscape",
+            "decisions": "ca-decisions",
+            "plan-proof": "ca-plan-proof",
+            "plan-implementation": "ca-plan-implementation",
+            "implement": "ca-implement",
+            "verify": "ca-verify",
+            "complete": "ca-complete",
         }
         registry = cast(
             dict[str, Any],

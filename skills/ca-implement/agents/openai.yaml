@@ -1,0 +1,4 @@
+interface:
+  display_name: "CARMADIO Implement"
+  short_description: "Execute authorized CARMADIO implementation work"
+  default_prompt: "Use $ca-implement to resolve and run the repository-local implementation workflow."

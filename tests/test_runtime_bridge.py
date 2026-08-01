@@ -47,7 +47,7 @@ class RuntimeBridgeTests(unittest.TestCase):
             create_adopter(ROOT, adopter)
             started = start_runtime(
                 adopter,
-                public_entrypoint="dset-diagnose",
+                public_entrypoint="ca-diagnose",
                 workflow_id="diagnosis",
                 objective="Diagnose the failing import",
                 mode_id="diagnose",
@@ -86,7 +86,7 @@ class RuntimeBridgeTests(unittest.TestCase):
             create_adopter(ROOT, adopter)
             primary = resolve_skill_context(
                 adopter,
-                skill_id="dset",
+                skill_id="carmadio",
                 objective="Route the failing import",
                 llm_session_ids=("codex:test-session",),
             )
@@ -118,14 +118,14 @@ class RuntimeBridgeTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "requires explicit session ID"):
                 resolve_skill_context(
                     adopter,
-                    skill_id="dset-diagnose",
+                    skill_id="ca-diagnose",
                     objective="Do not infer handoff continuity",
                     llm_session_ids=("codex:test-session",),
                 )
 
             specialist = resolve_skill_context(
                 adopter,
-                skill_id="dset-diagnose",
+                skill_id="ca-diagnose",
                 objective="Diagnose the failing import",
                 session_id=session_id,
                 llm_session_ids=("codex:test-session",),
@@ -156,7 +156,7 @@ class RuntimeBridgeTests(unittest.TestCase):
             with self.assertRaisesRegex(RuntimeStateError, "session is not active"):
                 resolve_skill_context(
                     adopter,
-                    skill_id="dset-verify",
+                    skill_id="ca-verify",
                     objective="Do not reopen a completed chain",
                     session_id=session_id,
                     llm_session_ids=("codex:test-session",),
@@ -169,7 +169,7 @@ class RuntimeBridgeTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 start_runtime(
                     adopter,
-                    public_entrypoint="dset",
+                    public_entrypoint="carmadio",
                     workflow_id="not-registered",
                     objective="Do work",
                 )
@@ -182,7 +182,7 @@ class RuntimeBridgeTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "host-session provenance"):
                 start_runtime(
                     adopter,
-                    public_entrypoint="dset-diagnose",
+                    public_entrypoint="ca-diagnose",
                     workflow_id="diagnosis",
                     objective="Diagnose with missing host provenance",
                 )
@@ -198,7 +198,7 @@ class RuntimeBridgeTests(unittest.TestCase):
             )
             shutil.copytree(ROOT / "skills", adopter / "skills")
             for skill_id, workflow_id in PUBLIC_SKILL_WORKFLOWS.items():
-                if skill_id in {"dset-init", "dset-repair-governance"}:
+                if skill_id in {"ca-init", "ca-repair-governance"}:
                     continue
                 started = start_runtime(
                     adopter,
@@ -213,7 +213,7 @@ class RuntimeBridgeTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "workflow mismatch"):
                 start_runtime(
                     adopter,
-                    public_entrypoint="dset-release",
+                    public_entrypoint="ca-release",
                     workflow_id="diagnosis",
                     objective="Wrong pair",
                 )
@@ -228,8 +228,8 @@ class RuntimeBridgeTests(unittest.TestCase):
             )
             shutil.copytree(ROOT / "skills", adopter / "skills")
             context = resolve_skill_context(
-                adopter / "skills" / "dset-implement" / "SKILL.md",
-                skill_id="dset-implement",
+                adopter / "skills" / "ca-implement" / "SKILL.md",
+                skill_id="ca-implement",
                 objective="Implement the shared runtime",
                 session_id="session-context-work-area",
                 llm_session_ids=("codex:test-session",),
@@ -278,7 +278,7 @@ class RuntimeBridgeTests(unittest.TestCase):
 
             context = resolve_skill_context(
                 adopter,
-                skill_id="dset-implement",
+                skill_id="ca-implement",
                 objective="Implement only from prepared authority",
                 session_id="session-context-strict",
                 llm_session_ids=("codex:test-session",),
@@ -306,7 +306,7 @@ class RuntimeBridgeTests(unittest.TestCase):
             target = (Path(raw) / "new-project").resolve()
             context = resolve_skill_context(
                 target,
-                skill_id="dset-init",
+                skill_id="ca-init",
                 objective="Initialize the project",
             )
             self.assertEqual(context["status"], "initialization-required")
@@ -322,7 +322,7 @@ class RuntimeBridgeTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "governance is valid"):
                 resolve_skill_context(
                     adopter,
-                    skill_id="dset-repair-governance",
+                    skill_id="ca-repair-governance",
                     objective="Do not misroute a settings defect",
                 )
 
@@ -330,7 +330,7 @@ class RuntimeBridgeTests(unittest.TestCase):
             registry.write_text("invalid governance\n", encoding="utf-8")
             context = resolve_skill_context(
                 adopter,
-                skill_id="dset-repair-governance",
+                skill_id="ca-repair-governance",
                 objective="Return bounded governance diagnostics",
             )
             self.assertEqual(context["status"], "invalid-governance")
@@ -353,7 +353,7 @@ class RuntimeBridgeTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "competing DSET project roots"):
                 resolve_skill_context(
                     nested,
-                    skill_id="dset-implement",
+                    skill_id="ca-implement",
                     objective="Reject ambiguous authority",
                 )
 
@@ -363,7 +363,7 @@ class RuntimeBridgeTests(unittest.TestCase):
             create_adopter(ROOT, adopter)
             started = start_runtime(
                 adopter,
-                public_entrypoint="dset-implement",
+                public_entrypoint="ca-implement",
                 workflow_id="implement",
                 objective="Implement the bounded change",
                 session_id="session-closure",

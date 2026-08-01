@@ -1,0 +1,4 @@
+interface:
+  display_name: "CARMADIO"
+  short_description: "Route work through local CARMADIO governance"
+  default_prompt: "Use $carmadio to inspect this repository and recommend the next governed lifecycle action."

@@ -1,4 +1,0 @@
-interface:
-  display_name: "DSET Triage"
-  short_description: "Classify and route DSET work artifacts"
-  default_prompt: "Use $dset-triage to resolve and run the repository-local work-triage workflow."
