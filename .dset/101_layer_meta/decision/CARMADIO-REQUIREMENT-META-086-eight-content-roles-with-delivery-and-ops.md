@@ -28,7 +28,7 @@ CARMADIO classifies the primary semantic contribution of every governed artifact
 1. `concern` identifies a matter requiring disposition, including a question, problem, risk, opportunity, or conflict.
 2. `analysis` interprets concerns or operational facts and develops understanding without independently establishing the desired result.
 3. `requirement` states the outcome that the governed product or project must, may, or must not provide.
-4. `method` specifies how an accepted Requirement will be realized in code or another governed construction medium.
+4. `method` specifies how an accepted Requirement will be realized, or how an existing governed realization will be transformed while preserving its declared obligations, in code or another governed construction medium.
 5. `assurance` specifies how the project can establish that a Requirement, Method, Delivery path, or Implementation works as intended.
 6. `delivery` specifies how a realized package, application, or other deliverable reaches its end users, including packaging, release, deployment, distribution, installation, migration, upgrade, and rollback.
 7. `implementation` is the concrete project realization of accepted Requirements, Methods, Assurance mechanisms, and Delivery mechanisms, including code, configuration, executable tests and evaluations, packages, installers, and delivery automation.
@@ -40,7 +40,7 @@ Governance locus remains an independent semantic axis with exactly three `govern
 - `external` for meaning imposed or owned outside the project; and
 - `relation` for meaning that exists between explicit endpoints.
 
-Delivery is distinct from Method: Method governs construction of the product, while Delivery governs the path from a realized product to availability for its end users. Implementation may realize accepted claims from Requirement, Method, Assurance, and Delivery.
+Delivery is distinct from Method: Method governs construction or governed transformation of the product, while Delivery governs the path from a realized product to availability for its end users. Implementation may realize accepted claims from Requirement, Method, Assurance, and Delivery.
 
 The Ops Content role is independent of an Ops structural layer or scope. An Ops scope may contain artifacts of any Content role; an artifact has the Ops Content role only when its primary contribution is enacted operation or a factual result.
 
@@ -52,4 +52,4 @@ CARMADIO uses Concern, Analysis, Requirement, Method, Assurance, Delivery, Imple
 
 ## Rationale
 
-Construction, assurance, and delivery answer different questions: how to build the product, how to establish that it works, and how to make it available to users. Implementation materially realizes those prescriptions, while Ops captures what actually happens when the resulting mechanisms run.
+Construction or transformation, assurance, and delivery answer different questions: how to build or structurally change the product, how to establish that it works, and how to make it available to users. A behavior-preserving transformation remains Method because it changes the realization path without inventing a new required outcome. Implementation materially realizes those prescriptions, while Ops captures what actually happens when the resulting mechanisms run.
