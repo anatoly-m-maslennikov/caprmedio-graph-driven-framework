@@ -10,10 +10,11 @@ llm_session_ids:
 relations:
   - type: child_of
     targets:
+      - CARMADIO-REQUIREMENT-META-086
       - CARMADIO-REQUIREMENT-META-088
   - type: relates_to
     targets:
-      - DSET-REQUIREMENT-GOV-131
+      - CARMADIO-REQUIREMENT-GOV-138
 ---
 
 # Requirement — Register Refactoring Plan as a Method subtype
