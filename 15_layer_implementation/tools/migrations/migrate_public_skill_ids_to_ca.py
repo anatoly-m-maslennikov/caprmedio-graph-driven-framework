@@ -74,6 +74,8 @@ PRIMARY_CONTEXT_REPLACEMENTS = (
     (r'"dset": "lifecycle-orchestration"', '"carmadio": "lifecycle-orchestration"'),
     (r'"dset": None', '"carmadio": None'),
     (r'public_entrypoint == "dset"', 'public_entrypoint == "carmadio"'),
+    (r'public_entrypoint="dset"', 'public_entrypoint="carmadio"'),
+    (r'skill_id="dset"', 'skill_id="carmadio"'),
     (r'entrypoint != "dset"', 'entrypoint != "carmadio"'),
     (
         r'data\.get\("public_entrypoint", "dset"\)',
@@ -85,6 +87,7 @@ PRIMARY_CONTEXT_REPLACEMENTS = (
     (r'_skill_text\("dset"\)', '_skill_text("carmadio")'),
     (r'/ "dset" / "SKILL\.md"', '/ "carmadio" / "SKILL.md"'),
     (r'\["dset", "dset-', '["carmadio", "dset-'),
+    (r'enum = \["dset",', 'enum = ["carmadio",'),
 )
 
 
@@ -227,7 +230,38 @@ def replace_specialist_ids(text: str) -> str:
     return text
 
 
-def migrated_content(relative: Path, content: bytes) -> bytes:
+def replace_wrapper_digests(text: str, digests: dict[str, str]) -> str:
+    """Refresh hashes inside governance-registry wrapper blocks."""
+    lines = text.splitlines(keepends=True)
+    in_wrapper = False
+    skill_id: str | None = None
+    for index, line in enumerate(lines):
+        stripped = line.strip()
+        if stripped.startswith("[["):
+            in_wrapper = stripped == "[[governance_registry.wrappers]]"
+            skill_id = None
+            continue
+        if not in_wrapper:
+            continue
+        match = re.fullmatch(r'skill = "([^"]+)"', stripped)
+        if match:
+            skill_id = match.group(1)
+            continue
+        if skill_id is None or not stripped.startswith('sha256 = "'):
+            continue
+        digest = digests.get(skill_id)
+        if digest is None:
+            raise MigrationError(f"registry names unknown public skill: {skill_id}")
+        newline = "\n" if line.endswith("\n") else ""
+        lines[index] = f'sha256 = "{digest}"{newline}'
+    return "".join(lines)
+
+
+def migrated_content(
+    relative: Path,
+    content: bytes,
+    skill_digests: dict[str, str] | None = None,
+) -> bytes:
     """Return one current carrier with only governed skill identities changed."""
     if not is_current_surface(relative):
         return content
@@ -245,19 +279,54 @@ def migrated_content(relative: Path, content: bytes) -> bytes:
         if relative == Path("skills/README.md"):
             migrated = re.sub(r"(?<![A-Za-z0-9-])`dset`", "`carmadio`", migrated)
             migrated = migrated.replace("(dset/SKILL.md)", "(carmadio/SKILL.md)")
+        if relative == Path("skills/host-distribution.md"):
+            migrated = migrated.replace(
+                "exact 19-skill catalog: `dset`,",
+                "exact 19-skill catalog: `carmadio`,",
+            )
+    if skill_digests is not None:
+        migrated = replace_wrapper_digests(migrated, skill_digests)
     return migrated.encode("utf-8")
+
+
+def target_skill_digests(root: Path) -> dict[str, str]:
+    """Compute post-migration source digests for every public SKILL carrier."""
+    digests: dict[str, str] = {}
+    for entry in tracked_entries(root):
+        desired = replaced_path(entry.indexed_relative)
+        if (
+            len(desired.parts) != 3
+            or desired.parts[0] != "skills"
+            or desired.name != "SKILL.md"
+        ):
+            continue
+        content = read_regular_file(root / entry.current_relative)
+        migrated = migrated_content(entry.current_relative, content)
+        digests[desired.parts[1]] = sha256(migrated)
+    expected = set(SKILL_ID_MAP.values())
+    if set(digests) != expected:
+        raise MigrationError(
+            f"public SKILL digest set differs: expected={sorted(expected)}, "
+            f"actual={sorted(digests)}"
+        )
+    return digests
 
 
 def build_plan(root: Path) -> MigrationPlan:
     """Build the collision-free migration plan without mutation."""
     writes: list[WriteOperation] = []
     deletes: list[DeleteOperation] = []
+    skill_digests = target_skill_digests(root)
     for entry in tracked_entries(root):
         current_path = root / entry.current_relative
         desired_relative = replaced_path(entry.indexed_relative)
         desired_path = root / desired_relative
         content = read_regular_file(current_path)
-        migrated = migrated_content(entry.current_relative, content)
+        migrated = migrated_content(
+            entry.current_relative,
+            content,
+            skill_digests,
+        )
         path_changes = entry.current_relative != desired_relative
         if not path_changes and migrated == content:
             continue
