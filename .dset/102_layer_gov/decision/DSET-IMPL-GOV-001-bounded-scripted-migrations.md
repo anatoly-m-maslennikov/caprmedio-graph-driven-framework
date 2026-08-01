@@ -14,7 +14,7 @@ relations:
       - CARMADIO-REQUIREMENT-GOV-144
 ---
 
-# Implementation Decision — Bounded scripted migrations
+# Technical Decision — Bounded scripted migrations
 
 A migration script must be scoped to named carriers or exact patterns, fail
 when an expected source pattern is absent, and leave reviewable repository
