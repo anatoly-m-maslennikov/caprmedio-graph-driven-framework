@@ -10,12 +10,12 @@ llm_session_ids:
 relations:
   - type: child_of
     targets:
-      - DSET-DECISION-GOV-022
+      - CARMADIO-REQUIREMENT-META-057
 ---
 
 # Requirement — Synchronize installed methodology only on command
 
-Framework maintainers edit the reusable methodology only in its repository-root
+CARMADIO maintainers edit the reusable methodology only in its repository-root
 source. An ordinary source edit never rewrites
 `.dset/000_dset_methodology/` and no workflow copies installed files back into
 the root source.
