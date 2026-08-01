@@ -12,9 +12,6 @@ relations:
   - type: relates_to
     targets:
       - CARMADIO-REQUIREMENT-META-065
-      - DSET-IMPL-GOV-007
-      - DSET-EVALUATION-CASE-GOV-038
-      - DSET-TEST-CASE-GOV-057
 ---
 
 # Problem — Control plane uses the retired layer layout
