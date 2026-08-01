@@ -18,9 +18,9 @@ relations:
       - DSET-DEFECT-TOOL-003
 ---
 
-# Implementation Decision — Use the canonical artifact relations
+# Technical Decision — Use the canonical artifact relations
 
-DSET uses exactly these general forward artifact relations:
+CARMADIO uses exactly these general forward artifact relations:
 
 | Relation | Exclusive meaning |
 |---|---|
@@ -29,7 +29,7 @@ DSET uses exactly these general forward artifact relations:
 | `projection_of` | Binds a Projection to its declared source-Atom frontier without transferring source authority |
 | `implementation_of` | Connects code, configuration, documentation, migration, a commit, or another realized mechanism to the authority it realizes, including a QA Case or Assurance Control |
 | `check_of` | Connects a QA Case or Assurance Control to the claim, condition, or invariant it checks |
-| `evidence_for` | Connects a bounded Observation to the Assurance definition, implementation execution, result, or Verification it supports |
+| `evidence_for` | Connects a bounded Ops record to the Assurance definition, implementation execution, result, or Verification it supports |
 | `resolution_of` | Closes a Question or Problem other than a Conflict |
 | `solution_for` | Supplies the accepted solution that closes a Conflict |
 | `override_of` | Replaces inherited authority only inside a declared narrower scope |
@@ -51,7 +51,7 @@ constitutional controls and are not general artifact relations.
 
 ## Primary claim
 
-DSET uses twelve precise forward relations with derived inverses, exclusive
+CARMADIO uses twelve precise forward relations with derived inverses, exclusive
 closure semantics, and type/scope `projection_of` frontiers.
 
 ## Rationale
