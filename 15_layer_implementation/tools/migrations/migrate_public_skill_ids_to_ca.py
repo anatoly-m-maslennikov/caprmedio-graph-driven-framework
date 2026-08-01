@@ -17,6 +17,7 @@ Python package, runtime package directory, repository, or historical archives.
 from __future__ import annotations
 
 import argparse
+import os
 import re
 import subprocess
 import sys
@@ -170,6 +171,50 @@ def tracked_entries(root: Path) -> tuple[TrackedEntry, ...]:
             )
         entries.append(TrackedEntry(indexed_relative, existing[0], mode))
     return tuple(entries)
+
+
+def rename_skill_directories(root: Path) -> tuple[tuple[Path, Path], ...]:
+    """Atomically rename complete public skill packages before file rewrites."""
+    pairs = tuple(
+        (root / "skills" / source, root / "skills" / target)
+        for source, target in SKILL_ID_MAP.items()
+    )
+    for source, target in pairs:
+        if source.exists() and target.exists():
+            raise MigrationError(f"both skill package identities exist: {source}, {target}")
+        selected = source if source.exists() else target
+        if not selected.is_dir() or selected.is_symlink():
+            raise MigrationError(f"skill package is missing or invalid: {selected}")
+    renamed: list[tuple[Path, Path]] = []
+    try:
+        for source, target in pairs:
+            if not source.exists():
+                continue
+            os.replace(source, target)
+            renamed.append((source, target))
+    except OSError as error:
+        rollback_skill_directories(renamed)
+        raise MigrationError(f"skill directory rename failed: {error}") from error
+    return tuple(renamed)
+
+
+def rollback_skill_directories(
+    renamed: tuple[tuple[Path, Path], ...] | list[tuple[Path, Path]],
+) -> None:
+    """Restore package directories after a failed content transaction."""
+    failures: list[str] = []
+    for source, target in reversed(renamed):
+        try:
+            if source.exists():
+                failures.append(f"rollback source already exists: {source}")
+            elif not target.exists():
+                failures.append(f"rollback target is missing: {target}")
+            else:
+                os.replace(target, source)
+        except OSError as error:
+            failures.append(f"{target} -> {source}: {error}")
+    if failures:
+        raise MigrationError("skill directory rollback failed: " + "; ".join(failures))
 
 
 def replace_specialist_ids(text: str) -> str:
@@ -330,7 +375,17 @@ def main() -> int:
                 f"plan digest changed: expected {args.expect_plan_digest}, "
                 f"actual {plan.digest()}"
             )
-        apply_transaction(plan, validate_staged, verify_complete)
+        renamed = rename_skill_directories(root)
+        try:
+            filesystem_adjusted_plan = build_plan(root)
+            apply_transaction(
+                filesystem_adjusted_plan,
+                validate_staged,
+                verify_complete,
+            )
+        except Exception:
+            rollback_skill_directories(renamed)
+            raise
         print(
             "public-skill migration applied: "
             f"writes={len(plan.writes)}, deletes={len(plan.deletes)}"
