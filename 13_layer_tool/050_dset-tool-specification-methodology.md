@@ -20,7 +20,7 @@ The framework must provide one cross-platform CLI with `new`, `check`, `verify`,
 
 ## CARMADIO-REQUIREMENT-TOOL-002 — Traceability is generated from durable identities
 
-`.dset_runtime/generated/traceability.toml` must be generated in stable order from committed change manifests and repository-qualified PR references. It may cache evidence relationships but must not replace GitHub as owner of PR state, checks, diffs, or merge results.
+`.carmadio_runtime/generated/traceability.toml` must be generated in stable order from committed change manifests and repository-qualified PR references. It may cache evidence relationships but must not replace GitHub as owner of PR state, checks, diffs, or merge results.
 
 **Scenario CARMADIO-SCENARIO-TOOL-002:** Regeneration without source changes produces no diff, and every archived change resolves to the PR that owns its implementation history.
 

@@ -233,7 +233,7 @@ def apply_runtime_install(
         )
     destination.parent.mkdir(parents=True, exist_ok=True)
     staging_parent = Path(
-        tempfile.mkdtemp(prefix=".dset-runtime-", dir=destination.parent)
+        tempfile.mkdtemp(prefix=".carmadio-runtime-", dir=destination.parent)
     )
     staged = staging_parent / "dset"
     try:

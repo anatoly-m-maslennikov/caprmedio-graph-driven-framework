@@ -54,7 +54,7 @@ settings file, and a settings file is not a dumping ground for literals.
 Every applicable Implementation Profile excludes secret values from DSET,
 source, non-secret settings, command lines, builds, logs, diagnostics, Tests,
 Evaluations, prompts, evidence, and generated files. Local development injects
-secrets from an ignored `.env` outside `.dset`; CI and production use platform
+secrets from an ignored `.env` outside `.carmadio`; CI and production use platform
 or dedicated secret injection. Implementations validate at the outer boundary,
 redact before serialization or agent ingestion, scan shared surfaces, use
 least-privileged and preferably short-lived credentials, fail closed without

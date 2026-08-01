@@ -673,7 +673,7 @@ event = "absorbed"
 occurred_at = "2026-07-22T06:50:00+04:00"
 related = ["CARMADIO-REQUIREMENT-GOV-042"]
 llm_session_ids = ["codex:019f591f-04f6-70f2-8de7-828b7cccc69d"]
-rationale = "The successor retains the slim ownership layout while moving the control plane to .dset, making persisted path bases explicit, and isolating runtime state."
+rationale = "The successor retains the slim ownership layout while moving the control plane to .carmadio, making persisted path bases explicit, and isolating runtime state."
 
 [[events]]
 id = "CARMADIO-LIFECYCLE-EVENT-076"
@@ -700,7 +700,7 @@ event = "absorbed"
 occurred_at = "2026-07-22T20:56:57+04:00"
 related = ["CARMADIO-REQUIREMENT-GOV-043"]
 llm_session_ids = ["codex:019f591f-04f6-70f2-8de7-828b7cccc69d"]
-rationale = "The successor keeps .dset as committed control truth while moving resumable runtime state to the sibling .dset_runtime root and disposable POSIX scratch to /tmp."
+rationale = "The successor keeps .carmadio as committed control truth while moving resumable runtime state to the sibling .carmadio_runtime root and disposable POSIX scratch to /tmp."
 
 [[events]]
 id = "CARMADIO-LIFECYCLE-EVENT-079"

@@ -173,7 +173,7 @@ class RuntimeBridgeTests(unittest.TestCase):
                     workflow_id="not-registered",
                     objective="Do work",
                 )
-            self.assertFalse((adopter / ".dset" / "runs").exists())
+            self.assertFalse((adopter / ".carmadio" / "runs").exists())
 
     def test_public_skill_requires_llm_session_provenance(self) -> None:
         with temporary_directory() as raw:
@@ -186,14 +186,14 @@ class RuntimeBridgeTests(unittest.TestCase):
                     workflow_id="diagnosis",
                     objective="Diagnose with missing host provenance",
                 )
-            self.assertFalse((adopter / ".dset" / "runs").exists())
+            self.assertFalse((adopter / ".carmadio" / "runs").exists())
 
     def test_bridge_accepts_every_catalog_entry_and_rejects_mismatches(self) -> None:
         with temporary_directory() as raw:
             adopter = (Path(raw) / "adopter").resolve()
             shutil.copytree(
-                ROOT / ".dset",
-                adopter / ".dset",
+                ROOT / ".carmadio",
+                adopter / ".carmadio",
                 ignore=shutil.ignore_patterns("runtime"),
             )
             shutil.copytree(ROOT / "skills", adopter / "skills")
@@ -222,8 +222,8 @@ class RuntimeBridgeTests(unittest.TestCase):
         with temporary_directory() as raw:
             adopter = (Path(raw) / "adopter").resolve()
             shutil.copytree(
-                ROOT / ".dset",
-                adopter / ".dset",
+                ROOT / ".carmadio",
+                adopter / ".carmadio",
                 ignore=shutil.ignore_patterns("runtime"),
             )
             shutil.copytree(ROOT / "skills", adopter / "skills")
@@ -248,7 +248,7 @@ class RuntimeBridgeTests(unittest.TestCase):
             self.assertGreater(semantic_routing["classification_count"], 0)
             self.assertEqual(
                 semantic_routing["source"],
-                ".dset/02_layer_gov/specification-work-items.md",
+                ".carmadio/02_layer_gov/specification-work-items.md",
             )
             self.assertTrue(str(context["ruleset_identity"]).startswith("ruleset:"))
             closure = cast(dict[str, Any], context["closure"])
@@ -340,8 +340,8 @@ class RuntimeBridgeTests(unittest.TestCase):
         with temporary_directory() as raw:
             outer = (Path(raw) / "outer").resolve()
             shutil.copytree(
-                ROOT / ".dset",
-                outer / ".dset",
+                ROOT / ".carmadio",
+                outer / ".carmadio",
                 ignore=shutil.ignore_patterns("runtime"),
             )
             nested = outer / "nested"

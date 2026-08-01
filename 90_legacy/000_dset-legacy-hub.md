@@ -9,10 +9,10 @@ documentation for deliberate investigation.
 ## Boundaries
 
 This archive is inert, read-only history. It is outside the project-local
-`.dset` control plane and is never an input to skill discovery, current
+`.carmadio` control plane and is never an input to skill discovery, current
 semantic compilation, project coverage, or executable governance.
 
-Current authority exists only in `.dset`. Reintroducing archive content into
+Current authority exists only in `.carmadio`. Reintroducing archive content into
 current truth requires a new governed artifact; copying an old carrier back is
 not a valid restoration mechanism.
 

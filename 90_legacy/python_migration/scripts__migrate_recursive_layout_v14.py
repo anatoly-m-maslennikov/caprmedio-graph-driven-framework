@@ -1,7 +1,7 @@
 """One-time repository migration to the recursive DSET 1.4 layout.
 
 The migration deliberately separates distributable framework material below
-``.dset`` from the DSET repository's own visible self-hosting artifacts. It is
+``.carmadio`` from the DSET repository's own visible self-hosting artifacts. It is
 repository-specific, conservative, and idempotent after a completed cutover.
 """
 
@@ -15,7 +15,7 @@ from typing import Any
 from dset_toolchain.toml_codec import dumps, load
 
 ROOT = Path(__file__).resolve().parents[1]
-DSET = ROOT / ".dset"
+DSET = ROOT / ".carmadio"
 SESSION = "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
 
 LAYERS = {
@@ -41,7 +41,7 @@ AGGREGATES = (
 
 def main() -> None:
     if not DSET.is_dir():
-        raise SystemExit(".dset does not exist")
+        raise SystemExit(".carmadio does not exist")
     if (DSET / "01_layer_meta").is_dir() and not (DSET / "01_layer_meta").exists():
         return
 
@@ -117,7 +117,7 @@ def _move_project_truth() -> None:
 
     generated = source / "generated"
     if generated.is_dir():
-        _merge_tree(generated, ROOT / ".dset_runtime" / "generated")
+        _merge_tree(generated, ROOT / ".carmadio_runtime" / "generated")
 
     for directory in ATOMIC_DIRECTORIES:
         path = source / directory
@@ -192,13 +192,13 @@ def _move_layers(settings_additions: dict[str, Any]) -> None:
         "versions": "10_versions",
     }
     settings_additions["framework_roots"] = {
-        "project": ".dset/00_project",
-        "meta": ".dset/01_layer_meta",
-        "gov": ".dset/02_layer_gov",
-        "tool": ".dset/03_layer_tool",
-        "skill": ".dset/04_layer_skill",
-        "ops": ".dset/05_layer_ops",
-        "versions": ".dset/10_versions",
+        "project": ".carmadio/00_project",
+        "meta": ".carmadio/01_layer_meta",
+        "gov": ".carmadio/02_layer_gov",
+        "tool": ".carmadio/03_layer_tool",
+        "skill": ".carmadio/04_layer_skill",
+        "ops": ".carmadio/05_layer_ops",
+        "versions": ".carmadio/10_versions",
     }
 
 
@@ -328,8 +328,8 @@ def _rewrite_settings(additions: dict[str, Any]) -> None:
         '[work_items]\natomic_roots = ["00_project", "01_layer_meta", "02_layer_gov", "03_layer_tool", "04_layer_skill", "05_layer_ops"]',
     )
     text = text.replace(
-        'runbook = ".dset/05_layer_ops/supportability/delivery-runbook.md"',
-        'runbook = ".dset/05_layer_ops/supportability/delivery-runbook.md"',
+        'runbook = ".carmadio/05_layer_ops/supportability/delivery-runbook.md"',
+        'runbook = ".carmadio/05_layer_ops/supportability/delivery-runbook.md"',
     )
     compilation = (
         "\n[compilation]\n"
@@ -337,7 +337,7 @@ def _rewrite_settings(additions: dict[str, Any]) -> None:
         "# or required by a downstream entry gate. New atoms do not force it.\n"
         'mode = "on_demand"\n'
         'skill = "dset-compile"\n'
-        'runtime_output = ".dset_runtime/generated"\n'
+        'runtime_output = ".carmadio_runtime/generated"\n'
     )
     marker = "\n[changes]\n"
     if "[compilation]" not in text:
@@ -353,11 +353,11 @@ def _rewrite_settings(additions: dict[str, Any]) -> None:
 
 def _rewrite_current_paths() -> None:
     replacements = {
-        ".dset/01_layer_meta": ".dset/01_layer_meta",
-        ".dset/02_layer_gov": ".dset/02_layer_gov",
-        ".dset/03_layer_tool": ".dset/03_layer_tool",
-        ".dset/04_layer_skill": ".dset/04_layer_skill",
-        ".dset/05_layer_ops": ".dset/05_layer_ops",
+        ".carmadio/01_layer_meta": ".carmadio/01_layer_meta",
+        ".carmadio/02_layer_gov": ".carmadio/02_layer_gov",
+        ".carmadio/03_layer_tool": ".carmadio/03_layer_tool",
+        ".carmadio/04_layer_skill": ".carmadio/04_layer_skill",
+        ".carmadio/05_layer_ops": ".carmadio/05_layer_ops",
         "01_layer_meta": "01_layer_meta",
         "02_layer_gov": "02_layer_gov",
         "03_layer_tool": "03_layer_tool",
@@ -390,7 +390,7 @@ def _write_hubs() -> None:
     )
     _write_text(
         DSET / "10_versions" / "README.md",
-        "# DSET version surface\n\nRelease templates are owned by `.dset/05_layer_ops/templates/release/`. A repository's version artifacts live in its configured version root; this framework repository uses `10_versions/`.\n",
+        "# DSET version surface\n\nRelease templates are owned by `.carmadio/05_layer_ops/templates/release/`. A repository's version artifacts live in its configured version root; this framework repository uses `10_versions/`.\n",
     )
     for layer, (_old, new) in LAYERS.items():
         project = ROOT / new
@@ -398,7 +398,7 @@ def _write_hubs() -> None:
             f"# {layer.upper()} self-hosting project scope",
             "",
             "Atomic artifacts and project-specific plans live here. Current",
-            f"distributable framework material lives in [`.dset/{new}/`](../.dset/{new}/).",
+            f"distributable framework material lives in [`.carmadio/{new}/`](../.carmadio/{new}/).",
             "Exact shared evergreen truth is declared by one-file TOML references",
             "under `references/`; semantic compilation replaces a reference only",
             "when project truth diverges.",

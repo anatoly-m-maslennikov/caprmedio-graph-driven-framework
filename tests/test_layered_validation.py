@@ -350,13 +350,13 @@ class LayeredValidationTests(unittest.TestCase):
 
     def test_schema_1_2_shapes_are_explicit(self) -> None:
         project = json.loads(
-            (ROOT / ".dset/01_layer_meta/schemas/project.schema.toml").read_text(
+            (ROOT / ".carmadio/01_layer_meta/schemas/project.schema.toml").read_text(
                 encoding="utf-8"
             )
         )
         fragment = json.loads(
             (
-                ROOT / ".dset/01_layer_meta/schemas/package-fragment.schema.toml"
+                ROOT / ".carmadio/01_layer_meta/schemas/package-fragment.schema.toml"
             ).read_text(encoding="utf-8")
         )
         self.assertIn(
@@ -364,7 +364,7 @@ class LayeredValidationTests(unittest.TestCase):
             project["$defs"]["layered_structure"]["properties"]["layout"]["enum"],
         )
         change = json.loads(
-            (ROOT / ".dset/02_layer_gov/schemas/change.schema.toml").read_text(
+            (ROOT / ".carmadio/02_layer_gov/schemas/change.schema.toml").read_text(
                 encoding="utf-8"
             )
         )
@@ -380,7 +380,7 @@ class LayeredValidationTests(unittest.TestCase):
             ),
             {
                 "dset/scopes/ops/governance/release.md",
-                ".dset/05_layer_ops/procedure-release.md",
+                ".carmadio/05_layer_ops/procedure-release.md",
             },
         )
         forbidden = project["allOf"][0]["then"]["not"]["anyOf"]
@@ -409,7 +409,7 @@ class LayeredValidationTests(unittest.TestCase):
             "https://raw.githubusercontent.com/anatoly-m-maslennikov/"
             "dset-specs-loops-framework/main/"
         )
-        for path in sorted((ROOT / ".dset").glob("*/schemas/*.json")):
+        for path in sorted((ROOT / ".carmadio").glob("*/schemas/*.json")):
             with self.subTest(schema=path.name):
                 schema = json.loads(path.read_text(encoding="utf-8"))
                 self.assertEqual(
@@ -418,17 +418,17 @@ class LayeredValidationTests(unittest.TestCase):
 
     def test_schema_1_2_work_area_contract_has_two_target_modes(self) -> None:
         project = json.loads(
-            (ROOT / ".dset/01_layer_meta/schemas/project.schema.toml").read_text(
+            (ROOT / ".carmadio/01_layer_meta/schemas/project.schema.toml").read_text(
                 encoding="utf-8"
             )
         )
         change = json.loads(
-            (ROOT / ".dset/02_layer_gov/schemas/change.schema.toml").read_text(
+            (ROOT / ".carmadio/02_layer_gov/schemas/change.schema.toml").read_text(
                 encoding="utf-8"
             )
         )
         traceability = json.loads(
-            (ROOT / ".dset/03_layer_tool/schemas/traceability.schema.toml").read_text(
+            (ROOT / ".carmadio/03_layer_tool/schemas/traceability.schema.toml").read_text(
                 encoding="utf-8"
             )
         )

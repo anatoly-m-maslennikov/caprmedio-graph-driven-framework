@@ -3,8 +3,8 @@
 
 Invocation: ``python dset_migrate_meta_gov_atomics.py [ROOT] (--check | --apply)``.
 ROOT defaults to the repository containing this completed tool. The tool
-classifies and normalizes only ``.dset/101_layer_meta`` and
-``.dset/102_layer_gov``. ``--check`` validates without writing; ``--apply``
+classifies and normalizes only ``.carmadio/101_layer_meta`` and
+``.carmadio/102_layer_gov``. ``--check`` validates without writing; ``--apply``
 rechecks its manifest and rewrites atomic Markdown carriers. ``--expected-count``
 defaults to 319 for exact replay. Ambiguity, parse failures, source changes, or
 failed idempotency return non-zero; success returns 0. This is not an active CLI.
@@ -630,8 +630,8 @@ def _arguments() -> argparse.Namespace:
 
 def _roots(root: Path) -> tuple[tuple[str, Path], ...]:
     return (
-        ("meta", root / ".dset/101_layer_meta"),
-        ("gov", root / ".dset/102_layer_gov"),
+        ("meta", root / ".carmadio/101_layer_meta"),
+        ("gov", root / ".carmadio/102_layer_gov"),
     )
 
 

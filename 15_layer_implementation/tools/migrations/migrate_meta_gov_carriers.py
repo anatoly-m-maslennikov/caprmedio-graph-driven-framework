@@ -8,7 +8,7 @@ Invocation:
 ``ROOT`` is the target repository root; it defaults to this script's discovered
 repository root. Without a mode flag the program prints a validated dry-run
 plan. ``--apply`` stages all replacement bytes under
-``ROOT/.dset_runtime/migrations`` and then applies the plan transactionally.
+``ROOT/.carmadio_runtime/migrations`` and then applies the plan transactionally.
 ``--expect-plan-digest`` binds apply to the digest printed by a prior preview.
 ``--check`` verifies the completed migration without writing. The migration is
 bounded to ``11_layer_meta`` and ``12_layer_gov``: it converts Markdown
@@ -114,7 +114,7 @@ GOV_POLICY_SECTION_END = (
 GOV_POLICY_SECTION = """## CARMADIO-REQUIREMENT-GOV-040 — Project settings are verbose
 
 The canonical settings and project-manifest carrier is
-`.dset/dset_settings.toml`. It must explain its boundary with governing
+`.carmadio/dset_settings.toml`. It must explain its boundary with governing
 documents, every setting, every accepted value, the behavior each value
 selects, the default, and practical examples. New writers and bootstraps emit
 only this path. Retired root settings and split manifests are read-only
@@ -130,7 +130,7 @@ verification commands, and commit-provenance boundaries. Governing documents
 own definitions and policy; settings select registered behavior only.
 
 **Scenario CARMADIO-SCENARIO-GOV-037:** A cold reader opens
-`.dset/dset_settings.toml`, finds every operator choice and predicts its effect,
+`.carmadio/dset_settings.toml`, finds every operator choice and predicts its effect,
 and reads the same carrier for runtime topology and release truth. Bootstrap
 emits only the canonical path; a repository containing competing settings
 carriers fails.

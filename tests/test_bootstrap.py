@@ -102,14 +102,14 @@ class BootstrapTests(unittest.TestCase):
             self.assertNotIn("delegation_budget", manifest["profiles"])
             self.assertNotIn("workspace_default", manifest["change_contract"])
             self.assertTrue(layout.governance_path.is_file())
-            self.assertTrue((target / ".dset/dset_settings.toml").is_file())
+            self.assertTrue((target / ".carmadio/dset_settings.toml").is_file())
             self.assertTrue((target / "00_project/README.md").is_file())
             self.assertTrue((target / "10_versions/README.md").is_file())
             self.assertEqual(
-                (target / ".dset_runtime/.gitignore").read_text(encoding="utf-8"),
+                (target / ".carmadio_runtime/.gitignore").read_text(encoding="utf-8"),
                 "*\n!.gitignore\n",
             )
-            self.assertFalse((target / ".dset/runtime").exists())
+            self.assertFalse((target / ".carmadio/runtime").exists())
             self.assertFalse((target / "dset_settings.toml").exists())
             self.assertFalse((target / "dset.toml").exists())
             self.assertEqual(
@@ -173,7 +173,7 @@ class BootstrapTests(unittest.TestCase):
             manifest = load(discover_layout(target).manifest_path)
             self.assertEqual(manifest["supportability"]["status"], "applicable")
             runbook = (
-                target / ".dset/05_layer_ops/supportability/README.md"
+                target / ".carmadio/05_layer_ops/supportability/README.md"
             ).read_text(encoding="utf-8")
             self.assertIn("Active hosted automation", runbook)
 
@@ -202,7 +202,7 @@ class BootstrapTests(unittest.TestCase):
     def test_existing_destination_stops_without_partial_write(self) -> None:
         with temporary_directory() as raw:
             target = (Path(raw) / "existing").resolve()
-            manifest = target / ".dset" / "dset_settings.toml"
+            manifest = target / ".carmadio" / "dset_settings.toml"
             manifest.parent.mkdir(parents=True)
             manifest.write_text("existing\n", encoding="utf-8")
             with self.assertRaises(FileExistsError):

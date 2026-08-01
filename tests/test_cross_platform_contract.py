@@ -27,7 +27,7 @@ class CrossPlatformContractTests(unittest.TestCase):
     def test_repository_pins_text_worktree_bytes_to_lf(self) -> None:
         paths = (
             "dset_toolchain/validation.py",
-            ".dset/05_layer_ops/procedure-release.md",
+            ".carmadio/05_layer_ops/procedure-release.md",
             "00_project/migrations/carrier-transitions.toml",
             "00_project/generated/traceability.toml",
         )

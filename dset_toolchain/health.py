@@ -375,7 +375,7 @@ def health_path(root: Path) -> Path:
     generated = (
         layout.traceability_path.parent
         if layout.layered
-        else layout.dset_root / "generated"
+        else layout.carmadio_root / "generated"
     )
     return generated / f"{key}-DERIVED-VIEW-001-project-health.md"
 
@@ -724,7 +724,7 @@ def _layer(relative: Path) -> str:
     parts = relative.parts
     if (
         len(parts) >= 2
-        and parts[0] == ".dset"
+        and parts[0] == ".carmadio"
         and parts[1]
         in {
             "meta",
@@ -781,14 +781,14 @@ def _path_ignored(root: Path, path: Path) -> bool:
 
 def _relative_ignored(relative: Path) -> bool:
     """Handle ignored using the declared repository contract."""
-    if relative.parts[:1] == (".dset_runtime",) or relative.parts[:2] == (
-        ".dset",
+    if relative.parts[:1] == (".carmadio_runtime",) or relative.parts[:2] == (
+        ".carmadio",
         "runtime",
     ):
         return True
     return any(
         logical_part(part) in IGNORED_PARTS
-        or (part.startswith(".") and part not in {".github", ".dset"})
+        or (part.startswith(".") and part not in {".github", ".carmadio"})
         for part in relative.parts
     )
 
@@ -798,7 +798,7 @@ def _in_project_scope(root: Path, relative: Path) -> bool:
     if len(relative.parts) == 1:
         return True
     layout = discover_layout(root)
-    if relative.is_relative_to(layout.dset_root.relative_to(root)):
+    if relative.is_relative_to(layout.carmadio_root.relative_to(root)):
         return True
     manifest = load(layout.manifest_path)
     work_areas = manifest.get("work_areas", []) if isinstance(manifest, dict) else []

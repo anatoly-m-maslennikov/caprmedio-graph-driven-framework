@@ -18,7 +18,7 @@ class ArtifactRecordTests(unittest.TestCase):
 
     def _project(self, raw: str) -> Path:
         root = Path(raw)
-        control = root / ".dset"
+        control = root / ".carmadio"
         control.mkdir()
         (control / "dset_settings.toml").write_text(
             "\n".join(
@@ -46,7 +46,7 @@ class ArtifactRecordTests(unittest.TestCase):
         return root
 
     def _atom(self, root: Path, extra: str = "") -> Path:
-        path = root / ".dset/atom.md"
+        path = root / ".carmadio/atom.md"
         path.write_text(
             "\n".join(
                 (
@@ -107,7 +107,7 @@ class ArtifactRecordTests(unittest.TestCase):
 
             self.assertEqual(
                 destination,
-                root.resolve() / ".dset/archive/atom.md",
+                root.resolve() / ".carmadio/archive/atom.md",
             )
             self.assertEqual(destination.read_bytes(), original)
             rows = build_atomic_artifact_route_index(root)

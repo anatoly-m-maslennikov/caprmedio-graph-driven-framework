@@ -26,7 +26,7 @@ the active DSET `0.4` scope explicitly excludes it.
 - **CARMADIO-INVARIANT-GOV-004 — One owner per rule:** Every normative rule ID has exactly one editable governing document. Agent guidance, skills, templates, generated installations, and summaries link to that owner and never become parallel writable rule stores.
 - **CARMADIO-INVARIANT-SKILL-003 — Small skill surface:** Core users see `dset`, `dset-clarify`, `dset-diagnose`, `dset-prototype`, and `dset-release`; helper lifecycle operations remain modes or chained workflows.
 - **CARMADIO-INVARIANT-SKILL-004 — Primary orchestration:** `dset` selects bounded next actions from authoritative local state and registered local rules without embedding the lifecycle or authorizing effects silently.
-- **CARMADIO-INVARIANT-SKILL-005 — Investigable runs:** Every skill emits a bounded redacted local run record under ignored `.dset_runtime/runs/`; records support heuristics but never replace repository, Git, hosted, or promoted-proof authorities.
+- **CARMADIO-INVARIANT-SKILL-005 — Investigable runs:** Every skill emits a bounded redacted local run record under ignored `.carmadio_runtime/runs/`; records support heuristics but never replace repository, Git, hosted, or promoted-proof authorities.
 - **CARMADIO-INVARIANT-OPS-001 — One version transition per main PR:** After the explicit first pre-1.0 bootstrap target is published, every accepted `dev` to `main` PR declares exactly one normal, small, RC, or final product/package transition using integer components.
 - **CARMADIO-INVARIANT-OPS-002 — Protected release transaction:** Release artifacts are prepared before merge; tags and GitHub Releases derive from the protected merge commit without post-merge content changes.
 - **CARMADIO-INVARIANT-OPS-003 — Fully working 1.0 gate:** `1.0.0-rc.N` and `1.0.0` require complete scope, supportability, proof, pilots, distribution, and no known release blockers; arithmetic and schedules cannot promote them.
@@ -75,7 +75,7 @@ remain mislabeled as roadmap-only work.
 
 - [x] **CARMADIO-TASK-OPS-016:** Establish corrected coordinated DSET product/CLI-package `0.3.1`, keep schema/profile/template versions independent, supersede the unpublished `0.3.0` draft, incomplete `0.2.0` target, and unreleased package `1.0.0` candidate before merge, and preserve archived evidence unchanged.
 - [x] **CARMADIO-TASK-TOOL-011:** Define the last-released-validator versus candidate-validator contract so a candidate is never its own only judge.
-- [x] **CARMADIO-TASK-SKILL-004:** Define the minimum non-project bootstrap protocol that wrappers may contain: locate the repository root, locate schema 1.3 `.dset/dset_settings.toml`, schema 1.2 `dset/scopes/meta/dset.toml`, or a legacy central manifest, resolve the layout-owned governance registry, and fail closed on duplicate authority.
+- [x] **CARMADIO-TASK-SKILL-004:** Define the minimum non-project bootstrap protocol that wrappers may contain: locate the repository root, locate schema 1.3 `.carmadio/dset_settings.toml`, schema 1.2 `dset/scopes/meta/dset.toml`, or a legacy central manifest, resolve the layout-owned governance registry, and fail closed on duplicate authority.
 - [x] **CARMADIO-TASK-GOV-014:** Open one standard DSET change, `make-dset-self-hosting-and-skills-thin`, with separate requirements, test plan, eval plan, design, implementation batches, evidence, and PR identity.
 
 ## §1 | Add the repository-local governance registry
@@ -213,7 +213,7 @@ entities and not deterministic test substitutes.
 
 - [x] **CARMADIO-TASK-SKILL-014:** Implement the thin primary `dset` orchestration wrapper and registered local orchestration rules; keep initialization, decomposition, landscape/Decision/spec/proof/implementation planning, implementation, verification, tickets, and next-step guidance as modes or chained workflows.
 - [x] **CARMADIO-TASK-SKILL-015:** Implement the thin `dset-release` wrapper and registered release rules; preserve `dset`, `dset-clarify`, `dset-diagnose`, `dset-prototype`, and `dset-release` as the primary operator surface while exposing the additional governed lifecycle wrappers accepted by `CARMADIO-DECISION-SKILL-002` as direct shortcuts.
-- [x] **CARMADIO-TASK-SKILL-016:** Add bounded redacted append-only `.dset_runtime/runs/` records, ignored by Git, with schema/retention rules and authoritative-state reconciliation for next-step heuristics.
+- [x] **CARMADIO-TASK-SKILL-016:** Add bounded redacted append-only `.carmadio_runtime/runs/` records, ignored by Git, with schema/retention rules and authoritative-state reconciliation for next-step heuristics.
 - [x] **CARMADIO-TASK-OPS-019:** Add the normal/small/RC/final transition matrix, exactly-one-class main-PR validation, coordinated product/package version surfaces, and independent schema/profile/template compatibility versions.
 - [x] **CARMADIO-TASK-OPS-020:** Add pre-merge release preparation and post-merge tag/GitHub Release publication from the protected merge commit without a post-merge content write.
 - [x] **CARMADIO-TASK-OPS-021:** Gate `1.0.0-rc.N` and `1.0.0` on fully working declared scope, self-hosting, documentation, supportability, migrations, deterministic tests, applicable evals, required pilots, distribution, and absence of known release blockers.

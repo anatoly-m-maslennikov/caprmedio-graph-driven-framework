@@ -63,8 +63,8 @@ class TomlMigrationTests(unittest.TestCase):
         """Initialize git fixture using the declared repository contract."""
         self.write(
             ".gitignore",
-            ".dset_runtime/toml-migration-runtime-readiness.json\n"
-            ".dset_runtime/toml-migration-backups/\n",
+            ".carmadio_runtime/toml-migration-runtime-readiness.json\n"
+            ".carmadio_runtime/toml-migration-backups/\n",
         )
         initialize_exact_git_repository(self.root)
         self.commit_git_fixture("fixture")
@@ -116,7 +116,7 @@ class TomlMigrationTests(unittest.TestCase):
             preview.package_successors,
         )
         self.write(
-            ".dset_runtime/toml-migration-runtime-readiness.json",
+            ".carmadio_runtime/toml-migration-runtime-readiness.json",
             json.dumps(
                 {
                     "targets": targets,
@@ -297,7 +297,7 @@ class TomlMigrationTests(unittest.TestCase):
         applied = apply_toml_migration(self.root)
 
         self.assertTrue(preview.ready)
-        recovery = self.root / ".dset_runtime/toml-migration-backups" / applied.digest
+        recovery = self.root / ".carmadio_runtime/toml-migration-backups" / applied.digest
         self.assertTrue((recovery / "manifest.json").is_file())
         visible = {
             path.relative_to(self.root).as_posix()
@@ -307,7 +307,7 @@ class TomlMigrationTests(unittest.TestCase):
         self.assertNotIn("dset/scopes/gov/items.yaml", visible)
         self.assertFalse(
             any(
-                path.startswith(".dset_runtime/toml-migration-backups/")
+                path.startswith(".carmadio_runtime/toml-migration-backups/")
                 for path in visible
             )
         )
@@ -333,7 +333,7 @@ class TomlMigrationTests(unittest.TestCase):
         self.add_minimal_runtime_gate()
         self.initialize_git_fixture()
         self.write_current_runtime_readiness()
-        recovery_root = self.root / ".dset_runtime/toml-migration-backups"
+        recovery_root = self.root / ".carmadio_runtime/toml-migration-backups"
 
         with (
             patch(
@@ -563,7 +563,7 @@ class TomlMigrationTests(unittest.TestCase):
             "def render_bundle(root):\n    return '{}\\n'\n",
         )
         evidence_path = (
-            self.root / ".dset_runtime/toml-migration-runtime-readiness.json"
+            self.root / ".carmadio_runtime/toml-migration-runtime-readiness.json"
         )
 
         for evidence in (None, {"targets": {"stale": "digest"}}):
@@ -572,7 +572,7 @@ class TomlMigrationTests(unittest.TestCase):
                     evidence_path.unlink(missing_ok=True)
                 else:
                     self.write(
-                        ".dset_runtime/toml-migration-runtime-readiness.json",
+                        ".carmadio_runtime/toml-migration-runtime-readiness.json",
                         json.dumps(evidence),
                     )
                 before = subprocess.run(
@@ -752,7 +752,7 @@ class TomlMigrationTests(unittest.TestCase):
             ),
         }
         evidence_path = self.write(
-            ".dset_runtime/toml-migration-runtime-readiness.json",
+            ".carmadio_runtime/toml-migration-runtime-readiness.json",
             json.dumps(evidence),
         )
 
@@ -972,7 +972,7 @@ class TomlMigrationTests(unittest.TestCase):
             self.root, list(refreshed.entries), list(refreshed.references)
         )
         self.write(
-            ".dset_runtime/toml-migration-runtime-readiness.json",
+            ".carmadio_runtime/toml-migration-runtime-readiness.json",
             json.dumps(
                 {
                     "targets": targets,
@@ -1057,7 +1057,7 @@ class TomlMigrationTests(unittest.TestCase):
         self.assertFalse(source.with_suffix(".toml").exists())
         stored = json.loads(
             (
-                self.root / ".dset_runtime/toml-migration-runtime-readiness.json"
+                self.root / ".carmadio_runtime/toml-migration-runtime-readiness.json"
             ).read_text(encoding="utf-8")
         )
         self.assertEqual(stored["targets"], evidence["targets"])
@@ -1229,7 +1229,7 @@ class TomlMigrationTests(unittest.TestCase):
             ignore=lambda _directory, names: set(names) & excluded,
         )
         atom = staged / (
-            ".dset/02_layer_gov/decision/CARMADIO-REQUIREMENT-GOV-030-artifact-type-name-policy.md"
+            ".carmadio/02_layer_gov/decision/CARMADIO-REQUIREMENT-GOV-030-artifact-type-name-policy.md"
         )
         before = atom.read_bytes()
         plan = plan_toml_migration(staged, bypass_runtime_readiness=True)

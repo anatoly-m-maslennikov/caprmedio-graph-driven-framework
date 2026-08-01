@@ -725,7 +725,7 @@ def diff_governance(root: Path, source_root: Path) -> str:
     output: list[str] = []
     for rule in cast(list[dict[str, Any]], data.get("rules", [])):
         source = cast(dict[str, Any], rule["source"])
-        template = _unique_named_file(source_root / ".dset", source.get("template"))
+        template = _unique_named_file(source_root / ".carmadio", source.get("template"))
         local = _rule_carrier(root, rule)
         if template is None or local is None:
             continue
@@ -949,7 +949,7 @@ def _unique_named_file(control_root: Path, raw: Any) -> Path | None:
     if not isinstance(raw, str):
         return None
     try:
-        root = control_root.parent if control_root.name == ".dset" else control_root
+        root = control_root.parent if control_root.name == ".carmadio" else control_root
         return find_unique_name(root, raw)
     except (FileNotFoundError, ValueError):
         return None
@@ -971,7 +971,7 @@ def _wrapper_carrier(root: Path, wrapper: dict[str, Any]) -> Path | None:
 def _rule_carrier(root: Path, rule: dict[str, Any]) -> Path | None:
     document = rule.get("document")
     if document is not None:
-        return _unique_named_file(root / ".dset", document)
+        return _unique_named_file(root / ".carmadio", document)
     return _local_path(root, rule.get("path"))
 
 

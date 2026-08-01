@@ -4,7 +4,7 @@
 
 The adopting project configures one integration branch, one protected release
 branch, one forge publisher, and one exact tag pattern in its discovered project
-manifest: schema 1.3 `.dset/dset_settings.toml`, schema 1.2 at its layered path,
+manifest: schema 1.3 `.carmadio/dset_settings.toml`, schema 1.2 at its layered path,
 or the legacy central path.
 Generic DSET skills use configured roles, never hard-coded branch or forge
 names.

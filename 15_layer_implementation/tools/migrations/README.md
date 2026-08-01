@@ -97,6 +97,34 @@ python3 \
 
 A successful second preview reports zero writes and deletes.
 
+## Run the CARMADIO repository-directory migration
+
+This recipe renames the governed and runtime top-level directories while
+preserving ignored runtime state and rewriting every tracked text reference.
+Preview the complete tracked-carrier plan:
+
+```bash
+python3 \
+  15_layer_implementation/tools/migrations/migrate_repository_directories_to_carmadio.py
+```
+
+Apply only the reviewed plan digest:
+
+```bash
+python3 \
+  15_layer_implementation/tools/migrations/migrate_repository_directories_to_carmadio.py \
+  --apply \
+  --expect-plan-digest PLAN_DIGEST
+```
+
+Verify the current repository tree:
+
+```bash
+python3 \
+  15_layer_implementation/tools/migrations/migrate_repository_directories_to_carmadio.py \
+  --check
+```
+
 ## Safety behavior
 
 The shared runtime:
@@ -104,7 +132,7 @@ The shared runtime:
 - rejects unknown carriers, path and symlink escape, duplicate targets, and
   write/delete collisions;
 - binds every operation to its exact preimage;
-- stages candidate bytes under `.dset_runtime/migrations`;
+- stages candidate bytes under `.carmadio_runtime/migrations`;
 - validates staged carriers before replacing live files;
 - verifies the complete result after replacement;
 - restores every touched byte if staging, replacement, or verification fails;

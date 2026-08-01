@@ -3,7 +3,7 @@
 
 Invocation: ``python dset_verify_meta_gov_migration.py [ROOT] [--expected-count N]``.
 ROOT defaults to the repository containing this completed tool. It compares the
-current atomic files in ``.dset/101_layer_meta`` and ``.dset/102_layer_gov``
+current atomic files in ``.carmadio/101_layer_meta`` and ``.carmadio/102_layer_gov``
 with that root's ``HEAD`` versions, checking paths, IDs, protected relations,
 original body prefixes, YAML carrier format, and frontmatter retention. The
 default expected count is 319. It writes nothing, exits 0 on success and 1 on
@@ -27,8 +27,8 @@ sys.path.insert(0, str(REPO))
 from dset_toolchain.frontmatter import parse  # noqa: E402
 
 ROOT_PREFIXES = (
-    ".dset/101_layer_meta/",
-    ".dset/102_layer_gov/",
+    ".carmadio/101_layer_meta/",
+    ".carmadio/102_layer_gov/",
 )
 VOCAB = {
     "layer:meta": {

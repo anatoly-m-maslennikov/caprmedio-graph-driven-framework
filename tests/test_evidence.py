@@ -19,9 +19,9 @@ from tests import repository_root
 # ROOT locates the repository fixture; repository layout is authoritative.
 ROOT = repository_root(Path(__file__))
 # SCHEMA defines schema; this module owns the default.
-SCHEMA = ROOT / ".dset/02_layer_gov/schemas/evidence-record.schema.toml"
+SCHEMA = ROOT / ".carmadio/02_layer_gov/schemas/evidence-record.schema.toml"
 # TEMPLATE defines template; this module owns the default.
-TEMPLATE = ROOT / ".dset/02_layer_gov/templates/evidence-record.md"
+TEMPLATE = ROOT / ".carmadio/02_layer_gov/templates/evidence-record.md"
 
 
 class EvidenceRecordTests(unittest.TestCase):

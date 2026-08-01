@@ -19,7 +19,7 @@ from tests import repository_root
 # ROOT locates the repository fixture; repository layout is authoritative.
 ROOT = repository_root(Path(__file__))
 # METHODOLOGY defines methodology; this module owns the default.
-METHODOLOGY = ROOT / ".dset" / "000_dset_methodology"
+METHODOLOGY = ROOT / ".carmadio" / "000_dset_methodology"
 
 
 def _unique_carrier(name: str) -> Path:

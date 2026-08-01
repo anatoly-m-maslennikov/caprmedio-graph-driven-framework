@@ -30,7 +30,7 @@ class RepositoryLayoutTest(unittest.TestCase):
     def test_legacy_slim_layout_remains_readable(self) -> None:
         with temporary_directory() as raw:
             root = Path(raw).resolve()
-            dset = root / ".dset"
+            dset = root / ".carmadio"
             for layer in LAYERS:
                 (dset / layer).mkdir(parents=True)
             (dset / "project").mkdir()
@@ -63,7 +63,7 @@ class RepositoryLayoutTest(unittest.TestCase):
     def test_numbered_layout_maps_stable_logical_layers(self) -> None:
         with temporary_directory() as raw:
             root = Path(raw).resolve()
-            dset = root / ".dset"
+            dset = root / ".carmadio"
             for directory in LAYER_DIRECTORIES.values():
                 (dset / directory).mkdir(parents=True)
             (dset / "project").mkdir()

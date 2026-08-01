@@ -31,9 +31,9 @@ class ProjectSettingsTests(unittest.TestCase):
     """Verify project settings behavior."""
 
     def test_emitted_settings_are_documented_1_3_defaults(self) -> None:
-        root_text = (ROOT / ".dset" / SETTINGS_FILENAME).read_text(encoding="utf-8")
+        root_text = (ROOT / ".carmadio" / SETTINGS_FILENAME).read_text(encoding="utf-8")
         template_text = (
-            ROOT / f".dset/01_layer_meta/templates/{SETTINGS_FILENAME}"
+            ROOT / f".carmadio/01_layer_meta/templates/{SETTINGS_FILENAME}"
         ).read_text(encoding="utf-8")
         for setting in (
             "schema_version",
@@ -125,7 +125,7 @@ class ProjectSettingsTests(unittest.TestCase):
             with self.subTest(priority=removed):
                 with temporary_directory() as raw:
                     root = Path(raw).resolve()
-                    settings_path = root / ".dset" / SETTINGS_FILENAME
+                    settings_path = root / ".carmadio" / SETTINGS_FILENAME
                     settings_path.parent.mkdir()
                     settings_path.write_text(
                         "\n".join(
@@ -176,8 +176,8 @@ class ProjectSettingsTests(unittest.TestCase):
     def test_competing_settings_filenames_fail_closed(self) -> None:
         with temporary_directory() as raw:
             root = Path(raw).resolve()
-            (root / ".dset").mkdir()
-            (root / ".dset" / SETTINGS_FILENAME).write_text(
+            (root / ".carmadio").mkdir()
+            (root / ".carmadio" / SETTINGS_FILENAME).write_text(
                 'schema_version = "1.3"\n', encoding="utf-8"
             )
             (root / LEGACY_SETTINGS_FILENAME).write_text(
@@ -188,7 +188,7 @@ class ProjectSettingsTests(unittest.TestCase):
             issues,
             (
                 "DSET settings carriers cannot coexist: "
-                ".dset/dset_settings.toml, dset.toml",
+                ".carmadio/dset_settings.toml, dset.toml",
             ),
         )
 

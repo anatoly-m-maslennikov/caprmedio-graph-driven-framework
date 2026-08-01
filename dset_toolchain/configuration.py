@@ -213,10 +213,10 @@ def _matching_carriers(root: Path, surface_id: str) -> list[str]:
         "architecture-view": ("architecture",),
     }[surface_id]
     matches: list[str] = []
-    for path in sorted((root / ".dset").rglob("*")):
+    for path in sorted((root / ".carmadio").rglob("*")):
         if (
             not path.is_file()
-            or ".dset_runtime" in path.parts
+            or ".carmadio_runtime" in path.parts
             or "000_dset_methodology" in path.parts
         ):
             continue

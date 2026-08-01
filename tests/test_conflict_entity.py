@@ -17,7 +17,7 @@ from tests import repository_root
 # ROOT locates the repository fixture; repository layout is authoritative.
 ROOT = repository_root(Path(__file__))
 # GOV_PACKAGE defines gov package; this module owns the default.
-GOV_PACKAGE = ROOT / ".dset" / "02_layer_gov"
+GOV_PACKAGE = ROOT / ".carmadio" / "02_layer_gov"
 # DECISIONS defines decisions; this module owns the default.
 DECISIONS = GOV_PACKAGE / "decision"
 
@@ -53,7 +53,7 @@ class ConflictEntityTests(unittest.TestCase):
             encoding="utf-8"
         )
         rules = (
-            ROOT / ".dset" / "02_layer_gov" / "specification-work-items.md"
+            ROOT / ".carmadio" / "02_layer_gov" / "specification-work-items.md"
         ).read_text(encoding="utf-8")
         self.assertIn("never workflow", artifacts)
         self.assertIn("not from a workflow", authoring)
@@ -94,10 +94,10 @@ class ConflictEntityTests(unittest.TestCase):
         self.assertIn("One atom, one primary governed claim", fpf_text)
 
     def test_live_and_template_work_item_rules_match(self) -> None:
-        live = ROOT / ".dset" / "02_layer_gov" / "specification-work-items.md"
+        live = ROOT / ".carmadio" / "02_layer_gov" / "specification-work-items.md"
         template = (
             ROOT
-            / ".dset"
+            / ".carmadio"
             / "02_layer_gov"
             / "templates"
             / "governance"

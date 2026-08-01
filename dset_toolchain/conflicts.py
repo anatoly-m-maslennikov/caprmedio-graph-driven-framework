@@ -471,7 +471,7 @@ def _party(
         rule_path = (
             find_unique_name(root, document)
             if isinstance(document, str)
-            else root / ".dset" / "missing-rule-document"
+            else root / ".carmadio" / "missing-rule-document"
         )
         evidence = [registry_identity] if registry_identity is not None else []
         if rule_path.is_file():
@@ -640,10 +640,10 @@ def _derived_identity(root: Path, path: Path) -> dict[str, str]:
     """Handle identity using the declared repository contract."""
     resolved = path.resolve()
     try:
-        resolved.relative_to(root / ".dset")
+        resolved.relative_to(root / ".carmadio")
     except ValueError as error:
         raise ValueError(
-            "conflict evidence must remain inside the project .dset"
+            "conflict evidence must remain inside the project .carmadio"
         ) from error
     if not resolved.is_file():
         raise ValueError(f"conflict evidence does not exist: {resolved.name}")

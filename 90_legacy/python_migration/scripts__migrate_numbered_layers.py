@@ -52,7 +52,7 @@ def _git_lines(*arguments: str) -> list[str]:
 
 
 def _tracked_layer_files() -> list[Path]:
-    prefixes = [f".dset/{layer}" for layer in LAYER_DIRECTORIES]
+    prefixes = [f".carmadio/{layer}" for layer in LAYER_DIRECTORIES]
     return [ROOT / relative for relative in _git_lines("ls-files", *prefixes)]
 
 
@@ -67,7 +67,7 @@ def _protected_transition_targets() -> dict[str, dict[str, Any]]:
         if not isinstance(current, str) or not isinstance(digest, str):
             continue
         relative = Path(current)
-        if len(relative.parts) < 3 or relative.parts[:1] != (".dset",):
+        if len(relative.parts) < 3 or relative.parts[:1] != (".carmadio",):
             continue
         if relative.parts[1] not in LAYER_DIRECTORIES:
             continue
@@ -87,13 +87,13 @@ def _protected_transition_targets() -> dict[str, dict[str, Any]]:
 
 
 def _target(source: Path) -> Path:
-    relative = source.relative_to(ROOT / ".dset")
+    relative = source.relative_to(ROOT / ".carmadio")
     layer, *tail = relative.parts
-    return ROOT / ".dset" / LAYER_DIRECTORIES[layer] / Path(*tail)
+    return ROOT / ".carmadio" / LAYER_DIRECTORIES[layer] / Path(*tail)
 
 
 def _is_immutable(path: Path) -> bool:
-    relative = path.relative_to(ROOT / ".dset")
+    relative = path.relative_to(ROOT / ".carmadio")
     return len(relative.parts) > 2 and relative.parts[1] in IMMUTABLE_OWNERS
 
 
@@ -218,7 +218,7 @@ def _rewrite_mutable_text(immutable_targets: set[Path]) -> None:
     for layer, directory in LAYER_DIRECTORIES.items():
         replacements.extend(
             (
-                (f".dset/{layer}", f".dset/{directory}"),
+                (f".carmadio/{layer}", f".carmadio/{directory}"),
                 (f"../{layer}", f"../{directory}"),
             )
         )
@@ -234,7 +234,7 @@ def _rewrite_mutable_text(immutable_targets: set[Path]) -> None:
             or path in immutable_targets
             or path in {ATOMS, LEGACY_AUTHORITY, TRANSITIONS}
             or ".git" in path.parts
-            or ".dset_runtime" in path.parts
+            or ".carmadio_runtime" in path.parts
         ):
             continue
         try:
@@ -244,7 +244,7 @@ def _rewrite_mutable_text(immutable_targets: set[Path]) -> None:
         current = original
         for before, after in replacements:
             current = current.replace(before, after)
-        if path == ROOT / ".dset/README.md":
+        if path == ROOT / ".carmadio/README.md":
             for layer, directory in LAYER_DIRECTORIES.items():
                 current = current.replace(
                     f"]({layer}/README.md)", f"]({directory}/README.md)"
@@ -254,8 +254,8 @@ def _rewrite_mutable_text(immutable_targets: set[Path]) -> None:
 
 
 def migrate() -> None:
-    old_roots = [ROOT / ".dset" / layer for layer in LAYER_DIRECTORIES]
-    new_roots = [ROOT / ".dset" / path for path in LAYER_DIRECTORIES.values()]
+    old_roots = [ROOT / ".carmadio" / layer for layer in LAYER_DIRECTORIES]
+    new_roots = [ROOT / ".carmadio" / path for path in LAYER_DIRECTORIES.values()]
     if all(path.is_dir() for path in new_roots) and not any(
         path.exists() for path in old_roots
     ):
@@ -295,7 +295,7 @@ def migrate() -> None:
         immutable_targets.add(target)
 
     for layer, directory in LAYER_DIRECTORIES.items():
-        (ROOT / ".dset" / layer).rename(ROOT / ".dset" / directory)
+        (ROOT / ".carmadio" / layer).rename(ROOT / ".carmadio" / directory)
 
     TRANSITIONS.write_text(render_ledger(ROOT, additions), encoding="utf-8")
     atoms = load_toml(ATOMS)

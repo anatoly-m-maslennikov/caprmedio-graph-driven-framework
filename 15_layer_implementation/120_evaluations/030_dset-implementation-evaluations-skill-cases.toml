@@ -3,7 +3,7 @@ profile_id = "agent-skills-v1"
 case_set_id = "dset-public-skills-v1"
 status = "definition-only"
 
-[skills.dset]
+[skills.carmadio]
 should_trigger = "I need to improve this project, but I do not know which DSET workflow should start."
 should_not_trigger = "Initialize DSET in this empty repository and show the dry-run first."
 ambiguous_routing = "We need to add a feature and probably update its specs and tests too."
@@ -12,7 +12,7 @@ ambiguous_expected = "Use dset for uncertain multi-stage routing; hand off to ds
 [skills."dset-init"]
 should_trigger = "Set up DSET in this existing repository without overwriting its current files."
 should_not_trigger = "The repository already has DSET, but its governance registry is invalid."
-ambiguous_routing = "This repository has a partial .dset folder; make DSET usable."
+ambiguous_routing = "This repository has a partial .carmadio folder; make DSET usable."
 ambiguous_expected = "Discover first; use dset-init only when no valid root exists, otherwise route invalid governance to dset-repair-governance."
 
 [skills."dset-repair-governance"]

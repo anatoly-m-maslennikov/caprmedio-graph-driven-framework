@@ -12,17 +12,19 @@ from dset_toolchain.layout import METHODOLOGY_ROOT  # noqa: E402
 from dset_toolchain.skill_catalog import PUBLIC_SKILL_WORKFLOWS  # noqa: E402
 
 OUTPUT = ROOT / "dset_toolchain" / "bootstrap_bundle.json"
+BUNDLE_TEXT_SUFFIXES = {".json", ".md", ".py", ".toml", ".txt", ".yaml", ".yml"}
 
 
 def selected_files(root: Path = ROOT) -> list[Path]:
     root = root.resolve()
-    selected = [root / ".dset" / "dset_settings.toml"]
-    methodology = root / ".dset" / METHODOLOGY_ROOT
+    selected = [root / ".carmadio" / "dset_settings.toml"]
+    methodology = root / ".carmadio" / METHODOLOGY_ROOT
     selected.extend(
         path
         for path in methodology.rglob("*")
         if path.is_file()
         and path.name != "bootstrap_bundle.json"
+        and path.suffix in BUNDLE_TEXT_SUFFIXES
         and not any(
             part.startswith(".") for part in path.relative_to(methodology).parts
         )
@@ -33,7 +35,7 @@ def selected_files(root: Path = ROOT) -> list[Path]:
             for path in (root / "skills" / skill_id).rglob("*")
             if path.is_file()
             and not any(part.startswith(".") for part in path.relative_to(root).parts)
-            and path.suffix in {".json", ".md", ".py", ".toml", ".txt", ".yaml", ".yml"}
+            and path.suffix in BUNDLE_TEXT_SUFFIXES
         )
     return sorted(set(selected))
 

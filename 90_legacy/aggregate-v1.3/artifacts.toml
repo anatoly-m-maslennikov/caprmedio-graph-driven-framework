@@ -26,7 +26,7 @@ purpose = "Artifact architecture and authoring rules"
 
 [[areas]]
 id = "project-control"
-root = ".dset"
+root = ".carmadio"
 hub = "00_project/README.md"
 parent = "repository"
 owner = "methodology"
@@ -42,40 +42,40 @@ purpose = "Focused agent workflow sources"
 
 [[areas]]
 id = "dset-meta"
-root = ".dset/01_layer_meta"
-hub = ".dset/01_layer_meta/README.md"
+root = ".carmadio/01_layer_meta"
+hub = ".carmadio/01_layer_meta/README.md"
 parent = "project-control"
 owner = "meta"
 purpose = "Project identity and accepted behavioral truth"
 
 [[areas]]
 id = "dset-gov"
-root = ".dset/02_layer_gov"
-hub = ".dset/02_layer_gov/README.md"
+root = ".carmadio/02_layer_gov"
+hub = ".carmadio/02_layer_gov/README.md"
 parent = "project-control"
 owner = "gov"
 purpose = "Governance registries, intake, provenance, and derived views"
 
 [[areas]]
 id = "dset-tool"
-root = ".dset/03_layer_tool"
-hub = ".dset/03_layer_tool/README.md"
+root = ".carmadio/03_layer_tool"
+hub = ".carmadio/03_layer_tool/README.md"
 parent = "project-control"
 owner = "tool"
 purpose = "Executable tooling, fixtures, and traceability contracts"
 
 [[areas]]
 id = "dset-skill"
-root = ".dset/04_layer_skill"
-hub = ".dset/04_layer_skill/README.md"
+root = ".carmadio/04_layer_skill"
+hub = ".carmadio/04_layer_skill/README.md"
 parent = "project-control"
 owner = "skill"
 purpose = "Agent workflow, delegation, and run-evidence contracts"
 
 [[areas]]
 id = "dset-ops"
-root = ".dset/05_layer_ops"
-hub = ".dset/05_layer_ops/README.md"
+root = ".carmadio/05_layer_ops"
+hub = ".carmadio/05_layer_ops/README.md"
 parent = "project-control"
 owner = "ops"
 purpose = "Delivery, release, supportability, and hosted evidence"

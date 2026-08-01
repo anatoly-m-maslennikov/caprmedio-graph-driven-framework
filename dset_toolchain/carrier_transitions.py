@@ -36,7 +36,7 @@ AUTHORITY_DECISIONS = frozenset(
 # SESSION_ID defines session id; this module owns the default.
 SESSION_ID = "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
 # LEDGER_RELATIVE defines ledger relative; this module owns the default.
-LEDGER_RELATIVE = Path(".dset/100_project/legacy/migrations/carrier-transitions.toml")
+LEDGER_RELATIVE = Path(".carmadio/100_project/legacy/migrations/carrier-transitions.toml")
 # LEGACY_LEDGER_RELATIVES defines legacy ledger relatives; this module owns the default.
 LEGACY_LEDGER_RELATIVES = (
     Path("00_project/migrations/carrier-transitions.toml"),

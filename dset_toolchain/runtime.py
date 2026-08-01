@@ -288,7 +288,7 @@ def start_run(
     _require_id(selected_root_run)
     _require_nullable_id(selected_parent_run)
     checkpoint_relative = (
-        f".dset_runtime/sessions/{selected_session_id}.json"
+        f".carmadio_runtime/sessions/{selected_session_id}.json"
         if storage is not None
         else None
     )
@@ -397,7 +397,7 @@ def resume_checkpoint(
     An explicit unknown session returns ``None``. Implicit matching returns
     ``None`` when no checkpoint matches and stops with
     ``AmbiguousSessionError`` when more than one active checkpoint matches.
-    This function is read-only and never creates ``.dset``.
+    This function is read-only and never creates ``.carmadio``.
     """
 
     _require_nullable_id(session_id)
@@ -652,12 +652,12 @@ def load_invocation(root: Path, run_id: str) -> RuntimeInvocation:
 
 def _storage_for_root(root: Path | None) -> _Storage | None:
     """Handle for root using the declared repository contract."""
-    if not _is_dset_root(root):
+    if not _is_carmadio_root(root):
         return None
     assert root is not None
     resolved = root.resolve()
-    runs = resolved / ".dset_runtime" / "runs"
-    sessions = resolved / ".dset_runtime" / "sessions"
+    runs = resolved / ".carmadio_runtime" / "runs"
+    sessions = resolved / ".carmadio_runtime" / "sessions"
     try:
         runs.mkdir(parents=True, exist_ok=True)
         sessions.mkdir(parents=True, exist_ok=True)
@@ -668,18 +668,18 @@ def _storage_for_root(root: Path | None) -> _Storage | None:
 
 def _existing_storage(root: Path | None) -> _Storage | None:
     """Handle storage using the declared repository contract."""
-    if not _is_dset_root(root):
+    if not _is_carmadio_root(root):
         return None
     assert root is not None
     resolved = root.resolve()
-    runs = resolved / ".dset_runtime" / "runs"
-    sessions = resolved / ".dset_runtime" / "sessions"
+    runs = resolved / ".carmadio_runtime" / "runs"
+    sessions = resolved / ".carmadio_runtime" / "sessions"
     if not sessions.is_dir():
         return None
     return _Storage(resolved, runs, sessions)
 
 
-def _is_dset_root(root: Path | None) -> bool:
+def _is_carmadio_root(root: Path | None) -> bool:
     """Handle dset root using the declared repository contract."""
     if root is None or not root.is_dir():
         return False

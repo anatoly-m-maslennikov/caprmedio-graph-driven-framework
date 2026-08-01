@@ -38,4 +38,4 @@ Matt Pocock's name and marks belong to their owner. References describe provenan
 
 ## Contribution rule
 
-Before copied or substantially adapted third-party material enters this repository, record its exact source and revision, license, affected files, modifications, required notices, and trademark boundary here and in [`dset_settings.toml`](.dset/dset_settings.toml). Add the applicable license text under `LICENSES/`. Independently re-expressed ideas must still cite their source when it materially shaped the design; web-only references may be recorded here with their observation date when no versioned source artifact is imported.
+Before copied or substantially adapted third-party material enters this repository, record its exact source and revision, license, affected files, modifications, required notices, and trademark boundary here and in [`dset_settings.toml`](.carmadio/dset_settings.toml). Add the applicable license text under `LICENSES/`. Independently re-expressed ideas must still cite their source when it materially shaped the design; web-only references may be recorded here with their observation date when no versioned source artifact is imported.

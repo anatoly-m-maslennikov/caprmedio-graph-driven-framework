@@ -17,7 +17,7 @@ from pathlib import Path
 
 def _project_root(start: Path) -> Path:
     for candidate in start.resolve().parents:
-        if (candidate / ".dset" / "dset_settings.toml").is_file():
+        if (candidate / ".carmadio" / "dset_settings.toml").is_file():
             return candidate
     raise FileNotFoundError("DSET project root is unavailable")
 

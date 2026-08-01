@@ -129,7 +129,7 @@ and [mypy strict-mode guidance](https://mypy.readthedocs.io/en/stable/existing_c
 1. Passwords, API keys, access and refresh tokens, session cookies, private
    keys, signing or encryption keys, authentication certificates, recovery
    codes, and credential-bearing connection strings or URLs are secrets. They
-   never enter `.dset`, source, `settings.toml`, command-line arguments, process
+   never enter `.carmadio`, source, `settings.toml`, command-line arguments, process
    titles, build arguments, image layers, caches, logs, tracebacks, debug output,
    fixtures, snapshots, prompts, evidence, or generated artifacts.
 2. Source code and DSET contain only stable environment-variable key names for

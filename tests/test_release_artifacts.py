@@ -17,7 +17,7 @@ from tests import repository_root
 # ROOT locates the repository fixture; repository layout is authoritative.
 ROOT = repository_root(Path(__file__))
 # TEMPLATES defines templates; this module owns the default.
-TEMPLATES = ROOT / ".dset/05_layer_ops/templates/release"
+TEMPLATES = ROOT / ".carmadio/05_layer_ops/templates/release"
 # PLANNING defines planning; this module owns the default.
 PLANNING = ROOT / "10_versions"
 
@@ -127,8 +127,8 @@ class ReleaseArtifactTests(unittest.TestCase):
         self.assertEqual(list(PLANNING.glob("*MILESTONE*.md")), [])
 
     def test_live_release_rule_matches_distributed_template(self) -> None:
-        live = ROOT / ".dset/05_layer_ops/procedure-release.md"
-        template = ROOT / ".dset/05_layer_ops/templates/governance/core-v1/release.md"
+        live = ROOT / ".carmadio/05_layer_ops/procedure-release.md"
+        template = ROOT / ".carmadio/05_layer_ops/templates/governance/core-v1/release.md"
         self.assertEqual(
             live.read_text(encoding="utf-8"),
             template.read_text(encoding="utf-8"),

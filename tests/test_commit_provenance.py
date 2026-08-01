@@ -132,7 +132,7 @@ class CommitProvenanceTests(unittest.TestCase):
         schema = json.loads(
             (
                 repository_root(Path(__file__))
-                / ".dset/01_layer_meta/schemas/project.schema.toml"
+                / ".carmadio/01_layer_meta/schemas/project.schema.toml"
             ).read_text(encoding="utf-8")
         )
 

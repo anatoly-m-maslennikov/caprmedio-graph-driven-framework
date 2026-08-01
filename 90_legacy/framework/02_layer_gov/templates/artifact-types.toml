@@ -1,6 +1,6 @@
 schema_version = 1.0
 profile = "documentation-v1"
-legacy_evidence_paths = ["10_versions/archive/2026-07-14-add-artifact-governance-profile/proofs/archive-readiness-2026-07-14.md", "10_versions/archive/2026-07-14-add-artifact-governance-profile/proofs/deterministic-verification-2026-07-14.md", "10_versions/archive/2026-07-14-add-artifact-governance-profile/proofs/github-delivery-evidence-2026-07-14.md", "10_versions/archive/2026-07-14-add-artifact-governance-profile/proofs/qualitative-evals-2026-07-14.md", "10_versions/archive/2026-07-14-bootstrap-dset-project-structure/proofs/boot-evals-2026-07-14.md", "10_versions/archive/2026-07-14-bootstrap-dset-project-structure/proofs/boot-evals-pushed-head-2026-07-14.md", "10_versions/archive/2026-07-14-make-supportability-first-class/proofs/archive-readiness-audit-2026-07-14.md", "10_versions/archive/2026-07-14-make-supportability-first-class/proofs/deterministic-checks-2026-07-14.md", "10_versions/archive/2026-07-14-make-supportability-first-class/proofs/supportability-evals-2026-07-14.md", "10_versions/archive/2026-07-14-make-supportability-first-class/proofs/synthetic-incidents.md", "00_project/evidence/CARMADIO-EVIDENCE-RECORD-001-artifact-role-lifecycle.md", "00_project/evidence/CARMADIO-EVIDENCE-RECORD-002-project-scope-ownership.md", "00_project/evidence/CARMADIO-EVIDENCE-RECORD-003-artifact-lineage.md", "00_project/evidence/CARMADIO-EVIDENCE-RECORD-004-entry-criteria-skill-chains.md", "00_project/evidence/CARMADIO-EVIDENCE-RECORD-005-shared-skill-runtime.md", "00_project/evidence/CARMADIO-EVIDENCE-RECORD-006-artifact-emission-gate.md", "00_project/evidence/CARMADIO-EVIDENCE-RECORD-007-executable-entry-criteria-closure.md", "00_project/evidence/CARMADIO-EVIDENCE-RECORD-008-governed-conflict-runtime.md", "00_project/evidence/CARMADIO-EVIDENCE-RECORD-009-semantic-type-migration.md", "00_project/evidence/CARMADIO-EVIDENCE-RECORD-010-release-runtime-reconciliation.md", "00_project/evidence/CARMADIO-EVIDENCE-RECORD-011-typescript-candidate-profile.md", "00_project/evidence/CARMADIO-EVIDENCE-RECORD-012-oyoha-local-adoption.md", "00_project/evidence/CARMADIO-EVIDENCE-RECORD-013-oyoha-local-rule-cutover.md", "00_project/evidence/CARMADIO-EVIDENCE-RECORD-014-oyoha-independent-evaluation.md", "00_project/evidence/CARMADIO-EVIDENCE-RECORD-015-claudian-clean-room.md", "00_project/evidence/CARMADIO-EVIDENCE-RECORD-016-oyoha-supportability-slice.md", "00_project/evidence/CARMADIO-EVIDENCE-RECORD-017-typescript-profile-instantiation.md", "00_project/evidence/CARMADIO-EVIDENCE-RECORD-018-codex-host-install-attempt.md", "00_project/evidence/CARMADIO-EVIDENCE-RECORD-019-independent-review-remediation.md", "00_project/evidence/CARMADIO-EVIDENCE-RECORD-020-codex-host-install-attempt.md", "00_project/evidence/CARMADIO-EVIDENCE-RECORD-021-claude-review-attempt.md", "00_project/evidence/CARMADIO-EVIDENCE-RECORD-022-codex-host-invocation-attempt.md", ".dset/02_layer_gov/evidence/CARMADIO-EVIDENCE-RECORD-023-typed-artifact-relations.md", ".dset/02_layer_gov/evidence/CARMADIO-EVIDENCE-RECORD-024-legacy-relation-sealing.md", ".dset/02_layer_gov/evidence/CARMADIO-EVIDENCE-RECORD-025-verbose-project-settings.md", "00_project/evidence/archive/clarify-rename-verification-2026-07-14.md", "00_project/evidence/archive/end-to-end-toolchain-verification-2026-07-16.md", "00_project/evidence/archive/expanded-skill-surface-verification-2026-07-16.md", "00_project/evidence/archive/five-skill-source-verification-2026-07-16.md", "00_project/evidence/archive/fpf-flat-type-model-review-2026-07-20.md", "00_project/evidence/archive/fpf-governance-constitution-review-2026-07-16.md", "00_project/evidence/archive/fpf-principles-audit-2026-07-15.md", "00_project/evidence/archive/fpf-principles-reaudit-2026-07-15.md", "00_project/evidence/archive/hosted-fixed-point-2026-07-14.md", "00_project/evidence/archive/invariant-contract-verification-2026-07-14.md", "00_project/evidence/archive/layered-work-area-verification-2026-07-15.md", "00_project/evidence/archive/local-fixed-point-2026-07-14.md", "00_project/evidence/archive/local-gate-2026-07-15.md", "00_project/evidence/archive/recursive-session-provenance-2026-07-16.md", "00_project/evidence/archive/schema-self-application-audit-2026-07-15.md", "00_project/evidence/archive/schema-self-application-reaudit-2026-07-15.md", "00_project/evidence/archive/skill-runtime-consistency-2026-07-16.md", "00_project/evidence/archive/wrapper-rule-inventory-2026-07-14.md", "10_versions/archive/2026-07-14-operationalize-dset-v1/proofs/archive-readiness-2026-07-14.md", "10_versions/archive/2026-07-14-operationalize-dset-v1/proofs/deterministic-verification-2026-07-14.md", "10_versions/archive/2026-07-14-operationalize-dset-v1/proofs/github-delivery-evidence-2026-07-14.md", "10_versions/archive/2026-07-14-operationalize-dset-v1/proofs/qualitative-evals-2026-07-14.md"]
+legacy_evidence_paths = ["10_versions/archive/2026-07-14-add-artifact-governance-profile/proofs/archive-readiness-2026-07-14.md", "10_versions/archive/2026-07-14-add-artifact-governance-profile/proofs/deterministic-verification-2026-07-14.md", "10_versions/archive/2026-07-14-add-artifact-governance-profile/proofs/github-delivery-evidence-2026-07-14.md", "10_versions/archive/2026-07-14-add-artifact-governance-profile/proofs/qualitative-evals-2026-07-14.md", "10_versions/archive/2026-07-14-bootstrap-dset-project-structure/proofs/boot-evals-2026-07-14.md", "10_versions/archive/2026-07-14-bootstrap-dset-project-structure/proofs/boot-evals-pushed-head-2026-07-14.md", "10_versions/archive/2026-07-14-make-supportability-first-class/proofs/archive-readiness-audit-2026-07-14.md", "10_versions/archive/2026-07-14-make-supportability-first-class/proofs/deterministic-checks-2026-07-14.md", "10_versions/archive/2026-07-14-make-supportability-first-class/proofs/supportability-evals-2026-07-14.md", "10_versions/archive/2026-07-14-make-supportability-first-class/proofs/synthetic-incidents.md", "00_project/evidence/CARMADIO-EVIDENCE-RECORD-001-artifact-role-lifecycle.md", "00_project/evidence/CARMADIO-EVIDENCE-RECORD-002-project-scope-ownership.md", "00_project/evidence/CARMADIO-EVIDENCE-RECORD-003-artifact-lineage.md", "00_project/evidence/CARMADIO-EVIDENCE-RECORD-004-entry-criteria-skill-chains.md", "00_project/evidence/CARMADIO-EVIDENCE-RECORD-005-shared-skill-runtime.md", "00_project/evidence/CARMADIO-EVIDENCE-RECORD-006-artifact-emission-gate.md", "00_project/evidence/CARMADIO-EVIDENCE-RECORD-007-executable-entry-criteria-closure.md", "00_project/evidence/CARMADIO-EVIDENCE-RECORD-008-governed-conflict-runtime.md", "00_project/evidence/CARMADIO-EVIDENCE-RECORD-009-semantic-type-migration.md", "00_project/evidence/CARMADIO-EVIDENCE-RECORD-010-release-runtime-reconciliation.md", "00_project/evidence/CARMADIO-EVIDENCE-RECORD-011-typescript-candidate-profile.md", "00_project/evidence/CARMADIO-EVIDENCE-RECORD-012-oyoha-local-adoption.md", "00_project/evidence/CARMADIO-EVIDENCE-RECORD-013-oyoha-local-rule-cutover.md", "00_project/evidence/CARMADIO-EVIDENCE-RECORD-014-oyoha-independent-evaluation.md", "00_project/evidence/CARMADIO-EVIDENCE-RECORD-015-claudian-clean-room.md", "00_project/evidence/CARMADIO-EVIDENCE-RECORD-016-oyoha-supportability-slice.md", "00_project/evidence/CARMADIO-EVIDENCE-RECORD-017-typescript-profile-instantiation.md", "00_project/evidence/CARMADIO-EVIDENCE-RECORD-018-codex-host-install-attempt.md", "00_project/evidence/CARMADIO-EVIDENCE-RECORD-019-independent-review-remediation.md", "00_project/evidence/CARMADIO-EVIDENCE-RECORD-020-codex-host-install-attempt.md", "00_project/evidence/CARMADIO-EVIDENCE-RECORD-021-claude-review-attempt.md", "00_project/evidence/CARMADIO-EVIDENCE-RECORD-022-codex-host-invocation-attempt.md", ".carmadio/02_layer_gov/evidence/CARMADIO-EVIDENCE-RECORD-023-typed-artifact-relations.md", ".carmadio/02_layer_gov/evidence/CARMADIO-EVIDENCE-RECORD-024-legacy-relation-sealing.md", ".carmadio/02_layer_gov/evidence/CARMADIO-EVIDENCE-RECORD-025-verbose-project-settings.md", "00_project/evidence/archive/clarify-rename-verification-2026-07-14.md", "00_project/evidence/archive/end-to-end-toolchain-verification-2026-07-16.md", "00_project/evidence/archive/expanded-skill-surface-verification-2026-07-16.md", "00_project/evidence/archive/five-skill-source-verification-2026-07-16.md", "00_project/evidence/archive/fpf-flat-type-model-review-2026-07-20.md", "00_project/evidence/archive/fpf-governance-constitution-review-2026-07-16.md", "00_project/evidence/archive/fpf-principles-audit-2026-07-15.md", "00_project/evidence/archive/fpf-principles-reaudit-2026-07-15.md", "00_project/evidence/archive/hosted-fixed-point-2026-07-14.md", "00_project/evidence/archive/invariant-contract-verification-2026-07-14.md", "00_project/evidence/archive/layered-work-area-verification-2026-07-15.md", "00_project/evidence/archive/local-fixed-point-2026-07-14.md", "00_project/evidence/archive/local-gate-2026-07-15.md", "00_project/evidence/archive/recursive-session-provenance-2026-07-16.md", "00_project/evidence/archive/schema-self-application-audit-2026-07-15.md", "00_project/evidence/archive/schema-self-application-reaudit-2026-07-15.md", "00_project/evidence/archive/skill-runtime-consistency-2026-07-16.md", "00_project/evidence/archive/wrapper-rule-inventory-2026-07-14.md", "10_versions/archive/2026-07-14-operationalize-dset-v1/proofs/archive-readiness-2026-07-14.md", "10_versions/archive/2026-07-14-operationalize-dset-v1/proofs/deterministic-verification-2026-07-14.md", "10_versions/archive/2026-07-14-operationalize-dset-v1/proofs/github-delivery-evidence-2026-07-14.md", "10_versions/archive/2026-07-14-operationalize-dset-v1/proofs/qualitative-evals-2026-07-14.md"]
 legacy_structured = []
 
 [classification]
@@ -358,7 +358,7 @@ artifact_type = "navigation"
 artifact_subtype = "hub"
 
 [[path_rules]]
-pattern = ".dset/dset_settings.toml"
+pattern = ".carmadio/dset_settings.toml"
 artifact_type = "implementation"
 artifact_subtype = "configuration"
 
@@ -432,68 +432,68 @@ pattern = "00_project/analysis-*.md"
 artifact_type = "analysis_report"
 
 [[path_rules]]
-pattern = ".dset/*/decision/*.md"
+pattern = ".carmadio/*/decision/*.md"
 artifact_type = "atomic_record"
 
 [[path_rules]]
-pattern = ".dset/*/question/*.md"
+pattern = ".carmadio/*/question/*.md"
 artifact_type = "atomic_record"
 
 [[path_rules]]
-pattern = ".dset/*/problem/*.md"
+pattern = ".carmadio/*/problem/*.md"
 artifact_type = "atomic_record"
 
 [[path_rules]]
-pattern = ".dset/*/qa/*.md"
+pattern = ".carmadio/*/qa/*.md"
 artifact_type = "atomic_record"
 
 [[path_rules]]
-pattern = ".dset/*/navigation-*.md"
+pattern = ".carmadio/*/navigation-*.md"
 artifact_type = "navigation"
 artifact_subtype = "hub"
 
 [[path_rules]]
-pattern = ".dset/*/specification-*.md"
+pattern = ".carmadio/*/specification-*.md"
 artifact_type = "specification"
 artifact_subtype = "governance"
 
 [[path_rules]]
-pattern = ".dset/*/procedure-*.md"
+pattern = ".carmadio/*/procedure-*.md"
 artifact_type = "procedure"
 artifact_subtype = "playbook"
 
 [[path_rules]]
-pattern = ".dset/*/plan-tests.md"
+pattern = ".carmadio/*/plan-tests.md"
 artifact_type = "plan"
 artifact_subtype = "test_plan"
 
 [[path_rules]]
-pattern = ".dset/*/plan-evaluations.md"
+pattern = ".carmadio/*/plan-evaluations.md"
 artifact_type = "plan"
 artifact_subtype = "evaluation_plan"
 
 [[path_rules]]
-pattern = ".dset/*/package.toml"
+pattern = ".carmadio/*/package.toml"
 artifact_type = "implementation"
 artifact_subtype = "configuration"
 
 [[path_rules]]
-pattern = ".dset/*/schemas/*.json"
+pattern = ".carmadio/*/schemas/*.json"
 artifact_type = "implementation"
 artifact_subtype = "configuration"
 
 [[path_rules]]
-pattern = ".dset/*/dependency-policy.toml"
+pattern = ".carmadio/*/dependency-policy.toml"
 artifact_type = "implementation"
 artifact_subtype = "configuration"
 
 [[path_rules]]
-pattern = ".dset/*/budget.toml"
+pattern = ".carmadio/*/budget.toml"
 artifact_type = "implementation"
 artifact_subtype = "configuration"
 
 [[path_rules]]
-pattern = ".dset/*/fixtures/*.toml"
+pattern = ".carmadio/*/fixtures/*.toml"
 artifact_type = "implementation"
 artifact_subtype = "test_implementation"
 
@@ -517,12 +517,12 @@ pattern = "10_versions/archive/*/tasks.md"
 artifact_type = "atomic_record"
 
 [[path_rules]]
-pattern = ".dset/03_layer_tool/fixtures/bases/*/specs/example.md"
+pattern = ".carmadio/03_layer_tool/fixtures/bases/*/specs/example.md"
 artifact_type = "specification"
 artifact_subtype = "behavior"
 
 [[path_rules]]
-pattern = ".dset/03_layer_tool/fixtures/bases/*/tasks.md"
+pattern = ".carmadio/03_layer_tool/fixtures/bases/*/tasks.md"
 artifact_type = "atomic_record"
 
 [[path_rules]]
@@ -581,7 +581,7 @@ artifact_type = "procedure"
 artifact_subtype = "playbook"
 
 [[path_rules]]
-pattern = ".dset/05_layer_ops/supportability/delivery-runbook.md"
+pattern = ".carmadio/05_layer_ops/supportability/delivery-runbook.md"
 artifact_type = "procedure"
 artifact_subtype = "runbook"
 

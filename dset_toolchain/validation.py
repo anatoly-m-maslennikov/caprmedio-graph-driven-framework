@@ -192,7 +192,7 @@ def validate_repository(root: Path) -> list[Diagnostic]:
     try:
         layout = discover_layout(root)
     except ValueError as error:
-        return [_diag("CARMADIO-E001", root / ".dset", str(error))]
+        return [_diag("CARMADIO-E001", root / ".carmadio", str(error))]
     manifest_path = layout.manifest_path
     if not manifest_path.is_file():
         return [_diag("CARMADIO-E001", manifest_path, "project manifest is missing")]
@@ -217,7 +217,7 @@ def validate_repository(root: Path) -> list[Diagnostic]:
     try:
         schema_paths = tuple(layout.schema_paths())
     except ValueError as error:
-        diagnostics.append(_diag("CARMADIO-E118", layout.dset_root, str(error)))
+        diagnostics.append(_diag("CARMADIO-E118", layout.carmadio_root, str(error)))
         schema_paths = ()
     diagnostics.extend(_validate_schemas(schema_paths))
     diagnostics.extend(_validate_provenance(root))
@@ -2301,7 +2301,7 @@ def _validate_legacy_structured_links(
                 is_immutable
                 and target.suffix.lower() in {".yaml", ".yml"}
                 and (
-                    _within_root(root / ".dset", target)
+                    _within_root(root / ".carmadio", target)
                     or _within_root(root / "dset", target)
                 )
             ):
@@ -2888,7 +2888,7 @@ def _validate_artifact_hubs(
         runtime_descendants = sorted(
             set(
                 re.findall(
-                    r"\.dset_runtime/[^\s`\)\]\}>]+",
+                    r"\.carmadio_runtime/[^\s`\)\]\}>]+",
                     hub_text,
                 )
             )
@@ -2898,7 +2898,7 @@ def _validate_artifact_hubs(
                 _diag(
                     "CARMADIO-E123",
                     hub,
-                    "hub must not include .dset_runtime descendants: "
+                    "hub must not include .carmadio_runtime descendants: "
                     + ", ".join(runtime_descendants),
                 )
             )
@@ -3311,7 +3311,7 @@ def _validate_layered_change(
         policy = release.get("policy")
         owner = release.get("owner_change")
         expected_policy = (
-            ".dset/000_dset_methodology/06_ops/procedure-release.md"
+            ".carmadio/000_dset_methodology/06_ops/procedure-release.md"
             if layout.slim
             else "dset/scopes/ops/governance/release.md"
         )
@@ -3815,8 +3815,8 @@ def _project_visible_files(root: Path) -> list[Path]:
                 continue
             relative = Path(item.decode("utf-8"))
             path = root / relative
-            if relative.parts[:1] == (".dset_runtime",) or relative.parts[:2] == (
-                ".dset",
+            if relative.parts[:1] == (".carmadio_runtime",) or relative.parts[:2] == (
+                ".carmadio",
                 "runtime",
             ):
                 continue
@@ -3827,8 +3827,8 @@ def _project_visible_files(root: Path) -> list[Path]:
         path
         for path in root.rglob("*")
         if path.is_file()
-        and path.relative_to(root).parts[:1] != (".dset_runtime",)
-        and path.relative_to(root).parts[:2] != (".dset", "runtime")
+        and path.relative_to(root).parts[:1] != (".carmadio_runtime",)
+        and path.relative_to(root).parts[:2] != (".carmadio", "runtime")
         and not any(
             logical_part(part) in MARKDOWN_IGNORED_PARTS
             for part in path.relative_to(root).parts

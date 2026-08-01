@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://raw.githubusercontent.com/anatoly-m-maslennikov/dset-specs-loops-framework/main/.dset/02_layer_gov/schemas/artifact-types.schema.json",
+  "$id": "https://raw.githubusercontent.com/anatoly-m-maslennikov/dset-specs-loops-framework/main/.carmadio/02_layer_gov/schemas/artifact-types.schema.json",
   "title": "DSET artifact-type registry",
   "type": "object",
   "required": [

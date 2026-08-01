@@ -32,7 +32,7 @@ def has_logical_part(path: Path, names: set[str] | frozenset[str]) -> bool:
 
 def control_root(root: Path) -> Path:
     """Handle root using the declared repository contract."""
-    return root.resolve() / ".dset"
+    return root.resolve() / ".carmadio"
 
 
 def iter_control_files(root: Path, pattern: str = "*") -> Iterator[Path]:

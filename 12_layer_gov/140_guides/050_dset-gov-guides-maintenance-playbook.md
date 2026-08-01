@@ -30,7 +30,7 @@ stable hub navigation needs to change.
    - For `atomic`, emit one independently reviewable claim. Use the type-local
      `drafts/`, active, and `archive/` locations only when the project has
      implemented that layout. Otherwise stop: the layout migration remains
-     open under [CARMADIO-PROBLEM-GOV-011](../../.dset/102_layer_gov/problem/CARMADIO-PROBLEM-GOV-011-atomic-carriers-are-not-type-local.md).
+     open under [CARMADIO-PROBLEM-GOV-011](../../.carmadio/102_layer_gov/problem/CARMADIO-PROBLEM-GOV-011-atomic-carriers-are-not-type-local.md).
      Do not add a status field. Archive only by byte-preserving move and the
      applicable archive commit trailers.
    - For `append_only`, append complete records in order; never rewrite an

@@ -18,7 +18,7 @@ class RoutingSettingsTests(unittest.TestCase):
     """Verify current settings select the complete route contract."""
 
     def _write(self, root: Path, routing: str) -> None:
-        settings = root / ".dset" / SETTINGS_FILENAME
+        settings = root / ".carmadio" / SETTINGS_FILENAME
         settings.parent.mkdir()
         settings.write_text(
             "\n".join(

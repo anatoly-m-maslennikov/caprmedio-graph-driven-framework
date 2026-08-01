@@ -49,7 +49,7 @@ def validate_local_python_profile(root: Path) -> list[Diagnostic]:
 def _find_profile(root: Path) -> Path:
     """Resolve the one authoritative Local Python Tools profile carrier."""
     matches = sorted(root.rglob(PROFILE_NAME))
-    source = [path for path in matches if ".dset" not in path.parts]
+    source = [path for path in matches if ".carmadio" not in path.parts]
     if len(source) == 1:
         return source[0]
     if len(matches) == 1:

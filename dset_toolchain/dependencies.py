@@ -26,7 +26,7 @@ SPDX = re.compile(r"^[A-Za-z0-9][A-Za-z0-9.+-]*$")
 def dependency_policy_path(root: Path) -> Path:
     """Handle policy path using the declared repository contract."""
     layout = discover_layout(root.resolve())
-    owner = layout.layer_root("implementation") if layout.layered else layout.dset_root
+    owner = layout.layer_root("implementation") if layout.layered else layout.carmadio_root
     local = layout._numbered_file(owner, "dependency-policy.toml")
     if local.is_file():
         return local

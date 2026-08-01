@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import os
 from collections.abc import Callable
+from contextlib import suppress
 from pathlib import Path
 
 from .models import MigrationError, MigrationPlan
@@ -41,7 +42,7 @@ def _capture_originals(plan: MigrationPlan) -> dict[Path, bytes | None]:
 
 
 def _create_staging_root(root: Path) -> Path:
-    runtime_root = root / ".dset_runtime" / "migrations"
+    runtime_root = root / ".carmadio_runtime" / "migrations"
     runtime_root.mkdir(parents=True, exist_ok=True)
     staging_root = runtime_root / f"dset-meta-gov-carriers-{os.getpid()}"
     staging_root.mkdir()
@@ -108,3 +109,5 @@ def _cleanup_staging(root: Path) -> None:
     for path in root.glob("*"):
         path.unlink()
     root.rmdir()
+    with suppress(OSError):
+        root.parent.rmdir()

@@ -35,7 +35,7 @@ discovers exactly one owning DSET root, validates that root's selected local
 registry, and reads only the rule documents returned by that project's
 resolver before governed work. Settings, methodology, evergreen artifacts,
 atomic artifacts, evidence, Version records, and other governed DSET state are searched
-only below that repository's `.dset` control root. Product source and other
+only below that repository's `.carmadio` control root. Product source and other
 Work Area files may be read only after the governed workflow selects them as
 implementation inputs or targets.
 
@@ -50,7 +50,7 @@ the target project's governance.
 Durable DSET references use stable IDs or globally unique carrier names, never
 repository-relative or absolute carrier paths. The deterministic resolver may
 compute an in-memory filesystem location after it has selected the target
-`.dset`, but that location is neither authority nor persisted reference data.
+`.carmadio`, but that location is neither authority nor persisted reference data.
 
 **Scenario CARMADIO-SCENARIO-SKILL-003:** Two adopters use byte-identical wrappers
 but different registered output conventions. Consecutive invocations from a
@@ -93,7 +93,7 @@ A model override requires dated task-relevant comparative evidence covering requ
 
 ## CARMADIO-REQUIREMENT-SKILL-009 — Sessions survive chaining and context compaction
 
-The public skills must share one internal session-continuity capability rather than expose a separate session-management skill. `dset` starts, checkpoints, and resumes its workflow chain; a directly invoked lifecycle skill starts or joins a compatible session; automatically chained skills, governed model-only workflows, and delegated work remain child runs. Every run carries DSET session/root/parent identity plus unique host-prefixed `llm_session_ids` for contributing LLM sessions, using an explicit empty list for human-only work. The runtime atomically updates a bounded ignored `.dset_runtime/sessions/<session-id>.json` checkpoint with the same provenance after workflow transitions, before an observable context handoff or compaction, and on terminal exit.
+The public skills must share one internal session-continuity capability rather than expose a separate session-management skill. `dset` starts, checkpoints, and resumes its workflow chain; a directly invoked lifecycle skill starts or joins a compatible session; automatically chained skills, governed model-only workflows, and delegated work remain child runs. Every run carries DSET session/root/parent identity plus unique host-prefixed `llm_session_ids` for contributing LLM sessions, using an explicit empty list for human-only work. The runtime atomically updates a bounded ignored `.carmadio_runtime/sessions/<session-id>.json` checkpoint with the same provenance after workflow transitions, before an observable context handoff or compaction, and on terminal exit.
 
 A checkpoint contains only a bounded objective, scope and artifact/run pointers, authorization state, authority snapshot, and next handoff. It excludes full prompts, source content, arbitrary tool output, and secrets. Resume prefers an explicit or host-provided session ID; otherwise it may select only one compatible newest active checkpoint and must stop on ambiguity. It re-reads repository, Git, Change, proof, governance, and applicable hosted state before recomputing the next action. Conversation memory and checkpoints remain advisory and cannot override those owners.
 
@@ -120,7 +120,7 @@ produces focused clarification instead of an invented immutable claim.
 
 ## CARMADIO-REQUIREMENT-SKILL-013 — Implementation preparation is project-selectable
 
-A public DSET skill accepts the desired outcome. `.dset/dset_settings.toml`
+A public DSET skill accepts the desired outcome. `.carmadio/dset_settings.toml`
 selects `lazy` or `strict` through `workflows.implement.mode`; missing
 configuration uses the documented `lazy` default. The repository-local
 lifecycle rule owns both modes, their entry criteria, exit criteria, and stops.
@@ -173,7 +173,7 @@ previewed and verified wrapper digest.
 The runtime must accept the public skill ID and explicit target, discover one
 owning repository or monorepo Work Area, validate its local governance, enforce
 the registered skill/workflow mapping, resolve ordered rules and stable
-identities exclusively within the selected `.dset`, and start or resume bounded
+identities exclusively within the selected `.carmadio`, and start or resume bounded
 session state where applicable. The LLM
 interprets returned rules but must not perform mechanical root discovery,
 entrypoint selection, workflow reconstruction, or fallback. Missing

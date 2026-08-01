@@ -79,7 +79,7 @@ def compilation_path(root: Path) -> Path:
     generated = (
         layout.traceability_path.parent
         if layout.layered
-        else layout.dset_root / "generated"
+        else layout.carmadio_root / "generated"
     )
     suffix = ".toml" if layout.manifest_path.suffix == ".toml" else ".yaml"
     return layout.structured_file(generated, f"compilation{suffix}")
@@ -209,7 +209,7 @@ def _projection_paths(root: Path) -> list[Path]:
         owners = (
             layout.project_root,
             *(layout.layer_root(layer) for layer in LAYERS),
-            layout.dset_root,
+            layout.carmadio_root,
         )
         return [
             path
@@ -226,7 +226,7 @@ def _projection_paths(root: Path) -> list[Path]:
         )
         return [
             path
-            for path in sorted(layout.dset_root.rglob("*.md"))
+            for path in sorted(layout.carmadio_root.rglob("*.md"))
             if not _ignored(root, path) and path.name.lower().startswith(prefixes)
         ]
     return [
@@ -240,14 +240,14 @@ def _projection_paths(root: Path) -> list[Path]:
 def _ignored(root: Path, path: Path) -> bool:
     """Handle ignored using the declared repository contract."""
     relative = path.relative_to(root)
-    if relative.parts[:1] == (".dset_runtime",) or relative.parts[:2] == (
-        ".dset",
+    if relative.parts[:1] == (".carmadio_runtime",) or relative.parts[:2] == (
+        ".carmadio",
         "runtime",
     ):
         return True
     return any(
         logical_part(part) in IGNORED_PARTS
-        or (part.startswith(".") and part not in {".github", ".dset"})
+        or (part.startswith(".") and part not in {".github", ".carmadio"})
         for part in relative.parts
     )
 

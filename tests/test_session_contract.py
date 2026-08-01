@@ -16,7 +16,7 @@ from tests import repository_root
 # ROOT locates the repository fixture; repository layout is authoritative.
 ROOT = repository_root(Path(__file__))
 # SKILL_ROOT defines skill root; this module owns the default.
-SKILL_ROOT = ROOT / ".dset" / "04_layer_skill"
+SKILL_ROOT = ROOT / ".carmadio" / "04_layer_skill"
 
 
 class SessionContractTests(unittest.TestCase):
@@ -87,8 +87,8 @@ class SessionContractTests(unittest.TestCase):
 
     def test_session_state_is_ignored_machine_local_evidence(self) -> None:
         ignored = (ROOT / ".gitignore").read_text(encoding="utf-8").splitlines()
-        self.assertIn(".dset_runtime/*", ignored)
-        self.assertIn("!.dset_runtime/.gitignore", ignored)
+        self.assertIn(".carmadio_runtime/*", ignored)
+        self.assertIn("!.carmadio_runtime/.gitignore", ignored)
 
 
 if __name__ == "__main__":

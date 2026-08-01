@@ -35,7 +35,7 @@ REGISTRY_PATH = LAYOUT.artifact_type_registry_path
 # TEMPLATE_PATH defines template path; this module owns the default.
 TEMPLATE_PATH = LAYOUT.find_template("artifact-types.toml")
 # SCHEMA_PATH defines schema path; this module owns the default.
-SCHEMA_PATH = ROOT / ".dset/02_layer_gov/schemas/artifact-types.schema.toml"
+SCHEMA_PATH = ROOT / ".carmadio/02_layer_gov/schemas/artifact-types.schema.toml"
 
 
 class ArtifactTypeRegistryTests(unittest.TestCase):
@@ -145,7 +145,7 @@ class ArtifactTypeRegistryTests(unittest.TestCase):
         self.assertTrue({"roadmap", "release_plan"}.isdisjoint(catalog["plan"]))
 
     def test_analysis_report_templates_cover_every_direct_subtype(self) -> None:
-        template_root = ROOT / ".dset/02_layer_gov/templates/change"
+        template_root = ROOT / ".carmadio/02_layer_gov/templates/change"
         expected = {
             "solution-landscape.md": "solution_landscape",
             "root-cause.md": "root_cause_analysis",
@@ -318,7 +318,7 @@ class ArtifactTypeRegistryTests(unittest.TestCase):
         expected = {
             "skills/*/SKILL.md": ("procedure", "playbook"),
             "documentation/maintenance-playbook.md": ("procedure", "playbook"),
-            ".dset/05_layer_ops/supportability/delivery-runbook.md": (
+            ".carmadio/05_layer_ops/supportability/delivery-runbook.md": (
                 "procedure",
                 "runbook",
             ),
@@ -387,7 +387,7 @@ class ArtifactTypeRegistryTests(unittest.TestCase):
     ) -> None:
         settings = LAYOUT.settings_path.read_text(encoding="utf-8")
         template = (
-            ROOT / ".dset/01_layer_meta/templates/dset_settings.toml"
+            ROOT / ".carmadio/01_layer_meta/templates/dset_settings.toml"
         ).read_text(encoding="utf-8")
         self.assertIn("subtype_in_names = true", settings)
         self.assertIn("subtype_in_names = false", template)
@@ -396,7 +396,7 @@ class ArtifactTypeRegistryTests(unittest.TestCase):
 
     def test_release_lifecycle_projection_is_compiled(self) -> None:
         rule = (
-            ROOT / ".dset/02_layer_gov/specification-artifact-classification.md"
+            ROOT / ".carmadio/02_layer_gov/specification-artifact-classification.md"
         ).read_text(encoding="utf-8")
         for phrase in (
             "`version`",

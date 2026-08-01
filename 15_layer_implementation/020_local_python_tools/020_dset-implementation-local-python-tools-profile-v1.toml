@@ -94,7 +94,7 @@ profile_thresholds_must_not_be_hidden_checker_literals = true
 [secrets]
 dset_secret_values = "prohibited"
 local_development_carrier = ".env"
-local_carrier_location = "repository-root-outside-.dset"
+local_carrier_location = "repository-root-outside-.carmadio"
 gitignore_patterns_required = [".env", ".env.*"]
 tracked_example_allowed = ".env.example"
 tracked_example_values = "dummy-placeholders-only"
@@ -201,7 +201,7 @@ secrets_in_errors = "prohibited"
 [local_logs]
 mode = "conditional"
 format = "ndjson"
-runtime_directory = ".dset_runtime/logs"
+runtime_directory = ".carmadio_runtime/logs"
 required_triggers = ["multiple-operational-steps", "retries", "scheduled-runs", "external-effects", "production-investigation"]
 required_fields = ["schema_version", "timestamp_utc", "severity", "event", "run_id", "tool_version"]
 correlation_id_when_crossing_effect_boundary = true

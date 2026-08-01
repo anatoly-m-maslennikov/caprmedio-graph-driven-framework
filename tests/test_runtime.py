@@ -66,7 +66,7 @@ class RuntimeTests(unittest.TestCase):
         assert invocation.running_path is not None
         self.assertTrue(invocation.running_path.is_file())
         checkpoint_path = (
-            self.root / ".dset_runtime" / "sessions" / f"{invocation.session_id}.json"
+            self.root / ".carmadio_runtime" / "sessions" / f"{invocation.session_id}.json"
         )
         first_checkpoint = json.loads(checkpoint_path.read_text(encoding="utf-8"))
         self.assertEqual(first_checkpoint["schema_version"], "1.3")
@@ -107,14 +107,14 @@ class RuntimeTests(unittest.TestCase):
         self.assertFalse(invocation.running_path.is_file())
         terminals = [
             path
-            for path in (self.root / ".dset_runtime" / "runs").glob("*.json")
+            for path in (self.root / ".carmadio_runtime" / "runs").glob("*.json")
             if not path.name.startswith(".")
         ]
         self.assertEqual(len(terminals), 1)
         persisted = json.loads(terminals[0].read_text(encoding="utf-8"))
         self.assertEqual(persisted, terminal)
         run_schema = json.loads(
-            (ROOT / ".dset/04_layer_skill/schemas/skill-run.schema.toml").read_text(
+            (ROOT / ".carmadio/04_layer_skill/schemas/skill-run.schema.toml").read_text(
                 encoding="utf-8"
             )
         )
@@ -123,7 +123,7 @@ class RuntimeTests(unittest.TestCase):
         final_checkpoint = json.loads(checkpoint_path.read_text(encoding="utf-8"))
         checkpoint_schema = json.loads(
             (
-                ROOT / ".dset/04_layer_skill/schemas/session-checkpoint.schema.toml"
+                ROOT / ".carmadio/04_layer_skill/schemas/session-checkpoint.schema.toml"
             ).read_text(encoding="utf-8")
         )
         self.assertEqual(set(final_checkpoint), set(checkpoint_schema["required"]))
@@ -183,7 +183,7 @@ class RuntimeTests(unittest.TestCase):
         self.assertEqual(resumed.run["root_run_id"], first.run["root_run_id"])
         self.assertEqual(resumed.run["parent_run_id"], first.run_id)
 
-    def test_absent_or_non_dset_root_never_creates_project_state(self) -> None:
+    def test_absent_or_non_carmadio_root_never_creates_project_state(self) -> None:
         absent = self.root / "missing-project"
         invocation = start_run(
             absent,
@@ -208,10 +208,10 @@ class RuntimeTests(unittest.TestCase):
             next_mode="initialize",
         )
         finish_run(second, status="stopped")
-        self.assertFalse((ordinary / ".dset").exists())
+        self.assertFalse((ordinary / ".carmadio").exists())
 
     def test_retention_enforces_age_count_and_total_bytes(self) -> None:
-        runs = self.root / ".dset_runtime" / "runs"
+        runs = self.root / ".carmadio_runtime" / "runs"
         seed = start_run(
             self.root,
             public_entrypoint="dset",

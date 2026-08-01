@@ -492,14 +492,14 @@ def _valid_sessions(value: object) -> bool:
 
 def _ignored(relative: Path) -> bool:
     """Handle ignored using the declared repository contract."""
-    if relative.parts[:1] == (".dset_runtime",) or relative.parts[:2] == (
-        ".dset",
+    if relative.parts[:1] == (".carmadio_runtime",) or relative.parts[:2] == (
+        ".carmadio",
         "runtime",
     ):
         return True
     ignored = {".git", ".cache", ".venv", "__pycache__", "dist"}
     return any(
-        part in ignored or (part.startswith(".") and part not in {".github", ".dset"})
+        part in ignored or (part.startswith(".") and part not in {".github", ".carmadio"})
         for part in relative.parts
     )
 

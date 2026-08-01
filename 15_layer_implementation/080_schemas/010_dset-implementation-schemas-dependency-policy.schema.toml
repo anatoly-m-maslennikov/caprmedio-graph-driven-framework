@@ -1,5 +1,5 @@
 "$schema" = "https://json-schema.org/draft/2020-12/schema"
-"$id" = "https://raw.githubusercontent.com/anatoly-m-maslennikov/dset-specs-loops-framework/main/.dset/000_dset_methodology/05_implementation/schemas/dependency-policy.schema.toml"
+"$id" = "https://raw.githubusercontent.com/anatoly-m-maslennikov/dset-specs-loops-framework/main/.carmadio/000_dset_methodology/05_implementation/schemas/dependency-policy.schema.toml"
 title = "DSET exact dependency policy"
 type = "object"
 required = ["schema_version", "policy_id", "version", "authority", "exception_authority", "ecosystems", "allow", "deny", "exceptions"]

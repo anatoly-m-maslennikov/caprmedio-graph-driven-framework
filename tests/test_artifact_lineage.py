@@ -381,7 +381,7 @@ class ArtifactRelationTests(unittest.TestCase):
         if extra:
             text += extra
         text += f"---\n\n# {name}\n"
-        directory = root / ".dset"
+        directory = root / ".carmadio"
         if archived:
             directory /= "archive"
         directory.mkdir(parents=True, exist_ok=True)

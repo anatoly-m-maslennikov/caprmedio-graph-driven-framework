@@ -2,7 +2,7 @@
 
 ## ADDED — CARMADIO-REQUIREMENT-GOV-001 Visible project root
 
-The repository must keep project truth under the visible `dset/` root and reserve `.dset/` for future generated/local machine state.
+The repository must keep project truth under the visible `dset/` root and reserve `.carmadio/` for future generated/local machine state.
 
 **Scenario CARMADIO-SCENARIO-GOV-001:** A new contributor opens `dset/README.md` and can identify accepted truth, active changes, archive history, templates, and schemas without private context.
 

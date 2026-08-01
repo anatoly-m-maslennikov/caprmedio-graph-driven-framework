@@ -3,7 +3,7 @@
 The migration is intentionally repository-specific. It preserves immutable
 carrier bytes, records every such relocation, rewrites mutable links against
 the complete move map, and combines project facts with operator settings in
-one documented ``.dset/dset_settings.toml`` carrier.
+one documented ``.carmadio/dset_settings.toml`` carrier.
 """
 
 from __future__ import annotations
@@ -34,9 +34,9 @@ from dset_toolchain.toml_codec import load as load_toml  # noqa: E402
 from dset_toolchain.toml_codec import loads as loads_toml  # noqa: E402
 
 OLD_DSET = ROOT / "dset"
-CURRENT_DSET = ROOT / ".dset"
+CURRENT_DSET = ROOT / ".carmadio"
 LEGACY_RUNTIME = CURRENT_DSET / "runtime"
-CURRENT_RUNTIME = ROOT / ".dset_runtime"
+CURRENT_RUNTIME = ROOT / ".carmadio_runtime"
 OLD_SCOPES = OLD_DSET / "scopes"
 NEW_SETTINGS = CURRENT_DSET / "dset_settings.toml"
 OLD_SETTINGS = ROOT / "dset_settings.toml"
@@ -435,7 +435,7 @@ def _combined_settings() -> str:
         "# The retired root name dset.toml is read-only migration input. A repository\n"
         "# containing both filenames is invalid because settings must have one "
         "owner.\n",
-        "# New DSET writers use only this path: .dset/dset_settings.toml.\n"
+        "# New DSET writers use only this path: .carmadio/dset_settings.toml.\n"
         "# Retired root settings and split manifest paths are read-only migration\n"
         "# inputs. Competing configuration carriers fail closed.\n",
     )
@@ -447,12 +447,12 @@ def _combined_settings() -> str:
         'canonical_command = "python -m dset_toolchain verify ."',
     )
     settings = settings.replace(
-        "dset/scopes/skill/budget.toml", ".dset/04_layer_skill/budget.toml"
+        "dset/scopes/skill/budget.toml", ".carmadio/04_layer_skill/budget.toml"
     )
     manifest = (
         manifest.replace(
             'runbook = "dset/scopes/ops/supportability/delivery-runbook.md"',
-            'runbook = ".dset/05_layer_ops/supportability/delivery-runbook.md"',
+            'runbook = ".carmadio/05_layer_ops/supportability/delivery-runbook.md"',
         )
         .replace(
             'registry = "dset/scopes/gov/intake.toml"',
@@ -513,9 +513,9 @@ def _rewrite_text(
     )
     for old, new in replacements:
         text = re.sub(rf"(?<![.A-Za-z0-9_-]){re.escape(old)}", new, text)
-    text = re.sub(r"(?<![.A-Za-z0-9_-])dset/scopes/", ".dset/", text)
-    text = text.replace("root `dset_settings.toml`", "`.dset/dset_settings.toml`")
-    text = text.replace("root dset_settings.toml", ".dset/dset_settings.toml")
+    text = re.sub(r"(?<![.A-Za-z0-9_-])dset/scopes/", ".carmadio/", text)
+    text = text.replace("root `dset_settings.toml`", "`.carmadio/dset_settings.toml`")
+    text = text.replace("root dset_settings.toml", ".carmadio/dset_settings.toml")
     return text
 
 
@@ -655,7 +655,7 @@ def _update_artifact_type_registry() -> None:
             ("**/change.toml", "version", "change"),
             ("**/verification.md", "verification", None),
             ("**/README.md", "navigation", "hub"),
-            (".dset/dset_settings.toml", "implementation", "configuration"),
+            (".carmadio/dset_settings.toml", "implementation", "configuration"),
             ("00_project/artifact-types.toml", "specification", "governance"),
             ("00_project/artifacts.toml", "implementation", "configuration"),
             ("00_project/governance.toml", "implementation", "configuration"),
@@ -670,30 +670,30 @@ def _update_artifact_type_registry() -> None:
             ("00_project/plan-implementation.md", "plan", "implementation_plan"),
             ("00_project/plan-work.md", "plan", "implementation_plan"),
             ("00_project/analysis-*.md", "analysis_report", None),
-            (".dset/*/decision/*.md", "atomic_record", None),
-            (".dset/*/question/*.md", "atomic_record", None),
-            (".dset/*/problem/*.md", "atomic_record", None),
-            (".dset/*/qa/*.md", "atomic_record", None),
-            (".dset/*/navigation-*.md", "navigation", "hub"),
-            (".dset/*/specification-*.md", "specification", "governance"),
-            (".dset/*/procedure-*.md", "procedure", "playbook"),
-            (".dset/*/plan-tests.md", "plan", "test_plan"),
-            (".dset/*/plan-evaluations.md", "plan", "evaluation_plan"),
-            (".dset/*/package.toml", "implementation", "configuration"),
-            (".dset/*/schemas/*.json", "implementation", "configuration"),
-            (".dset/*/dependency-policy.toml", "implementation", "configuration"),
-            (".dset/*/budget.toml", "implementation", "configuration"),
-            (".dset/*/fixtures/*.toml", "implementation", "test_implementation"),
+            (".carmadio/*/decision/*.md", "atomic_record", None),
+            (".carmadio/*/question/*.md", "atomic_record", None),
+            (".carmadio/*/problem/*.md", "atomic_record", None),
+            (".carmadio/*/qa/*.md", "atomic_record", None),
+            (".carmadio/*/navigation-*.md", "navigation", "hub"),
+            (".carmadio/*/specification-*.md", "specification", "governance"),
+            (".carmadio/*/procedure-*.md", "procedure", "playbook"),
+            (".carmadio/*/plan-tests.md", "plan", "test_plan"),
+            (".carmadio/*/plan-evaluations.md", "plan", "evaluation_plan"),
+            (".carmadio/*/package.toml", "implementation", "configuration"),
+            (".carmadio/*/schemas/*.json", "implementation", "configuration"),
+            (".carmadio/*/dependency-policy.toml", "implementation", "configuration"),
+            (".carmadio/*/budget.toml", "implementation", "configuration"),
+            (".carmadio/*/fixtures/*.toml", "implementation", "test_implementation"),
             ("10_versions/version.toml", "implementation", "configuration"),
             ("10_versions/history/*.toml", "implementation", "configuration"),
             ("10_versions/archive/*/specs/*.md", "specification", "governance"),
             ("10_versions/archive/*/tasks.md", "atomic_record", None),
             (
-                ".dset/03_layer_tool/fixtures/bases/*/specs/example.md",
+                ".carmadio/03_layer_tool/fixtures/bases/*/specs/example.md",
                 "specification",
                 "behavior",
             ),
-            (".dset/03_layer_tool/fixtures/bases/*/tasks.md", "atomic_record", None),
+            (".carmadio/03_layer_tool/fixtures/bases/*/tasks.md", "atomic_record", None),
             ("dset_toolchain/*.py", "implementation", "source_code"),
             ("scripts/*.py", "implementation", "source_code"),
             ("tests/*.py", "implementation", "test_implementation"),
@@ -706,7 +706,7 @@ def _update_artifact_type_registry() -> None:
             (".github/DELIVERY.md", "procedure", "runbook"),
             ("documentation/maintenance-playbook.md", "procedure", "playbook"),
             (
-                ".dset/05_layer_ops/supportability/delivery-runbook.md",
+                ".carmadio/05_layer_ops/supportability/delivery-runbook.md",
                 "procedure",
                 "runbook",
             ),
@@ -785,7 +785,7 @@ def _refresh_governance_hashes() -> None:
             continue
         template = source.get("template")
         if isinstance(template, str):
-            source["template"] = template.replace("dset/scopes/", ".dset/")
+            source["template"] = template.replace("dset/scopes/", ".carmadio/")
         carrier = ROOT / local
         if carrier.is_file():
             source["sha256"] = hashlib.sha256(carrier.read_bytes()).hexdigest()
@@ -944,7 +944,7 @@ def _resume_mutable_rewrites(mapping: dict[Path, Path]) -> None:
         if (
             not path.is_file()
             or path.suffix not in TEXT_SUFFIXES
-            or path.relative_to(ROOT).parts[:1] in {("dset",), (".dset",)}
+            or path.relative_to(ROOT).parts[:1] in {("dset",), (".carmadio",)}
             or ".git" in path.parts
             or ".venv" in path.parts
             or ".uv-cache" in path.parts

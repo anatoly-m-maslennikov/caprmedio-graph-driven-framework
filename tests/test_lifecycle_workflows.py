@@ -27,7 +27,7 @@ REGISTRY = LAYOUT.governance_path
 # PROFILE defines profile; this module owns the default.
 PROFILE = LAYOUT.find_template("governance/core-v1/profile.toml")
 # LIFECYCLE defines lifecycle; this module owns the default.
-LIFECYCLE = ROOT / ".dset/04_layer_skill/procedure-lifecycle-orchestration.md"
+LIFECYCLE = ROOT / ".carmadio/04_layer_skill/procedure-lifecycle-orchestration.md"
 
 # EXCEPTION_MODES defines exception modes; this module owns the default.
 EXCEPTION_MODES = {"initialize", "repair-governance"}

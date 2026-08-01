@@ -30,7 +30,7 @@ ROOT = repository_root(Path(__file__))
 # PROFILE defines profile; this module owns the default.
 PROFILE = (
     ROOT
-    / ".dset/03_layer_tool/templates/enforcement-profiles/typescript-v1-candidate.toml"
+    / ".carmadio/03_layer_tool/templates/enforcement-profiles/typescript-v1-candidate.toml"
 )
 
 

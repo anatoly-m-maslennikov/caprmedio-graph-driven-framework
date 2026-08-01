@@ -256,7 +256,7 @@ class GovernanceTests(unittest.TestCase):
         with temporary_directory() as raw:
             source = (Path(raw) / "framework").resolve()
             source.mkdir()
-            for name in (".dset", "skills"):
+            for name in (".carmadio", "skills"):
                 source_path = ROOT / name
                 target_path = source / name
                 shutil.copytree(source_path, target_path)
@@ -460,7 +460,7 @@ class GovernanceTests(unittest.TestCase):
     def test_bootstrap_release_target_is_explicit_not_framework_hard_coded(
         self,
     ) -> None:
-        release = (ROOT / ".dset/05_layer_ops/procedure-release.md").read_text(
+        release = (ROOT / ".carmadio/05_layer_ops/procedure-release.md").read_text(
             encoding="utf-8"
         )
         self.assertIn("explicit first `0.Y.Z` target", release)
@@ -554,8 +554,8 @@ class GovernanceTests(unittest.TestCase):
         self.assertEqual(intake_schema["$defs"]["rationale"]["minLength"], 1)
 
         for schema_path in (
-            ROOT / ".dset/04_layer_skill/schemas/skill-run.schema.toml",
-            ROOT / ".dset/04_layer_skill/schemas/session-checkpoint.schema.toml",
+            ROOT / ".carmadio/04_layer_skill/schemas/skill-run.schema.toml",
+            ROOT / ".carmadio/04_layer_skill/schemas/session-checkpoint.schema.toml",
         ):
             schema = json.loads(schema_path.read_text(encoding="utf-8"))
             self.assertIn("rationale", schema["properties"])
@@ -564,14 +564,14 @@ class GovernanceTests(unittest.TestCase):
 
         for name in ("decision.md", "adoption-decision.md"):
             decision_template = (
-                ROOT / ".dset/02_layer_gov/templates/change" / name
+                ROOT / ".carmadio/02_layer_gov/templates/change" / name
             ).read_text(encoding="utf-8")
             self.assertIn("Rationale (recommended, optional)", decision_template)
             self.assertIn("Omission alone does", decision_template)
             self.assertIn("not invalidate the Decision", decision_template)
 
         rule = (
-            ROOT / ".dset/02_layer_gov/specification-artifact-maintenance.md"
+            ROOT / ".carmadio/02_layer_gov/specification-artifact-maintenance.md"
         ).read_text(encoding="utf-8")
         self.assertIn("absence alone never invalidates", rule)
         self.assertIn("not hidden authority", rule)
@@ -935,11 +935,11 @@ class GovernanceTests(unittest.TestCase):
 
     def test_health_review_and_ranking_rules_are_compiled(self) -> None:
         live = (
-            ROOT / ".dset/02_layer_gov/specification-artifact-maintenance.md"
+            ROOT / ".carmadio/02_layer_gov/specification-artifact-maintenance.md"
         ).read_text(encoding="utf-8")
         template = (
             ROOT
-            / ".dset/02_layer_gov/templates/governance/core-v1/artifact-maintenance.md"
+            / ".carmadio/02_layer_gov/templates/governance/core-v1/artifact-maintenance.md"
         ).read_text(encoding="utf-8")
         self.assertEqual(live, template)
         for phrase in (
@@ -958,10 +958,10 @@ class GovernanceTests(unittest.TestCase):
             self.assertIn(phrase, live)
 
         architecture = (
-            ROOT / ".dset/02_layer_gov/specification-architecture.md"
+            ROOT / ".carmadio/02_layer_gov/specification-architecture.md"
         ).read_text(encoding="utf-8")
         architecture_template = (
-            ROOT / ".dset/02_layer_gov/templates/governance/core-v1/architecture.md"
+            ROOT / ".carmadio/02_layer_gov/templates/governance/core-v1/architecture.md"
         ).read_text(encoding="utf-8")
         self.assertEqual(architecture, architecture_template)
         for phrase in (
@@ -976,10 +976,10 @@ class GovernanceTests(unittest.TestCase):
             self.assertIn(phrase, architecture)
 
         work_items = (
-            ROOT / ".dset/02_layer_gov/specification-work-items.md"
+            ROOT / ".carmadio/02_layer_gov/specification-work-items.md"
         ).read_text(encoding="utf-8")
         work_items_template = (
-            ROOT / ".dset/02_layer_gov/templates/governance/core-v1/work-items.md"
+            ROOT / ".carmadio/02_layer_gov/templates/governance/core-v1/work-items.md"
         ).read_text(encoding="utf-8")
         self.assertEqual(work_items, work_items_template)
         self.assertIn("one Type and at most one direct subtype", work_items)
@@ -990,16 +990,16 @@ class GovernanceTests(unittest.TestCase):
 
         for name in ("decision.md", "adoption-decision.md"):
             decision_template = (
-                ROOT / ".dset/02_layer_gov/templates/change" / name
+                ROOT / ".carmadio/02_layer_gov/templates/change" / name
             ).read_text(encoding="utf-8")
             self.assertIn("**Absorbs:**", decision_template)
             self.assertNotIn("**Superseded by:**", decision_template)
             self.assertIn("emitted Decision", decision_template)
 
-        gov = (ROOT / ".dset/02_layer_gov/specification-methodology.md").read_text(
+        gov = (ROOT / ".carmadio/02_layer_gov/specification-methodology.md").read_text(
             encoding="utf-8"
         )
-        tool = (ROOT / ".dset/03_layer_tool/specification-methodology.md").read_text(
+        tool = (ROOT / ".carmadio/03_layer_tool/specification-methodology.md").read_text(
             encoding="utf-8"
         )
         self.assertIn("CARMADIO-REQUIREMENT-GOV-024", gov)

@@ -157,8 +157,8 @@ class TraceabilityTests(unittest.TestCase):
         with temporary_directory() as raw:
             target = Path(raw).resolve()
             shutil.copytree(
-                ROOT / ".dset",
-                target / ".dset",
+                ROOT / ".carmadio",
+                target / ".carmadio",
                 ignore=shutil.ignore_patterns("runtime"),
             )
             write_traceability(target)

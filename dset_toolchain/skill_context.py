@@ -177,7 +177,7 @@ def _find_unique_repository(start: Path) -> Path:
     matches = [
         candidate
         for candidate in (current, *current.parents)
-        if (candidate / ".dset" / "dset_settings.toml").is_file()
+        if (candidate / ".carmadio" / "dset_settings.toml").is_file()
     ]
     if not matches:
         raise FileNotFoundError(f"DSET project root not found from: {start}")

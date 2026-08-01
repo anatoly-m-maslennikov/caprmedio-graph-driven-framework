@@ -1,5 +1,5 @@
 "$schema" = "https://json-schema.org/draft/2020-12/schema"
-"$id" = "https://raw.githubusercontent.com/anatoly-m-maslennikov/dset-specs-loops-framework/main/.dset/000_dset_methodology/03_tool/schemas/traceability.schema.toml"
+"$id" = "https://raw.githubusercontent.com/anatoly-m-maslennikov/dset-specs-loops-framework/main/.carmadio/000_dset_methodology/03_tool/schemas/traceability.schema.toml"
 title = "DSET traceability index"
 type = "object"
 required = ["schema_version", "repository", "changes", "semantic_classifications", "semantic_atoms", "relations"]
