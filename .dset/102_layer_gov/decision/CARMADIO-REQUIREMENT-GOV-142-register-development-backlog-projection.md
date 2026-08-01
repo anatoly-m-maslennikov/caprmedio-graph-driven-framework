@@ -28,7 +28,7 @@ one-line non-authoritative candidates grouped under unscheduled, current target
 version, and future target version sections. It may link promoted Atoms but
 cannot establish, restate, override, or satisfy their claims.
 
-The Development Backlog is directly maintained under the governed release-
+The Development Backlog is directly updated under the governed release-
 planning procedure. It declares no source frontier because its candidates are
 planning inputs rather than a representation compiled from current authority.
 Git records every persisted revision.
