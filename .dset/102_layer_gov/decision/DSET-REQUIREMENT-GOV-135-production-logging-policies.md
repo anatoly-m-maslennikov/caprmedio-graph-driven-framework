@@ -76,7 +76,7 @@ must not make the primary operation silently fail, and loss or suppression of
 required records must itself produce an observable failure signal.
 
 Production logs use the deployment environment's governed logging sink.
-`.dset_journal/` remains the append-only NDJSON boundary for DSET workflow and
+`.dset_journal/` remains the append-only NDJSON boundary for CARMADIO workflow and
 local project-control journals; it is not a substitute for the production
 system's log platform.
 
@@ -92,7 +92,7 @@ or producing unbounded noise.
 
 ## Rationale
 
-Logs are production observations, but their required coverage, structure,
+Logs are production Ops records, but their required coverage, structure,
 severity, safety, and retention must be governed before failures occur. A
 component-specific policy provides that assurance boundary while leaving the
 logger implementation and emitted records in their proper artifact roles.
