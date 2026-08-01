@@ -17,9 +17,9 @@ relations:
       - CARMADIO-REQUIREMENT-GOV-137
 ---
 
-# Requirement — Provide the co-refactoring skill
+# Requirement — Provide the ca-refactoring skill
 
-CARMADIO provides `co-refactoring` as the public orchestration skill for one
+CARMADIO provides `ca-refactoring` as the public orchestration skill for one
 bounded governed refactoring cycle.
 
 The skill resolves the target repository or Work Area and its project-local
@@ -36,14 +36,14 @@ operator accepts its claim. It then chains the applicable implementation and
 assurance capabilities. It stops when an entry criterion, authorization gate,
 or governed downstream capability is unavailable.
 
-`co-refactoring` remains a thin, provider-agnostic wrapper. It contains no
+`ca-refactoring` remains a thin, provider-agnostic wrapper. It contains no
 project methodology, refactoring rules, implementation algorithms, host-only
 policy, or duplicated shared runtime. Codex, Claude, and other supported hosts
 must resolve and apply the same repository-local rules.
 
 ## Primary claim
 
-CARMADIO exposes `co-refactoring` as a thin orchestration skill for a governed
+CARMADIO exposes `ca-refactoring` as a thin orchestration skill for a governed
 Refactoring Plan, implementation, and assurance cycle.
 
 ## Rationale
