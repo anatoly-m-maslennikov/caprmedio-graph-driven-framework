@@ -40,4 +40,4 @@ model.
 
 ## Primary claim
 
-A DSET carrier representation transition is one immutable atomic record identified by old and new globally unique carrier names and digests; directory placement is never identity, aggregate path-transition ledgers are legacy only, and current DSET lookup never consumes stored paths.
+A CARMADIO carrier representation transition is one immutable atomic record identified by old and new globally unique carrier names and digests; directory placement is never identity, aggregate path-transition ledgers are legacy only, and current CARMADIO lookup never consumes stored paths.
