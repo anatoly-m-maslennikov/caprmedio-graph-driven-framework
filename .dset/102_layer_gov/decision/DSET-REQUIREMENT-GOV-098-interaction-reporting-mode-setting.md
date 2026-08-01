@@ -11,7 +11,6 @@ relations:
   - type: relates_to
     targets:
       - CARMADIO-REQUIREMENT-META-058
-      - CARMADIO-REQUIREMENT-META-058
 ---
 
 # Requirement — Configure interaction reporting mode
