@@ -17,7 +17,7 @@ relations:
       - DSET-IMPL-GOV-008
 ---
 
-# Decision — Atomize carrier transitions
+# Technical Decision — Atomize carrier transitions
 
 Moving a carrier between directories while preserving its globally unique name
 and bytes is not a semantic transition and needs no location record. The
