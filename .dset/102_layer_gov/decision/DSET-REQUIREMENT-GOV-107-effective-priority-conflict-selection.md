@@ -21,7 +21,7 @@ Persisted priority uses exactly `high`, `medium`, or `low`. `highest` is a
 virtual comparison result and is never stored. `critical` and `deferred` are
 not accepted values: historical `critical` is migrated to `high`; current
 low-order work uses `low`; work outside the current version belongs in a
-Version Roadmap.
+future-version or unscheduled section of the Development Backlog.
 
 During a direct conflict comparison:
 
