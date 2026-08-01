@@ -10,13 +10,13 @@ llm_session_ids:
 relations:
   - type: relates_to
     targets:
+      - CARMADIO-REQUIREMENT-META-099
       - DSET-REQUIREMENT-GOV-116
-      - DSET-REQUIREMENT-GOV-094
 ---
 
 # Constraint — Preserve GitHub preview compatibility
 
-Every DSET-owned Markdown or TOML artifact must remain legible and navigable in
+Every CARMADIO-owned Markdown or TOML artifact must remain legible and navigable in
 GitHub's repository file preview.
 
 Markdown artifacts must:
