@@ -22,7 +22,7 @@ the review's analysis body and native attachments to remain free-form?
 
 The resolution should distinguish:
 
-- the external review carrier from CARMADIO's internal Analysis and Observation
+- the external review carrier from CARMADIO's internal Analysis and Ops
   artifacts;
 - mandatory review provenance from optional reviewer-specific fields;
 - machine-actionable findings from unrestricted narrative;
