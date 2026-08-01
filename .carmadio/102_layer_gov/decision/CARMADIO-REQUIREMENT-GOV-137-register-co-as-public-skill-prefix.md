@@ -24,12 +24,19 @@ framework, alter governed artifact IDs, or establish a second project prefix.
 Skill descriptions and host metadata still identify CARMADIO explicitly so
 discovery does not depend on knowing the abbreviation in advance.
 
+`co-` is reserved exclusively for public skill names. CLI commands, package
+and import names, repository identities, directories, settings, schemas,
+artifact identities, and other non-skill interfaces use their governed
+CARMADIO names and must not use `co-`. The primary routing skill may use the
+unhyphenated name `co`; every action-specific public skill uses `co-<action>`.
+
 ## Primary claim
 
-Public CARMADIO skill names use the canonical `co-` prefix.
+Public CARMADIO skills use `co` or the canonical `co-` prefix, and no
+non-skill identity uses that abbreviation.
 
 ## Rationale
 
-The short prefix keeps frequently invoked skill names readable while one
-registered expansion prevents each skill from inventing an unrelated
-abbreviation or leaving `co` semantically unexplained.
+The short prefix keeps frequently invoked skill names readable while exclusive
+ownership prevents it from becoming a second framework, package, command, or
+artifact namespace.
