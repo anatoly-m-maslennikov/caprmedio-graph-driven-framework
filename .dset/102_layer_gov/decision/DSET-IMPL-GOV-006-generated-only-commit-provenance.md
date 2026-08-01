@@ -17,7 +17,7 @@ relations:
       - DSET-DEFECT-GOV-007
 ---
 
-# Implementation Decision — Exclude generated-only implementation edges
+# Technical Decision — Exclude generated-only implementation edges
 
 Commit-provenance validation inspects every commit in the governed range. A
 commit contributes an implementation relation, implementation coverage, or
