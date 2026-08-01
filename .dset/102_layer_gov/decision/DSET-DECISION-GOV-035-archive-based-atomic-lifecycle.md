@@ -17,7 +17,7 @@ relations:
       - DSET-REQUIREMENT-GOV-050
 ---
 
-# Decision — Use an archive-based Atomic Artifact lifecycle
+# Technical Decision — Use an archive-based Atomic Artifact lifecycle
 
 CARMADIO has no `lifecycle_event` artifact type. An Atomic Artifact has only two
 storage states:
