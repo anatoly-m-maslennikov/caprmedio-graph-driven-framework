@@ -17,7 +17,7 @@ relations:
       - DSET-REQUIREMENT-GOV-052
 ---
 
-# Implementation Decision — Materialize installed methodology
+# Technical Decision — Materialize installed methodology
 
 The reusable methodology is authored in the repository-root source and copied
 unidirectionally into `.dset/000_dset_methodology/` only by an explicit
@@ -25,7 +25,7 @@ operator synchronization command.
 
 Installed methodology carriers contain the actual governed content. They are
 not symbolic links or repository-relative reference carriers. Skills resolve
-all methodology, settings, artifacts, and maintained views only inside the
+all methodology, settings, artifacts, and Projections only inside the
 selected project's `.dset/` control root.
 
 Synchronization computes the destination layout deterministically, stages and
