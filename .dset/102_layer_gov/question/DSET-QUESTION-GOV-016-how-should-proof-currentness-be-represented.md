@@ -17,7 +17,7 @@ relations:
 
 # Question — How should proof currentness be represented?
 
-Should DSET keep proof dependencies and stale-closure triggers as prose reviewed
+Should CARMADIO keep proof dependencies and stale-closure triggers as prose reviewed
 by judgment, or register enough structured dependency and frontier data to
 derive a non-authoritative proof-currentness view?
 
