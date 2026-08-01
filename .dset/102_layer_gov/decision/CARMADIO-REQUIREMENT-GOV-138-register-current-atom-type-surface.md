@@ -11,6 +11,10 @@ relations:
   - type: replacement_of
     targets:
       - DSET-REQUIREMENT-GOV-131
+  - type: resolution_of
+    targets:
+      - DSET-PROBLEM-GOV-009
+      - DSET-QUESTION-GOV-017
   - type: child_of
     targets:
       - CARMADIO-REQUIREMENT-META-088
