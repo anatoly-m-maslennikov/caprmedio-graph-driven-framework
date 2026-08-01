@@ -18,7 +18,7 @@ relations:
       - CARMADIO-REQUIREMENT-META-095
 ---
 
-# Implementation Decision — Use one governance constitution
+# Technical Decision — Use one governance constitution
 
 META owns the layer constitution and governance invariants. GOV is its only
 direct governance implementation owner and defines the project-local carrier,
