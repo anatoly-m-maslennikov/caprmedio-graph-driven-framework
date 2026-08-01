@@ -30,11 +30,11 @@ CARMADIO uses exactly these general forward artifact relations:
 | `implementation_of` | Connects code, configuration, documentation, migration, a commit, or another realized mechanism to the authority it realizes, including a QA Case or Assurance Control |
 | `check_of` | Connects a QA Case or Assurance Control to the claim, condition, or invariant it checks |
 | `evidence_for` | Connects a bounded Ops record to the Assurance definition, implementation execution, result, or Verification it supports |
-| `resolution_of` | Closes a Question or Problem other than a Conflict |
+| `resolution_of` | Closes a Concern Atom with the `question` or `problem` subtype |
 | `solution_for` | Supplies the accepted solution that closes a Conflict |
 | `override_of` | Replaces inherited authority only inside a declared narrower scope |
 | `replacement_of` | Completely replaces an older immutable atom |
-| `recurrence_of` | Links a new Question or Problem to an archived predecessor of the same registered type |
+| `recurrence_of` | Links a new Concern Atom to an archived predecessor with the same direct subtype |
 | `relates_to` | Records an association only when no precise relation applies and supplies no authority or coverage |
 
 Every authored edge is stored on its source and names one or more stable target
