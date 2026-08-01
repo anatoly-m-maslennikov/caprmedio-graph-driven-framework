@@ -20,7 +20,7 @@ relations:
 
 # Requirement — Classify every Atomic Artifact change
 
-Before changing an admitted Atomic Artifact, DSET assigns exactly one change
+Before changing an admitted Atomic Artifact, CARMADIO assigns exactly one change
 class:
 
 | Change class | Boundary | Identity result | Required review |
