@@ -17,7 +17,7 @@ relations:
   - type: relates_to
     targets:
       - DSET-REQUIREMENT-GOV-113
-      - DSET-IMPL-GOV-009
+      - CARMADIO-REQUIREMENT-GOV-144
 ---
 
 # Requirement — Use expandable scope paths in identities
@@ -25,7 +25,7 @@ relations:
 The canonical artifact identity and filename shape is:
 
 ```text
-<PROJECT>-<SCOPE_PATH>-<ARTIFACT_TYPE>-<NNN>-<summary>.md
+<PROJECT>-<SCOPE_PATH>-<TYPE_PREFIX>-<NNN>[-<SUBTYPE>]--<SUMMARY>.<ext>
 ```
 
 `PROJECT` is omitted when project-prefix configuration disables it.
@@ -35,14 +35,14 @@ represent layers, features, either nested inside the other, declared Work
 Areas, or future registered scope axes.
 
 Scope does not change numbering. Numeric sequences remain project-wide for
-each concrete identity kind selected by naming policy. Every scope segment and
+each registered Type prefix. Every scope segment and
 parent-child relationship is registered in `.dset/dset_settings.toml`, and a
 path must match that registry exactly.
 
 The first implementation and every later vocabulary change perform one
 complete lossless migration across active and archived identities, filenames,
-relations, maintained-artifact references, settings, implementation
-references, evidence, and commit provenance.
+relations, Projection and Journal references, settings, Implementation
+references, Ops records, and commit provenance.
 
 ## Primary claim
 
