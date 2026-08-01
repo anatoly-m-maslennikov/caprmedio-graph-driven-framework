@@ -18,7 +18,7 @@ relations:
 
 # Requirement — Show one structural level when architecture views are enabled
 
-When a project enables a maintained architecture-view surface, each applicable
+When a project enables an architecture-view Projection surface, each applicable
 project, feature-group, feature, or layer view shows only its immediate enabled
 structural children. The project shows feature groups when present, otherwise
 features and/or layers; a feature group shows its features; a feature or layer
@@ -37,4 +37,4 @@ absent levels create no artifact obligation.
 ## Rationale
 
 The successor preserves readable helicopter views while aligning their
-existence with optional maintained semantic surfaces.
+existence with optional Projection surfaces.
