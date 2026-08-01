@@ -12,19 +12,23 @@ relations:
   - type: relates_to
     targets:
       - CARMADIO-REQUIREMENT-META-089
-      - CARMADIO-REQUIREMENT-META-089
-      - DSET-PROBLEM-GOV-009
+      - CARMADIO-REQUIREMENT-GOV-136
+      - CARMADIO-REQUIREMENT-GOV-138
+      - CARMADIO-REQUIREMENT-GOV-139
+      - CARMADIO-REQUIREMENT-GOV-140
+      - CARMADIO-REQUIREMENT-GOV-141
+      - CARMADIO-REQUIREMENT-GOV-143
       - DSET-REQUIREMENT-GOV-102
 ---
 
 # Question — Which artifact subtypes should refine route types?
 
-After every semantic route has one canonical artifact type, which direct
-subtypes should express the finer meanings needed by DSET?
+Which additional direct subtypes, if any, should express finer meanings beyond
+the vocabularies currently registered by CARMADIO GOV?
 
 The answer must:
 
-- evaluate the current semantic names as subtype candidates;
+- evaluate each proposed semantic name as a subtype candidate;
 - assign each accepted subtype to exactly one canonical parent type;
 - keep subtype depth at one;
 - require every subtype to inherit its parent's complete route;
@@ -32,5 +36,6 @@ The answer must:
 - preserve distinct identity and numbering only where the distinction is
   operationally useful.
 
-This Question does not authorize subtype creation. The subtype taxonomy remains
-undefined until the operator accepts a separate resolution.
+This Question does not authorize subtype creation. Current registered subtypes
+remain authoritative, and every addition requires a separate accepted GOV
+Atom.
