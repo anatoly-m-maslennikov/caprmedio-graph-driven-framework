@@ -1,5 +1,6 @@
 ---
-artifact_type: evaluation_case
+artifact_type: assurance
+artifact_subtype: qa_case
 artifact_id: DSET-EVALUATION-CASE-GOV-036
 scope_path: layer:gov
 subject_scopes:

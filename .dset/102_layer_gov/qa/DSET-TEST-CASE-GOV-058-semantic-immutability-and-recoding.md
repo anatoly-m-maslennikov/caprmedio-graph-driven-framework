@@ -1,5 +1,6 @@
 ---
-artifact_type: test_case
+artifact_type: assurance
+artifact_subtype: qa_case
 artifact_id: DSET-TEST-CASE-GOV-058
 scope_path: layer:gov
 subject_scopes:

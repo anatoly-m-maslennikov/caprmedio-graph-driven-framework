@@ -1,5 +1,6 @@
 ---
-artifact_type: implementation_decision
+artifact_type: method
+artifact_subtype: technical_decision
 artifact_id: DSET-IMPL-GOV-008
 scope_path: layer:gov
 subject_scopes:

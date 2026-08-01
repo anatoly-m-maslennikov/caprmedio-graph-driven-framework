@@ -1,5 +1,6 @@
 ---
-artifact_type: problem
+artifact_type: concern
+artifact_subtype: problem
 artifact_id: DSET-PROBLEM-GOV-011
 scope_path: layer:gov
 subject_scopes:

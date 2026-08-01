@@ -1,5 +1,5 @@
 ---
-artifact_type: analysis_report
+artifact_type: analysis
 artifact_id: DSET-ANALYSIS-REPORT-007
 scope_path: layer:gov
 subject_scopes:
