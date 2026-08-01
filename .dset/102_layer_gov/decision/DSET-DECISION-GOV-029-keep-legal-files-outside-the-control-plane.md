@@ -14,7 +14,7 @@ relations:
       - DSET-IMPL-GOV-008
 ---
 
-# Decision — Keep legal files outside the control plane
+# Technical Decision — Keep legal files outside the control plane
 
 The repository license remains the root `LICENSE` carrier. Retained third-party
 licenses and no-license notices live in the root `LICENSES` directory.
