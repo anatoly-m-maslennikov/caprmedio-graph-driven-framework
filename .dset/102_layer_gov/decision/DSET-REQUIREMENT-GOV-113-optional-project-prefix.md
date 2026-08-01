@@ -24,13 +24,13 @@ prefix and records its value when enabled.
 Project initialization recommends:
 
 - no prefix for one small project with one artifact namespace; and
-- a prefix for a monorepo, multiple DSET projects in one repository, or any
+- a prefix for a monorepo, multiple CARMADIO projects in one repository, or any
   shared namespace where otherwise valid identities could collide.
 
 Changing the setting after governed identities exist requires one complete
 lossless whole-graph migration. It updates active and archived identities,
-filenames, relations, maintained-artifact references, settings,
-implementation references, evidence, and commit provenance together. The
+filenames, relations, Projection and Journal references, settings,
+Implementation references, Ops records, and commit provenance together. The
 project never retains two accepted identity vocabularies.
 
 ## Primary claim
