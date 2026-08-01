@@ -14,6 +14,9 @@ relations:
   - type: child_of
     targets:
       - CARMADIO-REQUIREMENT-META-090
+  - type: relates_to
+    targets:
+      - DSET-REQUIREMENT-GOV-133
 ---
 
 # Requirement — Configure optional governance surfaces
@@ -22,10 +25,9 @@ relations:
 Every registered optional surface has one explicit boolean. The initial
 surface keys are:
 
-- `maintained_specification`;
-- `test_plan`;
-- `evaluation_plan`;
-- `implementation_plan`;
+- `requirement_catalog`;
+- `relation_map`;
+- `scope_hub`;
 - `project_overview`; and
 - `architecture_view`.
 
@@ -34,8 +36,8 @@ meaning. Unknown surface names fail closed.
 
 Activation makes a surface applicable to its currentness and downstream gates.
 Deactivation removes those obligations without deleting or archiving its
-carrier. Retained files become inactive references until reactivation
-reconciles them against current atomic authority.
+Projection carrier. Retained files become inactive references until
+reactivation reconciles them against current atomic authority.
 
 ## Primary claim
 
@@ -44,5 +46,5 @@ default inactive and retain their carriers when deactivated.
 
 ## Rationale
 
-The successor preserves progressive adoption while replacing the retired
-Evergreen surface name with the current maintained-artifact vocabulary.
+The successor preserves progressive adoption while expressing every optional
+semantic surface through the current Projection vocabulary.
