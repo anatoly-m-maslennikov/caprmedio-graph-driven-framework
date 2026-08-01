@@ -13,7 +13,7 @@ relations:
       - DSET-REQUIREMENT-GOV-032
   - type: child_of
     targets:
-      - DSET-REQUIREMENT-META-052
+      - CARMADIO-REQUIREMENT-META-052
 ---
 
 # Requirement — Own truth at the narrowest common scope

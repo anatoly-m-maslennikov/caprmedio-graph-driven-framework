@@ -24,7 +24,7 @@ Active META and GOV atomic filenames still use legacy verbose identity shapes
 such as:
 
 ```text
-DSET-REQUIREMENT-META-070-total-one-to-one-semantic-route-catalog.md
+CARMADIO-REQUIREMENT-META-070-total-one-to-one-semantic-route-catalog.md
 ```
 
 They do not yet use the accepted shape:

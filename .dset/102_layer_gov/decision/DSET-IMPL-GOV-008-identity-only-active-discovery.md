@@ -15,7 +15,7 @@ relations:
       - DSET-DECISION-GOV-028
   - type: child_of
     targets:
-      - DSET-REQUIREMENT-META-053
+      - CARMADIO-REQUIREMENT-META-053
 ---
 
 # Implementation Decision — Discover active authority by identity

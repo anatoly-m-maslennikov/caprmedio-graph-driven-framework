@@ -13,8 +13,8 @@ relations:
       - DSET-REQUIREMENT-GOV-053
   - type: child_of
     targets:
-      - DSET-REQUIREMENT-META-053
-      - DSET-REQUIREMENT-META-054
+      - CARMADIO-REQUIREMENT-META-053
+      - CARMADIO-REQUIREMENT-META-054
 ---
 
 # Requirement — Keep durable hubs folder-level

@@ -14,7 +14,7 @@ relations:
       - DSET-REQUIREMENT-GOV-100
   - type: child_of
     targets:
-      - DSET-REQUIREMENT-META-053
+      - CARMADIO-REQUIREMENT-META-053
 ---
 
 # Requirement — Separate control, journal, runtime, and scratch state

@@ -14,8 +14,8 @@ relations:
       - DSET-DECISION-GOV-002
   - type: child_of
     targets:
-      - DSET-REQUIREMENT-META-022
-      - DSET-REQUIREMENT-META-027
+      - CARMADIO-REQUIREMENT-META-022
+      - CARMADIO-REQUIREMENT-META-027
 ---
 
 # Implementation Decision — Use one governance constitution

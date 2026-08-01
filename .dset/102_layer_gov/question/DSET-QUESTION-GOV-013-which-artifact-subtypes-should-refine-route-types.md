@@ -11,8 +11,8 @@ llm_session_ids:
 relations:
   - type: relates_to
     targets:
-      - DSET-REQUIREMENT-META-045
-      - DSET-REQUIREMENT-META-046
+      - CARMADIO-REQUIREMENT-META-045
+      - CARMADIO-REQUIREMENT-META-046
       - DSET-PROBLEM-GOV-008
       - DSET-REQUIREMENT-GOV-102
 ---

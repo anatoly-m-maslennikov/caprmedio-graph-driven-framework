@@ -13,9 +13,9 @@ relations:
       - DSET-REQUIREMENT-GOV-088
   - type: child_of
     targets:
-      - DSET-REQUIREMENT-META-014
-      - DSET-REQUIREMENT-META-035
-      - DSET-REQUIREMENT-META-038
+      - CARMADIO-REQUIREMENT-META-014
+      - CARMADIO-REQUIREMENT-META-035
+      - CARMADIO-REQUIREMENT-META-038
 ---
 
 # Requirement — Derive locus and declare endpoint origins

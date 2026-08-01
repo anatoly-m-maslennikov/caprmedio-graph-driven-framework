@@ -13,12 +13,12 @@ relations:
   - type: analysis_of
     targets:
       - DSET-REQUIREMENT-IMPL-010
-      - DSET-REQUIREMENT-META-041
-      - DSET-REQUIREMENT-META-058
-      - DSET-REQUIREMENT-META-065
-      - DSET-REQUIREMENT-META-067
-      - DSET-REQUIREMENT-META-069
-      - DSET-REQUIREMENT-META-072
+      - CARMADIO-REQUIREMENT-META-041
+      - CARMADIO-REQUIREMENT-META-058
+      - CARMADIO-REQUIREMENT-META-065
+      - CARMADIO-REQUIREMENT-META-067
+      - CARMADIO-REQUIREMENT-META-069
+      - CARMADIO-REQUIREMENT-META-072
       - DSET-REQUIREMENT-GOV-096
       - DSET-REQUIREMENT-GOV-098
       - DSET-REQUIREMENT-GOV-111
@@ -68,12 +68,12 @@ implemented or verified.
 
 | Current conclusion | Active identity |
 |---|---|
-| Revision modes and no Evergreen carrier | `DSET-REQUIREMENT-META-041` |
-| Exploration Mode | `DSET-REQUIREMENT-META-058` |
-| Target topology | `DSET-REQUIREMENT-META-065` |
-| Handoffs | `DSET-REQUIREMENT-META-067` |
-| Seven Content roles and three Governance loci | `DSET-REQUIREMENT-META-069` |
-| Atomic-only META and GOV authority | `DSET-REQUIREMENT-META-072` |
+| Revision modes and no Evergreen carrier | `CARMADIO-REQUIREMENT-META-041` |
+| Exploration Mode | `CARMADIO-REQUIREMENT-META-058` |
+| Target topology | `CARMADIO-REQUIREMENT-META-065` |
+| Handoffs | `CARMADIO-REQUIREMENT-META-067` |
+| Seven Content roles and three Governance loci | `CARMADIO-REQUIREMENT-META-069` |
+| Atomic-only META and GOV authority | `CARMADIO-REQUIREMENT-META-072` |
 | Archive trailers | `DSET-REQUIREMENT-GOV-096` |
 | Reporting mode | `DSET-REQUIREMENT-GOV-098` |
 | Carrier, runtime, and log routing | `DSET-REQUIREMENT-GOV-111`, `DSET-REQUIREMENT-GOV-116` |

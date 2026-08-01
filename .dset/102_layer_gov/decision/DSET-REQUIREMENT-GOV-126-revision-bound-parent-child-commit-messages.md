@@ -10,14 +10,14 @@ llm_session_ids:
 relations:
   - type: child_of
     targets:
-      - DSET-REQUIREMENT-META-075
+      - CARMADIO-REQUIREMENT-META-075
   - type: replacement_of
     targets:
       - DSET-REQUIREMENT-GOV-125
   - type: relates_to
     targets:
-      - DSET-REQUIREMENT-META-073
-      - DSET-REQUIREMENT-META-074
+      - CARMADIO-REQUIREMENT-META-073
+      - CARMADIO-REQUIREMENT-META-074
 ---
 
 # Requirement — Use revision-bound parent and child commit messages

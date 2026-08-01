@@ -13,7 +13,7 @@ relations:
       - DSET-REQUIREMENT-GOV-031
   - type: child_of
     targets:
-      - DSET-REQUIREMENT-META-054
+      - CARMADIO-REQUIREMENT-META-054
 ---
 
 # Requirement — Show one structural level when architecture views are enabled
