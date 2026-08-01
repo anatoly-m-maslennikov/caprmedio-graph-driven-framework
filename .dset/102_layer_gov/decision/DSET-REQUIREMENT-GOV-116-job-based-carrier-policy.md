@@ -26,11 +26,11 @@ its applicable non-derived properties. Frontmatter is non-empty, does not
 duplicate narrative body content, and does not repeat semantic route
 coordinates already determined by the registered artifact type.
 
-DSET uses these default carrier boundaries:
+CARMADIO uses these default carrier boundaries:
 
 | Carrier | Governed job |
 |---|---|
-| Markdown with YAML frontmatter | Human-governed atomic and maintained artifacts with narrative meaning |
+| Markdown with YAML frontmatter | Human-governed Atoms and Projections with narrative meaning |
 | TOML | Human-edited configuration executed directly by tools |
 | JSON | External contracts, standardized schemas, wire data, and generated machine data |
 | NDJSON | Append-only journals and ordered record streams under `.dset_journal` |
@@ -41,12 +41,12 @@ not its layer or implementation language. A binding standard, ecosystem, or
 external obligation keeps its prescribed format and does not gain a parallel
 writable representation.
 
-Markdown frontmatter uses `---`. YAML is not a standalone DSET artifact format.
+Markdown frontmatter uses `---`. YAML is not a standalone CARMADIO artifact format.
 Embedded source examples are content rather than separate artifacts.
 
 ## Primary claim
 
-DSET uses Markdown with YAML frontmatter for human-governed artifacts, TOML for
+CARMADIO uses Markdown with YAML frontmatter for human-governed artifacts, TOML for
 executable human configuration, JSON for standardized machine boundaries,
 NDJSON for append-only journals, and native formats for implementation.
 
