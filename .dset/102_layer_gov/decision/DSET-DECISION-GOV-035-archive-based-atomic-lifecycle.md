@@ -34,12 +34,14 @@ not a mutation of the Atomic Artifact.
 
 - A successor carrying `replacement_of` replaces an older claim. After the
   successor is committed, the replaced atom moves to `archive/`.
-- A resolver carrying `resolution_of` closes a Question, Conflict, or Problem.
-  After the resolver is committed, the resolved atom moves to `archive/`.
+- A resolver carrying `resolution_of` closes a Concern Atom with the `question`
+  or `problem` subtype. A resolver carrying `solution_for` closes a relational
+  Conflict. After the resolver is committed, the resolved atom moves to
+  `archive/`.
 - An atom removed from current work without current implementation is moved to
-  `archive/`, and the intended future work is represented by an entry in the
-  applicable Version Roadmap or App Plan. That Version entry references the
-  archived atom's ID for provenance.
+  `archive/`, and any intended future work is represented by a candidate in the
+  Development Backlog. That candidate references the archived Atom ID for
+  provenance.
 - An atom that no longer applies and has no future intent moves to `archive/`
   in a commit whose rationale identifies why no successor is required.
 
@@ -49,16 +51,17 @@ lifecycle states or artifact types.
 
 ## Returning matters
 
-Reopening an archived atom is forbidden. A recurring Question or Problem is a
-new Atomic Artifact with its own identity, current claim, provenance, priority,
-and acceptance.
+Reopening an archived atom is forbidden. A recurring Concern with the
+`question` or `problem` subtype is a new Atom with its own identity, current
+claim, provenance, and priority.
 
 The new artifact may point to the archived predecessor with:
 
-```toml
-[[relations]]
-type = "recurrence_of"
-target = "DSET-PROBLEM-GOV-001"
+```yaml
+relations:
+  - type: recurrence_of
+    targets:
+      - DSET-PROBLEM-GOV-001
 ```
 
 `recurrence_of` means the same bounded matter occurred again after the earlier
@@ -75,11 +78,11 @@ information.
 
 ## Primary claim
 
-CARMADIO removes lifecycle_event artifacts and models an Atomic Artifact as either active or archived; typed successor relations explain resolution and replacement, withdrawn future work moves into a Version Roadmap, and a closed matter can return only as a new atom related to its archived predecessor by recurrence_of.
+CARMADIO removes lifecycle-event artifacts and models an Atom as either active or archived; typed successor relations explain resolution and replacement, intended future work moves into the Development Backlog, and a closed matter can return only as a new Atom related to its archived predecessor by `recurrence_of`.
 
 ## Rationale
 
-Standalone lifecycle-event carriers duplicate typed relations and add a second atomic state model when active/archive placement, successor atoms, Version artifacts, provenance, and Git already preserve the required history.
+Standalone lifecycle-event carriers duplicate typed relations and add a second atomic state model when active/archive placement, successor Atoms, the Development Backlog, Release Records, provenance, and Git already preserve the required history.
 
 
 ## Historical frontmatter metadata
