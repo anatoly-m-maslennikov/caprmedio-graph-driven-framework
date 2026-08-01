@@ -27,7 +27,7 @@ An outside-owned commit governed as an external input uses artifact type
 `atomic / implementation / external`.
 
 Both types use the repository-qualified native commit SHA as identity rather
-than a DSET artifact sequence. Precise repository, author, signer, and source
+than a CARMADIO artifact sequence. Precise repository, author, signer, and source
 facts remain provenance. They do not replace the type-derived Governance locus.
 
 ## Primary claim
