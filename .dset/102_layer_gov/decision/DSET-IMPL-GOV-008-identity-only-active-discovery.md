@@ -18,19 +18,19 @@ relations:
       - CARMADIO-REQUIREMENT-META-053
 ---
 
-# Implementation Decision — Discover active authority by identity
+# Technical Decision — Discover active authority by identity
 
-Every DSET skill begins at the target repository's `.dset` control root,
+Every CARMADIO skill begins at the target repository's `.dset` control root,
 locates the unique settings carrier, and resolves requested artifact, rule,
 document, and carrier identities within that bounded tree. Zero active matches
 or multiple active matches stop.
 
 Active discovery includes installed methodology, settings, active atomic
-artifacts, and applicable maintained artifacts. It excludes every type-local
+artifacts, and applicable Projections. It excludes every type-local
 `archive/` subtree and never falls back to root framework source, inert legacy
 material, completed migrations, a remote copy, or a global installation.
 
-DSET-to-DSET references persist identities, not physical carrier paths. A tool
+CARMADIO-to-CARMADIO references persist identities, not physical carrier paths. A tool
 may retain a resolved path in memory for the current operation. Implementation
 outside `.dset` may be located only after accepted authority identifies the
 implementation subject.
