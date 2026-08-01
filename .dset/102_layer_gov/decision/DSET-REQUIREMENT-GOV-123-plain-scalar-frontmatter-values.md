@@ -20,8 +20,8 @@ relations:
 
 # Requirement — Keep frontmatter values ready for plain scalars
 
-DSET-controlled frontmatter keys and string values are designed for
-unambiguous YAML plain-scalar storage. DSET-authored Markdown therefore emits
+CARMADIO-controlled frontmatter keys and string values are designed for
+unambiguous YAML plain-scalar storage. CARMADIO-authored Markdown therefore emits
 those values without quotation marks.
 
 Controlled property keys use `snake_case`. Controlled vocabulary values use
@@ -46,8 +46,8 @@ forcing quoted free-form strings into frontmatter.
 
 ## Primary claim
 
-Every DSET-controlled Markdown frontmatter value is valid and unambiguous
-without quotes, and DSET-authored carriers emit it in that plain form.
+Every CARMADIO-controlled Markdown frontmatter value is valid and unambiguous
+without quotes, and CARMADIO-authored carriers emit it in that plain form.
 
 ## Rationale
 
