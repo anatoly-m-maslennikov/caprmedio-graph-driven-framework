@@ -3,7 +3,7 @@ artifact_type: requirement
 artifact_id: CARMADIO-REQUIREMENT-GOV-137
 scope_path: layer:gov
 subject_scopes:
-  - artifact-catalog
+  - public-interface
 priority: high
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
