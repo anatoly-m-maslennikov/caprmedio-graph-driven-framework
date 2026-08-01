@@ -26,12 +26,12 @@ reporting_mode = "silent" # silent | verbose
 The allowed values are exactly `silent` and `verbose`. The default is
 `silent`.
 
-In `silent` mode, DSET does not announce ordinary mode selection, workflow
+In `silent` mode, CARMADIO does not announce ordinary mode selection, workflow
 routing, skill chaining, or gate transitions. It answers exploratory input
 normally and reports only durable artifacts or project state that it created,
 updated, archived, committed, or otherwise changed.
 
-In `verbose` mode, DSET explicitly reports relevant workflow modes, mode
+In `verbose` mode, CARMADIO explicitly reports relevant workflow modes, mode
 transitions, selected skill chains, entry and exit gates, and planned or
 completed artifact operations.
 
@@ -50,7 +50,7 @@ configuration. They do not maintain independent reporting defaults.
 
 ## Rationale
 
-Silent reporting keeps ordinary DSET use natural and concise, while verbose
+Silent reporting keeps ordinary CARMADIO use natural and concise, while verbose
 reporting makes orchestration inspectable during adoption, debugging, audits,
 and methodology development. Keeping both behaviors behind one project-owned
 setting prevents individual skills from drifting into inconsistent interaction
