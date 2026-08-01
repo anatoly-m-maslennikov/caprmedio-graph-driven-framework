@@ -15,7 +15,7 @@ relations:
       - DSET-REQUIREMENT-GOV-120
       - CARMADIO-REQUIREMENT-GOV-138
       - CARMADIO-REQUIREMENT-GOV-139
-      - DSET-PROBLEM-GOV-009
+      - DSET-PROBLEM-GOV-012
 ---
 
 # Problem — Atomic carriers are not Type-local
@@ -28,13 +28,12 @@ Active META and GOV atomic carriers still use four legacy family directories:
 - `qa/`.
 
 The `decision/` directory contains several distinct Types, while `qa/`
-distinguishes subtypes without a canonical QA Case Type directory. This does
-not implement the accepted Type-local active-root, `drafts/`, and `archive/`
-layout.
+contains Assurance Atoms outside an `assurance/` Type directory. This does not
+implement the accepted Type-local active-root, `drafts/`, and `archive/` layout.
 
-Until the canonical route catalog is complete and carriers are migrated
-losslessly, directory placement cannot derive an unambiguous Type-local
-carrier kind for every atom.
+The current Type surface is registered, but the carriers have not yet undergone
+the governed identity-and-path migration tracked by the active identity
+Problem.
 
 ## Primary claim
 
@@ -44,6 +43,6 @@ not yet implemented.
 
 ## Rationale
 
-The gap must remain explicit while the route catalog is incomplete. Moving
-carriers prematurely would either invent Type ownership or require another
-whole-graph migration immediately afterward.
+The gap must remain explicit until Type identity and placement are migrated as
+one lossless graph operation; moving paths alone would separate carriers from
+their registered identities and provenance.
