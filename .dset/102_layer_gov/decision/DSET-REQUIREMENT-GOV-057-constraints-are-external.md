@@ -10,24 +10,28 @@ llm_session_ids:
 relations:
   - type: child_of
     targets:
-      - DSET-DECISION-GOV-033
+      - CARMADIO-REQUIREMENT-META-102
+  - type: relates_to
+    targets:
+      - CARMADIO-REQUIREMENT-GOV-138
+      - CARMADIO-REQUIREMENT-GOV-141
 ---
 
 # Requirement — Constraints are externally imposed
 
-Use `constraint` only when the limitation originates outside the project's
+Use the `constraint` Type only when the limitation originates outside the project's
 choice boundary, such as a law, existing DDL, mandated host format, platform
 limit, or non-negotiable upstream interface.
 
 Use `requirement` for results the operator or project requires, including
 format choices, supported behavior, forbidden project behavior, and quality
-targets. A selected implementation approach remains
-`implementation_decision`; an interface obligation between internal features
-remains `contract`.
+targets. A selected implementation approach is a `method` Atom with the
+`technical_decision` subtype; an obligation across governed endpoints uses the
+relational `contract` Type.
 
 ## Primary claim
 
-The Constraint subtype is reserved for externally imposed limitations that the project must obey; operator-selected or project-owned required results use the Requirement subtype.
+The Constraint Type is reserved for externally imposed limitations that the project must obey; operator-selected or project-owned required results use the internal Requirement Type.
 
 ## Rationale
 
