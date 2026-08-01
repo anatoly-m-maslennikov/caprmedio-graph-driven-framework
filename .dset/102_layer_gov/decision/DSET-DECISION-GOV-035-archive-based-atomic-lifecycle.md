@@ -19,7 +19,7 @@ relations:
 
 # Decision — Use an archive-based Atomic Artifact lifecycle
 
-DSET has no `lifecycle_event` artifact type. An Atomic Artifact has only two
+CARMADIO has no `lifecycle_event` artifact type. An Atomic Artifact has only two
 storage states:
 
 - **active:** its carrier is in the active Type folder and participates in
@@ -75,7 +75,7 @@ information.
 
 ## Primary claim
 
-DSET removes lifecycle_event artifacts and models an Atomic Artifact as either active or archived; typed successor relations explain resolution and replacement, withdrawn future work moves into a Version Roadmap, and a closed matter can return only as a new atom related to its archived predecessor by recurrence_of.
+CARMADIO removes lifecycle_event artifacts and models an Atomic Artifact as either active or archived; typed successor relations explain resolution and replacement, withdrawn future work moves into a Version Roadmap, and a closed matter can return only as a new atom related to its archived predecessor by recurrence_of.
 
 ## Rationale
 
