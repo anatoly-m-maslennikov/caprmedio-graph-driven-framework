@@ -10,7 +10,7 @@ llm_session_ids:
 relations:
   - type: child_of
     targets:
-      - DSET-REQUIREMENT-SKILL-011
+      - CARMADIO-REQUIREMENT-SKILL-011
   - type: relates_to
     targets:
       - CARMADIO-REQUIREMENT-GOV-136

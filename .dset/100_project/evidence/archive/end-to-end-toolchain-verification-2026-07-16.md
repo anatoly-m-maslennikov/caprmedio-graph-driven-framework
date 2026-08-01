@@ -10,10 +10,10 @@
   runtime, and source-workflow claims. Native authenticated Codex/Claude
   invocation, hosted Linux/native-Windows execution, WSL execution, and real
   GitHub publication remain explicitly unproved.
-- **Intended use:** Support `DSET-DECISION-SKILL-001`, close the local
-  implementation portion of `DSET-TASK-TOOL-010`, and bound the remaining
-  evidence work under `DSET-TASK-SKILL-020`, `DSET-TASK-TOOL-036`, and
-  `DSET-TASK-OPS-025`.
+- **Intended use:** Support `CARMADIO-DECISION-SKILL-001`, close the local
+  implementation portion of `CARMADIO-TASK-TOOL-010`, and bound the remaining
+  evidence work under `CARMADIO-TASK-SKILL-020`, `CARMADIO-TASK-TOOL-036`, and
+  `CARMADIO-TASK-OPS-025`.
 - **LLM session IDs:**
   - `codex:019f591f-04f6-70f2-8de7-828b7cccc69d`
 - **Reopen when:** Bootstrap inputs, the embedded bundle, CLI routing, runtime

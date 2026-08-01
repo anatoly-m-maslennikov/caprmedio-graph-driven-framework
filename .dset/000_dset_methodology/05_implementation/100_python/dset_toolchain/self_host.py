@@ -30,7 +30,7 @@ def run_self_host(
     version_path = discover_layout(root).version_path
     if not version_path.is_file():
         raise DsetCommandError(
-            "DSET-E140", version_path, "self-host version contract is missing"
+            "CARMADIO-E140", version_path, "self-host version contract is missing"
         )
     version = project_section(root, "version_registry")
     released = version.get("released_validator", {})
@@ -44,7 +44,7 @@ def run_self_host(
         _run_validator(
             [sys.executable, "-m", "dset_toolchain", "check", str(root)],
             extracted,
-            "DSET-E140",
+            "CARMADIO-E140",
             "released validator rejected the candidate repository",
         )
     except DsetCommandError as error:
@@ -62,14 +62,14 @@ def run_self_host(
     _run_validator(
         command,
         root,
-        "DSET-E141",
+        "CARMADIO-E141",
         "candidate validator rejected the framework repository",
     )
     create_adopter(root, adopter)
     _run_validator(
         [sys.executable, "-m", "dset_toolchain", "check", str(adopter)],
         root,
-        "DSET-E141",
+        "CARMADIO-E141",
         "candidate validator rejected the temporary adopter",
     )
     adopter_registry = project_section(adopter, "governance_registry")
@@ -84,7 +84,7 @@ def run_self_host(
         resolved, diagnostics = resolve_workflow(adopter, workflow_id)
         if diagnostics or resolved is None:
             raise DsetCommandError(
-                "DSET-E141",
+                "CARMADIO-E141",
                 discover_layout(adopter).governance_path,
                 f"temporary adopter workflow did not resolve: {workflow_id}",
             )
@@ -93,7 +93,7 @@ def run_self_host(
         wrapper_before[workflow_id] = _sha256(wrapper_path)
     resolved = resolved_workflows["domain-clarification"]
     rule = next(
-        item for item in resolved["rules"] if item["id"] == "DSET-RULE-DOMAIN-SPEC"
+        item for item in resolved["rules"] if item["id"] == "CARMADIO-RULE-DOMAIN-SPEC"
     )
     rule_path = _rule_path(adopter, rule)
     rule_path.write_text(
@@ -101,15 +101,15 @@ def run_self_host(
         + "\n<!-- bounded self-host customization -->\n",
         encoding="utf-8",
     )
-    if "DSET-E139" not in {item.code for item in validate_governance(adopter)}:
+    if "CARMADIO-E139" not in {item.code for item in validate_governance(adopter)}:
         raise DsetCommandError(
-            "DSET-E141", rule_path, "local customization was not detected"
+            "CARMADIO-E141", rule_path, "local customization was not detected"
         )
     refresh_customization(adopter)
     _run_validator(
         [sys.executable, "-m", "dset_toolchain", "check", str(adopter)],
         root,
-        "DSET-E141",
+        "CARMADIO-E141",
         "customized temporary adopter did not validate",
     )
     customized_workflows: dict[str, dict[str, Any]] = {}
@@ -118,7 +118,7 @@ def run_self_host(
         customized, diagnostics = resolve_workflow(adopter, workflow_id)
         if diagnostics or customized is None:
             raise DsetCommandError(
-                "DSET-E141",
+                "CARMADIO-E141",
                 rule_path,
                 f"customized workflow did not resolve: {workflow_id}",
             )
@@ -167,7 +167,7 @@ def _extract_released(root: Path, reference: str, destination: Path) -> None:
     if result.returncode:
         message = result.stderr.decode("utf-8", errors="replace").strip()
         raise DsetCommandError(
-            "DSET-E140",
+            "CARMADIO-E140",
             discover_layout(root).version_path,
             f"released validator cannot be extracted: {message}",
         )
@@ -179,7 +179,7 @@ def _extract_released(root: Path, reference: str, destination: Path) -> None:
                 target.relative_to(destination)
             except ValueError as error:
                 raise DsetCommandError(
-                    "DSET-E140", destination, "released archive escapes destination"
+                    "CARMADIO-E140", destination, "released archive escapes destination"
                 ) from error
         archive.extractall(destination)
 

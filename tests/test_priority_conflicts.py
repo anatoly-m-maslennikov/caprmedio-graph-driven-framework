@@ -51,15 +51,15 @@ class PriorityConflictTests(unittest.TestCase):
         self._seed_parties(root)
         projection = self._write_fact(
             root,
-            "DSET-SPECIFICATION-099",
+            "CARMADIO-SPECIFICATION-099",
             artifact_type="specification",
             priority="high",
             scope={"kind": "project", "id": "dset-temporary-adopter"},
-            relations=[{"type": "projection_of", "target": "DSET-DECISION-001"}],
+            relations=[{"type": "projection_of", "target": "CARMADIO-DECISION-001"}],
         )
         candidate = self._atomic_candidate(root)
         candidate["right"] = {
-            "id": "DSET-SPECIFICATION-099",
+            "id": "CARMADIO-SPECIFICATION-099",
             "source": projection,
         }
 
@@ -67,7 +67,7 @@ class PriorityConflictTests(unittest.TestCase):
 
         self.assertEqual(result["conflict_class"], "source_projection_drift")
         self.assertEqual(result["disposition"], "recompile_projection")
-        self.assertEqual(result["selected_id"], "DSET-DECISION-001")
+        self.assertEqual(result["selected_id"], "CARMADIO-DECISION-001")
         self.assertEqual(result["left"]["role"], "atomic_authority")
         self.assertEqual(result["right"]["role"], "evergreen_projection")
 
@@ -248,7 +248,7 @@ class PriorityConflictTests(unittest.TestCase):
         root = create_adopter(ROOT, self.root / "adopter")
         self._seed_parties(root)
         candidate = self._emission_candidate(root)
-        output = root / "dset/changes/DSET-ATOMIC-RECORD-003-conflict.md"
+        output = root / "dset/changes/CARMADIO-ATOMIC-RECORD-003-conflict.md"
 
         path, result = emit_conflict_atom(root, output, candidate)
 
@@ -256,17 +256,17 @@ class PriorityConflictTests(unittest.TestCase):
         self.assertEqual(diagnostics, [])
         self.assertEqual(path, output)
         self.assertTrue(result["conflict_atom_required"])
-        self.assertEqual(atoms["DSET-CONFLICT-003"].subtype, "conflict")
+        self.assertEqual(atoms["CARMADIO-CONFLICT-003"].subtype, "conflict")
 
     def test_replacement_is_derived_from_relation_and_archive(self) -> None:
         root = create_adopter(ROOT, self.root / "adopter")
         self._seed_parties(root, replacement=True)
-        archive_atom(root, "DSET-DECISION-001")
+        archive_atom(root, "CARMADIO-DECISION-001")
         candidate = self._atomic_candidate(root)
         candidate["context"]["applicable"] = False
         replacement = resolve_conflict(root, candidate)
         self.assertEqual(replacement["conflict_class"], "replacement")
-        self.assertEqual(replacement["selected_id"], "DSET-CONTRACT-002")
+        self.assertEqual(replacement["selected_id"], "CARMADIO-CONTRACT-002")
         self.assertEqual(
             replacement["disposition"],
             "replacement_atom_governs",
@@ -358,8 +358,8 @@ class PriorityConflictTests(unittest.TestCase):
     def _atomic_candidate(cls, root: Path) -> dict[str, Any]:
         """Handle candidate using the declared repository contract."""
         return {
-            "left": {"id": "DSET-DECISION-001"},
-            "right": {"id": "DSET-CONTRACT-002"},
+            "left": {"id": "CARMADIO-DECISION-001"},
+            "right": {"id": "CARMADIO-CONTRACT-002"},
             "context": cls._context(root),
             "selectable": False,
         }
@@ -369,17 +369,17 @@ class PriorityConflictTests(unittest.TestCase):
         """Handle candidate using the declared repository contract."""
         candidate = cls._atomic_candidate(root)
         candidate["conflict_atom"] = {
-            "artifact_id": "DSET-ATOMIC-RECORD-003",
-            "semantic_id": "DSET-CONFLICT-003",
+            "artifact_id": "CARMADIO-ATOMIC-RECORD-003",
+            "semantic_id": "CARMADIO-CONFLICT-003",
             "authority": "operator:test-operator",
             "claim": "The two active authority claims cannot both govern this scope.",
             "scope": {"kind": "project", "id": "dset-temporary-adopter"},
             "llm_session_ids": ["codex:test-session"],
-            "material_links": ["DSET-DECISION-001", "DSET-CONTRACT-002"],
+            "material_links": ["CARMADIO-DECISION-001", "CARMADIO-CONTRACT-002"],
             "promotion": {"parent_scope": None},
             "acceptance": "proposed",
             "priority": "high",
-            "lineage": ["DSET-DECISION-001", "DSET-CONTRACT-002"],
+            "lineage": ["CARMADIO-DECISION-001", "CARMADIO-CONTRACT-002"],
             "rationale": "Preserve the unresolved incompatibility.",
         }
         return candidate
@@ -388,20 +388,20 @@ class PriorityConflictTests(unittest.TestCase):
     def _seed_parties(root: Path, *, replacement: bool = False) -> None:
         """Handle parties using the declared repository contract."""
         for carrier, semantic, subtype, priority in (
-            ("001", "DSET-DECISION-001", None, "medium"),
-            ("002", "DSET-CONTRACT-002", "contract", "high"),
+            ("001", "CARMADIO-DECISION-001", None, "medium"),
+            ("002", "CARMADIO-CONTRACT-002", "contract", "high"),
         ):
-            path = root / f"dset/changes/DSET-ATOMIC-RECORD-{carrier}-party.md"
+            path = root / f"dset/changes/CARMADIO-ATOMIC-RECORD-{carrier}-party.md"
             subtype_line = f"subtype: {subtype}\n" if subtype else ""
             relation = (
-                "relations:\n  - type: replacement_of\n    target: DSET-DECISION-001\n"
-                if replacement and semantic == "DSET-CONTRACT-002"
+                "relations:\n  - type: replacement_of\n    target: CARMADIO-DECISION-001\n"
+                if replacement and semantic == "CARMADIO-CONTRACT-002"
                 else ""
             )
             path.write_text(
                 "---\n"
                 "artifact_type: atomic_record\n"
-                f"artifact_id: DSET-ATOMIC-RECORD-{carrier}\n"
+                f"artifact_id: CARMADIO-ATOMIC-RECORD-{carrier}\n"
                 "type: decision\n"
                 f"{subtype_line}"
                 f"semantic_id: {semantic}\n"

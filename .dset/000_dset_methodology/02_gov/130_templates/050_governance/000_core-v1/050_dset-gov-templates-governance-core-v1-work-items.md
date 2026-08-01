@@ -7,7 +7,7 @@ artifact_subtype: governance
 
 # Atomic artifact meanings and routing
 
-**Rule ID:** `DSET-RULE-WORK-ITEMS`
+**Rule ID:** `CARMADIO-RULE-WORK-ITEMS`
 
 ## Direct registered types
 
@@ -48,8 +48,8 @@ implementation; emit an Implementation Decision only when the choice is
 material enough to govern later work. Record rationale inline when concise or
 as a linked Rationale atom when it deserves independent history.
 
-Atomic sources: `DSET-REQUIREMENT-GOV-057`,
-`DSET-REQUIREMENT-GOV-101`, and `DSET-IMPL-GOV-009`.
+Atomic sources: `CARMADIO-REQUIREMENT-GOV-057`,
+`CARMADIO-REQUIREMENT-GOV-101`, and `CARMADIO-IMPL-GOV-009`.
 
 ## Inquiry and observation feedback
 
@@ -78,8 +78,8 @@ A Question or Problem may lead directly to work only when existing authority
 already defines the answer. Otherwise analysis informs a new Requirement,
 Constraint, Contract, or Implementation Decision. The canonical feedback loop
 is Inquiry → Analysis → Definition → Method → Implementation → Observation →
-Inquiry. Sources: `DSET-REQUIREMENT-META-047` and
-`DSET-REQUIREMENT-META-048`.
+Inquiry. Sources: `CARMADIO-REQUIREMENT-META-047` and
+`CARMADIO-REQUIREMENT-META-048`.
 
 ## Assurance meanings
 
@@ -114,8 +114,8 @@ identities.
 A naming-policy migration recodes the complete identity graph in one
 collision-free transaction and removes old aliases after cutover. It may change
 representation, not governed atomic meaning. Sources:
-`DSET-REQUIREMENT-GOV-108`, `DSET-REQUIREMENT-GOV-113`,
-`DSET-REQUIREMENT-GOV-114`, and `DSET-IMPL-GOV-009`.
+`CARMADIO-REQUIREMENT-GOV-108`, `CARMADIO-REQUIREMENT-GOV-113`,
+`CARMADIO-REQUIREMENT-GOV-114`, and `CARMADIO-IMPL-GOV-009`.
 
 ## Lifecycle and relations
 
@@ -138,7 +138,7 @@ resolver is committed, the predecessor moves byte-for-byte to its type-local
 `archive/`. Withdrawal archives the atom; future intent is recorded in a
 Version Roadmap. Archive commits use `Archives`, `Archive-Reason`,
 `Archive-Reference` when applicable, and `Session` trailers. Source:
-`DSET-DECISION-GOV-035` and `DSET-REQUIREMENT-GOV-096`.
+`CARMADIO-DECISION-GOV-035` and `CARMADIO-REQUIREMENT-GOV-096`.
 
 ## Git and provenance
 
@@ -152,8 +152,8 @@ list denotes human-only creation. Provenance enables investigation but does
 not confer authority. Internal Git commits use `git_commit`; outside-owned
 commits use `external_git_commit`. Pull requests are maintained relational
 Method artifacts with independent source and target endpoint origins. Sources:
-`DSET-REQUIREMENT-GOV-065`, `DSET-REQUIREMENT-GOV-080`, and
-`DSET-REQUIREMENT-GOV-103`.
+`CARMADIO-REQUIREMENT-GOV-065`, `CARMADIO-REQUIREMENT-GOV-080`, and
+`CARMADIO-REQUIREMENT-GOV-103`.
 
 ## Classification procedure
 

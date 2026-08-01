@@ -17,7 +17,7 @@ compatibility branches. A future schema requires a migration path and may not
 silently reinterpret an older layout. Human-readable messages and
 non-contractual examples may improve compatibly.
 
-### DSET-CONTRACT-TOOL-001 — Released utilities match declared platforms
+### CARMADIO-CONTRACT-TOOL-001 — Released utilities match declared platforms
 
 | Field | Value |
 |---|---|
@@ -31,7 +31,7 @@ non-contractual examples may improve compatibly.
 | Compatibility | Every matrix cell has executed proof or explicit honest `N/A`; generic Markdown validation is insufficient |
 | Lifecycle | `active` |
 
-### DSET-CONTRACT-TOOL-002 — Dependencies follow exact policy
+### CARMADIO-CONTRACT-TOOL-002 — Dependencies follow exact policy
 
 | Field | Value |
 |---|---|

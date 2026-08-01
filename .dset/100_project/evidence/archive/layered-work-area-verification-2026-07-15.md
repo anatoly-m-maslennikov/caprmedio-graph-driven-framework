@@ -69,7 +69,7 @@ successfully. No check was skipped or converted into a pass.
 
 The referenced commit is a clearly labeled schema 1.2 migration baseline, not
 a claim that the older published validator supports schema 1.2.
-`DSET-PROBLEM-TOOL-001` keeps released-to-candidate assurance degraded until a
+`CARMADIO-PROBLEM-TOOL-001` keeps released-to-candidate assurance degraded until a
 compatible published validator checks a later candidate or an accepted
 compatibility proof closes the gap.
 

@@ -31,7 +31,7 @@ from dset_toolchain.layout import LAYER_DIRECTORIES  # noqa: E402
 from dset_toolchain.toml_codec import dumps as dump_toml  # noqa: E402
 from dset_toolchain.toml_codec import load as load_toml  # noqa: E402
 
-AUTHORITY = "DSET-REQUIREMENT-GOV-044"
+AUTHORITY = "CARMADIO-REQUIREMENT-GOV-044"
 SESSION = "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
 IMMUTABLE_OWNERS = frozenset({"decision", "question", "problem", "qa", "evidence"})
 TEXT_SUFFIXES = frozenset({".json", ".md", ".py", ".toml", ".txt", ".yaml", ".yml"})

@@ -18,34 +18,34 @@ metadata remains in the wrapper; substantive rules moved to the owners below.
 
 | Former statement group | Governing owner |
 |---|---|
-| Repository/change discovery, selected authority, and fail-closed bootstrap | `DSET-RULE-ARCHITECTURE` |
-| Facts/decisions/assumptions/unknowns; vocabulary; actors; entities; value objects; ownership; lifecycle state machines; invariants; boundary cases; material questions; what/why separation; requirement/scenario IDs; stop before unresolved domain choices | `DSET-RULE-DOMAIN-SPEC` |
-| Exact proof belongs to deterministic tests | `DSET-RULE-TEST-CASE` |
-| Variable or rubric-based proof belongs to evals | `DSET-RULE-EVALUATION-CASE` |
-| Authorized artifact writes, Decision routing, single-owner output, and implementation handoff | `DSET-RULE-ARTIFACT-MAINTENANCE` |
-| Run the selected validation gate after authorized writes | `DSET-RULE-BUILD` |
+| Repository/change discovery, selected authority, and fail-closed bootstrap | `CARMADIO-RULE-ARCHITECTURE` |
+| Facts/decisions/assumptions/unknowns; vocabulary; actors; entities; value objects; ownership; lifecycle state machines; invariants; boundary cases; material questions; what/why separation; requirement/scenario IDs; stop before unresolved domain choices | `CARMADIO-RULE-DOMAIN-SPEC` |
+| Exact proof belongs to deterministic tests | `CARMADIO-RULE-TEST-CASE` |
+| Variable or rubric-based proof belongs to evals | `CARMADIO-RULE-EVALUATION-CASE` |
+| Authorized artifact writes, Decision routing, single-owner output, and implementation handoff | `CARMADIO-RULE-ARTIFACT-MAINTENANCE` |
+| Run the selected validation gate after authorized writes | `CARMADIO-RULE-BUILD` |
 
 ## `dset-diagnose`
 
 | Former statement group | Governing owner |
 |---|---|
-| Accepted/current authority discovery and state-owner boundaries | `DSET-RULE-ARCHITECTURE` |
-| Reproduce, minimize, separate environment failures, form competing hypotheses, gather discriminating evidence, find the first bad change, trace Back-to-Left provenance, classify upstream artifacts, report inference honestly, contain, and stop at an evidence/authorization boundary | `DSET-RULE-DIAGNOSIS` |
-| Exact regression proof | `DSET-RULE-TEST-CASE` |
-| Variable baseline and threshold proof | `DSET-RULE-EVALUATION-CASE` |
-| Bounded/redacted diagnostics, build/deploy identity, access, retention, volume, and production-effect safety | `DSET-RULE-SUPPORTABILITY` |
-| Write authorization, owning defect artifacts, and fix handoff | `DSET-RULE-ARTIFACT-MAINTENANCE` |
+| Accepted/current authority discovery and state-owner boundaries | `CARMADIO-RULE-ARCHITECTURE` |
+| Reproduce, minimize, separate environment failures, form competing hypotheses, gather discriminating evidence, find the first bad change, trace Back-to-Left provenance, classify upstream artifacts, report inference honestly, contain, and stop at an evidence/authorization boundary | `CARMADIO-RULE-DIAGNOSIS` |
+| Exact regression proof | `CARMADIO-RULE-TEST-CASE` |
+| Variable baseline and threshold proof | `CARMADIO-RULE-EVALUATION-CASE` |
+| Bounded/redacted diagnostics, build/deploy identity, access, retention, volume, and production-effect safety | `CARMADIO-RULE-SUPPORTABILITY` |
+| Write authorization, owning defect artifacts, and fix handoff | `CARMADIO-RULE-ARTIFACT-MAINTENANCE` |
 
 ## `dset-prototype`
 
 | Former statement group | Governing owner |
 |---|---|
-| Selected requirements, constraints, candidates, and repository authority | `DSET-RULE-ARCHITECTURE` |
-| Falsifiable hypothesis, timebox, representative cases, comparable candidate evidence, provenance/license, cost/lock-in, adopt/adapt/build/defer decision, disposal, promotion, and stop conditions | `DSET-RULE-PROTOTYPING` |
-| Exact candidate thresholds and cases | `DSET-RULE-TEST-CASE` |
-| Variable or rubric-based candidate thresholds | `DSET-RULE-EVALUATION-CASE` |
-| External access, data class, security/privacy, and operational evidence bounds | `DSET-RULE-SUPPORTABILITY` |
-| Bounded proof placement, solution/Decision links, quarantine/removal, and production handoff | `DSET-RULE-ARTIFACT-MAINTENANCE` |
+| Selected requirements, constraints, candidates, and repository authority | `CARMADIO-RULE-ARCHITECTURE` |
+| Falsifiable hypothesis, timebox, representative cases, comparable candidate evidence, provenance/license, cost/lock-in, adopt/adapt/build/defer decision, disposal, promotion, and stop conditions | `CARMADIO-RULE-PROTOTYPING` |
+| Exact candidate thresholds and cases | `CARMADIO-RULE-TEST-CASE` |
+| Variable or rubric-based candidate thresholds | `CARMADIO-RULE-EVALUATION-CASE` |
+| External access, data class, security/privacy, and operational evidence bounds | `CARMADIO-RULE-SUPPORTABILITY` |
+| Bounded proof placement, solution/Decision links, quarantine/removal, and production handoff | `CARMADIO-RULE-ARTIFACT-MAINTENANCE` |
 
 ## Retained wrapper-owned fields
 
@@ -56,6 +56,6 @@ digests and deterministic tests reject drift from those canonical sources.
 
 ## Disposition
 
-Complete for roadmap tasks `DSET-TASK-SKILL-005`–`DSET-TASK-SKILL-012`. No former
+Complete for roadmap tasks `CARMADIO-TASK-SKILL-005`–`CARMADIO-TASK-SKILL-012`. No former
 substantive workflow statement remains authoritative in a skill, installed
 copy, template, or generated adopter wrapper.

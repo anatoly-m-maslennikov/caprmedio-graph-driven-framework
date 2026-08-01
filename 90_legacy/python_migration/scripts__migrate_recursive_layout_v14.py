@@ -228,7 +228,7 @@ def _atomize_intake(path: Path) -> None:
     next_carrier = 124
     for item in data.get("items", []):
         identifier = str(item["id"])
-        if identifier == "DSET-PROBLEM-TOOL-006":
+        if identifier == "CARMADIO-PROBLEM-TOOL-006":
             continue
         layer = str(item["scope"]).lower()
         root = ROOT / LAYERS[layer][1]
@@ -246,7 +246,7 @@ def _atomize_intake(path: Path) -> None:
         metadata = [
             "+++",
             'artifact_type = "atomic_record"',
-            f'artifact_id = "DSET-ATOMIC-RECORD-{next_carrier:03d}"',
+            f'artifact_id = "CARMADIO-ATOMIC-RECORD-{next_carrier:03d}"',
             f'type = "{semantic_type}"',
             f'subtype = "{subtype}"',
             f'semantic_id = "{identifier}"',

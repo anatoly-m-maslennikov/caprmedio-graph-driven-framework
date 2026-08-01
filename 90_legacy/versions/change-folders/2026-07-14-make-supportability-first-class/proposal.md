@@ -18,7 +18,7 @@ Rename the framework to **DSET Spec Loops: A Production Vibecoding Framework**, 
 
 - Public name, expansion, project ID, and repository slug.
 - Supportability requirements across domain/spec, proof planning, implementation planning, code rules, and gates.
-- Correlation and incident IDs; deployed version, PR, and DSET-change identity; structured logs, traces, metrics/events, diagnostics, and runbooks where applicable.
+- Correlation and incident IDs; deployed version, PR, and CARMADIO-change identity; structured logs, traces, metrics/events, diagnostics, and runbooks where applicable.
 - Retention, redaction, access, sampling, cardinality, and cost boundaries.
 - Incident-to-requirement/test/eval/fix traceability.
 - Local-tool, service, and long-running-workflow profiles without a universal telemetry vendor.

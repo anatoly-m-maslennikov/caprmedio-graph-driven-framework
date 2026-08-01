@@ -369,7 +369,7 @@ class ArtifactTypeRegistryTests(unittest.TestCase):
                 project_key="APP",
             )
             self.assertTrue(
-                any(item.code == "DSET-E157" for item in default_diagnostics)
+                any(item.code == "CARMADIO-E157" for item in default_diagnostics)
             )
             self.assertEqual(
                 validate_artifact_type_registry(
@@ -414,7 +414,7 @@ class ArtifactTypeRegistryTests(unittest.TestCase):
         diagnostics = validate_artifact_type_registry(ROOT, REGISTRY_PATH, data)
         self.assertTrue(
             any(
-                item.code == "DSET-E156" and fragment in item.message
+                item.code == "CARMADIO-E156" and fragment in item.message
                 for item in diagnostics
             ),
             diagnostics,

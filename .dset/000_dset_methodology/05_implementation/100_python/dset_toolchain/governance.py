@@ -87,20 +87,20 @@ def validate_governance(
     if not expected_profile:
         return [
             _diag(
-                "DSET-E137",
+                "CARMADIO-E137",
                 manifest_path,
                 "repository-governance profile is not selected",
             )
         ]
     registry_path = layout.governance_path
     if not registry_path.is_file():
-        return [_diag("DSET-E130", registry_path, "governance registry is missing")]
+        return [_diag("CARMADIO-E130", registry_path, "governance registry is missing")]
     try:
         data = project_section(root, "governance_registry")
     except (OSError, ValueError, YamlSubsetError) as error:
-        return [_diag("DSET-E131", registry_path, str(error))]
+        return [_diag("CARMADIO-E131", registry_path, str(error))]
     if not isinstance(data, dict):
-        return [_diag("DSET-E131", registry_path, "registry must be a mapping")]
+        return [_diag("CARMADIO-E131", registry_path, "registry must be a mapping")]
     return validate_governance_registry(root, registry_path, data, expected_profile)
 
 
@@ -116,18 +116,18 @@ def validate_governance_registry(
     if data.get("schema_version") != GOVERNANCE_SCHEMA_VERSION:
         diagnostics.append(
             _diag(
-                "DSET-E131",
+                "CARMADIO-E131",
                 registry_path,
                 "unsupported governance registry schema version",
             )
         )
     profile = data.get("profile")
     if not isinstance(profile, dict):
-        return [_diag("DSET-E137", registry_path, "profile must be a mapping")]
+        return [_diag("CARMADIO-E137", registry_path, "profile must be a mapping")]
     if profile.get("id") != expected_profile:
         diagnostics.append(
             _diag(
-                "DSET-E137",
+                "CARMADIO-E137",
                 registry_path,
                 "registry profile does not match the selected project profile",
             )
@@ -135,23 +135,23 @@ def validate_governance_registry(
     profile_version = profile.get("version")
     if not isinstance(profile_version, str) or not profile_version:
         diagnostics.append(
-            _diag("DSET-E137", registry_path, "profile version is missing")
+            _diag("CARMADIO-E137", registry_path, "profile version is missing")
         )
     profile_custom = profile.get("customization")
     if profile_custom not in CUSTOMIZATION:
         diagnostics.append(
-            _diag("DSET-E139", registry_path, "invalid profile customization status")
+            _diag("CARMADIO-E139", registry_path, "invalid profile customization status")
         )
 
     rules = data.get("rules")
     if not isinstance(rules, list) or not rules:
         return diagnostics + [
-            _diag("DSET-E131", registry_path, "rules must be a non-empty list")
+            _diag("CARMADIO-E131", registry_path, "rules must be a non-empty list")
         ]
     rule_items = [item for item in rules if isinstance(item, dict)]
     if len(rule_items) != len(rules):
         diagnostics.append(
-            _diag("DSET-E131", registry_path, "every rule must be a mapping")
+            _diag("CARMADIO-E131", registry_path, "every rule must be a mapping")
         )
     by_id: dict[str, dict[str, Any]] = {}
     actual_custom: set[str] = set()
@@ -159,30 +159,30 @@ def validate_governance_registry(
         rule_id = rule.get("id")
         if not isinstance(rule_id, str) or not RULE_PATTERN.fullmatch(rule_id):
             diagnostics.append(
-                _diag("DSET-E131", registry_path, f"invalid rule ID: {rule_id}")
+                _diag("CARMADIO-E131", registry_path, f"invalid rule ID: {rule_id}")
             )
             continue
         if rule_id in by_id:
             diagnostics.append(
-                _diag("DSET-E132", registry_path, f"duplicate rule owner: {rule_id}")
+                _diag("CARMADIO-E132", registry_path, f"duplicate rule owner: {rule_id}")
             )
             continue
         by_id[rule_id] = rule
         layer = rule.get("layer")
         if layer not in RULE_LAYERS:
             diagnostics.append(
-                _diag("DSET-E131", registry_path, f"invalid rule layer: {rule_id}")
+                _diag("CARMADIO-E131", registry_path, f"invalid rule layer: {rule_id}")
             )
         owner = rule.get("owner")
         if not isinstance(owner, str) or not owner.strip():
             diagnostics.append(
-                _diag("DSET-E131", registry_path, f"missing rule owner: {rule_id}")
+                _diag("CARMADIO-E131", registry_path, f"missing rule owner: {rule_id}")
             )
         applicability = rule.get("applicability")
         if applicability not in APPLICABILITY:
             diagnostics.append(
                 _diag(
-                    "DSET-E137",
+                    "CARMADIO-E137",
                     registry_path,
                     f"invalid applicability for {rule_id}: {applicability}",
                 )
@@ -190,7 +190,7 @@ def validate_governance_registry(
         if applicability == "not-applicable" and not str(rule.get("reason", "")):
             diagnostics.append(
                 _diag(
-                    "DSET-E137",
+                    "CARMADIO-E137",
                     registry_path,
                     f"not-applicable rule requires a reason: {rule_id}",
                 )
@@ -199,7 +199,7 @@ def validate_governance_registry(
         if local is None:
             diagnostics.append(
                 _diag(
-                    "DSET-E134",
+                    "CARMADIO-E134",
                     registry_path,
                     f"rule document identity is missing or ambiguous: {rule_id}",
                 )
@@ -207,7 +207,7 @@ def validate_governance_registry(
             continue
         if not local.is_file():
             diagnostics.append(
-                _diag("DSET-E133", local, f"governing document is missing: {rule_id}")
+                _diag("CARMADIO-E133", local, f"governing document is missing: {rule_id}")
             )
             continue
         if layout.layered and layer in RULE_LAYERS:
@@ -221,7 +221,7 @@ def validate_governance_registry(
             if not _is_within(local, expected_root):
                 diagnostics.append(
                     _diag(
-                        "DSET-E134",
+                        "CARMADIO-E134",
                         local,
                         f"rule is outside its owning layer: {rule_id}/{layer}",
                     )
@@ -230,13 +230,13 @@ def validate_governance_registry(
         source_sha = source.get("sha256") if isinstance(source, dict) else None
         if not isinstance(source_sha, str) or not SHA256_PATTERN.fullmatch(source_sha):
             diagnostics.append(
-                _diag("DSET-E139", registry_path, f"invalid source digest: {rule_id}")
+                _diag("CARMADIO-E139", registry_path, f"invalid source digest: {rule_id}")
             )
             continue
         customization = rule.get("customization")
         if customization not in CUSTOMIZATION:
             diagnostics.append(
-                _diag("DSET-E139", registry_path, f"invalid customization: {rule_id}")
+                _diag("CARMADIO-E139", registry_path, f"invalid customization: {rule_id}")
             )
             continue
         if customization == "custom":
@@ -244,7 +244,7 @@ def validate_governance_registry(
         if customization == "unmodified" and _sha256(local) != source_sha:
             diagnostics.append(
                 _diag(
-                    "DSET-E139",
+                    "CARMADIO-E139",
                     local,
                     f"local rule changed without custom status: {rule_id}",
                 )
@@ -252,7 +252,7 @@ def validate_governance_registry(
     if profile_custom == "unmodified" and actual_custom:
         diagnostics.append(
             _diag(
-                "DSET-E139", registry_path, "custom rules require custom profile status"
+                "CARMADIO-E139", registry_path, "custom rules require custom profile status"
             )
         )
 
@@ -262,13 +262,13 @@ def validate_governance_registry(
     workflow_items = workflows if isinstance(workflows, list) else []
     if not workflow_items:
         diagnostics.append(
-            _diag("DSET-E136", registry_path, "workflows must be a non-empty list")
+            _diag("CARMADIO-E136", registry_path, "workflows must be a non-empty list")
         )
     workflow_ids: set[str] = set()
     for workflow in workflow_items:
         if not isinstance(workflow, dict):
             diagnostics.append(
-                _diag("DSET-E136", registry_path, "every workflow must be a mapping")
+                _diag("CARMADIO-E136", registry_path, "every workflow must be a mapping")
             )
             continue
         workflow_id = workflow.get("id")
@@ -278,7 +278,7 @@ def validate_governance_registry(
             or workflow_id in workflow_ids
         ):
             diagnostics.append(
-                _diag("DSET-E136", registry_path, f"invalid workflow: {workflow_id}")
+                _diag("CARMADIO-E136", registry_path, f"invalid workflow: {workflow_id}")
             )
             continue
         workflow_ids.add(workflow_id)
@@ -286,7 +286,7 @@ def validate_governance_registry(
         if not isinstance(selected, list) or not selected:
             diagnostics.append(
                 _diag(
-                    "DSET-E136", registry_path, f"workflow has no rules: {workflow_id}"
+                    "CARMADIO-E136", registry_path, f"workflow has no rules: {workflow_id}"
                 )
             )
             continue
@@ -295,7 +295,7 @@ def validate_governance_registry(
             if not isinstance(rule_id, str) or rule_id not in by_id:
                 diagnostics.append(
                     _diag(
-                        "DSET-E131",
+                        "CARMADIO-E131",
                         registry_path,
                         f"workflow references missing rule owner: {rule_id}",
                     )
@@ -305,7 +305,7 @@ def validate_governance_registry(
             if rule.get("applicability") != "applicable":
                 diagnostics.append(
                     _diag(
-                        "DSET-E137",
+                        "CARMADIO-E137",
                         registry_path,
                         f"workflow selects incompatible rule: {rule_id}",
                     )
@@ -314,7 +314,7 @@ def validate_governance_registry(
             if isinstance(dependencies, list) and not set(dependencies).issubset(seen):
                 diagnostics.append(
                     _diag(
-                        "DSET-E135",
+                        "CARMADIO-E135",
                         registry_path,
                         "workflow dependency order is invalid: "
                         f"{workflow_id}/{rule_id}",
@@ -345,7 +345,7 @@ def resolve_workflow(
         None,
     )
     if workflow is None:
-        return None, [_diag("DSET-E136", path, f"unknown workflow: {workflow_id}")]
+        return None, [_diag("CARMADIO-E136", path, f"unknown workflow: {workflow_id}")]
     by_id = {item["id"]: item for item in data["rules"]}
     wrapper = next(
         (
@@ -363,7 +363,7 @@ def resolve_workflow(
         if local is None:
             return None, [
                 _diag(
-                    "DSET-E134",
+                    "CARMADIO-E134",
                     path,
                     f"rule document identity is missing or ambiguous: {rule_id}",
                 )
@@ -395,7 +395,7 @@ def resolve_workflow(
             "conflict_resolution": {
                 "status": "unavailable",
                 "coverage": [],
-                "reason_code": "DSET-CONFLICT-RESOLUTION-UNAVAILABLE",
+                "reason_code": "CARMADIO-CONFLICT-RESOLUTION-UNAVAILABLE",
             },
         },
         [],
@@ -415,10 +415,10 @@ def materialize_governance(
     target_layout = discover_layout(target_root)
     manifest = target_layout.manifest_path
     if not manifest.is_file():
-        raise DsetCommandError("DSET-E001", manifest, "project manifest is missing")
+        raise DsetCommandError("CARMADIO-E001", manifest, "project manifest is missing")
     if target_layout.separated:
         raise DsetCommandError(
-            "DSET-E140",
+            "CARMADIO-E140",
             manifest,
             "schema 1.5 installs methodology as one edition; use methodology sync",
         )
@@ -428,7 +428,7 @@ def materialize_governance(
         )
     except (FileNotFoundError, ValueError) as error:
         raise DsetCommandError(
-            "DSET-E140",
+            "CARMADIO-E140",
             source_layout.template_roots[0]
             / "governance"
             / profile_id
@@ -443,7 +443,7 @@ def materialize_governance(
     )
     if profile.get("id") != profile_id:
         raise DsetCommandError(
-            "DSET-E140", profile_path, "governance profile identity mismatch"
+            "CARMADIO-E140", profile_path, "governance profile identity mismatch"
         )
     registry_path = target_layout.governance_path
     rules = cast(list[dict[str, Any]], profile.get("rules", []))
@@ -454,7 +454,7 @@ def materialize_governance(
             return source_layout.find_template(relative)
         except (FileNotFoundError, ValueError) as error:
             raise DsetCommandError(
-                "DSET-E140", source_layout.template_roots[0] / relative, str(error)
+                "CARMADIO-E140", source_layout.template_roots[0] / relative, str(error)
             ) from error
 
     readme_template = source_template(profile_relative / "README.md")
@@ -466,7 +466,7 @@ def materialize_governance(
         layer = item.get("layer")
         if layer not in RULE_LAYERS:
             raise DsetCommandError(
-                "DSET-E140", profile_path, f"invalid rule layer: {rule_id}/{layer}"
+                "CARMADIO-E140", profile_path, f"invalid rule layer: {rule_id}/{layer}"
             )
         templates[rule_id] = source_template(profile_relative / str(item["template"]))
         destination = target_layout.governance_root
@@ -518,7 +518,7 @@ def materialize_governance(
             shutil.copyfile(template, target)
             applicability = item.get("applicability", "applicable")
             reason = item.get("reason", "selected by the local profile")
-            if item["id"] == "DSET-RULE-RELEASE" and release_not_applicable:
+            if item["id"] == "CARMADIO-RULE-RELEASE" and release_not_applicable:
                 applicability = "not-applicable"
                 reason = str(release.get("reason"))
             dependencies = list(item.get("depends_on", []))
@@ -526,7 +526,7 @@ def materialize_governance(
                 dependencies = [
                     dependency
                     for dependency in dependencies
-                    if dependency != "DSET-RULE-RELEASE"
+                    if dependency != "CARMADIO-RULE-RELEASE"
                 ]
             rendered_rules.append(
                 {
@@ -581,7 +581,7 @@ def materialize_governance(
                 rendered["rules"] = [
                     rule
                     for rule in cast(list[str], workflow.get("rules", []))
-                    if rule != "DSET-RULE-RELEASE"
+                    if rule != "CARMADIO-RULE-RELEASE"
                 ]
             rendered_workflows.append(rendered)
         registry = {
@@ -739,14 +739,14 @@ def _validate_dependencies(
         dependencies = rule.get("depends_on", [])
         if not isinstance(dependencies, list):
             diagnostics.append(
-                _diag("DSET-E135", path, f"dependencies must be a list: {rule_id}")
+                _diag("CARMADIO-E135", path, f"dependencies must be a list: {rule_id}")
             )
             continue
         for dependency in dependencies:
             if dependency not in by_id:
                 diagnostics.append(
                     _diag(
-                        "DSET-E131",
+                        "CARMADIO-E131",
                         path,
                         f"dependency has no rule owner: {rule_id}/{dependency}",
                     )
@@ -762,7 +762,7 @@ def _validate_dependencies(
             ):
                 diagnostics.append(
                     _diag(
-                        "DSET-E151",
+                        "CARMADIO-E151",
                         path,
                         "rule dependency creates backward layer authority: "
                         f"{rule_id}/{dependency}; resolve or re-home it, or "
@@ -776,7 +776,7 @@ def _validate_dependencies(
     def visit(rule_id: str) -> None:
         if rule_id in visiting:
             diagnostics.append(
-                _diag("DSET-E135", path, f"rule dependency cycle includes: {rule_id}")
+                _diag("CARMADIO-E135", path, f"rule dependency cycle includes: {rule_id}")
             )
             return
         if rule_id in visited:
@@ -805,7 +805,7 @@ def _validate_precedence(
         if not isinstance(precedence, list):
             diagnostics.append(
                 _diag(
-                    "DSET-E150",
+                    "CARMADIO-E150",
                     path,
                     f"precedence_over must be a list: {rule_id}",
                 )
@@ -815,7 +815,7 @@ def _validate_precedence(
         if len(precedence) != len(set(map(str, precedence))):
             diagnostics.append(
                 _diag(
-                    "DSET-E150",
+                    "CARMADIO-E150",
                     path,
                     f"precedence targets must be unique: {rule_id}",
                 )
@@ -825,7 +825,7 @@ def _validate_precedence(
             if not isinstance(target, str) or target not in by_id:
                 diagnostics.append(
                     _diag(
-                        "DSET-E150",
+                        "CARMADIO-E150",
                         path,
                         f"precedence target has no rule owner: {rule_id}/{target}",
                     )
@@ -841,7 +841,7 @@ def _validate_precedence(
             ):
                 diagnostics.append(
                     _diag(
-                        "DSET-E151",
+                        "CARMADIO-E151",
                         path,
                         "rule precedence creates backward layer authority: "
                         f"{rule_id}/{target}; resolve or re-home it, or propose "
@@ -858,7 +858,7 @@ def _validate_precedence(
         if rule_id in visiting:
             diagnostics.append(
                 _diag(
-                    "DSET-E150",
+                    "CARMADIO-E150",
                     path,
                     f"rule precedence cycle includes: {rule_id}",
                 )
@@ -889,31 +889,31 @@ def _validate_wrappers(
     for wrapper in wrappers:
         if not isinstance(wrapper, dict):
             diagnostics.append(
-                _diag("DSET-E138", registry_path, "every wrapper must be a mapping")
+                _diag("CARMADIO-E138", registry_path, "every wrapper must be a mapping")
             )
             continue
         workflow = wrapper.get("workflow")
         if not isinstance(workflow, str) or workflow not in workflow_ids:
             diagnostics.append(
                 _diag(
-                    "DSET-E138", registry_path, f"unknown wrapper workflow: {workflow}"
+                    "CARMADIO-E138", registry_path, f"unknown wrapper workflow: {workflow}"
                 )
             )
             continue
         if workflow in seen:
             diagnostics.append(
-                _diag("DSET-E138", registry_path, f"duplicate wrapper: {workflow}")
+                _diag("CARMADIO-E138", registry_path, f"duplicate wrapper: {workflow}")
             )
         seen.add(workflow)
         path = _wrapper_carrier(root, wrapper)
         expected = wrapper.get("sha256")
         if path is None or not path.is_file():
             diagnostics.append(
-                _diag("DSET-E138", registry_path, f"wrapper is missing: {workflow}")
+                _diag("CARMADIO-E138", registry_path, f"wrapper is missing: {workflow}")
             )
         elif not isinstance(expected, str) or _sha256(path) != expected:
             diagnostics.append(
-                _diag("DSET-E138", path, f"wrapper identity mismatch: {workflow}")
+                _diag("CARMADIO-E138", path, f"wrapper identity mismatch: {workflow}")
             )
     return diagnostics
 

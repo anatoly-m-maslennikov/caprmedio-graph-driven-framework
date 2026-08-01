@@ -151,7 +151,7 @@ With this seam, `ask_json(prompt, schema=Reminder)` retains `Reminder` at the ca
 
 ### §6.2 | JavaScript/TypeScript candidate — evidence captured
 
-¶1 `DSET-REQUIREMENT-TOOL-021` owns the executable
+¶1 `CARMADIO-REQUIREMENT-TOOL-021` owns the executable
 `typescript-v1-candidate` profile. Its evidence is pinned to the owned Your
 Harness revision named in the profile rather than inferred from generic Node
 practice. The candidate maps all six categories to the repository's actual

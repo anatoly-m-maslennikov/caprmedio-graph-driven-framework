@@ -105,13 +105,13 @@ TEMPLATE_ROUTES: tuple[tuple[str, str, str | None], ...] = (
 )
 IGNORED_HOST_FILES = {".DS_Store"}
 GOV_POLICY_SECTION_START = (
-    "## DSET-REQUIREMENT-GOV-040 — Project settings are verbose "
+    "## CARMADIO-REQUIREMENT-GOV-040 — Project settings are verbose "
     "and all DSET artifacts use TOML\n"
 )
 GOV_POLICY_SECTION_END = (
-    "## DSET-DECISION-GOV-014 — TOML null normalization is allowlisted\n"
+    "## CARMADIO-DECISION-GOV-014 — TOML null normalization is allowlisted\n"
 )
-GOV_POLICY_SECTION = """## DSET-REQUIREMENT-GOV-040 — Project settings are verbose
+GOV_POLICY_SECTION = """## CARMADIO-REQUIREMENT-GOV-040 — Project settings are verbose
 
 The canonical settings and project-manifest carrier is
 `.dset/dset_settings.toml`. It must explain its boundary with governing
@@ -129,13 +129,13 @@ runtime-risk and durability topology, external contracts, release targets,
 verification commands, and commit-provenance boundaries. Governing documents
 own definitions and policy; settings select registered behavior only.
 
-**Scenario DSET-SCENARIO-GOV-037:** A cold reader opens
+**Scenario CARMADIO-SCENARIO-GOV-037:** A cold reader opens
 `.dset/dset_settings.toml`, finds every operator choice and predicts its effect,
 and reads the same carrier for runtime topology and release truth. Bootstrap
 emits only the canonical path; a repository containing competing settings
 carriers fails.
 
-## DSET-REQUIREMENT-GOV-097 — Select artifact carriers by their actual job
+## CARMADIO-REQUIREMENT-GOV-097 — Select artifact carriers by their actual job
 
 One concern has one canonical carrier selected by its job:
 
@@ -161,19 +161,19 @@ bodies, stages outputs outside the repository, checks exact preimages, rewrites
 in-scope references, validates the complete bounded result, and rolls back every
 touched file on failure. A second run is a no-op.
 
-**Scenario DSET-SCENARIO-GOV-038:** A dry run classifies every in-scope carrier
+**Scenario CARMADIO-SCENARIO-GOV-038:** A dry run classifies every in-scope carrier
 and reports its exact operation. Apply leaves every narrative Markdown artifact
 with YAML frontmatter, every JSON Schema as JSON, every executable human-edited
 configuration as TOML, and no competing editable representation of one concern.
 
-`DSET-REQUIREMENT-GOV-036` and the universal-TOML clause formerly compiled
-under `DSET-REQUIREMENT-GOV-040` are historical. The verbose-settings clause of
-`DSET-REQUIREMENT-GOV-040` remains active; carrier selection is governed by
-`DSET-REQUIREMENT-GOV-097`.
+`CARMADIO-REQUIREMENT-GOV-036` and the universal-TOML clause formerly compiled
+under `CARMADIO-REQUIREMENT-GOV-040` are historical. The verbose-settings clause of
+`CARMADIO-REQUIREMENT-GOV-040` remains active; carrier selection is governed by
+`CARMADIO-REQUIREMENT-GOV-097`.
 
-## Historical DSET-DECISION-GOV-014 — TOML null normalization is allowlisted
+## Historical CARMADIO-DECISION-GOV-014 — TOML null normalization is allowlisted
 """
-MAINTENANCE_OLD = """- Use TOML for DSET-owned structured artifacts and TOML frontmatter for DSET
+MAINTENANCE_OLD = """- Use TOML for CARMADIO-owned structured artifacts and TOML frontmatter for DSET
   Markdown. Keep host/ecosystem/wire/runtime formats and generated compatibility
   adapters explicit and non-authoritative. Never keep editable YAML/JSON and
   TOML copies of the same claim.
@@ -190,14 +190,14 @@ MAINTENANCE_NEW = """- Select one canonical carrier by job: Markdown with YAML f
   competing editable representations of one concern.
 """
 DOMAIN_INVARIANT_OLD = (
-    "- **DSET-INVARIANT-GOV-026:** Every DSET-owned structured artifact has one "
+    "- **CARMADIO-INVARIANT-GOV-026:** Every CARMADIO-owned structured artifact has one "
     "canonical TOML encoding. Markdown uses TOML frontmatter. Generated adapters "
     "and host/ecosystem/wire/runtime formats are explicit non-authoritative "
     "boundaries, never parallel writable sources. Migration preserves values, "
     "IDs, references, and provenance or fails before cutover."
 )
 DOMAIN_INVARIANT_NEW = (
-    "- **DSET-INVARIANT-GOV-026:** Every governed concern has one canonical "
+    "- **CARMADIO-INVARIANT-GOV-026:** Every governed concern has one canonical "
     "carrier selected by job: Markdown with YAML frontmatter for human-governed "
     "narrative artifacts; TOML for directly executed human-edited configuration; "
     "JSON for external contracts, standardized schemas, wire data, and generated "
@@ -445,7 +445,7 @@ def _rewrite_methodology_policy(relative: Path, text: str) -> str:
             + text[end + len(GOV_POLICY_SECTION_END) :]
         )
     current_policy = text.count(
-        "## DSET-REQUIREMENT-GOV-097 — Select artifact carriers by their actual job"
+        "## CARMADIO-REQUIREMENT-GOV-097 — Select artifact carriers by their actual job"
     )
     evolved_policy = all(
         marker in text

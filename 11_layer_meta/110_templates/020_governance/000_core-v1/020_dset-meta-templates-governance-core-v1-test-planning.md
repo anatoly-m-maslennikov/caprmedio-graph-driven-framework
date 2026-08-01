@@ -7,7 +7,7 @@ artifact_subtype: playbook
 
 # Deterministic test casening
 
-**Rule ID:** `DSET-RULE-TEST-CASE`
+**Rule ID:** `CARMADIO-RULE-TEST-CASE`
 
 ## Rules
 

@@ -6,7 +6,7 @@
 > [!NOTE]
 > Historical proof only. This record evaluated the pre-layer DSET 0.2 contract
 > at commit `b84c23bdbc642508a142b8f7469de4cd08b94573`. Its `METH-*` candidate
-> owners were superseded by schema 1.2 layer-owned `DSET-*` truth, so this file
+> owners were superseded by schema 1.2 layer-owned `CARMADIO-*` truth, so this file
 > no longer supports a current invariant-contract Pass claim. Reopen occurred
 > when the ID model, accepted owners, schemas, validation, and version changed.
 
@@ -16,10 +16,10 @@ This evidence covers only the DSET 0.2 invariant-contract batch. It verifies sta
 
 ## Contract identity
 
-- Roadmap invariants: `DSET-INVARIANT-TOOL-001..002`, `DSET-INVARIANT-GOV-001..004`, `DSET-INVARIANT-SKILL-001..002`, and `DSET-INVARIANT-META-001`
-- Candidate change requirements: `DSET-REQUIREMENT-TOOL-006..007`, `DSET-REQUIREMENT-GOV-007..010`, `DSET-REQUIREMENT-SKILL-002..003`, and `DSET-REQUIREMENT-META-005`
-- Candidate deterministic proof: `DSET-TEST-CASE-TOOL-009..011`, `DSET-TEST-CASE-GOV-009..011`, `DSET-TEST-CASE-SKILL-002..003`, and `DSET-TEST-CASE-META-004`
-- Candidate qualitative proof: `DSET-EVALUATION-CASE-TOOL-001..002`, `DSET-EVALUATION-CASE-SKILL-002`, and `DSET-EVALUATION-CASE-GOV-009`
+- Roadmap invariants: `CARMADIO-INVARIANT-TOOL-001..002`, `CARMADIO-INVARIANT-GOV-001..004`, `CARMADIO-INVARIANT-SKILL-001..002`, and `CARMADIO-INVARIANT-META-001`
+- Candidate change requirements: `CARMADIO-REQUIREMENT-TOOL-006..007`, `CARMADIO-REQUIREMENT-GOV-007..010`, `CARMADIO-REQUIREMENT-SKILL-002..003`, and `CARMADIO-REQUIREMENT-META-005`
+- Candidate deterministic proof: `CARMADIO-TEST-CASE-TOOL-009..011`, `CARMADIO-TEST-CASE-GOV-009..011`, `CARMADIO-TEST-CASE-SKILL-002..003`, and `CARMADIO-TEST-CASE-META-004`
+- Candidate qualitative proof: `CARMADIO-EVALUATION-CASE-TOOL-001..002`, `CARMADIO-EVALUATION-CASE-SKILL-002`, and `CARMADIO-EVALUATION-CASE-GOV-009`
 - Candidate accepted invariants: `METH-INV-013`–`METH-INV-021`
 - Candidate accepted requirements: `METH-REQUIREMENT-026`–`METH-REQUIREMENT-034`
 - Candidate accepted deterministic proof: `METH-TEST-CASE-027`–`METH-TEST-CASE-035`
@@ -40,4 +40,4 @@ The first direct `uv run dset verify .` attempt could not use the sandbox-denied
 
 ## Disposition
 
-The invariant contract is internally consistent and ready to govern later 0.2 implementation batches. `DSET-TEST-CASE-TOOL-009..011`, `DSET-TEST-CASE-GOV-009..011`, `DSET-TEST-CASE-SKILL-002..003`, `DSET-TEST-CASE-META-004`, `DSET-EVALUATION-CASE-TOOL-001..002`, `DSET-EVALUATION-CASE-SKILL-002`, and `DSET-EVALUATION-CASE-GOV-009` remain planned proof obligations and must not be marked passing until their corresponding mechanics and fixtures exist.
+The invariant contract is internally consistent and ready to govern later 0.2 implementation batches. `CARMADIO-TEST-CASE-TOOL-009..011`, `CARMADIO-TEST-CASE-GOV-009..011`, `CARMADIO-TEST-CASE-SKILL-002..003`, `CARMADIO-TEST-CASE-META-004`, `CARMADIO-EVALUATION-CASE-TOOL-001..002`, `CARMADIO-EVALUATION-CASE-SKILL-002`, and `CARMADIO-EVALUATION-CASE-GOV-009` remain planned proof obligations and must not be marked passing until their corresponding mechanics and fixtures exist.

@@ -39,7 +39,7 @@
 
 ## Corrective migration result
 
-- The active proposal now uses `DSET-CHANGE-SKILL-001` and does not claim current
+- The active proposal now uses `CARMADIO-CHANGE-SKILL-001` and does not claim current
   hosted proof.
 - Roadmap §§8–9 no longer redeclare accepted Test/Eval IDs; they route to the
   layer-owned proof plans and active Change execution plans.
@@ -60,18 +60,18 @@
 | Target | Result | Current boundary |
 |---|---|---|
 | DSET framework repository | Partial pass | Schema 1.2 control plane, neutral Work Areas, repository-owned rules, integration-branch default, optional worktrees, schema-aware templates, validation, traceability, and bounded self-hosting pass. Published-validator, five-skill/runtime, eval, hosted, pilot, and release gaps remain. |
-| Generated temporary adopter | Partial pass | Candidate still proves legacy schema 1.1 compatibility and local rule mutation only. `DSET-PROBLEM-TOOL-002` requires a separate current-schema 1.2 adopter. |
-| `obsidian-your-harness` | Not adopted | Candidate returns `DSET-E900`; no DSET root exists. Existing `CLAUDE.md`/spec surfaces retain authority, Test/Eval ownership is not migrated, hosted workflows are disabled, and no DSET delivery/supportability lifecycle exists. This is `DSET-PROBLEM-GOV-004`, not a failed rollout claim. |
-| Local upstream Claudian checkout | Not started as designed | Candidate returns `DSET-E900`; the checkout is a local feature branch rather than the future clean pinned upstream fixture. Roadmap §7 correctly defers it until after the owned pilot and prohibits upstream writes. |
+| Generated temporary adopter | Partial pass | Candidate still proves legacy schema 1.1 compatibility and local rule mutation only. `CARMADIO-PROBLEM-TOOL-002` requires a separate current-schema 1.2 adopter. |
+| `obsidian-your-harness` | Not adopted | Candidate returns `CARMADIO-E900`; no DSET root exists. Existing `CLAUDE.md`/spec surfaces retain authority, Test/Eval ownership is not migrated, hosted workflows are disabled, and no DSET delivery/supportability lifecycle exists. This is `CARMADIO-PROBLEM-GOV-004`, not a failed rollout claim. |
+| Local upstream Claudian checkout | Not started as designed | Candidate returns `CARMADIO-E900`; the checkout is a local feature branch rather than the future clean pinned upstream fixture. Roadmap §7 correctly defers it until after the owned pilot and prohibits upstream writes. |
 
 ## Intake disposition
 
-Open blocking Problems are `DSET-PROBLEM-TOOL-001..002`,
-`DSET-PROBLEM-SKILL-001`, `DSET-PROBLEM-OPS-001`, and
-`DSET-PROBLEM-GOV-004`. The re-audit also registered
-`DSET-QUESTION-GOV-006` for machine-readable proof closures and optional
-Opportunities `DSET-OPPORTUNITY-GOV-001`, `DSET-OPPORTUNITY-TOOL-001`, and
-`DSET-OPPORTUNITY-OPS-001` for generated currentness, compatibility, and
+Open blocking Problems are `CARMADIO-PROBLEM-TOOL-001..002`,
+`CARMADIO-PROBLEM-SKILL-001`, `CARMADIO-PROBLEM-OPS-001`, and
+`CARMADIO-PROBLEM-GOV-004`. The re-audit also registered
+`CARMADIO-QUESTION-GOV-006` for machine-readable proof closures and optional
+Opportunities `CARMADIO-OPPORTUNITY-GOV-001`, `CARMADIO-OPPORTUNITY-TOOL-001`, and
+`CARMADIO-OPPORTUNITY-OPS-001` for generated currentness, compatibility, and
 cross-repository adoption views. No new Story or Outcome is needed: the existing
 adoption-readiness Outcome already owns the target state, and the active Change
 owns execution.

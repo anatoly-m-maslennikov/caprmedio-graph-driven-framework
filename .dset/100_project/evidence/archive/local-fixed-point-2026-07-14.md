@@ -55,16 +55,16 @@ version contract from which to create another adopter.
 ## Boundary matrix
 
 The governance and self-host suites prove stable first failures for the
-manifest (`DSET-E001`), registry (`DSET-E130`), owner (`DSET-E131`/`E132`),
-document (`DSET-E133`), path (`DSET-E134`), dependency (`DSET-E135`), workflow
-(`DSET-E136`), applicability/profile (`DSET-E137`), wrapper (`DSET-E138`),
-customization identity (`DSET-E139`), released/template boundary (`DSET-E140`),
-and candidate command (`DSET-E141`). Justified unselected non-applicability
+manifest (`CARMADIO-E001`), registry (`CARMADIO-E130`), owner (`CARMADIO-E131`/`E132`),
+document (`CARMADIO-E133`), path (`CARMADIO-E134`), dependency (`CARMADIO-E135`), workflow
+(`CARMADIO-E136`), applicability/profile (`CARMADIO-E137`), wrapper (`CARMADIO-E138`),
+customization identity (`CARMADIO-E139`), released/template boundary (`CARMADIO-E140`),
+and candidate command (`CARMADIO-E141`). Justified unselected non-applicability
 passes.
 
 ## Disposition
 
 Roadmap §§0–§3 and the local portion of §4 pass. Hosted execution of the same
-fixed point remains required before `DSET-TASK-TOOL-025` or external-adoption
-readiness can pass. `DSET-EVALUATION-CASE-TOOL-001`–`004` remain separate pending evals and
+fixed point remains required before `CARMADIO-TASK-TOOL-025` or external-adoption
+readiness can pass. `CARMADIO-EVALUATION-CASE-TOOL-001`–`004` remain separate pending evals and
 are not implied by these deterministic results.

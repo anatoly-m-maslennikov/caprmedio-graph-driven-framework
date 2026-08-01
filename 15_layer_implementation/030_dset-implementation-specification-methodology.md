@@ -1,6 +1,6 @@
 # Methodology IMPL specification
 
-## DSET-DECISION-IMPL-001 — Model IMPL as selectable profile features
+## CARMADIO-DECISION-IMPL-001 — Model IMPL as selectable profile features
 
 IMPL is the development-realization layer between SKILL and OPS. It owns
 environment and dependency setup, production code, automated Test code,
@@ -11,7 +11,7 @@ features rather than nested layers.
 A project may select more than one compatible profile for explicit work areas.
 A host-specific profile may extend a broader profile without copying it.
 
-## DSET-REQUIREMENT-IMPL-001 — Provide the Local Python Tools profile
+## CARMADIO-REQUIREMENT-IMPL-001 — Provide the Local Python Tools profile
 
 DSET provides `local-python-tools-v1` for small local Python tools. The profile
 owns concrete environment, source-structure, size, reuse, data-modeling,
@@ -19,7 +19,7 @@ schema, settings, naming, documentation, failure, Test, Evaluation,
 portability, and conditional NDJSON rules. The machine-readable profile owns
 its thresholds and switches.
 
-## DSET-REQUIREMENT-IMPL-002 — Require portable, simulatable, diagnosable tools
+## CARMADIO-REQUIREMENT-IMPL-002 — Require portable, simulatable, diagnosable tools
 
 Every governed executable accepts a no-mutation `--dry-run` mode and begins
 with usage and effect documentation appropriate to its role. Errors remain
@@ -27,7 +27,7 @@ actionable and redacted without debug mode. Non-trivial tools should offer a
 safe `--debug` mode. Implementations are readily transferable across macOS,
 native Windows, WSL, and Linux and isolate unavoidable host-specific behavior.
 
-## DSET-REQUIREMENT-IMPL-003 — Place and explain settings and constants
+## CARMADIO-REQUIREMENT-IMPL-003 — Place and explain settings and constants
 
 A separate settings file is optional. Every module nevertheless groups all
 module-level settings, defaults, thresholds, and constants immediately after
@@ -37,7 +37,7 @@ where relevant, and authority or override boundary. Profile thresholds,
 including the exclusive 40-line function limit, remain explicit profile TOML
 settings rather than hidden checker literals.
 
-## DSET-REQUIREMENT-IMPL-007 — Promote runtime configuration deliberately
+## CARMADIO-REQUIREMENT-IMPL-007 — Promote runtime configuration deliberately
 
 Every Implementation Profile defines explicit heuristics for keeping invariants
 as code constants and promoting runtime policy to a typed settings carrier.
@@ -49,7 +49,7 @@ share it as runtime policy, or it needs typed validation, documented precedence,
 or an auditable override boundary. A Test variant alone does not justify a
 settings file, and a settings file is not a dumping ground for literals.
 
-## DSET-REQUIREMENT-IMPL-008 — Implement project-wide secret exclusion
+## CARMADIO-REQUIREMENT-IMPL-008 — Implement project-wide secret exclusion
 
 Every applicable Implementation Profile excludes secret values from DSET,
 source, non-secret settings, command lines, builds, logs, diagnostics, Tests,
@@ -64,7 +64,7 @@ Email addresses, usernames, and account IDs are not authenticators. They may
 appear in DSET when necessary and authorized, but remain minimized personal
 data and are sourced from the environment when used as mutable runtime values.
 
-## DSET-REQUIREMENT-IMPL-009 — Resolve runtime identities and secrets by key
+## CARMADIO-REQUIREMENT-IMPL-009 — Resolve runtime identities and secrets by key
 
 Source code and DSET store only stable environment-variable key names for
 runtime logins, emails, account IDs, API keys, passwords, tokens, and other
@@ -74,7 +74,7 @@ development backs the keys with ignored `.env`; managed hosts may supply the
 same keys through environment or secret injection. Help, diagnostics, logs,
 prompts, evidence, and errors never render resolved values.
 
-## DSET-REQUIREMENT-IMPL-005 — Apply the Agent Skills profile
+## CARMADIO-REQUIREMENT-IMPL-005 — Apply the Agent Skills profile
 
 Every created or updated reusable agent skill must pass
 `agent-skills-v1` before acceptance, installation, distribution, or use as
@@ -90,7 +90,7 @@ coexistence, instruction-following, stop, and output-quality coverage. A claim
 for one provider, host, or model requires evidence for that exact matrix cell
 and never implies compatibility with another.
 
-## DSET-REQUIREMENT-IMPL-006 — Apply the LLM Evaluations profile
+## CARMADIO-REQUIREMENT-IMPL-006 — Apply the LLM Evaluations profile
 
 Every created or updated Evaluation definition, case set, prompt, harness,
 grader, reconciliation procedure, and result carrier must pass
@@ -107,33 +107,33 @@ per-case findings and failures, and treats unresolved material disagreement as
 inconclusive. Provider/model/host identity is run configuration, not hidden
 Evaluation semantics.
 
-## DSET-DECISION-IMPL-002 — Canonical project-health path ordering
+## CARMADIO-DECISION-IMPL-002 — Canonical project-health path ordering
 
 Derived project-health source digests order included files by case-sensitive
 POSIX relative-path text before hashing that path text and current working-tree
-bytes. This replaces `DSET-DECISION-OPS-009`; TOOL continues to own the
+bytes. This replaces `CARMADIO-DECISION-OPS-009`; TOOL continues to own the
 observable health contract.
 
-## DSET-DECISION-IMPL-003 — Platform-native verification placeholders
+## CARMADIO-DECISION-IMPL-003 — Platform-native verification placeholders
 
 Verification templates are tokenized before exact-token replacement. An
 argument equal to `{python}` becomes the current Python executable as one
 direct subprocess argument and is never reparsed as shell text. This replaces
-`DSET-DECISION-OPS-010`.
+`CARMADIO-DECISION-OPS-010`.
 
-## DSET-DECISION-IMPL-004 — Canonical filesystem path boundaries
+## CARMADIO-DECISION-IMPL-004 — Canonical filesystem path boundaries
 
 Filesystem paths are compared by resolved identity. Relative `Path` inputs are
 serialized with POSIX separators before repository-relative validation, while
 serialized string inputs must already use canonical POSIX separators. This
-replaces `DSET-DECISION-OPS-011`.
+replaces `CARMADIO-DECISION-OPS-011`.
 
-## DSET-DECISION-IMPL-005 — Deterministic temporary Git bytes
+## CARMADIO-DECISION-IMPL-005 — Deterministic temporary Git bytes
 
 Temporary Git repositories used by deterministic Tests disable autocrlf and
 select LF through repository-local configuration before staging.
 Byte-sensitive fixtures write explicit LF or observe materialized bytes before
-asserting preservation. This replaces `DSET-DECISION-OPS-012`.
+asserting preservation. This replaces `CARMADIO-DECISION-OPS-012`.
 
 ## Layer boundary
 

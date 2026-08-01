@@ -28,13 +28,13 @@ expected = "pass"
 id = "invalid-missing-test-plan"
 base = "small"
 remove = ["test-plan.md"]
-expected = "DSET-E104"
+expected = "CARMADIO-E104"
 
 [[cases]]
 id = "invalid-merged-test-eval"
 base = "small"
 remove = ["eval-plan.md"]
-expected = "DSET-E105"
+expected = "CARMADIO-E105"
 
 [cases.rename]
 from = "test-plan.md"
@@ -45,4 +45,4 @@ id = "invalid-archive-without-pr"
 base = "standard"
 status = "archived"
 archive_date = "2026-07-14"
-expected = "DSET-E107"
+expected = "CARMADIO-E107"

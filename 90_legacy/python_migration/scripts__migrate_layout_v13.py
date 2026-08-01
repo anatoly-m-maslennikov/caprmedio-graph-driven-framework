@@ -47,7 +47,7 @@ LAYERS = {"meta", "gov", "tool", "skill", "ops"}
 TEXT_SUFFIXES = {".md", ".toml", ".json", ".py", ".yml", ".yaml"}
 MARKDOWN_LINK = re.compile(r"(?<!!)\[([^\]]+)\]\(([^)]+)\)")
 SEMANTIC_ID = re.compile(
-    r"DSET-(?:DECISION|REQUIREMENT|CONSTRAINT|CONTRACT|STORY|OUTCOME|"
+    r"CARMADIO-(?:DECISION|REQUIREMENT|CONSTRAINT|CONTRACT|STORY|OUTCOME|"
     r"SCENARIO|INVARIANT|QUESTION|CONFLICT|RISK|OPPORTUNITY|PROBLEM|"
     r"DEFECT|GAP|DEBT|TEST-CASE|EVALUATION-CASE)-([A-Z]+)-\d{3}"
 )
@@ -109,12 +109,12 @@ def _semantic_target(path: Path) -> Path:
     semantic_type = metadata.get("type")
     if semantic_type not in {"decision", "question", "problem", "qa"}:
         raise ValueError(f"atomic carrier has invalid Type: {_relative(path)}")
-    summary = re.sub(r"^DSET-ATOMIC-RECORD-\d+-", "", path.stem)
+    summary = re.sub(r"^CARMADIO-ATOMIC-RECORD-\d+-", "", path.stem)
     return owner / str(semantic_type) / f"{identifier}-{summary}.md"
 
 
 def _legacy_decision_target(path: Path) -> Path:
-    identifier_match = re.search(r"DSET-DECISION-([A-Z]+)-\d{3}", path.name)
+    identifier_match = re.search(r"CARMADIO-DECISION-([A-Z]+)-\d{3}", path.name)
     if identifier_match is None:
         raise ValueError(f"legacy Decision has no ID: {_relative(path)}")
     identifier = identifier_match.group(0)
@@ -190,7 +190,7 @@ def _package_target(layer: str, relative: Path) -> Path | None:
     selected = name_map.get(relative.name)
     if selected is not None:
         return _layer_root(layer) / selected
-    if relative.name.startswith("DSET-SPECIFICATION-"):
+    if relative.name.startswith("CARMADIO-SPECIFICATION-"):
         return CURRENT_DSET / "project" / relative.name
     return None
 
@@ -222,17 +222,17 @@ def _governance_target(layer: str, relative: Path) -> Path:
 def _active_change_target(path: Path, relative: Path) -> Path | None:
     if relative.name == "change.toml":
         return CURRENT_DSET / "versions" / "changes" / CHANGE_SLUG / "change.toml"
-    if relative.name.startswith("DSET-ATOMIC-RECORD-"):
+    if relative.name.startswith("CARMADIO-ATOMIC-RECORD-"):
         return _semantic_target(path)
-    if relative.name.startswith("decision-DSET-DECISION-"):
+    if relative.name.startswith("decision-CARMADIO-DECISION-"):
         return _legacy_decision_target(path)
-    if relative.name.startswith("DSET-ANALYSIS-REPORT-"):
+    if relative.name.startswith("CARMADIO-ANALYSIS-REPORT-"):
         return _analysis_target(path)
-    if relative.name.startswith("DSET-EVIDENCE-RECORD-"):
+    if relative.name.startswith("CARMADIO-EVIDENCE-RECORD-"):
         return _evidence_target(path)
-    if relative.name.startswith("DSET-VERSION-"):
+    if relative.name.startswith("CARMADIO-VERSION-"):
         return CURRENT_DSET / "versions" / relative.name
-    if relative.name.startswith("DSET-PLAN-"):
+    if relative.name.startswith("CARMADIO-PLAN-"):
         return CURRENT_DSET / "project" / "analysis" / relative.name
     if relative.parts and relative.parts[0] == "proofs":
         if relative.name == "README.md":
@@ -341,7 +341,7 @@ def build_historical_mapping() -> dict[Path, Path]:
         data = load_toml(ledger)
         for item in data.get("transitions", []):
             if not isinstance(item, dict) or item.get("authority_decision") != (
-                "DSET-REQUIREMENT-GOV-041"
+                "CARMADIO-REQUIREMENT-GOV-041"
             ):
                 continue
             original = item.get("original_path")
@@ -380,7 +380,7 @@ def _is_immutable(source: Path) -> bool:
     relative = _relative(source)
     if "/changes/archive/" in relative:
         return True
-    if source.name.startswith(("DSET-ATOMIC-RECORD-", "decision-DSET-DECISION-")):
+    if source.name.startswith(("CARMADIO-ATOMIC-RECORD-", "decision-CARMADIO-DECISION-")):
         return True
     metadata = _metadata(source)
     artifact_type = metadata.get("artifact_type")
@@ -405,8 +405,8 @@ def _identities(source: Path) -> tuple[list[str], list[str]]:
         else []
     )
     semantics = sorted(_all_semantic_ids(metadata))
-    if not semantics and source.name.startswith("decision-DSET-DECISION-"):
-        match = re.search(r"DSET-DECISION-[A-Z]+-\d{3}", source.name)
+    if not semantics and source.name.startswith("decision-CARMADIO-DECISION-"):
+        match = re.search(r"CARMADIO-DECISION-[A-Z]+-\d{3}", source.name)
         semantics = [match.group(0)] if match else []
     return carriers, semantics
 
@@ -1000,7 +1000,7 @@ def _retarget_transition_ledger(mapping: dict[Path, Path]) -> None:
         if (
             not isinstance(item, dict)
             or item.get("kind") != "carrier_relocation"
-            or item.get("authority_decision") != "DSET-REQUIREMENT-GOV-041"
+            or item.get("authority_decision") != "CARMADIO-REQUIREMENT-GOV-041"
         ):
             continue
         original = item.get("original_path")

@@ -41,7 +41,7 @@ class ExternalReviewTests(unittest.TestCase):
         create_review_packet(
             ROOT,
             self.packet,
-            packet_id="DSET-REVIEW-PACKET-001",
+            packet_id="CARMADIO-REVIEW-PACKET-001",
             artifacts=["README.md"],
             criteria=["Check exact behavior against accepted truth"],
             scope="README behavior only",
@@ -63,7 +63,7 @@ class ExternalReviewTests(unittest.TestCase):
             create_review_packet(
                 ROOT,
                 self.packet,
-                packet_id="DSET-REVIEW-PACKET-001",
+                packet_id="CARMADIO-REVIEW-PACKET-001",
                 artifacts=["README.md"],
                 criteria=["same"],
                 scope="same",
@@ -72,7 +72,7 @@ class ExternalReviewTests(unittest.TestCase):
     def test_report_envelope_accepts_free_form_body_and_stable_findings(self) -> None:
         report = self._write_report()
         result = validate_review_report(ROOT, self.packet, report)
-        self.assertEqual(result["finding_ids"], ["DSET-REVIEW-FINDING-001"])
+        self.assertEqual(result["finding_ids"], ["CARMADIO-REVIEW-FINDING-001"])
         self.assertFalse(result["implementation_authorized"])
 
     def test_reconciliation_is_complete_explicit_and_never_authorizes_repair(
@@ -84,17 +84,17 @@ class ExternalReviewTests(unittest.TestCase):
             json.dumps(
                 {
                     "schema_version": "1.0",
-                    "report_id": "DSET-EVIDENCE-RECORD-099",
+                    "report_id": "CARMADIO-EVIDENCE-RECORD-099",
                     "report_sha256": hashlib.sha256(report.read_bytes()).hexdigest(),
                     "reconciled_at": "2026-07-20T12:00:00+04:00",
                     "llm_session_ids": ["codex:test-session"],
                     "findings": [
                         {
-                            "finding_id": "DSET-REVIEW-FINDING-001",
+                            "finding_id": "CARMADIO-REVIEW-FINDING-001",
                             "disposition": "route_problem",
                             "rationale": "Observed behavior violates accepted truth.",
-                            "target_id": "DSET-PROBLEM-GOV-099",
-                            "reopen_proof": ["DSET-TEST-CASE-GOV-025"],
+                            "target_id": "CARMADIO-PROBLEM-GOV-099",
+                            "reopen_proof": ["CARMADIO-TEST-CASE-GOV-025"],
                         }
                     ],
                 }
@@ -102,7 +102,7 @@ class ExternalReviewTests(unittest.TestCase):
             encoding="utf-8",
         )
         result = reconcile_review(ROOT, self.packet, report, candidate)
-        self.assertEqual(result["reopen_proof"], ["DSET-TEST-CASE-GOV-025"])
+        self.assertEqual(result["reopen_proof"], ["CARMADIO-TEST-CASE-GOV-025"])
         self.assertFalse(result["implementation_authorized"])
         output = self.work / "result.json"
         write_reconciliation(self.work, output, result)
@@ -129,7 +129,7 @@ class ExternalReviewTests(unittest.TestCase):
             return_value=(configured, ()),
         ):
             result = validate_review_report(ROOT, self.packet, report)
-        self.assertEqual(result["finding_ids"], ["DSET-REVIEW-FINDING-001"])
+        self.assertEqual(result["finding_ids"], ["CARMADIO-REVIEW-FINDING-001"])
 
     def _write_report(
         self,
@@ -144,7 +144,7 @@ class ExternalReviewTests(unittest.TestCase):
             "schema_version": "1.0",
             "artifact_type": "evidence_record",
             "artifact_subtype": "review_report",
-            "artifact_id": "DSET-EVIDENCE-RECORD-099",
+            "artifact_id": "CARMADIO-EVIDENCE-RECORD-099",
             "packet_id": packet["packet_id"],
             "priority": priority,
             "reviewer": {
@@ -165,7 +165,7 @@ class ExternalReviewTests(unittest.TestCase):
             "limitations": ["No hosted CI access"],
             "findings": [
                 {
-                    "id": "DSET-REVIEW-FINDING-001",
+                    "id": "CARMADIO-REVIEW-FINDING-001",
                     "priority": priority,
                     "evidence": "README line and accepted rule disagree",
                     "confidence": "high",

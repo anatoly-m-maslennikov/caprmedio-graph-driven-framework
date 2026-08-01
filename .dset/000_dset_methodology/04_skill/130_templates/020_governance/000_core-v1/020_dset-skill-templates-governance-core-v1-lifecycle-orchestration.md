@@ -196,7 +196,7 @@ is not terminal by itself. Only true completion or stop uses
 `dset runtime finish`, which closes the session and must fail while another run
 remains active. An automatically invoked specialist or governed model-only
 workflow is a child run in the same session. Every transition updates
-`DSET-RULE-SKILL-RUNS` continuity state. After host context compaction, resume
+`CARMADIO-RULE-SKILL-RUNS` continuity state. After host context compaction, resume
 from that bounded checkpoint, re-read authoritative state, and recompute the
 next mode before acting. Session continuity is an internal capability, not
 another user-facing skill.

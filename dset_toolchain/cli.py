@@ -504,7 +504,7 @@ def main(argv: list[str] | None = None) -> int:
                     print("DSET traceability is fresh")
                     return 0
                 path = discover_layout(root).traceability_path.relative_to(root)
-                print(f"DSET-E111 {path}: traceability is stale")
+                print(f"CARMADIO-E111 {path}: traceability is stale")
                 return 1
             if args.write:
                 path = write_traceability(root)
@@ -661,7 +661,7 @@ def main(argv: list[str] | None = None) -> int:
                 if conflict_result_is_fresh(root, candidate, recorded):
                     print("DSET conflict result is fresh")
                     return 0
-                print("DSET-E165 recorded conflict result is stale")
+                print("CARMADIO-E165 recorded conflict result is stale")
                 return 1
             result = resolve_conflict(root, candidate)
             if args.output is not None:
@@ -677,7 +677,7 @@ def main(argv: list[str] | None = None) -> int:
                     print("DSET project health is fresh")
                     return 0
                 path = health_path(root).relative_to(root)
-                print(f"DSET-E162 {path}: project health is stale")
+                print(f"CARMADIO-E162 {path}: project health is stale")
                 return 1
             if args.write:
                 path = write_health(root)
@@ -735,7 +735,7 @@ def main(argv: list[str] | None = None) -> int:
                     print("DSET active authority compilation is fresh")
                     return 0
                 path = compilation_path(root).relative_to(root)
-                print(f"DSET-E164 {path}: compilation is stale or incomplete")
+                print(f"CARMADIO-E164 {path}: compilation is stale or incomplete")
                 return 1
             if args.write:
                 path = write_compilation(root)
@@ -848,7 +848,7 @@ def main(argv: list[str] | None = None) -> int:
         print(error.render(), file=sys.stderr)
         return 2
     except (FileExistsError, FileNotFoundError, ValueError) as error:
-        print(f"DSET-E900: {error}", file=sys.stderr)
+        print(f"CARMADIO-E900: {error}", file=sys.stderr)
         return 2
     return 2
 

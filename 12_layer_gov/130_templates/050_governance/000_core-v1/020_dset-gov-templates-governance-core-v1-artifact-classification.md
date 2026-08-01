@@ -7,7 +7,7 @@ artifact_subtype: governance
 
 # Artifact routing rules
 
-**Rule ID:** `DSET-RULE-ARTIFACT-CLASSIFICATION`
+**Rule ID:** `CARMADIO-RULE-ARTIFACT-CLASSIFICATION`
 
 ## Purpose
 
@@ -31,13 +31,13 @@ The installed project-local `artifact_catalog.toml` is the only executable
 registry of type/subtype routes, identity kinds, carriers, and persistence
 behavior. `dset_settings.toml` enables a project whitelist without repeating
 route definitions. Unknown, disabled, multiply mapped, or ambiguous
-classifications fail closed. Atomic sources: `DSET-REQUIREMENT-GOV-070` and
-`DSET-REQUIREMENT-GOV-102`.
+classifications fail closed. Atomic sources: `CARMADIO-REQUIREMENT-GOV-070` and
+`CARMADIO-REQUIREMENT-GOV-102`.
 
 The conforming framework catalog must assign exactly one canonical top-level
 type to each of the 54 semantic routes. Direct subtypes inherit their parent's
 route and cannot override it. Atomic source:
-`DSET-REQUIREMENT-META-060`.
+`CARMADIO-REQUIREMENT-META-060`.
 
 ## Current taxonomy migration blocker
 
@@ -46,7 +46,7 @@ distinct routes. Forty routes are empty, five routes contain multiple
 top-level names, and `question/conflict` overrides its parent route. Therefore
 the tables below are a pre-migration semantic-name inventory, not a conforming
 canonical type map. No tool may claim total one-to-one route conformance until
-`DSET-PROBLEM-GOV-008` is resolved.
+`CARMADIO-PROBLEM-GOV-008` is resolved.
 
 ## Pre-migration atomic semantic-name inventory
 
@@ -71,7 +71,7 @@ of an external report. The report itself is an external governed artifact.
 
 Constraint is reserved for externally imposed limitations. A project-owned
 result or selected restriction is a Requirement or Implementation Decision
-according to meaning. Atomic source: `DSET-REQUIREMENT-GOV-057`.
+according to meaning. Atomic source: `CARMADIO-REQUIREMENT-GOV-057`.
 
 ## Non-atomic route boundaries
 
@@ -86,8 +86,8 @@ derives `maintained / method / relation` and declares source and target endpoint
 origins. An internal Git commit derives `atomic / implementation / internal`;
 an outside-owned commit uses `external_git_commit` and derives the external
 locus. Native repository-qualified identities replace DSET sequences for
-commits and pull requests. Atomic sources: `DSET-REQUIREMENT-GOV-078`,
-`DSET-REQUIREMENT-GOV-080`, and `DSET-REQUIREMENT-GOV-103`.
+commits and pull requests. Atomic sources: `CARMADIO-REQUIREMENT-GOV-078`,
+`CARMADIO-REQUIREMENT-GOV-080`, and `CARMADIO-REQUIREMENT-GOV-103`.
 
 Current semantic views are maintained artifacts. DSET defines no separate
 currentness or freshness class. Their type-specific procedures own refresh,
@@ -97,7 +97,7 @@ Inquiry is the Content role for unresolved knowledge, choice, or clarification.
 The canonical loop is Inquiry → Analysis → Definition → Method →
 Implementation → Observation → Inquiry. Observation is factual or reported
 input; Analysis owns interpretation and may contain rationale. Atomic sources:
-`DSET-REQUIREMENT-META-047` and `DSET-REQUIREMENT-META-048`.
+`CARMADIO-REQUIREMENT-META-047` and `CARMADIO-REQUIREMENT-META-048`.
 
 ## Minimal Markdown properties
 
@@ -149,15 +149,15 @@ The project prefix is controlled by settings and is omitted when disabled.
 layers, features, or their configured nesting. The visible registered type or
 enabled direct subtype owns one project-wide number sequence. Changing prefix,
 scope grammar, or identity kind requires one complete governed migration
-without accepted aliases. Atomic sources: `DSET-REQUIREMENT-GOV-113`,
-`DSET-REQUIREMENT-GOV-114`, and `DSET-IMPL-GOV-009`.
+without accepted aliases. Atomic sources: `CARMADIO-REQUIREMENT-GOV-113`,
+`CARMADIO-REQUIREMENT-GOV-114`, and `CARMADIO-IMPL-GOV-009`.
 
 ## Governance locus and endpoints
 
 The registered type derives Governance locus; carriers never repeat it or store
 generic `governance_origin`. A relational artifact declares a stable relation
 kind and at least two role-bearing endpoints, each with independent internal or
-external origin. Atomic source: `DSET-REQUIREMENT-GOV-101`.
+external origin. Atomic source: `CARMADIO-REQUIREMENT-GOV-101`.
 
 ## Routing boundaries
 

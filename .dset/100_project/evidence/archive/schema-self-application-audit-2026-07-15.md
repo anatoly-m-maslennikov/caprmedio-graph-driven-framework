@@ -38,7 +38,7 @@
 - The former OpenSpec operationalization TODO is a short superseded pointer, not
   a competing live backlog.
 - Active Change deltas connect to current layer-owned accepted IDs and retain
-  only genuinely unaccepted additions. `DSET-PROBLEM-GOV-001` is resolved.
+  only genuinely unaccepted additions. `CARMADIO-PROBLEM-GOV-001` is resolved.
 - Schema 1.2 is current in the version contract; schema 1.0/1.1 branches and
   archived Change evidence remain deliberate compatibility/history surfaces.
 - GitHub-portable link/callout/details validation is part of `dset check`; no
@@ -50,18 +50,18 @@
 | Target | Result | Evidence and limit |
 |---|---|---|
 | DSET framework repository | Partial pass | Schema 1.2 manifest, repository-owned rules, neutral Work Areas, integration-branch default, optional worktrees, validation, trace, and bounded self-hosting are applied. Missing public/runtime capabilities remain below. |
-| Generated temporary adopter | Partial pass | Candidate materializes and validates one bounded schema 1.1 compatibility adopter. A second generated current-schema 1.2 adopter remains `DSET-PROBLEM-TOOL-002`. |
+| Generated temporary adopter | Partial pass | Candidate materializes and validates one bounded schema 1.1 compatibility adopter. A second generated current-schema 1.2 adopter remains `CARMADIO-PROBLEM-TOOL-002`. |
 | `obsidian-your-harness` | Not adopted | It remains the declared first owned pilot but has no DSET schema 1.2 control plane or proof; roadmap §6 remains open. |
 | Upstream Claudian | Not started as designed | It remains a later clean pinned read-only evaluation after the owned pilot, not an adopter claim. |
 
 ## Current blockers and questions
 
-- `DSET-PROBLEM-TOOL-001`: published-validator assurance remains a declared
+- `CARMADIO-PROBLEM-TOOL-001`: published-validator assurance remains a declared
   degraded schema-transition boundary.
-- `DSET-PROBLEM-TOOL-002`: no generated current-schema adopter.
-- `DSET-PROBLEM-SKILL-001`: `dset`, `dset-release`, run writer, checkpoint, and
+- `CARMADIO-PROBLEM-TOOL-002`: no generated current-schema adopter.
+- `CARMADIO-PROBLEM-SKILL-001`: `dset`, `dset-release`, run writer, checkpoint, and
   resume runtime are incomplete.
-- `DSET-PROBLEM-OPS-001`: no exact-current-head GitHub proof.
+- `CARMADIO-PROBLEM-OPS-001`: no exact-current-head GitHub proof.
 - Open design Questions are recorded in
   [`intake.yaml`](../../../../gov/intake.legacy.toml); they add no accepted behavior.
 

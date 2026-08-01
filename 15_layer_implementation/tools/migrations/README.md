@@ -65,6 +65,38 @@ python3 scripts/migrate_meta_gov_carriers.py --check
 
 It is only a compatibility launcher and delegates to the active recipe.
 
+## Run the CARMADIO identity-prefix migration
+
+The identity recipe performs one whole-repository cutover from the retired
+project identity prefix to `CARMADIO-`. Its inventory is limited to tracked Git
+files, and it migrates both carrier content and path names.
+
+Preview and copy the reported plan digest:
+
+```bash
+python3 \
+  15_layer_implementation/tools/migrations/migrate_identity_prefix_to_carmadio.py
+```
+
+Apply only that exact plan:
+
+```bash
+python3 \
+  15_layer_implementation/tools/migrations/migrate_identity_prefix_to_carmadio.py \
+  --apply \
+  --expect-plan-digest PLAN_DIGEST
+```
+
+Verify the cutover or replay a completed migration:
+
+```bash
+python3 \
+  15_layer_implementation/tools/migrations/migrate_identity_prefix_to_carmadio.py \
+  --check
+```
+
+A successful second preview reports zero writes and deletes.
+
 ## Safety behavior
 
 The shared runtime:

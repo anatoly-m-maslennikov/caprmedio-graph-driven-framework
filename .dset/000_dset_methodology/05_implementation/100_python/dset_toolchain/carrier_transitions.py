@@ -21,16 +21,16 @@ from .yaml_subset import load as load_structured
 # SCHEMA_VERSION defines schema version; this module owns the default.
 SCHEMA_VERSION = "1.0"
 # AUTHORITY_DECISION defines authority decision; this module owns the default.
-AUTHORITY_DECISION = "DSET-DECISION-GOV-018"
+AUTHORITY_DECISION = "CARMADIO-DECISION-GOV-018"
 # LAYOUT_AUTHORITY defines layout authority; this module owns the default.
-LAYOUT_AUTHORITY = "DSET-REQUIREMENT-GOV-041"
+LAYOUT_AUTHORITY = "CARMADIO-REQUIREMENT-GOV-041"
 # AUTHORITY_DECISIONS defines authority decisions; this module owns the default.
 AUTHORITY_DECISIONS = frozenset(
     {
         AUTHORITY_DECISION,
         LAYOUT_AUTHORITY,
-        "DSET-REQUIREMENT-GOV-044",
-        "DSET-DECISION-GOV-022",
+        "CARMADIO-REQUIREMENT-GOV-044",
+        "CARMADIO-DECISION-GOV-022",
     }
 )
 # SESSION_ID defines session id; this module owns the default.
@@ -66,7 +66,7 @@ def ledger_path(root: Path) -> Path:
 
 def transition_id(original_path: str, original_sha256: str) -> str:
     digest = hashlib.sha256(f"{original_path}\0{original_sha256}".encode()).hexdigest()
-    return f"DSET-CARRIER-TRANSITION-{digest[:16].upper()}"
+    return f"CARMADIO-CARRIER-TRANSITION-{digest[:16].upper()}"
 
 
 def semantic_sha256(value: Any) -> str:

@@ -131,7 +131,7 @@ class RepositoryLayoutTest(unittest.TestCase):
             change = scopes / "tool" / "changes" / "portable-cli"
             change.mkdir(parents=True)
             (change / "change.yaml").write_text(
-                dump({"id": "DSET-CHANGE-TOOL-001", "slug": "portable-cli"}),
+                dump({"id": "CARMADIO-CHANGE-TOOL-001", "slug": "portable-cli"}),
                 encoding="utf-8",
             )
             package = scopes / "skill" / "specs/packages/skills/package.yaml"
@@ -176,7 +176,7 @@ class RepositoryLayoutTest(unittest.TestCase):
                 tuple(scopes / layer / "schemas" for layer in LAYERS),
             )
             self.assertEqual(layout.find_template("profiles.yaml"), template)
-            self.assertEqual(layout.find_change("DSET-CHANGE-TOOL-001"), change)
+            self.assertEqual(layout.find_change("CARMADIO-CHANGE-TOOL-001"), change)
             self.assertEqual(layout.change_layer(change), "tool")
             self.assertEqual(layout.package_fragments(), (package,))
 

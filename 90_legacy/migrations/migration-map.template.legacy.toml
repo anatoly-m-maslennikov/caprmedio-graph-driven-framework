@@ -1,6 +1,6 @@
 schema_version = "1.0"
-transition_id = "DSET-CARRIER-TRANSITION-CCC00A129E103906"
-authority_decision = "DSET-DECISION-GOV-018"
+transition_id = "CARMADIO-CARRIER-TRANSITION-CCC00A129E103906"
+authority_decision = "CARMADIO-DECISION-GOV-018"
 original_path = "dset/scopes/gov/migrations/migration-map.template.yaml"
 original_format = "yaml"
 original_sha256 = "64c5e571aabe0700e337b5b1e07531c941b61e529d73593c8af945e91211cdf6"

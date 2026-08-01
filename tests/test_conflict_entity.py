@@ -37,8 +37,8 @@ class ConflictEntityTests(unittest.TestCase):
         self.assertIn("**Conflict**", domain)
         self.assertIn("direct Question subtype", domain)
         self.assertIn("direct Decision subtype", domain)
-        self.assertIn("DSET-INVARIANT-GOV-017", domain)
-        self.assertIn("DSET-REQUIREMENT-GOV-027", spec)
+        self.assertIn("CARMADIO-INVARIANT-GOV-017", domain)
+        self.assertIn("CARMADIO-REQUIREMENT-GOV-027", spec)
         self.assertIn("Four Types use one flat subtype level", spec)
         self.assertIn("never contains another subtype", spec)
         self.assertIn("reviewable primary claim", spec)
@@ -66,31 +66,31 @@ class ConflictEntityTests(unittest.TestCase):
             discover_layout(ROOT).structured_file(GOV_PACKAGE, "package.toml")
         )
         assert isinstance(package, dict)
-        self.assertIn("DSET-REQUIREMENT-GOV-027", package["requirements"])
-        self.assertIn("DSET-TEST-CASE-GOV-027", package["tests"])
-        self.assertIn("DSET-EVALUATION-CASE-GOV-017", package["evals"])
+        self.assertIn("CARMADIO-REQUIREMENT-GOV-027", package["requirements"])
+        self.assertIn("CARMADIO-TEST-CASE-GOV-027", package["tests"])
+        self.assertIn("CARMADIO-EVALUATION-CASE-GOV-017", package["evals"])
 
     def test_absorbing_decision_preserves_immutable_predecessor(self) -> None:
         predecessor = DECISIONS / (
-            "DSET-DECISION-GOV-004-problems-questions-and-conflicts-are-distinct.md"
+            "CARMADIO-DECISION-GOV-004-problems-questions-and-conflicts-are-distinct.md"
         )
         successor = DECISIONS / (
-            "DSET-DECISION-GOV-005-semantic-artifact-types-and-open-conflicts.md"
+            "CARMADIO-DECISION-GOV-005-semantic-artifact-types-and-open-conflicts.md"
         )
         self.assertTrue(predecessor.is_file())
         text = successor.read_text(encoding="utf-8")
-        self.assertIn("**Absorbs:** `DSET-DECISION-GOV-004` in full", text)
+        self.assertIn("**Absorbs:** `CARMADIO-DECISION-GOV-004` in full", text)
         self.assertIn("workflow never defines artifact type", text)
 
         fpf_predecessor = DECISIONS / (
-            "DSET-DECISION-GOV-007-flat-canonical-type-and-subtype-model.md"
+            "CARMADIO-DECISION-GOV-007-flat-canonical-type-and-subtype-model.md"
         )
         fpf_successor = DECISIONS / (
-            "DSET-DECISION-GOV-008-fpf-aligned-boundaries-for-the-flat-type-model.md"
+            "CARMADIO-DECISION-GOV-008-fpf-aligned-boundaries-for-the-flat-type-model.md"
         )
         self.assertTrue(fpf_predecessor.is_file())
         fpf_text = fpf_successor.read_text(encoding="utf-8")
-        self.assertIn("**Absorbs:** `DSET-DECISION-GOV-007` in full", fpf_text)
+        self.assertIn("**Absorbs:** `CARMADIO-DECISION-GOV-007` in full", fpf_text)
         self.assertIn("One atom, one primary governed claim", fpf_text)
 
     def test_live_and_template_work_item_rules_match(self) -> None:

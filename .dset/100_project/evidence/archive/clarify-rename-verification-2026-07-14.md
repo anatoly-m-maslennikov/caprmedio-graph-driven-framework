@@ -18,9 +18,9 @@ evidence and literal upstream provenance retain their historical names.
 
 | Check | Result |
 |---|---|
-| Red test before registry/package rename | `domain-clarification` failed with `DSET-E136` as expected |
+| Red test before registry/package rename | `domain-clarification` failed with `CARMADIO-E136` as expected |
 | `dset rules resolve domain-clarification --format json` | Pass; resolves `dset-clarify` and the ordered local rule set |
-| Deprecated `domain-grilling` workflow | Fails closed with `DSET-E136` |
+| Deprecated `domain-grilling` workflow | Fails closed with `CARMADIO-E136` |
 | Wrapper identity | Registered SHA-256 matches `skills/dset-clarify/SKILL.md` |
 | Skill refactor audit | 20-line skill, two files, no scripts or local state |
 | Skill Creator validation | `Skill is valid!` |

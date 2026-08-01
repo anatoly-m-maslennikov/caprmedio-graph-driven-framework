@@ -1,7 +1,7 @@
 """Deterministic, preview-first migration of DSET authority to TOML.
 
 The migration command intentionally does not guess ownership.  It converts
-DSET-owned structured YAML/JSON and DSET Markdown YAML frontmatter only after
+CARMADIO-owned structured YAML/JSON and DSET Markdown YAML frontmatter only after
 building a complete source/target/digest/reference plan. Host carriers,
 runtime journals, wire payloads, and standard JSON Schema contracts remain
 explicit boundary-format exceptions.
@@ -1507,7 +1507,7 @@ def _structured_entry(root: Path, source: Path) -> MigrationEntry:
 
 
 def _reconcile_artifact_type_patterns(value: dict[str, Any]) -> None:
-    """Move only DSET-owned path rules; retain boundary YAML classifiers."""
+    """Move only CARMADIO-owned path rules; retain boundary YAML classifiers."""
 
     rules = value.get("path_rules")
     if not isinstance(rules, list):

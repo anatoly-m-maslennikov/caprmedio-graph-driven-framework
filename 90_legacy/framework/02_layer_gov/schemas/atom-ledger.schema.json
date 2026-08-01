@@ -20,7 +20,7 @@
           "current_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
           "transition_id": {
             "type": "string",
-            "pattern": "^DSET-CARRIER-TRANSITION-[A-F0-9]{16}$"
+            "pattern": "^CARMADIO-CARRIER-TRANSITION-[A-F0-9]{16}$"
           },
           "type": {"enum": ["decision", "question", "problem", "qa"]},
           "subtype": {"enum": ["none", "requirement", "constraint", "contract", "user_story", "outcome", "scenario", "invariant", "conflict", "risk", "opportunity", "defect", "gap", "debt", "test_plan", "evaluation_plan"]}

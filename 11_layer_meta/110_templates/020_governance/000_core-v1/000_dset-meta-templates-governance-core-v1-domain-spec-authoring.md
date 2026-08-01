@@ -7,7 +7,7 @@ artifact_subtype: playbook
 
 # Domain and specification authoring
 
-**Rule ID:** `DSET-RULE-DOMAIN-SPEC`
+**Rule ID:** `CARMADIO-RULE-DOMAIN-SPEC`
 
 ## Workflow
 

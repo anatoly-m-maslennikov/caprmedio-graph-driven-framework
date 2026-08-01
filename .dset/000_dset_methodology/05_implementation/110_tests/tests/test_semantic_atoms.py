@@ -40,7 +40,7 @@ class SemanticAtomTests(unittest.TestCase):
         self.temporary = temporary_directory()
         self.root = create_adopter(ROOT, Path(self.temporary.name) / "adopter")
         self.atom_path = (
-            self.root / "dset/changes/DSET-ATOMIC-RECORD-001-output-contract.md"
+            self.root / "dset/changes/CARMADIO-ATOMIC-RECORD-001-output-contract.md"
         )
 
     def tearDown(self) -> None:
@@ -92,19 +92,19 @@ class SemanticAtomTests(unittest.TestCase):
             )
             historical = package_root / "package.yaml"
             historical.write_text(
-                "contracts:\n  - DSET-CONTRACT-GOV-001\n",
+                "contracts:\n  - CARMADIO-CONTRACT-GOV-001\n",
                 encoding="utf-8",
             )
             (package_root / "package.toml").write_text(
                 "contracts = []\n", encoding="utf-8"
             )
-            selector = "contracts:DSET-CONTRACT-GOV-001"
+            selector = "contracts:CARMADIO-CONTRACT-GOV-001"
             digest = hashlib.sha256(f"{selector}\n".encode()).hexdigest()
             (governance / "legacy-authority.yaml").write_text(
                 'schema_version: "1.0"\n'
                 "records:\n"
                 "  -\n"
-                "    semantic_id: DSET-CONTRACT-GOV-001\n"
+                "    semantic_id: CARMADIO-CONTRACT-GOV-001\n"
                 "    type: decision\n"
                 "    subtype: contract\n"
                 "    fragments:\n"
@@ -116,13 +116,13 @@ class SemanticAtomTests(unittest.TestCase):
             )
 
             self.assertEqual(validate_legacy_authority_ledger(root), [])
-            self.assertIn("DSET-CONTRACT-GOV-001", legacy_authority_ids(root))
+            self.assertIn("CARMADIO-CONTRACT-GOV-001", legacy_authority_ids(root))
             rows = {
                 str(item["id"]): item
                 for item in build_semantic_classification_index(root)
             }
-            self.assertEqual(rows["DSET-CONTRACT-GOV-001"]["subtype"], "contract")
-            self.assertTrue(rows["DSET-CONTRACT-GOV-001"]["historical_carrier"])
+            self.assertEqual(rows["CARMADIO-CONTRACT-GOV-001"]["subtype"], "contract")
+            self.assertTrue(rows["CARMADIO-CONTRACT-GOV-001"]["historical_carrier"])
 
             historical.write_text("contracts: []\n", encoding="utf-8")
             messages = [item.message for item in validate_legacy_authority_ledger(root)]
@@ -138,8 +138,8 @@ class SemanticAtomTests(unittest.TestCase):
 
         atoms, diagnostics = collect_semantic_atoms(self.root)
         self.assertEqual(diagnostics, [])
-        self.assertEqual(atoms["DSET-DECISION-001"].semantic_type, "decision")
-        self.assertEqual(atoms["DSET-DECISION-001"].subtype, "contract")
+        self.assertEqual(atoms["CARMADIO-DECISION-001"].semantic_type, "decision")
+        self.assertEqual(atoms["CARMADIO-DECISION-001"].subtype, "contract")
         self.assertEqual(validate_semantic_atoms(self.root), [])
 
         self.atom_path.write_text(
@@ -148,7 +148,7 @@ class SemanticAtomTests(unittest.TestCase):
         )
         messages = [item.message for item in validate_semantic_atoms(self.root)]
         self.assertIn(
-            "sealed atom sha256 changed: DSET-DECISION-001",
+            "sealed atom sha256 changed: CARMADIO-DECISION-001",
             messages,
         )
 
@@ -164,7 +164,7 @@ class SemanticAtomTests(unittest.TestCase):
     def test_new_atom_cannot_seal_legacy_child_of(self) -> None:
         text = self._write_atom().replace(
             "promotion:\n  parent_scope: null\n",
-            "promotion:\n  parent_scope: null\nchild_of:\n  - DSET-REQUIREMENT-001\n",
+            "promotion:\n  parent_scope: null\nchild_of:\n  - CARMADIO-REQUIREMENT-001\n",
         )
         self.atom_path.write_text(text, encoding="utf-8")
 
@@ -188,11 +188,11 @@ class SemanticAtomTests(unittest.TestCase):
     def test_lifecycle_is_append_only_and_absorption_cycles_stop(self) -> None:
         self._write_atom()
         seal_atom(self.root, self.atom_path)
-        second = self.root / "dset/changes/DSET-ATOMIC-RECORD-002-format.md"
+        second = self.root / "dset/changes/CARMADIO-ATOMIC-RECORD-002-format.md"
         second.write_text(
             self._atom_text(
-                carrier="DSET-ATOMIC-RECORD-002",
-                semantic="DSET-CONTRACT-002",
+                carrier="CARMADIO-ATOMIC-RECORD-002",
+                semantic="CARMADIO-CONTRACT-002",
             ),
             encoding="utf-8",
         )
@@ -200,9 +200,9 @@ class SemanticAtomTests(unittest.TestCase):
         append_lifecycle_event(
             self.root,
             self._event(
-                "DSET-LIFECYCLE-EVENT-001",
-                "DSET-DECISION-001",
-                "DSET-CONTRACT-002",
+                "CARMADIO-LIFECYCLE-EVENT-001",
+                "CARMADIO-DECISION-001",
+                "CARMADIO-CONTRACT-002",
             ),
         )
 
@@ -210,9 +210,9 @@ class SemanticAtomTests(unittest.TestCase):
             append_lifecycle_event(
                 self.root,
                 self._event(
-                    "DSET-LIFECYCLE-EVENT-002",
-                    "DSET-CONTRACT-002",
-                    "DSET-DECISION-001",
+                    "CARMADIO-LIFECYCLE-EVENT-002",
+                    "CARMADIO-CONTRACT-002",
+                    "CARMADIO-DECISION-001",
                 ),
             )
 
@@ -220,11 +220,11 @@ class SemanticAtomTests(unittest.TestCase):
         self._write_atom()
         seal_atom(self.root, self.atom_path)
         for number in (2, 3):
-            path = self.root / f"dset/changes/DSET-ATOMIC-RECORD-00{number}.md"
+            path = self.root / f"dset/changes/CARMADIO-ATOMIC-RECORD-00{number}.md"
             path.write_text(
                 self._atom_text(
-                    carrier=f"DSET-ATOMIC-RECORD-00{number}",
-                    semantic=f"DSET-CONTRACT-00{number}",
+                    carrier=f"CARMADIO-ATOMIC-RECORD-00{number}",
+                    semantic=f"CARMADIO-CONTRACT-00{number}",
                 ),
                 encoding="utf-8",
             )
@@ -232,9 +232,9 @@ class SemanticAtomTests(unittest.TestCase):
         append_lifecycle_event(
             self.root,
             self._event(
-                "DSET-LIFECYCLE-EVENT-001",
-                "DSET-DECISION-001",
-                "DSET-CONTRACT-002",
+                "CARMADIO-LIFECYCLE-EVENT-001",
+                "CARMADIO-DECISION-001",
+                "CARMADIO-CONTRACT-002",
             ),
         )
 
@@ -242,20 +242,20 @@ class SemanticAtomTests(unittest.TestCase):
             append_lifecycle_event(
                 self.root,
                 self._event(
-                    "DSET-LIFECYCLE-EVENT-002",
-                    "DSET-DECISION-001",
-                    "DSET-CONTRACT-003",
+                    "CARMADIO-LIFECYCLE-EVENT-002",
+                    "CARMADIO-DECISION-001",
+                    "CARMADIO-CONTRACT-003",
                 ),
             )
 
     def test_terminal_atom_cannot_be_reaccepted(self) -> None:
         self._write_atom()
         seal_atom(self.root, self.atom_path)
-        second = self.root / "dset/changes/DSET-ATOMIC-RECORD-002-format.md"
+        second = self.root / "dset/changes/CARMADIO-ATOMIC-RECORD-002-format.md"
         second.write_text(
             self._atom_text(
-                carrier="DSET-ATOMIC-RECORD-002",
-                semantic="DSET-CONTRACT-002",
+                carrier="CARMADIO-ATOMIC-RECORD-002",
+                semantic="CARMADIO-CONTRACT-002",
             ),
             encoding="utf-8",
         )
@@ -263,9 +263,9 @@ class SemanticAtomTests(unittest.TestCase):
         append_lifecycle_event(
             self.root,
             self._event(
-                "DSET-LIFECYCLE-EVENT-001",
-                "DSET-DECISION-001",
-                "DSET-CONTRACT-002",
+                "CARMADIO-LIFECYCLE-EVENT-001",
+                "CARMADIO-DECISION-001",
+                "CARMADIO-CONTRACT-002",
             ),
         )
 
@@ -273,8 +273,8 @@ class SemanticAtomTests(unittest.TestCase):
             append_lifecycle_event(
                 self.root,
                 {
-                    "id": "DSET-LIFECYCLE-EVENT-002",
-                    "atom_id": "DSET-DECISION-001",
+                    "id": "CARMADIO-LIFECYCLE-EVENT-002",
+                    "atom_id": "CARMADIO-DECISION-001",
                     "event": "accepted",
                     "occurred_at": "2026-07-20T00:01:00+04:00",
                     "related": [],
@@ -289,8 +289,8 @@ class SemanticAtomTests(unittest.TestCase):
         append_lifecycle_event(
             self.root,
             {
-                "id": "DSET-LIFECYCLE-EVENT-001",
-                "atom_id": "DSET-DECISION-001",
+                "id": "CARMADIO-LIFECYCLE-EVENT-001",
+                "atom_id": "CARMADIO-DECISION-001",
                 "event": "retired",
                 "occurred_at": "2026-07-20T00:00:00+04:00",
                 "related": [],
@@ -299,7 +299,7 @@ class SemanticAtomTests(unittest.TestCase):
         )
 
         with self.assertRaisesRegex(ValueError, "registered carrier transition"):
-            archive_atom(self.root, "DSET-DECISION-001")
+            archive_atom(self.root, "CARMADIO-DECISION-001")
 
         self.assertEqual(self.atom_path.read_bytes(), original)
         self.assertEqual(validate_semantic_atoms(self.root), [])
@@ -310,8 +310,8 @@ class SemanticAtomTests(unittest.TestCase):
 
     def _write_atom(self) -> str:
         text = self._atom_text(
-            carrier="DSET-ATOMIC-RECORD-001",
-            semantic="DSET-DECISION-001",
+            carrier="CARMADIO-ATOMIC-RECORD-001",
+            semantic="CARMADIO-DECISION-001",
         )
         self.atom_path.write_text(text, encoding="utf-8")
         return text

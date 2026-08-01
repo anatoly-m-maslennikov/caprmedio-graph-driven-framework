@@ -51,8 +51,8 @@ class ArtifactRecordTests(unittest.TestCase):
             "\n".join(
                 (
                     "+++",
-                    'artifact_id = "DSET-ATOMIC-001"',
-                    'semantic_id = "DSET-CLAIM-001"',
+                    'artifact_id = "CARMADIO-ATOMIC-001"',
+                    'semantic_id = "CARMADIO-CLAIM-001"',
                     'revision_mode = "atomic"',
                     'content_role = "definition"',
                     'governance_locus = "internal"',
@@ -103,7 +103,7 @@ class ArtifactRecordTests(unittest.TestCase):
             source = self._atom(root)
             original = source.read_bytes()
 
-            destination = archive_atom(root, "DSET-CLAIM-001")
+            destination = archive_atom(root, "CARMADIO-CLAIM-001")
 
             self.assertEqual(
                 destination,

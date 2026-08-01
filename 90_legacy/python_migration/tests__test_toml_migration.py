@@ -144,7 +144,7 @@ class TomlMigrationTests(unittest.TestCase):
         """Handle fixture using the declared repository contract."""
         self.write(
             "dset/scopes/gov/items.yaml",
-            "schema_version: 1.0\nitems:\n  -\n    id: DSET-ITEM-001\n",
+            "schema_version: 1.0\nitems:\n  -\n    id: CARMADIO-ITEM-001\n",
         )
         self.write(
             "dset/scopes/gov/index.yaml",
@@ -152,7 +152,7 @@ class TomlMigrationTests(unittest.TestCase):
         )
         self.write(
             "dset/scopes/gov/record.md",
-            "---\nartifact_id: DSET-RECORD-001\nrelations:\n"
+            "---\nartifact_id: CARMADIO-RECORD-001\nrelations:\n"
             "  - items.yaml\n---\n[items](items.yaml)\n",
         )
 
@@ -170,7 +170,7 @@ class TomlMigrationTests(unittest.TestCase):
             "package_id: example\n"
             "layer: gov\n"
             "requirements:\n"
-            "  - DSET-REQUIREMENT-GOV-001\n"
+            "  - CARMADIO-REQUIREMENT-GOV-001\n"
             "tests: []\n"
             "evals: []\n"
             "contracts: []\n"
@@ -198,33 +198,33 @@ class TomlMigrationTests(unittest.TestCase):
             self.write(f"{relative}/{name}", "")
         self.write(
             "dset/scopes/gov/specs/packages/example/spec.md",
-            "# DSET-REQUIREMENT-GOV-001\n",
+            "# CARMADIO-REQUIREMENT-GOV-001\n",
         )
         self.write(
             "dset/scopes/gov/specs/packages/example/test-plan.md",
-            "# DSET-TEST-CASE-GOV-040\n",
+            "# CARMADIO-TEST-CASE-GOV-040\n",
         )
         self.write(
-            "dset/scopes/gov/atoms/DSET-ATOMIC-RECORD-061.md",
+            "dset/scopes/gov/atoms/CARMADIO-ATOMIC-RECORD-061.md",
             "+++\n"
             'artifact_type = "atomic_record"\n'
-            'artifact_id = "DSET-ATOMIC-RECORD-061"\n'
+            'artifact_id = "CARMADIO-ATOMIC-RECORD-061"\n'
             'type = "qa"\n'
             'subtype = "test_plan"\n'
-            'semantic_id = "DSET-TEST-CASE-GOV-040"\n'
+            'semantic_id = "CARMADIO-TEST-CASE-GOV-040"\n'
             'status = "accepted"\n'
             'priority = "high"\n'
             'llm_session_ids = ["codex:test"]\n'
             "+++\n\n# Test\n",
         )
-        selector = "requirements:DSET-REQUIREMENT-GOV-001"
+        selector = "requirements:CARMADIO-REQUIREMENT-GOV-001"
         digest = hashlib.sha256(f"{selector}\n".encode()).hexdigest()
         self.write(
             "dset/scopes/gov/governance/legacy-authority.yaml",
             'schema_version: "1.0"\n'
             "records:\n"
             "  -\n"
-            "    semantic_id: DSET-REQUIREMENT-GOV-001\n"
+            "    semantic_id: CARMADIO-REQUIREMENT-GOV-001\n"
             "    fragments:\n"
             "      -\n"
             "        path: dset/scopes/gov/specs/packages/example/package.yaml\n"
@@ -394,15 +394,15 @@ class TomlMigrationTests(unittest.TestCase):
     ) -> None:
         item = self.write("dset/scopes/gov/items.yaml", "id: current\n")
         atom = self.write(
-            "dset/scopes/gov/atoms/DSET-ATOMIC-RECORD-001.md",
-            "---\nartifact_id: DSET-ATOMIC-RECORD-001\n---\nSee items.yaml.\n",
+            "dset/scopes/gov/atoms/CARMADIO-ATOMIC-RECORD-001.md",
+            "---\nartifact_id: CARMADIO-ATOMIC-RECORD-001\n---\nSee items.yaml.\n",
         )
         proof = self.write(
             "dset/scopes/gov/changes/example/proofs/result.md",
             "---\nartifact_type: evidence_record\n---\nSee items.yaml.\n",
         )
         decision = self.write(
-            "dset/scopes/gov/changes/example/decision-DSET-DECISION-GOV-001.md",
+            "dset/scopes/gov/changes/example/decision-CARMADIO-DECISION-GOV-001.md",
             "# Decision\n\nSee items.yaml.\n",
         )
         decision_digest = hashlib.sha256(decision.read_bytes()).hexdigest()
@@ -410,18 +410,18 @@ class TomlMigrationTests(unittest.TestCase):
             "dset/scopes/gov/governance/atoms.yaml",
             "records:\n"
             "  -\n"
-            "    semantic_id: DSET-REQUIREMENT-GOV-001\n"
-            "    path: dset/scopes/gov/atoms/DSET-ATOMIC-RECORD-001.md\n",
+            "    semantic_id: CARMADIO-REQUIREMENT-GOV-001\n"
+            "    path: dset/scopes/gov/atoms/CARMADIO-ATOMIC-RECORD-001.md\n",
         )
         self.write(
             "dset/scopes/gov/governance/legacy-authority.yaml",
             "records:\n"
             "  -\n"
-            "    semantic_id: DSET-DECISION-GOV-001\n"
+            "    semantic_id: CARMADIO-DECISION-GOV-001\n"
             "    fragments:\n"
             "      -\n"
             "        path: dset/scopes/gov/changes/example/"
-            "decision-DSET-DECISION-GOV-001.md\n"
+            "decision-CARMADIO-DECISION-GOV-001.md\n"
             "        selector: whole-carrier\n"
             f"        sha256: {decision_digest}\n",
         )
@@ -473,8 +473,8 @@ class TomlMigrationTests(unittest.TestCase):
         successor = package.with_suffix(".toml")
         self.assertEqual(package.read_bytes(), before)
         data = load_toml(successor.read_text(encoding="utf-8"))
-        self.assertIn("DSET-REQUIREMENT-GOV-001", data["requirements"])
-        self.assertIn("DSET-TEST-CASE-GOV-040", data["tests"])
+        self.assertIn("CARMADIO-REQUIREMENT-GOV-001", data["requirements"])
+        self.assertIn("CARMADIO-TEST-CASE-GOV-040", data["tests"])
         self.assertIn("package.toml", reference.read_text(encoding="utf-8"))
         selected = RepositoryLayout.structured_named_files(self.root, "package")
         self.assertEqual(selected, (successor,))
@@ -499,7 +499,7 @@ class TomlMigrationTests(unittest.TestCase):
             "schema_version: 1.3\n"
             "semantic_atoms:\n"
             "  -\n"
-            "    id: DSET-LEGACY-001\n"
+            "    id: CARMADIO-LEGACY-001\n"
             "    carriers:\n"
             f"      - {package.relative_to(self.root).as_posix()}\n",
         )
@@ -507,10 +507,10 @@ class TomlMigrationTests(unittest.TestCase):
             "dset/scopes/gov/generated/traceability.toml",
             'schema_version = "1.3"\n\n'
             "[[semantic_atoms]]\n"
-            'id = "DSET-LEGACY-001"\n'
+            'id = "CARMADIO-LEGACY-001"\n'
             f'carriers = ["{package.relative_to(self.root).as_posix()}"]\n\n'
             "[[semantic_atoms]]\n"
-            'id = "DSET-NATIVE-001"\n'
+            'id = "CARMADIO-NATIVE-001"\n'
             f'carriers = ["{package_toml.relative_to(self.root).as_posix()}"]\n',
         )
         yaml_before = trace_yaml.read_bytes()
@@ -538,11 +538,11 @@ class TomlMigrationTests(unittest.TestCase):
             ]
         }
         self.assertEqual(
-            rows["DSET-LEGACY-001"]["carriers"],
+            rows["CARMADIO-LEGACY-001"]["carriers"],
             [package.relative_to(self.root).as_posix()],
         )
         self.assertEqual(
-            rows["DSET-NATIVE-001"]["carriers"],
+            rows["CARMADIO-NATIVE-001"]["carriers"],
             [package_toml.relative_to(self.root).as_posix()],
         )
         self.assertIn("package.toml", mutable.read_text(encoding="utf-8"))
@@ -684,7 +684,7 @@ class TomlMigrationTests(unittest.TestCase):
             "    artifact_subtype: configuration\n"
             "    retained_for:\n"
             "      -\n"
-            "        semantic_id: DSET-REQUIREMENT-GOV-001\n"
+            "        semantic_id: CARMADIO-REQUIREMENT-GOV-001\n"
             "        reason: Selector seal.\n",
         )
         self.assertTrue(snapshot.is_file())
@@ -701,7 +701,7 @@ class TomlMigrationTests(unittest.TestCase):
         package = self.selector_sealed_package_fixture()
         package.write_text(
             package.read_text(encoding="utf-8").replace(
-                "DSET-REQUIREMENT-GOV-001", "DSET-REQUIREMENT-GOV-999"
+                "CARMADIO-REQUIREMENT-GOV-001", "CARMADIO-REQUIREMENT-GOV-999"
             ),
             encoding="utf-8",
         )
@@ -786,17 +786,17 @@ class TomlMigrationTests(unittest.TestCase):
             package.read_text(encoding="utf-8")
             .replace(
                 "tests: []",
-                "tests:\n  - DSET-TEST-CASE-GOV-012",
+                "tests:\n  - CARMADIO-TEST-CASE-GOV-012",
             )
             .replace("\n", "\r\n")
             .encode("utf-8")
         )
-        atom = self.root / "dset/scopes/gov/atoms/DSET-ATOMIC-RECORD-061.md"
+        atom = self.root / "dset/scopes/gov/atoms/CARMADIO-ATOMIC-RECORD-061.md"
         atom.write_text(
             atom.read_text(encoding="utf-8").replace(
                 "+++\n\n# Test",
                 '[[relations]]\ntype = "replacement_of"\n'
-                'target = "DSET-TEST-CASE-GOV-012"\n+++\n\n# Test',
+                'target = "CARMADIO-TEST-CASE-GOV-012"\n+++\n\n# Test',
             ),
             encoding="utf-8",
         )
@@ -805,24 +805,24 @@ class TomlMigrationTests(unittest.TestCase):
             'schema_version: "1.0"\n'
             "events:\n"
             "  -\n"
-            "    id: DSET-LIFECYCLE-EVENT-001\n"
-            "    atom_id: DSET-TEST-CASE-GOV-012\n"
+            "    id: CARMADIO-LIFECYCLE-EVENT-001\n"
+            "    atom_id: CARMADIO-TEST-CASE-GOV-012\n"
             "    event: absorbed\n"
             "    related:\n"
-            "      - DSET-TEST-CASE-GOV-040\n",
+            "      - CARMADIO-TEST-CASE-GOV-040\n",
         )
 
         apply_toml_migration(self.root, bypass_runtime_readiness=True)
 
         successor = load_toml(package.with_suffix(".toml").read_text(encoding="utf-8"))
-        self.assertNotIn("DSET-TEST-CASE-GOV-012", successor["tests"])
-        self.assertIn("DSET-TEST-CASE-GOV-040", successor["tests"])
+        self.assertNotIn("CARMADIO-TEST-CASE-GOV-012", successor["tests"])
+        self.assertIn("CARMADIO-TEST-CASE-GOV-040", successor["tests"])
         messages = [
             diagnostic.message for diagnostic in validate_artifact_relations(self.root)
         ]
         self.assertFalse(
             any(
-                "unresolved relation target: DSET-TEST-CASE-GOV-012" in item
+                "unresolved relation target: CARMADIO-TEST-CASE-GOV-012" in item
                 for item in messages
             )
         )
@@ -1197,7 +1197,7 @@ class TomlMigrationTests(unittest.TestCase):
         self.standard_fixture()
         document = self.write(
             "dset/scopes/gov/record.md",
-            "---\nid: DSET-ITEM-001\n---\nSee items.yaml.\n",
+            "---\nid: CARMADIO-ITEM-001\n---\nSee items.yaml.\n",
         )
         reference = self.write("README.md", "See dset/scopes/gov/items.yaml.\n")
 
@@ -1229,7 +1229,7 @@ class TomlMigrationTests(unittest.TestCase):
             ignore=lambda _directory, names: set(names) & excluded,
         )
         atom = staged / (
-            ".dset/02_layer_gov/decision/DSET-REQUIREMENT-GOV-030-artifact-type-name-policy.md"
+            ".dset/02_layer_gov/decision/CARMADIO-REQUIREMENT-GOV-030-artifact-type-name-policy.md"
         )
         before = atom.read_bytes()
         plan = plan_toml_migration(staged, bypass_runtime_readiness=True)

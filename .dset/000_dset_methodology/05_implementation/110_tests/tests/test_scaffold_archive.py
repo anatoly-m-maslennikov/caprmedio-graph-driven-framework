@@ -42,8 +42,8 @@ class ScaffoldArchiveTests(unittest.TestCase):
             )
             manifest = manifest_path.read_text(encoding="utf-8")
             self.assertNotIn("{{", manifest)
-            self.assertIn("DSET-REQUIREMENT-001", manifest)
-            self.assertIn("DSET-CONTRACT-001", manifest)
+            self.assertIn("CARMADIO-REQUIREMENT-001", manifest)
+            self.assertIn("CARMADIO-CONTRACT-001", manifest)
             self.assertEqual(load(manifest_path)["stories"], [])
             self.assertEqual(load(manifest_path)["outcomes"], [])
             with self.assertRaises(FileExistsError):
@@ -61,8 +61,8 @@ class ScaffoldArchiveTests(unittest.TestCase):
                 .structured_file(change, "change.toml")
                 .read_text(encoding="utf-8")
             )
-            self.assertIn("DSET-REQUIREMENT-GOV-001", manifest)
-            self.assertIn("DSET-CONTRACT-GOV-001", manifest)
+            self.assertIn("CARMADIO-REQUIREMENT-GOV-001", manifest)
+            self.assertIn("CARMADIO-CONTRACT-GOV-001", manifest)
             with self.assertRaisesRegex(ValueError, "unknown ID layer"):
                 create_change(
                     target, "global-login", "accounts", "small", layer="GLOBAL"

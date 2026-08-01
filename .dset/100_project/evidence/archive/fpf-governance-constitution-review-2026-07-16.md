@@ -6,7 +6,7 @@
   distinctions between authority, precedence, dependency, decision discharge,
   and risk-proportionate assurance without importing FPF ontology or making FPF
   a live DSET authority.
-- **Intended use:** Support `DSET-DECISION-GOV-002` and review the bounded GOV
+- **Intended use:** Support `CARMADIO-DECISION-GOV-002` and review the bounded GOV
   constitution change; not claim full FPF conformance or certify unrelated
   DSET behavior.
 - **Producer/performed work:** Three independent high-effort subagent reviews
@@ -19,7 +19,7 @@
   `afa4936541774021c92adb97c3cbf787bf126062`; then run an adversarial overlap
   and bootstrap review against the DSET governance graph.
 - **Evaluated DSET version:** the commit containing this proof and
-  `DSET-DECISION-GOV-002`.
+  `CARMADIO-DECISION-GOV-002`.
 - **Observed:** 2026-07-16.
 - **Evidence polarity:** supporting with bounded corrections and one explicit
   future limitation.
@@ -36,7 +36,7 @@
 
 | Candidate concern | Result | DSET disposition |
 |---|---|---|
-| One canonical authority | Supported | Keep `DSET-RULE-ARCHITECTURE` as the sole dependency-free root instead of creating a sibling authority rule. |
+| One canonical authority | Supported | Keep `CARMADIO-RULE-ARCHITECTURE` as the sole dependency-free root instead of creating a sibling authority rule. |
 | Scope and applicability | Supported | Use registered layer/path, applicability/reason, selected profile edition, and customization identity. |
 | Dependency versus precedence | Supported with correction | Keep `depends_on` and `precedence_over` as separate acyclic relations; registry order implies neither. |
 | Provenance | Supported with boundary | Retain material-change provenance, but never treat provenance as truth, permission, or rule authority. |

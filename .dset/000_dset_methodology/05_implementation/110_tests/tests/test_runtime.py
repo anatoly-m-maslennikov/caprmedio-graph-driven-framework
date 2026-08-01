@@ -51,7 +51,7 @@ class RuntimeTests(unittest.TestCase):
             mode_id="verify",
             llm_session_ids=["codex:session-001"],
             next_mode="verify",
-            next_reason_code="DSET-RUNTIME-VERIFY",
+            next_reason_code="CARMADIO-RUNTIME-VERIFY",
         )
 
         self.assertEqual(invocation.run["schema_version"], "1.2")
@@ -79,13 +79,13 @@ class RuntimeTests(unittest.TestCase):
             pending=[
                 {
                     "kind": "proof",
-                    "id": "DSET-TEST-CASE-SKILL-009",
+                    "id": "CARMADIO-TEST-CASE-SKILL-009",
                     "path": "proofs/session.json",
                 }
             ],
             touched_paths=["tests/test_runtime.py"],
             next_mode="complete",
-            next_reason_code="DSET-RUNTIME-COMPLETE",
+            next_reason_code="CARMADIO-RUNTIME-COMPLETE",
         )
         self.assertEqual(updated["sequence"], 1)
         self.assertEqual(updated["ruleset_identity"], "ruleset-001")
@@ -136,7 +136,7 @@ class RuntimeTests(unittest.TestCase):
     def test_resume_requires_one_compatible_active_checkpoint(self) -> None:
         scope = {
             "project": "dset",
-            "change": "DSET-CHANGE-SKILL-001",
+            "change": "CARMADIO-CHANGE-SKILL-001",
             "target": {"repository": True, "work_areas": []},
         }
         first = start_run(
@@ -187,7 +187,7 @@ class RuntimeTests(unittest.TestCase):
             objective="Explain initialization",
             workflow_id=None,
             next_mode="initialize",
-            next_reason_code="DSET-RUNTIME-INITIALIZE",
+            next_reason_code="CARMADIO-RUNTIME-INITIALIZE",
         )
         terminal = finish_run(invocation, status="stopped", next_signals=["initialize"])
         self.assertEqual(terminal["persistence"], "unavailable")

@@ -62,7 +62,7 @@ class RuntimeBridgeTests(unittest.TestCase):
                 run_id,
                 status="paused",
                 next_mode="verify",
-                next_reason_code="DSET-RUNTIME-EVIDENCE-READY",
+                next_reason_code="CARMADIO-RUNTIME-EVIDENCE-READY",
             )
             self.assertEqual(checkpoint["status"], "paused")
             self.assertEqual(read_runtime(adopter, session_id=session_id), checkpoint)

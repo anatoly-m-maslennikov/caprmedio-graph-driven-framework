@@ -1,5 +1,5 @@
 schema_version = "1.0"
-policy_id = "DSET-DEPENDENCY-POLICY-001"
+policy_id = "CARMADIO-DEPENDENCY-POLICY-001"
 version = "1.0"
 authority = "DSET maintainers"
 exception_authority = "DSET maintainers"

@@ -10,14 +10,14 @@ llm_session_ids:
 relations:
   - type: replacement_of
     targets:
-      - DSET-REQUIREMENT-GOV-132
+      - CARMADIO-REQUIREMENT-GOV-132
   - type: child_of
     targets:
       - CARMADIO-REQUIREMENT-GOV-138
       - CARMADIO-REQUIREMENT-GOV-142
   - type: relates_to
     targets:
-      - DSET-REQUIREMENT-GOV-133
+      - CARMADIO-REQUIREMENT-GOV-133
 ---
 
 # Requirement — Register current Type prefixes

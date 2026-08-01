@@ -42,16 +42,16 @@
       "properties": {
         "id": {
           "type": "string",
-          "pattern": "^DSET-CARRIER-TRANSITION-[A-F0-9]{16}$"
+          "pattern": "^CARMADIO-CARRIER-TRANSITION-[A-F0-9]{16}$"
         },
         "kind": {
           "enum": ["structured_yaml", "markdown_frontmatter", "markdown_links", "carrier_relocation"]
         },
         "authority_decision": {
           "enum": [
-            "DSET-DECISION-GOV-018",
-            "DSET-REQUIREMENT-GOV-041",
-            "DSET-REQUIREMENT-GOV-044"
+            "CARMADIO-DECISION-GOV-018",
+            "CARMADIO-REQUIREMENT-GOV-041",
+            "CARMADIO-REQUIREMENT-GOV-044"
           ]
         },
         "carrier_ids": {

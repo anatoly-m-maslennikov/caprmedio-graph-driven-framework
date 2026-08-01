@@ -12,7 +12,7 @@ six source layers are:
 
 The installed methodology used to govern this repository is headed by
 `000_dset-methodology-hub.md`. This repository's applied artifacts are headed
-by `DSET-PROJECT-HUB.md` and its applied layer hubs.
+by `CARMADIO-PROJECT-HUB.md` and its applied layer hubs.
 
 The source layers may be changed while the installed methodology stays pinned
 to the last accepted edition. Ordinary edits never mirror in either direction.

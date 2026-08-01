@@ -3,7 +3,7 @@
 - **Claim:** The repository owns five thin, registered DSET source skill packages, and governance materialization installs exactly the applicable subset without copying substantive project rules into the wrappers.
 - **Evaluated commit:** `691f66da56e65c585b3b0e863f9d2b2e062dd780`.
 - **Current:** Yes. This proof document is a documentation-only successor to the evaluated source and test commit.
-- **Intended use:** Support the source-wrapper portion of `DSET-DECISION-SKILL-001`; it does not prove the runtime adapter, release publisher, declared agent hosts, or native operating-system matrix.
+- **Intended use:** Support the source-wrapper portion of `CARMADIO-DECISION-SKILL-001`; it does not prove the runtime adapter, release publisher, declared agent hosts, or native operating-system matrix.
 - **LLM session IDs:**
   - `codex:019f591f-04f6-70f2-8de7-828b7cccc69d`
 - **Reopen when:** A source wrapper, wrapper metadata, workflow closure, governance profile, materializer, resolver, or wrapper/self-host test changes.
@@ -38,4 +38,4 @@ The release-applicable materialization test installs and resolves all five wrapp
 
 ## Bounded disposition
 
-The repository-native source skill surface is implemented. `DSET-TASK-TOOL-010` remains open for the runtime adapter, run/checkpoint persistence, executable release/version mechanics, and publication automation. `DSET-TASK-SKILL-020` remains open for real installation, discovery, load, invocation, handoff, and stop proof on every declared agent host. Cross-platform execution proof remains separately open.
+The repository-native source skill surface is implemented. `CARMADIO-TASK-TOOL-010` remains open for the runtime adapter, run/checkpoint persistence, executable release/version mechanics, and publication automation. `CARMADIO-TASK-SKILL-020` remains open for real installation, discovery, load, invocation, handoff, and stop proof on every declared agent host. Cross-platform execution proof remains separately open.

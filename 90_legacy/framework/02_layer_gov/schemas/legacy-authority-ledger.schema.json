@@ -29,7 +29,7 @@
                 "current_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
                 "transition_id": {
                   "type": "string",
-                  "pattern": "^DSET-CARRIER-TRANSITION-[A-F0-9]{16}$"
+                  "pattern": "^CARMADIO-CARRIER-TRANSITION-[A-F0-9]{16}$"
                 }
               },
               "additionalProperties": false

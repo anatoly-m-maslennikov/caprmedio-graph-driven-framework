@@ -96,7 +96,7 @@ class SkillWrapperTests(unittest.TestCase):
             if name in PRE_RESOLUTION_SKILLS or name == "dset":
                 continue
             with self.subTest(workflow=workflow):
-                self.assertIn("DSET-RULE-LIFECYCLE", workflows[workflow])
+                self.assertIn("CARMADIO-RULE-LIFECYCLE", workflows[workflow])
 
     def test_pre_resolution_exceptions_are_bounded(self) -> None:
         initialize = self._skill_text("dset-init")

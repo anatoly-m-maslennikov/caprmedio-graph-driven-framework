@@ -10,11 +10,11 @@ llm_session_ids:
 relations:
   - type: replacement_of
     targets:
-      - DSET-REQUIREMENT-GOV-131
+      - CARMADIO-REQUIREMENT-GOV-131
   - type: resolution_of
     targets:
-      - DSET-PROBLEM-GOV-009
-      - DSET-QUESTION-GOV-017
+      - CARMADIO-PROBLEM-GOV-009
+      - CARMADIO-QUESTION-GOV-017
   - type: child_of
     targets:
       - CARMADIO-REQUIREMENT-META-088

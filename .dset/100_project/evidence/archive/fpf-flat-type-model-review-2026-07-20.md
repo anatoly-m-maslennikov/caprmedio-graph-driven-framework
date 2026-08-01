@@ -5,8 +5,8 @@
 - **Claim:** The DSET Type/subtype model retains a parsimonious four-Type
   application taxonomy while separating typed project claims from operator
   acts, carriers, work, results, evidence, gates, and derived views.
-- **Intended use:** Support `DSET-DECISION-GOV-008` and the compiled
-  `DSET-REQUIREMENT-GOV-027`; not claim FPF conformance or completed runtime
+- **Intended use:** Support `CARMADIO-DECISION-GOV-008` and the compiled
+  `CARMADIO-REQUIREMENT-GOV-027`; not claim FPF conformance or completed runtime
   enforcement.
 - **Producer/performed work:** Main-session inspection of the current DSET
   model and pinned FPF sources, followed by deterministic projection and
@@ -26,8 +26,8 @@
   repeatedly produce reviewer disagreement; or a cited FPF source changes.
 - **Unsupported uses:** this proof does not import FPF ontology, identifiers,
   schemas, publication forms, or process; grant a license not present upstream;
-  prove semantic equivalence; or close `DSET-PROBLEM-GOV-007` and
-  `DSET-TASK-GOV-049`.
+  prove semantic equivalence; or close `CARMADIO-PROBLEM-GOV-007` and
+  `CARMADIO-TASK-GOV-049`.
 
 ## Review method
 
@@ -71,6 +71,6 @@ from workflow or carrier.
 - 133 unit and fixture tests — passed.
 - `git diff --check` — passed before proof promotion.
 
-The qualitative `DSET-EVALUATION-CASE-GOV-017` reviewer-agreement run remains a separate
+The qualitative `CARMADIO-EVALUATION-CASE-GOV-017` reviewer-agreement run remains a separate
 pending Evaluation; deterministic checks prove projection consistency, not
 human classification reliability.

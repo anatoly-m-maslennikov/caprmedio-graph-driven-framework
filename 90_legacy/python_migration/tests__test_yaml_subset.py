@@ -55,19 +55,19 @@ class YamlSubsetTests(unittest.TestCase):
         self.assertEqual(loads(dump(value)), value)
 
     def test_path_aware_dump_and_load_select_toml(self) -> None:
-        value = {"schema_version": "1.0", "items": [{"id": "DSET-ITEM-001"}]}
+        value = {"schema_version": "1.0", "items": [{"id": "CARMADIO-ITEM-001"}]}
         path = Path("authority.toml")
 
         self.assertEqual(load_toml(dump(value, path)), value)
 
     def test_frontmatter_reads_legacy_yaml_and_renders_toml(self) -> None:
-        legacy = "---\nid: DSET-ITEM-001\n---\nBody\n"
+        legacy = "---\nid: CARMADIO-ITEM-001\n---\nBody\n"
         parsed = parse_frontmatter(legacy)
         assert parsed is not None
-        self.assertEqual(parsed[0]["id"], "DSET-ITEM-001")
+        self.assertEqual(parsed[0]["id"], "CARMADIO-ITEM-001")
         self.assertEqual(parsed[2], "yaml")
 
-        rendered = render_frontmatter({"id": "DSET-ITEM-001"}, "Body\n")
+        rendered = render_frontmatter({"id": "CARMADIO-ITEM-001"}, "Body\n")
         self.assertTrue(rendered.startswith("+++\n"))
         self.assertEqual(parse_frontmatter(rendered)[2], "toml")  # type: ignore[index]
 
@@ -78,7 +78,7 @@ class YamlSubsetTests(unittest.TestCase):
             document.parent.mkdir()
             document.write_text(
                 '+++\n[[relations]]\ntype = "check_of"\n'
-                'target = "DSET-REQUIREMENT-001"\n+++\n\nBody.\n',
+                'target = "CARMADIO-REQUIREMENT-001"\n+++\n\nBody.\n',
                 encoding="utf-8",
             )
 

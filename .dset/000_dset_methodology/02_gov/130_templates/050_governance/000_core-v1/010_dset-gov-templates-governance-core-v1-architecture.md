@@ -7,7 +7,7 @@ artifact_subtype: architecture
 
 # Governance architecture and bootstrap
 
-**Rule ID:** `DSET-RULE-ARCHITECTURE`
+**Rule ID:** `CARMADIO-RULE-ARCHITECTURE`
 
 ## Authority
 
@@ -26,8 +26,8 @@ maintained governing document, then an explicitly selected local profile, then
 failure. A source/projection mismatch selects the source, marks the projection
 stale, and blocks reliance until semantic refresh. Never fall back to wrapper
 prose, agent memory, a generated cache, an installed copy, or remote framework
-text. Atomic sources: `DSET-REQUIREMENT-GOV-102` and
-`DSET-REQUIREMENT-GOV-070`.
+text. Atomic sources: `CARMADIO-REQUIREMENT-GOV-102` and
+`CARMADIO-REQUIREMENT-GOV-070`.
 
 ## Rule authority and assurance
 
@@ -52,9 +52,9 @@ Evaluation results, reviews, and other evidence
 assess reliance claims. None becomes rule authority merely by existing or
 passing. Missing or stale assurance leaves the affected claim
 pending or stale and blocks the relying gate; it does not silently erase an
-otherwise valid rule. `DSET-RULE-ARTIFACT-MAINTENANCE` governs transactional
+otherwise valid rule. `CARMADIO-RULE-ARTIFACT-MAINTENANCE` governs transactional
 discharge and risk-proportionate proof with explicit reopen conditions.
-Atomic source: `DSET-IMPL-GOV-005`.
+Atomic source: `CARMADIO-IMPL-GOV-005`.
 
 ## Bootstrap
 
@@ -62,7 +62,7 @@ These steps govern repository-rooted workflows. When no manifest exists, only
 the distribution command `dset init` may run its minimal preview, explicit
 write-authorization, no-overwrite materialization, validation, and stop
 transaction. It cannot pretend that a local registry already exists or
-continue into governed work. `DSET-RULE-LIFECYCLE` governs later local routing,
+continue into governed work. `CARMADIO-RULE-LIFECYCLE` governs later local routing,
 not the pre-root bootstrap command.
 
 1. Walk upward from the working location until exactly one project containing the unique settings carrier `dset_settings.toml` inside `.dset` is found. Nested competing project roots fail closed.
@@ -99,7 +99,7 @@ catalogs, tools, and skill instructions live in `.dset/`. Durable running
 records live in `.dset_journal/` as append-only NDJSON. Disposable caches,
 locks, scratch state, and process-local output live in `.dset_runtime/`.
 No reader treats the journal or runtime root as a governance fallback.
-Atomic source: `DSET-REQUIREMENT-GOV-111`.
+Atomic source: `CARMADIO-REQUIREMENT-GOV-111`.
 
 ## Methodology materialization
 
@@ -110,7 +110,7 @@ only the installed `.dset` copy during governed work; they do not follow
 symlinks, file pointers, or live references back to the framework repository.
 Refreshing the installed copy is an explicit one-way operation with provenance,
 comparison, and no implicit overwrite. Atomic sources:
-`DSET-IMPL-GOV-002` and `DSET-REQUIREMENT-GOV-052`.
+`CARMADIO-IMPL-GOV-002` and `CARMADIO-REQUIREMENT-GOV-052`.
 
 ## Semantic boundaries
 
@@ -157,8 +157,8 @@ DSET separates Revision mode from artifact meaning and Content role:
 
 This separation preserves distinct atomic authority, append-only records,
 maintained views, implementation, commit provenance, and session provenance.
-Atomic sources: `DSET-REQUIREMENT-META-041`,
-`DSET-REQUIREMENT-META-054`, and `DSET-REQUIREMENT-GOV-108`.
+Atomic sources: `CARMADIO-REQUIREMENT-META-041`,
+`CARMADIO-REQUIREMENT-META-054`, and `CARMADIO-REQUIREMENT-GOV-108`.
 
 An active atom wins over a stale maintained view. A replacement successor
 wins over its archived predecessor by explicit `replacement_of`, never by age.
@@ -197,7 +197,7 @@ truth. It never links individual atoms or `.dset_runtime` descendants. It is
 Navigation or a maintained Specification/Architecture, never independent
 authority. Cross-level details belong in the child view rather than expanding
 one whole-project diagram until it becomes unreadable.
-Atomic source: `DSET-REQUIREMENT-GOV-104`.
+Atomic source: `CARMADIO-REQUIREMENT-GOV-104`.
 
 ## Features versus layers
 
@@ -291,5 +291,5 @@ Deterministic validation checks relation vocabulary, shape, direction, target
 resolution, uniqueness, source suitability, range frontiers, incompatible
 combinations, and applicable cycles. It never infers semantic truth from an
 edge.
-Atomic sources: `DSET-IMPL-GOV-004` and
-`DSET-DECISION-GOV-035`.
+Atomic sources: `CARMADIO-IMPL-GOV-004` and
+`CARMADIO-DECISION-GOV-035`.

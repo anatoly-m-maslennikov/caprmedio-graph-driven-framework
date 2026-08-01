@@ -1,6 +1,6 @@
 # Supportability
 
-**Rule ID:** `DSET-RULE-SUPPORTABILITY`
+**Rule ID:** `CARMADIO-RULE-SUPPORTABILITY`
 
 ## Rules
 

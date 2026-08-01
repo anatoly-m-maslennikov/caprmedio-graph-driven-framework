@@ -8,9 +8,9 @@ priority: high
 
 # Methodology META specification
 
-## DSET-REQUIREMENT-META-047 — Streamlined content-role cycle
+## CARMADIO-REQUIREMENT-META-047 — Streamlined content-role cycle
 
-Atomic source: `DSET-REQUIREMENT-META-047`.
+Atomic source: `CARMADIO-REQUIREMENT-META-047`.
 
 The methodology defines one six-role feedback cycle: Inquiry; Analysis;
 Definition; Method; Implementation; and Observation. Test cases, evaluation
@@ -18,13 +18,13 @@ plans, and implementation plans are Methods. Code and generated operative
 outputs are Implementations. Test and evaluation results are Observations.
 Rationale is Analysis content rather than a separate Content role.
 
-**Scenario DSET-SCENARIO-META-001:** Given a contributor deciding what an
+**Scenario CARMADIO-SCENARIO-META-001:** Given a contributor deciding what an
 artifact contributes, its primary content maps to exactly one role while links
 connect it to the other roles without duplicating ownership.
 
-## DSET-REQUIREMENT-META-049 — Keep Test and Evaluation chains distinct
+## CARMADIO-REQUIREMENT-META-049 — Keep Test and Evaluation chains distinct
 
-Atomic source: `DSET-REQUIREMENT-META-049`.
+Atomic source: `CARMADIO-REQUIREMENT-META-049`.
 
 The methodology must keep deterministic Test Cases separate from
 probabilistic or qualitative Evaluation Cases. Each atomic plan defines one
@@ -32,57 +32,57 @@ check obligation. Optional maintained test-plan and evaluation-plan views may
 organize applicable atoms without changing them. Both forms are Methods; their
 execution results remain distinct Observations.
 
-**Scenario DSET-SCENARIO-META-002:** Given behavior with one exact expected
+**Scenario CARMADIO-SCENARIO-META-002:** Given behavior with one exact expected
 output, emit a Test Case even when the check is automated. Given multiple
 acceptable outputs judged by criteria or a rubric, emit an Evaluation Case.
 When a maintained planning surface is enabled, it organizes those atoms rather
 than replacing their immutable definitions.
 
-## DSET-REQUIREMENT-META-003 — Runtime rules are selected by independent concerns
+## CARMADIO-REQUIREMENT-META-003 — Runtime rules are selected by independent concerns
 
-Atomic source: `DSET-REQUIREMENT-META-003`.
+Atomic source: `CARMADIO-REQUIREMENT-META-003`.
 
 The methodology must select recovery semantics by runtime risk and durable backing by topology, write volume, and concurrency. Event sourcing, reconciliation, durable execution, and observed-progress liveness apply only when their specific semantics are required.
 
-**Scenario DSET-SCENARIO-META-003:** A stateless CRUD service keeps durable state in its database without adding an application file WAL or event store unless audit/replay requirements independently demand one.
+**Scenario CARMADIO-SCENARIO-META-003:** A stateless CRUD service keeps durable state in its database without adding an application file WAL or event store unless audit/replay requirements independently demand one.
 
-**Scenario DSET-SCENARIO-META-004:** A modest-write local resumable tool keeps accepted state in declared files with one writer and atomic/durable writes; a higher-volume or concurrent local tool selects a database instead of two writable authorities.
+**Scenario CARMADIO-SCENARIO-META-004:** A modest-write local resumable tool keeps accepted state in declared files with one writer and atomic/durable writes; a higher-volume or concurrent local tool selects a database instead of two writable authorities.
 
-## DSET-REQUIREMENT-META-004 — Delivery semantics are bounded
+## CARMADIO-REQUIREMENT-META-004 — Delivery semantics are bounded
 
-Atomic source: `DSET-REQUIREMENT-META-004`.
+Atomic source: `CARMADIO-REQUIREMENT-META-004`.
 
 The methodology must describe retries as at-least-once delivery plus receiving-side deduplication or idempotency. It may claim effectively-once effects only inside the declared key, retention, and atomicity boundary.
 
-**Scenario DSET-SCENARIO-META-005:** A retryable receiver documents its deduplication key, retention window, owner, and atomic check/write operation without claiming universal exactly-once execution.
+**Scenario CARMADIO-SCENARIO-META-005:** A retryable receiver documents its deduplication key, retention window, owner, and atomic check/write operation without claiming universal exactly-once execution.
 
-## DSET-REQUIREMENT-META-005 — Public identity is stable
+## CARMADIO-REQUIREMENT-META-005 — Public identity is stable
 
-Atomic source: `DSET-REQUIREMENT-META-005`.
+Atomic source: `CARMADIO-REQUIREMENT-META-005`.
 
 The public framework identity must use the display name **DSET Spec Loops**, the title **DSET Spec Loops: A Production Vibecoding Framework**, the expansion **Domain–Supportability–Evals–Tests**, and the repository slug `dset-specs-loops-framework`.
 
-**Scenario DSET-SCENARIO-META-006:** README, project metadata, repository slug, and active methodology truth use the same identity; historical archive evidence may retain prior URLs when redirects preserve the recorded provenance.
+**Scenario CARMADIO-SCENARIO-META-006:** README, project metadata, repository slug, and active methodology truth use the same identity; historical archive evidence may retain prior URLs when redirects preserve the recorded provenance.
 
-## DSET-REQUIREMENT-META-006 — Profile axes remain orthogonal
+## CARMADIO-REQUIREMENT-META-006 — Profile axes remain orthogonal
 
-Atomic source: `DSET-REQUIREMENT-META-006`.
+Atomic source: `CARMADIO-REQUIREMENT-META-006`.
 
 DSET must select implementation-language enforcement and artifact-governance enforcement independently. Runtime risk selects recovery/supportability semantics; durability topology selects durable authority; a language profile selects code tools and thresholds; an artifact profile selects document architecture, ownership, navigation, and authoring gates.
 
-**Scenario DSET-SCENARIO-META-007:** A Python repository selects `python-v1` and `documentation-v1` together; a documentation-only repository selects `documentation-v1` without inheriting Python tools; a future TypeScript repository combines its own language profile with the same artifact profile.
+**Scenario CARMADIO-SCENARIO-META-007:** A Python repository selects `python-v1` and `documentation-v1` together; a documentation-only repository selects `documentation-v1` without inheriting Python tools; a future TypeScript repository combines its own language profile with the same artifact profile.
 
 ## Test and Evaluation proof routing
 
-Atomic source: `DSET-REQUIREMENT-META-049`.
+Atomic source: `CARMADIO-REQUIREMENT-META-049`.
 
 Exact resolver, ownership, path, identity, wrapper, and recursion behavior must be proven by deterministic tests. Agent interpretation, rule-following, navigation, and diagnostic usefulness must be proven by separate qualitative or probabilistic evals. Automation does not change the proof category.
 
-**Scenario DSET-SCENARIO-META-008:** A scripted assertion that a cycle emits one stable code remains a test; an automated agent run measuring whether the diagnostic enables a safe correction remains an eval.
+**Scenario CARMADIO-SCENARIO-META-008:** A scripted assertion that a cycle emits one stable code remains a test; an automated agent run measuring whether the diagnostic enables a safe correction remains an eval.
 
-## DSET-REQUIREMENT-META-056 — External obligations preserve boundaries
+## CARMADIO-REQUIREMENT-META-056 — External obligations preserve boundaries
 
-Atomic source: `DSET-REQUIREMENT-META-056`.
+Atomic source: `CARMADIO-REQUIREMENT-META-056`.
 
 When the operator supplies or accepts a DDL, CSV/XLSX schema,
 OpenAPI/message/protocol, host-native package format, supported-platform
@@ -104,23 +104,23 @@ change requires explicit precedence or an operator-accepted replacement
 relational Definition. GOV owns the concrete classification of external,
 relational, project-selected, and implementation-choice artifacts.
 
-**Scenario DSET-SCENARIO-META-009:** The operator accepts host, platform,
+**Scenario CARMADIO-SCENARIO-META-009:** The operator accepts host, platform,
 dependency, and GitHub Actions boundaries as relational Definitions.
 Descriptive Markdown or local scripts alone cannot satisfy them. An unclear
 host format is an Inquiry, incompatible active formats require conflict
 resolution, and a failing platform or disallowed dependency is an Observation
 that may create a Problem under the configured GOV taxonomy.
 
-## DSET-REQUIREMENT-META-050 — User Stories remain Requirement forms
+## CARMADIO-REQUIREMENT-META-050 — User Stories remain Requirement forms
 
-Atomic source: `DSET-REQUIREMENT-META-050`.
+Atomic source: `CARMADIO-REQUIREMENT-META-050`.
 
 When actor, capability, and value framing is useful, it belongs inside or links
 to a Definition. User Story is not a routing axis or required registered name.
 Split independently enforceable acceptance criteria into sibling atomic
 Definitions.
 
-**Scenario DSET-SCENARIO-META-010:** A contributor story explains why a host
+**Scenario CARMADIO-SCENARIO-META-010:** A contributor story explains why a host
 integration matters, while separate Definition, Test Case, and Evaluation Case
 artifacts own the behavior and proof.
 
@@ -131,13 +131,13 @@ or in a Method when it defines assessment. An observed result is an
 Observation. Outcome is not a routing axis or mandatory registered name, and
 shipping an output alone does not prove an intended state change.
 
-**Scenario DSET-SCENARIO-META-011:** A Definition states the release behavior;
+**Scenario CARMADIO-SCENARIO-META-011:** A Definition states the release behavior;
 a linked Evaluation defines how time-to-diagnose improvement is assessed; the
 observed timestamps remain evidence.
 
-## DSET-REQUIREMENT-META-011 — Work Areas bound repository scope without assuming implementation type
+## CARMADIO-REQUIREMENT-META-011 — Work Areas bound repository scope without assuming implementation type
 
-Atomic source: `DSET-REQUIREMENT-META-011`.
+Atomic source: `CARMADIO-REQUIREMENT-META-011`.
 
 DSET must support either one repository-level scope or one or more declared Work
 Areas. A Work Area is a repository-relative folder declaration used to scope
@@ -153,16 +153,16 @@ Areas so chained work can resume in the intended scope, but session continuity
 does not own, create, rename, or supersede a Work Area. Every resume must
 re-resolve the current authoritative declaration.
 
-**Scenario DSET-SCENARIO-META-012:** A monorepo declares a deployable API folder,
+**Scenario CARMADIO-SCENARIO-META-012:** A monorepo declares a deployable API folder,
 a shared library folder, a documentation-and-methodology folder, and a mixed
 data/tooling folder as separate Work Areas. Another repository declares only
 its root. DSET scopes both projects without inventing services, modules,
 features, or deployment semantics, and a resumed session follows the current
 declaration rather than a stale checkpoint hint.
 
-## DSET-REQUIREMENT-META-041 — Complete Revision mode set
+## CARMADIO-REQUIREMENT-META-041 — Complete Revision mode set
 
-Atomic source: `DSET-REQUIREMENT-META-041`.
+Atomic source: `CARMADIO-REQUIREMENT-META-041`.
 
 DSET recognizes exactly three permitted change patterns:
 
@@ -176,14 +176,14 @@ Semantic refresh, synchronization, direct authoring, and generation are
 artifact-specific update mechanisms for maintained artifacts rather than
 additional Revision modes.
 
-**Scenario DSET-SCENARIO-META-018:** A Requirement resolves to `atomic`, an
+**Scenario CARMADIO-SCENARIO-META-018:** A Requirement resolves to `atomic`, an
 NDJSON running log resolves to `append_only`, and a Specification or generated
 TOON view resolves to `maintained`. Regenerating the TOON view cannot rewrite
 the NDJSON source.
 
-## DSET-REQUIREMENT-META-035 — Registered types derive artifact routes
+## CARMADIO-REQUIREMENT-META-035 — Registered types derive artifact routes
 
-Atomic source: `DSET-REQUIREMENT-META-035`.
+Atomic source: `CARMADIO-REQUIREMENT-META-035`.
 
 Every governed artifact declares one registered `artifact_type` and, when
 needed, one direct `artifact_subtype`. The registered pair resolves exactly one
@@ -202,12 +202,12 @@ relation endpoints, and type-specific facts remain explicit outside the route.
 Acceptance is inherent to emitted atoms, while active versus archived state is
 derived from repository placement.
 
-**Scenario DSET-SCENARIO-META-013:** Each enabled catalog type resolves to one
+**Scenario CARMADIO-SCENARIO-META-013:** Each enabled catalog type resolves to one
 registered route, and none of its carriers repeats the route coordinates.
 
-## DSET-REQUIREMENT-META-060 — One type per semantic route
+## CARMADIO-REQUIREMENT-META-060 — One type per semantic route
 
-Atomic source: `DSET-REQUIREMENT-META-060`.
+Atomic source: `CARMADIO-REQUIREMENT-META-060`.
 
 Every registered artifact type occupies exactly one coordinate in the routing
 matrix, and every coordinate identifies exactly one canonical artifact type.
@@ -222,7 +222,7 @@ route coordinates and cannot override one.
 
 `I`, `E`, and `R` mean internal, external, and relation.
 
-**Scenario DSET-SCENARIO-META-014:** Meanings that would otherwise compete for
+**Scenario CARMADIO-SCENARIO-META-014:** Meanings that would otherwise compete for
 atomic/observation/internal become direct subtypes of that route's single
 canonical type.
 
@@ -236,14 +236,14 @@ Project settings may disable the use of external or relational types, but the
 framework catalog still defines their routes and canonical types. Disabled use
 does not make a route undefined.
 
-**Scenario DSET-SCENARIO-META-019:** A small internal-only project enables only
+**Scenario CARMADIO-SCENARIO-META-019:** A small internal-only project enables only
 its internal vocabulary. Its framework catalog still contains the canonical
 external and relation types for all Revision-mode and Content-role
 combinations.
 
-## DSET-REQUIREMENT-META-051 — Relations remain first-class and endpoint-explicit
+## CARMADIO-REQUIREMENT-META-051 — Relations remain first-class and endpoint-explicit
 
-Atomic source: `DSET-REQUIREMENT-META-051`.
+Atomic source: `CARMADIO-REQUIREMENT-META-051`.
 
 An artifact routed to `governance_locus = "relation"` must declare a stable
 relation kind and at least two role-bearing endpoints. Each endpoint declares
@@ -251,14 +251,14 @@ its own internal or external origin. Endpoint origin does not add another
 routing axis, and a relational name or suffix cannot replace the endpoint
 record.
 
-**Scenario DSET-SCENARIO-META-015:** A boundary obligation identifies provider
+**Scenario CARMADIO-SCENARIO-META-015:** A boundary obligation identifies provider
 and consumer; a Pull Request identifies source and target; a Merge Commit
 records the merged parents. Each remains one relational artifact with explicit
 participants.
 
-## DSET-REQUIREMENT-META-052 — Scope path remains structural
+## CARMADIO-REQUIREMENT-META-052 — Scope path remains structural
 
-Atomic source: `DSET-REQUIREMENT-META-052`.
+Atomic source: `CARMADIO-REQUIREMENT-META-052`.
 
 Layer, feature, feature group, Work Area, and configured compositions of them
 form the artifact's project-relative `scope_path`. The current project is
@@ -267,14 +267,14 @@ uses an empty scope path, while a layer artifact begins with a coordinate such
 as `layer:meta`. Scope path may affect inheritance, applicability, and identity,
 but it does not alter the three-axis semantic route.
 
-**Scenario DSET-SCENARIO-META-016:** A feature-layer Requirement and a
+**Scenario CARMADIO-SCENARIO-META-016:** A feature-layer Requirement and a
 project-level Requirement share atomic/definition/internal while retaining
 different scope paths.
 
-## DSET-REQUIREMENT-META-048 — Analysis and Observation remain distinct
+## CARMADIO-REQUIREMENT-META-048 — Analysis and Observation remain distinct
 
-Atomic sources: `DSET-REQUIREMENT-META-047` and
-`DSET-REQUIREMENT-META-048`.
+Atomic sources: `CARMADIO-REQUIREMENT-META-047` and
+`CARMADIO-REQUIREMENT-META-048`.
 
 DSET uses this development cycle:
 
@@ -297,7 +297,7 @@ does not explain causes or justify choices. Analysis interprets those facts,
 compares alternatives, investigates causes, synthesizes implications, and may
 provide rationale for a Definition or Method.
 
-**Scenario DSET-SCENARIO-META-017:** A production error is preserved as an
+**Scenario CARMADIO-SCENARIO-META-017:** A production error is preserved as an
 Observation. A separate Analysis investigates its cause, and a new Inquiry
 opens when the available facts do not support a conclusion.
 
@@ -315,9 +315,9 @@ types form a total one-to-one route vocabulary, direct subtypes refine meaning
 without changing routes, and relational participants remain explicit rather
 than encoded in names.
 
-## DSET-REQUIREMENT-META-058 — Exploration Mode defers artifact creation
+## CARMADIO-REQUIREMENT-META-058 — Exploration Mode defers artifact creation
 
-Atomic source: `DSET-REQUIREMENT-META-058`.
+Atomic source: `CARMADIO-REQUIREMENT-META-058`.
 
 Exploration Mode sits outside the artifact-routing matrix. It permits
 brainstorming, discussion, research, analysis, comparison, terminology work,
@@ -332,28 +332,28 @@ candidate such as “another idea,” “what if,” “maybe,” or “could we
 Detection is semantic, not punctuation- or keyword-based. An explicit record,
 accept, apply, implement, or fix instruction remains authorization for only the
 stated change. Whether DSET announces the mode transition is a downstream
-interaction-reporting choice. Atomic source: `DSET-REQUIREMENT-META-058`.
+interaction-reporting choice. Atomic source: `CARMADIO-REQUIREMENT-META-058`.
 
 The Exploration Mode lifecycle is defined once in
 `030_dset-meta-specification-domain.md`. This section owns only its interaction
 and authorization behavior.
 
-**Scenario DSET-SCENARIO-META-019:** “What is the difference?” and “I have
+**Scenario CARMADIO-SCENARIO-META-019:** “What is the difference?” and “I have
 another idea” produce discussion without an artifact or governance commit.
 “Can you apply this requirement?” authorizes the stated application despite
 question punctuation.
 
-## DSET-REQUIREMENT-META-054 — Maintained semantic views are thin current views
+## CARMADIO-REQUIREMENT-META-054 — Maintained semantic views are thin current views
 
-Atomic source: `DSET-REQUIREMENT-META-054`.
+Atomic source: `CARMADIO-REQUIREMENT-META-054`.
 
 ```mermaid
 flowchart LR
-    EXPLORE["Exploration Mode<br/>DSET-REQUIREMENT-META-058"]
-    ACCEPT["Explicit acceptance<br/>DSET-REQUIREMENT-META-058"]
-    ATOMS["Atomic records<br/>DSET-REQUIREMENT-META-041"]
-    VIEW["Thin maintained view<br/>DSET-REQUIREMENT-META-054"]
-    GATE["Downstream gate<br/>DSET-REQUIREMENT-META-054"]
+    EXPLORE["Exploration Mode<br/>CARMADIO-REQUIREMENT-META-058"]
+    ACCEPT["Explicit acceptance<br/>CARMADIO-REQUIREMENT-META-058"]
+    ATOMS["Atomic records<br/>CARMADIO-REQUIREMENT-META-041"]
+    VIEW["Thin maintained view<br/>CARMADIO-REQUIREMENT-META-054"]
+    GATE["Downstream gate<br/>CARMADIO-REQUIREMENT-META-054"]
 
     EXPLORE --> ACCEPT
     ACCEPT --> ATOMS
@@ -385,18 +385,18 @@ behavior.
 Semantic links target atomic records only. Links to hubs or other maintained
 views are navigation and carry no semantic authority.
 
-## DSET-REQUIREMENT-META-022 — META eligibility rule
+## CARMADIO-REQUIREMENT-META-022 — META eligibility rule
 
-Atomic source: `DSET-REQUIREMENT-META-022`.
+Atomic source: `CARMADIO-REQUIREMENT-META-022`.
 
 A rule belongs in META only when it remains technology-independent, governs
 multiple layers or a layer boundary, and can be stated without downstream
 implementation vocabulary. Otherwise, its invariant and mechanism are split
 and the mechanism moves to the earliest complete downstream owner.
 
-## DSET-REQUIREMENT-META-023 — Canonical layer definitions
+## CARMADIO-REQUIREMENT-META-023 — Canonical layer definitions
 
-Atomic source: `DSET-REQUIREMENT-META-023`.
+Atomic source: `CARMADIO-REQUIREMENT-META-023`.
 
 ```mermaid
 flowchart LR
@@ -419,9 +419,9 @@ flowchart LR
 | IMPL | Development environment, profiles, code, Test and Evaluation implementations, and code-quality gates |
 | OPS | Post-implementation delivery, release, publication, runtime supportability, investigation, recovery, and hosted evidence |
 
-## DSET-REQUIREMENT-META-024 — Layer handoffs
+## CARMADIO-REQUIREMENT-META-024 — Layer handoffs
 
-Atomic source: `DSET-REQUIREMENT-META-024`.
+Atomic source: `CARMADIO-REQUIREMENT-META-024`.
 
 | Boundary | Entry criteria | Accepted input | Produced output | Exit criteria | Blocker behavior |
 |---|---|---|---|---|---|
@@ -435,9 +435,9 @@ Adjacent handoffs are preferred. A boundary may be skipped only when the
 intermediate layer has no applicable transformation or ownership, and the same
 entry, exit, traceability, and blocker semantics remain explicit.
 
-## DSET-REQUIREMENT-META-025 — Acyclic layer dependencies
+## CARMADIO-REQUIREMENT-META-025 — Acyclic layer dependencies
 
-Atomic source: `DSET-REQUIREMENT-META-025`.
+Atomic source: `CARMADIO-REQUIREMENT-META-025`.
 
 Authority and refinement flow forward. Dependency consumption points from a
 later layer to its own or an earlier layer. Feedback may return to Exploration
@@ -445,9 +445,9 @@ Mode, but accepted feedback re-enters at its proper owner and creates no
 backward-governance edge. Dependency, scope specialization, and horizontal
 feature boundary relations remain distinct.
 
-## DSET-REQUIREMENT-META-026 — Single-owner placement
+## CARMADIO-REQUIREMENT-META-026 — Single-owner placement
 
-Atomic source: `DSET-REQUIREMENT-META-026`.
+Atomic source: `CARMADIO-REQUIREMENT-META-026`.
 
 Each claim has one authority at the earliest layer that can define it
 completely. A downstream layer may reference, refine, realize, check, or
@@ -455,9 +455,9 @@ observe upstream authority. It cannot duplicate it. If an upstream statement
 needs downstream entities to be defined, split the stable invariant from its
 mechanism or move the statement downstream.
 
-## DSET-REQUIREMENT-META-059 — Forward change propagation
+## CARMADIO-REQUIREMENT-META-059 — Forward change propagation
 
-Atomic source: `DSET-REQUIREMENT-META-059`.
+Atomic source: `CARMADIO-REQUIREMENT-META-059`.
 
 ```mermaid
 flowchart LR
@@ -474,9 +474,9 @@ Implementations, Observations, and assurance, then restores currentness through
 their owning gates. Refreshing a maintained view does not by itself complete
 the forward pass.
 
-## DSET-REQUIREMENT-META-028 — Authority and assurance
+## CARMADIO-REQUIREMENT-META-028 — Authority and assurance
 
-Atomic source: `DSET-REQUIREMENT-META-028`.
+Atomic source: `CARMADIO-REQUIREMENT-META-028`.
 
 Accepted Definitions own required-state authority. Accepted Methods own
 realization or checking choices without authorizing a different required state.
@@ -486,27 +486,27 @@ sufficiency and currentness. Assurance may support or challenge reliance but
 cannot establish or override authority. GOV assigns concrete type and subtype
 names to these routes.
 
-## DSET-REQUIREMENT-META-029 — Profiles and applicability
+## CARMADIO-REQUIREMENT-META-029 — Profiles and applicability
 
-Atomic source: `DSET-REQUIREMENT-META-029`.
+Atomic source: `CARMADIO-REQUIREMENT-META-029`.
 
 Profiles specialize downstream realization for an explicit scope. They cannot
 weaken META invariants, redefine routing or layer meanings, or require
 placeholders for non-applicable concerns. Non-applicability is explicit and
 reasoned.
 
-## DSET-REQUIREMENT-META-030 — Layer extension gate
+## CARMADIO-REQUIREMENT-META-030 — Layer extension gate
 
-Atomic source: `DSET-REQUIREMENT-META-030`.
+Atomic source: `CARMADIO-REQUIREMENT-META-030`.
 
 A candidate layer must add one non-overlapping responsibility, declare its
 predecessor and successor handoffs, and preserve the dependency DAG. If a
 feature, profile, Work Area, or ordinary scope can own the concern, DSET does
 not add a layer.
 
-## DSET-REQUIREMENT-META-057 — Bounded recursive self-hosting
+## CARMADIO-REQUIREMENT-META-057 — Bounded recursive self-hosting
 
-Atomic source: `DSET-REQUIREMENT-META-057`.
+Atomic source: `CARMADIO-REQUIREMENT-META-057`.
 
 DSET applies the same constitution to itself while keeping reusable
 methodology, installed methodology, applied authority, implementations,
@@ -514,9 +514,9 @@ runtime state, and generated views distinct. Self-hosting terminates at a
 declared fixed point; skills and tools resolve current project-local governance
 instead of treating embedded wrapper knowledge as authority.
 
-## DSET-REQUIREMENT-META-053 — Durable control-plane safety
+## CARMADIO-REQUIREMENT-META-053 — Durable control-plane safety
 
-Atomic source: `DSET-REQUIREMENT-META-053`.
+Atomic source: `CARMADIO-REQUIREMENT-META-053`.
 
 The durable control plane contains accepted current project truth only. It
 stores no secrets, remains LLM-provider agnostic, keeps future intentions in
@@ -525,7 +525,7 @@ concrete storage, adapter, lookup, redaction, and enforcement mechanisms.
 
 ## Governance-surface activation
 
-Atomic source: `DSET-REQUIREMENT-META-054`.
+Atomic source: `CARMADIO-REQUIREMENT-META-054`.
 
 DSET begins with atomic authority and requires no maintained governance surface
 merely because the project is initialized. Requirements carry clear accepted
@@ -559,9 +559,9 @@ remains Blocked until recovery begins, while its currentness and downstream
 gates remain unsatisfied. Deactivation is allowed from any non-Inactive status
 and returns the surface to Inactive without deleting its carrier or history.
 
-## DSET-REQUIREMENT-META-055 — Closed constitutional amendments
+## CARMADIO-REQUIREMENT-META-055 — Closed constitutional amendments
 
-Atomic source: `DSET-REQUIREMENT-META-055`.
+Atomic source: `CARMADIO-REQUIREMENT-META-055`.
 
 A semantic META amendment crosses a closed sequence:
 

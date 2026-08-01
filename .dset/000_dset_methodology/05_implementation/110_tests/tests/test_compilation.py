@@ -31,18 +31,18 @@ class CompilationTests(unittest.TestCase):
         with temporary_directory() as raw:
             path = (Path(raw) / "spec.md").resolve()
             path.write_text(
-                "A loose mention of DSET-REQUIREMENT-GOV-035 is not a claim.\n",
+                "A loose mention of CARMADIO-REQUIREMENT-GOV-035 is not a claim.\n",
                 encoding="utf-8",
             )
             self.assertEqual(
-                _projection_fragments(path, "DSET-REQUIREMENT-GOV-035"), []
+                _projection_fragments(path, "CARMADIO-REQUIREMENT-GOV-035"), []
             )
             path.write_text(
-                "## DSET-REQUIREMENT-GOV-035 — Explicit claim\n\n"
+                "## CARMADIO-REQUIREMENT-GOV-035 — Explicit claim\n\n"
                 "The governed consequence is stated here.\n",
                 encoding="utf-8",
             )
-            fragments = _projection_fragments(path, "DSET-REQUIREMENT-GOV-035")
+            fragments = _projection_fragments(path, "CARMADIO-REQUIREMENT-GOV-035")
             self.assertEqual(fragments[0]["kind"], "section")
             self.assertTrue(fragments[0]["sha256"])
 
@@ -50,8 +50,8 @@ class CompilationTests(unittest.TestCase):
         model = build_compilation_index(ROOT)
         records = {item["id"]: item for item in model["records"]}
         self.assertEqual(set(records), active_authority_ids(ROOT))
-        self.assertIn("DSET-DECISION-GOV-008", records)
-        self.assertNotIn("DSET-DECISION-GOV-007", records)
+        self.assertIn("CARMADIO-DECISION-GOV-008", records)
+        self.assertNotIn("CARMADIO-DECISION-GOV-007", records)
         self.assertTrue(all(item["source"]["sha256"] for item in records.values()))
         self.assertTrue(all(item["projections"] for item in records.values()))
 

@@ -74,20 +74,20 @@ def validate_legacy_authority_ledger(root: Path) -> list[Diagnostic]:
         try:
             expected = build_legacy_authority_ledger(root)
         except (OSError, ValueError) as error:
-            return [Diagnostic("DSET-E167", path, str(error))]
+            return [Diagnostic("CARMADIO-E167", path, str(error))]
         if expected["records"]:
             if not (root / ".git").exists():
                 return []
-            return [Diagnostic("DSET-E167", path, "legacy authority ledger is missing")]
+            return [Diagnostic("CARMADIO-E167", path, "legacy authority ledger is missing")]
         return []
     try:
         actual = load(path)
     except (OSError, UnicodeError, YamlSubsetError) as error:
-        return [Diagnostic("DSET-E167", path, f"invalid legacy ledger: {error}")]
+        return [Diagnostic("CARMADIO-E167", path, f"invalid legacy ledger: {error}")]
     if _recorded_fragment_errors(root, actual):
         return [
             Diagnostic(
-                "DSET-E167",
+                "CARMADIO-E167",
                 path,
                 "legacy Decision authority changed without native successors",
             )

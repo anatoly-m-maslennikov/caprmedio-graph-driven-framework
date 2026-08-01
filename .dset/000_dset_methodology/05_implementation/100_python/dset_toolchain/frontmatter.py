@@ -2,7 +2,7 @@
 
 Legacy DSET documents use YAML between ``---`` delimiters.  TOML authority
 documents use ``+++``.  Reading accepts both so the migration has a clean
-compatibility boundary; rendering defaults to TOML for all DSET-owned output.
+compatibility boundary; rendering defaults to TOML for all CARMADIO-owned output.
 """
 
 from __future__ import annotations

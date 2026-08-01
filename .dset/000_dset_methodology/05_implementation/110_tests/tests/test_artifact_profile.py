@@ -40,32 +40,32 @@ class ArtifactProfileTests(unittest.TestCase):
     def test_missing_hub_is_rejected(self) -> None:
         data = copy.deepcopy(self.registry)
         data["areas"][0]["hub"] = "docs/MISSING.md"
-        self.assertIn("DSET-E121", self._codes(self._validate(data)))
+        self.assertIn("CARMADIO-E121", self._codes(self._validate(data)))
 
     def test_duplicate_root_is_rejected(self) -> None:
         data = copy.deepcopy(self.registry)
         data["areas"][1]["root"] = "docs"
-        self.assertIn("DSET-E121", self._codes(self._validate(data)))
+        self.assertIn("CARMADIO-E121", self._codes(self._validate(data)))
 
     def test_missing_parent_is_rejected(self) -> None:
         data = copy.deepcopy(self.registry)
         data["areas"][0]["parent"] = "missing"
-        self.assertIn("DSET-E122", self._codes(self._validate(data)))
+        self.assertIn("CARMADIO-E122", self._codes(self._validate(data)))
 
     def test_parent_cycle_is_rejected(self) -> None:
         data = copy.deepcopy(self.registry)
         data["areas"][0]["parent"] = "methodology"
         data["areas"][1]["parent"] = "docs"
-        self.assertIn("DSET-E122", self._codes(self._validate(data)))
+        self.assertIn("CARMADIO-E122", self._codes(self._validate(data)))
 
     def test_root_must_link_every_top_level_area(self) -> None:
         self._write_root_hub(include_methodology=False)
-        self.assertIn("DSET-E123", self._codes(self._validate(self.registry)))
+        self.assertIn("CARMADIO-E123", self._codes(self._validate(self.registry)))
 
     def test_area_hub_requires_standard_sections(self) -> None:
         path = self.root / "docs" / "README.md"
         path.write_text("# Docs\n\n## Purpose\n\nDocs.\n", encoding="utf-8")
-        self.assertIn("DSET-E123", self._codes(self._validate(self.registry)))
+        self.assertIn("CARMADIO-E123", self._codes(self._validate(self.registry)))
 
     def _validate(self, data: dict[str, Any]) -> list[Diagnostic]:
         return validate_artifact_registry(self.root, self.registry_path, data)

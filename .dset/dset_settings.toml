@@ -25,7 +25,7 @@ journal_root = ".dset_journal"
 runtime_root = ".dset_runtime"
 
 [git]
-# Every DSET-managed project uses Git. Initialization may create a repository
+# Every CARMADIO-managed project uses Git. Initialization may create a repository
 # only when no enclosing repository exists.
 required = true
 initialize_if_missing = true
@@ -326,9 +326,9 @@ start_commit = "96800941678c9b665abac9d3838a8a4b36db02e2"
 commit = "00fb9c666efd9a40efd013a815c6eca7be2b6c90"
 original_message_sha256 = "e48025512aceb574b1145dda3d1d9e5986ac8680cb42a273427e239f66ff1aca"
 mode = "implementation"
-decision_ids = ["DSET-DECISION-GOV-015", "DSET-DECISION-GOV-017"]
+decision_ids = ["CARMADIO-DECISION-GOV-015", "CARMADIO-DECISION-GOV-017"]
 verifies = []
-resolves = ["DSET-DEFECT-TOOL-004"]
+resolves = ["CARMADIO-DEFECT-TOOL-004"]
 session = "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
 rationale = "Preserve the immutable commit while replacing its legacy Decision trailer with implementation provenance."
 
@@ -336,7 +336,7 @@ rationale = "Preserve the immutable commit while replacing its legacy Decision t
 commit = "4096ce125aed225b1a4d27fda2db8fa899b6a749"
 original_message_sha256 = "37f52517c358b1fb0c33083c79b1147731ad981f7bcacd3ba15ed39b48ee71d6"
 mode = "implementation"
-decision_ids = ["DSET-DECISION-GOV-017"]
+decision_ids = ["CARMADIO-DECISION-GOV-017"]
 verifies = []
 resolves = []
 session = "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
@@ -346,7 +346,7 @@ rationale = "Preserve the immutable commit while removing a Test ID from impleme
 commit = "f9bff423cbb4cc0a58518bfd174ed0cf892d7911"
 original_message_sha256 = "e99f33e601546052035242b0c97414440a98a0b02e4cb97f5873e3d5c69ce42c"
 mode = "implementation"
-decision_ids = ["DSET-DECISION-GOV-016"]
+decision_ids = ["CARMADIO-DECISION-GOV-016"]
 verifies = []
 resolves = []
 session = "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
@@ -356,7 +356,7 @@ rationale = "Preserve the immutable commit while removing a Test ID from impleme
 commit = "cee6f4322bbfe3f408f0f644d1abb99ded4c86a7"
 original_message_sha256 = "d9cee712ef5ad37bf6427df1a753103c794e83d15dd7f77bbc8d6b6a5eebea8d"
 mode = "implementation"
-decision_ids = ["DSET-REQUIREMENT-META-011", "DSET-REQUIREMENT-OPS-005"]
+decision_ids = ["CARMADIO-REQUIREMENT-META-011", "CARMADIO-REQUIREMENT-OPS-005"]
 verifies = []
 resolves = []
 session = "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
@@ -366,7 +366,7 @@ rationale = "Preserve the immutable commit while replacing its unaccepted Change
 commit = "6b60f0ce767c700e5e4221a5da8858c137ef4b92"
 original_message_sha256 = "fa73afb3e4f34731f3e1936188d3ea31b0a1b2ca6cae82d1982eea2e95729af0"
 mode = "implementation"
-decision_ids = ["DSET-REQUIREMENT-GOV-025"]
+decision_ids = ["CARMADIO-REQUIREMENT-GOV-025"]
 verifies = []
 resolves = []
 session = "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
@@ -376,7 +376,7 @@ rationale = "Preserve the immutable packet commit while removing its accidental 
 commit = "422ca999caef80ffb703ce7c1ffa0bb9d1bde15b"
 original_message_sha256 = "290abb36e62784fbeb42854cf3aaeaf5daae7a6a5d0b6cd684b13585d85726e3"
 mode = "implementation"
-decision_ids = ["DSET-DECISION-GOV-020"]
+decision_ids = ["CARMADIO-DECISION-GOV-020"]
 verifies = []
 resolves = []
 session = "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
@@ -453,7 +453,7 @@ profile = "documentation-v1"
 
 [artifact_structure.root]
 id = "framework-control"
-hub = "DSET-CONTROL-HUB.md"
+hub = "CARMADIO-CONTROL-HUB.md"
 owner = "framework"
 purpose = "Project-local DSET settings, installed methodology, and applied artifacts"
 
@@ -466,56 +466,56 @@ purpose = "Installed project-local DSET methodology used by governed workflows"
 
 [[artifact_structure.areas]]
 id = "project-control"
-hub = "DSET-PROJECT-HUB.md"
+hub = "CARMADIO-PROJECT-HUB.md"
 parent = "framework-control"
 owner = "methodology"
 purpose = "Applied project-wide truth owned by this repository"
 
 [[artifact_structure.areas]]
 id = "dset-meta"
-hub = "DSET-META-HUB.md"
+hub = "CARMADIO-META-HUB.md"
 parent = "project-control"
 owner = "meta"
 purpose = "Project identity and accepted behavioral truth"
 
 [[artifact_structure.areas]]
 id = "dset-gov"
-hub = "DSET-GOV-HUB.md"
+hub = "CARMADIO-GOV-HUB.md"
 parent = "project-control"
 owner = "gov"
 purpose = "Project governance atoms, maintained views, evidence, and archive state"
 
 [[artifact_structure.areas]]
 id = "dset-tool"
-hub = "DSET-TOOL-HUB.md"
+hub = "CARMADIO-TOOL-HUB.md"
 parent = "project-control"
 owner = "tool"
 purpose = "Executable tooling, fixtures, and traceability contracts"
 
 [[artifact_structure.areas]]
 id = "dset-skill"
-hub = "DSET-SKILL-HUB.md"
+hub = "CARMADIO-SKILL-HUB.md"
 parent = "project-control"
 owner = "skill"
 purpose = "Agent workflow, delegation, and run-evidence contracts"
 
 [[artifact_structure.areas]]
 id = "dset-implementation"
-hub = "DSET-IMPL-HUB.md"
+hub = "CARMADIO-IMPL-HUB.md"
 parent = "project-control"
 owner = "implementation"
 purpose = "Selected development environments, code profiles, Tests, and Evaluations"
 
 [[artifact_structure.areas]]
 id = "dset-ops"
-hub = "DSET-OPS-HUB.md"
+hub = "CARMADIO-OPS-HUB.md"
 parent = "project-control"
 owner = "ops"
 purpose = "Delivery, release, supportability, and hosted evidence"
 
 [[artifact_structure.areas]]
 id = "dset-versions"
-hub = "DSET-VERSIONS-HUB.md"
+hub = "CARMADIO-VERSIONS-HUB.md"
 parent = "project-control"
 owner = "ops"
 purpose = "Applied Version artifacts and release lifecycle records"
@@ -530,7 +530,7 @@ version = "0.3"
 customization = "custom"
 
 [[governance_registry.rules]]
-id = "DSET-RULE-ARCHITECTURE"
+id = "CARMADIO-RULE-ARCHITECTURE"
 layer = "GOV"
 document = "030_dset-gov-specification-architecture.md"
 owner = "project"
@@ -547,13 +547,13 @@ template = "010_dset-gov-templates-governance-core-v1-architecture.md"
 sha256 = "b49097ac7ea15fd38eeadd458b2bcb53bb40e772e2662a9685c820b10d93a3d2"
 
 [[governance_registry.rules]]
-id = "DSET-RULE-BUILD"
+id = "CARMADIO-RULE-BUILD"
 layer = "TOOL"
 document = "020_dset-tool-specification-build-rules.md"
 owner = "project"
 applicability = "applicable"
 reason = "Implementation work requires selected gates and safe change behavior"
-depends_on = ["DSET-RULE-ARCHITECTURE"]
+depends_on = ["CARMADIO-RULE-ARCHITECTURE"]
 precedence_over = []
 customization = "unmodified"
 
@@ -564,7 +564,7 @@ template = "000_dset-tool-templates-governance-core-v1-build-rules.md"
 sha256 = "1faf0275461d4c95c54f517cb75759292c8a42fd4134e44139b3e2c255b990cb"
 
 [[governance_registry.rules]]
-id = "DSET-RULE-DOMAIN-SPEC"
+id = "CARMADIO-RULE-DOMAIN-SPEC"
 layer = "META"
 document = "070_dset-meta-procedure-domain-spec-authoring.md"
 owner = "project"
@@ -581,13 +581,13 @@ template = "000_dset-meta-templates-governance-core-v1-domain-spec-authoring.md"
 sha256 = "611fd77af03ead2d2e98343c6c09cbda8d3226b7de901aead1260fc59f650b5f"
 
 [[governance_registry.rules]]
-id = "DSET-RULE-TEST-CASE"
+id = "CARMADIO-RULE-TEST-CASE"
 layer = "META"
 document = "090_dset-meta-procedure-test-planning.md"
 owner = "project"
 applicability = "applicable"
 reason = "Exact proof must be designed with requirements"
-depends_on = ["DSET-RULE-DOMAIN-SPEC"]
+depends_on = ["CARMADIO-RULE-DOMAIN-SPEC"]
 precedence_over = []
 customization = "unmodified"
 
@@ -598,13 +598,13 @@ template = "020_dset-meta-templates-governance-core-v1-test-planning.md"
 sha256 = "b6fad830d1672a6adbf8dbbff2c891ce2c578f453c0c959bf2bb5796f66fc61c"
 
 [[governance_registry.rules]]
-id = "DSET-RULE-EVALUATION-CASE"
+id = "CARMADIO-RULE-EVALUATION-CASE"
 layer = "META"
 document = "080_dset-meta-procedure-evaluation-planning.md"
 owner = "project"
 applicability = "applicable"
 reason = "Variable and qualitative proof requires an explicit owner"
-depends_on = ["DSET-RULE-DOMAIN-SPEC"]
+depends_on = ["CARMADIO-RULE-DOMAIN-SPEC"]
 precedence_over = []
 customization = "unmodified"
 
@@ -615,13 +615,13 @@ template = "010_dset-meta-templates-governance-core-v1-eval-planning.md"
 sha256 = "392785a8f42cb965784236e6e1b4c9e137cfad35bd0cf95c000d1fa583655fdf"
 
 [[governance_registry.rules]]
-id = "DSET-RULE-SUPPORTABILITY"
+id = "CARMADIO-RULE-SUPPORTABILITY"
 layer = "OPS"
 document = "060_dset-ops-specification-supportability.md"
 owner = "project"
 applicability = "applicable"
 reason = "Production investigation and recovery must be profile-scaled"
-depends_on = ["DSET-RULE-ARCHITECTURE"]
+depends_on = ["CARMADIO-RULE-ARCHITECTURE"]
 precedence_over = []
 customization = "unmodified"
 
@@ -632,13 +632,13 @@ template = "010_dset-ops-templates-governance-core-v1-supportability.md"
 sha256 = "1f9c4f3822d1bab0aa255b3e9593e83485c4056c91e3befd04e575f219b35068"
 
 [[governance_registry.rules]]
-id = "DSET-RULE-ARTIFACT-MAINTENANCE"
+id = "CARMADIO-RULE-ARTIFACT-MAINTENANCE"
 layer = "GOV"
 document = "050_dset-gov-specification-artifact-maintenance.md"
 owner = "project"
 applicability = "applicable"
 reason = "Durable conclusions require one writable owner and verified cutover"
-depends_on = ["DSET-RULE-ARCHITECTURE"]
+depends_on = ["CARMADIO-RULE-ARCHITECTURE"]
 precedence_over = []
 customization = "custom"
 
@@ -649,13 +649,13 @@ template = "030_dset-gov-templates-governance-core-v1-artifact-maintenance.md"
 sha256 = "42724342b00bb0067c62ed4a6161d20f9bef505f9c791bc372c40a9648d0828d"
 
 [[governance_registry.rules]]
-id = "DSET-RULE-WORK-ITEMS"
+id = "CARMADIO-RULE-WORK-ITEMS"
 layer = "GOV"
 document = "110_dset-gov-specification-work-items.md"
 owner = "project"
 applicability = "applicable"
 reason = "Semantic routing must apply the four canonical Types and their subtypes independently of workflow"
-depends_on = ["DSET-RULE-ARCHITECTURE"]
+depends_on = ["CARMADIO-RULE-ARCHITECTURE"]
 precedence_over = []
 customization = "unmodified"
 
@@ -666,13 +666,13 @@ template = "050_dset-gov-templates-governance-core-v1-work-items.md"
 sha256 = "356243bd3bbcc65e5ca64bb010910d2f2b89478ef6af574ce1045f6b970182b9"
 
 [[governance_registry.rules]]
-id = "DSET-RULE-ARTIFACT-CLASSIFICATION"
+id = "CARMADIO-RULE-ARTIFACT-CLASSIFICATION"
 layer = "GOV"
 document = "040_dset-gov-specification-artifact-classification.md"
 owner = "project"
 applicability = "applicable"
 reason = "Every governed carrier requires one MECE artifact classification independent from semantic Type"
-depends_on = ["DSET-RULE-ARCHITECTURE"]
+depends_on = ["CARMADIO-RULE-ARCHITECTURE"]
 precedence_over = []
 customization = "custom"
 
@@ -683,13 +683,13 @@ template = "020_dset-gov-templates-governance-core-v1-artifact-classification.md
 sha256 = "1d9acb71e913c550c1676dc0d2232f487db9d7c7d4c1a765f10db9c25eee8074"
 
 [[governance_registry.rules]]
-id = "DSET-RULE-DELEGATION-BUDGET"
+id = "CARMADIO-RULE-DELEGATION-BUDGET"
 layer = "SKILL"
 document = "070_dset-skill-procedure-delegation-budget.md"
 owner = "project"
 applicability = "applicable"
 reason = "Delegation requires inherited model/effort, bounded tree budgets, and a fixed quality floor"
-depends_on = ["DSET-RULE-ARCHITECTURE"]
+depends_on = ["CARMADIO-RULE-ARCHITECTURE"]
 precedence_over = []
 customization = "unmodified"
 
@@ -700,13 +700,13 @@ template = "000_dset-skill-templates-governance-core-v1-delegation-budget.md"
 sha256 = "82d2fa5d2a6e37edcfe731caf9c7f9256c5aadc5f2a16c72c9981197dd76e54a"
 
 [[governance_registry.rules]]
-id = "DSET-RULE-SKILL-RUNS"
+id = "CARMADIO-RULE-SKILL-RUNS"
 layer = "SKILL"
 document = "110_dset-skill-procedure-skill-runs.md"
 owner = "project"
 applicability = "applicable"
 reason = "Skill invocations require bounded redacted supportability evidence"
-depends_on = ["DSET-RULE-ARCHITECTURE", "DSET-RULE-DELEGATION-BUDGET"]
+depends_on = ["CARMADIO-RULE-ARCHITECTURE", "CARMADIO-RULE-DELEGATION-BUDGET"]
 precedence_over = []
 customization = "unmodified"
 
@@ -717,13 +717,13 @@ template = "040_dset-skill-templates-governance-core-v1-skill-runs.md"
 sha256 = "60639f92b0196a82d540e89d3d4e4a31db846f15127289b4eeb63dde0a5440a8"
 
 [[governance_registry.rules]]
-id = "DSET-RULE-RELEASE"
+id = "CARMADIO-RULE-RELEASE"
 layer = "OPS"
 document = "080_dset-ops-procedure-release.md"
 owner = "project"
 applicability = "applicable"
 reason = "Release preparation and protected publication require one deterministic transaction"
-depends_on = ["DSET-RULE-ARCHITECTURE", "DSET-RULE-BUILD", "DSET-RULE-TEST-CASE", "DSET-RULE-EVALUATION-CASE", "DSET-RULE-SUPPORTABILITY", "DSET-RULE-ARTIFACT-MAINTENANCE", "DSET-RULE-ARTIFACT-CLASSIFICATION"]
+depends_on = ["CARMADIO-RULE-ARCHITECTURE", "CARMADIO-RULE-BUILD", "CARMADIO-RULE-TEST-CASE", "CARMADIO-RULE-EVALUATION-CASE", "CARMADIO-RULE-SUPPORTABILITY", "CARMADIO-RULE-ARTIFACT-MAINTENANCE", "CARMADIO-RULE-ARTIFACT-CLASSIFICATION"]
 precedence_over = []
 customization = "custom"
 
@@ -734,13 +734,13 @@ template = "000_dset-ops-templates-governance-core-v1-release.md"
 sha256 = "079ab799a5713e66a7c14ef1003ae848eb87d917259b496b0634e7e3a045322a"
 
 [[governance_registry.rules]]
-id = "DSET-RULE-LIFECYCLE"
+id = "CARMADIO-RULE-LIFECYCLE"
 layer = "SKILL"
 document = "090_dset-skill-procedure-lifecycle-orchestration.md"
 owner = "project"
 applicability = "applicable"
 reason = "The primary DSET entrypoint requires deterministic modes, precedence, authority, and stops"
-depends_on = ["DSET-RULE-ARCHITECTURE", "DSET-RULE-SKILL-RUNS"]
+depends_on = ["CARMADIO-RULE-ARCHITECTURE", "CARMADIO-RULE-SKILL-RUNS"]
 precedence_over = []
 customization = "unmodified"
 
@@ -751,13 +751,13 @@ template = "020_dset-skill-templates-governance-core-v1-lifecycle-orchestration.
 sha256 = "dda6c2f127b501f4dd31588aa255165bc5bf0e7836d525a7eca46361c636f4af"
 
 [[governance_registry.rules]]
-id = "DSET-RULE-DIAGNOSIS"
+id = "CARMADIO-RULE-DIAGNOSIS"
 layer = "SKILL"
 document = "080_dset-skill-procedure-diagnosis.md"
 owner = "project"
 applicability = "applicable"
 reason = "Defect investigation requires evidence and authorization boundaries"
-depends_on = ["DSET-RULE-ARCHITECTURE", "DSET-RULE-TEST-CASE", "DSET-RULE-EVALUATION-CASE", "DSET-RULE-ARTIFACT-MAINTENANCE", "DSET-RULE-ARTIFACT-CLASSIFICATION"]
+depends_on = ["CARMADIO-RULE-ARCHITECTURE", "CARMADIO-RULE-TEST-CASE", "CARMADIO-RULE-EVALUATION-CASE", "CARMADIO-RULE-ARTIFACT-MAINTENANCE", "CARMADIO-RULE-ARTIFACT-CLASSIFICATION"]
 precedence_over = []
 customization = "unmodified"
 
@@ -768,13 +768,13 @@ template = "010_dset-skill-templates-governance-core-v1-diagnosis.md"
 sha256 = "8f5e78a193298fb0e92b2a67891f005464a50760d84cf814dc3901ea30d122e2"
 
 [[governance_registry.rules]]
-id = "DSET-RULE-PROTOTYPING"
+id = "CARMADIO-RULE-PROTOTYPING"
 layer = "SKILL"
 document = "100_dset-skill-procedure-prototyping.md"
 owner = "project"
 applicability = "applicable"
 reason = "Solution experiments require comparable disposable evidence"
-depends_on = ["DSET-RULE-ARCHITECTURE", "DSET-RULE-TEST-CASE", "DSET-RULE-EVALUATION-CASE", "DSET-RULE-ARTIFACT-MAINTENANCE", "DSET-RULE-ARTIFACT-CLASSIFICATION"]
+depends_on = ["CARMADIO-RULE-ARCHITECTURE", "CARMADIO-RULE-TEST-CASE", "CARMADIO-RULE-EVALUATION-CASE", "CARMADIO-RULE-ARTIFACT-MAINTENANCE", "CARMADIO-RULE-ARTIFACT-CLASSIFICATION"]
 precedence_over = []
 customization = "unmodified"
 
@@ -786,71 +786,71 @@ sha256 = "c3cb7059d131acb077a6fa82b0b3a51d84c4d59c4ae5b4eb3c4c4ba00e05c8aa"
 
 [[governance_registry.workflows]]
 id = "lifecycle-orchestration"
-rules = ["DSET-RULE-ARCHITECTURE", "DSET-RULE-BUILD", "DSET-RULE-DOMAIN-SPEC", "DSET-RULE-TEST-CASE", "DSET-RULE-EVALUATION-CASE", "DSET-RULE-SUPPORTABILITY", "DSET-RULE-ARTIFACT-MAINTENANCE", "DSET-RULE-ARTIFACT-CLASSIFICATION", "DSET-RULE-WORK-ITEMS", "DSET-RULE-DELEGATION-BUDGET", "DSET-RULE-SKILL-RUNS", "DSET-RULE-RELEASE", "DSET-RULE-LIFECYCLE"]
+rules = ["CARMADIO-RULE-ARCHITECTURE", "CARMADIO-RULE-BUILD", "CARMADIO-RULE-DOMAIN-SPEC", "CARMADIO-RULE-TEST-CASE", "CARMADIO-RULE-EVALUATION-CASE", "CARMADIO-RULE-SUPPORTABILITY", "CARMADIO-RULE-ARTIFACT-MAINTENANCE", "CARMADIO-RULE-ARTIFACT-CLASSIFICATION", "CARMADIO-RULE-WORK-ITEMS", "CARMADIO-RULE-DELEGATION-BUDGET", "CARMADIO-RULE-SKILL-RUNS", "CARMADIO-RULE-RELEASE", "CARMADIO-RULE-LIFECYCLE"]
 
 [[governance_registry.workflows]]
 id = "domain-clarification"
-rules = ["DSET-RULE-ARCHITECTURE", "DSET-RULE-DOMAIN-SPEC", "DSET-RULE-TEST-CASE", "DSET-RULE-EVALUATION-CASE", "DSET-RULE-SUPPORTABILITY", "DSET-RULE-ARTIFACT-MAINTENANCE", "DSET-RULE-ARTIFACT-CLASSIFICATION", "DSET-RULE-DELEGATION-BUDGET", "DSET-RULE-SKILL-RUNS", "DSET-RULE-LIFECYCLE"]
+rules = ["CARMADIO-RULE-ARCHITECTURE", "CARMADIO-RULE-DOMAIN-SPEC", "CARMADIO-RULE-TEST-CASE", "CARMADIO-RULE-EVALUATION-CASE", "CARMADIO-RULE-SUPPORTABILITY", "CARMADIO-RULE-ARTIFACT-MAINTENANCE", "CARMADIO-RULE-ARTIFACT-CLASSIFICATION", "CARMADIO-RULE-DELEGATION-BUDGET", "CARMADIO-RULE-SKILL-RUNS", "CARMADIO-RULE-LIFECYCLE"]
 
 [[governance_registry.workflows]]
 id = "diagnosis"
-rules = ["DSET-RULE-ARCHITECTURE", "DSET-RULE-DOMAIN-SPEC", "DSET-RULE-TEST-CASE", "DSET-RULE-EVALUATION-CASE", "DSET-RULE-SUPPORTABILITY", "DSET-RULE-ARTIFACT-MAINTENANCE", "DSET-RULE-ARTIFACT-CLASSIFICATION", "DSET-RULE-DELEGATION-BUDGET", "DSET-RULE-SKILL-RUNS", "DSET-RULE-LIFECYCLE", "DSET-RULE-DIAGNOSIS"]
+rules = ["CARMADIO-RULE-ARCHITECTURE", "CARMADIO-RULE-DOMAIN-SPEC", "CARMADIO-RULE-TEST-CASE", "CARMADIO-RULE-EVALUATION-CASE", "CARMADIO-RULE-SUPPORTABILITY", "CARMADIO-RULE-ARTIFACT-MAINTENANCE", "CARMADIO-RULE-ARTIFACT-CLASSIFICATION", "CARMADIO-RULE-DELEGATION-BUDGET", "CARMADIO-RULE-SKILL-RUNS", "CARMADIO-RULE-LIFECYCLE", "CARMADIO-RULE-DIAGNOSIS"]
 
 [[governance_registry.workflows]]
 id = "prototyping"
-rules = ["DSET-RULE-ARCHITECTURE", "DSET-RULE-DOMAIN-SPEC", "DSET-RULE-TEST-CASE", "DSET-RULE-EVALUATION-CASE", "DSET-RULE-SUPPORTABILITY", "DSET-RULE-ARTIFACT-MAINTENANCE", "DSET-RULE-ARTIFACT-CLASSIFICATION", "DSET-RULE-DELEGATION-BUDGET", "DSET-RULE-SKILL-RUNS", "DSET-RULE-LIFECYCLE", "DSET-RULE-PROTOTYPING"]
+rules = ["CARMADIO-RULE-ARCHITECTURE", "CARMADIO-RULE-DOMAIN-SPEC", "CARMADIO-RULE-TEST-CASE", "CARMADIO-RULE-EVALUATION-CASE", "CARMADIO-RULE-SUPPORTABILITY", "CARMADIO-RULE-ARTIFACT-MAINTENANCE", "CARMADIO-RULE-ARTIFACT-CLASSIFICATION", "CARMADIO-RULE-DELEGATION-BUDGET", "CARMADIO-RULE-SKILL-RUNS", "CARMADIO-RULE-LIFECYCLE", "CARMADIO-RULE-PROTOTYPING"]
 
 [[governance_registry.workflows]]
 id = "release"
-rules = ["DSET-RULE-ARCHITECTURE", "DSET-RULE-BUILD", "DSET-RULE-DOMAIN-SPEC", "DSET-RULE-TEST-CASE", "DSET-RULE-EVALUATION-CASE", "DSET-RULE-SUPPORTABILITY", "DSET-RULE-ARTIFACT-MAINTENANCE", "DSET-RULE-ARTIFACT-CLASSIFICATION", "DSET-RULE-DELEGATION-BUDGET", "DSET-RULE-SKILL-RUNS", "DSET-RULE-RELEASE", "DSET-RULE-LIFECYCLE"]
+rules = ["CARMADIO-RULE-ARCHITECTURE", "CARMADIO-RULE-BUILD", "CARMADIO-RULE-DOMAIN-SPEC", "CARMADIO-RULE-TEST-CASE", "CARMADIO-RULE-EVALUATION-CASE", "CARMADIO-RULE-SUPPORTABILITY", "CARMADIO-RULE-ARTIFACT-MAINTENANCE", "CARMADIO-RULE-ARTIFACT-CLASSIFICATION", "CARMADIO-RULE-DELEGATION-BUDGET", "CARMADIO-RULE-SKILL-RUNS", "CARMADIO-RULE-RELEASE", "CARMADIO-RULE-LIFECYCLE"]
 
 [[governance_registry.workflows]]
 id = "work-triage"
-rules = ["DSET-RULE-ARCHITECTURE", "DSET-RULE-SUPPORTABILITY", "DSET-RULE-ARTIFACT-MAINTENANCE", "DSET-RULE-ARTIFACT-CLASSIFICATION", "DSET-RULE-DELEGATION-BUDGET", "DSET-RULE-SKILL-RUNS", "DSET-RULE-WORK-ITEMS", "DSET-RULE-LIFECYCLE"]
+rules = ["CARMADIO-RULE-ARCHITECTURE", "CARMADIO-RULE-SUPPORTABILITY", "CARMADIO-RULE-ARTIFACT-MAINTENANCE", "CARMADIO-RULE-ARTIFACT-CLASSIFICATION", "CARMADIO-RULE-DELEGATION-BUDGET", "CARMADIO-RULE-SKILL-RUNS", "CARMADIO-RULE-WORK-ITEMS", "CARMADIO-RULE-LIFECYCLE"]
 
 [[governance_registry.workflows]]
 id = "decompose"
-rules = ["DSET-RULE-ARCHITECTURE", "DSET-RULE-DOMAIN-SPEC", "DSET-RULE-SUPPORTABILITY", "DSET-RULE-ARTIFACT-MAINTENANCE", "DSET-RULE-ARTIFACT-CLASSIFICATION", "DSET-RULE-DELEGATION-BUDGET", "DSET-RULE-SKILL-RUNS", "DSET-RULE-WORK-ITEMS", "DSET-RULE-LIFECYCLE"]
+rules = ["CARMADIO-RULE-ARCHITECTURE", "CARMADIO-RULE-DOMAIN-SPEC", "CARMADIO-RULE-SUPPORTABILITY", "CARMADIO-RULE-ARTIFACT-MAINTENANCE", "CARMADIO-RULE-ARTIFACT-CLASSIFICATION", "CARMADIO-RULE-DELEGATION-BUDGET", "CARMADIO-RULE-SKILL-RUNS", "CARMADIO-RULE-WORK-ITEMS", "CARMADIO-RULE-LIFECYCLE"]
 
 [[governance_registry.workflows]]
 id = "landscape"
-rules = ["DSET-RULE-ARCHITECTURE", "DSET-RULE-DOMAIN-SPEC", "DSET-RULE-TEST-CASE", "DSET-RULE-EVALUATION-CASE", "DSET-RULE-SUPPORTABILITY", "DSET-RULE-ARTIFACT-MAINTENANCE", "DSET-RULE-ARTIFACT-CLASSIFICATION", "DSET-RULE-DELEGATION-BUDGET", "DSET-RULE-SKILL-RUNS", "DSET-RULE-LIFECYCLE"]
+rules = ["CARMADIO-RULE-ARCHITECTURE", "CARMADIO-RULE-DOMAIN-SPEC", "CARMADIO-RULE-TEST-CASE", "CARMADIO-RULE-EVALUATION-CASE", "CARMADIO-RULE-SUPPORTABILITY", "CARMADIO-RULE-ARTIFACT-MAINTENANCE", "CARMADIO-RULE-ARTIFACT-CLASSIFICATION", "CARMADIO-RULE-DELEGATION-BUDGET", "CARMADIO-RULE-SKILL-RUNS", "CARMADIO-RULE-LIFECYCLE"]
 
 [[governance_registry.workflows]]
 id = "decisions"
-rules = ["DSET-RULE-ARCHITECTURE", "DSET-RULE-DOMAIN-SPEC", "DSET-RULE-SUPPORTABILITY", "DSET-RULE-ARTIFACT-MAINTENANCE", "DSET-RULE-ARTIFACT-CLASSIFICATION", "DSET-RULE-DELEGATION-BUDGET", "DSET-RULE-SKILL-RUNS", "DSET-RULE-WORK-ITEMS", "DSET-RULE-LIFECYCLE"]
+rules = ["CARMADIO-RULE-ARCHITECTURE", "CARMADIO-RULE-DOMAIN-SPEC", "CARMADIO-RULE-SUPPORTABILITY", "CARMADIO-RULE-ARTIFACT-MAINTENANCE", "CARMADIO-RULE-ARTIFACT-CLASSIFICATION", "CARMADIO-RULE-DELEGATION-BUDGET", "CARMADIO-RULE-SKILL-RUNS", "CARMADIO-RULE-WORK-ITEMS", "CARMADIO-RULE-LIFECYCLE"]
 
 [[governance_registry.workflows]]
 id = "compile"
-rules = ["DSET-RULE-ARCHITECTURE", "DSET-RULE-DOMAIN-SPEC", "DSET-RULE-SUPPORTABILITY", "DSET-RULE-ARTIFACT-MAINTENANCE", "DSET-RULE-ARTIFACT-CLASSIFICATION", "DSET-RULE-DELEGATION-BUDGET", "DSET-RULE-SKILL-RUNS", "DSET-RULE-LIFECYCLE"]
+rules = ["CARMADIO-RULE-ARCHITECTURE", "CARMADIO-RULE-DOMAIN-SPEC", "CARMADIO-RULE-SUPPORTABILITY", "CARMADIO-RULE-ARTIFACT-MAINTENANCE", "CARMADIO-RULE-ARTIFACT-CLASSIFICATION", "CARMADIO-RULE-DELEGATION-BUDGET", "CARMADIO-RULE-SKILL-RUNS", "CARMADIO-RULE-LIFECYCLE"]
 
 [[governance_registry.workflows]]
 id = "plan-proof"
-rules = ["DSET-RULE-ARCHITECTURE", "DSET-RULE-DOMAIN-SPEC", "DSET-RULE-TEST-CASE", "DSET-RULE-EVALUATION-CASE", "DSET-RULE-SUPPORTABILITY", "DSET-RULE-ARTIFACT-MAINTENANCE", "DSET-RULE-ARTIFACT-CLASSIFICATION", "DSET-RULE-DELEGATION-BUDGET", "DSET-RULE-SKILL-RUNS", "DSET-RULE-LIFECYCLE"]
+rules = ["CARMADIO-RULE-ARCHITECTURE", "CARMADIO-RULE-DOMAIN-SPEC", "CARMADIO-RULE-TEST-CASE", "CARMADIO-RULE-EVALUATION-CASE", "CARMADIO-RULE-SUPPORTABILITY", "CARMADIO-RULE-ARTIFACT-MAINTENANCE", "CARMADIO-RULE-ARTIFACT-CLASSIFICATION", "CARMADIO-RULE-DELEGATION-BUDGET", "CARMADIO-RULE-SKILL-RUNS", "CARMADIO-RULE-LIFECYCLE"]
 
 [[governance_registry.workflows]]
 id = "plan-implementation"
-rules = ["DSET-RULE-ARCHITECTURE", "DSET-RULE-BUILD", "DSET-RULE-DOMAIN-SPEC", "DSET-RULE-TEST-CASE", "DSET-RULE-EVALUATION-CASE", "DSET-RULE-SUPPORTABILITY", "DSET-RULE-ARTIFACT-MAINTENANCE", "DSET-RULE-ARTIFACT-CLASSIFICATION", "DSET-RULE-DELEGATION-BUDGET", "DSET-RULE-SKILL-RUNS", "DSET-RULE-LIFECYCLE"]
+rules = ["CARMADIO-RULE-ARCHITECTURE", "CARMADIO-RULE-BUILD", "CARMADIO-RULE-DOMAIN-SPEC", "CARMADIO-RULE-TEST-CASE", "CARMADIO-RULE-EVALUATION-CASE", "CARMADIO-RULE-SUPPORTABILITY", "CARMADIO-RULE-ARTIFACT-MAINTENANCE", "CARMADIO-RULE-ARTIFACT-CLASSIFICATION", "CARMADIO-RULE-DELEGATION-BUDGET", "CARMADIO-RULE-SKILL-RUNS", "CARMADIO-RULE-LIFECYCLE"]
 
 [[governance_registry.workflows]]
 id = "implement"
-rules = ["DSET-RULE-ARCHITECTURE", "DSET-RULE-BUILD", "DSET-RULE-DOMAIN-SPEC", "DSET-RULE-TEST-CASE", "DSET-RULE-EVALUATION-CASE", "DSET-RULE-SUPPORTABILITY", "DSET-RULE-ARTIFACT-MAINTENANCE", "DSET-RULE-ARTIFACT-CLASSIFICATION", "DSET-RULE-DELEGATION-BUDGET", "DSET-RULE-SKILL-RUNS", "DSET-RULE-WORK-ITEMS", "DSET-RULE-LIFECYCLE"]
+rules = ["CARMADIO-RULE-ARCHITECTURE", "CARMADIO-RULE-BUILD", "CARMADIO-RULE-DOMAIN-SPEC", "CARMADIO-RULE-TEST-CASE", "CARMADIO-RULE-EVALUATION-CASE", "CARMADIO-RULE-SUPPORTABILITY", "CARMADIO-RULE-ARTIFACT-MAINTENANCE", "CARMADIO-RULE-ARTIFACT-CLASSIFICATION", "CARMADIO-RULE-DELEGATION-BUDGET", "CARMADIO-RULE-SKILL-RUNS", "CARMADIO-RULE-WORK-ITEMS", "CARMADIO-RULE-LIFECYCLE"]
 
 [[governance_registry.workflows]]
 id = "verify"
-rules = ["DSET-RULE-ARCHITECTURE", "DSET-RULE-BUILD", "DSET-RULE-DOMAIN-SPEC", "DSET-RULE-TEST-CASE", "DSET-RULE-EVALUATION-CASE", "DSET-RULE-SUPPORTABILITY", "DSET-RULE-ARTIFACT-MAINTENANCE", "DSET-RULE-ARTIFACT-CLASSIFICATION", "DSET-RULE-DELEGATION-BUDGET", "DSET-RULE-SKILL-RUNS", "DSET-RULE-LIFECYCLE"]
+rules = ["CARMADIO-RULE-ARCHITECTURE", "CARMADIO-RULE-BUILD", "CARMADIO-RULE-DOMAIN-SPEC", "CARMADIO-RULE-TEST-CASE", "CARMADIO-RULE-EVALUATION-CASE", "CARMADIO-RULE-SUPPORTABILITY", "CARMADIO-RULE-ARTIFACT-MAINTENANCE", "CARMADIO-RULE-ARTIFACT-CLASSIFICATION", "CARMADIO-RULE-DELEGATION-BUDGET", "CARMADIO-RULE-SKILL-RUNS", "CARMADIO-RULE-LIFECYCLE"]
 
 [[governance_registry.workflows]]
 id = "complete"
-rules = ["DSET-RULE-ARCHITECTURE", "DSET-RULE-SUPPORTABILITY", "DSET-RULE-ARTIFACT-MAINTENANCE", "DSET-RULE-ARTIFACT-CLASSIFICATION", "DSET-RULE-DELEGATION-BUDGET", "DSET-RULE-SKILL-RUNS", "DSET-RULE-WORK-ITEMS", "DSET-RULE-LIFECYCLE"]
+rules = ["CARMADIO-RULE-ARCHITECTURE", "CARMADIO-RULE-SUPPORTABILITY", "CARMADIO-RULE-ARTIFACT-MAINTENANCE", "CARMADIO-RULE-ARTIFACT-CLASSIFICATION", "CARMADIO-RULE-DELEGATION-BUDGET", "CARMADIO-RULE-SKILL-RUNS", "CARMADIO-RULE-WORK-ITEMS", "CARMADIO-RULE-LIFECYCLE"]
 
 [[governance_registry.workflows]]
 id = "overview"
-rules = ["DSET-RULE-ARCHITECTURE", "DSET-RULE-SUPPORTABILITY", "DSET-RULE-ARTIFACT-MAINTENANCE", "DSET-RULE-ARTIFACT-CLASSIFICATION", "DSET-RULE-DELEGATION-BUDGET", "DSET-RULE-SKILL-RUNS", "DSET-RULE-WORK-ITEMS", "DSET-RULE-LIFECYCLE"]
+rules = ["CARMADIO-RULE-ARCHITECTURE", "CARMADIO-RULE-SUPPORTABILITY", "CARMADIO-RULE-ARTIFACT-MAINTENANCE", "CARMADIO-RULE-ARTIFACT-CLASSIFICATION", "CARMADIO-RULE-DELEGATION-BUDGET", "CARMADIO-RULE-SKILL-RUNS", "CARMADIO-RULE-WORK-ITEMS", "CARMADIO-RULE-LIFECYCLE"]
 
 [[governance_registry.workflows]]
 id = "configure"
-rules = ["DSET-RULE-ARCHITECTURE", "DSET-RULE-ARTIFACT-MAINTENANCE", "DSET-RULE-DELEGATION-BUDGET", "DSET-RULE-SKILL-RUNS", "DSET-RULE-LIFECYCLE"]
+rules = ["CARMADIO-RULE-ARCHITECTURE", "CARMADIO-RULE-ARTIFACT-MAINTENANCE", "CARMADIO-RULE-DELEGATION-BUDGET", "CARMADIO-RULE-SKILL-RUNS", "CARMADIO-RULE-LIFECYCLE"]
 
 [[governance_registry.wrappers]]
 workflow = "lifecycle-orchestration"

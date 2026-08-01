@@ -1,6 +1,6 @@
 schema_version = 1.0
 profile = "documentation-v1"
-legacy_evidence_paths = ["10_versions/archive/2026-07-14-add-artifact-governance-profile/proofs/archive-readiness-2026-07-14.md", "10_versions/archive/2026-07-14-add-artifact-governance-profile/proofs/deterministic-verification-2026-07-14.md", "10_versions/archive/2026-07-14-add-artifact-governance-profile/proofs/github-delivery-evidence-2026-07-14.md", "10_versions/archive/2026-07-14-add-artifact-governance-profile/proofs/qualitative-evals-2026-07-14.md", "10_versions/archive/2026-07-14-bootstrap-dset-project-structure/proofs/boot-evals-2026-07-14.md", "10_versions/archive/2026-07-14-bootstrap-dset-project-structure/proofs/boot-evals-pushed-head-2026-07-14.md", "10_versions/archive/2026-07-14-make-supportability-first-class/proofs/archive-readiness-audit-2026-07-14.md", "10_versions/archive/2026-07-14-make-supportability-first-class/proofs/deterministic-checks-2026-07-14.md", "10_versions/archive/2026-07-14-make-supportability-first-class/proofs/supportability-evals-2026-07-14.md", "10_versions/archive/2026-07-14-make-supportability-first-class/proofs/synthetic-incidents.md", "00_project/evidence/DSET-EVIDENCE-RECORD-001-artifact-role-lifecycle.md", "00_project/evidence/DSET-EVIDENCE-RECORD-002-project-scope-ownership.md", "00_project/evidence/DSET-EVIDENCE-RECORD-003-artifact-lineage.md", "00_project/evidence/DSET-EVIDENCE-RECORD-004-entry-criteria-skill-chains.md", "00_project/evidence/DSET-EVIDENCE-RECORD-005-shared-skill-runtime.md", "00_project/evidence/DSET-EVIDENCE-RECORD-006-artifact-emission-gate.md", "00_project/evidence/DSET-EVIDENCE-RECORD-007-executable-entry-criteria-closure.md", "00_project/evidence/DSET-EVIDENCE-RECORD-008-governed-conflict-runtime.md", "00_project/evidence/DSET-EVIDENCE-RECORD-009-semantic-type-migration.md", "00_project/evidence/DSET-EVIDENCE-RECORD-010-release-runtime-reconciliation.md", "00_project/evidence/DSET-EVIDENCE-RECORD-011-typescript-candidate-profile.md", "00_project/evidence/DSET-EVIDENCE-RECORD-012-oyoha-local-adoption.md", "00_project/evidence/DSET-EVIDENCE-RECORD-013-oyoha-local-rule-cutover.md", "00_project/evidence/DSET-EVIDENCE-RECORD-014-oyoha-independent-evaluation.md", "00_project/evidence/DSET-EVIDENCE-RECORD-015-claudian-clean-room.md", "00_project/evidence/DSET-EVIDENCE-RECORD-016-oyoha-supportability-slice.md", "00_project/evidence/DSET-EVIDENCE-RECORD-017-typescript-profile-instantiation.md", "00_project/evidence/DSET-EVIDENCE-RECORD-018-codex-host-install-attempt.md", "00_project/evidence/DSET-EVIDENCE-RECORD-019-independent-review-remediation.md", "00_project/evidence/DSET-EVIDENCE-RECORD-020-codex-host-install-attempt.md", "00_project/evidence/DSET-EVIDENCE-RECORD-021-claude-review-attempt.md", "00_project/evidence/DSET-EVIDENCE-RECORD-022-codex-host-invocation-attempt.md", ".dset/02_layer_gov/evidence/DSET-EVIDENCE-RECORD-023-typed-artifact-relations.md", ".dset/02_layer_gov/evidence/DSET-EVIDENCE-RECORD-024-legacy-relation-sealing.md", ".dset/02_layer_gov/evidence/DSET-EVIDENCE-RECORD-025-verbose-project-settings.md", "00_project/evidence/archive/clarify-rename-verification-2026-07-14.md", "00_project/evidence/archive/end-to-end-toolchain-verification-2026-07-16.md", "00_project/evidence/archive/expanded-skill-surface-verification-2026-07-16.md", "00_project/evidence/archive/five-skill-source-verification-2026-07-16.md", "00_project/evidence/archive/fpf-flat-type-model-review-2026-07-20.md", "00_project/evidence/archive/fpf-governance-constitution-review-2026-07-16.md", "00_project/evidence/archive/fpf-principles-audit-2026-07-15.md", "00_project/evidence/archive/fpf-principles-reaudit-2026-07-15.md", "00_project/evidence/archive/hosted-fixed-point-2026-07-14.md", "00_project/evidence/archive/invariant-contract-verification-2026-07-14.md", "00_project/evidence/archive/layered-work-area-verification-2026-07-15.md", "00_project/evidence/archive/local-fixed-point-2026-07-14.md", "00_project/evidence/archive/local-gate-2026-07-15.md", "00_project/evidence/archive/recursive-session-provenance-2026-07-16.md", "00_project/evidence/archive/schema-self-application-audit-2026-07-15.md", "00_project/evidence/archive/schema-self-application-reaudit-2026-07-15.md", "00_project/evidence/archive/skill-runtime-consistency-2026-07-16.md", "00_project/evidence/archive/wrapper-rule-inventory-2026-07-14.md", "10_versions/archive/2026-07-14-operationalize-dset-v1/proofs/archive-readiness-2026-07-14.md", "10_versions/archive/2026-07-14-operationalize-dset-v1/proofs/deterministic-verification-2026-07-14.md", "10_versions/archive/2026-07-14-operationalize-dset-v1/proofs/github-delivery-evidence-2026-07-14.md", "10_versions/archive/2026-07-14-operationalize-dset-v1/proofs/qualitative-evals-2026-07-14.md"]
+legacy_evidence_paths = ["10_versions/archive/2026-07-14-add-artifact-governance-profile/proofs/archive-readiness-2026-07-14.md", "10_versions/archive/2026-07-14-add-artifact-governance-profile/proofs/deterministic-verification-2026-07-14.md", "10_versions/archive/2026-07-14-add-artifact-governance-profile/proofs/github-delivery-evidence-2026-07-14.md", "10_versions/archive/2026-07-14-add-artifact-governance-profile/proofs/qualitative-evals-2026-07-14.md", "10_versions/archive/2026-07-14-bootstrap-dset-project-structure/proofs/boot-evals-2026-07-14.md", "10_versions/archive/2026-07-14-bootstrap-dset-project-structure/proofs/boot-evals-pushed-head-2026-07-14.md", "10_versions/archive/2026-07-14-make-supportability-first-class/proofs/archive-readiness-audit-2026-07-14.md", "10_versions/archive/2026-07-14-make-supportability-first-class/proofs/deterministic-checks-2026-07-14.md", "10_versions/archive/2026-07-14-make-supportability-first-class/proofs/supportability-evals-2026-07-14.md", "10_versions/archive/2026-07-14-make-supportability-first-class/proofs/synthetic-incidents.md", "00_project/evidence/CARMADIO-EVIDENCE-RECORD-001-artifact-role-lifecycle.md", "00_project/evidence/CARMADIO-EVIDENCE-RECORD-002-project-scope-ownership.md", "00_project/evidence/CARMADIO-EVIDENCE-RECORD-003-artifact-lineage.md", "00_project/evidence/CARMADIO-EVIDENCE-RECORD-004-entry-criteria-skill-chains.md", "00_project/evidence/CARMADIO-EVIDENCE-RECORD-005-shared-skill-runtime.md", "00_project/evidence/CARMADIO-EVIDENCE-RECORD-006-artifact-emission-gate.md", "00_project/evidence/CARMADIO-EVIDENCE-RECORD-007-executable-entry-criteria-closure.md", "00_project/evidence/CARMADIO-EVIDENCE-RECORD-008-governed-conflict-runtime.md", "00_project/evidence/CARMADIO-EVIDENCE-RECORD-009-semantic-type-migration.md", "00_project/evidence/CARMADIO-EVIDENCE-RECORD-010-release-runtime-reconciliation.md", "00_project/evidence/CARMADIO-EVIDENCE-RECORD-011-typescript-candidate-profile.md", "00_project/evidence/CARMADIO-EVIDENCE-RECORD-012-oyoha-local-adoption.md", "00_project/evidence/CARMADIO-EVIDENCE-RECORD-013-oyoha-local-rule-cutover.md", "00_project/evidence/CARMADIO-EVIDENCE-RECORD-014-oyoha-independent-evaluation.md", "00_project/evidence/CARMADIO-EVIDENCE-RECORD-015-claudian-clean-room.md", "00_project/evidence/CARMADIO-EVIDENCE-RECORD-016-oyoha-supportability-slice.md", "00_project/evidence/CARMADIO-EVIDENCE-RECORD-017-typescript-profile-instantiation.md", "00_project/evidence/CARMADIO-EVIDENCE-RECORD-018-codex-host-install-attempt.md", "00_project/evidence/CARMADIO-EVIDENCE-RECORD-019-independent-review-remediation.md", "00_project/evidence/CARMADIO-EVIDENCE-RECORD-020-codex-host-install-attempt.md", "00_project/evidence/CARMADIO-EVIDENCE-RECORD-021-claude-review-attempt.md", "00_project/evidence/CARMADIO-EVIDENCE-RECORD-022-codex-host-invocation-attempt.md", ".dset/02_layer_gov/evidence/CARMADIO-EVIDENCE-RECORD-023-typed-artifact-relations.md", ".dset/02_layer_gov/evidence/CARMADIO-EVIDENCE-RECORD-024-legacy-relation-sealing.md", ".dset/02_layer_gov/evidence/CARMADIO-EVIDENCE-RECORD-025-verbose-project-settings.md", "00_project/evidence/archive/clarify-rename-verification-2026-07-14.md", "00_project/evidence/archive/end-to-end-toolchain-verification-2026-07-16.md", "00_project/evidence/archive/expanded-skill-surface-verification-2026-07-16.md", "00_project/evidence/archive/five-skill-source-verification-2026-07-16.md", "00_project/evidence/archive/fpf-flat-type-model-review-2026-07-20.md", "00_project/evidence/archive/fpf-governance-constitution-review-2026-07-16.md", "00_project/evidence/archive/fpf-principles-audit-2026-07-15.md", "00_project/evidence/archive/fpf-principles-reaudit-2026-07-15.md", "00_project/evidence/archive/hosted-fixed-point-2026-07-14.md", "00_project/evidence/archive/invariant-contract-verification-2026-07-14.md", "00_project/evidence/archive/layered-work-area-verification-2026-07-15.md", "00_project/evidence/archive/local-fixed-point-2026-07-14.md", "00_project/evidence/archive/local-gate-2026-07-15.md", "00_project/evidence/archive/recursive-session-provenance-2026-07-16.md", "00_project/evidence/archive/schema-self-application-audit-2026-07-15.md", "00_project/evidence/archive/schema-self-application-reaudit-2026-07-15.md", "00_project/evidence/archive/skill-runtime-consistency-2026-07-16.md", "00_project/evidence/archive/wrapper-rule-inventory-2026-07-14.md", "10_versions/archive/2026-07-14-operationalize-dset-v1/proofs/archive-readiness-2026-07-14.md", "10_versions/archive/2026-07-14-operationalize-dset-v1/proofs/deterministic-verification-2026-07-14.md", "10_versions/archive/2026-07-14-operationalize-dset-v1/proofs/github-delivery-evidence-2026-07-14.md", "10_versions/archive/2026-07-14-operationalize-dset-v1/proofs/qualitative-evals-2026-07-14.md"]
 
 [classification]
 unclassified = "error"
@@ -38,54 +38,54 @@ artifact_type = "implementation"
 artifact_subtype = "configuration"
 current_path = "00_project/migrations/legacy/meta-package.legacy.toml"
 current_sha256 = "5c902a43ce7ee414af4a3c87ec89034faa05bf587300968a1f2bb5f27b43e8f2"
-transition_id = "DSET-CARRIER-TRANSITION-FE3ED2F97C161EDB"
+transition_id = "CARMADIO-CARRIER-TRANSITION-FE3ED2F97C161EDB"
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-CONTRACT-META-001"
+semantic_id = "CARMADIO-CONTRACT-META-001"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-META-001"
+semantic_id = "CARMADIO-REQUIREMENT-META-001"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-META-002"
+semantic_id = "CARMADIO-REQUIREMENT-META-002"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-META-003"
+semantic_id = "CARMADIO-REQUIREMENT-META-003"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-META-004"
+semantic_id = "CARMADIO-REQUIREMENT-META-004"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-META-005"
+semantic_id = "CARMADIO-REQUIREMENT-META-005"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-META-006"
+semantic_id = "CARMADIO-REQUIREMENT-META-006"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-META-007"
+semantic_id = "CARMADIO-REQUIREMENT-META-007"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-META-008"
+semantic_id = "CARMADIO-REQUIREMENT-META-008"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-META-009"
+semantic_id = "CARMADIO-REQUIREMENT-META-009"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-META-010"
+semantic_id = "CARMADIO-REQUIREMENT-META-010"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-META-011"
+semantic_id = "CARMADIO-REQUIREMENT-META-011"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured]]
@@ -96,146 +96,146 @@ artifact_type = "implementation"
 artifact_subtype = "configuration"
 current_path = "00_project/migrations/legacy/gov-package.legacy.toml"
 current_sha256 = "b6d8a4bfcc1f3a7a69d3369bf7e8f819034e921120df91adc6ab633a1c08fd98"
-transition_id = "DSET-CARRIER-TRANSITION-C40BA6F6A543DF81"
+transition_id = "CARMADIO-CARRIER-TRANSITION-C40BA6F6A543DF81"
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-GOV-001"
+semantic_id = "CARMADIO-REQUIREMENT-GOV-001"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-GOV-002"
+semantic_id = "CARMADIO-REQUIREMENT-GOV-002"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-GOV-003"
+semantic_id = "CARMADIO-REQUIREMENT-GOV-003"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-GOV-004"
+semantic_id = "CARMADIO-REQUIREMENT-GOV-004"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-GOV-005"
+semantic_id = "CARMADIO-REQUIREMENT-GOV-005"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-GOV-006"
+semantic_id = "CARMADIO-REQUIREMENT-GOV-006"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-GOV-007"
+semantic_id = "CARMADIO-REQUIREMENT-GOV-007"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-GOV-008"
+semantic_id = "CARMADIO-REQUIREMENT-GOV-008"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-GOV-009"
+semantic_id = "CARMADIO-REQUIREMENT-GOV-009"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-GOV-010"
+semantic_id = "CARMADIO-REQUIREMENT-GOV-010"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-GOV-011"
+semantic_id = "CARMADIO-REQUIREMENT-GOV-011"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-GOV-012"
+semantic_id = "CARMADIO-REQUIREMENT-GOV-012"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-GOV-013"
+semantic_id = "CARMADIO-REQUIREMENT-GOV-013"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-GOV-014"
+semantic_id = "CARMADIO-REQUIREMENT-GOV-014"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-GOV-015"
+semantic_id = "CARMADIO-REQUIREMENT-GOV-015"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-GOV-016"
+semantic_id = "CARMADIO-REQUIREMENT-GOV-016"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-GOV-017"
+semantic_id = "CARMADIO-REQUIREMENT-GOV-017"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-GOV-018"
+semantic_id = "CARMADIO-REQUIREMENT-GOV-018"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-GOV-019"
+semantic_id = "CARMADIO-REQUIREMENT-GOV-019"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-GOV-020"
+semantic_id = "CARMADIO-REQUIREMENT-GOV-020"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-GOV-021"
+semantic_id = "CARMADIO-REQUIREMENT-GOV-021"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-GOV-022"
+semantic_id = "CARMADIO-REQUIREMENT-GOV-022"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-GOV-023"
+semantic_id = "CARMADIO-REQUIREMENT-GOV-023"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-GOV-024"
+semantic_id = "CARMADIO-REQUIREMENT-GOV-024"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-GOV-025"
+semantic_id = "CARMADIO-REQUIREMENT-GOV-025"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-GOV-026"
+semantic_id = "CARMADIO-REQUIREMENT-GOV-026"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-GOV-027"
+semantic_id = "CARMADIO-REQUIREMENT-GOV-027"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-GOV-028"
+semantic_id = "CARMADIO-REQUIREMENT-GOV-028"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-GOV-029"
+semantic_id = "CARMADIO-REQUIREMENT-GOV-029"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-GOV-030"
+semantic_id = "CARMADIO-REQUIREMENT-GOV-030"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-GOV-031"
+semantic_id = "CARMADIO-REQUIREMENT-GOV-031"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-GOV-032"
+semantic_id = "CARMADIO-REQUIREMENT-GOV-032"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-GOV-033"
+semantic_id = "CARMADIO-REQUIREMENT-GOV-033"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-GOV-036"
+semantic_id = "CARMADIO-REQUIREMENT-GOV-036"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-GOV-037"
+semantic_id = "CARMADIO-REQUIREMENT-GOV-037"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured]]
@@ -246,46 +246,46 @@ artifact_type = "implementation"
 artifact_subtype = "configuration"
 current_path = "00_project/migrations/legacy/tool-package.legacy.toml"
 current_sha256 = "8b9ff373065f9f1838e228ec380b3d8a7271f110505b69b3af7bf9673097c205"
-transition_id = "DSET-CARRIER-TRANSITION-0946399221434426"
+transition_id = "CARMADIO-CARRIER-TRANSITION-0946399221434426"
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-CONTRACT-TOOL-001"
+semantic_id = "CARMADIO-CONTRACT-TOOL-001"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-CONTRACT-TOOL-002"
+semantic_id = "CARMADIO-CONTRACT-TOOL-002"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-TOOL-001"
+semantic_id = "CARMADIO-REQUIREMENT-TOOL-001"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-TOOL-002"
+semantic_id = "CARMADIO-REQUIREMENT-TOOL-002"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-TOOL-003"
+semantic_id = "CARMADIO-REQUIREMENT-TOOL-003"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-TOOL-004"
+semantic_id = "CARMADIO-REQUIREMENT-TOOL-004"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-TOOL-018"
+semantic_id = "CARMADIO-REQUIREMENT-TOOL-018"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-TOOL-019"
+semantic_id = "CARMADIO-REQUIREMENT-TOOL-019"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-TOOL-021"
+semantic_id = "CARMADIO-REQUIREMENT-TOOL-021"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-TOOL-022"
+semantic_id = "CARMADIO-REQUIREMENT-TOOL-022"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured]]
@@ -296,58 +296,58 @@ artifact_type = "implementation"
 artifact_subtype = "configuration"
 current_path = "00_project/migrations/legacy/skill-package.legacy.toml"
 current_sha256 = "a09e9873386e21282309c8d5a23fdefa33195877f11d1c11e95a4addddc309f0"
-transition_id = "DSET-CARRIER-TRANSITION-759BFF370D07CBD6"
+transition_id = "CARMADIO-CARRIER-TRANSITION-759BFF370D07CBD6"
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-CONTRACT-SKILL-001"
+semantic_id = "CARMADIO-CONTRACT-SKILL-001"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-CONTRACT-SKILL-002"
+semantic_id = "CARMADIO-CONTRACT-SKILL-002"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-SKILL-001"
+semantic_id = "CARMADIO-REQUIREMENT-SKILL-001"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-SKILL-002"
+semantic_id = "CARMADIO-REQUIREMENT-SKILL-002"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-SKILL-003"
+semantic_id = "CARMADIO-REQUIREMENT-SKILL-003"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-SKILL-004"
+semantic_id = "CARMADIO-REQUIREMENT-SKILL-004"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-SKILL-005"
+semantic_id = "CARMADIO-REQUIREMENT-SKILL-005"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-SKILL-006"
+semantic_id = "CARMADIO-REQUIREMENT-SKILL-006"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-SKILL-007"
+semantic_id = "CARMADIO-REQUIREMENT-SKILL-007"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-SKILL-008"
+semantic_id = "CARMADIO-REQUIREMENT-SKILL-008"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-SKILL-009"
+semantic_id = "CARMADIO-REQUIREMENT-SKILL-009"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-SKILL-010"
+semantic_id = "CARMADIO-REQUIREMENT-SKILL-010"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-SKILL-012"
+semantic_id = "CARMADIO-REQUIREMENT-SKILL-012"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured]]
@@ -358,42 +358,42 @@ artifact_type = "implementation"
 artifact_subtype = "configuration"
 current_path = "00_project/migrations/legacy/ops-package.legacy.toml"
 current_sha256 = "bfdd7bcbfe0f24e1df7c61d11480aabd8e61fed2118da45f537c7c0b91a3956c"
-transition_id = "DSET-CARRIER-TRANSITION-A595D6DA8C837C2C"
+transition_id = "CARMADIO-CARRIER-TRANSITION-A595D6DA8C837C2C"
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-CONTRACT-OPS-001"
+semantic_id = "CARMADIO-CONTRACT-OPS-001"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-OPS-001"
+semantic_id = "CARMADIO-REQUIREMENT-OPS-001"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-OPS-002"
+semantic_id = "CARMADIO-REQUIREMENT-OPS-002"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-OPS-003"
+semantic_id = "CARMADIO-REQUIREMENT-OPS-003"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-OPS-004"
+semantic_id = "CARMADIO-REQUIREMENT-OPS-004"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-OPS-005"
+semantic_id = "CARMADIO-REQUIREMENT-OPS-005"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-OPS-006"
+semantic_id = "CARMADIO-REQUIREMENT-OPS-006"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-OPS-007"
+semantic_id = "CARMADIO-REQUIREMENT-OPS-007"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-REQUIREMENT-OPS-013"
+semantic_id = "CARMADIO-REQUIREMENT-OPS-013"
 reason = "Selector-sealed legacy authority fragment."
 
 [[legacy_structured]]
@@ -404,14 +404,14 @@ artifact_type = "implementation"
 artifact_subtype = "configuration"
 current_path = "00_project/provenance.legacy.toml"
 current_sha256 = "cda083abe863c9515a4af9fc8421d5143b7c73213b0f8ee1e914fe8d4a805e60"
-transition_id = "DSET-CARRIER-TRANSITION-577AD7CA15578D8F"
+transition_id = "CARMADIO-CARRIER-TRANSITION-577AD7CA15578D8F"
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-DECISION-GOV-002"
+semantic_id = "CARMADIO-DECISION-GOV-002"
 reason = "Immutable Decision links the historical provenance carrier."
 
 [[legacy_structured.retained_for]]
-semantic_id = "DSET-DECISION-GOV-008"
+semantic_id = "CARMADIO-DECISION-GOV-008"
 reason = "Immutable Decision links the historical provenance carrier."
 
 [[legacy_structured.retained_for]]
@@ -434,7 +434,7 @@ artifact_type = "implementation"
 artifact_subtype = "configuration"
 current_path = "00_project/intake.legacy.toml"
 current_sha256 = "06e67cba2a873141d55e6ae8d635dd92febb8f44fbc4081748ab1f58a2092781"
-transition_id = "DSET-CARRIER-TRANSITION-F41CF947185B7C48"
+transition_id = "CARMADIO-CARRIER-TRANSITION-F41CF947185B7C48"
 
 [[legacy_structured.retained_for]]
 carrier_path = "00_project/evidence/archive/schema-self-application-audit-2026-07-15.md"
@@ -448,7 +448,7 @@ artifact_type = "implementation"
 artifact_subtype = "configuration"
 current_path = "10_versions/history/pull-requests.legacy.toml"
 current_sha256 = "dc1de968f66af5953b0892042f3d47e898f1e55573cb741688e4262f70961392"
-transition_id = "DSET-CARRIER-TRANSITION-86AABA1C59A70E14"
+transition_id = "CARMADIO-CARRIER-TRANSITION-86AABA1C59A70E14"
 
 [[legacy_structured.retained_for]]
 carrier_path = "10_versions/archive/2026-07-14-operationalize-dset-v1/proofs/github-delivery-evidence-2026-07-14.md"
@@ -462,7 +462,7 @@ artifact_type = "derived_view"
 artifact_subtype = "traceability_index"
 current_path = "00_project/generated/traceability.legacy.toml"
 current_sha256 = "3b5202a9c87a87b62181ce1e54c856e6a2c3728197cb66c4796165d632cd5be0"
-transition_id = "DSET-CARRIER-TRANSITION-C1ACD9A9D4BE2FF0"
+transition_id = "CARMADIO-CARRIER-TRANSITION-C1ACD9A9D4BE2FF0"
 
 [[legacy_structured.retained_for]]
 carrier_path = "10_versions/archive/2026-07-14-operationalize-dset-v1/proofs/github-delivery-evidence-2026-07-14.md"
@@ -476,7 +476,7 @@ artifact_type = "implementation"
 artifact_subtype = "migration"
 current_path = "00_project/migrations/migration-map.template.legacy.toml"
 current_sha256 = "9049a7f00277c02b45fad86e00f4b9923d1c9a9886ed12d5abb2d0a6d2f81a8a"
-transition_id = "DSET-CARRIER-TRANSITION-CCC00A129E103906"
+transition_id = "CARMADIO-CARRIER-TRANSITION-CCC00A129E103906"
 
 [[legacy_structured.retained_for]]
 carrier_path = "10_versions/archive/2026-07-14-operationalize-dset-v1/proofs/qualitative-evals-2026-07-14.md"

@@ -197,7 +197,7 @@ class ArtifactRelationTests(unittest.TestCase):
     def test_commit_trailers_form_typed_implementation_relations(self) -> None:
         root = repository_root(Path(__file__))
         rows = build_commit_implementation_relations(root)
-        matching = [row for row in rows if row["target"] == "DSET-REQUIREMENT-GOV-024"]
+        matching = [row for row in rows if row["target"] == "CARMADIO-REQUIREMENT-GOV-024"]
         self.assertTrue(matching)
         self.assertTrue(all(row["type"] == "implementation_of" for row in rows))
         self.assertTrue(matching[0]["llm_session_ids"])

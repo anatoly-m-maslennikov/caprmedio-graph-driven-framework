@@ -108,7 +108,7 @@ class GovernanceTests(unittest.TestCase):
         self.assertIn('"workflow_id": "domain-clarification"', output)
         self.assertIn('"customization": "unmodified"', output)
         self.assertIn('"status": "unavailable"', output)
-        self.assertIn("DSET-CONFLICT-RESOLUTION-UNAVAILABLE", output)
+        self.assertIn("CARMADIO-CONFLICT-RESOLUTION-UNAVAILABLE", output)
 
     def test_empty_conflicts_do_not_claim_resolution_coverage(self) -> None:
         resolved, diagnostics = resolve_workflow(self.root, "diagnosis")
@@ -120,7 +120,7 @@ class GovernanceTests(unittest.TestCase):
             {
                 "status": "unavailable",
                 "coverage": [],
-                "reason_code": "DSET-CONFLICT-RESOLUTION-UNAVAILABLE",
+                "reason_code": "CARMADIO-CONFLICT-RESOLUTION-UNAVAILABLE",
             },
         )
 
@@ -136,22 +136,22 @@ class GovernanceTests(unittest.TestCase):
 
     def test_registry_failure_codes_are_stable(self) -> None:
         cases = {
-            "missing-registry": ("DSET-E130", self._remove_registry),
-            "missing-owner": ("DSET-E131", self._missing_owner),
-            "duplicate-owner": ("DSET-E132", self._duplicate_owner),
-            "missing-document": ("DSET-E133", self._missing_document),
-            "outside-root": ("DSET-E134", self._outside_root),
-            "dependency-cycle": ("DSET-E135", self._dependency_cycle),
-            "precedence-cycle": ("DSET-E150", self._precedence_cycle),
-            "missing-precedence": ("DSET-E150", self._missing_precedence),
+            "missing-registry": ("CARMADIO-E130", self._remove_registry),
+            "missing-owner": ("CARMADIO-E131", self._missing_owner),
+            "duplicate-owner": ("CARMADIO-E132", self._duplicate_owner),
+            "missing-document": ("CARMADIO-E133", self._missing_document),
+            "outside-root": ("CARMADIO-E134", self._outside_root),
+            "dependency-cycle": ("CARMADIO-E135", self._dependency_cycle),
+            "precedence-cycle": ("CARMADIO-E150", self._precedence_cycle),
+            "missing-precedence": ("CARMADIO-E150", self._missing_precedence),
             "missing-precedence-owner": (
-                "DSET-E150",
+                "CARMADIO-E150",
                 self._missing_precedence_owner,
             ),
-            "backward-dependency": ("DSET-E151", self._backward_dependency),
-            "backward-precedence": ("DSET-E151", self._backward_precedence),
-            "incompatible-profile": ("DSET-E137", self._incompatible_profile),
-            "wrapper-mismatch": ("DSET-E138", self._wrapper_mismatch),
+            "backward-dependency": ("CARMADIO-E151", self._backward_dependency),
+            "backward-precedence": ("CARMADIO-E151", self._backward_precedence),
+            "incompatible-profile": ("CARMADIO-E137", self._incompatible_profile),
+            "wrapper-mismatch": ("CARMADIO-E138", self._wrapper_mismatch),
         }
         for name, (expected, mutation) in cases.items():
             with self.subTest(case=name), temporary_directory() as raw:
@@ -164,12 +164,12 @@ class GovernanceTests(unittest.TestCase):
     def test_unknown_workflow_is_stable(self) -> None:
         resolved, diagnostics = resolve_workflow(self.root, "unknown-workflow")
         self.assertIsNone(resolved)
-        self.assertEqual([item.code for item in diagnostics], ["DSET-E136"])
+        self.assertEqual([item.code for item in diagnostics], ["CARMADIO-E136"])
 
     def test_irreducible_backward_authority_proposes_features(self) -> None:
         self._backward_dependency(self.root)
         diagnostic = next(
-            item for item in validate_governance(self.root) if item.code == "DSET-E151"
+            item for item in validate_governance(self.root) if item.code == "CARMADIO-E151"
         )
         self.assertIn(
             "converting irreducible peer layers to features", diagnostic.message
@@ -179,7 +179,7 @@ class GovernanceTests(unittest.TestCase):
     def test_deprecated_grill_workflow_is_not_registered(self) -> None:
         resolved, diagnostics = resolve_workflow(self.root, "domain-grilling")
         self.assertIsNone(resolved)
-        self.assertEqual([item.code for item in diagnostics], ["DSET-E136"])
+        self.assertEqual([item.code for item in diagnostics], ["CARMADIO-E136"])
 
     def test_customization_changes_rules_not_wrapper(self) -> None:
         wrapper = self.root / "skills" / "dset-clarify" / "SKILL.md"
@@ -190,7 +190,7 @@ class GovernanceTests(unittest.TestCase):
             encoding="utf-8",
         )
         self.assertIn(
-            "DSET-E139", {item.code for item in validate_governance(self.root)}
+            "CARMADIO-E139", {item.code for item in validate_governance(self.root)}
         )
         refresh_customization(self.root)
         self.assertEqual(validate_governance(self.root), [])
@@ -227,7 +227,7 @@ class GovernanceTests(unittest.TestCase):
                 local_rule = next(
                     item
                     for item in cast(list[dict[str, Any]], resolved["rules"])
-                    if item["id"] == "DSET-RULE-DOMAIN-SPEC"
+                    if item["id"] == "CARMADIO-RULE-DOMAIN-SPEC"
                 )
                 wrapper = project / "skills" / "dset-clarify" / "SKILL.md"
                 results[label] = {
@@ -272,7 +272,7 @@ class GovernanceTests(unittest.TestCase):
             local_rule = next(
                 item
                 for item in cast(list[dict[str, Any]], resolved["rules"])
-                if item["id"] == "DSET-RULE-DOMAIN-SPEC"
+                if item["id"] == "CARMADIO-RULE-DOMAIN-SPEC"
             )
             local = target / str(local_rule["path"])
             self.assertIn("Establish ubiquitous language", local.read_text())
@@ -351,21 +351,21 @@ class GovernanceTests(unittest.TestCase):
         self.assertEqual(
             actual,
             {
-                "DSET-RULE-ARCHITECTURE": "GOV",
-                "DSET-RULE-ARTIFACT-CLASSIFICATION": "GOV",
-                "DSET-RULE-BUILD": "TOOL",
-                "DSET-RULE-DOMAIN-SPEC": "META",
-                "DSET-RULE-TEST-CASE": "META",
-                "DSET-RULE-EVALUATION-CASE": "META",
-                "DSET-RULE-SUPPORTABILITY": "OPS",
-                "DSET-RULE-ARTIFACT-MAINTENANCE": "GOV",
-                "DSET-RULE-WORK-ITEMS": "GOV",
-                "DSET-RULE-DELEGATION-BUDGET": "SKILL",
-                "DSET-RULE-SKILL-RUNS": "SKILL",
-                "DSET-RULE-RELEASE": "OPS",
-                "DSET-RULE-LIFECYCLE": "SKILL",
-                "DSET-RULE-DIAGNOSIS": "SKILL",
-                "DSET-RULE-PROTOTYPING": "SKILL",
+                "CARMADIO-RULE-ARCHITECTURE": "GOV",
+                "CARMADIO-RULE-ARTIFACT-CLASSIFICATION": "GOV",
+                "CARMADIO-RULE-BUILD": "TOOL",
+                "CARMADIO-RULE-DOMAIN-SPEC": "META",
+                "CARMADIO-RULE-TEST-CASE": "META",
+                "CARMADIO-RULE-EVALUATION-CASE": "META",
+                "CARMADIO-RULE-SUPPORTABILITY": "OPS",
+                "CARMADIO-RULE-ARTIFACT-MAINTENANCE": "GOV",
+                "CARMADIO-RULE-WORK-ITEMS": "GOV",
+                "CARMADIO-RULE-DELEGATION-BUDGET": "SKILL",
+                "CARMADIO-RULE-SKILL-RUNS": "SKILL",
+                "CARMADIO-RULE-RELEASE": "OPS",
+                "CARMADIO-RULE-LIFECYCLE": "SKILL",
+                "CARMADIO-RULE-DIAGNOSIS": "SKILL",
+                "CARMADIO-RULE-PROTOTYPING": "SKILL",
             },
         )
 
@@ -473,7 +473,7 @@ class GovernanceTests(unittest.TestCase):
         manifest = cast(dict[str, Any], load(layout.manifest_path))
         self.assertEqual(manifest["schema_version"], 1.1)
         self.assertEqual(manifest["project"]["key"], "DSET")
-        self.assertEqual(manifest["contracts"], ["DSET-CONTRACT-001"])
+        self.assertEqual(manifest["contracts"], ["CARMADIO-CONTRACT-001"])
         self.assertEqual(manifest["stories"], [])
         self.assertEqual(manifest["outcomes"], [])
         self.assertNotIn("delegation_budget", manifest["profiles"])
@@ -490,7 +490,7 @@ class GovernanceTests(unittest.TestCase):
             dict[str, Any],
             load(package_path),
         )
-        self.assertEqual(package["contracts"], ["DSET-CONTRACT-001"])
+        self.assertEqual(package["contracts"], ["CARMADIO-CONTRACT-001"])
         self.assertEqual(package["stories"], [])
         self.assertEqual(package["outcomes"], [])
         self.assertTrue(
@@ -507,7 +507,7 @@ class GovernanceTests(unittest.TestCase):
         release = next(
             rule
             for rule in cast(list[dict[str, Any]], registry["rules"])
-            if rule["id"] == "DSET-RULE-RELEASE"
+            if rule["id"] == "CARMADIO-RULE-RELEASE"
         )
         self.assertEqual(release["applicability"], "not-applicable")
         workflows = cast(list[dict[str, Any]], registry["workflows"])
@@ -517,7 +517,7 @@ class GovernanceTests(unittest.TestCase):
         self.assertFalse((self.root / "skills" / "dset-release").exists())
         self.assertTrue(
             all(
-                "DSET-RULE-RELEASE" not in cast(list[str], item["rules"])
+                "CARMADIO-RULE-RELEASE" not in cast(list[str], item["rules"])
                 for item in workflows
             )
         )
@@ -581,10 +581,10 @@ class GovernanceTests(unittest.TestCase):
         patterns = change_schema["$defs"]
         complete_pattern = patterns["trace_id"]["pattern"]
         for valid in (
-            "DSET-SCENARIO-META-001",
-            "DSET-INVARIANT-001",
-            "DSET-TASK-TOOL-001",
-            "DSET-CONTRACT-OPS-001",
+            "CARMADIO-SCENARIO-META-001",
+            "CARMADIO-INVARIANT-001",
+            "CARMADIO-TASK-TOOL-001",
+            "CARMADIO-CONTRACT-OPS-001",
             "ACME-STORY-SKILL-001",
             "ACME-OUTCOME-OPS-001",
             "ACME-CHANGE-SKILL-001",
@@ -593,7 +593,7 @@ class GovernanceTests(unittest.TestCase):
         self.assertIsNotNone(
             re.fullmatch(
                 patterns["requirement_ids"]["items"]["pattern"],
-                "DSET-REQUIREMENT-GOV-001",
+                "CARMADIO-REQUIREMENT-GOV-001",
             )
         )
         self.assertIsNotNone(
@@ -615,10 +615,10 @@ class GovernanceTests(unittest.TestCase):
             )
         )
         for invalid in (
-            "REQUIREMENT-DSET-GOV-001",
-            "DSET-REQUIREMENT-GOV-001",
-            "DSET-REQUIREMENT-GLOBAL-001",
-            "DSET-ADR-GOV-001",
+            "REQUIREMENT-CARMADIO-GOV-001",
+            "CARMADIO-REQUIREMENT-GOV-001",
+            "CARMADIO-REQUIREMENT-GLOBAL-001",
+            "CARMADIO-ADR-GOV-001",
         ):
             self.assertIsNone(
                 re.fullmatch(patterns["requirement_ids"]["items"]["pattern"], invalid)
@@ -642,7 +642,7 @@ class GovernanceTests(unittest.TestCase):
         for filename in ("spec.md", "test-plan.md", "contracts.md"):
             path = package_root / filename
             path.write_text(
-                path.read_text(encoding="utf-8").replace("DSET-", "ACME-"),
+                path.read_text(encoding="utf-8").replace("CARMADIO-", "ACME-"),
                 encoding="utf-8",
             )
         write_legacy_authority_ledger(self.root)
@@ -661,7 +661,7 @@ class GovernanceTests(unittest.TestCase):
         path = discover_layout(self.root).intake_path
         baseline = cast(dict[str, Any], load(path))
         valid: dict[str, Any] = {
-            "id": "DSET-QUESTION-GOV-001",
+            "id": "CARMADIO-QUESTION-GOV-001",
             "scope": "gov",
             "type": "question",
             "status": "open",
@@ -675,20 +675,20 @@ class GovernanceTests(unittest.TestCase):
         baseline["items"] = [valid]
         path.write_text(dump(baseline, path), encoding="utf-8")
         self.assertNotIn(
-            "DSET-E142", {item.code for item in validate_repository(self.root)}
+            "CARMADIO-E142", {item.code for item in validate_repository(self.root)}
         )
         invalid_cases = (
-            {**valid, "id": "DSET-PROBLEM-GOV-001"},
-            {**valid, "id": "DSET-QUESTION-GLOBAL-001"},
+            {**valid, "id": "CARMADIO-PROBLEM-GOV-001"},
+            {**valid, "id": "CARMADIO-QUESTION-GLOBAL-001"},
             {**valid, "scope": "tool"},
-            {**valid, "decision": "DSET-DECISION-TOOL-001"},
+            {**valid, "decision": "CARMADIO-DECISION-TOOL-001"},
         )
         for invalid in invalid_cases:
             with self.subTest(identifier=invalid["id"], scope=invalid["scope"]):
                 baseline["items"] = [invalid]
                 path.write_text(dump(baseline, path), encoding="utf-8")
                 self.assertIn(
-                    "DSET-E142", {item.code for item in validate_repository(self.root)}
+                    "CARMADIO-E142", {item.code for item in validate_repository(self.root)}
                 )
 
     def test_contract_template_requires_real_host_and_ci_proof(self) -> None:
@@ -705,12 +705,12 @@ class GovernanceTests(unittest.TestCase):
         self.assertEqual(
             contract_ids,
             [
-                "DSET-CONTRACT-META-001",
-                "DSET-CONTRACT-OPS-001",
-                "DSET-CONTRACT-SKILL-001",
-                "DSET-CONTRACT-SKILL-002",
-                "DSET-CONTRACT-TOOL-001",
-                "DSET-CONTRACT-TOOL-002",
+                "CARMADIO-CONTRACT-META-001",
+                "CARMADIO-CONTRACT-OPS-001",
+                "CARMADIO-CONTRACT-SKILL-001",
+                "CARMADIO-CONTRACT-SKILL-002",
+                "CARMADIO-CONTRACT-TOOL-001",
+                "CARMADIO-CONTRACT-TOOL-002",
             ],
         )
 
@@ -740,30 +740,30 @@ class GovernanceTests(unittest.TestCase):
             package_root, "package.toml"
         )
         manifest = cast(dict[str, Any], load(manifest_path))
-        manifest["stories"] = ["DSET-STORY-001"]
-        manifest["outcomes"] = ["DSET-OUTCOME-001"]
+        manifest["stories"] = ["CARMADIO-STORY-001"]
+        manifest["outcomes"] = ["CARMADIO-OUTCOME-001"]
         manifest_path.write_text(dump(manifest, manifest_path), encoding="utf-8")
         (package_root / "stories.md").write_text(
-            "# User Stories\n\n## DSET-STORY-001 — Incomplete\n\nActor only.\n",
+            "# User Stories\n\n## CARMADIO-STORY-001 — Incomplete\n\nActor only.\n",
             encoding="utf-8",
         )
         (package_root / "outcomes.md").write_text(
-            "# Outcomes\n\n## DSET-OUTCOME-001 — Incomplete\n\nTarget only.\n",
+            "# Outcomes\n\n## CARMADIO-OUTCOME-001 — Incomplete\n\nTarget only.\n",
             encoding="utf-8",
         )
         self.assertIn(
-            "DSET-E117", {item.code for item in validate_repository(self.root)}
+            "CARMADIO-E117", {item.code for item in validate_repository(self.root)}
         )
 
         (package_root / "stories.md").write_text(
             """# User Stories
 
-## DSET-STORY-001 — Contributor can validate
+## CARMADIO-STORY-001 — Contributor can validate
 
 - **Actor or stakeholder:** Contributor
 - **Desired capability or outcome:** Validate locally
 - **Value or purpose:** Catch errors early
-- **Linked Requirements:** DSET-REQUIREMENT-001
+- **Linked Requirements:** CARMADIO-REQUIREMENT-001
 - **Linked Scenarios:** Validation succeeds without external effects
 """,
             encoding="utf-8",
@@ -771,20 +771,20 @@ class GovernanceTests(unittest.TestCase):
         (package_root / "outcomes.md").write_text(
             """# Outcomes
 
-## DSET-OUTCOME-001 — Earlier feedback
+## CARMADIO-OUTCOME-001 — Earlier feedback
 
 - **Baseline:** Errors are found after review.
 - **Target:** Errors are found before review.
 - **Observation method/source:** Review and local validation timestamps.
 - **Evaluation window:** The next ten changes.
 - **Linked Problems/Opportunities:** Local feedback opportunity.
-- **Linked User Stories:** DSET-STORY-001.
+- **Linked User Stories:** CARMADIO-STORY-001.
 - **Linked Evals:** Review timing eval.
 """,
             encoding="utf-8",
         )
         self.assertNotIn(
-            "DSET-E117", {item.code for item in validate_repository(self.root)}
+            "CARMADIO-E117", {item.code for item in validate_repository(self.root)}
         )
 
     def test_wrappers_are_thin_and_registered(self) -> None:
@@ -835,15 +835,15 @@ class GovernanceTests(unittest.TestCase):
                 interface = cast(dict[str, Any], metadata["interface"])
                 self.assertTrue(interface["display_name"])
                 self.assertIn(f"${skill}", interface["default_prompt"])
-                self.assertIn("DSET-RULE-SKILL-RUNS", resolved_workflows[workflow])
-                self.assertIn("DSET-RULE-LIFECYCLE", resolved_workflows[workflow])
+                self.assertIn("CARMADIO-RULE-SKILL-RUNS", resolved_workflows[workflow])
+                self.assertIn("CARMADIO-RULE-LIFECYCLE", resolved_workflows[workflow])
 
     def test_manifest_and_template_boundaries_are_stable(self) -> None:
         with self.assertRaises(DsetCommandError) as captured:
             materialize_governance(ROOT, self.root, "missing-profile")
-        self.assertEqual(captured.exception.code, "DSET-E140")
+        self.assertEqual(captured.exception.code, "CARMADIO-E140")
         discover_layout(self.root).manifest_path.unlink()
-        self.assertEqual(validate_repository(self.root)[0].code, "DSET-E001")
+        self.assertEqual(validate_repository(self.root)[0].code, "CARMADIO-E001")
 
     def test_comparison_and_decision_templates_separate_selection(self) -> None:
         layout = discover_layout(ROOT)
@@ -1002,11 +1002,11 @@ class GovernanceTests(unittest.TestCase):
         tool = (ROOT / ".dset/03_layer_tool/specification-methodology.md").read_text(
             encoding="utf-8"
         )
-        self.assertIn("DSET-REQUIREMENT-GOV-024", gov)
-        self.assertIn("DSET-REQUIREMENT-GOV-025", gov)
-        self.assertIn("DSET-REQUIREMENT-GOV-026", gov)
-        self.assertIn("DSET-REQUIREMENT-TOOL-018", tool)
-        self.assertIn("DSET-REQUIREMENT-TOOL-019", tool)
+        self.assertIn("CARMADIO-REQUIREMENT-GOV-024", gov)
+        self.assertIn("CARMADIO-REQUIREMENT-GOV-025", gov)
+        self.assertIn("CARMADIO-REQUIREMENT-GOV-026", gov)
+        self.assertIn("CARMADIO-REQUIREMENT-TOOL-018", tool)
+        self.assertIn("CARMADIO-REQUIREMENT-TOOL-019", tool)
         self.assertIn("portable Markdown", tool)
 
         archived_ids: set[str] = set()
@@ -1022,10 +1022,10 @@ class GovernanceTests(unittest.TestCase):
                 archived_ids.update(cast(list[str], manifest.get(group, [])))
         self.assertTrue(
             {
-                "DSET-REQUIREMENT-TOOL-018",
-                "DSET-REQUIREMENT-TOOL-019",
-                "DSET-TEST-CASE-TOOL-018",
-                "DSET-TEST-CASE-TOOL-019",
+                "CARMADIO-REQUIREMENT-TOOL-018",
+                "CARMADIO-REQUIREMENT-TOOL-019",
+                "CARMADIO-TEST-CASE-TOOL-018",
+                "CARMADIO-TEST-CASE-TOOL-019",
             }.isdisjoint(archived_ids)
         )
 
@@ -1114,7 +1114,7 @@ class GovernanceTests(unittest.TestCase):
     @classmethod
     def _missing_precedence_owner(cls, root: Path) -> None:
         _, data = cls._registry(root)
-        data["rules"][0]["precedence_over"] = ["DSET-RULE-MISSING"]
+        data["rules"][0]["precedence_over"] = ["CARMADIO-RULE-MISSING"]
         cls._write_registry(root, data)
 
     @classmethod

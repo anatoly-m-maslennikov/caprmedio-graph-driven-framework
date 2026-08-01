@@ -9,8 +9,8 @@
   invocation and hosted cross-platform proof remain separate open gates.
 - **Evaluated commit:**
   `f42fe8736645833e3c709b17b799e991e45ee9a0`
-- **Decision:** `DSET-DECISION-SKILL-002`
-- **Task:** `DSET-TASK-SKILL-022`
+- **Decision:** `CARMADIO-DECISION-SKILL-002`
+- **Task:** `CARMADIO-TASK-SKILL-022`
 - **LLM session IDs:**
   - `codex:019f591f-04f6-70f2-8de7-828b7cccc69d`
 
@@ -65,8 +65,8 @@ bootstrap inclusion, host installation, receipt workflow identity, and tests.
 
 This proof does not claim a successful authenticated Codex or Claude inference,
 host-native invocation receipt, hosted Linux/macOS/native-Windows/WSL run, or
-release publication. Those remain governed by `DSET-TASK-SKILL-020`,
-`DSET-TASK-TOOL-036`, and `DSET-TASK-OPS-025`.
+release publication. Those remain governed by `CARMADIO-TASK-SKILL-020`,
+`CARMADIO-TASK-TOOL-036`, and `CARMADIO-TASK-OPS-025`.
 
 Reopen this proof when any public skill, workflow registration, invocation
 marker, bootstrap bundle, distribution logic, governance applicability, host

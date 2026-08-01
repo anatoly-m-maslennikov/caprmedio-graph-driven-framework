@@ -4,11 +4,11 @@
 
 | Capability | Requirement/test IDs | Needed behavior |
 |---|---|---|
-| Project/change validation | `DSET-REQUIREMENT-TOOL-001`, `DSET-REQUIREMENT-TOOL-002`; `DSET-TEST-CASE-TOOL-001`, `DSET-TEST-CASE-TOOL-002` | Cross-platform, deterministic, actionable diagnostics |
-| Scaffolding and archive safety | `DSET-REQUIREMENT-TOOL-001`, `DSET-REQUIREMENT-TOOL-004`; `DSET-TEST-CASE-TOOL-003`, `DSET-TEST-CASE-TOOL-005` | Explicit writes, no overwrite, lifecycle gates |
-| Traceability generation | `DSET-REQUIREMENT-TOOL-003`; `DSET-TEST-CASE-TOOL-004` | Stable output from committed metadata and PR identity |
-| Agent workflows | `DSET-REQUIREMENT-SKILL-001`; `DSET-TEST-CASE-SKILL-001`; `DSET-EVALUATION-CASE-SKILL-001` | Three distinct, portable, concise skills |
-| Delivery diagnostics | `DSET-REQUIREMENT-OPS-007`; `DSET-TEST-CASE-OPS-007`; `DSET-EVALUATION-CASE-OPS-005` | GitHub-hosted evidence and recovery routing |
+| Project/change validation | `CARMADIO-REQUIREMENT-TOOL-001`, `CARMADIO-REQUIREMENT-TOOL-002`; `CARMADIO-TEST-CASE-TOOL-001`, `CARMADIO-TEST-CASE-TOOL-002` | Cross-platform, deterministic, actionable diagnostics |
+| Scaffolding and archive safety | `CARMADIO-REQUIREMENT-TOOL-001`, `CARMADIO-REQUIREMENT-TOOL-004`; `CARMADIO-TEST-CASE-TOOL-003`, `CARMADIO-TEST-CASE-TOOL-005` | Explicit writes, no overwrite, lifecycle gates |
+| Traceability generation | `CARMADIO-REQUIREMENT-TOOL-003`; `CARMADIO-TEST-CASE-TOOL-004` | Stable output from committed metadata and PR identity |
+| Agent workflows | `CARMADIO-REQUIREMENT-SKILL-001`; `CARMADIO-TEST-CASE-SKILL-001`; `CARMADIO-EVALUATION-CASE-SKILL-001` | Three distinct, portable, concise skills |
+| Delivery diagnostics | `CARMADIO-REQUIREMENT-OPS-007`; `CARMADIO-TEST-CASE-OPS-007`; `CARMADIO-EVALUATION-CASE-OPS-005` | GitHub-hosted evidence and recovery routing |
 
 ## Candidates
 

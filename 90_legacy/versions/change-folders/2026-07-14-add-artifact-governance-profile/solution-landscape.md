@@ -17,7 +17,7 @@
 | Treat documentation as another language profile | Reuses the existing profile concept but conflates toolchain/language gates with knowledge architecture | Reject |
 | One large documentation standard | Centralizes rules but recreates the navigation and mixed-ownership problem | Reject |
 | Author-owned knowledge-governance patterns | Existing practice separates hubs, active rules, rationale, playbooks, decisions, and history, with parent-tree validation | Adapt |
-| DSET-native artifact profiles plus GitHub hubs | Preserves the useful separation while using portable Markdown links and repository-owned schemas/validation | Build |
+| CARMADIO-native artifact profiles plus GitHub hubs | Preserves the useful separation while using portable Markdown links and repository-owned schemas/validation | Build |
 
 ## Decision
 

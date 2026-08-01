@@ -73,7 +73,7 @@ class SelfHostTests(unittest.TestCase):
             self.assertRaises(DsetCommandError) as captured,
         ):
             run_self_host(ROOT, Path(raw), released_ref="0" * 40)
-        self.assertEqual(captured.exception.code, "DSET-E140")
+        self.assertEqual(captured.exception.code, "CARMADIO-E140")
 
     def test_bad_candidate_command_fails_before_adopter(self) -> None:
         with (
@@ -85,7 +85,7 @@ class SelfHostTests(unittest.TestCase):
                 Path(raw),
                 candidate_command=["missing-dset-candidate"],
             )
-        self.assertEqual(captured.exception.code, "DSET-E141")
+        self.assertEqual(captured.exception.code, "CARMADIO-E141")
 
     def test_parallel_cli_runs_keep_temporary_adopters_outside_repository(self) -> None:
         patterns = ("dset-init-*", "dset-source-*", "dset-self-host-*")

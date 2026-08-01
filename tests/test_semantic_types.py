@@ -72,18 +72,18 @@ class SemanticTypeClassificationTests(unittest.TestCase):
     def test_repository_uses_canonical_ids_across_carrier_generations(self) -> None:
         rows = {item["id"]: item for item in build_semantic_classification_index(ROOT)}
 
-        opportunity = rows["DSET-OPPORTUNITY-GOV-001"]
+        opportunity = rows["CARMADIO-OPPORTUNITY-GOV-001"]
         self.assertEqual(
             (opportunity["type"], opportunity["subtype"]), ("question", "opportunity")
         )
         self.assertFalse(opportunity["historical_carrier"])
-        evaluation = rows["DSET-EVALUATION-CASE-OPS-001"]
+        evaluation = rows["CARMADIO-EVALUATION-CASE-OPS-001"]
         self.assertEqual(
             (evaluation["type"], evaluation["subtype"]),
             ("qa", "evaluation_case"),
         )
         self.assertTrue(evaluation["historical_carrier"])
-        requirement = rows["DSET-REQUIREMENT-GOV-035"]
+        requirement = rows["CARMADIO-REQUIREMENT-GOV-035"]
         self.assertEqual(
             (requirement["type"], requirement["subtype"]),
             ("decision", "requirement"),
@@ -97,16 +97,16 @@ class SemanticTypeClassificationTests(unittest.TestCase):
             carrier = (
                 discover_layout(root).project_root
                 / "question"
-                / "DSET-PROBLEM-GOV-001-mismatched-kind.md"
+                / "CARMADIO-PROBLEM-GOV-001-mismatched-kind.md"
             )
             carrier.parent.mkdir(parents=True, exist_ok=True)
             carrier.write_text(
                 """+++
 artifact_type = "atomic_record"
-artifact_id = "DSET-ATOMIC-RECORD-TEST"
+artifact_id = "CARMADIO-ATOMIC-RECORD-TEST"
 type = "question"
 subtype = "opportunity"
-semantic_id = "DSET-PROBLEM-GOV-001"
+semantic_id = "CARMADIO-PROBLEM-GOV-001"
 status = "open"
 +++
 
@@ -122,7 +122,7 @@ status = "open"
 
             self.assertIn(
                 "semantic ID kind disagrees with carrier classification: "
-                "DSET-PROBLEM-GOV-001",
+                "CARMADIO-PROBLEM-GOV-001",
                 messages,
             )
 

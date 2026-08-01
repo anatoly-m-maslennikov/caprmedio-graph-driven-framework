@@ -89,7 +89,7 @@ class FixtureTests(unittest.TestCase):
             data["contracts"] = []
             manifest.write_text(dump(data, manifest), encoding="utf-8")
             self.assertIn(
-                "DSET-E106",
+                "CARMADIO-E106",
                 {
                     item.code
                     for item in validate_change(project, change, archived=False)

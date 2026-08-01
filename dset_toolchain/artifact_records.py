@@ -65,7 +65,7 @@ def collect_atomic_artifact_records(
     settings, settings_issues = load_project_settings(root)
     if settings_issues:
         return {}, [
-            Diagnostic("DSET-E169", root / ".dset/dset_settings.toml", issue)
+            Diagnostic("CARMADIO-E169", root / ".dset/dset_settings.toml", issue)
             for issue in settings_issues
         ]
     priorities = {*settings.priority_scale, "unknown"}
@@ -86,7 +86,7 @@ def collect_atomic_artifact_records(
         if record.semantic_id in records:
             diagnostics.append(
                 Diagnostic(
-                    "DSET-E170",
+                    "CARMADIO-E170",
                     path,
                     f"duplicate atomic semantic identity: {record.semantic_id}",
                 )
@@ -95,7 +95,7 @@ def collect_atomic_artifact_records(
         if record.carrier_id in carrier_ids:
             diagnostics.append(
                 Diagnostic(
-                    "DSET-E170",
+                    "CARMADIO-E170",
                     path,
                     f"duplicate atomic carrier identity: {record.carrier_id}",
                 )
@@ -214,7 +214,7 @@ def _parse_record(
     priorities: set[str],
 ) -> tuple[AtomicArtifactRecord | None, list[Diagnostic]]:
     diagnostics = [
-        Diagnostic("DSET-E169", path, issue) for issue in route_issues(metadata)
+        Diagnostic("CARMADIO-E169", path, issue) for issue in route_issues(metadata)
     ]
     derived = type_route(metadata) is not None
     carrier_id = metadata.get("artifact_id")
@@ -224,28 +224,28 @@ def _parse_record(
     sessions = metadata.get("llm_session_ids")
     if not derived and metadata.get("revision_mode") != "atomic":
         diagnostics.append(
-            Diagnostic("DSET-E169", path, "atomic carrier requires revision_mode atomic")
+            Diagnostic("CARMADIO-E169", path, "atomic carrier requires revision_mode atomic")
         )
     if not isinstance(semantic_id, str) or ARTIFACT_ID.fullmatch(semantic_id) is None:
         diagnostics.append(
-            Diagnostic("DSET-E170", path, "atomic carrier requires semantic_id")
+            Diagnostic("CARMADIO-E170", path, "atomic carrier requires semantic_id")
         )
     if not isinstance(carrier_id, str) or ARTIFACT_ID.fullmatch(carrier_id) is None:
         diagnostics.append(
-            Diagnostic("DSET-E170", path, "atomic carrier requires artifact_id")
+            Diagnostic("CARMADIO-E170", path, "atomic carrier requires artifact_id")
         )
     if status not in {"proposed", "accepted"}:
         diagnostics.append(
-            Diagnostic("DSET-E170", path, "atomic status must be proposed or accepted")
+            Diagnostic("CARMADIO-E170", path, "atomic status must be proposed or accepted")
         )
     if priority not in priorities:
         diagnostics.append(
-            Diagnostic("DSET-E170", path, "atomic priority is not in project scale")
+            Diagnostic("CARMADIO-E170", path, "atomic priority is not in project scale")
         )
     if not _valid_sessions(sessions):
         diagnostics.append(
             Diagnostic(
-                "DSET-E170",
+                "CARMADIO-E170",
                 path,
                 "atomic carrier requires unique provider-prefixed llm_session_ids",
             )

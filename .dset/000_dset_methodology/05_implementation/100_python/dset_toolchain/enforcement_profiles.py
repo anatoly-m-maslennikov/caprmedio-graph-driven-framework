@@ -405,4 +405,4 @@ def _https(value: object) -> bool:
 
 
 def _diag(path: Path, message: str) -> Diagnostic:
-    return Diagnostic("DSET-E167", path, message)
+    return Diagnostic("CARMADIO-E167", path, message)

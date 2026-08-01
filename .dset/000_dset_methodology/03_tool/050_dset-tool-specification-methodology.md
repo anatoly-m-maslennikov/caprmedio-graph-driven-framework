@@ -1,6 +1,6 @@
 # Methodology TOOL specification
 
-## DSET-DECISION-TOOL-001 — Portable text-byte policy
+## CARMADIO-DECISION-TOOL-001 — Portable text-byte policy
 
 The repository pins Git-controlled text worktree content to LF with the root
 policy `* text=auto eol=lf`. The checkout boundary therefore preserves the
@@ -8,29 +8,29 @@ byte identity of immutable carriers on Linux, macOS, native Windows, and WSL
 without weakening carrier-digest validation. Content detected as binary is not
 line-ending normalized.
 
-This Decision replaces `DSET-DECISION-OPS-008`. Repository byte normalization
+This Decision replaces `CARMADIO-DECISION-OPS-008`. Repository byte normalization
 is TOOL configuration; concrete byte-sensitive Test implementation belongs to
 IMPL, and hosted cross-platform execution evidence belongs to OPS.
 
-## DSET-REQUIREMENT-TOOL-001 — The canonical workflow is executable
+## CARMADIO-REQUIREMENT-TOOL-001 — The canonical workflow is executable
 
 The framework must provide one cross-platform CLI with `new`, `check`, `verify`, `trace`, and guarded `archive` commands. `check` is dependency-light and read-only; every write is explicit and refuses an existing destination.
 
-**Scenario DSET-SCENARIO-TOOL-001:** A contributor can run `python -m dset_toolchain check .` without installing OpenSpec or a second methodology and receives stable diagnostic codes for malformed artifacts.
+**Scenario CARMADIO-SCENARIO-TOOL-001:** A contributor can run `python -m dset_toolchain check .` without installing OpenSpec or a second methodology and receives stable diagnostic codes for malformed artifacts.
 
-## DSET-REQUIREMENT-TOOL-002 — Traceability is generated from durable identities
+## CARMADIO-REQUIREMENT-TOOL-002 — Traceability is generated from durable identities
 
 `.dset_runtime/generated/traceability.toml` must be generated in stable order from committed change manifests and repository-qualified PR references. It may cache evidence relationships but must not replace GitHub as owner of PR state, checks, diffs, or merge results.
 
-**Scenario DSET-SCENARIO-TOOL-002:** Regeneration without source changes produces no diff, and every archived change resolves to the PR that owns its implementation history.
+**Scenario CARMADIO-SCENARIO-TOOL-002:** Regeneration without source changes produces no diff, and every archived change resolves to the PR that owns its implementation history.
 
-## DSET-REQUIREMENT-TOOL-003 — Archive writes are guarded
+## CARMADIO-REQUIREMENT-TOOL-003 — Archive writes are guarded
 
 Archive execution must require complete profile artifacts, fresh verification, accepted-truth reconciliation, an archive-ready status, a real PR identity, and a free dated destination. Dry-run is the default.
 
-**Scenario DSET-SCENARIO-TOOL-003:** A proposed, failed, incomplete, PR-less, or colliding change remains active and no archive path is overwritten.
+**Scenario CARMADIO-SCENARIO-TOOL-003:** A proposed, failed, incomplete, PR-less, or colliding change remains active and no archive path is overwritten.
 
-## DSET-REQUIREMENT-TOOL-004 — DSET 0.3 self-hosting is bounded
+## CARMADIO-REQUIREMENT-TOOL-004 — DSET 0.3 self-hosting is bounded
 
 The DSET 0.3 self-hosting gate must have exactly three bounded levels: the last
 released validator checks the candidate change; the candidate checks this
@@ -40,12 +40,12 @@ validator records its exact rejection as degraded assurance rather than a pass;
 the candidate and temporary adopter still must pass. The temporary adopter must
 not create another adopter or traverse unrelated nested DSET roots.
 
-**Scenario DSET-SCENARIO-TOOL-004:** One release run records released-to-candidate
+**Scenario CARMADIO-SCENARIO-TOOL-004:** One release run records released-to-candidate
 as pass or an explicitly declared bootstrap-transition rejection, requires
 candidate-to-repository and candidate-to-temporary-adopter to pass, then
 terminates at the declared fixed point.
 
-## DSET-REQUIREMENT-TOOL-018 — Project health has a portable deterministic renderer
+## CARMADIO-REQUIREMENT-TOOL-018 — Project health has a portable deterministic renderer
 
 The toolchain must compute the project-health model from discovered canonical
 artifacts, registry ownership, traceability, Git identities, and current proof
@@ -55,12 +55,12 @@ and a check mode detects staleness. Repository, layer, package, and Work Area
 drill-downs use the same source model. A later local or hosted dashboard may
 render that model but cannot introduce private health state or new authority.
 
-**Scenario DSET-SCENARIO-TOOL-018:** Two runs over unchanged inputs produce the
+**Scenario CARMADIO-SCENARIO-TOOL-018:** Two runs over unchanged inputs produce the
 same Markdown bytes. A changed Requirement makes check mode report the view
 stale, explicit refresh updates only the generated health destination, and
 every row links back to a canonical artifact or an explicit unknown.
 
-## DSET-REQUIREMENT-TOOL-019 — Priority conflict resolution is deterministic
+## CARMADIO-REQUIREMENT-TOOL-019 — Priority conflict resolution is deterministic
 
 The toolchain must evaluate candidate incompatibilities between any governed
 artifacts. It first resolves each atom's semantic Type and direct subtype plus
@@ -111,7 +111,7 @@ an authorized compiler may update only declared evergreen projections.
 Reprioritization or input changes invalidate the affected resolution and health
 projection.
 
-**Scenario DSET-SCENARIO-TOOL-019:** A Requirement and project-owned Contract
+**Scenario CARMADIO-SCENARIO-TOOL-019:** A Requirement and project-owned Contract
 conflict over one selectable output field. With no explicit-precedence result,
 the higher-priority Contract governs that field and a resolution record is
 emitted. Changing either priority makes check mode mark the record stale; equal
@@ -122,7 +122,7 @@ stale-projection/recompile disposition; a Test/spec fixture emits an
 assurance-change disposition rather than selecting the Test. A successor atom
 beats an absorbed predecessor by lifecycle relation rather than age.
 
-## DSET-REQUIREMENT-TOOL-021 — TypeScript enforcement starts as an evidence-derived candidate
+## CARMADIO-REQUIREMENT-TOOL-021 — TypeScript enforcement starts as an evidence-derived candidate
 
 DSET must distribute an executable `typescript-v1-candidate` profile derived
 from an exact owned Your Harness revision. It maps all six language-neutral
@@ -137,12 +137,12 @@ promotion criteria. It remains candidate until the owned pilot passes its
 complete local and required hosted proof. Product-specific behavior and
 governance never become language defaults.
 
-**Scenario DSET-SCENARIO-TOOL-021:** The pinned pilot has known lint and typing
+**Scenario CARMADIO-SCENARIO-TOOL-021:** The pinned pilot has known lint and typing
 failures plus advisory complexity warnings. Target inspection reports the hard
 failures as blockers, accepts only the warning counts as a shrink-only ratchet,
 and rejects promotion to `typescript-v1` until the pilot is green.
 
-## DSET-REQUIREMENT-TOOL-022 — Profile references and applied instances are distinct
+## CARMADIO-REQUIREMENT-TOOL-022 — Profile references and applied instances are distinct
 
 The framework's evidence-derived candidate is a `reference`: it preserves the
 pinned pilot and six neutral gate categories for comparison but is not adopter
@@ -156,7 +156,7 @@ distributed reference fails closed; the framework source may resolve the
 reference for read-only comparison. Concrete OYOHA product, Obsidian, delivery,
 supportability, and debt fields never become TypeScript defaults.
 
-**Scenario DSET-SCENARIO-TOOL-022:** A clean adopter receives the framework
+**Scenario CARMADIO-SCENARIO-TOOL-022:** A clean adopter receives the framework
 bundle but has not materialized a local TypeScript profile. Profile resolution
 stops and names the missing project-owned instance. After the adopter writes an
 applied instance with its reference origin, the same profile ID resolves

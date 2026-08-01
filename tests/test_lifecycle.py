@@ -61,7 +61,7 @@ class LifecycleClosureTests(unittest.TestCase):
             workflow_id="decisions",
         )
         self.assertEqual(closure["status"], "blocked")
-        self.assertEqual(closure["reason_code"], "DSET-RUNTIME-CRITERIA-UNKNOWN")
+        self.assertEqual(closure["reason_code"], "CARMADIO-RUNTIME-CRITERIA-UNKNOWN")
 
         closure = advance_closure(
             closure,
@@ -82,12 +82,12 @@ class LifecycleClosureTests(unittest.TestCase):
             initial, workflow_id="decisions", child_status="failed"
         )
         self.assertEqual(failed["status"], "stopped")
-        self.assertEqual(failed["reason_code"], "DSET-RUNTIME-CHILD-FAILED")
+        self.assertEqual(failed["reason_code"], "CARMADIO-RUNTIME-CHILD-FAILED")
 
         blocked = advance_closure(initial, workflow_id="decisions")
         stopped = advance_closure(blocked, observations={"proof_plan_complete": None})
         self.assertEqual(stopped["status"], "stopped")
-        self.assertEqual(stopped["reason_code"], "DSET-RUNTIME-NO-PROGRESS")
+        self.assertEqual(stopped["reason_code"], "CARMADIO-RUNTIME-NO-PROGRESS")
 
     def test_direct_skill_has_no_prerequisite_closure(self) -> None:
         direct = initial_closure("dset-verify", "verify")
@@ -111,7 +111,7 @@ class LifecycleClosureTests(unittest.TestCase):
         )
         self.assertEqual(insufficient["status"], "stopped")
         self.assertEqual(
-            insufficient["reason_code"], "DSET-RUNTIME-STRICT-INPUTS-INSUFFICIENT"
+            insufficient["reason_code"], "CARMADIO-RUNTIME-STRICT-INPUTS-INSUFFICIENT"
         )
 
         authorization = advance_closure(
@@ -122,7 +122,7 @@ class LifecycleClosureTests(unittest.TestCase):
         )
         self.assertEqual(authorization["status"], "authorization-required")
         self.assertEqual(
-            authorization["reason_code"], "DSET-RUNTIME-AUTHORIZATION-REQUIRED"
+            authorization["reason_code"], "CARMADIO-RUNTIME-AUTHORIZATION-REQUIRED"
         )
 
 

@@ -58,7 +58,7 @@ class EnforcementProfileTests(unittest.TestCase):
         self.assertEqual({item["id"] for item in gates}, set(GATE_IDS))
         self.assertEqual(self.profile["warning_baseline"]["warning_count"], 203)
         self.assertEqual(self.profile["warning_baseline"]["error_count"], 0)
-        self.assertIn("OYOHA-DSET-001", self.profile["known_blockers"])
+        self.assertIn("OYOHA-CARMADIO-001", self.profile["known_blockers"])
         observed = cast(dict[str, Any], self.profile["observed"])
         ci = cast(dict[str, Any], observed["ci"])
         self.assertEqual(ci["active_workflows"], 0)

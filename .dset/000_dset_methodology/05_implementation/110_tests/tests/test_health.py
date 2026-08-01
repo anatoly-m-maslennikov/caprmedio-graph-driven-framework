@@ -114,26 +114,26 @@ class ProjectHealthTests(unittest.TestCase):
         tests = data["tests"]
         assert isinstance(requirements, list)
         assert isinstance(tests, list)
-        requirements.append("DSET-REQUIREMENT-999")
-        tests.append("DSET-TEST-CASE-999")
+        requirements.append("CARMADIO-REQUIREMENT-999")
+        tests.append("CARMADIO-TEST-CASE-999")
         manifest.write_text(dump(data, manifest), encoding="utf-8")
 
         spec = self.root / "dset/specs/packages/sample/spec.md"
         spec.write_text(
             spec.read_text(encoding="utf-8")
-            + "\nLoose reference to DSET-REQUIREMENT-999.\n",
+            + "\nLoose reference to CARMADIO-REQUIREMENT-999.\n",
             encoding="utf-8",
         )
         test_plan = self.root / "dset/specs/packages/sample/test-plan.md"
         test_plan.write_text(
             test_plan.read_text(encoding="utf-8")
-            + "\nDSET-TEST-CASE-999 mentions DSET-REQUIREMENT-999.\n",
+            + "\nCARMADIO-TEST-CASE-999 mentions CARMADIO-REQUIREMENT-999.\n",
             encoding="utf-8",
         )
         proofs = self.root / "dset/changes/sample/proofs"
         proofs.mkdir(parents=True, exist_ok=True)
         (proofs / "mention.md").write_text(
-            "DSET-TEST-CASE-999 is mentioned without an evidence_for relation.\n",
+            "CARMADIO-TEST-CASE-999 is mentioned without an evidence_for relation.\n",
             encoding="utf-8",
         )
 
@@ -144,12 +144,12 @@ class ProjectHealthTests(unittest.TestCase):
         compiled = coverage["Decision authority compiled into evergreen truth"]
         checked = coverage["Applicable authority connected to Test or Evaluation"]
         evidenced = coverage["QA definitions connected to current evidence"]
-        self.assertIn("DSET-REQUIREMENT-999", compiled.gaps)
-        self.assertIn("DSET-REQUIREMENT-999", checked.gaps)
-        self.assertIn("DSET-TEST-CASE-999", evidenced.gaps)
+        self.assertIn("CARMADIO-REQUIREMENT-999", compiled.gaps)
+        self.assertIn("CARMADIO-REQUIREMENT-999", checked.gaps)
+        self.assertIn("CARMADIO-TEST-CASE-999", evidenced.gaps)
 
     def test_inactive_qa_is_excluded_from_current_evidence_coverage(self) -> None:
-        identifier = "DSET-TEST-CASE-998"
+        identifier = "CARMADIO-TEST-CASE-998"
         atom = SimpleNamespace(
             semantic_id=identifier,
             semantic_type="qa",
@@ -179,11 +179,11 @@ class ProjectHealthTests(unittest.TestCase):
             "release_record",
         )
         for sequence, subtype in enumerate(subtypes, start=900):
-            (folder / f"DSET-VERSION-{sequence}.md").write_text(
+            (folder / f"CARMADIO-VERSION-{sequence}.md").write_text(
                 "+++\n"
                 'artifact_type = "version"\n'
                 f'artifact_subtype = "{subtype}"\n'
-                f'artifact_id = "DSET-VERSION-{sequence}"\n'
+                f'artifact_id = "CARMADIO-VERSION-{sequence}"\n'
                 'priority = "medium"\n'
                 "llm_session_ids = []\n"
                 "+++\n",

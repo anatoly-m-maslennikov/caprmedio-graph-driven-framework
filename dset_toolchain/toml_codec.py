@@ -1,4 +1,4 @@
-"""Small, deterministic TOML codec for DSET-owned artifacts.
+"""Small, deterministic TOML codec for CARMADIO-owned artifacts.
 
 The project supports Python 3.10 without a runtime dependency.  Python 3.11
 and later use :mod:`tomllib`; the fallback deliberately implements the stable

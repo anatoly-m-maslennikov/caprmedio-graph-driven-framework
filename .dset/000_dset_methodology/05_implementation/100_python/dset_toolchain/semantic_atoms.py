@@ -109,7 +109,7 @@ def collect_semantic_atoms(
         if previous is not None:
             diagnostics.append(
                 Diagnostic(
-                    "DSET-E159",
+                    "CARMADIO-E159",
                     path,
                     f"duplicate semantic atom ID: {atom.semantic_id}",
                 )
@@ -481,7 +481,7 @@ def _validate_lifecycle(
     try:
         events = _lifecycle_events(root)
     except (OSError, UnicodeError, ValueError, StructuredDataError) as error:
-        return [Diagnostic("DSET-E160", path, f"invalid lifecycle registry: {error}")]
+        return [Diagnostic("CARMADIO-E160", path, f"invalid lifecycle registry: {error}")]
     diagnostics: list[Diagnostic] = []
     seen: set[str] = set()
     normalized_events: list[dict[str, Any]] = []
@@ -489,19 +489,19 @@ def _validate_lifecycle(
         try:
             normalized = _validate_event(root, event, known_ids)
         except ValueError as error:
-            diagnostics.append(Diagnostic("DSET-E160", path, str(error)))
+            diagnostics.append(Diagnostic("CARMADIO-E160", path, str(error)))
             continue
         normalized_events.append(normalized)
         event_id = str(normalized["id"])
         if event_id in seen:
             diagnostics.append(
-                Diagnostic("DSET-E160", path, f"duplicate lifecycle event: {event_id}")
+                Diagnostic("CARMADIO-E160", path, f"duplicate lifecycle event: {event_id}")
             )
         seen.add(event_id)
     try:
         _validate_event_graph(normalized_events, initial_statuses)
     except ValueError as error:
-        diagnostics.append(Diagnostic("DSET-E160", path, str(error)))
+        diagnostics.append(Diagnostic("CARMADIO-E160", path, str(error)))
     return diagnostics
 
 
@@ -708,36 +708,36 @@ def _validate_ledger(root: Path, atoms: dict[str, SemanticAtom]) -> list[Diagnos
     path = _ledger_path(root)
     if not path.is_file():
         if atoms:
-            return [Diagnostic("DSET-E161", path, "semantic atom ledger is missing")]
+            return [Diagnostic("CARMADIO-E161", path, "semantic atom ledger is missing")]
         return []
     try:
         data = load(path)
     except (OSError, UnicodeError, StructuredDataError) as error:
-        return [Diagnostic("DSET-E161", path, f"invalid atom ledger: {error}")]
+        return [Diagnostic("CARMADIO-E161", path, f"invalid atom ledger: {error}")]
     records = data.get("records") if isinstance(data, dict) else None
     if not isinstance(data, dict) or str(data.get("schema_version")) != "1.0":
-        return [Diagnostic("DSET-E161", path, "atom ledger schema_version must be 1.0")]
+        return [Diagnostic("CARMADIO-E161", path, "atom ledger schema_version must be 1.0")]
     if not isinstance(records, list):
-        return [Diagnostic("DSET-E161", path, "atom ledger records must be a list")]
+        return [Diagnostic("CARMADIO-E161", path, "atom ledger records must be a list")]
     diagnostics: list[Diagnostic] = []
     indexed: dict[str, dict[str, Any]] = {}
     for record in records:
         if not isinstance(record, dict) or not isinstance(
             record.get("semantic_id"), str
         ):
-            diagnostics.append(Diagnostic("DSET-E161", path, "invalid ledger record"))
+            diagnostics.append(Diagnostic("CARMADIO-E161", path, "invalid ledger record"))
             continue
         identifier = str(record["semantic_id"])
         if identifier in indexed:
             diagnostics.append(
-                Diagnostic("DSET-E161", path, f"duplicate ledger atom: {identifier}")
+                Diagnostic("CARMADIO-E161", path, f"duplicate ledger atom: {identifier}")
             )
         indexed[identifier] = record
     for identifier, atom in atoms.items():
         record = indexed.get(identifier)
         if record is None:
             diagnostics.append(
-                Diagnostic("DSET-E161", root / atom.path, "emitted atom is not sealed")
+                Diagnostic("CARMADIO-E161", root / atom.path, "emitted atom is not sealed")
             )
             continue
         expected = _ledger_record(atom)
@@ -752,7 +752,7 @@ def _validate_ledger(root: Path, atoms: dict[str, SemanticAtom]) -> list[Diagnos
             if record.get(recorded_field) != expected.get(expected_field):
                 diagnostics.append(
                     Diagnostic(
-                        "DSET-E161",
+                        "CARMADIO-E161",
                         root / atom.path,
                         f"sealed atom {recorded_field} changed: {identifier}",
                     )
@@ -763,7 +763,7 @@ def _validate_ledger(root: Path, atoms: dict[str, SemanticAtom]) -> list[Diagnos
         )
         if not isinstance(record_path, str) or not (root / record_path).is_file():
             diagnostics.append(
-                Diagnostic("DSET-E161", path, f"sealed atom is missing: {identifier}")
+                Diagnostic("CARMADIO-E161", path, f"sealed atom is missing: {identifier}")
             )
     return diagnostics
 
@@ -875,4 +875,4 @@ def _lifecycle_path(root: Path) -> Path:
 
 
 def _atom_diag(path: Path, message: str) -> Diagnostic:
-    return Diagnostic("DSET-E159", path, message)
+    return Diagnostic("CARMADIO-E159", path, message)

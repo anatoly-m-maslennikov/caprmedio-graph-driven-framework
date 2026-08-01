@@ -11,12 +11,12 @@
 - **Intended use:** Review the 0.3.1 governance correction and identify remaining
   design questions without treating upstream FPF as live DSET authority.
 - **Producer/performed work:** One independent high-effort FPF comparison review
-  plus main-thread reconciliation into DSET-owned rules, templates, schemas, and
+  plus main-thread reconciliation into CARMADIO-owned rules, templates, schemas, and
   provenance.
 - **Method/setup:** Compare DSET governance and Change templates against the
   locally reviewed FPF checkout at exact revision
   `afa4936541774021c92adb97c3cbf787bf126062`; classify each surface as correct,
-  partial, distorted, missing, or overclaimed; correct only DSET-owned artifacts.
+  partial, distorted, missing, or overclaimed; correct only CARMADIO-owned artifacts.
 - **Context:** DSET candidate commit
   `8d24d36507357e1831eb4fcdf47e1eb1cf712dc3`, schema 1.2, repository-level
   Change scope, observed 2026-07-15.
@@ -32,7 +32,7 @@
   conformance, accept the open typed-relation/context questions, or prove DSET
   adoption readiness.
 
-## Adopted DSET-native principles
+## Adopted CARMADIO-native principles
 
 1. A promoted proof supports one named claim for one intended use and records
    work/producer, method/setup, context, observation window, exact identity,
@@ -69,7 +69,7 @@ concept source, not a rule owner.
 
 ## Historical disposition
 
-`DSET-QUESTION-META-004..005` and `DSET-QUESTION-GOV-004..005` remain open in
+`CARMADIO-QUESTION-META-004..005` and `CARMADIO-QUESTION-GOV-004..005` remain open in
 the project intake registry. Until Decisions resolve them, DSET has no new
 evidence-context entity, Work Area tag model, typed-edge registry, or
 schema-enforced Decision record. Do not use this first review's Pass wording as

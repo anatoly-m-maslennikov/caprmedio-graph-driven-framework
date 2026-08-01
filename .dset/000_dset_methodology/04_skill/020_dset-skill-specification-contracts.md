@@ -4,7 +4,7 @@
 
 `dset` is the primary operator entrypoint for lifecycle and next-step advice. Every stable lifecycle mode also has an explicit public direct-entry skill listed in the skills hub. Governed wrappers resolve registered project-local workflows; `dset-init` and `dset-repair-governance` are the only bounded pre-resolution exceptions. Runtime, host-distribution, and publication capability must still be claimed only when its separate proof passes.
 
-All governed target skills are thin wrappers over the repository governance registry. The registered `DSET-RULE-LIFECYCLE`, `DSET-RULE-SKILL-RUNS`, `DSET-RULE-RELEASE`, `DSET-RULE-DELEGATION-BUDGET`, and `DSET-RULE-WORK-ITEMS` documents own substantive behavior. Versioned bounded local run records under `.dset_runtime/runs/` are operational evidence only and are excluded from committed project truth.
+All governed target skills are thin wrappers over the repository governance registry. The registered `CARMADIO-RULE-LIFECYCLE`, `CARMADIO-RULE-SKILL-RUNS`, `CARMADIO-RULE-RELEASE`, `CARMADIO-RULE-DELEGATION-BUDGET`, and `CARMADIO-RULE-WORK-ITEMS` documents own substantive behavior. Versioned bounded local run records under `.dset_runtime/runs/` are operational evidence only and are excluded from committed project truth.
 
 The distributed skill packages are project-agnostic. They do not ship one
 global project policy: every governed invocation discovers its target's owning
@@ -23,7 +23,7 @@ never workflow or skill. Tasks and hosted tickets are representations, and
 Change is optional. IDs expose the direct subtype kind when present and the
 Type kind when subtype is absent; they never encode subtype nesting.
 
-### DSET-CONTRACT-SKILL-001 — Released skills are host-native
+### CARMADIO-CONTRACT-SKILL-001 — Released skills are host-native
 
 | Field | Value |
 |---|---|
@@ -37,7 +37,7 @@ Type kind when subtype is absent; they never encode subtype nesting.
 | Compatibility | The release declares a host matrix and passes every claimed target against its pinned format; unsupported targets are omitted rather than implied |
 | Lifecycle | `active` |
 
-### DSET-CONTRACT-SKILL-002 — Skills resolve target-project governance
+### CARMADIO-CONTRACT-SKILL-002 — Skills resolve target-project governance
 
 | Field | Value |
 |---|---|

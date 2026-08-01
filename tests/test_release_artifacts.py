@@ -47,28 +47,28 @@ class ReleaseArtifactTests(unittest.TestCase):
 
     def test_dset_self_applies_type_first_release_names(self) -> None:
         expected = {
-            "DSET-VERSION-001-0-3-foundation.md": (
-                "DSET-VERSION-001",
+            "CARMADIO-VERSION-001-0-3-foundation.md": (
+                "CARMADIO-VERSION-001",
                 "version_scope",
             ),
-            "DSET-VERSION-002-0-4-self-hosted-core.md": (
-                "DSET-VERSION-002",
+            "CARMADIO-VERSION-002-0-4-self-hosted-core.md": (
+                "CARMADIO-VERSION-002",
                 "version_scope",
             ),
-            "DSET-VERSION-003-0-5-adopter-ready.md": (
-                "DSET-VERSION-003",
+            "CARMADIO-VERSION-003-0-5-adopter-ready.md": (
+                "CARMADIO-VERSION-003",
                 "version_scope",
             ),
-            "DSET-VERSION-004-1-0-stable.md": (
-                "DSET-VERSION-004",
+            "CARMADIO-VERSION-004-1-0-stable.md": (
+                "CARMADIO-VERSION-004",
                 "version_scope",
             ),
-            "DSET-VERSION-005-0-4-core-vertical-cut.md": (
-                "DSET-VERSION-005",
+            "CARMADIO-VERSION-005-0-4-core-vertical-cut.md": (
+                "CARMADIO-VERSION-005",
                 "roadmap",
             ),
         }
-        actual = {path.name for path in PLANNING.glob("DSET-VERSION-00[1-5]-*.md")}
+        actual = {path.name for path in PLANNING.glob("CARMADIO-VERSION-00[1-5]-*.md")}
         self.assertEqual(actual, set(expected))
         for name, (artifact_id, subtype) in expected.items():
             with self.subTest(name=name):
@@ -78,12 +78,12 @@ class ReleaseArtifactTests(unittest.TestCase):
 
     def test_dset_version_sequence_covers_current_release_carriers(self) -> None:
         expected = {
-            PLANNING / "DSET-VERSION-006-0-3-1-release.md": (
-                "DSET-VERSION-006",
+            PLANNING / "CARMADIO-VERSION-006-0-3-1-release.md": (
+                "CARMADIO-VERSION-006",
                 "release_plan",
             ),
-            PLANNING / "DSET-VERSION-007-0-3-1-readiness.md": (
-                "DSET-VERSION-007",
+            PLANNING / "CARMADIO-VERSION-007-0-3-1-readiness.md": (
+                "CARMADIO-VERSION-007",
                 "readiness_record",
             ),
         }
@@ -96,11 +96,11 @@ class ReleaseArtifactTests(unittest.TestCase):
 
         all_version_ids = [
             self._frontmatter(path)["artifact_id"]
-            for path in sorted(PLANNING.glob("DSET-VERSION-*.md"))
+            for path in sorted(PLANNING.glob("CARMADIO-VERSION-*.md"))
         ]
         self.assertEqual(
             all_version_ids,
-            [f"DSET-VERSION-{sequence:03d}" for sequence in range(1, 8)],
+            [f"CARMADIO-VERSION-{sequence:03d}" for sequence in range(1, 8)],
         )
 
     def test_release_reference_chain_and_gate_boundaries_are_explicit(self) -> None:

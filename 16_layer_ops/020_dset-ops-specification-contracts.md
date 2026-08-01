@@ -4,7 +4,7 @@
 
 DSET versions use integer SemVer components. The complete transition table includes bootstrap, pre-1.0 normal/small, first/subsequent RC, final, and post-1.0 small/normal/breaking releases. Product/package identity is canonical SemVer with defined ecosystem serialization; tag and publisher release derive idempotently from the configured protected merge commit. Schema, profile, and template-format versions remain independent compatibility surfaces.
 
-### DSET-CONTRACT-OPS-001 — CI is hosted GitHub Actions evidence
+### CARMADIO-CONTRACT-OPS-001 — CI is hosted GitHub Actions evidence
 
 | Field | Value |
 |---|---|

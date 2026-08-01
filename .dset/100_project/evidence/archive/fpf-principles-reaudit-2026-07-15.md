@@ -20,7 +20,7 @@
 - **Performed work/deviations:** The reviewer found that the active Solution
   Landscape still selected candidates and that no neutral Decision carrier was
   used. The corrective loop therefore expanded beyond a read-only recheck into
-  authorized DSET-owned governance, template, active-Change, provenance, notice,
+  authorized CARMADIO-owned governance, template, active-Change, provenance, notice,
   and regression-test edits.
 - **Context:** DSET schema 1.2 on local `dev`; FPF checkout and recorded source at
   `afa4936541774021c92adb97c3cbf787bf126062`; observed 2026-07-15.
@@ -42,7 +42,7 @@
 |---|---|---|
 | Claim-bound evidence and defeaters | Pass | Core fields remain mandatory; producer/maintainer separation, planned-versus-performed work, and rival explanations are risk-triggered reliance extensions. |
 | Comparison versus selection | Pass after correction | Candidate rows now name comparator/criteria, evidence eligibility, and partial comparison result; adopt/adapt/reject appears only in the Decision. |
-| Decision lifecycle and discharge | Pass after correction | A neutral template records status/date/evidence/supersession/reopen/retained/withdrawn/successor fields; `DSET-DECISION-SKILL-001` self-applies it while normative truth remains with owning artifacts. |
+| Decision lifecycle and discharge | Pass after correction | A neutral template records status/date/evidence/supersession/reopen/retained/withdrawn/successor fields; `CARMADIO-DECISION-SKILL-001` self-applies it while normative truth remains with owning artifacts. |
 | Risk-scaled review | Pass | Baseline gates remain; extra depth follows risk without importing FPF Pattern certification semantics. |
 | Derived views | Pass | Reliance-bearing views disclose captured/omitted structure, permitted/prohibited use, canonical return path, and currentness. |
 | Lightweight versus durable threshold | Pass | Reversible ordinary work may stay bounded; reliance-bearing work requires durable artifacts. |

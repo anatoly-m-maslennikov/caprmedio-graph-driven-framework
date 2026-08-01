@@ -16,7 +16,7 @@
 
 1. `uv run dset archive operationalize-dset-v1 --date 2026-07-14` returned the exact active-to-archive plan without writing.
 2. `uv run dset archive operationalize-dset-v1 --date 2026-07-14 --execute` moved the change, set `status: archived`, and wrote the dated archive metadata without overwriting an existing destination.
-3. The first post-move aggregate correctly rejected six now-invalid relative links with `DSET-E113`. The links were adjusted for the additional `archive/` path level.
+3. The first post-move aggregate correctly rejected six now-invalid relative links with `CARMADIO-E113`. The links were adjusted for the additional `archive/` path level.
 4. `uv run dset trace . --write` regenerated stable archived paths and evidence pointers.
 5. `python -m dset_toolchain verify .` then exited 0: 18 Python files formatted and lint-clean, strict typing passed for 18 files, 11 unit/fixture tests passed, trace freshness passed, and DSET validation passed.
 6. `git diff --check` exited 0 and the candidate was committed and pushed with a clean worktree.

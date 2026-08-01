@@ -168,7 +168,7 @@ def _collect_legacy_decision(
         path.name.startswith("decision-")
         or (
             any(logical_part(part) == "decision" for part in path.parts)
-            and path.name.startswith("DSET-DECISION-")
+            and path.name.startswith("CARMADIO-DECISION-")
         )
     ):
         return
@@ -280,7 +280,7 @@ def _collect_intake_item(
     if classification is None:
         diagnostics.append(
             Diagnostic(
-                "DSET-E166", path, f"intake semantic type is not recognized: {raw_type}"
+                "CARMADIO-E166", path, f"intake semantic type is not recognized: {raw_type}"
             )
         )
         return
@@ -310,13 +310,13 @@ def _register(
     """Validate and merge one semantic assertion."""
     if not _valid_classification(classification):
         diagnostics.append(
-            Diagnostic("DSET-E166", path, f"invalid flat classification: {identifier}")
+            Diagnostic("CARMADIO-E166", path, f"invalid flat classification: {identifier}")
         )
         return
     if classify_semantic_id(identifier) != classification:
         diagnostics.append(
             Diagnostic(
-                "DSET-E166",
+                "CARMADIO-E166",
                 path,
                 f"semantic ID kind disagrees with carrier classification: {identifier}",
             )
@@ -373,7 +373,7 @@ def _merge_record(
     if (record.semantic_type, record.subtype) != classification:
         diagnostics.append(
             Diagnostic(
-                "DSET-E166",
+                "CARMADIO-E166",
                 path,
                 f"semantic carriers disagree on Type/subtype: {record.semantic_id}",
             )
@@ -415,6 +415,6 @@ def _safe_load(path: Path, diagnostics: list[Diagnostic]) -> Any:
         return load(path)
     except (OSError, UnicodeError, StructuredDataError) as error:
         diagnostics.append(
-            Diagnostic("DSET-E166", path, f"cannot classify carrier: {error}")
+            Diagnostic("CARMADIO-E166", path, f"cannot classify carrier: {error}")
         )
         return None

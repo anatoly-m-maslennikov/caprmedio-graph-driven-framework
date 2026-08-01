@@ -96,7 +96,7 @@ def start_runtime(
         parameters=parameters,
         budget=budget,
         next_mode=selected_mode or "complete",
-        next_reason_code="DSET-RUNTIME-HOST-BRIDGE",
+        next_reason_code="CARMADIO-RUNTIME-HOST-BRIDGE",
         authorization_class=authorization_class,
         authorization_state=authorization_state,
         authority_snapshot=authority_snapshot,

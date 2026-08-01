@@ -10,8 +10,8 @@
   not claim that the CLI/host bridge, initialization command, coordinated
   version writer, publisher, first-class Conflict runtime, or native host and
   operating-system matrices are complete.
-- **Intended use:** Support `DSET-DECISION-SKILL-001` and
-  `DSET-DECISION-GOV-005` for the bounded deterministic claims above.
+- **Intended use:** Support `CARMADIO-DECISION-SKILL-001` and
+  `CARMADIO-DECISION-GOV-005` for the bounded deterministic claims above.
 - **LLM session IDs:**
   - `codex:019f591f-04f6-70f2-8de7-828b7cccc69d`
 - **Reopen when:** A public wrapper, workflow registration, resolver, runtime,
@@ -50,10 +50,10 @@ filename, path, or intended next action cannot define or change that type.
 
 The five public source skills and their registered internal workflow surface are
 implemented and deterministically verified. The run/checkpoint and
-release-transition library cores are implemented. `DSET-TASK-TOOL-010` remains
+release-transition library cores are implemented. `CARMADIO-TASK-TOOL-010` remains
 open for initialization, the portable CLI/host bridge, synchronized version
-writes, and post-merge publication. `DSET-TASK-SKILL-020` remains open for real
+writes, and post-merge publication. `CARMADIO-TASK-SKILL-020` remains open for real
 host-native installation, discovery, load, invocation, handoff, and stop proof.
 Conflict schemas, lifecycle events, registry/view, detector/resolver, and
-independent eval remain open under `DSET-TASK-GOV-045` and
-`DSET-TASK-TOOL-046`.
+independent eval remain open under `CARMADIO-TASK-GOV-045` and
+`CARMADIO-TASK-TOOL-046`.

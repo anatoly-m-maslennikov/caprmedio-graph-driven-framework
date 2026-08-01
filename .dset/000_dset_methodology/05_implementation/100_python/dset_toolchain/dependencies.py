@@ -366,4 +366,4 @@ def _repository_role(manifest_path: Path) -> str | None:
 
 
 def _diag(path: Path, message: str) -> Diagnostic:
-    return Diagnostic("DSET-E163", path, message)
+    return Diagnostic("CARMADIO-E163", path, message)

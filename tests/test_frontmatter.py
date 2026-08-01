@@ -13,7 +13,7 @@ class FrontmatterTests(unittest.TestCase):
     def test_yaml_round_trip_preserves_metadata_and_body(self) -> None:
         metadata = {
             "artifact_type": "requirement",
-            "artifact_id": "DSET-REQUIREMENT-META-001",
+            "artifact_id": "CARMADIO-REQUIREMENT-META-001",
             "scope_path": ["layer:meta"],
             "priority": "high",
             "llm_session_ids": ["codex:test-session"],
@@ -21,8 +21,8 @@ class FrontmatterTests(unittest.TestCase):
                 {
                     "type": "analysis_of",
                     "targets": [
-                        "DSET-REQUIREMENT-META-002",
-                        "DSET-REQUIREMENT-META-003",
+                        "CARMADIO-REQUIREMENT-META-002",
+                        "CARMADIO-REQUIREMENT-META-003",
                     ],
                 }
             ],
@@ -35,7 +35,7 @@ class FrontmatterTests(unittest.TestCase):
 
     def test_toml_remains_supported_during_layered_migration(self) -> None:
         metadata = {
-            "artifact_id": "DSET-REQUIREMENT-TOOL-001",
+            "artifact_id": "CARMADIO-REQUIREMENT-TOOL-001",
             "priority": "medium",
         }
         body = "\n# Requirement\n"

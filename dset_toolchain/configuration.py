@@ -230,4 +230,4 @@ def _matching_carriers(root: Path, surface_id: str) -> list[str]:
 
 def _settings_error(path: Path, message: str) -> DsetCommandError:
     """Build a stable configuration diagnostic."""
-    return DsetCommandError("DSET-E173", path, message)
+    return DsetCommandError("CARMADIO-E173", path, message)

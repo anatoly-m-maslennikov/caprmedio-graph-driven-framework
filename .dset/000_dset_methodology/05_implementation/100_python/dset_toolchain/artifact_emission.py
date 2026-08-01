@@ -87,7 +87,7 @@ def assess_artifact_candidate(
         if not _has_explicit_value(candidate, field):
             diagnostics.append(
                 {
-                    "code": "DSET-ARTIFACT-MISSING",
+                    "code": "CARMADIO-ARTIFACT-MISSING",
                     "field": field,
                     "message": f"material field is not explicit: {field}",
                 }
@@ -106,7 +106,7 @@ def assess_artifact_candidate(
     if promotion["status"] == "invalid":
         diagnostics.append(
             {
-                "code": "DSET-ARTIFACT-PROMOTION",
+                "code": "CARMADIO-ARTIFACT-PROMOTION",
                 "field": "promotion.parent_scope",
                 "message": str(
                     promotion.get("reason", "promotion assessment is invalid")
@@ -116,7 +116,7 @@ def assess_artifact_candidate(
     elif promotion["status"] == "proposal-required":
         diagnostics.append(
             {
-                "code": "DSET-ARTIFACT-PROMOTION-AUTHORITY",
+                "code": "CARMADIO-ARTIFACT-PROMOTION-AUTHORITY",
                 "field": "promotion.disposition",
                 "message": (
                     "eligible broader-scope promotion needs operator disposition"
@@ -127,7 +127,7 @@ def assess_artifact_candidate(
     elif promotion["status"] == "promote-before-emission":
         diagnostics.append(
             {
-                "code": "DSET-ARTIFACT-PROMOTE-FIRST",
+                "code": "CARMADIO-ARTIFACT-PROMOTE-FIRST",
                 "field": "scope_path",
                 "message": "rebuild the candidate at the accepted broader scope",
             }
@@ -163,7 +163,7 @@ def _shape_diagnostics(candidate: Mapping[str, Any]) -> list[dict[str, str]]:
     """Handle diagnostics using the declared repository contract."""
     diagnostics = [
         {
-            "code": "DSET-ARTIFACT-ROUTE",
+            "code": "CARMADIO-ARTIFACT-ROUTE",
             "field": _route_issue_field(issue),
             "message": issue,
         }
@@ -173,7 +173,7 @@ def _shape_diagnostics(candidate: Mapping[str, Any]) -> list[dict[str, str]]:
         if field in candidate and not _is_string_sequence(candidate[field]):
             diagnostics.append(
                 {
-                    "code": "DSET-ARTIFACT-SHAPE",
+                    "code": "CARMADIO-ARTIFACT-SHAPE",
                     "field": field,
                     "message": f"{field} must be a list of strings",
                 }
@@ -181,7 +181,7 @@ def _shape_diagnostics(candidate: Mapping[str, Any]) -> list[dict[str, str]]:
     if "promotion" in candidate and not isinstance(candidate["promotion"], Mapping):
         diagnostics.append(
             {
-                "code": "DSET-ARTIFACT-PROMOTION",
+                "code": "CARMADIO-ARTIFACT-PROMOTION",
                 "field": "promotion",
                 "message": "promotion must be an object",
             }
@@ -198,7 +198,7 @@ def _value_diagnostics(
     if isinstance(authority, str) and not AUTHORITY_PATTERN.fullmatch(authority):
         diagnostics.append(
             {
-                "code": "DSET-ARTIFACT-AUTHORITY",
+                "code": "CARMADIO-ARTIFACT-AUTHORITY",
                 "field": "authority",
                 "message": (
                     "authority must use operator:, repository:, or external: "
@@ -215,7 +215,7 @@ def _value_diagnostics(
         ):
             diagnostics.append(
                 {
-                    "code": "DSET-ARTIFACT-SESSION",
+                    "code": "CARMADIO-ARTIFACT-SESSION",
                     "field": "llm_session_ids",
                     "message": "LLM session IDs must be unique provider:id values",
                 }
@@ -224,7 +224,7 @@ def _value_diagnostics(
     if isinstance(priority, str) and priority not in {*priorities, "unknown"}:
         diagnostics.append(
             {
-                "code": "DSET-ARTIFACT-PRIORITY",
+                "code": "CARMADIO-ARTIFACT-PRIORITY",
                 "field": "priority",
                 "message": "priority is not in the repository priority scale",
             }
@@ -233,7 +233,7 @@ def _value_diagnostics(
     if isinstance(acceptance, str) and acceptance not in {"proposed", "accepted"}:
         diagnostics.append(
             {
-                "code": "DSET-ARTIFACT-ACCEPTANCE",
+                "code": "CARMADIO-ARTIFACT-ACCEPTANCE",
                 "field": "acceptance",
                 "message": "acceptance must be proposed or accepted",
             }
@@ -245,7 +245,7 @@ def _value_diagnostics(
     }:
         diagnostics.append(
             {
-                "code": "DSET-ARTIFACT-CONFLICT",
+                "code": "CARMADIO-ARTIFACT-CONFLICT",
                 "field": "conflict_state",
                 "message": "conflict_state must be clear or unresolved",
             }
@@ -277,7 +277,7 @@ def _link_diagnostics(root: Path, candidate: Mapping[str, Any]) -> list[dict[str
         return []
     return [
         {
-            "code": "DSET-ARTIFACT-LINK",
+            "code": "CARMADIO-ARTIFACT-LINK",
             "field": "material_links",
             "message": f"linked artifact IDs do not resolve: {', '.join(missing)}",
         }
@@ -293,7 +293,7 @@ def _unknown_diagnostics(
         return (
             [
                 {
-                    "code": "DSET-ARTIFACT-SHAPE",
+                    "code": "CARMADIO-ARTIFACT-SHAPE",
                     "field": "unknowns",
                     "message": "unknowns must be a list of objects",
                 }
@@ -306,7 +306,7 @@ def _unknown_diagnostics(
         if not isinstance(item, Mapping):
             diagnostics.append(
                 {
-                    "code": "DSET-ARTIFACT-SHAPE",
+                    "code": "CARMADIO-ARTIFACT-SHAPE",
                     "field": f"unknowns[{index}]",
                     "message": "unknown entry must be an object",
                 }
@@ -318,7 +318,7 @@ def _unknown_diagnostics(
         question = str(item.get("question", "")).strip()
         diagnostics.append(
             {
-                "code": "DSET-ARTIFACT-AMBIGUOUS",
+                "code": "CARMADIO-ARTIFACT-AMBIGUOUS",
                 "field": field,
                 "message": "material ambiguity blocks immutable emission",
             }
@@ -435,7 +435,7 @@ def _repository_scope_model(
     except (OSError, ValueError) as error:
         return None, [
             {
-                "code": "DSET-ARTIFACT-REPOSITORY",
+                "code": "CARMADIO-ARTIFACT-REPOSITORY",
                 "field": "scope_path",
                 "message": f"repository scope authority is unavailable: {error}",
             }
@@ -445,7 +445,7 @@ def _repository_scope_model(
     if not isinstance(project_id, str) or not project_id.strip():
         return None, [
             {
-                "code": "DSET-ARTIFACT-REPOSITORY",
+                "code": "CARMADIO-ARTIFACT-REPOSITORY",
                 "field": "scope_path",
                 "message": "project manifest requires project.id",
             }

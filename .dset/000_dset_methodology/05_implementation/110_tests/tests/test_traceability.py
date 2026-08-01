@@ -76,10 +76,10 @@ class TraceabilityTests(unittest.TestCase):
         )
         relations = trace["relations"]
         legacy = [
-            item for item in relations if item["source"] == "DSET-REQUIREMENT-GOV-034"
+            item for item in relations if item["source"] == "CARMADIO-REQUIREMENT-GOV-034"
         ]
         self.assertEqual(legacy[0]["type"], "child_of")
-        self.assertEqual(legacy[0]["target"], "DSET-REQUIREMENT-GOV-033")
+        self.assertEqual(legacy[0]["target"], "CARMADIO-REQUIREMENT-GOV-033")
         self.assertEqual(legacy[0]["origin"], "legacy_child_of")
         self.assertFalse(any("parent_to" in item for item in relations))
         implementation_relations = [
@@ -88,36 +88,36 @@ class TraceabilityTests(unittest.TestCase):
         self.assertTrue(implementation_relations)
         self.assertTrue(
             any(
-                item["target"] == "DSET-REQUIREMENT-GOV-034"
+                item["target"] == "CARMADIO-REQUIREMENT-GOV-034"
                 for item in implementation_relations
             )
         )
         decision_relations = [
             (item["type"], item.get("target"))
             for item in relations
-            if item["source"] == "DSET-DECISION-GOV-013"
+            if item["source"] == "CARMADIO-DECISION-GOV-013"
         ]
-        self.assertIn(("resolution_of", "DSET-QUESTION-GOV-004"), decision_relations)
+        self.assertIn(("resolution_of", "CARMADIO-QUESTION-GOV-004"), decision_relations)
         self.assertIn(
-            ("replacement_of", "DSET-REQUIREMENT-GOV-034"),
+            ("replacement_of", "CARMADIO-REQUIREMENT-GOV-034"),
             decision_relations,
         )
         projection_ranges = [
             item["range"]
             for item in relations
-            if item["source"] == "DSET-SPECIFICATION-001"
+            if item["source"] == "CARMADIO-SPECIFICATION-001"
             and item["type"] == "projection_of"
         ]
         self.assertEqual(len(projection_ranges), 6)
         self.assertEqual(
             {item["through"] for item in projection_ranges},
             {
-                "DSET-ATOMIC-RECORD-113",
-                "DSET-ATOMIC-RECORD-114",
-                "DSET-ATOMIC-RECORD-115",
-                "DSET-ATOMIC-RECORD-078",
-                "DSET-ATOMIC-RECORD-079",
-                "DSET-ATOMIC-RECORD-080",
+                "CARMADIO-ATOMIC-RECORD-113",
+                "CARMADIO-ATOMIC-RECORD-114",
+                "CARMADIO-ATOMIC-RECORD-115",
+                "CARMADIO-ATOMIC-RECORD-078",
+                "CARMADIO-ATOMIC-RECORD-079",
+                "CARMADIO-ATOMIC-RECORD-080",
             },
         )
         self.assertEqual(
@@ -131,24 +131,24 @@ class TraceabilityTests(unittest.TestCase):
             },
         )
         atoms = {item["id"]: item for item in trace["semantic_atoms"]}
-        self.assertEqual(atoms["DSET-DECISION-GOV-010"]["type"], "decision")
-        self.assertEqual(atoms["DSET-DECISION-GOV-010"]["priority"], "high")
-        self.assertEqual(atoms["DSET-DECISION-GOV-010"]["current_status"], "accepted")
-        self.assertFalse(atoms["DSET-DECISION-GOV-010"]["archived"])
-        typed = atoms["DSET-DECISION-GOV-013"]["relations"]
+        self.assertEqual(atoms["CARMADIO-DECISION-GOV-010"]["type"], "decision")
+        self.assertEqual(atoms["CARMADIO-DECISION-GOV-010"]["priority"], "high")
+        self.assertEqual(atoms["CARMADIO-DECISION-GOV-010"]["current_status"], "accepted")
+        self.assertFalse(atoms["CARMADIO-DECISION-GOV-010"]["archived"])
+        typed = atoms["CARMADIO-DECISION-GOV-013"]["relations"]
         self.assertTrue(any(item["type"] == "resolution_of" for item in typed))
         classifications = {
             item["id"]: item for item in trace["semantic_classifications"]
         }
         self.assertEqual(
-            classifications["DSET-OPPORTUNITY-GOV-001"]["type"], "question"
+            classifications["CARMADIO-OPPORTUNITY-GOV-001"]["type"], "question"
         )
         self.assertEqual(
-            classifications["DSET-OPPORTUNITY-GOV-001"]["subtype"],
+            classifications["CARMADIO-OPPORTUNITY-GOV-001"]["subtype"],
             "opportunity",
         )
         self.assertTrue(
-            classifications["DSET-OPPORTUNITY-GOV-001"]["historical_carrier"]
+            classifications["CARMADIO-OPPORTUNITY-GOV-001"]["historical_carrier"]
         )
 
     def test_write_is_stable_and_checkable(self) -> None:

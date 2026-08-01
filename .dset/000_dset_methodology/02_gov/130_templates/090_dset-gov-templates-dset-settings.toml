@@ -25,7 +25,7 @@ journal_root = ".dset_journal"
 runtime_root = ".dset_runtime"
 
 [git]
-# Every DSET-managed project uses Git. Initialization may create a repository
+# Every CARMADIO-managed project uses Git. Initialization may create a repository
 # only when no enclosing repository exists.
 required = true
 initialize_if_missing = true

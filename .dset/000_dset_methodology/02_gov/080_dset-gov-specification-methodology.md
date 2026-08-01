@@ -26,8 +26,8 @@ flowchart LR
 Observation preserves what occurred, was measured, or was reported. Analysis
 interprets those facts and may provide rationale for Definition or Method.
 Each node is an artifact role, not a lifecycle state through which one artifact
-mutates. Sources: `DSET-REQUIREMENT-META-047` and
-`DSET-REQUIREMENT-META-048`.
+mutates. Sources: `CARMADIO-REQUIREMENT-META-047` and
+`CARMADIO-REQUIREMENT-META-048`.
 
 ## Project resolution
 
@@ -46,9 +46,9 @@ mutates. Sources: `DSET-REQUIREMENT-META-047` and
 The installed methodology is materialized project-local data, not a symlink or
 pointer to framework source. Repository-root framework methodology is refreshed
 into `.dset/000_dset_methodology/` only by an explicit one-way synchronization
-operation. Sources: `DSET-IMPL-GOV-007`,
-`DSET-IMPL-GOV-008`,
-`DSET-IMPL-GOV-002`, and `DSET-REQUIREMENT-GOV-052`.
+operation. Sources: `CARMADIO-IMPL-GOV-007`,
+`CARMADIO-IMPL-GOV-008`,
+`CARMADIO-IMPL-GOV-002`, and `CARMADIO-REQUIREMENT-GOV-052`.
 
 ## Interaction and Exploration Mode
 
@@ -66,8 +66,8 @@ the accepted scope.
   transitions.
 
 Both modes preserve the same authorization, routing, validation, and safety.
-Sources: `DSET-REQUIREMENT-META-058` and
-`DSET-REQUIREMENT-GOV-098`.
+Sources: `CARMADIO-REQUIREMENT-META-058` and
+`CARMADIO-REQUIREMENT-GOV-098`.
 
 ## Atomic emission
 
@@ -82,7 +82,7 @@ until authority, claim, scope, provenance, lineage, conflicts, and proof
 obligations are sufficiently precise for immutable emission. Before writing,
 assess whether the unchanged claim is eligible for promotion one structural
 level upward; propose but never promote without operator acceptance. Sources:
-`DSET-REQUIREMENT-GOV-102` and `DSET-REQUIREMENT-GOV-112`.
+`CARMADIO-REQUIREMENT-GOV-102` and `CARMADIO-REQUIREMENT-GOV-112`.
 
 ## Maintained semantic views
 
@@ -102,8 +102,8 @@ concatenation of atoms. It contains:
 
 Refresh is on demand or when a downstream entry gate requires a current view.
 If applicable active atoms and a view disagree, atomic authority wins and the
-view is stale until refreshed. Sources: `DSET-REQUIREMENT-META-054` and
-`DSET-REQUIREMENT-GOV-115`.
+view is stale until refreshed. Sources: `CARMADIO-REQUIREMENT-META-054` and
+`CARMADIO-REQUIREMENT-GOV-115`.
 
 ## Development and release-readiness modes
 
@@ -138,7 +138,7 @@ all active atomic authority
 
 Any applicable view, implementation, check implementation, evaluation
 implementation, or configuration change after assurance makes the affected
-release evidence stale. Source: `DSET-REQUIREMENT-GOV-109`.
+release evidence stale. Source: `CARMADIO-REQUIREMENT-GOV-109`.
 
 ## Git and commit coverage
 
@@ -152,8 +152,8 @@ Problem has a `Resolves:` trailer, and every governed commit has one `Session:`
 trailer. Archive transitions additionally use `Archives:`, `Archive-Reason:`,
 and `Archive-Reference:` when applicable. Generated-only paths do not create
 semantic implementation coverage for the graph that generated them. Sources:
-`DSET-IMPL-GOV-006`, `DSET-REQUIREMENT-GOV-065`, and
-`DSET-REQUIREMENT-GOV-096`.
+`CARMADIO-IMPL-GOV-006`, `CARMADIO-REQUIREMENT-GOV-065`, and
+`CARMADIO-REQUIREMENT-GOV-096`.
 
 ## Atomic lifecycle
 
@@ -162,7 +162,7 @@ Complete replacement, resolution, scoped override, and recurrence use typed
 relations. Reopening is forbidden. Withdrawal archives the atom and, when work
 is deferred to a future version, records intent in that Version's Roadmap.
 Archive relocation preserves bytes and stable lookup. Source:
-`DSET-DECISION-GOV-035`.
+`CARMADIO-DECISION-GOV-035`.
 
 ## Mechanical migrations
 
@@ -172,8 +172,8 @@ expected source shape before writing, prepares all outputs before cutover, and
 leaves a reviewable diff. Unexpected structure stops without partial mutation.
 It may recode an atom's identity or carrier only when a separately accepted
 one-to-one migration preserves governed meaning and rewrites the complete
-reference graph. Sources: `DSET-IMPL-GOV-001`,
-`DSET-DECISION-GOV-027`, and `DSET-REQUIREMENT-GOV-108`.
+reference graph. Sources: `CARMADIO-IMPL-GOV-001`,
+`CARMADIO-DECISION-GOV-027`, and `CARMADIO-REQUIREMENT-GOV-108`.
 
 ## Carrier and preview policy
 
@@ -183,7 +183,7 @@ Flavored Markdown, repository-relative navigation, GitHub alerts,
 TOML is reserved for executed human-edited configuration, JSON for schemas and
 machine boundaries, NDJSON for append-only records, and native formats for
 code, CI, lockfiles, and host manifests. Sources:
-`DSET-CONSTRAINT-GOV-002` and `DSET-REQUIREMENT-GOV-116`.
+`CARMADIO-CONSTRAINT-GOV-002` and `CARMADIO-REQUIREMENT-GOV-116`.
 
 ## Storage and discovery boundaries
 
@@ -197,8 +197,8 @@ Completed migrations, superseded aggregate registries, compatibility archives,
 and inactive legacy documentation stay outside `.dset` and are never a
 fallback governance source. Repository legal files stay at root `LICENSE` and
 `LICENSES`, outside all three DSET roots. Sources:
-`DSET-IMPL-GOV-008`, `DSET-DECISION-GOV-029`, and
-`DSET-REQUIREMENT-GOV-111`.
+`CARMADIO-IMPL-GOV-008`, `CARMADIO-DECISION-GOV-029`, and
+`CARMADIO-REQUIREMENT-GOV-111`.
 
 ## Priority and conflict selection
 
@@ -208,7 +208,7 @@ comparison and never alter stored values. The default conflict policy is
 `ask_always`. `auto_by_effective_priority` may select only one unique eligible
 winner; ties, uncertainty, same-level ambiguity, incomparability, or
 unsatisfiable external obligations return to the operator. Source:
-`DSET-REQUIREMENT-GOV-107`.
+`CARMADIO-REQUIREMENT-GOV-107`.
 
 ## Independent review
 
@@ -227,7 +227,7 @@ maintained Definition. Pull requests are maintained relational Methods;
 internal and external commits remain distinct atomic Implementations.
 
 The final top-level route type names remain unresolved by
-`DSET-QUESTION-GOV-014`, and `DSET-PROBLEM-GOV-008` blocks any claim that the
+`CARMADIO-QUESTION-GOV-014`, and `CARMADIO-PROBLEM-GOV-008` blocks any claim that the
 current catalog is total and one-to-one. Current role semantics come from
-`DSET-REQUIREMENT-GOV-078`, `DSET-REQUIREMENT-GOV-080`, and
-`DSET-REQUIREMENT-GOV-103`.
+`CARMADIO-REQUIREMENT-GOV-078`, `CARMADIO-REQUIREMENT-GOV-080`, and
+`CARMADIO-REQUIREMENT-GOV-103`.

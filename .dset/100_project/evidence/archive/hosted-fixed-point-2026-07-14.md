@@ -15,7 +15,7 @@
 The first PR-head run, [29359397896](https://github.com/anatoly-m-maslennikov/dset-specs-loops-framework/actions/runs/29359397896), failed in `DSET / validate`. Formatting, lint, types, governance, and all non-self-host tests passed. The self-host tests failed at the released-validator boundary with:
 
 ```text
-DSET-E140 ... released validator cannot be extracted:
+CARMADIO-E140 ... released validator cannot be extracted:
 fatal: not a tree object: a95bf7c576c8fcdfdf0565466aaca5ee1fe86157
 ```
 
@@ -38,7 +38,7 @@ weakened and the released baseline identity did not change.
 
 ## Disposition
 
-Roadmap §4 and `DSET-TASK-TOOL-025` pass for the current pushed head. This proof
+Roadmap §4 and `CARMADIO-TASK-TOOL-025` pass for the current pushed head. This proof
 does not satisfy the separate qualitative evals or later TypeScript, pilot,
 distribution, reconciliation, archive, or DSET 0.2 release gates. PR #9 remains
 draft.

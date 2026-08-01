@@ -43,8 +43,8 @@ class LayeredValidationTests(unittest.TestCase):
             (self.root / "src" / work_area).mkdir(parents=True)
         self._write_project()
         self._write_control_files()
-        self._write_fragment("meta", "DSET-REQUIREMENT-001", "DSET-TEST-CASE-001")
-        self._write_fragment("tool", "DSET-REQUIREMENT-TOOL-001", "DSET-TEST-CASE-TOOL-001")
+        self._write_fragment("meta", "CARMADIO-REQUIREMENT-001", "CARMADIO-TEST-CASE-001")
+        self._write_fragment("tool", "CARMADIO-REQUIREMENT-TOOL-001", "CARMADIO-TEST-CASE-TOOL-001")
 
     def tearDown(self) -> None:
         """Handle tear down using the declared repository contract."""
@@ -59,15 +59,15 @@ class LayeredValidationTests(unittest.TestCase):
         manifest = load(manifest_path)
         assert isinstance(manifest, dict)
         native_ids = {
-            "requirements": "DSET-REQUIREMENT-TOOL-100",
-            "tests": "DSET-TEST-CASE-TOOL-100",
-            "evals": "DSET-EVALUATION-CASE-TOOL-100",
+            "requirements": "CARMADIO-REQUIREMENT-TOOL-100",
+            "tests": "CARMADIO-TEST-CASE-TOOL-100",
+            "evals": "CARMADIO-EVALUATION-CASE-TOOL-100",
         }
         for sequence, (group, identifier) in enumerate(native_ids.items(), start=100):
             values = manifest[group]
             assert isinstance(values, list)
             values.append(identifier)
-            carrier = change / f"DSET-ATOMIC-RECORD-{sequence}.md"
+            carrier = change / f"CARMADIO-ATOMIC-RECORD-{sequence}.md"
             carrier.write_text(f"# Native atom\n\n{identifier}\n", encoding="utf-8")
         manifest_path.write_text(dump(manifest), encoding="utf-8")
 
@@ -110,7 +110,7 @@ class LayeredValidationTests(unittest.TestCase):
                 manifest["work_areas"] = work_areas
                 path.write_text(dump(manifest), encoding="utf-8")
                 self.assertIn(
-                    "DSET-E143", {item.code for item in validate_repository(self.root)}
+                    "CARMADIO-E143", {item.code for item in validate_repository(self.root)}
                 )
         path.write_text(dump(baseline), encoding="utf-8")
         self.assertEqual(validate_repository(self.root), [])
@@ -118,13 +118,13 @@ class LayeredValidationTests(unittest.TestCase):
     def test_intake_derives_layers_and_requires_stable_owner_change(self) -> None:
         path = self.scopes / "gov" / "intake.yaml"
         valid: dict[str, Any] = {
-            "id": "DSET-QUESTION-GOV-001",
+            "id": "CARMADIO-QUESTION-GOV-001",
             "scope": "gov",
             "type": "question",
             "status": "open",
             "title": "Choice",
             "statement": "Which bounded option applies?",
-            "owner_change": "DSET-CHANGE-GOV-001",
+            "owner_change": "CARMADIO-CHANGE-GOV-001",
             "decision": "pending",
             "llm_session_ids": [],
             "external_refs": [],
@@ -132,13 +132,13 @@ class LayeredValidationTests(unittest.TestCase):
         baseline: dict[str, Any] = {"schema_version": "1.1", "items": [valid]}
         path.write_text(dump(baseline), encoding="utf-8")
         self.assertNotIn(
-            "DSET-E142", {item.code for item in validate_repository(self.root)}
+            "CARMADIO-E142", {item.code for item in validate_repository(self.root)}
         )
 
         invalid_cases = (
             {**baseline, "scope_mode": "multi-scope", "scopes": []},
             {**baseline, "schema_version": 1.0},
-            {**baseline, "items": [{**valid, "id": "DSET-PROBLEM-GOV-001"}]},
+            {**baseline, "items": [{**valid, "id": "CARMADIO-PROBLEM-GOV-001"}]},
             {**baseline, "items": [{**valid, "scope": "tool"}]},
             {
                 **baseline,
@@ -146,27 +146,27 @@ class LayeredValidationTests(unittest.TestCase):
             },
             {
                 **baseline,
-                "items": [{**valid, "decision": "DSET-DECISION-TOOL-001"}],
+                "items": [{**valid, "decision": "CARMADIO-DECISION-TOOL-001"}],
             },
         )
         for invalid in invalid_cases:
             with self.subTest(intake=invalid):
                 path.write_text(dump(invalid), encoding="utf-8")
                 self.assertIn(
-                    "DSET-E142", {item.code for item in validate_repository(self.root)}
+                    "CARMADIO-E142", {item.code for item in validate_repository(self.root)}
                 )
 
     def test_current_intake_uses_flat_question_and_problem_subtypes(self) -> None:
         path = self.scopes / "gov" / "intake.yaml"
         conflict: dict[str, Any] = {
-            "id": "DSET-CONFLICT-GOV-001",
+            "id": "CARMADIO-CONFLICT-GOV-001",
             "scope": "gov",
             "type": "question",
             "subtype": "conflict",
             "status": "open",
             "title": "Incompatible authority",
             "statement": "Two applicable claims cannot both hold.",
-            "owner_change": "DSET-CHANGE-GOV-001",
+            "owner_change": "CARMADIO-CHANGE-GOV-001",
             "decision": "pending",
             "llm_session_ids": [],
             "external_refs": [],
@@ -176,7 +176,7 @@ class LayeredValidationTests(unittest.TestCase):
         )
 
         self.assertNotIn(
-            "DSET-E142", {item.code for item in validate_repository(self.root)}
+            "CARMADIO-E142", {item.code for item in validate_repository(self.root)}
         )
 
         conflict["type"] = "problem"
@@ -184,19 +184,19 @@ class LayeredValidationTests(unittest.TestCase):
             dump({"schema_version": "1.2", "items": [conflict]}), encoding="utf-8"
         )
         codes = {item.code for item in validate_repository(self.root)}
-        self.assertIn("DSET-E142", codes)
-        self.assertIn("DSET-E166", codes)
+        self.assertIn("CARMADIO-E142", codes)
+        self.assertIn("CARMADIO-E166", codes)
 
     def test_atomic_artifacts_require_explicit_session_provenance(self) -> None:
         intake_path = self.scopes / "gov" / "intake.yaml"
         item: dict[str, Any] = {
-            "id": "DSET-QUESTION-GOV-001",
+            "id": "CARMADIO-QUESTION-GOV-001",
             "scope": "gov",
             "type": "question",
             "status": "open",
             "title": "Choice",
             "statement": "Which bounded option applies?",
-            "owner_change": "DSET-CHANGE-GOV-001",
+            "owner_change": "CARMADIO-CHANGE-GOV-001",
             "decision": "pending",
             "external_refs": [],
         }
@@ -204,7 +204,7 @@ class LayeredValidationTests(unittest.TestCase):
             dump({"schema_version": "1.1", "items": [item]}), encoding="utf-8"
         )
         self.assertIn(
-            "DSET-E155", {item.code for item in validate_repository(self.root)}
+            "CARMADIO-E155", {item.code for item in validate_repository(self.root)}
         )
         item["llm_session_ids"] = []
         intake_path.write_text(
@@ -218,25 +218,25 @@ class LayeredValidationTests(unittest.TestCase):
         manifest.pop("llm_session_ids")
         manifest_path.write_text(dump(manifest), encoding="utf-8")
         self.assertIn(
-            "DSET-E155",
+            "CARMADIO-E155",
             {item.code for item in validate_change(self.root, change, archived=False)},
         )
         manifest["llm_session_ids"] = ["missing-host-prefix"]
         manifest_path.write_text(dump(manifest), encoding="utf-8")
         self.assertIn(
-            "DSET-E155",
+            "CARMADIO-E155",
             {item.code for item in validate_change(self.root, change, archived=False)},
         )
         manifest["llm_session_ids"] = []
         manifest_path.write_text(dump(manifest), encoding="utf-8")
 
-        decision = change / "decision-DSET-DECISION-GOV-099.md"
+        decision = change / "decision-CARMADIO-DECISION-GOV-099.md"
         decision.write_text("# Decision\n", encoding="utf-8")
         proof = change / "proofs" / "bounded-proof.md"
         proof.parent.mkdir()
         proof.write_text("# Proof\n", encoding="utf-8")
         self.assertIn(
-            "DSET-E155",
+            "CARMADIO-E155",
             {item.code for item in validate_change(self.root, change, archived=False)},
         )
         for path, title in ((decision, "Decision"), (proof, "Proof")):
@@ -244,21 +244,21 @@ class LayeredValidationTests(unittest.TestCase):
                 f"# {title}\n\n- **LLM session IDs:** none\n", encoding="utf-8"
             )
         self.assertNotIn(
-            "DSET-E155",
+            "CARMADIO-E155",
             {item.code for item in validate_change(self.root, change, archived=False)},
         )
 
         proof.write_text(
             "+++\n"
             'artifact_type = "evidence_record"\n'
-            'artifact_id = "DSET-EVIDENCE-RECORD-099"\n'
+            'artifact_id = "CARMADIO-EVIDENCE-RECORD-099"\n'
             'llm_session_ids = ["codex:session-099"]\n'
             "+++\n\n"
             "# Proof\n",
             encoding="utf-8",
         )
         self.assertNotIn(
-            "DSET-E155",
+            "CARMADIO-E155",
             {item.code for item in validate_change(self.root, change, archived=False)},
         )
 
@@ -288,7 +288,7 @@ class LayeredValidationTests(unittest.TestCase):
                 data["target"] = target
                 path.write_text(dump(data, path), encoding="utf-8")
                 self.assertIn(
-                    "DSET-E148",
+                    "CARMADIO-E148",
                     {
                         item.code
                         for item in validate_change(self.root, change, archived=False)
@@ -299,30 +299,30 @@ class LayeredValidationTests(unittest.TestCase):
         path = self._fragment_path("tool")
         data = load(path)
         assert isinstance(data, dict)
-        data["requirements"] = ["DSET-REQUIREMENT-001"]
+        data["requirements"] = ["CARMADIO-REQUIREMENT-001"]
         path.write_text(dump(data, path), encoding="utf-8")
         (path.parent / "spec.md").write_text(
-            "# DSET-REQUIREMENT-001\n", encoding="utf-8"
+            "# CARMADIO-REQUIREMENT-001\n", encoding="utf-8"
         )
 
         codes = {item.code for item in validate_repository(self.root)}
 
-        self.assertIn("DSET-E146", codes)
-        self.assertIn("DSET-E147", codes)
+        self.assertIn("CARMADIO-E146", codes)
+        self.assertIn("CARMADIO-E147", codes)
 
     def test_missing_and_misidentified_fragments_are_distinct(self) -> None:
         self._fragment_path("tool").unlink()
         self.assertIn(
-            "DSET-E144", {item.code for item in validate_repository(self.root)}
+            "CARMADIO-E144", {item.code for item in validate_repository(self.root)}
         )
-        self._write_fragment("tool", "DSET-REQUIREMENT-TOOL-001", "DSET-TEST-CASE-TOOL-001")
+        self._write_fragment("tool", "CARMADIO-REQUIREMENT-TOOL-001", "CARMADIO-TEST-CASE-TOOL-001")
         path = self._fragment_path("tool")
         data = load(path)
         assert isinstance(data, dict)
         data["layer"] = "skill"
         path.write_text(dump(data, path), encoding="utf-8")
         self.assertIn(
-            "DSET-E145", {item.code for item in validate_repository(self.root)}
+            "CARMADIO-E145", {item.code for item in validate_repository(self.root)}
         )
 
     def test_change_layer_and_duplicate_change_ids_are_rejected(self) -> None:
@@ -335,17 +335,17 @@ class LayeredValidationTests(unittest.TestCase):
         data["affected_layers"] = ["skill"]
         first_manifest.write_text(dump(data, first_manifest), encoding="utf-8")
         self.assertIn(
-            "DSET-E148",
+            "CARMADIO-E148",
             {item.code for item in validate_change(self.root, first, archived=False)},
         )
         self._write_change(
             "ops",
             "layered-change",
             id_layer="OPS",
-            stable_id="DSET-CHANGE-TOOL-099",
+            stable_id="CARMADIO-CHANGE-TOOL-099",
         )
         self.assertIn(
-            "DSET-E149", {item.code for item in validate_repository(self.root)}
+            "CARMADIO-E149", {item.code for item in validate_repository(self.root)}
         )
 
     def test_schema_1_2_shapes_are_explicit(self) -> None:
@@ -493,15 +493,15 @@ class LayeredValidationTests(unittest.TestCase):
         manifest_path = self._change_manifest(change)
         manifest = load(manifest_path)
         assert isinstance(manifest, dict)
-        manifest["decisions"] = ["DSET-DECISION-TOOL-099"]
+        manifest["decisions"] = ["CARMADIO-DECISION-TOOL-099"]
         manifest_path.write_text(dump(manifest), encoding="utf-8")
-        atom = change / "DSET-ATOMIC-RECORD-099-native-decision.md"
+        atom = change / "CARMADIO-ATOMIC-RECORD-099-native-decision.md"
         atom.write_text(
             "---\n"
             "artifact_type: atomic_record\n"
-            "artifact_id: DSET-ATOMIC-RECORD-099\n"
+            "artifact_id: CARMADIO-ATOMIC-RECORD-099\n"
             "type: decision\n"
-            "semantic_id: DSET-DECISION-TOOL-099\n"
+            "semantic_id: CARMADIO-DECISION-TOOL-099\n"
             "status: accepted\n"
             "priority: medium\n"
             "llm_session_ids: []\n"
@@ -512,7 +512,7 @@ class LayeredValidationTests(unittest.TestCase):
 
         diagnostics = validate_change(self.root, change, archived=False)
 
-        self.assertNotIn("DSET-E106", {item.code for item in diagnostics})
+        self.assertNotIn("CARMADIO-E106", {item.code for item in diagnostics})
 
     def test_workspace_and_dependency_currentness_are_enforced(self) -> None:
         change = self._write_change("tool", "layered-change")
@@ -521,14 +521,14 @@ class LayeredValidationTests(unittest.TestCase):
         assert isinstance(data, dict)
         data["dependencies"] = [
             {
-                "change_id": "DSET-CHANGE-GOV-001",
+                "change_id": "CARMADIO-CHANGE-GOV-001",
                 "pull_request": {
                     "repository": "example/project",
                     "number": "pending",
                     "url": "pending",
                 },
                 "required_commit": "pending",
-                "consumes": ["DSET-CONTRACT-GOV-001"],
+                "consumes": ["CARMADIO-CONTRACT-GOV-001"],
                 "claim": "The governance contract exists.",
                 "use": "Validate the generated tool configuration.",
                 "evidence": "proofs/governance-dependency.md",
@@ -539,7 +539,7 @@ class LayeredValidationTests(unittest.TestCase):
         ]
         path.write_text(dump(data, path), encoding="utf-8")
         self.assertIn(
-            "DSET-E153",
+            "CARMADIO-E153",
             {item.code for item in validate_change(self.root, change, archived=False)},
         )
         data["dependencies"][0]["pull_request"] = {
@@ -572,13 +572,13 @@ class LayeredValidationTests(unittest.TestCase):
         data["status"] = "in-progress"
         path.write_text(dump(data, path), encoding="utf-8")
         self.assertNotIn(
-            "DSET-E152",
+            "CARMADIO-E152",
             {item.code for item in validate_change(self.root, change, archived=False)},
         )
         data["status"] = "verified"
         path.write_text(dump(data, path), encoding="utf-8")
         self.assertIn(
-            "DSET-E152",
+            "CARMADIO-E152",
             {item.code for item in validate_change(self.root, change, archived=False)},
         )
 
@@ -596,9 +596,9 @@ class LayeredValidationTests(unittest.TestCase):
         second_data = load(self._change_manifest(second))
         assert isinstance(first_data, dict)
         assert isinstance(second_data, dict)
-        self.assertEqual(first_data["id"], "DSET-CHANGE-TOOL-001")
+        self.assertEqual(first_data["id"], "CARMADIO-CHANGE-TOOL-001")
         self.assertEqual(first_data["slug"], "portable-cli")
-        self.assertEqual(second_data["id"], "DSET-CHANGE-TOOL-002")
+        self.assertEqual(second_data["id"], "CARMADIO-CHANGE-TOOL-002")
         self.assertEqual(first_data["workspace"]["isolation"], "integration-branch")
         self.assertEqual(first_data["workspace"]["branch"], "dev")
         self.assertEqual(first_data["workspace"]["base_ref"], "main")
@@ -714,10 +714,10 @@ class LayeredValidationTests(unittest.TestCase):
 
     def test_workspace_branch_is_unique_only_while_changes_are_active(self) -> None:
         first = self._write_change(
-            "tool", "first-change", stable_id="DSET-CHANGE-TOOL-101"
+            "tool", "first-change", stable_id="CARMADIO-CHANGE-TOOL-101"
         )
         second = self._write_change(
-            "tool", "second-change", stable_id="DSET-CHANGE-TOOL-102"
+            "tool", "second-change", stable_id="CARMADIO-CHANGE-TOOL-102"
         )
         for change in (first, second):
             manifest = self._change_manifest(change)
@@ -730,7 +730,7 @@ class LayeredValidationTests(unittest.TestCase):
             }
             manifest.write_text(dump(data, manifest), encoding="utf-8")
         self.assertNotIn(
-            "DSET-E154", {item.code for item in validate_repository(self.root)}
+            "CARMADIO-E154", {item.code for item in validate_repository(self.root)}
         )
         first_manifest = self._change_manifest(first)
         second_manifest = self._change_manifest(second)
@@ -747,13 +747,13 @@ class LayeredValidationTests(unittest.TestCase):
         second_data["workspace"]["base_ref"] = "dev"
         second_manifest.write_text(dump(second_data, second_manifest), encoding="utf-8")
         self.assertIn(
-            "DSET-E154", {item.code for item in validate_repository(self.root)}
+            "CARMADIO-E154", {item.code for item in validate_repository(self.root)}
         )
 
         self._archive_synthetic(first, "2026-07-14", 11)
         self._archive_synthetic(second, "2026-07-15", 12)
         self.assertNotIn(
-            "DSET-E154", {item.code for item in validate_repository(self.root)}
+            "CARMADIO-E154", {item.code for item in validate_repository(self.root)}
         )
 
     def _write_project(self) -> None:
@@ -879,11 +879,11 @@ class LayeredValidationTests(unittest.TestCase):
         """Write change using the declared repository contract."""
         root = self.scopes / layer / "changes" / change_slug
         (root / "specs").mkdir(parents=True)
-        requirement = f"DSET-REQUIREMENT-{id_layer}-099"
-        test = f"DSET-TEST-CASE-{id_layer}-099"
+        requirement = f"CARMADIO-REQUIREMENT-{id_layer}-099"
+        test = f"CARMADIO-TEST-CASE-{id_layer}-099"
         data = {
             "schema_version": "1.2",
-            "id": stable_id or f"DSET-CHANGE-{id_layer}-099",
+            "id": stable_id or f"CARMADIO-CHANGE-{id_layer}-099",
             "slug": change_slug,
             "profile": "small",
             "status": "proposed",
@@ -905,7 +905,7 @@ class LayeredValidationTests(unittest.TestCase):
                 "number": "pending",
                 "url": "pending",
             },
-            "release": {"owner_change": stable_id or f"DSET-CHANGE-{id_layer}-099"},
+            "release": {"owner_change": stable_id or f"CARMADIO-CHANGE-{id_layer}-099"},
             "intake": [],
             "requirements": [requirement],
             "tests": [test],

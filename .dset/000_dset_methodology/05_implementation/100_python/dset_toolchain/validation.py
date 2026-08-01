@@ -186,16 +186,16 @@ def validate_repository(root: Path) -> list[Diagnostic]:
     settings, settings_issues = load_project_settings(root)
     include_subtype_in_names = settings.artifact_subtype_in_names
     diagnostics.extend(
-        _diag("DSET-E157", selected_settings_path(root), issue)
+        _diag("CARMADIO-E157", selected_settings_path(root), issue)
         for issue in settings_issues
     )
     try:
         layout = discover_layout(root)
     except ValueError as error:
-        return [_diag("DSET-E001", root / ".dset", str(error))]
+        return [_diag("CARMADIO-E001", root / ".dset", str(error))]
     manifest_path = layout.manifest_path
     if not manifest_path.is_file():
-        return [_diag("DSET-E001", manifest_path, "project manifest is missing")]
+        return [_diag("CARMADIO-E001", manifest_path, "project manifest is missing")]
     manifest = _safe_load(manifest_path, diagnostics)
     if manifest:
         diagnostics.extend(_validate_project_manifest(root, manifest_path, manifest))
@@ -217,7 +217,7 @@ def validate_repository(root: Path) -> list[Diagnostic]:
     try:
         schema_paths = tuple(layout.schema_paths())
     except ValueError as error:
-        diagnostics.append(_diag("DSET-E118", layout.dset_root, str(error)))
+        diagnostics.append(_diag("CARMADIO-E118", layout.dset_root, str(error)))
         schema_paths = ()
     diagnostics.extend(_validate_schemas(schema_paths))
     diagnostics.extend(_validate_provenance(root))
@@ -239,7 +239,7 @@ def validate_repository(root: Path) -> list[Diagnostic]:
     if not layout.separated:
         transition_ledger = layout.migrations_root / "carrier-transitions.toml"
         diagnostics.extend(
-            _diag("DSET-E168", transition_ledger, issue)
+            _diag("CARMADIO-E168", transition_ledger, issue)
             for issue in validate_carrier_transition_ledger(root)
         )
     diagnostics.extend(validate_atomic_artifact_routes(root))
@@ -248,12 +248,12 @@ def validate_repository(root: Path) -> list[Diagnostic]:
     diagnostics.extend(validate_commit_provenance(root))
     if health_path(root).is_file() and not health_is_fresh(root):
         diagnostics.append(
-            _diag("DSET-E162", health_path(root), "project health is stale")
+            _diag("CARMADIO-E162", health_path(root), "project health is stale")
         )
     if compilation_path(root).is_file() and not compilation_is_fresh(root):
         diagnostics.append(
             _diag(
-                "DSET-E164",
+                "CARMADIO-E164",
                 compilation_path(root),
                 "active authority compilation is stale or incomplete",
             )
@@ -274,7 +274,7 @@ def validate_change(
     if merged.exists():
         diagnostics.append(
             _diag(
-                "DSET-E105",
+                "CARMADIO-E105",
                 merged,
                 "tests and evals must remain separate artifacts",
             )
@@ -282,7 +282,7 @@ def validate_change(
         return diagnostics
     manifest_path = discover_layout(root).structured_file(change_dir, "change.toml")
     if not manifest_path.is_file():
-        return [_diag("DSET-E102", manifest_path, "change manifest is missing")]
+        return [_diag("CARMADIO-E102", manifest_path, "change manifest is missing")]
     data = _safe_load(manifest_path, diagnostics)
     if not data:
         return diagnostics
@@ -294,7 +294,7 @@ def validate_change(
     if not CHANGE_PATTERN.fullmatch(change_slug) or change_slug != folder_id:
         diagnostics.append(
             _diag(
-                "DSET-E151" if layered else "DSET-E101",
+                "CARMADIO-E151" if layered else "CARMADIO-E101",
                 manifest_path,
                 "change slug must be kebab-case and match its directory"
                 if layered
@@ -304,14 +304,14 @@ def validate_change(
     profile = str(data.get("profile", ""))
     if profile not in VALID_PROFILES:
         diagnostics.append(
-            _diag("DSET-E103", manifest_path, f"unknown change profile: {profile}")
+            _diag("CARMADIO-E103", manifest_path, f"unknown change profile: {profile}")
         )
         return diagnostics
     if not layout.slim:
         try:
             files, directories = required_artifacts(root, profile)
         except (KeyError, ValueError, StructuredDataError) as error:
-            diagnostics.append(_diag("DSET-E103", manifest_path, str(error)))
+            diagnostics.append(_diag("CARMADIO-E103", manifest_path, str(error)))
             return diagnostics
         for relative in sorted(files):
             requested = change_dir / relative
@@ -322,20 +322,20 @@ def validate_change(
             )
             if not path.is_file():
                 diagnostics.append(
-                    _diag("DSET-E104", path, "required artifact is missing")
+                    _diag("CARMADIO-E104", path, "required artifact is missing")
                 )
         for relative in sorted(directories):
             path = change_dir / relative
             if not path.is_dir():
                 diagnostics.append(
-                    _diag("DSET-E104", path, "required artifact directory is missing")
+                    _diag("CARMADIO-E104", path, "required artifact directory is missing")
                 )
     if not _is_legacy_change(data) and not _valid_llm_session_ids(
         data.get("llm_session_ids")
     ):
         diagnostics.append(
             _diag(
-                "DSET-E155",
+                "CARMADIO-E155",
                 manifest_path,
                 "current Change manifests require unique host-prefixed "
                 "llm_session_ids; use an empty list for human-only work",
@@ -351,24 +351,24 @@ def validate_change(
     if archived and (not isinstance(pr_number, int) or pr_number < 1):
         diagnostics.append(
             _diag(
-                "DSET-E107",
+                "CARMADIO-E107",
                 manifest_path,
                 "archived changes require a repository-qualified PR",
             )
         )
     if archived and status != "archived":
         diagnostics.append(
-            _diag("DSET-E108", manifest_path, "archive status must be archived")
+            _diag("CARMADIO-E108", manifest_path, "archive status must be archived")
         )
     if not archived and status == "archived":
         diagnostics.append(
-            _diag("DSET-E108", manifest_path, "archived change is in active root")
+            _diag("CARMADIO-E108", manifest_path, "archived change is in active root")
         )
     if archived:
         archive = data.get("archive")
         if not isinstance(archive, dict):
             diagnostics.append(
-                _diag("DSET-E108", manifest_path, "archive metadata is missing")
+                _diag("CARMADIO-E108", manifest_path, "archive metadata is missing")
             )
         else:
             expected = None if layout.slim else expected_relative
@@ -392,7 +392,7 @@ def validate_change(
             ):
                 diagnostics.append(
                     _diag(
-                        "DSET-E150" if layered else "DSET-E108",
+                        "CARMADIO-E150" if layered else "CARMADIO-E108",
                         manifest_path,
                         "archive path does not match the change directory",
                     )
@@ -405,7 +405,7 @@ def validate_change(
             ):
                 diagnostics.append(
                     _diag(
-                        "DSET-E152",
+                        "CARMADIO-E152",
                         manifest_path,
                         "archived workspace requires exact base and head commits",
                     )
@@ -433,13 +433,13 @@ def _validate_project_manifest(
         or not CHANGE_PATTERN.fullmatch(repository_slug)
     ):
         diagnostics.append(
-            _diag("DSET-E115", path, "repository identity is inconsistent")
+            _diag("CARMADIO-E115", path, "repository identity is inconsistent")
         )
     packages = data.get("packages", [])
     ids = [item.get("id") for item in packages if isinstance(item, dict)]
     if not ids or len(ids) != len(set(ids)):
         diagnostics.append(
-            _diag("DSET-E115", path, "package IDs must be non-empty and unique")
+            _diag("CARMADIO-E115", path, "package IDs must be non-empty and unique")
         )
     manifest_schema = str(data.get("schema_version"))
     if manifest_schema in {"1.2", "1.3", "1.4", "1.5", "1.6", "1.7", "1.8"}:
@@ -490,7 +490,7 @@ def _validate_project_manifest(
         ):
             diagnostics.append(
                 _diag(
-                    "DSET-E143",
+                    "CARMADIO-E143",
                     path,
                     "current schema requires its registered layout and "
                     "package id/status/layers",
@@ -501,7 +501,7 @@ def _validate_project_manifest(
     if workflows.is_dir() and support.get("status") != "applicable":
         diagnostics.append(
             _diag(
-                "DSET-E115",
+                "CARMADIO-E115",
                 path,
                 "hosted production automation requires supportability",
             )
@@ -509,7 +509,7 @@ def _validate_project_manifest(
     command = str(data.get("canonical_command", ""))
     if "pending" in command.lower() or not command:
         diagnostics.append(
-            _diag("DSET-E116", path, "canonical command is not executable")
+            _diag("CARMADIO-E116", path, "canonical command is not executable")
         )
     work_items = data.get("work_items", {})
     registry = work_items.get("registry") if isinstance(work_items, dict) else None
@@ -518,11 +518,11 @@ def _validate_project_manifest(
         "dset/intake.yaml",
     }:
         diagnostics.append(
-            _diag("DSET-E115", path, "schema 1.1 requires the central intake path")
+            _diag("CARMADIO-E115", path, "schema 1.1 requires the central intake path")
         )
     elif isinstance(registry, str) and not (root / registry).is_file():
         diagnostics.append(
-            _diag("DSET-E115", root / registry, "work-item registry is missing")
+            _diag("CARMADIO-E115", root / registry, "work-item registry is missing")
         )
     if manifest_schema in {"1.2", "1.3"}:
         expected_registries = (
@@ -536,7 +536,7 @@ def _validate_project_manifest(
         if registry not in expected_registries:
             diagnostics.append(
                 _diag(
-                    "DSET-E143",
+                    "CARMADIO-E143",
                     path,
                     "project schema requires its canonical intake path",
                 )
@@ -554,7 +554,7 @@ def _validate_project_manifest(
         for identifier in contracts
     ):
         diagnostics.append(
-            _diag("DSET-E115", path, "project contract IDs are inconsistent")
+            _diag("CARMADIO-E115", path, "project contract IDs are inconsistent")
         )
     for group, trace_type in (("stories", "STORY"), ("outcomes", "OUTCOME")):
         if group not in data:
@@ -566,7 +566,7 @@ def _validate_project_manifest(
             for identifier in identifiers
         ):
             diagnostics.append(
-                _diag("DSET-E115", path, f"project {group} IDs are inconsistent")
+                _diag("CARMADIO-E115", path, f"project {group} IDs are inconsistent")
             )
     return diagnostics
 
@@ -608,7 +608,7 @@ def _validate_work_areas(
         return []
     return [
         _diag(
-            "DSET-E143",
+            "CARMADIO-E143",
             manifest_path,
             "work areas require unique kebab-case IDs and safe unique existing "
             "repository-relative directory paths",
@@ -660,7 +660,7 @@ def _validate_intake_registry(root: Path, manifest: dict[str, Any]) -> list[Diag
         ):
             diagnostics.append(
                 _diag(
-                    "DSET-E142",
+                    "CARMADIO-E142",
                     path,
                     "layered intake derives the fixed layers and cannot redefine them",
                 )
@@ -668,18 +668,18 @@ def _validate_intake_registry(root: Path, manifest: dict[str, Any]) -> list[Diag
     else:
         if data.get("scope_mode") != "multi-scope":
             diagnostics.append(
-                _diag("DSET-E142", path, "intake must use registered layer scopes")
+                _diag("CARMADIO-E142", path, "intake must use registered layer scopes")
             )
         raw_scopes = data.get("scopes")
         if not isinstance(raw_scopes, list):
-            diagnostics.append(_diag("DSET-E142", path, "scopes must be a list"))
+            diagnostics.append(_diag("CARMADIO-E142", path, "scopes must be a list"))
             return diagnostics
         scopes = {}
         seen_segments: set[str] = set()
         for raw_scope in raw_scopes:
             if not isinstance(raw_scope, dict):
                 diagnostics.append(
-                    _diag("DSET-E142", path, "every scope must be a mapping")
+                    _diag("CARMADIO-E142", path, "every scope must be a mapping")
                 )
                 continue
             scope_id = raw_scope.get("id")
@@ -694,7 +694,7 @@ def _validate_intake_registry(root: Path, manifest: dict[str, Any]) -> list[Diag
                 or segment in seen_segments
             ):
                 diagnostics.append(
-                    _diag("DSET-E142", path, f"invalid layer scope: {scope_id}")
+                    _diag("CARMADIO-E142", path, f"invalid layer scope: {scope_id}")
                 )
                 continue
             scopes[scope_id] = segment
@@ -702,7 +702,7 @@ def _validate_intake_registry(root: Path, manifest: dict[str, Any]) -> list[Diag
         if seen_segments != set(TRACE_LAYERS):
             diagnostics.append(
                 _diag(
-                    "DSET-E142",
+                    "CARMADIO-E142",
                     path,
                     "intake must register META, GOV, TOOL, SKILL, IMPL, and OPS "
                     "exactly once",
@@ -710,7 +710,7 @@ def _validate_intake_registry(root: Path, manifest: dict[str, Any]) -> list[Diag
             )
     raw_items = data.get("items")
     if not isinstance(raw_items, list):
-        diagnostics.append(_diag("DSET-E142", path, "items must be a list"))
+        diagnostics.append(_diag("CARMADIO-E142", path, "items must be a list"))
         return diagnostics
     seen_ids: set[str] = set()
     legacy_intake = str(data.get("schema_version")) == "1.1"
@@ -743,7 +743,7 @@ def _validate_intake_registry(root: Path, manifest: dict[str, Any]) -> list[Diag
     for raw_item in raw_items:
         if not isinstance(raw_item, dict):
             diagnostics.append(
-                _diag("DSET-E142", path, "every intake item must be a mapping")
+                _diag("CARMADIO-E142", path, "every intake item must be a mapping")
             )
             continue
         identifier = raw_item.get("id")
@@ -786,14 +786,14 @@ def _validate_intake_registry(root: Path, manifest: dict[str, Any]) -> list[Diag
             )
         ):
             diagnostics.append(
-                _diag("DSET-E142", path, f"invalid intake identity: {identifier}")
+                _diag("CARMADIO-E142", path, f"invalid intake identity: {identifier}")
             )
         elif isinstance(identifier, str):
             seen_ids.add(identifier)
         if not _valid_llm_session_ids(raw_item.get("llm_session_ids")):
             diagnostics.append(
                 _diag(
-                    "DSET-E155",
+                    "CARMADIO-E155",
                     path,
                     f"intake item {identifier} requires unique host-prefixed "
                     "llm_session_ids; use an empty list for human-only work",
@@ -810,7 +810,7 @@ def _validate_intake_registry(root: Path, manifest: dict[str, Any]) -> list[Diag
             if owner_match is None or owner_match.group("layer") is None:
                 diagnostics.append(
                     _diag(
-                        "DSET-E142",
+                        "CARMADIO-E142",
                         path,
                         f"invalid owner Change identity: {owner_change}",
                     )
@@ -829,7 +829,7 @@ def _validate_intake_registry(root: Path, manifest: dict[str, Any]) -> list[Diag
             )
         ):
             diagnostics.append(
-                _diag("DSET-E142", path, f"invalid Decision identity: {decision}")
+                _diag("CARMADIO-E142", path, f"invalid Decision identity: {decision}")
             )
     return diagnostics
 
@@ -886,7 +886,7 @@ def _validate_atomic_markdown_provenance(change_dir: Path) -> list[Diagnostic]:
         paths.extend(path for path in proofs.glob("*.md") if path.name != "README.md")
     return [
         _diag(
-            "DSET-E155",
+            "CARMADIO-E155",
             path,
             "Decision and promoted proof records require an LLM session IDs "
             "field with host-prefixed IDs or explicit none",
@@ -910,12 +910,12 @@ def _validate_version(
         try:
             data = project_section(root, "version_registry")
         except (OSError, ValueError, StructuredDataError) as error:
-            diagnostics.append(_diag("DSET-E124", path, str(error)))
+            diagnostics.append(_diag("CARMADIO-E124", path, str(error)))
             data = None
     else:
         data = _safe_load(path, diagnostics)
     if not data:
-        return diagnostics or [_diag("DSET-E124", path, "version contract is missing")]
+        return diagnostics or [_diag("CARMADIO-E124", path, "version contract is missing")]
     framework = data.get("framework", {})
     package = data.get("python_package", {})
     schemas = data.get("schemas", {})
@@ -928,7 +928,7 @@ def _validate_version(
         or framework.get("versioning") != "coordinated-product-package"
     ):
         diagnostics.append(
-            _diag("DSET-E124", path, "framework version contract is inconsistent")
+            _diag("CARMADIO-E124", path, "framework version contract is inconsistent")
         )
     if (
         not isinstance(package, dict)
@@ -936,7 +936,7 @@ def _validate_version(
         or package.get("versioning") != "coordinated-product-package"
     ):
         diagnostics.append(
-            _diag("DSET-E124", path, "Python package version contract is inconsistent")
+            _diag("CARMADIO-E124", path, "Python package version contract is inconsistent")
         )
     if (
         not isinstance(schemas, dict)
@@ -944,19 +944,19 @@ def _validate_version(
         or schemas.get("versioning") != "independent"
     ):
         diagnostics.append(
-            _diag("DSET-E124", path, "schema version contract is inconsistent")
+            _diag("CARMADIO-E124", path, "schema version contract is inconsistent")
         )
     commit = released.get("commit") if isinstance(released, dict) else None
     if not isinstance(commit, str) or not re.fullmatch(r"[0-9a-f]{40}", commit):
         diagnostics.append(
-            _diag("DSET-E124", path, "released validator commit must be a full SHA")
+            _diag("CARMADIO-E124", path, "released validator commit must be a full SHA")
         )
     if data.get("schema_version") != "1.2" or released.get("assurance") not in {
         "published-release",
         "bootstrap-transition",
     }:
         diagnostics.append(
-            _diag("DSET-E124", path, "validator assurance contract is inconsistent")
+            _diag("CARMADIO-E124", path, "validator assurance contract is inconsistent")
         )
     return diagnostics
 
@@ -989,7 +989,7 @@ def _validate_packages(root: Path, manifest: dict[str, Any]) -> list[Diagnostic]
         package_manifest = layout.structured_file(base, "package.toml")
         if not package_manifest.is_file():
             diagnostics.append(
-                _diag("DSET-E117", package_manifest, "package manifest is missing")
+                _diag("CARMADIO-E117", package_manifest, "package manifest is missing")
             )
             continue
         data = _safe_load(package_manifest, diagnostics)
@@ -997,19 +997,19 @@ def _validate_packages(root: Path, manifest: dict[str, Any]) -> list[Diagnostic]
             continue
         if data.get("id") != package.get("id"):
             diagnostics.append(
-                _diag("DSET-E117", package_manifest, "package ID mismatch")
+                _diag("CARMADIO-E117", package_manifest, "package ID mismatch")
             )
         artifacts = data.get("artifacts", {})
         if not isinstance(artifacts, dict):
             diagnostics.append(
-                _diag("DSET-E117", package_manifest, "artifacts must be a mapping")
+                _diag("CARMADIO-E117", package_manifest, "artifacts must be a mapping")
             )
             continue
         for relative in artifacts.values():
             path = base / str(relative)
             if not path.is_file():
                 diagnostics.append(
-                    _diag("DSET-E117", path, "package artifact is missing")
+                    _diag("CARMADIO-E117", path, "package artifact is missing")
                 )
         owner_paths = {
             "requirements": [base / str(artifacts.get("spec", "spec.md"))],
@@ -1025,7 +1025,7 @@ def _validate_packages(root: Path, manifest: dict[str, Any]) -> list[Diagnostic]
             identifiers = data.get(group)
             if not isinstance(identifiers, list):
                 diagnostics.append(
-                    _diag("DSET-E117", package_manifest, f"{group} must be a list")
+                    _diag("CARMADIO-E117", package_manifest, f"{group} must be a list")
                 )
                 continue
             pattern = _trace_id_pattern(project_key, (trace_type,))
@@ -1041,7 +1041,7 @@ def _validate_packages(root: Path, manifest: dict[str, Any]) -> list[Diagnostic]
                 ):
                     diagnostics.append(
                         _diag(
-                            "DSET-E117",
+                            "CARMADIO-E117",
                             package_manifest,
                             f"invalid {group} ID: {identifier}",
                         )
@@ -1049,7 +1049,7 @@ def _validate_packages(root: Path, manifest: dict[str, Any]) -> list[Diagnostic]
                 elif identifier not in content:
                     diagnostics.append(
                         _diag(
-                            "DSET-E117",
+                            "CARMADIO-E117",
                             package_manifest,
                             f"{identifier} is not present in its owning artifact",
                         )
@@ -1061,7 +1061,7 @@ def _validate_packages(root: Path, manifest: dict[str, Any]) -> list[Diagnostic]
                     if missing:
                         diagnostics.append(
                             _diag(
-                                "DSET-E117",
+                                "CARMADIO-E117",
                                 package_manifest,
                                 f"{identifier} is missing fields: {', '.join(missing)}",
                             )
@@ -1141,7 +1141,7 @@ def _validate_layered_packages(
             relative = path.relative_to(layout.scopes_root)
         except ValueError:
             diagnostics.append(
-                _diag("DSET-E145", path, "package fragment is outside layer roots")
+                _diag("CARMADIO-E145", path, "package fragment is outside layer roots")
             )
             continue
         directory_layer = relative.parts[0]
@@ -1167,7 +1167,7 @@ def _validate_layered_packages(
         ):
             diagnostics.append(
                 _diag(
-                    "DSET-E145",
+                    "CARMADIO-E145",
                     path,
                     "package fragment identity must match its derived path",
                 )
@@ -1177,14 +1177,14 @@ def _validate_layered_packages(
         artifacts = data.get("artifacts")
         if not isinstance(artifacts, dict) or artifacts != artifact_names:
             diagnostics.append(
-                _diag("DSET-E144", path, "package fragment artifacts are malformed")
+                _diag("CARMADIO-E144", path, "package fragment artifacts are malformed")
             )
             artifacts = {}
         for name, filename in artifact_names.items():
             artifact = path.parent / filename
             if artifacts.get(name) == filename and not artifact.is_file():
                 diagnostics.append(
-                    _diag("DSET-E144", artifact, "package fragment artifact is missing")
+                    _diag("CARMADIO-E144", artifact, "package fragment artifact is missing")
                 )
         for group, trace_type in group_types.items():
             identifiers = data.get(group)
@@ -1196,7 +1196,7 @@ def _validate_layered_packages(
                 )
             ):
                 diagnostics.append(
-                    _diag("DSET-E144", path, f"{group} must be a unique list")
+                    _diag("CARMADIO-E144", path, f"{group} must be a unique list")
                 )
                 continue
             pattern = _trace_id_pattern(project_key, (trace_type,))
@@ -1210,7 +1210,7 @@ def _validate_layered_packages(
                 )
                 if match is None:
                     diagnostics.append(
-                        _diag("DSET-E144", path, f"invalid {group} ID: {identifier}")
+                        _diag("CARMADIO-E144", path, f"invalid {group} ID: {identifier}")
                     )
                     continue
                 identifier_layer = match.group("layer")
@@ -1220,7 +1220,7 @@ def _validate_layered_packages(
                 if not owns_id:
                     diagnostics.append(
                         _diag(
-                            "DSET-E146",
+                            "CARMADIO-E146",
                             path,
                             f"{identifier} is not owned by layer {physical_layer}",
                         )
@@ -1229,7 +1229,7 @@ def _validate_layered_packages(
                 if previous is not None and previous != path:
                     diagnostics.append(
                         _diag(
-                            "DSET-E147",
+                            "CARMADIO-E147",
                             path,
                             f"{identifier} is also owned by "
                             f"{previous.relative_to(root)}",
@@ -1240,7 +1240,7 @@ def _validate_layered_packages(
                 if identifier not in content:
                     diagnostics.append(
                         _diag(
-                            "DSET-E144",
+                            "CARMADIO-E144",
                             path,
                             f"{identifier} is not present in its owning artifact",
                         )
@@ -1250,7 +1250,7 @@ def _validate_layered_packages(
                     if missing:
                         diagnostics.append(
                             _diag(
-                                "DSET-E144",
+                                "CARMADIO-E144",
                                 path,
                                 f"{identifier} is missing fields: {', '.join(missing)}",
                             )
@@ -1261,7 +1261,7 @@ def _validate_layered_packages(
             "package.toml",
         )
         diagnostics.append(
-            _diag("DSET-E144", missing_path, "declared package fragment is missing")
+            _diag("CARMADIO-E144", missing_path, "declared package fragment is missing")
         )
     return diagnostics
 
@@ -1276,14 +1276,14 @@ def _validate_artifacts(
     """Validate artifacts using the declared repository contract."""
     profiles = manifest.get("profiles", {})
     if not isinstance(profiles, dict):
-        return [_diag("DSET-E120", manifest_path, "profiles must be a mapping")]
+        return [_diag("CARMADIO-E120", manifest_path, "profiles must be a mapping")]
     profile = profiles.get("artifact")
     if profile is None:
         return []
     if profile != "documentation-v1":
         return [
             _diag(
-                "DSET-E120",
+                "CARMADIO-E120",
                 manifest_path,
                 f"unsupported artifact profile: {profile}",
             )
@@ -1293,7 +1293,7 @@ def _validate_artifacts(
     if not registry_path.is_file():
         return [
             _diag(
-                "DSET-E120",
+                "CARMADIO-E120",
                 registry_path,
                 "documentation-v1 requires an artifact registry",
             )
@@ -1302,14 +1302,14 @@ def _validate_artifacts(
     try:
         registry = project_section(root, "artifact_structure")
     except (OSError, ValueError, StructuredDataError) as error:
-        diagnostics.append(_diag("DSET-E120", registry_path, str(error)))
+        diagnostics.append(_diag("CARMADIO-E120", registry_path, str(error)))
         registry = {}
     if not registry:
         return diagnostics
     if registry.get("profile") != profile:
         diagnostics.append(
             _diag(
-                "DSET-E120",
+                "CARMADIO-E120",
                 registry_path,
                 "artifact registry profile does not match project profile",
             )
@@ -1332,11 +1332,11 @@ def validate_artifact_type_registry(
     diagnostics: list[Diagnostic] = []
     if str(data.get("schema_version")) != "1.0":
         diagnostics.append(
-            _diag("DSET-E156", registry_path, "schema_version must be 1.0")
+            _diag("CARMADIO-E156", registry_path, "schema_version must be 1.0")
         )
     if data.get("profile") != "documentation-v1":
         diagnostics.append(
-            _diag("DSET-E156", registry_path, "profile must be documentation-v1")
+            _diag("CARMADIO-E156", registry_path, "profile must be documentation-v1")
         )
     diagnostics.extend(_validate_artifact_classification(registry_path, data))
     types, type_diagnostics = _artifact_type_catalog(registry_path, data)
@@ -1408,7 +1408,7 @@ def _validate_artifact_classification(
     if data.get("classification") != expected:
         return [
             _diag(
-                "DSET-E156",
+                "CARMADIO-E156",
                 registry_path,
                 "classification policy and direct metadata fields are invalid",
             )
@@ -1425,7 +1425,7 @@ def _artifact_type_catalog(
     if not isinstance(raw_types, list) or not raw_types:
         return {}, [
             _diag(
-                "DSET-E156",
+                "CARMADIO-E156",
                 registry_path,
                 "artifact_types must be a non-empty list",
             )
@@ -1436,7 +1436,7 @@ def _artifact_type_catalog(
         if not isinstance(entry, dict):
             diagnostics.append(
                 _diag(
-                    "DSET-E156", registry_path, "every artifact type must be a mapping"
+                    "CARMADIO-E156", registry_path, "every artifact type must be a mapping"
                 )
             )
             continue
@@ -1447,7 +1447,7 @@ def _artifact_type_catalog(
         ):
             diagnostics.append(
                 _diag(
-                    "DSET-E156",
+                    "CARMADIO-E156",
                     registry_path,
                     f"invalid artifact type ID: {identifier}",
                 )
@@ -1456,7 +1456,7 @@ def _artifact_type_catalog(
         if identifier in catalog:
             diagnostics.append(
                 _diag(
-                    "DSET-E156",
+                    "CARMADIO-E156",
                     registry_path,
                     f"duplicate artifact type ID: {identifier}",
                 )
@@ -1466,7 +1466,7 @@ def _artifact_type_catalog(
         if not isinstance(question, str) or not question.strip():
             diagnostics.append(
                 _diag(
-                    "DSET-E156",
+                    "CARMADIO-E156",
                     registry_path,
                     f"{identifier} requires a primary_question",
                 )
@@ -1474,7 +1474,7 @@ def _artifact_type_catalog(
         elif question in questions:
             diagnostics.append(
                 _diag(
-                    "DSET-E156",
+                    "CARMADIO-E156",
                     registry_path,
                     f"duplicate primary_question: {question}",
                 )
@@ -1484,7 +1484,7 @@ def _artifact_type_catalog(
         if not isinstance(entry.get("allow_empty_subtype"), bool):
             diagnostics.append(
                 _diag(
-                    "DSET-E156",
+                    "CARMADIO-E156",
                     registry_path,
                     f"{identifier} allow_empty_subtype must be boolean",
                 )
@@ -1493,7 +1493,7 @@ def _artifact_type_catalog(
         if not isinstance(raw_subtypes, list):
             diagnostics.append(
                 _diag(
-                    "DSET-E156",
+                    "CARMADIO-E156",
                     registry_path,
                     f"{identifier} subtypes must be a flat list",
                 )
@@ -1508,7 +1508,7 @@ def _artifact_type_catalog(
             ):
                 diagnostics.append(
                     _diag(
-                        "DSET-E156",
+                        "CARMADIO-E156",
                         registry_path,
                         f"{identifier} contains an invalid or nested subtype",
                     )
@@ -1516,7 +1516,7 @@ def _artifact_type_catalog(
             elif subtype in subtypes:
                 diagnostics.append(
                     _diag(
-                        "DSET-E156",
+                        "CARMADIO-E156",
                         registry_path,
                         f"{identifier} contains duplicate subtype: {subtype}",
                     )
@@ -1527,7 +1527,7 @@ def _artifact_type_catalog(
     if set(catalog) != set(ARTIFACT_TYPE_SUBTYPES):
         diagnostics.append(
             _diag(
-                "DSET-E156",
+                "CARMADIO-E156",
                 registry_path,
                 "artifact_types must contain the eleven canonical types exactly",
             )
@@ -1536,7 +1536,7 @@ def _artifact_type_catalog(
         if identifier in catalog and catalog[identifier] != expected:
             diagnostics.append(
                 _diag(
-                    "DSET-E156",
+                    "CARMADIO-E156",
                     registry_path,
                     f"{identifier} direct subtype set does not match the profile",
                 )
@@ -1553,7 +1553,7 @@ def _artifact_exclusions(
     if not isinstance(raw_exclusions, list) or not raw_exclusions:
         return [], [
             _diag(
-                "DSET-E156",
+                "CARMADIO-E156",
                 registry_path,
                 "exclusions must be a non-empty explicit registry",
             )
@@ -1564,7 +1564,7 @@ def _artifact_exclusions(
         if not isinstance(item, dict) or set(item) != {"pattern", "rationale"}:
             diagnostics.append(
                 _diag(
-                    "DSET-E156",
+                    "CARMADIO-E156",
                     registry_path,
                     "every exclusion requires exactly pattern and rationale",
                 )
@@ -1574,18 +1574,18 @@ def _artifact_exclusions(
         rationale = item.get("rationale")
         if not isinstance(pattern, str) or not pattern.strip():
             diagnostics.append(
-                _diag("DSET-E156", registry_path, "exclusion pattern is missing")
+                _diag("CARMADIO-E156", registry_path, "exclusion pattern is missing")
             )
             continue
         if pattern in seen:
             diagnostics.append(
-                _diag("DSET-E156", registry_path, f"duplicate exclusion: {pattern}")
+                _diag("CARMADIO-E156", registry_path, f"duplicate exclusion: {pattern}")
             )
         seen.add(pattern)
         if not isinstance(rationale, str) or not rationale.strip():
             diagnostics.append(
                 _diag(
-                    "DSET-E156",
+                    "CARMADIO-E156",
                     registry_path,
                     f"exclusion {pattern} requires a rationale",
                 )
@@ -1604,7 +1604,7 @@ def _legacy_evidence_paths(
     if not isinstance(raw_paths, list):
         return frozenset(), [
             _diag(
-                "DSET-E156",
+                "CARMADIO-E156",
                 registry_path,
                 "legacy_evidence_paths must be an explicit finite list",
             )
@@ -1620,7 +1620,7 @@ def _legacy_evidence_paths(
         ):
             diagnostics.append(
                 _diag(
-                    "DSET-E156",
+                    "CARMADIO-E156",
                     registry_path,
                     f"invalid legacy evidence path: {item}",
                 )
@@ -1629,7 +1629,7 @@ def _legacy_evidence_paths(
         if item in paths:
             diagnostics.append(
                 _diag(
-                    "DSET-E156",
+                    "CARMADIO-E156",
                     registry_path,
                     f"duplicate legacy evidence path: {item}",
                 )
@@ -1652,7 +1652,7 @@ def _legacy_structured_entries(
     if not isinstance(raw_entries, list):
         return {}, [
             _diag(
-                "DSET-E156",
+                "CARMADIO-E156",
                 registry_path,
                 "legacy_structured must be an explicit finite list",
             )
@@ -1665,7 +1665,7 @@ def _legacy_structured_entries(
         if not isinstance(item, dict):
             diagnostics.append(
                 _diag(
-                    "DSET-E156",
+                    "CARMADIO-E156",
                     registry_path,
                     "every legacy_structured entry must be a mapping",
                 )
@@ -1691,7 +1691,7 @@ def _legacy_structured_entries(
         if not required.issubset(item) or set(item) - allowed:
             diagnostics.append(
                 _diag(
-                    "DSET-E156",
+                    "CARMADIO-E156",
                     registry_path,
                     "legacy_structured entry has missing or unknown fields",
                 )
@@ -1702,7 +1702,7 @@ def _legacy_structured_entries(
         if not _exact_registry_path(raw_path, suffixes={".yaml", ".yml"}):
             diagnostics.append(
                 _diag(
-                    "DSET-E156",
+                    "CARMADIO-E156",
                     registry_path,
                     f"invalid or wildcard legacy_structured path: {raw_path}",
                 )
@@ -1711,7 +1711,7 @@ def _legacy_structured_entries(
         if not _exact_registry_path(raw_owner, suffixes={".toml"}):
             diagnostics.append(
                 _diag(
-                    "DSET-E156",
+                    "CARMADIO-E156",
                     registry_path,
                     f"invalid or wildcard current_owner path: {raw_owner}",
                 )
@@ -1721,7 +1721,7 @@ def _legacy_structured_entries(
         if raw_path in entries:
             diagnostics.append(
                 _diag(
-                    "DSET-E156",
+                    "CARMADIO-E156",
                     registry_path,
                     f"duplicate legacy_structured path: {raw_path}",
                 )
@@ -1729,7 +1729,7 @@ def _legacy_structured_entries(
         if raw_owner in owners:
             diagnostics.append(
                 _diag(
-                    "DSET-E156",
+                    "CARMADIO-E156",
                     registry_path,
                     f"duplicate legacy_structured current_owner: {raw_owner}",
                 )
@@ -1742,7 +1742,7 @@ def _legacy_structured_entries(
         if not isinstance(artifact_type, str) or artifact_type not in catalog:
             diagnostics.append(
                 _diag(
-                    "DSET-E156",
+                    "CARMADIO-E156",
                     registry_path,
                     f"legacy_structured uses unknown artifact type: {artifact_type}",
                 )
@@ -1752,7 +1752,7 @@ def _legacy_structured_entries(
         ):
             diagnostics.append(
                 _diag(
-                    "DSET-E156",
+                    "CARMADIO-E156",
                     registry_path,
                     f"legacy_structured {raw_path} has a subtype/type mismatch",
                 )
@@ -1778,7 +1778,7 @@ def _legacy_structured_entries(
         ):
             diagnostics.append(
                 _diag(
-                    "DSET-E156",
+                    "CARMADIO-E156",
                     registry_path,
                     f"legacy transition seal is incomplete: {raw_path}",
                 )
@@ -1791,7 +1791,7 @@ def _legacy_structured_entries(
         if invalid_source and not transitioned:
             diagnostics.append(
                 _diag(
-                    "DSET-E156",
+                    "CARMADIO-E156",
                     registry_path,
                     f"legacy snapshot is missing: {raw_path}",
                 )
@@ -1806,7 +1806,7 @@ def _legacy_structured_entries(
             ):
                 diagnostics.append(
                     _diag(
-                        "DSET-E156",
+                        "CARMADIO-E156",
                         registry_path,
                         f"legacy snapshot digest changed: {raw_path}",
                     )
@@ -1823,7 +1823,7 @@ def _legacy_structured_entries(
             ):
                 diagnostics.append(
                     _diag(
-                        "DSET-E156",
+                        "CARMADIO-E156",
                         registry_path,
                         "legacy transition carrier is missing or changed: "
                         f"{raw_current}",
@@ -1832,7 +1832,7 @@ def _legacy_structured_entries(
         if not _within_root(root, owner) or not owner.is_file() or owner.is_symlink():
             diagnostics.append(
                 _diag(
-                    "DSET-E156",
+                    "CARMADIO-E156",
                     registry_path,
                     f"legacy snapshot current owner is missing: {raw_owner}",
                 )
@@ -1859,7 +1859,7 @@ def _legacy_structured_entries(
         if path.with_suffix(".toml").is_file() and relative not in entries:
             diagnostics.append(
                 _diag(
-                    "DSET-E156",
+                    "CARMADIO-E156",
                     registry_path,
                     f"unregistered YAML/TOML pair: {relative}",
                 )
@@ -1923,7 +1923,7 @@ def _validate_retention_identities(
     if not isinstance(raw_identities, list) or not raw_identities:
         return [
             _diag(
-                "DSET-E156",
+                "CARMADIO-E156",
                 registry_path,
                 f"legacy_structured {snapshot} requires retained_for identities",
             )
@@ -1938,7 +1938,7 @@ def _validate_retention_identities(
     ) and transition_target is None:
         diagnostics.append(
             _diag(
-                "DSET-E156",
+                "CARMADIO-E156",
                 registry_path,
                 f"legacy_structured {snapshot} transition is not registered",
             )
@@ -1946,7 +1946,7 @@ def _validate_retention_identities(
     for identity in raw_identities:
         if not isinstance(identity, dict):
             diagnostics.append(
-                _diag("DSET-E156", registry_path, "retained_for must be a mapping")
+                _diag("CARMADIO-E156", registry_path, "retained_for must be a mapping")
             )
             continue
         identity_keys = set(identity) - {"reason"}
@@ -1957,7 +1957,7 @@ def _validate_retention_identities(
         ):
             diagnostics.append(
                 _diag(
-                    "DSET-E156",
+                    "CARMADIO-E156",
                     registry_path,
                     "retained_for requires reason and exactly one of "
                     "semantic_id or carrier_path",
@@ -1968,13 +1968,13 @@ def _validate_retention_identities(
         value = identity.get(key)
         if not isinstance(value, str) or not value:
             diagnostics.append(
-                _diag("DSET-E156", registry_path, f"retained_for {key} is invalid")
+                _diag("CARMADIO-E156", registry_path, f"retained_for {key} is invalid")
             )
             continue
         marker = (key, value)
         if marker in seen:
             diagnostics.append(
-                _diag("DSET-E156", registry_path, f"duplicate retained_for: {value}")
+                _diag("CARMADIO-E156", registry_path, f"duplicate retained_for: {value}")
             )
         seen.add(marker)
         if key == "semantic_id":
@@ -1984,7 +1984,7 @@ def _validate_retention_identities(
             if not carriers:
                 diagnostics.append(
                     _diag(
-                        "DSET-E156",
+                        "CARMADIO-E156",
                         registry_path,
                         "retained_for semantic ID does not select or link "
                         f"{snapshot}: {value}",
@@ -1994,7 +1994,7 @@ def _validate_retention_identities(
             if not _exact_registry_path(value, suffixes={".md"}):
                 diagnostics.append(
                     _diag(
-                        "DSET-E156",
+                        "CARMADIO-E156",
                         registry_path,
                         f"retained_for carrier_path is invalid: {value}",
                     )
@@ -2024,7 +2024,7 @@ def _validate_retention_identities(
             ):
                 diagnostics.append(
                     _diag(
-                        "DSET-E156",
+                        "CARMADIO-E156",
                         registry_path,
                         f"historical carrier does not link {snapshot}: {value}",
                     )
@@ -2281,7 +2281,7 @@ def _validate_legacy_structured_links(
                 if not is_immutable:
                     diagnostics.append(
                         _diag(
-                            "DSET-E156",
+                            "CARMADIO-E156",
                             carrier,
                             "mutable carrier links registered legacy snapshot: "
                             f"{registered_relative}",
@@ -2290,7 +2290,7 @@ def _validate_legacy_structured_links(
                 elif carrier.resolve() not in allowed[target]:
                     diagnostics.append(
                         _diag(
-                            "DSET-E156",
+                            "CARMADIO-E156",
                             carrier,
                             "immutable legacy link is not declared by retained_for: "
                             f"{registered_relative}",
@@ -2307,7 +2307,7 @@ def _validate_legacy_structured_links(
             ):
                 diagnostics.append(
                     _diag(
-                        "DSET-E156",
+                        "CARMADIO-E156",
                         carrier,
                         "immutable carrier links an unregistered legacy "
                         f"structured path: {target.relative_to(root).as_posix()}",
@@ -2345,14 +2345,14 @@ def _validate_artifact_path_rules(
     raw_rules = data.get("path_rules")
     if not isinstance(raw_rules, list) or not raw_rules:
         return [
-            _diag("DSET-E156", registry_path, "path_rules must be a non-empty list")
+            _diag("CARMADIO-E156", registry_path, "path_rules must be a non-empty list")
         ]
     rules: list[tuple[str, str, str | None]] = []
     seen_patterns: set[str] = set()
     for rule in raw_rules:
         if not isinstance(rule, dict):
             diagnostics.append(
-                _diag("DSET-E156", registry_path, "every path rule must be a mapping")
+                _diag("CARMADIO-E156", registry_path, "every path rule must be a mapping")
             )
             continue
         pattern = rule.get("pattern")
@@ -2360,18 +2360,18 @@ def _validate_artifact_path_rules(
         artifact_subtype = rule.get("artifact_subtype")
         if not isinstance(pattern, str) or not pattern.strip():
             diagnostics.append(
-                _diag("DSET-E156", registry_path, "path rule pattern is missing")
+                _diag("CARMADIO-E156", registry_path, "path rule pattern is missing")
             )
             continue
         if pattern in seen_patterns:
             diagnostics.append(
-                _diag("DSET-E156", registry_path, f"duplicate path rule: {pattern}")
+                _diag("CARMADIO-E156", registry_path, f"duplicate path rule: {pattern}")
             )
         seen_patterns.add(pattern)
         if not isinstance(artifact_type, str) or artifact_type not in catalog:
             diagnostics.append(
                 _diag(
-                    "DSET-E156",
+                    "CARMADIO-E156",
                     registry_path,
                     f"path rule uses unknown artifact type: {artifact_type}",
                 )
@@ -2381,7 +2381,7 @@ def _validate_artifact_path_rules(
             if not isinstance(artifact_subtype, str):
                 diagnostics.append(
                     _diag(
-                        "DSET-E156",
+                        "CARMADIO-E156",
                         registry_path,
                         f"path rule {pattern} has a nested or invalid subtype",
                     )
@@ -2390,7 +2390,7 @@ def _validate_artifact_path_rules(
             if artifact_subtype not in catalog[artifact_type]:
                 diagnostics.append(
                     _diag(
-                        "DSET-E156",
+                        "CARMADIO-E156",
                         registry_path,
                         f"path rule {pattern} has a subtype/type mismatch",
                     )
@@ -2441,7 +2441,7 @@ def _validate_current_artifact_classifications(
         if len(matches) > 1:
             diagnostics.append(
                 _diag(
-                    "DSET-E156",
+                    "CARMADIO-E156",
                     path,
                     "artifact path matches multiple rules: " + ", ".join(matches),
                 )
@@ -2457,7 +2457,7 @@ def _validate_current_artifact_classifications(
         if len(matched_exclusions) > 1:
             diagnostics.append(
                 _diag(
-                    "DSET-E156",
+                    "CARMADIO-E156",
                     path,
                     "artifact path matches multiple exclusions: "
                     + ", ".join(matched_exclusions),
@@ -2468,7 +2468,7 @@ def _validate_current_artifact_classifications(
         ):
             diagnostics.append(
                 _diag(
-                    "DSET-E156",
+                    "CARMADIO-E156",
                     path,
                     "governed carrier cannot be both classified and excluded",
                 )
@@ -2483,7 +2483,7 @@ def _validate_current_artifact_classifications(
         ):
             diagnostics.append(
                 _diag(
-                    "DSET-E156",
+                    "CARMADIO-E156",
                     path,
                     "governed carrier has no artifact classification or exclusion",
                 )
@@ -2492,7 +2492,7 @@ def _validate_current_artifact_classifications(
         if is_legacy_evidence and direct is not None and direct[0] != "evidence_record":
             diagnostics.append(
                 _diag(
-                    "DSET-E156",
+                    "CARMADIO-E156",
                     path,
                     "legacy evidence path has a conflicting direct classification",
                 )
@@ -2509,7 +2509,7 @@ def _validate_current_artifact_classifications(
             ):
                 diagnostics.append(
                     _diag(
-                        "DSET-E156",
+                        "CARMADIO-E156",
                         path,
                         "legacy_structured classification conflicts with its path rule",
                     )
@@ -2531,7 +2531,7 @@ def _validate_current_artifact_classifications(
             ):
                 diagnostics.append(
                     _diag(
-                        "DSET-E156",
+                        "CARMADIO-E156",
                         path,
                         "current_owner classification conflicts with its path rule",
                     )
@@ -2542,7 +2542,7 @@ def _validate_current_artifact_classifications(
         if artifact_type not in catalog:
             diagnostics.append(
                 _diag(
-                    "DSET-E156",
+                    "CARMADIO-E156",
                     path,
                     f"direct metadata uses unknown artifact type: {artifact_type}",
                 )
@@ -2554,7 +2554,7 @@ def _validate_current_artifact_classifications(
         ):
             diagnostics.append(
                 _diag(
-                    "DSET-E156",
+                    "CARMADIO-E156",
                     path,
                     "direct metadata has a subtype/type mismatch",
                 )
@@ -2566,7 +2566,7 @@ def _validate_current_artifact_classifications(
             ):
                 diagnostics.append(
                     _diag(
-                        "DSET-E156",
+                        "CARMADIO-E156",
                         path,
                         "direct metadata conflicts with its path rule",
                     )
@@ -2656,7 +2656,7 @@ def _validate_artifact_name(
             return []
     return [
         _diag(
-            "DSET-E157",
+            "CARMADIO-E157",
             path,
             f"artifact ID and filename must use the configured naming prefix: {prefix}",
         )
@@ -2682,13 +2682,13 @@ def validate_artifact_registry(
     root_entry = data.get("root")
     raw_areas = data.get("areas")
     if not isinstance(root_entry, dict):
-        return [_diag("DSET-E121", registry_path, "root must be a mapping")]
+        return [_diag("CARMADIO-E121", registry_path, "root must be a mapping")]
     if not isinstance(raw_areas, list) or not raw_areas:
-        return [_diag("DSET-E121", registry_path, "areas must be a non-empty list")]
+        return [_diag("CARMADIO-E121", registry_path, "areas must be a non-empty list")]
     areas = [item for item in raw_areas if isinstance(item, dict)]
     if len(areas) != len(raw_areas):
         diagnostics.append(
-            _diag("DSET-E121", registry_path, "every area must be a mapping")
+            _diag("CARMADIO-E121", registry_path, "every area must be a mapping")
         )
     entries = [root_entry, *areas]
     diagnostics.extend(_validate_artifact_entries(root, registry_path, entries))
@@ -2711,7 +2711,7 @@ def _validate_artifact_entries(
             if not isinstance(value, str) or not value.strip():
                 diagnostics.append(
                     _diag(
-                        "DSET-E121",
+                        "CARMADIO-E121",
                         registry_path,
                         f"artifact {field} must be a non-empty string",
                     )
@@ -2719,12 +2719,12 @@ def _validate_artifact_entries(
         identifier = entry.get("id")
         if not isinstance(identifier, str) or not CHANGE_PATTERN.fullmatch(identifier):
             diagnostics.append(
-                _diag("DSET-E121", registry_path, f"invalid artifact ID: {identifier}")
+                _diag("CARMADIO-E121", registry_path, f"invalid artifact ID: {identifier}")
             )
         elif identifier in seen_ids:
             diagnostics.append(
                 _diag(
-                    "DSET-E121", registry_path, f"duplicate artifact ID: {identifier}"
+                    "CARMADIO-E121", registry_path, f"duplicate artifact ID: {identifier}"
                 )
             )
         else:
@@ -2734,7 +2734,7 @@ def _validate_artifact_entries(
         if area_root is None:
             diagnostics.append(
                 _diag(
-                    "DSET-E121",
+                    "CARMADIO-E121",
                     registry_path,
                     f"artifact hub is missing or ambiguous: {entry.get('hub')}",
                 )
@@ -2742,7 +2742,7 @@ def _validate_artifact_entries(
         elif area_root in seen_roots:
             diagnostics.append(
                 _diag(
-                    "DSET-E121",
+                    "CARMADIO-E121",
                     registry_path,
                     f"duplicate artifact area: {entry.get('hub')}",
                 )
@@ -2751,12 +2751,12 @@ def _validate_artifact_entries(
             seen_roots.add(area_root)
             if not area_root.is_dir():
                 diagnostics.append(
-                    _diag("DSET-E121", area_root, "artifact root does not exist")
+                    _diag("CARMADIO-E121", area_root, "artifact root does not exist")
                 )
         if hub is None:
             diagnostics.append(
                 _diag(
-                    "DSET-E121",
+                    "CARMADIO-E121",
                     registry_path,
                     f"invalid artifact hub: {entry.get('hub')}",
                 )
@@ -2764,7 +2764,7 @@ def _validate_artifact_entries(
         elif hub in seen_hubs:
             diagnostics.append(
                 _diag(
-                    "DSET-E121",
+                    "CARMADIO-E121",
                     registry_path,
                     f"duplicate artifact hub: {entry.get('hub')}",
                 )
@@ -2772,14 +2772,14 @@ def _validate_artifact_entries(
         else:
             seen_hubs.add(hub)
             if not hub.is_file():
-                diagnostics.append(_diag("DSET-E121", hub, "artifact hub is missing"))
+                diagnostics.append(_diag("CARMADIO-E121", hub, "artifact hub is missing"))
         if area_root is not None and hub is not None:
             try:
                 hub.relative_to(area_root)
             except ValueError:
                 diagnostics.append(
                     _diag(
-                        "DSET-E121", registry_path, "artifact hub is outside its root"
+                        "CARMADIO-E121", registry_path, "artifact hub is outside its root"
                     )
                 )
     return diagnostics
@@ -2808,7 +2808,7 @@ def _validate_artifact_parents(
         if not isinstance(parent, str) or parent not in by_id:
             diagnostics.append(
                 _diag(
-                    "DSET-E122",
+                    "CARMADIO-E122",
                     registry_path,
                     f"artifact {identifier} has an unresolved parent: {parent}",
                 )
@@ -2820,7 +2820,7 @@ def _validate_artifact_parents(
             if current in visited:
                 diagnostics.append(
                     _diag(
-                        "DSET-E122",
+                        "CARMADIO-E122",
                         registry_path,
                         f"artifact parent cycle includes: {identifier}",
                     )
@@ -2832,7 +2832,7 @@ def _validate_artifact_parents(
             if not isinstance(next_parent, str) or next_parent not in by_id:
                 diagnostics.append(
                     _diag(
-                        "DSET-E122",
+                        "CARMADIO-E122",
                         registry_path,
                         f"artifact parent chain does not reach root: {identifier}",
                     )
@@ -2862,14 +2862,14 @@ def _validate_artifact_hubs(
         required = {"purpose", "boundaries"}
         if not required.issubset(headings):
             diagnostics.append(
-                _diag("DSET-E123", hub, "hub requires Purpose and Boundaries sections")
+                _diag("CARMADIO-E123", hub, "hub requires Purpose and Boundaries sections")
             )
         navigation = {"start here", "navigation"}
         if entry is root_entry:
             navigation.add("repository areas")
         if headings.isdisjoint(navigation):
             diagnostics.append(
-                _diag("DSET-E123", hub, "hub requires a navigation section")
+                _diag("CARMADIO-E123", hub, "hub requires a navigation section")
             )
         named_atoms = sorted(
             semantic_id
@@ -2879,7 +2879,7 @@ def _validate_artifact_hubs(
         if named_atoms:
             diagnostics.append(
                 _diag(
-                    "DSET-E123",
+                    "CARMADIO-E123",
                     hub,
                     "hub must link atomic-artifact folders, not individual "
                     f"atoms: {', '.join(named_atoms)}",
@@ -2896,7 +2896,7 @@ def _validate_artifact_hubs(
         if runtime_descendants:
             diagnostics.append(
                 _diag(
-                    "DSET-E123",
+                    "CARMADIO-E123",
                     hub,
                     "hub must not include .dset_runtime descendants: "
                     + ", ".join(runtime_descendants),
@@ -2913,7 +2913,7 @@ def _validate_artifact_hubs(
         if isinstance(hub_name, str) and hub_name not in root_text:
             diagnostics.append(
                 _diag(
-                    "DSET-E123",
+                    "CARMADIO-E123",
                     root_hub,
                     f"root hub does not link top-level area: {area.get('id')}",
                 )
@@ -2982,7 +2982,7 @@ def _validate_change_ids(
     project_key = _manifest_project_key(manifest)
     if project_key is None:
         diagnostics.append(
-            _diag("DSET-E106", manifest_path, "project.key is unavailable")
+            _diag("CARMADIO-E106", manifest_path, "project.key is unavailable")
         )
         return diagnostics
     atomic_records = list(change_dir.glob("*-ATOMIC-RECORD-*.md"))
@@ -3003,7 +3003,7 @@ def _validate_change_ids(
         if "adrs" not in data or "decisions" in data:
             diagnostics.append(
                 _diag(
-                    "DSET-E106",
+                    "CARMADIO-E106",
                     manifest_path,
                     "schema 1.0 requires adrs and forbids decisions",
                 )
@@ -3013,7 +3013,7 @@ def _validate_change_ids(
         if "decisions" not in data or "adrs" in data:
             diagnostics.append(
                 _diag(
-                    "DSET-E106",
+                    "CARMADIO-E106",
                     manifest_path,
                     "schema 1.1 requires decisions and forbids adrs",
                 )
@@ -3026,7 +3026,7 @@ def _validate_change_ids(
         group_types["decisions"] = "DECISION"
         if "contracts" not in data:
             diagnostics.append(
-                _diag("DSET-E106", manifest_path, "schema 1.1 requires contracts")
+                _diag("CARMADIO-E106", manifest_path, "schema 1.1 requires contracts")
             )
         groups["contracts"] = [
             *list((change_dir / "specs").glob("*.md")),
@@ -3049,7 +3049,7 @@ def _validate_change_ids(
         ids = data.get(group, [])
         if not isinstance(ids, list):
             diagnostics.append(
-                _diag("DSET-E106", manifest_path, f"{group} must be a list")
+                _diag("CARMADIO-E106", manifest_path, f"{group} must be a list")
             )
             continue
         pattern = (
@@ -3067,7 +3067,7 @@ def _validate_change_ids(
             if not isinstance(identifier, str) or pattern.fullmatch(identifier) is None:
                 diagnostics.append(
                     _diag(
-                        "DSET-E106",
+                        "CARMADIO-E106",
                         manifest_path,
                         f"invalid ID: {identifier}",
                     )
@@ -3075,7 +3075,7 @@ def _validate_change_ids(
             elif identifier not in content:
                 diagnostics.append(
                     _diag(
-                        "DSET-E106",
+                        "CARMADIO-E106",
                         manifest_path,
                         f"{identifier} is not present in its owning artifact",
                     )
@@ -3087,7 +3087,7 @@ def _validate_change_ids(
                 if missing:
                     diagnostics.append(
                         _diag(
-                            "DSET-E106",
+                            "CARMADIO-E106",
                             manifest_path,
                             f"{identifier} is missing fields: {', '.join(missing)}",
                         )
@@ -3101,7 +3101,7 @@ def _validate_change_ids(
             ):
                 diagnostics.append(
                     _diag(
-                        "DSET-E106",
+                        "CARMADIO-E106",
                         eval_plan,
                         "empty eval IDs require an explicit not-applicable reason",
                     )
@@ -3109,14 +3109,14 @@ def _validate_change_ids(
     if not data.get("requirements") or not data.get("tests"):
         diagnostics.append(
             _diag(
-                "DSET-E106",
+                "CARMADIO-E106",
                 manifest_path,
                 "requirements and tests cannot be empty",
             )
         )
     intake_ids = data.get("intake", [])
     if not isinstance(intake_ids, list):
-        diagnostics.append(_diag("DSET-E106", manifest_path, "intake must be a list"))
+        diagnostics.append(_diag("CARMADIO-E106", manifest_path, "intake must be a list"))
     else:
         registry_path = discover_layout(root).intake_path
         if not intake_ids and not registry_path.is_file():
@@ -3131,7 +3131,7 @@ def _validate_change_ids(
             if identifier not in registered:
                 diagnostics.append(
                     _diag(
-                        "DSET-E106",
+                        "CARMADIO-E106",
                         manifest_path,
                         f"unregistered intake ID: {identifier}",
                     )
@@ -3150,7 +3150,7 @@ def _validate_slim_change_ids(
     project = _safe_load(layout.manifest_path, diagnostics) or {}
     project_key = _manifest_project_key(project)
     if project_key is None:
-        return [_diag("DSET-E106", manifest_path, "project.key is unavailable")]
+        return [_diag("CARMADIO-E106", manifest_path, "project.key is unavailable")]
     atoms, _ = collect_semantic_atoms(root)
     known = set(atoms) | legacy_authority_ids(root) | _defined_semantic_ids(root)
     for package in layout.package_fragments():
@@ -3179,28 +3179,28 @@ def _validate_slim_change_ids(
         values = data.get(group)
         if not isinstance(values, list):
             diagnostics.append(
-                _diag("DSET-E106", manifest_path, f"{group} must be a list")
+                _diag("CARMADIO-E106", manifest_path, f"{group} must be a list")
             )
             continue
         pattern = _trace_id_pattern(project_key, kinds)
         for identifier in values:
             if not isinstance(identifier, str) or pattern.fullmatch(identifier) is None:
                 diagnostics.append(
-                    _diag("DSET-E106", manifest_path, f"invalid ID: {identifier}")
+                    _diag("CARMADIO-E106", manifest_path, f"invalid ID: {identifier}")
                 )
             elif identifier not in known:
                 diagnostics.append(
                     _diag(
-                        "DSET-E106", manifest_path, f"unknown governed ID: {identifier}"
+                        "CARMADIO-E106", manifest_path, f"unknown governed ID: {identifier}"
                     )
                 )
     if not data.get("requirements") or not data.get("tests"):
         diagnostics.append(
-            _diag("DSET-E106", manifest_path, "requirements and tests cannot be empty")
+            _diag("CARMADIO-E106", manifest_path, "requirements and tests cannot be empty")
         )
     intake = data.get("intake")
     if not isinstance(intake, list):
-        diagnostics.append(_diag("DSET-E106", manifest_path, "intake must be a list"))
+        diagnostics.append(_diag("CARMADIO-E106", manifest_path, "intake must be a list"))
     else:
         registry = _safe_load(layout.intake_path, diagnostics) or {}
         registered = {
@@ -3212,7 +3212,7 @@ def _validate_slim_change_ids(
             if identifier not in registered:
                 diagnostics.append(
                     _diag(
-                        "DSET-E106",
+                        "CARMADIO-E106",
                         manifest_path,
                         f"unregistered intake ID: {identifier}",
                     )
@@ -3272,7 +3272,7 @@ def _validate_layered_change(
     ):
         diagnostics.append(
             _diag(
-                "DSET-E148",
+                "CARMADIO-E148",
                 path,
                 "change ownership must match primary and affected layers",
             )
@@ -3281,7 +3281,7 @@ def _validate_layered_change(
     for group in ("contracts", "stories", "outcomes"):
         if not isinstance(data.get(group), list):
             diagnostics.append(
-                _diag("DSET-E148", path, f"schema 1.2 requires {group} as a list")
+                _diag("CARMADIO-E148", path, f"schema 1.2 requires {group} as a list")
             )
     project_key = _manifest_project_key(project)
     if project_key is None:
@@ -3299,7 +3299,7 @@ def _validate_layered_change(
     ):
         diagnostics.append(
             _diag(
-                "DSET-E151",
+                "CARMADIO-E151",
                 path,
                 "Change ID must be project-CHANGE-layer-sequence and match owner",
             )
@@ -3317,7 +3317,7 @@ def _validate_layered_change(
         )
         if policy is not None and policy != expected_policy:
             diagnostics.append(
-                _diag("DSET-E153", path, "schema 1.2 release policy path is invalid")
+                _diag("CARMADIO-E153", path, "schema 1.2 release policy path is invalid")
             )
         if owner is not None:
             owner_match = (
@@ -3327,7 +3327,7 @@ def _validate_layered_change(
             )
             if owner_match is None or owner_match.group("layer") is None:
                 diagnostics.append(
-                    _diag("DSET-E153", path, "release owner_change must be stable")
+                    _diag("CARMADIO-E153", path, "release owner_change must be stable")
                 )
     pattern = _trace_id_pattern(project_key, TRACE_TYPES)
     for group in (
@@ -3354,7 +3354,7 @@ def _validate_layered_change(
             if owner not in affected:
                 diagnostics.append(
                     _diag(
-                        "DSET-E148",
+                        "CARMADIO-E148",
                         path,
                         f"{identifier} is outside affected_layers",
                     )
@@ -3396,7 +3396,7 @@ def _validate_change_target(
         return []
     return [
         _diag(
-            "DSET-E148",
+            "CARMADIO-E148",
             path,
             "change target must select the repository or one or more declared "
             "work-area IDs",
@@ -3432,7 +3432,7 @@ def _validate_change_uniqueness(layout: RepositoryLayout) -> list[Diagnostic]:
             if previous is not None:
                 diagnostics.append(
                     _diag(
-                        "DSET-E149",
+                        "CARMADIO-E149",
                         manifest,
                         f"change ID is also owned by {previous}",
                     )
@@ -3454,7 +3454,7 @@ def _validate_change_uniqueness(layout: RepositoryLayout) -> list[Diagnostic]:
                 if previous is not None:
                     diagnostics.append(
                         _diag(
-                            "DSET-E154",
+                            "CARMADIO-E154",
                             manifest,
                             f"workspace branch is also owned by {previous}",
                         )
@@ -3474,7 +3474,7 @@ def _validate_change_uniqueness(layout: RepositoryLayout) -> list[Diagnostic]:
                 if previous is not None:
                     diagnostics.append(
                         _diag(
-                            "DSET-E154",
+                            "CARMADIO-E154",
                             manifest,
                             f"pull request is also owned by {previous}",
                         )
@@ -3490,7 +3490,7 @@ def _validate_workspace(
     """Validate workspace using the declared repository contract."""
     workspace = data.get("workspace")
     if not isinstance(workspace, dict):
-        return [_diag("DSET-E152", path, "workspace metadata is required")]
+        return [_diag("CARMADIO-E152", path, "workspace metadata is required")]
     required = {"isolation", "branch", "base_ref", "base_commit", "head_commit"}
     valid = (
         set(workspace) == required
@@ -3506,7 +3506,7 @@ def _validate_workspace(
         )
     )
     if not valid:
-        return [_diag("DSET-E152", path, "workspace metadata is inconsistent")]
+        return [_diag("CARMADIO-E152", path, "workspace metadata is inconsistent")]
     release = data.get("release")
     candidate = release.get("candidate_commit") if isinstance(release, dict) else None
     head = workspace.get("head_commit")
@@ -3517,7 +3517,7 @@ def _validate_workspace(
     ):
         return [
             _diag(
-                "DSET-E152",
+                "CARMADIO-E152",
                 path,
                 "workspace head_commit must match the release candidate commit",
             )
@@ -3531,7 +3531,7 @@ def _validate_change_dependencies(
     """Validate change dependencies using the declared repository contract."""
     dependencies = data.get("dependencies")
     if not isinstance(dependencies, list):
-        return [_diag("DSET-E153", path, "dependencies must be a list")]
+        return [_diag("CARMADIO-E153", path, "dependencies must be a list")]
     diagnostics: list[Diagnostic] = []
     seen: set[str] = set()
     change_pattern = _trace_id_pattern(project_key, ("CHANGE",))
@@ -3553,7 +3553,7 @@ def _validate_change_dependencies(
     for dependency in dependencies:
         if not isinstance(dependency, dict) or set(dependency) != required:
             diagnostics.append(
-                _diag("DSET-E153", path, "dependency record shape is inconsistent")
+                _diag("CARMADIO-E153", path, "dependency record shape is inconsistent")
             )
             continue
         dependency_id = dependency.get("change_id")
@@ -3595,7 +3595,7 @@ def _validate_change_dependencies(
         )
         if not valid:
             diagnostics.append(
-                _diag("DSET-E153", path, f"invalid dependency: {dependency_id}")
+                _diag("CARMADIO-E153", path, f"invalid dependency: {dependency_id}")
             )
         elif isinstance(dependency_id, str):
             seen.add(dependency_id)
@@ -3650,7 +3650,7 @@ def _validate_schemas(schema_paths: tuple[Path, ...]) -> list[Diagnostic]:
         try:
             load(path)
         except (OSError, ValueError, StructuredDataError) as error:
-            diagnostics.append(_diag("DSET-E118", path, str(error)))
+            diagnostics.append(_diag("CARMADIO-E118", path, str(error)))
     return diagnostics
 
 
@@ -3662,10 +3662,10 @@ def _validate_provenance(root: Path) -> list[Diagnostic]:
     try:
         data = project_section(root, "source_provenance")
     except (OSError, ValueError, StructuredDataError) as error:
-        diagnostics.append(_diag("DSET-E112", path, str(error)))
+        diagnostics.append(_diag("CARMADIO-E112", path, str(error)))
         data = {}
     if not data:
-        return diagnostics or [_diag("DSET-E112", path, "provenance is missing")]
+        return diagnostics or [_diag("CARMADIO-E112", path, "provenance is missing")]
     for source in data.get("sources", []):
         if not isinstance(source, dict):
             continue
@@ -3674,7 +3674,7 @@ def _validate_provenance(root: Path) -> list[Diagnostic]:
         if not license_name or Path(license_name).name != license_name:
             diagnostics.append(
                 _diag(
-                    "DSET-E112",
+                    "CARMADIO-E112",
                     layout.legal_files_root,
                     "license_file must be a globally unique carrier name",
                 )
@@ -3683,11 +3683,11 @@ def _validate_provenance(root: Path) -> list[Diagnostic]:
         license_path = layout.legal_files_root / license_name
         if not re.fullmatch(r"[0-9a-f]{40}", revision):
             diagnostics.append(
-                _diag("DSET-E112", path, "source revision must be a full commit SHA")
+                _diag("CARMADIO-E112", path, "source revision must be a full commit SHA")
             )
         if not license_path.is_file():
             diagnostics.append(
-                _diag("DSET-E112", license_path, "retained license is missing")
+                _diag("CARMADIO-E112", license_path, "retained license is missing")
             )
     return diagnostics
 
@@ -3734,20 +3734,20 @@ def _validate_markdown(root: Path, layout: RepositoryLayout) -> list[Diagnostic]
         )
         if "[[" in rendered or "![[" in rendered:
             diagnostics.append(
-                _diag("DSET-E114", path, "Obsidian wiki links are not portable")
+                _diag("CARMADIO-E114", path, "Obsidian wiki links are not portable")
             )
         for callout in CALLOUT_PATTERN.findall(rendered):
             if callout.upper() not in GITHUB_CALLOUTS:
                 diagnostics.append(
                     _diag(
-                        "DSET-E114",
+                        "CARMADIO-E114",
                         path,
                         f"unsupported GitHub alert type: {callout}",
                     )
                 )
         details_open = len(re.findall(r"<details(?:\s[^>]*)?>", rendered))
         if details_open != rendered.count("</details>"):
-            diagnostics.append(_diag("DSET-E114", path, "unbalanced details element"))
+            diagnostics.append(_diag("CARMADIO-E114", path, "unbalanced details element"))
         for raw_target in LINK_PATTERN.findall(rendered):
             target = raw_target.strip()
             if target.startswith("<") and target.endswith(">"):
@@ -3775,7 +3775,7 @@ def _validate_markdown(root: Path, layout: RepositoryLayout) -> list[Diagnostic]
             ):
                 diagnostics.append(
                     _diag(
-                        "DSET-E113",
+                        "CARMADIO-E113",
                         path,
                         f"local link target does not exist: {raw_target}",
                     )
@@ -3966,10 +3966,10 @@ def _safe_load(path: Path, diagnostics: list[Diagnostic]) -> dict[str, Any] | No
     try:
         data = load(path)
     except (OSError, StructuredDataError) as error:
-        diagnostics.append(_diag("DSET-E119", path, str(error)))
+        diagnostics.append(_diag("CARMADIO-E119", path, str(error)))
         return None
     if not isinstance(data, dict):
-        diagnostics.append(_diag("DSET-E119", path, "root must be a mapping"))
+        diagnostics.append(_diag("CARMADIO-E119", path, "root must be a mapping"))
         return None
     return data
 

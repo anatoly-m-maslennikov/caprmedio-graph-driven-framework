@@ -40,6 +40,6 @@
 | `git diff --check` | Pass |
 
 The `uv` invocations emitted a non-fatal project-environment lock warning but
-completed successfully. `DSET-PROBLEM-TOOL-001` remains open for the released
-validator boundary; `DSET-PROBLEM-OPS-001` remains open for exact-head hosted
+completed successfully. `CARMADIO-PROBLEM-TOOL-001` remains open for the released
+validator boundary; `CARMADIO-PROBLEM-OPS-001` remains open for exact-head hosted
 proof.

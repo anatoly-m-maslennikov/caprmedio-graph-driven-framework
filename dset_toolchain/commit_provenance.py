@@ -58,7 +58,7 @@ def validate_commit_provenance(root: Path) -> list[Diagnostic]:
     if not isinstance(raw_policy, Mapping):
         return [
             Diagnostic(
-                "DSET-E168",
+                "CARMADIO-E168",
                 manifest_path,
                 "project manifest requires commit_provenance policy",
             )
@@ -67,7 +67,7 @@ def validate_commit_provenance(root: Path) -> list[Diagnostic]:
     if not isinstance(start, str) or not start:
         return [
             Diagnostic(
-                "DSET-E168",
+                "CARMADIO-E168",
                 manifest_path,
                 "commit_provenance.start_commit is required",
             )
@@ -82,9 +82,9 @@ def validate_commit_provenance(root: Path) -> list[Diagnostic]:
             for row in build_semantic_classification_index(root)
         }
     except (OSError, ValueError, subprocess.CalledProcessError) as error:
-        return [Diagnostic("DSET-E168", manifest_path, str(error))]
+        return [Diagnostic("CARMADIO-E168", manifest_path, str(error))]
     return [
-        Diagnostic("DSET-E168", manifest_path, problem)
+        Diagnostic("CARMADIO-E168", manifest_path, problem)
         for problem in validate_commit_history(
             commits, known, raw_policy.get("corrections", [])
         )

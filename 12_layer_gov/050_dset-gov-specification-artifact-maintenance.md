@@ -8,7 +8,7 @@ priority: high
 
 # Artifact maintenance
 
-**Rule ID:** `DSET-RULE-ARTIFACT-MAINTENANCE`
+**Rule ID:** `CARMADIO-RULE-ARTIFACT-MAINTENANCE`
 
 ## Ownership
 
@@ -27,7 +27,7 @@ Every normative rule ID has one editable governing document. Hubs navigate, wrap
   native formats for source code, CI, lockfiles, and host manifests.
 - Every governed Markdown artifact begins with valid YAML frontmatter and stays
   legible and navigable in GitHub preview. Sources:
-  `DSET-CONSTRAINT-GOV-002` and `DSET-REQUIREMENT-GOV-116`.
+  `CARMADIO-CONSTRAINT-GOV-002` and `CARMADIO-REQUIREMENT-GOV-116`.
 - Keep standards-compliant JSON Schema files as canonical JSON. Never keep
   competing editable representations of one concern.
 - Confirm authorization before editing existing project artifacts.
@@ -47,7 +47,7 @@ Every normative rule ID has one editable governing document. Hubs navigate, wrap
 - Perform multi-carrier mechanical migrations with bounded deterministic Python
   scripts that validate all expected source shapes before writing and stop
   without partial mutation on unexpected structure. Source:
-  `DSET-IMPL-GOV-001`.
+  `CARMADIO-IMPL-GOV-001`.
 - Refuse an existing destination and keep the previous owner writable when validation fails.
 
 ## Revision-mode behavior
@@ -147,7 +147,7 @@ Session: <host-prefixed-session-id>
 Repeat `Archives:` for every moved atom. Use separate commits when reasons or
 references differ. `Archive-Reference` may be omitted only for terminal
 withdrawal whose commit body explains why no successor or future intent exists.
-Source: `DSET-DECISION-GOV-035` and `DSET-REQUIREMENT-GOV-096`.
+Source: `CARMADIO-DECISION-GOV-035` and `CARMADIO-REQUIREMENT-GOV-096`.
 
 The executable boundary is explicit:
 
@@ -258,7 +258,7 @@ assessment and refuses the immutable write when it is not allowed.
 
 Every commit that changes maintained views or implementation artifacts must name
 the authority IDs it implements in the commit body, for example
-`Implements: DSET-REQUIREMENT-IMPL-004`. A linked Problem may explain why a
+`Implements: CARMADIO-REQUIREMENT-IMPL-004`. A linked Problem may explain why a
 correction is needed, but only active applicable authority authorizes the
 resulting behavior.
 
@@ -294,7 +294,7 @@ family hierarchy. Change manifests, intake queues, skill-run records, and
 session checkpoints follow their registered Revision mode; none becomes atomic
 merely because a workflow uses it. Every supported carrier enforces explicit
 provenance appropriate to its role. Git and commit coverage are mandatory.
-Source: `DSET-REQUIREMENT-GOV-065`.
+Source: `CARMADIO-REQUIREMENT-GOV-065`.
 
 ## Proof and derived-view maintenance
 
@@ -365,7 +365,7 @@ defaults are Constraint `high`; Contract, Requirement, and Decision `medium`;
 and implementation carrier `low`. Other roles inherit through their owning
 atom or Change, then use the project `medium` default. `highest` is
 virtual-only. No other stored value is valid. Source:
-`DSET-REQUIREMENT-GOV-107`. The former `critical` label is
+`CARMADIO-REQUIREMENT-GOV-107`. The former `critical` label is
 recoded to `high` by a governed meaning-preserving migration. `deferred` is not
 a priority: current low-urgency work uses `low`, while non-current work belongs
 in a named future Version Roadmap.

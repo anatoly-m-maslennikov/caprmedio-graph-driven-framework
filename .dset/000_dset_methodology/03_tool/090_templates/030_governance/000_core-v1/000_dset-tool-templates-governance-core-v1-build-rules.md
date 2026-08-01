@@ -1,6 +1,6 @@
 # Build rules
 
-**Rule ID:** `DSET-RULE-BUILD`
+**Rule ID:** `CARMADIO-RULE-BUILD`
 
 ## Selected gates
 

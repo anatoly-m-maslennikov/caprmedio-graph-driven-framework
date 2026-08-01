@@ -190,7 +190,7 @@ class ProjectSettingsTests(unittest.TestCase):
                 'schema_version = "1.1"\n', encoding="utf-8"
             )
             diagnostics = validate_repository(root)
-        conflict = [item for item in diagnostics if item.code == "DSET-E157"]
+        conflict = [item for item in diagnostics if item.code == "CARMADIO-E157"]
         self.assertEqual(len(conflict), 1)
         self.assertEqual(conflict[0].path, root / SETTINGS_FILENAME)
         self.assertIn("cannot coexist", conflict[0].message)

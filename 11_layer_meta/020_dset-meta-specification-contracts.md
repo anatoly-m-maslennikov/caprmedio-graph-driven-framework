@@ -62,8 +62,8 @@ direct subtypes that inherit the complete route and cannot override it.
 artifacts preserve accepted records and permit only complete new records.
 `maintained` artifacts may revise existing content through their applicable
 update procedure. DSET defines no additional currentness or freshness class.
-Atomic source: `DSET-REQUIREMENT-META-041`.
-Route-uniqueness source: `DSET-REQUIREMENT-META-060`.
+Atomic source: `CARMADIO-REQUIREMENT-META-041`.
+Route-uniqueness source: `CARMADIO-REQUIREMENT-META-060`.
 
 The framework catalog contains all 54 routes formed by the three Revision
 modes, six Content roles, and three Governance loci. A project may disable use
@@ -87,7 +87,7 @@ interaction choice.
 An explicit instruction to record, accept, apply, implement, fix, or otherwise
 change governed state remains authorization for only that stated change. Mixed
 input may be explored, but no additional candidate becomes governed truth
-without explicit acceptance. Atomic source: `DSET-REQUIREMENT-META-058`.
+without explicit acceptance. Atomic source: `CARMADIO-REQUIREMENT-META-058`.
 
 ## Layer constitution boundary
 
@@ -104,9 +104,9 @@ Every adjacent handoff declares inputs, outputs, entry criteria, exit criteria,
 and blocker behavior. Feedback may create a new Inquiry through Exploration
 Mode, but it cannot govern an earlier layer.
 
-Atomic sources: `DSET-REQUIREMENT-META-022`,
-`DSET-REQUIREMENT-META-023`, `DSET-REQUIREMENT-META-024`, and
-`DSET-REQUIREMENT-META-025`.
+Atomic sources: `CARMADIO-REQUIREMENT-META-022`,
+`CARMADIO-REQUIREMENT-META-023`, `CARMADIO-REQUIREMENT-META-024`, and
+`CARMADIO-REQUIREMENT-META-025`.
 
 ## Maintained semantic-view boundary
 
@@ -115,12 +115,12 @@ restatements. Their semantic source links target atomic records only. Links
 between maintained views and links to hubs are navigation and cannot establish
 semantic provenance. Refresh occurs on demand after accepted atomic change and
 before a downstream gate requires a current view. Atomic source:
-`DSET-REQUIREMENT-META-054`.
+`CARMADIO-REQUIREMENT-META-054`.
 
 Optional maintained governance surfaces are inactive by default.
 Activation is explicit and adds only the selected surface's currentness and
 gate obligations. Deactivation preserves its carrier and history and never
-changes atomic authority. Atomic source: `DSET-REQUIREMENT-META-054`.
+changes atomic authority. Atomic source: `CARMADIO-REQUIREMENT-META-054`.
 
 ## Non-authoritative surfaces
 
@@ -140,14 +140,14 @@ and observed nonconformance creates a Problem. Change requires explicit
 precedence or an operator-accepted replacement relational Definition. GOV owns
 the concrete type, subtype, identity kind, and carrier.
 
-## DSET-CONTRACT-META-001 — Repository Work Area declaration
+## CARMADIO-CONTRACT-META-001 — Repository Work Area declaration
 
-Atomic source: `DSET-CONTRACT-META-001`.
+Atomic source: `CARMADIO-CONTRACT-META-001`.
 
 | Field | Declared value |
 |---|---|
-| Authority | `DSET-CONTRACT-META-001`; each adopting repository owner supplies that repository's conforming declaration |
-| Source | `DSET-REQUIREMENT-META-011` and `DSET-CONTRACT-META-001` |
+| Authority | `CARMADIO-CONTRACT-META-001`; each adopting repository owner supplies that repository's conforming declaration |
+| Source | `CARMADIO-REQUIREMENT-META-011` and `CARMADIO-CONTRACT-META-001` |
 | Record version | `1.0` |
 | Direction | Repository scope declaration → DSET artifacts, workflows, proof, runs, and handoffs |
 | Producer | Adopting repository owner or authorized project governance writer |

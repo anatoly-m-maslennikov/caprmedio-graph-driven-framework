@@ -1,6 +1,6 @@
 schema_version = "1.0"
-transition_id = "DSET-CARRIER-TRANSITION-577AD7CA15578D8F"
-authority_decision = "DSET-DECISION-GOV-018"
+transition_id = "CARMADIO-CARRIER-TRANSITION-577AD7CA15578D8F"
+authority_decision = "CARMADIO-DECISION-GOV-018"
 original_path = "dset/scopes/gov/provenance.yaml"
 original_format = "yaml"
 original_sha256 = "a27bd2fde8900df5eeb6ba9726ebc644dac6e91085bdade54137c2ba614a098f"

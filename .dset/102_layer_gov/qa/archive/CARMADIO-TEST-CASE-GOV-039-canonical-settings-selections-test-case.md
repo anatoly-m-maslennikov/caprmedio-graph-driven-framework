@@ -1,0 +1,33 @@
+---
+artifact_type: test_plan
+artifact_id: CARMADIO-TEST-CASE-GOV-039
+scope_path: layer:gov
+subject_scopes:
+  - assurance
+priority: high
+llm_session_ids:
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+relations:
+  - type: check_of
+    targets:
+      - CARMADIO-REQUIREMENT-GOV-038
+      - CARMADIO-REQUIREMENT-GOV-039
+      - CARMADIO-REQUIREMENT-SKILL-013
+---
+
+# Test Case — Validate canonical settings selections
+
+The deterministic suite must prove defaults, every accepted value, invalid
+value rejection, and selected runtime behavior for
+`artifacts.subtype_in_names`, `artifacts.creation_strictness`, and
+`workflows.implement.mode` in root `dset_settings.toml`.
+
+Bootstrap and adopter writers emit only the canonical filename and keys. A
+legacy root `dset.toml` remains read compatibility only, dual roots fail, and
+no writer extends the legacy surface.
+
+This Test definition is immutable. Runs and evidence are separate.
+
+## Primary claim
+
+Deterministic tests prove that canonical settings keys select artifact naming, atom-creation strictness, and implementation preparation without legacy write paths.

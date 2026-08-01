@@ -367,7 +367,7 @@ def _stage_project(
         f"# Supportability\n\n{supportability_state}\n",
         encoding="utf-8",
     )
-    (dset_root / "DSET-CONTROL-HUB.md").write_text(
+    (dset_root / "CARMADIO-CONTROL-HUB.md").write_text(
         "# Project-local DSET control plane\n\n"
         "## Purpose\n\nOwn settings, installed methodology, and applied artifacts.\n\n"
         "## Boundaries\n\nSkills resolve DSET identities only inside this "
@@ -525,7 +525,7 @@ def _artifact_structure(project_key: str) -> dict[str, Any]:
         "profile": "documentation-v1",
         "root": {
             "id": "framework-control",
-            "hub": "DSET-CONTROL-HUB.md",
+            "hub": "CARMADIO-CONTROL-HUB.md",
             "owner": "framework",
             "purpose": "Repository-local DSET control plane",
         },

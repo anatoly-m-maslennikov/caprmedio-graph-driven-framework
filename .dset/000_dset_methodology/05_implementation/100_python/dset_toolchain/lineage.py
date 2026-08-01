@@ -920,4 +920,4 @@ def _valid_range_subtype(semantic_type: object, subtype: object) -> bool:
 
 
 def _diag(path: Path, message: str) -> Diagnostic:
-    return Diagnostic("DSET-E158", path, message)
+    return Diagnostic("CARMADIO-E158", path, message)

@@ -39,7 +39,7 @@ def validate_local_python_profile(root: Path) -> list[Diagnostic]:
     try:
         limits = _load_limits(profile_path)
     except (OSError, TypeError, ValueError) as error:
-        return [Diagnostic("DSET-E180", profile_path, str(error))]
+        return [Diagnostic("CARMADIO-E180", profile_path, str(error))]
     diagnostics: list[Diagnostic] = []
     for path in _python_files(root):
         diagnostics.extend(_validate_file(path, limits))
@@ -90,7 +90,7 @@ def _validate_file(path: Path, limits: PythonProfileLimits) -> list[Diagnostic]:
         tree = ast.parse(source, path.as_posix())
     except (OSError, UnicodeError, SyntaxError) as error:
         return [
-            _diagnostic("DSET-E180", path, f"Python carrier cannot be read: {error}")
+            _diagnostic("CARMADIO-E180", path, f"Python carrier cannot be read: {error}")
         ]
     diagnostics = _module_diagnostics(path, source, tree, limits)
     diagnostics.extend(_definition_diagnostics(path, source, tree, limits))
@@ -108,20 +108,20 @@ def _module_diagnostics(
     diagnostics: list[Diagnostic] = []
     if ast.get_docstring(tree, clean=False) is None:
         diagnostics.append(
-            _diagnostic("DSET-E181", path, "module docstring is missing")
+            _diagnostic("CARMADIO-E181", path, "module docstring is missing")
         )
     measured = _measured_module_lines(source, tree)
     if measured > limits.module_maximum:
         diagnostics.append(
             _diagnostic(
-                "DSET-E182",
+                "CARMADIO-E182",
                 path,
                 f"module has {measured} measured lines; maximum is {limits.module_maximum}",
             )
         )
     if "\t" in source:
         diagnostics.append(
-            _diagnostic("DSET-E180", path, "tab indentation is prohibited")
+            _diagnostic("CARMADIO-E180", path, "tab indentation is prohibited")
         )
     return diagnostics
 
@@ -137,7 +137,7 @@ def _definition_diagnostics(
     for node in ast.walk(tree):
         if isinstance(node, ast.ClassDef) and ast.get_docstring(node) is None:
             diagnostics.append(
-                _at("DSET-E184", path, node, "class docstring is missing")
+                _at("CARMADIO-E184", path, node, "class docstring is missing")
             )
         if not isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)):
             continue
@@ -145,7 +145,7 @@ def _definition_diagnostics(
         if measured >= limits.function_exclusive:
             diagnostics.append(
                 _at(
-                    "DSET-E183",
+                    "CARMADIO-E183",
                     path,
                     node,
                     f"function has {measured} measured lines; exclusive limit is {limits.function_exclusive}",
@@ -164,7 +164,7 @@ def _function_contract_diagnostics(
     diagnostics: list[Diagnostic] = []
     if _requires_docstring(path, node, measured) and ast.get_docstring(node) is None:
         diagnostics.append(
-            _at("DSET-E184", path, node, "function docstring is missing")
+            _at("CARMADIO-E184", path, node, "function docstring is missing")
         )
     arguments = [*node.args.posonlyargs, *node.args.args, *node.args.kwonlyargs]
     if node.args.vararg is not None:
@@ -179,7 +179,7 @@ def _function_contract_diagnostics(
     if missing or node.returns is None:
         details = ", ".join(missing) if missing else "return"
         diagnostics.append(
-            _at("DSET-E185", path, node, f"annotations missing: {details}")
+            _at("CARMADIO-E185", path, node, f"annotations missing: {details}")
         )
     return diagnostics
 
@@ -212,12 +212,12 @@ def _constant_diagnostics(
             previous = lines[node.lineno - 2].strip() if node.lineno > 1 else ""
             if not previous.startswith("#"):
                 diagnostics.append(
-                    _at("DSET-E186", path, node, "constant lacks documentation")
+                    _at("CARMADIO-E186", path, node, "constant lacks documentation")
                 )
             if declarations_ended:
                 diagnostics.append(
                     _at(
-                        "DSET-E186",
+                        "CARMADIO-E186",
                         path,
                         node,
                         "constant follows executable declarations",

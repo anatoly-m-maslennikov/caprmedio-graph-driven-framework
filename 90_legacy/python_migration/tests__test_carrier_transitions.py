@@ -40,7 +40,7 @@ class CarrierTransitionTests(unittest.TestCase):
         self.root = Path(self.temporary.name).resolve()
         self.source = self._write(
             "dset/scopes/gov/intake.yaml",
-            'schema_version: "1.0"\nitems:\n  - id: DSET-ITEM-001\n'
+            'schema_version: "1.0"\nitems:\n  - id: CARMADIO-ITEM-001\n'
             "    decision: null\n",
         )
         self.owner = self._write(
@@ -48,12 +48,12 @@ class CarrierTransitionTests(unittest.TestCase):
             'schema_version = "1.0"\nitems = []\n',
         )
         self.atom = self._write(
-            "dset/scopes/gov/DSET-ATOMIC-RECORD-999-carrier.md",
+            "dset/scopes/gov/CARMADIO-ATOMIC-RECORD-999-carrier.md",
             "---\n"
             "artifact_type: atomic_record\n"
-            "artifact_id: DSET-ATOMIC-RECORD-999\n"
+            "artifact_id: CARMADIO-ATOMIC-RECORD-999\n"
             "type: decision\n"
-            "semantic_id: DSET-DECISION-GOV-999\n"
+            "semantic_id: CARMADIO-DECISION-GOV-999\n"
             "status: accepted\n"
             "priority: high\n"
             "authority: operator:test\n"
@@ -150,7 +150,7 @@ class CarrierTransitionTests(unittest.TestCase):
             decode_historical_envelope(historical.read_text(encoding="utf-8")),
             {
                 "schema_version": "1.0",
-                "items": [{"id": "DSET-ITEM-001", "decision": None}],
+                "items": [{"id": "CARMADIO-ITEM-001", "decision": None}],
             },
         )
         parsed = parse_frontmatter(self.atom.read_text(encoding="utf-8"))
@@ -170,7 +170,7 @@ class CarrierTransitionTests(unittest.TestCase):
             next(item for item in records if item["kind"] == "markdown_frontmatter")[
                 "carrier_ids"
             ],
-            ["DSET-ATOMIC-RECORD-999"],
+            ["CARMADIO-ATOMIC-RECORD-999"],
         )
         self.assertIn("../intake.legacy.toml", self.proof.read_text(encoding="utf-8"))
 
@@ -194,7 +194,7 @@ class CarrierTransitionTests(unittest.TestCase):
             retained["retained_for"],
             [],
             current_path=retained["current_path"],
-            transition_id="DSET-CARRIER-TRANSITION-0000000000000000",
+            transition_id="CARMADIO-CARRIER-TRANSITION-0000000000000000",
         )
         self.assertTrue(diagnostics)
 
@@ -247,7 +247,7 @@ class CarrierTransitionTests(unittest.TestCase):
         ledger = load_toml(ledger_path.read_text(encoding="utf-8"))
         ledger["transitions"].append(
             {
-                "id": "DSET-CARRIER-TRANSITION-RELOCATION",
+                "id": "CARMADIO-CARRIER-TRANSITION-RELOCATION",
                 "kind": "carrier_relocation",
                 "original_path": "dset/scopes/gov/intake.legacy.toml",
                 "current_path": "00_project/intake.legacy.toml",

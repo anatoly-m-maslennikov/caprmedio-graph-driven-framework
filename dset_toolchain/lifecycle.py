@@ -57,7 +57,7 @@ def initial_closure(
             "status": "direct",
             "criteria": {},
             "next_workflow": mode_id,
-            "reason_code": "DSET-RUNTIME-DIRECT",
+            "reason_code": "CARMADIO-RUNTIME-DIRECT",
             "history": [],
             "visited_states": [],
         }
@@ -82,7 +82,7 @@ def initial_closure(
             "implementation_complete": False,
         },
         "next_workflow": "decisions",
-        "reason_code": "DSET-RUNTIME-DECISIONS-FIRST",
+        "reason_code": "CARMADIO-RUNTIME-DECISIONS-FIRST",
         "history": [],
         "visited_states": [],
     }
@@ -123,9 +123,9 @@ def advance_closure(
         closure["status"] = "stopped"
         closure["next_workflow"] = None
         closure["reason_code"] = {
-            "failed": "DSET-RUNTIME-CHILD-FAILED",
-            "stopped": "DSET-RUNTIME-CHILD-STOPPED",
-            "ambiguous": "DSET-RUNTIME-AMBIGUOUS",
+            "failed": "CARMADIO-RUNTIME-CHILD-FAILED",
+            "stopped": "CARMADIO-RUNTIME-CHILD-STOPPED",
+            "ambiguous": "CARMADIO-RUNTIME-AMBIGUOUS",
         }[child_status]
         closure["history"].append(
             {"workflow_id": workflow_id, "status": child_status, "progress": []}
@@ -153,7 +153,7 @@ def advance_closure(
     if not progress:
         closure["status"] = "stopped"
         closure["next_workflow"] = None
-        closure["reason_code"] = "DSET-RUNTIME-NO-PROGRESS"
+        closure["reason_code"] = "CARMADIO-RUNTIME-NO-PROGRESS"
     else:
         _select_next(closure)
     if workflow_id is not None:
@@ -165,7 +165,7 @@ def advance_closure(
     if fingerprint in closure["visited_states"]:
         closure["status"] = "stopped"
         closure["next_workflow"] = None
-        closure["reason_code"] = "DSET-RUNTIME-REPEATED-STATE"
+        closure["reason_code"] = "CARMADIO-RUNTIME-REPEATED-STATE"
     else:
         closure["visited_states"].append(fingerprint)
     return closure
@@ -175,35 +175,35 @@ def _select_next(closure: dict[str, Any]) -> None:
     """Select next using the declared repository contract."""
     criteria = closure["criteria"]
     if criteria["decisions_reconciled"] is not True:
-        _set_next(closure, "active", "decisions", "DSET-RUNTIME-DECISIONS-FIRST")
+        _set_next(closure, "active", "decisions", "CARMADIO-RUNTIME-DECISIONS-FIRST")
     elif criteria["evergreen_current"] is None:
-        _set_next(closure, "blocked", None, "DSET-RUNTIME-CRITERIA-UNKNOWN")
+        _set_next(closure, "blocked", None, "CARMADIO-RUNTIME-CRITERIA-UNKNOWN")
     elif criteria["evergreen_current"] is False:
-        _set_next(closure, "active", "compile", "DSET-RUNTIME-COMPILE")
+        _set_next(closure, "active", "compile", "CARMADIO-RUNTIME-COMPILE")
     elif criteria["proof_plan_complete"] is None:
-        _set_next(closure, "blocked", None, "DSET-RUNTIME-CRITERIA-UNKNOWN")
+        _set_next(closure, "blocked", None, "CARMADIO-RUNTIME-CRITERIA-UNKNOWN")
     elif criteria["proof_plan_complete"] is False:
-        _set_next(closure, "active", "plan-proof", "DSET-RUNTIME-PROOF-PLAN")
+        _set_next(closure, "active", "plan-proof", "CARMADIO-RUNTIME-PROOF-PLAN")
     elif criteria["implementation_plan_complete"] is None:
-        _set_next(closure, "blocked", None, "DSET-RUNTIME-CRITERIA-UNKNOWN")
+        _set_next(closure, "blocked", None, "CARMADIO-RUNTIME-CRITERIA-UNKNOWN")
     elif criteria["implementation_plan_complete"] is False:
         _set_next(
             closure,
             "active",
             "plan-implementation",
-            "DSET-RUNTIME-IMPLEMENTATION-PLAN",
+            "CARMADIO-RUNTIME-IMPLEMENTATION-PLAN",
         )
     elif criteria["implementation_authorized"] is not True:
         _set_next(
             closure,
             "authorization-required",
             None,
-            "DSET-RUNTIME-AUTHORIZATION-REQUIRED",
+            "CARMADIO-RUNTIME-AUTHORIZATION-REQUIRED",
         )
     elif criteria["implementation_complete"] is not True:
-        _set_next(closure, "ready", "implement", "DSET-RUNTIME-IMPLEMENT")
+        _set_next(closure, "ready", "implement", "CARMADIO-RUNTIME-IMPLEMENT")
     else:
-        _set_next(closure, "completed", None, "DSET-RUNTIME-COMPLETE")
+        _set_next(closure, "completed", None, "CARMADIO-RUNTIME-COMPLETE")
 
 
 def _strict_closure() -> dict[str, Any]:
@@ -229,7 +229,7 @@ def _strict_closure() -> dict[str, Any]:
             "implementation_complete": False,
         },
         "next_workflow": "implement",
-        "reason_code": "DSET-RUNTIME-STRICT-IMPLEMENT",
+        "reason_code": "CARMADIO-RUNTIME-STRICT-IMPLEMENT",
         "history": [],
         "visited_states": [],
     }
@@ -264,9 +264,9 @@ def _advance_strict_closure(
         closure["status"] = "stopped"
         closure["next_workflow"] = None
         closure["reason_code"] = {
-            "failed": "DSET-RUNTIME-CHILD-FAILED",
-            "stopped": "DSET-RUNTIME-CHILD-STOPPED",
-            "ambiguous": "DSET-RUNTIME-AMBIGUOUS",
+            "failed": "CARMADIO-RUNTIME-CHILD-FAILED",
+            "stopped": "CARMADIO-RUNTIME-CHILD-STOPPED",
+            "ambiguous": "CARMADIO-RUNTIME-AMBIGUOUS",
         }[child_status]
         closure["history"].append(
             {"workflow_id": workflow_id, "status": child_status, "progress": []}
@@ -287,24 +287,24 @@ def _advance_strict_closure(
             closure,
             "stopped",
             None,
-            "DSET-RUNTIME-STRICT-INPUTS-INSUFFICIENT",
+            "CARMADIO-RUNTIME-STRICT-INPUTS-INSUFFICIENT",
         )
     elif closure["criteria"]["implementation_authorized"] is False:
         _set_next(
             closure,
             "authorization-required",
             None,
-            "DSET-RUNTIME-AUTHORIZATION-REQUIRED",
+            "CARMADIO-RUNTIME-AUTHORIZATION-REQUIRED",
         )
     elif workflow_id == "implement":
         closure["criteria"]["implementation_complete"] = True
-        _set_next(closure, "completed", None, "DSET-RUNTIME-COMPLETE")
+        _set_next(closure, "completed", None, "CARMADIO-RUNTIME-COMPLETE")
     elif observations:
         _set_next(
             closure,
             "ready",
             "implement",
-            "DSET-RUNTIME-STRICT-IMPLEMENT",
+            "CARMADIO-RUNTIME-STRICT-IMPLEMENT",
         )
     else:
         raise LifecycleClosureError("an observation or completed workflow is required")
@@ -322,7 +322,7 @@ def _advance_strict_closure(
     if closure["status"] != "stopped" and fingerprint in closure["visited_states"]:
         closure["status"] = "stopped"
         closure["next_workflow"] = None
-        closure["reason_code"] = "DSET-RUNTIME-REPEATED-STATE"
+        closure["reason_code"] = "CARMADIO-RUNTIME-REPEATED-STATE"
     elif fingerprint not in closure["visited_states"]:
         closure["visited_states"].append(fingerprint)
     return closure

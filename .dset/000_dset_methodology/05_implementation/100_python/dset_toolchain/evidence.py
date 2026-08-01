@@ -299,4 +299,4 @@ def _timestamp(
 
 
 def _diag(path: Path, message: str) -> Diagnostic:
-    return Diagnostic("DSET-E168", path, message)
+    return Diagnostic("CARMADIO-E168", path, message)

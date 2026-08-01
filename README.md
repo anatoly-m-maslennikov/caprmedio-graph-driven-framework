@@ -19,7 +19,7 @@ META → GOV → SPEC → PROFILES → IMPL → OPS
 
 The physical reusable root and applied project still use legacy `TOOL` and
 `SKILL` layer names. Their migration to the target topology is open under
-[`DSET-PROBLEM-GOV-010`](.dset/102_layer_gov/problem/DSET-PROBLEM-GOV-010-control-plane-uses-retired-layer-layout.md);
+[`CARMADIO-PROBLEM-GOV-010`](.dset/102_layer_gov/problem/CARMADIO-PROBLEM-GOV-010-control-plane-uses-retired-layer-layout.md);
 the names above do not assert that the migration is complete.
 
 DSET separates a persisted artifact's revision mode from its meaning:
@@ -37,12 +37,12 @@ The accepted vocabulary has seven Content roles and three Governance loci, but
 the complete route/type catalog is not yet defined. The active boundaries are
 recorded by:
 
-- [`DSET-PROBLEM-GOV-009`](.dset/102_layer_gov/problem/DSET-PROBLEM-GOV-009-semantic-route-catalog-remains-incomplete.md)
-  through [`DSET-PROBLEM-GOV-012`](.dset/102_layer_gov/problem/DSET-PROBLEM-GOV-012-atomic-identities-use-retired-grammar.md); and
-- [`DSET-QUESTION-GOV-013`](.dset/102_layer_gov/question/DSET-QUESTION-GOV-013-which-artifact-subtypes-should-refine-route-types.md),
-  [`015`](.dset/102_layer_gov/question/DSET-QUESTION-GOV-015-what-external-review-envelope-is-sufficient.md),
-  [`016`](.dset/102_layer_gov/question/DSET-QUESTION-GOV-016-how-should-proof-currentness-be-represented.md), and
-  [`017`](.dset/102_layer_gov/question/DSET-QUESTION-GOV-017-which-types-complete-the-semantic-route-catalog.md).
+- [`CARMADIO-PROBLEM-GOV-009`](.dset/102_layer_gov/problem/CARMADIO-PROBLEM-GOV-009-semantic-route-catalog-remains-incomplete.md)
+  through [`CARMADIO-PROBLEM-GOV-012`](.dset/102_layer_gov/problem/CARMADIO-PROBLEM-GOV-012-atomic-identities-use-retired-grammar.md); and
+- [`CARMADIO-QUESTION-GOV-013`](.dset/102_layer_gov/question/CARMADIO-QUESTION-GOV-013-which-artifact-subtypes-should-refine-route-types.md),
+  [`015`](.dset/102_layer_gov/question/CARMADIO-QUESTION-GOV-015-what-external-review-envelope-is-sufficient.md),
+  [`016`](.dset/102_layer_gov/question/CARMADIO-QUESTION-GOV-016-how-should-proof-currentness-be-represented.md), and
+  [`017`](.dset/102_layer_gov/question/CARMADIO-QUESTION-GOV-017-which-types-complete-the-semantic-route-catalog.md).
 
 There is therefore no canonical full type matrix here.
 
@@ -56,7 +56,7 @@ There is therefore no canonical full type matrix here.
 | [Python toolchain](dset_toolchain/) | Local executable implementation |
 | [Migration tools](15_layer_implementation/tools/migrations/README.md) | Bounded internal migration tooling, not a general public migration service |
 | [Delivery policy](.github/DELIVERY.md) | Repository delivery and publication boundary |
-| [Project control hub](.dset/DSET-CONTROL-HUB.md) | This repository's applied DSET control plane |
+| [Project control hub](.dset/CARMADIO-CONTROL-HUB.md) | This repository's applied DSET control plane |
 
 ## Settings and baseline
 

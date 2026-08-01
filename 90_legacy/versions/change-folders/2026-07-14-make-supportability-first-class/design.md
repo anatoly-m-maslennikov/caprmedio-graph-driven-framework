@@ -14,7 +14,7 @@ Each applicable production change declares:
 
 1. Operator questions and supported incident classes.
 2. Public failure, correlation, trace, job/run, entity, and incident identifiers as applicable.
-3. Deployed version, commit, repository-qualified PR, and DSET-change identity.
+3. Deployed version, commit, repository-qualified PR, and CARMADIO-change identity.
 4. Structured logs, traces, metrics/events, diagnostic bundle, status surfaces, and runbook entrypoints selected by profile.
 5. Data classification, redaction, retention, access, sampling, cardinality, volume, and cost limits.
 6. The traversal from incident evidence to owning requirement, deterministic test or qualitative eval, and repair evidence.

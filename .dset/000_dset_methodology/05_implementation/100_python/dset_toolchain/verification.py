@@ -42,7 +42,7 @@ def verify_repository(root: Path) -> list[Diagnostic]:
             suffix = f"; output: {detail[-2000:]}" if detail else ""
             diagnostics.append(
                 Diagnostic(
-                    "DSET-E201",
+                    "CARMADIO-E201",
                     layout.manifest_path,
                     "verification command failed "
                     f"({result.returncode}): {command}{suffix}",
@@ -52,7 +52,7 @@ def verify_repository(root: Path) -> list[Diagnostic]:
     if not trace_is_fresh(root):
         diagnostics.append(
             Diagnostic(
-                "DSET-E111",
+                "CARMADIO-E111",
                 layout.traceability_path,
                 "traceability is missing or stale; run dset trace --write",
             )

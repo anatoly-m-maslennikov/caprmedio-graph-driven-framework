@@ -1,6 +1,6 @@
 # Prototyping
 
-**Rule ID:** `DSET-RULE-PROTOTYPING`
+**Rule ID:** `CARMADIO-RULE-PROTOTYPING`
 
 ## Workflow
 
