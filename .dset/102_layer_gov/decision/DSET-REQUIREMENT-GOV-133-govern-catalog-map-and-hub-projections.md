@@ -13,8 +13,8 @@ relations:
       - DSET-REQUIREMENT-GOV-130
   - type: child_of
     targets:
-      - CARMADIO-REQUIREMENT-META-083
-      - CARMADIO-REQUIREMENT-META-084
+      - CARMADIO-REQUIREMENT-META-089
+      - CARMADIO-REQUIREMENT-META-090
   - type: relates_to
     targets:
       - DSET-REQUIREMENT-GOV-102

@@ -13,7 +13,7 @@ relations:
       - DSET-REQUIREMENT-GOV-092
   - type: child_of
     targets:
-      - CARMADIO-REQUIREMENT-META-054
+      - CARMADIO-REQUIREMENT-META-090
 ---
 
 # Requirement — Configure optional governance surfaces

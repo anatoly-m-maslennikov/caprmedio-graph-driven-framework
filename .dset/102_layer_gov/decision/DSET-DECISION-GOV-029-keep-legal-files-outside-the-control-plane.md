@@ -11,7 +11,7 @@ llm_session_ids:
 relations:
   - type: child_of
     targets:
-      - DSET-DECISION-GOV-028
+      - DSET-IMPL-GOV-008
 ---
 
 # Decision — Keep legal files outside the control plane

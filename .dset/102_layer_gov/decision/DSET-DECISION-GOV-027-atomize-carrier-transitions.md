@@ -14,7 +14,7 @@ relations:
       - DSET-DECISION-GOV-018
   - type: child_of
     targets:
-      - DSET-DECISION-GOV-025
+      - DSET-IMPL-GOV-008
 ---
 
 # Decision — Atomize carrier transitions

@@ -14,9 +14,9 @@ relations:
       - DSET-EVALUATION-CASE-GOV-039
   - type: check_of
     targets:
-      - CARMADIO-REQUIREMENT-META-052
+      - CARMADIO-REQUIREMENT-META-100
       - CARMADIO-REQUIREMENT-META-067
-      - CARMADIO-REQUIREMENT-META-068
+      - CARMADIO-REQUIREMENT-META-096
 ---
 
 # Evaluation Case — Assess current scope and layer distinction

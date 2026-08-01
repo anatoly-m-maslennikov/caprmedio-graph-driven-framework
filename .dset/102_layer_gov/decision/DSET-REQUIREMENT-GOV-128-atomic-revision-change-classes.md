@@ -10,10 +10,10 @@ llm_session_ids:
 relations:
   - type: child_of
     targets:
-      - CARMADIO-REQUIREMENT-META-073
+      - CARMADIO-REQUIREMENT-META-080
   - type: relates_to
     targets:
-      - CARMADIO-REQUIREMENT-META-074
+      - CARMADIO-REQUIREMENT-META-103
       - CARMADIO-REQUIREMENT-META-077
       - DSET-REQUIREMENT-GOV-127
 ---

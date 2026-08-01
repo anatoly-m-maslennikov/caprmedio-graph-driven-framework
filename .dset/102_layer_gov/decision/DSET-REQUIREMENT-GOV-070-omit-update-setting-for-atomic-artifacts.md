@@ -13,7 +13,7 @@ relations:
       - DSET-REQUIREMENT-GOV-069
   - type: child_of
     targets:
-      - DSET-REQUIREMENT-GOV-049
+      - DSET-REQUIREMENT-GOV-102
 ---
 
 # Requirement — Omit update settings from Atomic Artifacts

@@ -13,7 +13,7 @@ relations:
       - DSET-REQUIREMENT-GOV-049
   - type: child_of
     targets:
-      - CARMADIO-REQUIREMENT-META-035
+      - CARMADIO-REQUIREMENT-META-098
   - type: relates_to
     targets:
       - DSET-REQUIREMENT-GOV-070

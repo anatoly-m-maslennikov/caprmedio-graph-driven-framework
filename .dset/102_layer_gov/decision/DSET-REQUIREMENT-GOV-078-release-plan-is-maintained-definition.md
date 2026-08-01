@@ -10,7 +10,7 @@ llm_session_ids:
 relations:
   - type: child_of
     targets:
-      - DSET-REQUIREMENT-GOV-076
+      - DSET-REQUIREMENT-GOV-101
 ---
 
 # Requirement — Release Plan is a maintained Definition

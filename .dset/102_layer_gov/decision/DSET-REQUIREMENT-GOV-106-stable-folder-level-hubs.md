@@ -14,7 +14,7 @@ relations:
   - type: child_of
     targets:
       - CARMADIO-REQUIREMENT-META-053
-      - CARMADIO-REQUIREMENT-META-054
+      - CARMADIO-REQUIREMENT-META-090
 ---
 
 # Requirement — Keep durable hubs folder-level

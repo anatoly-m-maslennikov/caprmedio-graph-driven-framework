@@ -10,8 +10,8 @@ llm_session_ids:
 relations:
   - type: relates_to
     targets:
-      - CARMADIO-REQUIREMENT-META-036
-      - CARMADIO-REQUIREMENT-META-037
+      - CARMADIO-REQUIREMENT-META-058
+      - CARMADIO-REQUIREMENT-META-058
 ---
 
 # Requirement — Configure interaction reporting mode
