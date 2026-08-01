@@ -13,7 +13,7 @@ relations:
       - DSET-REQUIREMENT-GOV-122
   - type: relates_to
     targets:
-      - DSET-REQUIREMENT-META-071
+      - CARMADIO-REQUIREMENT-META-071
       - DSET-REQUIREMENT-GOV-123
 ---
 
@@ -26,13 +26,19 @@ Atomic Artifacts owned by `layer:meta` use only these subject scopes:
 | `artifact-model` | Atomic structure, semantic routes, properties, and artifact distinctions |
 | `assurance` | Test, Evaluation, evidence, verification, and assurance boundaries |
 | `authority` | Constitutional ownership, precedence, and rule placement |
+| `candidate-promotion` | Promotion of non-authoritative planning candidates into governed Atoms |
+| `delivery-planning` | Development Backlog and target-version allocation semantics |
 | `external-boundary` | Obligations imposed by systems or authorities outside the project |
+| `framework-identity` | Canonical framework name, expansion, and public logline |
 | `governance-surface` | Activation and composition of the governed control surface |
 | `interaction` | Operator input, Exploration Mode, and interaction behavior |
 | `lifecycle` | Admission, archive, replacement, and temporal claim rules |
+| `product-framing` | Optional User Story and Outcome framing around governed claims |
 | `profile` | Optional applicability and product or implementation profiles |
+| `release-finalization` | Version freeze and immutable release-boundary semantics |
+| `release-reconciliation` | Reconciliation of released work with future-work planning |
 | `scope` | Structural ownership, Work Areas, features, and subject scoping |
-| `self-hosting` | Recursive application of DSET to its own repository |
+| `self-hosting` | Recursive application of CARMADIO to its own repository |
 | `topology` | Layer order, handoffs, and forward-only propagation |
 
 Atomic Artifacts owned by `layer:gov` use only these subject scopes:
@@ -49,6 +55,7 @@ Atomic Artifacts owned by `layer:gov` use only these subject scopes:
 | `methodology` | Methodology installation, synchronization, and governing constitution |
 | `priority` | Priority vocabulary and conflict selection |
 | `provenance` | Git, session, commit, and evidence provenance |
+| `public-interface` | Public command, skill, and other operator-facing interface identities |
 | `relation-model` | Artifact relations, endpoints, conflicts, and lineage |
 | `runtime` | Runtime state, journals, scratch storage, and execution boundaries |
 | `settings` | Project settings, configuration selection, and enabled governance surfaces |
