@@ -22,13 +22,13 @@ relations:
 `.dset/dset_settings.toml` selects `medium` or `high` through
 `artifacts.creation_strictness`; the default is `medium`.
 
-At medium strictness, DSET requires accepted authority, one primary claim, one
+At medium strictness, CARMADIO requires accepted authority, one primary claim, one
 enabled artifact type, owning scope, creation provenance, material relations,
 priority, and sufficient precision to establish a stable artifact identity and
 initial committed revision. Optional non-authoritative context may remain
 explicitly unknown.
 
-At high strictness, DSET stops before emission while any material authority,
+At high strictness, CARMADIO stops before emission while any material authority,
 meaning, boundary, classification, scope, lineage, conflict, or assurance
 question remains ambiguous. It asks focused questions until the atom meets the
 same one-primary-claim identity standard.
