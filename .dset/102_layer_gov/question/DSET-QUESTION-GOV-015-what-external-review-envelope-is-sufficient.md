@@ -17,17 +17,17 @@ relations:
 # Question — What external-review envelope is sufficient?
 
 What minimum structured identity, provenance, scope, finding, and disposition
-envelope should DSET require when importing an external review, while allowing
+envelope should CARMADIO require when importing an external review, while allowing
 the review's analysis body and native attachments to remain free-form?
 
 The resolution should distinguish:
 
-- the external review carrier from DSET's internal Analysis and Observation
+- the external review carrier from CARMADIO's internal Analysis and Observation
   artifacts;
 - mandatory review provenance from optional reviewer-specific fields;
 - machine-actionable findings from unrestricted narrative;
 - imported evidence from project Verification; and
 - a stable interoperability contract from provider-specific report schemas.
 
-This successor removes the obsolete DSET 0.3 deadline and asks only the still
+This successor removes the obsolete CARMADIO 0.3 deadline and asks only the still
 open governance question.
