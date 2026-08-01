@@ -34,7 +34,7 @@ create precedence.
 
 ## Primary claim
 
-DSET has one META constitution and one direct GOV implementation owner, while
+CARMADIO has one META constitution and one direct GOV implementation owner, while
 assurance remains evidence about authority rather than a competing source of
 authority.
 
