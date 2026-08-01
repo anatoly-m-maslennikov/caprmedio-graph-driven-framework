@@ -19,12 +19,26 @@ relations:
       - DSET-REQUIREMENT-GOV-112
 ---
 
-# Evaluation Case — Assess project-settings usability
+# QA Case — Project-settings usability
 
-Ask reviewers unfamiliar with the repository to configure reporting mode,
-artifact strictness, and one enabled artifact type using only
+## Claim checked
+
+An operator unfamiliar with the repository can configure reporting mode,
+artifact strictness, and one enabled artifact Type using only
 `.dset/dset_settings.toml` and its in-file documentation.
 
-The evaluation passes when every reviewer makes the intended changes without
-editing the framework catalog, and at least 90% correctly explain which values
-are project choices versus methodology definitions.
+## Applicable conditions
+
+The operator has no undocumented framework knowledge and must not edit the
+framework catalog.
+
+## Acceptance criteria
+
+Every intended change is made through project settings, and at least 90% of
+classifications correctly distinguish project choices from methodology
+definitions.
+
+## Failure disposition
+
+Record a Concern for every misleading or missing setting instruction and stop
+settings-usability readiness until it is corrected.

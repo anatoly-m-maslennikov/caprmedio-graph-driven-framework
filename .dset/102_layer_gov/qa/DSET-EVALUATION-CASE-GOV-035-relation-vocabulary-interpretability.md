@@ -17,14 +17,25 @@ relations:
       - DSET-IMPL-GOV-004
 ---
 
-# Evaluation Case — Assess relation-vocabulary interpretability
+# QA Case — Relation-vocabulary interpretability
 
-Give independent reviewers representative artifact pairs and ask them to
-select the relation kind without seeing an answer key.
+## Claim checked
 
-Evaluate whether reviewers can distinguish lineage, implementation, checking,
-evidence, resolution, conflict solution, override, replacement, recurrence,
-and generic relation without inventing new kinds.
+The registered relation vocabulary lets an independent assessor select the
+governed relation for representative artifact pairs without inventing another
+kind.
 
-The plan passes when at least 90% of selections match the governed answer and
-no relation pair produces a repeated conceptual ambiguity.
+## Applicable conditions
+
+The case covers lineage, implementation, checking, evidence, resolution,
+conflict solution, override, replacement, recurrence, and generic relation.
+
+## Acceptance criteria
+
+At least 90% of classifications match the governed relation and no pair
+produces a repeated conceptual ambiguity.
+
+## Failure disposition
+
+Record a Concern for every ambiguous pair and stop relation-vocabulary
+readiness until the owning GOV claim or its presentation is corrected.

@@ -19,9 +19,14 @@ relations:
       - DSET-REQUIREMENT-GOV-112
 ---
 
-# Test Case — Validate canonical project settings selections
+# QA Case — Canonical project-settings selection
 
-## Controlled checks
+## Claim checked
+
+Project settings accept exactly the registered values, resolve deterministically,
+and fail closed on invalid or unknown selections.
+
+## Applicable conditions
 
 1. Load `.dset/dset_settings.toml` with documented defaults.
 2. Accept only enabled catalog types, subtypes, and Governance loci.
@@ -30,7 +35,12 @@ relations:
 5. Reject unknown keys when the governing schema marks their table closed.
 6. Confirm a second parse produces identical effective settings.
 
-## Expected disposition
+## Acceptance criteria
 
 Every valid selection resolves deterministically and every invalid selection
 fails closed with the exact key and allowed values.
+
+## Failure disposition
+
+Record a Concern naming the accepted invalid value, rejected valid value, or
+non-deterministic result and stop settings-schema readiness.

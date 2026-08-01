@@ -17,9 +17,14 @@ relations:
       - DSET-REQUIREMENT-GOV-111
 ---
 
-# Test Case — Validate storage boundaries
+# QA Case — Storage-boundary enforcement
 
-## Controlled checks
+## Claim checked
+
+Each governed storage boundary accepts only its registered content and cleanup
+cannot remove canonical authority or Journal history.
+
+## Applicable conditions
 
 1. Persist governed authority only under `.dset`.
 2. Append journal records only as complete NDJSON lines under
@@ -31,7 +36,12 @@ relations:
 5. Reject repository-local scratch and any attempt to keep the only governed
    copy in runtime or scratch.
 
-## Expected disposition
+## Acceptance criteria
 
 Every boundary accepts only its governed content, and cleanup cannot remove
 authority or journal history.
+
+## Failure disposition
+
+Record a high-priority Concern for misplaced canonical data, unsafe cleanup, or
+repository-local scratch and stop storage-boundary readiness.

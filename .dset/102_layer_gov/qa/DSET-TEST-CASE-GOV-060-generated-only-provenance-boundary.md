@@ -17,9 +17,15 @@ relations:
       - DSET-IMPL-GOV-006
 ---
 
-# Test Case — Validate the generated-only provenance boundary
+# QA Case — Generated-only provenance boundary
 
-## Controlled checks
+## Claim checked
+
+Every commit retains auditable provenance, while only commits containing a
+non-generated governed change contribute Implementation relations and
+coverage.
+
+## Applicable conditions
 
 1. Validate required provenance on substantive, generated-only, and mixed
    commits.
@@ -29,7 +35,12 @@ relations:
 4. Confirm generated-only commits remain visible in Git audit history.
 5. Reject a generated carrier that cites itself as its semantic input.
 
-## Expected disposition
+## Acceptance criteria
 
 All commits retain auditable provenance, while only commits with at least one
 non-generated governed change contribute implementation edges.
+
+## Failure disposition
+
+Reject the derived relation or coverage result and record a Concern naming the
+misclassified commit.

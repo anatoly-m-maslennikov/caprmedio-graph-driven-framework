@@ -17,9 +17,15 @@ relations:
       - DSET-REQUIREMENT-GOV-107
 ---
 
-# Test Case — Validate effective-priority selection
+# QA Case — Effective-priority selection
 
-## Controlled checks
+## Claim checked
+
+Conflict selection derives the governed effective priorities and never chooses
+through a tie, incomparable scope, uncertainty, or ineligible external
+obligation.
+
+## Applicable conditions
 
 1. Accept only stored `high`, `medium`, or `low`.
 2. Reject stored `highest`, `critical`, and `deferred`.
@@ -31,7 +37,12 @@ relations:
    winners.
 6. Confirm unsatisfiable external obligations stop rather than auto-resolve.
 
-## Expected disposition
+## Acceptance criteria
 
 Every comparison produces the governed effective priorities and never guesses
 through a non-unique or ineligible result.
+
+## Failure disposition
+
+Stop automatic selection, ask the operator, and record a Concern for any
+incorrect priority or unauthorized winner.

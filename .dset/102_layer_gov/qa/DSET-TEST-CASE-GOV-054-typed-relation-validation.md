@@ -17,9 +17,14 @@ relations:
       - DSET-IMPL-GOV-004
 ---
 
-# Test Case — Validate the canonical relation vocabulary
+# QA Case — Canonical relation validity
 
-## Controlled checks
+## Claim checked
+
+Every registered relation accepts valid endpoints and rejects unknown kinds,
+invalid cardinality, and ambiguous active targets.
+
+## Applicable conditions
 
 1. Admit one valid example of every registered relation kind.
 2. Reject an unknown relation kind.
@@ -29,7 +34,12 @@ relations:
 5. Confirm an archived target remains addressable as history but does not
    become active authority.
 
-## Expected disposition
+## Acceptance criteria
 
 All valid examples pass and every invalid fixture fails with the exact relation
 and endpoint identified.
+
+## Failure disposition
+
+Record a Concern naming the relation and invalid endpoint behavior and stop
+relation-schema readiness.

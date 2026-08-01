@@ -18,9 +18,15 @@ relations:
       - DSET-REQUIREMENT-GOV-108
 ---
 
-# Test Case — Validate semantic immutability and lossless recoding
+# QA Case — Semantic immutability and lossless recoding
 
-## Controlled checks
+## Claim checked
+
+Lossless whole-graph recoding and unchanged archive relocation preserve every
+protected semantic claim and relation, while semantic mutation requires a new
+governed revision or successor.
+
+## Applicable conditions
 
 1. Snapshot every protected semantic field and relation endpoint.
 2. Perform a complete identifier, filename, heading, carrier, and target
@@ -30,7 +36,12 @@ relations:
 5. Attempt to change one protected claim, rationale, provenance, scope,
    priority, relation meaning, or assurance criterion and require rejection.
 
-## Expected disposition
+## Acceptance criteria
 
 Lossless graph-wide recoding and unchanged archive relocation pass; every
 semantic mutation fails and requires a successor identity.
+
+## Failure disposition
+
+Reject the migration or mutation, retain the previous graph, and record a
+high-priority Concern with the first non-equivalent field or edge.

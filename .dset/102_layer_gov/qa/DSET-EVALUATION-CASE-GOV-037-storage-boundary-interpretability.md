@@ -17,12 +17,25 @@ relations:
       - DSET-REQUIREMENT-GOV-111
 ---
 
-# Evaluation Case — Assess storage-boundary interpretability
+# QA Case — Storage-boundary interpretability
 
-Give reviewers examples of an atomic artifact, a running log record, a resumable
-checkpoint, a generated cache, and a disposable test workspace. Ask them to
-choose `.dset`, `.dset_journal`, `.dset_runtime`, or the host temporary root
-and explain retention behavior.
+## Claim checked
 
-The evaluation passes when at least 90% of classifications are correct and no
-reviewer treats runtime or scratch as canonical truth.
+An operator can place an Atom, Journal record, resumable checkpoint, generated
+cache, and disposable workspace in the governed storage boundary and explain
+its retention behavior.
+
+## Applicable conditions
+
+The available boundaries are `.dset`, `.dset_journal`, `.dset_runtime`, and the
+host temporary root.
+
+## Acceptance criteria
+
+At least 90% of classifications are correct and no classification treats
+runtime or scratch as canonical truth.
+
+## Failure disposition
+
+Record a Concern for every ambiguous boundary and stop storage-boundary
+readiness until the governing rule or its presentation is corrected.

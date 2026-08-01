@@ -19,14 +19,21 @@ relations:
       - CARMADIO-REQUIREMENT-META-096
 ---
 
-# Evaluation Case — Assess current scope and layer distinction
+# QA Case — Current scope and layer distinction
 
-Give reviewers examples with horizontal peer contracts, forward-only ordered
-authority, nested scope paths, and unavoidable backward dependencies. Ask
-whether each structure should use peer scopes or features, ordered layers,
-nested scope paths, or conversion from layers to a horizontal structure.
+## Claim checked
 
-The evaluation passes when at least 90%:
+An operator can distinguish horizontal scope ownership, nested structural
+scope, forward-only layer authority, and an invalid backward dependency.
+
+## Applicable conditions
+
+Representative structures include horizontal peer contracts, forward-only
+ordered authority, nested Scope paths, and unavoidable backward dependencies.
+
+## Acceptance criteria
+
+At least 90% of classifications:
 
 - classify horizontal ownership as peer scopes or features;
 - classify ordered downstream authority as layers;
@@ -35,7 +42,7 @@ The evaluation passes when at least 90%:
 - treat irreducible backward dependency as a reason to stop claiming a clean
   layer model.
 
-## Primary claim
+## Failure disposition
 
-Reviewers can distinguish horizontal scope ownership from ordered layer
-authority under the current DSET topology.
+Record a Concern for every repeated ambiguity and stop topology-readiness until
+the governing distinction or its presentation is corrected.
