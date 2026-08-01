@@ -42,17 +42,17 @@ A Projection uses Markdown with YAML frontmatter and has a stable governed ident
 
 Frontmatter declares `artifact_form: projection`, the applicable `artifact_type`, `content_role`, `governance_locus`, `artifact_id`, `scope_path`, and only other non-derived properties admitted by the catalog. The Projection declares its exact source frontier through the governed provenance and relation model.
 
-The body may contain headings, grouping and ordering labels, direct Atom IDs and links, source titles, and rendered governed relations. It must not introduce a normative paraphrase needed to understand or satisfy a source Atom. Any independently meaningful explanation, conclusion, requirement, method, assurance rule, implementation claim, or observation is emitted as its own Atom and then linked from the Projection.
+The body may contain headings, grouping and ordering labels, direct Atom IDs and links, source titles, and rendered governed relations. It must not introduce a normative paraphrase needed to understand or satisfy a source Atom. Any independently meaningful explanation, conclusion, Requirement, Method, Assurance rule, Implementation claim, or Ops fact is emitted as its own Atom and then linked from the Projection.
 
 A Projection may be rebuilt mechanically or through governed reasoning. Generated and reasoned describe creation procedures, not Artifact forms. Creation and every rebuild are committed as new or updated children under the exact source revisions consumed.
 
 A Projection is current only when its declared source frontier and rebuild procedure reproduce the committed view. A source change triggers lineage-impact review. A compatible result may preserve the existing Projection revision; an affected result requires a rebuild before a gate that requires the Projection may pass.
 
-`specification` is retired as an independent maintained Type. A current view of the distributed normative specification is represented by a `requirement`-role Catalog, Map, Hub, or bounded combination of those Projections.
+`specification` is not registered as an independent Projection Type. A current view of the distributed normative specification is represented by a `requirement`-role Catalog, Map, Hub, or bounded combination of those Projections.
 
 ## Primary claim
 
-Catalog, Map, and Hub are thin internal Projection Types with direct atomic provenance, no independent semantic authority, and no normative restatement of their sources.
+Catalog, Map, and Hub are thin internal Projection Types with direct Atom provenance, no independent semantic authority, and no normative restatement of their sources.
 
 ## Rationale
 
