@@ -43,10 +43,10 @@ primary conclusion that the changed parent revision's impact review is
 complete or blocked. The report does not replace the children, their evidence,
 or their own semantic claims.
 
-A compatible disposition is durably recorded in the report without rewriting
-the child. An updated or replaced child continues the review recursively. An
-uncertain disposition names its blocking Question or Problem and leaves that
-branch incomplete.
+A compatible disposition is durably recorded in the Analysis Atom without
+rewriting the child. An updated or replaced child continues the review
+recursively. An uncertain disposition names its blocking Concern Atom and
+leaves that branch incomplete.
 
 The Analysis Atom is not Ops evidence of its own correctness. Material Ops
 evidence remains claim-bound through explicit evidence relations. A release or
