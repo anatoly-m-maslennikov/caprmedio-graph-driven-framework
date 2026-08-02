@@ -26,7 +26,7 @@ document, and carrier identities within that bounded tree. Zero active matches
 or multiple active matches stop.
 
 Active discovery includes installed methodology, settings, active atomic
-artifacts, and applicable Projections. It excludes every type-local
+artifacts, Journals, and applicable Projections. It excludes every role-local
 `archive/` subtree and never falls back to root framework source, inert legacy
 material, completed migrations, a remote copy, or a global installation.
 
@@ -44,5 +44,5 @@ carrier paths as semantic references.
 ## Rationale
 
 The merged successor preserves topology-independent discovery while aligning
-current authority with type-local archives and the project-local control-plane
+current authority with role-local archives and the project-local control-plane
 boundary.

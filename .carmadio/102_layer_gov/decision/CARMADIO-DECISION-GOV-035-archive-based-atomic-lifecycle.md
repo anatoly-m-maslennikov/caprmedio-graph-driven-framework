@@ -22,9 +22,9 @@ relations:
 CARMADIO has no `lifecycle_event` artifact type. An Atomic Artifact has only two
 storage states:
 
-- **active:** its carrier is in the active Type folder and participates in
+- **active:** its carrier is directly in its Content-role folder and participates in
   current authority, planning, assurance, or work views as applicable;
-- **archived:** its carrier is in the Type-local `archive/` folder and remains
+- **archived:** its carrier is in the role-local `archive/` folder and remains
   discoverable by identity as immutable history.
 
 Moving an unchanged carrier into `archive/` is a committed storage transition,

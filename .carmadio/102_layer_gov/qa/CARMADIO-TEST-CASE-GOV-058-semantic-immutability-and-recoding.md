@@ -32,7 +32,7 @@ governed revision or successor.
 2. Perform a complete identifier, filename, heading, carrier, and target
    spelling migration.
 3. Prove the semantic snapshot and graph connectivity are equal after recoding.
-4. Move an inactive atom unchanged into its type-local archive.
+4. Move an inactive atom unchanged into its role-local archive.
 5. Attempt to change one protected claim, rationale, provenance, scope,
    priority, relation meaning, or assurance criterion and require rejection.
 
