@@ -54,6 +54,7 @@ prefix is an identity token rather than another Type name.
 | `map` | `MAPS` |
 | `hub` | `HUBS` |
 | `development_backlog` | `BKLG` |
+| `implementation_journal` | `IJRN` |
 
 The canonical filename grammar is:
 
