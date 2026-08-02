@@ -25,8 +25,8 @@ carriers.
 
 A hub never enumerates individual atomic carriers. Adding an atom therefore
 does not require a hub edit. A hub also never lists or links descendants of
-`.carmadio_runtime` or `.carmadio_journal`; runtime state and high-churn journal
-records are discoverable through their own tools and governed views.
+`.carmadio_runtime`; runtime state and individual high-churn Journal records are
+discoverable through their own tools and governed Projections.
 
 ## Primary claim
 

@@ -14,7 +14,7 @@ relations:
       - CARMADIO-TEST-CASE-GOV-048
   - type: check_of
     targets:
-      - CARMADIO-REQUIREMENT-GOV-111
+      - CARMADIO-REQUIREMENT-GOV-146
 ---
 
 # QA Case — Storage-boundary enforcement
@@ -27,8 +27,8 @@ cannot remove canonical authority or Journal history.
 ## Applicable conditions
 
 1. Persist governed authority only under `.carmadio`.
-2. Append journal records only as complete NDJSON lines under
-   `.carmadio_journal`.
+2. Append Journal records only as complete NDJSON lines in the applicable
+   `.carmadio` role folder.
 3. Remove `.carmadio_runtime` after a completed workflow and prove governed truth
    and journal history remain intact.
 4. Create scratch under the host temporary root, force success and handled

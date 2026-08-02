@@ -13,7 +13,7 @@ relations:
       - CARMADIO-REQUIREMENT-GOV-134
   - type: relates_to
     targets:
-      - CARMADIO-REQUIREMENT-GOV-111
+      - CARMADIO-REQUIREMENT-GOV-146
 ---
 
 # Requirement — Require production logging policies
@@ -76,9 +76,9 @@ must not make the primary operation silently fail, and loss or suppression of
 required records must itself produce an observable failure signal.
 
 Production logs use the deployment environment's governed logging sink.
-`.carmadio_journal/` remains the append-only NDJSON boundary for CARMADIO workflow and
-local project-control journals; it is not a substitute for the production
-system's log platform.
+Governed CARMADIO workflow and local project-control Journals use append-only
+NDJSON carriers in their applicable `.carmadio` role folders; they are not a
+substitute for the production system's log platform.
 
 Important health counters, thresholds, and service-level signals receive
 explicit monitors. A production assurance decision must not depend solely on

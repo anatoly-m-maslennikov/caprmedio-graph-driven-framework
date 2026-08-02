@@ -14,7 +14,7 @@ relations:
       - CARMADIO-EVALUATION-CASE-GOV-032
   - type: check_of
     targets:
-      - CARMADIO-REQUIREMENT-GOV-111
+      - CARMADIO-REQUIREMENT-GOV-146
 ---
 
 # QA Case — Storage-boundary interpretability
@@ -27,8 +27,9 @@ its retention behavior.
 
 ## Applicable conditions
 
-The available boundaries are `.carmadio`, `.carmadio_journal`, `.carmadio_runtime`, and the
-host temporary root.
+The available boundaries are `.carmadio`, `.carmadio_runtime`, and the host
+temporary root. Governed Journals are located inside `.carmadio` by scope and
+Content role.
 
 ## Acceptance criteria
 

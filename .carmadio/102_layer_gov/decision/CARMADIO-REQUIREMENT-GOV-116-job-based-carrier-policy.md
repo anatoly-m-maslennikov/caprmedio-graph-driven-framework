@@ -33,7 +33,7 @@ CARMADIO uses these default carrier boundaries:
 | Markdown with YAML frontmatter | Human-governed Atoms and Projections with narrative meaning |
 | TOML | Human-edited configuration executed directly by tools |
 | JSON | External contracts, standardized schemas, wire data, and generated machine data |
-| NDJSON | Append-only journals and ordered record streams under `.carmadio_journal` |
+| NDJSON | Append-only Journals and ordered record streams under the applicable `.carmadio` role folder |
 | Native format | Source code, Tests, Evaluations, CI workflows, lockfiles, host manifests, and other prescribed implementation files |
 
 Carrier selection follows the artifact's authoring and consumption boundary,
