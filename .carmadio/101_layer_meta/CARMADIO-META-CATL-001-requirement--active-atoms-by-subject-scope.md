@@ -5,13 +5,13 @@ artifact_id: CARMADIO-META-CATL-001
 scope_path: layer:meta
 subject_scope: artifact-model
 generator: carmadio-meta-scope
-generator_version: 1
-source_count: 60
-source_frontier_sha256: d98bac84ef8e7f5faffd68e73b3dce56dc5bd334676f0a9689968450f9f61969
+generator_version: 2
+source_count: 61
+source_frontier_sha256: 52c1bf930bc9521a984ed4b4461d2f0240cf014adeb9dc4beceb8dd26f3816d9
 relations:
   - type: child_of
     targets:
-      - CARMADIO-REQUIREMENT-META-125
+      - CARMADIO-REQUIREMENT-META-127
 ---
 # META Active Atom Catalog by Subject Scope
 
@@ -24,7 +24,7 @@ relations:
 - `CARMADIO-REQUIREMENT-META-117` — Requirement — Admit only materially distinct framework constructs
 - `CARMADIO-REQUIREMENT-META-118` — Requirement — Keep META and GOV implementation-neutral
 
-## `artifact-model` (12)
+## `artifact-model` (13)
 
 - `CARMADIO-REQUIREMENT-META-051` — Requirement — Make relational endpoints explicit
 - `CARMADIO-REQUIREMENT-META-080` — Requirement — Use Atom, Journal, and Projection artifact forms
@@ -37,7 +37,8 @@ relations:
 - `CARMADIO-REQUIREMENT-META-112` — Requirement — Keep Requirements realization-agnostic
 - `CARMADIO-REQUIREMENT-META-119` — Requirement — Preserve Content-role boundaries through the loop
 - `CARMADIO-REQUIREMENT-META-124` — Requirement — Use one canonical Subject scope per META Atom
-- `CARMADIO-REQUIREMENT-META-125` — Requirement — Generate the active META Atom Scope Catalog
+- `CARMADIO-REQUIREMENT-META-126` — Requirement — Require one Subject scope on every Atom
+- `CARMADIO-REQUIREMENT-META-127` — Requirement — Provide the active META Atom Scope Catalog
 
 ## `scope-topology` (12)
 
@@ -74,12 +75,12 @@ relations:
 
 - `CARMADIO-ANALYSIS-META-001` — Analysis — Method-definition lineage impact
 - `CARMADIO-REQUIREMENT-META-053` — Requirement — Separate active authority from preserved history
-- `CARMADIO-REQUIREMENT-META-075` — Requirement — Model governed change as revision-bound parent and child transactions
-- `CARMADIO-REQUIREMENT-META-076` — Requirement — Use Git as the canonical history engine
 - `CARMADIO-REQUIREMENT-META-077` — Requirement — Propagate atomic revision impact through lineage
 - `CARMADIO-REQUIREMENT-META-113` — Requirement — Preserve implementation traceability in Journals
 - `CARMADIO-REQUIREMENT-META-121` — Requirement — Bind traceability to exact claims and revisions
 - `CARMADIO-REQUIREMENT-META-123` — Requirement — Evolve authority through governed history
+- `CARMADIO-REQUIREMENT-META-128` — Requirement — Bind governed transactions to stable artifact revisions
+- `CARMADIO-REQUIREMENT-META-129` — Requirement — Bound Git authority to repository provenance
 
 ## `development-flow` (6)
 
