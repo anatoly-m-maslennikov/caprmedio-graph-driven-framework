@@ -2,8 +2,7 @@
 artifact_type: question
 artifact_id: CARMADIO-QUESTION-META-005
 scope_path: layer:meta
-subject_scopes:
-  - scope
+subject_scope: scope-topology
 priority: medium
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
