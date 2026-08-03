@@ -9,11 +9,12 @@ Usage:
     python 15_layer_implementation/tools/carmadio_meta_scope.py project --write
     python 15_layer_implementation/tools/carmadio_meta_scope.py project --check
 
-Both commands default to a dry, read-only preview. ``migrate`` replaces only a
-validated legacy ``subject_scopes`` block with one canonical ``subject_scope``
-line. ``project`` renders the active META Atom Catalog. Writes stage under the
-script-owned ``.carmadio_runtime/carmadio-meta-scope`` folder, verify complete
-bytes before replacement, and roll back every touched carrier on failure.
+Both commands default to a dry, read-only preview. ``migrate`` gives every
+draft, active, and archived META Atom one canonical ``subject_scope`` while
+preserving its claim bytes. ``project`` renders the active META Atom Catalog.
+Writes stage under the script-owned
+``.carmadio_runtime/carmadio-meta-scope`` folder, verify complete bytes before
+replacement, and roll back every touched carrier on failure.
 """
 
 from __future__ import annotations
@@ -76,6 +77,7 @@ LEGACY_SCOPE_MAP = {
 SCOPE_OVERRIDES = {
     "CARMADIO-ANALYSIS-META-001": "lifecycle-traceability",
     "CARMADIO-CONTRACT-META-001": "framework-boundary",
+    "CARMADIO-EVIDENCE-RECORD-034": "framework-boundary",
     "CARMADIO-REQUIREMENT-META-004": "assurance",
     "CARMADIO-REQUIREMENT-META-011": "framework-boundary",
     "CARMADIO-REQUIREMENT-META-053": "lifecycle-traceability",
@@ -92,7 +94,7 @@ SCOPE_OVERRIDES = {
 }
 CATALOG_ID = "CARMADIO-META-CATL-001"
 GENERATOR_ID = "carmadio-meta-scope"
-GENERATOR_VERSION = 1
+GENERATOR_VERSION = 2
 
 
 class MetaScopeError(RuntimeError):
@@ -133,8 +135,8 @@ def _metadata(path: Path, content: bytes) -> tuple[dict[str, Any], str]:
     return metadata, body
 
 
-def _active_markdown_paths(root: Path) -> tuple[Path, ...]:
-    """Return active META Markdown paths without assuming their role folder."""
+def _markdown_paths(root: Path, *, active_only: bool) -> tuple[Path, ...]:
+    """Return META Markdown paths without assuming their role folder."""
     meta_root = root / META_RELATIVE
     if not meta_root.is_dir():
         raise MetaScopeError(f"META root does not exist: {meta_root}")
@@ -143,10 +145,10 @@ def _active_markdown_paths(root: Path) -> tuple[Path, ...]:
         relative = path.relative_to(meta_root)
         if path == root / CATALOG_RELATIVE:
             continue
-        if EXCLUDED_PARTS.intersection(relative.parts):
+        if active_only and EXCLUDED_PARTS.intersection(relative.parts):
             continue
         if path.is_symlink() or not path.is_file():
-            raise MetaScopeError(f"active META carrier is not a regular file: {path}")
+            raise MetaScopeError(f"META carrier is not a regular file: {path}")
         paths.append(path)
     return tuple(sorted(paths))
 
@@ -230,6 +232,28 @@ def _replace_singular_scope(
     return updated
 
 
+def _add_missing_scope(
+    path: Path, content: bytes, metadata: dict[str, Any], artifact_id: str
+) -> bytes:
+    """Add one explicitly classified scope to a legacy carrier that lacks it."""
+    target = SCOPE_OVERRIDES.get(artifact_id)
+    if target is None:
+        raise MetaScopeError(f"missing Subject-scope classification: {path}")
+    scope_path = metadata.get("scope_path")
+    if not isinstance(scope_path, str) or not scope_path:
+        raise MetaScopeError(f"missing structural scope_path: {path}")
+    old = f"scope_path: {scope_path}\n"
+    text = content.decode("utf-8")
+    if text.count(old) != 1:
+        raise MetaScopeError(f"unexpected scope_path carrier shape: {path}")
+    updated = text.replace(old, old + f"subject_scope: {target}\n", 1).encode("utf-8")
+    after, _ = _metadata(path, updated)
+    expected = {**metadata, "subject_scope": target}
+    if after != expected:
+        raise MetaScopeError(f"Subject-scope addition changed other metadata: {path}")
+    return updated
+
+
 def _scope_value(path: Path, metadata: dict[str, Any]) -> str:
     """Return one canonical singular Subject scope or fail closed."""
     if "subject_scopes" in metadata:
@@ -244,24 +268,27 @@ def _migration_changes(root: Path) -> tuple[Change, ...]:
     """Build the complete migration plan before changing any carrier."""
     changes = []
     seen = set()
-    for path in _active_markdown_paths(root):
+    for path in _markdown_paths(root, active_only=False):
         content = path.read_bytes()
         metadata, _ = _metadata(path, content)
         artifact_id, artifact_type = _artifact_identity(path, metadata)
         if artifact_type in PROJECTION_TYPES:
             continue
         if artifact_id in seen:
-            raise MetaScopeError(f"duplicate active META artifact_id: {artifact_id}")
+            raise MetaScopeError(f"duplicate META artifact_id: {artifact_id}")
         seen.add(artifact_id)
         if "subject_scopes" in metadata:
             after = _replace_legacy_scope(path, content, metadata, artifact_id)
             changes.append(Change(path, content, after))
-        else:
+        elif "subject_scope" in metadata:
             current = _scope_value(path, metadata)
             override = SCOPE_OVERRIDES.get(artifact_id)
             if override is not None and current != override:
                 after = _replace_singular_scope(path, content, metadata, override)
                 changes.append(Change(path, content, after))
+        else:
+            after = _add_missing_scope(path, content, metadata, artifact_id)
+            changes.append(Change(path, content, after))
     return tuple(changes)
 
 
@@ -355,7 +382,7 @@ def _collect_atoms(root: Path) -> tuple[Atom, ...]:
     """Collect every active META Atom and validate catalog coordinates."""
     atoms = []
     seen = set()
-    for path in _active_markdown_paths(root):
+    for path in _markdown_paths(root, active_only=True):
         content = path.read_bytes()
         metadata, body = _metadata(path, content)
         artifact_id, artifact_type = _artifact_identity(path, metadata)
@@ -420,7 +447,7 @@ def _catalog_bytes(atoms: tuple[Atom, ...]) -> bytes:
         "relations": [
             {
                 "type": "child_of",
-                "targets": ["CARMADIO-REQUIREMENT-META-125"],
+                "targets": ["CARMADIO-REQUIREMENT-META-127"],
             }
         ],
     }
