@@ -84,6 +84,11 @@ SCOPE_OVERRIDES = {
     "CARMADIO-REQUIREMENT-META-090": "authority",
     "CARMADIO-REQUIREMENT-META-092": "assurance",
     "CARMADIO-REQUIREMENT-META-113": "lifecycle-traceability",
+    "CARMADIO-REQUIREMENT-META-114": "principles",
+    "CARMADIO-REQUIREMENT-META-115": "principles",
+    "CARMADIO-REQUIREMENT-META-116": "principles",
+    "CARMADIO-REQUIREMENT-META-117": "principles",
+    "CARMADIO-REQUIREMENT-META-118": "principles",
 }
 CATALOG_ID = "CARMADIO-META-CATL-001"
 GENERATOR_ID = "carmadio-meta-scope"
@@ -208,6 +213,23 @@ def _verify_scope_recode(
         raise MetaScopeError(f"Subject-scope recoding changed other metadata: {path}")
 
 
+def _replace_singular_scope(
+    path: Path, content: bytes, metadata: dict[str, Any], target: str
+) -> bytes:
+    """Correct one explicitly classified singular scope without broader edits."""
+    current = _scope_value(path, metadata)
+    old = f"subject_scope: {current}\n"
+    text = content.decode("utf-8")
+    if text.count(old) != 1:
+        raise MetaScopeError(f"unexpected singular Subject-scope carrier shape: {path}")
+    updated = text.replace(old, f"subject_scope: {target}\n", 1).encode("utf-8")
+    after, _ = _metadata(path, updated)
+    expected = {**metadata, "subject_scope": target}
+    if after != expected:
+        raise MetaScopeError(f"Subject-scope correction changed other metadata: {path}")
+    return updated
+
+
 def _scope_value(path: Path, metadata: dict[str, Any]) -> str:
     """Return one canonical singular Subject scope or fail closed."""
     if "subject_scopes" in metadata:
@@ -235,7 +257,11 @@ def _migration_changes(root: Path) -> tuple[Change, ...]:
             after = _replace_legacy_scope(path, content, metadata, artifact_id)
             changes.append(Change(path, content, after))
         else:
-            _scope_value(path, metadata)
+            current = _scope_value(path, metadata)
+            override = SCOPE_OVERRIDES.get(artifact_id)
+            if override is not None and current != override:
+                after = _replace_singular_scope(path, content, metadata, override)
+                changes.append(Change(path, content, after))
     return tuple(changes)
 
 
