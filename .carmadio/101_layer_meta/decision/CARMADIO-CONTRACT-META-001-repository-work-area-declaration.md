@@ -2,8 +2,7 @@
 artifact_type: contract
 artifact_id: CARMADIO-CONTRACT-META-001
 scope_path: layer:meta
-subject_scopes:
-  - scope
+subject_scope: framework-boundary
 priority: high
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d

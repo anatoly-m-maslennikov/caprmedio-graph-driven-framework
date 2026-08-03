@@ -2,8 +2,7 @@
 artifact_type: requirement
 artifact_id: CARMADIO-REQUIREMENT-META-026
 scope_path: layer:meta
-subject_scopes:
-  - authority
+subject_scope: authority
 priority: high
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
