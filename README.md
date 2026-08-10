@@ -1,74 +1,63 @@
-# DSET Spec Loops
+# CARMADIO
 
-DSET — **Domain, Supportability, Evals, Tests** — is a framework for making
-AI-assisted software work reviewable: explicit domain truth, governed
-decisions, supportability, deterministic tests, qualitative evaluations, and
-evidence stay connected through a specification loop.
+**The Vibe-Code-to-Production Framework**
 
-This repository is the public source for the reusable methodology, its Python
-toolchain, schemas, templates, and 19 skill-source folders. Source presence
-does not claim that skills are installed, released, or proven on a host.
+CARMADIO — **Concern–Analysis–Requirement–Method–Assurance–Delivery–Implementation–Ops** — is a governed framework for carrying AI-assisted software work from an initial concern to production operation without losing the decisions, proof, delivery controls, or evidence needed to trust and maintain it.
 
-## Current model
+The framework keeps desired outcomes separate from construction choices, assurance plans, delivery mechanisms, concrete implementation, and observed operational facts. That separation lets teams move quickly while retaining explicit authority, traceability, reviewability, and stop conditions.
 
-The target semantic topology is:
+## How CARMADIO works
+
+CARMADIO classifies the primary contribution of governed work through eight Content roles:
+
+| Role | Governs |
+|---|---|
+| Concern | A question, problem, risk, opportunity, conflict, or other matter requiring disposition |
+| Analysis | Interpretation and understanding that inform a decision without independently establishing the desired result |
+| Requirement | An outcome, obligation, or externally observable boundary the product or project must, may, or must not satisfy |
+| Method | How an accepted Requirement will be realized or how an existing realization will be transformed |
+| Assurance | How the project can establish that a Requirement, Method, Delivery path, or Implementation works as intended |
+| Delivery | Packaging, release, deployment, distribution, installation, migration, upgrade, and rollback to end users |
+| Implementation | Concrete code, configuration, schemas, executable tests and evaluations, packages, installers, and automation |
+| Ops | Factual results from execution and use, including test results, delivery outcomes, runtime evidence, logs, incidents, and verification outcomes |
+
+Governed artifacts take one of three forms: an **Atom** owns one independently replaceable claim, a **Journal** preserves an ordered append-only record, and a **Projection** provides a rebuildable non-authoritative view or an unaccepted planning surface. Applicable Requirement, Method, Assurance, and Delivery Atoms collectively form the distributed normative specification; Implementation realizes it, while Ops records what actually happened.
+
+The ordered realization topology is:
 
 ```text
 META → GOV → SPEC → PROFILES → IMPL → OPS
 ```
 
-The physical reusable root and applied project still use legacy `TOOL` and
-`SKILL` layer names. Their migration to the target topology is open under
-[`CARMADIO-PROBLEM-GOV-010`](.carmadio/102_layer_gov/problem/CARMADIO-PROBLEM-GOV-010-control-plane-uses-retired-layer-layout.md);
-the names above do not assert that the migration is complete.
+META owns universal meanings and invariants; GOV owns carriers, identity, lifecycle, provenance, applicability, and conflict governance; SPEC owns current project obligations and accepted choices; PROFILES owns selectable implementation and environment policies; IMPL owns concrete realization; and OPS owns delivery, release, runtime supportability, recovery, and hosted evidence.
 
-DSET separates a persisted artifact's revision mode from its meaning:
+For the current governed model, start with the [CARMADIO identity requirement](.carmadio/101_layer_meta/decision/CARMADIO-REQUIREMENT-META-087-carmadio-framework-identity.md) and the [active META Atom Catalog](.carmadio/101_layer_meta/CARMADIO-META-CATL-001-requirement--active-atoms-by-subject-scope.md).
 
-- `atomic` is one immutable governed unit;
-- `append_only` preserves complete records in order; and
-- `maintained` permits governed revision.
+## Repository contents
 
-Implementation is a Content role for native project material such as code,
-configuration, migrations, and test or evaluation implementations; it is not
-a revision mode. META and GOV are currently in an atomic-only phase. This
-README makes no active lifecycle-event claim.
-
-The accepted vocabulary has seven Content roles and three Governance loci, but
-the complete route/type catalog is not yet defined. The active boundaries are
-recorded by:
-
-- [`CARMADIO-PROBLEM-GOV-009`](.carmadio/102_layer_gov/problem/CARMADIO-PROBLEM-GOV-009-semantic-route-catalog-remains-incomplete.md)
-  through [`CARMADIO-PROBLEM-GOV-012`](.carmadio/102_layer_gov/problem/CARMADIO-PROBLEM-GOV-012-atomic-identities-use-retired-grammar.md); and
-- [`CARMADIO-QUESTION-GOV-013`](.carmadio/102_layer_gov/question/CARMADIO-QUESTION-GOV-013-which-artifact-subtypes-should-refine-route-types.md),
-  [`015`](.carmadio/102_layer_gov/question/CARMADIO-QUESTION-GOV-015-what-external-review-envelope-is-sufficient.md),
-  [`016`](.carmadio/102_layer_gov/question/CARMADIO-QUESTION-GOV-016-how-should-proof-currentness-be-represented.md), and
-  [`017`](.carmadio/102_layer_gov/question/CARMADIO-QUESTION-GOV-017-which-types-complete-the-semantic-route-catalog.md).
-
-There is therefore no canonical full type matrix here.
-
-## Repository map
+This repository is the public source for the reusable CARMADIO methodology, its Python toolchain, schemas, templates, tests, and 19 agent-facing skill-source folders. Source presence does not claim that a skill is installed, a package is released, or a workflow has been proven on a particular host.
 
 | Surface | Purpose |
 |---|---|
-| [Project](10_project/000_dset-project-hub.md), [META](11_layer_meta/000_dset-meta-hub.md), [GOV](12_layer_gov/000_dset-gov-hub.md) | Reusable source and governance roots |
-| [TOOL](13_layer_tool/000_dset-tool-hub.md), [SKILL](14_layer_skill/000_dset-skill-hub.md), [IMPL](15_layer_implementation/000_dset-implementation-hub.md), [OPS](16_layer_ops/000_dset-ops-hub.md) | Current physical reusable-layer hubs |
-| [Skills source catalog](skills/README.md) | The 19 agent-facing skill sources and their boundaries |
+| [Project control hub](.carmadio/CARMADIO-CONTROL-HUB.md) | Applied CARMADIO settings, installed methodology, governed artifacts, and project truth |
+| [Reusable source hubs](10_project/000_dset-project-hub.md) | Framework source; several carrier names remain from the pre-CARMADIO layout |
+| [Skills source catalog](skills/README.md) | The 19 portable workflow skill sources and their boundaries |
 | [Python toolchain](dset_toolchain/) | Local executable implementation |
+| [Tests](tests/) | Deterministic toolchain and contract checks |
 | [Migration tools](15_layer_implementation/tools/migrations/README.md) | Bounded internal migration tooling, not a general public migration service |
 | [Delivery policy](.github/DELIVERY.md) | Repository delivery and publication boundary |
-| [Project control hub](.carmadio/CARMADIO-CONTROL-HUB.md) | This repository's applied DSET control plane |
 
-## Settings and baseline
+Every current governed project artifact lives under `.carmadio/`. Disposable and runtime-writing state is isolated under `.carmadio_runtime/`.
 
-The sole settings carrier is
-[`.carmadio/carmadio_settings.toml`](.carmadio/carmadio_settings.toml), which declares schema
-`1.8`. The coordinated package baseline is `0.3.1`. Neither fact proves a full
-implementation, an exact repository head, verification, or release readiness.
+## Current migration boundary
+
+CARMADIO is the canonical framework and repository identity. The Python distribution name `dset-spec-loops`, module `dset_toolchain`, CLI command `dset`, and some reusable-source carriers still retain legacy names for compatibility while their governed migration remains incomplete. Do not interpret those retained implementation identifiers as a second framework identity.
+
+The settings carrier is [`.carmadio/carmadio_settings.toml`](.carmadio/carmadio_settings.toml), currently using settings schema `1.8`. The coordinated framework and Python-package baseline is `0.3.1`. These versions identify the declared baseline; they do not by themselves prove verification or release readiness.
 
 ## Methodology synchronization
 
-Framework maintainers may inspect and explicitly synchronize reusable source
-into the installed project-local methodology:
+Framework maintainers can inspect and explicitly synchronize reusable source into the installed project-local methodology:
 
 ```bash
 python -m dset_toolchain methodology check .
@@ -76,11 +65,6 @@ python -m dset_toolchain methodology sync .
 python -m dset_toolchain methodology sync . --execute
 ```
 
-Synchronization is explicit and one-way: source edits do not automatically
-rewrite `.carmadio/000_carmadio_methodology/`, and installed files are not copied back
-to the reusable root. Review the preview before using `--execute`.
+Synchronization is explicit and one-way: source edits do not automatically rewrite `.carmadio/000_carmadio_methodology/`, and installed files are not copied back to the reusable root. Review the preview before using `--execute`.
 
-Supportability remains a cross-cutting requirement: production work needs the
-logs, provenance, state, and runbook context required to investigate and
-repair failures. DSET is intended to expand through bounded, evidence-backed
-adoption rather than documentation alone.
+Supportability is not an afterthought: production work needs enough logs, provenance, state, and runbook context to investigate, contain, and repair failures. CARMADIO is intended to grow through bounded, evidence-backed adoption rather than documentation claims alone.
