@@ -1,0 +1,4 @@
+interface:
+  display_name: "CARMADIO Init"
+  short_description: "Initialize repository-local CARMADIO governance"
+  default_prompt: "Use $ca-init to preview or initialize CARMADIO governance in this repository."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "CARMADIO Complete"
+  short_description: "Confirm CARMADIO work has no remaining obligations"
+  default_prompt: "Use $ca-complete to resolve and run the repository-local completion workflow."

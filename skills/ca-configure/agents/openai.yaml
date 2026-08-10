@@ -1,0 +1,4 @@
+interface:
+  display_name: "CARMADIO Configure"
+  short_description: "Configure optional CARMADIO governance surfaces"
+  default_prompt: "Use $ca-configure to inspect or change this project's optional governance surfaces."

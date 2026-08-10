@@ -1,137 +1,70 @@
-# DSET Spec Loops: A Production Vibecoding Framework
+# CARMADIO
 
-**A framework for production vibecoding.**
+**The Vibe-Code-to-Production Framework**
 
-DSET expands to **Domain–Supportability–Evals–Tests**.
+CARMADIO — **Concern–Analysis–Requirement–Method–Assurance–Delivery–Implementation–Ops** — is a governed framework for carrying AI-assisted software work from an initial concern to production operation without losing the decisions, proof, delivery controls, or evidence needed to trust and maintain it.
 
-“Spec” remains in the name because every iteration is a governed spec loop; it is not the `S` in DSET.
+The framework keeps desired outcomes separate from construction choices, assurance plans, delivery mechanisms, concrete implementation, and observed operational facts. That separation lets teams move quickly while retaining explicit authority, traceability, reviewability, and stop conditions.
 
-The framework treats natural language as a high-leverage programming interface while keeping durable software grounded in explicit domain models, accepted behavioral specifications, production supportability, deterministic tests, qualitative or probabilistic evals, implementation plans, and machine-verifiable gates.
+## How CARMADIO works
 
-## Purpose
+CARMADIO classifies the primary contribution of governed work through eight Content roles:
 
-This repository is the public source for the DSET framework, executable toolchain, reusable artifact contracts, and focused agent workflows. It also dogfoods DSET as an adopting project.
+| Role | Governs |
+|---|---|
+| Concern | A question, problem, risk, opportunity, conflict, or other matter requiring disposition |
+| Analysis | Interpretation and understanding that inform a decision without independently establishing the desired result |
+| Requirement | An outcome, obligation, or externally observable boundary the product or project must, may, or must not satisfy |
+| Method | How an accepted Requirement will be realized or how an existing realization will be transformed |
+| Assurance | How the project can establish that a Requirement, Method, Delivery path, or Implementation works as intended |
+| Delivery | Packaging, release, deployment, distribution, installation, migration, upgrade, and rollback to end users |
+| Implementation | Concrete code, configuration, schemas, executable tests and evaluations, packages, installers, and automation |
+| Ops | Factual results from execution and use, including test results, delivery outcomes, runtime evidence, logs, incidents, and verification outcomes |
 
-## Boundaries
+Governed artifacts take one of three forms: an **Atom** owns one independently replaceable claim, a **Journal** preserves an ordered append-only record, and a **Projection** provides a rebuildable non-authoritative view or an unaccepted planning surface. Applicable Requirement, Method, Assurance, and Delivery Atoms collectively form the distributed normative specification; Implementation realizes it, while Ops records what actually happened.
 
-Framework rules and release assets live here. Each adopting repository owns its own behavioral truth and changes under its local `dset/` root. Installed skills, cached tooling, private working notes, and external project artifacts are not independent framework authorities.
-
-## Core loop
-
-This is an ownership and readiness view, not a mandatory execution order. Work
-may revisit, parallelize, or skip non-applicable activities while each concern
-still returns to its one authoritative artifact and proof owner.
+The ordered realization topology is:
 
 ```text
-Domain → Spec + Supportability + Test Plan + Eval Plan → Implement → Test + Evaluate → Review → Reconcile Spec → Next Loop
+META → GOV → SPEC → PROFILES → IMPL → OPS
 ```
 
-- **Domain** defines entities, language, states, invariants, and boundaries.
-- **Supportability** defines the risk-scaled production evidence, identity, diagnostics, data-safety controls, and runbook needed to investigate and fix real incidents.
-- **Spec** records accepted behavioral truth and change scope.
-- **Evals** assess probabilistic, qualitative, or LLM-mediated behavior.
-- **Tests** prove deterministic behavior.
-- **Loops** deliver small vertical slices, use fresh evidence, and reconcile accepted results into current truth.
+META owns universal meanings and invariants; GOV owns carriers, identity, lifecycle, provenance, applicability, and conflict governance; SPEC owns current project obligations and accepted choices; PROFILES owns selectable implementation and environment policies; IMPL owns concrete realization; and OPS owns delivery, release, runtime supportability, recovery, and hosted evidence.
 
-## Repository areas
+For the current governed model, start with the [CARMADIO identity requirement](.carmadio/101_layer_meta/decision/CARMADIO-REQUIREMENT-META-087-carmadio-framework-identity.md) and the [active META Atom Catalog](.carmadio/101_layer_meta/CARMADIO-META-CATL-001-requirement--active-atoms-by-subject-scope.md).
 
-| Area | Start here | Owns |
-|---|---|---|
-| Methodology | [Methodology hub](methodology/README.md) | Delivery stages, runtime/build rules, proof conventions, and external grounding |
-| Artifact governance | [Documentation architecture hub](documentation/README.md) | Artifact types, authoring rules, hubs, maintenance, and `documentation-v1` |
-| Project control plane | [DSET project hub](dset/README.md) | Accepted project truth, active/archive changes, schemas, templates, fixtures, traceability, migrations, and supportability |
-| Executable CLI | [`dset_toolchain/`](dset_toolchain/) | Dependency-light lifecycle, governance resolution/materialization, validation, traceability, archive, and bounded self-hosting |
-| Agent workflows | [Skills hub](skills/README.md) | Focused domain-clarification, diagnosis, and disposable-prototype workflows |
-| Delivery and provenance | [Delivery policy](.github/DELIVERY.md) and [third-party notices](THIRD_PARTY_NOTICES.md) | Protected publication path and external-source/license boundaries |
+## Repository contents
 
-## What is already here
+This repository is the public source for the reusable CARMADIO methodology, its Python toolchain, schemas, templates, tests, and 19 agent-facing skill-source folders. Source presence does not claim that a skill is installed, a package is released, or a workflow has been proven on a particular host.
 
-DSET is now a public, self-hosted framework repository rather than only a
-methodology document set. The current `0.3.1` state includes:
+| Surface | Purpose |
+|---|---|
+| [Project control hub](.carmadio/CARMADIO-CONTROL-HUB.md) | Applied CARMADIO settings, installed methodology, governed artifacts, and project truth |
+| [Reusable source hubs](10_project/000_dset-project-hub.md) | Framework source; several carrier names remain from the pre-CARMADIO layout |
+| [Skills source catalog](skills/README.md) | The 19 portable workflow skill sources and their boundaries |
+| [Python toolchain](dset_toolchain/) | Local executable implementation |
+| [Tests](tests/) | Deterministic toolchain and contract checks |
+| [Migration tools](15_layer_implementation/tools/migrations/README.md) | Bounded internal migration tooling, not a general public migration service |
+| [Delivery policy](.github/DELIVERY.md) | Repository delivery and publication boundary |
 
-- published methodology and documentation governance for Domain,
-  Supportability, Evals, Tests, specs, Decisions, contracts, stories, outcomes,
-  and risk-scaled proof;
-- a repository-local DSET control plane split into the META, GOV, TOOL, SKILL,
-  and OPS scopes under [`dset/scopes/`](dset/scopes/);
-- schema `1.2` layered project metadata, Work Areas for monorepos and mixed
-  repositories, scoped Changes, and stable project-prefixed artifact IDs;
-- a dependency-light Python toolchain with `check`, `verify`, `new`, `trace`,
-  `archive`, `rules`, `self-host`, and `version` workflows;
-- schemas, templates, fixtures, migration guidance, generated traceability, and
-  provenance records;
-- initial Codex/agent workflow wrappers for clarify, diagnose, and prototype
-  loops, plus governing contracts for thin wrappers, skill-run logs, session
-  checkpoints, and delegation budgets;
-- GitHub delivery policy, CI validation, supportability runbooks, third-party
-  notices, and PR-linked proof history.
+Every current governed project artifact lives under `.carmadio/`. Disposable and runtime-writing state is isolated under `.carmadio_runtime/`.
 
-## Run DSET
+## Current migration boundary
 
-Read-only validation requires only Python 3.10 or newer:
+CARMADIO is the canonical framework and repository identity. The Python distribution name `dset-spec-loops`, module `dset_toolchain`, CLI command `dset`, and some reusable-source carriers still retain legacy names for compatibility while their governed migration remains incomplete. Do not interpret those retained implementation identifiers as a second framework identity.
+
+The settings carrier is [`.carmadio/carmadio_settings.toml`](.carmadio/carmadio_settings.toml), currently using settings schema `1.8`. The coordinated framework and Python-package baseline is `0.3.1`. These versions identify the declared baseline; they do not by themselves prove verification or release readiness.
+
+## Methodology synchronization
+
+Framework maintainers can inspect and explicitly synchronize reusable source into the installed project-local methodology:
 
 ```bash
-python -m dset_toolchain check .
+python -m dset_toolchain methodology check .
+python -m dset_toolchain methodology sync .
+python -m dset_toolchain methodology sync . --execute
 ```
 
-For this repository's complete locked Python profile:
+Synchronization is explicit and one-way: source edits do not automatically rewrite `.carmadio/000_carmadio_methodology/`, and installed files are not copied back to the reusable root. Review the preview before using `--execute`.
 
-```bash
-uv sync --locked --dev
-uv run dset verify .
-```
-
-The CLI also provides `rules check`, `rules resolve`, `rules materialize`, `rules refresh`, `rules diff`, `self-host`, `version`, `new`, `trace`, and guarded `archive` workflows. See the [project-root guide](dset/README.md) for lifecycle and command details.
-
-## Source-of-truth model
-
-This public repository is the canonical source for DSET Spec Loops and every released framework-owned methodology document, schema, template, validator, utility, skill, fixture, and migration guide. Installed or workspace-local copies are distributions of this repository, not independent editable sources.
-
-Each project that adopts DSET owns its project truth separately under its own
-`dset/` root. In the current schema 1.2 layout,
-`dset/scopes/<layer>/specs/` contains accepted layer-owned truth and
-`dset/scopes/<primary-layer>/changes/` contains bounded work in progress. The
-central `dset/specs/` and `dset/changes/` paths remain compatibility surfaces for
-legacy schema 1.0/1.1 projects only. Framework truth never replaces project
-truth, and project artifacts do not become framework rules unless they are
-deliberately contributed here.
-
-Schema 1.2 supports simple repositories and monorepos through neutral Work
-Areas: declared repository-relative folders containing any code, deployable,
-local, documentation, methodology, data, test, automation, or mixed content.
-Every Change and workflow may target the whole repository or one or more Work
-Areas without treating those folders as features, modules, or services.
-
-## Status
-
-The methodology is published, the repository dogfoods its own project contract,
-and the executable schema/toolchain v1 contract was implemented through PR
-[#7](https://github.com/anatoly-m-maslennikov/dset-specs-loops-framework/pull/7).
-The coordinated DSET `0.3.1` product/Python-package release was merged through
-PR [#10](https://github.com/anatoly-m-maslennikov/dset-specs-loops-framework/pull/10).
-It is a framework-foundation release: it validates this repository, publishes
-the scoped schema/control-plane shape, and records remaining gaps explicitly.
-It is not yet an end-user adoption-readiness claim.
-
-## What is next
-
-The next work should turn the foundation into an installable, repeatable
-toolchain that works outside this repository:
-
-- publish a schema `1.2` compatible validator release so self-hosting no longer
-  relies on the migration-baseline bootstrap;
-- add a generated schema `1.2` adopter that exercises Work Areas, the default
-  local `dev` to remote `dev` to PR `main` flow, and optional worktree
-  isolation;
-- finish the primary `dset` skill/runtime path: run writer, session checkpoint,
-  resume behavior after compaction, release wrapper, and next-action
-  recommendation;
-- package and test the thin skills for Codex and Claude against repository-local
-  governing rules rather than duplicated skill prose;
-- add the JavaScript/TypeScript applied profile while keeping documentation and
-  methodology as first-class artifact types;
-- pilot the framework on external repositories such as Obsidian Your Harness and
-  record the resulting Problems, Opportunities, Questions, Decisions, proofs,
-  and release evidence;
-- harden release automation, pinned distribution, hosted exact-head proofs, and
-  recovery diagnostics before claiming `1.0` adoption readiness.
+Supportability is not an afterthought: production work needs enough logs, provenance, state, and runbook context to investigate, contain, and repair failures. CARMADIO is intended to grow through bounded, evidence-backed adoption rather than documentation claims alone.
