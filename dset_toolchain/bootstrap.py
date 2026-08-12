@@ -16,6 +16,7 @@ from typing import Any, cast
 from .layout import (
     APPLIED_LAYER_DIRECTORIES,
     CONTENT_ROLE_DIRECTORIES,
+    FLAT_APPLIED_LAYERS,
     LAYER_ID_TOKENS,
     LAYERS,
     METHODOLOGY_LAYER_DIRECTORIES,
@@ -399,10 +400,14 @@ def _stage_project(
     )
     for layer in LAYERS:
         layer_root = carmadio_root / APPLIED_LAYER_DIRECTORIES[layer]
-        requirements = layer_root / CONTENT_ROLE_DIRECTORIES[2]
-        requirements.mkdir()
+        hub_root = (
+            layer_root
+            if layer in FLAT_APPLIED_LAYERS
+            else layer_root / CONTENT_ROLE_DIRECTORIES[2]
+        )
+        hub_root.mkdir(exist_ok=True)
         hub = (
-            requirements / f"{project_key}-{LAYER_ID_TOKENS[layer]}-HUB.md"
+            hub_root / f"{project_key}-{LAYER_ID_TOKENS[layer]}-HUB.md"
         )
         if hub.exists():
             continue
