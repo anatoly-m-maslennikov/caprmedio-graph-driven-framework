@@ -19,22 +19,22 @@ relations:
       - CARMADIO-REQUIREMENT-META-113
 ---
 
-# Requirement — Use Implementation Plans and Record Projections
+# Requirement — Use Change Plans and Implementation Record Projections
 
 The Implementation Content role admits two non-authoritative Projection contributions in addition to native implementation and Implementation Journals:
 
-- an **Implementation Plan** is an accepted operative planning Projection for changing the distributed specification and the native implementation that realizes it; and
+- a **Change Plan** is an accepted operative planning Projection for changing the distributed specification and the implementation that realizes it; and
 - an **Implementation Record** is a source-derived Projection of what the current specification, Implementation Journal frontier, native targets, and available Git provenance show as implemented.
 
 An Analysis Report remains an Analysis Atom. It investigates what may need to change, alternatives, impacts, causes, and uncertainty. It does not become operative merely by recommending work.
 
-An Implementation Plan identifies the Requirement, Method, Assurance, Delivery, and other governed artifacts to add, revise, replace, archive, or review; the resulting native code, configuration, documentation, assurance mechanism, and delivery changes; their order and dependencies; and completion conditions. The plan coordinates execution but does not itself establish or modify the normative specification.
+A Change Plan identifies the Requirement, Method, Assurance, Delivery, and other governed artifacts to add, revise, replace, archive, or review; the resulting native code, configuration, documentation, assurance mechanism, and delivery changes; their order and dependencies; and completion conditions. The plan coordinates the complete accepted change, not only code implementation, but does not itself establish or modify the normative specification.
 
 An Implementation Record reports current realization, coverage, source-to-target bindings, relevant commits, and unresolved implementation gaps. It is regenerated mechanically or rebuilt through governed reasoning from its declared source frontier. It is never an Atom and cannot replace the normative Atoms, canonical Implementation Journal, native implementation, Ops evidence, or Verification.
 
 ## Primary claim
 
-CARMADIO uses Implementation Plans as operative planning Projections and Implementation Records as derived current-state Projections within the Implementation Content role, while Analysis Reports remain investigative Analysis Atoms.
+CARMADIO uses Change Plans as operative planning Projections and Implementation Records as derived current-state Projections within the Implementation Content role, while Analysis Reports remain investigative Analysis Atoms.
 
 ## Rationale
 
