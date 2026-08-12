@@ -17,16 +17,16 @@ relations:
       - CARMADIO-REQUIREMENT-GOV-147
 ---
 
-# Requirement — Register Implementation Plan and Record Projections
+# Requirement — Register Change Plan and Implementation Record Projections
 
 GOV registers two internal Projection Types with the Implementation Content role:
 
 | Projection Type | Prefix | Contribution | Update rule |
 |---|---|---|---|
-| `implementation_plan` | `IPLN` | Accepted operative plan for changing the distributed specification and resulting native implementation | Updated directly through governed planning while operative |
+| `change_plan` | `CPLN` | Accepted operative plan for changing the distributed specification and resulting implementation | Updated directly through governed planning while operative |
 | `implementation_record` | `IREC` | Current view of realized specification, implementation bindings, native targets, commits, coverage, and gaps | Rebuilt from its declared source frontier |
 
-An Implementation Plan lists governed artifacts to add, revise, replace, archive, or review; identifies resulting native changes; and records ordering, dependencies, completion conditions, and applicable scope. It may cite Analysis Atoms, but neither the plan nor its acceptance promotes recommendations into normative truth. Each normative specification change remains an independently admitted Requirement, Method, Assurance, or Delivery Atom.
+A Change Plan lists governed artifacts to add, revise, replace, archive, or review; identifies resulting code, configuration, documentation, assurance, and delivery changes; and records ordering, dependencies, completion conditions, and applicable scope. It coordinates the whole accepted change rather than only code implementation. It may cite Analysis Atoms, but neither the plan nor its acceptance promotes recommendations into normative truth. Each normative specification change remains an independently admitted Requirement, Method, Assurance, or Delivery Atom.
 
 An Implementation Record declares the exact normative-Atom, Implementation-Journal, native-target, and available Git frontier it represents. It reports the effective current state without creating implementation bindings or claiming assurance, delivery success, or observed runtime behavior. Regeneration replaces its rendered content without converting it into an Atom.
 
@@ -36,7 +36,7 @@ The legacy `plan:implementation_plan` classification does not govern this model.
 
 ## Primary claim
 
-`implementation_plan` and `implementation_record` are the two registered internal Implementation-role Projection Types for operative change planning and derived realization reporting.
+`change_plan` and `implementation_record` are the two registered internal Implementation-role Projection Types for operative whole-change planning and derived realization reporting.
 
 ## Rationale
 
