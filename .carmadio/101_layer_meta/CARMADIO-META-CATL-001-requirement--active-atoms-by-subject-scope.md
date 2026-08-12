@@ -7,7 +7,7 @@ subject_scope: artifact-model
 generator: carmadio-meta-scope
 generator_version: 2
 source_count: 61
-source_frontier_sha256: 52c1bf930bc9521a984ed4b4461d2f0240cf014adeb9dc4beceb8dd26f3816d9
+source_frontier_sha256: 9b44ffbc08192bc280b631986fca2dbe1b3f7cc8e00715f1a09800b2339fa43d
 relations:
   - type: child_of
     targets:
@@ -73,7 +73,7 @@ relations:
 
 ## `lifecycle-traceability` (8)
 
-- `CARMADIO-ANALYSIS-META-001` — Analysis — Method-definition lineage impact
+- `CARMADIO-ANALYSIS-META-002` — Analysis — Delivery-definition lineage impact
 - `CARMADIO-REQUIREMENT-META-053` — Requirement — Separate active authority from preserved history
 - `CARMADIO-REQUIREMENT-META-077` — Requirement — Propagate atomic revision impact through lineage
 - `CARMADIO-REQUIREMENT-META-113` — Requirement — Preserve implementation traceability in Journals
