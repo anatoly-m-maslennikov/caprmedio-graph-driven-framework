@@ -1,0 +1,43 @@
+---
+artifact_type: requirement
+artifact_id: CARMADIO-REQUIREMENT-GOV-148
+scope_path: layer:gov
+subject_scope: artifact-catalog
+priority: high
+llm_session_ids:
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+relations:
+  - type: child_of
+    targets:
+      - CARMADIO-REQUIREMENT-META-130
+  - type: relates_to
+    targets:
+      - CARMADIO-REQUIREMENT-GOV-133
+      - CARMADIO-REQUIREMENT-GOV-142
+      - CARMADIO-REQUIREMENT-GOV-147
+---
+
+# Requirement — Register Implementation Plan and Record Projections
+
+GOV registers two internal Projection Types with the Implementation Content role:
+
+| Projection Type | Prefix | Contribution | Update rule |
+|---|---|---|---|
+| `implementation_plan` | `IPLN` | Accepted operative plan for changing the distributed specification and resulting native implementation | Updated directly through governed planning while operative |
+| `implementation_record` | `IREC` | Current view of realized specification, implementation bindings, native targets, commits, coverage, and gaps | Rebuilt from its declared source frontier |
+
+An Implementation Plan lists governed artifacts to add, revise, replace, archive, or review; identifies resulting native changes; and records ordering, dependencies, completion conditions, and applicable scope. It may cite Analysis Atoms, but neither the plan nor its acceptance promotes recommendations into normative truth. Each normative specification change remains an independently admitted Requirement, Method, Assurance, or Delivery Atom.
+
+An Implementation Record declares the exact normative-Atom, Implementation-Journal, native-target, and available Git frontier it represents. It reports the effective current state without creating implementation bindings or claiming assurance, delivery success, or observed runtime behavior. Regeneration replaces its rendered content without converting it into an Atom.
+
+Both carriers use Markdown with YAML frontmatter unless a registered generated representation requires another native carrier. Their filenames and IDs use their registered four-character prefixes and applicable scope path. They live in the applicable Implementation role location; the project-specific flat `105_layer_implementation` exception remains governed separately.
+
+The legacy `plan:implementation_plan` classification does not govern this model. Migration of executable catalogs and older carriers is downstream implementation work and does not alter the admitted meaning of these Projection Types.
+
+## Primary claim
+
+`implementation_plan` and `implementation_record` are the two registered internal Implementation-role Projection Types for operative change planning and derived realization reporting.
+
+## Rationale
+
+Separate planning and reporting projections let Implementation coordinate future work and expose current realization without overloading Analysis, code-writing Method Atoms, immutable Implementation Atoms, or the canonical Implementation Journal.
