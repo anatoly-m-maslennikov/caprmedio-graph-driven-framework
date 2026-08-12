@@ -244,10 +244,20 @@ def _role_from_legacy_content(metadata: dict[str, Any], path: Path) -> str | Non
     return ROLE_BY_CONTENT_ROLE.get(content_role or "")
 
 
-def _role_from_name(path: Path) -> str:
-    """Use narrow legacy filename fallbacks for carriers without a route."""
+def _role_from_semantic_name(path: Path) -> str | None:
+    """Return a role encoded by an explicit semantic Type token."""
     name = path.name.lower()
-    concern_tokens = ("-question-", "-problem-", "-concern-", "-conflict-")
+    concern_tokens = (
+        "-question-",
+        "-problem-",
+        "-concern-",
+        "-conflict-",
+        "-defect-",
+        "-gap-",
+        "-debt-",
+        "-opportunity-",
+        "-risk-",
+    )
     analysis_tokens = ("-analysis-report-", "-analysis-", "-anrp-")
     requirement_tokens = ("-requirement-", "-constraint-", "-contract-")
     method_tokens = ("-decision-", "-idec-", "-method-")
@@ -270,6 +280,15 @@ def _role_from_name(path: Path) -> str:
         return "05_ASSURANCE"
     if any(token in name for token in ops_tokens):
         return "08_OPS"
+    return None
+
+
+def _role_from_name(path: Path) -> str:
+    """Use narrow legacy filename fallbacks for carriers without a route."""
+    semantic_role = _role_from_semantic_name(path)
+    if semantic_role is not None:
+        return semantic_role
+    name = path.name.lower()
     if "external-review-packet" in name:
         return "02_ANALYSIS"
     if "plan-evaluation" in name or "plan-test" in name or "plan-verification" in name:
@@ -299,12 +318,17 @@ def _legacy_family(relative: Path) -> str | None:
     return None
 
 
-def _role_for(relative: Path, content: bytes) -> str:
+def _role_for(relative: Path, content: bytes, current_role: str | None) -> str:
     """Classify one carrier, preferring governed metadata over legacy paths."""
     metadata = _metadata(relative, content)
     role = _role_from_metadata(metadata, relative)
     if role is not None:
         return role
+    role = _role_from_semantic_name(relative)
+    if role is not None:
+        return role
+    if current_role is not None:
+        return current_role
     try:
         return _role_from_name(relative)
     except RoleLayoutError:
@@ -337,19 +361,30 @@ def _scope_and_relative(carmadio: Path, path: Path) -> tuple[Path, Path]:
     if first in {PROJECT_SOURCE, VERSIONS_SOURCE}:
         return carmadio, Path(*relative.parts[1:])
     if first in ROLE_DIRECTORIES:
-        return carmadio, relative
+        return carmadio, Path(*relative.parts[1:])
     if first[:3].isdigit() and "_layer_" in first:
         scope = carmadio / first
-        return scope, Path(*relative.parts[1:])
+        scoped_relative = Path(*relative.parts[1:])
+        if scoped_relative.parts and scoped_relative.parts[0] in ROLE_DIRECTORIES:
+            scoped_relative = Path(*scoped_relative.parts[1:])
+        return scope, scoped_relative
     raise RoleLayoutError(f"unknown structural scope for carrier: {relative}")
+
+
+def _current_role(carmadio: Path, source: Path) -> str | None:
+    """Return the role directory already containing one carrier, if any."""
+    parts = source.relative_to(carmadio).parts
+    if parts[0] in ROLE_DIRECTORIES:
+        return parts[0]
+    if len(parts) > 1 and parts[1] in ROLE_DIRECTORIES:
+        return parts[1]
+    return None
 
 
 def _target_for(carmadio: Path, source: Path, content: bytes) -> Path:
     """Return one canonical target while preserving filename and lifecycle."""
     scope, relative = _scope_and_relative(carmadio, source)
-    if relative.parts and relative.parts[0] in ROLE_DIRECTORIES:
-        return source
-    role = _role_for(relative, content)
+    role = _role_for(relative, content, _current_role(carmadio, source))
     lifecycle = _lifecycle(relative)
     parent = scope / role
     if lifecycle is not None:
