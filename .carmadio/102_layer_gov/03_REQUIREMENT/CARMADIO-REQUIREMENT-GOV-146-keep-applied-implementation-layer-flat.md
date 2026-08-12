@@ -1,0 +1,26 @@
+---
+artifact_type: requirement
+artifact_id: CARMADIO-REQUIREMENT-GOV-146
+scope_path: layer:gov
+subject_scopes:
+  - layout
+priority: high
+llm_session_ids:
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+relations:
+  - type: override_of
+    targets:
+      - CARMADIO-REQUIREMENT-GOV-145
+---
+
+# Requirement — Keep the applied Implementation layer flat
+
+The applied project layer `105_layer_implementation` (`105_LAYER_IMPL`) contains no subfolders for now. Any governed carriers assigned to that layer live directly in its root.
+
+This is a narrow project-layout exception to the recursive Content-role folders required by `CARMADIO-REQUIREMENT-GOV-145`. It does not flatten the reusable root methodology, the installed external methodology, another applied layer, a feature scope, or native implementation outside `.carmadio/`.
+
+Bootstrap, discovery, routing, migration, and validation reproduce and accept this flat applied-layer boundary. A later Requirement must explicitly replace this one before introducing subfolders under `105_LAYER_IMPL`.
+
+## Primary claim
+
+The applied `105_layer_implementation` directory is present and contains files only at its root until explicitly replaced by later authority.
