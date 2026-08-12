@@ -2,18 +2,18 @@
 
 ## Purpose
 
-Own applied post-implementation delivery, release, runtime-operation,
-investigation, recovery, evidence, and plan artifacts.
+Navigate applied OPS carriers through the repeated Content-role layout.
 
 ## Boundaries
 
-Installed methodology is separate. Identity-only reference carriers declare
-exactly shared evergreen truth; semantic compilation replaces a reference only
-when applied project truth diverges. IMPL owns environment and code realization;
-OPS routes deficiencies upstream rather than governing implementation backwards.
+Installed methodology is separate. IMPL owns code realization; OPS owns
+post-implementation operation and routes deficiencies upstream without
+governing implementation backwards.
 
 ## Start here
 
-- `CARMADIO-OPS-REFERENCE-specification-methodology.toml`
-- `CARMADIO-OPS-plan-tests.md`
-- `CARMADIO-OPS-plan-evaluations.md`
+- `01_CONCERN` — open OPS concerns.
+- `03_REQUIREMENT` — OPS requirements and archived legacy pointers.
+- `04_METHOD` — operational and release decisions.
+- `05_ASSURANCE` — OPS QA cases and assurance views.
+- `08_OPS` — operational observations, evidence, and navigation.

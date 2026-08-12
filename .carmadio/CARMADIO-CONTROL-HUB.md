@@ -1,17 +1,18 @@
-# Project-local DSET control plane
+# Project-local CARMADIO control plane
 
 ## Purpose
 
-Own the target repository's settings, installed methodology, and applied DSET
+Own the target repository's settings, installed methodology, and applied CARMADIO
 artifacts. Skills search only this `.carmadio` control root and resolve unique
 identities or carrier names; they do not read the reusable root source as local
 authority.
 
 ## Boundaries
 
-`000_carmadio_methodology` contains methodology only. `100_project` through
-`150_versions` contain applied project artifacts only. `.carmadio_runtime` owns
-ignored runtime state and is not part of this control plane.
+`000_CARMADIO_METHODOLOGY` contains external installed methodology only.
+Project-level carriers live in the root Content-role folders; each structural
+scope repeats the same ordered role layout. `.carmadio_runtime` owns ignored
+runtime state and is not part of this control plane.
 
 Historical aggregates, completed migrations, and compatibility snapshots live
 in the inert repository archive outside `.carmadio`. Skills do not discover or
@@ -27,10 +28,8 @@ Applied QA definitions and proof records remain under applied owners.
 ## Start here
 
 - `carmadio_settings.toml` — settings and identity registries.
-- `000_dset-methodology-hub.md` — installed methodology.
-- `CARMADIO-PROJECT-HUB.md` — applied project-wide truth.
-- `CARMADIO-META-HUB.md`, `CARMADIO-GOV-HUB.md`, `CARMADIO-TOOL-HUB.md`,
-  `CARMADIO-SKILL-HUB.md`, and `CARMADIO-OPS-HUB.md` — applied layer truth.
-- `CARMADIO-VERSIONS-HUB.md` — applied Version artifacts.
+- `000_CARMADIO_METHODOLOGY` — installed methodology.
+- `01_CONCERN` through `08_OPS` — project-level semantic roles.
+- `101_layer_meta` through `106_layer_ops` — applied structural scopes.
 
 Reusable framework source lives outside this project-local authority surface.

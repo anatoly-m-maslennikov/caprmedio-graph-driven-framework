@@ -1,8 +1,8 @@
-# DSET release planning
+# CARMADIO release planning
 
 ## Purpose
 
-Own DSET's current Version Scopes and the one active next-minor Roadmap.
+Own CARMADIO's project-wide version lifecycle under the Delivery role.
 
 ## Boundaries
 

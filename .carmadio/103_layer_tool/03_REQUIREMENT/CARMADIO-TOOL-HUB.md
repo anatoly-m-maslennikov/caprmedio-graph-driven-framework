@@ -2,16 +2,18 @@
 
 ## Purpose
 
-Own applied TOOL atoms, analysis, and plans.
+Navigate applied TOOL carriers through the repeated Content-role layout.
 
 ## Boundaries
 
-Installed methodology is separate. Identity-only reference carriers declare
-exactly shared evergreen truth; semantic compilation replaces a reference only
-when applied project truth diverges.
+Installed methodology is separate. Active carriers live in their semantic role
+folder; retired pointer carriers remain under `03_REQUIREMENT/archive`.
 
 ## Start here
 
-- `CARMADIO-TOOL-REFERENCE-specification-methodology.toml`
-- `CARMADIO-TOOL-plan-tests.md`
-- `CARMADIO-TOOL-plan-evaluations.md`
+- `01_CONCERN` — open TOOL concerns.
+- `02_ANALYSIS` — TOOL analysis.
+- `03_REQUIREMENT` — TOOL requirements and navigation.
+- `04_METHOD` — TOOL technical decisions and methods.
+- `05_ASSURANCE` — TOOL QA cases and assurance views.
+- `08_OPS` — TOOL observations and evidence.
