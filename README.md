@@ -60,6 +60,10 @@ The settings carrier is [`.carmadio/carmadio_settings.toml`](.carmadio/carmadio_
 Framework maintainers can inspect and explicitly synchronize reusable source into the installed project-local methodology:
 
 ```bash
+python scripts/sync_carmadio.py
+python scripts/sync_carmadio.py --apply
+
+# Equivalent lower-level commands:
 python -m dset_toolchain methodology check .
 python -m dset_toolchain methodology sync .
 python -m dset_toolchain methodology sync . --execute
