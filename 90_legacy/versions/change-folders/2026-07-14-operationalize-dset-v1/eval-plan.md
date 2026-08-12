@@ -8,10 +8,10 @@ Applicable. The CLI is deterministic, but resumability, diagnostic usefulness, m
 
 | Eval ID | Case | Threshold |
 |---|---|---|
-| **CARMADIO-EVALUATION-CASE-GOV-005** | Resume `operationalize-dset-v1` using repository files only | An evaluator locates current status, next task, proof obligations, and PR identity without chat context |
-| **CARMADIO-EVALUATION-CASE-OPS-005** | Diagnose a failed `dset verify` and a blocked `dev → main` delivery | The evaluator identifies the failing boundary, authoritative evidence, and safe recovery action without guessing or mutating production state |
-| **CARMADIO-EVALUATION-CASE-SKILL-001** | Route ambiguous-domain, defect-diagnosis, and disposable-experiment prompts | All prompts select the intended distinct skill and stop at its authorization boundary |
-| **CARMADIO-EVALUATION-CASE-GOV-006** | Migrate a repository with separate spec, test-plan, eval-plan, and implementation-plan roots | The evaluator produces one writable `dset/` root and an explicit map for retained read-only history without losing test/eval separation |
+| **CAPRMADIO-EVALUATION-CASE-GOV-005** | Resume `operationalize-dset-v1` using repository files only | An evaluator locates current status, next task, proof obligations, and PR identity without chat context |
+| **CAPRMADIO-EVALUATION-CASE-OPS-005** | Diagnose a failed `dset verify` and a blocked `dev → main` delivery | The evaluator identifies the failing boundary, authoritative evidence, and safe recovery action without guessing or mutating production state |
+| **CAPRMADIO-EVALUATION-CASE-SKILL-001** | Route ambiguous-domain, defect-diagnosis, and disposable-experiment prompts | All prompts select the intended distinct skill and stop at its authorization boundary |
+| **CAPRMADIO-EVALUATION-CASE-GOV-006** | Migrate a repository with separate spec, test-plan, eval-plan, and implementation-plan roots | The evaluator produces one writable `dset/` root and an explicit map for retained read-only history without losing test/eval separation |
 
 ## Evidence
 

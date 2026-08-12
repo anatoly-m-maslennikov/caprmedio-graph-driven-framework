@@ -1,6 +1,6 @@
 # Prototyping
 
-**Rule ID:** `CARMADIO-RULE-PROTOTYPING`
+**Rule ID:** `CAPRMADIO-RULE-PROTOTYPING`
 
 ## Workflow
 

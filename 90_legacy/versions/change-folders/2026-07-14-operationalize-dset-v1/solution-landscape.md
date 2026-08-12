@@ -4,11 +4,11 @@
 
 | Capability | Requirement/test IDs | Needed behavior |
 |---|---|---|
-| Project/change validation | `CARMADIO-REQUIREMENT-TOOL-001`, `CARMADIO-REQUIREMENT-TOOL-002`; `CARMADIO-TEST-CASE-TOOL-001`, `CARMADIO-TEST-CASE-TOOL-002` | Cross-platform, deterministic, actionable diagnostics |
-| Scaffolding and archive safety | `CARMADIO-REQUIREMENT-TOOL-001`, `CARMADIO-REQUIREMENT-TOOL-004`; `CARMADIO-TEST-CASE-TOOL-003`, `CARMADIO-TEST-CASE-TOOL-005` | Explicit writes, no overwrite, lifecycle gates |
-| Traceability generation | `CARMADIO-REQUIREMENT-TOOL-003`; `CARMADIO-TEST-CASE-TOOL-004` | Stable output from committed metadata and PR identity |
-| Agent workflows | `CARMADIO-REQUIREMENT-SKILL-001`; `CARMADIO-TEST-CASE-SKILL-001`; `CARMADIO-EVALUATION-CASE-SKILL-001` | Three distinct, portable, concise skills |
-| Delivery diagnostics | `CARMADIO-REQUIREMENT-OPS-007`; `CARMADIO-TEST-CASE-OPS-007`; `CARMADIO-EVALUATION-CASE-OPS-005` | GitHub-hosted evidence and recovery routing |
+| Project/change validation | `CAPRMADIO-REQUIREMENT-TOOL-001`, `CAPRMADIO-REQUIREMENT-TOOL-002`; `CAPRMADIO-TEST-CASE-TOOL-001`, `CAPRMADIO-TEST-CASE-TOOL-002` | Cross-platform, deterministic, actionable diagnostics |
+| Scaffolding and archive safety | `CAPRMADIO-REQUIREMENT-TOOL-001`, `CAPRMADIO-REQUIREMENT-TOOL-004`; `CAPRMADIO-TEST-CASE-TOOL-003`, `CAPRMADIO-TEST-CASE-TOOL-005` | Explicit writes, no overwrite, lifecycle gates |
+| Traceability generation | `CAPRMADIO-REQUIREMENT-TOOL-003`; `CAPRMADIO-TEST-CASE-TOOL-004` | Stable output from committed metadata and PR identity |
+| Agent workflows | `CAPRMADIO-REQUIREMENT-SKILL-001`; `CAPRMADIO-TEST-CASE-SKILL-001`; `CAPRMADIO-EVALUATION-CASE-SKILL-001` | Three distinct, portable, concise skills |
+| Delivery diagnostics | `CAPRMADIO-REQUIREMENT-OPS-007`; `CAPRMADIO-TEST-CASE-OPS-007`; `CAPRMADIO-EVALUATION-CASE-OPS-005` | GitHub-hosted evidence and recovery routing |
 
 ## Candidates
 

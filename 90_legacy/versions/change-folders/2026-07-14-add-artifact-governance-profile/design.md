@@ -26,11 +26,11 @@ The documentation area is a framework surface, not pipeline stage 7. `methodolog
 
 | Concern | Authority | Writer model | Refresh boundary | Failure/recovery proof |
 |---|---|---|---|---|
-| Artifact-profile selection | `dset/dset.toml` | Reviewed repository change | Every validation run | CARMADIO-TEST-CASE-GOV-007 |
-| Governed area graph | `dset/artifacts.toml` | Reviewed repository change | Every validation run | `CARMADIO-TEST-CASE-TOOL-006`, `CARMADIO-TEST-CASE-GOV-008` |
-| Artifact-type rules | `documentation/` normative docs | Reviewed methodology change | When rules change | `CARMADIO-TEST-CASE-META-003`, `CARMADIO-EVALUATION-CASE-META-002`, `CARMADIO-EVALUATION-CASE-META-003` |
+| Artifact-profile selection | `dset/dset.toml` | Reviewed repository change | Every validation run | CAPRMADIO-TEST-CASE-GOV-007 |
+| Governed area graph | `dset/artifacts.toml` | Reviewed repository change | Every validation run | `CAPRMADIO-TEST-CASE-TOOL-006`, `CAPRMADIO-TEST-CASE-GOV-008` |
+| Artifact-type rules | `documentation/` normative docs | Reviewed methodology change | When rules change | `CAPRMADIO-TEST-CASE-META-003`, `CAPRMADIO-EVALUATION-CASE-META-002`, `CAPRMADIO-EVALUATION-CASE-META-003` |
 | Rationale | `documentation/rationale.md` | Reviewed methodology change | When reasoning changes | Link and navigation checks |
-| Runtime evidence | GitHub checks and archived DSET proof | GitHub plus evidence-only commits | Per PR head | CARMADIO-TEST-CASE-TOOL-008 |
+| Runtime evidence | GitHub checks and archived DSET proof | GitHub plus evidence-only commits | Per PR head | CAPRMADIO-TEST-CASE-TOOL-008 |
 
 ## Supportability
 

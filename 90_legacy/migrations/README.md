@@ -6,7 +6,7 @@ project rules, specs, test plans, eval plans, implementation plans, Decision
 records or legacy ADRs, runbooks, and evidence are inputs; they do not remain
 competing writable authorities. The DSET product and Python package share
 prepared version `0.3.1`; current schema 1.3 uses one combined
-`dset/carmadio_settings.toml`, project-wide records under `dset/project/`, Version
+`dset/caprmadio_settings.toml`, project-wide records under `dset/project/`, Version
 lifecycle artifacts under `dset/versions/`, and direct layer-owned paths under
 `dset/<layer>/`. Supported schema 1.0–1.2 layouts remain migration inputs. New
 Changes use layer ownership and Decision fields; archived legacy Changes retain

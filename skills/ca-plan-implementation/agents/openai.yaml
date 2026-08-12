@@ -1,4 +1,4 @@
 interface:
-  display_name: "CARMADIO Plan Implementation"
-  short_description: "Plan dependency-ordered CARMADIO implementation"
+  display_name: "CAPRMADIO Plan Implementation"
+  short_description: "Plan dependency-ordered CAPRMADIO implementation"
   default_prompt: "Use $ca-plan-implementation to resolve and run the repository-local implementation-planning workflow."

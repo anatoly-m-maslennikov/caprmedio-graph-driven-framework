@@ -4,8 +4,8 @@ This operational document defines how the repository moves changes from `dev` to
 
 ## Rules
 
-- [`dev` ruleset](https://github.com/anatoly-m-maslennikov/carmadio-vibe-coding-to-production-framework/rules/18896762): only `anatoly-m-maslennikov` may create, update, or delete `dev`.
-- [`main` ruleset](https://github.com/anatoly-m-maslennikov/carmadio-vibe-coding-to-production-framework/rules/18897046): `main` has no bypass actors; every update requires a pull request, `PR policy`, and the merge-commit method.
+- [`dev` ruleset](https://github.com/anatoly-m-maslennikov/caprmadio-vibe-coding-to-production-framework/rules/18896762): only `anatoly-m-maslennikov` may create, update, or delete `dev`.
+- [`main` ruleset](https://github.com/anatoly-m-maslennikov/caprmadio-vibe-coding-to-production-framework/rules/18897046): `main` has no bypass actors; every update requires a pull request, `PR policy`, and the merge-commit method.
 - [Policy workflow](workflows/auto-merge-owner-prs.yml): `PR policy` passes only for a same-repository `dev → main` pull request authored by the repository owner. A passing non-draft PR is merged automatically.
 - Repository tests and validators are temporarily disabled; no successful PR check currently represents test, evaluation, lint, type-check, cross-platform, or framework-validation evidence.
 - [WSL proof workflow](workflows/wsl-proof.yml): an explicit manual workflow targets a labeled self-hosted Windows/WSL runner. It is a proof hook, not evidence until a run on the tested commit succeeds.
@@ -29,7 +29,7 @@ Release preparation is separately explicit: `dset release plan` and `dset releas
 
 ## Temporary validation suspension
 
-Repository validation was explicitly suspended on 2026-08-10 so the current CARMADIO development line can be delivered while the self-hosting migration backlog is red. The DSET workflow and its required status check are removed for this interval. `PR policy` remains the sole required check, and `Enable auto-merge` remains the delivery action visible on the pull request.
+Repository validation was explicitly suspended on 2026-08-10 so the current CAPRMADIO development line can be delivered while the self-hosting migration backlog is red. The DSET workflow and its required status check are removed for this interval. `PR policy` remains the sole required check, and `Enable auto-merge` remains the delivery action visible on the pull request.
 
 A green pull request during this suspension proves only that the owner-only `dev → main` delivery policy passed. It must not be cited as assurance evidence for repository correctness, test success, validation success, portability, or release readiness.
 

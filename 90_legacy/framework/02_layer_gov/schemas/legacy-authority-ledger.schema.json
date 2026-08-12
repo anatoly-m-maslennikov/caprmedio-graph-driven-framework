@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://raw.githubusercontent.com/anatoly-m-maslennikov/dset-specs-loops-framework/main/.carmadio/02_layer_gov/schemas/legacy-authority-ledger.schema.json",
+  "$id": "https://raw.githubusercontent.com/anatoly-m-maslennikov/dset-specs-loops-framework/main/.caprmadio/02_layer_gov/schemas/legacy-authority-ledger.schema.json",
   "title": "DSET legacy Decision authority ledger",
   "type": "object",
   "required": ["schema_version", "records"],
@@ -29,7 +29,7 @@
                 "current_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
                 "transition_id": {
                   "type": "string",
-                  "pattern": "^CARMADIO-CARRIER-TRANSITION-[A-F0-9]{16}$"
+                  "pattern": "^CAPRMADIO-CARRIER-TRANSITION-[A-F0-9]{16}$"
                 }
               },
               "additionalProperties": false

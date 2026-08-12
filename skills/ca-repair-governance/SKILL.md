@@ -1,9 +1,9 @@
 ---
 name: ca-repair-governance
-description: Diagnose an existing but invalid repository-local CARMADIO registry without resolving substantive rules from it. Use when CARMADIO root discovery succeeds but schema, ownership, path, digest, applicability, or conflict validation fails; return stable diagnostics and a bounded repair handoff, then stop before any write.
+description: Diagnose an existing but invalid repository-local CAPRMADIO registry without resolving substantive rules from it. Use when CAPRMADIO root discovery succeeds but schema, ownership, path, digest, applicability, or conflict validation fails; return stable diagnostics and a bounded repair handoff, then stop before any write.
 ---
 
-# CARMADIO Repair Governance
+# CAPRMADIO Repair Governance
 
 This is the diagnostic pre-resolution exception. Invalid local governance never falls back to installed templates, memory, or remote framework prose.
 

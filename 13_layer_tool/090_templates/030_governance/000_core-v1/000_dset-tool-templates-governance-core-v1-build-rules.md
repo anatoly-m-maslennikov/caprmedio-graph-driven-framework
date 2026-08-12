@@ -1,6 +1,6 @@
 # Build rules
 
-**Rule ID:** `CARMADIO-RULE-BUILD`
+**Rule ID:** `CAPRMADIO-RULE-BUILD`
 
 ## Selected gates
 

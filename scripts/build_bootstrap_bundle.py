@@ -18,10 +18,10 @@ BUNDLE_TEXT_SUFFIXES = {".json", ".md", ".py", ".toml", ".txt", ".yaml", ".yml"}
 def selected_files(root: Path = ROOT) -> list[Path]:
     root = root.resolve()
     selected = [
-        root / ".carmadio" / "artifact_catalog.toml",
-        root / ".carmadio" / "carmadio_settings.toml",
+        root / ".caprmadio" / "artifact_catalog.toml",
+        root / ".caprmadio" / "caprmadio_settings.toml",
     ]
-    methodology = root / ".carmadio" / METHODOLOGY_ROOT
+    methodology = root / ".caprmadio" / METHODOLOGY_ROOT
     selected.extend(
         path
         for path in methodology.rglob("*")

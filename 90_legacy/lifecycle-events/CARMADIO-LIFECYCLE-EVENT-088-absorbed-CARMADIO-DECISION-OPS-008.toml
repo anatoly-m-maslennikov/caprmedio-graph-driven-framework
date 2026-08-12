@@ -1,9 +1,0 @@
-schema_version = "1.0"
-artifact_type = "lifecycle_event"
-artifact_id = "CARMADIO-LIFECYCLE-EVENT-088"
-atom_id = "CARMADIO-DECISION-OPS-008"
-event = "absorbed"
-occurred_at = "2026-07-23T02:23:51+04:00"
-related = ["CARMADIO-DECISION-TOOL-001"]
-llm_session_ids = ["codex:019f591f-04f6-70f2-8de7-828b7cccc69d"]
-rationale = "Portable repository text-byte configuration is now owned by TOOL; the OPS predecessor remains immutable history."

@@ -1,6 +1,6 @@
 # Diagnosis
 
-**Rule ID:** `CARMADIO-RULE-DIAGNOSIS`
+**Rule ID:** `CAPRMADIO-RULE-DIAGNOSIS`
 
 ## Workflow
 

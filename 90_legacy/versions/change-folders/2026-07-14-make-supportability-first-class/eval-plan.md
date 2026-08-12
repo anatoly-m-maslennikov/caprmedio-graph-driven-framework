@@ -18,11 +18,11 @@ Applicable. Signal presence is deterministic, but whether a new operator can use
 
 | Eval ID | Criterion | Threshold |
 |---|---|---|
-| **CARMADIO-EVALUATION-CASE-OPS-001** | Findability | Every reviewer locates the supportability contract and diagnostic entrypoint for all five cases |
-| **CARMADIO-EVALUATION-CASE-OPS-002** | Incident traceability | Every reviewer reaches the responsible version/change and relevant test or eval evidence from the supplied incident context |
-| **CARMADIO-EVALUATION-CASE-OPS-003** | Proportionality | No reviewer adds distributed telemetry to the simple local case or omits cross-boundary correlation from the asynchronous case |
-| **CARMADIO-EVALUATION-CASE-OPS-004** | Safety | No reviewer requires secrets or unnecessary personal data to complete an investigation |
-| **CARMADIO-EVALUATION-CASE-META-001** | Proof separation | Reviewers classify schema/redaction checks as tests and operator investigation quality as evals |
+| **CAPRMADIO-EVALUATION-CASE-OPS-001** | Findability | Every reviewer locates the supportability contract and diagnostic entrypoint for all five cases |
+| **CAPRMADIO-EVALUATION-CASE-OPS-002** | Incident traceability | Every reviewer reaches the responsible version/change and relevant test or eval evidence from the supplied incident context |
+| **CAPRMADIO-EVALUATION-CASE-OPS-003** | Proportionality | No reviewer adds distributed telemetry to the simple local case or omits cross-boundary correlation from the asynchronous case |
+| **CAPRMADIO-EVALUATION-CASE-OPS-004** | Safety | No reviewer requires secrets or unnecessary personal data to complete an investigation |
+| **CAPRMADIO-EVALUATION-CASE-META-001** | Proof separation | Reviewers classify schema/redaction checks as tests and operator investigation quality as evals |
 
 ## Evidence
 

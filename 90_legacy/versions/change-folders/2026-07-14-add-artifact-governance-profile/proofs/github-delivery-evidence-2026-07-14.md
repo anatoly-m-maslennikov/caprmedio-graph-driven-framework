@@ -25,7 +25,7 @@ GitHub owns live PR state, checks, runs, and the eventual merge result. The comm
 
 ## Corrective loop
 
-At head `4934e3e`, both DSET runs passed formatting, lint, strict typing, and all 18 tests, then failed with `CARMADIO-E111` because `dset/traceability.yaml` did not yet list the two newly committed proof files. The derived index was regenerated, reviewed, verified locally, and committed alone as `f38a102`. Both hosted DSET contexts then passed. No implementation or accepted specification changed during this correction.
+At head `4934e3e`, both DSET runs passed formatting, lint, strict typing, and all 18 tests, then failed with `CAPRMADIO-E111` because `dset/traceability.yaml` did not yet list the two newly committed proof files. The derived index was regenerated, reviewed, verified locally, and committed alone as `f38a102`. Both hosted DSET contexts then passed. No implementation or accepted specification changed during this correction.
 
 ## Recovery boundary
 

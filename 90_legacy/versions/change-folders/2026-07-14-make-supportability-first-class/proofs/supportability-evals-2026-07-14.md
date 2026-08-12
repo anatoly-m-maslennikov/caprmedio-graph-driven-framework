@@ -7,21 +7,21 @@
 
 ## Review protocol
 
-Two independent subagents received the five cases and `CARMADIO-EVALUATION-CASE-OPS-001..004` plus `CARMADIO-EVALUATION-CASE-META-001` without seeing each other's answers. They reviewed README, methodology 00–05, DSET metadata, accepted methodology truth, and the active change. Reviewers made no edits.
+Two independent subagents received the five cases and `CAPRMADIO-EVALUATION-CASE-OPS-001..004` plus `CAPRMADIO-EVALUATION-CASE-META-001` without seeing each other's answers. They reviewed README, methodology 00–05, DSET metadata, accepted methodology truth, and the active change. Reviewers made no edits.
 
 ## Baseline result before fixtures
 
-Both reviewers independently returned the same result: CARMADIO-EVALUATION-CASE-OPS-003, CARMADIO-EVALUATION-CASE-OPS-004, and CARMADIO-EVALUATION-CASE-META-001 passed; CARMADIO-EVALUATION-CASE-OPS-001 and CARMADIO-EVALUATION-CASE-OPS-002 failed. The methodology routed cases coherently, but the eval plan supplied no instantiated diagnostic entrypoint, incident identifier, runtime evidence, deployed version, repository-qualified PR record, proof record, or fix record. The corrective artifact was [synthetic-incidents.md](synthetic-incidents.md), committed as `545be89`.
+Both reviewers independently returned the same result: CAPRMADIO-EVALUATION-CASE-OPS-003, CAPRMADIO-EVALUATION-CASE-OPS-004, and CAPRMADIO-EVALUATION-CASE-META-001 passed; CAPRMADIO-EVALUATION-CASE-OPS-001 and CAPRMADIO-EVALUATION-CASE-OPS-002 failed. The methodology routed cases coherently, but the eval plan supplied no instantiated diagnostic entrypoint, incident identifier, runtime evidence, deployed version, repository-qualified PR record, proof record, or fix record. The corrective artifact was [synthetic-incidents.md](synthetic-incidents.md), committed as `545be89`.
 
 ## Independent rerun
 
 | Eval | Reviewer A | Reviewer B | Consolidated evidence |
 |---|---|---|---|
-| CARMADIO-EVALUATION-CASE-OPS-001 findability | Pass | Pass | README and methodology route to the contract; the fixture index exposes a diagnostic entrypoint and each case supplies a safe action/runbook |
-| CARMADIO-EVALUATION-CASE-OPS-002 incident traceability | Pass | Pass | Every synthetic case reaches runtime/build identity, commit, repository-qualified synthetic PR, DSET change, requirement, applicable test/eval, and repair record |
-| CARMADIO-EVALUATION-CASE-OPS-003 proportionality | Pass | Pass | The async case preserves producer/broker/receiver correlation and deduplication evidence; the resumable local case uses a local bundle and no distributed tracing backend |
-| CARMADIO-EVALUATION-CASE-OPS-004 safety | Pass | Pass | Fixtures are fictional and redacted; no investigation requires credentials, tokens, raw identifiers, user content, or unrelated personal data |
-| CARMADIO-EVALUATION-CASE-META-001 proof separation | Pass | Pass | Both reviewers classified schemas, identity, propagation, permissions, redaction, retention, and bounds as tests, and unfamiliar-operator diagnosis/action quality as evals |
+| CAPRMADIO-EVALUATION-CASE-OPS-001 findability | Pass | Pass | README and methodology route to the contract; the fixture index exposes a diagnostic entrypoint and each case supplies a safe action/runbook |
+| CAPRMADIO-EVALUATION-CASE-OPS-002 incident traceability | Pass | Pass | Every synthetic case reaches runtime/build identity, commit, repository-qualified synthetic PR, DSET change, requirement, applicable test/eval, and repair record |
+| CAPRMADIO-EVALUATION-CASE-OPS-003 proportionality | Pass | Pass | The async case preserves producer/broker/receiver correlation and deduplication evidence; the resumable local case uses a local bundle and no distributed tracing backend |
+| CAPRMADIO-EVALUATION-CASE-OPS-004 safety | Pass | Pass | Fixtures are fictional and redacted; no investigation requires credentials, tokens, raw identifiers, user content, or unrelated personal data |
+| CAPRMADIO-EVALUATION-CASE-META-001 proof separation | Pass | Pass | Both reviewers classified schemas, identity, propagation, permissions, redaction, retention, and bounds as tests, and unfamiliar-operator diagnosis/action quality as evals |
 
 ## Case traversal times
 

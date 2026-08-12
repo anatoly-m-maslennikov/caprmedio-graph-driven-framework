@@ -1,8 +1,8 @@
-# CARMADIO workflow skills
+# CAPRMADIO workflow skills
 
 ## Purpose
 
-This is the hub for thin CARMADIO workflow wrappers. These repository-native sources are portable release artifacts; installed copies are distributions and must match their registered source identity.
+This is the hub for thin CAPRMADIO workflow wrappers. These repository-native sources are portable release artifacts; installed copies are distributions and must match their registered source identity.
 
 ## Boundaries
 
@@ -15,8 +15,8 @@ adapters only; Grok, Chinese model providers, and other hosts are neither
 excluded by the core nor claimed without their own adapter and Evaluation
 evidence.
 
-The same installed skill packages serve every CARMADIO project. Each invocation
-starts from its explicit target, discovers exactly one owning CARMADIO root, and
+The same installed skill packages serve every CAPRMADIO project. Each invocation
+starts from its explicit target, discovers exactly one owning CAPRMADIO root, and
 resolves that project's local governance layer. Moving to another project
 changes the registry, rules, and ruleset identity—not the skill package—and no
 project policy is retained or copied across that boundary.
@@ -25,7 +25,7 @@ project policy is retained or copied across that boundary.
 
 ### Base operator surface
 
-- [`carmadio`](carmadio/SKILL.md) — route a general or uncertain request to one governed mode and specialist handoff.
+- [`caprmadio`](caprmadio/SKILL.md) — route a general or uncertain request to one governed mode and specialist handoff.
 - [`ca-init`](ca-init/SKILL.md) — preview and, only when authorized, initialize a repository or monorepo Work Area.
 - [`ca-implement`](ca-implement/SKILL.md) — follows the repository's documented `workflows.implement.mode`: lazy preparation closes only governed missing criteria, while strict is implementation-only and stops on insufficient inputs.
 - [`ca-verify`](ca-verify/SKILL.md) — check implementation and governance against accepted truth and proof plans.
@@ -48,7 +48,7 @@ project policy is retained or copied across that boundary.
 - [`ca-triage`](ca-triage/SKILL.md) — classify and route Questions, including Conflicts and Opportunities, and Problems.
 - [`ca-complete`](ca-complete/SKILL.md) — confirm terminal state and report residual obligations without inventing work.
 
-The base skills accept desired outcomes. `carmadio` routes an uncertain request to
+The base skills accept desired outcomes. `caprmadio` routes an uncertain request to
 one next mode and handoff; it does not execute the selected specialist.
 Specialist entrypoints may traverse only their registered prerequisite closure,
 notably the lazy `ca-implement` workflow. These 19 folders are the exact

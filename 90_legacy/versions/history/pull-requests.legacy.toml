@@ -1,6 +1,6 @@
 schema_version = "1.0"
-transition_id = "CARMADIO-CARRIER-TRANSITION-86AABA1C59A70E14"
-authority_decision = "CARMADIO-DECISION-GOV-018"
+transition_id = "CAPRMADIO-CARRIER-TRANSITION-86AABA1C59A70E14"
+authority_decision = "CAPRMADIO-DECISION-GOV-018"
 original_path = "dset/scopes/ops/history/pull-requests.yaml"
 original_format = "yaml"
 original_sha256 = "a6175b0f646b61d5e42da43ee7ef26f1032688b62afcc7ed2e2b88c812e590c3"

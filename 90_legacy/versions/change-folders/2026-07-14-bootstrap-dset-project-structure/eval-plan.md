@@ -16,10 +16,10 @@ Applicable. Folder discoverability and ownership clarity are qualitative even th
 
 | Eval ID | Criterion | Threshold |
 |---|---|---|
-| **CARMADIO-EVALUATION-CASE-GOV-001** | Findability | Every reviewer locates the correct path for all five cases without private instructions |
-| **CARMADIO-EVALUATION-CASE-GOV-002** | Ownership | No reviewer treats `changes/` as accepted truth or `methodology/` as duplicated project truth |
-| **CARMADIO-EVALUATION-CASE-GOV-003** | Proportionality | Reviewers find the one-package tree sufficient and do not require an empty global layer |
-| **CARMADIO-EVALUATION-CASE-GOV-004** | Resumability | An agent can identify completed work, the current PR/archive state, and the next task from repository files alone |
+| **CAPRMADIO-EVALUATION-CASE-GOV-001** | Findability | Every reviewer locates the correct path for all five cases without private instructions |
+| **CAPRMADIO-EVALUATION-CASE-GOV-002** | Ownership | No reviewer treats `changes/` as accepted truth or `methodology/` as duplicated project truth |
+| **CAPRMADIO-EVALUATION-CASE-GOV-003** | Proportionality | Reviewers find the one-package tree sufficient and do not require an empty global layer |
+| **CAPRMADIO-EVALUATION-CASE-GOV-004** | Resumability | An agent can identify completed work, the current PR/archive state, and the next task from repository files alone |
 
 ## Evidence
 

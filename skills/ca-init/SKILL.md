@@ -1,9 +1,9 @@
 ---
 name: ca-init
-description: Initialize repository-local CARMADIO governance through an exact dry-run-first bootstrap transaction. Use when a target repository or monorepo Work Area has no valid CARMADIO root and the operator wants to preview or authorize local manifest, registry, governing-document, and skill materialization; stop after preview or validation and never continue into project work.
+description: Initialize repository-local CAPRMADIO governance through an exact dry-run-first bootstrap transaction. Use when a target repository or monorepo Work Area has no valid CAPRMADIO root and the operator wants to preview or authorize local manifest, registry, governing-document, and skill materialization; stop after preview or validation and never continue into project work.
 ---
 
-# CARMADIO Init
+# CAPRMADIO Init
 
 This is the bounded rootless initialization wrapper. It owns no project rules and cannot replace the new repository-local authority it creates.
 
@@ -17,4 +17,4 @@ This is the bounded rootless initialization wrapper. It owns no project rules an
 
 ## Stop
 
-Return initialization identity, preview or execution status, diagnostics, and the next `$carmadio` handoff. Never make a product Decision, create implementation work, or continue into another lifecycle mode.
+Return initialization identity, preview or execution status, diagnostics, and the next `$caprmadio` handoff. Never make a product Decision, create implementation work, or continue into another lifecycle mode.

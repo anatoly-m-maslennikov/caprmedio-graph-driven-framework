@@ -38,7 +38,7 @@ The canonical implementation uses Python's standard library. The YAML reader sup
 | Active intent and evidence | `dset/changes/<change-id>/` |
 | PR state, checks, diffs, merge result | GitHub |
 | Generated relationship view | `dset/traceability.toml` |
-| Local caches | optional `.carmadio/`; never committed truth |
+| Local caches | optional `.caprmadio/`; never committed truth |
 
 Traceability stores repository-qualified PR evidence but does not replace GitHub. The GitHub-hosted delivery workflow is a production automation surface, so its supportability contract uses PR/check/run/ruleset identities rather than a local WAL.
 

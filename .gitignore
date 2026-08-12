@@ -26,9 +26,9 @@ __pycache__/
 .envrc
 .pypirc
 
-# CARMADIO machine-local operational evidence
-/.carmadio_runtime/*
-!/.carmadio_runtime/.gitignore
+# CAPRMADIO machine-local operational evidence
+/.caprmadio_runtime/*
+!/.caprmadio_runtime/.gitignore
 
 # macOS metadata
 .DS_Store

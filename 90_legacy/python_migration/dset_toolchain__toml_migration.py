@@ -1,7 +1,7 @@
 """Deterministic, preview-first migration of DSET authority to TOML.
 
 The migration command intentionally does not guess ownership.  It converts
-CARMADIO-owned structured YAML/JSON and DSET Markdown YAML frontmatter only after
+CAPRMADIO-owned structured YAML/JSON and DSET Markdown YAML frontmatter only after
 building a complete source/target/digest/reference plan. Host carriers,
 runtime journals, wire payloads, and standard JSON Schema contracts remain
 explicit boundary-format exceptions.
@@ -59,7 +59,7 @@ _IGNORED_TOP_LEVEL = {
     "__pycache__",
 }
 # _RUNTIME_READINESS_PATH validates runtime readiness path; this module owns the accepted syntax.
-_RUNTIME_READINESS_PATH = ".carmadio_runtime/toml-migration-runtime-readiness.json"
+_RUNTIME_READINESS_PATH = ".caprmadio_runtime/toml-migration-runtime-readiness.json"
 # _NON_REWRITABLE_EXCEPTIONS validates non rewritable exceptions; this module owns the accepted syntax.
 _NON_REWRITABLE_EXCEPTIONS = {
     "cli-wire-json",
@@ -397,7 +397,7 @@ def apply_toml_migration(
         )
     }
     _preflight_apply(plan)
-    backup_root = plan.root / ".carmadio_runtime" / "toml-migration-backups" / plan.digest
+    backup_root = plan.root / ".caprmadio_runtime" / "toml-migration-backups" / plan.digest
     bundle_path = plan.root / "dset_toolchain" / "bootstrap_bundle.json"
     regenerates_bundle = (
         bundle_path.is_file()
@@ -438,7 +438,7 @@ def _project_files(root: Path) -> list[Path]:
         relative = path.relative_to(root)
         if any(part in _IGNORED_TOP_LEVEL for part in relative.parts):
             continue
-        if relative.parts[:2] == (".carmadio_runtime", "toml-migration-backups"):
+        if relative.parts[:2] == (".caprmadio_runtime", "toml-migration-backups"):
             continue
         if path.is_symlink():
             paths.append(path)
@@ -480,7 +480,7 @@ def _exception_classification(
     relative = path.relative_to(root)
     parts = relative.parts
     suffix = path.suffix.lower()
-    if parts[:1] == (".carmadio_runtime",) or parts[:2] == (".carmadio", "runtime"):
+    if parts[:1] == (".caprmadio_runtime",) or parts[:2] == (".caprmadio", "runtime"):
         if suffix == ".json":
             return _exception(root, path, "machine-local-runtime-journal")
         return None
@@ -1143,8 +1143,8 @@ def _toml_cutover_complete(root: Path) -> bool:
     return any(
         path.is_file()
         for path in (
-            root / ".carmadio/carmadio_settings.toml",
-            root / "dset/carmadio_settings.toml",
+            root / ".caprmadio/caprmadio_settings.toml",
+            root / "dset/caprmadio_settings.toml",
             root / "dset/scopes/meta/dset.toml",
             root / "dset/dset.toml",
         )
@@ -1536,7 +1536,7 @@ def _structured_entry(root: Path, source: Path) -> MigrationEntry:
 
 
 def _reconcile_artifact_type_patterns(value: dict[str, Any]) -> None:
-    """Move only CARMADIO-owned path rules; retain boundary YAML classifiers."""
+    """Move only CAPRMADIO-owned path rules; retain boundary YAML classifiers."""
 
     rules = value.get("path_rules")
     if not isinstance(rules, list):
@@ -2560,8 +2560,8 @@ def _overlay_proof_working_tree(root: Path, staged: Path) -> None:
         relative = Path(os.fsdecode(raw_path))
         if (
             any(part in _IGNORED_TOP_LEVEL for part in relative.parts)
-            or relative.parts[:1] == (".carmadio_runtime",)
-            or relative.parts[:2] == (".carmadio", "runtime")
+            or relative.parts[:1] == (".caprmadio_runtime",)
+            or relative.parts[:2] == (".caprmadio", "runtime")
         ):
             continue
         source = root / relative

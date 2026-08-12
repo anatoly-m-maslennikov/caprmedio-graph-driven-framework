@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://raw.githubusercontent.com/anatoly-m-maslennikov/dset-specs-loops-framework/main/.carmadio/02_layer_gov/schemas/artifact-types.schema.json",
+  "$id": "https://raw.githubusercontent.com/anatoly-m-maslennikov/dset-specs-loops-framework/main/.caprmadio/02_layer_gov/schemas/artifact-types.schema.json",
   "title": "DSET artifact-type registry",
   "type": "object",
   "required": [
@@ -116,7 +116,7 @@
         "current_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
         "transition_id": {
           "type": "string",
-          "pattern": "^CARMADIO-CARRIER-TRANSITION-[A-F0-9]{16}$"
+          "pattern": "^CAPRMADIO-CARRIER-TRANSITION-[A-F0-9]{16}$"
         },
         "artifact_type": {"$ref": "#/$defs/id"},
         "artifact_subtype": {"$ref": "#/$defs/id"},

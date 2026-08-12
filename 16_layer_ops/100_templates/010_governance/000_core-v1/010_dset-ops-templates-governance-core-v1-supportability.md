@@ -1,6 +1,6 @@
 # Supportability
 
-**Rule ID:** `CARMADIO-RULE-SUPPORTABILITY`
+**Rule ID:** `CAPRMADIO-RULE-SUPPORTABILITY`
 
 ## Rules
 

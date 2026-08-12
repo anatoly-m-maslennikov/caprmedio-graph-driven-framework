@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://raw.githubusercontent.com/anatoly-m-maslennikov/dset-specs-loops-framework/main/.carmadio/02_layer_gov/schemas/carrier-transition.schema.json",
+  "$id": "https://raw.githubusercontent.com/anatoly-m-maslennikov/dset-specs-loops-framework/main/.caprmadio/02_layer_gov/schemas/carrier-transition.schema.json",
   "title": "DSET carrier-transition ledger",
   "type": "object",
   "additionalProperties": false,
@@ -42,16 +42,16 @@
       "properties": {
         "id": {
           "type": "string",
-          "pattern": "^CARMADIO-CARRIER-TRANSITION-[A-F0-9]{16}$"
+          "pattern": "^CAPRMADIO-CARRIER-TRANSITION-[A-F0-9]{16}$"
         },
         "kind": {
           "enum": ["structured_yaml", "markdown_frontmatter", "markdown_links", "carrier_relocation"]
         },
         "authority_decision": {
           "enum": [
-            "CARMADIO-DECISION-GOV-018",
-            "CARMADIO-REQUIREMENT-GOV-041",
-            "CARMADIO-REQUIREMENT-GOV-044"
+            "CAPRMADIO-DECISION-GOV-018",
+            "CAPRMADIO-REQUIREMENT-GOV-041",
+            "CAPRMADIO-REQUIREMENT-GOV-044"
           ]
         },
         "carrier_ids": {

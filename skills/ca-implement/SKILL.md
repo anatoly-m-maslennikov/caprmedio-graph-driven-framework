@@ -1,15 +1,15 @@
 ---
 name: ca-implement
-description: Deliver a bounded CARMADIO implementation outcome from raw or prepared intent. Use when the operator wants code, documentation, methodology, tests, eval assets, or configuration changed; repository-local entry criteria decide and prepare missing prerequisites.
+description: Deliver a bounded CAPRMADIO implementation outcome from raw or prepared intent. Use when the operator wants code, documentation, methodology, tests, eval assets, or configuration changed; repository-local entry criteria decide and prepare missing prerequisites.
 ---
 
-# CARMADIO Implement
+# CAPRMADIO Implement
 
 This is the thin wrapper for `implement`; resolved repository-local documents own substantive behavior.
 
 ## Resolve
 
-1. Invoke the installed shared runtime exactly once with `dset skills context --skill ca-implement --target TARGET --objective OBJECTIVE --llm-session-id LLM_SESSION_ID [--session-id SESSION_ID]`. Replace the host-session placeholder; reuse the explicit CARMADIO `SESSION_ID` from a prior handoff and omit it only on initial CARMADIO entry. Stop when the ID, launcher, or command is unavailable, and never select an alternate runtime.
+1. Invoke the installed shared runtime exactly once with `dset skills context --skill ca-implement --target TARGET --objective OBJECTIVE --llm-session-id LLM_SESSION_ID [--session-id SESSION_ID]`. Replace the host-session placeholder; reuse the explicit CAPRMADIO `SESSION_ID` from a prior handoff and omit it only on initial CAPRMADIO entry. Stop when the ID, launcher, or command is unavailable, and never select an alternate runtime.
 2. Verify and report the returned repository/Work Area, skill/workflow/mode, implementation preparation mode, wrapper, ordered rule identities and digests, ruleset identity, conflict coverage, and run/session identity.
 3. Read the returned project-owned rule documents in order. Stop on an identity mismatch, unresolved conflict, required unavailable conflict coverage, or any returned stop status.
 4. Retain `run_id`, `session_id`, and `repository_root`. For an active specialist transition, invoke `dset runtime handoff RUN_ID REPOSITORY_ROOT --next-signal WORKFLOW`, return the same `session_id`, and require the next context call to pass it. Only a true session completion or stop invokes `dset runtime finish RUN_ID REPOSITORY_ROOT --status TERMINAL_STATUS`; report command failure.

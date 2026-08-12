@@ -6,20 +6,20 @@
 
 - Open the draft PR and record its repository-qualified identity.
 - Define the artifact-profile schema, repository adoption shape, requirements, tests, evals, and public document tree.
-- IDs: `CARMADIO-REQUIREMENT-GOV-004..006`, `CARMADIO-REQUIREMENT-META-003..004`, `CARMADIO-REQUIREMENT-TOOL-005`; `CARMADIO-TEST-CASE-GOV-007`; `CARMADIO-EVALUATION-CASE-GOV-008`.
+- IDs: `CAPRMADIO-REQUIREMENT-GOV-004..006`, `CAPRMADIO-REQUIREMENT-META-003..004`, `CAPRMADIO-REQUIREMENT-TOOL-005`; `CAPRMADIO-TEST-CASE-GOV-007`; `CAPRMADIO-EVALUATION-CASE-GOV-008`.
 
 ## Batch 2 — Public artifact architecture
 
 - Add the documentation and methodology hubs.
 - Add separate architecture, type, authoring, hub, applied-profile, maintenance, and rationale documents.
 - Rework the root README into an area-level helicopter view without removing access to current framework surfaces.
-- IDs: `CARMADIO-REQUIREMENT-GOV-005..006`, `CARMADIO-REQUIREMENT-META-003..004`; `CARMADIO-TEST-CASE-GOV-008`, `CARMADIO-TEST-CASE-META-003`; `CARMADIO-EVALUATION-CASE-GOV-007`, `CARMADIO-EVALUATION-CASE-META-002..003`.
+- IDs: `CAPRMADIO-REQUIREMENT-GOV-005..006`, `CAPRMADIO-REQUIREMENT-META-003..004`; `CAPRMADIO-TEST-CASE-GOV-008`, `CAPRMADIO-TEST-CASE-META-003`; `CAPRMADIO-EVALUATION-CASE-GOV-007`, `CAPRMADIO-EVALUATION-CASE-META-002..003`.
 
 ## Batch 3 — Executable profile
 
 - Add `dset/artifacts.toml`, its JSON Schema, stable diagnostics, repository validation, and unit/fixture coverage.
 - Activate `documentation-v1` independently from `python-v1` in `dset/dset.toml` and the project schema.
-- IDs: `CARMADIO-REQUIREMENT-GOV-004..006`, `CARMADIO-REQUIREMENT-TOOL-005`; `CARMADIO-TEST-CASE-GOV-007`, `CARMADIO-TEST-CASE-TOOL-006..007`.
+- IDs: `CAPRMADIO-REQUIREMENT-GOV-004..006`, `CAPRMADIO-REQUIREMENT-TOOL-005`; `CAPRMADIO-TEST-CASE-GOV-007`, `CAPRMADIO-TEST-CASE-TOOL-006..007`.
 
 ## Batch 4 — Reconciliation and evidence
 

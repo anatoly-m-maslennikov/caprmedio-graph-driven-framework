@@ -32,12 +32,12 @@
 
 | Test ID | Evidence |
 |---|---|
-| CARMADIO-TEST-CASE-GOV-007 | `dset/dset.yaml` selects both profile axes; the project schema permits the optional artifact profile without replacing language enforcement |
-| CARMADIO-TEST-CASE-TOOL-006 | Artifact-profile unit cases reject missing hubs, duplicate roots, unresolved parents, and parent cycles with CARMADIO-E121/E122 |
-| CARMADIO-TEST-CASE-GOV-008 | Unit cases enforce required hub sections and root-to-top-level-area navigation with CARMADIO-E123 |
-| CARMADIO-TEST-CASE-META-003 | The documentation hub links the published architecture, type catalog, universal/type-specific authoring rules, hub rules, maintenance procedure, and rationale |
-| CARMADIO-TEST-CASE-TOOL-007 | The artifact registry and JSON Schema parse; `dset check` validates the active repository without writing |
-| CARMADIO-TEST-CASE-TOOL-008 | The complete Python-format/lint/type/test profile, documentation profile, Markdown portability checks, trace freshness, and diff hygiene passed together |
+| CAPRMADIO-TEST-CASE-GOV-007 | `dset/dset.yaml` selects both profile axes; the project schema permits the optional artifact profile without replacing language enforcement |
+| CAPRMADIO-TEST-CASE-TOOL-006 | Artifact-profile unit cases reject missing hubs, duplicate roots, unresolved parents, and parent cycles with CAPRMADIO-E121/E122 |
+| CAPRMADIO-TEST-CASE-GOV-008 | Unit cases enforce required hub sections and root-to-top-level-area navigation with CAPRMADIO-E123 |
+| CAPRMADIO-TEST-CASE-META-003 | The documentation hub links the published architecture, type catalog, universal/type-specific authoring rules, hub rules, maintenance procedure, and rationale |
+| CAPRMADIO-TEST-CASE-TOOL-007 | The artifact registry and JSON Schema parse; `dset check` validates the active repository without writing |
+| CAPRMADIO-TEST-CASE-TOOL-008 | The complete Python-format/lint/type/test profile, documentation profile, Markdown portability checks, trace freshness, and diff hygiene passed together |
 
 ## Corrective loops
 

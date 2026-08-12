@@ -63,8 +63,8 @@ class TomlMigrationTests(unittest.TestCase):
         """Initialize git fixture using the declared repository contract."""
         self.write(
             ".gitignore",
-            ".carmadio_runtime/toml-migration-runtime-readiness.json\n"
-            ".carmadio_runtime/toml-migration-backups/\n",
+            ".caprmadio_runtime/toml-migration-runtime-readiness.json\n"
+            ".caprmadio_runtime/toml-migration-backups/\n",
         )
         initialize_exact_git_repository(self.root)
         self.commit_git_fixture("fixture")
@@ -116,7 +116,7 @@ class TomlMigrationTests(unittest.TestCase):
             preview.package_successors,
         )
         self.write(
-            ".carmadio_runtime/toml-migration-runtime-readiness.json",
+            ".caprmadio_runtime/toml-migration-runtime-readiness.json",
             json.dumps(
                 {
                     "targets": targets,
@@ -144,7 +144,7 @@ class TomlMigrationTests(unittest.TestCase):
         """Handle fixture using the declared repository contract."""
         self.write(
             "dset/scopes/gov/items.yaml",
-            "schema_version: 1.0\nitems:\n  -\n    id: CARMADIO-ITEM-001\n",
+            "schema_version: 1.0\nitems:\n  -\n    id: CAPRMADIO-ITEM-001\n",
         )
         self.write(
             "dset/scopes/gov/index.yaml",
@@ -152,7 +152,7 @@ class TomlMigrationTests(unittest.TestCase):
         )
         self.write(
             "dset/scopes/gov/record.md",
-            "---\nartifact_id: CARMADIO-RECORD-001\nrelations:\n"
+            "---\nartifact_id: CAPRMADIO-RECORD-001\nrelations:\n"
             "  - items.yaml\n---\n[items](items.yaml)\n",
         )
 
@@ -170,7 +170,7 @@ class TomlMigrationTests(unittest.TestCase):
             "package_id: example\n"
             "layer: gov\n"
             "requirements:\n"
-            "  - CARMADIO-REQUIREMENT-GOV-001\n"
+            "  - CAPRMADIO-REQUIREMENT-GOV-001\n"
             "tests: []\n"
             "evals: []\n"
             "contracts: []\n"
@@ -198,33 +198,33 @@ class TomlMigrationTests(unittest.TestCase):
             self.write(f"{relative}/{name}", "")
         self.write(
             "dset/scopes/gov/specs/packages/example/spec.md",
-            "# CARMADIO-REQUIREMENT-GOV-001\n",
+            "# CAPRMADIO-REQUIREMENT-GOV-001\n",
         )
         self.write(
             "dset/scopes/gov/specs/packages/example/test-plan.md",
-            "# CARMADIO-TEST-CASE-GOV-040\n",
+            "# CAPRMADIO-TEST-CASE-GOV-040\n",
         )
         self.write(
-            "dset/scopes/gov/atoms/CARMADIO-ATOMIC-RECORD-061.md",
+            "dset/scopes/gov/atoms/CAPRMADIO-ATOMIC-RECORD-061.md",
             "+++\n"
             'artifact_type = "atomic_record"\n'
-            'artifact_id = "CARMADIO-ATOMIC-RECORD-061"\n'
+            'artifact_id = "CAPRMADIO-ATOMIC-RECORD-061"\n'
             'type = "qa"\n'
             'subtype = "test_plan"\n'
-            'semantic_id = "CARMADIO-TEST-CASE-GOV-040"\n'
+            'semantic_id = "CAPRMADIO-TEST-CASE-GOV-040"\n'
             'status = "accepted"\n'
             'priority = "high"\n'
             'llm_session_ids = ["codex:test"]\n'
             "+++\n\n# Test\n",
         )
-        selector = "requirements:CARMADIO-REQUIREMENT-GOV-001"
+        selector = "requirements:CAPRMADIO-REQUIREMENT-GOV-001"
         digest = hashlib.sha256(f"{selector}\n".encode()).hexdigest()
         self.write(
             "dset/scopes/gov/governance/legacy-authority.yaml",
             'schema_version: "1.0"\n'
             "records:\n"
             "  -\n"
-            "    semantic_id: CARMADIO-REQUIREMENT-GOV-001\n"
+            "    semantic_id: CAPRMADIO-REQUIREMENT-GOV-001\n"
             "    fragments:\n"
             "      -\n"
             "        path: dset/scopes/gov/specs/packages/example/package.yaml\n"
@@ -297,7 +297,7 @@ class TomlMigrationTests(unittest.TestCase):
         applied = apply_toml_migration(self.root)
 
         self.assertTrue(preview.ready)
-        recovery = self.root / ".carmadio_runtime/toml-migration-backups" / applied.digest
+        recovery = self.root / ".caprmadio_runtime/toml-migration-backups" / applied.digest
         self.assertTrue((recovery / "manifest.json").is_file())
         visible = {
             path.relative_to(self.root).as_posix()
@@ -307,7 +307,7 @@ class TomlMigrationTests(unittest.TestCase):
         self.assertNotIn("dset/scopes/gov/items.yaml", visible)
         self.assertFalse(
             any(
-                path.startswith(".carmadio_runtime/toml-migration-backups/")
+                path.startswith(".caprmadio_runtime/toml-migration-backups/")
                 for path in visible
             )
         )
@@ -333,7 +333,7 @@ class TomlMigrationTests(unittest.TestCase):
         self.add_minimal_runtime_gate()
         self.initialize_git_fixture()
         self.write_current_runtime_readiness()
-        recovery_root = self.root / ".carmadio_runtime/toml-migration-backups"
+        recovery_root = self.root / ".caprmadio_runtime/toml-migration-backups"
 
         with (
             patch(
@@ -394,15 +394,15 @@ class TomlMigrationTests(unittest.TestCase):
     ) -> None:
         item = self.write("dset/scopes/gov/items.yaml", "id: current\n")
         atom = self.write(
-            "dset/scopes/gov/atoms/CARMADIO-ATOMIC-RECORD-001.md",
-            "---\nartifact_id: CARMADIO-ATOMIC-RECORD-001\n---\nSee items.yaml.\n",
+            "dset/scopes/gov/atoms/CAPRMADIO-ATOMIC-RECORD-001.md",
+            "---\nartifact_id: CAPRMADIO-ATOMIC-RECORD-001\n---\nSee items.yaml.\n",
         )
         proof = self.write(
             "dset/scopes/gov/changes/example/proofs/result.md",
             "---\nartifact_type: evidence_record\n---\nSee items.yaml.\n",
         )
         decision = self.write(
-            "dset/scopes/gov/changes/example/decision-CARMADIO-DECISION-GOV-001.md",
+            "dset/scopes/gov/changes/example/decision-CAPRMADIO-DECISION-GOV-001.md",
             "# Decision\n\nSee items.yaml.\n",
         )
         decision_digest = hashlib.sha256(decision.read_bytes()).hexdigest()
@@ -410,18 +410,18 @@ class TomlMigrationTests(unittest.TestCase):
             "dset/scopes/gov/governance/atoms.yaml",
             "records:\n"
             "  -\n"
-            "    semantic_id: CARMADIO-REQUIREMENT-GOV-001\n"
-            "    path: dset/scopes/gov/atoms/CARMADIO-ATOMIC-RECORD-001.md\n",
+            "    semantic_id: CAPRMADIO-REQUIREMENT-GOV-001\n"
+            "    path: dset/scopes/gov/atoms/CAPRMADIO-ATOMIC-RECORD-001.md\n",
         )
         self.write(
             "dset/scopes/gov/governance/legacy-authority.yaml",
             "records:\n"
             "  -\n"
-            "    semantic_id: CARMADIO-DECISION-GOV-001\n"
+            "    semantic_id: CAPRMADIO-DECISION-GOV-001\n"
             "    fragments:\n"
             "      -\n"
             "        path: dset/scopes/gov/changes/example/"
-            "decision-CARMADIO-DECISION-GOV-001.md\n"
+            "decision-CAPRMADIO-DECISION-GOV-001.md\n"
             "        selector: whole-carrier\n"
             f"        sha256: {decision_digest}\n",
         )
@@ -473,8 +473,8 @@ class TomlMigrationTests(unittest.TestCase):
         successor = package.with_suffix(".toml")
         self.assertEqual(package.read_bytes(), before)
         data = load_toml(successor.read_text(encoding="utf-8"))
-        self.assertIn("CARMADIO-REQUIREMENT-GOV-001", data["requirements"])
-        self.assertIn("CARMADIO-TEST-CASE-GOV-040", data["tests"])
+        self.assertIn("CAPRMADIO-REQUIREMENT-GOV-001", data["requirements"])
+        self.assertIn("CAPRMADIO-TEST-CASE-GOV-040", data["tests"])
         self.assertIn("package.toml", reference.read_text(encoding="utf-8"))
         selected = RepositoryLayout.structured_named_files(self.root, "package")
         self.assertEqual(selected, (successor,))
@@ -499,7 +499,7 @@ class TomlMigrationTests(unittest.TestCase):
             "schema_version: 1.3\n"
             "semantic_atoms:\n"
             "  -\n"
-            "    id: CARMADIO-LEGACY-001\n"
+            "    id: CAPRMADIO-LEGACY-001\n"
             "    carriers:\n"
             f"      - {package.relative_to(self.root).as_posix()}\n",
         )
@@ -507,10 +507,10 @@ class TomlMigrationTests(unittest.TestCase):
             "dset/scopes/gov/generated/traceability.toml",
             'schema_version = "1.3"\n\n'
             "[[semantic_atoms]]\n"
-            'id = "CARMADIO-LEGACY-001"\n'
+            'id = "CAPRMADIO-LEGACY-001"\n'
             f'carriers = ["{package.relative_to(self.root).as_posix()}"]\n\n'
             "[[semantic_atoms]]\n"
-            'id = "CARMADIO-NATIVE-001"\n'
+            'id = "CAPRMADIO-NATIVE-001"\n'
             f'carriers = ["{package_toml.relative_to(self.root).as_posix()}"]\n',
         )
         yaml_before = trace_yaml.read_bytes()
@@ -538,11 +538,11 @@ class TomlMigrationTests(unittest.TestCase):
             ]
         }
         self.assertEqual(
-            rows["CARMADIO-LEGACY-001"]["carriers"],
+            rows["CAPRMADIO-LEGACY-001"]["carriers"],
             [package.relative_to(self.root).as_posix()],
         )
         self.assertEqual(
-            rows["CARMADIO-NATIVE-001"]["carriers"],
+            rows["CAPRMADIO-NATIVE-001"]["carriers"],
             [package_toml.relative_to(self.root).as_posix()],
         )
         self.assertIn("package.toml", mutable.read_text(encoding="utf-8"))
@@ -563,7 +563,7 @@ class TomlMigrationTests(unittest.TestCase):
             "def render_bundle(root):\n    return '{}\\n'\n",
         )
         evidence_path = (
-            self.root / ".carmadio_runtime/toml-migration-runtime-readiness.json"
+            self.root / ".caprmadio_runtime/toml-migration-runtime-readiness.json"
         )
 
         for evidence in (None, {"targets": {"stale": "digest"}}):
@@ -572,7 +572,7 @@ class TomlMigrationTests(unittest.TestCase):
                     evidence_path.unlink(missing_ok=True)
                 else:
                     self.write(
-                        ".carmadio_runtime/toml-migration-runtime-readiness.json",
+                        ".caprmadio_runtime/toml-migration-runtime-readiness.json",
                         json.dumps(evidence),
                     )
                 before = subprocess.run(
@@ -684,7 +684,7 @@ class TomlMigrationTests(unittest.TestCase):
             "    artifact_subtype: configuration\n"
             "    retained_for:\n"
             "      -\n"
-            "        semantic_id: CARMADIO-REQUIREMENT-GOV-001\n"
+            "        semantic_id: CAPRMADIO-REQUIREMENT-GOV-001\n"
             "        reason: Selector seal.\n",
         )
         self.assertTrue(snapshot.is_file())
@@ -701,7 +701,7 @@ class TomlMigrationTests(unittest.TestCase):
         package = self.selector_sealed_package_fixture()
         package.write_text(
             package.read_text(encoding="utf-8").replace(
-                "CARMADIO-REQUIREMENT-GOV-001", "CARMADIO-REQUIREMENT-GOV-999"
+                "CAPRMADIO-REQUIREMENT-GOV-001", "CAPRMADIO-REQUIREMENT-GOV-999"
             ),
             encoding="utf-8",
         )
@@ -752,7 +752,7 @@ class TomlMigrationTests(unittest.TestCase):
             ),
         }
         evidence_path = self.write(
-            ".carmadio_runtime/toml-migration-runtime-readiness.json",
+            ".caprmadio_runtime/toml-migration-runtime-readiness.json",
             json.dumps(evidence),
         )
 
@@ -786,17 +786,17 @@ class TomlMigrationTests(unittest.TestCase):
             package.read_text(encoding="utf-8")
             .replace(
                 "tests: []",
-                "tests:\n  - CARMADIO-TEST-CASE-GOV-012",
+                "tests:\n  - CAPRMADIO-TEST-CASE-GOV-012",
             )
             .replace("\n", "\r\n")
             .encode("utf-8")
         )
-        atom = self.root / "dset/scopes/gov/atoms/CARMADIO-ATOMIC-RECORD-061.md"
+        atom = self.root / "dset/scopes/gov/atoms/CAPRMADIO-ATOMIC-RECORD-061.md"
         atom.write_text(
             atom.read_text(encoding="utf-8").replace(
                 "+++\n\n# Test",
                 '[[relations]]\ntype = "replacement_of"\n'
-                'target = "CARMADIO-TEST-CASE-GOV-012"\n+++\n\n# Test',
+                'target = "CAPRMADIO-TEST-CASE-GOV-012"\n+++\n\n# Test',
             ),
             encoding="utf-8",
         )
@@ -805,24 +805,24 @@ class TomlMigrationTests(unittest.TestCase):
             'schema_version: "1.0"\n'
             "events:\n"
             "  -\n"
-            "    id: CARMADIO-LIFECYCLE-EVENT-001\n"
-            "    atom_id: CARMADIO-TEST-CASE-GOV-012\n"
+            "    id: CAPRMADIO-LIFECYCLE-EVENT-001\n"
+            "    atom_id: CAPRMADIO-TEST-CASE-GOV-012\n"
             "    event: absorbed\n"
             "    related:\n"
-            "      - CARMADIO-TEST-CASE-GOV-040\n",
+            "      - CAPRMADIO-TEST-CASE-GOV-040\n",
         )
 
         apply_toml_migration(self.root, bypass_runtime_readiness=True)
 
         successor = load_toml(package.with_suffix(".toml").read_text(encoding="utf-8"))
-        self.assertNotIn("CARMADIO-TEST-CASE-GOV-012", successor["tests"])
-        self.assertIn("CARMADIO-TEST-CASE-GOV-040", successor["tests"])
+        self.assertNotIn("CAPRMADIO-TEST-CASE-GOV-012", successor["tests"])
+        self.assertIn("CAPRMADIO-TEST-CASE-GOV-040", successor["tests"])
         messages = [
             diagnostic.message for diagnostic in validate_artifact_relations(self.root)
         ]
         self.assertFalse(
             any(
-                "unresolved relation target: CARMADIO-TEST-CASE-GOV-012" in item
+                "unresolved relation target: CAPRMADIO-TEST-CASE-GOV-012" in item
                 for item in messages
             )
         )
@@ -972,7 +972,7 @@ class TomlMigrationTests(unittest.TestCase):
             self.root, list(refreshed.entries), list(refreshed.references)
         )
         self.write(
-            ".carmadio_runtime/toml-migration-runtime-readiness.json",
+            ".caprmadio_runtime/toml-migration-runtime-readiness.json",
             json.dumps(
                 {
                     "targets": targets,
@@ -1057,7 +1057,7 @@ class TomlMigrationTests(unittest.TestCase):
         self.assertFalse(source.with_suffix(".toml").exists())
         stored = json.loads(
             (
-                self.root / ".carmadio_runtime/toml-migration-runtime-readiness.json"
+                self.root / ".caprmadio_runtime/toml-migration-runtime-readiness.json"
             ).read_text(encoding="utf-8")
         )
         self.assertEqual(stored["targets"], evidence["targets"])
@@ -1197,7 +1197,7 @@ class TomlMigrationTests(unittest.TestCase):
         self.standard_fixture()
         document = self.write(
             "dset/scopes/gov/record.md",
-            "---\nid: CARMADIO-ITEM-001\n---\nSee items.yaml.\n",
+            "---\nid: CAPRMADIO-ITEM-001\n---\nSee items.yaml.\n",
         )
         reference = self.write("README.md", "See dset/scopes/gov/items.yaml.\n")
 
@@ -1229,7 +1229,7 @@ class TomlMigrationTests(unittest.TestCase):
             ignore=lambda _directory, names: set(names) & excluded,
         )
         atom = staged / (
-            ".carmadio/02_layer_gov/decision/CARMADIO-REQUIREMENT-GOV-030-artifact-type-name-policy.md"
+            ".caprmadio/02_layer_gov/decision/CAPRMADIO-REQUIREMENT-GOV-030-artifact-type-name-policy.md"
         )
         before = atom.read_bytes()
         plan = plan_toml_migration(staged, bypass_runtime_readiness=True)
