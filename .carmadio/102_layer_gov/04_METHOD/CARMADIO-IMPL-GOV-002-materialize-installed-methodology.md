@@ -20,7 +20,7 @@ relations:
 # Technical Decision — Materialize installed methodology
 
 The reusable methodology is authored in the repository-root source and copied
-unidirectionally into `.carmadio/000_carmadio_methodology/` only by an explicit
+unidirectionally into `.carmadio/000_CARMADIO_METHODOLOGY/` only by an explicit
 operator synchronization command.
 
 Installed methodology carriers contain the actual governed content. They are
