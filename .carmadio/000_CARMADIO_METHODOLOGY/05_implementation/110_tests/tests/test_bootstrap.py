@@ -62,6 +62,31 @@ class BootstrapTests(unittest.TestCase):
             self.assertEqual(marker.read_text(encoding="utf-8"), "keep")
             self.assertFalse((target / "dset").exists())
 
+    def test_stage_places_implementation_hub_at_flat_layer_root(self) -> None:
+        with (
+            temporary_directory() as raw,
+            bootstrap.distribution_source() as (source, _),
+        ):
+            stage = Path(raw) / "stage"
+            stage.mkdir()
+            bootstrap._stage_project(
+                source,
+                stage,
+                project_key="APP",
+                project_id="sample-app",
+                project_name="Sample App",
+                project_license="MIT",
+                package_id="project",
+                repository="owner/sample-app",
+                work_areas=(),
+                profile="core-v1",
+                hosted_automation=False,
+            )
+
+            implementation = stage / ".carmadio/105_layer_implementation"
+            self.assertTrue((implementation / "APP-IMPL-HUB.md").is_file())
+            self.assertFalse((implementation / "03_REQUIREMENT").exists())
+
     def test_execute_initializes_and_validates_nonempty_repository(self) -> None:
         with temporary_directory() as raw:
             target = (Path(raw) / "existing").resolve()
@@ -108,6 +133,18 @@ class BootstrapTests(unittest.TestCase):
             )
             self.assertTrue(
                 (target / ".carmadio/06_DELIVERY/APP-VERSIONS-HUB.md").is_file()
+            )
+            self.assertTrue(
+                (
+                    target
+                    / ".carmadio/105_layer_implementation/APP-IMPL-HUB.md"
+                ).is_file()
+            )
+            self.assertFalse(
+                (
+                    target
+                    / ".carmadio/105_layer_implementation/03_REQUIREMENT"
+                ).exists()
             )
             self.assertEqual(
                 (target / ".carmadio_runtime/.gitignore").read_text(encoding="utf-8"),

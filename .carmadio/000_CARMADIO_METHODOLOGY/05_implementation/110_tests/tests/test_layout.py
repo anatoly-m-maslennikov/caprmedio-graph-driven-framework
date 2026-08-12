@@ -15,6 +15,7 @@ from pathlib import Path, PureWindowsPath
 from dset_toolchain.layout import (
     APPLIED_LAYER_DIRECTORIES,
     CONTENT_ROLE_DIRECTORIES,
+    FLAT_APPLIED_LAYERS,
     LAYER_DIRECTORIES,
     LAYERS,
     LEGACY_SLIM_LAYOUT,
@@ -101,6 +102,15 @@ class RepositoryLayoutTest(unittest.TestCase):
             (carmadio / "000_CARMADIO_METHODOLOGY").mkdir(parents=True)
             for directory in APPLIED_LAYER_DIRECTORIES.values():
                 (carmadio / directory).mkdir()
+            implementation_hub = (
+                carmadio
+                / APPLIED_LAYER_DIRECTORIES["implementation"]
+                / "APP-IMPL-HUB.md"
+            )
+            implementation_hub.write_text(
+                "# Applied implementation\n",
+                encoding="utf-8",
+            )
             (carmadio / "03_REQUIREMENT").mkdir()
             (carmadio / "06_DELIVERY").mkdir()
             (carmadio / "carmadio_settings.toml").write_text(
@@ -128,6 +138,11 @@ class RepositoryLayoutTest(unittest.TestCase):
             )
             self.assertFalse((carmadio / "100_project").exists())
             self.assertFalse((carmadio / "150_versions").exists())
+            self.assertEqual(FLAT_APPLIED_LAYERS, frozenset({"implementation"}))
+            self.assertTrue(
+                (carmadio / APPLIED_LAYER_DIRECTORIES["implementation"]).is_dir()
+            )
+            self.assertTrue(implementation_hub.is_file())
 
     def test_legacy_layout_preserves_central_paths(self) -> None:
         with temporary_directory() as raw:

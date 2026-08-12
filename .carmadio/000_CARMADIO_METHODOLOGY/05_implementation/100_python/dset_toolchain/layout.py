@@ -68,6 +68,10 @@ APPLIED_LAYER_DIRECTORIES: Final[dict[str, str]] = {
     "implementation": "105_layer_implementation",
     "ops": "106_layer_ops",
 }
+# FLAT_APPLIED_LAYERS names applied layers whose carriers live directly at the
+# layer root. All remaining applied layers use the recursive content-role
+# directory layout.
+FLAT_APPLIED_LAYERS: Final[frozenset[str]] = frozenset({"implementation"})
 # PRODUCT_LAYER_DIRECTORIES defines product layer directories; this module owns the default.
 PRODUCT_LAYER_DIRECTORIES: Final[dict[str, str]] = {
     "meta": "11_layer_meta",
