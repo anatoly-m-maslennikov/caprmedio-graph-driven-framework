@@ -27,15 +27,17 @@ obligation.
 
 ## Applicable conditions
 
-1. Accept only stored `high`, `medium`, or `low`.
-2. Reject stored `highest`, `critical`, and `deferred`.
-3. Apply the strict-ancestor and earlier-layer increments independently and
+1. Accept stored priority only on Concern and Plan Atoms and reject it on every
+   other Content role.
+2. Accept only stored `high`, `medium`, or `low`.
+3. Reject stored `highest`, `critical`, and `deferred`.
+4. Apply the strict-ancestor and earlier-layer increments independently and
    together, capped at virtual `highest`.
-4. Confirm `ask_always` always asks.
-5. Confirm `auto_by_effective_priority` selects exactly one unique eligible
+5. Confirm `ask_always` always asks.
+6. Confirm `auto_by_effective_priority` selects exactly one unique eligible
    winner and asks on ties, incomparable scopes, uncertainty, or multiple
    winners.
-6. Confirm unsatisfiable external obligations stop rather than auto-resolve.
+7. Confirm unsatisfiable external obligations stop rather than auto-resolve.
 
 ## Acceptance criteria
 
