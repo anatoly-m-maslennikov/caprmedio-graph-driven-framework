@@ -3,7 +3,7 @@ artifact_type: requirement
 artifact_id: CAPRMADIO-REQUIREMENT-GOV-154
 scope_path: layer:gov
 subject_scope: identity
-priority: high
+tier: standard
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:

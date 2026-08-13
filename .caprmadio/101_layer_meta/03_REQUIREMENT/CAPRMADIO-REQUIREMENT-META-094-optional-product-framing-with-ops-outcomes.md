@@ -3,7 +3,7 @@ artifact_type: requirement
 artifact_id: CAPRMADIO-REQUIREMENT-META-094
 scope_path: layer:meta
 subject_scope: development-flow
-priority: medium
+tier: standard
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:

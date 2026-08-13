@@ -4,7 +4,7 @@ artifact_id: CAPRMADIO-REQUIREMENT-GOV-109
 scope_path: layer:gov
 subject_scopes:
   - interaction
-priority: high
+tier: core
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
