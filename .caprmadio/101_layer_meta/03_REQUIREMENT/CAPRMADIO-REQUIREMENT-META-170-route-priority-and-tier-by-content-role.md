@@ -12,8 +12,8 @@ relations:
 
 # Route priority and tier by Content role
 
-Concern and Plan Atoms declare `priority` for current disposition or execution
-order and do not declare `tier`. RMAD Atoms declare `tier` and do not declare
-`priority`. Analysis, Implementation, and Ops Atoms declare neither property by
-default because their ordering or normative breadth is inherited from the
-governed work, Claim, realization, or occurrence they serve.
+Concern and Plan Atoms use `priority` for current disposition or execution
+order and do not use `tier`. RMAD Atoms use `tier` and do not use `priority`.
+Analysis, Implementation, and Ops Atoms use neither property by default because
+their ordering or normative breadth is inherited from the governed work,
+Claim, realization, or occurrence they serve.

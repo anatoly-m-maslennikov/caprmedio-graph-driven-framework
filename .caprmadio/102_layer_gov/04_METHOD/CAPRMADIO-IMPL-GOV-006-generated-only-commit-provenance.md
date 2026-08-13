@@ -5,7 +5,6 @@ artifact_id: CAPRMADIO-IMPL-GOV-006
 scope_path: layer:gov
 subject_scopes:
   - provenance
-tier: standard
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:

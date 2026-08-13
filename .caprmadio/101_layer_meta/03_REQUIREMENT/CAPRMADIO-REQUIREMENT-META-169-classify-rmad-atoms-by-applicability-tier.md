@@ -13,7 +13,7 @@ relations:
 
 # Classify RMAD Atoms by applicability tier
 
-Every Requirement, Method, Assurance, and Delivery Atom declares exactly one
+Every Requirement, Method, Assurance, and Delivery Atom resolves to exactly one
 applicability tier:
 
 - `principle` is a project-wide invariant that constrains lower tiers and may
