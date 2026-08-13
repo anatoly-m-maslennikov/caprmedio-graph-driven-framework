@@ -1,29 +1,23 @@
 ---
-artifact_type: requirement
-artifact_id: CAPRMADIO-REQUIREMENT-GOV-107
-scope_path: layer:gov
 subject_scopes:
   - priority
-priority: high
+tier: standard
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: replacement_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-GOV-058
-      - CAPRMADIO-REQUIREMENT-GOV-059
-      - CAPRMADIO-REQUIREMENT-GOV-063
+  replacement_of:
+    - CAPRMADIO-REQUIREMENT-GOV-058-derive-effective-priority-during-comparison
+    - CAPRMADIO-REQUIREMENT-GOV-059-configure-conflict-selection-mode
+    - CAPRMADIO-REQUIREMENT-GOV-063-three-level-priority-vocabulary
 ---
 
-# Requirement — Derive one effective priority for conflict selection
+# Effective priority conflict selection
 
-Persisted priority uses exactly `high`, `medium`, or `low`. `highest` is a
-virtual comparison result and is never stored. `critical` and `deferred` are
-not accepted values: historical `critical` is migrated to `high`; current
-low-order work uses `low`; work outside the current version belongs in a
-future-version or unscheduled section of the Development Backlog.
+Concern and Plan Atoms store exactly one `priority` value: `high`, `medium`, or
+`low`. Every other Content role omits `priority`. `highest` is a virtual
+comparison result and is never stored.
 
-During a direct conflict comparison:
+During direct comparison of two Concern or Plan Atoms:
 
 1. start with each artifact's stored priority;
 2. add one level when its scope is a strict ancestor of the competing scope;
@@ -40,17 +34,6 @@ An unrelated or incomparable scope receives no scope increment.
 
 Ties, incomparable structure, uncertainty, or multiple winners always ask.
 Mutually unsatisfiable external obligations stop for operator or external
-resolution. Deterministic replacement, explicit scoped override, stale-view
-routing, and implementation drift follow their own semantics rather than this
-selection mode.
-
-## Primary claim
-
-CAPRMADIO derives effective priority from stored priority, ancestor scope, and
-earlier layer position, while automatic conflict selection is opt-in and
-requires one unique eligible winner.
-
-## Rationale
-
-One artifact now owns the complete stored vocabulary, structural comparison,
-and operator-versus-automatic selection boundary.
+resolution. RMAD tier precedence, deterministic replacement, explicit scoped
+override, stale-view routing, and implementation drift follow their own
+semantics rather than this selection mode.
