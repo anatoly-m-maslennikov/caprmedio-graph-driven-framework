@@ -217,7 +217,7 @@ def _matching_carriers(root: Path, surface_id: str) -> list[str]:
         if (
             not path.is_file()
             or ".caprmadio_runtime" in path.parts
-            or "000_CAPRMADIO_METHODOLOGY" in path.parts
+            or "000_caprmadio_framework" in path.parts
         ):
             continue
         lowered = path.name.lower()

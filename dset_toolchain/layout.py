@@ -108,7 +108,7 @@ CURRENT_DSET_ROOT: Final[str] = ".caprmadio"
 # LEGAL_FILES_ROOT defines legal files root; this module owns the default.
 LEGAL_FILES_ROOT: Final[str] = "LICENSES"
 # METHODOLOGY_ROOT defines methodology root; this module owns the default.
-METHODOLOGY_ROOT: Final[str] = "000_CAPRMADIO_METHODOLOGY"
+METHODOLOGY_ROOT: Final[str] = "000_caprmadio_framework"
 # CONTENT_ROLE_DIRECTORIES defines the recursive semantic layout.
 CONTENT_ROLE_DIRECTORIES: Final[tuple[str, ...]] = (
     "01_CONCERN",

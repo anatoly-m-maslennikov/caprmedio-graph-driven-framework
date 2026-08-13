@@ -99,7 +99,7 @@ class RepositoryLayoutTest(unittest.TestCase):
         with temporary_directory() as raw:
             root = Path(raw).resolve()
             caprmadio = root / ".caprmadio"
-            (caprmadio / "000_CAPRMADIO_METHODOLOGY").mkdir(parents=True)
+            (caprmadio / "000_caprmadio_framework").mkdir(parents=True)
             for directory in APPLIED_LAYER_DIRECTORIES.values():
                 (caprmadio / directory).mkdir()
             implementation_hub = (

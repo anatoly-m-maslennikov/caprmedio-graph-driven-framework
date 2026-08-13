@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://raw.githubusercontent.com/anatoly-m-maslennikov/dset-specs-loops-framework/main/.caprmadio/000_CAPRMADIO_METHODOLOGY/01_meta/schemas/package.schema.json",
+  "$id": "https://raw.githubusercontent.com/anatoly-m-maslennikov/dset-specs-loops-framework/main/.caprmadio/000_caprmadio_framework/01_meta/schemas/package.schema.json",
   "title": "DSET accepted package manifest",
   "type": "object",
   "required": [

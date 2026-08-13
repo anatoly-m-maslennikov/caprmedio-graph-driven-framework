@@ -69,7 +69,7 @@ class GovernanceSurfaceTests(unittest.TestCase):
     def test_recommendation_ignores_external_methodology_carriers(self) -> None:
         with temporary_directory() as raw:
             root = self._root(Path(raw))
-            external = root / ".caprmadio" / "000_CAPRMADIO_METHODOLOGY"
+            external = root / ".caprmadio" / "000_caprmadio_framework"
             external.mkdir()
             (external / "architecture.md").write_text("external", encoding="utf-8")
             self.assertEqual(surface_recommendations(root), ())

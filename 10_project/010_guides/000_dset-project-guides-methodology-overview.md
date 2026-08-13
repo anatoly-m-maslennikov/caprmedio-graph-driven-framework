@@ -9,7 +9,7 @@ This is the helicopter-view entry point for the DSET Spec Loops methodology. It 
 This area owns the reusable DSET delivery method. Reusable framework source
 lives in `10_project/` and the ordered `11_layer_meta/` through
 `16_layer_ops/` source layers. An adopter installs the accepted methodology
-under `.caprmadio/000_CAPRMADIO_METHODOLOGY/` and keeps project and scoped
+under `.caprmadio/000_caprmadio_framework/` and keeps project and scoped
 artifacts in repeated ordered Content-role folders. Earlier family and special
 project/version containers remain compatibility or migration inputs only.
 

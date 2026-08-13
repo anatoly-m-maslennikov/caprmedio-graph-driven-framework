@@ -16,7 +16,7 @@ relations:
 
 CAPRMADIO maintainers edit the reusable methodology only in its repository-root
 source. An ordinary source edit never rewrites
-`.caprmadio/000_CAPRMADIO_METHODOLOGY/` and no workflow copies installed files back into
+`.caprmadio/000_caprmadio_framework/` and no workflow copies installed files back into
 the root source.
 
 An explicit operator synchronization command performs the one-way

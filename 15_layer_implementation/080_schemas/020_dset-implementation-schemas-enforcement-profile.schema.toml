@@ -1,5 +1,5 @@
 "$schema" = "https://json-schema.org/draft/2020-12/schema"
-"$id" = "https://raw.githubusercontent.com/anatoly-m-maslennikov/dset-specs-loops-framework/main/.caprmadio/000_CAPRMADIO_METHODOLOGY/05_implementation/schemas/enforcement-profile.schema.toml"
+"$id" = "https://raw.githubusercontent.com/anatoly-m-maslennikov/dset-specs-loops-framework/main/.caprmadio/000_caprmadio_framework/05_implementation/schemas/enforcement-profile.schema.toml"
 title = "DSET applied enforcement profile"
 type = "object"
 required = ["schema_version", "id", "version", "status", "profile_role", "language_family", "target_revision_policy", "evidence", "toolchain", "scope", "observed", "warning_baseline", "canonical_sequence", "gates", "known_blockers", "promotion"]

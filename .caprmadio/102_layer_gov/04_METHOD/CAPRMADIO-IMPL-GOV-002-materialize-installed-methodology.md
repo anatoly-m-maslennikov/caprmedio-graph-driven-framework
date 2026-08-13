@@ -19,7 +19,7 @@ relations:
 # Technical Decision — Materialize installed methodology
 
 The reusable methodology is authored in the repository-root source and copied
-unidirectionally into `.caprmadio/000_CAPRMADIO_METHODOLOGY/` only by an explicit
+unidirectionally into `.caprmadio/000_caprmadio_framework/` only by an explicit
 operator synchronization command.
 
 Installed methodology carriers contain the actual governed content. They are

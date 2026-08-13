@@ -3312,7 +3312,7 @@ def _validate_layered_change(
         policy = release.get("policy")
         owner = release.get("owner_change")
         expected_policy = (
-            ".caprmadio/000_CAPRMADIO_METHODOLOGY/06_ops/procedure-release.md"
+            ".caprmadio/000_caprmadio_framework/06_ops/procedure-release.md"
             if layout.slim
             else "dset/scopes/ops/governance/release.md"
         )

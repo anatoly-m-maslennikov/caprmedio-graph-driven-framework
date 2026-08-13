@@ -1,5 +1,5 @@
 "$schema" = "https://json-schema.org/draft/2020-12/schema"
-"$id" = "https://raw.githubusercontent.com/anatoly-m-maslennikov/dset-specs-loops-framework/main/.caprmadio/000_CAPRMADIO_METHODOLOGY/04_skill/schemas/skill-run.schema.toml"
+"$id" = "https://raw.githubusercontent.com/anatoly-m-maslennikov/dset-specs-loops-framework/main/.caprmadio/000_caprmadio_framework/04_skill/schemas/skill-run.schema.toml"
 title = "DSET local skill-run record"
 type = "object"
 required = ["schema_version", "session_id", "llm_session_ids", "run_id", "root_run_id", "parent_run_id", "invocation_source", "checkpoint", "started_at", "finished_at", "status", "persistence", "scope", "skill_id", "workflow_id", "mode_id", "ruleset_identity", "parameters", "outputs", "diagnostics", "next_signals", "budget"]

@@ -105,7 +105,7 @@ Atomic source: `CAPRMADIO-REQUIREMENT-GOV-111`.
 
 The repository-root methodology is the reusable authoring source. Installation
 materializes the selected released methodology into
-`.caprmadio/000_CAPRMADIO_METHODOLOGY/` as ordinary project-local files. Skills resolve
+`.caprmadio/000_caprmadio_framework/` as ordinary project-local files. Skills resolve
 only the installed `.caprmadio` copy during governed work; they do not follow
 symlinks, file pointers, or live references back to the framework repository.
 Refreshing the installed copy is an explicit one-way operation with provenance,

@@ -19,7 +19,7 @@ from tests import repository_root
 # ROOT locates the repository fixture; repository layout is authoritative.
 ROOT = repository_root(Path(__file__))
 # METHODOLOGY defines methodology; this module owns the default.
-METHODOLOGY = ROOT / ".caprmadio" / "000_CAPRMADIO_METHODOLOGY"
+METHODOLOGY = ROOT / ".caprmadio" / "000_caprmadio_framework"
 
 
 def _unique_carrier(name: str) -> Path:

@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://raw.githubusercontent.com/anatoly-m-maslennikov/dset-specs-loops-framework/main/.caprmadio/000_CAPRMADIO_METHODOLOGY/02_gov/schemas/change.schema.json",
+  "$id": "https://raw.githubusercontent.com/anatoly-m-maslennikov/dset-specs-loops-framework/main/.caprmadio/000_caprmadio_framework/02_gov/schemas/change.schema.json",
   "title": "DSET change manifest",
   "type": "object",
   "required": [
@@ -665,7 +665,7 @@
         "policy": {
           "enum": [
             "dset/scopes/ops/governance/release.md",
-            ".caprmadio/000_CAPRMADIO_METHODOLOGY/06_ops/procedure-release.md"
+            ".caprmadio/000_caprmadio_framework/06_ops/procedure-release.md"
           ]
         },
         "class": {

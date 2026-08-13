@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://raw.githubusercontent.com/anatoly-m-maslennikov/dset-specs-loops-framework/main/.caprmadio/000_CAPRMADIO_METHODOLOGY/02_gov/schemas/compilation.schema.json",
+  "$id": "https://raw.githubusercontent.com/anatoly-m-maslennikov/dset-specs-loops-framework/main/.caprmadio/000_caprmadio_framework/02_gov/schemas/compilation.schema.json",
   "title": "DSET active authority compilation index",
   "type": "object",
   "required": [

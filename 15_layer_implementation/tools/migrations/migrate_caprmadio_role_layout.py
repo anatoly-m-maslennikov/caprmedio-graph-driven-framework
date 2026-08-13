@@ -40,7 +40,7 @@ from dset_toolchain.frontmatter import parse as parse_frontmatter  # noqa: E402
 CAPRMADIO_ROOT = Path(".caprmadio")
 RUNTIME_ROOT = Path(".caprmadio_runtime/migrate-caprmadio-role-layout")
 METHODOLOGY_SOURCE = "000_caprmadio_methodology"
-METHODOLOGY_TARGET = "000_CAPRMADIO_METHODOLOGY"
+METHODOLOGY_TARGET = "000_caprmadio_framework"
 PROJECT_SOURCE = "100_project"
 VERSIONS_SOURCE = "150_versions"
 ROOT_FILES = {

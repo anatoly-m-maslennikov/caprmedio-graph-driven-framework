@@ -45,7 +45,7 @@ For Atoms, the role folder is also the lifecycle boundary: an admitted active ca
 
 Layer, feature-group, and feature scope directories retain their registered structural identities and repeat the same role-folder surface recursively. A narrower scope may contain another configured scope kind without changing either scope identity or Content-role meaning. Role folders and their `drafts/` or `archive/` children are materialized only when needed; an absent folder is treated as an empty canonical role slot.
 
-The installed external methodology remains under its reserved `000_CAPRMADIO_METHODOLOGY/` boundary. Runtime and host-scratch state remain outside the governed role-folder tree.
+The installed external methodology remains under its reserved `000_caprmadio_framework/` boundary. Runtime and host-scratch state remain outside the governed role-folder tree.
 
 ## Primary claim
 

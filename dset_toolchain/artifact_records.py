@@ -287,7 +287,7 @@ def _is_atomic_candidate(metadata: dict[str, Any], relative: Path) -> bool:
     current_atom = (
         len(relative.parts) > 1
         and relative.parts[0] == ".caprmadio"
-        and "000_CAPRMADIO_METHODOLOGY" not in relative.parts
+        and "000_caprmadio_framework" not in relative.parts
         and route is not None
         and route[0] == "atomic"
     )

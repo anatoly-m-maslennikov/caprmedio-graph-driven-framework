@@ -348,7 +348,7 @@ def _materialize_layered_manifest(
     if isinstance(release, dict):
         if "policy" in release:
             release["policy"] = (
-                ".caprmadio/000_CAPRMADIO_METHODOLOGY/06_ops/procedure-release.md"
+                ".caprmadio/000_caprmadio_framework/06_ops/procedure-release.md"
             )
         if "owner_change" in release:
             release["owner_change"] = stable_id

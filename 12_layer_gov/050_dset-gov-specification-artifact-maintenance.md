@@ -39,7 +39,7 @@ Every normative rule ID has one editable governing document. Hubs navigate, wrap
   atomic source participates in current authority.
 - Materialized rules become project-owned immediately. Later framework releases provide an explicit comparison and proposed delta, never an invisible overwrite.
 - Author reusable methodology only in the repository-root source. Refresh the
-  installed `.caprmadio/000_CAPRMADIO_METHODOLOGY/` snapshot only through an explicit
+  installed `.caprmadio/000_caprmadio_framework/` snapshot only through an explicit
   one-way operator synchronization command; never mirror ordinary edits or
   copy installed files back into the source.
 - Record intentional local customization with `dset rules refresh`, retaining the source profile, version, unique template carrier name, and digest as provenance.

@@ -375,7 +375,7 @@ def _stage_project(
         "control root.\n\n"
         "## Start here\n\n"
         "- `caprmadio_settings.toml`\n"
-        "- `000_CAPRMADIO_METHODOLOGY`\n"
+        "- `000_caprmadio_framework`\n"
         "- `03_REQUIREMENT`\n"
         "- `06_DELIVERY`\n",
         encoding="utf-8",

@@ -38,7 +38,7 @@ earlier definition.
 | **Governance surface** | A named optional Maintained artifact whose activation adds its registered currentness and entry-gate obligations | `CAPRMADIO-REQUIREMENT-META-054`, `CAPRMADIO-REQUIREMENT-GOV-115` |
 | **Hub** | A thin Maintained navigation artifact linking stable folders and long-lived owners without listing every atom or owning normative truth | `CAPRMADIO-REQUIREMENT-GOV-106` |
 | **Framework source** | The repository-root reusable DSET methodology from which released methodology packages are produced | `CAPRMADIO-IMPL-GOV-007`, `CAPRMADIO-REQUIREMENT-GOV-052` |
-| **Installed methodology** | A materialized project-local copy of selected Framework source under `.caprmadio/000_CAPRMADIO_METHODOLOGY/` | `CAPRMADIO-IMPL-GOV-002`, `CAPRMADIO-REQUIREMENT-GOV-052` |
+| **Installed methodology** | A materialized project-local copy of selected Framework source under `.caprmadio/000_caprmadio_framework/` | `CAPRMADIO-IMPL-GOV-002`, `CAPRMADIO-REQUIREMENT-GOV-052` |
 | **Applied project artifact** | A project-owned Governed artifact outside Installed methodology that records the current Project's requirements, work, implementation, assurance, or history | `CAPRMADIO-IMPL-GOV-007` |
 | **Journal** | Durable Append-only artifacts stored as NDJSON under `.caprmadio_journal/` | `CAPRMADIO-REQUIREMENT-GOV-111` |
 | **Runtime state** | Ignored reconstructible or resumable run state, checkpoints, caches, recovery material, and temporary materializations under `.caprmadio_runtime/` | `CAPRMADIO-REQUIREMENT-GOV-111` |

@@ -14,7 +14,7 @@ relations:
 
 # Requirement — Provide an explicit root-to-installed-methodology sync script
 
-The repository provides one directly executable script that synchronizes reusable root methodology into `.caprmadio/000_CAPRMADIO_METHODOLOGY` through the canonical synchronization engine.
+The repository provides one directly executable script that synchronizes reusable root methodology into `.caprmadio/000_caprmadio_framework` through the canonical synchronization engine.
 
 Preview is the default. Mutation requires an explicit apply flag. Synchronization is one-way from root source to installed methodology; the script never copies installed carriers back to root source.
 

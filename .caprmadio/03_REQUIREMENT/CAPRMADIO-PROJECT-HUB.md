@@ -9,14 +9,14 @@ directories.
 ## Boundaries
 
 Layer-specific truth belongs to the corresponding applied layer. The external
-installed methodology remains isolated under `000_CAPRMADIO_METHODOLOGY`.
+installed methodology remains isolated under `000_caprmadio_framework`.
 Native implementation remains outside `.caprmadio`; only governed
 Implementation carriers and journals belong under `07_IMPLEMENTATION`.
 
 ```mermaid
 flowchart TB
     ROOT[".caprmadio"]
-    METHODOLOGY["000_CAPRMADIO_METHODOLOGY<br/>external installed methodology"]
+    METHODOLOGY["000_caprmadio_framework<br/>external installed methodology"]
     PROJECT["Project roles<br/>01_CONCERN … 08_OPS"]
     META["101 META scope"]
     GOV["102 GOV scope"]
@@ -41,5 +41,5 @@ flowchart TB
 
 - Project roles: `01_CONCERN` through `08_OPS`, materialized when used.
 - Structural scopes: `101_layer_meta` through `106_layer_ops`.
-- Installed methodology: `000_CAPRMADIO_METHODOLOGY`.
+- Installed methodology: `000_caprmadio_framework`.
 - Settings: `caprmadio_settings.toml`.

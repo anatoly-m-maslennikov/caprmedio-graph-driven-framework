@@ -31,7 +31,7 @@ duplicate roles or no independently useful output do not count toward fan-out.
 One root budget is propagated through the delegation tree; a child cannot reset
 the remaining-agent, depth, or round counters. Operator instruction overrides
 the selected project profile. `.caprmadio/caprmadio_settings.toml` selects
-`delegation.budget_profile`; `.caprmadio/000_CAPRMADIO_METHODOLOGY/04_skill/budget.toml` defines the named
+`delegation.budget_profile`; `.caprmadio/000_caprmadio_framework/04_skill/budget.toml` defines the named
 profiles. `budget.toml.default_profile` is compatibility fallback only when
 settings are missing or use a pre-1.2 read contract, and the framework template
 is provenance only after materialization. No override may lower a required

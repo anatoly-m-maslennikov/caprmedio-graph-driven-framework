@@ -79,6 +79,6 @@ python -m dset_toolchain methodology sync .
 python -m dset_toolchain methodology sync . --execute
 ```
 
-Synchronization is explicit and one-way: source edits do not automatically rewrite `.caprmadio/000_CAPRMADIO_METHODOLOGY/`, and installed files are not copied back to the reusable root. Review the preview before using `--execute`.
+Synchronization is explicit and one-way: source edits do not automatically rewrite `.caprmadio/000_caprmadio_framework/`, and installed files are not copied back to the reusable root. Review the preview before using `--execute`.
 
 Supportability is not an afterthought: production work needs enough logs, provenance, state, and runbook context to investigate, contain, and repair failures. CAPRMADIO is intended to grow through bounded, evidence-backed adoption rather than documentation claims alone.

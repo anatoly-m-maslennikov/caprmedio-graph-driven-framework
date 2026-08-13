@@ -45,7 +45,7 @@ mutates. Sources: `CAPRMADIO-REQUIREMENT-META-047` and
 
 The installed methodology is materialized project-local data, not a symlink or
 pointer to framework source. Repository-root framework methodology is refreshed
-into `.caprmadio/000_CAPRMADIO_METHODOLOGY/` only by an explicit one-way synchronization
+into `.caprmadio/000_caprmadio_framework/` only by an explicit one-way synchronization
 operation. Sources: `CAPRMADIO-IMPL-GOV-007`,
 `CAPRMADIO-IMPL-GOV-008`,
 `CAPRMADIO-IMPL-GOV-002`, and `CAPRMADIO-REQUIREMENT-GOV-052`.
