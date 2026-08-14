@@ -88,19 +88,20 @@ Default values are omitted from frontmatter rather than repeated.
 
 META owns the meanings and invariants that every later layer must obey. GOV turns those semantics into deterministic repository conventions: carrier placement, identifiers, filenames, frontmatter, lifecycle directories, relations, provenance, and validation rules.
 
-Key foundation principles include:
+### Main META principles
 
-- MECE decompositions where the domain permits them;
-- DRY authority: use a folder, filename, or carrier location as the single source of truth when it already determines a property;
-- one independently replaceable claim per RMAD Atom;
-- semantically irreducible, context-complete, minimal Atom prose;
-- code-agnostic Requirements;
-- rationale in Analysis rather than embedded in the Specification;
-- active RMAD relations target active RMAD Atoms;
-- forward-only layer dependencies and forward impact propagation;
-- Git-backed revision history plus governed journals where repository history alone is not a reliable realization record;
-- generated Projections with declared sources and no operator-authored exceptions;
-- Exploration Mode for questions and ideas, deferring governed artifacts until the exploration yields something worth preserving.
+The active META principle tier establishes eight project-wide rules:
+
+1. **MECE canonical decompositions.** Every taxonomy or decomposition that claims complete coverage must be non-overlapping and complete inside an explicit boundary. Independent questions belong on independent axes; MECE does not require every Cartesian combination to exist.
+2. **Human comprehension and decisive structure.** Present the smallest structure that lets the intended reader understand, review, and act. Add terminology, metadata, hierarchy, or ceremony only when it exposes a materially useful distinction, boundary, obligation, or action.
+3. **Strict semantic distinctions.** Keep independently governed meanings separate even when one document, workflow, or code change presents them together. A Requirement is not a Method, a Method is not its Implementation, Assurance is not its result, provenance is not evidence, and observation is not authority.
+4. **Materially distinct constructs only.** Add a durable Type, relation, axis, scope, Layer, Feature, or lifecycle state only when the existing model would lose a reviewable distinction and the addition has a sharp, action-facing inclusion and exclusion boundary.
+5. **Bounded meaning across structural scales.** Preserve meaning and explicit applicability when authority is inherited, specialized, overridden, or summarized across project, Layer, Feature, and deeper configured scopes. Recursion never widens authority, evidence, Assurance, or Implementation coverage.
+6. **Falsifiable claims and stop conditions.** State what could disconfirm an empirical claim and what must stop, degrade, block, or reopen work. Missing, unknown, or contradictory required input fails closed at the affected use.
+7. **DRY governed meaning.** Store governed meaning once under one canonical owner. Other uses reference, derive, generate, or adapt it; necessary materialized copies remain non-authoritative and declare how they are regenerated or reconciled.
+8. **Semantic irreducibility.** Keep only content whose removal would cause material semantic or operational loss to the Atom’s role-specific unit. Use canonical terms and relations instead of creating a second authority; keep rationale in Analysis.
+
+Core META rules apply these principles through one independently replaceable claim per RMAD Atom, code-agnostic Requirements, active-to-active RMAD lineage, forward-only Layer dependencies, Git-backed revision history, governed Journals, generated Projections, and Exploration Mode for questions and ideas.
 
 The framework applies recursively: CAPRMADIO governs its own development using the same META and GOV rules it provides to other projects.
 
