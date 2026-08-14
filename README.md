@@ -8,7 +8,7 @@ CAPRMADIO expands to **Concern–Analysis–Plan–Requirement–Method–Assura
 
 ## Status
 
-The current version is **0.3.10**.
+The current version is **0.3.11**.
 
 The META and GOV foundation is mostly finalized. It now establishes the core semantics, invariants, carrier rules, naming, lifecycle, provenance, scope, and traceability model. The reusable methodology, tools, skills, profiles, adapters, assurance assets, and documentation are the next implementation surface; their root folders are intentionally empty placeholders while the new foundation is applied.
 
@@ -88,7 +88,7 @@ Default values are omitted from frontmatter rather than repeated.
 
 META owns the meanings and invariants that every later layer must obey. GOV turns those semantics into deterministic repository conventions: carrier placement, identifiers, filenames, frontmatter, lifecycle directories, relations, provenance, and validation rules.
 
-### Main META principles
+### Main framework principles
 
 The active META principle tier establishes eight project-wide rules:
 
@@ -104,50 +104,6 @@ The active META principle tier establishes eight project-wide rules:
 Core META rules apply these principles through one independently replaceable claim per RMAD Atom, code-agnostic Requirements, active-to-active RMAD lineage, forward-only Layer dependencies, Git-backed revision history, governed Journals, generated Projections, and Exploration Mode for questions and ideas.
 
 The framework applies recursively: CAPRMADIO governs its own development using the same META and GOV rules it provides to other projects.
-
-## Repository structure
-
-The repository separates the applied project control plane from the reusable framework implementation.
-
-```text
-.caprmadio/
-├── 000_caprmadio_framework/     # relative links to reusable root sources
-├── 100_LAYER_1_META/
-├── 200_LAYER_2_GOV/
-├── 300_LAYER_3_SPEC/
-├── 301_FEATURE_METHODOLOGY/
-├── 302_FEATURE_TOOLS/
-├── 303_FEATURE_SKILLS/
-├── 304_FEATURE_PROFILES/
-├── 305_FEATURE_ADAPTERS/
-├── 306_FEATURE_ASSURANCE/
-├── 307_FEATURE_DOCUMENTATION/
-├── 400_LAYER_4_IMPLEMENTATION/
-├── 401_FEATURE_METHODOLOGY/
-├── 402_FEATURE_TOOLS/
-├── 403_FEATURE_SKILLS/
-├── 404_FEATURE_PROFILES/
-├── 405_FEATURE_ADAPTERS/
-├── 406_FEATURE_ASSURANCE/
-├── 407_FEATURE_DOCUMENTATION/
-├── 500_LAYER_5_DELIVERY/
-└── 600_LAYER_6_OPS/
-
-01_METHODOLOGY/
-02_TOOLS/
-03_SKILLS/
-04_PROFILES/
-05_ADAPTERS/
-06_ASSURANCE/
-07_DOCUMENTATION/
-README.md
-LICENSE
-version.md
-```
-
-All governed project artifacts live under `.caprmadio/`. Runtime state, caches, and disposable script outputs belong under `.caprmadio_runtime/`, with one runtime folder per script.
-
-The visible numbered root folders are the reusable framework’s native Implementation. In this self-hosting repository, `.caprmadio/000_caprmadio_framework/` contains relative links to those sources for convenient recursive use; it is not a mirrored copy. Project-specific version, release, and changelog material is not part of that reusable link set.
 
 ## Repository history
 
