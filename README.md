@@ -88,7 +88,7 @@ Default values are omitted from frontmatter rather than repeated.
 
 META owns the meanings and invariants that every later layer must obey. GOV turns those semantics into deterministic repository conventions: carrier placement, identifiers, filenames, frontmatter, lifecycle directories, relations, provenance, and validation rules.
 
-### Main META principles
+### Main framework principles
 
 The active META principle tier establishes eight project-wide rules:
 
