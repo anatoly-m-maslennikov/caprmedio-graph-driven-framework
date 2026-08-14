@@ -1,4 +1,0 @@
-interface:
-  display_name: "CARMADIO Overview"
-  short_description: "Show current CARMADIO project health and coverage"
-  default_prompt: "Use $ca-overview to summarize this project's current artifacts, coverage, freshness, and actionable gaps."

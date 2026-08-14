@@ -1,4 +1,0 @@
-interface:
-  display_name: "CARMADIO Repair Governance"
-  short_description: "Diagnose invalid repository-local CARMADIO governance"
-  default_prompt: "Use $ca-repair-governance to diagnose invalid CARMADIO governance and return a bounded repair handoff."

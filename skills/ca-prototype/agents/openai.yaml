@@ -1,4 +1,0 @@
-interface:
-  display_name: "CARMADIO Prototype"
-  short_description: "Run disposable design experiments safely"
-  default_prompt: "Use $ca-prototype to answer this design question with disposable evidence and stop before production promotion."

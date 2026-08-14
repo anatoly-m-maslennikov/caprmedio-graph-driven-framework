@@ -1,4 +1,0 @@
-interface:
-  display_name: "CARMADIO Triage"
-  short_description: "Classify and route CARMADIO work artifacts"
-  default_prompt: "Use $ca-triage to resolve and run the repository-local work-triage workflow."

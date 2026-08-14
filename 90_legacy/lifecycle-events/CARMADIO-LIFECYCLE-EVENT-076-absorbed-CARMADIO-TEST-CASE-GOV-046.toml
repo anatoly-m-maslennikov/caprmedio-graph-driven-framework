@@ -1,9 +1,0 @@
-schema_version = "1.0"
-artifact_type = "lifecycle_event"
-artifact_id = "CARMADIO-LIFECYCLE-EVENT-076"
-atom_id = "CARMADIO-TEST-CASE-GOV-046"
-event = "absorbed"
-occurred_at = "2026-07-22T06:50:01+04:00"
-related = ["CARMADIO-TEST-CASE-GOV-047"]
-llm_session_ids = ["codex:019f591f-04f6-70f2-8de7-828b7cccc69d"]
-rationale = "The successor retains slim-layout coverage while adding hidden-root, path-base, runtime-state, and chained-transition checks."

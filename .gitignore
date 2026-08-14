@@ -15,6 +15,7 @@ __pycache__/
 
 # Test and static-analysis caches
 /.cache/
+/.skill-validator-shim/
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
@@ -25,10 +26,6 @@ __pycache__/
 !.env.example
 .envrc
 .pypirc
-
-# CARMADIO machine-local operational evidence
-/.carmadio_runtime/*
-!/.carmadio_runtime/.gitignore
 
 # macOS metadata
 .DS_Store

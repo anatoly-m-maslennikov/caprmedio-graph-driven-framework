@@ -1,4 +1,0 @@
-interface:
-  display_name: "CARMADIO Plan Proof"
-  short_description: "Plan deterministic tests and qualitative evals"
-  default_prompt: "Use $ca-plan-proof to resolve and run the repository-local proof-planning workflow."
