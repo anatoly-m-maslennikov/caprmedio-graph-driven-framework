@@ -158,6 +158,13 @@ The framework was renamed twice as its semantic model became clearer:
 
 Historical names remain meaningful only in archived history. CAPRMADIO is the current framework and repository identity.
 
+## Acknowledgments
+
+CAPRMADIO owes an enormous intellectual debt to **Anatoly Levenchuk** and the **First Principles Framework (FPF)**. Without FPF’s disciplined approach to ontology, distinctions, boundaries, reasoning, and engineering knowledge, I would not have been able to develop this framework. My deepest thanks to Anatoly Levenchuk for creating FPF and making it publicly available.
+
+- [Original First Principles Framework by Anatoly Levenchuk](https://github.com/ailev/FPF)
+- [My LLM-friendly FPF knowledge-graph toolkit](https://github.com/anatoly-m-maslennikov/levenchuk-fpf-knowledge-graph-toolkit)
+
 ## Next vertical cut
 
 The next cut will populate the seven reusable implementation surfaces and prove one complete path from project initialization through governed work, assurance, delivery, and operational feedback. Until that proof exists, this repository intentionally distinguishes a coherent foundation from a finished toolchain.
