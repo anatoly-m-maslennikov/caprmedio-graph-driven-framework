@@ -9,10 +9,10 @@ authority.
 
 ## Boundaries
 
-`000_caprmadio_framework` contains external installed methodology only.
-Project-level carriers live in the root Content-role folders; each structural
-scope repeats the same ordered role layout. `.caprmadio_runtime` owns ignored
-runtime state and is not part of this control plane.
+`000_caprmadio_framework` contains the external installed framework view. Every
+semantic carrier has one numbered Layer owner; Content-role folders exist only
+inside their owning Layer or Feature. `.caprmadio_runtime` owns ignored runtime
+state and is not part of this control plane.
 
 Historical aggregates, completed migrations, and compatibility snapshots live
 in the inert repository archive outside `.caprmadio`. Skills do not discover or
@@ -29,7 +29,7 @@ Applied QA definitions and proof records remain under applied owners.
 
 - `caprmadio_settings.toml` — settings and identity registries.
 - `000_caprmadio_framework` — installed methodology.
-- `01_CONCERN` through `08_OPS` — project-level semantic roles.
-- `101_layer_meta` through `106_layer_ops` — applied structural scopes.
+- `100_LAYER_1_META`, `200_LAYER_2_GOV`, `300_LAYER_3_SPEC`, `400_LAYER_4_IMPLEMENTATION`, and `600_LAYER_6_OPS` — applied structural scopes.
+- `302_FEATURE_TOOLS` and `303_FEATURE_SKILLS` — TOOL and SKILL Features of the applied SPEC scope.
 
 Reusable framework source lives outside this project-local authority surface.

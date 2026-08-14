@@ -1,4 +1,0 @@
-interface:
-  display_name: "CAPRMADIO Landscape"
-  short_description: "Compare implementation and technology alternatives"
-  default_prompt: "Use $ca-landscape to resolve and run the repository-local solution landscape workflow."

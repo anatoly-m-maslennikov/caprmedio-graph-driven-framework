@@ -1,4 +1,0 @@
-interface:
-  display_name: "CAPRMADIO Init"
-  short_description: "Initialize repository-local CAPRMADIO governance"
-  default_prompt: "Use $ca-init to preview or initialize CAPRMADIO governance in this repository."

@@ -277,7 +277,7 @@ publisher = "github"
 tag_pattern = "v{product_version}"
 
 [work_items]
-atomic_scopes = ["project-control", "dset-meta", "dset-gov", "dset-tool", "dset-skill", "dset-implementation", "dset-ops"]
+atomic_scopes = ["dset-meta", "dset-gov", "dset-tool", "dset-skill", "dset-implementation", "dset-ops"]
 
 [structure]
 layout = "separated-methodology-v1"
@@ -459,64 +459,57 @@ purpose = "Project-local DSET settings, installed methodology, and applied artif
 
 [[artifact_structure.areas]]
 id = "installed-methodology"
-hub = "000_dset-methodology-hub.md"
+hub = "README.md"
 parent = "framework-control"
 owner = "methodology"
 purpose = "Installed project-local DSET methodology used by governed workflows"
 
 [[artifact_structure.areas]]
-id = "project-control"
-hub = "CAPRMADIO-PROJECT-HUB.md"
-parent = "framework-control"
-owner = "methodology"
-purpose = "Applied project-wide truth owned by this repository"
-
-[[artifact_structure.areas]]
 id = "dset-meta"
 hub = "CAPRMADIO-META-HUB.md"
-parent = "project-control"
+parent = "framework-control"
 owner = "meta"
 purpose = "Project identity and accepted behavioral truth"
 
 [[artifact_structure.areas]]
 id = "dset-gov"
 hub = "CAPRMADIO-GOV-HUB.md"
-parent = "project-control"
+parent = "framework-control"
 owner = "gov"
 purpose = "Project governance atoms, maintained views, evidence, and archive state"
 
 [[artifact_structure.areas]]
 id = "dset-tool"
 hub = "CAPRMADIO-TOOL-HUB.md"
-parent = "project-control"
+parent = "framework-control"
 owner = "tool"
 purpose = "Executable tooling, fixtures, and traceability contracts"
 
 [[artifact_structure.areas]]
 id = "dset-skill"
 hub = "CAPRMADIO-SKILL-HUB.md"
-parent = "project-control"
+parent = "framework-control"
 owner = "skill"
 purpose = "Agent workflow, delegation, and run-evidence contracts"
 
 [[artifact_structure.areas]]
 id = "dset-implementation"
 hub = "CAPRMADIO-IMPL-HUB.md"
-parent = "project-control"
+parent = "framework-control"
 owner = "implementation"
 purpose = "Selected development environments, code profiles, Tests, and Evaluations"
 
 [[artifact_structure.areas]]
 id = "dset-ops"
 hub = "CAPRMADIO-OPS-HUB.md"
-parent = "project-control"
+parent = "framework-control"
 owner = "ops"
 purpose = "Delivery, release, supportability, and hosted evidence"
 
 [[artifact_structure.areas]]
 id = "dset-versions"
 hub = "CAPRMADIO-VERSIONS-HUB.md"
-parent = "project-control"
+parent = "dset-ops"
 owner = "ops"
 purpose = "Applied Version artifacts and release lifecycle records"
 

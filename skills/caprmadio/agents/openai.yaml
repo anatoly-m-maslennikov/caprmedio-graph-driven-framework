@@ -1,4 +1,0 @@
-interface:
-  display_name: "CAPRMADIO"
-  short_description: "Route work through local CAPRMADIO governance"
-  default_prompt: "Use $caprmadio to inspect this repository and recommend the next governed lifecycle action."

@@ -1,4 +1,0 @@
-interface:
-  display_name: "CAPRMADIO Compile"
-  short_description: "Compile atomic CAPRMADIO truth into evergreen specs and plans"
-  default_prompt: "Use $ca-compile to reconcile pending atomic artifacts into the affected evergreen specifications and plans."

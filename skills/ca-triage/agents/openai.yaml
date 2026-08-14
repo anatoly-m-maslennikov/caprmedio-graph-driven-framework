@@ -1,4 +1,0 @@
-interface:
-  display_name: "CAPRMADIO Triage"
-  short_description: "Classify and route CAPRMADIO work artifacts"
-  default_prompt: "Use $ca-triage to resolve and run the repository-local work-triage workflow."
