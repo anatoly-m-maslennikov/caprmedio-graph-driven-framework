@@ -8,7 +8,7 @@ CAPRMADIO expands to **Concern–Analysis–Plan–Requirement–Method–Assura
 
 ## Status
 
-The current version is **0.3.10**.
+The current version is **0.3.11**.
 
 The META and GOV foundation is mostly finalized. It now establishes the core semantics, invariants, carrier rules, naming, lifecycle, provenance, scope, and traceability model. The reusable methodology, tools, skills, profiles, adapters, assurance assets, and documentation are the next implementation surface; their root folders are intentionally empty placeholders while the new foundation is applied.
 
