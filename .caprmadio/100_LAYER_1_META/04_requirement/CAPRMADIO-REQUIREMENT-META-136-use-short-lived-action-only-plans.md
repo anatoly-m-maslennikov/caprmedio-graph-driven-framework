@@ -6,18 +6,11 @@ subject_scope: lifecycle-traceability
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: replacement_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-130
-  - type: child_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-131
-      - CAPRMADIO-REQUIREMENT-META-133
-  - type: relates_to
-    targets:
-      - CAPRMADIO-ANALYSIS-META-003
-      - CAPRMADIO-REQUIREMENT-META-090
-      - CAPRMADIO-REQUIREMENT-META-101
+  replacement_of:
+    - CAPRMADIO-REQUIREMENT-META-130
+  child_of:
+    - CAPRMADIO-REQUIREMENT-META-131-nine-content-roles-with-plan
+    - CAPRMADIO-REQUIREMENT-META-135-preserve-content-role-boundaries-through-caprmadio-loop
 ---
 
 # Requirement — Use short-lived action-only Plans
