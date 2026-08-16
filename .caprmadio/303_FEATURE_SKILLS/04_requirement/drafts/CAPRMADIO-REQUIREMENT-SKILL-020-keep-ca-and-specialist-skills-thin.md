@@ -9,8 +9,9 @@ llm_session_ids:
 relations:
   child_of:
     - CAPRMADIO-REQUIREMENT-META-026-single-owner-rule-placement
+    - CAPRMADIO-REQUIREMENT-TOOL-028-own-deterministic-scripts-in-tools
 ---
 
 # Keep CA and specialist skills thin
 
-`/ca` and specialist skills must only initialize context, pass operator input, select a governed route, and chain the routed methodology or skill without duplicating routing or methodology rules.
+`/ca` and specialist Skills must contain only agent-facing instructions and thin routing or chaining declarations; they must reference Tools rather than embed or copy deterministic scripts and executable helpers.
