@@ -7,12 +7,8 @@ tier: core
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: child_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-029
-      - CAPRMADIO-REQUIREMENT-META-053
-      - CAPRMADIO-REQUIREMENT-META-097
-      - CAPRMADIO-REQUIREMENT-META-123
+  child_of:
+    - CAPRMADIO-REQUIREMENT-META-116-preserve-strict-semantic-distinctions
 ---
 
 # Requirement — Separate authority, applicability, and currentness
