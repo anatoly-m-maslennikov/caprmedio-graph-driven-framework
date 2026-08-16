@@ -6,11 +6,9 @@ subject_scope: semantics
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: child_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-127
-      - CAPRMADIO-REQUIREMENT-META-154
-      - CAPRMADIO-REQUIREMENT-META-155
+  child_of:
+    - CAPRMADIO-REQUIREMENT-META-154-three-artifact-forms-with-generated-projections
+    - CAPRMADIO-REQUIREMENT-META-166-write-context-complete-minimal-atom-prose
 ---
 
 # Generate the Canonical Vocabulary Projection
