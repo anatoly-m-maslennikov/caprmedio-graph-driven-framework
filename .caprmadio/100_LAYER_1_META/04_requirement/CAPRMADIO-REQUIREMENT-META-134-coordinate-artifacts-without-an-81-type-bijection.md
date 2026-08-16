@@ -7,17 +7,11 @@ tier: core
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: replacement_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-089
-  - type: child_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-080
-      - CAPRMADIO-REQUIREMENT-META-131
-  - type: relates_to
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-100
-      - CAPRMADIO-REQUIREMENT-META-133
+  replacement_of:
+    - CAPRMADIO-REQUIREMENT-META-089
+  child_of:
+    - CAPRMADIO-REQUIREMENT-META-114-apply-mece-to-canonical-decompositions
+    - CAPRMADIO-REQUIREMENT-META-117-admit-only-materially-distinct-framework-constructs
 ---
 
 # Requirement — Coordinate artifacts without an 81-Type bijection
