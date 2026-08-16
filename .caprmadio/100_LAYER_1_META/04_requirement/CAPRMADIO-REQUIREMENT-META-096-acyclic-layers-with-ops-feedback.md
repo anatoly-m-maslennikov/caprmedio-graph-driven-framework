@@ -18,11 +18,16 @@ relations:
 
 The ordered layer graph is a directed acyclic graph:
 
-- authority and refinement flow `META → GOV → SPEC → IMPLEMENTATION → DELIVERY → OPS`;
+- structural authority and refinement flow
+  `PROJECT → META → GOV → SPEC → IMPLEMENTATION → DELIVERY → OPS`;
 - a later layer may consume authority from its own or any earlier layer;
 - no layer may govern or redefine an earlier layer;
 - dependency is distinct from scope specialization and `child_of`; and
 - peer scopes interact through explicit Contracts rather than layer precedence.
+
+A project Principle may directly parent a Core Requirement in any Layer. That
+applicability edge neither creates a Layer dependency nor authorizes work to
+bypass an intermediate Layer.
 
 An Ops fact from a later layer may become input to Exploration Mode. After explicit acceptance, the result enters the normal forward flow at its proper owning layer. This feedback is not a backward authority edge.
 
