@@ -6,8 +6,7 @@ llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   child_of:
-    - CAPRMADIO-REQUIREMENT-116-preserve-strict-semantic-distinctions
-    - CAPRMADIO-REQUIREMENT-120-preserve-bounded-meaning-across-structural-scales
+    - CAPRMADIO-REQUIREMENT-114-apply-mece-to-canonical-decompositions
     - CAPRMADIO-REQUIREMENT-140-apply-dry-across-caprmadio
 ---
 
