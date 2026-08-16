@@ -7,13 +7,6 @@ subject_scopes:
 tier: principle
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
-relations:
-  relates_to:
-    - CAPRMADIO-REQUIREMENT-META-091-authority-assurance-and-ops-remain-distinct
-    - CAPRMADIO-REQUIREMENT-META-092-analysis-and-ops-fact-boundary
-    - CAPRMADIO-REQUIREMENT-META-093-mechanism-neutral-assurance-atoms
-    - CAPRMADIO-REQUIREMENT-META-103-one-independently-replaceable-claim-per-atom
-    - CAPRMADIO-REQUIREMENT-META-121-bind-traceability-to-exact-claims-and-revisions
 ---
 
 # Require falsifiable claims and stop conditions
