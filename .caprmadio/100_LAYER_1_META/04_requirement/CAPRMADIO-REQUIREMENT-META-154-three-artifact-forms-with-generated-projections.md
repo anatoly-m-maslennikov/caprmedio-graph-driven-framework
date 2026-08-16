@@ -7,16 +7,11 @@ tier: core
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: replacement_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-080
-  - type: relates_to
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-123
-      - CAPRMADIO-REQUIREMENT-META-131
-      - CAPRMADIO-REQUIREMENT-META-133
-      - CAPRMADIO-REQUIREMENT-META-136
-      - CAPRMADIO-REQUIREMENT-META-153
+  replacement_of:
+    - CAPRMADIO-REQUIREMENT-META-080
+  child_of:
+    - CAPRMADIO-REQUIREMENT-META-114-apply-mece-to-canonical-decompositions
+    - CAPRMADIO-REQUIREMENT-META-116-preserve-strict-semantic-distinctions
 ---
 
 # Requirement — Use three Artifact forms with generated Projections
