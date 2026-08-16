@@ -3,9 +3,12 @@ artifact_type: requirement
 artifact_id: CAPRMADIO-REQUIREMENT-163
 subject_scopes:
   - principles
-tier: principle
+tier: core
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+relations:
+  child_of:
+    - CAPRMADIO-REQUIREMENT-140-apply-dry-across-caprmadio
 ---
 
 # Semantic irreducibility
