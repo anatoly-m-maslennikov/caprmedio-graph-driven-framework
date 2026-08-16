@@ -9,9 +9,7 @@ llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   child_of:
-    - CAPRMADIO-REQUIREMENT-META-121-bind-traceability-to-exact-claims-and-revisions
-    - CAPRMADIO-REQUIREMENT-META-139-use-canonical-carrier-address-as-authority
-    - CAPRMADIO-REQUIREMENT-META-154-three-artifact-forms-with-generated-projections
+    - CAPRMADIO-REQUIREMENT-META-116-preserve-strict-semantic-distinctions
 ---
 
 # Separate Artifact, carrier, and revision
