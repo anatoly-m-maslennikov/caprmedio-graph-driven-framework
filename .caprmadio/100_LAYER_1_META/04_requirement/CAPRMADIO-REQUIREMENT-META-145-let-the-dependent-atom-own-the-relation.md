@@ -4,10 +4,12 @@ artifact_id: CAPRMADIO-REQUIREMENT-META-145
 scope_path: layer:meta
 subject_scopes:
   - artifact-model
+tier: core
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   child_of:
+    - CAPRMADIO-REQUIREMENT-173-govern-tier-preserving-requirement-relations
     - CAPRMADIO-REQUIREMENT-META-026-single-owner-rule-placement
     - CAPRMADIO-REQUIREMENT-META-121-bind-traceability-to-exact-claims-and-revisions
     - CAPRMADIO-REQUIREMENT-META-128-bind-governed-transactions-to-stable-artifact-revisions
