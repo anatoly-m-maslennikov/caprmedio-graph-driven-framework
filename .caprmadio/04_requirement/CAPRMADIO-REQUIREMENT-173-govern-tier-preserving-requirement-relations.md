@@ -16,13 +16,20 @@ relations:
 Every active Requirement `child_of` edge preserves applicability tier and the
 ordered Layer topology:
 
+- the canonical structural chain is
+  `PROJECT → META → GOV → SPEC → IMPLEMENTATION → DELIVERY → OPS`;
 - project Principles are the only Principles and have no parents;
-- a Core may depend directly on an applicable project Principle;
+- a project or Layer Core may depend directly on an applicable project
+  Principle;
 - a Layer 1 Core may depend on a project Core;
 - within one project, Layer, or Feature scope, a Standard may depend on a Core;
 - between adjacent Layers, a Core may depend on a Core and a Standard may
   depend on a Standard; and
 - no other tier combination or backward Layer edge is permitted.
+
+A direct project-Principle-to-Core edge records project-wide applicability; it
+does not create a Layer dependency or permit realization to bypass an
+intermediate Layer.
 
 The child stores the direct relation. Transitive ancestry and inverse children
 are derived. Every active Principle and Core has at least one active child
