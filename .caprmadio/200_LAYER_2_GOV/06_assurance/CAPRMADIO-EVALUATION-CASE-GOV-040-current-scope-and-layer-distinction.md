@@ -15,7 +15,7 @@ relations:
     targets:
       - CAPRMADIO-REQUIREMENT-META-100
       - CAPRMADIO-REQUIREMENT-META-067
-      - CAPRMADIO-REQUIREMENT-META-096
+      - CAPRMADIO-REQUIREMENT-096-acyclic-layers-with-ops-feedback
 ---
 
 # Current scope and layer distinction
