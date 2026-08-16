@@ -7,12 +7,9 @@ tier: core
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: child_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-075
-  - type: relates_to
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-076
+  child_of:
+    - CAPRMADIO-REQUIREMENT-META-120-preserve-bounded-meaning-across-structural-scales
+    - CAPRMADIO-REQUIREMENT-META-122-require-falsifiable-claims-and-stop-conditions
 ---
 
 # Requirement — Propagate atomic revision impact through lineage
