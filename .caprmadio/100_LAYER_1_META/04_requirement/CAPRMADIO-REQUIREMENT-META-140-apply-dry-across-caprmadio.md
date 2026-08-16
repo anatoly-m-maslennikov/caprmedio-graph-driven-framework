@@ -7,11 +7,6 @@ subject_scopes:
 tier: principle
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
-relations:
-  relates_to:
-    - CAPRMADIO-REQUIREMENT-META-103-one-independently-replaceable-claim-per-atom
-    - CAPRMADIO-REQUIREMENT-META-114-apply-mece-to-canonical-decompositions
-    - CAPRMADIO-REQUIREMENT-META-117-admit-only-materially-distinct-framework-constructs
 ---
 
 # Apply DRY across CAPRMADIO
