@@ -3,8 +3,12 @@ artifact_type: requirement
 artifact_id: CAPRMADIO-REQUIREMENT-META-011
 scope_path: layer:meta
 subject_scope: framework-boundary
+tier: core
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+relations:
+  child_of:
+    - CAPRMADIO-REQUIREMENT-META-120-preserve-bounded-meaning-across-structural-scales
 ---
 
 # Requirement — Work Area scope
