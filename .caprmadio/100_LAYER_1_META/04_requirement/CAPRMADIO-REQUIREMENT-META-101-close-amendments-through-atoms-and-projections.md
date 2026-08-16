@@ -6,22 +6,12 @@ subject_scope: authority
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: replacement_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-055
-  - type: child_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-080
-      - CAPRMADIO-REQUIREMENT-META-090
-      - CAPRMADIO-REQUIREMENT-META-095
-  - type: relates_to
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-057
-      - CAPRMADIO-REQUIREMENT-META-058
-      - CAPRMADIO-REQUIREMENT-META-066
-      - CAPRMADIO-REQUIREMENT-META-075
-      - CAPRMADIO-REQUIREMENT-META-077
-      - CAPRMADIO-REQUIREMENT-META-103
+  replacement_of:
+    - CAPRMADIO-REQUIREMENT-META-055
+  child_of:
+    - CAPRMADIO-REQUIREMENT-META-077-propagate-atomic-revision-impact-through-lineage
+    - CAPRMADIO-REQUIREMENT-META-095-propagate-caprmadio-change-forward
+    - CAPRMADIO-REQUIREMENT-META-123-evolve-authority-through-governed-history
 ---
 
 # Requirement — Close every constitutional amendment
