@@ -11,12 +11,8 @@ relations:
   replacement_of:
     - CAPRMADIO-REQUIREMENT-META-075-revision-bound-parent-child-transactions
   child_of:
-    - CAPRMADIO-REQUIREMENT-META-080-three-artifact-forms
-    - CAPRMADIO-REQUIREMENT-META-103-one-independently-replaceable-claim-per-atom
-  relates_to:
-    - CAPRMADIO-REQUIREMENT-META-113-preserve-implementation-traceability-in-journals
-    - CAPRMADIO-REQUIREMENT-META-121-bind-traceability-to-exact-claims-and-revisions
-    - CAPRMADIO-REQUIREMENT-META-123-evolve-authority-through-governed-history
+    - CAPRMADIO-REQUIREMENT-META-122-require-falsifiable-claims-and-stop-conditions
+    - CAPRMADIO-REQUIREMENT-META-163-semantic-irreducibility
 ---
 
 # Bind governed transactions to stable artifact revisions
