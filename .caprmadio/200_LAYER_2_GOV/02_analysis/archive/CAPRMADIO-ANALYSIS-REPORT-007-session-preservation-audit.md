@@ -15,7 +15,7 @@ relations:
       - CAPRMADIO-REQUIREMENT-IMPL-010
       - CAPRMADIO-REQUIREMENT-META-041
       - CAPRMADIO-REQUIREMENT-META-058
-      - CAPRMADIO-REQUIREMENT-META-065
+      - CAPRMADIO-REQUIREMENT-065-ordered-realization-topology
       - CAPRMADIO-REQUIREMENT-META-067
       - CAPRMADIO-REQUIREMENT-META-069
       - CAPRMADIO-REQUIREMENT-META-072
@@ -70,7 +70,7 @@ implemented or verified.
 |---|---|
 | Revision modes and no Evergreen carrier | `CAPRMADIO-REQUIREMENT-META-041` |
 | Exploration Mode | `CAPRMADIO-REQUIREMENT-META-058` |
-| Target topology | `CAPRMADIO-REQUIREMENT-META-065` |
+| Target topology | `CAPRMADIO-REQUIREMENT-065-ordered-realization-topology` |
 | Handoffs | `CAPRMADIO-REQUIREMENT-META-067` |
 | Seven Content roles and three Governance loci | `CAPRMADIO-REQUIREMENT-META-069` |
 | Atomic-only META and GOV authority | `CAPRMADIO-REQUIREMENT-META-072` |

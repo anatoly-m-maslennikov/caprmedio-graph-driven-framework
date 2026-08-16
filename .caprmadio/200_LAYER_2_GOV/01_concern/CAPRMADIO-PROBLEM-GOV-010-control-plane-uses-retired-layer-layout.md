@@ -11,7 +11,7 @@ llm_session_ids:
 relations:
   - type: relates_to
     targets:
-      - CAPRMADIO-REQUIREMENT-META-065
+      - CAPRMADIO-REQUIREMENT-065-ordered-realization-topology
 ---
 
 # Problem — Control plane uses the retired layer layout
