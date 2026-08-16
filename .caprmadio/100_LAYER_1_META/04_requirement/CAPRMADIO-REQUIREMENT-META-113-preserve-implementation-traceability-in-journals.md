@@ -6,17 +6,9 @@ subject_scope: lifecycle-traceability
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: child_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-080
-      - CAPRMADIO-REQUIREMENT-META-086
-  - type: relates_to
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-075
-      - CAPRMADIO-REQUIREMENT-META-076
-      - CAPRMADIO-REQUIREMENT-META-090
-      - CAPRMADIO-REQUIREMENT-META-109
-      - CAPRMADIO-REQUIREMENT-META-112
+  child_of:
+    - CAPRMADIO-REQUIREMENT-META-090-normative-atoms-are-the-caprmadio-specification
+    - CAPRMADIO-REQUIREMENT-META-121-bind-traceability-to-exact-claims-and-revisions
 ---
 
 # Requirement — Preserve implementation traceability in Journals
