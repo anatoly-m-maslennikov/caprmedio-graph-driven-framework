@@ -4,15 +4,13 @@ artifact_id: CAPRMADIO-REQUIREMENT-META-161
 scope_path: layer:meta
 subject_scopes:
   - artifact-model
-tier: core
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   replacement_of:
     - CAPRMADIO-REQUIREMENT-META-142-give-every-atom-one-independently-replaceable-claim
   child_of:
-    - CAPRMADIO-REQUIREMENT-114-apply-mece-to-canonical-decompositions
-    - CAPRMADIO-REQUIREMENT-117-admit-only-materially-distinct-framework-constructs
+    - CAPRMADIO-REQUIREMENT-META-190-admit-only-materially-distinct-framework-constructs
     - CAPRMADIO-REQUIREMENT-163-semantic-irreducibility
 ---
 
