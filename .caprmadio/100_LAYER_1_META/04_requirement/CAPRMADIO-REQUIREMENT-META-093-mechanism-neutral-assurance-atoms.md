@@ -6,16 +6,11 @@ subject_scope: assurance
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: replacement_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-049
-  - type: child_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-086
-  - type: relates_to
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-091
-      - CAPRMADIO-REQUIREMENT-META-092
+  replacement_of:
+    - CAPRMADIO-REQUIREMENT-META-049
+  child_of:
+    - CAPRMADIO-REQUIREMENT-META-091-authority-assurance-and-ops-remain-distinct
+    - CAPRMADIO-REQUIREMENT-META-092-analysis-and-ops-fact-boundary
 ---
 
 # Requirement — Keep Assurance Atoms mechanism-neutral and chains distinct
