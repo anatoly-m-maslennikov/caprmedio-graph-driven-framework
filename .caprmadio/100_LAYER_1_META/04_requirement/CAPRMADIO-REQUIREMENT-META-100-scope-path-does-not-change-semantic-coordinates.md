@@ -7,15 +7,11 @@ tier: core
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: replacement_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-052
-  - type: child_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-089
-  - type: relates_to
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-011
+  replacement_of:
+    - CAPRMADIO-REQUIREMENT-META-052
+  child_of:
+    - CAPRMADIO-REQUIREMENT-META-116-preserve-strict-semantic-distinctions
+    - CAPRMADIO-REQUIREMENT-META-120-preserve-bounded-meaning-across-structural-scales
 ---
 
 # Requirement — Keep Scope path structural
