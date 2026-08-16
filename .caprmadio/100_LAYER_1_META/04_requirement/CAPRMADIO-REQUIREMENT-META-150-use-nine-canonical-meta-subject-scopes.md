@@ -10,9 +10,7 @@ relations:
   replacement_of:
     - CAPRMADIO-REQUIREMENT-META-124-use-one-canonical-subject-scope-per-meta-atom
   child_of:
-    - CAPRMADIO-REQUIREMENT-META-114-apply-mece-to-canonical-decompositions
-    - CAPRMADIO-REQUIREMENT-META-117-admit-only-materially-distinct-framework-constructs
-    - CAPRMADIO-REQUIREMENT-META-140-apply-dry-across-caprmadio
+    - CAPRMADIO-REQUIREMENT-META-100-scope-path-does-not-change-semantic-coordinates
 ---
 
 # Use nine canonical META Subject scopes
