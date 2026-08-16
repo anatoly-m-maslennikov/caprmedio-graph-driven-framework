@@ -6,13 +6,9 @@ subject_scope: semantics
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: child_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-086
-  - type: relates_to
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-090
-      - CAPRMADIO-REQUIREMENT-META-102
+  child_of:
+    - CAPRMADIO-REQUIREMENT-META-090-normative-atoms-are-the-caprmadio-specification
+    - CAPRMADIO-REQUIREMENT-META-118-keep-meta-and-gov-implementation-neutral
 ---
 
 # Requirement — Keep Requirements realization-agnostic
