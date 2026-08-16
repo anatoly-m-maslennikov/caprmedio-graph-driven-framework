@@ -8,10 +8,8 @@ llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   child_of:
-    - CAPRMADIO-REQUIREMENT-META-116-preserve-strict-semantic-distinctions
-    - CAPRMADIO-REQUIREMENT-META-138-use-nouns-for-content-role-names
-    - CAPRMADIO-REQUIREMENT-META-140-apply-dry-across-caprmadio
-    - CAPRMADIO-REQUIREMENT-META-150-use-nine-canonical-meta-subject-scopes
+    - CAPRMADIO-REQUIREMENT-META-132-caprmadio-framework-identity
+    - CAPRMADIO-REQUIREMENT-META-166-write-context-complete-minimal-atom-prose
 ---
 
 # Canonical scoped vocabulary
