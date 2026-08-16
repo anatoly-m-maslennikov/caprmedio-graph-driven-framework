@@ -6,7 +6,6 @@ llm_session_ids:
 relations:
   child_of:
     - CAPRMADIO-REQUIREMENT-META-053-separate-active-authority-from-preserved-history
-    - CAPRMADIO-REQUIREMENT-META-145-let-the-dependent-atom-own-the-relation
     - CAPRMADIO-REQUIREMENT-META-159-define-atom-admission-and-lifecycle
 ---
 
