@@ -14,18 +14,19 @@ relations:
 
 # Define the ordered realization topology
 
-CAPRMADIO uses six ordered layers:
+CAPRMADIO uses one project scope above six ordered Layers:
 
 ```text
-META → GOV → SPEC → IMPLEMENTATION → DELIVERY → OPS
+PROJECT → META → GOV → SPEC → IMPLEMENTATION → DELIVERY → OPS
 ```
 
-Project scope owns this Layer decomposition, the canonical responsibility and
-boundary of every Layer, and every Contract whose endpoints belong to different
-Layers. A Layer may govern work inside its boundary but cannot unilaterally
-define or change a cross-Layer Contract. Traceability between individual
-artifacts remains governed by its registered relation kind and does not become
-a Contract merely because the artifacts occupy different Layers.
+PROJECT is the root structural scope rather than a seventh Layer. It owns this
+Layer decomposition, the canonical responsibility and boundary of every Layer,
+and every Contract whose endpoints belong to different Layers. A Layer may
+govern work inside its boundary but cannot unilaterally define or change a
+cross-Layer Contract. Traceability between individual artifacts remains
+governed by its registered relation kind and does not become a Contract merely
+because the artifacts occupy different Layers.
 
 | Layer | Canonical responsibility |
 |---|---|
