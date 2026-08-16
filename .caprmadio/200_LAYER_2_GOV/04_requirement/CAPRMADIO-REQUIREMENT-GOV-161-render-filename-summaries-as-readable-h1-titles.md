@@ -9,7 +9,7 @@ llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   child_of:
-    - CAPRMADIO-REQUIREMENT-115-prioritize-human-comprehension-and-decisive-structure
+    - CAPRMADIO-REQUIREMENT-181-simple-outside-necessarily-complex-inside
     - CAPRMADIO-REQUIREMENT-META-139-use-canonical-carrier-address-as-authority
     - CAPRMADIO-REQUIREMENT-META-149-keep-an-atom-summary-immutable
     - CAPRMADIO-REQUIREMENT-163-semantic-irreducibility
