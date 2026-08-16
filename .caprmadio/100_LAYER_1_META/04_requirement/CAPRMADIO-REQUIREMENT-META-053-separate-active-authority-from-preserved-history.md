@@ -7,12 +7,11 @@ tier: core
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: replacement_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-032
-  - type: relates_to
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-058
+  replacement_of:
+    - CAPRMADIO-REQUIREMENT-META-032
+  child_of:
+    - CAPRMADIO-REQUIREMENT-META-116-preserve-strict-semantic-distinctions
+    - CAPRMADIO-REQUIREMENT-META-120-preserve-bounded-meaning-across-structural-scales
 ---
 
 # Requirement — Separate active authority from preserved history
