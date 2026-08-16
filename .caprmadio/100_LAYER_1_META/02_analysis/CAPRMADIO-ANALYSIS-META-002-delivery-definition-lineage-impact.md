@@ -35,7 +35,7 @@ The refinement is eligible for META because it is independent of any language, c
 | `CAPRMADIO-REQUIREMENT-META-093` | compatible | Mechanism-neutral Assurance remains distinct from Delivery and Implementation. |
 | `CAPRMADIO-REQUIREMENT-META-094` | compatible | Optional product framing is unaffected. |
 | `CAPRMADIO-REQUIREMENT-META-095` | compatible | Delivery authority propagating into Implementation follows the existing forward rule. |
-| `CAPRMADIO-REQUIREMENT-META-096` | compatible | No layer edge or backward authority was added. |
+| `CAPRMADIO-REQUIREMENT-096-acyclic-layers-with-ops-feedback` | compatible | No layer edge or backward authority was added. |
 | `CAPRMADIO-REQUIREMENT-META-097` | compatible | Provenance and evidence semantics are unchanged. |
 | `CAPRMADIO-REQUIREMENT-META-098` | compatible | Type-derived coordinates are unchanged. |
 | `CAPRMADIO-REQUIREMENT-META-099` | compatible | No new carrier property was introduced. |

@@ -34,7 +34,7 @@ realization while preserving its declared obligations.
 | `CAPRMADIO-REQUIREMENT-META-093` | compatible | Mechanism-neutral Assurance remains distinct from Method. |
 | `CAPRMADIO-REQUIREMENT-META-094` | compatible | Product framing is unaffected. |
 | `CAPRMADIO-REQUIREMENT-META-095` | compatible | Forward propagation semantics are unaffected. |
-| `CAPRMADIO-REQUIREMENT-META-096` | compatible | Layer direction and Ops feedback are unaffected. |
+| `CAPRMADIO-REQUIREMENT-096-acyclic-layers-with-ops-feedback` | compatible | Layer direction and Ops feedback are unaffected. |
 | `CAPRMADIO-REQUIREMENT-META-097` | compatible | Provenance and evidence remain distinct. |
 | `CAPRMADIO-REQUIREMENT-META-098` | compatible | Type-pair coordinate derivation is unchanged. |
 | `CAPRMADIO-REQUIREMENT-META-099` | compatible | Carrier-property derivation is unchanged. |

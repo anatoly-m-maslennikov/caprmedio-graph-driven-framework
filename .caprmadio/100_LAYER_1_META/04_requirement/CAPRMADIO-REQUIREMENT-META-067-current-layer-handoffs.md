@@ -9,7 +9,7 @@ llm_session_ids:
 relations:
   child_of:
     - CAPRMADIO-REQUIREMENT-065-ordered-realization-topology
-    - CAPRMADIO-REQUIREMENT-META-096-acyclic-layers-with-ops-feedback
+    - CAPRMADIO-REQUIREMENT-096-acyclic-layers-with-ops-feedback
 ---
 
 # Define current Layer handoffs

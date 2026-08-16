@@ -106,7 +106,7 @@ relations:
 - `CAPRMADIO-REQUIREMENT-065-ordered-realization-topology` — Requirement — Define the ordered realization topology
 - `CAPRMADIO-REQUIREMENT-META-067` — Requirement — Define current layer handoffs
 - `CAPRMADIO-REQUIREMENT-META-095` — Requirement — Propagate accepted change forward
-- `CAPRMADIO-REQUIREMENT-META-096` — Requirement — Keep current layer dependencies acyclic
+- `CAPRMADIO-REQUIREMENT-096-acyclic-layers-with-ops-feedback` — Requirement — Keep current layer dependencies acyclic
 - `CAPRMADIO-REQUIREMENT-META-100` — Requirement — Keep Scope path structural
 - `CAPRMADIO-REQUIREMENT-META-102` — Requirement — Preserve external and relational boundary obligations
 - `CAPRMADIO-REQUIREMENT-META-104` — Requirement — Propagate structural scope through realization
