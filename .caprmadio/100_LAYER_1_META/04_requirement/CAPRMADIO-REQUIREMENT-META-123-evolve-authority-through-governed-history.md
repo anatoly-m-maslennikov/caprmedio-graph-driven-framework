@@ -7,14 +7,9 @@ tier: core
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: relates_to
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-076
-      - CAPRMADIO-REQUIREMENT-META-080
-      - CAPRMADIO-REQUIREMENT-META-101
-      - CAPRMADIO-REQUIREMENT-META-103
-      - CAPRMADIO-REQUIREMENT-META-113
-      - CAPRMADIO-REQUIREMENT-META-121
+  child_of:
+    - CAPRMADIO-REQUIREMENT-META-120-preserve-bounded-meaning-across-structural-scales
+    - CAPRMADIO-REQUIREMENT-META-122-require-falsifiable-claims-and-stop-conditions
 ---
 
 # Requirement — Evolve authority through governed history
