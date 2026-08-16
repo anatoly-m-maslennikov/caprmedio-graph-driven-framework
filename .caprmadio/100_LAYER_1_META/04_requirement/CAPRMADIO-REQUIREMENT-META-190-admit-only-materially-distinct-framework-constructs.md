@@ -1,11 +1,14 @@
 ---
 artifact_type: requirement
-artifact_id: CAPRMADIO-REQUIREMENT-117
+artifact_id: CAPRMADIO-REQUIREMENT-META-190
 subject_scopes:
-  - principles
-tier: principle
+  - artifact-model
+tier: core
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+relations:
+  child_of:
+    - CAPRMADIO-REQUIREMENT-181-simple-outside-necessarily-complex-inside
 ---
 
 # Requirement — Admit only materially distinct framework constructs
