@@ -6,12 +6,9 @@ subject_scope: framework-boundary
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: child_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-109
-  - type: relates_to
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-053
+  child_of:
+    - CAPRMADIO-REQUIREMENT-META-053-separate-active-authority-from-preserved-history
+    - CAPRMADIO-REQUIREMENT-META-109-all-governed-artifacts-live-under-caprmadio
 ---
 
 # Requirement — Isolate runtime state under `.caprmadio_runtime`
