@@ -9,7 +9,6 @@ llm_session_ids:
 relations:
   child_of:
     - CAPRMADIO-REQUIREMENT-114-apply-mece-to-canonical-decompositions
-    - CAPRMADIO-REQUIREMENT-117-admit-only-materially-distinct-framework-constructs
 ---
 
 # Requirement — Make Requirement the only universally mandatory Atom
