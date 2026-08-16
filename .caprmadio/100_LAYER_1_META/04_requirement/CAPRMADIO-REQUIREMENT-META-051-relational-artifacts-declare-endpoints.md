@@ -6,12 +6,10 @@ subject_scope: artifact-model
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: replacement_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-014
-  - type: relates_to
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-098
+  replacement_of:
+    - CAPRMADIO-REQUIREMENT-META-014
+  child_of:
+    - CAPRMADIO-REQUIREMENT-META-156-define-three-governance-loci
 ---
 
 # Requirement — Make relational endpoints explicit
