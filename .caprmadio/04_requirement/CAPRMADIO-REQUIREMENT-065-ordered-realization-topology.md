@@ -14,11 +14,21 @@ relations:
 
 # Define the ordered realization topology
 
-CAPRMADIO uses one project scope above six ordered Layers:
+CAPRMADIO uses one project scope above six cumulatively ordered Layers:
 
 ```text
-PROJECT → META → GOV → SPEC → IMPLEMENTATION → DELIVERY → OPS
+PROJECT → META
+PROJECT + META → GOV
+PROJECT + META + GOV → SPEC
+PROJECT + META + GOV + SPEC → IMPLEMENTATION
+PROJECT + META + GOV + SPEC + IMPLEMENTATION → DELIVERY
+PROJECT + META + GOV + SPEC + IMPLEMENTATION + DELIVERY → OPS
 ```
+
+Each row identifies the complete upstream authority available to its receiving
+Layer. It does not require every receiving artifact to repeat relations to
+every upstream scope; artifacts store only the direct dependencies they
+actually use, and derived reachability remains derived.
 
 PROJECT is the root structural scope rather than a seventh Layer. It owns this
 Layer decomposition, the canonical responsibility and boundary of every Layer,
