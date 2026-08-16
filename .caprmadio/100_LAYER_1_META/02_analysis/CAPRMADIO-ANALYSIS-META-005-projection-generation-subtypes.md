@@ -9,7 +9,6 @@ relations:
     - CAPRMADIO-REQUIREMENT-META-154-three-artifact-forms-with-generated-projections
     - CAPRMADIO-REQUIREMENT-GOV-133-govern-catalog-map-and-hub-projections
     - CAPRMADIO-REQUIREMENT-GOV-151-register-implementation-record-projection
-  relates_to:
     - CAPRMADIO-PLAN-009--establish-projection-generation-subtypes
 ---
 
