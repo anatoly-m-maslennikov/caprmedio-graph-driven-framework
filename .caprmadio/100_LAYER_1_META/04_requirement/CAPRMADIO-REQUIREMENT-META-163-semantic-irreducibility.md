@@ -11,8 +11,6 @@ relations:
   child_of:
     - CAPRMADIO-REQUIREMENT-META-115-prioritize-human-comprehension-and-decisive-structure
     - CAPRMADIO-REQUIREMENT-META-140-apply-dry-across-caprmadio
-    - CAPRMADIO-REQUIREMENT-META-160-use-canonical-terms-for-governed-concepts
-    - CAPRMADIO-REQUIREMENT-META-161-define-role-specific-atom-atomicity
 ---
 
 # Semantic irreducibility
