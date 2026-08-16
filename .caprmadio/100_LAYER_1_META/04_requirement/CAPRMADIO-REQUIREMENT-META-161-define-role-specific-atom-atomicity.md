@@ -13,8 +13,7 @@ relations:
   child_of:
     - CAPRMADIO-REQUIREMENT-META-114-apply-mece-to-canonical-decompositions
     - CAPRMADIO-REQUIREMENT-META-117-admit-only-materially-distinct-framework-constructs
-    - CAPRMADIO-REQUIREMENT-META-131-nine-content-roles-with-plan
-    - CAPRMADIO-REQUIREMENT-META-154-three-artifact-forms-with-generated-projections
+    - CAPRMADIO-REQUIREMENT-META-163-semantic-irreducibility
 ---
 
 # Role-specific Atom atomicity
