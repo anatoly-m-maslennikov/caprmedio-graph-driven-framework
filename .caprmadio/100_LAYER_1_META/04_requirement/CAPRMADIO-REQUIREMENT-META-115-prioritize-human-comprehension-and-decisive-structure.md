@@ -7,11 +7,6 @@ subject_scopes:
 tier: principle
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
-relations:
-  relates_to:
-    - CAPRMADIO-REQUIREMENT-META-099-nonduplicative-current-artifact-properties
-    - CAPRMADIO-REQUIREMENT-META-103-one-independently-replaceable-claim-per-atom
-    - CAPRMADIO-REQUIREMENT-META-114-apply-mece-to-canonical-decompositions
 ---
 
 # Prioritize human comprehension and decisive structure
