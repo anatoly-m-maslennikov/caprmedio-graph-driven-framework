@@ -6,15 +6,10 @@ subject_scope: development-flow
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: replacement_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-050
-  - type: child_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-086
-  - type: relates_to
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-092
+  replacement_of:
+    - CAPRMADIO-REQUIREMENT-META-050
+  child_of:
+    - CAPRMADIO-REQUIREMENT-META-066-meta-eligibility-rule
 ---
 
 # Requirement — Keep product framing optional
