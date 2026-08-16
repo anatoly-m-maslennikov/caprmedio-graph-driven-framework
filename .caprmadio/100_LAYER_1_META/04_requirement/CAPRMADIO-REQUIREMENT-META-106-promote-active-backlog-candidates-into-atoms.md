@@ -6,15 +6,9 @@ subject_scope: development-flow
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: child_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-058
-      - CAPRMADIO-REQUIREMENT-META-090
-      - CAPRMADIO-REQUIREMENT-META-105
-  - type: relates_to
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-101
-      - CAPRMADIO-REQUIREMENT-META-103
+  child_of:
+    - CAPRMADIO-REQUIREMENT-META-090-normative-atoms-are-the-caprmadio-specification
+    - CAPRMADIO-REQUIREMENT-META-135-preserve-content-role-boundaries-through-caprmadio-loop
 ---
 
 # Requirement — Promote active backlog candidates into Atoms
