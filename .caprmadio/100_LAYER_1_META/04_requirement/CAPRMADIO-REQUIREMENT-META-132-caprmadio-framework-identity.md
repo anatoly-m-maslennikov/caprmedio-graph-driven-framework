@@ -7,15 +7,11 @@ tier: core
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: replacement_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-087
-  - type: child_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-131
-  - type: relates_to
-    targets:
-      - CAPRMADIO-ANALYSIS-META-003
+  replacement_of:
+    - CAPRMADIO-REQUIREMENT-META-087
+  child_of:
+    - CAPRMADIO-REQUIREMENT-META-115-prioritize-human-comprehension-and-decisive-structure
+    - CAPRMADIO-REQUIREMENT-META-116-preserve-strict-semantic-distinctions
 ---
 
 # Requirement — Use CAPRMADIO as the framework identity
