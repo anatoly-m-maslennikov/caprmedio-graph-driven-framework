@@ -16,7 +16,12 @@ relations:
 
 # Use a flat numbered Layer–Feature layout
 
-The `.caprmadio/` root contains the installed-framework boundary, project settings, generated control carriers, and numbered Layer scopes. It must not contain project-level Content-role directories. Every governed semantic carrier has exactly one Layer owner.
+The `.caprmadio/` root contains the installed-framework boundary, project
+settings, generated control carriers, numbered Layer scopes, and
+`04_requirement/`. The project-level Requirement directory owns only project
+Principles and project-wide Core Requirements. Other project-level
+Content-role directories are not created, and every non-project semantic
+carrier has exactly one Layer or Feature owner.
 
 Explicit Layer and Feature scope directories are flat siblings and use these uppercase fixed-width grammars:
 
