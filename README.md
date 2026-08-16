@@ -1,10 +1,22 @@
 # CAPRMADIO
 
-**The Vibe-Code-to-Production Framework**
+> **“Prompts execute the work. The graph preserves what the work means.”**
+>
+> — CAPRMADIO framework logline
 
-CAPRMADIO is a governed framework for carrying AI-assisted software work from an initial concern to production operation without losing intent, rationale, specification, assurance, delivery controls, implementation traceability, or operational feedback.
+The closest verified expression of this idea from Karpathy appears in his [LLM Wiki](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f):
 
-CAPRMADIO expands to **Concern–Analysis–Plan–Requirement–Method–Assurance–Delivery–Implementation–Ops**. The name describes how the framework achieves its outcome; “vibe code to production” describes the outcome itself.
+> “Obsidian is the IDE; the LLM is the programmer; the wiki is the codebase.”
+>
+> — Andrej Karpathy
+
+Karpathy’s [talk](https://www.youtube.com/watch?v=XdbpCM4yGyE) also discusses Software 3.0 and attention as graph-based message passing.
+
+**The Graph-Driven Development Framework**
+
+CAPRMADIO is a graph-driven, governed framework for carrying AI-assisted software work from an initial concern to production operation without losing intent, rationale, specification, assurance, delivery controls, implementation traceability, or operational feedback.
+
+CAPRMADIO expands to **Concern–Analysis–Plan–Requirement–Method–Assurance–Delivery–Implementation–Ops**. The name describes the semantic path through the framework; graph-driven development describes its architecture; and “vibe code to production” describes the outcome it is designed to support.
 
 ## Status
 
@@ -45,9 +57,28 @@ The framework name can also be read as **CAP · RMAD · IO**:
 
 Requirement is the only universally mandatory Atom role. Other roles are introduced when the work needs them, but anything created under a role must keep that role’s canonical meaning.
 
+## Why graph-driven
+
+CAPRMADIO represents development knowledge as a governed graph rather than a collection of loosely connected documents. Each independently governed Atom is a node with a stable identity. Typed relations are edges with specific meanings: they connect concerns to their analysis and resolution, narrow principles into core and standard rules, bind specification to implementation, connect assurance to the claims it checks, and carry operational evidence back into new concerns.
+
+The graph is not only a visualization. Its structure is intended to drive development work:
+
+- Plans describe accepted changes to graph nodes, relations, and their native realization.
+- Validation checks graph invariants, valid relation endpoints, scope, tier, lineage, and currentness.
+- Impact analysis follows typed edges to find what a changed claim may invalidate or require to be regenerated.
+- Projections turn governed graph slices into catalogs, maps, lifecycle diagrams, implementation records, and other task-specific views without creating a second source of authority.
+- Implementation bindings connect Requirements, Methods, Assurance, and Delivery rules to the actual code, configuration, tests, automation, and documentation that realize them.
+- Ops closes the loop by attaching factual execution results and evidence to the governed claims and implementations they concern.
+
+This makes the graph an executable coordination model for humans, agents, generators, and validators. The META and GOV foundation defines that model today; the reusable tools and skills that automate more of its traversal, validation, projection, and implementation flow are the next implementation surface.
+
 ## The framework axes
 
-CAPRMADIO keeps independent classifications independent.
+CAPRMADIO keeps independent classifications independent. Every governed artifact occupies exactly one coordinate across three primary semantic axes:
+
+```text
+Artifact form × Content role × Governance locus
+```
 
 ### Content role
 
@@ -60,6 +91,18 @@ Every governed artifact has one form:
 - **Atom** — the smallest independently governed unit under its role’s atomicity model, with a stable identity and an indivisible lifecycle.
 - **Journal** — an ordered append-only sequence of admitted records.
 - **Projection** — a reproducibly generated, non-authoritative view over declared governed sources. Projections are never directly edited.
+
+### Governance locus
+
+Governance locus states where an artifact’s primary meaning is owned:
+
+- **Internal** — the current project establishes and owns the meaning.
+- **External** — an identified source outside the current project establishes the meaning, and the governed artifact preserves that source rather than rewriting it.
+- **Relation** — the meaning exists only between explicit role-bearing endpoints and is not owned by either endpoint in isolation.
+
+`relation` is the canonical axis value; *relational* describes an artifact routed to that locus. Every relational artifact declares one stable relation kind and at least two explicit endpoints, with each endpoint independently identified as internal or external. An ordinary citation, dependency, or traceability edge does not by itself make an artifact relational.
+
+Three Artifact forms × nine Content roles × three Governance loci define 81 possible semantic coordinates. CAPRMADIO admits them sparsely: a coordinate exists only when it represents a materially useful construct, so the framework does not invent a Type or placeholder for every possible combination.
 
 ### Structural scope
 

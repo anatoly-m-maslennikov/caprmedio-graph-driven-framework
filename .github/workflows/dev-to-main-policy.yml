@@ -37,3 +37,18 @@ jobs:
           test "$HEAD_REF" = "dev"
           test "$HEAD_REPOSITORY" = "$REPOSITORY"
           test "$PR_AUTHOR" = "$REPOSITORY_OWNER"
+
+  enable-auto-merge:
+    name: Enable auto-merge
+    needs: pr-policy
+    if: github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Enable merge-commit auto-merge
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+        run: gh pr merge --auto --merge "$PR_URL"
