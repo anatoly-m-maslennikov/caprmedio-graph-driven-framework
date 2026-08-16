@@ -6,13 +6,9 @@ subject_scope: semantics
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: child_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-115
-      - CAPRMADIO-REQUIREMENT-META-131
-  - type: relates_to
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-132
+  child_of:
+    - CAPRMADIO-REQUIREMENT-META-131-nine-content-roles-with-plan
+    - CAPRMADIO-REQUIREMENT-META-132-caprmadio-framework-identity
 ---
 
 # Requirement — Use nouns for Content-role names
