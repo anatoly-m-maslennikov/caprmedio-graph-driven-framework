@@ -25,4 +25,6 @@ Tier is determined by applicability breadth rather than Subject, Type,
 technicality, implementation detail, or execution order. Each Core names one
 or more applicable Principles through `child_of`; each Standard names one or
 more applicable Cores through `child_of`. Principle inheritance is derived
-transitively through those direct links.
+transitively through those direct links. Every active Principle has at least
+one direct Core child, and every active Core has at least one direct Standard
+child.
