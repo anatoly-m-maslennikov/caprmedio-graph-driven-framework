@@ -6,16 +6,10 @@ subject_scope: lifecycle-traceability
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: replacement_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-130
-  - type: child_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-080
-      - CAPRMADIO-REQUIREMENT-META-131
-  - type: relates_to
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-113
+  replacement_of:
+    - CAPRMADIO-REQUIREMENT-META-130
+  child_of:
+    - CAPRMADIO-REQUIREMENT-META-154-three-artifact-forms-with-generated-projections
 ---
 
 # Requirement — Use Implementation Record as a Projection
