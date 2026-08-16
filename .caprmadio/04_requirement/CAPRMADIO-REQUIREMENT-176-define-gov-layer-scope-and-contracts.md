@@ -5,6 +5,7 @@ llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   child_of:
+    - CAPRMADIO-REQUIREMENT-065-ordered-realization-topology
     - CAPRMADIO-REQUIREMENT-174-own-immediate-child-scopes-and-contracts
 ---
 
