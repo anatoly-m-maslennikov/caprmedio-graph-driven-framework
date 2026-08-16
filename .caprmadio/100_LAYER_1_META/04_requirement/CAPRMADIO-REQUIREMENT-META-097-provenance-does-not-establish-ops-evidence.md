@@ -11,6 +11,7 @@ relations:
   child_of:
     - CAPRMADIO-REQUIREMENT-META-091-authority-assurance-and-ops-remain-distinct
     - CAPRMADIO-REQUIREMENT-META-121-bind-traceability-to-exact-claims-and-revisions
+    - CAPRMADIO-REQUIREMENT-META-129-bound-git-authority-to-repository-provenance
 ---
 
 # Requirement — Keep provenance separate from evidence
