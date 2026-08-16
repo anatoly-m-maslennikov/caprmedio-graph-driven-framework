@@ -11,8 +11,6 @@ relations:
     - CAPRMADIO-REQUIREMENT-META-126-require-one-subject-scope-on-every-atom
   child_of:
     - CAPRMADIO-REQUIREMENT-META-100-scope-path-does-not-change-semantic-coordinates
-    - CAPRMADIO-REQUIREMENT-META-114-apply-mece-to-canonical-decompositions
-    - CAPRMADIO-REQUIREMENT-META-120-preserve-bounded-meaning-across-structural-scales
     - CAPRMADIO-REQUIREMENT-META-131-nine-content-roles-with-plan
 ---
 
