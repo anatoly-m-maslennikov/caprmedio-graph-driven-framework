@@ -7,19 +7,11 @@ tier: core
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: replacement_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-086
-  - type: child_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-080
-  - type: relates_to
-    targets:
-      - CAPRMADIO-ANALYSIS-META-003
-      - CAPRMADIO-REQUIREMENT-META-091
-      - CAPRMADIO-REQUIREMENT-META-092
-      - CAPRMADIO-REQUIREMENT-META-093
-      - CAPRMADIO-REQUIREMENT-META-102
+  replacement_of:
+    - CAPRMADIO-REQUIREMENT-META-086
+  child_of:
+    - CAPRMADIO-REQUIREMENT-META-114-apply-mece-to-canonical-decompositions
+    - CAPRMADIO-REQUIREMENT-META-116-preserve-strict-semantic-distinctions
 ---
 
 # Requirement — Use nine Content roles with Plan
