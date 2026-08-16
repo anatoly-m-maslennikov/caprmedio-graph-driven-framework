@@ -10,12 +10,7 @@ relations:
   replacement_of:
     - CAPRMADIO-REQUIREMENT-META-125-generate-the-active-meta-atom-scope-catalog
   child_of:
-    - CAPRMADIO-REQUIREMENT-META-124-use-one-canonical-subject-scope-per-meta-atom
-    - CAPRMADIO-REQUIREMENT-META-167-use-universal-subject-scopes-with-rmad-cardinality
-  relates_to:
-    - CAPRMADIO-REQUIREMENT-META-080-three-artifact-forms
     - CAPRMADIO-REQUIREMENT-META-090-normative-atoms-are-the-caprmadio-specification
-    - CAPRMADIO-REQUIREMENT-META-099-nonduplicative-current-artifact-properties
     - CAPRMADIO-REQUIREMENT-META-118-keep-meta-and-gov-implementation-neutral
 ---
 
