@@ -10,6 +10,8 @@ relations:
     - CAPRMADIO-REQUIREMENT-META-088
   child_of:
     - CAPRMADIO-REQUIREMENT-META-131-nine-content-roles-with-plan
+    - CAPRMADIO-REQUIREMENT-META-134-coordinate-artifacts-without-an-81-type-bijection
+    - CAPRMADIO-REQUIREMENT-META-152-make-requirement-the-only-universally-mandatory-atom
     - CAPRMADIO-REQUIREMENT-META-154-three-artifact-forms-with-generated-projections
 ---
 
