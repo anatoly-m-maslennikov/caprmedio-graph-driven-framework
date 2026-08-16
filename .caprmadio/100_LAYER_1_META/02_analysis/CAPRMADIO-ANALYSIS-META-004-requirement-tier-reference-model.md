@@ -5,7 +5,7 @@ scope_path: layer:meta
 subject_scope: authority
 relations:
   analysis_of:
-    - CAPRMADIO-REQUIREMENT-META-169-classify-rmad-atoms-by-applicability-tier
+    - CAPRMADIO-REQUIREMENT-169-classify-rmad-atoms-by-applicability-tier
     - CAPRMADIO-REQUIREMENT-GOV-162-encode-rmad-applicability-tiers
     - CAPRMADIO-PLAN-008--complete-rmad-tier-parent-links
 ---

@@ -10,7 +10,7 @@ relations:
   replacement_of:
     - CAPRMADIO-REQUIREMENT-META-028
   child_of:
-    - CAPRMADIO-REQUIREMENT-META-116-preserve-strict-semantic-distinctions
+    - CAPRMADIO-REQUIREMENT-116-preserve-strict-semantic-distinctions
 ---
 
 # Requirement — Keep authority, assurance, and Ops distinct

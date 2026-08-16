@@ -10,7 +10,7 @@ relations:
   replacement_of:
     - CAPRMADIO-REQUIREMENT-META-076
   child_of:
-    - CAPRMADIO-REQUIREMENT-META-122-require-falsifiable-claims-and-stop-conditions
+    - CAPRMADIO-REQUIREMENT-122-require-falsifiable-claims-and-stop-conditions
 ---
 
 # Requirement — Bound Git authority to repository provenance

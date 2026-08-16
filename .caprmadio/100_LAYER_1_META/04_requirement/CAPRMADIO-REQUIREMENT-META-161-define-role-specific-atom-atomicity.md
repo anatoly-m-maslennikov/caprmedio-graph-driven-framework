@@ -11,9 +11,9 @@ relations:
   replacement_of:
     - CAPRMADIO-REQUIREMENT-META-142-give-every-atom-one-independently-replaceable-claim
   child_of:
-    - CAPRMADIO-REQUIREMENT-META-114-apply-mece-to-canonical-decompositions
-    - CAPRMADIO-REQUIREMENT-META-117-admit-only-materially-distinct-framework-constructs
-    - CAPRMADIO-REQUIREMENT-META-163-semantic-irreducibility
+    - CAPRMADIO-REQUIREMENT-114-apply-mece-to-canonical-decompositions
+    - CAPRMADIO-REQUIREMENT-117-admit-only-materially-distinct-framework-constructs
+    - CAPRMADIO-REQUIREMENT-163-semantic-irreducibility
 ---
 
 # Role-specific Atom atomicity

@@ -10,7 +10,7 @@ relations:
   replacement_of:
     - CAPRMADIO-REQUIREMENT-META-059
   child_of:
-    - CAPRMADIO-REQUIREMENT-META-120-preserve-bounded-meaning-across-structural-scales
+    - CAPRMADIO-REQUIREMENT-120-preserve-bounded-meaning-across-structural-scales
 ---
 
 # Requirement — Propagate accepted change forward

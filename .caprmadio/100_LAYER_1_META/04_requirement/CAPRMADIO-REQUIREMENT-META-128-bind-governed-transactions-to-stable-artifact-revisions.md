@@ -11,8 +11,8 @@ relations:
   replacement_of:
     - CAPRMADIO-REQUIREMENT-META-075-revision-bound-parent-child-transactions
   child_of:
-    - CAPRMADIO-REQUIREMENT-META-122-require-falsifiable-claims-and-stop-conditions
-    - CAPRMADIO-REQUIREMENT-META-163-semantic-irreducibility
+    - CAPRMADIO-REQUIREMENT-122-require-falsifiable-claims-and-stop-conditions
+    - CAPRMADIO-REQUIREMENT-163-semantic-irreducibility
 ---
 
 # Bind governed transactions to stable artifact revisions

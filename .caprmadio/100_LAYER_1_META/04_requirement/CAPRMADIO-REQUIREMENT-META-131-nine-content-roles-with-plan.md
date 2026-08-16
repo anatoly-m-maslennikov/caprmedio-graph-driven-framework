@@ -10,8 +10,8 @@ relations:
   replacement_of:
     - CAPRMADIO-REQUIREMENT-META-086
   child_of:
-    - CAPRMADIO-REQUIREMENT-META-114-apply-mece-to-canonical-decompositions
-    - CAPRMADIO-REQUIREMENT-META-116-preserve-strict-semantic-distinctions
+    - CAPRMADIO-REQUIREMENT-114-apply-mece-to-canonical-decompositions
+    - CAPRMADIO-REQUIREMENT-116-preserve-strict-semantic-distinctions
 ---
 
 # Requirement — Use nine Content roles with Plan

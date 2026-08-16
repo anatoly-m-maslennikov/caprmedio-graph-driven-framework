@@ -9,8 +9,8 @@ llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   child_of:
-    - CAPRMADIO-REQUIREMENT-META-122-require-falsifiable-claims-and-stop-conditions
-    - CAPRMADIO-REQUIREMENT-META-163-semantic-irreducibility
+    - CAPRMADIO-REQUIREMENT-122-require-falsifiable-claims-and-stop-conditions
+    - CAPRMADIO-REQUIREMENT-163-semantic-irreducibility
 ---
 
 # Bind traceability to exact claims and revisions

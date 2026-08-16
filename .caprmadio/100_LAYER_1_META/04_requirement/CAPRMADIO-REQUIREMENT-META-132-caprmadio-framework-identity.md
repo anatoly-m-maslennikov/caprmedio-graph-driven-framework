@@ -10,8 +10,8 @@ relations:
   replacement_of:
     - CAPRMADIO-REQUIREMENT-META-087
   child_of:
-    - CAPRMADIO-REQUIREMENT-META-115-prioritize-human-comprehension-and-decisive-structure
-    - CAPRMADIO-REQUIREMENT-META-116-preserve-strict-semantic-distinctions
+    - CAPRMADIO-REQUIREMENT-115-prioritize-human-comprehension-and-decisive-structure
+    - CAPRMADIO-REQUIREMENT-116-preserve-strict-semantic-distinctions
 ---
 
 # Requirement — Use CAPRMADIO as the framework identity

@@ -9,8 +9,8 @@ llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   relates_to:
-    - CAPRMADIO-REQUIREMENT-META-115-prioritize-human-comprehension-and-decisive-structure
-    - CAPRMADIO-REQUIREMENT-META-122-require-falsifiable-claims-and-stop-conditions
+    - CAPRMADIO-REQUIREMENT-115-prioritize-human-comprehension-and-decisive-structure
+    - CAPRMADIO-REQUIREMENT-122-require-falsifiable-claims-and-stop-conditions
 ---
 
 # Minimize cost per correct outcome

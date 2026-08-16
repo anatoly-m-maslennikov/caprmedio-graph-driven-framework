@@ -10,7 +10,7 @@ relations:
   replacement_of:
     - CAPRMADIO-REQUIREMENT-META-048
   child_of:
-    - CAPRMADIO-REQUIREMENT-META-116-preserve-strict-semantic-distinctions
+    - CAPRMADIO-REQUIREMENT-116-preserve-strict-semantic-distinctions
 ---
 
 # Requirement — Separate Analysis from factual Ops records

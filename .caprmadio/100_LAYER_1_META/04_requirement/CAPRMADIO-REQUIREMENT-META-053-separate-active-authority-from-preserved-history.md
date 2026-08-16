@@ -10,8 +10,8 @@ relations:
   replacement_of:
     - CAPRMADIO-REQUIREMENT-META-032
   child_of:
-    - CAPRMADIO-REQUIREMENT-META-116-preserve-strict-semantic-distinctions
-    - CAPRMADIO-REQUIREMENT-META-120-preserve-bounded-meaning-across-structural-scales
+    - CAPRMADIO-REQUIREMENT-116-preserve-strict-semantic-distinctions
+    - CAPRMADIO-REQUIREMENT-120-preserve-bounded-meaning-across-structural-scales
 ---
 
 # Requirement — Separate active authority from preserved history

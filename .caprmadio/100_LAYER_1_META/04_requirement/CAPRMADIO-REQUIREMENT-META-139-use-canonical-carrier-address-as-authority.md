@@ -12,8 +12,8 @@ relations:
     - CAPRMADIO-REQUIREMENT-META-098-derive-artifact-coordinates-from-registered-types
     - CAPRMADIO-REQUIREMENT-META-099-nonduplicative-current-artifact-properties
   child_of:
-    - CAPRMADIO-REQUIREMENT-META-115-prioritize-human-comprehension-and-decisive-structure
-    - CAPRMADIO-REQUIREMENT-META-140-apply-dry-across-caprmadio
+    - CAPRMADIO-REQUIREMENT-115-prioritize-human-comprehension-and-decisive-structure
+    - CAPRMADIO-REQUIREMENT-140-apply-dry-across-caprmadio
 ---
 
 # Use canonical carrier address as authority

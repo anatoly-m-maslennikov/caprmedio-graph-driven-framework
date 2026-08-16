@@ -8,7 +8,7 @@ llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   child_of:
-    - CAPRMADIO-REQUIREMENT-META-115-prioritize-human-comprehension-and-decisive-structure
+    - CAPRMADIO-REQUIREMENT-115-prioritize-human-comprehension-and-decisive-structure
     - CAPRMADIO-REQUIREMENT-META-131-nine-content-roles-with-plan
 ---
 
