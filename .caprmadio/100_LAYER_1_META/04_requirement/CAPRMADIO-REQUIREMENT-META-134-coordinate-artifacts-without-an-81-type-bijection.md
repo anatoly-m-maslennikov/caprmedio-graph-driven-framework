@@ -11,7 +11,6 @@ relations:
     - CAPRMADIO-REQUIREMENT-META-089
   child_of:
     - CAPRMADIO-REQUIREMENT-114-apply-mece-to-canonical-decompositions
-    - CAPRMADIO-REQUIREMENT-117-admit-only-materially-distinct-framework-constructs
 ---
 
 # Requirement — Coordinate artifacts without an 81-Type bijection
