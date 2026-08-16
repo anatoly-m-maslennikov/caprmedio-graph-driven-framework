@@ -7,20 +7,11 @@ tier: core
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: replacement_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-084
-  - type: child_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-080
-      - CAPRMADIO-REQUIREMENT-META-086
-  - type: relates_to
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-103
-      - CAPRMADIO-REQUIREMENT-META-077
-      - CAPRMADIO-REQUIREMENT-META-097
-      - CAPRMADIO-REQUIREMENT-META-088
-      - CAPRMADIO-REQUIREMENT-META-089
+  replacement_of:
+    - CAPRMADIO-REQUIREMENT-META-084
+  child_of:
+    - CAPRMADIO-REQUIREMENT-META-116-preserve-strict-semantic-distinctions
+    - CAPRMADIO-REQUIREMENT-META-120-preserve-bounded-meaning-across-structural-scales
 ---
 
 # Requirement — Treat normative Atoms as the distributed specification
