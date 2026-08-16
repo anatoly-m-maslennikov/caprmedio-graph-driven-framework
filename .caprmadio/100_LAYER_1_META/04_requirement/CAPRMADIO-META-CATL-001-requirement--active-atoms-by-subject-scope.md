@@ -15,7 +15,7 @@ relations:
 ---
 # META Active Atom Catalog by Subject Scope
 
-## `principles` (17)
+## `principles` (14)
 
 - `CAPRMADIO-ANALYSIS-META-041` — Rationale — Apply MECE to canonical decompositions
 - `CAPRMADIO-ANALYSIS-META-042` — Rationale — Prioritize human comprehension and decisive structure
@@ -27,15 +27,12 @@ relations:
 - `CAPRMADIO-ANALYSIS-META-071` — Rationale — Semantic irreducibility
 - `CAPRMADIO-REQUIREMENT-114-apply-mece-to-canonical-decompositions` — Requirement — Apply MECE to canonical decompositions
 - `CAPRMADIO-REQUIREMENT-181-simple-outside-necessarily-complex-inside` — Simple outside; necessarily complex inside
-- `CAPRMADIO-REQUIREMENT-116-preserve-strict-semantic-distinctions` — Requirement — Preserve strict semantic distinctions
-- `CAPRMADIO-REQUIREMENT-117-admit-only-materially-distinct-framework-constructs` — Requirement — Admit only materially distinct framework constructs
 - `CAPRMADIO-REQUIREMENT-META-118` — Requirement — Keep META and GOV implementation-neutral
 - `CAPRMADIO-REQUIREMENT-META-132` — Requirement — Use CAPRMADIO as the framework identity
 - `CAPRMADIO-REQUIREMENT-140-apply-dry-across-caprmadio` — Requirement — Apply DRY across CAPRMADIO
-- `CAPRMADIO-REQUIREMENT-163-semantic-irreducibility` — Semantic irreducibility
 - `CAPRMADIO-REQUIREMENT-META-165` — Economical, readable YAML frontmatter
 
-## `semantics` (19)
+## `semantics` (20)
 
 - `CAPRMADIO-ANALYSIS-META-039` — Rationale — Keep Requirements realization-agnostic
 - `CAPRMADIO-ANALYSIS-META-054` — Rationale — Use nine Content roles with Plan
@@ -45,6 +42,7 @@ relations:
 - `CAPRMADIO-ANALYSIS-META-068` — Rationale — Use canonical terms for governed concepts
 - `CAPRMADIO-ANALYSIS-META-070` — Rationale — Generate the Canonical Vocabulary Projection
 - `CAPRMADIO-ANALYSIS-META-072` — Rationale — Canonical Requirement statement
+- `CAPRMADIO-REQUIREMENT-116-preserve-strict-semantic-distinctions` — Requirement — Preserve strict semantic distinctions
 - `CAPRMADIO-REQUIREMENT-META-112` — Requirement — Keep Requirements realization-agnostic
 - `CAPRMADIO-REQUIREMENT-META-131` — Requirement — Use nine Content roles with Plan
 - `CAPRMADIO-REQUIREMENT-META-135` — Requirement — Preserve boundaries through the CAPRMADIO loop
@@ -57,7 +55,7 @@ relations:
 - `CAPRMADIO-REQUIREMENT-META-164` — Canonical Requirement statement
 - `CAPRMADIO-REQUIREMENT-META-166` — Write context-complete minimal Atom prose
 
-## `artifact-model` (25)
+## `artifact-model` (27)
 
 - `CAPRMADIO-ANALYSIS-META-003` — Analysis — Plan role and Implementation boundary
 - `CAPRMADIO-ANALYSIS-META-012` — Rationale — Make relational endpoints explicit
@@ -69,6 +67,7 @@ relations:
 - `CAPRMADIO-ANALYSIS-META-065` — Rationale — Separate Artifact, carrier, and revision
 - `CAPRMADIO-ANALYSIS-META-069` — Rationale — Role-specific Atom atomicity
 - `CAPRMADIO-QUESTION-META-006` — What is Implementation Atom atomicity?
+- `CAPRMADIO-REQUIREMENT-163-semantic-irreducibility` — Semantic irreducibility
 - `CAPRMADIO-REQUIREMENT-META-051` — Requirement — Make relational endpoints explicit
 - `CAPRMADIO-REQUIREMENT-META-127` — Provide the active META Atom Scope Catalog
 - `CAPRMADIO-REQUIREMENT-META-133` — Requirement — Admit Atoms only where a role has an atomic unit
@@ -84,6 +83,7 @@ relations:
 - `CAPRMADIO-REQUIREMENT-META-157` — Requirement — Separate Artifact, carrier, and revision
 - `CAPRMADIO-REQUIREMENT-META-161` — Role-specific Atom atomicity
 - `CAPRMADIO-REQUIREMENT-META-167` — Use universal Subject scopes with RMAD cardinality
+- `CAPRMADIO-REQUIREMENT-META-190-admit-only-materially-distinct-framework-constructs` — Requirement — Admit only materially distinct framework constructs
 
 ## `scope-topology` (25)
 
