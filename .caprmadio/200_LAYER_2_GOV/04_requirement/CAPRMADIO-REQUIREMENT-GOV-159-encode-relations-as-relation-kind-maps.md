@@ -8,9 +8,9 @@ llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   child_of:
-    - CAPRMADIO-REQUIREMENT-META-140-apply-dry-across-caprmadio
+    - CAPRMADIO-REQUIREMENT-140-apply-dry-across-caprmadio
     - CAPRMADIO-REQUIREMENT-META-144-store-each-semantic-relation-once
-    - CAPRMADIO-REQUIREMENT-META-163-semantic-irreducibility
+    - CAPRMADIO-REQUIREMENT-163-semantic-irreducibility
     - CAPRMADIO-REQUIREMENT-GOV-158-register-dependent-to-subject-relations
 ---
 
@@ -22,8 +22,8 @@ relation kind to one non-empty list of unique Artifact references:
 ```yaml
 relations:
   child_of:
-    - CAPRMADIO-REQUIREMENT-META-140-apply-dry-across-caprmadio
-    - CAPRMADIO-REQUIREMENT-META-163-semantic-irreducibility
+    - CAPRMADIO-REQUIREMENT-140-apply-dry-across-caprmadio
+    - CAPRMADIO-REQUIREMENT-163-semantic-irreducibility
 ```
 
 `relations` is omitted when empty. Each relation kind appears at most once;

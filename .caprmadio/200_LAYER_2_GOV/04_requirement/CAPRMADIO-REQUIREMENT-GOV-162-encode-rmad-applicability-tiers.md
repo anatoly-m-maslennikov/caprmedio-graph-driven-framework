@@ -6,7 +6,7 @@ llm_session_ids:
 relations:
   child_of:
     - CAPRMADIO-REQUIREMENT-META-139-use-canonical-carrier-address-as-authority
-    - CAPRMADIO-REQUIREMENT-META-169-classify-rmad-atoms-by-applicability-tier
+    - CAPRMADIO-REQUIREMENT-169-classify-rmad-atoms-by-applicability-tier
     - CAPRMADIO-REQUIREMENT-META-170-route-priority-and-tier-by-content-role
   relates_to:
     - CAPRMADIO-REQUIREMENT-GOV-107-effective-priority-conflict-selection
