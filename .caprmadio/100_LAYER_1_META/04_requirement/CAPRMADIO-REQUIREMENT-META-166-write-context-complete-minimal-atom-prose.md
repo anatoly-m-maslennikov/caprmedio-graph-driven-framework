@@ -10,16 +10,8 @@ llm_session_ids:
 relations:
   child_of:
     - CAPRMADIO-REQUIREMENT-META-115-prioritize-human-comprehension-and-decisive-structure
-    - CAPRMADIO-REQUIREMENT-META-116-preserve-strict-semantic-distinctions
-    - CAPRMADIO-REQUIREMENT-META-122-require-falsifiable-claims-and-stop-conditions
-    - CAPRMADIO-REQUIREMENT-META-139-use-canonical-carrier-address-as-authority
     - CAPRMADIO-REQUIREMENT-META-140-apply-dry-across-caprmadio
-    - CAPRMADIO-REQUIREMENT-META-155-govern-canonical-scoped-vocabulary
-    - CAPRMADIO-REQUIREMENT-META-160-use-canonical-terms-for-governed-concepts
-    - CAPRMADIO-REQUIREMENT-META-161-define-role-specific-atom-atomicity
     - CAPRMADIO-REQUIREMENT-META-163-semantic-irreducibility
-    - CAPRMADIO-REQUIREMENT-META-164-canonical-requirement-statement
-    - CAPRMADIO-REQUIREMENT-META-165-economical-readable-yaml-frontmatter
 ---
 
 # Write context-complete minimal Atom prose
