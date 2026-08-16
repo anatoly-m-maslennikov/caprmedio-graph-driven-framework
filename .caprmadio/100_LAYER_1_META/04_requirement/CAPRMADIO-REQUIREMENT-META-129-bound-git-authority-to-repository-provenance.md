@@ -7,18 +7,10 @@ tier: core
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: replacement_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-076
-  - type: child_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-128
-  - type: relates_to
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-097
-      - CAPRMADIO-REQUIREMENT-META-113
-      - CAPRMADIO-REQUIREMENT-META-121
-      - CAPRMADIO-REQUIREMENT-META-123
+  replacement_of:
+    - CAPRMADIO-REQUIREMENT-META-076
+  child_of:
+    - CAPRMADIO-REQUIREMENT-META-122-require-falsifiable-claims-and-stop-conditions
 ---
 
 # Requirement — Bound Git authority to repository provenance
