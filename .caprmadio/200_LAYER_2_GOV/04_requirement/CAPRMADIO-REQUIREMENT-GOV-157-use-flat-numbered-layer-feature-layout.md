@@ -8,6 +8,7 @@ llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   child_of:
+    - CAPRMADIO-REQUIREMENT-174-own-immediate-child-scopes-and-contracts
     - CAPRMADIO-REQUIREMENT-META-131-nine-content-roles-with-plan
     - CAPRMADIO-REQUIREMENT-META-139-use-canonical-carrier-address-as-authority
     - CAPRMADIO-REQUIREMENT-META-143-use-flat-layer-owned-feature-scopes
@@ -18,10 +19,11 @@ relations:
 
 The `.caprmadio/` root contains the installed-framework boundary, project
 settings, generated control carriers, numbered Layer scopes, and
-`04_requirement/`. The project-level Requirement directory owns only project
-Principles, project-wide Core Requirements, and Contracts between Layers.
-Other project-level Content-role directories are not created, and every
-non-project semantic carrier has exactly one Layer or Feature owner.
+`04_requirement/`. The project-level Requirement directory owns project
+Principles and project Core and Standard Requirements. Its Standards define
+concrete Layer scopes and Contracts between Layers. Other project-level
+Content-role directories are not created, and every non-project semantic
+carrier has exactly one Layer or Feature owner.
 
 Explicit Layer and Feature scope directories are flat siblings and use these uppercase fixed-width grammars:
 
