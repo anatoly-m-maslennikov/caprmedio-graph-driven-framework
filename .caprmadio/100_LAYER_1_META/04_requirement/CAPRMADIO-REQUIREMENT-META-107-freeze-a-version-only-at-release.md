@@ -6,17 +6,8 @@ subject_scope: development-flow
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: child_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-080
-      - CAPRMADIO-REQUIREMENT-META-086
-      - CAPRMADIO-REQUIREMENT-META-105
-  - type: relates_to
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-004
-      - CAPRMADIO-REQUIREMENT-META-076
-      - CAPRMADIO-REQUIREMENT-META-091
-      - CAPRMADIO-REQUIREMENT-META-097
+  child_of:
+    - CAPRMADIO-REQUIREMENT-META-135-preserve-content-role-boundaries-through-caprmadio-loop
 ---
 
 # Requirement — Freeze a version only at release
