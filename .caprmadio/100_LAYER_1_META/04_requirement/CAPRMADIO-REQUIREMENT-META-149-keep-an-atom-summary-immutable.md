@@ -8,10 +8,8 @@ llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   child_of:
-    - CAPRMADIO-REQUIREMENT-META-080-three-artifact-forms
     - CAPRMADIO-REQUIREMENT-META-128-bind-governed-transactions-to-stable-artifact-revisions
-    - CAPRMADIO-REQUIREMENT-META-139-use-canonical-carrier-address-as-authority
-    - CAPRMADIO-REQUIREMENT-META-161-define-role-specific-atom-atomicity
+    - CAPRMADIO-REQUIREMENT-META-157-separate-artifact-carrier-and-revision
 ---
 
 # Keep an Atom summary immutable
