@@ -1,7 +1,6 @@
 ---
 artifact_type: requirement
-artifact_id: CAPRMADIO-REQUIREMENT-META-140
-scope_path: layer:meta
+artifact_id: CAPRMADIO-REQUIREMENT-140
 subject_scopes:
   - principles
 tier: principle

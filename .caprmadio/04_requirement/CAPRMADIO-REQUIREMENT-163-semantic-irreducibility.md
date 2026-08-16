@@ -1,16 +1,11 @@
 ---
 artifact_type: requirement
-artifact_id: CAPRMADIO-REQUIREMENT-META-163
-scope_path: layer:meta
+artifact_id: CAPRMADIO-REQUIREMENT-163
 subject_scopes:
   - principles
 tier: principle
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
-relations:
-  child_of:
-    - CAPRMADIO-REQUIREMENT-META-115-prioritize-human-comprehension-and-decisive-structure
-    - CAPRMADIO-REQUIREMENT-META-140-apply-dry-across-caprmadio
 ---
 
 # Semantic irreducibility

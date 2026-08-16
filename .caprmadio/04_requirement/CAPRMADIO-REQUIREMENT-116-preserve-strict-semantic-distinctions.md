@@ -1,7 +1,6 @@
 ---
 artifact_type: requirement
-artifact_id: CAPRMADIO-REQUIREMENT-META-116
-scope_path: layer:meta
+artifact_id: CAPRMADIO-REQUIREMENT-116
 subject_scopes:
   - principles
 tier: principle
@@ -22,4 +21,4 @@ When wording could resolve to more than one governed meaning, the writer or
 tool must recover the intended meaning and its owning Type before the Claim is
 admitted. Co-location, readable presentation, automation, or a relation between
 meanings never merges their identities or transfers their semantic force.
-META-114 separately requires every canonical decomposition to remain MECE.
+CAPRMADIO-REQUIREMENT-114 separately requires every canonical decomposition to remain MECE.

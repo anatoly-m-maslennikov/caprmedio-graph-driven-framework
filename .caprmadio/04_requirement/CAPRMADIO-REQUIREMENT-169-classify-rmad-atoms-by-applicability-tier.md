@@ -6,8 +6,8 @@ llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   child_of:
-    - CAPRMADIO-REQUIREMENT-META-114-apply-mece-to-canonical-decompositions
-    - CAPRMADIO-REQUIREMENT-META-120-preserve-bounded-meaning-across-structural-scales
+    - CAPRMADIO-REQUIREMENT-114-apply-mece-to-canonical-decompositions
+    - CAPRMADIO-REQUIREMENT-120-preserve-bounded-meaning-across-structural-scales
 ---
 
 # Classify RMAD Atoms by applicability tier
@@ -22,9 +22,4 @@ applicability tier:
   as one Content role, Type, subtype, profile, carrier, or relation kind.
 
 Tier is determined by applicability breadth rather than Subject, Type,
-technicality, implementation detail, or execution order. Each Core names one
-or more applicable Principles through `child_of`; each Standard names one or
-more applicable Cores through `child_of`. Principle inheritance is derived
-transitively through those direct links. Every active Principle has at least
-one direct Core child, and every active Core has at least one direct Standard
-child.
+technicality, implementation detail, or execution order.

@@ -1,8 +1,8 @@
 ---
 artifact_type: requirement
-artifact_id: CAPRMADIO-REQUIREMENT-META-114
-scope_path: layer:meta
-subject_scope: principles
+artifact_id: CAPRMADIO-REQUIREMENT-114
+subject_scopes:
+  - principles
 tier: principle
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d

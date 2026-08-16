@@ -1,7 +1,6 @@
 ---
 artifact_type: requirement
-artifact_id: CAPRMADIO-REQUIREMENT-META-122
-scope_path: layer:meta
+artifact_id: CAPRMADIO-REQUIREMENT-122
 subject_scopes:
   - authority
 tier: principle
