@@ -8,6 +8,7 @@ llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   child_of:
+    - CAPRMADIO-REQUIREMENT-META-145-let-the-dependent-atom-own-the-relation
     - CAPRMADIO-REQUIREMENT-META-121-bind-traceability-to-exact-claims-and-revisions
 ---
 
