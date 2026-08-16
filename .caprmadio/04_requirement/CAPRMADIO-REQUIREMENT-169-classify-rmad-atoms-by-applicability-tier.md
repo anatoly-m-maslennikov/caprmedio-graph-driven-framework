@@ -7,7 +7,6 @@ llm_session_ids:
 relations:
   child_of:
     - CAPRMADIO-REQUIREMENT-114-apply-mece-to-canonical-decompositions
-    - CAPRMADIO-REQUIREMENT-120-preserve-bounded-meaning-across-structural-scales
 ---
 
 # Classify RMAD Atoms by applicability tier
