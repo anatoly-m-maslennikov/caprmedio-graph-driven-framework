@@ -7,8 +7,8 @@ subject_scopes:
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  relates_to:
-    - CAPRMADIO-REQUIREMENT-META-067-current-layer-handoffs
+  child_of:
+    - CAPRMADIO-REQUIREMENT-META-065-ordered-realization-topology
     - CAPRMADIO-REQUIREMENT-META-096-acyclic-layers-with-ops-feedback
 ---
 
