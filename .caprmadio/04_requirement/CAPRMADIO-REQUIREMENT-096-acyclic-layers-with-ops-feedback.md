@@ -1,17 +1,13 @@
 ---
 artifact_type: requirement
-artifact_id: CAPRMADIO-REQUIREMENT-META-096
-scope_path: layer:meta
+artifact_id: CAPRMADIO-REQUIREMENT-096
 subject_scopes:
   - scope-topology
-tier: core
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   child_of:
-    - CAPRMADIO-REQUIREMENT-065-ordered-realization-topology
-    - CAPRMADIO-REQUIREMENT-114-apply-mece-to-canonical-decompositions
-    - CAPRMADIO-REQUIREMENT-116-preserve-strict-semantic-distinctions
+    - CAPRMADIO-REQUIREMENT-174-own-immediate-child-scopes-and-contracts
 ---
 
 # Keep current Layer dependencies acyclic
