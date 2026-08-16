@@ -19,9 +19,9 @@ relations:
 The `.caprmadio/` root contains the installed-framework boundary, project
 settings, generated control carriers, numbered Layer scopes, and
 `04_requirement/`. The project-level Requirement directory owns only project
-Principles and project-wide Core Requirements. Other project-level
-Content-role directories are not created, and every non-project semantic
-carrier has exactly one Layer or Feature owner.
+Principles, project-wide Core Requirements, and Contracts between Layers.
+Other project-level Content-role directories are not created, and every
+non-project semantic carrier has exactly one Layer or Feature owner.
 
 Explicit Layer and Feature scope directories are flat siblings and use these uppercase fixed-width grammars:
 
