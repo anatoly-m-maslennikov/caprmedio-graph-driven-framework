@@ -12,7 +12,7 @@ relations:
     - CAPRMADIO-REQUIREMENT-META-098-derive-artifact-coordinates-from-registered-types
     - CAPRMADIO-REQUIREMENT-META-099-nonduplicative-current-artifact-properties
   child_of:
-    - CAPRMADIO-REQUIREMENT-115-prioritize-human-comprehension-and-decisive-structure
+    - CAPRMADIO-REQUIREMENT-181-simple-outside-necessarily-complex-inside
     - CAPRMADIO-REQUIREMENT-140-apply-dry-across-caprmadio
 ---
 

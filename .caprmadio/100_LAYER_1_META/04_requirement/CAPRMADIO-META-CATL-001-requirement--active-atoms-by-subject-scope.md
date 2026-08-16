@@ -26,7 +26,7 @@ relations:
 - `CAPRMADIO-ANALYSIS-META-063` — Rationale — Apply DRY across CAPRMADIO
 - `CAPRMADIO-ANALYSIS-META-071` — Rationale — Semantic irreducibility
 - `CAPRMADIO-REQUIREMENT-114-apply-mece-to-canonical-decompositions` — Requirement — Apply MECE to canonical decompositions
-- `CAPRMADIO-REQUIREMENT-115-prioritize-human-comprehension-and-decisive-structure` — Requirement — Prioritize human comprehension and decisive structure
+- `CAPRMADIO-REQUIREMENT-181-simple-outside-necessarily-complex-inside` — Simple outside; necessarily complex inside
 - `CAPRMADIO-REQUIREMENT-116-preserve-strict-semantic-distinctions` — Requirement — Preserve strict semantic distinctions
 - `CAPRMADIO-REQUIREMENT-117-admit-only-materially-distinct-framework-constructs` — Requirement — Admit only materially distinct framework constructs
 - `CAPRMADIO-REQUIREMENT-META-118` — Requirement — Keep META and GOV implementation-neutral

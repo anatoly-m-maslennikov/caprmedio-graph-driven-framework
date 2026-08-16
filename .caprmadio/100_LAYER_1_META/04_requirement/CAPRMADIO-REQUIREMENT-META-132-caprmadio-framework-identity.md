@@ -10,7 +10,7 @@ relations:
   replacement_of:
     - CAPRMADIO-REQUIREMENT-META-087
   child_of:
-    - CAPRMADIO-REQUIREMENT-115-prioritize-human-comprehension-and-decisive-structure
+    - CAPRMADIO-REQUIREMENT-181-simple-outside-necessarily-complex-inside
     - CAPRMADIO-REQUIREMENT-116-preserve-strict-semantic-distinctions
 ---
 
