@@ -6,9 +6,8 @@ subject_scope: scope-topology
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: relates_to
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-066
+  child_of:
+    - CAPRMADIO-REQUIREMENT-META-066-meta-eligibility-rule
 ---
 
 # Requirement — Bound profiles and applicability
