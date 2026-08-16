@@ -7,13 +7,8 @@ tier: core
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: child_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-065
-  - type: relates_to
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-071
-      - CAPRMADIO-REQUIREMENT-META-100
+  child_of:
+    - CAPRMADIO-REQUIREMENT-META-120-preserve-bounded-meaning-across-structural-scales
 ---
 
 # Requirement — Propagate structural scope through realization
