@@ -8,11 +8,9 @@ tier: core
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  relates_to:
-    - CAPRMADIO-REQUIREMENT-META-076-git-as-canonical-history-engine
-    - CAPRMADIO-REQUIREMENT-META-097-provenance-does-not-establish-ops-evidence
-    - CAPRMADIO-REQUIREMENT-META-103-one-independently-replaceable-claim-per-atom
-    - CAPRMADIO-REQUIREMENT-META-113-preserve-implementation-traceability-in-journals
+  child_of:
+    - CAPRMADIO-REQUIREMENT-META-122-require-falsifiable-claims-and-stop-conditions
+    - CAPRMADIO-REQUIREMENT-META-163-semantic-irreducibility
 ---
 
 # Bind traceability to exact claims and revisions
