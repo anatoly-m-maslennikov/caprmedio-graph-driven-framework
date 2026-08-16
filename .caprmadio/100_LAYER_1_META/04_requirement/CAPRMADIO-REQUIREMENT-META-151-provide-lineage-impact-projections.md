@@ -6,13 +6,10 @@ subject_scope: lifecycle-traceability
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: child_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-077
-      - CAPRMADIO-REQUIREMENT-META-121
-      - CAPRMADIO-REQUIREMENT-META-123
-      - CAPRMADIO-REQUIREMENT-META-128
-      - CAPRMADIO-REQUIREMENT-META-148
+  child_of:
+    - CAPRMADIO-REQUIREMENT-META-077-propagate-atomic-revision-impact-through-lineage
+    - CAPRMADIO-REQUIREMENT-META-121-bind-traceability-to-exact-claims-and-revisions
+    - CAPRMADIO-REQUIREMENT-META-154-three-artifact-forms-with-generated-projections
 ---
 
 # Requirement — Provide lineage-impact Projections
