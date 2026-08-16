@@ -4,8 +4,8 @@ This operational document defines how the repository moves changes from `dev` to
 
 ## Rules
 
-- [`dev` ruleset](https://github.com/anatoly-m-maslennikov/caprmadio-vibe-coding-to-production-framework/rules/18896762): only `anatoly-m-maslennikov` may create, update, or delete `dev`.
-- [`main` ruleset](https://github.com/anatoly-m-maslennikov/caprmadio-vibe-coding-to-production-framework/rules/18897046): `main` has no bypass actors; every update requires a pull request, `PR policy`, and the merge-commit method.
+- [`dev` ruleset](https://github.com/anatoly-m-maslennikov/caprmadio-graph-driven-development-framework/rules/18896762): only `anatoly-m-maslennikov` may create, update, or delete `dev`.
+- [`main` ruleset](https://github.com/anatoly-m-maslennikov/caprmadio-graph-driven-development-framework/rules/18897046): `main` has no bypass actors; every update requires a pull request, `PR policy`, and the merge-commit method.
 - [Policy workflow](workflows/dev-to-main-policy.yml): `PR policy` passes only for a same-repository `dev → main` pull request authored by the repository owner. Passing the check permits an explicit manual merge; it never schedules or performs the merge.
 - Repository tests and validators are temporarily disabled; no successful PR check currently represents test, evaluation, lint, type-check, cross-platform, or framework-validation evidence.
 - [WSL proof workflow](workflows/wsl-proof.yml): an explicit manual workflow targets a labeled self-hosted Windows/WSL runner. It is a proof hook, not evidence until a run on the tested commit succeeds.
