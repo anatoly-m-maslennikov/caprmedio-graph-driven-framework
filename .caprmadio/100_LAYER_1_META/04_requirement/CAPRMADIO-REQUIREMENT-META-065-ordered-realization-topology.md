@@ -8,9 +8,9 @@ tier: core
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  relates_to:
-    - CAPRMADIO-REQUIREMENT-META-067-current-layer-handoffs
-    - CAPRMADIO-REQUIREMENT-META-096-acyclic-layers-with-ops-feedback
+  child_of:
+    - CAPRMADIO-REQUIREMENT-META-114-apply-mece-to-canonical-decompositions
+    - CAPRMADIO-REQUIREMENT-META-116-preserve-strict-semantic-distinctions
 ---
 
 # Define the ordered realization topology
