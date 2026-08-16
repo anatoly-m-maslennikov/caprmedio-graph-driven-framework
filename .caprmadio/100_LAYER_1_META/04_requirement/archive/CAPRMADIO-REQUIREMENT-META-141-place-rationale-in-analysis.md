@@ -14,7 +14,7 @@ relations:
   - type: relates_to
     targets:
       - CAPRMADIO-REQUIREMENT-META-092
-      - CAPRMADIO-REQUIREMENT-META-140
+      - CAPRMADIO-REQUIREMENT-140-apply-dry-across-caprmadio
 ---
 
 # Requirement — Place rationale in Analysis

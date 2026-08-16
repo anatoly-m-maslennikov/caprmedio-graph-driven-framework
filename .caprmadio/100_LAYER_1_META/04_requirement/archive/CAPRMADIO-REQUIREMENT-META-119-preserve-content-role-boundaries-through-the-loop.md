@@ -16,7 +16,7 @@ relations:
       - CAPRMADIO-REQUIREMENT-META-092
       - CAPRMADIO-REQUIREMENT-META-093
       - CAPRMADIO-REQUIREMENT-META-112
-      - CAPRMADIO-REQUIREMENT-META-116
+      - CAPRMADIO-REQUIREMENT-116-preserve-strict-semantic-distinctions
 ---
 
 # Requirement — Preserve Content-role boundaries through the loop

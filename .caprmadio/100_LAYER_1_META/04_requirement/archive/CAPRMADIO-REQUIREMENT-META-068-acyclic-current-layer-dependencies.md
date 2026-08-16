@@ -14,7 +14,7 @@ relations:
     targets:
       - CAPRMADIO-REQUIREMENT-META-052
       - CAPRMADIO-REQUIREMENT-META-059
-      - CAPRMADIO-REQUIREMENT-META-065
+      - CAPRMADIO-REQUIREMENT-065-ordered-realization-topology
       - CAPRMADIO-REQUIREMENT-META-067
 ---
 

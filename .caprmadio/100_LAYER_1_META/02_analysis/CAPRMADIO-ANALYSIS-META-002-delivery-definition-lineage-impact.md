@@ -45,8 +45,8 @@ The refinement is eligible for META because it is independent of any language, c
 | `CAPRMADIO-REQUIREMENT-META-107` | compatible | Release-record semantics are unchanged. |
 | `CAPRMADIO-REQUIREMENT-META-112` | compatible | Project-specific configuration sources remain outside Requirement. |
 | `CAPRMADIO-REQUIREMENT-META-113` | compatible | Implementation traceability already includes Delivery authority. |
-| `CAPRMADIO-REQUIREMENT-META-114` | compatible | The eight-role decomposition remains MECE within its declared universe. |
-| `CAPRMADIO-REQUIREMENT-META-116` | compatible | The refinement sharpens rather than collapses semantic boundaries. |
+| `CAPRMADIO-REQUIREMENT-114-apply-mece-to-canonical-decompositions` | compatible | The eight-role decomposition remains MECE within its declared universe. |
+| `CAPRMADIO-REQUIREMENT-116-preserve-strict-semantic-distinctions` | compatible | The refinement sharpens rather than collapses semantic boundaries. |
 | `CAPRMADIO-REQUIREMENT-META-119` | compatible | The existing role loop already routes Delivery forward into Implementation. |
 | `CAPRMADIO-REQUIREMENT-GOV-136` | compatible | Refactoring Plan remains a Method subtype. |
 | `CAPRMADIO-REQUIREMENT-GOV-140` | compatible | Concern subtypes are unaffected. |

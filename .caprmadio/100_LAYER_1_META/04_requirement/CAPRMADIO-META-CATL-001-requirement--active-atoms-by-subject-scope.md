@@ -25,14 +25,14 @@ relations:
 - `CAPRMADIO-ANALYSIS-META-055` — Rationale — Use CAPRMADIO as the framework identity
 - `CAPRMADIO-ANALYSIS-META-063` — Rationale — Apply DRY across CAPRMADIO
 - `CAPRMADIO-ANALYSIS-META-071` — Rationale — Semantic irreducibility
-- `CAPRMADIO-REQUIREMENT-META-114` — Requirement — Apply MECE to canonical decompositions
-- `CAPRMADIO-REQUIREMENT-META-115` — Requirement — Prioritize human comprehension and decisive structure
-- `CAPRMADIO-REQUIREMENT-META-116` — Requirement — Preserve strict semantic distinctions
-- `CAPRMADIO-REQUIREMENT-META-117` — Requirement — Admit only materially distinct framework constructs
+- `CAPRMADIO-REQUIREMENT-114-apply-mece-to-canonical-decompositions` — Requirement — Apply MECE to canonical decompositions
+- `CAPRMADIO-REQUIREMENT-115-prioritize-human-comprehension-and-decisive-structure` — Requirement — Prioritize human comprehension and decisive structure
+- `CAPRMADIO-REQUIREMENT-116-preserve-strict-semantic-distinctions` — Requirement — Preserve strict semantic distinctions
+- `CAPRMADIO-REQUIREMENT-117-admit-only-materially-distinct-framework-constructs` — Requirement — Admit only materially distinct framework constructs
 - `CAPRMADIO-REQUIREMENT-META-118` — Requirement — Keep META and GOV implementation-neutral
 - `CAPRMADIO-REQUIREMENT-META-132` — Requirement — Use CAPRMADIO as the framework identity
-- `CAPRMADIO-REQUIREMENT-META-140` — Requirement — Apply DRY across CAPRMADIO
-- `CAPRMADIO-REQUIREMENT-META-163` — Semantic irreducibility
+- `CAPRMADIO-REQUIREMENT-140-apply-dry-across-caprmadio` — Requirement — Apply DRY across CAPRMADIO
+- `CAPRMADIO-REQUIREMENT-163-semantic-irreducibility` — Semantic irreducibility
 - `CAPRMADIO-REQUIREMENT-META-165` — Economical, readable YAML frontmatter
 
 ## `semantics` (19)
@@ -103,14 +103,14 @@ relations:
 - `CAPRMADIO-REQUIREMENT-META-006` — Requirement — Orthogonal profile selection
 - `CAPRMADIO-REQUIREMENT-META-029` — Requirement — Bound profiles and applicability
 - `CAPRMADIO-REQUIREMENT-META-030` — Requirement — Govern layer extensions
-- `CAPRMADIO-REQUIREMENT-META-065` — Requirement — Define the ordered realization topology
+- `CAPRMADIO-REQUIREMENT-065-ordered-realization-topology` — Requirement — Define the ordered realization topology
 - `CAPRMADIO-REQUIREMENT-META-067` — Requirement — Define current layer handoffs
 - `CAPRMADIO-REQUIREMENT-META-095` — Requirement — Propagate accepted change forward
 - `CAPRMADIO-REQUIREMENT-META-096` — Requirement — Keep current layer dependencies acyclic
 - `CAPRMADIO-REQUIREMENT-META-100` — Requirement — Keep Scope path structural
 - `CAPRMADIO-REQUIREMENT-META-102` — Requirement — Preserve external and relational boundary obligations
 - `CAPRMADIO-REQUIREMENT-META-104` — Requirement — Propagate structural scope through realization
-- `CAPRMADIO-REQUIREMENT-META-120` — Requirement — Preserve bounded meaning across structural scales
+- `CAPRMADIO-REQUIREMENT-120-preserve-bounded-meaning-across-structural-scales` — Requirement — Preserve bounded meaning across structural scales
 - `CAPRMADIO-REQUIREMENT-META-143` — Requirement — Use flat layer-owned Feature scopes
 
 ## `authority` (14)
@@ -127,7 +127,7 @@ relations:
 - `CAPRMADIO-REQUIREMENT-META-090` — Requirement — Treat normative Atoms as the distributed specification
 - `CAPRMADIO-REQUIREMENT-META-091` — Requirement — Keep authority, assurance, and Ops distinct
 - `CAPRMADIO-REQUIREMENT-META-101` — Requirement — Close every constitutional amendment
-- `CAPRMADIO-REQUIREMENT-META-122` — Requirement — Require falsifiable claims and stop conditions
+- `CAPRMADIO-REQUIREMENT-122-require-falsifiable-claims-and-stop-conditions` — Requirement — Require falsifiable claims and stop conditions
 - `CAPRMADIO-REQUIREMENT-META-158` — Requirement — Separate authority, applicability, and currentness
 
 ## `assurance` (8)

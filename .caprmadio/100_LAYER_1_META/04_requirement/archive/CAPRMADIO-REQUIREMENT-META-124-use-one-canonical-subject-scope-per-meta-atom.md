@@ -13,9 +13,9 @@ relations:
   - type: relates_to
     targets:
       - CAPRMADIO-REQUIREMENT-META-100
-      - CAPRMADIO-REQUIREMENT-META-114
-      - CAPRMADIO-REQUIREMENT-META-117
-      - CAPRMADIO-REQUIREMENT-META-120
+      - CAPRMADIO-REQUIREMENT-114-apply-mece-to-canonical-decompositions
+      - CAPRMADIO-REQUIREMENT-117-admit-only-materially-distinct-framework-constructs
+      - CAPRMADIO-REQUIREMENT-120-preserve-bounded-meaning-across-structural-scales
 ---
 
 # Requirement — Use one canonical Subject scope per META Atom
