@@ -18,6 +18,7 @@ ordered Layer topology:
 
 - project Principles are the only Principles and have no parents;
 - a Core may depend directly on an applicable project Principle;
+- a Layer 1 Core may depend on a project Core;
 - within one project, Layer, or Feature scope, a Standard may depend on a Core;
 - between adjacent Layers, a Core may depend on a Core and a Standard may
   depend on a Standard; and
