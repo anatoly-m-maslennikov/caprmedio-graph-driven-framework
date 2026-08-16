@@ -7,12 +7,6 @@ subject_scopes:
 tier: principle
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
-relations:
-  relates_to:
-    - CAPRMADIO-REQUIREMENT-META-086-eight-content-roles-with-delivery-and-ops
-    - CAPRMADIO-REQUIREMENT-META-091-authority-assurance-and-ops-remain-distinct
-    - CAPRMADIO-REQUIREMENT-META-098-derive-artifact-coordinates-from-registered-types
-    - CAPRMADIO-REQUIREMENT-META-114-apply-mece-to-canonical-decompositions
 ---
 
 # Preserve strict semantic distinctions
