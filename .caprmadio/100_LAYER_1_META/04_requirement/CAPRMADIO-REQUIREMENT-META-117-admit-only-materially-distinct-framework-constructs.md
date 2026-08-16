@@ -6,13 +6,6 @@ subject_scope: principles
 tier: principle
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
-relations:
-  - type: relates_to
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-030
-      - CAPRMADIO-REQUIREMENT-META-089
-      - CAPRMADIO-REQUIREMENT-META-098
-      - CAPRMADIO-REQUIREMENT-META-114
 ---
 
 # Requirement — Admit only materially distinct framework constructs
