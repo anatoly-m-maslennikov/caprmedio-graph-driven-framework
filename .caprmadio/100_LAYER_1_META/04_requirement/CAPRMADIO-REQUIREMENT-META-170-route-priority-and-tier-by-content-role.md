@@ -6,8 +6,8 @@ llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   child_of:
-    - CAPRMADIO-REQUIREMENT-META-131-nine-content-roles-with-plan
-    - CAPRMADIO-REQUIREMENT-META-169-classify-rmad-atoms-by-applicability-tier
+    - CAPRMADIO-REQUIREMENT-META-114-apply-mece-to-canonical-decompositions
+    - CAPRMADIO-REQUIREMENT-META-116-preserve-strict-semantic-distinctions
 ---
 
 # Route priority and tier by Content role
