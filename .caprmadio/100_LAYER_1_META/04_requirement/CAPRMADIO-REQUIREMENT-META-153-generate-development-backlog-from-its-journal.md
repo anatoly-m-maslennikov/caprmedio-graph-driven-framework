@@ -6,14 +6,11 @@ subject_scope: development-flow
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: replacement_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-105
-  - type: child_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-131
-      - CAPRMADIO-REQUIREMENT-META-136
-      - CAPRMADIO-REQUIREMENT-META-152
+  replacement_of:
+    - CAPRMADIO-REQUIREMENT-META-105
+  child_of:
+    - CAPRMADIO-REQUIREMENT-META-135-preserve-content-role-boundaries-through-caprmadio-loop
+    - CAPRMADIO-REQUIREMENT-META-154-three-artifact-forms-with-generated-projections
 ---
 
 # Requirement — Generate Development Backlog from its Journal
