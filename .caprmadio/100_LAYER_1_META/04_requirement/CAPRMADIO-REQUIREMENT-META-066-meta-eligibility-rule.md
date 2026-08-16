@@ -10,7 +10,6 @@ relations:
   replacement_of:
     - CAPRMADIO-REQUIREMENT-META-022
   child_of:
-    - CAPRMADIO-REQUIREMENT-117-admit-only-materially-distinct-framework-constructs
     - CAPRMADIO-REQUIREMENT-120-preserve-bounded-meaning-across-structural-scales
 ---
 
