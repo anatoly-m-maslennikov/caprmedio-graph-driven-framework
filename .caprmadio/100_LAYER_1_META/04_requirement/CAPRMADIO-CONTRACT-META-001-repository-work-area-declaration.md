@@ -5,6 +5,9 @@ scope_path: layer:meta
 subject_scope: framework-boundary
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+relations:
+  child_of:
+    - CAPRMADIO-REQUIREMENT-META-011-work-area-scope
 relation_kind: scope_declaration_for
 endpoints:
   - role: declarer
@@ -13,10 +16,6 @@ endpoints:
   - role: consumer
     identity: caprmadio_governed_workflows
     origin: internal
-relations:
-  - type: child_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-011
 ---
 
 # Contract — Repository Work Area declaration
