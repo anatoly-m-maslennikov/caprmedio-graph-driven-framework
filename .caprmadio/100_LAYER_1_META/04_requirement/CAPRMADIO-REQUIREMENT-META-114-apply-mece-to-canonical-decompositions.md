@@ -6,17 +6,6 @@ subject_scope: principles
 tier: principle
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
-relations:
-  - type: child_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-030
-      - CAPRMADIO-REQUIREMENT-META-080
-      - CAPRMADIO-REQUIREMENT-META-086
-  - type: relates_to
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-089
-      - CAPRMADIO-REQUIREMENT-META-098
-      - CAPRMADIO-REQUIREMENT-META-103
 ---
 
 # Requirement — Apply MECE to canonical decompositions
