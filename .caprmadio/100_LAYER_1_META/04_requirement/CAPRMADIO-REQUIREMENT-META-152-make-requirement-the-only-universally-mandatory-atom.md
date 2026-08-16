@@ -7,14 +7,9 @@ tier: core
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: child_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-131
-      - CAPRMADIO-REQUIREMENT-META-133
-      - CAPRMADIO-REQUIREMENT-META-135
-      - CAPRMADIO-REQUIREMENT-META-136
-      - CAPRMADIO-REQUIREMENT-META-147
-      - CAPRMADIO-REQUIREMENT-META-150
+  child_of:
+    - CAPRMADIO-REQUIREMENT-META-114-apply-mece-to-canonical-decompositions
+    - CAPRMADIO-REQUIREMENT-META-117-admit-only-materially-distinct-framework-constructs
 ---
 
 # Requirement — Make Requirement the only universally mandatory Atom
