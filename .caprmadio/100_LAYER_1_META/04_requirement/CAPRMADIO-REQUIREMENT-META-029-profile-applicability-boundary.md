@@ -8,6 +8,7 @@ llm_session_ids:
 relations:
   child_of:
     - CAPRMADIO-REQUIREMENT-META-066-meta-eligibility-rule
+    - CAPRMADIO-REQUIREMENT-META-158-separate-authority-applicability-and-currentness
 ---
 
 # Requirement — Bound profiles and applicability
