@@ -6,15 +6,11 @@ subject_scope: artifact-model
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: replacement_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-141
-  - type: child_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-131
-      - CAPRMADIO-REQUIREMENT-META-135
-      - CAPRMADIO-REQUIREMENT-META-144
-      - CAPRMADIO-REQUIREMENT-META-145
+  replacement_of:
+    - CAPRMADIO-REQUIREMENT-META-141
+  child_of:
+    - CAPRMADIO-REQUIREMENT-META-135-preserve-content-role-boundaries-through-caprmadio-loop
+    - CAPRMADIO-REQUIREMENT-META-157-separate-artifact-carrier-and-revision
 ---
 
 # Requirement — Create Rationale after its subject
