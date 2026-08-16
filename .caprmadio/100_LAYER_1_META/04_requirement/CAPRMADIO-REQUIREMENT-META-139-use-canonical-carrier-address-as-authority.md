@@ -12,13 +12,8 @@ relations:
     - CAPRMADIO-REQUIREMENT-META-098-derive-artifact-coordinates-from-registered-types
     - CAPRMADIO-REQUIREMENT-META-099-nonduplicative-current-artifact-properties
   child_of:
-    - CAPRMADIO-REQUIREMENT-META-080-three-artifact-forms
-    - CAPRMADIO-REQUIREMENT-META-086-eight-content-roles-with-delivery-and-ops
-    - CAPRMADIO-REQUIREMENT-META-089-coordinate-artifacts-without-a-72-type-bijection
+    - CAPRMADIO-REQUIREMENT-META-115-prioritize-human-comprehension-and-decisive-structure
     - CAPRMADIO-REQUIREMENT-META-140-apply-dry-across-caprmadio
-  relates_to:
-    - CAPRMADIO-REQUIREMENT-META-100-scope-path-does-not-change-semantic-coordinates
-    - CAPRMADIO-REQUIREMENT-META-123-evolve-authority-through-governed-history
 ---
 
 # Use canonical carrier address as authority
