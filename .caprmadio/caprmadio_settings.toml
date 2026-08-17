@@ -38,6 +38,15 @@ commit_each_governed_change = true
 # Accepted: an integer percentage from 0 through 100. Default: 95.
 necessary_information_threshold_percent = 95
 
+[authority_modes]
+# Strict mode requires complete, conflict-free authority topology. Casual mode
+# permits incomplete topology while preserving relation and authority validity.
+# Unlisted structural scopes resolve to the casual default.
+default = "casual"
+project = "strict"
+meta = "strict"
+gov = "strict"
+
 [artifacts]
 # Set the gate used before a new immutable atomic artifact is emitted.
 #
