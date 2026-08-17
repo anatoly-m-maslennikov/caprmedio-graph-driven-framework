@@ -31,6 +31,13 @@ required = true
 initialize_if_missing = true
 commit_each_governed_change = true
 
+[confidence]
+# Information is necessary when omitting it leaves the LLM below this
+# confidence after it inspects every active Project Principle, the full
+# relevant active lineage, and active same-scope peers.
+# Accepted: an integer percentage from 0 through 100. Default: 95.
+necessary_information_threshold_percent = 95
+
 [artifacts]
 # Set the gate used before a new immutable atomic artifact is emitted.
 #
