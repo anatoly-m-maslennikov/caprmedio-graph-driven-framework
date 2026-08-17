@@ -2,25 +2,16 @@
 subject_scopes:
   - requirement-topology
 tier: core
-version: 4
-updated_at: 2026-08-17 20:02:25
+version: 5
+updated_at: 2026-08-17 22:39:00
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   child_of:
-    - CAPRMADIO-REQUIREMENT-114-apply-mece-to-canonical-decompositions
-    - CAPRMADIO-REQUIREMENT-140-apply-dry-across-caprmadio
+    - CAPRMADIO-REQUIREMENT-247-use-one-global-tier-number-for-rmad-authority
 ---
 # Govern tier-preserving Requirement relations
 
-Every active Requirement `child_of` edge must preserve the project-configured applicability-tier order and the project-declared structural hierarchy:
+Every active Requirement `child_of` edge must point to an applicable parent whose global tier number is no greater than the child's. Within one structural scope, the parent must have a lower global tier number. An equal-tier edge is permitted only when the parent occupies an ancestor structural scope, so a Layer Core may specialize a Project Standard and a Feature Core may specialize a Layer Standard. Cross-scope parents must belong to the child's ancestor path; backward and cross-branch authority edges are forbidden.
 
-- the external Goal is the singular hierarchy root at derived depth `-1` and has no parent;
-- an Atom in the shallowest configured Project tier depends directly on the external Goal;
-- within one structural scope, a tier-classified Atom may depend on an applicable Atom in a shallower configured tier;
-- a descendant-scope Atom may depend directly on an applicable ancestor-scope Atom in the same configured tier; and
-- no non-shallower same-scope edge, backward structural edge, or cross-branch ancestry edge is permitted.
-
-A direct shallower-to-deeper tier edge records applicability. Child scopes do not restate inherited ancestry unless the direct dependency is materially necessary to the child claim.
-
-The child stores each direct relation. Transitive ancestry and inverse children are derived, and transitive ancestors must not be duplicated as direct relations. The active `authority_mode` governs topology-completeness obligations; relation legality applies in both modes.
+The child stores only materially necessary direct relations. Transitive ancestry and inverse children are derived and must not be duplicated. The active `authority_mode` governs topology-completeness obligations; relation legality applies in every mode.
