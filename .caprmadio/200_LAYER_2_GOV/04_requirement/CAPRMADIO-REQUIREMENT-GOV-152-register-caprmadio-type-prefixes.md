@@ -1,8 +1,8 @@
 ---
 subject_scopes:
   - artifact-catalog
-version: 2
-updated_at: 2026-08-17 20:02:25
+version: 3
+updated_at: 2026-08-17 22:35:01
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -17,7 +17,7 @@ Every registered artifact Type must have one globally unique four-character uppe
 
 | Type | Prefix |
 |---|---|
-| `goal` | `GOAL` |
+| `requirement:goal` | `GOAL` |
 | `concern` | `CONC` |
 | `external_problem` | `XPRB` |
 | `conflict` | `CNFL` |
@@ -47,7 +47,7 @@ Every registered artifact Type must have one globally unique four-character uppe
 | `implementation_journal` | `IJRN` |
 | `implementation_record` | `IREC` |
 
-`change_plan` and `refactoring_plan` use their parent Plan Type's `PLAN` prefix and numbering sequence. `implementation_decision` uses its parent Method Type's `METH` prefix and numbering sequence. The retired internal Implementation Atom Type does not receive an active `IMPL` prefix; historical identities retain their recorded meaning until a separately governed identity migration rewrites them.
+The `goal` Requirement subtype uses its `GOAL` prefix and independent subtype numbering sequence. `change_plan` and `refactoring_plan` use their parent Plan Type's `PLAN` prefix and numbering sequence. `implementation_decision` uses its parent Method Type's `METH` prefix and numbering sequence. The retired internal Implementation Atom Type does not receive an active `IMPL` prefix; historical identities retain their recorded meaning until a separately governed identity migration rewrites them.
 
 The canonical filename grammar remains:
 
