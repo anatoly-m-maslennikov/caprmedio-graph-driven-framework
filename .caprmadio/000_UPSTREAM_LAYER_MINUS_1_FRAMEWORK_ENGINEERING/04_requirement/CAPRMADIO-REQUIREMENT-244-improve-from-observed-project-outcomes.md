@@ -3,8 +3,8 @@ subject_scopes:
   - principles
 tier: principle
 principle_order: 14
-version: 1
-updated_at: 2026-08-17 21:08:18
+version: 2
+updated_at: 2026-08-17 22:22:00
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
