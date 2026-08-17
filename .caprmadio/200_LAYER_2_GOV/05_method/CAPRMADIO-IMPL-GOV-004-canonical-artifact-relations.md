@@ -5,6 +5,8 @@ artifact_id: CAPRMADIO-IMPL-GOV-004
 scope_path: layer:gov
 subject_scopes:
   - relation-model
+version: 2
+updated_at: 2026-08-17 19:11:46
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -34,7 +36,7 @@ CAPRMADIO uses exactly these general forward artifact relations:
 | `override_of` | Replaces inherited authority only inside a declared narrower scope |
 | `replacement_of` | Completely replaces an older immutable atom |
 | `recurrence_of` | Links a new Concern Atom to an archived predecessor with the same direct subtype |
-| `relates_to` | Records an association only when no precise relation applies and supplies no authority or coverage |
+| `related_to` | Records an association only in casual mode when no precise relation applies and supplies no authority or coverage |
 
 Every authored edge is stored on its source and names one or more stable target
 identities. One source-target pair has one primary relation. Reverse edges,
@@ -42,8 +44,9 @@ including `parent_to`, are derived and never authored.
 
 `child_of`, `override_of`, `replacement_of`, and `recurrence_of` are mutually
 exclusive for one pair. `solution_for` is reserved for Conflict; other closure
-uses `resolution_of`. `relates_to` has no authority, assurance, dependency,
-precedence, lifecycle, or coverage semantics.
+uses `resolution_of`. `related_to` has no authority, assurance, dependency,
+precedence, lifecycle, or coverage semantics. `related_to` is valid only when
+the source Artifact's effective `authority_mode` is `casual`.
 
 Rule-registry `depends_on` and `precedence_over` fields remain separate
 constitutional controls and are not general artifact relations.
