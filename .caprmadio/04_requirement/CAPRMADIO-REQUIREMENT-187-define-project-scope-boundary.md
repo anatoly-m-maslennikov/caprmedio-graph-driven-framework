@@ -1,12 +1,13 @@
 ---
 subject_scopes:
   - scope-topology
-version: 3
-updated_at: 2026-08-17 19:22:33
+version: 4
+updated_at: 2026-08-17 22:32:00
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   child_of:
+    - CAPRMADIO-REQUIREMENT-FRAMEWORK-ENGINEERING-003-make-project-the-direct-structural-child
     - CAPRMADIO-REQUIREMENT-227-model-project-structure-as-numbered-levels
 ---
 # Define project scope boundary
