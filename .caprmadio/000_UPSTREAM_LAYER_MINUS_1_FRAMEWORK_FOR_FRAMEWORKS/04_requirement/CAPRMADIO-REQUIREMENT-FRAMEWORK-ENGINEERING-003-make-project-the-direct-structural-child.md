@@ -1,8 +1,8 @@
 ---
 subject_scopes:
   - scope-topology
-version: 1
-updated_at: 2026-08-17 22:26:00
+version: 2
+updated_at: 2026-08-17 22:42:00
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -11,4 +11,4 @@ relations:
 ---
 # Make Project the direct structural child
 
-PROJECT at structural level zero must be the direct structural child of Upstream Layer minus one.
+PROJECT at structural level `0` must be the direct structural child of F4F at structural level `-1`.
