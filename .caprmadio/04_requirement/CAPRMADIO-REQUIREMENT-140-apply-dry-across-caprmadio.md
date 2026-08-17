@@ -1,16 +1,16 @@
 ---
-artifact_type: requirement
-artifact_id: CAPRMADIO-REQUIREMENT-140
 subject_scopes:
   - principles
 tier: principle
+principle_order: 7
+version: 3
+updated_at: 2026-08-17 19:22:33
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 ---
+# Apply dry across CAPRMADIO
 
-# Apply DRY across CAPRMADIO
-
-Whenever it is possible to resolve a governed meaning completely and unambiguously from one canonical owner, CAPRMADIO stores and maintains that meaning only once. Every other use references, derives, generates, or adapts the canonical owner instead of restating the same governed knowledge.
+CAPRMADIO must store and maintain a governed meaning under one canonical owner whenever that owner can resolve the meaning completely and unambiguously; every other use must reference, derive, generate, or adapt that owner.
 
 This rule applies across semantics, requirements, methods, assurance definitions, delivery rules, implementation, Ops, identities, schemas, settings, mappings, documentation, tools, skills, tests, evaluations, and generated views. Similar text or code with different meanings or ownership boundaries is not duplication and must not be forced into one abstraction.
 
