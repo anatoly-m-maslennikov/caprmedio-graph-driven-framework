@@ -2,8 +2,8 @@
 subject_scopes:
   - authority
 tier: core
-version: 4
-updated_at: 2026-08-17 20:02:25
+version: 5
+updated_at: 2026-08-17 22:35:01
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -15,7 +15,7 @@ relations:
 
 When a CAPRMADIO project enables applicability-tier classification, each classified Requirement, Method, Assurance, and Delivery Atom resolves to exactly one readable tier name in the project-configured ordered tier catalog.
 
-The external Goal is outside the Project tier catalog and occupies derived hierarchy depth `-1`. Project tier depths begin at `0` and are derived from catalog order rather than stored in Atoms. The current catalog is:
+The Project Goal is a Requirement subtype outside the ordered applicability-tier catalog and occupies global tier `-1`. Project applicability-tier positions begin at `0` and are derived from catalog order rather than stored in Atoms. The current catalog is:
 
 - `principle` at depth `0`, a project-wide invariant that constrains deeper tiers and may have no direct application by itself;
 - `core` at depth `1`, governing the complete declared Project or structural scope; and
