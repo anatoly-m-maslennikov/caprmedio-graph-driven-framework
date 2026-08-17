@@ -1,28 +1,19 @@
 ---
-artifact_type: requirement
-artifact_id: CAPRMADIO-REQUIREMENT-GOV-152
-scope_path: layer:gov
 subject_scopes:
   - artifact-catalog
+version: 1
+updated_at: 2026-08-17 19:22:33
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   replacement_of:
     - CAPRMADIO-REQUIREMENT-GOV-144-register-current-type-prefixes
   child_of:
-    - CAPRMADIO-REQUIREMENT-GOV-149-register-caprmadio-atom-type-surface
-    - CAPRMADIO-REQUIREMENT-GOV-150-register-change-plan-subtype
-    - CAPRMADIO-REQUIREMENT-GOV-151-register-implementation-record-projection
-  relates_to:
-    - CAPRMADIO-REQUIREMENT-GOV-133-govern-catalog-map-and-hub-projections
-    - CAPRMADIO-REQUIREMENT-GOV-142-register-development-backlog-projection
+    - CAPRMADIO-REQUIREMENT-GOV-181
 ---
-
 # Register CAPRMADIO Type prefixes
 
-Every registered artifact Type has one globally unique four-character uppercase
-identity prefix. Frontmatter retains the full semantic `artifact_type`; the
-prefix is an identity token rather than another Type name.
+Every registered artifact Type must have one globally unique four-character uppercase identity prefix from which the resolver derives the full Type without duplicated embedded Type metadata.
 
 | Type | Prefix |
 |---|---|
@@ -37,8 +28,8 @@ prefix is an identity token rather than another Type name.
 | `constraint` | `CNST` |
 | `contract` | `CNTR` |
 | `method` | `METH` |
-| `implementation_methodology` | `IMET` |
-| `integration_decision` | `IDEC` |
+| `external_method` | `XMTH` |
+| `method_binding` | `MBND` |
 | `assurance` | `ASSU` |
 | `assurance_standard` | `AUST` |
 | `review_protocol` | `RVPR` |
@@ -55,10 +46,7 @@ prefix is an identity token rather than another Type name.
 | `implementation_journal` | `IJRN` |
 | `implementation_record` | `IREC` |
 
-`change_plan` is a direct subtype and uses its parent Plan Type's `PLAN` prefix
-and numbering sequence. The retired internal Implementation Atom Type does not
-receive an active `IMPL` prefix; historical identities retain their recorded
-meaning until the governed identity migration rewrites them.
+`change_plan` and `refactoring_plan` use their parent Plan Type's `PLAN` prefix and numbering sequence. `implementation_decision` uses its parent Method Type's `METH` prefix and numbering sequence. The retired internal Implementation Atom Type does not receive an active `IMPL` prefix; historical identities retain their recorded meaning until a separately governed identity migration rewrites them.
 
 The canonical filename grammar remains:
 
@@ -66,6 +54,4 @@ The canonical filename grammar remains:
 <PROJECT>-<SCOPE_PATH>-<TYPE_PREFIX>-<NNN>[-<SUBTYPE>]--<SUMMARY>.<ext>
 ```
 
-Changing a registered prefix requires one governed lossless identity migration
-across active and archived carriers, relations, Projections, implementations,
-assurance records, and Git-bound provenance.
+Changing a registered prefix requires one governed lossless identity migration across active and archived carriers, relations, Projections, implementations, assurance records, and Git-bound provenance.
