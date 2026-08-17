@@ -1,8 +1,8 @@
 ---
 subject_scopes:
   - artifact-catalog
-version: 1
-updated_at: 2026-08-17 19:22:33
+version: 2
+updated_at: 2026-08-17 20:02:25
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -17,6 +17,7 @@ Every registered artifact Type must have one globally unique four-character uppe
 
 | Type | Prefix |
 |---|---|
+| `goal` | `GOAL` |
 | `concern` | `CONC` |
 | `external_problem` | `XPRB` |
 | `conflict` | `CNFL` |

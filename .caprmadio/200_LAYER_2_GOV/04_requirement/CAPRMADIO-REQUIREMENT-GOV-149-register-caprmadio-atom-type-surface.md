@@ -3,8 +3,8 @@ artifact_type: requirement
 artifact_id: CAPRMADIO-REQUIREMENT-GOV-149
 scope_path: layer:gov
 subject_scope: artifact-catalog
-version: 1
-updated_at: 2026-08-17 19:36:01
+version: 2
+updated_at: 2026-08-17 20:02:25
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -36,6 +36,8 @@ Content-role and Governance-locus coordinates:
 
 A dash is an intentionally unadmitted coordinate. Writers fail closed rather
 than inventing a placeholder Type or substituting another route.
+
+GOV registers `goal` as the singular external root Type outside the Project Content-role matrix. A Goal states the end that causes the Project to exist, derives external governance locus, and cannot be established or redefined by project authority.
 
 The internal `plan` Type is fixed by META. The internal Implementation Atom
 route is not admitted because native project artifacts are the Implementation;

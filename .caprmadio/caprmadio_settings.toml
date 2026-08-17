@@ -47,6 +47,14 @@ project = "strict"
 meta = "strict"
 gov = "strict"
 
+[authority.tiers]
+# The Goal is external to the Project and anchors the hierarchy at derived depth -1.
+external_root = "goal"
+# Project applicability tiers are ordered from shallowest to deepest. Array indexes are derived depths and are not stored in Atoms.
+ordered = ["principle", "core", "standard"]
+# The default may be omitted from Atom frontmatter and resolved here.
+default = "standard"
+
 [artifacts]
 # Set the gate used before a new immutable atomic artifact is emitted.
 #

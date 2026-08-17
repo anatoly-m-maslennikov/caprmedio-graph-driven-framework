@@ -2,8 +2,8 @@
 subject_scopes:
   - principles
 tier: principle
-principle_order: 3
-version: 4
+principle_order: 13
+version: 1
 updated_at: 2026-08-17 20:02:25
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
@@ -11,6 +11,6 @@ relations:
   child_of:
     - CAPRMADIO-GOAL-001--enable-any-operator-to-build-a-working-system
 ---
-# Scale through structure
+# Organize authority as a hierarchical graph
 
-CAPRMADIO must preserve necessary project information and manage its volume through structure and selective exposure rather than lossy omission.
+CAPRMADIO must organize governed authority as explicit, configurable hierarchies within its typed graph.
