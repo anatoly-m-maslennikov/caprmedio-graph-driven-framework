@@ -2,8 +2,8 @@
 subject_scopes:
   - authority
 tier: core
-version: 2
-updated_at: 2026-08-17 17:29:05
+version: 3
+updated_at: 2026-08-17 17:30:19
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -12,4 +12,4 @@ relations:
 ---
 # Identify necessary information by confidence
 
-To determine whether project information is necessary, an LLM must inspect every active Atom in its full ancestor and descendant lineage and every other active Atom in the same structural scope. The information is necessary only when its omission would leave the LLM below the effective project-owned necessary-information confidence threshold.
+To determine whether project information is necessary, an LLM must inspect every active Project Principle, every active Atom in the information's full ancestor and descendant lineage, and every other active Atom in the same structural scope. The information is necessary only when its omission would leave the LLM below the effective project-owned necessary-information confidence threshold.
