@@ -196,12 +196,13 @@ def main() -> int:
     root = repository_root(Path(args.root))
     atoms = load_atoms(root)
     frontier = source_frontier(root, atoms)
-    updated_at = current_timestamp(root)
-    rendered = render(atoms, frontier, updated_at)
     current = (root / TARGET).read_text(encoding="utf-8") if (root / TARGET).is_file() else ""
-    changed = current != rendered
+    current_frontier = yaml_scalar(current.partition("\n---\n")[0], "source_frontier_sha256")
+    changed = current_frontier != frontier
     print(f"atoms={len(atoms)} frontier={frontier} changed={changed} apply={args.apply}")
     if args.apply and changed:
+        updated_at = current_timestamp(root)
+        rendered = render(atoms, frontier, updated_at)
         publish(root, rendered, frontier, args.session_id, updated_at)
     return 0
 
