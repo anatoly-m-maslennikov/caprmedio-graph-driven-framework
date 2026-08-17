@@ -1,9 +1,9 @@
 ---
 scope_path: layer:spec
 subject_scopes:
-  - self-improvement
-version: 3
-updated_at: 2026-08-17 21:48:01
+  - continuous-improvement
+version: 4
+updated_at: 2026-08-17 21:54:12
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 ---
