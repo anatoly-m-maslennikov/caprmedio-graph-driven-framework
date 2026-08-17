@@ -2,8 +2,8 @@
 subject_scopes:
   - purpose
 tier: goal
-version: 1
-updated_at: 2026-08-17 20:02:25
+version: 2
+updated_at: 2026-08-17 22:19:45
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
