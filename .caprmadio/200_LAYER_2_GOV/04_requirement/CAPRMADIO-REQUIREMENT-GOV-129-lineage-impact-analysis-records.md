@@ -4,19 +4,18 @@ artifact_id: CAPRMADIO-REQUIREMENT-GOV-129
 scope_path: layer:gov
 subject_scopes:
   - relation-model
+version: 1
+updated_at: 2026-08-17 19:36:01
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: child_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-077
-  - type: relates_to
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-097
-      - CAPRMADIO-REQUIREMENT-GOV-127
-      - CAPRMADIO-REQUIREMENT-GOV-128
+  child_of:
+    - CAPRMADIO-REQUIREMENT-GOV-181
+  relates_to:
+    - CAPRMADIO-REQUIREMENT-META-097
+    - CAPRMADIO-REQUIREMENT-GOV-127
+    - CAPRMADIO-REQUIREMENT-GOV-128
 ---
-
 # Record one Lineage Impact Analysis per changed atom revision
 
 Every `refinement`, `semantic_revision`, or `replacement` of an admitted

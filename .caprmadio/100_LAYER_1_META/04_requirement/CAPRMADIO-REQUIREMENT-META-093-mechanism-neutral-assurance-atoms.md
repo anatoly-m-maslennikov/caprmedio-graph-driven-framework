@@ -3,6 +3,8 @@ artifact_type: requirement
 artifact_id: CAPRMADIO-REQUIREMENT-META-093
 scope_path: layer:meta
 subject_scope: assurance
+version: 1
+updated_at: 2026-08-17 19:36:01
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -10,9 +12,7 @@ relations:
     - CAPRMADIO-REQUIREMENT-META-049
   child_of:
     - CAPRMADIO-REQUIREMENT-META-091-authority-assurance-and-ops-remain-distinct
-    - CAPRMADIO-REQUIREMENT-META-092-analysis-and-ops-fact-boundary
 ---
-
 # Requirement — Keep Assurance Atoms mechanism-neutral and chains distinct
 
 A mechanism-neutral Assurance Atom defines what claim is checked, the applicable conditions, the acceptance criteria, and the disposition rule. It does not prescribe whether the check is realized by an automated test, model-judged evaluation, statistical assessment, rubric, manual review, or another implementation mechanism.

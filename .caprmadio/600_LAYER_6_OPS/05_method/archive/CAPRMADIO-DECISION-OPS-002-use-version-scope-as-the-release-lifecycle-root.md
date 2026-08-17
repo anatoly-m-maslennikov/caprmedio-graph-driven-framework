@@ -1,3 +1,7 @@
+---
+version: 1
+updated_at: 2026-08-17 19:36:01
+---
 # Decision — Use Version Scope as the Release lifecycle root
 
 - **Decision ID:** `CAPRMADIO-DECISION-OPS-002`

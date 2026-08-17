@@ -3,6 +3,8 @@ artifact_type: requirement
 artifact_id: CAPRMADIO-REQUIREMENT-META-137
 scope_path: layer:meta
 subject_scope: lifecycle-traceability
+version: 1
+updated_at: 2026-08-17 19:36:01
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -11,7 +13,6 @@ relations:
   child_of:
     - CAPRMADIO-REQUIREMENT-META-154-three-artifact-forms-with-generated-projections
 ---
-
 # Requirement — Use Implementation Record as a Projection
 
 An Implementation Record is an Implementation-role Projection of what the

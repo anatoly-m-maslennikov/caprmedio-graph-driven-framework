@@ -4,14 +4,14 @@ artifact_id: CAPRMADIO-REQUIREMENT-META-067
 scope_path: layer:meta
 subject_scopes:
   - scope-topology
+version: 1
+updated_at: 2026-08-17 19:36:01
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   child_of:
-    - CAPRMADIO-REQUIREMENT-065-ordered-realization-topology
-    - CAPRMADIO-REQUIREMENT-096-acyclic-layers-with-ops-feedback
+    - CAPRMADIO-REQUIREMENT-META-192-preserve-bounded-meaning-across-structural-scales
 ---
-
 # Define current Layer handoffs
 
 Each adjacent boundary owns a handoff:

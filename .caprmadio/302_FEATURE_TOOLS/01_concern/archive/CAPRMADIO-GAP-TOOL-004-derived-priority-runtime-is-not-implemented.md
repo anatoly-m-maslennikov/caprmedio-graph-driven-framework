@@ -10,6 +10,8 @@ status = "accepted"
 priority = "high"
 authority = "agent:codex"
 claim = "The current conflict runtime reads the legacy priority scale and does not yet enforce assignable priorities, scope/layer comparison bonuses, virtual highest, legacy normalization, or conflict_resolution.mode."
+version = 1
+updated_at = "2026-08-17 19:36:01"
 llm_session_ids = ["codex:019f591f-04f6-70f2-8de7-828b7cccc69d"]
 rationale = "Publishing settings without executable consumption would make ask_always appear protective while the existing resolver can still select through its older priority-list behavior."
 

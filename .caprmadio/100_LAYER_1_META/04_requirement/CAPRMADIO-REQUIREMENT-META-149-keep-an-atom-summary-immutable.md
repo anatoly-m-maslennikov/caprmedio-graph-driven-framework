@@ -4,6 +4,8 @@ artifact_id: CAPRMADIO-REQUIREMENT-META-149
 scope_path: layer:meta
 subject_scopes:
   - artifact-model
+version: 1
+updated_at: 2026-08-17 19:36:01
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -11,7 +13,6 @@ relations:
     - CAPRMADIO-REQUIREMENT-META-128-bind-governed-transactions-to-stable-artifact-revisions
     - CAPRMADIO-REQUIREMENT-META-157-separate-artifact-carrier-and-revision
 ---
-
 # Keep an Atom summary immutable
 
 An admitted Atom may receive governed revisions while its filename summary

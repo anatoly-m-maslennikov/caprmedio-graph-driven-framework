@@ -1,3 +1,7 @@
+---
+version: 1
+updated_at: 2026-08-17 19:36:01
+---
 # Decision — Select the DSET 0.3 operating shape
 
 - **Decision ID:** `CAPRMADIO-DECISION-SKILL-001`

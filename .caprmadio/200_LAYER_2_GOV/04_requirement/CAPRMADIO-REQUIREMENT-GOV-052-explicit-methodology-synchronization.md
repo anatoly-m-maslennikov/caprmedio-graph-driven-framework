@@ -4,14 +4,14 @@ artifact_id: CAPRMADIO-REQUIREMENT-GOV-052
 scope_path: layer:gov
 subject_scopes:
   - methodology
+version: 1
+updated_at: 2026-08-17 19:36:01
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: child_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-057
+  child_of:
+    - CAPRMADIO-REQUIREMENT-META-057
 ---
-
 # Synchronize installed methodology only on command
 
 CAPRMADIO maintainers edit the reusable methodology only in its repository-root

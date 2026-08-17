@@ -4,14 +4,14 @@ artifact_id: CAPRMADIO-REQUIREMENT-GOV-146
 scope_path: layer:gov
 subject_scopes:
   - layout
+version: 1
+updated_at: 2026-08-17 19:36:01
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: override_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-GOV-145
+  override_of:
+    - CAPRMADIO-REQUIREMENT-GOV-145
 ---
-
 # Keep the applied Implementation layer flat
 
 The applied project layer `400_LAYER_4_IMPLEMENTATION` (`105_LAYER_IMPL`) contains no subfolders for now. Any governed carriers assigned to that layer live directly in its root.

@@ -4,6 +4,8 @@ artifact_type = "evidence_record"
 artifact_subtype = "test_result"
 artifact_id = "CAPRMADIO-EVIDENCE-RECORD-041"
 priority = "high"
+version = 1
+updated_at = "2026-08-17 19:36:01"
 llm_session_ids = ["codex:019f591f-04f6-70f2-8de7-828b7cccc69d"]
 context = ["commit=a473c29073a9660b35f2a7f78d3d715609b063fe", "platform=macos", "python=3.14.6", "github_actions_failure_run=29799045908", "tests=314"]
 observed_at = "2026-07-21T16:45:37+04:00"

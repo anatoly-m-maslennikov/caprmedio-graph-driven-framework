@@ -4,6 +4,8 @@ artifact_id: CAPRMADIO-REQUIREMENT-GOV-116
 scope_path: layer:gov
 subject_scopes:
   - carrier-format
+version: 1
+updated_at: 2026-08-17 19:36:01
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -15,7 +17,6 @@ relations:
   relates_to:
     - CAPRMADIO-CONSTRAINT-GOV-002-github-preview-compatibility
 ---
-
 # Select carriers by their governed job
 
 Every governed Markdown artifact starts with valid YAML frontmatter containing

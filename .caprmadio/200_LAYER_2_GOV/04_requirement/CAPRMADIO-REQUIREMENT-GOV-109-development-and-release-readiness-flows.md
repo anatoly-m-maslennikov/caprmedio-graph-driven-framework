@@ -4,19 +4,17 @@ artifact_id: CAPRMADIO-REQUIREMENT-GOV-109
 scope_path: layer:gov
 subject_scopes:
   - interaction
+version: 1
+updated_at: 2026-08-17 19:36:01
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: replacement_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-GOV-066
-  - type: child_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-090
-      - CAPRMADIO-REQUIREMENT-META-093
-      - CAPRMADIO-REQUIREMENT-META-107
+  replacement_of:
+    - CAPRMADIO-REQUIREMENT-GOV-066
+  child_of:
+    - CAPRMADIO-REQUIREMENT-META-093
+    - CAPRMADIO-REQUIREMENT-META-107
 ---
-
 # Separate development and release-readiness flows
 
 Development is the default flow:

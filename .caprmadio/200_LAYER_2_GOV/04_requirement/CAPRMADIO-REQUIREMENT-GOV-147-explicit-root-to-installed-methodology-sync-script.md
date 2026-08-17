@@ -4,14 +4,11 @@ artifact_id: CAPRMADIO-REQUIREMENT-GOV-147
 scope_path: layer:gov
 subject_scopes:
   - methodology-sync
+version: 1
+updated_at: 2026-08-17 19:36:01
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
-relations:
-  - type: child_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-GOV-052
 ---
-
 # Provide an explicit root-to-installed-methodology sync script
 
 The repository provides one directly executable script that synchronizes reusable root methodology into `.caprmadio/000_caprmadio_framework` through the canonical synchronization engine.

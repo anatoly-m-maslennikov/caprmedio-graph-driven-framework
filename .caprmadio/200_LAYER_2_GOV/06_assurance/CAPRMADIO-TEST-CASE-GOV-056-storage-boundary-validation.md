@@ -5,15 +5,15 @@ artifact_id: CAPRMADIO-TEST-CASE-GOV-056
 scope_path: layer:gov
 subject_scopes:
   - assurance
+version: 1
+updated_at: 2026-08-17 19:36:01
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: replacement_of
-    targets:
-      - CAPRMADIO-TEST-CASE-GOV-048
-  - type: check_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-GOV-146
+  replacement_of:
+    - CAPRMADIO-TEST-CASE-GOV-048
+  check_of:
+    - CAPRMADIO-REQUIREMENT-GOV-173-register-the-project-work-journal
 ---
 
 # Storage-boundary enforcement

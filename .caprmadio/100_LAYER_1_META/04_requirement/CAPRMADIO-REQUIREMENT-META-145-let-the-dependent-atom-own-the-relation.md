@@ -1,21 +1,16 @@
 ---
-artifact_type: requirement
-artifact_id: CAPRMADIO-REQUIREMENT-META-145
-scope_path: layer:meta
 subject_scopes:
   - artifact-model
 tier: core
+version: 1
+updated_at: 2026-08-17 19:36:01
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   child_of:
-    - CAPRMADIO-REQUIREMENT-173-govern-tier-preserving-requirement-relations
-    - CAPRMADIO-REQUIREMENT-META-026-single-owner-rule-placement
-    - CAPRMADIO-REQUIREMENT-META-121-bind-traceability-to-exact-claims-and-revisions
-    - CAPRMADIO-REQUIREMENT-META-128-bind-governed-transactions-to-stable-artifact-revisions
+    - CAPRMADIO-REQUIREMENT-182-the-graph-is-the-operating-model
 ---
-
-# Let the dependent Atom own the relation
+# Let the dependent atom own the relation
 
 When one Atom depends semantically on a pre-existing artifact, the dependent Atom stores the directed relation to that upstream subject. Creating the dependent Atom must not require modifying the upstream artifact.
 

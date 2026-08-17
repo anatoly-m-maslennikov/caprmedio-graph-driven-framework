@@ -10,6 +10,8 @@ status = "accepted"
 priority = "high"
 authority = "operator:anatoly-m-maslennikov"
 claim = "DSET provides a public dset-compile skill that semantically reconciles pending atomic artifacts into affected evergreen specifications and plans under repository-local governance."
+version = 1
+updated_at = "2026-08-17 19:36:01"
 llm_session_ids = ["codex:019f591f-04f6-70f2-8de7-828b7cccc69d"]
 promotion = {}
 

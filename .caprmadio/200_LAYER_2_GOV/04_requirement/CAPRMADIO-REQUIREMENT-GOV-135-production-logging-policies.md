@@ -4,17 +4,14 @@ artifact_id: CAPRMADIO-REQUIREMENT-GOV-135
 scope_path: layer:gov
 subject_scopes:
   - assurance
+version: 1
+updated_at: 2026-08-17 19:36:01
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: child_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-GOV-134
-  - type: relates_to
-    targets:
-      - CAPRMADIO-REQUIREMENT-GOV-146
+  relates_to:
+    - CAPRMADIO-REQUIREMENT-GOV-173-register-the-project-work-journal
 ---
-
 # Require production logging policies
 
 Every production-relevant component must define a Logging Policy that supports

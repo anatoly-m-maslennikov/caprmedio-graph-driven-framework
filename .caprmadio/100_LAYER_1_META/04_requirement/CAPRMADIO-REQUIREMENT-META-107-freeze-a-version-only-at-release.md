@@ -3,13 +3,14 @@ artifact_type: requirement
 artifact_id: CAPRMADIO-REQUIREMENT-META-107
 scope_path: layer:meta
 subject_scope: development-flow
+version: 1
+updated_at: 2026-08-17 19:36:01
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   child_of:
     - CAPRMADIO-REQUIREMENT-META-135-preserve-content-role-boundaries-through-caprmadio-loop
 ---
-
 # Requirement — Freeze a version only at release
 
 A target version remains mutable until its configured release event succeeds.

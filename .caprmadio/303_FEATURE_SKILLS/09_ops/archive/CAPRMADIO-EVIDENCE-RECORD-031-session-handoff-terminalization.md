@@ -4,6 +4,8 @@ artifact_type = "evidence_record"
 artifact_subtype = "test_result"
 artifact_id = "CAPRMADIO-EVIDENCE-RECORD-031"
 priority = "high"
+version = 1
+updated_at = "2026-08-17 19:36:01"
 llm_session_ids = ["codex:019f591f-04f6-70f2-8de7-828b7cccc69d"]
 context = ["repository=anatoly-m-maslennikov/dset-specs-loops-framework", "environment=isolated-runtime-fixtures", "python=3.14.6"]
 observed_at = "2026-07-21T01:55:05+04:00"

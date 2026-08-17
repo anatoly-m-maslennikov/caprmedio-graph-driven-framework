@@ -4,18 +4,14 @@ artifact_id: CAPRMADIO-REQUIREMENT-GOV-103
 scope_path: layer:gov
 subject_scopes:
   - provenance
+version: 1
+updated_at: 2026-08-17 19:36:01
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: replacement_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-GOV-079
-  - type: child_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-098
-      - CAPRMADIO-REQUIREMENT-GOV-101
+  replacement_of:
+    - CAPRMADIO-REQUIREMENT-GOV-079
 ---
-
 # Distinguish internal and external Git commits
 
 An internal project commit uses artifact type `git_commit` and derives the route

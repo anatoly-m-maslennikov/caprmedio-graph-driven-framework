@@ -3,14 +3,14 @@ artifact_type: requirement
 artifact_id: CAPRMADIO-REQUIREMENT-META-164
 scope_path: layer:meta
 subject_scope: semantics
+version: 1
+updated_at: 2026-08-17 19:36:01
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   child_of:
-    - CAPRMADIO-REQUIREMENT-META-161-define-role-specific-atom-atomicity
     - CAPRMADIO-REQUIREMENT-META-166-write-context-complete-minimal-atom-prose
 ---
-
 # Canonical Requirement statement
 
 Every Requirement Atom states its one claim through this semantic form:

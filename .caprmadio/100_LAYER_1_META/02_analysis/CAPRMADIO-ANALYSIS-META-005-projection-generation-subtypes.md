@@ -10,6 +10,8 @@ relations:
     - CAPRMADIO-REQUIREMENT-GOV-133-govern-catalog-map-and-hub-projections
     - CAPRMADIO-REQUIREMENT-GOV-151-register-implementation-record-projection
     - CAPRMADIO-PLAN-009--establish-projection-generation-subtypes
+version: 1
+updated_at: 2026-08-17 19:36:01
 ---
 
 # Projection generation subtypes

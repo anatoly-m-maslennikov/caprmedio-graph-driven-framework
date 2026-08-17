@@ -4,28 +4,26 @@ artifact_id: CAPRMADIO-REQUIREMENT-GOV-158
 scope_path: layer:gov
 subject_scopes:
   - relation-model
+version: 1
+updated_at: 2026-08-17 19:36:01
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   replacement_of:
     - CAPRMADIO-REQUIREMENT-GOV-156-register-rationale-for-relation
   child_of:
-    - CAPRMADIO-REQUIREMENT-META-144-store-each-semantic-relation-once
-    - CAPRMADIO-REQUIREMENT-META-145-let-the-dependent-atom-own-the-relation
-    - CAPRMADIO-REQUIREMENT-META-146-create-rationale-after-its-subject
-    - CAPRMADIO-REQUIREMENT-META-147-keep-analysis-optional-before-specification
-    - CAPRMADIO-REQUIREMENT-META-148-store-only-direct-semantic-relations
-    - CAPRMADIO-REQUIREMENT-GOV-101-derive-locus-and-declare-endpoint-origins
-    - CAPRMADIO-REQUIREMENT-GOV-155-register-rationale-analysis-subtype
+    - CAPRMADIO-REQUIREMENT-META-144
+    - CAPRMADIO-REQUIREMENT-META-146
+    - CAPRMADIO-REQUIREMENT-META-147
+    - CAPRMADIO-REQUIREMENT-META-148
 ---
-
 # Register dependent-to-subject relations
 
 GOV registers the following directed relations. The artifact on the left stores the relation to its pre-existing subject on the right:
 
 | Relation | Owning artifact | Allowed target |
 | --- | --- | --- |
-| `derived_from` | specification or Rationale Atom | source Analysis Report |
+| `derived_from` | internal Concern, Analysis, Plan, Requirement, Method, Assurance, Delivery, or Rationale Atom | source Analysis Atom |
 | `rationale_for` | Rationale Analysis Atom | Requirement, Method, Assurance, or Delivery Atom |
 | `method_for` | Method Atom | Requirement Atom |
 | `assurance_for` | Assurance Atom | Requirement or Method Atom |

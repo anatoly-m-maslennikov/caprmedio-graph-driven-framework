@@ -6,15 +6,15 @@ scope_path: layer:gov
 subject_scopes:
   - provenance
 priority: high
+version: 1
+updated_at: 2026-08-17 19:36:01
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: relates_to
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-113
-      - CAPRMADIO-REQUIREMENT-GOV-145
-      - CAPRMADIO-REQUIREMENT-GOV-146
-      - CAPRMADIO-REQUIREMENT-GOV-147
+  relates_to:
+    - CAPRMADIO-REQUIREMENT-META-113-preserve-implementation-traceability-in-journals
+    - CAPRMADIO-REQUIREMENT-GOV-173-register-the-project-work-journal
+    - CAPRMADIO-REQUIREMENT-GOV-178-register-implementation-journals-and-projections
 ---
 
 # Problem — Implementation Journals and Projections are not materialized

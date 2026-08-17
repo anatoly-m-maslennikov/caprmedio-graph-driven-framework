@@ -10,6 +10,8 @@ status = "accepted"
 priority = "medium"
 authority = "operator:anatoly-m-maslennikov"
 claim = "The previous released validator predates layered schema 1.2, so the current fixed point uses the exact migration commit as a clearly labeled non-release transition baseline. Release assurance remains degraded until a published compatible validator checks a later candidate or an accepted compatibility proof closes the gap."
+version = 1
+updated_at = "2026-08-17 19:36:01"
 llm_session_ids = ["codex:019f591f-04f6-70f2-8de7-828b7cccc69d"]
 promotion = {}
 +++

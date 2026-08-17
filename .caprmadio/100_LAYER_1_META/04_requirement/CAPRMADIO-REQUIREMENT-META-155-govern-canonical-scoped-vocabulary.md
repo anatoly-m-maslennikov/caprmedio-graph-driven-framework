@@ -4,6 +4,8 @@ artifact_id: CAPRMADIO-REQUIREMENT-META-155
 scope_path: layer:meta
 subject_scopes:
   - semantics
+version: 1
+updated_at: 2026-08-17 19:36:01
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -11,7 +13,6 @@ relations:
     - CAPRMADIO-REQUIREMENT-META-132-caprmadio-framework-identity
     - CAPRMADIO-REQUIREMENT-META-166-write-context-complete-minimal-atom-prose
 ---
-
 # Canonical scoped vocabulary
 
 Each canonical CAPRMADIO term has one active Atom that owns one precise meaning

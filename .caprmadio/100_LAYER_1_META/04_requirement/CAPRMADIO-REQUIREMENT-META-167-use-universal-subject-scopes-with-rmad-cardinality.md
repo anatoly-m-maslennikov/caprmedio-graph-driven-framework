@@ -4,6 +4,8 @@ artifact_id: CAPRMADIO-REQUIREMENT-META-167
 scope_path: layer:meta
 subject_scopes:
   - artifact-model
+version: 1
+updated_at: 2026-08-17 19:36:01
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -12,8 +14,8 @@ relations:
   child_of:
     - CAPRMADIO-REQUIREMENT-META-100-scope-path-does-not-change-semantic-coordinates
     - CAPRMADIO-REQUIREMENT-META-131-nine-content-roles-with-plan
+    - CAPRMADIO-REQUIREMENT-META-196-narrowest-common-scope-ownership
 ---
-
 # Use universal Subject scopes with RMAD cardinality
 
 Every Atom must declare a non-empty `subject_scopes` list selected from the

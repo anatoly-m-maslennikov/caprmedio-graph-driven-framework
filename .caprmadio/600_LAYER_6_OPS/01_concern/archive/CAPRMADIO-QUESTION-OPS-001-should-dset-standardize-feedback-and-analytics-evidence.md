@@ -10,6 +10,8 @@ status = "accepted"
 priority = "medium"
 authority = "operator:anatoly-m-maslennikov"
 claim = "Should a later DSET version define how product feedback and analytics become bounded evidence for Outcomes, Problems, Opportunities, and Changes?"
+version = 1
+updated_at = "2026-08-17 19:36:01"
 llm_session_ids = ["codex:019f591f-04f6-70f2-8de7-828b7cccc69d"]
 promotion = {}
 +++

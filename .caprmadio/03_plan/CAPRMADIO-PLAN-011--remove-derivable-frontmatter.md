@@ -4,6 +4,8 @@ artifact_subtype: change_plan
 artifact_id: CAPRMADIO-PLAN-011
 scope_path: layer:meta
 priority: medium
+version: 1
+updated_at: 2026-08-17 19:36:01
 ---
 
 # Remove derivable frontmatter

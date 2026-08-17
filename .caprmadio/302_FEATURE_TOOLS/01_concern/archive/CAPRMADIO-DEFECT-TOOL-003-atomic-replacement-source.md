@@ -11,6 +11,8 @@ priority = "high"
 authority = "repository:self-host-review"
 claim = "The relation validator rejects replacement_of from immutable QA atoms even though replacement is defined for every atomic successor."
 promotion = {}
+version = 1
+updated_at = "2026-08-17 19:36:01"
 llm_session_ids = ["codex:019f591f-04f6-70f2-8de7-828b7cccc69d"]
 rationale = "The first QA successor authored under the typed-relation contract exposed a source restriction narrower than the governing definition."
 

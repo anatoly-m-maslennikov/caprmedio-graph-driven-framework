@@ -1,19 +1,18 @@
 ---
-artifact_type: requirement
-artifact_id: CAPRMADIO-REQUIREMENT-META-095
-scope_path: layer:meta
-subject_scope: scope-topology
+subject_scopes:
+  - scope-topology
 tier: core
+version: 1
+updated_at: 2026-08-17 19:36:01
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   replacement_of:
     - CAPRMADIO-REQUIREMENT-META-059
   child_of:
-    - CAPRMADIO-REQUIREMENT-120-preserve-bounded-meaning-across-structural-scales
+    - CAPRMADIO-REQUIREMENT-114-apply-mece-to-canonical-decompositions
 ---
-
-# Requirement — Propagate accepted change forward
+# Propagate CAPRMADIO change forward
 
 An accepted upstream change propagates only forward through the ordered layer graph. It:
 
@@ -23,7 +22,3 @@ An accepted upstream change propagates only forward through the ordered layer gr
 4. closes only when every affected currentness or assurance gate reaches its required disposition.
 
 Refreshing a Projection alone does not complete propagation. Downstream Method, Assurance, Delivery, Implementation, and Ops remain independently accountable. Feedback from a later layer may create a new upstream Concern, but cannot rewrite upstream authority or introduce a backward dependency.
-
-## Primary claim
-
-Accepted upstream change propagates potential staleness forward to every affected owner without creating backward governance or treating one Projection refresh as complete reconciliation.

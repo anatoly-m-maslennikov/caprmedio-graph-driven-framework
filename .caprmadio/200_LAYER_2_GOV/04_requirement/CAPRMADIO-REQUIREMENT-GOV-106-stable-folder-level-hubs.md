@@ -4,18 +4,16 @@ artifact_id: CAPRMADIO-REQUIREMENT-GOV-106
 scope_path: layer:gov
 subject_scopes:
   - layout
+version: 1
+updated_at: 2026-08-17 19:36:01
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: replacement_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-GOV-053
-  - type: child_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-053
-      - CAPRMADIO-REQUIREMENT-META-090
+  replacement_of:
+    - CAPRMADIO-REQUIREMENT-GOV-053
+  child_of:
+    - CAPRMADIO-REQUIREMENT-GOV-181
 ---
-
 # Keep durable hubs folder-level
 
 A durable hub may directly list stable child areas and their hubs, folders that

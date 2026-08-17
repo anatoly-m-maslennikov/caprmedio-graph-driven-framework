@@ -1,19 +1,18 @@
 ---
-artifact_type: requirement
-artifact_id: CAPRMADIO-REQUIREMENT-META-091
-scope_path: layer:meta
-subject_scope: authority
+subject_scopes:
+  - authority
 tier: core
+version: 1
+updated_at: 2026-08-17 19:36:01
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   replacement_of:
     - CAPRMADIO-REQUIREMENT-META-028
   child_of:
-    - CAPRMADIO-REQUIREMENT-116-preserve-strict-semantic-distinctions
+    - CAPRMADIO-REQUIREMENT-114-apply-mece-to-canonical-decompositions
 ---
-
-# Requirement — Keep authority, assurance, and Ops distinct
+# Authority assurance and Ops remain distinct
 
 CAPRMADIO distinguishes:
 
@@ -23,7 +22,3 @@ CAPRMADIO distinguishes:
 - verification judgments about sufficiency and currentness.
 
 Assurance material, evaluations, evidence, dashboards, and verification judgments may support, challenge, or invalidate reliance on a claim. They cannot establish, edit, replace, or override semantic authority. An assurance failure creates a Concern for the appropriate owner rather than silently changing the governing claim.
-
-## Primary claim
-
-CAPRMADIO keeps authoritative claims, assurance criteria, implementations, Ops facts, evidence, and verification judgments semantically distinct; assurance and Ops cannot establish or override authority.

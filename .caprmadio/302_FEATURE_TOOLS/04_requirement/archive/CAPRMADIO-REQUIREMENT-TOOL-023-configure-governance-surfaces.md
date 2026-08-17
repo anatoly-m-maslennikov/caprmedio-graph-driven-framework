@@ -9,6 +9,8 @@ status = "accepted"
 priority = "high"
 authority = "operator:anatoly-m-maslennikov"
 claim = "The DSET CLI exposes deterministic status, activate, deactivate, and recommend operations for registered governance surfaces, previews every write by default, and writes only with explicit execution authority."
+version = 1
+updated_at = "2026-08-17 19:36:01"
 llm_session_ids = ["codex:019f591f-04f6-70f2-8de7-828b7cccc69d"]
 rationale = "A dry-run-first command makes optional governance reversible and inspectable without requiring an agent to edit TOML mechanically."
 

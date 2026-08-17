@@ -3,6 +3,8 @@ artifact_type: analysis
 artifact_id: CAPRMADIO-ANALYSIS-META-006
 scope_path: layer:meta
 subject_scope: lifecycle-traceability
+version: 1
+updated_at: 2026-08-17 19:36:01
 ---
 
 # Agent memory and graph-driven development

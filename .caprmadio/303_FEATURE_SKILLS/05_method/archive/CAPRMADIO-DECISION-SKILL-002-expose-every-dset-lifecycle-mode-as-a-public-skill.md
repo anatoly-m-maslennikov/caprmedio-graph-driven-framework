@@ -1,3 +1,7 @@
+---
+version: 1
+updated_at: 2026-08-17 19:36:01
+---
 # Decision — Expose every DSET lifecycle mode as a public skill
 
 - **Decision ID:** `CAPRMADIO-DECISION-SKILL-002`

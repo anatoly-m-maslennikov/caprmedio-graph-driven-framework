@@ -4,23 +4,20 @@ artifact_id: CAPRMADIO-REQUIREMENT-GOV-133
 scope_path: layer:gov
 subject_scopes:
   - carrier-format
+version: 1
+updated_at: 2026-08-17 19:36:01
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: replacement_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-GOV-130
-  - type: child_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-089
-      - CAPRMADIO-REQUIREMENT-META-090
-  - type: relates_to
-    targets:
-      - CAPRMADIO-REQUIREMENT-GOV-102
-      - CAPRMADIO-REQUIREMENT-GOV-116
-      - CAPRMADIO-REQUIREMENT-GOV-126
+  replacement_of:
+    - CAPRMADIO-REQUIREMENT-GOV-130
+  child_of:
+    - CAPRMADIO-REQUIREMENT-GOV-181
+  relates_to:
+    - CAPRMADIO-REQUIREMENT-GOV-102
+    - CAPRMADIO-REQUIREMENT-GOV-116
+    - CAPRMADIO-REQUIREMENT-GOV-126
 ---
-
 # Govern Catalog, Map, and Hub Projections
 
 GOV registers three internal Projection Types:

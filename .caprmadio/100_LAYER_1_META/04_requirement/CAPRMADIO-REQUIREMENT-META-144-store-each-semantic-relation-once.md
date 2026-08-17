@@ -4,6 +4,8 @@ artifact_id: CAPRMADIO-REQUIREMENT-META-144
 scope_path: layer:meta
 subject_scopes:
   - artifact-model
+version: 1
+updated_at: 2026-08-17 19:36:01
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -11,8 +13,8 @@ relations:
     - CAPRMADIO-REQUIREMENT-META-145-let-the-dependent-atom-own-the-relation
     - CAPRMADIO-REQUIREMENT-META-121-bind-traceability-to-exact-claims-and-revisions
     - CAPRMADIO-REQUIREMENT-META-157-separate-artifact-carrier-and-revision
+    - CAPRMADIO-REQUIREMENT-META-026-single-owner-rule-placement
 ---
-
 # Store each semantic relation once
 
 CAPRMADIO persists each semantic relation in exactly one artifact carrier. It must not store an inverse backlink, reciprocal copy, or second representation of the same relation in another carrier.

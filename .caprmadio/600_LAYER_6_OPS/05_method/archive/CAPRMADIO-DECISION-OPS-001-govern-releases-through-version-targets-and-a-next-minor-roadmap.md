@@ -1,3 +1,7 @@
+---
+version: 1
+updated_at: 2026-08-17 19:36:01
+---
 # Decision — Govern releases through Version Targets and a next-minor Roadmap
 
 - **Decision ID:** `CAPRMADIO-DECISION-OPS-001`

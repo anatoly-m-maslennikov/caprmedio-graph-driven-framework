@@ -4,6 +4,8 @@ artifact_id: CAPRMADIO-ANALYSIS-META-002
 scope_path: layer:meta
 subject_scope: lifecycle-traceability
 priority: high
+version: 1
+updated_at: 2026-08-17 19:36:01
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -46,7 +48,7 @@ The refinement is eligible for META because it is independent of any language, c
 | `CAPRMADIO-REQUIREMENT-META-112` | compatible | Project-specific configuration sources remain outside Requirement. |
 | `CAPRMADIO-REQUIREMENT-META-113` | compatible | Implementation traceability already includes Delivery authority. |
 | `CAPRMADIO-REQUIREMENT-114-apply-mece-to-canonical-decompositions` | compatible | The eight-role decomposition remains MECE within its declared universe. |
-| `CAPRMADIO-REQUIREMENT-116-preserve-strict-semantic-distinctions` | compatible | The refinement sharpens rather than collapses semantic boundaries. |
+| `CAPRMADIO-REQUIREMENT-META-191-preserve-strict-semantic-distinctions` | compatible | The refinement sharpens rather than collapses semantic boundaries. |
 | `CAPRMADIO-REQUIREMENT-META-119` | compatible | The existing role loop already routes Delivery forward into Implementation. |
 | `CAPRMADIO-REQUIREMENT-GOV-136` | compatible | Refactoring Plan remains a Method subtype. |
 | `CAPRMADIO-REQUIREMENT-GOV-140` | compatible | Concern subtypes are unaffected. |

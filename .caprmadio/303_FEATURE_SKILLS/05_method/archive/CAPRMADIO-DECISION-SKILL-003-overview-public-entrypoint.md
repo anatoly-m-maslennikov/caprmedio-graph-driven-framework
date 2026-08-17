@@ -10,6 +10,8 @@ status = "accepted"
 priority = "high"
 authority = "operator:anatoly-m-maslennikov"
 claim = "DSET publishes dset-overview as a supplemental read-only public skill over generated project health, while the existing sixteen lifecycle entrypoints and their routing model remain unchanged."
+version = 1
+updated_at = "2026-08-17 19:36:01"
 llm_session_ids = ["codex:019f591f-04f6-70f2-8de7-828b7cccc69d"]
 rationale = "Operators need a discoverable helicopter view of artifacts, coverage, freshness, and open obligations without confusing observation with lifecycle routing or mutation."
 

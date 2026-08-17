@@ -9,6 +9,8 @@ status = "accepted"
 priority = "high"
 authority = "operator:anatoly-m-maslennikov"
 claim = "DSET publishes one thin dset-configure skill for status, activation, deactivation, and recommendations instead of separate enable and disable skills."
+version = 1
+updated_at = "2026-08-17 19:36:01"
 llm_session_ids = ["codex:019f591f-04f6-70f2-8de7-828b7cccc69d"]
 rationale = "One configuration entrypoint keeps the public skill surface small and lets the deterministic tool own mechanical settings changes."
 

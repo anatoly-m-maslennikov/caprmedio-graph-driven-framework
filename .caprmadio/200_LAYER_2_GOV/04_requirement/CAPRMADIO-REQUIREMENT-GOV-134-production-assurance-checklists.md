@@ -4,20 +4,19 @@ artifact_id: CAPRMADIO-REQUIREMENT-GOV-134
 scope_path: layer:gov
 subject_scopes:
   - assurance
+version: 1
+updated_at: 2026-08-17 19:36:01
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: child_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-093
-  - type: relates_to
-    targets:
-      - CAPRMADIO-REQUIREMENT-GOV-124
-      - CAPRMADIO-REQUIREMENT-GOV-138
-      - CAPRMADIO-REQUIREMENT-GOV-139
-      - CAPRMADIO-REQUIREMENT-GOV-133
+  child_of:
+    - CAPRMADIO-REQUIREMENT-META-093
+  relates_to:
+    - CAPRMADIO-REQUIREMENT-GOV-124
+    - CAPRMADIO-REQUIREMENT-GOV-138
+    - CAPRMADIO-REQUIREMENT-GOV-139
+    - CAPRMADIO-REQUIREMENT-GOV-133
 ---
-
 # Require production assurance checklists
 
 Every production-relevant component or governed scope must define a Production

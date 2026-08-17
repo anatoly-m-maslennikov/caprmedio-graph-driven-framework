@@ -4,21 +4,19 @@ artifact_id: CAPRMADIO-REQUIREMENT-GOV-126
 scope_path: layer:gov
 subject_scopes:
   - provenance
+version: 1
+updated_at: 2026-08-17 19:36:01
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: child_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-075
-  - type: replacement_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-GOV-125
-  - type: relates_to
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-080
-      - CAPRMADIO-REQUIREMENT-META-103
+  child_of:
+    - CAPRMADIO-REQUIREMENT-GOV-181-represent-accepted-meaning-faithfully
+  replacement_of:
+    - CAPRMADIO-REQUIREMENT-GOV-125
+  relates_to:
+    - CAPRMADIO-REQUIREMENT-META-080
+    - CAPRMADIO-REQUIREMENT-META-103
 ---
-
 # Use revision-bound parent and child commit messages
 
 Every governed Git commit uses exactly one line as its complete commit message:

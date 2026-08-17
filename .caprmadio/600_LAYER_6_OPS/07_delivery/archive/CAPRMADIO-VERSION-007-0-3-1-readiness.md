@@ -6,6 +6,8 @@ version_scope_ref = "CAPRMADIO-VERSION-001"
 release_plan_ref = "CAPRMADIO-VERSION-006"
 candidate_sha = "a6738bfed4c222f8e984d615a20be4a6e0d56767"
 disposition = "blocked"
+version = 1
+updated_at = "2026-08-17 19:36:01"
 llm_session_ids = ["codex:019f591f-04f6-70f2-8de7-828b7cccc69d"]
 +++
 

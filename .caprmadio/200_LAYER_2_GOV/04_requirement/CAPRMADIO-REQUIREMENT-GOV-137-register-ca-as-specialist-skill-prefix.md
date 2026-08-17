@@ -4,14 +4,14 @@ artifact_id: CAPRMADIO-REQUIREMENT-GOV-137
 scope_path: layer:gov
 subject_scopes:
   - public-interface
+version: 1
+updated_at: 2026-08-17 19:36:01
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: child_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-087
+  child_of:
+    - CAPRMADIO-REQUIREMENT-GOV-181
 ---
-
 # Register ca as the specialist skill prefix
 
 GOV registers `caprmadio` as CAPRMADIO's canonical primary routing skill and

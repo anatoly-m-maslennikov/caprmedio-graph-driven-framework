@@ -5,6 +5,8 @@ artifact_id: CAPRMADIO-ANALYSIS-REPORT-003
 scope_path: layer:meta
 subject_scope: artifact-model
 priority: high
+version: 1
+updated_at: 2026-08-17 19:36:01
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:

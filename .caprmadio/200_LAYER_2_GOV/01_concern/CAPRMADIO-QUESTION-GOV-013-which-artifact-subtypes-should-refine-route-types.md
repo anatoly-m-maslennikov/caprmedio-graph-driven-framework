@@ -6,17 +6,19 @@ scope_path: layer:gov
 subject_scopes:
   - artifact-catalog
 priority: high
+version: 1
+updated_at: 2026-08-17 19:36:01
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   - type: relates_to
     targets:
       - CAPRMADIO-REQUIREMENT-META-089
-      - CAPRMADIO-REQUIREMENT-GOV-136
-      - CAPRMADIO-REQUIREMENT-GOV-138
+      - CAPRMADIO-REQUIREMENT-GOV-192
+      - CAPRMADIO-REQUIREMENT-GOV-149
       - CAPRMADIO-REQUIREMENT-GOV-139
       - CAPRMADIO-REQUIREMENT-GOV-140
-      - CAPRMADIO-REQUIREMENT-GOV-141
+      - CAPRMADIO-REQUIREMENT-GOV-196
       - CAPRMADIO-REQUIREMENT-GOV-143
       - CAPRMADIO-REQUIREMENT-GOV-102
 ---

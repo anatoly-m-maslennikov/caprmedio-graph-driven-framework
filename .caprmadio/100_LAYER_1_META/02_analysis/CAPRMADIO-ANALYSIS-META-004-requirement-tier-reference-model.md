@@ -5,9 +5,11 @@ scope_path: layer:meta
 subject_scope: authority
 relations:
   analysis_of:
-    - CAPRMADIO-REQUIREMENT-169-classify-rmad-atoms-by-applicability-tier
+    - CAPRMADIO-REQUIREMENT-META-194-classify-rmad-atoms-by-applicability-tier
     - CAPRMADIO-REQUIREMENT-GOV-162-encode-rmad-applicability-tiers
     - CAPRMADIO-PLAN-008--complete-rmad-tier-parent-links
+version: 1
+updated_at: 2026-08-17 19:36:01
 ---
 
 # Requirement tier reference model

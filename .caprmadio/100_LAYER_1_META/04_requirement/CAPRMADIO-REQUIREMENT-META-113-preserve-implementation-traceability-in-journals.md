@@ -3,14 +3,16 @@ artifact_type: requirement
 artifact_id: CAPRMADIO-REQUIREMENT-META-113
 scope_path: layer:meta
 subject_scope: lifecycle-traceability
+version: 1
+updated_at: 2026-08-17 19:36:01
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   child_of:
     - CAPRMADIO-REQUIREMENT-META-090-normative-atoms-are-the-caprmadio-specification
     - CAPRMADIO-REQUIREMENT-META-121-bind-traceability-to-exact-claims-and-revisions
+    - CAPRMADIO-REQUIREMENT-META-197-make-journals-canonical-for-governed-provenance
 ---
-
 # Requirement — Preserve implementation traceability in Journals
 
 Every structural scope that realizes normative Atoms maintains an append-only Implementation Journal. Its admitted records bind exact Requirement, Method, Assurance, and Delivery Atom revisions to the native implementation targets that declare their realization.

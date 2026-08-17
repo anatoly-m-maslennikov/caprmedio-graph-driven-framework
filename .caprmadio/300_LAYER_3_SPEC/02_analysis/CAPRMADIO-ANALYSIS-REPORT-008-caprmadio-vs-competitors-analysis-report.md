@@ -2,6 +2,8 @@
 artifact_type: analysis_report
 artifact_id: CAPRMADIO-ANALYSIS-REPORT-008
 scope_path: []
+version: 1
+updated_at: 2026-08-17 19:36:01
 llm_session_ids: []
 ---
 

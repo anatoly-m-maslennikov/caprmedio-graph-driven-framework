@@ -4,19 +4,15 @@ artifact_id: CAPRMADIO-REQUIREMENT-GOV-161
 scope_path: layer:gov
 subject_scopes:
   - carrier-format
-tier: core
+version: 1
+updated_at: 2026-08-17 19:36:01
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   child_of:
-    - CAPRMADIO-REQUIREMENT-181-simple-outside-necessarily-complex-inside
-    - CAPRMADIO-REQUIREMENT-META-139-use-canonical-carrier-address-as-authority
     - CAPRMADIO-REQUIREMENT-META-149-keep-an-atom-summary-immutable
-    - CAPRMADIO-REQUIREMENT-163-semantic-irreducibility
-    - CAPRMADIO-REQUIREMENT-META-166-write-context-complete-minimal-atom-prose
-    - CAPRMADIO-REQUIREMENT-GOV-116-job-based-carrier-policy
+    - CAPRMADIO-REQUIREMENT-GOV-181-represent-accepted-meaning-faithfully
 ---
-
 # Render filename summaries as readable H1 titles
 
 Every Markdown Atom must begin its body with exactly one H1 that repeats only

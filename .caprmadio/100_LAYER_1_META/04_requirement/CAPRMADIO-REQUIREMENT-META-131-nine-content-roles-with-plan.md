@@ -1,9 +1,9 @@
 ---
-artifact_type: requirement
-artifact_id: CAPRMADIO-REQUIREMENT-META-131
-scope_path: layer:meta
-subject_scope: semantics
+subject_scopes:
+  - semantics
 tier: core
+version: 1
+updated_at: 2026-08-17 19:36:01
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -11,13 +11,10 @@ relations:
     - CAPRMADIO-REQUIREMENT-META-086
   child_of:
     - CAPRMADIO-REQUIREMENT-114-apply-mece-to-canonical-decompositions
-    - CAPRMADIO-REQUIREMENT-116-preserve-strict-semantic-distinctions
 ---
+# Nine content roles with plan
 
-# Requirement — Use nine Content roles with Plan
-
-CAPRMADIO classifies the primary semantic contribution of governed artifacts
-through exactly nine `content_role` values:
+CAPRMADIO classifies the primary semantic contribution of governed artifacts through exactly nine `content_role` values:
 
 1. `concern` identifies a matter requiring disposition.
 2. `analysis` develops understanding without independently committing work or
@@ -44,17 +41,6 @@ Concern -> Analysis -> Plan -> Requirement -> Method -> Assurance
         -> Delivery -> Implementation -> Ops -> Concern
 ```
 
-Requirement, Method, Assurance, and Delivery collectively form the full current
-Specification. Plan contains only action points for changing that Specification
-or its realization and is not itself part of the Specification. Analysis owns
-the findings, alternatives, explanation, and rationale that inform a Plan.
-Implementation is the realized project rather than a synonym for its plans,
-descriptions, or records.
+Requirement, Method, Assurance, and Delivery collectively form the full current Specification. Plan contains only action points for changing that Specification or its realization and is not itself part of the Specification. Analysis owns the findings, alternatives, explanation, and rationale that inform a Plan. Implementation is the realized project rather than a synonym for its plans, descriptions, or records.
 
-Artifact form and Governance locus remain independent semantic axes.
-`scope_path` remains a structural ownership coordinate.
-
-## Primary claim
-
-CAPRMADIO uses Concern, Analysis, Plan, Requirement, Method, Assurance,
-Delivery, Implementation, and Ops as nine distinct Content roles.
+Artifact form and Governance locus remain independent semantic axes. `scope_path` remains a structural ownership coordinate.

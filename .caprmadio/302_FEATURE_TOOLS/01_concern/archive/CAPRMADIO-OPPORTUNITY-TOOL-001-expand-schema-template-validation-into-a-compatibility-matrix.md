@@ -10,6 +10,8 @@ status = "accepted"
 priority = "medium"
 authority = "operator:anatoly-m-maslennikov"
 claim = "Beyond the current schema-specific scaffold regressions, DSET could materialize every supported template/profile/schema combination and validate each filled output as a generated compatibility matrix."
+version = 1
+updated_at = "2026-08-17 19:36:01"
 llm_session_ids = ["codex:019f591f-04f6-70f2-8de7-828b7cccc69d"]
 promotion = {}
 +++

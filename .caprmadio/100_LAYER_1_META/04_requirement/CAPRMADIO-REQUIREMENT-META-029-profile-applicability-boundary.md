@@ -3,6 +3,8 @@ artifact_type: requirement
 artifact_id: CAPRMADIO-REQUIREMENT-META-029
 scope_path: layer:meta
 subject_scope: scope-topology
+version: 1
+updated_at: 2026-08-17 19:36:01
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -10,7 +12,6 @@ relations:
     - CAPRMADIO-REQUIREMENT-META-066-meta-eligibility-rule
     - CAPRMADIO-REQUIREMENT-META-158-separate-authority-applicability-and-currentness
 ---
-
 # Requirement — Bound profiles and applicability
 
 A Profile is a reusable Method specialization for a declared scope. It may

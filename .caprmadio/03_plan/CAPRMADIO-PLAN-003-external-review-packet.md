@@ -127,6 +127,8 @@ sha256 = "d35e335fffe73396cc29e7f3d5b268c8a44f249bb8a8426126b8ca15322884b4"
 id = "CAPRMADIO-RULE-WORK-ITEMS"
 path = "dset/scopes/gov/governance/work-items.md"
 sha256 = "0876623108fb219ed8dd5700c60716bcbd9372bdd31a70f16146ef7388059cf7"
+version = 1
+updated_at = "2026-08-17 19:36:01"
 +++
 
 # External review packet

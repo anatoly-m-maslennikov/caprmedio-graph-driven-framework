@@ -5,6 +5,8 @@ artifact_id = "CAPRMADIO-VERSION-005"
 version_scope_ref = "CAPRMADIO-VERSION-002"
 published_baseline = "0.3.1"
 status = "active"
+version = 1
+updated_at = "2026-08-17 19:36:01"
 llm_session_ids = ["codex:019f591f-04f6-70f2-8de7-828b7cccc69d"]
 +++
 

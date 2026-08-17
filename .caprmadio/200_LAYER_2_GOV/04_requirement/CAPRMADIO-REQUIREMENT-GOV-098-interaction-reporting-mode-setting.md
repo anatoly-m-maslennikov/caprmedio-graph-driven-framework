@@ -4,14 +4,14 @@ artifact_id: CAPRMADIO-REQUIREMENT-GOV-098
 scope_path: layer:gov
 subject_scopes:
   - interaction
+version: 1
+updated_at: 2026-08-17 19:36:01
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: relates_to
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-058
+  relates_to:
+    - CAPRMADIO-REQUIREMENT-META-058
 ---
-
 # Configure interaction reporting mode
 
 `caprmadio_settings.toml` provides one project-owned interaction reporting setting:

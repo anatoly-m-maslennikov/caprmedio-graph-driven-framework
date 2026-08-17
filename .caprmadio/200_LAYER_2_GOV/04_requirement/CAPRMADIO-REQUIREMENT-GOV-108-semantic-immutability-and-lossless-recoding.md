@@ -4,6 +4,8 @@ artifact_id: CAPRMADIO-REQUIREMENT-GOV-108
 scope_path: layer:gov
 subject_scopes:
   - lifecycle
+version: 1
+updated_at: 2026-08-17 19:36:01
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -11,7 +13,6 @@ relations:
     - CAPRMADIO-REQUIREMENT-GOV-060-identity-migration-preserves-atomic-content
     - CAPRMADIO-REQUIREMENT-GOV-061-semantic-immutability-boundary
 ---
-
 # Preserve semantic atoms through lossless recoding
 
 An Atomic Artifact is one independently identified claim with immutable

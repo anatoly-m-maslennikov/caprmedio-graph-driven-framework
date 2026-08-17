@@ -5,6 +5,8 @@ scope_path: layer:spec
 subject_scopes:
   - skill
 priority: medium
+version: 1
+updated_at: 2026-08-17 19:36:01
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -13,7 +15,7 @@ relations:
       - CAPRMADIO-REQUIREMENT-SKILL-011
   - type: relates_to
     targets:
-      - CAPRMADIO-REQUIREMENT-GOV-136
+      - CAPRMADIO-REQUIREMENT-GOV-192
       - CAPRMADIO-REQUIREMENT-GOV-137
 ---
 

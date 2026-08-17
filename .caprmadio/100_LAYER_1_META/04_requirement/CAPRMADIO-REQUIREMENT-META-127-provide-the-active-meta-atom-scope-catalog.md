@@ -4,6 +4,8 @@ artifact_id: CAPRMADIO-REQUIREMENT-META-127
 scope_path: layer:meta
 subject_scopes:
   - artifact-model
+version: 1
+updated_at: 2026-08-17 19:36:01
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -13,7 +15,6 @@ relations:
     - CAPRMADIO-REQUIREMENT-META-090-normative-atoms-are-the-caprmadio-specification
     - CAPRMADIO-REQUIREMENT-META-118-keep-meta-and-gov-implementation-neutral
 ---
-
 # Provide the active META Atom Scope Catalog
 
 CAPRMADIO provides one current, non-authoritative Catalog Projection that lists

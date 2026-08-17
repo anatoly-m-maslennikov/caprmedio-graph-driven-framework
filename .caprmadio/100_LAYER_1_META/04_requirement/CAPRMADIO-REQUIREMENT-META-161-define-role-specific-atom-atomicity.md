@@ -4,6 +4,8 @@ artifact_id: CAPRMADIO-REQUIREMENT-META-161
 scope_path: layer:meta
 subject_scopes:
   - artifact-model
+version: 1
+updated_at: 2026-08-17 19:36:01
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -11,9 +13,8 @@ relations:
     - CAPRMADIO-REQUIREMENT-META-142-give-every-atom-one-independently-replaceable-claim
   child_of:
     - CAPRMADIO-REQUIREMENT-META-190-admit-only-materially-distinct-framework-constructs
-    - CAPRMADIO-REQUIREMENT-163-semantic-irreducibility
+    - CAPRMADIO-REQUIREMENT-META-193-semantic-irreducibility
 ---
-
 # Role-specific Atom atomicity
 
 An Atom is the smallest independently governed unit for its Content role. It

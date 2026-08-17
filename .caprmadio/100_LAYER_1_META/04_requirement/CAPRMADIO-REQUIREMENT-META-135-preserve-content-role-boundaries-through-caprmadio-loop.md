@@ -1,9 +1,9 @@
 ---
-artifact_type: requirement
-artifact_id: CAPRMADIO-REQUIREMENT-META-135
-scope_path: layer:meta
-subject_scope: semantics
+subject_scopes:
+  - semantics
 tier: core
+version: 1
+updated_at: 2026-08-17 19:36:01
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -11,15 +11,10 @@ relations:
     - CAPRMADIO-REQUIREMENT-META-119
   child_of:
     - CAPRMADIO-REQUIREMENT-114-apply-mece-to-canonical-decompositions
-    - CAPRMADIO-REQUIREMENT-116-preserve-strict-semantic-distinctions
 ---
+# Preserve content role boundaries through CAPRMADIO loop
 
-# Requirement — Preserve boundaries through the CAPRMADIO loop
-
-Every transition through Concern, Analysis, Plan, Requirement, Method,
-Assurance, Delivery, Implementation, and Ops produces or updates the meaning
-owned by the receiving Content role without converting the source meaning into
-that role or implying completion of a later role.
+Every transition through Concern, Analysis, Plan, Requirement, Method, Assurance, Delivery, Implementation, and Ops produces or updates the meaning owned by the receiving Content role without converting the source meaning into that role or implying completion of a later role.
 
 In particular:
 
@@ -33,10 +28,4 @@ In particular:
   assurance or operational success; and
 - Ops records enacted facts but does not silently rewrite normative authority.
 
-Relations carry meaning between roles while every related artifact retains its
-own identity, authority, lifecycle, and owning role.
-
-## Primary claim
-
-CAPRMADIO transitions connect its nine Content roles without allowing a role to
-substitute for another or imply that a later role is complete.
+Relations carry meaning between roles while every related artifact retains its own identity, authority, lifecycle, and owning role.

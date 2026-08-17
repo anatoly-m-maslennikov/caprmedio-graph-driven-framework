@@ -11,6 +11,8 @@ source_refs:
   - "FPF@afa4936541774021c92adb97c3cbf787bf126062:A.02.01"
   - "FPF@afa4936541774021c92adb97c3cbf787bf126062:E.18"
   - "FPF@afa4936541774021c92adb97c3cbf787bf126062:C.22.02"
+version: 1
+updated_at: 2026-08-17 19:36:01
 llm_session_ids:
   - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
 relations:

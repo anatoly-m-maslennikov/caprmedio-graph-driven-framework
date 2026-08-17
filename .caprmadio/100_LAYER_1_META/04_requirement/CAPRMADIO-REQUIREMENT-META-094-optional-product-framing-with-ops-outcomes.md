@@ -3,6 +3,8 @@ artifact_type: requirement
 artifact_id: CAPRMADIO-REQUIREMENT-META-094
 scope_path: layer:meta
 subject_scope: development-flow
+version: 1
+updated_at: 2026-08-17 19:36:01
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -11,7 +13,6 @@ relations:
   child_of:
     - CAPRMADIO-REQUIREMENT-META-066-meta-eligibility-rule
 ---
-
 # Requirement — Keep product framing optional
 
 User Stories and Outcomes are optional framing constructs rather than semantic routing axes or mandatory canonical artifact types.

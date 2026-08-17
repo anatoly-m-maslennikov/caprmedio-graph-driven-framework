@@ -1,3 +1,7 @@
+---
+version: 1
+updated_at: 2026-08-17 19:36:01
+---
 # Solution landscape — Make DSET self-hosting and skills thin
 
 ## Capability gaps

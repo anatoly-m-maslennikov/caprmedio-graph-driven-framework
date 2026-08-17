@@ -4,19 +4,18 @@ artifact_id: CAPRMADIO-REQUIREMENT-GOV-128
 scope_path: layer:gov
 subject_scopes:
   - lifecycle
+version: 1
+updated_at: 2026-08-17 19:36:01
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: child_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-080
-  - type: relates_to
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-103
-      - CAPRMADIO-REQUIREMENT-META-077
-      - CAPRMADIO-REQUIREMENT-GOV-127
+  child_of:
+    - CAPRMADIO-REQUIREMENT-GOV-181
+  relates_to:
+    - CAPRMADIO-REQUIREMENT-META-103
+    - CAPRMADIO-REQUIREMENT-META-077
+    - CAPRMADIO-REQUIREMENT-GOV-127
 ---
-
 # Classify every Atomic Artifact change
 
 Before changing an admitted Atomic Artifact, CAPRMADIO assigns exactly one change

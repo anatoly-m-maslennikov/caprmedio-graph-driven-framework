@@ -1,6 +1,8 @@
 ---
 subject_scopes:
   - lifecycle-traceability
+version: 1
+updated_at: 2026-08-17 19:36:01
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -8,7 +10,6 @@ relations:
     - CAPRMADIO-REQUIREMENT-META-053-separate-active-authority-from-preserved-history
     - CAPRMADIO-REQUIREMENT-META-159-define-atom-admission-and-lifecycle
 ---
-
 # Restrict current RMAD dependencies to active RMAD Atoms
 
 Every current semantic dependency owned by an active Requirement, Method,

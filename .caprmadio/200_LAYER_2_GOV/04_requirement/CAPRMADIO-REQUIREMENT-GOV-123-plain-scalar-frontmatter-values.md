@@ -4,18 +4,18 @@ artifact_id: CAPRMADIO-REQUIREMENT-GOV-123
 scope_path: layer:gov
 subject_scopes:
   - carrier-format
-tier: core
+version: 1
+updated_at: 2026-08-17 19:36:01
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   child_of:
-    - CAPRMADIO-REQUIREMENT-GOV-116-job-based-carrier-policy
+    - CAPRMADIO-REQUIREMENT-GOV-181
   relates_to:
     - CAPRMADIO-REQUIREMENT-META-099-nonduplicative-current-artifact-properties
     - CAPRMADIO-REQUIREMENT-GOV-122-atomic-subject-scope-cardinality
     - CAPRMADIO-CONSTRAINT-GOV-002-github-preview-compatibility
 ---
-
 # Keep frontmatter values ready for plain scalars
 
 CAPRMADIO-controlled frontmatter keys and string values are designed for

@@ -4,18 +4,17 @@ artifact_id: CAPRMADIO-REQUIREMENT-GOV-139
 scope_path: layer:gov
 subject_scopes:
   - artifact-catalog
+version: 1
+updated_at: 2026-08-17 19:36:01
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: replacement_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-GOV-131
-  - type: child_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-093
-      - CAPRMADIO-REQUIREMENT-GOV-138
+  replacement_of:
+    - CAPRMADIO-REQUIREMENT-GOV-131
+  child_of:
+    - CAPRMADIO-REQUIREMENT-META-093
+    - CAPRMADIO-REQUIREMENT-GOV-181
 ---
-
 # Register Assurance Atom subtypes
 
 GOV registers exactly these current direct subtypes of the internal Assurance

@@ -3,6 +3,8 @@ artifact_type = "evidence_record"
 artifact_subtype = "test_result"
 artifact_id = "CAPRMADIO-EVIDENCE-RECORD-011"
 child_of = ["CAPRMADIO-TEST-CASE-TOOL-021"]
+version = 1
+updated_at = "2026-08-17 19:36:01"
 llm_session_ids = ["codex:019f591f-04f6-70f2-8de7-828b7cccc69d"]
 +++
 

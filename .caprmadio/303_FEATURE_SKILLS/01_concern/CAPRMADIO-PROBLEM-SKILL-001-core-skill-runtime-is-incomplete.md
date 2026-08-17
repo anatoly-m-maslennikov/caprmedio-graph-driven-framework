@@ -10,6 +10,8 @@ status = "accepted"
 priority = "medium"
 authority = "operator:anatoly-m-maslennikov"
 claim = "DSET now publishes all five repository-native source wrappers, but the run writer, session checkpoint/resume runtime, executable release publisher, and host-native proof remain unimplemented, so the declared continuity and release contracts are not yet usable end to end."
+version = 1
+updated_at = "2026-08-17 19:36:01"
 llm_session_ids = ["codex:019f591f-04f6-70f2-8de7-828b7cccc69d"]
 promotion = {}
 +++

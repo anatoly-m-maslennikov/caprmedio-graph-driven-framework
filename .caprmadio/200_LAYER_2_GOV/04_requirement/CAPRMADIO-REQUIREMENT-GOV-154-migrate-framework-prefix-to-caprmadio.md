@@ -3,20 +3,19 @@ artifact_type: requirement
 artifact_id: CAPRMADIO-REQUIREMENT-GOV-154
 scope_path: layer:gov
 subject_scope: identity
+version: 1
+updated_at: 2026-08-17 19:36:01
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: child_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-132
-  - type: relates_to
-    targets:
-      - CAPRMADIO-REQUIREMENT-GOV-052
-      - CAPRMADIO-REQUIREMENT-GOV-108
-      - CAPRMADIO-REQUIREMENT-GOV-113
-      - CAPRMADIO-REQUIREMENT-GOV-152
+  child_of:
+    - CAPRMADIO-REQUIREMENT-GOV-181
+  relates_to:
+    - CAPRMADIO-REQUIREMENT-GOV-052
+    - CAPRMADIO-REQUIREMENT-GOV-108
+    - CAPRMADIO-REQUIREMENT-GOV-113
+    - CAPRMADIO-REQUIREMENT-GOV-152
 ---
-
 # Migrate the framework prefix to CAPRMADIO
 
 The framework project's canonical project prefix is `CAPRMADIO`. A governed,

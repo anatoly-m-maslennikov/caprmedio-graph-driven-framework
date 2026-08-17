@@ -3,6 +3,8 @@ artifact_type: requirement
 artifact_id: CAPRMADIO-REQUIREMENT-META-108
 scope_path: layer:meta
 subject_scope: development-flow
+version: 1
+updated_at: 2026-08-17 19:36:01
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -10,7 +12,6 @@ relations:
     - CAPRMADIO-REQUIREMENT-META-077-propagate-atomic-revision-impact-through-lineage
     - CAPRMADIO-REQUIREMENT-META-135-preserve-content-role-boundaries-through-caprmadio-loop
 ---
-
 # Requirement — Reconcile the Development Backlog after release
 
 After the Release Record is accepted, CAPRMADIO reconciles the Development

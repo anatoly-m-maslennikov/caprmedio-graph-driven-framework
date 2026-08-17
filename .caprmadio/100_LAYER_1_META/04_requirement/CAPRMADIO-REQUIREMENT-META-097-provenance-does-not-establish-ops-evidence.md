@@ -3,6 +3,8 @@ artifact_type: requirement
 artifact_id: CAPRMADIO-REQUIREMENT-META-097
 scope_path: layer:meta
 subject_scope: assurance
+version: 1
+updated_at: 2026-08-17 19:36:01
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -11,9 +13,8 @@ relations:
   child_of:
     - CAPRMADIO-REQUIREMENT-META-091-authority-assurance-and-ops-remain-distinct
     - CAPRMADIO-REQUIREMENT-META-121-bind-traceability-to-exact-claims-and-revisions
-    - CAPRMADIO-REQUIREMENT-META-129-bound-git-authority-to-repository-provenance
+    - CAPRMADIO-REQUIREMENT-META-197-make-journals-canonical-for-governed-provenance
 ---
-
 # Requirement — Keep provenance separate from evidence
 
 Provenance establishes the origin, carrier identity, revision, sequence, and transformation history of a governed claim or Implementation. It does not by itself establish that the claim is correct, accepted, current, applicable, or sufficiently assured.

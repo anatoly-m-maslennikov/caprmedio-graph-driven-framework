@@ -4,19 +4,16 @@ artifact_id: CAPRMADIO-REQUIREMENT-GOV-101
 scope_path: layer:gov
 subject_scopes:
   - relation-model
+version: 1
+updated_at: 2026-08-17 19:36:01
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: replacement_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-GOV-088
-  - type: child_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-051
-      - CAPRMADIO-REQUIREMENT-META-098
-      - CAPRMADIO-REQUIREMENT-META-099
+  replacement_of:
+    - CAPRMADIO-REQUIREMENT-GOV-088
+  child_of:
+    - CAPRMADIO-REQUIREMENT-META-051-relational-artifacts-declare-endpoints
 ---
-
 # Derive locus and declare endpoint origins
 
 Each registered artifact type and optional direct subtype derives exactly one

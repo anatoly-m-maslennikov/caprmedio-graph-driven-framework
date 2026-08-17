@@ -4,17 +4,14 @@ artifact_id: CAPRMADIO-REQUIREMENT-GOV-070
 scope_path: layer:gov
 subject_scopes:
   - lifecycle
+version: 1
+updated_at: 2026-08-17 19:36:01
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: replacement_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-GOV-069
-  - type: child_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-GOV-102
+  replacement_of:
+    - CAPRMADIO-REQUIREMENT-GOV-069
 ---
-
 # Omit update settings from Atomic Artifacts
 
 The canonical artifact catalog starts with a concise commented legend before

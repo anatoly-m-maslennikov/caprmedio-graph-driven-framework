@@ -3,21 +3,19 @@ artifact_type: requirement
 artifact_id: CAPRMADIO-REQUIREMENT-GOV-151
 scope_path: layer:gov
 subject_scope: artifact-catalog
+version: 1
+updated_at: 2026-08-17 19:36:01
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  - type: replacement_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-GOV-148
-  - type: child_of
-    targets:
-      - CAPRMADIO-REQUIREMENT-META-137
-  - type: relates_to
-    targets:
-      - CAPRMADIO-REQUIREMENT-GOV-133
-      - CAPRMADIO-REQUIREMENT-GOV-147
+  replacement_of:
+    - CAPRMADIO-REQUIREMENT-GOV-148
+  child_of:
+    - CAPRMADIO-REQUIREMENT-META-137
+  relates_to:
+    - CAPRMADIO-REQUIREMENT-GOV-133-govern-catalog-map-and-hub-projections
+    - CAPRMADIO-REQUIREMENT-GOV-178-register-implementation-journals-and-projections
 ---
-
 # Register the Implementation Record Projection
 
 GOV registers `implementation_record` with prefix `IREC` as an internal

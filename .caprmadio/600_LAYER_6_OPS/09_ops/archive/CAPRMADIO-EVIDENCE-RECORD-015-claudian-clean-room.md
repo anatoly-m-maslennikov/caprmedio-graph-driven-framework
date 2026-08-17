@@ -4,6 +4,8 @@ artifact_subtype = "evaluation_result"
 artifact_id = "CAPRMADIO-EVIDENCE-RECORD-015"
 priority = "high"
 child_of = ["CAPRMADIO-EVALUATION-CASE-TOOL-003"]
+version = 1
+updated_at = "2026-08-17 19:36:01"
 llm_session_ids = ["codex:019f591f-04f6-70f2-8de7-828b7cccc69d"]
 +++
 

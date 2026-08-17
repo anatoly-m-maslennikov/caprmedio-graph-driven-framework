@@ -11,6 +11,8 @@ priority = "high"
 authority = "repository:self-host-review"
 claim = "The atom sealing path accepts new legacy child_of metadata even though compatibility is restricted to historical carriers."
 promotion = {}
+version = 1
+updated_at = "2026-08-17 19:36:01"
 llm_session_ids = ["codex:019f591f-04f6-70f2-8de7-828b7cccc69d"]
 rationale = "Recursive self-application exposed an admission-path gap that ordinary validation of sealed history could not reveal."
 
