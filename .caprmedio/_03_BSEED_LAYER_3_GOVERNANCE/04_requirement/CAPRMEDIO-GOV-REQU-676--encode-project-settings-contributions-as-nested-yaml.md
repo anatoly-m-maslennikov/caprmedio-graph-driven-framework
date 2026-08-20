@@ -1,7 +1,7 @@
 ---
 subject_scopes:
   - settings
-version: 2
+version: 3
 updated_at: 2026-08-21 00:21:06
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
@@ -12,4 +12,4 @@ relations:
 ---
 # Encode configuration surfaces in owning Atoms
 
-GOV must encode each configurable Tool or Extension's allowed keys, value types, defaults, constraints, and governed meaning in its owning Atoms. These Atoms must not encode the current project's selected values or a `project_settings` contribution; those values belong only to the Project Configuration Atom.
+GOV may encode an owning Atom's optional machine-readable contribution to generated Project Graph State under one top-level `project_graph_state` YAML map only when it faithfully represents that Atom's own governed claim. It may declare registered facts, allowed values, defaults, or structural contributions, but must not encode current operator-selected configuration values or a `project_settings` contribution; current selections belong only to the Project Configuration Atom.
