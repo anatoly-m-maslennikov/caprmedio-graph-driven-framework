@@ -2,12 +2,14 @@
 artifact_subtype: qa_case
 subject_scopes:
   - evaluation
-version: 4
-updated_at: 2026-08-20 23:40:00
+version: 5
+updated_at: 2026-08-20 23:56:00
 relations:
   evaluation_for:
     - CAPRMEDIO-GOV-REQU-339--register-work-journal-events
     - CA-R-812-REQUIREMENT-FR_ENGN_TOOLS_APPEND_CHANGE_RECORDS--append-governed-file-change-journal-records
+  check_of:
+    - CA-D-009-DELIVERY-FR_ENGN_TOOLS_APPEND_CHANGE_RECORDS--deliver-change-record-appender-script
 ---
 # Validate the structured file-change event schema
 
