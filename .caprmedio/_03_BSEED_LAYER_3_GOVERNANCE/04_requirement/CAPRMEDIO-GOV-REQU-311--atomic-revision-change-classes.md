@@ -1,8 +1,8 @@
 ---
 subject_scopes:
   - lifecycle
-version: 2
-updated_at: 2026-08-20 19:34:00
+version: 3
+updated_at: 2026-08-20 20:02:00
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -33,10 +33,10 @@ The semantic change class is independent of the Git change set. Every persisted
 carrier change follows the canonical typed-upstream commit-message rule. A
 same-ID content change creates a new Revision, while a carrier-only move or
 rename may preserve the current version. A replacement first commits the
-successor with its authored `replacement_of` relation and removes or archives
-the predecessor only after the graph can derive the inverse `replaced_by`
-relation. Each successor and predecessor carrier change remains a separate
-one-file commit.
+successor as active, then archives the predecessor in a `MOVE+UPDATE` that adds
+the direct `replaced_by` relation to that successor. The graph derives
+`replacement_of` for inverse navigation and never authors it. Each successor
+and predecessor carrier change remains a separate one-file commit.
 
 Tools may propose a class but must fail closed when the distinction between
 refinement, semantic revision, and replacement is uncertain.
