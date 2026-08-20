@@ -1,8 +1,8 @@
 ---
 subject_scopes:
   - provenance
-version: 9
-updated_at: 2026-08-20 19:22:10
+version: 10
+updated_at: 2026-08-20 19:35:00
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -15,7 +15,7 @@ relations:
     - CAPRMEDIO-META-REQU-125--three-artifact-forms-with-generated-projections
     - CAPRMEDIO-META-REQU-154--semantic-irreducibility
 ---
-# Use typed-upstream action commit messages
+# Use typed-upstream change-set commit messages
 
 Every governed Git commit changes exactly one repository file identity through one change set and uses exactly one line as its complete commit message:
 
@@ -25,7 +25,7 @@ Every governed Git commit changes exactly one repository file identity through o
 
 ## Upstream relations
 
-The left field preserves every direct typed upstream relation from the affected file to its closest upstream Atom Revisions. Relations may be authored or programmatically derived from the current graph. Each entry uses the canonical relation kind, target carrier filename, and target version:
+The left field preserves every direct typed upstream relation from the affected file to its closest upstream Atom Revisions. Relations may be authored or programmatically derived from the current graph. The relation registry declares the authored direction, derived inverse name, and upstream endpoint for each kind; the generator must not infer direction from a relation's spelling. Each entry uses the canonical relation kind, target carrier filename, and target version:
 
 ```text
 <relation-kind>=<filename>@<version>
@@ -87,12 +87,12 @@ Removing the replaced file later uses the derived inverse `replaced_by` edge:
 replaced_by=replacement-file.md@1 | REMOVE | old-file.md@4
 ```
 
-The committed replacement file and its authored `replacement_of` relation must already exist before removal so the graph can derive `replaced_by`. Adding each replacement and removing the replaced file remain separate one-file actions.
+The committed replacement file and its authored `replacement_of` relation must already exist before removal so the graph can derive `replaced_by`. Adding each replacement and removing the replaced file remain separate one-file commits.
 
-An affected governed file uses `<filename>@<version>` and includes repository-relative path when the action changes structural location. A governed native file without embedded Revision properties uses the version from its external revision binding. `UPDATE` may change content, filename, or both while preserving one file identity; content changes advance the version, while a rename-only update preserves it. `MOVE` changes structural location only. `MOVE+UPDATE` changes structural location and also performs an update. No governed commit may change more than one repository file identity.
+An affected governed file uses `<filename>@<version>` and includes repository-relative path when the change set changes structural location. A governed native file without embedded Revision properties uses the version from its external revision binding. `UPDATE` may change content, filename, or both while preserving one file identity; content changes advance the version, while a rename-only update preserves it. `MOVE` changes structural location only. `MOVE+UPDATE` changes structural location and also performs an update. No governed commit may change more than one repository file identity.
 
 The message contains no parentheses, free-form labels, summary, description, body, or trailers. Canonical relation kinds and change tokens are structural syntax rather than prose labels. Once another commit references an upstream Revision, the referenced Git history must remain reachable and unchanged.
 
 ## Rationale
 
-One explicit file action per commit makes hook logic deterministic, preserves the exact typed upstream graph consumed by the action, and prevents unrelated changes from sharing one recovery boundary.
+One explicit file change set per commit makes hook logic deterministic, preserves the exact typed upstream graph consumed by the change, and prevents unrelated changes from sharing one recovery boundary.
