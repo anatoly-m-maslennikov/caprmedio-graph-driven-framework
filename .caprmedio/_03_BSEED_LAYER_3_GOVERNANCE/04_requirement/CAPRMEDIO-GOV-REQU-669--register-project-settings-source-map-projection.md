@@ -1,8 +1,8 @@
 ---
 subject_scopes:
   - settings
-version: 4
-updated_at: 2026-08-19 04:55:53
+version: 5
+updated_at: 2026-08-21 00:21:06
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -15,8 +15,8 @@ relations:
     - CAPRMEDIO-META-REQU-627--bind-every-projected-setting-to-exact-source-authority
     - CAPRMEDIO-GOV-REQU-345--represent-accepted-meaning-faithfully
 ---
-# Register the Project Settings Source Map Projection
+# Register the Project Graph State Source Map Projection
 
-GOV must register `.caprmedio/08_implementation/CAPRMEDIO-MAPS-001--project-settings-source-map.yaml` as the versionless internal Projection with Content role `implementation` and Type `map` that is generated from the same active RMED contributions as Project Settings, maps every emitted leaf key to its exact contributing Atom revisions, records `updated_at` and the source frontier, and is never read as authority for values or source selection.
+GOV must register the versionless internal Project Graph State Source Map Projection with Content role `implementation` and Type `map`. It maps every emitted Graph State value to the exact Project Configuration Atom revision and contributing Atom revisions and Journal records, records `updated_at` and the complete source frontier, and is never read as authority for values or source selection.
 
-This Projection uses YAML as an explicit exception to the default TOML technical carrier. Its required representation is a compact, deeply nested tree that mirrors the setting paths embedded in Atom YAML frontmatter and keeps shared ancestry visible without repeating a TOML table path for every branch. The Projection remains generated, read-only, and non-authoritative; it does not create a parallel writable YAML settings source.
+This Projection uses YAML as an explicit exception to the default TOML technical carrier. Its required representation is a compact, deeply nested tree that mirrors projected Graph State paths and keeps shared ancestry visible. The Projection remains generated, read-only, and non-authoritative; it does not create a parallel writable configuration source.
