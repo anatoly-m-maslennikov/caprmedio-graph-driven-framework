@@ -2,12 +2,12 @@
 artifact_subtype: qa_case
 subject_scopes:
   - evaluation
-version: 1
-updated_at: 2026-08-20 21:38:00
+version: 2
+updated_at: 2026-08-20 22:58:24
 relations:
   evaluation_for:
     - CAPRMEDIO-GOV-REQU-339--register-work-journal-events
-    - CA-R-805-REQUIREMENT-FR_ENGN_TOOLS_OPS_TOOLS--commit-one-governed-file-action
+    - CA-R-805-REQUIREMENT-FR_ENGN_TOOLS--commit-one-governed-file-action
 ---
 # Represent removal as a result tombstone
 
