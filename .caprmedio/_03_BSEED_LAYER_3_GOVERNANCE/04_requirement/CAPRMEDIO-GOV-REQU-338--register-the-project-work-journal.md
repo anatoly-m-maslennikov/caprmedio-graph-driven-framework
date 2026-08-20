@@ -1,14 +1,14 @@
 ---
 subject_scopes:
   - provenance
-project_settings:
+project_graph_state:
   artifacts:
     enabled_types:
       - work_journal
   paths:
     journal_root: .caprmedio/work_journal
-version: 7
-updated_at: 2026-08-20 22:30:00
+version: 8
+updated_at: 2026-08-21 00:21:06
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
