@@ -235,6 +235,62 @@ def _validate_recovery(context: Mapping[str, Any], events: list[dict[str, Any]])
         raise ToolError("unsupported-recovery", "recovery must have an empty contradictions list")
 
 
+def _expected_context_id(context: Mapping[str, Any]) -> str:
+    fields = (
+        "schema_version",
+        "action_id",
+        "trigger",
+        "subject",
+        "structural_scope",
+        "action_type",
+        "sources",
+        "result",
+        "llm_session",
+        "author",
+        "occurred_at",
+        "timezone",
+        "local_date",
+        "git_base",
+        "frontier",
+    )
+    core = {field: context[field] for field in fields}
+    if "previous_result_event" in context:
+        core["previous_result_event"] = context["previous_result_event"]
+    return canonical_json_digest(core)
+
+
+def _expected_event_id(event: Mapping[str, Any]) -> str:
+    if event["event"] == "recovered":
+        evidence = _require_mapping(event.get("recovery_evidence"), "recovery_evidence")
+        return canonical_json_digest(
+            {
+                "schema_version": 2,
+                "action_id": event["action_id"],
+                "event": "recovered",
+                "kind": "governed_file_state",
+                "result": event["result"],
+                "evidence_digest": canonical_json_digest(evidence),
+            }
+        )
+    fields = (
+        "schema_version",
+        "action_id",
+        "event",
+        "kind",
+        "author",
+        "occurred_at",
+        "llm_session",
+        "structural_scope",
+        "action_type",
+        "sources",
+        "result",
+    )
+    core = {field: event[field] for field in fields}
+    if "previous_result_event" in event:
+        core["previous_result_event"] = event["previous_result_event"]
+    return canonical_json_digest(core)
+
+
 def validate_context(context: Mapping[str, Any]) -> tuple[dict[str, Any], list[dict[str, Any]]]:
     """Validate the sealed COMMIT_CONTEXT without discovering replacement data."""
     value = dict(context)
@@ -341,6 +397,13 @@ def validate_context(context: Mapping[str, Any]) -> tuple[dict[str, Any], list[d
         raise ToolError("invalid-context", "previous_result_event differs between context and Journal event")
     _validate_recovery(value, events)
     _validate_prediction_partitions(value, author, local_date)
+    if context_id != _expected_context_id(value):
+        raise ToolError("context-identity-mismatch", "context_id does not match the exact sealed context core")
+    for event in events:
+        if event["event_id"] != _expected_event_id(event):
+            raise ToolError("event-identity-mismatch", "event_id does not match the exact sealed event core")
+        if event["structural_scope"] != value["structural_scope"]:
+            raise ToolError("invalid-context", "every Journal event must use context.structural_scope")
     # Retain named values to prevent callers from treating a partial mapping as validated.
     if not context_id or not action_id:
         raise AssertionError("unreachable")
@@ -428,13 +491,25 @@ def _relative_path(root: Path, raw: object, field: str) -> Path:
 
 def validate_live_preflight(root: Path, context: Mapping[str, Any]) -> None:
     """Repeat deterministic mutable-boundary checks without refreshing context."""
+    trigger = _require_mapping(context["trigger"], "trigger")
+    repository = _require_mapping(trigger.get("repository"), "trigger.repository")
+    reported_root = _require_string(repository, "root")
+    if Path(reported_root).expanduser().resolve() != root.resolve():
+        raise ToolError("repository-mismatch", "trigger repository.root does not match selected repository")
+    git_directory = Path(_git(root, "rev-parse", "--git-dir").strip())
+    if not git_directory.is_absolute():
+        git_directory = root / git_directory
+    expected_identity = canonical_json_digest(
+        {"repository_root": root.resolve().as_posix(), "git_directory": git_directory.resolve().as_posix()}
+    )
+    if repository.get("identity") != expected_identity:
+        raise ToolError("repository-identity-mismatch", "trigger repository.identity does not match selected repository")
     git_base = _require_mapping(context["git_base"], "git_base")
     if _git(root, "rev-parse", "HEAD").strip() != git_base["commit"]:
         raise ToolError("stale-context", "Git base commit no longer matches sealed context")
     if _git(root, "rev-parse", "HEAD^{tree}").strip() != git_base["tree"]:
         raise ToolError("stale-context", "Git base tree no longer matches sealed context")
     result = _require_mapping(context["result"], "result")
-    trigger = _require_mapping(context["trigger"], "trigger")
     subject_paths = {
         value
         for value in (trigger.get("before_path"), trigger.get("after_path"), result.get("path"))
@@ -457,7 +532,8 @@ def validate_live_preflight(root: Path, context: Mapping[str, Any]) -> None:
         committed = _require_mapping(_require_mapping(context["snapshots"], "snapshots").get("committed"), "snapshots.committed")
         committed_path = _relative_path(root, committed.get("path"), "snapshots.committed.path")
         committed_digest = _require_sha256(committed.get("sha256"), "snapshots.committed.sha256")
-        payload = _git(root, "show", f"HEAD:{committed_path.relative_to(root).as_posix()}").encode("utf-8")
+        payload = _git_bytes(root, "show", f"HEAD:{committed_path.relative_to(root).as_posix()}")
+        assert payload is not None
         if hashlib.sha256(payload).hexdigest() != committed_digest:
             raise ToolError("stale-context", "removed predecessor no longer matches sealed digest")
         if committed_path.relative_to(root).as_posix() in staged and _git_bytes(root, "show", f":{committed_path.relative_to(root).as_posix()}", allow_failure=True) is not None:
@@ -776,37 +852,39 @@ def _predicted_effects(root: Path, context: Mapping[str, Any], events: list[dict
 def describe() -> dict[str, Any]:
     return _json_result(
         ok=True,
-        mode="describe",
-        capability={
-            "identity": TOOL_ID,
-            "kind": TOOL_KIND,
-            "summary": "Append sealed schema-v2 Work Journal records with durable receipts.",
+        mode="read-only",
+        result={
+            "capability": {
+                "capability_id": TOOL_ID,
+                "kind": TOOL_KIND,
+                "summary": "Append sealed schema-v2 Work Journal records with durable receipts.",
+            },
+            "input_schema": {
+                "command": "--repository REPOSITORY run --input CONTEXT.json [--apply]",
+                "required_context": [
+                    "schema_version",
+                    "context_id",
+                    "action_id",
+                    "trigger",
+                    "subject",
+                    "action_type",
+                    "sources",
+                    "result",
+                    "llm_session",
+                    "author",
+                    "occurred_at",
+                    "timezone",
+                    "local_date",
+                    "git_base",
+                    "frontier",
+                    "snapshots",
+                    "validation",
+                    "predictions.journal_records",
+                    "predictions.journal_partitions",
+                ],
+            },
+            "result_schema": {"resolved_targets": "object", "planned_effects": "object", "validation_results": "array", "receipts": "array", "lease": "object", "pipeline_correlations": "array"},
         },
-        input_schema={
-            "command": "run --input CONTEXT.json [--apply]",
-            "required_context": [
-                "schema_version",
-                "context_id",
-                "action_id",
-                "trigger",
-                "subject",
-                "action_type",
-                "sources",
-                "result",
-                "llm_session",
-                "author",
-                "occurred_at",
-                "timezone",
-                "local_date",
-                "git_base",
-                "frontier",
-                "snapshots",
-                "validation",
-                "predictions.journal_records",
-                "predictions.journal_partitions",
-            ],
-        },
-        result_schema={"resolved_targets": "object", "planned_effects": "object", "validation_results": "array", "receipts": "array", "lease": "object", "diagnostics": "array"},
         diagnostics=[],
     )
 
@@ -820,14 +898,13 @@ def run(root: Path, payload: Mapping[str, Any], *, apply: bool, wait_seconds: fl
     validate_live_preflight(root, context)
     validation_results.append({"name": "live-preflight", "ok": True})
     predicted_receipts, observed_lease = _predicted_effects(root, context, events)
-    common = {
+    result_payload = {
         "resolved_targets": {"repository": str(root), "action_id": context["action_id"], "event_ids": [event["event_id"] for event in events]},
         "planned_effects": {"journal_records": events, "receipts": predicted_receipts},
         "validation_results": validation_results,
-        "diagnostics": [],
     }
     if not apply:
-        return _json_result(ok=True, mode="dry-run", receipts=predicted_receipts, lease=observed_lease, **common)
+        return _json_result(ok=True, mode="dry-run", result={**result_payload, "receipts": predicted_receipts, "lease": observed_lease}, diagnostics=[])
     lease, acquired = acquire_lease(root, context, wait_seconds=wait_seconds)
     correlations: list[str] = []
     try:
@@ -865,21 +942,25 @@ def run(root: Path, payload: Mapping[str, Any], *, apply: bool, wait_seconds: fl
     return _json_result(
         ok=True,
         mode="apply",
-        receipts=receipts,
-        lease={"status": "active", "lease_token": lease["lease_token"], "action_id": lease["action_id"]},
-        pipeline_correlations=correlations,
-        **common,
+        result={
+            **result_payload,
+            "receipts": receipts,
+            "lease": {"status": "active", "lease_token": lease["lease_token"], "action_id": lease["action_id"]},
+            "pipeline_correlations": correlations,
+        },
+        diagnostics=[],
     )
 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--repository", type=Path, default=Path("."), help="CAPRMEDIO repository root")
+    parser.add_argument("--root", dest="repository", type=Path, help=argparse.SUPPRESS)
     subcommands = parser.add_subparsers(dest="command", required=True)
     subcommands.add_parser("describe", help="emit Tool contract as JSON")
     run_parser = subcommands.add_parser("run", help="validate or append a sealed context")
     run_parser.add_argument("--input", required=True, help="JSON input path or - for stdin")
     run_parser.add_argument("--apply", action="store_true", help="append records; omission is dry-run")
-    run_parser.add_argument("--root", default=".", help="repository root or descendant")
     run_parser.add_argument("--wait-seconds", type=float, default=30.0, help="maximum repository-lease wait")
     return parser.parse_args()
 
@@ -892,7 +973,7 @@ def main() -> int:
             return 0
         if args.wait_seconds < 0:
             raise ToolError("invalid-input", "wait_seconds must be non-negative")
-        root = repository_root(Path(args.root))
+        root = repository_root(args.repository)
         result = run(root, _load_json(args.input), apply=args.apply, wait_seconds=args.wait_seconds)
         _emit(result)
         return 0
@@ -901,11 +982,13 @@ def main() -> int:
             _json_result(
                 ok=False,
                 mode="apply" if getattr(args, "apply", False) else "dry-run",
-                resolved_targets={},
-                planned_effects={},
-                validation_results=[],
-                receipts=[],
-                lease={},
+                result={
+                    "resolved_targets": {},
+                    "planned_effects": {},
+                    "validation_results": [],
+                    "receipts": [],
+                    "lease": {},
+                },
                 diagnostics=[{"code": error.code, "message": str(error)}],
             )
         )
