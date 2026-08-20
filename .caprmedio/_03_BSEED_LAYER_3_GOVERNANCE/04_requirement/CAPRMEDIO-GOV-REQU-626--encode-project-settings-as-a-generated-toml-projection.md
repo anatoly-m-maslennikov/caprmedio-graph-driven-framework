@@ -3,8 +3,8 @@ subject_scopes:
   - settings
 project_settings:
   schema_version: 2.0
-version: 2
-updated_at: 2026-08-18 20:19:17
+version: 3
+updated_at: 2026-08-21 00:21:06
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -14,6 +14,6 @@ relations:
     - CAPRMEDIO-META-REQU-620--classify-project-settings-as-an-implementation-projection
     - CAPRMEDIO-REQU-622--establish-project-configuration-through-rmed
 ---
-# Encode project settings as a generated TOML Projection
+# Encode Project Graph State as generated Projections
 
-GOV must encode `.caprmedio/caprmedio_project_settings.toml` as a read-only TOML Implementation Projection regenerated from applicable active Project RMED Atoms with carrier-native Projection metadata and no operator-authored setting values.
+GOV must encode one or more read-only Project Graph State Implementation Projections that expose the current Scope Unit hierarchy, structural paths and coordinates, enabled local tiers and derived global tiers for each applicable level or Scope Unit, and other registered effective graph relations, routes, and capabilities. Each Projection is regenerated from the exact Project Configuration Atom revision and applicable graph Atoms and Journal records, carries native Projection metadata, and contains no operator-authored setting values.
