@@ -2,11 +2,11 @@
 artifact_subtype: qa_case
 subject_scopes:
   - evaluation
-version: 1
-updated_at: 2026-08-20 20:20:00
+version: 2
+updated_at: 2026-08-20 22:58:24
 relations:
   evaluation_for:
-    - CA-R-804-REQUIREMENT-FR_ENGN_TOOLS_OPS_TOOLS--gather-complete-commit-action-context
+    - CA-R-804-REQUIREMENT-FR_ENGN_TOOLS--gather-complete-commit-action-context
     - CAPRMEDIO-FRAMEWORK-ENGINE-REQU-522--append-work-journal-events
 ---
 # Partition the Journal by the configured calendar date
