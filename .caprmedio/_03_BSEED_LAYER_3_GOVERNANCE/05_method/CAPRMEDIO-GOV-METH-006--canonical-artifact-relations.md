@@ -2,11 +2,13 @@
 subject_scopes:
   - relation-model
 tier: core
-version: 4
-updated_at: 2026-08-19 22:22:41
+version: 5
+updated_at: 2026-08-20 19:42:00
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
+  method_for:
+    - CA-R-806-REQUIREMENT-BSEED_GOVERNANCE--register-complete-relation-kind-metadata
   replacement_of:
     - CAPRMEDIO-GOV-METH-023--typed-artifact-relations
   resolution_of:
@@ -16,34 +18,27 @@ relations:
     - CAPRMEDIO-GOV-REQU-345--represent-accepted-meaning-faithfully
 ---
 
-# Use the canonical artifact relations
+# Compile the canonical relation-kind registry
 
-CAPRMEDIO uses exactly these general forward artifact relations:
+Compile one relation-kind registry from the active GOV Requirement Atoms that register semantic relations. Each registration Atom owns one direct relation's exclusive meaning and supplies every field required by the complete relation-kind metadata Requirement. The compilation must not invent aliases, merge near-synonyms, or infer inverse names, direction, authority, or endpoint rules from spelling.
 
-| Relation | Exclusive meaning |
+For each admitted direct relation, emit exactly one row with these columns in canonical order:
+
+| Column | Meaning |
 |---|---|
-| `child_of` | Narrows, decomposes, or specializes an active parent claim while both remain active |
-| `analysis_of` | Interprets named inputs without becoming their authority or evidence |
-| `projection_of` | Binds a Projection to its declared source-Atom frontier without transferring source authority |
-| `implementation_of` | Connects code, configuration, documentation, migration, a commit, or another realized mechanism to the authority it realizes, including a QA Case or Evaluation Control |
-| `check_of` | Connects a QA Case or Evaluation Control to the claim, condition, or invariant it checks |
-| `evidence_for` | Connects a bounded Ops record to the Evaluation definition, implementation execution, result, or Verification it supports |
-| `resolution_of` | Closes a Concern Atom with the `question` or `problem` subtype |
-| `solution_for` | Supplies the accepted solution that closes a Conflict |
-| `override_of` | Replaces inherited authority only inside a declared narrower scope |
-| `replacement_of` | Completely replaces an older immutable atom |
-| `recurrence_of` | Links a new Concern Atom to an archived predecessor with the same direct subtype |
-| `related_to` | Records an association only in casual mode when no precise relation applies and supplies no authority or coverage |
+| `direct_name` | The only name authored by the persisted owner |
+| `inverse_name` | The unique name derived for reverse navigation |
+| `owner` | The endpoint that persists the direct edge |
+| `direct_direction` | Source-to-target endpoint direction |
+| `upstream_endpoint` | The endpoint treated as upstream for governed traversal |
+| `source_classes` | Allowed source Artifact classes |
+| `target_classes` | Allowed target Artifact classes |
+| `cardinality` | Allowed endpoint cardinality |
+| `authority_effect` | Authority, coverage, precedence, or no-authority effect |
+| `transitive` | Whether transitive closure is semantically valid |
+| `symmetric` | Whether reversing endpoints preserves meaning |
+| `authority_modes` | Modes in which the relation may be authored |
+| `status` | Active, deprecated, or sealed lifecycle state |
+| `exclusive_meaning` | The bounded fact expressed by the relation |
 
-Every authored edge is stored on its source and names one or more stable target
-identities. One source-target pair has one primary relation. Reverse edges,
-including `parent_to`, are derived and never authored.
-
-`child_of`, `override_of`, `replacement_of`, and `recurrence_of` are mutually
-exclusive for one pair. `solution_for` is reserved for Conflict; other closure
-uses `resolution_of`. `related_to` has no authority, evaluation, dependency,
-precedence, lifecycle, or coverage semantics. `related_to` is valid only when
-the source Artifact's effective `authority_mode` is `casual`.
-
-Rule-registry `depends_on` and `precedence_over` fields remain separate
-constitutional controls and are not general artifact relations.
+Store only the direct edge on its registered owner. Derive the inverse view at query time and never write it as a backlink. Reject compilation when a direct or inverse name is duplicated, a required field is absent, endpoint rules conflict, or more than one active registration claims the same meaning. Relation kinds used only by rule registries or Structural configuration remain outside this semantic-relation registry unless a GOV Requirement explicitly admits them.
