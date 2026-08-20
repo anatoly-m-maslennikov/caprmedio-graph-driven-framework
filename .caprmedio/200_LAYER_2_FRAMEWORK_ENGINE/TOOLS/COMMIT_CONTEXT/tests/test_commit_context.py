@@ -11,7 +11,10 @@ from pathlib import Path
 
 
 TOOL_DIRECTORY = Path(__file__).resolve().parents[1]
-sys.pycache_prefix = str(TOOL_DIRECTORY.parents[2] / ".caprmedio_runtime" / "cache" / "python")
+for _parent in Path(__file__).resolve().parents:
+    if _parent.name == ".caprmedio":
+        sys.pycache_prefix = str(_parent.parent / ".caprmedio_runtime" / "cache" / "python")
+        break
 sys.path.insert(0, str(TOOL_DIRECTORY))
 
 from commit_context_logic import ContextError, digest, gather_context, repository_identity, validate_context  # noqa: E402
