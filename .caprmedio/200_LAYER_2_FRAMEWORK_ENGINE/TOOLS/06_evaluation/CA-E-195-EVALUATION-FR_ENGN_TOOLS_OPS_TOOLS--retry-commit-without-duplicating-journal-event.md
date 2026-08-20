@@ -2,27 +2,27 @@
 artifact_subtype: qa_case
 subject_scopes:
   - evaluation
-version: 1
-updated_at: 2026-08-20 20:25:00
+version: 2
+updated_at: 2026-08-20 21:32:00
 relations:
   evaluation_for:
     - CA-R-805-REQUIREMENT-FR_ENGN_TOOLS_OPS_TOOLS--commit-one-governed-file-action
-    - CA-R-812-REQUIREMENT-FR_ENGN_TOOLS_OPS_TOOLS--append-governed-file-change-event
+    - CA-R-812-REQUIREMENT-FR_ENGN_TOOLS_OPS_TOOLS--append-governed-file-change-journal-records
 ---
-# Retry the commit without duplicating the Journal event
+# Retry the commit without duplicating Journal records
 
 ## Claim checked
 
-A commit failure after a successful Journal append can be retried with the same event identity and receipt without another append.
+A partial Journal append or later commit failure can be retried with the same event identities and receipt set without duplicating any record.
 
 ## Test case
 
-Force Git commit creation to fail after one valid Journal receipt is returned, restore Git availability, and retry the same sealed context.
+Use one sealed context with multiple related records; first interrupt after a proper subset is appended, then force Git commit creation to fail after the complete receipt set is returned, and retry the same context after each failure.
 
 ## Acceptance criteria
 
-The Journal contains exactly one event with the sealed identity, the retry reuses its original receipt, and exactly one final commit contains that event and the governed subject change.
+The Journal contains exactly one copy of every sealed record identity, each retry reuses existing receipts and appends only missing records, and exactly one final commit contains the governed subject change plus all related sidecar lines.
 
 ## Failure disposition
 
-Reject the flow if retry appends another event, changes the action message or partition, loses the first receipt, or creates more than one successful commit.
+Reject the flow if retry duplicates a record, changes structured event content or partition, loses an existing receipt, omits a related sidecar line, or creates more than one successful commit.
