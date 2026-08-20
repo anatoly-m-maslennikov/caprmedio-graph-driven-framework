@@ -2,20 +2,19 @@
 subject_scopes:
   - lifecycle-traceability
 tier: core
-version: 1
-updated_at: 2026-08-17 19:36:01
+version: 2
+updated_at: 2026-08-20 05:48:13
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   child_of:
-    - CAPRMADIO-REQUIREMENT-114-apply-mece-to-canonical-decompositions
+    - CA-M-001-METHOD-PRINCIPLE--mece-for-canonical-decompositions
 ---
 # Define atom admission and lifecycle
 
-CAPRMADIO distinguishes these lifecycle meanings:
+CAPRMEDIO distinguishes these lifecycle meanings:
 
-- `candidate` is exploratory material without governed Atom identity;
-- `draft` is an admitted Atom with stable identity that is not accepted as current authority;
+- `candidate` and `draft` name the same lifecycle meaning: an admitted Atom with stable identity that is not accepted as current authority;
 - `accepted` means the operator approved the exact semantic contribution;
 - `admitted` means the Atom has stable identity and satisfies the applicable entry rules for governed history;
 - `committed` means the exact carrier revision was mirrored in Git;
