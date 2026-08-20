@@ -2,8 +2,8 @@
 artifact_subtype: qa_case
 subject_scopes:
   - evaluation
-version: 5
-updated_at: 2026-08-20 21:41:00
+version: 6
+updated_at: 2026-08-20 22:09:00
 relations:
   evaluation_for:
     - CA-M-087-METHOD-FR_ENGN_TOOLS_OPS_TOOLS--process-one-file-change
@@ -18,11 +18,11 @@ Applying one valid sealed context creates exactly one commit containing one gove
 
 ## Test case
 
-Prepare one valid `UPDATE` context that requires multiple related Journal records across two carrier partitions and has one unrelated unstaged change, run the Journal Doer and Git Doer, and inspect the new commit, Journal records, index, remaining working tree, projected commit message, and returned result envelope.
+Prepare one valid `UPDATE` context that requires multiple related Journal records across two carrier partitions and has one unrelated unstaged change, run the Journal Doer and Git Doer, and inspect the repository lease lifetime, new commit, Journal records, index, remaining working tree, projected commit message, and returned result envelope.
 
 ## Acceptance criteria
 
-Exactly one new commit exists; its tree changes only the resolved governed identity and every receipt-bound related Journal line, even across multiple carriers; it contains no unrelated Journal line; its one-line message equals the deterministic Projection of the structured file-change event; the unrelated unstaged change remains untouched; and the returned commit identifier resolves to that commit.
+Exactly one repository-scoped lease is acquired before the first append and released only after verification; exactly one new commit exists; its tree changes only the resolved governed identity and every receipt-bound related Journal line, even across multiple carriers; it contains no unrelated Journal line; its one-line message equals the deterministic Projection of the structured file-change event; the unrelated unstaged change remains untouched; and the returned commit identifier resolves to that commit with no blocked action remaining.
 
 ## Failure disposition
 
