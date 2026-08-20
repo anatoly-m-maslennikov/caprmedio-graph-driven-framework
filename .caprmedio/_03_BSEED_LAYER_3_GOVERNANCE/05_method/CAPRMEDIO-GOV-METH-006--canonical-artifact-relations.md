@@ -2,15 +2,16 @@
 subject_scopes:
   - relation-model
 tier: core
-version: 5
-updated_at: 2026-08-20 19:42:00
+version: 6
+updated_at: 2026-08-20 20:00:00
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   method_for:
     - CA-R-806-REQUIREMENT-BSEED_GOVERNANCE--register-complete-relation-kind-metadata
-  replacement_of:
-    - CAPRMEDIO-GOV-METH-023--typed-artifact-relations
+    - CA-R-807-REQUIREMENT-BSEED_GOVERNANCE--store-replacement-as-direct-replaced-by
+    - CA-R-808-REQUIREMENT-BSEED_GOVERNANCE--limit-active-direct-relations-to-upstream-or-same-tier
+    - CA-R-809-REQUIREMENT-BSEED_GOVERNANCE--validate-direct-relation-global-tier-direction
   resolution_of:
     - CAPRMEDIO-SPEC-TOOLS-CONC-056--legacy-relation-sealing
     - CAPRMEDIO-SPEC-TOOLS-CONC-057--atomic-replacement-source
@@ -20,7 +21,7 @@ relations:
 
 # Compile the canonical relation-kind registry
 
-Compile one relation-kind registry from the active GOV Requirement Atoms that register semantic relations. Each registration Atom owns one direct relation's exclusive meaning and supplies every field required by the complete relation-kind metadata Requirement. The compilation must not invent aliases, merge near-synonyms, or infer inverse names, direction, authority, or endpoint rules from spelling.
+Compile the active GOV Requirement Atoms that register semantic relations into exactly one machine-readable dictionary at `02_FR_ENGN/TOOLS/caprmedio_relation_types.toml`. Each registration Atom owns one direct relation's exclusive meaning and supplies every field required by the complete relation-kind metadata Requirement. The compilation must not invent aliases, merge near-synonyms, or infer inverse names, direction, authority, lifecycle, or endpoint rules from spelling.
 
 For each admitted direct relation, emit exactly one row with these columns in canonical order:
 
@@ -28,6 +29,8 @@ For each admitted direct relation, emit exactly one row with these columns in ca
 |---|---|
 | `direct_name` | The only name authored by the persisted owner |
 | `inverse_name` | The unique name derived for reverse navigation |
+| `source_lifecycles` | Lifecycle states permitted to author the direct edge |
+| `target_lifecycles` | Lifecycle states permitted at direct-edge creation |
 | `owner` | The endpoint that persists the direct edge |
 | `direct_direction` | Source-to-target endpoint direction |
 | `upstream_endpoint` | The endpoint treated as upstream for governed traversal |
@@ -41,4 +44,4 @@ For each admitted direct relation, emit exactly one row with these columns in ca
 | `status` | Active, deprecated, or sealed lifecycle state |
 | `exclusive_meaning` | The bounded fact expressed by the relation |
 
-Store only the direct edge on its registered owner. Derive the inverse view at query time and never write it as a backlink. Reject compilation when a direct or inverse name is duplicated, a required field is absent, endpoint rules conflict, or more than one active registration claims the same meaning. Relation kinds used only by rule registries or Structural configuration remain outside this semantic-relation registry unless a GOV Requirement explicitly admits them.
+Sort rows by `direct_name`. Store only the direct edge on its registered owner. Derive the inverse view at query time and never write it as a backlink. For an active source at global tier `N`, enforce an active target with global tier less than or equal to `N` before applying any stricter row-specific rule. Compile replacement only as direct `replaced_by` with derived inverse `replacement_of`. Reject compilation when a direct or inverse name is duplicated, an inverse is also admitted as direct, a required field is absent, endpoint rules conflict, or more than one active registration claims the same meaning. Relation kinds used only by rule registries or Structural configuration remain outside this Atom relation-type dictionary unless a GOV Requirement explicitly admits them.
