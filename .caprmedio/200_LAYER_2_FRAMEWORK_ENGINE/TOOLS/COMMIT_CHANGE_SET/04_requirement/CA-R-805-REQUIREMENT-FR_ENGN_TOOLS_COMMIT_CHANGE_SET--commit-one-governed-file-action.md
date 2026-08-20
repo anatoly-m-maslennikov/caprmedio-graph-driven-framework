@@ -1,8 +1,8 @@
 ---
 subject_scopes:
   - feature-boundary
-version: 9
-updated_at: 2026-08-21 00:02:00
+version: 10
+updated_at: 2026-08-21 01:33:02
 relations:
   child_of:
     - CA-R-802-REQUIREMENT-FR_ENGN_TOOLS--define-flat-auto-commit-tool-topology
@@ -15,3 +15,5 @@ relations:
 For commit-only execution or idempotent retry, the Doer may instead accept one current sealed `COMMIT_CONTEXT`, the complete ordered receipt set, and the live repository-scoped lease token returned by `APPEND_CHANGE_RECORDS`. Before mutation it rejects stale or incomplete context, an absent, incomplete, unrelated, or mismatched receipt set or lease, unresolved relations, non-current versions, more than one governed subject identity, unrelated staged changes, or a changed Git base, and repeats these checks while it owns the lease. It stages exactly the subject change plus every receipt-bound Journal line related to the same action identity, including lines across multiple Journal segment carriers when rollover requires them, and must not stage another record already present in those carriers.
 
 The Doer creates exactly one commit using the canonical renderer over the structured `governed_file_change` event and its referenced previous result, then verifies the subject change, every related sidecar record, projected message, commit tree, and parent Git base before releasing the lease. A rename contributes `UPDATE`; a Structural-location change contributes `MOVE`; and both together produce `MOVE+UPDATE`. If commit creation fails after successful appends, the receipt-bound records and lease state remain available as one observable blocked action for an idempotent retry; a later action must not bypass it until the same action succeeds or an operator explicitly resolves it. The Doer must not edit governed subject content, create backup copies, or release or reassign a failed action silently.
+
+The same Tool must expose Git-boundary Evaluations through runtime-owned `pre-commit`, `commit-msg`, and `post-commit` Hook modes. `pre-commit` rejects unresolved index entries, invalid staged content, or a governed boundary that does not contain exactly one governed subject change plus its related Journal sidecars. `commit-msg` rejects a governed commit message that differs from the deterministic Projection encoded by those staged records. `post-commit` observes the created commit, verifies its subject, sidecars, and message, and records only reconstructible runtime evidence; it must not mutate governed source, append another Journal event, or trigger recursive auto-commit work.
