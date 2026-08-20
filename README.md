@@ -1,170 +1,128 @@
-# CAPRMADIO
-
-> **“Prompts execute the work. The graph preserves what the work means.”**
->
-> — CAPRMADIO framework logline
-
-The closest verified expression of this idea from Karpathy appears in his [LLM Wiki](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f):
-
-> “Obsidian is the IDE; the LLM is the programmer; the wiki is the codebase.”
->
-> — Andrej Karpathy
-
-Karpathy’s [talk](https://www.youtube.com/watch?v=XdbpCM4yGyE) also discusses Software 3.0 and attention as graph-based message passing.
+# CAPRMEDIO
 
 **The Graph-Driven Development Framework**
 
-CAPRMADIO is a graph-driven, governed framework for carrying AI-assisted software work from an initial concern to production operation without losing intent, rationale, specification, assurance, delivery controls, implementation traceability, or operational feedback.
+## The Goal
 
-CAPRMADIO expands to **Concern–Analysis–Plan–Requirement–Method–Assurance–Delivery–Implementation–Ops**. The name describes the semantic path through the framework; graph-driven development describes its architecture; and “vibe code to production” describes the outcome it is designed to support.
+If it can be built, CAPRMEDIO should help anyone build it if they are willing to invest the time and effort.
+
+In practice, it should make AI-assisted development reliable from the first idea to production without losing meaning, traceability, or learning.
+
+## What CAPRMEDIO is
+
+CAPRMEDIO stores project knowledge as small artifacts connected by typed links. Humans and AI use this graph to understand the project, make changes, check consistency, and generate useful views.
+
+The name describes four connected parts:
+
+- **CAP** — tasks: Concern, Analysis, and Plan.
+- **RMED** — the specification: Requirement, Method, Evaluation, and Delivery.
+- **I** — the actual code.
+- **O** — evidence from running and using it.
+
+## Current boundaries
+
+- More than one person can use CAPRMEDIO on a project, but the framework does not yet provide native support for team workflows.
+- CAPRMEDIO is not only local-first; it is currently local-only.
 
 ## Status
 
-The current version is **0.3.11**.
-
-The META and GOV foundation is mostly finalized. It now establishes the core semantics, invariants, carrier rules, naming, lifecycle, provenance, scope, and traceability model. The reusable methodology, tools, skills, profiles, adapters, assurance assets, and documentation are the next implementation surface; their root folders are intentionally empty placeholders while the new foundation is applied.
-
-This is therefore a framework-foundation release, not yet a claim that the complete end-user toolchain is implemented or production-proven.
-
-## The CAPRMADIO loop
-
-CAPRMADIO separates nine noun-named Content roles:
-
-| Role | Owns |
-|---|---|
-| **Concern** | A question, problem, risk, opportunity, conflict, or other matter requiring disposition |
-| **Analysis** | Investigation, synthesis, alternatives, explanation, and rationale |
-| **Plan** | Short-lived accepted action points for changing governed artifacts or their realization |
-| **Requirement** | What the product or project must, may, or must not provide |
-| **Method** | How an accepted Requirement will be realized or an existing realization transformed |
-| **Assurance** | How the project establishes that governed claims and their realization work as intended |
-| **Delivery** | Packaging, release, deployment, distribution, installation, migration, upgrade, and rollback |
-| **Implementation** | The actual project realization outside `.caprmadio/` |
-| **Ops** | Factual results from execution and use, including evidence, logs, incidents, and verification outcomes |
-
-The canonical forward loop is:
-
-```text
-Concern → Analysis → Plan → Requirement → Method → Assurance
-        → Delivery → Implementation → Ops → Concern
-```
-
-The framework name can also be read as **CAP · RMAD · IO**:
-
-- **CAP** develops and accepts the work to perform.
-- **RMAD** is the distributed Specification: what should exist, how it should be realized, how it will be assured, and how it reaches users.
-- **IO** connects the native project realization to operational facts and new concerns.
-
-Requirement is the only universally mandatory Atom role. Other roles are introduced when the work needs them, but anything created under a role must keep that role’s canonical meaning.
+The current released version is declared in [version.toml](version.toml). The framework foundation is under active development; this is not yet a complete production toolchain.
 
 ## Why graph-driven
 
-CAPRMADIO represents development knowledge as a governed graph rather than a collection of loosely connected documents. Each independently governed Atom is a node with a stable identity. Typed relations are edges with specific meanings: they connect concerns to their analysis and resolution, narrow principles into core and standard rules, bind specification to implementation, connect assurance to the claims it checks, and carry operational evidence back into new concerns.
+1. **Vibe coding is unreliable.** Prompts and decisions live inside a session, while LLM context is temporary.
+2. **Spec-driven development is better, but specs become monoliths.** They grow hard to read, write, structure, and maintain—and consume too many tokens, too much time, and too much money.
+3. **TDD, development loops, agentic workflows, RAG, and memory systems all help, but each solves only part of the problem.** None of them alone preserves the project’s meaning, structure, and traceability.
+4. **For now, graph-driven development is the only approach that solves the whole problem.** It keeps knowledge in small artifacts with explicit relations, loads only the context needed for the current task, and reconstructs the larger picture when required.
 
-The graph is not only a visualization. Its structure is intended to drive development work:
+## Framework model
 
-- Plans describe accepted changes to graph nodes, relations, and their native realization.
-- Validation checks graph invariants, valid relation endpoints, scope, tier, lineage, and currentness.
-- Impact analysis follows typed edges to find what a changed claim may invalidate or require to be regenerated.
-- Projections turn governed graph slices into catalogs, maps, lifecycle diagrams, implementation records, and other task-specific views without creating a second source of authority.
-- Implementation bindings connect Requirements, Methods, Assurance, and Delivery rules to the actual code, configuration, tests, automation, and documentation that realize them.
-- Ops closes the loop by attaching factual execution results and evidence to the governed claims and implementations they concern.
-
-This makes the graph an executable coordination model for humans, agents, generators, and validators. The META and GOV foundation defines that model today; the reusable tools and skills that automate more of its traversal, validation, projection, and implementation flow are the next implementation surface.
-
-## The framework axes
-
-CAPRMADIO keeps independent classifications independent. Every governed artifact occupies exactly one coordinate across three primary semantic axes:
+CAPRMEDIO keeps three axes independent:
 
 ```text
 Artifact form × Content role × Governance locus
 ```
 
-### Content role
-
-The nine Content roles above state the artifact’s primary semantic contribution. A role is not inferred from workflow state or file format.
-
 ### Artifact form
 
-Every governed artifact has one form:
+- **Atom** — one independently governed unit.
+- **Journal** — an append-only sequence of records.
+- **Projection** — a generated, non-authoritative view.
 
-- **Atom** — the smallest independently governed unit under its role’s atomicity model, with a stable identity and an indivisible lifecycle.
-- **Journal** — an ordered append-only sequence of admitted records.
-- **Projection** — a reproducibly generated, non-authoritative view over declared governed sources. Projections are never directly edited.
+### Content role
+
+```text
+O → C → A? → P → RMED → I → O
+```
+
+Reasoning may remain in the operator’s mind, exist ephemerally in a session, happen in an unrecorded discussion, or be preserved in an Analysis Atom. In the flow, `A?` marks that a governed Analysis Atom may or may not be present.
+
+| Role | Owns | Coordinate |
+|---|---|---|
+| **Concern** | A matter to resolve | Priority |
+| **Analysis** | Preserved investigation and reasoning | — |
+| **Plan** | Accepted short-lived change steps | Priority |
+| **Requirement** | What the project must, may, or must not provide | Tier |
+| **Method** | How accepted work will be done | Tier |
+| **Evaluation** | How claims are checked | Tier |
+| **Delivery** | Release, deployment, installation, and rollback | Tier |
+| **Implementation** | The actual code | — |
+| **Ops** | Evidence from running and using the system | — |
+
+Requirement is the only universally mandatory Atom role.
 
 ### Governance locus
 
-Governance locus states where an artifact’s primary meaning is owned:
+- **Internal** — this project owns the meaning.
+- **External** — an identified external source owns the meaning.
+- **Relation** — the meaning exists between explicit endpoints.
 
-- **Internal** — the current project establishes and owns the meaning.
-- **External** — an identified source outside the current project establishes the meaning, and the governed artifact preserves that source rather than rewriting it.
-- **Relation** — the meaning exists only between explicit role-bearing endpoints and is not owned by either endpoint in isolation.
+## Project structure
 
-`relation` is the canonical axis value; *relational* describes an artifact routed to that locus. Every relational artifact declares one stable relation kind and at least two explicit endpoints, with each endpoint independently identified as internal or external. An ordinary citation, dependency, or traceability edge does not by itself make an artifact relational.
+Project Layers are ordered. Layer-owned Features are not.
 
-Three Artifact forms × nine Content roles × three Governance loci define 81 possible semantic coordinates. CAPRMADIO admits them sparsely: a coordinate exists only when it represents a materially useful construct, so the framework does not invent a Type or placeholder for every possible combination.
+```text
+01_FR_MTHD/       — Framework Methodology: defines framework rules and methods without I/O.
+02_FR_ENGN/       — Framework Engine: applies the methodology through executable interfaces.
+├── SKILLS/       — Skills: give operators and LLMs the primary framework interface.
+├── TOOLS/        — Tools: find, check, and change CAPRMEDIO source artifacts.
+└── APP/          — Application: indexes sources and serves database-backed local views.
+03_FR_USERDOC/    — Framework User Documentation: explains how to use the framework.
+04_EXTNS/         — Extensions: add optional governed capabilities.
+05_RELSS/         — Releases: package and publish versioned framework changes.
+06_FIELD/         — Field: captures use, feedback, support, and improvement inputs.
+```
 
-### Structural scope
+## Principles
 
-Structural scope says where authority applies:
+1. **The graph is the operating model.** Framework work reads or changes the typed project graph.
+2. **Use only necessary complexity.** Add a mechanism only when it preserves an important distinction or required result.
+3. **Scale through structure.** Manage growing information through structure and selective views, not by losing it.
+4. **Extend without redefining.** Extensions add capabilities through explicit extension points without copying core authority.
+5. **Configure without changing meaning.** Projects may select, combine, tune, or disable available capabilities while preserving their meaning.
+6. **MECE.** When a model claims to cover a whole area, its parts must not overlap or leave gaps.
+7. **DRY.** Keep one canonical owner for each meaning. Other uses reference, derive, generate, or adapt it.
+8. **Make claims testable.** Every governed claim needs a condition that can show it is false, unmet, or out of scope.
+9. **State reliance boundaries.** Say what evidence permits reliance and what must stop, block, degrade, or reopen it.
+10. **Keep the core discipline-independent.** Adapt disciplines through Extensions and Project Adaptations without changing the core model.
+11. **Keep substrates replaceable.** Authority must not depend on one operating system, language, model, provider, or agent host.
+12. **Preserve operator sovereignty.** The operator controls the whole project and every CAPRMEDIO Artifact.
+13. **Organize authority as a hierarchy.** Governed authority forms explicit, configurable hierarchies inside the typed graph.
+14. **Improve from observed results.** Turn material project outcomes into evaluated improvements at the narrowest affected scope.
 
-- **Layer** — an ordered vertical boundary. Dependencies flow forward through the layer order, never backward.
-- **Feature** — a horizontal product or framework capability within a layer. Features may have explicit lateral contracts.
+## Governance
 
-Layers and Features use a flat numbered storage layout. Features in SPEC and IMPLEMENTATION share the canonical set: Methodology, Tools, Skills, Profiles, Adapters, Assurance, and Documentation.
+META defines meanings and invariants. GOV defines deterministic repository rules. The complete active authority lives in [.caprmedio](.caprmedio/); this README is only a short introduction.
 
-### Subject scope
+## Thanks
 
-`subject_scopes` identify what an Atom is about inside its structural scope. Subjects improve focused discovery and review; they do not duplicate or replace the Layer, Feature, Content role, or carrier location.
+- **[Anatoly Levenchuk](https://t.me/ailev_blog)**, creator of the [First Principles Framework](https://github.com/ailev/FPF). I could never have built this project without FPF. I also maintain an [LLM-friendly FPF knowledge-graph toolkit](https://github.com/anatoly-m-maslennikov/levenchuk-fpf-knowledge-graph-toolkit).
+- **[Daniel Kravtsov](https://improvado.io/blog-authors/daniel-kravtsov)**, CEO and co-founder of [Improvado](https://improvado.io/company/about), for giving me the challenge of building a knowledge graph for my team. It showed me what graphs can achieve in practice. At Improvado, I also tried for the first time to build an internal product both with AI and by AI.
+- **[Andrej Karpathy](https://en.wikipedia.org/wiki/Andrej_Karpathy)**, for his fresh ideas—especially about graphs. His [LLM Wiki](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f) says it vividly: “Obsidian is the IDE; the LLM is the programmer; the wiki is the codebase.” His [Software 3.0 talk](https://www.youtube.com/watch?v=XdbpCM4yGyE) develops the graph perspective further.
+- **[Ivan Petrovich Churukhov](https://lad24.ru/about#lider)**, for showing me how to think openly, structure ideas clearly, and apply them to real business problems.
+- **[Professor Nikolai Sergeevich Stepanov](https://ru.wikipedia.org/wiki/%D0%A1%D1%82%D0%B5%D0%BF%D0%B0%D0%BD%D0%BE%D0%B2,_%D0%9D%D0%B8%D0%BA%D0%BE%D0%BB%D0%B0%D0%B9_%D0%A1%D0%B5%D1%80%D0%B3%D0%B5%D0%B5%D0%B2%D0%B8%D1%87)** and the Radiophysics Faculty, for teaching both the laws of physics and how each law was found and formed. That became a foundation for my systems thinking and showed me how to create something truly new.
+- **[Dmitry Yurievich Kuznetsov](https://xn----7sb3aehik9cm.xn--p1ai/sotrudniki/dmitrij-yurevich-kuzneczov/)**, for the mathematics olympiad community around him, where as a teenager I had the joy of learning among curious, highly intellectual, and motivated peers—and of sharing their love for solving purely abstract mathematical problems.
 
-### Applicability tier
+## History
 
-RMAD Atoms may distinguish:
-
-- **principle** — an abstract rule that governs the current project;
-- **core** — a rule applying to the Atom’s full current structural scope;
-- **standard** — a rule applying to a narrower subsegment.
-
-Default values are omitted from frontmatter rather than repeated.
-
-## Governance model
-
-META owns the meanings and invariants that every later layer must obey. GOV turns those semantics into deterministic repository conventions: carrier placement, identifiers, filenames, frontmatter, lifecycle directories, relations, provenance, and validation rules.
-
-### Main framework principles
-
-The active META principle tier establishes eight project-wide rules:
-
-1. **MECE canonical decompositions.** Every taxonomy or decomposition that claims complete coverage must be non-overlapping and complete inside an explicit boundary. Independent questions belong on independent axes; MECE does not require every Cartesian combination to exist.
-2. **Human comprehension and decisive structure.** Present the smallest structure that lets the intended reader understand, review, and act. Add terminology, metadata, hierarchy, or ceremony only when it exposes a materially useful distinction, boundary, obligation, or action.
-3. **Strict semantic distinctions.** Keep independently governed meanings separate even when one document, workflow, or code change presents them together. A Requirement is not a Method, a Method is not its Implementation, Assurance is not its result, provenance is not evidence, and observation is not authority.
-4. **Materially distinct constructs only.** Add a durable Type, relation, axis, scope, Layer, Feature, or lifecycle state only when the existing model would lose a reviewable distinction and the addition has a sharp, action-facing inclusion and exclusion boundary.
-5. **Bounded meaning across structural scales.** Preserve meaning and explicit applicability when authority is inherited, specialized, overridden, or summarized across project, Layer, Feature, and deeper configured scopes. Recursion never widens authority, evidence, Assurance, or Implementation coverage.
-6. **Falsifiable claims and stop conditions.** State what could disconfirm an empirical claim and what must stop, degrade, block, or reopen work. Missing, unknown, or contradictory required input fails closed at the affected use.
-7. **DRY governed meaning.** Store governed meaning once under one canonical owner. Other uses reference, derive, generate, or adapt it; necessary materialized copies remain non-authoritative and declare how they are regenerated or reconciled.
-8. **Semantic irreducibility.** Keep only content whose removal would cause material semantic or operational loss to the Atom’s role-specific unit. Use canonical terms and relations instead of creating a second authority; keep rationale in Analysis.
-
-Core META rules apply these principles through one independently replaceable claim per RMAD Atom, code-agnostic Requirements, active-to-active RMAD lineage, forward-only Layer dependencies, Git-backed revision history, governed Journals, generated Projections, and Exploration Mode for questions and ideas.
-
-The framework applies recursively: CAPRMADIO governs its own development using the same META and GOV rules it provides to other projects.
-
-## Repository history
-
-The framework was renamed twice as its semantic model became clearer:
-
-1. **DSET** established the initial production-oriented framework.
-2. **CARMADIO** aligned the name with the expanded Content-role model.
-3. **CAPRMADIO** added Plan as an independent role between Analysis and the distributed RMAD Specification.
-
-Historical names remain meaningful only in archived history. CAPRMADIO is the current framework and repository identity.
-
-## Acknowledgments
-
-CAPRMADIO owes an enormous intellectual debt to **Anatoly Levenchuk** and the **First Principles Framework (FPF)**. Without FPF’s disciplined approach to ontology, distinctions, boundaries, reasoning, and engineering knowledge, I would not have been able to develop this framework. My deepest thanks to Anatoly Levenchuk for creating FPF and making it publicly available.
-
-- [Original First Principles Framework by Anatoly Levenchuk](https://github.com/ailev/FPF)
-- [My LLM-friendly FPF knowledge-graph toolkit](https://github.com/anatoly-m-maslennikov/levenchuk-fpf-knowledge-graph-toolkit)
-
-## Next vertical cut
-
-The next cut will populate the seven reusable implementation surfaces and prove one complete path from project initialization through governed work, assurance, delivery, and operational feedback. Until that proof exists, this repository intentionally distinguishes a coherent foundation from a finished toolchain.
+The project evolved from **DSET** to **CARMADIO** to **CAPRMEDIO** as its semantic model became clearer.

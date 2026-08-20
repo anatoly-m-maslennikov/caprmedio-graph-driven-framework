@@ -1,0 +1,6 @@
+# CAPRMEDIO framework-engine settings.
+
+[confidence]
+# Accepted values are integer percentages from 0 through 100.
+necessary_information_threshold_percent = 95
+semantic_resolution_threshold_percent = 95
