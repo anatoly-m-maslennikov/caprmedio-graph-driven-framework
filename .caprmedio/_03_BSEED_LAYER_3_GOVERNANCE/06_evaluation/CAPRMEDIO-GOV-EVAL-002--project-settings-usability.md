@@ -2,8 +2,8 @@
 artifact_subtype: qa_case
 subject_scopes:
   - evaluation
-version: 1
-updated_at: 2026-08-17 19:36:01
+version: 2
+updated_at: 2026-08-21 00:21:06
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -17,13 +17,11 @@ relations:
     - CAPRMEDIO-GOV-REQU-345--represent-accepted-meaning-faithfully
 ---
 
-# Project-settings usability
+# Project Configuration usability
 
 ## Claim checked
 
-An operator unfamiliar with the repository can configure reporting mode,
-artifact strictness, and one enabled artifact Type using only
-`.caprmedio/caprmedio_project_settings.toml` and its in-file documentation.
+An operator unfamiliar with the repository can configure reporting mode, artifact strictness, and one enabled artifact Type using only the Project Configuration Atom and its in-file documentation, while recognizing Project Graph State as a read-only derived view.
 
 ## Applicable conditions
 
@@ -32,7 +30,7 @@ framework catalog.
 
 ## Acceptance criteria
 
-Every intended change is made through project settings, and at least 90% of
+Every intended change is made through Project Configuration, and at least 90% of
 classifications correctly distinguish project choices from methodology
 definitions.
 
