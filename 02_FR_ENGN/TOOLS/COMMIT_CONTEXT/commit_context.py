@@ -42,16 +42,20 @@ INPUT_SCHEMA: dict[str, Any] = {
 
 def parser() -> argparse.ArgumentParser:
     result = argparse.ArgumentParser(description=__doc__)
-    result.add_argument("--repository", type=Path, default=Path("."), help="CAPRMEDIO repository root")
-    result.add_argument("--input", metavar="JSON_OR_DASH", help="COMMIT_TRIGGER JSON object or - for stdin")
-    result.add_argument("--schema", action="store_true", help="print the input schema and exit")
-    result.add_argument("--describe", action="store_true", help="print Tool capability metadata and exit")
+    result.add_argument("--repository", "--root", type=Path, default=Path("."), help="CAPRMEDIO repository root")
     result.add_argument("--pretty", action="store_true", help="pretty-print the machine result envelope")
+    commands = result.add_subparsers(dest="command", required=True)
+    commands.add_parser("describe", help="print Tool capability metadata and input schema")
+    run = commands.add_parser("run", help="gather sealed read-only context")
+    run.add_argument("--input", required=True, metavar="JSON_FILE_OR_DASH", help="COMMIT_TRIGGER JSON file or - for stdin")
     return result
 
 
 def read_json(value: str) -> dict[str, Any]:
-    raw = sys.stdin.read() if value == "-" else value
+    try:
+        raw = sys.stdin.read() if value == "-" else Path(value).read_text(encoding="utf-8")
+    except OSError as error:
+        raise ContextError("input_unreadable", "--input must name a readable JSON file or -") from error
     try:
         parsed = json.loads(raw)
     except json.JSONDecodeError as error:
@@ -80,10 +84,7 @@ def emit(value: dict[str, Any], *, pretty: bool) -> None:
 
 def main(argv: list[str] | None = None) -> int:
     args = parser().parse_args(argv)
-    if args.schema:
-        emit(envelope(ok=True, diagnostics=[], result={"input_schema": INPUT_SCHEMA, "context_schema_version": CONTEXT_SCHEMA_VERSION}), pretty=args.pretty)
-        return 0
-    if args.describe:
+    if args.command == "describe":
         emit(
             envelope(
                 ok=True,
@@ -99,8 +100,6 @@ def main(argv: list[str] | None = None) -> int:
             pretty=args.pretty,
         )
         return 0
-    if args.input is None:
-        parser().error("--input is required unless --schema or --describe is selected")
     try:
         context = gather_context(repository_root(args.repository), read_json(args.input))
     except ContextError as error:
