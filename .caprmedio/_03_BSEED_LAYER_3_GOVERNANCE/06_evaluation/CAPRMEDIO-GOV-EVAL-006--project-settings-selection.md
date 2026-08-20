@@ -2,8 +2,8 @@
 artifact_subtype: qa_case
 subject_scopes:
   - evaluation
-version: 1
-updated_at: 2026-08-17 19:36:01
+version: 2
+updated_at: 2026-08-21 00:21:06
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -17,21 +17,20 @@ relations:
     - CAPRMEDIO-GOV-REQU-345--represent-accepted-meaning-faithfully
 ---
 
-# Canonical project-settings selection
+# Canonical Project Configuration selection
 
 ## Claim checked
 
-Project settings accept exactly the registered values, resolve deterministically,
-and fail closed on invalid or unknown selections.
+Project Configuration accepts exactly the registered values, resolves deterministically, and fails closed on invalid or unknown selections; generated Project Graph State reproduces the effective result without becoming selection authority.
 
 ## Applicable conditions
 
-1. Load `.caprmedio/caprmedio_project_settings.toml` with documented defaults.
+1. Resolve and load the exact current Project Configuration Atom with documented defaults.
 2. Accept only enabled catalog types, subtypes, and Governance loci.
 3. Accept only `medium` or `high` artifact creation strictness.
 4. Accept only `silent` or `verbose` interaction reporting.
 5. Reject unknown keys when the governing schema marks their table closed.
-6. Confirm a second parse produces identical effective settings.
+6. Confirm a second parse produces identical effective configuration and a regenerated Graph State Projection binds to the same Configuration Revision.
 
 ## Acceptance criteria
 
