@@ -2,8 +2,8 @@
 artifact_subtype: qa_case
 subject_scopes:
   - evaluation
-version: 2
-updated_at: 2026-08-20 22:25:00
+version: 3
+updated_at: 2026-08-20 22:34:00
 relations:
   evaluation_for:
     - CA-M-087-METHOD-FR_ENGN_TOOLS_OPS_TOOLS--process-one-file-change
@@ -19,12 +19,12 @@ Passing a Hook trigger directly to the Doer invokes the same context-gathering b
 
 ## Test case
 
-For one fixed `UPDATE` fixture and one trigger with fixed adapter, source-event, trigger, and repository identities, capture the sealed context returned by `COMMIT_CONTEXT`, then pass the same trigger directly to `COMMIT_CHANGE_SET` in dry-run mode and capture its resolved context.
+For one fixed `UPDATE` fixture and one trigger with fixed adapter, source-event, trigger, repository, LLM application, host session UUID, and observation-time values, capture the sealed context returned by `COMMIT_CONTEXT`, then pass the same trigger directly to `COMMIT_CHANGE_SET` in dry-run mode and capture its resolved context.
 
 ## Acceptance criteria
 
-The two contexts are byte-identical after excluding only registered non-semantic transport metadata. Both preserve the same adapter provenance and stable action and Journal event identities, report the same predicted lease availability, and neither acquires a lease nor mutates repository state.
+The two contexts are byte-identical after excluding only registered non-semantic transport metadata. Both preserve the same adapter provenance, structured `llm_session`, sealed `occurred_at`, and stable action and Journal event identities; both derive the same `<app>:<uuid>:<occurred_at>` presentation without storing it; both report the same predicted lease availability; and neither acquires a lease nor mutates an Atom, Projection, Journal, runtime state, index, or Git reference.
 
 ## Failure disposition
 
-Reject the flow and report the first divergent semantic field, acquired lease, or repository mutation.
+Reject the flow and report the first divergent semantic or session-provenance field, acquired lease, or repository mutation.
