@@ -342,6 +342,23 @@ class CommitTriggerTests(unittest.TestCase):
             {"app": "codex", "uuid": "019f5920-04f6-70f2-8de7-828b7cccc69d"},
         )
 
+    def test_codex_hook_admits_active_atom_carriers_only(self) -> None:
+        self.assertTrue(
+            commit_trigger._hook_eligible(
+                {
+                    "before_path": ".caprmedio/04_requirement/CA-R-001-REQUIREMENT--subject.md",
+                    "after_path": ".caprmedio/04_requirement/CA-R-001-REQUIREMENT--subject.md",
+                }
+            )
+        )
+        for path in (
+            ".caprmedio/stg_requirements_subjects.md",
+            ".caprmedio/CA-INTENT.md",
+            ".caprmedio/04_requirement/drafts/CA-R-DRAFT-REQUIREMENT--subject.md",
+            ".caprmedio/04_requirement/archive/CA-R-001-REQUIREMENT--subject.md",
+        ):
+            self.assertFalse(commit_trigger._hook_eligible({"before_path": path, "after_path": path}), path)
+
     def test_cli_exposes_machine_readable_contract_and_unchanged_handoff(self) -> None:
         observation_path = self.repository / "observation.json"
         observation_path.write_text(json.dumps(self._observation()), encoding="utf-8")
