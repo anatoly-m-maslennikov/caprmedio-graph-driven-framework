@@ -1,8 +1,8 @@
 ---
 subject_scopes:
   - interaction
-version: 1
-updated_at: 2026-08-17 19:36:01
+version: 2
+updated_at: 2026-08-21 00:21:06
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -47,8 +47,7 @@ Conflict resolution never edits an accepted atom. Any applicable code,
 configuration, Test, Evaluation, or Projection change after an evaluation
 run makes the affected release evidence stale.
 
-`.caprmedio/caprmedio_project_settings.toml` records `development` as the default workflow mode
-and `release_readiness` as the mandatory pre-release mode.
+The Project Configuration Atom records `development` as the default workflow selection and `release_readiness` as the mandatory pre-release mode. Project Graph State Projections may expose the effective mode but cannot select it.
 
 ## Rationale
 
