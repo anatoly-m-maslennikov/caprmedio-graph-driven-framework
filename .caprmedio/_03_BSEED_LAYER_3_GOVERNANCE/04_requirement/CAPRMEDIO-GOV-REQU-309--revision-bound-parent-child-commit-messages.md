@@ -1,8 +1,8 @@
 ---
 subject_scopes:
   - provenance
-version: 8
-updated_at: 2026-08-20 19:14:38
+version: 9
+updated_at: 2026-08-20 19:22:10
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -17,10 +17,10 @@ relations:
 ---
 # Use typed-upstream action commit messages
 
-Every governed Git commit changes exactly one repository file through exactly one action and uses exactly one line as its complete commit message:
+Every governed Git commit changes exactly one repository file identity through one change set and uses exactly one line as its complete commit message:
 
 ```text
-<upstream-relations> | <ACTION> | <affected-file>
+<upstream-relations> | <CHANGES> | <affected-file>
 ```
 
 ## Upstream relations
@@ -33,16 +33,22 @@ The left field preserves every direct typed upstream relation from the affected 
 
 Targets of the same relation kind are separated by a comma followed by one space. Relation groups are separated by a semicolon followed by one space and sorted first by relation kind and then by filename. `0` represents no direct upstream typed relation. Transitive ancestors and association-only relations are excluded. A derived inverse relation is included when its registered direction is upstream for the affected file.
 
-`ADD` and `UPDATE` resolve relations from the resulting staged graph, while `REMOVE` resolves them from the last committed graph. Target versions must be current immediately before the action. `updated_at` is omitted because the Git commit already records the action time.
+`ADD`, `UPDATE`, and `MOVE+UPDATE` resolve relations from the resulting staged graph, `MOVE` resolves them from the unchanged Artifact graph, and `REMOVE` resolves them from the last committed graph. Target versions must be current immediately before the change. `updated_at` is omitted because the Git commit already records the change time.
 
-## Actions
+## Changes
 
-The action is exactly one uppercase token: `ADD`, `UPDATE`, or `REMOVE`.
+The change set is exactly one of `ADD`, `MOVE`, `UPDATE`, `MOVE+UPDATE`, or `REMOVE`. `ADD` and `REMOVE` are exclusive lifecycle changes. `MOVE` means that the directory or Structural location changes. `UPDATE` means that content, filename, or other governed carrier state changes. `MOVE+UPDATE` means that both changes occur for the same file identity.
 
 An add creates one file and names its resulting Revision:
 
 ```text
 child_of=parent.md@2 | ADD | new-file.md@1
+```
+
+A move changes the carrier's structural location without changing content or filename and preserves the version:
+
+```text
+child_of=parent.md@2 | MOVE | old/path/file.md@3 -> new/path/file.md@3
 ```
 
 An update names the resulting Revision when the carrier filename is unchanged:
@@ -55,6 +61,12 @@ A rename is an update of the same file identity and records both filenames. A re
 
 ```text
 child_of=parent.md@2 | UPDATE | old-file.md@3 -> new-file.md@3
+```
+
+A move and update may occur together for one file identity:
+
+```text
+child_of=parent.md@2 | MOVE+UPDATE | old/path/old-file.md@3 -> new/path/new-file.md@4
 ```
 
 A remove names the Revision removed from the active carrier address:
@@ -77,9 +89,9 @@ replaced_by=replacement-file.md@1 | REMOVE | old-file.md@4
 
 The committed replacement file and its authored `replacement_of` relation must already exist before removal so the graph can derive `replaced_by`. Adding each replacement and removing the replaced file remain separate one-file actions.
 
-An affected governed file uses `<filename>@<version>`. A governed native file without embedded Revision properties uses the version from its external revision binding. An update may change content, filename, address, or any combination while preserving one file identity; content changes advance the version, while a rename-only update preserves it. No governed commit may combine actions or change more than one repository file identity.
+An affected governed file uses `<filename>@<version>` and includes repository-relative path when the action changes structural location. A governed native file without embedded Revision properties uses the version from its external revision binding. `UPDATE` may change content, filename, or both while preserving one file identity; content changes advance the version, while a rename-only update preserves it. `MOVE` changes structural location only. `MOVE+UPDATE` changes structural location and also performs an update. No governed commit may change more than one repository file identity.
 
-The message contains no parentheses, free-form labels, summary, description, body, or trailers. Canonical relation kinds and action tokens are structural syntax rather than prose labels. Once another commit references an upstream Revision, the referenced Git history must remain reachable and unchanged.
+The message contains no parentheses, free-form labels, summary, description, body, or trailers. Canonical relation kinds and change tokens are structural syntax rather than prose labels. Once another commit references an upstream Revision, the referenced Git history must remain reachable and unchanged.
 
 ## Rationale
 
