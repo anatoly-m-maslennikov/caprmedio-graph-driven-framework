@@ -2,12 +2,14 @@
 artifact_subtype: qa_case
 subject_scopes:
   - evaluation
-version: 5
-updated_at: 2026-08-20 23:40:00
+version: 6
+updated_at: 2026-08-20 23:53:00
 relations:
   evaluation_for:
     - CA-M-087-METHOD-FR_ENGN_TOOLS--process-one-file-change
     - CA-R-803-REQUIREMENT-FR_ENGN_TOOLS_COMMIT_TRIGGER--emit-only-operational-hook-triggers
+  check_of:
+    - CA-D-007-DELIVERY-FR_ENGN_TOOLS_COMMIT_TRIGGER--deliver-commit-trigger-script
 ---
 # Emit a trigger without mutation
 
