@@ -2,8 +2,8 @@
 artifact_subtype: qa_case
 subject_scopes:
   - evaluation
-version: 2
-updated_at: 2026-08-20 21:33:00
+version: 3
+updated_at: 2026-08-20 21:44:00
 relations:
   evaluation_for:
     - CA-R-805-REQUIREMENT-FR_ENGN_TOOLS_OPS_TOOLS--commit-one-governed-file-action
