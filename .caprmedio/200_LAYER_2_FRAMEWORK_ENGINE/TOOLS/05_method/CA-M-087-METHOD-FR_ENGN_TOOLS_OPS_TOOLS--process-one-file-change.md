@@ -2,15 +2,15 @@
 subject_scopes:
   - provenance
 tier: standard
-version: 1
-updated_at: 2026-08-20 19:43:00
+version: 2
+updated_at: 2026-08-20 20:05:00
 relations:
   method_for:
     - CA-R-803-REQUIREMENT-FR_ENGN_TOOLS_OPS_TOOLS--emit-only-operational-hook-triggers
     - CA-R-804-REQUIREMENT-FR_ENGN_TOOLS_OPS_TOOLS--gather-complete-commit-action-context
     - CA-R-805-REQUIREMENT-FR_ENGN_TOOLS_OPS_TOOLS--commit-one-governed-file-action
 ---
-# Process one file change through Hook, Finder, and Doer
+# Process one file change
 
 Use this flow for one governed repository file identity:
 
