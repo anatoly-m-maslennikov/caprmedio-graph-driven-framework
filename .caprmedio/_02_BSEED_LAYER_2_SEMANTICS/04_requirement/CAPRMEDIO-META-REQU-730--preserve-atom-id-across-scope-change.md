@@ -1,8 +1,8 @@
 ---
 subject_scopes:
   - lifecycle-traceability
-version: 1
-updated_at: 2026-08-19 04:23:36
+version: 2
+updated_at: 2026-08-20 18:32:49
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -13,4 +13,4 @@ relations:
 ---
 # Preserve Atom ID across scope change
 
-A governed scope change must preserve the Atom ID, create a new Atom Revision, and trigger lineage-impact review for the changed Applicability.
+A governed scope change of an identified Atom must preserve the exact `atom_id` property value, create a new Atom Revision, and trigger lineage-impact review for the changed Applicability.

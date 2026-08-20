@@ -2,11 +2,11 @@
 subject_scopes:
   - naming
 tier: core
-version: 1
-updated_at: 2026-08-20 03:24:24
+version: 2
+updated_at: 2026-08-20 20:03:45
 relations:
   child_of:
-    - CA-M-005-PRINCIPLE-METHOD--admit-only-necessary-complexity
+    - CA-M-005-PRINCIPLE-METHOD--add-complexity-only-when-necessary
   method_for:
     - CAPRMEDIO-REQU-036--expose-only-task-necessary-distinctions
 ---

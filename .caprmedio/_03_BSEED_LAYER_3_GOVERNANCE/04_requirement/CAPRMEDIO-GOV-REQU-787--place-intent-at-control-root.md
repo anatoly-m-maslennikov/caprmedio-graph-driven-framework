@@ -1,13 +1,14 @@
 ---
 subject_scopes:
   - layout
-version: 1
-updated_at: 2026-08-20 02:38:43
+version: 2
+updated_at: 2026-08-20 18:26:25
 relations:
   child_of:
-    - CAPRMEDIO-META-REQU-780--admit-root-and-child-structural-goals
+    - CA-R-801-REQUIREMENT-BSEED_METAMODEL--admit-intent-as-the-sole-roleless-untyped-atom
+    - CAPRMEDIO-META-REQU-780--define-intent-content-and-atomicity
     - CAPRMEDIO-GOV-REQU-345--represent-accepted-meaning-faithfully
 ---
-# Place root Goal at control root
+# Place Intent at control root
 
-The singular active root Goal Atom lives directly in `.caprmedio`, outside PROJECT and every Content-role or Structural-unit directory.
+The single active Intent Atom uses the exact canonical address `.caprmedio/CA-INTENT.md`, directly at the Project control root and outside every Content-role or Scope-Unit directory.

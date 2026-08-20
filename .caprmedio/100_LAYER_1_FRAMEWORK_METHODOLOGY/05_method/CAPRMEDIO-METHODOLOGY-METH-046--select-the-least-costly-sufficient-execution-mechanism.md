@@ -2,13 +2,14 @@
 subject_scopes:
   - routing
 tier: core
-version: 3
-updated_at: 2026-08-19 16:45:00
+version: 4
+updated_at: 2026-08-20 21:33:39
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   child_of:
-    - CAPRMEDIO-REQU-021--minimize-cost-per-correct-outcome
+    - CA-M-098-IMPL_METHOD--minimize-human-effort-at-its-declared-priority
+    - CA-M-099-IMPL_METHOD--minimize-external-expense-at-its-declared-priority
 ---
 # Select the least costly sufficient execution mechanism
 

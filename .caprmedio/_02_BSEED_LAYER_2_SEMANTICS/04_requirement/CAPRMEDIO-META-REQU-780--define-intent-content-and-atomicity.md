@@ -1,12 +1,12 @@
 ---
 subject_scopes:
   - requirement-topology
-version: 1
-updated_at: 2026-08-20 02:38:43
+version: 4
+updated_at: 2026-08-20 22:27:17
 relations:
   child_of:
     - CAPRMEDIO-META-REQU-176--derive-global-tier-number-from-structure-and-applicability
 ---
-# Admit root and child Structural Goals
+# Define Intent content and atomicity
 
-Goal is a Requirement Type admitted once outside PROJECT as the root Goal and optionally within any Structural unit below PROJECT; PROJECT itself has no Goal.
+Intent contains one or more current Goals that collectively state its intended outcomes and current Scope, plus zero or more Stated Capabilities, as one aggregate atomic unit; its internal entries have no independent Atom identity or lifecycle.

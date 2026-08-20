@@ -2,14 +2,15 @@
 subject_scopes:
   - principles
 tier: core
-version: 1
-updated_at: 2026-08-20 03:40:53
+version: 3
+updated_at: 2026-08-21 00:13:49
 relations:
   child_of:
-    - CA-D-003-PRINCIPLE-DELIVERY--use-the-graph-as-the-operating-model
+    - CA-D-003-PRINCIPLE-DELIVERY--use-the-graph-to-organize-project-work
     - CA-E-001-PRINCIPLE-EVALUATION--make-accepted-requirements-checkable
   evaluation_for:
     - CAPRMEDIO-REQU-026--define-the-project-principle-universe
+    - CA-R-830-REQUIREMENT-BSEED_GOVERNANCE--reserve-principle-conflict-resolution-to-the-operator
 ---
 # Principle-first alignment
 
@@ -27,4 +28,4 @@ Pass only when no Atom conflicts with a Project Principle and no lower-tier inte
 
 ## Failure
 
-Report every conflicting Atom and Principle pair; only the operator may resolve a conflict between Principles.
+Report every conflicting Atom and Principle pair; route each conflict between active Project Principles to the Operator under `CA-R-830`.

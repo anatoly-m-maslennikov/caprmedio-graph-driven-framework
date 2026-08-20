@@ -2,13 +2,13 @@
 artifact_subtype: rationale
 subject_scopes:
   - principles
-version: 1
-updated_at: 2026-08-17 15:48:08
+version: 2
+updated_at: 2026-08-20 20:03:45
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   rationale_for:
-    - CA-D-003-PRINCIPLE-DELIVERY--use-the-graph-as-the-operating-model
+    - CA-D-003-PRINCIPLE-DELIVERY--use-the-graph-to-organize-project-work
 ---
 # The operating graph includes realized project nodes
 

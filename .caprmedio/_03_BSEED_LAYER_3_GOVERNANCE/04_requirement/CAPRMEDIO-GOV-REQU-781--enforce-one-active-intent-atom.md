@@ -1,17 +1,14 @@
 ---
 subject_scopes:
   - artifact-catalog
-project_settings:
-  artifacts:
-    enabled_types:
-      - requirement:goal
-version: 1
-updated_at: 2026-08-20 02:38:43
+version: 2
+updated_at: 2026-08-20 18:26:25
 relations:
   child_of:
-    - CAPRMEDIO-META-REQU-780--admit-root-and-child-structural-goals
+    - CA-R-801-REQUIREMENT-BSEED_METAMODEL--admit-intent-as-the-sole-roleless-untyped-atom
+    - CAPRMEDIO-META-REQU-780--define-intent-content-and-atomicity
     - CAPRMEDIO-GOV-REQU-345--represent-accepted-meaning-faithfully
 ---
-# Register Goal Requirement Type
+# Enforce one active Intent Atom
 
-GOV registers `goal` as the internal Requirement Type for one desired outcome owned by the root or an admitted Structural unit below PROJECT.
+Every CAPRMEDIO project has exactly one active Intent Atom.

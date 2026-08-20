@@ -2,13 +2,13 @@
 subject_scopes:
   - requirement-topology
 tier: core
-version: 1
-updated_at: 2026-08-18 21:13:27
+version: 2
+updated_at: 2026-08-20 20:03:45
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   child_of:
-    - CA-O-002-PRINCIPLE-OPS--govern-capability-selection-through-configuration
+    - CA-O-002-PRINCIPLE-OPS--select-optional-capabilities-through-configuration
     - CAPRMEDIO-REQU-031--model-project-structure-as-numbered-levels
     - CAPRMEDIO-REQU-049--use-one-global-tier-number-for-rmed-authority
 ---

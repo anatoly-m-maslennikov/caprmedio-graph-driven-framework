@@ -2,13 +2,13 @@
 subject_scopes:
   - lifecycle-traceability
 tier: core
-version: 3
-updated_at: 2026-08-18 05:03:43
+version: 4
+updated_at: 2026-08-20 20:03:45
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   child_of:
-    - CA-E-002-PRINCIPLE-EVALUATION--require-explicit-reliance-boundaries
+    - CA-E-002-PRINCIPLE-EVALUATION--state-when-conclusions-can-and-cannot-be-trusted
 ---
 # Propagate atomic revision impact through lineage
 

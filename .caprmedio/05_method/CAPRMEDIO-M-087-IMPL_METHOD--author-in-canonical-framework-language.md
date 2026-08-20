@@ -2,13 +2,13 @@
 subject_scopes:
   - language
 tier: core
-version: 1
-updated_at: 2026-08-20 03:24:24
+version: 2
+updated_at: 2026-08-20 20:03:45
 relations:
   child_of:
-    - CA-M-006-PRINCIPLE-METHOD--preserve-discipline-independent-semantics
+    - CA-M-006-PRINCIPLE-METHOD--keep-shared-meanings-independent-of-discipline
   method_for:
-    - CA-D-003-PRINCIPLE-DELIVERY--use-the-graph-as-the-operating-model
+    - CA-D-003-PRINCIPLE-DELIVERY--use-the-graph-to-organize-project-work
 ---
 # Author in canonical framework language
 

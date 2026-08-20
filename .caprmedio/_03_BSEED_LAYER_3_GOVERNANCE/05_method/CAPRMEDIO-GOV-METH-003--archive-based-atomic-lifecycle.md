@@ -2,8 +2,8 @@
 subject_scopes:
   - lifecycle
 tier: core
-version: 3
-updated_at: 2026-08-19 22:22:41
+version: 4
+updated_at: 2026-08-20 18:32:49
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -17,16 +17,25 @@ relations:
 
 # Use an archive-based Atomic Artifact lifecycle
 
-CAPRMEDIO has no `lifecycle_event` artifact type. An Atomic Artifact has only two
-storage states:
+CAPRMEDIO has no `lifecycle_event` Artifact Type. Lifecycle placement is a
+Carrier fact and does not itself change an assigned `atom_id`.
 
-- **active:** its carrier is directly in its Content-role folder and participates in
-  current authority, planning, evaluation, or work views as applicable;
-- **archived:** its carrier is in the role-local `archive/` folder and remains
-  discoverable by identity as immutable history.
+- **draft:** its carrier is in the role-local `drafts/` folder, omits `atom_id`,
+  remains mutable, and is not current authority;
+- **active:** its identified carrier is directly in its Content-role folder and
+  participates in current authority, planning, evaluation, or work views as
+  applicable;
+- **solved:** a Concern carrier is in the role-local `solved/` folder and keeps
+  its assigned `atom_id` as preserved post-acceptance evidence;
+- **done:** an Analysis or Plan carrier is in the role-local `done/` folder and
+  keeps its assigned `atom_id` as preserved post-acceptance evidence;
+- **archived:** its carrier is in the role-local `archive/` folder, keeps its
+  assigned `atom_id`, and remains discoverable as immutable history.
 
-Moving an unchanged carrier into `archive/` is a committed storage transition,
-not a mutation of the Atomic Artifact.
+Moving an unchanged identified carrier among registered post-acceptance
+lifecycle folders is a committed storage transition, not a mutation of the
+Atomic Artifact or its `atom_id`. Accepting a draft is different: acceptance
+assigns `atom_id` and creates the first identified Revision.
 
 ## Closing active artifacts
 
@@ -37,9 +46,9 @@ not a mutation of the Atomic Artifact.
   Conflict. After the resolver is committed, the resolved atom moves to
   `archive/`.
 - An atom removed from current work without current implementation is moved to
-  `archive/`, and any intended future work is represented by a candidate in the
-  Development Backlog. That candidate references the archived Atom ID for
-  provenance.
+  `archive/`, and any intended future work is represented by a draft in the
+  Development Backlog. That draft may reference the archived `atom_id` for
+  provenance while still omitting its own `atom_id`.
 - An atom that no longer applies and has no future intent moves to `archive/`
   in a commit whose rationale identifies why no successor is required.
 
@@ -50,18 +59,19 @@ lifecycle states or artifact types.
 ## Returning matters
 
 Reopening an archived atom is forbidden. A recurring Concern with the
-`question` or `problem` subtype is a new Atom with its own identity, current
-claim, provenance, and priority.
+`question` or `problem` subtype begins as a new draft without `atom_id` and, if
+accepted, becomes a new Atom with its own `atom_id`, current claim, provenance,
+and priority.
 
 The new artifact may point to the archived predecessor with:
 
 ```yaml
 relations:
-  - type: recurrence_of
-    targets:
-      - CAPRMEDIO-GOV-CONC-029--active-deltas-and-accepted-truth-reuse-ids-inconsistently
+  recurrence_of:
+    - CAPRMEDIO-GOV-CONC-029
 ```
 
+The relation target is the archived Atom's exact `atom_id` property value.
 `recurrence_of` means the same bounded matter occurred again after the earlier
 artifact left the active set. It does not reactivate, replace, resolve, or
 invalidate the archived predecessor.

@@ -1,0 +1,1004 @@
+#!/usr/bin/env python3
+"""Emit minimal, mutation-free triggers for one governed repository file change.
+
+COMMIT_TRIGGER is a Hook Tool.  It receives host-adapter observations as JSON,
+coalesces repeated observations of one adapter source event, and emits the
+canonical trigger envelope that COMMIT_CHANGE_SET accepts.  It never classifies
+the change, reads the Atom graph, modifies the Git index, writes a Journal, or
+invokes the downstream Tool itself.
+
+The ``adapter`` lifecycle commands write only reconstructible registration
+state below ``.caprmedio_runtime/commit_trigger``.  Observation is always
+read-only, including when it suppresses a correlated pipeline Journal or
+runtime-state event.
+"""
+
+from __future__ import annotations
+
+import argparse
+import datetime as dt
+import hashlib
+import json
+import os
+import re
+import subprocess
+import sys
+import tempfile
+import threading
+import time
+import tomllib
+import uuid
+from collections import defaultdict
+from collections.abc import Iterable, Mapping, Sequence
+from dataclasses import dataclass
+from pathlib import Path
+from typing import Any
+
+
+SCRIPT_PATH = Path(__file__).resolve()
+REPOSITORY_ROOT = SCRIPT_PATH.parents[3]
+sys.pycache_prefix = str(
+    REPOSITORY_ROOT / ".caprmedio_runtime" / "python_cache" / "02_FR_ENGN_TOOLS_COMMIT_TRIGGER"
+)
+
+TOOL_SCHEMA_VERSION = 1
+TRIGGER_SCHEMA_VERSION = 1
+CAPABILITY_ID = "COMMIT_TRIGGER"
+TOOL_KIND = "hook"
+RUNTIME_DIRECTORY = Path(".caprmedio_runtime/commit_trigger")
+REGISTRY_NAME = "adapter_registry.toml"
+PIPELINE_CORRELATIONS_NAME = "pipeline_correlations.ndjson"
+IDENTIFIER = re.compile(r"[A-Za-z][A-Za-z0-9._-]{0,127}\Z")
+UUID_TEXT = re.compile(
+    r"[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}\Z",
+    re.IGNORECASE,
+)
+
+
+class ToolError(RuntimeError):
+    """A deterministic, machine-readable Tool failure."""
+
+    def __init__(self, code: str, message: str) -> None:
+        super().__init__(message)
+        self.code = code
+        self.message = message
+
+
+@dataclass(frozen=True)
+class AdapterSpec:
+    """One explicit host-adapter registration."""
+
+    adapter_id: str
+    application: str
+    host_session_env: str
+    fallback_session_env: str | None
+    enabled: bool = True
+
+    def __post_init__(self) -> None:
+        _require_identifier(self.adapter_id, "adapter_id")
+        _require_identifier(self.application, "application")
+        _require_environment_name(self.host_session_env, "host_session_env")
+        if self.fallback_session_env is not None:
+            _require_environment_name(self.fallback_session_env, "fallback_session_env")
+
+
+@dataclass(frozen=True)
+class FileState:
+    """A content-addressed eligible-file observation for the polling adapter."""
+
+    path: str
+    sha256: str
+
+
+@dataclass(frozen=True)
+class PipelineCorrelation:
+    """A downstream action's declared non-subject write that must not re-trigger."""
+
+    action_id: str
+    path: str
+    kind: str
+
+    def __post_init__(self) -> None:
+        _require_string(self.action_id, "action_id")
+        _canonical_path(self.path, "path")
+        if self.kind not in {"journal", "runtime-state"}:
+            raise ToolError("invalid-pipeline-correlation", "correlation kind must be journal or runtime-state")
+
+
+def _require_identifier(value: object, field: str) -> str:
+    if not isinstance(value, str) or not IDENTIFIER.fullmatch(value):
+        raise ToolError("invalid-identifier", f"{field} must be an ASCII identifier")
+    return value
+
+
+def _require_environment_name(value: object, field: str) -> str:
+    if not isinstance(value, str) or not re.fullmatch(r"[A-Z_][A-Z0-9_]*", value):
+        raise ToolError("invalid-environment-name", f"{field} must be an uppercase environment name")
+    return value
+
+
+def _require_mapping(value: object, field: str) -> Mapping[str, Any]:
+    if not isinstance(value, Mapping):
+        raise ToolError("invalid-observation", f"{field} must be an object")
+    return value
+
+
+def _require_string(value: object, field: str) -> str:
+    if not isinstance(value, str) or not value:
+        raise ToolError("invalid-observation", f"{field} must be a non-empty string")
+    return value
+
+
+def _canonical_timestamp(value: object) -> str:
+    source = _require_string(value, "observed_at")
+    normalized = source[:-1] + "+00:00" if source.endswith("Z") else source
+    try:
+        moment = dt.datetime.fromisoformat(normalized)
+    except ValueError as error:
+        raise ToolError("invalid-observation-time", "observed_at must be RFC 3339") from error
+    if moment.tzinfo is None:
+        raise ToolError("invalid-observation-time", "observed_at must include a timezone")
+    return moment.astimezone(dt.UTC).replace(microsecond=0).isoformat().replace("+00:00", "Z")
+
+
+def _canonical_path(value: object, field: str) -> str | None:
+    if value is None:
+        return None
+    raw = _require_string(value, field)
+    path = Path(raw)
+    if path.is_absolute() or ".." in path.parts or raw.startswith("./"):
+        raise ToolError("invalid-observed-path", f"{field} must be a normalized repository-relative path")
+    rendered = path.as_posix()
+    if rendered in {".", ""}:
+        raise ToolError("invalid-observed-path", f"{field} must name a file")
+    return rendered
+
+
+def _canonical_json(value: object) -> str:
+    return json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+
+
+def _sha256(value: object) -> str:
+    return hashlib.sha256(_canonical_json(value).encode("utf-8")).hexdigest()
+
+
+def resolve_repository(path: Path) -> Path:
+    """Resolve the repository top level without writing or initializing Git."""
+
+    candidate = path.expanduser().resolve()
+    completed = subprocess.run(
+        ["git", "-C", str(candidate), "rev-parse", "--show-toplevel"],
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    if completed.returncode != 0:
+        raise ToolError("repository-not-found", f"cannot resolve Git repository from {candidate}")
+    return Path(completed.stdout.strip()).resolve()
+
+
+def _repository_identity(repository: Path) -> str:
+    completed = subprocess.run(
+        ["git", "-C", str(repository), "rev-parse", "--git-dir"],
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    if completed.returncode != 0:
+        raise ToolError("repository-not-found", f"cannot resolve Git metadata for {repository}")
+    git_directory = (repository / completed.stdout.strip()).resolve()
+    return _sha256({"repository_root": repository.as_posix(), "git_directory": git_directory.as_posix()})
+
+
+def _validate_uuid(value: object, field: str) -> str:
+    raw = _require_string(value, field)
+    if not UUID_TEXT.fullmatch(raw):
+        raise ToolError("invalid-llm-session", f"{field} must be a UUID")
+    return str(uuid.UUID(raw))
+
+
+def resolve_codex_session(
+    explicit_uuid: str | None = None,
+    environment: Mapping[str, str] | None = None,
+) -> dict[str, str]:
+    """Resolve Codex provenance using explicit input, then native host variables."""
+
+    if explicit_uuid is not None:
+        return {"app": "codex", "uuid": _validate_uuid(explicit_uuid, "llm_session.uuid")}
+    values = os.environ if environment is None else environment
+    primary = values.get("CODEX_THREAD_ID")
+    fallback = values.get("CODEX_SESSION_ID")
+    if primary:
+        return {"app": "codex", "uuid": _validate_uuid(primary, "CODEX_THREAD_ID")}
+    if fallback:
+        return {"app": "codex", "uuid": _validate_uuid(fallback, "CODEX_SESSION_ID")}
+    raise ToolError("missing-llm-session", "Codex requires CODEX_THREAD_ID or CODEX_SESSION_ID")
+
+
+def _resolve_session(
+    observation: Mapping[str, Any],
+    adapter: AdapterSpec,
+    environment: Mapping[str, str],
+) -> dict[str, str]:
+    candidate = observation.get("llm_session")
+    if candidate is not None:
+        session = _require_mapping(candidate, "llm_session")
+        app = _require_identifier(session.get("app"), "llm_session.app")
+        if app != adapter.application:
+            raise ToolError("llm-application-mismatch", "llm_session.app does not match the registered adapter")
+        return {"app": app, "uuid": _validate_uuid(session.get("uuid"), "llm_session.uuid")}
+    primary = environment.get(adapter.host_session_env)
+    fallback = environment.get(adapter.fallback_session_env) if adapter.fallback_session_env else None
+    if primary:
+        return {"app": adapter.application, "uuid": _validate_uuid(primary, adapter.host_session_env)}
+    if fallback:
+        return {"app": adapter.application, "uuid": _validate_uuid(fallback, adapter.fallback_session_env or "session")}
+    raise ToolError(
+        "missing-llm-session",
+        f"adapter {adapter.adapter_id} requires {adapter.host_session_env}"
+        + (f" or {adapter.fallback_session_env}" if adapter.fallback_session_env else ""),
+    )
+
+
+def _is_pipeline_owned(observation: Mapping[str, Any]) -> bool:
+    pipeline = observation.get("pipeline")
+    if pipeline is None:
+        return False
+    details = _require_mapping(pipeline, "pipeline")
+    if details.get("owned") is not True:
+        return False
+    action_id = details.get("action_id")
+    if not isinstance(action_id, str) or not action_id:
+        raise ToolError("invalid-pipeline-correlation", "pipeline-owned observation requires pipeline.action_id")
+    kind = details.get("kind")
+    if kind not in {"journal", "runtime-state"}:
+        raise ToolError("invalid-pipeline-correlation", "pipeline.kind must be journal or runtime-state")
+    return True
+
+
+def _trigger_from_observation(
+    observation: Mapping[str, Any],
+    adapter: AdapterSpec,
+    repository: Path,
+    environment: Mapping[str, str],
+) -> dict[str, object] | None:
+    """Convert one host event to an immutable canonical trigger or suppress it."""
+
+    adapter_id = _require_identifier(observation.get("adapter_id"), "adapter_id")
+    if adapter_id != adapter.adapter_id:
+        raise ToolError("unregistered-adapter", f"adapter {adapter_id} is not selected")
+    if _is_pipeline_owned(observation):
+        return None
+    source_event_id = _require_string(observation.get("source_event_id"), "source_event_id")
+    before_path = _canonical_path(observation.get("before_path"), "before_path")
+    after_path = _canonical_path(observation.get("after_path"), "after_path")
+    if before_path is None and after_path is None:
+        raise ToolError("no-file-change", "observation must include before_path or after_path")
+    observed_at = _canonical_timestamp(observation.get("observed_at"))
+    llm_session = _resolve_session(observation, adapter, environment)
+    repository_identity = _repository_identity(repository)
+    identity_source = {
+        "schema_version": TRIGGER_SCHEMA_VERSION,
+        "adapter_id": adapter_id,
+        "source_event_id": source_event_id,
+        "repository_id": repository_identity,
+    }
+    return {
+        "schema_version": TRIGGER_SCHEMA_VERSION,
+        "trigger_id": _sha256(identity_source),
+        "adapter": {"id": adapter_id},
+        "source_event_id": source_event_id,
+        "repository": {"root": repository.as_posix(), "identity": repository_identity},
+        "observed_at": observed_at,
+        "before_path": before_path,
+        "after_path": after_path,
+        "llm_session": llm_session,
+    }
+
+
+def emit_triggers(
+    observations: Iterable[Mapping[str, Any]],
+    *,
+    adapter: AdapterSpec,
+    repository: Path | str,
+    environment: Mapping[str, str] | None = None,
+) -> list[dict[str, object]]:
+    """Coalesce accepted host observations without mutating any project state.
+
+    Observations with equal adapter/source-event/repository identities must agree
+    on the boundary and session provenance.  Their earliest observation time is
+    retained so the result is independent of the host's noisy delivery order.
+    """
+
+    if not adapter.enabled:
+        return []
+    resolved_repository = resolve_repository(Path(repository))
+    values = dict(os.environ if environment is None else environment)
+    by_identity: dict[str, list[dict[str, object]]] = defaultdict(list)
+    for raw in observations:
+        trigger = _trigger_from_observation(_require_mapping(raw, "observation"), adapter, resolved_repository, values)
+        if trigger is not None:
+            by_identity[str(trigger["trigger_id"])].append(trigger)
+
+    triggers: list[dict[str, object]] = []
+    for trigger_id in sorted(by_identity):
+        candidates = by_identity[trigger_id]
+        baseline = candidates[0]
+        comparable = ("adapter", "source_event_id", "repository", "before_path", "after_path", "llm_session")
+        for candidate in candidates[1:]:
+            if any(candidate[field] != baseline[field] for field in comparable):
+                raise ToolError(
+                    "ambiguous-source-event",
+                    f"adapter source event cannot establish one boundary: {baseline['source_event_id']}",
+                )
+        selected = min(candidates, key=lambda candidate: str(candidate["observed_at"]))
+        triggers.append(selected)
+    return triggers
+
+
+def _file_digest(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def scan_governed_files(repository: Path | str) -> dict[str, FileState]:
+    """Read the eligible source frontier for the native Codex polling adapter.
+
+    The native adapter treats `.caprmedio` carriers as governed source.  It
+    observes Journal carriers too, because a path alone must not determine
+    recursion suppression; `PipelineCorrelation` is the authoritative
+    suppression signal.  Runtime state is outside governed source and is not
+    scanned.
+    """
+
+    resolved_repository = resolve_repository(Path(repository))
+    control_root = resolved_repository / ".caprmedio"
+    if not control_root.is_dir():
+        raise ToolError("governed-source-not-found", f"{control_root} does not exist")
+    result: dict[str, FileState] = {}
+    for path in sorted(control_root.rglob("*")):
+        if not path.is_file() or path.is_symlink():
+            continue
+        relative = path.relative_to(resolved_repository).as_posix()
+        result[relative] = FileState(relative, _file_digest(path))
+    return result
+
+
+def _watch_source_event_id(
+    *,
+    adapter_id: str,
+    repository: Path,
+    before_path: str | None,
+    after_path: str | None,
+    before_digest: str | None,
+    after_digest: str | None,
+) -> str:
+    return "watch-" + _sha256(
+        {
+            "schema_version": 1,
+            "adapter_id": adapter_id,
+            "repository_id": _repository_identity(repository),
+            "before_path": before_path,
+            "after_path": after_path,
+            "before_digest": before_digest,
+            "after_digest": after_digest,
+        }
+    )
+
+
+def _correlation_for(
+    before_path: str | None,
+    after_path: str | None,
+    correlations: Mapping[str, PipelineCorrelation],
+) -> PipelineCorrelation | None:
+    candidates = [path for path in (before_path, after_path) if path is not None]
+    matched = {correlations[path] for path in candidates if path in correlations}
+    if not matched:
+        return None
+    if len(matched) != 1:
+        raise ToolError("ambiguous-pipeline-correlation", "one file event resolves to multiple pipeline actions")
+    return next(iter(matched))
+
+
+def _watch_observation(
+    *,
+    adapter_id: str,
+    repository: Path,
+    observed_at: str,
+    before: FileState | None,
+    after: FileState | None,
+    correlations: Mapping[str, PipelineCorrelation],
+) -> dict[str, object]:
+    before_path = before.path if before is not None else None
+    after_path = after.path if after is not None else None
+    observation: dict[str, object] = {
+        "adapter_id": adapter_id,
+        "source_event_id": _watch_source_event_id(
+            adapter_id=adapter_id,
+            repository=repository,
+            before_path=before_path,
+            after_path=after_path,
+            before_digest=before.sha256 if before is not None else None,
+            after_digest=after.sha256 if after is not None else None,
+        ),
+        "observed_at": observed_at,
+        "before_path": before_path,
+        "after_path": after_path,
+    }
+    correlation = _correlation_for(before_path, after_path, correlations)
+    if correlation is not None:
+        observation["pipeline"] = {
+            "owned": True,
+            "action_id": correlation.action_id,
+            "kind": correlation.kind,
+        }
+    return observation
+
+
+def detect_watch_observations(
+    previous: Mapping[str, FileState],
+    current: Mapping[str, FileState],
+    *,
+    adapter_id: str,
+    repository: Path | str,
+    observed_at: str,
+    correlations: Mapping[str, PipelineCorrelation] | None = None,
+) -> list[dict[str, object]]:
+    """Derive deterministic ADD, REMOVE, MOVE, and UPDATE candidates from scans."""
+
+    resolved_repository = resolve_repository(Path(repository))
+    _require_identifier(adapter_id, "adapter_id")
+    canonical_time = _canonical_timestamp(observed_at)
+    active_correlations = {} if correlations is None else dict(correlations)
+    removed = {path: previous[path] for path in sorted(set(previous) - set(current))}
+    added = {path: current[path] for path in sorted(set(current) - set(previous))}
+    observations: list[dict[str, object]] = []
+
+    # A unique equal digest establishes a relocation without classifying it as
+    # a semantic MOVE; COMMIT_CONTEXT owns that classification.
+    removed_by_digest: dict[str, list[FileState]] = defaultdict(list)
+    added_by_digest: dict[str, list[FileState]] = defaultdict(list)
+    for state in removed.values():
+        removed_by_digest[state.sha256].append(state)
+    for state in added.values():
+        added_by_digest[state.sha256].append(state)
+    for digest in sorted(set(removed_by_digest) & set(added_by_digest)):
+        before_states = removed_by_digest[digest]
+        after_states = added_by_digest[digest]
+        if len(before_states) == len(after_states) == 1:
+            before = before_states[0]
+            after = after_states[0]
+            observations.append(
+                _watch_observation(
+                    adapter_id=adapter_id,
+                    repository=resolved_repository,
+                    observed_at=canonical_time,
+                    before=before,
+                    after=after,
+                    correlations=active_correlations,
+                )
+            )
+            removed.pop(before.path)
+            added.pop(after.path)
+
+    for path in sorted(removed):
+        observations.append(
+            _watch_observation(
+                adapter_id=adapter_id,
+                repository=resolved_repository,
+                observed_at=canonical_time,
+                before=removed[path],
+                after=None,
+                correlations=active_correlations,
+            )
+        )
+    for path in sorted(added):
+        observations.append(
+            _watch_observation(
+                adapter_id=adapter_id,
+                repository=resolved_repository,
+                observed_at=canonical_time,
+                before=None,
+                after=added[path],
+                correlations=active_correlations,
+            )
+        )
+    for path in sorted(set(previous) & set(current)):
+        before = previous[path]
+        after = current[path]
+        if before.sha256 != after.sha256:
+            observations.append(
+                _watch_observation(
+                    adapter_id=adapter_id,
+                    repository=resolved_repository,
+                    observed_at=canonical_time,
+                    before=before,
+                    after=after,
+                    correlations=active_correlations,
+                )
+            )
+    return sorted(observations, key=lambda item: str(item["source_event_id"]))
+
+
+def _read_pipeline_correlations(path: Path) -> dict[str, PipelineCorrelation]:
+    """Read the current append-only action/path suppression frontier, if present."""
+
+    if not path.exists():
+        return {}
+    result: dict[str, PipelineCorrelation] = {}
+    for line_number, line in enumerate(path.read_text(encoding="utf-8").splitlines(), 1):
+        if not line:
+            continue
+        try:
+            value = json.loads(line)
+        except json.JSONDecodeError as error:
+            raise ToolError("invalid-pipeline-correlation", f"{path}:{line_number}: invalid JSON") from error
+        record = _require_mapping(value, "pipeline correlation")
+        if record.get("state", "active") != "active":
+            continue
+        correlation = PipelineCorrelation(
+            _require_string(record.get("action_id"), "action_id"),
+            _canonical_path(record.get("path"), "path") or "",
+            _require_string(record.get("kind"), "kind"),
+        )
+        previous = result.get(correlation.path)
+        if previous is not None and previous != correlation:
+            raise ToolError("ambiguous-pipeline-correlation", f"{path}: multiple active actions claim {correlation.path}")
+        result[correlation.path] = correlation
+    return result
+
+
+def watch_triggers(
+    *,
+    repository: Path | str,
+    adapter: AdapterSpec,
+    environment: Mapping[str, str] | None = None,
+    poll_interval: float = 1.0,
+    maximum_polls: int | None = None,
+    pipeline_correlation_path: Path | None = None,
+    stop: threading.Event | None = None,
+) -> Iterable[list[dict[str, object]]]:
+    """Yield native Codex polling-adapter handoffs until stopped.
+
+    The caller owns downstream execution.  Each yielded list is already
+    deduplicated and may be empty only when no source change was observed.
+    """
+
+    if adapter.application != "codex":
+        raise ToolError("unsupported-native-adapter", "watch supports only the native Codex adapter")
+    if poll_interval <= 0:
+        raise ToolError("invalid-poll-interval", "poll_interval must be greater than zero")
+    if maximum_polls is not None and maximum_polls < 0:
+        raise ToolError("invalid-maximum-polls", "maximum_polls must not be negative")
+    resolved_repository = resolve_repository(Path(repository))
+    correlation_path = pipeline_correlation_path or _runtime_directory(resolved_repository) / PIPELINE_CORRELATIONS_NAME
+    previous = scan_governed_files(resolved_repository)
+    polls = 0
+    while maximum_polls is None or polls < maximum_polls:
+        if stop is not None and stop.is_set():
+            return
+        time.sleep(poll_interval)
+        current = scan_governed_files(resolved_repository)
+        correlations = _read_pipeline_correlations(correlation_path)
+        observations = detect_watch_observations(
+            previous,
+            current,
+            adapter_id=adapter.adapter_id,
+            repository=resolved_repository,
+            observed_at=dt.datetime.now(dt.UTC).replace(microsecond=0).isoformat().replace("+00:00", "Z"),
+            correlations=correlations,
+        )
+        previous = current
+        polls += 1
+        if observations:
+            yield emit_triggers(observations, adapter=adapter, repository=resolved_repository, environment=environment)
+
+
+def _runtime_directory(repository: Path) -> Path:
+    return repository / RUNTIME_DIRECTORY
+
+
+def _registry_path(repository: Path) -> Path:
+    return _runtime_directory(repository) / REGISTRY_NAME
+
+
+def _quoted(value: str) -> str:
+    return json.dumps(value, ensure_ascii=False)
+
+
+def _read_registry(repository: Path) -> dict[str, AdapterSpec]:
+    path = _registry_path(repository)
+    if not path.exists():
+        return {}
+    try:
+        document = tomllib.loads(path.read_text(encoding="utf-8"))
+    except tomllib.TOMLDecodeError as error:
+        raise ToolError("invalid-adapter-registry", f"{path}: invalid TOML") from error
+    if document.get("schema_version") != TOOL_SCHEMA_VERSION:
+        raise ToolError("invalid-adapter-registry", "adapter registry schema_version is unsupported")
+    adapters = document.get("adapters")
+    if not isinstance(adapters, Mapping):
+        raise ToolError("invalid-adapter-registry", "adapter registry requires [adapters]")
+    result: dict[str, AdapterSpec] = {}
+    for adapter_id, values in adapters.items():
+        if not isinstance(values, Mapping):
+            raise ToolError("invalid-adapter-registry", f"adapter {adapter_id} must be a table")
+        result[str(adapter_id)] = AdapterSpec(
+            adapter_id=str(adapter_id),
+            application=_require_string(values.get("application"), f"adapter {adapter_id}.application"),
+            host_session_env=_require_string(values.get("host_session_env"), f"adapter {adapter_id}.host_session_env"),
+            fallback_session_env=(
+                _require_string(values["fallback_session_env"], f"adapter {adapter_id}.fallback_session_env")
+                if values.get("fallback_session_env") is not None
+                else None
+            ),
+            enabled=values.get("enabled") is True,
+        )
+    return result
+
+
+def _render_registry(adapters: Mapping[str, AdapterSpec]) -> str:
+    lines = [f"schema_version = {TOOL_SCHEMA_VERSION}", ""]
+    for adapter_id in sorted(adapters):
+        adapter = adapters[adapter_id]
+        lines.extend(
+            [
+                f'[adapters.{_quoted(adapter.adapter_id)}]',
+                f"application = {_quoted(adapter.application)}",
+                f"host_session_env = {_quoted(adapter.host_session_env)}",
+            ]
+        )
+        if adapter.fallback_session_env is not None:
+            lines.append(f"fallback_session_env = {_quoted(adapter.fallback_session_env)}")
+        lines.extend([f"enabled = {'true' if adapter.enabled else 'false'}", ""])
+    return "\n".join(lines)
+
+
+def _atomic_write(path: Path, content: str) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    descriptor, temporary = tempfile.mkstemp(prefix=f".{path.name}.", dir=path.parent)
+    try:
+        with os.fdopen(descriptor, "w", encoding="utf-8", newline="\n") as handle:
+            handle.write(content)
+            handle.flush()
+            os.fsync(handle.fileno())
+        os.replace(temporary, path)
+    except BaseException:
+        try:
+            os.unlink(temporary)
+        except FileNotFoundError:
+            pass
+        raise
+
+
+def _write_registry(repository: Path, adapters: Mapping[str, AdapterSpec]) -> None:
+    path = _registry_path(repository)
+    if not adapters:
+        try:
+            path.unlink()
+        except FileNotFoundError:
+            return
+        return
+    _atomic_write(path, _render_registry(adapters))
+
+
+def adapter_operation(
+    repository: Path | str,
+    operation: str,
+    *,
+    adapter: AdapterSpec | None = None,
+    adapter_id: str | None = None,
+    apply: bool = False,
+) -> dict[str, object]:
+    """Inspect or explicitly change reconstructible adapter registration state."""
+
+    resolved_repository = resolve_repository(Path(repository))
+    registered = _read_registry(resolved_repository)
+    if operation == "status":
+        return {
+            "repository": resolved_repository.as_posix(),
+            "registry": _registry_path(resolved_repository).relative_to(resolved_repository).as_posix(),
+            "adapters": [
+                {
+                    "adapter_id": entry.adapter_id,
+                    "application": entry.application,
+                    "host_session_env": entry.host_session_env,
+                    "fallback_session_env": entry.fallback_session_env,
+                    "enabled": entry.enabled,
+                }
+                for entry in (registered[key] for key in sorted(registered))
+            ],
+            "hook_carriers_touched": False,
+        }
+
+    if operation == "install":
+        if adapter is None:
+            raise ToolError("missing-adapter", "install requires an adapter specification")
+        previous = registered.get(adapter.adapter_id)
+        if previous is not None and previous != adapter:
+            raise ToolError("adapter-already-registered", f"adapter {adapter.adapter_id} is already registered differently")
+        proposed = dict(registered)
+        proposed[adapter.adapter_id] = adapter
+        effect = "already-installed" if previous is not None else "register-adapter"
+    else:
+        selected_id = _require_identifier(adapter_id, "adapter_id")
+        previous = registered.get(selected_id)
+        if previous is None:
+            if operation == "uninstall":
+                return {"repository": resolved_repository.as_posix(), "effect": "already-uninstalled", "adapter_id": selected_id}
+            raise ToolError("adapter-not-registered", f"adapter {selected_id} is not registered")
+        proposed = dict(registered)
+        if operation == "enable":
+            proposed[selected_id] = AdapterSpec(
+                selected_id, previous.application, previous.host_session_env, previous.fallback_session_env, True
+            )
+            effect = "enable-adapter"
+        elif operation == "disable":
+            proposed[selected_id] = AdapterSpec(
+                selected_id, previous.application, previous.host_session_env, previous.fallback_session_env, False
+            )
+            effect = "disable-adapter"
+        elif operation == "uninstall":
+            del proposed[selected_id]
+            effect = "unregister-adapter"
+        else:
+            raise ToolError("unknown-operation", f"unknown adapter operation: {operation}")
+
+    if apply:
+        _write_registry(resolved_repository, proposed)
+    return {
+        "repository": resolved_repository.as_posix(),
+        "effect": effect,
+        "adapter_id": adapter.adapter_id if adapter is not None else adapter_id,
+        "apply": apply,
+        "hook_carriers_touched": False,
+    }
+
+
+def emit_from_registered_adapter(
+    observations: Iterable[Mapping[str, Any]],
+    *,
+    repository: Path | str,
+    adapter_id: str,
+    environment: Mapping[str, str] | None = None,
+) -> list[dict[str, object]]:
+    """Emit from one enabled registered adapter; disabled adapters emit nothing."""
+
+    resolved_repository = resolve_repository(Path(repository))
+    selected = _read_registry(resolved_repository).get(_require_identifier(adapter_id, "adapter_id"))
+    if selected is None:
+        return []
+    return emit_triggers(observations, adapter=selected, repository=resolved_repository, environment=environment)
+
+
+def _envelope(*, ok: bool, mode: str, result: object | None = None, diagnostic: ToolError | None = None) -> dict[str, object]:
+    diagnostics: list[dict[str, str]] = []
+    if diagnostic is not None:
+        diagnostics.append({"code": diagnostic.code, "message": diagnostic.message})
+    payload: dict[str, object] = {
+        "schema_version": TOOL_SCHEMA_VERSION,
+        "tool": {"capability_id": CAPABILITY_ID, "kind": TOOL_KIND},
+        "ok": ok,
+        "mode": mode,
+        "diagnostics": diagnostics,
+    }
+    if result is not None:
+        payload["result"] = result
+    return payload
+
+
+def _load_observations(path: str) -> list[Mapping[str, Any]]:
+    try:
+        raw = sys.stdin.read() if path == "-" else Path(path).read_text(encoding="utf-8")
+        decoded = json.loads(raw)
+    except (OSError, json.JSONDecodeError) as error:
+        raise ToolError("invalid-input", f"cannot read JSON observations: {error}") from error
+    if isinstance(decoded, Mapping) and "observations" in decoded:
+        decoded = decoded["observations"]
+    if isinstance(decoded, Mapping):
+        return [_require_mapping(decoded, "observation")]
+    if not isinstance(decoded, list):
+        raise ToolError("invalid-input", "observations input must be an object or list")
+    return [_require_mapping(item, "observation") for item in decoded]
+
+
+def _describe() -> dict[str, object]:
+    return {
+        "capability_id": CAPABILITY_ID,
+        "kind": TOOL_KIND,
+        "read_only_observe": True,
+        "canonical_script": "02_FR_ENGN/TOOLS/COMMIT_TRIGGER/commit_trigger.py",
+        "input_schema": {
+            "observe": {
+                "type": "object",
+                "required": ["adapter_id", "source_event_id", "observed_at"],
+                "properties": {
+                    "adapter_id": {"type": "string"},
+                    "source_event_id": {"type": "string"},
+                    "observed_at": {"type": "string", "format": "date-time"},
+                    "before_path": {"type": ["string", "null"]},
+                    "after_path": {"type": ["string", "null"]},
+                    "llm_session": {
+                        "type": "object",
+                        "required": ["app", "uuid"],
+                        "properties": {"app": {"type": "string"}, "uuid": {"type": "string", "format": "uuid"}},
+                    },
+                    "pipeline": {
+                        "type": "object",
+                        "properties": {
+                            "owned": {"const": True},
+                            "action_id": {"type": "string"},
+                            "kind": {"enum": ["journal", "runtime-state"]},
+                        },
+                    },
+                },
+            }
+        },
+        "commands": {
+            "describe": {"effects": []},
+            "observe": {"input": "JSON object or {observations: [...]}"},
+            "watch": {
+                "input": "enabled native Codex adapter and polling controls",
+                "effects": [],
+                "result": "one read-only handoff envelope per detected source boundary",
+            },
+            "adapter install": {"input": "adapter identity and host session resolver", "effects": ["runtime registry"]},
+            "adapter status": {"effects": []},
+            "adapter enable": {"effects": ["runtime registry"]},
+            "adapter disable": {"effects": ["runtime registry"]},
+            "adapter uninstall": {"effects": ["runtime registry"]},
+        },
+        "result_envelope": {"schema_version": TOOL_SCHEMA_VERSION, "diagnostics": "ordered machine-readable diagnostics"},
+    }
+
+
+def _parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--repository", default=".", help="repository root or a path within it")
+    commands = parser.add_subparsers(dest="command", required=True)
+    commands.add_parser("describe", help="return machine-readable Tool capability metadata")
+    observe = commands.add_parser("observe", help="emit deduplicated trigger handoffs without mutation")
+    observe.add_argument("--adapter-id", required=True)
+    observe.add_argument("--input", required=True, help="JSON file path or - for stdin")
+    watch = commands.add_parser("watch", help="poll native Codex governed source changes without mutation")
+    watch.add_argument("--adapter-id", required=True)
+    watch.add_argument("--poll-interval", type=float, default=1.0)
+    watch.add_argument("--max-events", type=int)
+    watch.add_argument("--max-polls", type=int)
+    watch.add_argument(
+        "--pipeline-correlation-file",
+        help="optional NDJSON action/path suppression frontier; default is the Tool runtime path",
+    )
+    adapter = commands.add_parser("adapter", help="manage explicit host-adapter registration")
+    adapter_commands = adapter.add_subparsers(dest="adapter_command", required=True)
+    install = adapter_commands.add_parser("install")
+    install.add_argument("--adapter-id", required=True)
+    install.add_argument("--application", required=True)
+    install.add_argument("--host-session-env", required=True)
+    install.add_argument("--fallback-session-env")
+    install.add_argument("--disabled", action="store_true")
+    install.add_argument("--apply", action="store_true")
+    adapter_commands.add_parser("status")
+    for name in ("enable", "disable", "uninstall"):
+        mutation = adapter_commands.add_parser(name)
+        mutation.add_argument("--adapter-id", required=True)
+        mutation.add_argument("--apply", action="store_true")
+    return parser
+
+
+def cli(argv: Sequence[str] | None = None) -> int:
+    args = _parser().parse_args(argv)
+    try:
+        if args.command == "describe":
+            result = _describe()
+            mode = "read-only"
+        elif args.command == "observe":
+            triggers = emit_from_registered_adapter(
+                _load_observations(args.input),
+                repository=args.repository,
+                adapter_id=args.adapter_id,
+            )
+            result = {
+                "handoffs": [
+                    {"interface": "COMMIT_CHANGE_SET", "trigger": trigger}
+                    for trigger in triggers
+                ],
+                "trigger_count": len(triggers),
+            }
+            mode = "read-only"
+        elif args.command == "watch":
+            if args.max_events is not None and args.max_events < 0:
+                raise ToolError("invalid-maximum-events", "max_events must not be negative")
+            if args.max_events == 0:
+                result = {"handoffs": [], "trigger_count": 0, "stream": "watch", "stopped": "event-limit"}
+                mode = "read-only"
+                print(_canonical_json(_envelope(ok=True, mode=mode, result=result)))
+                return 0
+            resolved_repository = resolve_repository(Path(args.repository))
+            registered = _read_registry(resolved_repository)
+            selected = registered.get(_require_identifier(args.adapter_id, "adapter_id"))
+            if selected is None or not selected.enabled:
+                # Disabled and uninstalled adapters are intentionally silent.
+                result = {"handoffs": [], "trigger_count": 0, "stopped": "adapter-not-enabled"}
+                mode = "read-only"
+            else:
+                emitted = 0
+                for triggers in watch_triggers(
+                    repository=resolved_repository,
+                    adapter=selected,
+                    poll_interval=args.poll_interval,
+                    maximum_polls=args.max_polls,
+                    pipeline_correlation_path=(Path(args.pipeline_correlation_file) if args.pipeline_correlation_file else None),
+                ):
+                    if not triggers:
+                        continue
+                    remaining = None if args.max_events is None else args.max_events - emitted
+                    selected_triggers = triggers if remaining is None else triggers[:remaining]
+                    if not selected_triggers:
+                        break
+                    emitted += len(selected_triggers)
+                    print(
+                        _canonical_json(
+                            _envelope(
+                                ok=True,
+                                mode="read-only",
+                                result={
+                                    "handoffs": [
+                                        {"interface": "COMMIT_CHANGE_SET", "trigger": trigger}
+                                        for trigger in selected_triggers
+                                    ],
+                                    "trigger_count": len(selected_triggers),
+                                    "stream": "watch",
+                                },
+                            )
+                        ),
+                        flush=True,
+                    )
+                    if args.max_events is not None and emitted >= args.max_events:
+                        return 0
+                result = {"handoffs": [], "trigger_count": 0, "stream": "watch", "stopped": "poll-limit-or-interrupt"}
+                mode = "read-only"
+        elif args.adapter_command == "status":
+            result = adapter_operation(args.repository, "status")
+            mode = "read-only"
+        elif args.adapter_command == "install":
+            spec = AdapterSpec(
+                args.adapter_id,
+                args.application,
+                args.host_session_env,
+                args.fallback_session_env,
+                not args.disabled,
+            )
+            result = adapter_operation(args.repository, "install", adapter=spec, apply=args.apply)
+            mode = "apply" if args.apply else "dry-run"
+        else:
+            result = adapter_operation(
+                args.repository,
+                args.adapter_command,
+                adapter_id=args.adapter_id,
+                apply=args.apply,
+            )
+            mode = "apply" if args.apply else "dry-run"
+    except ToolError as error:
+        print(_canonical_json(_envelope(ok=False, mode="read-only", diagnostic=error)))
+        return 2
+    except KeyboardInterrupt:
+        print(
+            _canonical_json(
+                _envelope(
+                    ok=True,
+                    mode="read-only",
+                    result={"handoffs": [], "trigger_count": 0, "stream": "watch", "stopped": "interrupt"},
+                )
+            )
+        )
+        return 0
+    print(_canonical_json(_envelope(ok=True, mode=mode, result=result)))
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(cli())

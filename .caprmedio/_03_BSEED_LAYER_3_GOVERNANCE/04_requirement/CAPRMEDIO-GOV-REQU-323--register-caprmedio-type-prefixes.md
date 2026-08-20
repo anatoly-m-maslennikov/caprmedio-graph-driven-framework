@@ -1,8 +1,8 @@
 ---
 subject_scopes:
   - artifact-catalog
-version: 6
-updated_at: 2026-08-20 02:38:43
+version: 7
+updated_at: 2026-08-20 18:36:57
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -20,6 +20,5 @@ GOV registers these fixed uppercase prefixes only for the listed non-Atom Artifa
 | `projection` | `catalog` | `CATL` |
 | `projection` | `map` | `MAPS` |
 | `projection` | `hub` | `HUBS` |
-| `projection` | `project_definition` | `PDEF` |
 | `projection` | `implementation_record` | `IREC` |
 | `journal` | `implementation_journal` | `IJRN` |

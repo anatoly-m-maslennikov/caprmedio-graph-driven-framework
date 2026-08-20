@@ -1,8 +1,8 @@
 ---
 subject_scopes:
   - artifact-identity
-version: 2
-updated_at: 2026-08-19 04:55:53
+version: 3
+updated_at: 2026-08-20 18:32:49
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -13,4 +13,4 @@ relations:
 ---
 # Number Atoms project-wide within each Content role
 
-GOV assigns `<NNN>` from one project-wide monotonic sequence per Content role, shared by every Structural scope, Governance locus, and Type within that role, and never reuses an assigned number within that sequence.
+When operator acceptance identifies a draft, GOV constructs its `atom_id` by taking the next `<NUMBER>` from one project-wide monotonic sequence for the Atom's Content role and combining it with the registered Prefix and Content-role letter. The sequence is shared by every Structural scope, Governance locus, Tier, and Type within that role, and an assigned number is never reused.

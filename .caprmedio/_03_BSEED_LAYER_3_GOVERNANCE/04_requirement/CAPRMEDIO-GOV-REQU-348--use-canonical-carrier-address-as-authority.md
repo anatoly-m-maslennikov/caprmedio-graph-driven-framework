@@ -1,8 +1,8 @@
 ---
 subject_scopes:
   - carrier-format
-version: 2
-updated_at: 2026-08-19 04:55:53
+version: 4
+updated_at: 2026-08-20 18:36:57
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -13,6 +13,6 @@ relations:
 ---
 # Use canonical carrier address as authority
 
-When the active GOV grammar derives a governed fact completely and unambiguously from a carrier's canonical project-relative directory, filename, or extension, that address is the fact's sole authority and the carrier must not repeat it as embedded metadata.
+When the active GOV grammar derives a governed fact completely and unambiguously from a carrier's canonical project-relative directory, filename, or extension, that address is the fact's sole authority and the carrier must not repeat it as embedded metadata. `atom_id` is the explicit exception for a role-classified Atom: its encoded Atom property is authoritative, while an accepted Carrier filename only renders the same value and must match it exactly.
 
-The resolver derives only registered address facts, including structural scope, Content role, lifecycle placement, Type, sequence, summary, and format, and fails closed for unknown, ambiguous, malformed, or inconsistent addresses. A move or rename that changes a derived fact is a governed operation.
+The resolver derives only registered address facts, including structural scope, Content role, lifecycle placement, Tier, Type, Summary, and format. It reads `atom_id` from the accepted role-classified Atom's governed property encoding, validates any filename rendering against that value, and fails closed for an unknown, ambiguous, malformed, missing, duplicated, or inconsistent fact. A move or rename that changes a derived address fact is a governed operation but does not change `atom_id`.

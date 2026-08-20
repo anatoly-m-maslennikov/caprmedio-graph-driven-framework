@@ -1,15 +1,15 @@
 ---
 subject_scopes:
   - extension-model
-version: 1
-updated_at: 2026-08-18 21:31:37
+version: 4
+updated_at: 2026-08-20 21:54:16
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   child_of:
     - CAPRMEDIO-META-REQU-160--govern-extension-semantics
     - CAPRMEDIO-META-REQU-687--govern-project-adaptation-semantics
-    - CA-R-004-PRINCIPLE-REQUIREMENT--operator-acceptance-establishes-project-authority
+    - CAPRMEDIO-REQU-043--require-operator-authority-for-governed-change
 ---
 # Promote Project Adaptation authority to an Extension
 

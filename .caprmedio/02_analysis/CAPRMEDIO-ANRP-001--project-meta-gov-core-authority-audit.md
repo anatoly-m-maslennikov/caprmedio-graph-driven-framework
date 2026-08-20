@@ -4,17 +4,17 @@ subject_scopes:
   - requirement-topology
   - scope-topology
   - carrier-format
-version: 1
-updated_at: 2026-08-17 19:36:01
+version: 3
+updated_at: 2026-08-20 20:03:45
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   analysis_of:
     - CAPRMEDIO-REQU-001--ordered-realization-topology
     - CAPRMEDIO-REQU-054--acyclic-layers-with-ops-feedback
-    - CA-M-001-PRINCIPLE-METHOD--mece-for-canonical-decompositions
+    - CA-M-001-PRINCIPLE-METHOD--mece_mutually-exclusive-collectively-exhaustive
     - CAPRMEDIO-REQU-056--require-falsifiable-claims-and-stop-conditions
-    - CA-M-002-PRINCIPLE-METHOD--apply-dry-across-caprmedio
+    - CA-M-002-PRINCIPLE-METHOD--dry_dont-repeat-yourself
     - CAPRMEDIO-REQU-057--own-immediate-child-scopes-and-contracts
     - CAPRMEDIO-REQU-058--define-meta-layer-scope-and-contracts
     - CAPRMEDIO-REQU-059--define-gov-layer-scope-and-contracts
@@ -22,17 +22,17 @@ relations:
     - CAPRMEDIO-REQU-061--define-implementation-layer-scope-and-contracts
     - CAPRMEDIO-REQU-062--define-delivery-layer-scope-and-contracts
     - CAPRMEDIO-REQU-063--define-ops-layer-scope-and-contracts
-    - CA-D-003-PRINCIPLE-DELIVERY--use-the-graph-as-the-operating-model
-    - CA-M-005-PRINCIPLE-METHOD--admit-only-necessary-complexity
+    - CA-D-003-PRINCIPLE-DELIVERY--use-the-graph-to-organize-project-work
+    - CA-M-005-PRINCIPLE-METHOD--add-complexity-only-when-necessary
     - CAPRMEDIO-REQU-065--natural-operator-surface
     - CAPRMEDIO-REQU-006--minimal-default-project-model
     - CAPRMEDIO-REQU-007--full-minimal-traceability
     - CAPRMEDIO-REQU-008--define-project-scope-boundary
-    - CA-O-001-PRINCIPLE-OPS--govern-capability-evolution-through-extensions
-    - CA-O-002-PRINCIPLE-OPS--govern-capability-selection-through-configuration
+    - CA-O-001-PRINCIPLE-OPS--add-reusable-capabilities-through-extensions
+    - CA-O-002-PRINCIPLE-OPS--select-optional-capabilities-through-configuration
     - CAPRMEDIO-REQU-011--minimum-sufficient-guidance
     - CAPRMEDIO-REQU-066--discipline-independent-core
-    - CA-D-001-PRINCIPLE-DELIVERY--keep-realizations-replaceable-across-technical-substrates
+    - CA-D-001-PRINCIPLE-DELIVERY--keep-implementations-replaceable-across-technologies
     - CAPRMEDIO-REQU-067--default-to-software-application-development
     - CAPRMEDIO-REQU-068--support-portable-execution-platforms
     - CAPRMEDIO-REQU-069--support-any-operator-language

@@ -2,13 +2,13 @@
 subject_scopes:
   - authority
 tier: core
-version: 1
-updated_at: 2026-08-17 19:22:33
+version: 5
+updated_at: 2026-08-21 00:15:40
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   child_of:
-    - CA-R-004-PRINCIPLE-REQUIREMENT--operator-acceptance-establishes-project-authority
+    - CA-R-004-PRINCIPLE-REQUIREMENT--only-operators-establish-project-authority
 ---
 # Require operator authority for governed change
 

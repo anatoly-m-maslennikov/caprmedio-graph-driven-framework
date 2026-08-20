@@ -1,8 +1,8 @@
 ---
 subject_scopes:
   - settings
-version: 1
-updated_at: 2026-08-19 16:45:00
+version: 2
+updated_at: 2026-08-20 18:32:49
 relations:
   child_of:
     - CAPRMEDIO-GOV-REQU-661--register-framework-settings-atom-identity
@@ -10,4 +10,7 @@ relations:
 ---
 # Bind Framework Settings identity and current revision
 
-GOV must bind the stable identity and current revision of `CAPRMEDIO-FRAMEWORK-SETTINGS` in a governed carrier under `.caprmedio/`; absence or mismatch of that binding leaves its currentness unknown.
+GOV must bind `atom_id: CAPRMEDIO-I-001`, the current Revision properties, and
+the canonical native Carrier locator in a governed carrier under `.caprmedio/`;
+absence, ambiguity, or mismatch of that binding leaves the Framework Settings
+Atom's currentness unknown.

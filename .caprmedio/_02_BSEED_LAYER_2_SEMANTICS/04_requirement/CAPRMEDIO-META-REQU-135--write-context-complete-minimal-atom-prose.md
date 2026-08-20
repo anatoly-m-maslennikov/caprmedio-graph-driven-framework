@@ -2,8 +2,8 @@
 subject_scopes:
   - semantics
 tier: core
-version: 3
-updated_at: 2026-08-17 17:32:48
+version: 4
+updated_at: 2026-08-20 20:02:11
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -11,7 +11,7 @@ relations:
     - CA-E-001-PRINCIPLE-EVALUATION--make-accepted-requirements-checkable
     - CAPRMEDIO-REQU-036--expose-only-task-necessary-distinctions
     - CAPRMEDIO-REQU-011--minimum-sufficient-guidance
-    - CA-M-002-PRINCIPLE-METHOD--apply-dry-across-caprmedio
+    - CA-M-002-PRINCIPLE-METHOD--dry_dont-repeat-yourself
 ---
 # Write context complete minimal atom prose
 

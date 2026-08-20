@@ -1,8 +1,8 @@
 ---
 subject_scopes:
   - provenance
-version: 1
-updated_at: 2026-08-17 19:36:01
+version: 2
+updated_at: 2026-08-20 18:32:49
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -23,7 +23,7 @@ Each record identifies:
 
 - its stable record identity, sequence position, and recording time;
 - whether it establishes, replaces or corrects, or removes an implementation binding;
-- every source Atom by `artifact_id` and exact carrier-content digest;
+- every identified source Atom by `atom_id` and exact Carrier-content digest;
 - every native implementation target by target kind, stable repository-relative locator, and content digest;
 - the earlier record it replaces, corrects, or removes when applicable; and
 - available Git commit, pull request, author, signer, and LLM-session provenance without requiring those values to remain the binding's semantic identity.

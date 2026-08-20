@@ -1,0 +1,916 @@
+#!/usr/bin/env python3
+"""Append sealed file-change Journal records through the common Tool CLI.
+
+Usage:
+    append_change_records.py describe
+    append_change_records.py run --input CONTEXT.json [--apply]
+
+``run`` is mutation-free unless ``--apply`` is present.  Its input is the
+schema-v2 ``COMMIT_CONTEXT`` envelope.  In particular,
+``predictions.journal_records`` is already sealed by COMMIT_CONTEXT and is
+never regenerated, re-timestamped, or assigned another LLM session here.
+"""
+
+from __future__ import annotations
+
+import argparse
+import datetime as dt
+import hashlib
+import json
+import os
+import subprocess
+import sys
+import tempfile
+import time
+import uuid
+from contextlib import contextmanager
+from pathlib import Path
+from typing import Any, Iterator, Mapping
+
+
+REPOSITORY_ROOT = Path(__file__).resolve().parents[3]
+TOOLS_ROOT = REPOSITORY_ROOT / "02_FR_ENGN" / "TOOLS"
+sys.pycache_prefix = str(REPOSITORY_ROOT / ".caprmedio_runtime/cache/python")
+if str(TOOLS_ROOT) not in sys.path:
+    sys.path.insert(0, str(TOOLS_ROOT))
+
+from artifact_metadata import repository_root  # noqa: E402
+from work_journal import (  # noqa: E402
+    WorkJournalError,
+    canonical_json_bytes,
+    canonical_json_digest,
+    configured_runtime_root,
+    predict_sealed_event_receipts,
+    validate_partition,
+    validate_sealed_event,
+    append_sealed_events,
+)
+
+
+TOOL_ID = "APPEND_CHANGE_RECORDS"
+TOOL_KIND = "doer"
+TOOL_SCHEMA_VERSION = 1
+ACTIONS = {"ADD", "MOVE", "UPDATE", "MOVE+UPDATE", "REMOVE"}
+HEX40_RE = __import__("re").compile(r"^[0-9a-f]{40}$")
+HEX64_RE = __import__("re").compile(r"^[0-9a-f]{64}$")
+SAFE_ID_RE = __import__("re").compile(r"^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$")
+
+
+class ToolError(RuntimeError):
+    """Stable diagnostic emitted by this Tool."""
+
+    def __init__(self, code: str, message: str) -> None:
+        self.code = code
+        super().__init__(message)
+
+
+def _json_result(*, ok: bool, mode: str, **values: Any) -> dict[str, Any]:
+    return {
+        "schema_version": TOOL_SCHEMA_VERSION,
+        "tool": {"capability_id": TOOL_ID, "kind": TOOL_KIND},
+        "ok": ok,
+        "mode": mode,
+        **values,
+    }
+
+
+def _emit(payload: Mapping[str, Any]) -> None:
+    print(json.dumps(payload, ensure_ascii=False, sort_keys=True, separators=(",", ":")))
+
+
+def _require_mapping(value: object, field: str) -> dict[str, Any]:
+    if not isinstance(value, dict):
+        raise ToolError("invalid-context", f"{field} must be an object")
+    return dict(value)
+
+
+def _require_string(value: Mapping[str, Any], field: str) -> str:
+    item = value.get(field)
+    if not isinstance(item, str) or not item:
+        raise ToolError("invalid-context", f"{field} must be a non-empty string")
+    return item
+
+
+def _require_sha256(value: object, field: str) -> str:
+    if not isinstance(value, str) or not HEX64_RE.fullmatch(value):
+        raise ToolError("invalid-context", f"{field} must be a lowercase SHA-256 digest")
+    return value
+
+
+def _safe_action_id(value: str, field: str) -> str:
+    if not SAFE_ID_RE.fullmatch(value):
+        raise ToolError("invalid-context", f"{field} contains unsupported characters")
+    return value
+
+
+def _load_json(source: str) -> dict[str, Any]:
+    try:
+        text = sys.stdin.read() if source == "-" else Path(source).read_text(encoding="utf-8")
+    except OSError as error:
+        raise ToolError("input-unreadable", f"cannot read input: {source}") from error
+    try:
+        value = json.loads(text)
+    except json.JSONDecodeError as error:
+        raise ToolError("invalid-json", "input must be one JSON object") from error
+    return _require_mapping(value, "input")
+
+
+def _parse_datetime(value: str) -> None:
+    try:
+        parsed = dt.datetime.fromisoformat(value)
+    except ValueError as error:
+        raise ToolError("invalid-context", "occurred_at must be ISO-8601") from error
+    if parsed.tzinfo is None or parsed.utcoffset() is None:
+        raise ToolError("invalid-context", "occurred_at must be timezone-qualified")
+
+
+def _canonical_source_projection(sources: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    return [
+        {
+            "relation_type": source["relation_type"],
+            "filename": source["filename"],
+            "version": source["version"],
+        }
+        for source in sources
+    ]
+
+
+def _frontier_source_projection(context: Mapping[str, Any]) -> dict[str, Any]:
+    """Return the sealed selected-carrier frontier without reading new state."""
+    subject = _require_mapping(context["subject"], "subject")
+    result = _require_mapping(context["result"], "result")
+    projection: dict[str, Any] = {
+        "identity": subject["identity"],
+        "state": "removed" if result["state"] == "removed" else "present",
+        "filename": result["filename"],
+        "version": result["version"],
+    }
+    if result["state"] == "present":
+        projection["path"] = result["path"]
+        projection["sha256"] = result["sha256"]
+        return projection
+    committed = _require_mapping(_require_mapping(context["snapshots"], "snapshots").get("committed"), "snapshots.committed")
+    projection["path"] = committed.get("path")
+    projection["sha256"] = committed.get("sha256")
+    _relative_path(root=Path("."), raw=projection["path"], field="snapshots.committed.path")
+    _require_sha256(projection["sha256"], "snapshots.committed.sha256")
+    return projection
+
+
+def _normalise_context(payload: Mapping[str, Any]) -> dict[str, Any]:
+    """Accept the common envelope but keep exactly its sealed context object."""
+    if "context" in payload:
+        context = _require_mapping(payload["context"], "context")
+    elif isinstance(payload.get("result"), dict) and "context" in payload["result"]:
+        context = _require_mapping(payload["result"]["context"], "result.context")
+    else:
+        context = dict(payload)
+    if context.get("schema_version") != 2:
+        raise ToolError("invalid-context", "context.schema_version must be 2")
+    return context
+
+
+def _detailed_relation_projection(relations: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    return [
+        {
+            "relation_type": relation["relation_type"],
+            "filename": relation["filename"],
+            "version": relation["version"],
+            "path": relation["path"],
+            "sha256": relation["sha256"],
+        }
+        for relation in relations
+    ]
+
+
+def _validate_prediction_partitions(context: Mapping[str, Any], author: str, local_date: str) -> None:
+    predictions = _require_mapping(context.get("predictions"), "predictions")
+    partitions = predictions.get("journal_partitions")
+    if not isinstance(partitions, list) or not partitions:
+        raise ToolError("invalid-context", "predictions.journal_partitions must be a non-empty array")
+    expected_prefix = f"{author}-{local_date}-part-"
+    matched = False
+    for partition in partitions:
+        if isinstance(partition, str):
+            matched = matched or Path(partition).name.startswith(expected_prefix)
+            continue
+        if isinstance(partition, dict):
+            name = partition.get("carrier") or partition.get("path")
+            if isinstance(name, str) and Path(name).name.startswith(expected_prefix):
+                matched = True
+                continue
+            if partition.get("author") == author and partition.get("local_date") == local_date:
+                matched = True
+                continue
+        raise ToolError("invalid-context", "journal partition prediction has an unsupported shape")
+    if not matched:
+        raise ToolError("invalid-context", "journal partition prediction does not match sealed author and local_date")
+
+
+def _validate_recovery(context: Mapping[str, Any], events: list[dict[str, Any]]) -> None:
+    recovered = [event for event in events if event.get("event") == "recovered"]
+    recovery = context.get("recovery")
+    if not recovered and recovery is None:
+        return
+    if len(recovered) != 1 or not isinstance(recovery, dict):
+        raise ToolError("invalid-recovery", "a recovered event requires one sealed recovery object")
+    required = {"event_id", "result", "evidence", "evidence_digest", "contradictions"}
+    if set(recovery) != required:
+        raise ToolError("invalid-recovery", "recovery must contain exactly event_id, result, evidence, evidence_digest, contradictions")
+    if recovery["event_id"] != recovered[0].get("event_id"):
+        raise ToolError("invalid-recovery", "recovery.event_id must identify the recovered Journal event")
+    if recovery["result"] != recovered[0].get("result"):
+        raise ToolError("invalid-recovery", "recovery.result must equal the recovered Journal result")
+    evidence = recovery["evidence"]
+    if not isinstance(evidence, dict) or set(evidence) != {"git", "carrier"}:
+        raise ToolError("invalid-recovery", "recovery.evidence must contain git and carrier evidence")
+    if not isinstance(evidence["git"], dict) or not evidence["git"]:
+        raise ToolError("invalid-recovery", "recovery.evidence.git must be a non-empty object")
+    if not isinstance(evidence["carrier"], dict) or not evidence["carrier"]:
+        raise ToolError("invalid-recovery", "recovery.evidence.carrier must be a non-empty object")
+    _require_sha256(recovery["evidence_digest"], "recovery.evidence_digest")
+    if recovery["evidence_digest"] != canonical_json_digest(evidence):
+        raise ToolError("recovery-evidence-mismatch", "recovery evidence digest does not match sealed evidence")
+    if not isinstance(recovery["contradictions"], list) or recovery["contradictions"]:
+        raise ToolError("unsupported-recovery", "recovery must have an empty contradictions list")
+
+
+def validate_context(context: Mapping[str, Any]) -> tuple[dict[str, Any], list[dict[str, Any]]]:
+    """Validate the sealed COMMIT_CONTEXT without discovering replacement data."""
+    value = dict(context)
+    context_id = _safe_action_id(_require_string(value, "context_id"), "context_id")
+    action_id = _safe_action_id(_require_string(value, "action_id"), "action_id")
+    trigger = _require_mapping(value.get("trigger"), "trigger")
+    repository = _require_mapping(trigger.get("repository"), "trigger.repository")
+    _require_string(repository, "identity")
+    _require_string(repository, "root")
+    subject = _require_mapping(value.get("subject"), "subject")
+    _require_string(subject, "identity")
+    _require_string(subject, "selected_state")
+    action_type = value.get("action_type")
+    if action_type not in ACTIONS:
+        raise ToolError("invalid-context", "action_type is invalid")
+    author = _require_string(value, "author")
+    occurred_at = _require_string(value, "occurred_at")
+    _parse_datetime(occurred_at)
+    local_date = _require_string(value, "local_date")
+    timezone = _require_string(value, "timezone")
+    validate_partition(author, local_date, timezone)
+    session = _require_mapping(value.get("llm_session"), "llm_session")
+    if set(session) != {"app", "uuid"}:
+        raise ToolError("invalid-context", "llm_session must contain only app and uuid")
+    _require_string(session, "app")
+    _require_string(session, "uuid")
+    _require_string(value, "structural_scope")
+    sources_value = value.get("sources")
+    if not isinstance(sources_value, list):
+        raise ToolError("invalid-context", "sources must be an array")
+    sources = [_require_mapping(source, "sources item") for source in sources_value]
+    for source in sources:
+        relation_type = source.get("relation_type")
+        filename = source.get("filename")
+        version = source.get("version")
+        if not isinstance(relation_type, str) or not relation_type:
+            raise ToolError("invalid-context", "sources.relation_type must be a non-empty string")
+        if not isinstance(filename, str) or not filename.endswith(".md"):
+            raise ToolError("invalid-context", "sources.filename must be a Markdown filename")
+        if not isinstance(version, int) or version < 1:
+            raise ToolError("invalid-context", "sources.version must be a positive integer")
+    relations_value = value.get("relations")
+    if not isinstance(relations_value, list):
+        raise ToolError("invalid-context", "relations must be an ordered array")
+    relations = [_require_mapping(relation, "relations item") for relation in relations_value]
+    prior_relation: tuple[str, str, int] | None = None
+    for relation in relations:
+        relation_type = relation.get("relation_type")
+        filename = relation.get("filename")
+        version = relation.get("version")
+        if not isinstance(relation_type, str) or not relation_type:
+            raise ToolError("invalid-context", "relations.relation_type must be a non-empty string")
+        if not isinstance(filename, str) or not filename.endswith(".md"):
+            raise ToolError("invalid-context", "relations.filename must be a Markdown filename")
+        if not isinstance(version, int) or version < 1:
+            raise ToolError("invalid-context", "relations.version must be a positive integer")
+        _relative_path(root=Path("."), raw=relation.get("path"), field="relations.path")
+        _require_sha256(relation.get("sha256"), "relations.sha256")
+        relation_key = (relation_type, filename, version)
+        if prior_relation is not None and relation_key <= prior_relation:
+            raise ToolError("invalid-context", "relations must be uniquely sorted in canonical order")
+        prior_relation = relation_key
+    if _canonical_source_projection(relations) != sources:
+        raise ToolError("invalid-context", "sources must be the compact projection of detailed relations")
+    result = _require_mapping(value.get("result"), "result")
+    git_base = _require_mapping(value.get("git_base"), "git_base")
+    commit = _require_string(git_base, "commit")
+    tree = _require_string(git_base, "tree")
+    if not HEX40_RE.fullmatch(commit) or not HEX40_RE.fullmatch(tree):
+        raise ToolError("invalid-context", "git_base.commit and git_base.tree must be Git object ids")
+    frontier = _require_mapping(value.get("frontier"), "frontier")
+    _require_sha256(frontier.get("source_sha256"), "frontier.source_sha256")
+    _require_sha256(frontier.get("relations_sha256"), "frontier.relations_sha256")
+    snapshots = _require_mapping(value.get("snapshots"), "snapshots")
+    validation = _require_mapping(value.get("validation"), "validation")
+    if not validation:
+        raise ToolError("invalid-context", "validation must not be empty")
+    if not snapshots:
+        raise ToolError("invalid-context", "snapshots must not be empty")
+    expected_source_digest = canonical_json_digest(_frontier_source_projection(value))
+    expected_relations_digest = canonical_json_digest(_detailed_relation_projection(relations))
+    if frontier["source_sha256"] != expected_source_digest or frontier["relations_sha256"] != expected_relations_digest:
+        raise ToolError("stale-context", "sealed frontier digest does not match its sealed source frontier")
+    predictions = _require_mapping(value.get("predictions"), "predictions")
+    event_values = predictions.get("journal_records")
+    if not isinstance(event_values, list) or not event_values:
+        raise ToolError("invalid-context", "predictions.journal_records must be a non-empty array")
+    events = [validate_sealed_event(_require_mapping(event, "journal record")) for event in event_values]
+    if any(event["action_id"] != action_id for event in events):
+        raise ToolError("invalid-context", "every Journal event must use context.action_id")
+    if any(event["author"] != author for event in events):
+        raise ToolError("invalid-context", "every Journal event must use context.author")
+    if any(event["occurred_at"] != occurred_at for event in events):
+        raise ToolError("invalid-context", "every Journal event must use sealed occurred_at")
+    if any(event["llm_session"] != session for event in events):
+        raise ToolError("invalid-context", "every Journal event must use sealed llm_session")
+    completed = [event for event in events if event["event"] == "completed"]
+    if len(completed) != 1:
+        raise ToolError("invalid-context", "event set must contain exactly one completed governed_file_change")
+    change = completed[0]
+    if change["action_type"] != action_type or change["sources"] != _canonical_source_projection(sources) or change["result"] != result:
+        raise ToolError("invalid-context", "completed Journal event must be the exact context projection")
+    if value.get("previous_result_event") != change.get("previous_result_event"):
+        raise ToolError("invalid-context", "previous_result_event differs between context and Journal event")
+    _validate_recovery(value, events)
+    _validate_prediction_partitions(value, author, local_date)
+    # Retain named values to prevent callers from treating a partial mapping as validated.
+    if not context_id or not action_id:
+        raise AssertionError("unreachable")
+    return value, events
+
+
+def _git(root: Path, *arguments: str) -> str:
+    completed = subprocess.run(
+        ["git", "-C", str(root), *arguments],
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    if completed.returncode != 0:
+        detail = completed.stderr.strip() or completed.stdout.strip() or "Git command failed"
+        raise ToolError("git-preflight-failed", detail)
+    return completed.stdout
+
+
+def _git_bytes(root: Path, *arguments: str, allow_failure: bool = False) -> bytes | None:
+    completed = subprocess.run(
+        ["git", "-C", str(root), *arguments],
+        check=False,
+        capture_output=True,
+    )
+    if completed.returncode == 0:
+        return completed.stdout
+    if allow_failure:
+        return None
+    detail = completed.stderr.decode("utf-8", errors="replace").strip() or "Git command failed"
+    raise ToolError("git-preflight-failed", detail)
+
+
+def _sha256_file(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def _atomic_json(path: Path, value: Mapping[str, Any]) -> None:
+    """Persist non-authoritative runtime state durably and replace atomically."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    descriptor, temporary_name = tempfile.mkstemp(prefix=f".{path.name}.", dir=path.parent)
+    temporary = Path(temporary_name)
+    try:
+        with os.fdopen(descriptor, "wb") as handle:
+            handle.write(canonical_json_bytes(value) + b"\n")
+            handle.flush()
+            os.fsync(handle.fileno())
+        os.replace(temporary, path)
+    except BaseException:
+        try:
+            temporary.unlink()
+        except FileNotFoundError:
+            pass
+        raise
+
+
+def _append_ndjson(path: Path, value: Mapping[str, Any]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    payload = canonical_json_bytes(value) + b"\n"
+    descriptor = os.open(path, os.O_APPEND | os.O_CREAT | os.O_WRONLY, 0o600)
+    try:
+        offset = 0
+        while offset < len(payload):
+            written = os.write(descriptor, payload[offset:])
+            if written <= 0:
+                raise OSError("could not append pipeline correlation")
+            offset += written
+        os.fsync(descriptor)
+    finally:
+        os.close(descriptor)
+
+
+def _relative_path(root: Path, raw: object, field: str) -> Path:
+    if not isinstance(raw, str) or not raw:
+        raise ToolError("invalid-context", f"{field} must be a non-empty repository-relative path")
+    value = Path(raw)
+    if value.is_absolute() or ".." in value.parts:
+        raise ToolError("invalid-context", f"{field} must be a safe repository-relative path")
+    return root / value
+
+
+def validate_live_preflight(root: Path, context: Mapping[str, Any]) -> None:
+    """Repeat deterministic mutable-boundary checks without refreshing context."""
+    git_base = _require_mapping(context["git_base"], "git_base")
+    if _git(root, "rev-parse", "HEAD").strip() != git_base["commit"]:
+        raise ToolError("stale-context", "Git base commit no longer matches sealed context")
+    if _git(root, "rev-parse", "HEAD^{tree}").strip() != git_base["tree"]:
+        raise ToolError("stale-context", "Git base tree no longer matches sealed context")
+    result = _require_mapping(context["result"], "result")
+    trigger = _require_mapping(context["trigger"], "trigger")
+    subject_paths = {
+        value
+        for value in (trigger.get("before_path"), trigger.get("after_path"), result.get("path"))
+        if isinstance(value, str) and value
+    }
+    staged = [item for item in _git(root, "diff", "--cached", "--name-only", "-z").split("\0") if item]
+    if any(path not in subject_paths for path in staged):
+        raise ToolError("unrelated-staged-change", "repository index contains a change outside the resolved subject identity")
+    if result["state"] == "present":
+        result_path = _relative_path(root, result["path"], "result.path")
+        if not result_path.is_file() or _sha256_file(result_path) != result["sha256"]:
+            raise ToolError("stale-context", "result carrier no longer matches sealed digest")
+        if result_path.name != result["filename"]:
+            raise ToolError("stale-context", "result carrier name no longer matches sealed filename")
+        if result["path"] in staged:
+            staged_bytes = _git_bytes(root, "show", f":{result['path']}")
+            if staged_bytes is None or hashlib.sha256(staged_bytes).hexdigest() != result["sha256"]:
+                raise ToolError("stale-context", "staged subject carrier no longer matches sealed digest")
+    elif result["state"] == "removed":
+        committed = _require_mapping(_require_mapping(context["snapshots"], "snapshots").get("committed"), "snapshots.committed")
+        committed_path = _relative_path(root, committed.get("path"), "snapshots.committed.path")
+        committed_digest = _require_sha256(committed.get("sha256"), "snapshots.committed.sha256")
+        payload = _git(root, "show", f"HEAD:{committed_path.relative_to(root).as_posix()}").encode("utf-8")
+        if hashlib.sha256(payload).hexdigest() != committed_digest:
+            raise ToolError("stale-context", "removed predecessor no longer matches sealed digest")
+        if committed_path.relative_to(root).as_posix() in staged and _git_bytes(root, "show", f":{committed_path.relative_to(root).as_posix()}", allow_failure=True) is not None:
+            raise ToolError("stale-context", "removed subject remains present in the staged index")
+    else:
+        raise ToolError("invalid-context", "result.state is invalid")
+    for source in context["relations"]:
+        source_path = _relative_path(root, source.get("path"), "relations.path")
+        source_digest = _require_sha256(source.get("sha256"), "relations.sha256")
+        if not source_path.is_file() or _sha256_file(source_path) != source_digest:
+            raise ToolError("stale-context", "relation frontier no longer matches sealed digest")
+
+
+def _runtime_dir(root: Path) -> Path:
+    return root / configured_runtime_root(root) / "append_change_records"
+
+
+def _correlation_path(root: Path) -> Path:
+    return root / configured_runtime_root(root) / "commit_trigger" / "pipeline_correlations.ndjson"
+
+
+def _correlation_id(action_id: str, receipt: Mapping[str, Any]) -> str:
+    transition = {
+        key: receipt[key]
+        for key in (
+            "event_id",
+            "event_digest",
+            "carrier",
+            "line",
+            "previous_carrier_digest",
+            "appended_carrier_digest",
+        )
+    }
+    return canonical_json_digest({"action_id": action_id, "transition": transition})
+
+
+def _correlation_states(root: Path) -> dict[str, str]:
+    path = _correlation_path(root)
+    if not path.exists():
+        return {}
+    states: dict[str, str] = {}
+    for line_number, line in enumerate(path.read_text(encoding="utf-8").splitlines(), start=1):
+        if not line:
+            continue
+        try:
+            value = json.loads(line)
+        except json.JSONDecodeError as error:
+            raise ToolError("invalid-runtime-state", f"pipeline correlation JSON is invalid at line {line_number}") from error
+        if not isinstance(value, dict) or not isinstance(value.get("correlation_id"), str):
+            raise ToolError("invalid-runtime-state", f"pipeline correlation is invalid at line {line_number}")
+        event = value.get("event")
+        if event == "registered":
+            states[value["correlation_id"]] = "active"
+        elif event == "retired":
+            states[value["correlation_id"]] = "retired"
+        else:
+            raise ToolError("invalid-runtime-state", f"pipeline correlation event is invalid at line {line_number}")
+    return states
+
+
+def register_pipeline_correlations(root: Path, action_id: str, receipts: list[Mapping[str, Any]]) -> list[str]:
+    """Register exact pipeline-owned Journal transitions before appending them."""
+    correlation_ids: list[str] = []
+    with _lease_guard(root, create=True):
+        states = _correlation_states(root)
+        for receipt in receipts:
+            if receipt.get("disposition") == "reused":
+                continue
+            correlation_id = _correlation_id(action_id, receipt)
+            correlation_ids.append(correlation_id)
+            if states.get(correlation_id) == "active":
+                continue
+            transition = {
+                key: receipt[key]
+                for key in (
+                    "event_id",
+                    "event_digest",
+                    "carrier",
+                    "line",
+                    "previous_carrier_digest",
+                    "appended_carrier_digest",
+                )
+            }
+            _append_ndjson(
+                _correlation_path(root),
+                {
+                    "schema_version": 1,
+                    "event": "registered",
+                    "correlation_id": correlation_id,
+                    "action_id": action_id,
+                    "transition": transition,
+                },
+            )
+    return correlation_ids
+
+
+def retire_pipeline_correlations(root: Path, action_id: str) -> list[str]:
+    """Retire this action's active correlations after commit verification."""
+    retired: list[str] = []
+    path = _correlation_path(root)
+    with _lease_guard(root, create=True):
+        if not path.exists():
+            return retired
+        states = _correlation_states(root)
+        for line in path.read_text(encoding="utf-8").splitlines():
+            if not line:
+                continue
+            value = json.loads(line)
+            if value.get("event") != "registered" or value.get("action_id") != action_id:
+                continue
+            correlation_id = value["correlation_id"]
+            if states.get(correlation_id) != "active" or correlation_id in retired:
+                continue
+            _append_ndjson(
+                path,
+                {
+                    "schema_version": 1,
+                    "event": "retired",
+                    "correlation_id": correlation_id,
+                    "action_id": action_id,
+                },
+            )
+            retired.append(correlation_id)
+    return retired
+
+
+def _lease_path(root: Path) -> Path:
+    """The end-to-end flow owns one shared repository apply lease carrier."""
+    return root / configured_runtime_root(root) / "commit_change_set" / "lease.json"
+
+
+@contextmanager
+def _lease_guard(root: Path, *, create: bool) -> Iterator[None]:
+    runtime = _runtime_dir(root)
+    guard = runtime / "lease.lock"
+    if create:
+        runtime.mkdir(parents=True, exist_ok=True)
+    if not guard.exists() and not create:
+        yield
+        return
+    token = str(uuid.uuid4())
+    descriptor: int | None = None
+    deadline = time.monotonic() + 30.0
+    while descriptor is None:
+        try:
+            descriptor = os.open(guard, os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)
+        except FileExistsError:
+            if time.monotonic() >= deadline:
+                raise ToolError("lease-guard-unavailable", "repository lease guard remains held")
+            time.sleep(0.05)
+    try:
+        try:
+            os.write(descriptor, canonical_json_bytes({"token": token, "pid": os.getpid()}) + b"\n")
+            os.fsync(descriptor)
+        finally:
+            os.close(descriptor)
+    except BaseException:
+        guard.unlink(missing_ok=True)
+        raise
+    try:
+        yield
+    finally:
+        try:
+            active = json.loads(guard.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            active = {}
+        if active.get("token") == token:
+            guard.unlink(missing_ok=True)
+
+
+def _read_json(path: Path) -> dict[str, Any]:
+    try:
+        value = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as error:
+        raise ToolError("invalid-runtime-state", f"cannot read runtime state: {path}") from error
+    return _require_mapping(value, "runtime state")
+
+
+def _lease_observation(root: Path) -> dict[str, Any]:
+    path = _lease_path(root)
+    if not path.exists():
+        return {"status": "available"}
+    lease = _read_json(path)
+    return {
+        "status": lease.get("status", "active"),
+        "action_id": lease.get("action_id"),
+        "lease_token": lease.get("lease_token"),
+    }
+
+
+def acquire_lease(root: Path, context: Mapping[str, Any], *, wait_seconds: float) -> tuple[dict[str, Any], bool]:
+    """Acquire/reuse the repository lease without persisting provenance copies."""
+    action_id = str(context["action_id"])
+    context_id = str(context["context_id"])
+    event_ids = [str(event["event_id"]) for event in context["predictions"]["journal_records"]]
+    context_digest = canonical_json_digest(context)
+    deadline = time.monotonic() + wait_seconds
+    while True:
+        with _lease_guard(root, create=True):
+            path = _lease_path(root)
+            if not path.exists():
+                lease = {
+                    "schema_version": 1,
+                    "status": "active",
+                    "action_id": action_id,
+                    "context_id": context_id,
+                    "context_digest": context_digest,
+                    "event_ids": event_ids,
+                    "lease_token": str(uuid.uuid4()),
+                }
+                _atomic_json(path, lease)
+                return lease, True
+            lease = _read_json(path)
+            if lease.get("action_id") == action_id:
+                if lease.get("context_digest") != context_digest:
+                    raise ToolError("action-context-collision", "action_id is already leased for different sealed context")
+                return lease, False
+        if time.monotonic() >= deadline:
+            raise ToolError("lease-unavailable", "another action retains the repository lease")
+        time.sleep(min(0.1, max(0.0, deadline - time.monotonic())))
+
+
+def release_unconsumed_lease(root: Path, lease: Mapping[str, Any], *, acquired: bool) -> None:
+    if not acquired:
+        return
+    with _lease_guard(root, create=True):
+        path = _lease_path(root)
+        if path.exists() and _read_json(path).get("lease_token") == lease.get("lease_token"):
+            path.unlink()
+
+
+def release_verified_lease(root: Path, lease: Mapping[str, Any]) -> None:
+    """Release the shared lease only after COMMIT_CHANGE_SET has verified it.
+
+    This intentionally compares the active carrier's status, action, and token
+    inside the Appender's serialization guard, so a stale receipt can never
+    release another action's lease.
+    """
+    expected_action = lease.get("action_id")
+    expected_token = lease.get("lease_token")
+    if not isinstance(expected_action, str) or not isinstance(expected_token, str):
+        raise ToolError("invalid-lease", "lease must contain action_id and lease_token")
+    with _lease_guard(root, create=True):
+        path = _lease_path(root)
+        if not path.exists():
+            raise ToolError("lease-not-live", "repository lease is no longer present")
+        active = _read_json(path)
+        if (
+            active.get("status") != "active"
+            or active.get("action_id") != expected_action
+            or active.get("lease_token") != expected_token
+        ):
+            raise ToolError("lease-not-live", "repository lease does not match verified action and token")
+    # The caller reaches this function only after complete commit verification.
+    # Retire before freeing the action slot so a restarted Trigger never treats a
+    # later operator Journal write as part of the completed pipeline transition.
+    retire_pipeline_correlations(root, expected_action)
+    with _lease_guard(root, create=True):
+        path = _lease_path(root)
+        if not path.exists():
+            raise ToolError("lease-not-live", "repository lease is no longer present")
+        active = _read_json(path)
+        if (
+            active.get("status") != "active"
+            or active.get("action_id") != expected_action
+            or active.get("lease_token") != expected_token
+        ):
+            raise ToolError("lease-not-live", "repository lease changed before verified release")
+        path.unlink()
+
+
+def _blocked_path(root: Path, action_id: str) -> Path:
+    return _runtime_dir(root) / "blocked" / f"{action_id}.json"
+
+
+def record_blocked_state(
+    root: Path,
+    *,
+    lease: Mapping[str, Any],
+    action_id: str,
+    event_ids: list[str],
+    receipts: list[Mapping[str, Any]],
+    reason: str,
+) -> None:
+    payload = {
+        "schema_version": 1,
+        "status": "blocked",
+        "action_id": action_id,
+        "event_ids": event_ids,
+        "receipt_refs": [
+            {
+                "event_id": receipt["event_id"],
+                "event_digest": receipt["event_digest"],
+                "carrier": receipt["carrier"],
+                "line": receipt["line"],
+            }
+            for receipt in receipts
+        ],
+        "lease_token": lease["lease_token"],
+        "reason": reason,
+    }
+    _atomic_json(_blocked_path(root, action_id), payload)
+
+
+def _predicted_effects(root: Path, context: Mapping[str, Any], events: list[dict[str, Any]]) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+    receipts = predict_sealed_event_receipts(
+        root,
+        events,
+        author=context["author"],
+        local_date=context["local_date"],
+        timezone=context["timezone"],
+    )
+    return receipts, _lease_observation(root)
+
+
+def describe() -> dict[str, Any]:
+    return _json_result(
+        ok=True,
+        mode="describe",
+        capability={
+            "identity": TOOL_ID,
+            "kind": TOOL_KIND,
+            "summary": "Append sealed schema-v2 Work Journal records with durable receipts.",
+        },
+        input_schema={
+            "command": "run --input CONTEXT.json [--apply]",
+            "required_context": [
+                "schema_version",
+                "context_id",
+                "action_id",
+                "trigger",
+                "subject",
+                "action_type",
+                "sources",
+                "result",
+                "llm_session",
+                "author",
+                "occurred_at",
+                "timezone",
+                "local_date",
+                "git_base",
+                "frontier",
+                "snapshots",
+                "validation",
+                "predictions.journal_records",
+                "predictions.journal_partitions",
+            ],
+        },
+        result_schema={"resolved_targets": "object", "planned_effects": "object", "validation_results": "array", "receipts": "array", "lease": "object", "diagnostics": "array"},
+        diagnostics=[],
+    )
+
+
+def run(root: Path, payload: Mapping[str, Any], *, apply: bool, wait_seconds: float) -> dict[str, Any]:
+    context, events = validate_context(_normalise_context(payload))
+    validation_results: list[dict[str, Any]] = [
+        {"name": "sealed-context", "ok": True},
+        {"name": "sealed-events", "ok": True},
+    ]
+    validate_live_preflight(root, context)
+    validation_results.append({"name": "live-preflight", "ok": True})
+    predicted_receipts, observed_lease = _predicted_effects(root, context, events)
+    common = {
+        "resolved_targets": {"repository": str(root), "action_id": context["action_id"], "event_ids": [event["event_id"] for event in events]},
+        "planned_effects": {"journal_records": events, "receipts": predicted_receipts},
+        "validation_results": validation_results,
+        "diagnostics": [],
+    }
+    if not apply:
+        return _json_result(ok=True, mode="dry-run", receipts=predicted_receipts, lease=observed_lease, **common)
+    lease, acquired = acquire_lease(root, context, wait_seconds=wait_seconds)
+    correlations: list[str] = []
+    try:
+        # Recheck every mutable boundary after the repository-scoped lease is acquired.
+        validate_live_preflight(root, context)
+        validation_results.append({"name": "leased-live-preflight", "ok": True})
+        leased_predictions, _ = _predicted_effects(root, context, events)
+        correlations = register_pipeline_correlations(root, context["action_id"], leased_predictions)
+        receipts = append_sealed_events(
+            root,
+            events,
+            author=context["author"],
+            local_date=context["local_date"],
+            timezone=context["timezone"],
+        )
+    except (ToolError, WorkJournalError) as error:
+        # No append has occurred if every event prediction remains predicted.  A
+        # partial append is retained as a recoverable blocked action and keeps
+        # its lease for COMMIT_CHANGE_SET retry or explicit operator resolution.
+        observed, _ = _predicted_effects(root, context, events)
+        existing = [receipt for receipt in observed if receipt.get("disposition") == "reused"]
+        if existing:
+            record_blocked_state(
+                root,
+                lease=lease,
+                action_id=context["action_id"],
+                event_ids=[event["event_id"] for event in events],
+                receipts=existing,
+                reason=error.code,
+            )
+        else:
+            retire_pipeline_correlations(root, context["action_id"])
+            release_unconsumed_lease(root, lease, acquired=acquired)
+        raise
+    return _json_result(
+        ok=True,
+        mode="apply",
+        receipts=receipts,
+        lease={"status": "active", "lease_token": lease["lease_token"], "action_id": lease["action_id"]},
+        pipeline_correlations=correlations,
+        **common,
+    )
+
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description=__doc__)
+    subcommands = parser.add_subparsers(dest="command", required=True)
+    subcommands.add_parser("describe", help="emit Tool contract as JSON")
+    run_parser = subcommands.add_parser("run", help="validate or append a sealed context")
+    run_parser.add_argument("--input", required=True, help="JSON input path or - for stdin")
+    run_parser.add_argument("--apply", action="store_true", help="append records; omission is dry-run")
+    run_parser.add_argument("--root", default=".", help="repository root or descendant")
+    run_parser.add_argument("--wait-seconds", type=float, default=30.0, help="maximum repository-lease wait")
+    return parser.parse_args()
+
+
+def main() -> int:
+    args = parse_args()
+    try:
+        if args.command == "describe":
+            _emit(describe())
+            return 0
+        if args.wait_seconds < 0:
+            raise ToolError("invalid-input", "wait_seconds must be non-negative")
+        root = repository_root(Path(args.root))
+        result = run(root, _load_json(args.input), apply=args.apply, wait_seconds=args.wait_seconds)
+        _emit(result)
+        return 0
+    except (ToolError, WorkJournalError) as error:
+        _emit(
+            _json_result(
+                ok=False,
+                mode="apply" if getattr(args, "apply", False) else "dry-run",
+                resolved_targets={},
+                planned_effects={},
+                validation_results=[],
+                receipts=[],
+                lease={},
+                diagnostics=[{"code": error.code, "message": str(error)}],
+            )
+        )
+        return 2
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

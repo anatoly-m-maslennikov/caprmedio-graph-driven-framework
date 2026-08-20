@@ -2,14 +2,14 @@
 subject_scopes:
   - authority
 tier: core
-version: 1
-updated_at: 2026-08-18 05:02:06
+version: 2
+updated_at: 2026-08-20 20:02:11
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   child_of:
-    - CA-M-001-PRINCIPLE-METHOD--mece-for-canonical-decompositions
-    - CA-M-002-PRINCIPLE-METHOD--apply-dry-across-caprmedio
+    - CA-M-001-PRINCIPLE-METHOD--mece_mutually-exclusive-collectively-exhaustive
+    - CA-M-002-PRINCIPLE-METHOD--dry_dont-repeat-yourself
   replacement_of:
     - CAPRMEDIO-META-REQU-082--single-owner-rule-placement
 ---

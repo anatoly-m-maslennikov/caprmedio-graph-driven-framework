@@ -2,13 +2,13 @@
 subject_scopes:
   - artifact-model
 tier: core
-version: 2
-updated_at: 2026-08-18 05:06:05
+version: 3
+updated_at: 2026-08-20 20:02:11
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   child_of:
-    - CA-M-002-PRINCIPLE-METHOD--apply-dry-across-caprmedio
+    - CA-M-002-PRINCIPLE-METHOD--dry_dont-repeat-yourself
 ---
 # Semantic irreducibility
 

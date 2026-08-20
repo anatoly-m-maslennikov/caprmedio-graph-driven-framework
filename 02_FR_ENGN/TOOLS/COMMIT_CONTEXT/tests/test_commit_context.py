@@ -1,0 +1,216 @@
+from __future__ import annotations
+
+import hashlib
+import json
+import os
+import shutil
+import subprocess
+import sys
+import tempfile
+import unittest
+from pathlib import Path
+
+
+TOOL_DIRECTORY = Path(__file__).resolve().parents[1]
+sys.pycache_prefix = str(TOOL_DIRECTORY.parents[2] / ".caprmedio_runtime" / "cache" / "python")
+sys.path.insert(0, str(TOOL_DIRECTORY))
+
+from commit_context_logic import ContextError, gather_context  # noqa: E402
+
+
+def sha(value: str) -> str:
+    return hashlib.sha256(value.encode("utf-8")).hexdigest()
+
+
+class CommitContextTests(unittest.TestCase):
+    def setUp(self) -> None:
+        self.temporary = tempfile.TemporaryDirectory()
+        self.root = Path(self.temporary.name)
+        (self.root / ".caprmedio").mkdir()
+        (self.root / ".caprmedio_runtime").mkdir()
+        (self.root / ".caprmedio/caprmedio_project_settings.toml").write_text(
+            "[artifact_timestamps]\ntimezone = \"Asia/Tbilisi\"\n\n[paths]\njournal_root = \".caprmedio/work_journal\"\nruntime_root = \".caprmedio_runtime\"\n",
+            encoding="utf-8",
+        )
+        self.git("init")
+        self.git("config", "user.email", "test@example.com")
+        self.git("config", "user.name", "Test Operator")
+        self.git("config", "github.username", "anatoly-m-maslennikov")
+        self.write_atom(".caprmedio/04_requirement/CA-R-001-REQUIREMENT--parent.md", version=1, relations={})
+        self.git("add", ".")
+        self.git("commit", "-m", "initial")
+
+    def tearDown(self) -> None:
+        self.temporary.cleanup()
+
+    def git(self, *arguments: str) -> None:
+        subprocess.run(["git", "-C", str(self.root), *arguments], check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+
+    def write_atom(self, path: str, *, version: int, relations: dict[str, list[str]], body: str = "Body") -> None:
+        target = self.root / path
+        target.parent.mkdir(parents=True, exist_ok=True)
+        relation_lines = "relations:\n" + "".join(f"  {kind}:\n" + "".join(f"    - {item}\n" for item in items) for kind, items in relations.items())
+        target.write_text(f"---\nversion: {version}\n{relation_lines}---\n# {target.stem}\n\n{body}\n", encoding="utf-8")
+
+    def trigger(self, before: str | None, after: str | None, *, observed_at: str = "2026-08-20T00:30:00+04:00") -> dict[str, object]:
+        return {
+            "schema_version": 1,
+            "trigger_id": sha(f"trigger:{before}:{after}"),
+            "adapter": {"id": "codex-test"},
+            "source_event_id": "source-event-1",
+            "repository": {"root": str(self.root), "identity": sha(str(self.root))},
+            "observed_at": observed_at,
+            "before_path": before,
+            "after_path": after,
+            "llm_session": {"app": "codex", "uuid": "019f591f-04f6-70f2-8de7-828b7cccc69d"},
+        }
+
+    def commit_subject(self, path: str, *, version: int = 1, relations: dict[str, list[str]] | None = None, body: str = "Body") -> None:
+        self.write_atom(path, version=version, relations=relations or {"child_of": ["CA-R-001-REQUIREMENT--parent"]}, body=body)
+        self.git("add", path)
+        self.git("commit", "-m", "subject")
+
+    def test_add_is_read_only_and_resolves_relations(self) -> None:
+        path = ".caprmedio/04_requirement/CA-R-002-REQUIREMENT--child.md"
+        self.write_atom(path, version=1, relations={"child_of": ["CA-R-001-REQUIREMENT--parent"]})
+        before = subprocess.run(["git", "-C", str(self.root), "status", "--porcelain=v1"], check=True, stdout=subprocess.PIPE).stdout
+        context = gather_context(self.root, self.trigger(None, path))
+        after = subprocess.run(["git", "-C", str(self.root), "status", "--porcelain=v1"], check=True, stdout=subprocess.PIPE).stdout
+        self.assertEqual(before, after)
+        self.assertEqual("ADD", context["action_type"])
+        self.assertEqual([{"relation_type": "child_of", "filename": "CA-R-001-REQUIREMENT--parent.md", "version": 1}], context["sources"])
+        event = context["predictions"]["journal_records"][-1]
+        self.assertNotIn("before_path", event)
+        self.assertNotIn("action_message", event)
+        self.assertEqual("2026-08-20", context["local_date"])
+        self.assertEqual("anatoly-m-maslennikov", context["author"])
+        self.assertEqual(
+            ".caprmedio/work_journal/anatoly-m-maslennikov-2026-08-20-part-1.ndjson",
+            context["predictions"]["journal_partitions"][0]["path"],
+        )
+        self.assertNotIn("previous_result_event", event)
+
+    def test_repeated_context_is_byte_identical_and_keeps_session_provenance_structured(self) -> None:
+        path = ".caprmedio/04_requirement/CA-R-002-REQUIREMENT--subject.md"
+        self.write_atom(path, version=1, relations={})
+        trigger = self.trigger(None, path)
+        first = gather_context(self.root, trigger)
+        second = gather_context(self.root, trigger)
+        self.assertEqual(
+            json.dumps(first, sort_keys=True, separators=(",", ":")),
+            json.dumps(second, sort_keys=True, separators=(",", ":")),
+        )
+        event = first["predictions"]["journal_records"][-1]
+        self.assertEqual({"app": "codex", "uuid": "019f591f-04f6-70f2-8de7-828b7cccc69d"}, event["llm_session"])
+        self.assertNotIn("session_id", event)
+        self.assertNotIn("action_message", event)
+
+    def test_subject_frontier_binds_selected_result_carrier_state(self) -> None:
+        path = ".caprmedio/04_requirement/CA-R-002-REQUIREMENT--subject.md"
+        self.commit_subject(path, version=1, relations={})
+        self.write_atom(path, version=2, relations={}, body="first update")
+        first = gather_context(self.root, self.trigger(path, path))
+        self.write_atom(path, version=3, relations={}, body="second update")
+        second = gather_context(self.root, self.trigger(path, path))
+        self.assertNotEqual(first["frontier"]["source_sha256"], second["frontier"]["source_sha256"])
+        self.assertNotEqual(first["context_id"], second["context_id"])
+        self.assertEqual(first["frontier"]["relations_sha256"], second["frontier"]["relations_sha256"])
+
+    def test_relation_frontier_binds_target_content_version_and_path(self) -> None:
+        path = ".caprmedio/04_requirement/CA-R-002-REQUIREMENT--subject.md"
+        self.write_atom(path, version=1, relations={"child_of": ["CA-R-001-REQUIREMENT--parent"]})
+        first = gather_context(self.root, self.trigger(None, path))
+
+        parent = ".caprmedio/04_requirement/CA-R-001-REQUIREMENT--parent.md"
+        self.write_atom(parent, version=2, relations={}, body="revised parent")
+        second = gather_context(self.root, self.trigger(None, path))
+        self.assertEqual(first["frontier"]["source_sha256"], second["frontier"]["source_sha256"])
+        self.assertNotEqual(first["frontier"]["relations_sha256"], second["frontier"]["relations_sha256"])
+
+        moved_parent = ".caprmedio/100_LAYER_1_FRAMEWORK_METHODOLOGY/04_requirement/CA-R-001-REQUIREMENT--parent.md"
+        (self.root / moved_parent).parent.mkdir(parents=True, exist_ok=True)
+        os.replace(self.root / parent, self.root / moved_parent)
+        third = gather_context(self.root, self.trigger(None, path))
+        self.assertNotEqual(second["frontier"]["relations_sha256"], third["frontier"]["relations_sha256"])
+        self.assertNotEqual(second["context_id"], third["context_id"])
+
+    def test_action_classification_matrix(self) -> None:
+        original = ".caprmedio/04_requirement/CA-R-002-REQUIREMENT--subject.md"
+        self.commit_subject(original, body="v1")
+
+        self.write_atom(original, version=2, relations={"child_of": ["CA-R-001-REQUIREMENT--parent"]}, body="v2")
+        self.assertEqual("UPDATE", gather_context(self.root, self.trigger(original, original))["action_type"])
+        self.git("checkout", "--", original)
+
+        renamed = ".caprmedio/04_requirement/CA-R-002-REQUIREMENT--renamed.md"
+        (self.root / renamed).parent.mkdir(parents=True, exist_ok=True)
+        os.replace(self.root / original, self.root / renamed)
+        self.assertEqual("UPDATE", gather_context(self.root, self.trigger(original, renamed))["action_type"])
+        self.git("checkout", "--", original)
+        (self.root / renamed).unlink(missing_ok=True)
+
+        moved = ".caprmedio/100_LAYER_1_FRAMEWORK_METHODOLOGY/04_requirement/CA-R-002-REQUIREMENT--subject.md"
+        (self.root / moved).parent.mkdir(parents=True, exist_ok=True)
+        os.replace(self.root / original, self.root / moved)
+        self.assertEqual("MOVE", gather_context(self.root, self.trigger(original, moved))["action_type"])
+        self.git("checkout", "--", original)
+        shutil.rmtree((self.root / moved).parent.parent, ignore_errors=True)
+
+        moved_updated = ".caprmedio/100_LAYER_1_FRAMEWORK_METHODOLOGY/04_requirement/CA-R-002-REQUIREMENT--changed.md"
+        self.write_atom(moved_updated, version=2, relations={"child_of": ["CA-R-001-REQUIREMENT--parent"]}, body="v2")
+        (self.root / original).unlink(missing_ok=True)
+        self.assertEqual("MOVE+UPDATE", gather_context(self.root, self.trigger(original, moved_updated))["action_type"])
+
+    def test_remove_creates_tombstone_and_recovery_baseline(self) -> None:
+        path = ".caprmedio/04_requirement/CA-R-002-REQUIREMENT--subject.md"
+        self.commit_subject(path, version=3)
+        (self.root / path).unlink()
+        context = gather_context(self.root, self.trigger(path, None))
+        self.assertEqual("REMOVE", context["action_type"])
+        self.assertEqual({"state": "removed", "filename": "CA-R-002-REQUIREMENT--subject.md", "version": 3}, context["result"])
+        self.assertIn("recovery", context)
+        self.assertEqual([], context["recovery"]["contradictions"])
+        self.assertEqual("recovered", context["predictions"]["journal_records"][0]["event"])
+
+    def test_no_change_fails_closed(self) -> None:
+        path = ".caprmedio/04_requirement/CA-R-002-REQUIREMENT--subject.md"
+        self.commit_subject(path)
+        with self.assertRaisesRegex(ContextError, "no lifecycle") as captured:
+            gather_context(self.root, self.trigger(path, path))
+        self.assertEqual("no_governed_file_change", captured.exception.code)
+
+    def test_non_current_upstream_version_fails_closed(self) -> None:
+        path = ".caprmedio/04_requirement/CA-R-002-REQUIREMENT--subject.md"
+        self.write_atom(path, version=1, relations={"child_of": ["CA-R-001-REQUIREMENT--parent@2"]})
+        with self.assertRaisesRegex(ContextError, "current version") as captured:
+            gather_context(self.root, self.trigger(None, path))
+        self.assertEqual("non_current_upstream_version", captured.exception.code)
+
+    def test_cli_machine_envelopes(self) -> None:
+        path = ".caprmedio/04_requirement/CA-R-002-REQUIREMENT--subject.md"
+        self.write_atom(path, version=1, relations={})
+        script = TOOL_DIRECTORY / "commit_context.py"
+        valid = subprocess.run(
+            [sys.executable, str(script), "--repository", str(self.root), "--input", json.dumps(self.trigger(None, path))],
+            check=False,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            text=True,
+        )
+        envelope = json.loads(valid.stdout)
+        self.assertEqual(0, valid.returncode, valid.stderr)
+        self.assertTrue(envelope["ok"])
+        self.assertEqual("finder", envelope["tool"]["kind"])
+        invalid = subprocess.run(
+            [sys.executable, str(script), "--repository", str(self.root), "--input", "{}"],
+            check=False,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            text=True,
+        )
+        self.assertEqual(2, invalid.returncode)
+        self.assertFalse(json.loads(invalid.stdout)["ok"])
+
+
+if __name__ == "__main__":
+    unittest.main()

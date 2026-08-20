@@ -1,8 +1,8 @@
 ---
 subject_scopes:
   - artifact-catalog
-version: 8
-updated_at: 2026-08-19 04:55:53
+version: 9
+updated_at: 2026-08-20 18:36:57
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -18,4 +18,4 @@ relations:
 ---
 # Register the CAPRMEDIO Atom Type surface
 
-GOV registers every Atom Type within exactly one Content role. Content role states the Atom's primary semantic contribution; Type states the governed kind within that role. Atom routing admits no subtype coordinate, and a Type name may equal its Content-role name only when that is the canonical name of the governed kind.
+GOV registers every typed Atom within exactly one Content role. Content role states the Atom's primary semantic contribution; Type states the governed kind within that role. Atom routing admits no subtype coordinate, and a Type name may equal its Content-role name only when that is the canonical name of the governed kind.
