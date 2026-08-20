@@ -5,7 +5,6 @@ from __future__ import annotations
 
 import hashlib
 import json
-import subprocess
 from datetime import datetime
 from pathlib import Path
 
@@ -35,12 +34,6 @@ def sha(path: Path) -> str:
 
 def quote(value: object) -> str:
     return json.dumps(value, ensure_ascii=False)
-
-
-def git(*args: str) -> str:
-    return subprocess.run(
-        ["git", *args], cwd=ROOT, check=True, capture_output=True, text=True
-    ).stdout.strip()
 
 
 def files() -> list[Path]:
@@ -157,7 +150,6 @@ def project_graph_state(
     contribution_rows: list[dict[str, str]],
     unit_rows: list[dict[str, object]],
 ) -> str:
-    dirty = [line for line in git("status", "--porcelain=v1").splitlines() if line]
     lines = [
         "# Generated runtime view. Delete and regenerate at any time.",
         "[projection]",
@@ -183,11 +175,7 @@ def project_graph_state(
         f"journal_event_id = {quote(binding['journal_event_id'])}",
         "",
         "[repository]",
-        f"root = {quote(ROOT.as_posix())}",
         f"control_root = {quote(CONTROL.relative_to(ROOT).as_posix())}",
-        f"git_head = {quote(git('rev-parse', 'HEAD'))}",
-        f"dirty = {str(bool(dirty)).lower()}",
-        f"dirty_path_count = {len(dirty)}",
         f"governed_file_count = {len(source_rows)}",
         f"filesystem_unit_count = {len(unit_rows)}",
         f"graph_contribution_count = {len(contribution_rows)}",
