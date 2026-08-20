@@ -2,11 +2,11 @@
 artifact_subtype: qa_case
 subject_scopes:
   - evaluation
-version: 1
-updated_at: 2026-08-20 21:37:00
+version: 2
+updated_at: 2026-08-20 22:58:24
 relations:
   evaluation_for:
-    - CA-R-812-REQUIREMENT-FR_ENGN_TOOLS_OPS_TOOLS--append-governed-file-change-journal-records
+    - CA-R-812-REQUIREMENT-FR_ENGN_TOOLS--append-governed-file-change-journal-records
     - CAPRMEDIO-GOV-REQU-340--recover-work-journal-coverage-without-invention
 ---
 # Recover the first prior result without invention
