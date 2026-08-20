@@ -1,14 +1,11 @@
 ---
 subject_scopes:
   - feature-boundary
-version: 4
-updated_at: 2026-08-20 22:58:24
+version: 5
+updated_at: 2026-08-20 23:22:15
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
-  replacement_of:
-    - CAPRMEDIO-SPEC-REQU-499--define-tools-feature-scope
-    - CAPRMEDIO-REALIZATION-REQU-592--define-tools-feature-scope
   child_of:
     - CAPRMEDIO-FRAMEWORK-ENGINE-REQU-700--define-framework-engine-feature-topology
 ---
