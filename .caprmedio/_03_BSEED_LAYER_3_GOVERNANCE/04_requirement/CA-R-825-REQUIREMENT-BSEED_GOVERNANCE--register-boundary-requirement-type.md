@@ -2,12 +2,12 @@
 atom_id: CA-R-825
 subject_scopes:
   - artifact-catalog
-project_settings:
+project_graph_state:
   artifacts:
     enabled_types:
       - requirement:boundary
-version: 1
-updated_at: 2026-08-20 22:35:00
+version: 2
+updated_at: 2026-08-21 00:21:06
 relations:
   child_of:
     - CAPRMEDIO-META-REQU-132--define-role-specific-atom-atomicity
