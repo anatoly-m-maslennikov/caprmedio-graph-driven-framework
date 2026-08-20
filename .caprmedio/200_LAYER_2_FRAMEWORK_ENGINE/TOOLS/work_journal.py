@@ -20,13 +20,17 @@ import uuid
 from contextlib import contextmanager
 from pathlib import Path
 from typing import Any, Iterator, Mapping, Sequence
+from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 
 
-sys.pycache_prefix = str(
-    Path(__file__).resolve().parents[2] / ".caprmedio_runtime/cache/python"
-)
-
-from artifact_metadata import current_timestamp, repository_root  # noqa: E402
+MODULE_PATH = Path(__file__).resolve()
+for _parent in MODULE_PATH.parents:
+    if _parent.name == ".caprmedio_runtime":
+        sys.pycache_prefix = str(_parent / "cache" / "python")
+        break
+    if _parent.name == ".caprmedio":
+        sys.pycache_prefix = str(_parent.parent / ".caprmedio_runtime" / "cache" / "python")
+        break
 
 
 SETTINGS_PATH = Path(".caprmedio/caprmedio_project_settings.toml")
@@ -44,6 +48,28 @@ MAX_EVENTS_PER_PART = 100
 SHA256_RE = re.compile(r"^[0-9a-f]{64}$")
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 AUTHOR_RE = re.compile(r"^[A-Za-z0-9](?:[A-Za-z0-9-]{0,37}[A-Za-z0-9])?$")
+
+
+def repository_root(path: Path) -> Path:
+    for candidate in (path.resolve(), *path.resolve().parents):
+        if (candidate / SETTINGS_PATH).is_file():
+            return candidate
+    raise RuntimeError(f"cannot locate {SETTINGS_PATH} from {path}")
+
+
+def current_timestamp(root: Path) -> str:
+    settings = tomllib.loads((root / SETTINGS_PATH).read_text(encoding="utf-8"))
+    value = settings.get("artifact_timestamps", {}).get("timezone", "local")
+    if value == "local":
+        moment = dt.datetime.now().astimezone()
+    elif value == "UTC":
+        moment = dt.datetime.now(dt.UTC)
+    else:
+        try:
+            moment = dt.datetime.now(ZoneInfo(value))
+        except ZoneInfoNotFoundError as error:
+            raise RuntimeError(f"unknown artifact timestamp timezone: {value}") from error
+    return moment.strftime("%Y-%m-%d %H:%M:%S")
 
 
 class WorkJournalError(RuntimeError):
@@ -441,7 +467,7 @@ def _existing_receipt(root: Path, event: Mapping[str, Any], author: str, local_d
 
 @contextmanager
 def _partition_lock(root: Path, author: str, local_date: str) -> Iterator[None]:
-    locks = root / configured_runtime_root(root) / "work_journal" / "locks"
+    locks = root / configured_runtime_root(root) / "state" / "work_journal" / "locks"
     locks.mkdir(parents=True, exist_ok=True)
     path = locks / f"{author}-{local_date}.lock"
     token = str(uuid.uuid4())
@@ -509,7 +535,7 @@ def _append_locked(root: Path, event: Mapping[str, Any], author: str, local_date
         "previous_carrier_digest": _sha256(before),
         "appended_carrier_digest": _sha256(before + payload),
     }
-    receipt_path = root / configured_runtime_root(root) / "work_journal" / "receipts" / f"{event['event_id']}.json"
+    receipt_path = root / configured_runtime_root(root) / "state" / "work_journal" / "receipts" / f"{event['event_id']}.json"
     _atomic_json(receipt_path, receipt)
     return receipt
 
