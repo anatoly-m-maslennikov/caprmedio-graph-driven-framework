@@ -2,28 +2,28 @@
 artifact_subtype: qa_case
 subject_scopes:
   - evaluation
-version: 1
-updated_at: 2026-08-20 20:01:00
+version: 2
+updated_at: 2026-08-20 20:03:00
 relations:
   evaluation_for:
     - CA-M-087-METHOD-FR_ENGN_TOOLS_OPS_TOOLS--process-one-file-change
     - CA-R-805-REQUIREMENT-FR_ENGN_TOOLS_OPS_TOOLS--commit-one-governed-file-action
     - CAPRMEDIO-GOV-REQU-309--revision-bound-parent-child-commit-messages
 ---
-# Derive replaced_by for removal
+# Store direct replaced_by while archiving predecessor
 
 ## Claim checked
 
-Removal of a replaced file uses the derived inverse `replaced_by` relation from an already committed replacement.
+Archiving a replaced predecessor stores direct `replaced_by` to an already active successor and derives `replacement_of` only for inverse navigation.
 
 ## Test case
 
-Prepare a committed replacement file at version 1 with an authored `replacement_of` edge to an active old file at version 4, then gather and apply removal of the old file.
+Prepare an active successor at version 1 and an active predecessor at version 4, both at global tier `N`, then gather and apply one `MOVE+UPDATE` that adds `replaced_by` to the predecessor and moves it into `archive/`.
 
 ## Acceptance criteria
 
-The resulting one-file `REMOVE` commit message begins `replaced_by=<replacement-file>@1`, names `<old-file>@4` as affected, and contains no authored inverse backlink in either carrier.
+The resulting one-file commit message begins `replaced_by=<successor-file>@1`, records the predecessor path transition and resulting version 5, stores `replaced_by` only on the archived predecessor, stores no `replacement_of`, and derives `replacement_of=<archived-predecessor>@5` when navigating from the successor.
 
 ## Failure disposition
 
-Reject the flow if the inverse is absent, inferred without a committed direct edge, persisted as a backlink, or rendered under another relation name.
+Reject the flow if `replaced_by` is absent or derived, `replacement_of` is authored, the successor was not active first, the predecessor remains active, or either carrier stores an inverse backlink.
