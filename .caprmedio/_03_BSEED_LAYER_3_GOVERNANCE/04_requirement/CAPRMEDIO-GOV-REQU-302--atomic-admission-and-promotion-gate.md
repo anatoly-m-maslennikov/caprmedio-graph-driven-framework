@@ -1,11 +1,8 @@
 ---
 subject_scopes:
   - lifecycle
-project_settings:
-  artifacts:
-    creation_strictness: medium
-version: 3
-updated_at: 2026-08-18 20:19:17
+version: 4
+updated_at: 2026-08-21 00:21:06
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -19,8 +16,7 @@ relations:
 ---
 # Gate atomic admission and promotion
 
-`.caprmedio/caprmedio_project_settings.toml` selects `medium` or `high` through
-`artifacts.creation_strictness`; the default is `medium`.
+The Project Configuration Atom selects `medium` or `high` through `artifacts.creation_strictness`; the default is `medium`.
 
 At medium strictness, CAPRMEDIO requires accepted authority, one primary claim, one
 enabled artifact type, owning scope, creation provenance, material relations,
