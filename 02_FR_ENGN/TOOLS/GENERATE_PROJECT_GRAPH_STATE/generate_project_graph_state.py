@@ -122,7 +122,11 @@ def units() -> list[dict[str, object]]:
     rows = []
     directories = [CONTROL, *sorted(path for path in CONTROL.rglob("*") if path.is_dir())]
     for directory in directories:
-        children = [child for child in directory.iterdir() if child.name != ".DS_Store"]
+        children = [
+            child
+            for child in directory.iterdir()
+            if child.name != ".DS_Store" and child != OUTPUT
+        ]
         child_dirs = [child for child in children if child.is_dir()]
         child_files = [child for child in children if child.is_file()]
         kind = "mixed" if child_dirs and child_files else "area" if child_dirs else "feature" if child_files else "empty"
