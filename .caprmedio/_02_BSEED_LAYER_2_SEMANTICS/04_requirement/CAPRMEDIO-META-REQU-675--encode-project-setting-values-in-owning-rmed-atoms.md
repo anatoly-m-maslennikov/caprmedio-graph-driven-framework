@@ -1,8 +1,8 @@
 ---
 subject_scopes:
   - semantics
-version: 1
-updated_at: 2026-08-18 20:19:17
+version: 2
+updated_at: 2026-08-21 00:21:06
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -12,6 +12,6 @@ relations:
   relates_to:
     - CAPRMEDIO-META-REQU-627--bind-every-projected-setting-to-exact-source-authority
 ---
-# Encode Project Setting values in owning RMED Atoms
+# Keep configuration values in the Project Configuration Atom
 
-An applicable active RMED Atom may encode a structured Project Settings contribution only when that contribution is a machine-readable representation of the Atom's own governed claim rather than an independent configuration claim.
+The Project Configuration Atom is the sole owner of current human-editable configuration values. Other Atoms own capability meanings, allowed configuration surfaces, constraints, and defaults but must not duplicate the project's current selected values as a second settings authority.
