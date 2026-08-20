@@ -38,7 +38,7 @@ from typing import Any
 SCRIPT_PATH = Path(__file__).resolve()
 REPOSITORY_ROOT = SCRIPT_PATH.parents[3]
 sys.pycache_prefix = str(
-    REPOSITORY_ROOT / ".caprmedio_runtime" / "python_cache" / "02_FR_ENGN_TOOLS_COMMIT_TRIGGER"
+    REPOSITORY_ROOT / ".caprmedio_runtime" / "cache" / "python"
 )
 
 TOOL_SCHEMA_VERSION = 1
@@ -88,21 +88,39 @@ class FileState:
 
     path: str
     sha256: str
+    identity: str
+    line_count: int
 
 
 @dataclass(frozen=True)
 class PipelineCorrelation:
-    """A downstream action's declared non-subject write that must not re-trigger."""
+    """One exact downstream Journal transition that must not re-trigger."""
 
+    correlation_id: str
     action_id: str
-    path: str
-    kind: str
+    event_id: str
+    event_digest: str
+    carrier: str
+    line: int
+    previous_carrier_digest: str
+    appended_carrier_digest: str
 
     def __post_init__(self) -> None:
+        if not re.fullmatch(r"[0-9a-f]{64}", self.correlation_id):
+            raise ToolError("invalid-pipeline-correlation", "correlation_id must be a SHA-256 digest")
         _require_string(self.action_id, "action_id")
-        _canonical_path(self.path, "path")
-        if self.kind not in {"journal", "runtime-state"}:
-            raise ToolError("invalid-pipeline-correlation", "correlation kind must be journal or runtime-state")
+        _require_string(self.event_id, "event_id")
+        if not re.fullmatch(r"[0-9a-f]{64}", self.event_digest):
+            raise ToolError("invalid-pipeline-correlation", "event_digest must be a SHA-256 digest")
+        _canonical_path(self.carrier, "carrier")
+        if self.line < 1:
+            raise ToolError("invalid-pipeline-correlation", "line must be a positive integer")
+        for field, value in (
+            ("previous_carrier_digest", self.previous_carrier_digest),
+            ("appended_carrier_digest", self.appended_carrier_digest),
+        ):
+            if not re.fullmatch(r"[0-9a-f]{64}", value):
+                raise ToolError("invalid-pipeline-correlation", f"{field} must be a SHA-256 digest")
 
 
 def _require_identifier(value: object, field: str) -> str:
@@ -336,12 +354,33 @@ def emit_triggers(
     return triggers
 
 
-def _file_digest(path: Path) -> str:
-    digest = hashlib.sha256()
-    with path.open("rb") as handle:
-        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
-            digest.update(chunk)
-    return digest.hexdigest()
+def _carrier_identity(relative: str, data: bytes) -> str:
+    """Return a stable adapter-level carrier identity without graph traversal.
+
+    The polling adapter needs only enough identity to pair the two path
+    candidates of a move.  It does not inspect relations or classify the
+    resulting action.  Invalid or non-Markdown carriers fall back to their
+    address and are never guessed into a move.
+    """
+
+    path = Path(relative)
+    if path.suffix != ".md":
+        return f"path:{relative}"
+    try:
+        text = data.decode("utf-8")
+    except UnicodeDecodeError:
+        return f"path:{relative}"
+    if text.startswith("---\n") and (boundary := text.find("\n---\n", 4)) >= 0:
+        frontmatter = text[4:boundary]
+        matches = re.findall(r"(?m)^atom_id:\s*['\"]?([^'\"\s]+)['\"]?\s*$", frontmatter)
+        if len(matches) == 1:
+            return f"atom:{matches[0]}"
+    match = re.match(r"(CA-[RMCAPIDEO]-[0-9]+)(?:-|$)", path.name)
+    if match:
+        return f"atom:{match.group(1)}"
+    if "--" in path.name:
+        return f"carrier:{path.name.split('--', 1)[0]}"
+    return f"path:{relative}"
 
 
 def scan_governed_files(repository: Path | str) -> dict[str, FileState]:
@@ -363,7 +402,13 @@ def scan_governed_files(repository: Path | str) -> dict[str, FileState]:
         if not path.is_file() or path.is_symlink():
             continue
         relative = path.relative_to(resolved_repository).as_posix()
-        result[relative] = FileState(relative, _file_digest(path))
+        data = path.read_bytes()
+        result[relative] = FileState(
+            path=relative,
+            sha256=hashlib.sha256(data).hexdigest(),
+            identity=_carrier_identity(relative, data),
+            line_count=len(data.splitlines()),
+        )
     return result
 
 
@@ -390,16 +435,28 @@ def _watch_source_event_id(
 
 
 def _correlation_for(
-    before_path: str | None,
-    after_path: str | None,
-    correlations: Mapping[str, PipelineCorrelation],
+    before: FileState | None,
+    after: FileState | None,
+    correlations: Mapping[str, Sequence[PipelineCorrelation]],
 ) -> PipelineCorrelation | None:
-    candidates = [path for path in (before_path, after_path) if path is not None]
-    matched = {correlations[path] for path in candidates if path in correlations}
+    if after is None:
+        return None
+    empty_digest = hashlib.sha256(b"").hexdigest()
+    previous_digest = before.sha256 if before is not None else empty_digest
+    matched = {
+        correlation
+        for correlation in correlations.get(after.path, ())
+        if correlation.previous_carrier_digest == previous_digest
+        and correlation.appended_carrier_digest == after.sha256
+        and correlation.line == after.line_count
+    }
     if not matched:
         return None
     if len(matched) != 1:
-        raise ToolError("ambiguous-pipeline-correlation", "one file event resolves to multiple pipeline actions")
+        actions = {correlation.action_id for correlation in matched}
+        if len(actions) != 1:
+            raise ToolError("ambiguous-pipeline-correlation", "one file event resolves to multiple pipeline actions")
+        return sorted(matched, key=lambda item: item.correlation_id)[0]
     return next(iter(matched))
 
 
@@ -410,7 +467,7 @@ def _watch_observation(
     observed_at: str,
     before: FileState | None,
     after: FileState | None,
-    correlations: Mapping[str, PipelineCorrelation],
+    correlations: Mapping[str, Sequence[PipelineCorrelation]],
 ) -> dict[str, object]:
     before_path = before.path if before is not None else None
     after_path = after.path if after is not None else None
@@ -428,12 +485,12 @@ def _watch_observation(
         "before_path": before_path,
         "after_path": after_path,
     }
-    correlation = _correlation_for(before_path, after_path, correlations)
+    correlation = _correlation_for(before, after, correlations)
     if correlation is not None:
         observation["pipeline"] = {
             "owned": True,
             "action_id": correlation.action_id,
-            "kind": correlation.kind,
+            "kind": "journal",
         }
     return observation
 
@@ -445,7 +502,7 @@ def detect_watch_observations(
     adapter_id: str,
     repository: Path | str,
     observed_at: str,
-    correlations: Mapping[str, PipelineCorrelation] | None = None,
+    correlations: Mapping[str, Sequence[PipelineCorrelation]] | None = None,
 ) -> list[dict[str, object]]:
     """Derive deterministic ADD, REMOVE, MOVE, and UPDATE candidates from scans."""
 
@@ -457,8 +514,37 @@ def detect_watch_observations(
     added = {path: current[path] for path in sorted(set(current) - set(previous))}
     observations: list[dict[str, object]] = []
 
-    # A unique equal digest establishes a relocation without classifying it as
-    # a semantic MOVE; COMMIT_CONTEXT owns that classification.
+    # A unique stable carrier identity establishes one old/new path boundary,
+    # including when the carrier was edited during relocation.  This remains
+    # adapter-level event correlation; COMMIT_CONTEXT owns MOVE/UPDATE
+    # classification and all graph traversal.
+    removed_by_identity: dict[str, list[FileState]] = defaultdict(list)
+    added_by_identity: dict[str, list[FileState]] = defaultdict(list)
+    for state in removed.values():
+        removed_by_identity[state.identity].append(state)
+    for state in added.values():
+        added_by_identity[state.identity].append(state)
+    for identity in sorted(set(removed_by_identity) & set(added_by_identity)):
+        before_states = removed_by_identity[identity]
+        after_states = added_by_identity[identity]
+        if len(before_states) == len(after_states) == 1 and not identity.startswith("path:"):
+            before = before_states[0]
+            after = after_states[0]
+            observations.append(
+                _watch_observation(
+                    adapter_id=adapter_id,
+                    repository=resolved_repository,
+                    observed_at=canonical_time,
+                    before=before,
+                    after=after,
+                    correlations=active_correlations,
+                )
+            )
+            removed.pop(before.path)
+            added.pop(after.path)
+
+    # Equal content safely pairs remaining opaque carriers without assigning
+    # semantic meaning to the boundary.
     removed_by_digest: dict[str, list[FileState]] = defaultdict(list)
     added_by_digest: dict[str, list[FileState]] = defaultdict(list)
     for state in removed.values():
@@ -523,12 +609,13 @@ def detect_watch_observations(
     return sorted(observations, key=lambda item: str(item["source_event_id"]))
 
 
-def _read_pipeline_correlations(path: Path) -> dict[str, PipelineCorrelation]:
-    """Read the current append-only action/path suppression frontier, if present."""
+def _read_pipeline_correlations(path: Path) -> dict[str, tuple[PipelineCorrelation, ...]]:
+    """Replay the exact active Journal-transition suppression frontier."""
 
     if not path.exists():
         return {}
-    result: dict[str, PipelineCorrelation] = {}
+    registrations: dict[str, PipelineCorrelation] = {}
+    active: dict[str, bool] = {}
     for line_number, line in enumerate(path.read_text(encoding="utf-8").splitlines(), 1):
         if not line:
             continue
@@ -537,18 +624,62 @@ def _read_pipeline_correlations(path: Path) -> dict[str, PipelineCorrelation]:
         except json.JSONDecodeError as error:
             raise ToolError("invalid-pipeline-correlation", f"{path}:{line_number}: invalid JSON") from error
         record = _require_mapping(value, "pipeline correlation")
-        if record.get("state", "active") != "active":
+        if record.get("schema_version") != 1:
+            raise ToolError("invalid-pipeline-correlation", f"{path}:{line_number}: unsupported schema_version")
+        correlation_id = _require_string(record.get("correlation_id"), "correlation_id")
+        event = record.get("event")
+        if event == "retired":
+            if correlation_id not in registrations:
+                raise ToolError("invalid-pipeline-correlation", f"{path}:{line_number}: retirement precedes registration")
+            if record.get("action_id") != registrations[correlation_id].action_id:
+                raise ToolError("invalid-pipeline-correlation", f"{path}:{line_number}: retirement action differs")
+            active[correlation_id] = False
             continue
+        if event != "registered":
+            raise ToolError("invalid-pipeline-correlation", f"{path}:{line_number}: event must be registered or retired")
+        transition = _require_mapping(record.get("transition"), "transition")
         correlation = PipelineCorrelation(
-            _require_string(record.get("action_id"), "action_id"),
-            _canonical_path(record.get("path"), "path") or "",
-            _require_string(record.get("kind"), "kind"),
+            correlation_id=correlation_id,
+            action_id=_require_string(record.get("action_id"), "action_id"),
+            event_id=_require_string(transition.get("event_id"), "event_id"),
+            event_digest=_require_string(transition.get("event_digest"), "event_digest"),
+            carrier=_canonical_path(transition.get("carrier"), "carrier") or "",
+            line=transition.get("line") if isinstance(transition.get("line"), int) else 0,
+            previous_carrier_digest=_require_string(
+                transition.get("previous_carrier_digest"), "previous_carrier_digest"
+            ),
+            appended_carrier_digest=_require_string(
+                transition.get("appended_carrier_digest"), "appended_carrier_digest"
+            ),
         )
-        previous = result.get(correlation.path)
+        expected_id = _sha256(
+            {
+                "action_id": correlation.action_id,
+                "transition": {
+                    "event_id": correlation.event_id,
+                    "event_digest": correlation.event_digest,
+                    "carrier": correlation.carrier,
+                    "line": correlation.line,
+                    "previous_carrier_digest": correlation.previous_carrier_digest,
+                    "appended_carrier_digest": correlation.appended_carrier_digest,
+                },
+            }
+        )
+        if expected_id != correlation_id:
+            raise ToolError("invalid-pipeline-correlation", f"{path}:{line_number}: correlation_id digest differs")
+        previous = registrations.get(correlation_id)
         if previous is not None and previous != correlation:
-            raise ToolError("ambiguous-pipeline-correlation", f"{path}: multiple active actions claim {correlation.path}")
-        result[correlation.path] = correlation
-    return result
+            raise ToolError("invalid-pipeline-correlation", f"{path}:{line_number}: correlation identity collision")
+        registrations[correlation_id] = correlation
+        active[correlation_id] = True
+    grouped: dict[str, list[PipelineCorrelation]] = defaultdict(list)
+    for correlation_id, correlation in registrations.items():
+        if active.get(correlation_id):
+            grouped[correlation.carrier].append(correlation)
+    return {
+        carrier: tuple(sorted(values, key=lambda item: item.correlation_id))
+        for carrier, values in grouped.items()
+    }
 
 
 def watch_triggers(
