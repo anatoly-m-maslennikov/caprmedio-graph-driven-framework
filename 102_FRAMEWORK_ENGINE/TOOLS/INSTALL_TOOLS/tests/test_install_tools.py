@@ -1,0 +1,189 @@
+"""Deterministic tests for the INSTALL_TOOLS delivery."""
+
+from __future__ import annotations
+
+import importlib.util
+import json
+import os
+import shutil
+import subprocess
+import sys
+import tempfile
+import unittest
+from pathlib import Path
+
+
+SCRIPT = Path(__file__).resolve().parents[1] / "install_tools.py"
+TOOLS_SOURCE = SCRIPT.parents[1]
+SPEC = importlib.util.spec_from_file_location("install_tools", SCRIPT)
+assert SPEC is not None and SPEC.loader is not None
+install_tools = importlib.util.module_from_spec(SPEC)
+sys.modules[SPEC.name] = install_tools
+SPEC.loader.exec_module(install_tools)
+
+
+class InstallToolsTests(unittest.TestCase):
+    def setUp(self) -> None:
+        self.temporary = tempfile.TemporaryDirectory()
+        self.repository = Path(self.temporary.name) / "repository"
+        self.repository.mkdir()
+        subprocess.run(["git", "-C", str(self.repository), "init", "-q"], check=True)
+        subprocess.run(["git", "-C", str(self.repository), "config", "user.name", "CAPRMEDIO Test"], check=True)
+        subprocess.run(["git", "-C", str(self.repository), "config", "user.email", "test@example.invalid"], check=True)
+        self.canonical = self.repository / "102_FRAMEWORK_ENGINE/TOOLS"
+        shutil.copytree(
+            TOOLS_SOURCE,
+            self.canonical,
+            ignore=shutil.ignore_patterns("tests", "__pycache__", "*.pyc", ".DS_Store"),
+        )
+
+    def tearDown(self) -> None:
+        self.temporary.cleanup()
+
+    def test_dry_run_resolves_complete_install_without_mutation(self) -> None:
+        before = subprocess.run(
+            ["git", "-C", str(self.repository), "config", "--local", "--list"],
+            check=True,
+            capture_output=True,
+            text=True,
+        ).stdout
+        result = install_tools.install(self.repository, apply=False)
+        after = subprocess.run(
+            ["git", "-C", str(self.repository), "config", "--local", "--list"],
+            check=True,
+            capture_output=True,
+            text=True,
+        ).stdout
+
+        self.assertFalse(result["installed"])
+        self.assertGreater(result["file_count"], 10)
+        self.assertEqual(before, after)
+        self.assertFalse((self.repository / ".caprmedio_install").exists())
+        self.assertFalse((self.repository / ".caprmedio_runtime").exists())
+        self.assertFalse((self.repository / ".codex").exists())
+
+    def test_apply_installs_verified_release_launchers_and_all_hooks(self) -> None:
+        result = install_tools.install(self.repository, apply=True)
+        status = install_tools.tool_status(self.repository)
+
+        self.assertTrue(result["installed"])
+        self.assertTrue(status["verified"])
+        self.assertTrue(status["source_matches_install"])
+        self.assertTrue(status["hooks_installed"])
+        self.assertTrue(status["codex_hook_carrier_verified"])
+        self.assertEqual("host-controlled-unverified", status["codex_hook_activation"])
+        self.assertTrue(status["launchers_verified"])
+        self.assertEqual(".caprmedio_install/hooks/git", status["hooks_path"])
+        self.assertTrue((self.repository / ".codex/hooks.json").is_symlink())
+        self.assertEqual(
+            (self.repository / ".caprmedio_install/hooks/codex/hooks.json").resolve(),
+            (self.repository / ".codex/hooks.json").resolve(),
+        )
+        package_root = self.repository / str(status["package_root"])
+        self.assertTrue(status["launchers"]["commit-trigger"])
+        hook_text = (self.repository / ".caprmedio_install/hooks/codex/hooks.json").read_text(encoding="utf-8")
+        self.assertIn(str(self.repository / ".caprmedio_install/bin/commit-trigger"), hook_text)
+        self.assertNotIn(".caprmedio_install/releases/", hook_text)
+        for relative in (
+            "INSTALL_TOOLS/install_tools.py",
+            "START_BACKGROUND_SERVICES/start_background_services.py",
+            "COMMIT_TRIGGER/commit_trigger.py",
+            "COMMIT_CHANGE_SET/commit_change_set.py",
+        ):
+            completed = subprocess.run(
+                [sys.executable, "-I", "-B", str(package_root / relative), "--repository", str(self.repository), "describe"],
+                check=True,
+                capture_output=True,
+                text=True,
+                env={"PATH": os.environ.get("PATH", "")},
+            )
+            self.assertTrue(json.loads(completed.stdout)["ok"], relative)
+        entrypoints = [
+            path
+            for path in sorted(package_root.rglob("*.py"))
+            if 'if __name__ == "__main__"' in path.read_text(encoding="utf-8")
+        ]
+        self.assertGreater(len(entrypoints), 10)
+        for path in entrypoints:
+            subprocess.run(
+                [
+                    sys.executable,
+                    "-I",
+                    "-B",
+                    "-c",
+                    'import runpy,sys; from pathlib import Path; sys.path.insert(0, str(Path(sys.argv[1]).parent)); runpy.run_path(sys.argv[1], run_name="caprmedio_probe")',
+                    str(path),
+                ],
+                cwd=self.repository,
+                check=True,
+                capture_output=True,
+                text=True,
+                env={"PATH": os.environ.get("PATH", "")},
+            )
+        self.assertEqual([], list((self.repository / ".caprmedio_install").rglob("__pycache__")))
+        self.assertEqual([], list((self.repository / ".caprmedio_install").rglob("*.pyc")))
+
+    def test_custom_git_hooks_path_rejects_install_without_mutation(self) -> None:
+        custom = self.repository / "custom-hooks"
+        custom.mkdir()
+        subprocess.run(
+            ["git", "-C", str(self.repository), "config", "--local", "core.hooksPath", "custom-hooks"],
+            check=True,
+        )
+
+        with self.assertRaisesRegex(install_tools.ToolError, "different local core.hooksPath"):
+            install_tools.install(self.repository, apply=True)
+
+        self.assertEqual("custom-hooks", install_tools._git_hooks_path(self.repository))
+        self.assertFalse((self.repository / ".caprmedio_install").exists())
+        self.assertFalse((self.repository / ".caprmedio_runtime").exists())
+        self.assertFalse((self.repository / ".codex").exists())
+
+    def test_reinstall_selects_new_content_addressed_release_and_repoints_hooks(self) -> None:
+        first = install_tools.install(self.repository, apply=True)
+        codex_hooks_before = (self.repository / ".caprmedio_install/hooks/codex/hooks.json").read_bytes()
+        registry = self.canonical / "background_services.toml"
+        registry.write_text("schema_version = 1\nservices = []\n# next release\n", encoding="utf-8")
+        second = install_tools.install(self.repository, apply=True)
+
+        self.assertNotEqual(first["release"], second["release"])
+        status = install_tools.tool_status(self.repository)
+        self.assertEqual(second["release"], status["release"])
+        self.assertTrue(status["hooks_installed"])
+        self.assertEqual(
+            codex_hooks_before,
+            (self.repository / ".caprmedio_install/hooks/codex/hooks.json").read_bytes(),
+        )
+        stable_launcher = (self.repository / ".caprmedio_install/bin/commit-trigger").read_text(encoding="utf-8")
+        self.assertIn(second["release"], stable_launcher)
+        self.assertNotIn(first["release"], stable_launcher)
+        for name in ("pre-commit", "commit-msg", "post-commit"):
+            text = (self.repository / ".caprmedio_install/hooks/git" / name).read_text(encoding="utf-8")
+            self.assertIn(second["release"], text)
+            self.assertNotIn(first["release"], text)
+
+    def test_rejects_drift_in_an_existing_content_addressed_release(self) -> None:
+        installed = install_tools.install(self.repository, apply=True)
+        carrier = self.repository / str(installed["package_root"]) / "background_services.toml"
+        carrier.write_text("schema_version = 1\nservices = []\n# drift\n", encoding="utf-8")
+        current_before = (self.repository / ".caprmedio_install/current.toml").read_bytes()
+        hooks_before = {
+            name: (self.repository / ".caprmedio_install/hooks/git" / name).read_bytes()
+            for name in ("pre-commit", "commit-msg", "post-commit")
+        }
+
+        with self.assertRaisesRegex(install_tools.InstallationError, "existing release file differs"):
+            install_tools.install(self.repository, apply=True)
+
+        self.assertEqual(current_before, (self.repository / ".caprmedio_install/current.toml").read_bytes())
+        self.assertEqual(
+            hooks_before,
+            {
+                name: (self.repository / ".caprmedio_install/hooks/git" / name).read_bytes()
+                for name in ("pre-commit", "commit-msg", "post-commit")
+            },
+        )
+
+
+if __name__ == "__main__":
+    unittest.main()
