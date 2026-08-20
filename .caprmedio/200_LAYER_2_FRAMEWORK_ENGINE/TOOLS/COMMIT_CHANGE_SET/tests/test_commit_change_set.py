@@ -226,6 +226,36 @@ class CommitChangeSetTests(unittest.TestCase):
         self.assertEqual("governed-journal-missing", captured.exception.code)
         self.assertEqual(before, self.snapshot())
 
+    def test_e211_pre_commit_rejects_journal_without_atom(self) -> None:
+        context, appended = self.append_only()
+        commit_change_set._stage_receipt_sidecars(
+            self.root,
+            context["predictions"]["journal_records"],
+            appended["receipts"],
+        )
+        before = self.snapshot()
+        with self.assertRaisesRegex(commit_change_set.ToolError, "subject") as captured:
+            commit_change_set.evaluate_pre_commit(self.root)
+        self.assertEqual("governed-subject-missing", captured.exception.code)
+        self.assertEqual(before, self.snapshot())
+
+    def test_e211_pre_commit_rejects_second_governed_atom(self) -> None:
+        self.stage_appended()
+        parent = ".caprmedio/04_requirement/CA-R-001-REQUIREMENT--parent.md"
+        self.write_atom(parent, version=2, relations={}, body="changed parent")
+        self.git("add", parent)
+        with self.assertRaisesRegex(commit_change_set.ToolError, "Atom paths") as captured:
+            commit_change_set.evaluate_pre_commit(self.root)
+        self.assertEqual("governed-subject-mismatch", captured.exception.code)
+
+    def test_e211_pre_commit_rejects_git_whitespace_error(self) -> None:
+        target = self.root / "ordinary.txt"
+        target.write_text("trailing space \n", encoding="utf-8")
+        self.git("add", target.name)
+        with self.assertRaisesRegex(commit_change_set.ToolError, "whitespace") as captured:
+            commit_change_set.evaluate_pre_commit(self.root)
+        self.assertEqual("staged-content-invalid", captured.exception.code)
+
     def test_e211_pre_commit_accepts_exact_subject_and_sidecars_read_only(self) -> None:
         self.stage_appended()
         before = self.snapshot()
