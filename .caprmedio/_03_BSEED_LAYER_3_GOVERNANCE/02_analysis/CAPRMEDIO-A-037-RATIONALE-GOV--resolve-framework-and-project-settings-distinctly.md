@@ -1,12 +1,12 @@
 ---
 subject_scopes:
   - settings
-version: 1
-updated_at: 2026-08-19 22:22:41
+version: 2
+updated_at: 2026-08-21 00:21:06
 relations:
   rationale_for:
     - CAPRMEDIO-GOV-METH-086--resolve-framework-and-project-settings-separately
 ---
-# Resolve Framework and Project Settings distinctly
+# Resolve Project Configuration and Graph State distinctly
 
-Framework Settings configure the engine through a native Atom while Project Settings represent derived current-project authority, so treating them as one carrier would collapse distinct ownership and artifact forms.
+Project Configuration selects and parameterizes project operation through a human-editable native Atom, while Project Graph State Projections expose derived current structure and effective state without authority. Treating both as settings would collapse source authority and generated views into competing writable carriers.
