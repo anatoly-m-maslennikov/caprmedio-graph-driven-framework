@@ -2,12 +2,12 @@
 artifact_subtype: qa_case
 subject_scopes:
   - evaluation
-version: 3
-updated_at: 2026-08-20 22:58:24
+version: 4
+updated_at: 2026-08-20 23:40:00
 relations:
   evaluation_for:
-    - CA-R-804-REQUIREMENT-FR_ENGN_TOOLS--gather-complete-commit-action-context
-    - CA-R-805-REQUIREMENT-FR_ENGN_TOOLS--commit-one-governed-file-action
+    - CA-R-804-REQUIREMENT-FR_ENGN_TOOLS_COMMIT_CONTEXT--gather-complete-commit-action-context
+    - CA-R-805-REQUIREMENT-FR_ENGN_TOOLS_COMMIT_CHANGE_SET--commit-one-governed-file-action
 ---
 # Reject non-current upstream version
 
