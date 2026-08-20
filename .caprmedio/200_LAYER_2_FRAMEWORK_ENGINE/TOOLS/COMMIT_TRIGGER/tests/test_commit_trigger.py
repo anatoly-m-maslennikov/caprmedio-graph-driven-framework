@@ -68,6 +68,14 @@ class CommitTriggerTests(unittest.TestCase):
         observation.update(overrides)
         return observation
 
+    def _write_atom(self, path: str, *, version: int, body: str) -> None:
+        target = self.repository / path
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_text(
+            f"---\nversion: {version}\nrelations:\n---\n# {target.stem}\n\n{body}\n",
+            encoding="utf-8",
+        )
+
     def _snapshot(self) -> dict[str, object]:
         def files(root: Path) -> dict[str, str]:
             if not root.exists():
@@ -169,7 +177,7 @@ class CommitTriggerTests(unittest.TestCase):
         runtime = self._observation(
             source_event_id="runtime-write",
             before_path=None,
-            after_path=".caprmedio_runtime/commit_change_set/action-001.json",
+            after_path=".caprmedio_runtime/state/commit_change_set/action-001.json",
             pipeline={"owned": True, "action_id": "action-001", "kind": "runtime-state"},
         )
         triggers = commit_trigger.emit_from_registered_adapter(
@@ -297,7 +305,7 @@ class CommitTriggerTests(unittest.TestCase):
         }
         action_id = "action-001"
         correlation_id = commit_trigger._sha256({"action_id": action_id, "transition": transition})
-        path = self.repository / ".caprmedio_runtime/commit_trigger/pipeline_correlations.ndjson"
+        path = self.repository / ".caprmedio_runtime/state/commit_trigger/pipeline_correlations.ndjson"
         path.parent.mkdir(parents=True, exist_ok=True)
         registered = {
             "schema_version": 1,
@@ -360,6 +368,122 @@ class CommitTriggerTests(unittest.TestCase):
         handoff = envelope["result"]["handoffs"][0]
         self.assertEqual(handoff["interface"], "COMMIT_CHANGE_SET")
         self.assertEqual(handoff["trigger"]["llm_session"]["app"], "codex")
+
+    def test_runtime_install_is_content_addressed_and_self_contained(self) -> None:
+        status = commit_trigger.install_runtime_package(self.repository, apply=True)
+
+        self.assertTrue(status["installed"])
+        self.assertTrue(status["verified"])
+        release_root = self.repository / str(status["package_root"])
+        self.assertTrue((release_root / "manifest.toml").is_file())
+        self.assertEqual(8, status["file_count"])
+        for relative in (
+            "COMMIT_TRIGGER/commit_trigger.py",
+            "COMMIT_CONTEXT/commit_context.py",
+            "APPEND_CHANGE_RECORDS/append_change_records.py",
+            "COMMIT_CHANGE_SET/commit_change_set.py",
+        ):
+            completed = subprocess.run(
+                [sys.executable, "-I", "-B", str(release_root / relative), "--repository", str(self.repository), "describe"],
+                check=True,
+                capture_output=True,
+                text=True,
+                cwd=self.repository,
+                env={"PATH": os.environ.get("PATH", "")},
+            )
+            self.assertTrue(json.loads(completed.stdout)["ok"], relative)
+
+    def test_project_codex_hook_runs_installed_pipeline_and_commits_one_atom(self) -> None:
+        (self.repository / ".gitignore").write_text("/.caprmedio_runtime/\n/.codex/hooks.json\n", encoding="utf-8")
+        (self.repository / ".caprmedio").mkdir()
+        (self.repository / ".caprmedio/caprmedio_project_settings.toml").write_text(
+            "[artifact_timestamps]\ntimezone = \"Asia/Tbilisi\"\n\n"
+            "[paths]\njournal_root = \".caprmedio/work_journal\"\n"
+            "runtime_root = \".caprmedio_runtime\"\n",
+            encoding="utf-8",
+        )
+        subject = ".caprmedio/04_requirement/CA-R-001-REQUIREMENT--subject.md"
+        self._write_atom(subject, version=1, body="first")
+        self._git("config", "github.username", "anatoly-m-maslennikov")
+        self._git("add", ".gitignore", ".caprmedio")
+        self._git("commit", "-qm", "governed fixture")
+
+        installed = commit_trigger.install_runtime_package(self.repository, apply=True)
+        entrypoint = self.repository / str(installed["entrypoint"])
+        subprocess.run(
+            [
+                sys.executable,
+                "-I",
+                "-B",
+                str(entrypoint),
+                "--repository",
+                str(self.repository),
+                "adapter",
+                "install",
+                "--adapter-id",
+                self.adapter.adapter_id,
+                "--application",
+                "codex",
+                "--host-session-env",
+                "CODEX_THREAD_ID",
+                "--fallback-session-env",
+                "CODEX_SESSION_ID",
+                "--apply",
+            ],
+            check=True,
+            capture_output=True,
+            text=True,
+            cwd=self.repository,
+        )
+        hook_config = self.repository / ".codex/hooks.json"
+        self.assertTrue(hook_config.is_symlink())
+        self.assertEqual(
+            (self.repository / ".caprmedio_runtime/hooks/codex/hooks.json").resolve(),
+            hook_config.resolve(),
+        )
+        payload = {
+            "session_id": self.environment["CODEX_THREAD_ID"],
+            "tool_use_id": "tool-use-001",
+            "cwd": str(self.repository),
+        }
+
+        for phase in ("pre", "post"):
+            if phase == "post":
+                self._write_atom(subject, version=2, body="second")
+            completed = subprocess.run(
+                [
+                    sys.executable,
+                    "-I",
+                    "-B",
+                    str(entrypoint),
+                    "--repository",
+                    str(self.repository),
+                    "codex-hook",
+                    phase,
+                    "--adapter-id",
+                    self.adapter.adapter_id,
+                ],
+                input=json.dumps(payload),
+                check=True,
+                capture_output=True,
+                text=True,
+                cwd=self.repository,
+            )
+            envelope = json.loads(completed.stdout)
+            self.assertTrue(envelope["ok"], completed.stdout)
+
+        self.assertEqual("committed", envelope["result"]["effect"])
+        self.assertEqual(1, envelope["result"]["commit_count"])
+        changed = self._git("diff-tree", "--no-commit-id", "--name-only", "-r", "HEAD").splitlines()
+        self.assertIn(subject, changed)
+        journals = [path for path in changed if path.startswith(".caprmedio/work_journal/")]
+        self.assertEqual(1, len(journals))
+        record = json.loads((self.repository / journals[0]).read_text(encoding="utf-8").splitlines()[-1])
+        self.assertEqual(
+            {"app": "codex", "uuid": self.environment["CODEX_THREAD_ID"]},
+            record["llm_session"],
+        )
+        self.assertEqual("", self._git("status", "--porcelain=v1"))
 
     @staticmethod
     def _run_hook(hook: Path) -> None:
