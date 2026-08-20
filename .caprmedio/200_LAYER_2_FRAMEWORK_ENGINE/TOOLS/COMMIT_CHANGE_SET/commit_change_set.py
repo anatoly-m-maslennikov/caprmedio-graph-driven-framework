@@ -25,17 +25,22 @@ from pathlib import Path
 from typing import Any, Mapping, Sequence
 
 
-REPOSITORY_ROOT = Path(__file__).resolve().parents[3]
-TOOLS_ROOT = REPOSITORY_ROOT / "02_FR_ENGN" / "TOOLS"
+SCRIPT_PATH = Path(__file__).resolve()
+TOOLS_ROOT = SCRIPT_PATH.parents[1]
 CONTEXT_ROOT = TOOLS_ROOT / "COMMIT_CONTEXT"
 APPENDER_ROOT = TOOLS_ROOT / "APPEND_CHANGE_RECORDS"
-sys.pycache_prefix = str(REPOSITORY_ROOT / ".caprmedio_runtime" / "cache" / "python")
+for _parent in SCRIPT_PATH.parents:
+    if _parent.name == ".caprmedio_runtime":
+        sys.pycache_prefix = str(_parent / "cache" / "python")
+        break
+    if _parent.name == ".caprmedio":
+        sys.pycache_prefix = str(_parent.parent / ".caprmedio_runtime" / "cache" / "python")
+        break
 for _path in (TOOLS_ROOT, CONTEXT_ROOT, APPENDER_ROOT):
     if str(_path) not in sys.path:
         sys.path.insert(0, str(_path))
 
-from artifact_metadata import repository_root  # noqa: E402
-from commit_context_logic import ContextError, event_message, gather_context, repository_identity  # noqa: E402
+from commit_context_logic import ContextError, event_message, gather_context, repository_identity, repository_root  # noqa: E402
 from work_journal import canonical_json_bytes, canonical_json_digest  # noqa: E402
 
 
@@ -293,7 +298,7 @@ def _validate_receipts(root: Path, context: Mapping[str, Any], events: Sequence[
 
 
 def _lease_path(root: Path) -> Path:
-    return root / ".caprmedio_runtime" / "commit_change_set" / "lease.json"
+    return root / ".caprmedio_runtime" / "state" / "commit_change_set" / "lease.json"
 
 
 def _validate_lease(root: Path, context: Mapping[str, Any], events: Sequence[Mapping[str, Any]], raw_lease: object) -> dict[str, Any]:
@@ -761,7 +766,7 @@ def describe() -> dict[str, Any]:
         "schema_version": TOOL_SCHEMA_VERSION,
         "capability_id": TOOL_ID,
         "kind": TOOL_KIND,
-        "canonical_script": "02_FR_ENGN/TOOLS/COMMIT_CHANGE_SET/commit_change_set.py",
+        "canonical_script": ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/COMMIT_CHANGE_SET/commit_change_set.py",
         "input_schema": {
             "trigger_flow": {"required": ["trigger"], "effect": "gather, append, then commit when --apply is present"},
             "commit_only": {"required": ["context", "receipts", "lease"], "effect": "final Git boundary or idempotent retry"},
