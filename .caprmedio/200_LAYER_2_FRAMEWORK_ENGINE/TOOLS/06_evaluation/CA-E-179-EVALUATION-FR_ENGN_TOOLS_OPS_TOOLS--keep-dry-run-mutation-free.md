@@ -2,8 +2,8 @@
 artifact_subtype: qa_case
 subject_scopes:
   - evaluation
-version: 1
-updated_at: 2026-08-20 19:55:00
+version: 2
+updated_at: 2026-08-20 22:08:00
 relations:
   evaluation_for:
     - CA-M-087-METHOD-FR_ENGN_TOOLS_OPS_TOOLS--process-one-file-change
@@ -17,11 +17,11 @@ relations:
 
 ## Test case
 
-Snapshot governed files, runtime outputs, index entries, refs, and object reachability for one valid sealed `UPDATE` context, invoke the Doer in dry-run mode, then repeat every snapshot.
+Snapshot governed files, runtime outputs, repository lease state, index entries, refs, and object reachability for one valid sealed `UPDATE` context, invoke the complete flow in dry-run mode, then repeat every snapshot.
 
 ## Acceptance criteria
 
-The result names the exact identity, change set, typed upstream relations, canonical message, and validations, while every captured state remains unchanged and no new reachable commit exists.
+The result names the exact identity, change set, typed upstream relations, structured sidecar record set, message Projection, predicted lease availability, and validations, while every captured state remains unchanged, no lease is acquired, and no new reachable commit exists.
 
 ## Failure disposition
 
