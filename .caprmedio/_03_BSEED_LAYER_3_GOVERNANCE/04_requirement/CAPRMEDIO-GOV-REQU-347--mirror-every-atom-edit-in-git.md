@@ -1,13 +1,13 @@
 ---
 subject_scopes:
   - provenance
-project_settings:
+project_graph_state:
   git:
     commit_each_atom_edit: true
     initialize_if_missing: true
     required: true
-version: 8
-updated_at: 2026-08-20 21:39:00
+version: 9
+updated_at: 2026-08-21 00:21:06
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
