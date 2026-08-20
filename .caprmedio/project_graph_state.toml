@@ -4,11 +4,11 @@ schema_version = "0.1"
 kind = "project_graph_state"
 non_authoritative = true
 currentness = "working_tree_snapshot"
-generated_at = "2026-08-21T01:26:50+04:00"
+generated_at = "2026-08-21T01:31:42+04:00"
 canonical_generator = "02_FR_ENGN/TOOLS/GENERATE_PROJECT_GRAPH_STATE/generate_project_graph_state.py"
-canonical_generator_sha256 = "ea9a0032bc16a485e2bbf709a5e0e492a50b20acc68f0ec399bed1b08b46135c"
+canonical_generator_sha256 = "40740fa58caa5be019ceafe9ce68387c7e229fd196a4b891585a5b91ef0529ad"
 executed_generator = ".caprmedio_runtime/installed/tools/generate_project_graph_state/generate_project_graph_state.py"
-executed_generator_sha256 = "ea9a0032bc16a485e2bbf709a5e0e492a50b20acc68f0ec399bed1b08b46135c"
+executed_generator_sha256 = "40740fa58caa5be019ceafe9ce68387c7e229fd196a4b891585a5b91ef0529ad"
 source_frontier_sha256 = "1296f16fa02da5fc89c0f8eb1b4e163b9d1ac4c65ed384999c95333974c13b4e"
 
 [configuration]
