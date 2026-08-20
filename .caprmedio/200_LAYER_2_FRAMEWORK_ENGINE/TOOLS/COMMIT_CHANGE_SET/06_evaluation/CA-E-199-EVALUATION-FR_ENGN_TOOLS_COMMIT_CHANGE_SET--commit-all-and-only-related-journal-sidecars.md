@@ -2,12 +2,12 @@
 artifact_subtype: qa_case
 subject_scopes:
   - evaluation
-version: 1
-updated_at: 2026-08-20 21:36:00
+version: 2
+updated_at: 2026-08-20 22:58:24
 relations:
   evaluation_for:
-    - CA-R-805-REQUIREMENT-FR_ENGN_TOOLS_OPS_TOOLS--commit-one-governed-file-action
-    - CA-M-087-METHOD-FR_ENGN_TOOLS_OPS_TOOLS--process-one-file-change
+    - CA-R-805-REQUIREMENT-FR_ENGN_TOOLS--commit-one-governed-file-action
+    - CA-M-087-METHOD-FR_ENGN_TOOLS--process-one-file-change
 ---
 # Commit all and only related Journal sidecars
 
