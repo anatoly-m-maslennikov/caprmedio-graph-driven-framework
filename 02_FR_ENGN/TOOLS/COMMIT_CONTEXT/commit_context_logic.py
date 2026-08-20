@@ -89,6 +89,16 @@ def repository_root(root: Path) -> Path:
     return candidate
 
 
+def repository_identity(root: Path) -> str:
+    """Return the same stable repository identity sealed by COMMIT_TRIGGER."""
+
+    root = root.expanduser().resolve()
+    git_directory = git_text(root, ["rev-parse", "--git-dir"])
+    assert git_directory is not None
+    resolved_git = (root / git_directory).resolve()
+    return digest({"repository_root": root.as_posix(), "git_directory": resolved_git.as_posix()})
+
+
 def git(root: Path, arguments: Sequence[str], *, allow_failure: bool = False) -> bytes | None:
     completed = subprocess.run(
         ["git", "-C", str(root), *arguments],
@@ -422,6 +432,22 @@ def validate_trigger(root: Path, trigger: Mapping[str, Any]) -> dict[str, Any]:
     identity = required_string(repository.get("identity"), name="repository.identity")
     if not SHA256.fullmatch(identity):
         raise ContextError("repository_identity_invalid", "repository.identity must be a SHA-256 hex digest")
+    actual_identity = repository_identity(root)
+    if identity != actual_identity:
+        raise ContextError(
+            "trigger_repository_identity_mismatch",
+            "trigger repository.identity does not identify the selected repository",
+        )
+    expected_trigger_id = digest(
+        {
+            "schema_version": 1,
+            "adapter_id": adapter_id,
+            "source_event_id": source_event_id,
+            "repository_id": identity,
+        }
+    )
+    if trigger_id != expected_trigger_id:
+        raise ContextError("trigger_id_mismatch", "trigger_id does not match its sealed identity fields")
     observed_at = parse_instant(trigger.get("observed_at"), name="observed_at")
     session = required_mapping(trigger.get("llm_session"), name="llm_session")
     app = required_string(session.get("app"), name="llm_session.app").lower()
@@ -522,10 +548,18 @@ def scan_prior_events(root: Path, journal_relative: Path, before: Carrier | None
                 continue
             if record.get("event") not in {"completed", "recovered"}:
                 continue
+            sealed_digest = record.get("event_digest")
+            unsigned = dict(record)
+            unsigned.pop("event_digest", None)
+            if not isinstance(sealed_digest, str) or not SHA256.fullmatch(sealed_digest) or digest(unsigned) != sealed_digest:
+                raise ContextError(
+                    "journal_event_digest_invalid",
+                    "Journal event digest is invalid while resolving prior state",
+                    path=carrier_path.relative_to(root).as_posix(),
+                    line=line_number,
+                )
             result = record.get("result")
-            if not isinstance(result, Mapping) or result.get("state") != "present":
-                continue
-            if result.get("filename") != before.filename:
+            if not isinstance(result, Mapping) or dict(result) != present_result(before):
                 continue
             event_id = record.get("event_id")
             if not isinstance(event_id, str):
@@ -919,3 +953,110 @@ def validate_context(context: Mapping[str, Any]) -> None:
             raise ContextError("context_result_invalid", "removed result contains present-only fields")
     else:
         raise ContextError("context_result_invalid", "result state is invalid")
+
+    trigger = required_mapping(context.get("trigger"), name="context.trigger")
+    subject = required_mapping(context.get("subject"), name="context.subject")
+    subject_identity = required_string(subject.get("identity"), name="context.subject.identity")
+    expected_action_id = digest(
+        {
+            "schema_version": CONTEXT_SCHEMA_VERSION,
+            "trigger_id": trigger.get("trigger_id"),
+            "identity": subject_identity,
+        }
+    )
+    if context["action_id"] != expected_action_id:
+        raise ContextError("action_identity_mismatch", "action_id does not match trigger and subject identity")
+
+    core_fields = (
+        "schema_version",
+        "action_id",
+        "trigger",
+        "subject",
+        "structural_scope",
+        "action_type",
+        "sources",
+        "result",
+        "llm_session",
+        "author",
+        "occurred_at",
+        "timezone",
+        "local_date",
+        "git_base",
+        "frontier",
+    )
+    context_core = {field: context[field] for field in core_fields}
+    if "previous_result_event" in context:
+        context_core["previous_result_event"] = context["previous_result_event"]
+    if context["context_id"] != digest(context_core):
+        raise ContextError("context_identity_mismatch", "context_id does not match its sealed authoritative fields")
+
+    frontier = required_mapping(context.get("frontier"), name="context.frontier")
+    relations = context.get("relations")
+    if not isinstance(relations, list):
+        raise ContextError("context_relations_invalid", "context.relations must be an ordered array")
+    detailed_frontier: list[dict[str, Any]] = []
+    compact_sources: list[dict[str, Any]] = []
+    for relation in relations:
+        row = required_mapping(relation, name="context.relations item")
+        try:
+            detailed_frontier.append(
+                {key: row[key] for key in ("relation_type", "filename", "version", "path", "sha256")}
+            )
+            compact_sources.append({key: row[key] for key in ("relation_type", "filename", "version")})
+        except KeyError as error:
+            raise ContextError("context_relations_invalid", "detailed relation frontier is incomplete", field=error.args[0]) from error
+    if context.get("sources") != compact_sources:
+        raise ContextError("context_sources_invalid", "sources are not the compact detailed-relation projection")
+    if frontier.get("relations_sha256") != digest(detailed_frontier):
+        raise ContextError("context_relation_frontier_mismatch", "relation frontier digest does not match detailed relations")
+
+    source_frontier: dict[str, Any] = {
+        "identity": subject_identity,
+        "state": "removed" if result.get("state") == "removed" else "present",
+        "filename": result.get("filename"),
+        "version": result.get("version"),
+    }
+    if result.get("state") == "present":
+        source_frontier.update({"path": result.get("path"), "sha256": result.get("sha256")})
+    else:
+        snapshots = required_mapping(context.get("snapshots"), name="context.snapshots")
+        committed = required_mapping(snapshots.get("committed"), name="context.snapshots.committed")
+        source_frontier.update({"path": committed.get("path"), "sha256": committed.get("sha256")})
+    if frontier.get("source_sha256") != digest(source_frontier):
+        raise ContextError("context_source_frontier_mismatch", "source frontier digest does not match selected carrier")
+
+    predictions = required_mapping(context.get("predictions"), name="context.predictions")
+    records = predictions.get("journal_records")
+    if not isinstance(records, list) or not records:
+        raise ContextError("context_events_invalid", "predicted Journal records must be a non-empty array")
+    completed_records: list[Mapping[str, Any]] = []
+    for raw_record in records:
+        record = required_mapping(raw_record, name="context Journal record")
+        event_digest = record.get("event_digest")
+        unsigned = dict(record)
+        unsigned.pop("event_digest", None)
+        if not isinstance(event_digest, str) or not SHA256.fullmatch(event_digest) or digest(unsigned) != event_digest:
+            raise ContextError("context_event_digest_mismatch", "predicted Journal record digest is invalid")
+        if record.get("action_id") != context["action_id"]:
+            raise ContextError("context_event_action_mismatch", "predicted Journal record action differs from context")
+        if record.get("author") != context["author"] or record.get("occurred_at") != context["occurred_at"]:
+            raise ContextError("context_event_provenance_mismatch", "predicted Journal record provenance differs from context")
+        if record.get("llm_session") != context["llm_session"] or record.get("structural_scope") != context["structural_scope"]:
+            # A recovered baseline uses the preceding carrier's Structural
+            # scope, so only current change events must equal the current scope.
+            if record.get("event") != "recovered" or record.get("llm_session") != context["llm_session"]:
+                raise ContextError("context_event_provenance_mismatch", "predicted Journal record scope or session differs")
+        if record.get("event") == "completed" and record.get("kind") == "governed_file_change":
+            event_core = dict(unsigned)
+            event_id = event_core.pop("event_id", None)
+            if not isinstance(event_id, str) or event_id != digest(event_core):
+                raise ContextError("context_event_identity_mismatch", "completed event_id does not match its structured event")
+            completed_records.append(record)
+    if len(completed_records) != 1:
+        raise ContextError("context_events_invalid", "context must predict exactly one completed governed_file_change")
+    completed = completed_records[0]
+    for field in ("action_type", "sources", "result"):
+        if completed.get(field) != context.get(field):
+            raise ContextError("context_event_projection_mismatch", f"completed event {field} differs from context")
+    if completed.get("previous_result_event") != context.get("previous_result_event"):
+        raise ContextError("context_event_projection_mismatch", "completed event predecessor differs from context")
