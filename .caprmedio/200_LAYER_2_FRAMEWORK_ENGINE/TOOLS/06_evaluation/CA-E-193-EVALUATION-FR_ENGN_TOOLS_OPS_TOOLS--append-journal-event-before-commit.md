@@ -2,26 +2,26 @@
 artifact_subtype: qa_case
 subject_scopes:
   - evaluation
-version: 1
-updated_at: 2026-08-20 20:23:00
+version: 2
+updated_at: 2026-08-20 21:30:00
 relations:
   evaluation_for:
     - CA-M-087-METHOD-FR_ENGN_TOOLS_OPS_TOOLS--process-one-file-change
 ---
-# Append the Journal event before the commit
+# Append all related Journal records before the commit
 
 ## Claim checked
 
-The Journal Doer completes and returns its durable receipt before the Git Doer begins commit creation.
+The Journal Doer completes every related append and returns the complete durable receipt set before the Git Doer begins commit creation.
 
 ## Test case
 
-Instrument one valid apply flow to record the Journal fsync and receipt-return boundary and the first Git index or commit mutation.
+Instrument one valid apply flow whose related records span multiple Journal carriers to record every Journal fsync and receipt-return boundary and the first Git index or commit mutation.
 
 ## Acceptance criteria
 
-The Journal append, fsync, and valid receipt all occur before any Git mutation, and the Git Doer consumes that exact receipt.
+Every related Journal append is fsynced and the complete valid receipt set is returned before any Git mutation, and the Git Doer consumes exactly that set.
 
 ## Failure disposition
 
-Reject the flow if Git mutation starts first, the append is not durable, or the Git Doer uses a predicted or different receipt.
+Reject the flow if Git mutation starts first, any related append is not durable, or the Git Doer uses a predicted, incomplete, or different receipt set.
