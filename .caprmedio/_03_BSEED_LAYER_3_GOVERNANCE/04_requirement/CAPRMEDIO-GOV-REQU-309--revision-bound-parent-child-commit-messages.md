@@ -1,8 +1,8 @@
 ---
 subject_scopes:
   - provenance
-version: 2
-updated_at: 2026-08-18 14:27:19
+version: 3
+updated_at: 2026-08-20 19:01:20
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -17,85 +17,56 @@ relations:
 ---
 # Use revision-bound parent and child commit messages
 
-Every governed Git commit uses exactly one line as its complete commit message:
+Every governed Git commit changes exactly one repository file through exactly one action and uses exactly one line as its complete commit message:
 
 ```text
-<parents> | <new-children> ; <updated-children>
+<parents> | <action> | <affected-file>
 ```
 
 ## Parents
 
-Each parent is an exact Atomic Artifact revision:
+Parents are the current committed Atom Revisions whose meaning the action consumes. Each parent uses its carrier filename and version:
 
 ```text
-<artifact-id>/<full-commit-id>
+<filename>@<version>
 ```
 
-The artifact ID identifies the atom. The full Git commit ID identifies the
-exact carrier revision on which the commit is based. Multiple parents are
-separated by a comma followed by one space.
+Multiple parents are separated by a comma followed by one space. `0` represents no governed parent and is reserved from use as a filename. A parent may belong to a different Structural scope from the affected file.
 
-Parents may belong to different scopes. Every parent must already exist in an
-earlier commit; a commit cannot reference its own not-yet-known ID.
+The parent version must be current immediately before the action. `updated_at` is omitted because the Git commit already records the action time.
 
-## Children
+## Actions
 
-New and updated children are separate comma-space-delimited groups:
+The action is exactly one lowercase token: `add`, `move`, `update`, or `remove`.
 
-- a governed artifact child uses its artifact ID; and
-- an implementation, test, evaluation, configuration, documentation, or other
-  native project child uses its repository-relative path.
-
-Every child in both groups resolves to exactly one shared `scope_path`.
-Project-local governance resolves the scope of native files from their owned
-path. A renamed child is updated and uses its destination identity or path;
-Git preserves its source history.
-
-`0` represents an empty group and is reserved from use as an artifact ID or
-path.
-
-The message contains no parentheses, labels, summary, description, body, or
-trailers.
-
-## Examples
-
-Create an initial atom:
+An add creates one file and names its resulting Revision:
 
 ```text
-0 | PROJ-REQUIREMENT-001 ; 0
+parent.md@2 | add | new-file.md@1
 ```
 
-Refine the atom from committed revision `C1`:
+A move changes only the carrier filename or address and preserves the version:
 
 ```text
-PROJ-REQUIREMENT-001/C1 | 0 ; PROJ-REQUIREMENT-001
+parent.md@2 | move | old-file.md@3 -> new-file.md@3
 ```
 
-Create and update implementation children from revision `C2`:
+An update preserves the carrier filename and names its resulting Revision:
 
 ```text
-PROJ-REQUIREMENT-001/C2 | docs/feature.md ; src/feature.py, tests/test_feature.py
+parent.md@2 | update | file.md@4
 ```
 
-The atom-refinement commit and commits that consume the refined revision are
-separate transactions. Existing children remain bound to the parent revision
-recorded by their own commit; new or updated children bind to the revision
-named in their commit.
-
-Once another commit references an Atomic Artifact revision, the referenced Git
-history must not be amended, rebased, squashed, force-rewritten, or otherwise
-made unreachable.
-
-Typed relations in artifact carriers continue to define semantic relation
-kinds. The commit message defines the exact revision-level provenance edge:
+A remove names the Revision removed from the active carrier address:
 
 ```text
-parents | new children ; updated children
+parent.md@2 | remove | file.md@4
 ```
+
+An affected governed file uses `<filename>@<version>`. A governed native file without embedded Revision properties uses the version from its external revision binding. Changing file content while moving it requires two ordered commits: one move with unchanged version and one update with an advanced version. No governed commit may combine actions or change more than one repository file.
+
+The message contains no parentheses, labels, summary, description, body, or trailers. Once another commit references a parent Revision, the referenced Git history must remain reachable and unchanged.
 
 ## Rationale
 
-The format makes each commit a compact, replayable provenance edge. Exact
-parent revisions preserve historical meaning, the two child groups expose
-creation versus revision, and the one-scope rule keeps each transaction
-bounded without preventing cross-scope inputs.
+One explicit file action per commit makes hook logic deterministic, preserves the authority consumed by the action, and prevents unrelated changes from sharing one recovery boundary.
