@@ -1,8 +1,8 @@
 ---
 subject_scopes:
   - feature-boundary
-version: 2
-updated_at: 2026-08-19 04:55:53
+version: 3
+updated_at: 2026-08-20 19:33:00
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -14,4 +14,4 @@ relations:
 ---
 # Define the TOOLS Feature scope
 
-The FRAMEWORK_ENGINE Feature with scope `tools`, full name `TOOLS`, and prefix `TOOLS` owns independently executable Finders and Doers, with Checkers governed as a Finder specialization rather than as a separate structural unit.
+The FRAMEWORK_ENGINE Feature with scope `tools`, full name `TOOLS`, and prefix `TOOLS` owns independently executable Finders and Doers, with Checkers governed as a Finder specialization rather than as a separate structural unit. It may also own operational entry Hooks that emit triggers into Tool flows but are not themselves Finders or Doers and have no read, classification, or mutation authority beyond observing their registered boundary.
