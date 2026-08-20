@@ -2,8 +2,8 @@
 artifact_subtype: qa_case
 subject_scopes:
   - evaluation
-version: 1
-updated_at: 2026-08-20 20:24:00
+version: 2
+updated_at: 2026-08-20 21:31:00
 relations:
   evaluation_for:
     - CA-R-803-REQUIREMENT-FR_ENGN_TOOLS_OPS_TOOLS--emit-only-operational-hook-triggers
@@ -12,16 +12,16 @@ relations:
 
 ## Claim checked
 
-The Journal append produced for one file-change trigger does not generate a second trigger.
+No related Journal append produced for one file-change trigger generates another trigger.
 
 ## Test case
 
-Run one registered subject-file change through the complete apply flow while observing every Hook boundary, including the internal Journal carrier write.
+Run one registered subject-file change whose related records span multiple Journal carriers through the complete apply flow while observing every Hook boundary, including every internal Journal carrier write.
 
 ## Acceptance criteria
 
-Exactly one `COMMIT_TRIGGER` exists for the subject change, the correlated Journal append is suppressed, and exactly one Journal event and one Git commit result.
+Exactly one `COMMIT_TRIGGER` exists for the subject change, every correlated Journal append is suppressed, the complete related record set is appended, and exactly one Git commit results.
 
 ## Failure disposition
 
-Reject the Hook if it emits a trigger for the internal Journal append, suppresses the original subject change, or depends only on timing to avoid recursion.
+Reject the Hook if it emits a trigger for any internal Journal append, suppresses the original subject change, or depends only on timing to avoid recursion.
