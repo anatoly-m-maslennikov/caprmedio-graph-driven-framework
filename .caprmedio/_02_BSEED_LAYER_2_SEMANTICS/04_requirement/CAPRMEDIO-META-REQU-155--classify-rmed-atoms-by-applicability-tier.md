@@ -1,7 +1,7 @@
 ---
 subject_scopes:
   - authority
-project_settings:
+project_graph_state:
   authority:
     tiers:
       ordered:
@@ -9,8 +9,8 @@ project_settings:
         - core
         - standard
 tier: core
-version: 9
-updated_at: 2026-08-20 20:03:45
+version: 10
+updated_at: 2026-08-21 00:21:06
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
