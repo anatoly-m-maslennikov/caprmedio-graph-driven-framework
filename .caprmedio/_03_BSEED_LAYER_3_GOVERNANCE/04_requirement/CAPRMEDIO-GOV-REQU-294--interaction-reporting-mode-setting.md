@@ -1,11 +1,8 @@
 ---
 subject_scopes:
   - interaction
-project_settings:
-  interaction:
-    reporting_mode: silent
-version: 2
-updated_at: 2026-08-18 20:19:17
+version: 3
+updated_at: 2026-08-21 00:21:06
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -16,7 +13,7 @@ relations:
 ---
 # Configure interaction reporting mode
 
-`caprmedio_project_settings.toml` provides one project-owned interaction reporting setting:
+The Project Configuration Atom provides one project-owned interaction reporting setting:
 
 ```toml
 [interaction]
