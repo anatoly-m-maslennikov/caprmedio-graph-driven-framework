@@ -16,6 +16,7 @@ or runtime state.
 from __future__ import annotations
 
 import argparse
+import datetime as dt
 import hashlib
 import json
 import os
@@ -41,7 +42,7 @@ for _path in (TOOLS_ROOT, CONTEXT_ROOT, APPENDER_ROOT):
         sys.path.insert(0, str(_path))
 
 from commit_context_logic import ContextError, event_message, gather_context, repository_identity, repository_root  # noqa: E402
-from work_journal import canonical_json_bytes, canonical_json_digest  # noqa: E402
+from work_journal import WorkJournalError, canonical_json_bytes, canonical_json_digest, validate_sealed_event  # noqa: E402
 
 
 TOOL_ID = "COMMIT_CHANGE_SET"
@@ -420,6 +421,328 @@ def _git_show_bytes(root: Path, revision: str, relative: str) -> bytes | None:
     raise ToolError("git-command-failed", message.strip() or "cannot inspect Git carrier")
 
 
+def _parse_name_status(payload: bytes) -> list[dict[str, str | None]]:
+    """Parse Git's NUL-delimited name-status output without losing renames."""
+    tokens = payload.split(b"\0")
+    if tokens and tokens[-1] == b"":
+        tokens.pop()
+    records: list[dict[str, str | None]] = []
+    index = 0
+    try:
+        while index < len(tokens):
+            status = tokens[index].decode("ascii", errors="strict")
+            index += 1
+            if not status or status[0] not in "ACDMRTUXB":
+                raise ToolError("git-diff-invalid", "Git returned an unsupported staged status")
+            before: str | None = None
+            after: str | None = None
+            if status[0] in {"R", "C"}:
+                before = tokens[index].decode("utf-8", errors="strict")
+                after = tokens[index + 1].decode("utf-8", errors="strict")
+                index += 2
+            else:
+                path = tokens[index].decode("utf-8", errors="strict")
+                index += 1
+                if status[0] == "D":
+                    before = path
+                else:
+                    after = path
+                    if status[0] not in {"A"}:
+                        before = path
+            records.append({"status": status, "before_path": before, "after_path": after})
+    except (IndexError, UnicodeDecodeError) as error:
+        raise ToolError("git-diff-invalid", "Git returned malformed path data") from error
+    return records
+
+
+def _staged_change_records(root: Path) -> list[dict[str, str | None]]:
+    return _parse_name_status(_git(root, "diff", "--cached", "--name-status", "-z", "--find-renames", "HEAD", "--"))
+
+
+def _commit_change_records(root: Path, parent: str, revision: str) -> list[dict[str, str | None]]:
+    return _parse_name_status(_git(root, "diff", "--name-status", "-z", "--find-renames", parent, revision, "--"))
+
+
+def _changed_paths(records: Sequence[Mapping[str, str | None]]) -> set[str]:
+    return {
+        path
+        for record in records
+        for path in (record.get("before_path"), record.get("after_path"))
+        if isinstance(path, str) and path
+    }
+
+
+def _is_atom_path(path: str) -> bool:
+    candidate = Path(path)
+    return (
+        len(candidate.parts) >= 2
+        and candidate.parts[0] == ".caprmedio"
+        and candidate.suffix == ".md"
+        and "--" in candidate.name
+    )
+
+
+def _is_journal_path(path: str) -> bool:
+    candidate = Path(path)
+    return (
+        len(candidate.parts) >= 3
+        and candidate.parts[:2] == (".caprmedio", "work_journal")
+        and candidate.suffix == ".ndjson"
+    )
+
+
+def _journal_rows(data: bytes, relative: str) -> list[dict[str, Any]]:
+    rows: list[dict[str, Any]] = []
+    for line_number, line in enumerate(data.splitlines(), start=1):
+        if not line:
+            continue
+        try:
+            raw = json.loads(line)
+        except json.JSONDecodeError as error:
+            raise ToolError("journal-syntax-invalid", f"{relative}:{line_number} is not valid NDJSON") from error
+        rows.append(_require_mapping(raw, f"{relative}:{line_number}"))
+    return rows
+
+
+def _validate_event(event: Mapping[str, Any]) -> dict[str, Any]:
+    try:
+        sealed = validate_sealed_event(event)
+    except WorkJournalError as error:
+        raise ToolError(error.code, str(error)) from error
+    unsigned = dict(sealed)
+    digest = unsigned.pop("event_digest", None)
+    if not isinstance(digest, str) or not HEX64.fullmatch(digest) or canonical_json_digest(unsigned) != digest:
+        raise ToolError("journal-event-digest-invalid", "Journal event digest does not match its canonical record")
+    return sealed
+
+
+def _journal_additions(
+    root: Path,
+    records: Sequence[Mapping[str, str | None]],
+    *,
+    base_revision: str,
+    current_bytes: Any,
+) -> tuple[list[dict[str, Any]], list[str]]:
+    events: list[dict[str, Any]] = []
+    carriers: list[str] = []
+    for record in records:
+        paths = [path for path in (record.get("before_path"), record.get("after_path")) if isinstance(path, str)]
+        journal_paths = [path for path in paths if _is_journal_path(path)]
+        if not journal_paths:
+            continue
+        if record.get("status", "")[0] not in {"A", "M"} or len(set(journal_paths)) != 1:
+            raise ToolError("journal-not-append-only", "Journal carriers may only be added or appended at a governed commit boundary")
+        relative = journal_paths[0]
+        base = _git_show_bytes(root, base_revision, relative) or b""
+        current = current_bytes(relative)
+        if current is None or not current.startswith(base):
+            raise ToolError("journal-not-append-only", "staged Journal content does not preserve the committed prefix")
+        if base and not base.endswith(b"\n"):
+            raise ToolError("journal-base-invalid", "committed Journal carrier lacks terminal newline")
+        addition = current[len(base) :]
+        added_rows = _journal_rows(addition, relative)
+        if not added_rows:
+            raise ToolError("journal-sidecar-empty", "changed Journal carrier contains no appended record")
+        events.extend(_validate_event(row) for row in added_rows)
+        carriers.append(relative)
+    return events, sorted(set(carriers))
+
+
+def _base_journal_event(root: Path, revision: str, event_id: str) -> dict[str, Any] | None:
+    paths = [
+        value
+        for value in _git(root, "ls-tree", "-r", "--name-only", "-z", revision, "--", ".caprmedio/work_journal").decode("utf-8").split("\0")
+        if value and _is_journal_path(value)
+    ]
+    for relative in paths:
+        data = _git_show_bytes(root, revision, relative)
+        if data is None:
+            continue
+        for row in _journal_rows(data, relative):
+            if row.get("event_id") == event_id:
+                return _validate_event(row)
+    return None
+
+
+def _previous_result(root: Path, completed: Mapping[str, Any], events: Sequence[Mapping[str, Any]], base_revision: str) -> dict[str, Any] | None:
+    previous_id = completed.get("previous_result_event")
+    if previous_id is None:
+        return None
+    if not isinstance(previous_id, str) or not previous_id:
+        raise ToolError("previous-result-invalid", "previous_result_event must be a non-empty event identity")
+    previous = next((dict(event) for event in events if event.get("event_id") == previous_id), None)
+    if previous is None:
+        previous = _base_journal_event(root, base_revision, previous_id)
+    if previous is None:
+        raise ToolError("previous-result-missing", "the completed event's previous result cannot be resolved")
+    return _require_mapping(previous.get("result"), "previous Journal result")
+
+
+def _evaluate_governed_boundary(
+    root: Path,
+    records: Sequence[Mapping[str, str | None]],
+    *,
+    base_revision: str,
+    current_bytes: Any,
+) -> dict[str, Any]:
+    paths = _changed_paths(records)
+    forbidden = sorted(path for path in paths if path == ".git" or path.startswith(".git/") or path == ".caprmedio_runtime" or path.startswith(".caprmedio_runtime/"))
+    if forbidden:
+        raise ToolError("runtime-path-staged", "runtime and Git-internal paths cannot be part of a governed commit")
+    atom_paths = {path for path in paths if _is_atom_path(path)}
+    journal_paths = {path for path in paths if _is_journal_path(path)}
+    governed = bool(atom_paths or journal_paths)
+    if not governed:
+        return {"governed": False, "changed_paths": sorted(paths), "validation_results": [{"name": "ordinary-commit-boundary", "ok": True}]}
+    if not atom_paths:
+        raise ToolError("governed-subject-missing", "a governed Journal boundary has no Atom subject change")
+    if not journal_paths:
+        raise ToolError("governed-journal-missing", "a governed Atom boundary has no Journal sidecar")
+    events, carriers = _journal_additions(root, records, base_revision=base_revision, current_bytes=current_bytes)
+    action_ids = {event.get("action_id") for event in events}
+    if len(action_ids) != 1 or not all(isinstance(value, str) and value for value in action_ids):
+        raise ToolError("journal-action-mismatch", "all appended Journal records must share one action identity")
+    completed = _completed_event(events)
+    previous = _previous_result(root, completed, events, base_revision)
+    result = _require_mapping(completed.get("result"), "completed result")
+    action_type = completed.get("action_type")
+    if action_type not in ACTION_TYPES:
+        raise ToolError("journal-action-invalid", "completed Journal action_type is invalid")
+    if action_type == "ADD":
+        if previous is not None or result.get("state") != "present":
+            raise ToolError("governed-subject-mismatch", "ADD must have one present result and no previous result")
+        expected_atoms = {str(result.get("path"))}
+    elif action_type == "REMOVE":
+        if previous is None or result.get("state") != "removed":
+            raise ToolError("governed-subject-mismatch", "REMOVE must have one removed result and one previous result")
+        expected_atoms = {str(previous.get("path"))}
+    else:
+        if previous is None or result.get("state") != "present":
+            raise ToolError("governed-subject-mismatch", f"{action_type} must have present previous and current results")
+        expected_atoms = {str(previous.get("path")), str(result.get("path"))}
+    if not expected_atoms or "None" in expected_atoms or atom_paths != expected_atoms:
+        raise ToolError("governed-subject-mismatch", "changed Atom paths do not match the structured Journal result lineage")
+    current_path = result.get("path")
+    if result.get("state") == "present":
+        if not isinstance(current_path, str) or Path(current_path).name != result.get("filename"):
+            raise ToolError("governed-subject-mismatch", "current result filename and path disagree")
+        current = current_bytes(current_path)
+        if current is None or _sha256(current) != result.get("sha256"):
+            raise ToolError("governed-subject-mismatch", "current Atom bytes differ from the Journal result")
+    if previous is not None:
+        previous_path = previous.get("path")
+        if not isinstance(previous_path, str) or Path(previous_path).name != previous.get("filename"):
+            raise ToolError("governed-subject-mismatch", "previous result filename and path disagree")
+        base = _git_show_bytes(root, base_revision, previous_path)
+        if base is None or _sha256(base) != previous.get("sha256"):
+            raise ToolError("governed-subject-mismatch", "base Atom bytes differ from the previous Journal result")
+    allowed_paths = atom_paths | journal_paths
+    if paths != allowed_paths:
+        raise ToolError("governed-extra-path", "governed commit contains a path outside its subject and Journal sidecars")
+    try:
+        message = event_message(completed, previous)
+    except ContextError as error:
+        raise ToolError(error.code, str(error)) from error
+    return {
+        "governed": True,
+        "action_id": next(iter(action_ids)),
+        "action_type": action_type,
+        "subject_paths": sorted(atom_paths),
+        "journal_paths": carriers,
+        "changed_paths": sorted(paths),
+        "expected_message": message,
+        "completed_event_id": completed["event_id"],
+        "validation_results": [
+            {"name": "singular-governed-subject", "ok": True},
+            {"name": "related-journal-sidecars", "ok": True},
+            {"name": "structured-result-lineage", "ok": True},
+        ],
+    }
+
+
+def evaluate_pre_commit(root: Path) -> dict[str, Any]:
+    root = repository_root(root)
+    if _git(root, "ls-files", "-u", "-z"):
+        raise ToolError("unresolved-index", "repository index contains unresolved merge entries")
+    checked = subprocess.run(["git", "-C", str(root), "diff", "--cached", "--check"], capture_output=True, check=False)
+    if checked.returncode != 0:
+        detail = (checked.stdout or checked.stderr).decode("utf-8", errors="replace").strip()
+        raise ToolError("staged-content-invalid", detail or "staged content fails Git validation")
+    result = _evaluate_governed_boundary(
+        root,
+        _staged_change_records(root),
+        base_revision="HEAD",
+        current_bytes=lambda path: _index_blob(root, path),
+    )
+    return {**result, "phase": "pre-commit"}
+
+
+def evaluate_commit_message(root: Path, message_file: Path) -> dict[str, Any]:
+    root = repository_root(root)
+    result = _evaluate_governed_boundary(
+        root,
+        _staged_change_records(root),
+        base_revision="HEAD",
+        current_bytes=lambda path: _index_blob(root, path),
+    )
+    if not result["governed"]:
+        return {**result, "phase": "commit-msg"}
+    try:
+        message = message_file.read_text(encoding="utf-8").rstrip("\n")
+    except OSError as error:
+        raise ToolError("commit-message-unreadable", f"cannot read commit message carrier: {message_file}") from error
+    if message != result["expected_message"] or "\n" in message:
+        raise ToolError("commit-message-mismatch", "governed commit message differs from its exact deterministic Projection")
+    return {**result, "phase": "commit-msg", "message_valid": True}
+
+
+def observe_post_commit(root: Path) -> dict[str, Any]:
+    root = repository_root(root)
+    commit = _git_text(root, "rev-parse", "HEAD")
+    parents = _git_text(root, "rev-list", "--parents", "-n", "1", commit).split()
+    parent = parents[1] if len(parents) > 1 else "4b825dc642cb6eb9a060e54bf8d69288fbee4904"
+    diagnostics: list[dict[str, str]] = []
+    try:
+        result = _evaluate_governed_boundary(
+            root,
+            _commit_change_records(root, parent, commit),
+            base_revision=parent,
+            current_bytes=lambda path: _git_show_bytes(root, commit, path),
+        )
+        if result["governed"]:
+            message = _git(root, "show", "-s", "--format=%B", commit).decode("utf-8", errors="strict").rstrip("\n")
+            if message != result["expected_message"] or "\n" in message:
+                raise ToolError("commit-message-mismatch", "created governed commit message differs from its deterministic Projection")
+        valid = True
+    except ToolError as error:
+        result = {
+            "governed": any(_is_atom_path(path) or _is_journal_path(path) for path in _changed_paths(_commit_change_records(root, parent, commit))),
+            "changed_paths": sorted(_changed_paths(_commit_change_records(root, parent, commit))),
+        }
+        diagnostics.append({"code": error.code, "message": str(error)})
+        valid = False
+    observation_core = {
+        "schema_version": 1,
+        "event": "commit_observed",
+        "commit": commit,
+        "parent": parent,
+        "governed": bool(result["governed"]),
+        "valid": valid,
+        "changed_paths": result["changed_paths"],
+        "action_id": result.get("action_id"),
+        "completed_event_id": result.get("completed_event_id"),
+        "diagnostics": diagnostics,
+    }
+    observation = {"observation_id": canonical_json_digest(observation_core), **observation_core}
+    log = root / ".caprmedio_runtime" / "logs" / "git_hooks" / f"{dt.datetime.now().astimezone():%Y-%m-%d}.ndjson"
+    log.parent.mkdir(parents=True, exist_ok=True)
+    with log.open("ab") as handle:
+        handle.write(canonical_json_bytes(observation) + b"\n")
+        handle.flush()
+        os.fsync(handle.fileno())
+    return {**result, "phase": "post-commit", "commit": commit, "parent": parent, "valid": valid, "diagnostics": diagnostics, "observation": _relative(root, log)}
+
+
 def _stage_blob(root: Path, relative: str, data: bytes, *, mode: str) -> None:
     blob = _git(root, "hash-object", "-w", "--stdin", input_bytes=data).decode("ascii").strip()
     _git(root, "update-index", "--add", "--cacheinfo", f"{mode},{blob},{relative}")
@@ -770,8 +1093,12 @@ def describe() -> dict[str, Any]:
         "input_schema": {
             "trigger_flow": {"required": ["trigger"], "effect": "gather, append, then commit when --apply is present"},
             "commit_only": {"required": ["context", "receipts", "lease"], "effect": "final Git boundary or idempotent retry"},
+            "git_hook": {
+                "phases": ["pre-commit", "commit-msg", "post-commit"],
+                "effect": "evaluate staged or created Git state; only post-commit appends runtime observation evidence",
+            },
         },
-        "result_envelope": {"ok": "boolean", "mode": "dry-run|apply", "diagnostics": "ordered machine-readable diagnostics"},
+        "result_envelope": {"ok": "boolean", "mode": "dry-run|apply|read-only|observe", "diagnostics": "ordered machine-readable diagnostics"},
         "dry_run": "fully mutation-free",
     }
 
@@ -791,6 +1118,9 @@ def _parser() -> argparse.ArgumentParser:
     run_parser.add_argument("--input", required=True, help="JSON object file or - for stdin")
     run_parser.add_argument("--apply", action="store_true", help="allow Journal and Git mutations; omitted is dry-run")
     run_parser.add_argument("--wait-seconds", type=float, default=30.0, help="maximum repository lease wait for end-to-end apply")
+    git_hook = subcommands.add_parser("git-hook", help="evaluate one installed Git Hook boundary")
+    git_hook.add_argument("phase", choices=("pre-commit", "commit-msg", "post-commit"))
+    git_hook.add_argument("message_file", nargs="?", help="Git-supplied commit message carrier for commit-msg")
     return parser
 
 
@@ -798,6 +1128,28 @@ def main(argv: Sequence[str] | None = None) -> int:
     args = _parser().parse_args(argv)
     if args.command == "describe":
         print(json.dumps(_envelope(ok=True, mode="read-only", result=describe()), ensure_ascii=False, sort_keys=True, separators=(",", ":")))
+        return 0
+    if args.command == "git-hook":
+        if args.phase == "pre-commit":
+            mode = "read-only"
+            operation = lambda: evaluate_pre_commit(Path(args.repository))
+        elif args.phase == "commit-msg":
+            mode = "read-only"
+            if args.message_file is None:
+                error = ToolError("commit-message-missing", "commit-msg requires Git's message-file argument")
+                print(json.dumps(_envelope(ok=False, mode=mode, error=error), ensure_ascii=False, sort_keys=True, separators=(",", ":")))
+                return 2
+            operation = lambda: evaluate_commit_message(Path(args.repository), Path(args.message_file))
+        else:
+            mode = "observe"
+            operation = lambda: observe_post_commit(Path(args.repository))
+        try:
+            result = operation()
+        except (ToolError, ContextError) as error:
+            print(json.dumps(_envelope(ok=False, mode=mode, error=error), ensure_ascii=False, sort_keys=True, separators=(",", ":")))
+            return 0 if args.phase == "post-commit" else 2
+        ok = result.get("valid", True) is not False
+        print(json.dumps(_envelope(ok=ok, mode=mode, result=result), ensure_ascii=False, sort_keys=True, separators=(",", ":")))
         return 0
     mode = "apply" if args.apply else "dry-run"
     try:
