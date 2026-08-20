@@ -736,11 +736,26 @@ def observe_post_commit(root: Path) -> dict[str, Any]:
     observation = {"observation_id": canonical_json_digest(observation_core), **observation_core}
     log = root / ".caprmedio_runtime" / "logs" / "git_hooks" / f"{dt.datetime.now().astimezone():%Y-%m-%d}.ndjson"
     log.parent.mkdir(parents=True, exist_ok=True)
-    with log.open("ab") as handle:
-        handle.write(canonical_json_bytes(observation) + b"\n")
-        handle.flush()
-        os.fsync(handle.fileno())
-    return {**result, "phase": "post-commit", "commit": commit, "parent": parent, "valid": valid, "diagnostics": diagnostics, "observation": _relative(root, log)}
+    existing_ids = {
+        row.get("observation_id")
+        for row in _journal_rows(log.read_bytes(), _relative(root, log))
+    } if log.is_file() else set()
+    appended = observation["observation_id"] not in existing_ids
+    if appended:
+        with log.open("ab") as handle:
+            handle.write(canonical_json_bytes(observation) + b"\n")
+            handle.flush()
+            os.fsync(handle.fileno())
+    return {
+        **result,
+        "phase": "post-commit",
+        "commit": commit,
+        "parent": parent,
+        "valid": valid,
+        "diagnostics": diagnostics,
+        "observation": _relative(root, log),
+        "observation_appended": appended,
+    }
 
 
 def _stage_blob(root: Path, relative: str, data: bytes, *, mode: str) -> None:
