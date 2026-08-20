@@ -304,6 +304,24 @@ def validate_sealed_event(event: Mapping[str, Any]) -> dict[str, Any]:
     _require_string(value, "structural_scope")
     _validate_result(value.get("result"))
     if kind == "governed_file_change":
+        allowed = {
+            "schema_version",
+            "event_id",
+            "action_id",
+            "event",
+            "kind",
+            "author",
+            "occurred_at",
+            "llm_session",
+            "structural_scope",
+            "action_type",
+            "sources",
+            "result",
+            "event_digest",
+            "previous_result_event",
+        }
+        if not set(value) <= allowed:
+            raise WorkJournalError("invalid-event", "governed_file_change contains unsupported fields")
         _validate_sources(value.get("sources"))
         action_type = value.get("action_type")
         if action_type not in {"ADD", "MOVE", "UPDATE", "MOVE+UPDATE", "REMOVE"}:
@@ -314,6 +332,22 @@ def validate_sealed_event(event: Mapping[str, Any]) -> dict[str, Any]:
         if action_type != "ADD" and (not isinstance(previous, str) or not previous):
             raise WorkJournalError("invalid-event", "non-ADD must name previous_result_event")
     else:
+        allowed = {
+            "schema_version",
+            "event_id",
+            "action_id",
+            "event",
+            "kind",
+            "author",
+            "occurred_at",
+            "llm_session",
+            "structural_scope",
+            "result",
+            "recovery_evidence",
+            "event_digest",
+        }
+        if set(value) != allowed:
+            raise WorkJournalError("invalid-event", "governed_file_state has invalid fields")
         if "action_type" in value or "previous_result_event" in value or "sources" in value:
             raise WorkJournalError("invalid-event", "governed_file_state must not carry change fields")
         evidence = value.get("recovery_evidence")
