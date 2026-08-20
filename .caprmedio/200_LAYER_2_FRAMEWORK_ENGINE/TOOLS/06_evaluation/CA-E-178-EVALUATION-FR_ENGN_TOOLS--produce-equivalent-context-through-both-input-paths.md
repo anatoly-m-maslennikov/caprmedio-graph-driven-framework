@@ -2,14 +2,14 @@
 artifact_subtype: qa_case
 subject_scopes:
   - evaluation
-version: 4
-updated_at: 2026-08-20 22:58:24
+version: 5
+updated_at: 2026-08-20 23:40:00
 relations:
   evaluation_for:
     - CA-M-087-METHOD-FR_ENGN_TOOLS--process-one-file-change
-    - CA-R-803-REQUIREMENT-FR_ENGN_TOOLS--emit-only-operational-hook-triggers
-    - CA-R-804-REQUIREMENT-FR_ENGN_TOOLS--gather-complete-commit-action-context
-    - CA-R-805-REQUIREMENT-FR_ENGN_TOOLS--commit-one-governed-file-action
+    - CA-R-803-REQUIREMENT-FR_ENGN_TOOLS_COMMIT_TRIGGER--emit-only-operational-hook-triggers
+    - CA-R-804-REQUIREMENT-FR_ENGN_TOOLS_COMMIT_CONTEXT--gather-complete-commit-action-context
+    - CA-R-805-REQUIREMENT-FR_ENGN_TOOLS_COMMIT_CHANGE_SET--commit-one-governed-file-action
 ---
 # Produce equivalent context through both input paths
 
