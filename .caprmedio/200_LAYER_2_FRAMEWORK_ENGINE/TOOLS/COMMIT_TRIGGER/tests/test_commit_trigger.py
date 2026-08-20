@@ -125,43 +125,75 @@ class CommitTriggerTests(unittest.TestCase):
         self.assertEqual(before, after)
 
     def test_e186_adapter_lifecycle_preserves_existing_hook_bytes_and_behavior(self) -> None:
-        """Registry-only lifecycle never changes an existing Git Hook carrier."""
+        """Runtime registration chains and preserves the default Git Hook."""
 
-        hook = self.repository / ".git" / "hooks" / "post-commit"
+        commit_trigger.adapter_operation(self.repository, "uninstall", adapter_id=self.adapter.adapter_id, apply=True)
+        (self.repository / ".caprmedio").mkdir()
+        (self.repository / ".caprmedio/caprmedio_project_settings.toml").write_text(
+            "[artifact_timestamps]\ntimezone = \"Asia/Tbilisi\"\n\n"
+            "[paths]\njournal_root = \".caprmedio/work_journal\"\n"
+            "runtime_root = \".caprmedio_runtime\"\n",
+            encoding="utf-8",
+        )
+        self._git("add", ".caprmedio/caprmedio_project_settings.toml")
+        self._git("commit", "-qm", "settings fixture")
+        hook = self.repository / ".git" / "hooks" / "pre-commit"
         sentinel = self.repository / "hook-sentinel.log"
         hook.write_text(f"#!/bin/sh\nprintf 'sentinel\\n' >> {sentinel}\n", encoding="utf-8")
         hook.chmod(0o751)
         original_bytes = hook.read_bytes()
         original_mode = stat.S_IMODE(hook.stat().st_mode)
-
-        commit_trigger.adapter_operation(self.repository, "uninstall", adapter_id=self.adapter.adapter_id, apply=True)
+        commit_trigger.install_runtime_package(self.repository, apply=True)
         status_before = commit_trigger.adapter_operation(self.repository, "status")
         self.assertEqual(status_before["adapters"], [])
-        self._run_hook(hook)
 
-        commit_trigger.adapter_operation(self.repository, "install", adapter=self.adapter, apply=True)
+        installed = commit_trigger.adapter_operation(
+            self.repository,
+            "install",
+            adapter=self.adapter,
+            apply=True,
+            manage_host_hooks=True,
+        )
+        self.assertTrue(installed["host_hooks"]["git"]["registered"])
+        self.assertEqual(commit_trigger.MANAGED_GIT_HOOKS_PATH, commit_trigger._local_git_hooks_path(self.repository))
+        for name in commit_trigger.GIT_HOOK_NAMES:
+            carrier = self.repository / commit_trigger.MANAGED_GIT_HOOKS_PATH / name
+            self.assertTrue(carrier.is_file())
+            self.assertTrue(os.access(carrier, os.X_OK))
+        managed_change = self.repository / "managed-change.txt"
+        managed_change.write_text("managed\n", encoding="utf-8")
+        self._git("add", managed_change.name)
+        self._git("commit", "-qm", "ordinary managed commit")
         enabled = commit_trigger.emit_from_registered_adapter(
             [self._observation()], repository=self.repository, adapter_id=self.adapter.adapter_id, environment=self.environment
         )
-        self._run_hook(hook)
         self.assertEqual(len(enabled), 1)
 
         commit_trigger.adapter_operation(self.repository, "disable", adapter_id=self.adapter.adapter_id, apply=True)
         disabled = commit_trigger.emit_from_registered_adapter(
             [self._observation()], repository=self.repository, adapter_id=self.adapter.adapter_id, environment=self.environment
         )
-        self._run_hook(hook)
         self.assertEqual(disabled, [])
 
-        commit_trigger.adapter_operation(self.repository, "uninstall", adapter_id=self.adapter.adapter_id, apply=True)
+        commit_trigger.adapter_operation(
+            self.repository,
+            "uninstall",
+            adapter_id=self.adapter.adapter_id,
+            apply=True,
+            manage_host_hooks=True,
+        )
         uninstalled = commit_trigger.emit_from_registered_adapter(
             [self._observation()], repository=self.repository, adapter_id=self.adapter.adapter_id, environment=self.environment
         )
-        self._run_hook(hook)
         self.assertEqual(uninstalled, [])
+        self.assertIsNone(commit_trigger._local_git_hooks_path(self.repository))
+        default_change = self.repository / "default-change.txt"
+        default_change.write_text("default\n", encoding="utf-8")
+        self._git("add", default_change.name)
+        self._git("commit", "-qm", "ordinary default commit")
         self.assertEqual(hook.read_bytes(), original_bytes)
         self.assertEqual(stat.S_IMODE(hook.stat().st_mode), original_mode)
-        self.assertEqual(sentinel.read_text(encoding="utf-8"), "sentinel\nsentinel\nsentinel\nsentinel\n")
+        self.assertEqual(sentinel.read_text(encoding="utf-8"), "sentinel\nsentinel\n")
         self.assertFalse((self.repository / ".caprmedio_runtime" / "commit_trigger" / "backup").exists())
 
     def test_e194_suppress_correlated_journal_and_runtime_events(self) -> None:
@@ -458,6 +490,9 @@ class CommitTriggerTests(unittest.TestCase):
             (self.repository / ".caprmedio_runtime/hooks/codex/hooks.json").resolve(),
             hook_config.resolve(),
         )
+        self.assertEqual(commit_trigger.MANAGED_GIT_HOOKS_PATH, commit_trigger._local_git_hooks_path(self.repository))
+        for name in commit_trigger.GIT_HOOK_NAMES:
+            self.assertTrue(os.access(self.repository / commit_trigger.MANAGED_GIT_HOOKS_PATH / name, os.X_OK))
         payload = {
             "session_id": self.environment["CODEX_THREAD_ID"],
             "tool_use_id": "tool-use-001",
@@ -500,6 +535,12 @@ class CommitTriggerTests(unittest.TestCase):
             {"app": "codex", "uuid": self.environment["CODEX_THREAD_ID"]},
             record["llm_session"],
         )
+        observations = list((self.repository / ".caprmedio_runtime/logs/git_hooks").glob("*.ndjson"))
+        self.assertEqual(1, len(observations))
+        observed = json.loads(observations[0].read_text(encoding="utf-8").splitlines()[-1])
+        self.assertTrue(observed["governed"])
+        self.assertTrue(observed["valid"])
+        self.assertEqual(self._git("rev-parse", "HEAD").strip(), observed["commit"])
         self.assertEqual("", self._git("status", "--porcelain=v1"))
 
     @staticmethod
