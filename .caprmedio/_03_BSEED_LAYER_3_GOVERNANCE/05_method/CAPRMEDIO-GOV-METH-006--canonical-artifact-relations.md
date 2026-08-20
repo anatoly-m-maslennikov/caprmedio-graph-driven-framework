@@ -2,8 +2,8 @@
 subject_scopes:
   - relation-model
 tier: core
-version: 6
-updated_at: 2026-08-20 20:00:00
+version: 7
+updated_at: 2026-08-21 01:09:53
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -21,7 +21,7 @@ relations:
 
 # Compile the canonical relation-kind registry
 
-Compile the active GOV Requirement Atoms that register semantic relations into exactly one machine-readable dictionary at `02_FR_ENGN/TOOLS/caprmedio_relation_types.toml`. Each registration Atom owns one direct relation's exclusive meaning and supplies every field required by the complete relation-kind metadata Requirement. The compilation must not invent aliases, merge near-synonyms, or infer inverse names, direction, authority, lifecycle, or endpoint rules from spelling.
+Compile the active GOV Requirement Atoms that register semantic relations into exactly one machine-readable dictionary at `.caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/caprmedio_relation_types.toml`. Install a content-identical copy with every self-contained Tool runtime release that reads the dictionary. Each registration Atom owns one direct relation's exclusive meaning and supplies every field required by the complete relation-kind metadata Requirement. The compilation must not invent aliases, merge near-synonyms, or infer inverse names, direction, authority, lifecycle, or endpoint rules from spelling.
 
 For each admitted direct relation, emit exactly one row with these columns in canonical order:
 
