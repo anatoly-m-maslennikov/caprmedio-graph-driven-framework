@@ -2,8 +2,8 @@
 artifact_subtype: qa_case
 subject_scopes:
   - evaluation
-version: 1
-updated_at: 2026-08-20 19:46:00
+version: 2
+updated_at: 2026-08-20 22:06:00
 relations:
   evaluation_for:
     - CA-M-087-METHOD-FR_ENGN_TOOLS_OPS_TOOLS--process-one-file-change
@@ -21,7 +21,7 @@ Prepare one fixed `UPDATE` trigger and repository fixture, snapshot all governed
 
 ## Acceptance criteria
 
-Both sealed envelopes are byte-identical and contain one file identity, the `UPDATE` change set, before and after carriers, versions, digests, Git base, complete typed upstream relations, canonical message, and validation results; every snapshot remains unchanged.
+Both sealed envelopes are byte-identical and contain the adapter and source-event provenance, one file identity, the `UPDATE` change set, before and after carriers, versions, digests, Git base, complete typed upstream relations, structured event, predicted sidecar record set, deterministic Git message Projection, lease availability, and validation results; every snapshot remains unchanged and no apply lease is acquired.
 
 ## Failure disposition
 
