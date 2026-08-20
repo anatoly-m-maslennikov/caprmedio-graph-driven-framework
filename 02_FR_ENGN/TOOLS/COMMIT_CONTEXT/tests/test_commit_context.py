@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import hashlib
 import json
 import os
 import shutil
@@ -15,12 +14,7 @@ TOOL_DIRECTORY = Path(__file__).resolve().parents[1]
 sys.pycache_prefix = str(TOOL_DIRECTORY.parents[2] / ".caprmedio_runtime" / "cache" / "python")
 sys.path.insert(0, str(TOOL_DIRECTORY))
 
-from commit_context_logic import ContextError, gather_context  # noqa: E402
-
-
-def sha(value: str) -> str:
-    return hashlib.sha256(value.encode("utf-8")).hexdigest()
-
+from commit_context_logic import ContextError, digest, gather_context, repository_identity, validate_context  # noqa: E402
 
 class CommitContextTests(unittest.TestCase):
     def setUp(self) -> None:
@@ -53,12 +47,22 @@ class CommitContextTests(unittest.TestCase):
         target.write_text(f"---\nversion: {version}\n{relation_lines}---\n# {target.stem}\n\n{body}\n", encoding="utf-8")
 
     def trigger(self, before: str | None, after: str | None, *, observed_at: str = "2026-08-20T00:30:00+04:00") -> dict[str, object]:
+        repository_id = repository_identity(self.root)
+        adapter_id = "codex-test"
+        source_event_id = "source-event-1"
         return {
             "schema_version": 1,
-            "trigger_id": sha(f"trigger:{before}:{after}"),
-            "adapter": {"id": "codex-test"},
-            "source_event_id": "source-event-1",
-            "repository": {"root": str(self.root), "identity": sha(str(self.root))},
+            "trigger_id": digest(
+                {
+                    "schema_version": 1,
+                    "adapter_id": adapter_id,
+                    "source_event_id": source_event_id,
+                    "repository_id": repository_id,
+                }
+            ),
+            "adapter": {"id": adapter_id},
+            "source_event_id": source_event_id,
+            "repository": {"root": str(self.root), "identity": repository_id},
             "observed_at": observed_at,
             "before_path": before,
             "after_path": after,
@@ -186,12 +190,40 @@ class CommitContextTests(unittest.TestCase):
             gather_context(self.root, self.trigger(None, path))
         self.assertEqual("non_current_upstream_version", captured.exception.code)
 
+    def test_trigger_and_repository_identities_are_verified(self) -> None:
+        path = ".caprmedio/04_requirement/CA-R-002-REQUIREMENT--subject.md"
+        self.write_atom(path, version=1, relations={})
+        invalid_repository = self.trigger(None, path)
+        invalid_repository["repository"] = {"root": str(self.root), "identity": "0" * 64}
+        with self.assertRaises(ContextError) as captured:
+            gather_context(self.root, invalid_repository)
+        self.assertEqual("trigger_repository_identity_mismatch", captured.exception.code)
+
+        invalid_trigger = self.trigger(None, path)
+        invalid_trigger["trigger_id"] = "0" * 64
+        with self.assertRaises(ContextError) as captured:
+            gather_context(self.root, invalid_trigger)
+        self.assertEqual("trigger_id_mismatch", captured.exception.code)
+
+    def test_validate_context_rejects_changed_sealed_fields(self) -> None:
+        path = ".caprmedio/04_requirement/CA-R-002-REQUIREMENT--subject.md"
+        self.write_atom(path, version=1, relations={})
+        context = gather_context(self.root, self.trigger(None, path))
+        validate_context(context)
+        corrupted = dict(context)
+        corrupted["author"] = "different-operator"
+        with self.assertRaises(ContextError) as captured:
+            validate_context(corrupted)
+        self.assertEqual("context_identity_mismatch", captured.exception.code)
+
     def test_cli_machine_envelopes(self) -> None:
         path = ".caprmedio/04_requirement/CA-R-002-REQUIREMENT--subject.md"
         self.write_atom(path, version=1, relations={})
         script = TOOL_DIRECTORY / "commit_context.py"
+        trigger_file = self.root / "trigger.json"
+        trigger_file.write_text(json.dumps(self.trigger(None, path)), encoding="utf-8")
         valid = subprocess.run(
-            [sys.executable, str(script), "--repository", str(self.root), "--input", json.dumps(self.trigger(None, path))],
+            [sys.executable, str(script), "--repository", str(self.root), "run", "--input", str(trigger_file)],
             check=False,
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
@@ -202,7 +234,7 @@ class CommitContextTests(unittest.TestCase):
         self.assertTrue(envelope["ok"])
         self.assertEqual("finder", envelope["tool"]["kind"])
         invalid = subprocess.run(
-            [sys.executable, str(script), "--repository", str(self.root), "--input", "{}"],
+            [sys.executable, str(script), "--repository", str(self.root), "run", "--input", str(self.root / "missing.json")],
             check=False,
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
