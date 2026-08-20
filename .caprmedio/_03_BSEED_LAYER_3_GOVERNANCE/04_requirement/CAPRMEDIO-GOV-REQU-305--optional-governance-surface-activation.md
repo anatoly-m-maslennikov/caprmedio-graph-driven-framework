@@ -1,15 +1,8 @@
 ---
 subject_scopes:
   - settings
-project_settings:
-  governance_surfaces:
-    architecture_view: false
-    project_overview: false
-    relation_map: false
-    requirement_catalog: false
-    scope_hub: false
-version: 2
-updated_at: 2026-08-18 20:19:17
+version: 3
+updated_at: 2026-08-21 00:21:06
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -22,7 +15,7 @@ relations:
 ---
 # Configure optional governance surfaces
 
-`.caprmedio/caprmedio_project_settings.toml` owns one documented `governance_surfaces` table.
+The Project Configuration Atom owns one documented `governance_surfaces` table.
 Every registered optional surface has one explicit boolean. The initial
 surface keys are:
 
