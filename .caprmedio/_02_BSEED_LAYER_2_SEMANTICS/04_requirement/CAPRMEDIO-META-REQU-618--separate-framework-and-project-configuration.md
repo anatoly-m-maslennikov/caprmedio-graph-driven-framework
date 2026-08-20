@@ -2,8 +2,8 @@
 subject_scopes:
   - semantics
 tier: core
-version: 2
-updated_at: 2026-08-20 20:03:45
+version: 3
+updated_at: 2026-08-21 00:21:06
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -12,6 +12,6 @@ relations:
   child_of:
     - CA-O-002-PRINCIPLE-OPS--select-optional-capabilities-through-configuration
 ---
-# Separate framework and project configuration
+# Separate Project Configuration from Project Graph State
 
-CAPRMEDIO must distinguish framework configuration that determines how the framework engine operates from project configuration that represents how the engine applies to the current project.
+CAPRMEDIO must distinguish the human-editable Project Configuration Atom from generated Project Graph State Projections. Only the Configuration Atom is settings and owns operator-selected values; Graph State Projections are read-only derived views and never configuration authority.
