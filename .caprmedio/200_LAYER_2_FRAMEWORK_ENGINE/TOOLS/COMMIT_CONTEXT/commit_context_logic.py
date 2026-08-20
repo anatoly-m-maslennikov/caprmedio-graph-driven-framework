@@ -22,11 +22,17 @@ from typing import Any, Mapping, Sequence
 from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 
 
-MODULE_ROOT = Path(__file__).resolve().parents[3]
-sys.pycache_prefix = str(MODULE_ROOT / ".caprmedio_runtime" / "cache" / "python")
+MODULE_PATH = Path(__file__).resolve()
+PACKAGE_ROOT = MODULE_PATH.parents[1]
+for _parent in MODULE_PATH.parents:
+    if _parent.name == ".caprmedio_runtime":
+        sys.pycache_prefix = str(_parent / "cache" / "python")
+        break
+    if _parent.name == ".caprmedio":
+        sys.pycache_prefix = str(_parent.parent / ".caprmedio_runtime" / "cache" / "python")
+        break
 
 SETTINGS_PATH = Path(".caprmedio/caprmedio_project_settings.toml")
-RELATION_REGISTRY_PATH = Path("02_FR_ENGN/TOOLS/caprmedio_relation_types.toml")
 JOURNAL_EVENT_SCHEMA_VERSION = 2
 CONTEXT_SCHEMA_VERSION = 2
 GITHUB_USERNAME = re.compile(r"[A-Za-z0-9](?:[A-Za-z0-9-]{0,37}[A-Za-z0-9])?")
@@ -296,8 +302,8 @@ def carrier_from_bytes(path: str, data: bytes) -> Carrier:
 
 
 def registry_path(root: Path) -> Path:
-    project_path = root / RELATION_REGISTRY_PATH
-    return project_path if project_path.is_file() else Path(__file__).resolve().parents[1] / "caprmedio_relation_types.toml"
+    del root
+    return PACKAGE_ROOT / "caprmedio_relation_types.toml"
 
 
 def relation_registry(root: Path) -> dict[str, Mapping[str, Any]]:
