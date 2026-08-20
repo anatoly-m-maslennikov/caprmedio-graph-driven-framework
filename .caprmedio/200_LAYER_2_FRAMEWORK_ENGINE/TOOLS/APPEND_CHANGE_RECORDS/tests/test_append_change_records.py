@@ -6,7 +6,6 @@ import copy
 import hashlib
 import json
 import os
-import shutil
 import subprocess
 import sys
 import tempfile
@@ -14,11 +13,13 @@ import unittest
 from pathlib import Path
 
 
-REPOSITORY = Path(__file__).resolve().parents[4]
-TOOLS = REPOSITORY / "02_FR_ENGN" / "TOOLS"
+TOOLS = Path(__file__).resolve().parents[2]
 APPENDER = TOOLS / "APPEND_CHANGE_RECORDS"
 CONTEXT_TOOL = TOOLS / "COMMIT_CONTEXT"
-sys.pycache_prefix = str(REPOSITORY / ".caprmedio_runtime" / "cache" / "python")
+for _parent in Path(__file__).resolve().parents:
+    if _parent.name == ".caprmedio":
+        sys.pycache_prefix = str(_parent.parent / ".caprmedio_runtime" / "cache" / "python")
+        break
 for path in (str(APPENDER), str(TOOLS)):
     if path not in sys.path:
         sys.path.insert(0, path)
@@ -177,7 +178,7 @@ class AppendChangeRecordsTest(unittest.TestCase):
         self.assertEqual(1, len(path.read_text(encoding="utf-8").splitlines()))
         self.assertEqual(first["result"]["receipts"], second["result"]["receipts"])
         self.assertFalse((self.root / ".caprmedio/work_journal/test-user-2026-08-21-part-1.ndjson").exists())
-        correlations = self.root / ".caprmedio_runtime/commit_trigger/pipeline_correlations.ndjson"
+        correlations = self.root / ".caprmedio_runtime/state/commit_trigger/pipeline_correlations.ndjson"
         registered = [json.loads(line) for line in correlations.read_text(encoding="utf-8").splitlines()]
         self.assertEqual(["registered"], [record["event"] for record in registered])
         self.assertEqual(first["result"]["receipts"][0]["appended_carrier_digest"], registered[0]["transition"]["appended_carrier_digest"])
@@ -191,7 +192,7 @@ class AppendChangeRecordsTest(unittest.TestCase):
         with self.assertRaisesRegex(ToolError, "context_id"):
             run(self.root, {"context": context}, apply=True, wait_seconds=0)
         self.assertFalse((self.root / ".caprmedio/work_journal").exists())
-        self.assertFalse((self.root / ".caprmedio_runtime/commit_change_set/lease.json").exists())
+        self.assertFalse((self.root / ".caprmedio_runtime/state/commit_change_set/lease.json").exists())
 
     def test_rejects_existing_staged_change_before_append(self) -> None:
         unrelated = self.root / "unrelated.txt"
@@ -278,9 +279,6 @@ class AppendChangeRecordsTest(unittest.TestCase):
         release_verified_lease(self.root, output["result"]["lease"])
 
     def test_consumes_the_actual_commit_context_schema(self) -> None:
-        registry = self.root / "02_FR_ENGN/TOOLS"
-        registry.mkdir(parents=True)
-        shutil.copy2(TOOLS / "caprmedio_relation_types.toml", registry / "caprmedio_relation_types.toml")
         parent = self.root / ".caprmedio/04_requirement/CA-R-001-REQUIREMENT--parent.md"
         parent.parent.mkdir(parents=True, exist_ok=True)
         parent.write_text("---\nversion: 1\nrelations: {}\n---\n# Parent\n\nBody\n", encoding="utf-8")
