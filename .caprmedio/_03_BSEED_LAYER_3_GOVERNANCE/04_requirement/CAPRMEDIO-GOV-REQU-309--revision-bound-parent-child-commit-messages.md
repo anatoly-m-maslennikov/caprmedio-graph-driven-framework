@@ -1,19 +1,14 @@
 ---
 subject_scopes:
   - provenance
-version: 12
-updated_at: 2026-08-20 21:40:00
+version: 13
+updated_at: 2026-08-20 21:45:00
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   child_of:
     - CAPRMEDIO-GOV-REQU-345--represent-accepted-meaning-faithfully
     - CAPRMEDIO-META-REQU-110--bind-governed-transactions-to-stable-artifact-revisions
-  replacement_of:
-    - CAPRMEDIO-GOV-REQU-465--atomic-id-only-commit-messages
-  relates_to:
-    - CAPRMEDIO-META-REQU-125--three-artifact-forms-with-generated-projections
-    - CAPRMEDIO-META-REQU-154--semantic-irreducibility
 ---
 # Use typed-upstream change-set commit messages
 
