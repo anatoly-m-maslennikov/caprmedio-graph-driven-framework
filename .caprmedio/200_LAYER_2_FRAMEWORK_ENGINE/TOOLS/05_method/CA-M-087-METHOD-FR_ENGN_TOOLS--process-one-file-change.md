@@ -2,14 +2,14 @@
 subject_scopes:
   - provenance
 tier: standard
-version: 6
-updated_at: 2026-08-20 22:28:00
+version: 7
+updated_at: 2026-08-20 22:58:24
 relations:
   method_for:
-    - CA-R-803-REQUIREMENT-FR_ENGN_TOOLS_OPS_TOOLS--emit-only-operational-hook-triggers
-    - CA-R-804-REQUIREMENT-FR_ENGN_TOOLS_OPS_TOOLS--gather-complete-commit-action-context
-    - CA-R-805-REQUIREMENT-FR_ENGN_TOOLS_OPS_TOOLS--commit-one-governed-file-action
-    - CA-R-812-REQUIREMENT-FR_ENGN_TOOLS_OPS_TOOLS--append-governed-file-change-journal-records
+    - CA-R-803-REQUIREMENT-FR_ENGN_TOOLS--emit-only-operational-hook-triggers
+    - CA-R-804-REQUIREMENT-FR_ENGN_TOOLS--gather-complete-commit-action-context
+    - CA-R-805-REQUIREMENT-FR_ENGN_TOOLS--commit-one-governed-file-action
+    - CA-R-812-REQUIREMENT-FR_ENGN_TOOLS--append-governed-file-change-journal-records
 ---
 # Process one file change
 
