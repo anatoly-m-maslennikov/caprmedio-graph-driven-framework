@@ -2,11 +2,11 @@
 artifact_subtype: qa_case
 subject_scopes:
   - evaluation
-version: 3
-updated_at: 2026-08-20 22:58:24
+version: 4
+updated_at: 2026-08-20 23:51:00
 relations:
   check_of:
-    - CA-D-006-DELIVERY-FR_ENGN_TOOLS--deliver-project-local-commit-automation
+    - CA-D-007-DELIVERY-FR_ENGN_TOOLS_COMMIT_TRIGGER--deliver-commit-trigger-script
 ---
 # Preserve existing Hook behavior
 
