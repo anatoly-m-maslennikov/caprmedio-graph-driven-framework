@@ -1,16 +1,14 @@
 ---
 subject_scopes:
   - settings
-version: 3
-updated_at: 2026-08-20 18:32:49
+version: 4
+updated_at: 2026-08-21 00:21:06
 relations:
   child_of:
     - CAPRMEDIO-GOV-REQU-344--all-governed-artifacts-live-under-caprmedio
     - CAPRMEDIO-META-REQU-619--classify-framework-settings-as-an-implementation-atom
     - CAPRMEDIO-GOV-REQU-661--register-framework-settings-atom-identity
 ---
-# Admit Framework Settings as a native Implementation Atom
+# Admit Project Configuration as a native Implementation Atom
 
-GOV expressly admits `caprmedio_framework_settings.toml` as the native
-Implementation Atom with externally bound `atom_id: CAPRMEDIO-I-001` at the
-root REALIZATION address.
+GOV expressly admits the human-editable Project Configuration carrier as the native Implementation Atom with externally bound `atom_id: CAPRMEDIO-I-001` at the registered bootstrap address. The separate decision that establishes how this bootstrap address is discovered remains required when the control root and code roots are not co-located.
