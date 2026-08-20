@@ -1,8 +1,8 @@
 ---
 subject_scopes:
   - settings
-version: 3
-updated_at: 2026-08-18 07:53:29
+version: 4
+updated_at: 2026-08-21 00:21:06
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -11,6 +11,6 @@ relations:
     - CAPRMEDIO-META-REQU-166--projections-have-updated-at
     - CAPRMEDIO-META-REQU-627--bind-every-projected-setting-to-exact-source-authority
 ---
-# Encode Project Settings source frontier in TOML
+# Encode the Project Graph State source frontier
 
-The Project Settings TOML carrier must encode `updated_at`, generator identity and digest, Framework Settings identity and digest, Project Settings Map path, `updated_at`, and digest, source-frontier digest, and exact source Atom references in `[projection]`; it must encode each effective leaf setting key's exact source Atom references in `[projection.bindings]`; and it must keep effective settings in their ordinary TOML tables without a separate manifest or third settings carrier.
+Each Project Graph State Projection carrier must encode `updated_at`, generator identity and digest, the exact Project Configuration Atom identity and Revision, its Source Map identity and digest, a source-frontier digest, and exact contributing Atom revisions and Journal records in carrier-native Projection metadata. It must bind every emitted state value to its exact sources and must not expose those values as editable settings.
