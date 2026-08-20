@@ -1292,7 +1292,7 @@ def _hook_log(repository: Path, value: Mapping[str, Any]) -> None:
 def _hook_eligible(observation: Mapping[str, Any]) -> bool:
     paths = [observation.get("before_path"), observation.get("after_path")]
     selected = [Path(value) for value in paths if isinstance(value, str)]
-    if not selected or not all(path.suffix == ".md" for path in selected):
+    if not selected or not all(path.suffix == ".md" and "--" in path.name for path in selected):
         return False
     return not any("archive" in path.parts or "drafts" in path.parts for path in selected)
 
