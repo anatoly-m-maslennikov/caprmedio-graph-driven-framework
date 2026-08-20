@@ -1,8 +1,8 @@
 ---
 subject_scopes:
   - provenance
-version: 6
-updated_at: 2026-08-20 19:11:46
+version: 7
+updated_at: 2026-08-20 19:12:49
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -25,13 +25,13 @@ Every governed Git commit changes exactly one repository file through exactly on
 
 ## Upstream relations
 
-The left field preserves every direct typed upstream relation from the affected file to its closest upstream Atom Revisions. Each entry uses the canonical relation kind, target carrier filename, and target version:
+The left field preserves every direct typed upstream relation from the affected file to its closest upstream Atom Revisions. Relations may be authored or programmatically derived from the current graph. Each entry uses the canonical relation kind, target carrier filename, and target version:
 
 ```text
 <relation-kind>=<filename>@<version>
 ```
 
-Targets of the same relation kind are separated by a comma followed by one space. Relation groups are separated by a semicolon followed by one space and sorted first by relation kind and then by filename. `0` represents no direct upstream typed relation. Transitive ancestors, inverse relations, and association-only relations are excluded.
+Targets of the same relation kind are separated by a comma followed by one space. Relation groups are separated by a semicolon followed by one space and sorted first by relation kind and then by filename. `0` represents no direct upstream typed relation. Transitive ancestors and association-only relations are excluded. A derived inverse relation is included when its registered direction is upstream for the affected file.
 
 `ADD` and `UPDATE` resolve relations from the resulting staged graph, `MOVE` resolves them from the unchanged Artifact graph, and `REMOVE` resolves them from the last committed graph. Target versions must be current immediately before the action. `updated_at` is omitted because the Git commit already records the action time.
 
@@ -63,13 +63,19 @@ A remove names the Revision removed from the active carrier address:
 child_of=parent.md@2 | REMOVE | file.md@4
 ```
 
-Replacement uses the same typed-relation syntax as every other governed relation. Adding a replacement file records its `replacement_of` edge:
+Replacement uses the same typed-relation syntax as every other governed relation. Adding a replacement file records its authored `replacement_of` edge:
 
 ```text
 child_of=parent.md@2; replacement_of=old-file.md@4 | ADD | replacement-file.md@1
 ```
 
-Removing the replaced file later is an ordinary `REMOVE`. The committed replacement file and its typed relation must already exist before that removal. Adding each replacement and removing the replaced file remain separate one-file actions.
+Removing the replaced file later uses the derived inverse `replaced_by` edge:
+
+```text
+replaced_by=replacement-file.md@1 | REMOVE | old-file.md@4
+```
+
+The committed replacement file and its authored `replacement_of` relation must already exist before removal so the graph can derive `replaced_by`. Adding each replacement and removing the replaced file remain separate one-file actions.
 
 An affected governed file uses `<filename>@<version>`. A governed native file without embedded Revision properties uses the version from its external revision binding. Changing file content while moving it requires two ordered commits: one `MOVE` with unchanged version and one `UPDATE` with an advanced version. No governed commit may combine actions or change more than one repository file.
 
