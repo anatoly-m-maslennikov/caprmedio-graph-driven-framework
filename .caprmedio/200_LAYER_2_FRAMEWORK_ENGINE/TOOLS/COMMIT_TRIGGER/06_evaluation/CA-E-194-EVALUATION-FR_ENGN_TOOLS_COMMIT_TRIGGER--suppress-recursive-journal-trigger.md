@@ -2,11 +2,11 @@
 artifact_subtype: qa_case
 subject_scopes:
   - evaluation
-version: 3
-updated_at: 2026-08-20 22:58:24
+version: 4
+updated_at: 2026-08-20 23:40:00
 relations:
   evaluation_for:
-    - CA-R-803-REQUIREMENT-FR_ENGN_TOOLS--emit-only-operational-hook-triggers
+    - CA-R-803-REQUIREMENT-FR_ENGN_TOOLS_COMMIT_TRIGGER--emit-only-operational-hook-triggers
 ---
 # Suppress the recursive Journal trigger
 
