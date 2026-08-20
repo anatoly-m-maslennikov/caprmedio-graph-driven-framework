@@ -2,8 +2,8 @@
 artifact_subtype: qa_case
 subject_scopes:
   - evaluation
-version: 2
-updated_at: 2026-08-20 22:05:00
+version: 3
+updated_at: 2026-08-20 22:33:00
 relations:
   evaluation_for:
     - CA-M-087-METHOD-FR_ENGN_TOOLS_OPS_TOOLS--process-one-file-change
@@ -17,12 +17,12 @@ The operational Hook coalesces one adapter-defined logical change into one stabl
 
 ## Test case
 
-Snapshot the working tree, index, Journals, runtime files, and Git history; deliver three noisy observations with the same adapter and source-event identities for one registered logical file-change boundary; capture every Hook output; and compare every snapshot after the Hook returns.
+Snapshot the working tree, index, Journals, runtime files, and Git history; configure one registered LLM application and host session UUID; deliver three noisy observations with the same adapter and source-event identities for one registered logical file-change boundary; capture every Hook output; and compare every snapshot after the Hook returns.
 
 ## Acceptance criteria
 
-Exactly one schema-valid trigger identifies the adapter, source event, repository, stable trigger identity, and observed before-path and after-path candidates; replaying the observations yields that same identity; every captured state remains byte-identical; and no change set has been classified.
+Exactly one schema-valid trigger identifies the adapter, source event, repository, stable trigger identity, observation time, observed before-path and after-path candidates, and one structured LLM-session candidate containing the configured application and UUID without a concatenated timestamped copy. Replaying the observations yields that same identity and candidate; every captured state remains byte-identical; and no change set has been classified.
 
 ## Failure disposition
 
-Reject the Hook delivery and report the first duplicate or unstable trigger, extra field, classification, traversal, or mutation observed.
+Reject the Hook delivery and report the first duplicate or unstable trigger, missing or duplicated LLM-session field, classification, traversal, or mutation observed.
