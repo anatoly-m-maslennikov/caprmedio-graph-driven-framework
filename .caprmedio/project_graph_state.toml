@@ -4,12 +4,12 @@ schema_version = "0.1"
 kind = "project_graph_state"
 non_authoritative = true
 currentness = "working_tree_snapshot"
-generated_at = "2026-08-21T01:31:42+04:00"
+generated_at = "2026-08-21T01:43:25+04:00"
 canonical_generator = "02_FR_ENGN/TOOLS/GENERATE_PROJECT_GRAPH_STATE/generate_project_graph_state.py"
-canonical_generator_sha256 = "40740fa58caa5be019ceafe9ce68387c7e229fd196a4b891585a5b91ef0529ad"
+canonical_generator_sha256 = "37dc117aba9140005ef7725fa7567c69177b0a2bd43ab09038b6c9f7199719e6"
 executed_generator = ".caprmedio_runtime/installed/tools/generate_project_graph_state/generate_project_graph_state.py"
-executed_generator_sha256 = "40740fa58caa5be019ceafe9ce68387c7e229fd196a4b891585a5b91ef0529ad"
-source_frontier_sha256 = "1296f16fa02da5fc89c0f8eb1b4e163b9d1ac4c65ed384999c95333974c13b4e"
+executed_generator_sha256 = "37dc117aba9140005ef7725fa7567c69177b0a2bd43ab09038b6c9f7199719e6"
+source_frontier_sha256 = "4cf189dd1781174a448b3026fa9154e92c2489bd8d0675060ad5b0ef01bd838b"
 
 [configuration]
 atom_id = "CAPRMEDIO-I-001"
@@ -23,1332 +23,350 @@ journal_event_id = "d8dd06c5-8908-4803-8593-aa70b0a007e5"
 
 [repository]
 control_root = ".caprmedio"
-governed_file_count = 1572
-filesystem_unit_count = 147
+governed_file_count = 1578
+project_root_scope_unit_folder_count = 5
+scope_unit_count = 22
 graph_contribution_count = 23
 
-[[filesystem_units]]
-path = ".caprmedio"
-parent = ""
-depth = 0
-as_is_kind = "mixed"
-archived = false
-direct_directory_count = 22
-direct_file_count = 2
-
-[[filesystem_units]]
-path = ".caprmedio/01_concern"
-parent = ".caprmedio"
-depth = 1
-as_is_kind = "mixed"
-archived = false
-direct_directory_count = 1
-direct_file_count = 2
-
-[[filesystem_units]]
-path = ".caprmedio/01_concern/solved"
-parent = ".caprmedio/01_concern"
-depth = 2
-as_is_kind = "feature"
-archived = false
-direct_directory_count = 0
-direct_file_count = 1
-
-[[filesystem_units]]
-path = ".caprmedio/02_analysis"
-parent = ".caprmedio"
-depth = 1
-as_is_kind = "mixed"
-archived = false
-direct_directory_count = 1
-direct_file_count = 10
-
-[[filesystem_units]]
-path = ".caprmedio/02_analysis/archive"
-parent = ".caprmedio/02_analysis"
-depth = 2
-as_is_kind = "feature"
-archived = true
-direct_directory_count = 0
-direct_file_count = 1
-
-[[filesystem_units]]
-path = ".caprmedio/03_plan"
-parent = ".caprmedio"
-depth = 1
-as_is_kind = "mixed"
-archived = false
-direct_directory_count = 2
-direct_file_count = 17
-
-[[filesystem_units]]
-path = ".caprmedio/03_plan/archive"
-parent = ".caprmedio/03_plan"
-depth = 2
-as_is_kind = "feature"
-archived = true
-direct_directory_count = 0
-direct_file_count = 5
-
-[[filesystem_units]]
-path = ".caprmedio/03_plan/done"
-parent = ".caprmedio/03_plan"
-depth = 2
-as_is_kind = "feature"
-archived = false
-direct_directory_count = 0
-direct_file_count = 9
-
-[[filesystem_units]]
-path = ".caprmedio/04_requirement"
-parent = ".caprmedio"
-depth = 1
-as_is_kind = "mixed"
-archived = false
-direct_directory_count = 2
-direct_file_count = 76
-
-[[filesystem_units]]
-path = ".caprmedio/04_requirement/archive"
-parent = ".caprmedio/04_requirement"
-depth = 2
-as_is_kind = "feature"
-archived = true
-direct_directory_count = 0
-direct_file_count = 85
-
-[[filesystem_units]]
-path = ".caprmedio/04_requirement/drafts"
-parent = ".caprmedio/04_requirement"
-depth = 2
-as_is_kind = "feature"
-archived = false
-direct_directory_count = 0
-direct_file_count = 1
-
-[[filesystem_units]]
-path = ".caprmedio/05_method"
-parent = ".caprmedio"
-depth = 1
-as_is_kind = "mixed"
-archived = false
-direct_directory_count = 1
-direct_file_count = 18
-
-[[filesystem_units]]
-path = ".caprmedio/05_method/archive"
-parent = ".caprmedio/05_method"
-depth = 2
-as_is_kind = "feature"
-archived = true
-direct_directory_count = 0
-direct_file_count = 4
-
-[[filesystem_units]]
-path = ".caprmedio/06_evaluation"
-parent = ".caprmedio"
-depth = 1
-as_is_kind = "feature"
-archived = false
-direct_directory_count = 0
-direct_file_count = 9
-
-[[filesystem_units]]
-path = ".caprmedio/07_delivery"
-parent = ".caprmedio"
-depth = 1
-as_is_kind = "mixed"
-archived = false
-direct_directory_count = 1
-direct_file_count = 3
-
-[[filesystem_units]]
-path = ".caprmedio/07_delivery/archive"
-parent = ".caprmedio/07_delivery"
-depth = 2
-as_is_kind = "feature"
-archived = true
-direct_directory_count = 0
-direct_file_count = 1
-
-[[filesystem_units]]
-path = ".caprmedio/08_implementation"
-parent = ".caprmedio"
-depth = 1
-as_is_kind = "mixed"
-archived = false
-direct_directory_count = 1
-direct_file_count = 3
-
-[[filesystem_units]]
-path = ".caprmedio/08_implementation/archive"
-parent = ".caprmedio/08_implementation"
-depth = 2
-as_is_kind = "mixed"
-archived = true
-direct_directory_count = 1
-direct_file_count = 2
-
-[[filesystem_units]]
-path = ".caprmedio/08_implementation/archive/400_LAYER_4_REALIZATION"
-parent = ".caprmedio/08_implementation/archive"
-depth = 3
-as_is_kind = "mixed"
-archived = true
-direct_directory_count = 3
-direct_file_count = 22
-
-[[filesystem_units]]
-path = ".caprmedio/08_implementation/archive/400_LAYER_4_REALIZATION/05_method"
-parent = ".caprmedio/08_implementation/archive/400_LAYER_4_REALIZATION"
-depth = 4
-as_is_kind = "area"
-archived = true
-direct_directory_count = 1
-direct_file_count = 0
-
-[[filesystem_units]]
-path = ".caprmedio/08_implementation/archive/400_LAYER_4_REALIZATION/05_method/archive"
-parent = ".caprmedio/08_implementation/archive/400_LAYER_4_REALIZATION/05_method"
-depth = 5
-as_is_kind = "feature"
-archived = true
-direct_directory_count = 0
-direct_file_count = 2
-
-[[filesystem_units]]
-path = ".caprmedio/08_implementation/archive/400_LAYER_4_REALIZATION/06_evaluation"
-parent = ".caprmedio/08_implementation/archive/400_LAYER_4_REALIZATION"
-depth = 4
-as_is_kind = "area"
-archived = true
-direct_directory_count = 1
-direct_file_count = 0
-
-[[filesystem_units]]
-path = ".caprmedio/08_implementation/archive/400_LAYER_4_REALIZATION/06_evaluation/archive"
-parent = ".caprmedio/08_implementation/archive/400_LAYER_4_REALIZATION/06_evaluation"
-depth = 5
-as_is_kind = "feature"
-archived = true
-direct_directory_count = 0
-direct_file_count = 3
-
-[[filesystem_units]]
-path = ".caprmedio/08_implementation/archive/400_LAYER_4_REALIZATION/archive"
-parent = ".caprmedio/08_implementation/archive/400_LAYER_4_REALIZATION"
-depth = 4
-as_is_kind = "feature"
-archived = true
-direct_directory_count = 0
-direct_file_count = 10
-
-[[filesystem_units]]
-path = ".caprmedio/09_ops"
-parent = ".caprmedio"
-depth = 1
-as_is_kind = "mixed"
-archived = false
-direct_directory_count = 1
-direct_file_count = 1
-
-[[filesystem_units]]
-path = ".caprmedio/09_ops/archive"
-parent = ".caprmedio/09_ops"
-depth = 2
-as_is_kind = "mixed"
-archived = true
-direct_directory_count = 1
-direct_file_count = 2
-
-[[filesystem_units]]
-path = ".caprmedio/09_ops/archive/600_LAYER_6_FIELD"
-parent = ".caprmedio/09_ops/archive"
-depth = 3
-as_is_kind = "area"
-archived = true
-direct_directory_count = 6
-direct_file_count = 0
-
-[[filesystem_units]]
-path = ".caprmedio/09_ops/archive/600_LAYER_6_FIELD/01_concern"
-parent = ".caprmedio/09_ops/archive/600_LAYER_6_FIELD"
-depth = 4
-as_is_kind = "area"
-archived = true
-direct_directory_count = 1
-direct_file_count = 0
-
-[[filesystem_units]]
-path = ".caprmedio/09_ops/archive/600_LAYER_6_FIELD/01_concern/archive"
-parent = ".caprmedio/09_ops/archive/600_LAYER_6_FIELD/01_concern"
-depth = 5
-as_is_kind = "feature"
-archived = true
-direct_directory_count = 0
-direct_file_count = 7
-
-[[filesystem_units]]
-path = ".caprmedio/09_ops/archive/600_LAYER_6_FIELD/04_requirement"
-parent = ".caprmedio/09_ops/archive/600_LAYER_6_FIELD"
-depth = 4
-as_is_kind = "area"
-archived = true
-direct_directory_count = 1
-direct_file_count = 0
-
-[[filesystem_units]]
-path = ".caprmedio/09_ops/archive/600_LAYER_6_FIELD/04_requirement/archive"
-parent = ".caprmedio/09_ops/archive/600_LAYER_6_FIELD/04_requirement"
-depth = 5
-as_is_kind = "feature"
-archived = true
-direct_directory_count = 0
-direct_file_count = 8
-
-[[filesystem_units]]
-path = ".caprmedio/09_ops/archive/600_LAYER_6_FIELD/05_method"
-parent = ".caprmedio/09_ops/archive/600_LAYER_6_FIELD"
-depth = 4
-as_is_kind = "area"
-archived = true
-direct_directory_count = 1
-direct_file_count = 0
-
-[[filesystem_units]]
-path = ".caprmedio/09_ops/archive/600_LAYER_6_FIELD/05_method/archive"
-parent = ".caprmedio/09_ops/archive/600_LAYER_6_FIELD/05_method"
-depth = 5
-as_is_kind = "feature"
-archived = true
-direct_directory_count = 0
-direct_file_count = 13
-
-[[filesystem_units]]
-path = ".caprmedio/09_ops/archive/600_LAYER_6_FIELD/06_evaluation"
-parent = ".caprmedio/09_ops/archive/600_LAYER_6_FIELD"
-depth = 4
-as_is_kind = "area"
-archived = true
-direct_directory_count = 1
-direct_file_count = 0
-
-[[filesystem_units]]
-path = ".caprmedio/09_ops/archive/600_LAYER_6_FIELD/06_evaluation/archive"
-parent = ".caprmedio/09_ops/archive/600_LAYER_6_FIELD/06_evaluation"
-depth = 5
-as_is_kind = "feature"
-archived = true
-direct_directory_count = 0
-direct_file_count = 7
-
-[[filesystem_units]]
-path = ".caprmedio/09_ops/archive/600_LAYER_6_FIELD/07_delivery"
-parent = ".caprmedio/09_ops/archive/600_LAYER_6_FIELD"
-depth = 4
-as_is_kind = "mixed"
-archived = true
-direct_directory_count = 1
-direct_file_count = 1
-
-[[filesystem_units]]
-path = ".caprmedio/09_ops/archive/600_LAYER_6_FIELD/07_delivery/archive"
-parent = ".caprmedio/09_ops/archive/600_LAYER_6_FIELD/07_delivery"
-depth = 5
-as_is_kind = "feature"
-archived = true
-direct_directory_count = 0
-direct_file_count = 9
-
-[[filesystem_units]]
-path = ".caprmedio/09_ops/archive/600_LAYER_6_FIELD/09_ops"
-parent = ".caprmedio/09_ops/archive/600_LAYER_6_FIELD"
-depth = 4
-as_is_kind = "area"
-archived = true
-direct_directory_count = 1
-direct_file_count = 0
-
-[[filesystem_units]]
-path = ".caprmedio/09_ops/archive/600_LAYER_6_FIELD/09_ops/archive"
-parent = ".caprmedio/09_ops/archive/600_LAYER_6_FIELD/09_ops"
-depth = 5
-as_is_kind = "feature"
-archived = true
-direct_directory_count = 0
-direct_file_count = 45
-
-[[filesystem_units]]
+[[project_root_scope_unit_folders]]
+scope_unit = "FRAMEWORK_METHODOLOGY"
 path = ".caprmedio/100_LAYER_1_FRAMEWORK_METHODOLOGY"
-parent = ".caprmedio"
-depth = 1
-as_is_kind = "area"
-archived = false
-direct_directory_count = 3
-direct_file_count = 0
+materialized = true
+source_atom_id = "CAPRMEDIO-GOV-REQU-774"
+source_carrier = ".caprmedio/_03_BSEED_LAYER_3_GOVERNANCE/04_requirement/CAPRMEDIO-GOV-REQU-774--register-project-layer-directory-labels.md"
+source_version = "2"
 
-[[filesystem_units]]
-path = ".caprmedio/100_LAYER_1_FRAMEWORK_METHODOLOGY/02_analysis"
-parent = ".caprmedio/100_LAYER_1_FRAMEWORK_METHODOLOGY"
-depth = 2
-as_is_kind = "mixed"
-archived = false
-direct_directory_count = 1
-direct_file_count = 2
-
-[[filesystem_units]]
-path = ".caprmedio/100_LAYER_1_FRAMEWORK_METHODOLOGY/02_analysis/archive"
-parent = ".caprmedio/100_LAYER_1_FRAMEWORK_METHODOLOGY/02_analysis"
-depth = 3
-as_is_kind = "feature"
-archived = true
-direct_directory_count = 0
-direct_file_count = 2
-
-[[filesystem_units]]
-path = ".caprmedio/100_LAYER_1_FRAMEWORK_METHODOLOGY/04_requirement"
-parent = ".caprmedio/100_LAYER_1_FRAMEWORK_METHODOLOGY"
-depth = 2
-as_is_kind = "mixed"
-archived = false
-direct_directory_count = 1
-direct_file_count = 19
-
-[[filesystem_units]]
-path = ".caprmedio/100_LAYER_1_FRAMEWORK_METHODOLOGY/04_requirement/archive"
-parent = ".caprmedio/100_LAYER_1_FRAMEWORK_METHODOLOGY/04_requirement"
-depth = 3
-as_is_kind = "feature"
-archived = true
-direct_directory_count = 0
-direct_file_count = 18
-
-[[filesystem_units]]
-path = ".caprmedio/100_LAYER_1_FRAMEWORK_METHODOLOGY/05_method"
-parent = ".caprmedio/100_LAYER_1_FRAMEWORK_METHODOLOGY"
-depth = 2
-as_is_kind = "mixed"
-archived = false
-direct_directory_count = 1
-direct_file_count = 1
-
-[[filesystem_units]]
-path = ".caprmedio/100_LAYER_1_FRAMEWORK_METHODOLOGY/05_method/drafts"
-parent = ".caprmedio/100_LAYER_1_FRAMEWORK_METHODOLOGY/05_method"
-depth = 3
-as_is_kind = "feature"
-archived = false
-direct_directory_count = 0
-direct_file_count = 5
-
-[[filesystem_units]]
-path = ".caprmedio/100_LAYER_1_META"
-parent = ".caprmedio"
-depth = 1
-as_is_kind = "area"
-archived = false
-direct_directory_count = 2
-direct_file_count = 0
-
-[[filesystem_units]]
-path = ".caprmedio/100_LAYER_1_META/01_concern"
-parent = ".caprmedio/100_LAYER_1_META"
-depth = 2
-as_is_kind = "empty"
-archived = false
-direct_directory_count = 0
-direct_file_count = 0
-
-[[filesystem_units]]
-path = ".caprmedio/100_LAYER_1_META/04_requirement"
-parent = ".caprmedio/100_LAYER_1_META"
-depth = 2
-as_is_kind = "empty"
-archived = false
-direct_directory_count = 0
-direct_file_count = 0
-
-[[filesystem_units]]
+[[project_root_scope_unit_folders]]
+scope_unit = "FRAMEWORK_ENGINE"
 path = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE"
-parent = ".caprmedio"
-depth = 1
-as_is_kind = "area"
-archived = false
-direct_directory_count = 9
-direct_file_count = 0
+materialized = true
+source_atom_id = "CAPRMEDIO-GOV-REQU-774"
+source_carrier = ".caprmedio/_03_BSEED_LAYER_3_GOVERNANCE/04_requirement/CAPRMEDIO-GOV-REQU-774--register-project-layer-directory-labels.md"
+source_version = "2"
 
-[[filesystem_units]]
-path = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/01_concern"
-parent = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE"
-depth = 2
-as_is_kind = "area"
-archived = false
-direct_directory_count = 1
-direct_file_count = 0
-
-[[filesystem_units]]
-path = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/01_concern/archive"
-parent = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/01_concern"
-depth = 3
-as_is_kind = "feature"
-archived = true
-direct_directory_count = 0
-direct_file_count = 27
-
-[[filesystem_units]]
-path = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/02_analysis"
-parent = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE"
-depth = 2
-as_is_kind = "area"
-archived = false
-direct_directory_count = 1
-direct_file_count = 0
-
-[[filesystem_units]]
-path = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/02_analysis/archive"
-parent = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/02_analysis"
-depth = 3
-as_is_kind = "feature"
-archived = true
-direct_directory_count = 0
-direct_file_count = 1
-
-[[filesystem_units]]
-path = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/04_requirement"
-parent = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE"
-depth = 2
-as_is_kind = "mixed"
-archived = false
-direct_directory_count = 1
-direct_file_count = 4
-
-[[filesystem_units]]
-path = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/04_requirement/archive"
-parent = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/04_requirement"
-depth = 3
-as_is_kind = "feature"
-archived = true
-direct_directory_count = 0
-direct_file_count = 40
-
-[[filesystem_units]]
-path = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/05_method"
-parent = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE"
-depth = 2
-as_is_kind = "area"
-archived = false
-direct_directory_count = 1
-direct_file_count = 0
-
-[[filesystem_units]]
-path = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/05_method/archive"
-parent = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/05_method"
-depth = 3
-as_is_kind = "feature"
-archived = true
-direct_directory_count = 0
-direct_file_count = 3
-
-[[filesystem_units]]
-path = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/06_evaluation"
-parent = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE"
-depth = 2
-as_is_kind = "area"
-archived = false
-direct_directory_count = 1
-direct_file_count = 0
-
-[[filesystem_units]]
-path = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/06_evaluation/archive"
-parent = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/06_evaluation"
-depth = 3
-as_is_kind = "feature"
-archived = true
-direct_directory_count = 0
-direct_file_count = 18
-
-[[filesystem_units]]
-path = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/09_ops"
-parent = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE"
-depth = 2
-as_is_kind = "area"
-archived = false
-direct_directory_count = 1
-direct_file_count = 0
-
-[[filesystem_units]]
-path = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/09_ops/archive"
-parent = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/09_ops"
-depth = 3
-as_is_kind = "feature"
-archived = true
-direct_directory_count = 0
-direct_file_count = 6
-
-[[filesystem_units]]
-path = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/APP"
-parent = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE"
-depth = 2
-as_is_kind = "area"
-archived = false
-direct_directory_count = 4
-direct_file_count = 0
-
-[[filesystem_units]]
-path = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/APP/04_requirement"
-parent = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/APP"
-depth = 3
-as_is_kind = "feature"
-archived = false
-direct_directory_count = 0
-direct_file_count = 2
-
-[[filesystem_units]]
-path = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/APP/05_method"
-parent = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/APP"
-depth = 3
-as_is_kind = "feature"
-archived = false
-direct_directory_count = 0
-direct_file_count = 2
-
-[[filesystem_units]]
-path = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/APP/06_evaluation"
-parent = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/APP"
-depth = 3
-as_is_kind = "feature"
-archived = false
-direct_directory_count = 0
-direct_file_count = 2
-
-[[filesystem_units]]
-path = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/APP/07_delivery"
-parent = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/APP"
-depth = 3
-as_is_kind = "feature"
-archived = false
-direct_directory_count = 0
-direct_file_count = 1
-
-[[filesystem_units]]
-path = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/SKILLS"
-parent = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE"
-depth = 2
-as_is_kind = "area"
-archived = false
-direct_directory_count = 3
-direct_file_count = 0
-
-[[filesystem_units]]
-path = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/SKILLS/01_concern"
-parent = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/SKILLS"
-depth = 3
-as_is_kind = "feature"
-archived = false
-direct_directory_count = 0
-direct_file_count = 1
-
-[[filesystem_units]]
-path = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/SKILLS/02_analysis"
-parent = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/SKILLS"
-depth = 3
-as_is_kind = "feature"
-archived = false
-direct_directory_count = 0
-direct_file_count = 1
-
-[[filesystem_units]]
-path = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/SKILLS/04_requirement"
-parent = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/SKILLS"
-depth = 3
-as_is_kind = "feature"
-archived = false
-direct_directory_count = 0
-direct_file_count = 18
-
-[[filesystem_units]]
-path = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS"
-parent = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE"
-depth = 2
-as_is_kind = "mixed"
-archived = false
-direct_directory_count = 9
-direct_file_count = 2
-
-[[filesystem_units]]
-path = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/02_analysis"
-parent = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS"
-depth = 3
-as_is_kind = "feature"
-archived = false
-direct_directory_count = 0
-direct_file_count = 1
-
-[[filesystem_units]]
-path = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/04_requirement"
-parent = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS"
-depth = 3
-as_is_kind = "feature"
-archived = false
-direct_directory_count = 0
-direct_file_count = 49
-
-[[filesystem_units]]
-path = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/05_method"
-parent = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS"
-depth = 3
-as_is_kind = "mixed"
-archived = false
-direct_directory_count = 1
-direct_file_count = 12
-
-[[filesystem_units]]
-path = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/05_method/archive"
-parent = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/05_method"
-depth = 4
-as_is_kind = "feature"
-archived = true
-direct_directory_count = 0
-direct_file_count = 1
-
-[[filesystem_units]]
-path = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/06_evaluation"
-parent = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS"
-depth = 3
-as_is_kind = "feature"
-archived = false
-direct_directory_count = 0
-direct_file_count = 114
-
-[[filesystem_units]]
-path = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/07_delivery"
-parent = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS"
-depth = 3
-as_is_kind = "feature"
-archived = false
-direct_directory_count = 0
-direct_file_count = 1
-
-[[filesystem_units]]
-path = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/APPEND_CHANGE_RECORDS"
-parent = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS"
-depth = 3
-as_is_kind = "mixed"
-archived = false
-direct_directory_count = 4
-direct_file_count = 1
-
-[[filesystem_units]]
-path = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/APPEND_CHANGE_RECORDS/04_requirement"
-parent = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/APPEND_CHANGE_RECORDS"
-depth = 4
-as_is_kind = "feature"
-archived = false
-direct_directory_count = 0
-direct_file_count = 1
-
-[[filesystem_units]]
-path = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/APPEND_CHANGE_RECORDS/06_evaluation"
-parent = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/APPEND_CHANGE_RECORDS"
-depth = 4
-as_is_kind = "feature"
-archived = false
-direct_directory_count = 0
-direct_file_count = 6
-
-[[filesystem_units]]
-path = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/APPEND_CHANGE_RECORDS/07_delivery"
-parent = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/APPEND_CHANGE_RECORDS"
-depth = 4
-as_is_kind = "feature"
-archived = false
-direct_directory_count = 0
-direct_file_count = 1
-
-[[filesystem_units]]
-path = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/APPEND_CHANGE_RECORDS/tests"
-parent = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/APPEND_CHANGE_RECORDS"
-depth = 4
-as_is_kind = "feature"
-archived = false
-direct_directory_count = 0
-direct_file_count = 1
-
-[[filesystem_units]]
-path = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/COMMIT_CHANGE_SET"
-parent = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS"
-depth = 3
-as_is_kind = "mixed"
-archived = false
-direct_directory_count = 4
-direct_file_count = 1
-
-[[filesystem_units]]
-path = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/COMMIT_CHANGE_SET/04_requirement"
-parent = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/COMMIT_CHANGE_SET"
-depth = 4
-as_is_kind = "feature"
-archived = false
-direct_directory_count = 0
-direct_file_count = 1
-
-[[filesystem_units]]
-path = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/COMMIT_CHANGE_SET/06_evaluation"
-parent = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/COMMIT_CHANGE_SET"
-depth = 4
-as_is_kind = "feature"
-archived = false
-direct_directory_count = 0
-direct_file_count = 6
-
-[[filesystem_units]]
-path = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/COMMIT_CHANGE_SET/07_delivery"
-parent = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/COMMIT_CHANGE_SET"
-depth = 4
-as_is_kind = "feature"
-archived = false
-direct_directory_count = 0
-direct_file_count = 1
-
-[[filesystem_units]]
-path = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/COMMIT_CHANGE_SET/tests"
-parent = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/COMMIT_CHANGE_SET"
-depth = 4
-as_is_kind = "feature"
-archived = false
-direct_directory_count = 0
-direct_file_count = 1
-
-[[filesystem_units]]
-path = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/COMMIT_CONTEXT"
-parent = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS"
-depth = 3
-as_is_kind = "mixed"
-archived = false
-direct_directory_count = 4
-direct_file_count = 2
-
-[[filesystem_units]]
-path = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/COMMIT_CONTEXT/04_requirement"
-parent = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/COMMIT_CONTEXT"
-depth = 4
-as_is_kind = "feature"
-archived = false
-direct_directory_count = 0
-direct_file_count = 1
-
-[[filesystem_units]]
-path = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/COMMIT_CONTEXT/06_evaluation"
-parent = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/COMMIT_CONTEXT"
-depth = 4
-as_is_kind = "feature"
-archived = false
-direct_directory_count = 0
-direct_file_count = 10
-
-[[filesystem_units]]
-path = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/COMMIT_CONTEXT/07_delivery"
-parent = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/COMMIT_CONTEXT"
-depth = 4
-as_is_kind = "feature"
-archived = false
-direct_directory_count = 0
-direct_file_count = 1
-
-[[filesystem_units]]
-path = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/COMMIT_CONTEXT/tests"
-parent = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/COMMIT_CONTEXT"
-depth = 4
-as_is_kind = "feature"
-archived = false
-direct_directory_count = 0
-direct_file_count = 1
-
-[[filesystem_units]]
-path = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/COMMIT_TRIGGER"
-parent = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS"
-depth = 3
-as_is_kind = "mixed"
-archived = false
-direct_directory_count = 4
-direct_file_count = 2
-
-[[filesystem_units]]
-path = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/COMMIT_TRIGGER/04_requirement"
-parent = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/COMMIT_TRIGGER"
-depth = 4
-as_is_kind = "feature"
-archived = false
-direct_directory_count = 0
-direct_file_count = 1
-
-[[filesystem_units]]
-path = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/COMMIT_TRIGGER/06_evaluation"
-parent = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/COMMIT_TRIGGER"
-depth = 4
-as_is_kind = "feature"
-archived = false
-direct_directory_count = 0
-direct_file_count = 3
-
-[[filesystem_units]]
-path = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/COMMIT_TRIGGER/07_delivery"
-parent = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/COMMIT_TRIGGER"
-depth = 4
-as_is_kind = "feature"
-archived = false
-direct_directory_count = 0
-direct_file_count = 1
-
-[[filesystem_units]]
-path = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/COMMIT_TRIGGER/tests"
-parent = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/COMMIT_TRIGGER"
-depth = 4
-as_is_kind = "feature"
-archived = false
-direct_directory_count = 0
-direct_file_count = 1
-
-[[filesystem_units]]
-path = ".caprmedio/200_LAYER_2_GOV"
-parent = ".caprmedio"
-depth = 1
-as_is_kind = "area"
-archived = false
-direct_directory_count = 4
-direct_file_count = 0
-
-[[filesystem_units]]
-path = ".caprmedio/200_LAYER_2_GOV/01_concern"
-parent = ".caprmedio/200_LAYER_2_GOV"
-depth = 2
-as_is_kind = "empty"
-archived = false
-direct_directory_count = 0
-direct_file_count = 0
-
-[[filesystem_units]]
-path = ".caprmedio/200_LAYER_2_GOV/04_requirement"
-parent = ".caprmedio/200_LAYER_2_GOV"
-depth = 2
-as_is_kind = "empty"
-archived = false
-direct_directory_count = 0
-direct_file_count = 0
-
-[[filesystem_units]]
-path = ".caprmedio/200_LAYER_2_GOV/05_method"
-parent = ".caprmedio/200_LAYER_2_GOV"
-depth = 2
-as_is_kind = "empty"
-archived = false
-direct_directory_count = 0
-direct_file_count = 0
-
-[[filesystem_units]]
-path = ".caprmedio/200_LAYER_2_GOV/06_evaluation"
-parent = ".caprmedio/200_LAYER_2_GOV"
-depth = 2
-as_is_kind = "empty"
-archived = false
-direct_directory_count = 0
-direct_file_count = 0
-
-[[filesystem_units]]
+[[project_root_scope_unit_folders]]
+scope_unit = "DOCUMENTATION"
 path = ".caprmedio/300_LAYER_3_DOCUMENTATION"
-parent = ".caprmedio"
-depth = 1
-as_is_kind = "mixed"
-archived = false
-direct_directory_count = 1
-direct_file_count = 1
+materialized = true
+source_atom_id = "CAPRMEDIO-GOV-REQU-774"
+source_carrier = ".caprmedio/_03_BSEED_LAYER_3_GOVERNANCE/04_requirement/CAPRMEDIO-GOV-REQU-774--register-project-layer-directory-labels.md"
+source_version = "2"
 
-[[filesystem_units]]
-path = ".caprmedio/300_LAYER_3_DOCUMENTATION/04_requirement"
-parent = ".caprmedio/300_LAYER_3_DOCUMENTATION"
-depth = 2
-as_is_kind = "feature"
-archived = false
-direct_directory_count = 0
-direct_file_count = 1
-
-[[filesystem_units]]
-path = ".caprmedio/300_LAYER_3_FR_MTHD"
-parent = ".caprmedio"
-depth = 1
-as_is_kind = "empty"
-archived = false
-direct_directory_count = 0
-direct_file_count = 0
-
-[[filesystem_units]]
-path = ".caprmedio/400_LAYER_4_FR_ENGN"
-parent = ".caprmedio"
-depth = 1
-as_is_kind = "area"
-archived = false
-direct_directory_count = 3
-direct_file_count = 0
-
-[[filesystem_units]]
-path = ".caprmedio/400_LAYER_4_FR_ENGN/APP"
-parent = ".caprmedio/400_LAYER_4_FR_ENGN"
-depth = 2
-as_is_kind = "empty"
-archived = false
-direct_directory_count = 0
-direct_file_count = 0
-
-[[filesystem_units]]
-path = ".caprmedio/400_LAYER_4_FR_ENGN/SKILLS"
-parent = ".caprmedio/400_LAYER_4_FR_ENGN"
-depth = 2
-as_is_kind = "empty"
-archived = false
-direct_directory_count = 0
-direct_file_count = 0
-
-[[filesystem_units]]
-path = ".caprmedio/400_LAYER_4_FR_ENGN/TOOLS"
-parent = ".caprmedio/400_LAYER_4_FR_ENGN"
-depth = 2
-as_is_kind = "empty"
-archived = false
-direct_directory_count = 0
-direct_file_count = 0
-
-[[filesystem_units]]
+[[project_root_scope_unit_folders]]
+scope_unit = "RELEASES"
 path = ".caprmedio/400_LAYER_4_RELEASES"
-parent = ".caprmedio"
-depth = 1
-as_is_kind = "feature"
-archived = false
-direct_directory_count = 0
-direct_file_count = 1
+materialized = true
+source_atom_id = "CAPRMEDIO-GOV-REQU-774"
+source_carrier = ".caprmedio/_03_BSEED_LAYER_3_GOVERNANCE/04_requirement/CAPRMEDIO-GOV-REQU-774--register-project-layer-directory-labels.md"
+source_version = "2"
 
-[[filesystem_units]]
+[[project_root_scope_unit_folders]]
+scope_unit = "FIELD"
 path = ".caprmedio/FIELD"
-parent = ".caprmedio"
-depth = 1
-as_is_kind = "feature"
-archived = false
-direct_directory_count = 0
-direct_file_count = 1
+materialized = true
+source_atom_id = "CAPRMEDIO-GOV-REQU-776"
+source_carrier = ".caprmedio/_03_BSEED_LAYER_3_GOVERNANCE/04_requirement/CAPRMEDIO-GOV-REQU-776--register-field-directory-label.md"
+source_version = "1"
 
-[[filesystem_units]]
-path = ".caprmedio/_01_BSEED_LAYER_1_METAMODEL"
-parent = ".caprmedio"
-depth = 1
-as_is_kind = "area"
-archived = false
-direct_directory_count = 4
-direct_file_count = 0
+[[scope_units]]
+identity = "METAMODEL"
+scope_path = "METAMODEL"
+carrier_folder = ".caprmedio/_01_BSEED_LAYER_1_METAMODEL"
+carrier_materialized = true
+structural_kind = "ordered_unit"
+structural_level = -1
+structural_coordinate = "-1/1"
+structural_parent = ""
+local_order = 1
+upstream_unit = ""
+source_atom_id = "CAPRMEDIO-REQU-706"
+source_carrier = ".caprmedio/04_requirement/CAPRMEDIO-REQU-706--define-caprmedio-structural-topology.md"
+source_version = "5"
 
-[[filesystem_units]]
-path = ".caprmedio/_01_BSEED_LAYER_1_METAMODEL/01_concern"
-parent = ".caprmedio/_01_BSEED_LAYER_1_METAMODEL"
-depth = 2
-as_is_kind = "mixed"
-archived = false
-direct_directory_count = 2
-direct_file_count = 1
+[[scope_units]]
+identity = "SEMANTICS"
+scope_path = "SEMANTICS"
+carrier_folder = ".caprmedio/_02_BSEED_LAYER_2_SEMANTICS"
+carrier_materialized = true
+structural_kind = "ordered_unit"
+structural_level = -1
+structural_coordinate = "-1/2"
+structural_parent = ""
+local_order = 2
+upstream_unit = "METAMODEL"
+source_atom_id = "CAPRMEDIO-REQU-706"
+source_carrier = ".caprmedio/04_requirement/CAPRMEDIO-REQU-706--define-caprmedio-structural-topology.md"
+source_version = "5"
 
-[[filesystem_units]]
-path = ".caprmedio/_01_BSEED_LAYER_1_METAMODEL/01_concern/archive"
-parent = ".caprmedio/_01_BSEED_LAYER_1_METAMODEL/01_concern"
-depth = 3
-as_is_kind = "feature"
-archived = true
-direct_directory_count = 0
-direct_file_count = 5
+[[scope_units]]
+identity = "GOVERNANCE"
+scope_path = "GOVERNANCE"
+carrier_folder = ".caprmedio/_03_BSEED_LAYER_3_GOVERNANCE"
+carrier_materialized = true
+structural_kind = "ordered_unit"
+structural_level = -1
+structural_coordinate = "-1/3"
+structural_parent = ""
+local_order = 3
+upstream_unit = "SEMANTICS"
+source_atom_id = "CAPRMEDIO-REQU-706"
+source_carrier = ".caprmedio/04_requirement/CAPRMEDIO-REQU-706--define-caprmedio-structural-topology.md"
+source_version = "5"
 
-[[filesystem_units]]
-path = ".caprmedio/_01_BSEED_LAYER_1_METAMODEL/01_concern/solved"
-parent = ".caprmedio/_01_BSEED_LAYER_1_METAMODEL/01_concern"
-depth = 3
-as_is_kind = "feature"
-archived = false
-direct_directory_count = 0
-direct_file_count = 1
+[[scope_units]]
+identity = "PROJECT"
+scope_path = "PROJECT"
+carrier_folder = ".caprmedio"
+carrier_materialized = true
+structural_kind = "project_root"
+structural_level = 0
+structural_coordinate = "0"
+structural_parent = ""
+source_atom_id = "CAPRMEDIO-REQU-706"
+source_carrier = ".caprmedio/04_requirement/CAPRMEDIO-REQU-706--define-caprmedio-structural-topology.md"
+source_version = "5"
 
-[[filesystem_units]]
-path = ".caprmedio/_01_BSEED_LAYER_1_METAMODEL/02_analysis"
-parent = ".caprmedio/_01_BSEED_LAYER_1_METAMODEL"
-depth = 2
-as_is_kind = "mixed"
-archived = false
-direct_directory_count = 1
-direct_file_count = 4
+[[scope_units]]
+identity = "FRAMEWORK_METHODOLOGY"
+scope_path = "PROJECT/FRAMEWORK_METHODOLOGY"
+carrier_folder = ".caprmedio/100_LAYER_1_FRAMEWORK_METHODOLOGY"
+carrier_materialized = true
+structural_kind = "ordered_unit"
+structural_level = 1
+structural_coordinate = "1/1"
+structural_parent = "PROJECT"
+local_order = 1
+upstream_unit = ""
+source_atom_id = "CAPRMEDIO-REQU-707"
+source_carrier = ".caprmedio/04_requirement/CAPRMEDIO-REQU-707--order-project-layers.md"
+source_version = "3"
 
-[[filesystem_units]]
-path = ".caprmedio/_01_BSEED_LAYER_1_METAMODEL/02_analysis/archive"
-parent = ".caprmedio/_01_BSEED_LAYER_1_METAMODEL/02_analysis"
-depth = 3
-as_is_kind = "feature"
-archived = true
-direct_directory_count = 0
-direct_file_count = 1
+[[scope_units]]
+identity = "FRAMEWORK_ENGINE"
+scope_path = "PROJECT/FRAMEWORK_ENGINE"
+carrier_folder = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE"
+carrier_materialized = true
+structural_kind = "ordered_unit"
+structural_level = 1
+structural_coordinate = "1/2"
+structural_parent = "PROJECT"
+local_order = 2
+upstream_unit = "FRAMEWORK_METHODOLOGY"
+source_atom_id = "CAPRMEDIO-REQU-707"
+source_carrier = ".caprmedio/04_requirement/CAPRMEDIO-REQU-707--order-project-layers.md"
+source_version = "3"
 
-[[filesystem_units]]
-path = ".caprmedio/_01_BSEED_LAYER_1_METAMODEL/04_requirement"
-parent = ".caprmedio/_01_BSEED_LAYER_1_METAMODEL"
-depth = 2
-as_is_kind = "mixed"
-archived = false
-direct_directory_count = 1
-direct_file_count = 68
+[[scope_units]]
+identity = "DOCUMENTATION"
+scope_path = "PROJECT/DOCUMENTATION"
+carrier_folder = ".caprmedio/300_LAYER_3_DOCUMENTATION"
+carrier_materialized = true
+structural_kind = "ordered_unit"
+structural_level = 1
+structural_coordinate = "1/3"
+structural_parent = "PROJECT"
+local_order = 3
+upstream_unit = "FRAMEWORK_ENGINE"
+source_atom_id = "CAPRMEDIO-REQU-707"
+source_carrier = ".caprmedio/04_requirement/CAPRMEDIO-REQU-707--order-project-layers.md"
+source_version = "3"
 
-[[filesystem_units]]
-path = ".caprmedio/_01_BSEED_LAYER_1_METAMODEL/04_requirement/archive"
-parent = ".caprmedio/_01_BSEED_LAYER_1_METAMODEL/04_requirement"
-depth = 3
-as_is_kind = "feature"
-archived = true
-direct_directory_count = 0
-direct_file_count = 80
+[[scope_units]]
+identity = "RELEASES"
+scope_path = "PROJECT/RELEASES"
+carrier_folder = ".caprmedio/400_LAYER_4_RELEASES"
+carrier_materialized = true
+structural_kind = "ordered_unit"
+structural_level = 1
+structural_coordinate = "1/4"
+structural_parent = "PROJECT"
+local_order = 4
+upstream_unit = "DOCUMENTATION"
+source_atom_id = "CAPRMEDIO-REQU-707"
+source_carrier = ".caprmedio/04_requirement/CAPRMEDIO-REQU-707--order-project-layers.md"
+source_version = "3"
 
-[[filesystem_units]]
-path = ".caprmedio/_01_BSEED_LAYER_1_METAMODEL/07_delivery"
-parent = ".caprmedio/_01_BSEED_LAYER_1_METAMODEL"
-depth = 2
-as_is_kind = "feature"
-archived = false
-direct_directory_count = 0
-direct_file_count = 1
+[[scope_units]]
+identity = "FIELD"
+scope_path = "PROJECT/FIELD"
+carrier_folder = ".caprmedio/FIELD"
+carrier_materialized = true
+structural_kind = "unordered_unit"
+structural_level = 1
+structural_coordinate = "1"
+structural_parent = "PROJECT"
+source_atom_id = "CAPRMEDIO-REQU-775"
+source_carrier = ".caprmedio/04_requirement/CAPRMEDIO-REQU-775--define-field-as-unordered-project-child.md"
+source_version = "1"
 
-[[filesystem_units]]
-path = ".caprmedio/_02_BSEED_LAYER_2_SEMANTICS"
-parent = ".caprmedio"
-depth = 1
-as_is_kind = "area"
-archived = false
-direct_directory_count = 5
-direct_file_count = 0
+[[scope_units]]
+identity = "APP"
+scope_path = "PROJECT/FRAMEWORK_ENGINE/APP"
+carrier_folder = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/APP"
+carrier_materialized = true
+structural_kind = "unordered_unit"
+structural_level = 2
+structural_coordinate = "2"
+structural_parent = "FRAMEWORK_ENGINE"
+source_atom_id = "CAPRMEDIO-FRAMEWORK-ENGINE-REQU-700"
+source_carrier = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/04_requirement/CAPRMEDIO-FRAMEWORK-ENGINE-REQU-700--define-framework-engine-feature-topology.md"
+source_version = "4"
 
-[[filesystem_units]]
-path = ".caprmedio/_02_BSEED_LAYER_2_SEMANTICS/01_concern"
-parent = ".caprmedio/_02_BSEED_LAYER_2_SEMANTICS"
-depth = 2
-as_is_kind = "mixed"
-archived = false
-direct_directory_count = 1
-direct_file_count = 4
+[[scope_units]]
+identity = "SKILLS"
+scope_path = "PROJECT/FRAMEWORK_ENGINE/SKILLS"
+carrier_folder = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/SKILLS"
+carrier_materialized = true
+structural_kind = "unordered_unit"
+structural_level = 2
+structural_coordinate = "2"
+structural_parent = "FRAMEWORK_ENGINE"
+source_atom_id = "CAPRMEDIO-FRAMEWORK-ENGINE-REQU-700"
+source_carrier = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/04_requirement/CAPRMEDIO-FRAMEWORK-ENGINE-REQU-700--define-framework-engine-feature-topology.md"
+source_version = "4"
 
-[[filesystem_units]]
-path = ".caprmedio/_02_BSEED_LAYER_2_SEMANTICS/01_concern/archive"
-parent = ".caprmedio/_02_BSEED_LAYER_2_SEMANTICS/01_concern"
-depth = 3
-as_is_kind = "feature"
-archived = true
-direct_directory_count = 0
-direct_file_count = 1
+[[scope_units]]
+identity = "TOOLS"
+scope_path = "PROJECT/FRAMEWORK_ENGINE/TOOLS"
+carrier_folder = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS"
+carrier_materialized = true
+structural_kind = "unordered_unit"
+structural_level = 2
+structural_coordinate = "2"
+structural_parent = "FRAMEWORK_ENGINE"
+source_atom_id = "CAPRMEDIO-FRAMEWORK-ENGINE-REQU-700"
+source_carrier = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/04_requirement/CAPRMEDIO-FRAMEWORK-ENGINE-REQU-700--define-framework-engine-feature-topology.md"
+source_version = "4"
 
-[[filesystem_units]]
-path = ".caprmedio/_02_BSEED_LAYER_2_SEMANTICS/02_analysis"
-parent = ".caprmedio/_02_BSEED_LAYER_2_SEMANTICS"
-depth = 2
-as_is_kind = "mixed"
-archived = false
-direct_directory_count = 1
-direct_file_count = 4
+[[scope_units]]
+identity = "TARGET_SET"
+scope_path = "PROJECT/FRAMEWORK_ENGINE/TOOLS/TARGET_SET"
+carrier_folder = ""
+carrier_materialized = false
+structural_kind = "unordered_unit"
+structural_level = 3
+structural_coordinate = "3"
+structural_parent = "TOOLS"
+source_atom_id = "CAPRMEDIO-FRAMEWORK-ENGINE-REQU-704"
+source_carrier = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/04_requirement/CAPRMEDIO-FRAMEWORK-ENGINE-REQU-704--define-target-set-tool-unit.md"
+source_version = "1"
 
-[[filesystem_units]]
-path = ".caprmedio/_02_BSEED_LAYER_2_SEMANTICS/02_analysis/archive"
-parent = ".caprmedio/_02_BSEED_LAYER_2_SEMANTICS/02_analysis"
-depth = 3
-as_is_kind = "feature"
-archived = true
-direct_directory_count = 0
-direct_file_count = 1
+[[scope_units]]
+identity = "GRAPH_CHECK"
+scope_path = "PROJECT/FRAMEWORK_ENGINE/TOOLS/GRAPH_CHECK"
+carrier_folder = ""
+carrier_materialized = false
+structural_kind = "unordered_unit"
+structural_level = 3
+structural_coordinate = "3"
+structural_parent = "TOOLS"
+source_atom_id = "CAPRMEDIO-FRAMEWORK-ENGINE-REQU-705"
+source_carrier = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/04_requirement/CAPRMEDIO-FRAMEWORK-ENGINE-REQU-705--define-graph-check-tool-unit.md"
+source_version = "1"
 
-[[filesystem_units]]
-path = ".caprmedio/_02_BSEED_LAYER_2_SEMANTICS/04_requirement"
-parent = ".caprmedio/_02_BSEED_LAYER_2_SEMANTICS"
-depth = 2
-as_is_kind = "mixed"
-archived = false
-direct_directory_count = 1
-direct_file_count = 102
+[[scope_units]]
+identity = "BULK_CHANGE"
+scope_path = "PROJECT/FRAMEWORK_ENGINE/TOOLS/BULK_CHANGE"
+carrier_folder = ""
+carrier_materialized = false
+structural_kind = "unordered_unit"
+structural_level = 3
+structural_coordinate = "3"
+structural_parent = "TOOLS"
+source_atom_id = "CAPRMEDIO-FRAMEWORK-ENGINE-REQU-706"
+source_carrier = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/04_requirement/CAPRMEDIO-FRAMEWORK-ENGINE-REQU-706--define-bulk-change-tool-unit.md"
+source_version = "1"
 
-[[filesystem_units]]
-path = ".caprmedio/_02_BSEED_LAYER_2_SEMANTICS/04_requirement/archive"
-parent = ".caprmedio/_02_BSEED_LAYER_2_SEMANTICS/04_requirement"
-depth = 3
-as_is_kind = "feature"
-archived = true
-direct_directory_count = 0
-direct_file_count = 49
+[[scope_units]]
+identity = "PROJECTION_REBUILD"
+scope_path = "PROJECT/FRAMEWORK_ENGINE/TOOLS/PROJECTION_REBUILD"
+carrier_folder = ""
+carrier_materialized = false
+structural_kind = "unordered_unit"
+structural_level = 3
+structural_coordinate = "3"
+structural_parent = "TOOLS"
+source_atom_id = "CAPRMEDIO-FRAMEWORK-ENGINE-REQU-707"
+source_carrier = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/04_requirement/CAPRMEDIO-FRAMEWORK-ENGINE-REQU-707--define-projection-rebuild-tool-unit.md"
+source_version = "1"
 
-[[filesystem_units]]
-path = ".caprmedio/_02_BSEED_LAYER_2_SEMANTICS/07_delivery"
-parent = ".caprmedio/_02_BSEED_LAYER_2_SEMANTICS"
-depth = 2
-as_is_kind = "feature"
-archived = false
-direct_directory_count = 0
-direct_file_count = 1
+[[scope_units]]
+identity = "IMPLEMENTATION_INVENTORY"
+scope_path = "PROJECT/FRAMEWORK_ENGINE/TOOLS/IMPLEMENTATION_INVENTORY"
+carrier_folder = ""
+carrier_materialized = false
+structural_kind = "unordered_unit"
+structural_level = 3
+structural_coordinate = "3"
+structural_parent = "TOOLS"
+source_atom_id = "CAPRMEDIO-FRAMEWORK-ENGINE-REQU-708"
+source_carrier = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/04_requirement/CAPRMEDIO-FRAMEWORK-ENGINE-REQU-708--define-implementation-inventory-tool-unit.md"
+source_version = "1"
 
-[[filesystem_units]]
-path = ".caprmedio/_02_BSEED_LAYER_2_SEMANTICS/09_ops"
-parent = ".caprmedio/_02_BSEED_LAYER_2_SEMANTICS"
-depth = 2
-as_is_kind = "area"
-archived = false
-direct_directory_count = 1
-direct_file_count = 0
+[[scope_units]]
+identity = "ADOPT_RECONCILE"
+scope_path = "PROJECT/FRAMEWORK_ENGINE/TOOLS/ADOPT_RECONCILE"
+carrier_folder = ""
+carrier_materialized = false
+structural_kind = "unordered_unit"
+structural_level = 3
+structural_coordinate = "3"
+structural_parent = "TOOLS"
+source_atom_id = "CAPRMEDIO-FRAMEWORK-ENGINE-REQU-709"
+source_carrier = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/04_requirement/CAPRMEDIO-FRAMEWORK-ENGINE-REQU-709--define-adopt-reconcile-tool-unit.md"
+source_version = "1"
 
-[[filesystem_units]]
-path = ".caprmedio/_02_BSEED_LAYER_2_SEMANTICS/09_ops/archive"
-parent = ".caprmedio/_02_BSEED_LAYER_2_SEMANTICS/09_ops"
-depth = 3
-as_is_kind = "feature"
-archived = true
-direct_directory_count = 0
-direct_file_count = 1
+[[scope_units]]
+identity = "COMMIT_TRIGGER"
+scope_path = "PROJECT/FRAMEWORK_ENGINE/TOOLS/COMMIT_TRIGGER"
+carrier_folder = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/COMMIT_TRIGGER"
+carrier_materialized = true
+structural_kind = "unordered_unit"
+structural_level = 3
+structural_coordinate = "3"
+structural_parent = "TOOLS"
+source_atom_id = "CA-R-802-REQUIREMENT-FR_ENGN_TOOLS"
+source_carrier = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/04_requirement/CA-R-802-REQUIREMENT-FR_ENGN_TOOLS--define-flat-auto-commit-tool-topology.md"
+source_version = "5"
 
-[[filesystem_units]]
-path = ".caprmedio/_03_BSEED_LAYER_3_GOVERNANCE"
-parent = ".caprmedio"
-depth = 1
-as_is_kind = "area"
-archived = false
-direct_directory_count = 7
-direct_file_count = 0
+[[scope_units]]
+identity = "COMMIT_CONTEXT"
+scope_path = "PROJECT/FRAMEWORK_ENGINE/TOOLS/COMMIT_CONTEXT"
+carrier_folder = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/COMMIT_CONTEXT"
+carrier_materialized = true
+structural_kind = "unordered_unit"
+structural_level = 3
+structural_coordinate = "3"
+structural_parent = "TOOLS"
+source_atom_id = "CA-R-802-REQUIREMENT-FR_ENGN_TOOLS"
+source_carrier = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/04_requirement/CA-R-802-REQUIREMENT-FR_ENGN_TOOLS--define-flat-auto-commit-tool-topology.md"
+source_version = "5"
 
-[[filesystem_units]]
-path = ".caprmedio/_03_BSEED_LAYER_3_GOVERNANCE/01_concern"
-parent = ".caprmedio/_03_BSEED_LAYER_3_GOVERNANCE"
-depth = 2
-as_is_kind = "mixed"
-archived = false
-direct_directory_count = 2
-direct_file_count = 6
+[[scope_units]]
+identity = "APPEND_CHANGE_RECORDS"
+scope_path = "PROJECT/FRAMEWORK_ENGINE/TOOLS/APPEND_CHANGE_RECORDS"
+carrier_folder = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/APPEND_CHANGE_RECORDS"
+carrier_materialized = true
+structural_kind = "unordered_unit"
+structural_level = 3
+structural_coordinate = "3"
+structural_parent = "TOOLS"
+source_atom_id = "CA-R-802-REQUIREMENT-FR_ENGN_TOOLS"
+source_carrier = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/04_requirement/CA-R-802-REQUIREMENT-FR_ENGN_TOOLS--define-flat-auto-commit-tool-topology.md"
+source_version = "5"
 
-[[filesystem_units]]
-path = ".caprmedio/_03_BSEED_LAYER_3_GOVERNANCE/01_concern/archive"
-parent = ".caprmedio/_03_BSEED_LAYER_3_GOVERNANCE/01_concern"
-depth = 3
-as_is_kind = "feature"
-archived = true
-direct_directory_count = 0
-direct_file_count = 36
-
-[[filesystem_units]]
-path = ".caprmedio/_03_BSEED_LAYER_3_GOVERNANCE/01_concern/solved"
-parent = ".caprmedio/_03_BSEED_LAYER_3_GOVERNANCE/01_concern"
-depth = 3
-as_is_kind = "feature"
-archived = false
-direct_directory_count = 0
-direct_file_count = 5
-
-[[filesystem_units]]
-path = ".caprmedio/_03_BSEED_LAYER_3_GOVERNANCE/02_analysis"
-parent = ".caprmedio/_03_BSEED_LAYER_3_GOVERNANCE"
-depth = 2
-as_is_kind = "mixed"
-archived = false
-direct_directory_count = 1
-direct_file_count = 10
-
-[[filesystem_units]]
-path = ".caprmedio/_03_BSEED_LAYER_3_GOVERNANCE/02_analysis/archive"
-parent = ".caprmedio/_03_BSEED_LAYER_3_GOVERNANCE/02_analysis"
-depth = 3
-as_is_kind = "feature"
-archived = true
-direct_directory_count = 0
-direct_file_count = 3
-
-[[filesystem_units]]
-path = ".caprmedio/_03_BSEED_LAYER_3_GOVERNANCE/04_requirement"
-parent = ".caprmedio/_03_BSEED_LAYER_3_GOVERNANCE"
-depth = 2
-as_is_kind = "mixed"
-archived = false
-direct_directory_count = 1
-direct_file_count = 154
-
-[[filesystem_units]]
-path = ".caprmedio/_03_BSEED_LAYER_3_GOVERNANCE/04_requirement/archive"
-parent = ".caprmedio/_03_BSEED_LAYER_3_GOVERNANCE/04_requirement"
-depth = 3
-as_is_kind = "feature"
-archived = true
-direct_directory_count = 0
-direct_file_count = 145
-
-[[filesystem_units]]
-path = ".caprmedio/_03_BSEED_LAYER_3_GOVERNANCE/05_method"
-parent = ".caprmedio/_03_BSEED_LAYER_3_GOVERNANCE"
-depth = 2
-as_is_kind = "mixed"
-archived = false
-direct_directory_count = 1
-direct_file_count = 9
-
-[[filesystem_units]]
-path = ".caprmedio/_03_BSEED_LAYER_3_GOVERNANCE/05_method/archive"
-parent = ".caprmedio/_03_BSEED_LAYER_3_GOVERNANCE/05_method"
-depth = 3
-as_is_kind = "feature"
-archived = true
-direct_directory_count = 0
-direct_file_count = 39
-
-[[filesystem_units]]
-path = ".caprmedio/_03_BSEED_LAYER_3_GOVERNANCE/06_evaluation"
-parent = ".caprmedio/_03_BSEED_LAYER_3_GOVERNANCE"
-depth = 2
-as_is_kind = "mixed"
-archived = false
-direct_directory_count = 1
-direct_file_count = 9
-
-[[filesystem_units]]
-path = ".caprmedio/_03_BSEED_LAYER_3_GOVERNANCE/06_evaluation/archive"
-parent = ".caprmedio/_03_BSEED_LAYER_3_GOVERNANCE/06_evaluation"
-depth = 3
-as_is_kind = "feature"
-archived = true
-direct_directory_count = 0
-direct_file_count = 33
-
-[[filesystem_units]]
-path = ".caprmedio/_03_BSEED_LAYER_3_GOVERNANCE/07_delivery"
-parent = ".caprmedio/_03_BSEED_LAYER_3_GOVERNANCE"
-depth = 2
-as_is_kind = "feature"
-archived = false
-direct_directory_count = 0
-direct_file_count = 1
-
-[[filesystem_units]]
-path = ".caprmedio/_03_BSEED_LAYER_3_GOVERNANCE/09_ops"
-parent = ".caprmedio/_03_BSEED_LAYER_3_GOVERNANCE"
-depth = 2
-as_is_kind = "area"
-archived = false
-direct_directory_count = 1
-direct_file_count = 0
-
-[[filesystem_units]]
-path = ".caprmedio/_03_BSEED_LAYER_3_GOVERNANCE/09_ops/archive"
-parent = ".caprmedio/_03_BSEED_LAYER_3_GOVERNANCE/09_ops"
-depth = 3
-as_is_kind = "feature"
-archived = true
-direct_directory_count = 0
-direct_file_count = 15
-
-[[filesystem_units]]
-path = ".caprmedio/work_journal"
-parent = ".caprmedio"
-depth = 1
-as_is_kind = "feature"
-archived = false
-direct_directory_count = 0
-direct_file_count = 4
+[[scope_units]]
+identity = "COMMIT_CHANGE_SET"
+scope_path = "PROJECT/FRAMEWORK_ENGINE/TOOLS/COMMIT_CHANGE_SET"
+carrier_folder = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/COMMIT_CHANGE_SET"
+carrier_materialized = true
+structural_kind = "unordered_unit"
+structural_level = 3
+structural_coordinate = "3"
+structural_parent = "TOOLS"
+source_atom_id = "CA-R-802-REQUIREMENT-FR_ENGN_TOOLS"
+source_carrier = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/04_requirement/CA-R-802-REQUIREMENT-FR_ENGN_TOOLS--define-flat-auto-commit-tool-topology.md"
+source_version = "5"
 
 [[graph_contributions]]
 atom_id = "CAPRMEDIO-META-REQU-127"
@@ -4398,7 +3416,7 @@ sha256 = "886eb1e6cffe59ff262fa27a35c14e7200a232eaab180c9186e2ae33fbabe572"
 
 [[source_frontier]]
 path = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/07_delivery/CA-D-006-DELIVERY-FR_ENGN_TOOLS--deliver-project-local-commit-automation.md"
-sha256 = "7c0be903093e9fde299915954de735d16cd285b9b5378a18cd2246cdb44f96a1"
+sha256 = "faad72c1b837c8503ed10b1a671fbb752a2eae780506d57b1ad1ff28a8685006"
 
 [[source_frontier]]
 path = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/APPEND_CHANGE_RECORDS/04_requirement/CA-R-812-REQUIREMENT-FR_ENGN_TOOLS_APPEND_CHANGE_RECORDS--append-governed-file-change-journal-records.md"
@@ -4442,7 +3460,7 @@ sha256 = "7793f20cca759a444cd93114b7d7861d2a91188de2d91d77bd440cec02d1eb32"
 
 [[source_frontier]]
 path = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/COMMIT_CHANGE_SET/04_requirement/CA-R-805-REQUIREMENT-FR_ENGN_TOOLS_COMMIT_CHANGE_SET--commit-one-governed-file-action.md"
-sha256 = "9ac86134071e4dbf92ab6249542e9e42f311a825036dd7e7d1d8329487f8f1e4"
+sha256 = "b3edfa22c1c9f3ee4c636ff4410b38830e78f9785c4ce7d12ea211f308038242"
 
 [[source_frontier]]
 path = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/COMMIT_CHANGE_SET/06_evaluation/CA-E-179-EVALUATION-FR_ENGN_TOOLS_COMMIT_CHANGE_SET--keep-dry-run-mutation-free.md"
@@ -4469,16 +3487,28 @@ path = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/COMMIT_CHANGE_SET/06_evalu
 sha256 = "d264b5b9c0f145321d34afeae8e69fc165349fe8d6edb5cc0379907b8fb4e08d"
 
 [[source_frontier]]
+path = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/COMMIT_CHANGE_SET/06_evaluation/CA-E-211-EVALUATION-FR_ENGN_TOOLS_COMMIT_CHANGE_SET--reject-invalid-staged-governed-commit.md"
+sha256 = "bc5d6d0eadcea7b97874ccb8c1af72d81429713c2c980567a0e0348e62cdd8d5"
+
+[[source_frontier]]
+path = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/COMMIT_CHANGE_SET/06_evaluation/CA-E-212-EVALUATION-FR_ENGN_TOOLS_COMMIT_CHANGE_SET--reject-noncanonical-governed-commit-message.md"
+sha256 = "2c9686a0da6a93af7a647805ae1fd7970252768a882b7a7b0fa0a606846c6691"
+
+[[source_frontier]]
+path = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/COMMIT_CHANGE_SET/06_evaluation/CA-E-213-EVALUATION-FR_ENGN_TOOLS_COMMIT_CHANGE_SET--observe-created-commit-without-recursion.md"
+sha256 = "2139bc4893a0ce30e63c9613d067f90410cca897645ddee55e8450842c94abfa"
+
+[[source_frontier]]
 path = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/COMMIT_CHANGE_SET/07_delivery/CA-D-010-DELIVERY-FR_ENGN_TOOLS_COMMIT_CHANGE_SET--deliver-commit-change-set-script.md"
-sha256 = "9e299bbf26912ab7bd77c90ab027973b7e114f156b3ca32f70506795fba18aa1"
+sha256 = "f71cdce497d94b0c8144f64b2717572fbdaf64ec633b69ee4f0950d61f134cd1"
 
 [[source_frontier]]
 path = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/COMMIT_CHANGE_SET/commit_change_set.py"
-sha256 = "4c85c9b3a8d331a67d69e0256fd11e4ea38eb72fea34594a2e8ba9301d2a1abe"
+sha256 = "06114ba6b8a893643b8ad68d9b6d425140cf8350bfa14984b340f4276ad99a8e"
 
 [[source_frontier]]
 path = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/COMMIT_CHANGE_SET/tests/test_commit_change_set.py"
-sha256 = "ac57fa388993ab32ee5855c473fa3c2019cc8435d6d344703f1f38c8db3097c7"
+sha256 = "b9a09f32a3d0c40c08950c9fad0e8057694add0eab9e6290989ba366a9800a75"
 
 [[source_frontier]]
 path = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/COMMIT_CONTEXT/04_requirement/CA-R-804-REQUIREMENT-FR_ENGN_TOOLS_COMMIT_CONTEXT--gather-complete-commit-action-context.md"
@@ -4550,7 +3580,7 @@ sha256 = "024e3a133410303c35ade387a0012a3c17323f269450a59b3b47310fce0dbe5c"
 
 [[source_frontier]]
 path = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/COMMIT_TRIGGER/06_evaluation/CA-E-186-EVALUATION-FR_ENGN_TOOLS_COMMIT_TRIGGER--preserve-existing-hook-behavior.md"
-sha256 = "fe7a45a4c3fe096ee8aa4d05510e833dc5c83cc9e653f3bb46d246e2b8436652"
+sha256 = "8a86e110cdf59e9bdb383f9ca051414388d49ed0d4d08e6ff3826fc7cc830c41"
 
 [[source_frontier]]
 path = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/COMMIT_TRIGGER/06_evaluation/CA-E-194-EVALUATION-FR_ENGN_TOOLS_COMMIT_TRIGGER--suppress-recursive-journal-trigger.md"
@@ -4566,7 +3596,7 @@ sha256 = "6ec096b9c233eefc4b61679b63e42ad189d69fe1dac727e62d7deb12cdb404d8"
 
 [[source_frontier]]
 path = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/COMMIT_TRIGGER/commit_trigger.py"
-sha256 = "428809a2eb583ca76434acb5fda3956706460760cbb71a03436c2670de9f6b70"
+sha256 = "056b70715f50d2c61bbc1e944cefbef3f69e01e8d1a3db536b67eea4e21727df"
 
 [[source_frontier]]
 path = ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/COMMIT_TRIGGER/tests/test_commit_trigger.py"
@@ -4655,6 +3685,10 @@ sha256 = "f77d0bb0fc6b70a0c8e09c87fdad3f81e5363a06204553a16b4a73b8dee30be5"
 [[source_frontier]]
 path = ".caprmedio/_01_BSEED_LAYER_1_METAMODEL/04_requirement/CA-R-834-REQUIREMENT-BSEED_METAMODEL--partition-project-graph-nodes.md"
 sha256 = "1d62d6b704cfe89ef28d5e693a560ce250b43b24199f6d2bcb14daa864439e7a"
+
+[[source_frontier]]
+path = ".caprmedio/_01_BSEED_LAYER_1_METAMODEL/04_requirement/CA-R-842-REQUIREMENT-BSEED_METAMODEL--define-ordered-upstream-unit.md"
+sha256 = "30e3e43ee632c96e734f7bd8a2af4a98acbd9ef6b869511c2794fad0a3124d68"
 
 [[source_frontier]]
 path = ".caprmedio/_01_BSEED_LAYER_1_METAMODEL/04_requirement/CAPRMEDIO-META-REQU-079--scale-operational-mechanisms-to-risk.md"
@@ -6191,6 +5225,14 @@ sha256 = "60719422df372ea84398b19d2fb29278c22ab4fb68e588081c4c320c15957d8f"
 [[source_frontier]]
 path = ".caprmedio/_03_BSEED_LAYER_3_GOVERNANCE/04_requirement/CA-R-840-REQUIREMENT-BSEED_GOVERNANCE--place-human-readable-principle-statement-before-formal-statement.md"
 sha256 = "9c62fa0e15e5c1d827be44531cec89f6ed1bf4324d3cc3ce5688b805c51624ec"
+
+[[source_frontier]]
+path = ".caprmedio/_03_BSEED_LAYER_3_GOVERNANCE/04_requirement/CA-R-841-REQUIREMENT-BSEED_GOVERNANCE--materialize-content-role-carriers-on-first-artifact.md"
+sha256 = "0c9dd0d52e2e60137d819911b8637a4eec913abe5a5079d9802a38debcce177c"
+
+[[source_frontier]]
+path = ".caprmedio/_03_BSEED_LAYER_3_GOVERNANCE/04_requirement/CA-R-843-REQUIREMENT-BSEED_GOVERNANCE--project-scope-unit-topology.md"
+sha256 = "f26991b332d26413b02bea8e9ecec722ff7f691d35a2beb488abead70ba12290"
 
 [[source_frontier]]
 path = ".caprmedio/_03_BSEED_LAYER_3_GOVERNANCE/04_requirement/CAPRMEDIO-GOV-CNST-001--github-preview-compatibility.md"
