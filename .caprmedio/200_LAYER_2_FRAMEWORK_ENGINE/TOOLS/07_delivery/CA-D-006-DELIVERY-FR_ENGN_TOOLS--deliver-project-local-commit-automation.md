@@ -1,8 +1,8 @@
 ---
 subject_scopes:
   - provenance
-version: 8
-updated_at: 2026-08-20 23:38:00
+version: 9
+updated_at: 2026-08-21 01:09:53
 relations:
   delivery_for:
     - CA-M-087-METHOD-FR_ENGN_TOOLS--process-one-file-change
@@ -13,10 +13,11 @@ relations:
     - CA-R-812-REQUIREMENT-FR_ENGN_TOOLS_APPEND_CHANGE_RECORDS--append-governed-file-change-journal-records
     - CAPRMEDIO-FRAMEWORK-ENGINE-REQU-520--own-deterministic-scripts-in-tools
     - CAPRMEDIO-FRAMEWORK-ENGINE-REQU-602--use-a-common-tool-cli-interface
+    - CAPRMEDIO-FRAMEWORK-ENGINE-REQU-603--use-one-project-local-tool-runtime
 ---
 # Deliver project-local commit automation
 
-Deliver the file-change flow through four peer Tool units and the shared project-local Tool runtime under `.caprmedio_runtime`: `COMMIT_TRIGGER`, `COMMIT_CONTEXT`, `APPEND_CHANGE_RECORDS`, and `COMMIT_CHANGE_SET`. Each Tool's own Delivery defines its one canonical executable carrier; shared libraries remain non-executable helpers rather than additional Tools. `COMMIT_CHANGE_SET` exposes the complete dry-run and apply flow and composes the other peer interfaces without becoming their structural owner. The standalone interfaces remain available for deterministic inspection, bounded execution, and retry.
+Deliver the file-change flow through four peer Tool units: `COMMIT_TRIGGER`, `COMMIT_CONTEXT`, `APPEND_CHANGE_RECORDS`, and `COMMIT_CHANGE_SET`. Their canonical source carriers and shared libraries live under `.caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS`. Installation publishes one content-addressed, digest-verified, self-contained release under `.caprmedio_runtime/installed/tools/auto_commit`; installed Tools import code and read the relation registry only from that release. Runtime state, cache, Hook configuration, logs, and retained operational history occupy separate directories under `.caprmedio_runtime`. A host-required `.codex/hooks.json` carrier may be a pointer to the runtime Hook configuration but contains no framework implementation. `COMMIT_CHANGE_SET` exposes the complete dry-run and apply flow and composes the other peer interfaces without becoming their structural owner. The standalone interfaces remain available for deterministic inspection, bounded execution, and retry.
 
 The integrated delivery exposes a replaceable Hook-adapter interface with explicit install, status, enable, disable, and uninstall controls. Each enabled adapter must declare its substrate boundary, stable source-event identity semantics, canonical LLM application name, and deterministic host-session UUID resolver; emit the canonical `COMMIT_TRIGGER` without classifying or mutating; and suppress pipeline-owned Journal and runtime-state writes through action correlation. A validated session value supplied by the invoking Skill or operator takes precedence over host discovery. The Codex adapter resolves `CODEX_THREAD_ID` and falls back to `CODEX_SESSION_ID`; every other LLM application adapter must register an equivalent explicit host interface and fail closed rather than infer a UUID from unrelated process state.
 
