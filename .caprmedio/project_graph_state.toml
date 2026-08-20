@@ -4,12 +4,12 @@ schema_version = "0.1"
 kind = "project_graph_state"
 non_authoritative = true
 currentness = "working_tree_snapshot"
-generated_at = "2026-08-21T01:17:24+04:00"
+generated_at = "2026-08-21T01:18:25+04:00"
 canonical_generator = "02_FR_ENGN/TOOLS/GENERATE_PROJECT_GRAPH_STATE/generate_project_graph_state.py"
 canonical_generator_sha256 = "ea9a0032bc16a485e2bbf709a5e0e492a50b20acc68f0ec399bed1b08b46135c"
 executed_generator = ".caprmedio_runtime/installed/tools/generate_project_graph_state/generate_project_graph_state.py"
 executed_generator_sha256 = "ea9a0032bc16a485e2bbf709a5e0e492a50b20acc68f0ec399bed1b08b46135c"
-source_frontier_sha256 = "3b5a3e0b71ac42cc2348d16bb44eec52cc4096046ba1f168299e46b118e0c0fe"
+source_frontier_sha256 = "6c36270881fa3193b903a6d526798b685344d51e912ef5b242571633032be0aa"
 
 [configuration]
 atom_id = "CAPRMEDIO-I-001"
@@ -1670,11 +1670,11 @@ sha256 = "51eb331d4fdbccd645690900eb3d029e7430e93fd0f2398c5f565ce9f66f9c29"
 
 [[source_frontier]]
 path = ".caprmedio/04_requirement/CA-R-004-PRINCIPLE-REQUIREMENT--only-operators-establish-project-authority.md"
-sha256 = "612731d8852027c3ff4cb897816798405828991df9296bb1cc2289da8d1a5b7b"
+sha256 = "da623feec7ced363bdf937fd32c8fe8020344e45cc4d6462e00831d6613d5ca7"
 
 [[source_frontier]]
 path = ".caprmedio/04_requirement/CA-R-815-PRINCIPLE-REQUIREMENT--let-operator-priorities-govern-project-trade-offs.md"
-sha256 = "fa64b976587ab511e00a6e8927d92c04aaf8a0e7f5e710c1fe2ad048652b43dd"
+sha256 = "ca2cbdf2a289e9813e2ea3c4e63189b0b62674c7434c49550239b1f71cfbded7"
 
 [[source_frontier]]
 path = ".caprmedio/04_requirement/CA-R-818-REQUIREMENT--help-operators-optimize-the-active-rule-set.md"
@@ -1682,7 +1682,7 @@ sha256 = "38d2e81c2b1ed5689b77cbde3935950e37d354b5dfcee091475c4606e366eb8f"
 
 [[source_frontier]]
 path = ".caprmedio/04_requirement/CA-R-819-PRINCIPLE-REQUIREMENT--let-operators-create-and-operate-projects-without-specialist-craft-skills.md"
-sha256 = "789a574429486be8e18d0716ad87b9029b436fb21f663d46bc4ea060f9597a94"
+sha256 = "dd70a66b6f91b1e578b7aa848b9a753b0134644e9dbbd96abab19ab5423d50fb"
 
 [[source_frontier]]
 path = ".caprmedio/04_requirement/CA-R-826-BOUNDARY--codex-native-support-only.md"
@@ -1690,7 +1690,7 @@ sha256 = "06fe41065e8ba3c027a40432eb3e34cb896a9440d3e71ff2a0237707aec98290"
 
 [[source_frontier]]
 path = ".caprmedio/04_requirement/CA-R-827-PRINCIPLE-REQUIREMENT--keep-project-evolution-under-operator-control.md"
-sha256 = "71490ff197bb397790dd46fc1757c80dba669fcb8dbf2a5402c380b1f967b264"
+sha256 = "3588701219ac12d08f54c3b2bea9842e68ff4e7996882ad64a3fe910971c41d6"
 
 [[source_frontier]]
 path = ".caprmedio/04_requirement/CA-R-831-REQUIREMENT--add-reusable-capabilities-through-extensions.md"
@@ -2318,23 +2318,23 @@ sha256 = "6c230709379a5fdee424f736879d0c4931df3b440de58d15035d0b09709f5de7"
 
 [[source_frontier]]
 path = ".caprmedio/05_method/CA-M-001-PRINCIPLE-METHOD--mece_mutually-exclusive-collectively-exhaustive.md"
-sha256 = "703d7fa82b0c4b6416d79bf39723d6a27e04d16b3cb07122ce3a474fc8acebf8"
+sha256 = "5c1fcba3b4182e76749e98475aa8f8fc3008729a9006f6e558c5b6578fad72e3"
 
 [[source_frontier]]
 path = ".caprmedio/05_method/CA-M-002-PRINCIPLE-METHOD--dry_dont-repeat-yourself.md"
-sha256 = "0410e0cd3582fb9ef69b980dca5dd796e8e7b318a47d3c62a6a0c42219932f48"
+sha256 = "aba1f0b98bda45a1ff49ffcd57b4bd6ad3693030754a27a0b7ac678a3b58be3c"
 
 [[source_frontier]]
 path = ".caprmedio/05_method/CA-M-003-PRINCIPLE-METHOD--use-lossless-selective-exposure.md"
-sha256 = "8583c91bca3e5cb0f8efa02a7eb846de828fb767851101eca335b16e425db5ff"
+sha256 = "cccd74da0167d4015b07623e32b0a146c155484a3dd58c03dedcfdba2b656c6d"
 
 [[source_frontier]]
 path = ".caprmedio/05_method/CA-M-005-PRINCIPLE-METHOD--add-complexity-only-when-necessary.md"
-sha256 = "f61aa20f34b837763727adce54d04819a416e19d191fd4cdfe5485f066444374"
+sha256 = "9b58a44b3086fd698f861438e0ed046df7bc9ef6e6a3e1be1a5cdbd19cb11729"
 
 [[source_frontier]]
 path = ".caprmedio/05_method/CA-M-006-PRINCIPLE-METHOD--keep-shared-meanings-independent-of-discipline.md"
-sha256 = "9360c71a379e9c2015497c464ddc39b93b353fe9a4c1ed2050067ad96146f640"
+sha256 = "c29f7c61677be056a6ec1abe95070e36a2c620b506df57ea53278f3283f16969"
 
 [[source_frontier]]
 path = ".caprmedio/05_method/CA-M-091-IMPL_METHOD--keep-only-necessary-and-sufficient-reusable-project-information.md"
@@ -2406,11 +2406,11 @@ sha256 = "02fd9fa4f339413ed7f8a17c718a0cd2f2ef49bc01e0a8def02e43310b078792"
 
 [[source_frontier]]
 path = ".caprmedio/06_evaluation/CA-E-001-PRINCIPLE-EVALUATION--make-accepted-requirements-checkable.md"
-sha256 = "6bede2811aaa17ec77f0f1951f5cafad8c1c2ec873d7042cdb135f74b6c09e0f"
+sha256 = "1295c868efd8b95b1e028a26c89634f651476fe56aa94558afb76010bafad959"
 
 [[source_frontier]]
 path = ".caprmedio/06_evaluation/CA-E-002-PRINCIPLE-EVALUATION--bound-every-reliance.md"
-sha256 = "c590a3046cf2940bdaca83dcb536d8f8c03dfa635064a2bdddcde19188839637"
+sha256 = "c0df8bd34fa25ada05736d465e87fcd8faef382e290ddca63cfb321f83c864e4"
 
 [[source_frontier]]
 path = ".caprmedio/06_evaluation/CA-E-206-EVAL_APPROACH--require-usable-inputs-for-reliance.md"
@@ -2442,15 +2442,15 @@ sha256 = "40db9d6e594cf4f6917e927bc725d2f6434d73c1acb22ff0c830d2201995217b"
 
 [[source_frontier]]
 path = ".caprmedio/07_delivery/CA-D-001-PRINCIPLE-DELIVERY--keep-technical-realizations-replaceable.md"
-sha256 = "d59ead8f6ec7505bcc6812657be65159dbd319dfdb275059d6b95bbe8d28d2f0"
+sha256 = "9ba678a34e185b00e37ff061e0f3ee23557dd76ea9e899956fb23bc35f870ef8"
 
 [[source_frontier]]
 path = ".caprmedio/07_delivery/CA-D-002-PRINCIPLE-DELIVERY--make-project-meaning-understandable-to-the-project-operators.md"
-sha256 = "6c505a20c9ac1b80bc842811d75756e679c3cd58a8a21a0304579fa16bd69f77"
+sha256 = "92df89d9689b9b2d5474479e62ea9611539988908c2d5bd7c83532cc145e1928"
 
 [[source_frontier]]
 path = ".caprmedio/07_delivery/CA-D-003-PRINCIPLE-DELIVERY--use-the-project-graph-as-the-operating-model.md"
-sha256 = "718e2dee8346c9628ee771b826b5e79c5be7d6a764f0c47e7ba8d78e2dea835e"
+sha256 = "f91d5b652f467af052ac1fba514b96d9b605d742372bd40707a883441d0926c1"
 
 [[source_frontier]]
 path = ".caprmedio/07_delivery/archive/CA-D-004-PRINCIPLE-DELIVERY--organize-normative-authority-as-an-acyclic-hierarchy.md"
@@ -2626,7 +2626,7 @@ sha256 = "4ec497d0d6fbd1cecce786fa09490eef7bcc162a6058df08f409b2a8c3d2318b"
 
 [[source_frontier]]
 path = ".caprmedio/09_ops/CA-O-003-PRINCIPLE-OPS--improve-the-project-from-observed-outcomes.md"
-sha256 = "3b60f2c4255e6b909898168e0843be63e67d47e16c91e801f77862a071b22b5f"
+sha256 = "3b5d9988957940209d50c70a494767c64b081f536f6352a06710d85277046005"
 
 [[source_frontier]]
 path = ".caprmedio/09_ops/archive/600_LAYER_6_FIELD/01_concern/archive/CAPRMEDIO-FIELD-CONC-085--release-truth.md"
