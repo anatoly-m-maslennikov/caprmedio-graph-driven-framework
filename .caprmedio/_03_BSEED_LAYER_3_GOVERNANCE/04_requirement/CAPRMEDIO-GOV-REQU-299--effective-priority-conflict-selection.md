@@ -1,8 +1,8 @@
 ---
 subject_scopes:
   - priority
-version: 2
-updated_at: 2026-08-17 16:39:43
+version: 3
+updated_at: 2026-08-21 00:21:06
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -27,7 +27,7 @@ During direct comparison of two Concern or Plan Atoms:
 
 An unrelated or incomparable scope receives no scope increment.
 
-`.caprmedio/caprmedio_project_settings.toml` exposes exactly two selection modes:
+The Project Configuration Atom exposes exactly two selection modes:
 
 - `ask_always`, the default, explains the conflict and asks the operator; and
 - `auto_by_effective_priority`, which may select only one uniquely eligible
