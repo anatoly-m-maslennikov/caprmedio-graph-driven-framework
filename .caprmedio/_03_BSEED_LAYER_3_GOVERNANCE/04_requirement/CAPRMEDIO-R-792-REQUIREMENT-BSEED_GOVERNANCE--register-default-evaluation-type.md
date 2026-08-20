@@ -1,14 +1,14 @@
 ---
 subject_scopes:
   - artifact-catalog
-project_settings:
+project_graph_state:
   artifacts:
     enabled_types:
       - evaluation:evaluation
     default_types:
       evaluation: evaluation
-version: 1
-updated_at: 2026-08-20 03:40:53
+version: 2
+updated_at: 2026-08-21 00:21:06
 relations:
   child_of:
     - CAPRMEDIO-META-REQU-742--permit-one-internal-default-type-per-content-role
