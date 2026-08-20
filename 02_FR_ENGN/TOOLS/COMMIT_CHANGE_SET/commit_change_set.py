@@ -35,7 +35,7 @@ for _path in (TOOLS_ROOT, CONTEXT_ROOT, APPENDER_ROOT):
         sys.path.insert(0, str(_path))
 
 from artifact_metadata import repository_root  # noqa: E402
-from commit_context_logic import ContextError, event_message, gather_context  # noqa: E402
+from commit_context_logic import ContextError, event_message, gather_context, repository_identity  # noqa: E402
 from work_journal import canonical_json_bytes, canonical_json_digest  # noqa: E402
 
 
@@ -164,7 +164,68 @@ def _events_from_context(appender: Any, context: Mapping[str, Any]) -> tuple[dic
         if hasattr(error, "code"):
             raise ToolError(str(error.code), str(error)) from error
         raise ToolError("invalid-context", str(error)) from error
-    return dict(validated), [dict(event) for event in events]
+    value = dict(validated)
+    _validate_context_identity_and_frontiers(value)
+    return value, [dict(event) for event in events]
+
+
+def _validate_context_identity_and_frontiers(context: Mapping[str, Any]) -> None:
+    """Verify the Context seal plus both source and relation frontiers locally."""
+    core_fields = (
+        "schema_version",
+        "action_id",
+        "trigger",
+        "subject",
+        "structural_scope",
+        "action_type",
+        "sources",
+        "result",
+        "llm_session",
+        "author",
+        "occurred_at",
+        "timezone",
+        "local_date",
+        "git_base",
+        "frontier",
+    )
+    try:
+        core = {field: context[field] for field in core_fields}
+    except KeyError as error:
+        raise ToolError("context-field-missing", f"sealed context is missing {error.args[0]}") from error
+    if "previous_result_event" in context:
+        core["previous_result_event"] = context["previous_result_event"]
+    expected_context_id = canonical_json_digest(core)
+    if context.get("context_id") != expected_context_id:
+        raise ToolError("context-id-mismatch", "context_id no longer matches its sealed authoritative fields")
+    frontier = _require_mapping(context.get("frontier"), "context.frontier")
+    result = _require_mapping(context.get("result"), "context.result")
+    subject = _require_mapping(context.get("subject"), "context.subject")
+    source_frontier: dict[str, Any] = {
+        "identity": subject.get("identity"),
+        # This is the state of the selected *carrier*, not where that carrier
+        # was observed (working/index/committed).  Context deliberately seals
+        # a present carrier as ``present`` across those observation states.
+        "state": "removed" if result.get("state") == "removed" else "present",
+        "filename": result.get("filename"),
+        "version": result.get("version"),
+    }
+    if result.get("state") == "present":
+        source_frontier.update({"path": result.get("path"), "sha256": result.get("sha256")})
+    else:
+        snapshots = _require_mapping(context.get("snapshots"), "context.snapshots")
+        committed = _require_mapping(snapshots.get("committed"), "context.snapshots.committed")
+        source_frontier.update({"path": committed.get("path"), "sha256": committed.get("sha256")})
+    if frontier.get("source_sha256") != canonical_json_digest(source_frontier):
+        raise ToolError("source-frontier-mismatch", "source frontier digest does not match sealed selected carrier")
+    relations = context.get("relations")
+    if not isinstance(relations, list):
+        raise ToolError("relation-frontier-missing", "sealed context is missing detailed direct relation frontier")
+    detailed = []
+    for relation in relations:
+        row = _require_mapping(relation, "context.relations item")
+        detailed.append({key: row.get(key) for key in ("relation_type", "filename", "version", "path", "sha256")})
+    if frontier.get("relations_sha256") != canonical_json_digest(detailed):
+        raise ToolError("relation-frontier-mismatch", "relation frontier digest does not match detailed direct relations")
 
 
 def _completed_event(events: Sequence[Mapping[str, Any]]) -> dict[str, Any]:
@@ -494,6 +555,15 @@ def _release_verified_lease(appender: Any, root: Path, lease: Mapping[str, Any])
         raise ToolError("lease-release-failed", str(error)) from error
 
 
+def _appender_effects(envelope: object) -> dict[str, Any]:
+    """Accept only the peer's common success envelope, never a loose mapping."""
+    value = _require_mapping(envelope, "APPEND_CHANGE_RECORDS result envelope")
+    tool = _require_mapping(value.get("tool"), "APPEND_CHANGE_RECORDS tool")
+    if value.get("ok") is not True or tool.get("capability_id") != "APPEND_CHANGE_RECORDS" or tool.get("kind") != "doer":
+        raise ToolError("journal-append-failed", "APPEND_CHANGE_RECORDS returned an unsuccessful or incompatible envelope")
+    return _require_mapping(value.get("result"), "APPEND_CHANGE_RECORDS result")
+
+
 def _block_proven_corrupt_context(appender: Any, root: Path, payload: Mapping[str, Any], cause: ToolError) -> None:
     """Retain a post-append failure only when independent evidence proves it.
 
@@ -558,7 +628,16 @@ def _block_proven_corrupt_context(appender: Any, root: Path, payload: Mapping[st
         return
 
 
-def _commit_only(root: Path, appender: Any, context: Mapping[str, Any], events: Sequence[Mapping[str, Any]], receipts: object, lease: object) -> dict[str, Any]:
+def _commit_only(
+    root: Path,
+    appender: Any,
+    context: Mapping[str, Any],
+    events: Sequence[Mapping[str, Any]],
+    receipts: object,
+    lease: object,
+    *,
+    pipeline_correlations: object = (),
+) -> dict[str, Any]:
     """Execute the final, receipt-bound Git mutation boundary."""
     verified_receipts = _validate_receipts(root, context, events, receipts)
     verified_lease = _validate_lease(root, context, events, lease)
@@ -596,6 +675,7 @@ def _commit_only(root: Path, appender: Any, context: Mapping[str, Any], events: 
         "receipts": verified_receipts,
         "lease": {**verified_lease, "status": "released"},
         "git_message": message,
+        "pipeline_correlations": list(pipeline_correlations) if isinstance(pipeline_correlations, (list, tuple)) else [],
         "commit": commit,
         "validation_results": [
             {"name": "sealed-context", "ok": True},
@@ -623,13 +703,12 @@ def run(root: Path, payload: Mapping[str, Any], *, apply: bool, wait_seconds: fl
     message = _render_message(validated_context, events)
     if input_kind == "trigger":
         try:
-            appended = appender.run(root, {"context": validated_context}, apply=apply, wait_seconds=wait_seconds)
+            appended_envelope = appender.run(root, {"context": validated_context}, apply=apply, wait_seconds=wait_seconds)
         except Exception as error:
             if hasattr(error, "code"):
                 raise ToolError(str(error.code), str(error)) from error
             raise ToolError("journal-append-failed", str(error)) from error
-        if not appended.get("ok", False):
-            raise ToolError("journal-append-failed", "APPEND_CHANGE_RECORDS returned an unsuccessful envelope")
+        appended = _appender_effects(appended_envelope)
         if not apply:
             return {
                 "context": validated_context,
@@ -639,14 +718,23 @@ def run(root: Path, payload: Mapping[str, Any], *, apply: bool, wait_seconds: fl
                 "lease": appended["lease"],
                 "git_message": message,
                 "validation_results": [*appended.get("validation_results", []), {"name": "commit-prediction", "ok": True}],
+                "pipeline_correlations": appended.get("pipeline_correlations", []),
             }
-        return _commit_only(root, appender, validated_context, events, appended.get("receipts"), appended.get("lease"))
+        return _commit_only(
+            root,
+            appender,
+            validated_context,
+            events,
+            appended.get("receipts"),
+            appended.get("lease"),
+            pipeline_correlations=appended.get("pipeline_correlations", []),
+        )
     if "receipts" not in payload or "lease" not in payload:
         raise ToolError("commit-boundary-input-missing", "commit-only execution requires context, receipts, and lease")
     if not apply:
         # This path deliberately reuses the Appender's dry-run validation but
         # never validates a live lease or mutates any recovery state.
-        predicted = appender.run(root, {"context": validated_context}, apply=False, wait_seconds=wait_seconds)
+        predicted = _appender_effects(appender.run(root, {"context": validated_context}, apply=False, wait_seconds=wait_seconds))
         return {
             "context": validated_context,
             "change_set": {"action_type": validated_context["action_type"], "subject": validated_context["subject"], "sources": validated_context["sources"]},
@@ -655,8 +743,17 @@ def run(root: Path, payload: Mapping[str, Any], *, apply: bool, wait_seconds: fl
             "lease": predicted["lease"],
             "git_message": message,
             "validation_results": [*predicted.get("validation_results", []), {"name": "commit-prediction", "ok": True}],
+            "pipeline_correlations": predicted.get("pipeline_correlations", []),
         }
-    return _commit_only(root, appender, validated_context, events, payload["receipts"], payload["lease"])
+    return _commit_only(
+        root,
+        appender,
+        validated_context,
+        events,
+        payload["receipts"],
+        payload["lease"],
+        pipeline_correlations=payload.get("pipeline_correlations", []),
+    )
 
 
 def describe() -> dict[str, Any]:
@@ -676,7 +773,13 @@ def describe() -> dict[str, Any]:
 
 def _parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--root", default=".", help="repository root or descendant")
+    parser.add_argument(
+        "--repository",
+        "--root",
+        dest="repository",
+        default=".",
+        help="repository root or descendant (--root is a compatibility alias)",
+    )
     subcommands = parser.add_subparsers(dest="command", required=True)
     subcommands.add_parser("describe", help="emit the common Tool contract")
     run_parser = subcommands.add_parser("run", help="run an end-to-end trigger or receipt-bound commit")
@@ -689,11 +792,11 @@ def _parser() -> argparse.ArgumentParser:
 def main(argv: Sequence[str] | None = None) -> int:
     args = _parser().parse_args(argv)
     if args.command == "describe":
-        print(json.dumps(_envelope(ok=True, mode="describe", result=describe()), ensure_ascii=False, sort_keys=True, separators=(",", ":")))
+        print(json.dumps(_envelope(ok=True, mode="read-only", result=describe()), ensure_ascii=False, sort_keys=True, separators=(",", ":")))
         return 0
     mode = "apply" if args.apply else "dry-run"
     try:
-        result = run(Path(args.root), _load_payload(args.input), apply=args.apply, wait_seconds=args.wait_seconds)
+        result = run(Path(args.repository), _load_payload(args.input), apply=args.apply, wait_seconds=args.wait_seconds)
     except (ToolError, ContextError) as error:
         print(json.dumps(_envelope(ok=False, mode=mode, error=error), ensure_ascii=False, sort_keys=True, separators=(",", ":")))
         return 2
