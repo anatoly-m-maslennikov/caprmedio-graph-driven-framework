@@ -8,7 +8,7 @@ the change, reads the Atom graph, modifies the Git index, writes a Journal, or
 invokes the downstream Tool itself.
 
 The ``adapter`` lifecycle commands write only reconstructible registration
-state below ``.caprmedio_runtime/commit_trigger``.  Observation is always
+state below ``.caprmedio_runtime/state/commit_trigger``.  Observation is always
 read-only, including when it suppresses a correlated pipeline Journal or
 runtime-state event.
 """
@@ -21,6 +21,8 @@ import hashlib
 import json
 import os
 import re
+import shlex
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -36,18 +38,41 @@ from typing import Any
 
 
 SCRIPT_PATH = Path(__file__).resolve()
-REPOSITORY_ROOT = SCRIPT_PATH.parents[3]
-sys.pycache_prefix = str(
-    REPOSITORY_ROOT / ".caprmedio_runtime" / "cache" / "python"
-)
+PACKAGE_ROOT = SCRIPT_PATH.parents[1]
+
+
+def _installed_runtime_root(path: Path) -> Path | None:
+    for parent in path.parents:
+        if parent.name == ".caprmedio_runtime":
+            return parent
+        if parent.name == ".caprmedio":
+            return parent.parent / ".caprmedio_runtime"
+    return None
+
+
+if (runtime_root := _installed_runtime_root(SCRIPT_PATH)) is not None:
+    sys.pycache_prefix = str(runtime_root / "cache" / "python")
 
 TOOL_SCHEMA_VERSION = 1
 TRIGGER_SCHEMA_VERSION = 1
 CAPABILITY_ID = "COMMIT_TRIGGER"
 TOOL_KIND = "hook"
-RUNTIME_DIRECTORY = Path(".caprmedio_runtime/commit_trigger")
+RUNTIME_DIRECTORY = Path(".caprmedio_runtime/state/commit_trigger")
 REGISTRY_NAME = "adapter_registry.toml"
 PIPELINE_CORRELATIONS_NAME = "pipeline_correlations.ndjson"
+PACKAGE_NAME = "caprmedio-auto-commit"
+PACKAGE_FILES = (
+    "caprmedio_relation_types.toml",
+    "work_journal.py",
+    "COMMIT_TRIGGER/__init__.py",
+    "COMMIT_TRIGGER/commit_trigger.py",
+    "COMMIT_CONTEXT/commit_context.py",
+    "COMMIT_CONTEXT/commit_context_logic.py",
+    "APPEND_CHANGE_RECORDS/append_change_records.py",
+    "COMMIT_CHANGE_SET/commit_change_set.py",
+)
+CODEX_HOOK_MATCHER = r"^(apply_patch|functions\.apply_patch|Bash|exec_command|functions\.exec)$"
+CODEX_HOOK_TIMEOUT_SECONDS = 120
 IDENTIFIER = re.compile(r"[A-Za-z][A-Za-z0-9._-]{0,127}\Z")
 UUID_TEXT = re.compile(
     r"[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}\Z",
@@ -732,6 +757,18 @@ def _runtime_directory(repository: Path) -> Path:
     return repository / RUNTIME_DIRECTORY
 
 
+def _runtime_root(repository: Path) -> Path:
+    return repository / ".caprmedio_runtime"
+
+
+def _installed_package_root(repository: Path) -> Path:
+    return _runtime_root(repository) / "installed" / "tools" / "auto_commit"
+
+
+def _runtime_manifest_path(repository: Path) -> Path:
+    return _installed_package_root(repository) / "current.toml"
+
+
 def _registry_path(repository: Path) -> Path:
     return _runtime_directory(repository) / REGISTRY_NAME
 
@@ -805,6 +842,280 @@ def _atomic_write(path: Path, content: str) -> None:
         raise
 
 
+def _package_inventory(source_root: Path = PACKAGE_ROOT) -> tuple[list[dict[str, str]], str]:
+    rows: list[dict[str, str]] = []
+    for relative in PACKAGE_FILES:
+        path = source_root / relative
+        if not path.is_file() or path.is_symlink():
+            raise ToolError("runtime-source-incomplete", f"runtime package source is missing {relative}")
+        rows.append({"path": relative, "sha256": hashlib.sha256(path.read_bytes()).hexdigest()})
+    release = _sha256({"schema_version": 1, "package": PACKAGE_NAME, "files": rows})
+    return rows, release
+
+
+def _render_package_manifest(release: str, rows: Sequence[Mapping[str, str]]) -> str:
+    lines = ["schema_version = 1", f"package = {_quoted(PACKAGE_NAME)}", f"release = {_quoted(release)}", ""]
+    for row in rows:
+        lines.extend(
+            [
+                "[[files]]",
+                f"path = {_quoted(row['path'])}",
+                f"sha256 = {_quoted(row['sha256'])}",
+                "",
+            ]
+        )
+    return "\n".join(lines)
+
+
+def runtime_package_status(repository: Path | str) -> dict[str, object]:
+    root = resolve_repository(Path(repository))
+    current_path = _runtime_manifest_path(root)
+    if not current_path.is_file():
+        return {
+            "installed": False,
+            "package_root": _installed_package_root(root).relative_to(root).as_posix(),
+        }
+    try:
+        current = tomllib.loads(current_path.read_text(encoding="utf-8"))
+    except tomllib.TOMLDecodeError as error:
+        raise ToolError("runtime-manifest-invalid", f"{current_path}: invalid TOML") from error
+    release = current.get("release")
+    entrypoint = current.get("entrypoint")
+    if current.get("schema_version") != 1 or current.get("package") != PACKAGE_NAME:
+        raise ToolError("runtime-manifest-invalid", "installed runtime manifest identity is invalid")
+    if not isinstance(release, str) or not re.fullmatch(r"[0-9a-f]{64}", release):
+        raise ToolError("runtime-manifest-invalid", "installed runtime release is invalid")
+    if not isinstance(entrypoint, str):
+        raise ToolError("runtime-manifest-invalid", "installed runtime entrypoint is missing")
+    release_root = _installed_package_root(root) / "releases" / release
+    manifest_path = release_root / "manifest.toml"
+    try:
+        manifest = tomllib.loads(manifest_path.read_text(encoding="utf-8"))
+    except (FileNotFoundError, tomllib.TOMLDecodeError) as error:
+        raise ToolError("runtime-release-invalid", "installed runtime release manifest is missing or invalid") from error
+    if manifest.get("schema_version") != 1 or manifest.get("package") != PACKAGE_NAME or manifest.get("release") != release:
+        raise ToolError("runtime-release-invalid", "installed runtime release identity differs from current.toml")
+    rows = manifest.get("files")
+    if not isinstance(rows, list):
+        raise ToolError("runtime-release-invalid", "installed runtime release has no file inventory")
+    checked: list[dict[str, str]] = []
+    for raw in rows:
+        if not isinstance(raw, Mapping):
+            raise ToolError("runtime-release-invalid", "installed runtime file row is invalid")
+        relative = raw.get("path")
+        expected = raw.get("sha256")
+        if not isinstance(relative, str) or Path(relative).is_absolute() or ".." in Path(relative).parts:
+            raise ToolError("runtime-release-invalid", "installed runtime file path is unsafe")
+        path = release_root / relative
+        if not isinstance(expected, str) or not path.is_file() or path.is_symlink():
+            raise ToolError("runtime-release-invalid", f"installed runtime file is missing: {relative}")
+        actual = hashlib.sha256(path.read_bytes()).hexdigest()
+        if actual != expected:
+            raise ToolError("runtime-release-invalid", f"installed runtime file digest differs: {relative}")
+        checked.append({"path": relative, "sha256": actual})
+    actual_release = _sha256({"schema_version": 1, "package": PACKAGE_NAME, "files": checked})
+    if actual_release != release:
+        raise ToolError("runtime-release-invalid", "installed runtime release digest differs")
+    entrypoint_path = release_root / entrypoint
+    if not entrypoint_path.is_file():
+        raise ToolError("runtime-release-invalid", "installed runtime entrypoint does not exist")
+    return {
+        "installed": True,
+        "release": release,
+        "package_root": release_root.relative_to(root).as_posix(),
+        "entrypoint": entrypoint_path.relative_to(root).as_posix(),
+        "file_count": len(checked),
+        "verified": True,
+    }
+
+
+def install_runtime_package(repository: Path | str, *, apply: bool) -> dict[str, object]:
+    root = resolve_repository(Path(repository))
+    rows, release = _package_inventory()
+    package_root = _installed_package_root(root)
+    release_root = package_root / "releases" / release
+    current = {
+        "schema_version": 1,
+        "package": PACKAGE_NAME,
+        "release": release,
+        "entrypoint": "COMMIT_TRIGGER/commit_trigger.py",
+    }
+    result = {
+        "installed": apply,
+        "release": release,
+        "package_root": release_root.relative_to(root).as_posix(),
+        "entrypoint": (release_root / current["entrypoint"]).relative_to(root).as_posix(),
+        "file_count": len(rows),
+        "planned_effect": "install-or-verify-content-addressed-release",
+    }
+    if not apply:
+        return result
+    for relative in (
+        "installed/tools/auto_commit/releases",
+        "state/commit_trigger/hook_snapshots",
+        "state/append_change_records",
+        "state/commit_change_set",
+        "state/work_journal",
+        "cache/python",
+        "hooks/codex",
+        "logs/commit_trigger",
+        "history/backups",
+        "history/migrations",
+    ):
+        (_runtime_root(root) / relative).mkdir(parents=True, exist_ok=True)
+    for row in rows:
+        source = PACKAGE_ROOT / row["path"]
+        target = release_root / row["path"]
+        target.parent.mkdir(parents=True, exist_ok=True)
+        if target.exists() and hashlib.sha256(target.read_bytes()).hexdigest() != row["sha256"]:
+            raise ToolError("runtime-release-collision", f"release target already differs: {row['path']}")
+        if not target.exists():
+            shutil.copyfile(source, target)
+            target.chmod(source.stat().st_mode & 0o777)
+    _atomic_write(release_root / "manifest.toml", _render_package_manifest(release, rows))
+    _atomic_write(
+        package_root / "current.toml",
+        "\n".join(
+            [
+                "schema_version = 1",
+                f"package = {_quoted(PACKAGE_NAME)}",
+                f"release = {_quoted(release)}",
+                f"entrypoint = {_quoted(current['entrypoint'])}",
+                "",
+            ]
+        ),
+    )
+    return runtime_package_status(root)
+
+
+def _managed_hook_command(repository: Path, phase: str, adapter_id: str) -> str:
+    status = runtime_package_status(repository)
+    if status.get("installed") is not True:
+        raise ToolError("runtime-not-installed", "install the project-local runtime before the Codex adapter")
+    entrypoint = repository / str(status["entrypoint"])
+    return " ".join(
+        shlex.quote(value)
+        for value in (
+            sys.executable,
+            str(entrypoint),
+            "--repository",
+            str(repository),
+            "codex-hook",
+            phase,
+            "--adapter-id",
+            adapter_id,
+        )
+    )
+
+
+def _managed_hook_group(repository: Path, phase: str, adapter_id: str) -> dict[str, object]:
+    return {
+        "matcher": CODEX_HOOK_MATCHER,
+        "hooks": [
+            {
+                "type": "command",
+                "command": _managed_hook_command(repository, phase, adapter_id),
+                "timeout": CODEX_HOOK_TIMEOUT_SECONDS,
+                "statusMessage": f"CAPRMEDIO auto-commit {phase}",
+            }
+        ],
+    }
+
+
+def _is_managed_hook_group(value: object) -> bool:
+    if not isinstance(value, Mapping):
+        return False
+    hooks = value.get("hooks")
+    if not isinstance(hooks, list):
+        return False
+    return any(
+        isinstance(hook, Mapping)
+        and isinstance(hook.get("command"), str)
+        and ".caprmedio_runtime/installed/tools/auto_commit/" in str(hook["command"])
+        and " codex-hook " in str(hook["command"])
+        for hook in hooks
+    )
+
+
+def _hook_document(repository: Path, adapter_id: str, existing: Mapping[str, Any] | None = None) -> dict[str, Any]:
+    document = dict(existing or {})
+    document.setdefault("description", "Project-local Codex hooks.")
+    raw_hooks = document.get("hooks")
+    hooks = dict(raw_hooks) if isinstance(raw_hooks, Mapping) else {}
+    for event, phase in (("PreToolUse", "pre"), ("PostToolUse", "post")):
+        groups = hooks.get(event)
+        retained = [group for group in groups if not _is_managed_hook_group(group)] if isinstance(groups, list) else []
+        hooks[event] = [*retained, _managed_hook_group(repository, phase, adapter_id)]
+    document["hooks"] = hooks
+    return document
+
+
+def _read_hook_document(path: Path) -> dict[str, Any]:
+    try:
+        value = json.loads(path.read_text(encoding="utf-8"))
+    except FileNotFoundError:
+        return {}
+    except json.JSONDecodeError as error:
+        raise ToolError("codex-hook-config-invalid", f"{path}: invalid JSON") from error
+    if not isinstance(value, dict):
+        raise ToolError("codex-hook-config-invalid", f"{path}: root must be an object")
+    return value
+
+
+def install_codex_hooks(repository: Path, adapter_id: str) -> dict[str, object]:
+    runtime_config = _runtime_root(repository) / "hooks" / "codex" / "hooks.json"
+    project_config = repository / ".codex" / "hooks.json"
+    managed = _hook_document(repository, adapter_id)
+    _atomic_write(runtime_config, json.dumps(managed, ensure_ascii=False, indent=2, sort_keys=True) + "\n")
+    project_config.parent.mkdir(parents=True, exist_ok=True)
+    if not project_config.exists() and not project_config.is_symlink():
+        relative_target = os.path.relpath(runtime_config, project_config.parent)
+        project_config.symlink_to(relative_target)
+        carrier = "runtime-symlink"
+    elif project_config.is_symlink() and project_config.resolve() == runtime_config.resolve():
+        carrier = "runtime-symlink"
+    else:
+        existing = _read_hook_document(project_config)
+        merged = _hook_document(repository, adapter_id, existing)
+        _atomic_write(project_config, json.dumps(merged, ensure_ascii=False, indent=2, sort_keys=True) + "\n")
+        carrier = "merged-project-config"
+    return {
+        "registered": True,
+        "carrier": project_config.relative_to(repository).as_posix(),
+        "carrier_kind": carrier,
+        "runtime_config": runtime_config.relative_to(repository).as_posix(),
+    }
+
+
+def uninstall_codex_hooks(repository: Path) -> dict[str, object]:
+    runtime_config = _runtime_root(repository) / "hooks" / "codex" / "hooks.json"
+    project_config = repository / ".codex" / "hooks.json"
+    changed = False
+    if project_config.is_symlink() and project_config.resolve() == runtime_config.resolve():
+        project_config.unlink()
+        changed = True
+    elif project_config.is_file():
+        document = _read_hook_document(project_config)
+        raw_hooks = document.get("hooks")
+        hooks = dict(raw_hooks) if isinstance(raw_hooks, Mapping) else {}
+        for event in ("PreToolUse", "PostToolUse"):
+            groups = hooks.get(event)
+            if isinstance(groups, list):
+                retained = [group for group in groups if not _is_managed_hook_group(group)]
+                changed = changed or len(retained) != len(groups)
+                if retained:
+                    hooks[event] = retained
+                else:
+                    hooks.pop(event, None)
+        document["hooks"] = hooks
+        _atomic_write(project_config, json.dumps(document, ensure_ascii=False, indent=2, sort_keys=True) + "\n")
+    try:
+        runtime_config.unlink()
+    except FileNotFoundError:
+        pass
+    return {"registered": False, "changed": changed, "carrier": project_config.relative_to(repository).as_posix()}
+
+
 def _write_registry(repository: Path, adapters: Mapping[str, AdapterSpec]) -> None:
     path = _registry_path(repository)
     if not adapters:
@@ -823,12 +1134,14 @@ def adapter_operation(
     adapter: AdapterSpec | None = None,
     adapter_id: str | None = None,
     apply: bool = False,
+    manage_host_hooks: bool = False,
 ) -> dict[str, object]:
     """Inspect or explicitly change reconstructible adapter registration state."""
 
     resolved_repository = resolve_repository(Path(repository))
     registered = _read_registry(resolved_repository)
     if operation == "status":
+        project_hook = resolved_repository / ".codex" / "hooks.json"
         return {
             "repository": resolved_repository.as_posix(),
             "registry": _registry_path(resolved_repository).relative_to(resolved_repository).as_posix(),
@@ -842,7 +1155,9 @@ def adapter_operation(
                 }
                 for entry in (registered[key] for key in sorted(registered))
             ],
-            "hook_carriers_touched": False,
+            "host_hook_registered": project_hook.exists() or project_hook.is_symlink(),
+            "host_hook_carrier": project_hook.relative_to(resolved_repository).as_posix(),
+            "runtime_package": runtime_package_status(resolved_repository),
         }
 
     if operation == "install":
@@ -878,14 +1193,20 @@ def adapter_operation(
         else:
             raise ToolError("unknown-operation", f"unknown adapter operation: {operation}")
 
+    hook_result: dict[str, object] | None = None
+    if apply and manage_host_hooks and operation == "install":
+        assert adapter is not None
+        hook_result = install_codex_hooks(resolved_repository, adapter.adapter_id)
     if apply:
         _write_registry(resolved_repository, proposed)
+    if apply and manage_host_hooks and operation == "uninstall" and not proposed:
+        hook_result = uninstall_codex_hooks(resolved_repository)
     return {
         "repository": resolved_repository.as_posix(),
         "effect": effect,
         "adapter_id": adapter.adapter_id if adapter is not None else adapter_id,
         "apply": apply,
-        "hook_carriers_touched": False,
+        "host_hooks": hook_result,
     }
 
 
@@ -903,6 +1224,169 @@ def emit_from_registered_adapter(
     if selected is None:
         return []
     return emit_triggers(observations, adapter=selected, repository=resolved_repository, environment=environment)
+
+
+def _hook_payload() -> dict[str, Any]:
+    raw = sys.stdin.buffer.read(2 * 1024 * 1024 + 1)
+    if len(raw) > 2 * 1024 * 1024:
+        raise ToolError("codex-hook-input-too-large", "Codex hook input exceeds 2 MiB")
+    try:
+        value = json.loads(raw or b"{}")
+    except json.JSONDecodeError as error:
+        raise ToolError("codex-hook-input-invalid", "Codex hook input is not valid JSON") from error
+    return dict(_require_mapping(value, "Codex hook input"))
+
+
+def _hook_snapshot_path(repository: Path, payload: Mapping[str, Any]) -> Path:
+    session_id = _require_string(payload.get("session_id"), "session_id")
+    tool_use_id = _require_string(payload.get("tool_use_id"), "tool_use_id")
+    key = _sha256({"schema_version": 1, "session_id": session_id, "tool_use_id": tool_use_id})
+    return _runtime_directory(repository) / "hook_snapshots" / f"{key}.json"
+
+
+def _frontier_document(frontier: Mapping[str, FileState]) -> dict[str, dict[str, object]]:
+    return {
+        path: {
+            "path": state.path,
+            "sha256": state.sha256,
+            "identity": state.identity,
+            "line_count": state.line_count,
+        }
+        for path, state in sorted(frontier.items())
+    }
+
+
+def _frontier_from_document(value: object) -> dict[str, FileState]:
+    document = _require_mapping(value, "frontier")
+    result: dict[str, FileState] = {}
+    for path, raw in document.items():
+        state = _require_mapping(raw, f"frontier.{path}")
+        if state.get("path") != path:
+            raise ToolError("codex-hook-snapshot-invalid", "frontier path identity differs")
+        sha256 = _require_string(state.get("sha256"), f"frontier.{path}.sha256")
+        identity = _require_string(state.get("identity"), f"frontier.{path}.identity")
+        line_count = state.get("line_count")
+        if not re.fullmatch(r"[0-9a-f]{64}", sha256) or not isinstance(line_count, int) or line_count < 0:
+            raise ToolError("codex-hook-snapshot-invalid", f"frontier state is invalid: {path}")
+        result[str(path)] = FileState(str(path), sha256, identity, line_count)
+    return result
+
+
+def _hook_log(repository: Path, value: Mapping[str, Any]) -> None:
+    path = _runtime_root(repository) / "logs" / "commit_trigger" / f"{dt.date.today().isoformat()}.ndjson"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    descriptor = os.open(path, os.O_APPEND | os.O_CREAT | os.O_WRONLY, 0o600)
+    try:
+        payload = (_canonical_json(value) + "\n").encode("utf-8")
+        offset = 0
+        while offset < len(payload):
+            written = os.write(descriptor, payload[offset:])
+            if written <= 0:
+                raise OSError("could not append Codex hook log")
+            offset += written
+        os.fsync(descriptor)
+    finally:
+        os.close(descriptor)
+
+
+def _hook_eligible(observation: Mapping[str, Any]) -> bool:
+    paths = [observation.get("before_path"), observation.get("after_path")]
+    selected = [Path(value) for value in paths if isinstance(value, str)]
+    if not selected or not all(path.suffix == ".md" for path in selected):
+        return False
+    return not any("archive" in path.parts or "drafts" in path.parts for path in selected)
+
+
+def _import_commit_change_set() -> Any:
+    for path in (PACKAGE_ROOT, PACKAGE_ROOT / "COMMIT_CONTEXT", PACKAGE_ROOT / "APPEND_CHANGE_RECORDS", PACKAGE_ROOT / "COMMIT_CHANGE_SET"):
+        if str(path) not in sys.path:
+            sys.path.insert(0, str(path))
+    try:
+        import commit_change_set
+    except ImportError as error:
+        raise ToolError("peer-tool-unavailable", "COMMIT_CHANGE_SET is not importable from the installed runtime") from error
+    return commit_change_set
+
+
+def codex_hook(repository: Path | str, phase: str, adapter_id: str, payload: Mapping[str, Any]) -> dict[str, object]:
+    root = resolve_repository(Path(repository))
+    cwd = Path(str(payload.get("cwd") or root)).expanduser().resolve()
+    if cwd != root and root not in cwd.parents:
+        return {"phase": phase, "effect": "outside-repository", "commit_count": 0}
+    snapshot_path = _hook_snapshot_path(root, payload)
+    if phase == "pre":
+        snapshot = {
+            "schema_version": 1,
+            "session_id": _require_string(payload.get("session_id"), "session_id"),
+            "tool_use_id": _require_string(payload.get("tool_use_id"), "tool_use_id"),
+            "frontier": _frontier_document(scan_governed_files(root)),
+        }
+        _atomic_write(snapshot_path, _canonical_json(snapshot) + "\n")
+        return {"phase": phase, "effect": "snapshot", "commit_count": 0}
+    if phase != "post":
+        raise ToolError("codex-hook-phase-invalid", "Codex hook phase must be pre or post")
+    if not snapshot_path.is_file():
+        return {"phase": phase, "effect": "no-pre-snapshot", "commit_count": 0}
+    try:
+        snapshot = json.loads(snapshot_path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as error:
+        raise ToolError("codex-hook-snapshot-invalid", "Codex pre-hook snapshot is invalid JSON") from error
+    snapshot_path.unlink()
+    if not isinstance(snapshot, Mapping) or snapshot.get("schema_version") != 1:
+        raise ToolError("codex-hook-snapshot-invalid", "Codex pre-hook snapshot schema is invalid")
+    if snapshot.get("session_id") != payload.get("session_id") or snapshot.get("tool_use_id") != payload.get("tool_use_id"):
+        raise ToolError("codex-hook-snapshot-mismatch", "Codex pre/post hook identities differ")
+    selected = _read_registry(root).get(_require_identifier(adapter_id, "adapter_id"))
+    if selected is None or not selected.enabled:
+        return {"phase": phase, "effect": "adapter-not-enabled", "commit_count": 0}
+    session_uuid = _validate_uuid(payload.get("session_id"), "session_id")
+    previous = _frontier_from_document(snapshot.get("frontier"))
+    current = scan_governed_files(root)
+    observed_at = dt.datetime.now(dt.UTC).replace(microsecond=0).isoformat().replace("+00:00", "Z")
+    observations = [
+        {
+            **observation,
+            "llm_session": {"app": selected.application, "uuid": session_uuid},
+        }
+        for observation in detect_watch_observations(
+            previous,
+            current,
+            adapter_id=selected.adapter_id,
+            repository=root,
+            observed_at=observed_at,
+            correlations=_read_pipeline_correlations(_runtime_directory(root) / PIPELINE_CORRELATIONS_NAME),
+        )
+        if _hook_eligible(observation)
+    ]
+    triggers = emit_triggers(observations, adapter=selected, repository=root, environment={})
+    if not triggers:
+        return {"phase": phase, "effect": "no-eligible-change", "commit_count": 0}
+    committer = _import_commit_change_set()
+    commits: list[dict[str, str]] = []
+    for trigger in triggers:
+        try:
+            result = committer.run(root, {"trigger": trigger}, apply=True)
+        except Exception as error:
+            _hook_log(
+                root,
+                {
+                    "schema_version": 1,
+                    "event": "auto_commit_failed",
+                    "trigger_id": trigger["trigger_id"],
+                    "error_code": str(getattr(error, "code", "unexpected-error")),
+                },
+            )
+            raise ToolError("auto-commit-failed", str(error)) from error
+        commits.append({"trigger_id": str(trigger["trigger_id"]), "commit": str(result["commit"])})
+    _hook_log(
+        root,
+        {
+            "schema_version": 1,
+            "event": "auto_commit_completed",
+            "commits": commits,
+        },
+    )
+    return {"phase": phase, "effect": "committed", "commit_count": len(commits), "commits": commits}
 
 
 def _envelope(*, ok: bool, mode: str, result: object | None = None, diagnostic: ToolError | None = None) -> dict[str, object]:
@@ -941,7 +1425,7 @@ def _describe() -> dict[str, object]:
         "capability_id": CAPABILITY_ID,
         "kind": TOOL_KIND,
         "read_only_observe": True,
-        "canonical_script": "02_FR_ENGN/TOOLS/COMMIT_TRIGGER/commit_trigger.py",
+        "canonical_script": ".caprmedio/200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/COMMIT_TRIGGER/commit_trigger.py",
         "input_schema": {
             "observe": {
                 "type": "object",
@@ -976,7 +1460,10 @@ def _describe() -> dict[str, object]:
                 "effects": [],
                 "result": "one read-only handoff envelope per detected source boundary",
             },
-            "adapter install": {"input": "adapter identity and host session resolver", "effects": ["runtime registry"]},
+            "runtime install": {"effects": ["self-contained project-local runtime package"]},
+            "runtime status": {"effects": []},
+            "codex-hook": {"input": "Codex hook JSON on stdin", "effects": ["pre snapshot or complete auto-commit flow"]},
+            "adapter install": {"input": "adapter identity and host session resolver", "effects": ["runtime registry", "Codex hook registration"]},
             "adapter status": {"effects": []},
             "adapter enable": {"effects": ["runtime registry"]},
             "adapter disable": {"effects": ["runtime registry"]},
@@ -1003,6 +1490,14 @@ def _parser() -> argparse.ArgumentParser:
         "--pipeline-correlation-file",
         help="optional NDJSON action/path suppression frontier; default is the Tool runtime path",
     )
+    runtime = commands.add_parser("runtime", help="install or inspect the self-contained project-local runtime")
+    runtime_commands = runtime.add_subparsers(dest="runtime_command", required=True)
+    runtime_install = runtime_commands.add_parser("install")
+    runtime_install.add_argument("--apply", action="store_true")
+    runtime_commands.add_parser("status")
+    codex = commands.add_parser("codex-hook", help="execute one Codex pre/post Tool-use adapter phase")
+    codex.add_argument("phase", choices=("pre", "post"))
+    codex.add_argument("--adapter-id", required=True)
     adapter = commands.add_parser("adapter", help="manage explicit host-adapter registration")
     adapter_commands = adapter.add_subparsers(dest="adapter_command", required=True)
     install = adapter_commands.add_parser("install")
@@ -1092,6 +1587,16 @@ def cli(argv: Sequence[str] | None = None) -> int:
                         return 0
                 result = {"handoffs": [], "trigger_count": 0, "stream": "watch", "stopped": "poll-limit-or-interrupt"}
                 mode = "read-only"
+        elif args.command == "runtime":
+            if args.runtime_command == "status":
+                result = runtime_package_status(args.repository)
+                mode = "read-only"
+            else:
+                result = install_runtime_package(args.repository, apply=args.apply)
+                mode = "apply" if args.apply else "dry-run"
+        elif args.command == "codex-hook":
+            result = codex_hook(args.repository, args.phase, args.adapter_id, _hook_payload())
+            mode = "apply"
         elif args.adapter_command == "status":
             result = adapter_operation(args.repository, "status")
             mode = "read-only"
@@ -1103,7 +1608,13 @@ def cli(argv: Sequence[str] | None = None) -> int:
                 args.fallback_session_env,
                 not args.disabled,
             )
-            result = adapter_operation(args.repository, "install", adapter=spec, apply=args.apply)
+            result = adapter_operation(
+                args.repository,
+                "install",
+                adapter=spec,
+                apply=args.apply,
+                manage_host_hooks=True,
+            )
             mode = "apply" if args.apply else "dry-run"
         else:
             result = adapter_operation(
@@ -1111,6 +1622,7 @@ def cli(argv: Sequence[str] | None = None) -> int:
                 args.adapter_command,
                 adapter_id=args.adapter_id,
                 apply=args.apply,
+                manage_host_hooks=True,
             )
             mode = "apply" if args.apply else "dry-run"
     except ToolError as error:
