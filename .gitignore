@@ -21,6 +21,7 @@ __pycache__/
 .ruff_cache/
 
 # Local configuration and secrets
+/.codex/hooks.json
 .env
 .env.*
 !.env.example
