@@ -23,6 +23,39 @@ CANONICAL_GENERATOR = (
 CONFIG = ROOT / "caprmedio_framework_settings.toml"
 JOURNAL = CONTROL / "work_journal"
 
+PROJECT_ROOT_FOLDERS = (
+    ("FRAMEWORK_METHODOLOGY", "100_LAYER_1_FRAMEWORK_METHODOLOGY", "CAPRMEDIO-GOV-REQU-774--register-project-layer-directory-labels.md"),
+    ("FRAMEWORK_ENGINE", "200_LAYER_2_FRAMEWORK_ENGINE", "CAPRMEDIO-GOV-REQU-774--register-project-layer-directory-labels.md"),
+    ("DOCUMENTATION", "300_LAYER_3_DOCUMENTATION", "CAPRMEDIO-GOV-REQU-774--register-project-layer-directory-labels.md"),
+    ("RELEASES", "400_LAYER_4_RELEASES", "CAPRMEDIO-GOV-REQU-774--register-project-layer-directory-labels.md"),
+    ("FIELD", "FIELD", "CAPRMEDIO-GOV-REQU-776--register-field-directory-label.md"),
+)
+
+SCOPE_UNITS = (
+    ("METAMODEL", "METAMODEL", "_01_BSEED_LAYER_1_METAMODEL", "ordered_unit", -1, "-1/1", "", 1, "", "CAPRMEDIO-REQU-706--define-caprmedio-structural-topology.md"),
+    ("SEMANTICS", "SEMANTICS", "_02_BSEED_LAYER_2_SEMANTICS", "ordered_unit", -1, "-1/2", "", 2, "METAMODEL", "CAPRMEDIO-REQU-706--define-caprmedio-structural-topology.md"),
+    ("GOVERNANCE", "GOVERNANCE", "_03_BSEED_LAYER_3_GOVERNANCE", "ordered_unit", -1, "-1/3", "", 3, "SEMANTICS", "CAPRMEDIO-REQU-706--define-caprmedio-structural-topology.md"),
+    ("PROJECT", "PROJECT", ".", "project_root", 0, "0", "", None, None, "CAPRMEDIO-REQU-706--define-caprmedio-structural-topology.md"),
+    ("FRAMEWORK_METHODOLOGY", "PROJECT/FRAMEWORK_METHODOLOGY", "100_LAYER_1_FRAMEWORK_METHODOLOGY", "ordered_unit", 1, "1/1", "PROJECT", 1, "", "CAPRMEDIO-REQU-707--order-project-layers.md"),
+    ("FRAMEWORK_ENGINE", "PROJECT/FRAMEWORK_ENGINE", "200_LAYER_2_FRAMEWORK_ENGINE", "ordered_unit", 1, "1/2", "PROJECT", 2, "FRAMEWORK_METHODOLOGY", "CAPRMEDIO-REQU-707--order-project-layers.md"),
+    ("DOCUMENTATION", "PROJECT/DOCUMENTATION", "300_LAYER_3_DOCUMENTATION", "ordered_unit", 1, "1/3", "PROJECT", 3, "FRAMEWORK_ENGINE", "CAPRMEDIO-REQU-707--order-project-layers.md"),
+    ("RELEASES", "PROJECT/RELEASES", "400_LAYER_4_RELEASES", "ordered_unit", 1, "1/4", "PROJECT", 4, "DOCUMENTATION", "CAPRMEDIO-REQU-707--order-project-layers.md"),
+    ("FIELD", "PROJECT/FIELD", "FIELD", "unordered_unit", 1, "1", "PROJECT", None, None, "CAPRMEDIO-REQU-775--define-field-as-unordered-project-child.md"),
+    ("APP", "PROJECT/FRAMEWORK_ENGINE/APP", "200_LAYER_2_FRAMEWORK_ENGINE/APP", "unordered_unit", 2, "2", "FRAMEWORK_ENGINE", None, None, "CAPRMEDIO-FRAMEWORK-ENGINE-REQU-700--define-framework-engine-feature-topology.md"),
+    ("SKILLS", "PROJECT/FRAMEWORK_ENGINE/SKILLS", "200_LAYER_2_FRAMEWORK_ENGINE/SKILLS", "unordered_unit", 2, "2", "FRAMEWORK_ENGINE", None, None, "CAPRMEDIO-FRAMEWORK-ENGINE-REQU-700--define-framework-engine-feature-topology.md"),
+    ("TOOLS", "PROJECT/FRAMEWORK_ENGINE/TOOLS", "200_LAYER_2_FRAMEWORK_ENGINE/TOOLS", "unordered_unit", 2, "2", "FRAMEWORK_ENGINE", None, None, "CAPRMEDIO-FRAMEWORK-ENGINE-REQU-700--define-framework-engine-feature-topology.md"),
+    ("TARGET_SET", "PROJECT/FRAMEWORK_ENGINE/TOOLS/TARGET_SET", "200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/TARGET_SET", "unordered_unit", 3, "3", "TOOLS", None, None, "CAPRMEDIO-FRAMEWORK-ENGINE-REQU-704--define-target-set-tool-unit.md"),
+    ("GRAPH_CHECK", "PROJECT/FRAMEWORK_ENGINE/TOOLS/GRAPH_CHECK", "200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/GRAPH_CHECK", "unordered_unit", 3, "3", "TOOLS", None, None, "CAPRMEDIO-FRAMEWORK-ENGINE-REQU-705--define-graph-check-tool-unit.md"),
+    ("BULK_CHANGE", "PROJECT/FRAMEWORK_ENGINE/TOOLS/BULK_CHANGE", "200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/BULK_CHANGE", "unordered_unit", 3, "3", "TOOLS", None, None, "CAPRMEDIO-FRAMEWORK-ENGINE-REQU-706--define-bulk-change-tool-unit.md"),
+    ("PROJECTION_REBUILD", "PROJECT/FRAMEWORK_ENGINE/TOOLS/PROJECTION_REBUILD", "200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/PROJECTION_REBUILD", "unordered_unit", 3, "3", "TOOLS", None, None, "CAPRMEDIO-FRAMEWORK-ENGINE-REQU-707--define-projection-rebuild-tool-unit.md"),
+    ("IMPLEMENTATION_INVENTORY", "PROJECT/FRAMEWORK_ENGINE/TOOLS/IMPLEMENTATION_INVENTORY", "200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/IMPLEMENTATION_INVENTORY", "unordered_unit", 3, "3", "TOOLS", None, None, "CAPRMEDIO-FRAMEWORK-ENGINE-REQU-708--define-implementation-inventory-tool-unit.md"),
+    ("ADOPT_RECONCILE", "PROJECT/FRAMEWORK_ENGINE/TOOLS/ADOPT_RECONCILE", "200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/ADOPT_RECONCILE", "unordered_unit", 3, "3", "TOOLS", None, None, "CAPRMEDIO-FRAMEWORK-ENGINE-REQU-709--define-adopt-reconcile-tool-unit.md"),
+    ("COMMIT_TRIGGER", "PROJECT/FRAMEWORK_ENGINE/TOOLS/COMMIT_TRIGGER", "200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/COMMIT_TRIGGER", "unordered_unit", 3, "3", "TOOLS", None, None, "CA-R-802-REQUIREMENT-FR_ENGN_TOOLS--define-flat-auto-commit-tool-topology.md"),
+    ("COMMIT_CONTEXT", "PROJECT/FRAMEWORK_ENGINE/TOOLS/COMMIT_CONTEXT", "200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/COMMIT_CONTEXT", "unordered_unit", 3, "3", "TOOLS", None, None, "CA-R-802-REQUIREMENT-FR_ENGN_TOOLS--define-flat-auto-commit-tool-topology.md"),
+    ("APPEND_CHANGE_RECORDS", "PROJECT/FRAMEWORK_ENGINE/TOOLS/APPEND_CHANGE_RECORDS", "200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/APPEND_CHANGE_RECORDS", "unordered_unit", 3, "3", "TOOLS", None, None, "CA-R-802-REQUIREMENT-FR_ENGN_TOOLS--define-flat-auto-commit-tool-topology.md"),
+    ("COMMIT_CHANGE_SET", "PROJECT/FRAMEWORK_ENGINE/TOOLS/COMMIT_CHANGE_SET", "200_LAYER_2_FRAMEWORK_ENGINE/TOOLS/COMMIT_CHANGE_SET", "unordered_unit", 3, "3", "TOOLS", None, None, "CA-R-802-REQUIREMENT-FR_ENGN_TOOLS--define-flat-auto-commit-tool-topology.md"),
+)
+
 
 def sha(path: Path) -> str:
     value = hashlib.sha256()
@@ -118,30 +151,64 @@ def contributions(paths: list[Path]) -> list[dict[str, str]]:
     return rows
 
 
-def units() -> list[dict[str, object]]:
+def atom_by_filename(paths: list[Path]) -> dict[str, Path]:
+    result: dict[str, Path] = {}
+    for path in paths:
+        if path.suffix != ".md" or "archive" in path.relative_to(CONTROL).parts:
+            continue
+        if path.name in result:
+            raise SystemExit(f"ambiguous active Atom carrier filename: {path.name}")
+        result[path.name] = path
+    return result
+
+
+def source_binding(index: dict[str, Path], filename: str) -> dict[str, str]:
+    try:
+        source = index[filename]
+    except KeyError as error:
+        raise SystemExit(f"missing active Scope Unit source Atom: {filename}") from error
+    text = source.read_text(encoding="utf-8")
+    return {
+        "source_atom_id": frontmatter(text, "atom_id") or source.stem.split("--", 1)[0],
+        "source_carrier": source.relative_to(ROOT).as_posix(),
+        "source_version": frontmatter(text, "version") or "unknown",
+    }
+
+
+def project_root_folders(index: dict[str, Path]) -> list[dict[str, object]]:
     rows = []
-    directories = [CONTROL, *sorted(path for path in CONTROL.rglob("*") if path.is_dir())]
-    for directory in directories:
-        children = [
-            child
-            for child in directory.iterdir()
-            if child.name != ".DS_Store" and child != OUTPUT
-        ]
-        child_dirs = [child for child in children if child.is_dir()]
-        child_files = [child for child in children if child.is_file()]
-        kind = "mixed" if child_dirs and child_files else "area" if child_dirs else "feature" if child_files else "empty"
-        relative = directory.relative_to(CONTROL)
+    for scope_unit, folder, source_filename in PROJECT_ROOT_FOLDERS:
+        path = CONTROL / folder
         rows.append(
             {
-                "path": directory.relative_to(ROOT).as_posix(),
-                "parent": "" if directory == CONTROL else directory.parent.relative_to(ROOT).as_posix(),
-                "depth": len(relative.parts),
-                "as_is_kind": kind,
-                "archived": "archive" in relative.parts,
-                "direct_directory_count": len(child_dirs),
-                "direct_file_count": len(child_files),
+                "scope_unit": scope_unit,
+                "path": path.relative_to(ROOT).as_posix(),
+                "materialized": path.is_dir(),
+                **source_binding(index, source_filename),
             }
         )
+    return rows
+
+
+def scope_units(index: dict[str, Path]) -> list[dict[str, object]]:
+    rows = []
+    for identity, scope_path, folder, kind, level, coordinate, parent, local_order, upstream, source_filename in SCOPE_UNITS:
+        carrier = CONTROL if folder == "." else CONTROL / folder
+        row: dict[str, object] = {
+            "identity": identity,
+            "scope_path": scope_path,
+            "carrier_folder": carrier.relative_to(ROOT).as_posix() if carrier.is_dir() else "",
+            "carrier_materialized": carrier.is_dir(),
+            "structural_kind": kind,
+            "structural_level": level,
+            "structural_coordinate": coordinate,
+            "structural_parent": parent,
+        }
+        if kind == "ordered_unit":
+            row["local_order"] = local_order
+            row["upstream_unit"] = upstream
+        row.update(source_binding(index, source_filename))
+        rows.append(row)
     return rows
 
 
@@ -152,7 +219,8 @@ def project_graph_state(
     source_rows: list[dict[str, str]],
     frontier_sha: str,
     contribution_rows: list[dict[str, str]],
-    unit_rows: list[dict[str, object]],
+    root_folder_rows: list[dict[str, object]],
+    scope_unit_rows: list[dict[str, object]],
 ) -> str:
     lines = [
         "# Generated runtime view. Delete and regenerate at any time.",
@@ -181,11 +249,17 @@ def project_graph_state(
         "[repository]",
         f"control_root = {quote(CONTROL.relative_to(ROOT).as_posix())}",
         f"governed_file_count = {len(source_rows)}",
-        f"filesystem_unit_count = {len(unit_rows)}",
+        f"project_root_scope_unit_folder_count = {len(root_folder_rows)}",
+        f"scope_unit_count = {len(scope_unit_rows)}",
         f"graph_contribution_count = {len(contribution_rows)}",
     ]
-    for row in unit_rows:
-        lines += ["", "[[filesystem_units]]"] + [
+    for row in root_folder_rows:
+        lines += ["", "[[project_root_scope_unit_folders]]"] + [
+            f"{key} = {str(value).lower() if isinstance(value, bool) else value if isinstance(value, int) else quote(value)}"
+            for key, value in row.items()
+        ]
+    for row in scope_unit_rows:
+        lines += ["", "[[scope_units]]"] + [
             f"{key} = {str(value).lower() if isinstance(value, bool) else value if isinstance(value, int) else quote(value)}"
             for key, value in row.items()
         ]
@@ -214,11 +288,13 @@ def main() -> None:
     config_sha = sha(CONFIG)
     binding = configuration_binding(config_sha)
     contribution_rows = contributions(governed)
-    unit_rows = units()
+    atom_index = atom_by_filename(governed)
+    root_folder_rows = project_root_folders(atom_index)
+    scope_unit_rows = scope_units(atom_index)
     generated_at = datetime.now().astimezone().isoformat(timespec="seconds")
     temporary_output = SCRIPT.parent / "project_graph_state.toml.tmp"
     temporary_output.write_text(
-        project_graph_state(generated_at, config_sha, binding, source_rows, frontier_sha, contribution_rows, unit_rows),
+        project_graph_state(generated_at, config_sha, binding, source_rows, frontier_sha, contribution_rows, root_folder_rows, scope_unit_rows),
         encoding="utf-8",
     )
     temporary_output.replace(OUTPUT)
