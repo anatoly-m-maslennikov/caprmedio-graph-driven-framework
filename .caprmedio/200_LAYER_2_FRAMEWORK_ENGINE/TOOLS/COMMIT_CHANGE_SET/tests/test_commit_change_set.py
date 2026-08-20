@@ -137,7 +137,7 @@ class CommitChangeSetTests(unittest.TestCase):
         self.assertEqual([receipt["event_id"] for receipt in result["receipts"]], [record["event_id"] for record in records])
         self.assertEqual(len(result["receipts"]), len(result["pipeline_correlations"]))
         self.assertEqual("released", result["lease"]["status"])
-        self.assertFalse((self.root / ".caprmedio_runtime/commit_change_set/lease.json").exists())
+        self.assertFalse((self.root / ".caprmedio_runtime/state/commit_change_set/lease.json").exists())
 
     def test_e196_rejects_missing_receipts_without_runtime_mutation(self) -> None:
         context = commit_change_set.gather_context(self.root, self.trigger())
@@ -160,7 +160,7 @@ class CommitChangeSetTests(unittest.TestCase):
                 wait_seconds=0,
             )
         self.assertEqual("unrelated-staged-change", captured.exception.code)
-        self.assertTrue((self.root / ".caprmedio_runtime/append_change_records/blocked" / f"{context['action_id']}.json").is_file())
+        self.assertTrue((self.root / ".caprmedio_runtime/state/append_change_records/blocked" / f"{context['action_id']}.json").is_file())
         self.assertEqual("unrelated.txt\0", self.git("diff", "--cached", "--name-only", "-z"))
 
     def test_e202_preserves_blocked_action_when_git_base_becomes_stale_after_append(self) -> None:
@@ -176,9 +176,9 @@ class CommitChangeSetTests(unittest.TestCase):
                 wait_seconds=0,
             )
         self.assertEqual("stale-context", captured.exception.code)
-        blocked = self.root / ".caprmedio_runtime/append_change_records/blocked" / f"{context['action_id']}.json"
+        blocked = self.root / ".caprmedio_runtime/state/append_change_records/blocked" / f"{context['action_id']}.json"
         self.assertTrue(blocked.is_file())
-        self.assertTrue((self.root / ".caprmedio_runtime/commit_change_set/lease.json").is_file())
+        self.assertTrue((self.root / ".caprmedio_runtime/state/commit_change_set/lease.json").is_file())
 
     def test_e204_records_proven_corrupted_context_after_append(self) -> None:
         context, appended = self.append_only()
@@ -191,7 +191,7 @@ class CommitChangeSetTests(unittest.TestCase):
                 apply=True,
                 wait_seconds=0,
             )
-        blocked = self.root / ".caprmedio_runtime/append_change_records/blocked" / f"{context['action_id']}.json"
+        blocked = self.root / ".caprmedio_runtime/state/append_change_records/blocked" / f"{context['action_id']}.json"
         self.assertTrue(blocked.is_file())
         payload = json.loads(blocked.read_text(encoding="utf-8"))
         self.assertEqual("invalid-context", payload["reason"])
