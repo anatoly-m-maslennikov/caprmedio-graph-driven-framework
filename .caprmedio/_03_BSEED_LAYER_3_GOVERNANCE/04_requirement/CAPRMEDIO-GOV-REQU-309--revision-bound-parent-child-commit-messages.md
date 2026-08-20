@@ -1,8 +1,8 @@
 ---
 subject_scopes:
   - provenance
-version: 7
-updated_at: 2026-08-20 19:12:49
+version: 8
+updated_at: 2026-08-20 19:14:38
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -33,11 +33,11 @@ The left field preserves every direct typed upstream relation from the affected 
 
 Targets of the same relation kind are separated by a comma followed by one space. Relation groups are separated by a semicolon followed by one space and sorted first by relation kind and then by filename. `0` represents no direct upstream typed relation. Transitive ancestors and association-only relations are excluded. A derived inverse relation is included when its registered direction is upstream for the affected file.
 
-`ADD` and `UPDATE` resolve relations from the resulting staged graph, `MOVE` resolves them from the unchanged Artifact graph, and `REMOVE` resolves them from the last committed graph. Target versions must be current immediately before the action. `updated_at` is omitted because the Git commit already records the action time.
+`ADD` and `UPDATE` resolve relations from the resulting staged graph, while `REMOVE` resolves them from the last committed graph. Target versions must be current immediately before the action. `updated_at` is omitted because the Git commit already records the action time.
 
 ## Actions
 
-The action is exactly one uppercase token: `ADD`, `MOVE`, `UPDATE`, or `REMOVE`.
+The action is exactly one uppercase token: `ADD`, `UPDATE`, or `REMOVE`.
 
 An add creates one file and names its resulting Revision:
 
@@ -45,16 +45,16 @@ An add creates one file and names its resulting Revision:
 child_of=parent.md@2 | ADD | new-file.md@1
 ```
 
-A move changes only the carrier filename or address and preserves the version:
-
-```text
-child_of=parent.md@2 | MOVE | old-file.md@3 -> new-file.md@3
-```
-
-An update preserves the carrier filename and names its resulting Revision:
+An update names the resulting Revision when the carrier filename is unchanged:
 
 ```text
 child_of=parent.md@2; derived_from=analysis.md@1 | UPDATE | file.md@4
+```
+
+A rename is an update of the same file identity and records both filenames. A rename-only update preserves the version:
+
+```text
+child_of=parent.md@2 | UPDATE | old-file.md@3 -> new-file.md@3
 ```
 
 A remove names the Revision removed from the active carrier address:
@@ -77,7 +77,7 @@ replaced_by=replacement-file.md@1 | REMOVE | old-file.md@4
 
 The committed replacement file and its authored `replacement_of` relation must already exist before removal so the graph can derive `replaced_by`. Adding each replacement and removing the replaced file remain separate one-file actions.
 
-An affected governed file uses `<filename>@<version>`. A governed native file without embedded Revision properties uses the version from its external revision binding. Changing file content while moving it requires two ordered commits: one `MOVE` with unchanged version and one `UPDATE` with an advanced version. No governed commit may combine actions or change more than one repository file.
+An affected governed file uses `<filename>@<version>`. A governed native file without embedded Revision properties uses the version from its external revision binding. An update may change content, filename, address, or any combination while preserving one file identity; content changes advance the version, while a rename-only update preserves it. No governed commit may combine actions or change more than one repository file identity.
 
 The message contains no parentheses, free-form labels, summary, description, body, or trailers. Canonical relation kinds and action tokens are structural syntax rather than prose labels. Once another commit references an upstream Revision, the referenced Git history must remain reachable and unchanged.
 
