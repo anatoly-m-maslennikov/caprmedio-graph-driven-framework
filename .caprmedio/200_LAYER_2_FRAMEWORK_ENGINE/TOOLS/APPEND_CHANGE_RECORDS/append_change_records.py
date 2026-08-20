@@ -28,13 +28,21 @@ from pathlib import Path
 from typing import Any, Iterator, Mapping
 
 
-REPOSITORY_ROOT = Path(__file__).resolve().parents[3]
-TOOLS_ROOT = REPOSITORY_ROOT / "02_FR_ENGN" / "TOOLS"
-sys.pycache_prefix = str(REPOSITORY_ROOT / ".caprmedio_runtime/cache/python")
-if str(TOOLS_ROOT) not in sys.path:
-    sys.path.insert(0, str(TOOLS_ROOT))
+SCRIPT_PATH = Path(__file__).resolve()
+TOOLS_ROOT = SCRIPT_PATH.parents[1]
+CONTEXT_ROOT = TOOLS_ROOT / "COMMIT_CONTEXT"
+for _parent in SCRIPT_PATH.parents:
+    if _parent.name == ".caprmedio_runtime":
+        sys.pycache_prefix = str(_parent / "cache" / "python")
+        break
+    if _parent.name == ".caprmedio":
+        sys.pycache_prefix = str(_parent.parent / ".caprmedio_runtime" / "cache" / "python")
+        break
+for _path in (TOOLS_ROOT, CONTEXT_ROOT):
+    if str(_path) not in sys.path:
+        sys.path.insert(0, str(_path))
 
-from artifact_metadata import repository_root  # noqa: E402
+from commit_context_logic import repository_root  # noqa: E402
 from work_journal import (  # noqa: E402
     WorkJournalError,
     canonical_json_bytes,
@@ -548,11 +556,11 @@ def validate_live_preflight(root: Path, context: Mapping[str, Any]) -> None:
 
 
 def _runtime_dir(root: Path) -> Path:
-    return root / configured_runtime_root(root) / "append_change_records"
+    return root / configured_runtime_root(root) / "state" / "append_change_records"
 
 
 def _correlation_path(root: Path) -> Path:
-    return root / configured_runtime_root(root) / "commit_trigger" / "pipeline_correlations.ndjson"
+    return root / configured_runtime_root(root) / "state" / "commit_trigger" / "pipeline_correlations.ndjson"
 
 
 def _correlation_id(action_id: str, receipt: Mapping[str, Any]) -> str:
@@ -662,7 +670,7 @@ def retire_pipeline_correlations(root: Path, action_id: str) -> list[str]:
 
 def _lease_path(root: Path) -> Path:
     """The end-to-end flow owns one shared repository apply lease carrier."""
-    return root / configured_runtime_root(root) / "commit_change_set" / "lease.json"
+    return root / configured_runtime_root(root) / "state" / "commit_change_set" / "lease.json"
 
 
 @contextmanager
