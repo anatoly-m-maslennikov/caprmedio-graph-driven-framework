@@ -19,11 +19,6 @@ commit_change_set = importlib.util.module_from_spec(SPEC)
 sys.modules[SPEC.name] = commit_change_set
 SPEC.loader.exec_module(commit_change_set)
 
-
-def sha(value: str) -> str:
-    return hashlib.sha256(value.encode("utf-8")).hexdigest()
-
-
 class CommitChangeSetTests(unittest.TestCase):
     def setUp(self) -> None:
         self.temporary = tempfile.TemporaryDirectory()
@@ -64,12 +59,34 @@ class CommitChangeSetTests(unittest.TestCase):
         target.write_text(f"---\nversion: {version}\n{relation_lines}---\n# {target.stem}\n\n{body}\n", encoding="utf-8")
 
     def trigger(self) -> dict[str, object]:
+        git_directory = (self.root / self.git("rev-parse", "--git-dir").strip()).resolve()
+        repository_identity = hashlib.sha256(
+            json.dumps(
+                {"repository_root": self.root.resolve().as_posix(), "git_directory": git_directory.as_posix()},
+                sort_keys=True,
+                separators=(",", ":"),
+            ).encode("utf-8")
+        ).hexdigest()
+        adapter_id = "codex-test"
+        source_event_id = "source-event-1"
+        trigger_id = hashlib.sha256(
+            json.dumps(
+                {
+                    "schema_version": 1,
+                    "adapter_id": adapter_id,
+                    "source_event_id": source_event_id,
+                    "repository_id": repository_identity,
+                },
+                sort_keys=True,
+                separators=(",", ":"),
+            ).encode("utf-8")
+        ).hexdigest()
         return {
             "schema_version": 1,
-            "trigger_id": sha("commit-change-set-fixture"),
-            "adapter": {"id": "codex-test"},
-            "source_event_id": "source-event-1",
-            "repository": {"root": str(self.root), "identity": sha(str(self.root))},
+            "trigger_id": trigger_id,
+            "adapter": {"id": adapter_id},
+            "source_event_id": source_event_id,
+            "repository": {"root": str(self.root), "identity": repository_identity},
             "observed_at": "2026-08-20T20:21:22Z",
             "before_path": self.subject,
             "after_path": self.subject,
@@ -97,8 +114,9 @@ class CommitChangeSetTests(unittest.TestCase):
     def append_only(self) -> tuple[dict[str, object], dict[str, object]]:
         context = commit_change_set.gather_context(self.root, self.trigger())
         appender = commit_change_set._import_appender()
-        result = appender.run(self.root, {"context": context}, apply=True, wait_seconds=0)
-        return context, result
+        envelope = appender.run(self.root, {"context": context}, apply=True, wait_seconds=0)
+        self.assertTrue(envelope["ok"])
+        return context, envelope["result"]
 
     def test_e179_dry_run_is_fully_mutation_free(self) -> None:
         before = self.snapshot()
@@ -117,6 +135,7 @@ class CommitChangeSetTests(unittest.TestCase):
         journal = next(path for path in changed if path.endswith(".ndjson"))
         records = [json.loads(line) for line in (self.root / journal).read_text(encoding="utf-8").splitlines()]
         self.assertEqual([receipt["event_id"] for receipt in result["receipts"]], [record["event_id"] for record in records])
+        self.assertEqual(len(result["receipts"]), len(result["pipeline_correlations"]))
         self.assertEqual("released", result["lease"]["status"])
         self.assertFalse((self.root / ".caprmedio_runtime/commit_change_set/lease.json").exists())
 
@@ -144,11 +163,45 @@ class CommitChangeSetTests(unittest.TestCase):
         self.assertTrue((self.root / ".caprmedio_runtime/append_change_records/blocked" / f"{context['action_id']}.json").is_file())
         self.assertEqual("unrelated.txt\0", self.git("diff", "--cached", "--name-only", "-z"))
 
+    def test_e202_preserves_blocked_action_when_git_base_becomes_stale_after_append(self) -> None:
+        context, appended = self.append_only()
+        (self.root / "other.txt").write_text("independent commit\n", encoding="utf-8")
+        self.git("add", "other.txt")
+        self.git("commit", "-qm", "independent")
+        with self.assertRaisesRegex(commit_change_set.ToolError, "Git base") as captured:
+            commit_change_set.run(
+                self.root,
+                {"context": context, "receipts": appended["receipts"], "lease": appended["lease"]},
+                apply=True,
+                wait_seconds=0,
+            )
+        self.assertEqual("stale-context", captured.exception.code)
+        blocked = self.root / ".caprmedio_runtime/append_change_records/blocked" / f"{context['action_id']}.json"
+        self.assertTrue(blocked.is_file())
+        self.assertTrue((self.root / ".caprmedio_runtime/commit_change_set/lease.json").is_file())
+
+    def test_e204_records_proven_corrupted_context_after_append(self) -> None:
+        context, appended = self.append_only()
+        corrupted = dict(context)
+        corrupted.pop("result")
+        with self.assertRaisesRegex(commit_change_set.ToolError, "result"):
+            commit_change_set.run(
+                self.root,
+                {"context": corrupted, "receipts": appended["receipts"], "lease": appended["lease"]},
+                apply=True,
+                wait_seconds=0,
+            )
+        blocked = self.root / ".caprmedio_runtime/append_change_records/blocked" / f"{context['action_id']}.json"
+        self.assertTrue(blocked.is_file())
+        payload = json.loads(blocked.read_text(encoding="utf-8"))
+        self.assertEqual("invalid-context", payload["reason"])
+        self.assertEqual([receipt["event_id"] for receipt in appended["receipts"]], [row["event_id"] for row in payload["receipt_refs"]])
+
     def test_allows_exact_already_staged_subject(self) -> None:
         self.git("add", self.subject)
         context = commit_change_set.gather_context(self.root, self.trigger())
         appender = commit_change_set._import_appender()
-        appended = appender.run(self.root, {"context": context}, apply=True, wait_seconds=0)
+        appended = appender.run(self.root, {"context": context}, apply=True, wait_seconds=0)["result"]
         result = commit_change_set.run(
             self.root,
             {"context": context, "receipts": appended["receipts"], "lease": appended["lease"]},
