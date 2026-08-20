@@ -1,15 +1,15 @@
 ---
 subject_scopes:
   - feature-boundary
-version: 9
-updated_at: 2026-08-20 23:29:00
+version: 10
+updated_at: 2026-08-21 00:01:00
 relations:
   child_of:
     - CA-R-802-REQUIREMENT-FR_ENGN_TOOLS--define-flat-auto-commit-tool-topology
     - CAPRMEDIO-GOV-REQU-309--revision-bound-parent-child-commit-messages
     - CAPRMEDIO-GOV-REQU-339--register-work-journal-events
 ---
-# Gather complete commit context
+# Gather complete commit action context
 
 `COMMIT_CONTEXT` must be independently invocable and strictly read-only. From one Hook trigger, it validates the adapter, source-event, trigger, repository, and structured LLM-session candidate identities; deterministically resolves exactly one governed subject identity and its `ADD`, `MOVE`, `UPDATE`, `MOVE+UPDATE`, or `REMOVE` change set; reads the applicable staged, working, committed, Journal, graph, and repository apply-lease states; and gathers the complete direct typed upstream relation set from the canonical relation registry, paths, filenames, versions, content and frontier digests, Git base, and validation results required by the Doers. The same trigger and unchanged source frontier must yield the same action and event identities. Before-state data may exist inside this sealed ephemeral context only to classify and validate the change; it must not be copied into the Work Journal event.
 
