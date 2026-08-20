@@ -1,8 +1,8 @@
 ---
 subject_scopes:
   - relation-model
-version: 1
-updated_at: 2026-08-20 19:41:00
+version: 2
+updated_at: 2026-08-20 19:53:00
 relations:
   child_of:
     - CAPRMEDIO-GOV-REQU-345--represent-accepted-meaning-faithfully
@@ -11,4 +11,4 @@ relations:
 ---
 # Register complete relation-kind metadata
 
-GOV must expose one canonical registry entry for every admitted semantic relation kind. Each entry declares the authored direct name, derived inverse name, persisted owner and direction, upstream endpoint, allowed source and target classes, cardinality, authority effect, transitivity, symmetry, applicable authority modes, lifecycle status, and exclusive meaning. Only the direct form is authored; inverse navigation is derived. Direct and inverse names must be unique, and any missing, duplicate, or ambiguous entry makes the relation unavailable to deterministic Tools.
+GOV must expose exactly one canonical machine-readable Atom relation-type dictionary with one row per admitted direct relation. Each row declares the direct name, its derived inverse name, allowed direct-source and direct-target lifecycle states, persisted owner and direction, upstream endpoint, allowed source and target classes, cardinality, authority effect, transitivity, symmetry, applicable authority modes, status, and exclusive meaning. Atom carriers may author only direct names; every inverse typed relation is derived and must never be stored. Direct names and inverse names are each unique, no inverse name may also be admitted as a direct name, and any missing, duplicate, or ambiguous row makes the relation unavailable to deterministic Tools.
