@@ -1,14 +1,14 @@
 ---
 subject_scopes:
   - carrier-format
-project_settings:
+project_graph_state:
   artifacts:
     enabled_types:
       - catalog
       - map
       - hub
-version: 6
-updated_at: 2026-08-20 19:10:41
+version: 7
+updated_at: 2026-08-21 00:21:06
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
   - codex:01a01cb4-e15e-78d1-9084-766bf6b0cd63
@@ -34,7 +34,7 @@ GOV registers these three internal navigation Projection Types:
 
 Catalog, Map, and Hub are Types within Artifact form `projection`; they are not Content roles or creation mechanisms. Each has exactly one Content role. Its Type and Content role therefore derive `projection × <role> × internal` without storing a duplicate coordinate. A role-specific Projection may link to artifacts of other roles for navigation but cannot absorb or restate their semantic claims.
 
-A Projection uses the carrier selected for its governed job and has a stable governed identity. Narrative Projections use Markdown with YAML frontmatter; structured Maps may use standalone YAML; settings Projections may use TOML.
+A Projection uses the carrier selected for its governed job and has a stable governed identity. Narrative Projections use Markdown with YAML frontmatter; structured Maps may use standalone YAML; Project Graph State Projections may use TOML.
 
 Markdown Projection filenames follow the registered Type-prefix grammar:
 
