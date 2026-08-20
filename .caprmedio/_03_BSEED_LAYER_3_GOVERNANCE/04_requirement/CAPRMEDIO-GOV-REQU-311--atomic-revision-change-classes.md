@@ -1,8 +1,8 @@
 ---
 subject_scopes:
   - lifecycle
-version: 1
-updated_at: 2026-08-17 19:36:01
+version: 2
+updated_at: 2026-08-20 19:34:00
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -29,10 +29,14 @@ Scope narrowing or expansion is a `semantic_revision`, not a carrier-only
 change. Splitting or combining independently replaceable claims is a
 `replacement`.
 
-A same-ID revision names its previous committed revision as a parent and lists
-the artifact ID as an updated child. A replacement names the applicable parent
-revision, lists the successor as a new child, and archives the predecessor only
-after the successor is committed.
+The semantic change class is independent of the Git change set. Every persisted
+carrier change follows the canonical typed-upstream commit-message rule. A
+same-ID content change creates a new Revision, while a carrier-only move or
+rename may preserve the current version. A replacement first commits the
+successor with its authored `replacement_of` relation and removes or archives
+the predecessor only after the graph can derive the inverse `replaced_by`
+relation. Each successor and predecessor carrier change remains a separate
+one-file commit.
 
 Tools may propose a class but must fail closed when the distinction between
 refinement, semantic revision, and replacement is uncertain.
