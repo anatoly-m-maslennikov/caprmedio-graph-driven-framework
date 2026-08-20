@@ -4,12 +4,12 @@ schema_version = "0.1"
 kind = "project_graph_state"
 non_authoritative = true
 currentness = "working_tree_snapshot"
-generated_at = "2026-08-21T01:18:25+04:00"
+generated_at = "2026-08-21T01:26:50+04:00"
 canonical_generator = "02_FR_ENGN/TOOLS/GENERATE_PROJECT_GRAPH_STATE/generate_project_graph_state.py"
 canonical_generator_sha256 = "ea9a0032bc16a485e2bbf709a5e0e492a50b20acc68f0ec399bed1b08b46135c"
 executed_generator = ".caprmedio_runtime/installed/tools/generate_project_graph_state/generate_project_graph_state.py"
 executed_generator_sha256 = "ea9a0032bc16a485e2bbf709a5e0e492a50b20acc68f0ec399bed1b08b46135c"
-source_frontier_sha256 = "6c36270881fa3193b903a6d526798b685344d51e912ef5b242571633032be0aa"
+source_frontier_sha256 = "1296f16fa02da5fc89c0f8eb1b4e163b9d1ac4c65ed384999c95333974c13b4e"
 
 [configuration]
 atom_id = "CAPRMEDIO-I-001"
@@ -23,7 +23,7 @@ journal_event_id = "d8dd06c5-8908-4803-8593-aa70b0a007e5"
 
 [repository]
 control_root = ".caprmedio"
-governed_file_count = 1570
+governed_file_count = 1572
 filesystem_unit_count = 147
 graph_contribution_count = 23
 
@@ -34,7 +34,7 @@ depth = 0
 as_is_kind = "mixed"
 archived = false
 direct_directory_count = 22
-direct_file_count = 3
+direct_file_count = 2
 
 [[filesystem_units]]
 path = ".caprmedio/01_concern"
@@ -1168,7 +1168,7 @@ depth = 2
 as_is_kind = "mixed"
 archived = false
 direct_directory_count = 1
-direct_file_count = 101
+direct_file_count = 102
 
 [[filesystem_units]]
 path = ".caprmedio/_02_BSEED_LAYER_2_SEMANTICS/04_requirement/archive"
@@ -1267,7 +1267,7 @@ depth = 2
 as_is_kind = "mixed"
 archived = false
 direct_directory_count = 1
-direct_file_count = 153
+direct_file_count = 154
 
 [[filesystem_units]]
 path = ".caprmedio/_03_BSEED_LAYER_3_GOVERNANCE/04_requirement/archive"
@@ -1670,7 +1670,7 @@ sha256 = "51eb331d4fdbccd645690900eb3d029e7430e93fd0f2398c5f565ce9f66f9c29"
 
 [[source_frontier]]
 path = ".caprmedio/04_requirement/CA-R-004-PRINCIPLE-REQUIREMENT--only-operators-establish-project-authority.md"
-sha256 = "da623feec7ced363bdf937fd32c8fe8020344e45cc4d6462e00831d6613d5ca7"
+sha256 = "e5249b3d3132e6fe6ac2f85fab1a78b5866aba17b352fa8b2e77a2280823e8ae"
 
 [[source_frontier]]
 path = ".caprmedio/04_requirement/CA-R-815-PRINCIPLE-REQUIREMENT--let-operator-priorities-govern-project-trade-offs.md"
@@ -2326,7 +2326,7 @@ sha256 = "aba1f0b98bda45a1ff49ffcd57b4bd6ad3693030754a27a0b7ac678a3b58be3c"
 
 [[source_frontier]]
 path = ".caprmedio/05_method/CA-M-003-PRINCIPLE-METHOD--use-lossless-selective-exposure.md"
-sha256 = "cccd74da0167d4015b07623e32b0a146c155484a3dd58c03dedcfdba2b656c6d"
+sha256 = "cf787267fcce669031fc013b6555b588cc2a4b077cf8ec09c55bb93e5bbf211d"
 
 [[source_frontier]]
 path = ".caprmedio/05_method/CA-M-005-PRINCIPLE-METHOD--add-complexity-only-when-necessary.md"
@@ -2430,7 +2430,7 @@ sha256 = "8cb8dc77d47ddabac64769d4757a2c69b4f3f77ceea6fbd7626f5fcbdcfbf63b"
 
 [[source_frontier]]
 path = ".caprmedio/06_evaluation/CA-E-210-EVAL_APPROACH--evaluate-current-principle-set.md"
-sha256 = "68f43e3dfc158ecf658ce24032ddc90e9176f14b558249c33b7d7cf696b77226"
+sha256 = "f82e1c26c5d4666ba97662e7d617e8748b21c091afb1b8626e187d833c37e6f6"
 
 [[source_frontier]]
 path = ".caprmedio/06_evaluation/CAPRMEDIO-E-169-EVAL_APPROACH--principle-first-alignment.md"
@@ -5309,6 +5309,10 @@ path = ".caprmedio/_02_BSEED_LAYER_2_SEMANTICS/04_requirement/CA-R-835-REQUIREME
 sha256 = "15c241fd198076f83fcbe7f6904f1c5b046993990dd5a054ff0d2bcfbeec3483"
 
 [[source_frontier]]
+path = ".caprmedio/_02_BSEED_LAYER_2_SEMANTICS/04_requirement/CA-R-839-REQUIREMENT-BSEED_SEMANTICS--treat-principle-statements-as-one-meaning.md"
+sha256 = "d314d4a74ebc9cf1a760545a8a5b293ea56463b2259ea778f09d6619a6aadb61"
+
+[[source_frontier]]
 path = ".caprmedio/_02_BSEED_LAYER_2_SEMANTICS/04_requirement/CAPRMEDIO-META-CNTR-011--repository-work-area-declaration.md"
 sha256 = "437d2ce9c55caf56f0ad2b86fc7b7dda39534326ad915560c5d00bdcd17ca3ad"
 
@@ -6183,6 +6187,10 @@ sha256 = "7007340effd9c588b6ae1d168007a91f97ad7bfe3ba37fa4e6e66347bc2a7cfa"
 [[source_frontier]]
 path = ".caprmedio/_03_BSEED_LAYER_3_GOVERNANCE/04_requirement/CA-R-838-REQUIREMENT-BSEED_GOVERNANCE--validate-normative-authority-hierarchy.md"
 sha256 = "60719422df372ea84398b19d2fb29278c22ab4fb68e588081c4c320c15957d8f"
+
+[[source_frontier]]
+path = ".caprmedio/_03_BSEED_LAYER_3_GOVERNANCE/04_requirement/CA-R-840-REQUIREMENT-BSEED_GOVERNANCE--place-human-readable-principle-statement-before-formal-statement.md"
+sha256 = "9c62fa0e15e5c1d827be44531cec89f6ed1bf4324d3cc3ce5688b805c51624ec"
 
 [[source_frontier]]
 path = ".caprmedio/_03_BSEED_LAYER_3_GOVERNANCE/04_requirement/CAPRMEDIO-GOV-CNST-001--github-preview-compatibility.md"
