@@ -1,8 +1,8 @@
 ---
 subject_scopes:
   - provenance
-version: 5
-updated_at: 2026-08-20 19:10:37
+version: 6
+updated_at: 2026-08-20 19:11:46
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -63,17 +63,17 @@ A remove names the Revision removed from the active carrier address:
 child_of=parent.md@2 | REMOVE | file.md@4
 ```
 
-When the removal completes an explicit replacement, the message appends the uppercase literal `REPLACED BY` and the current committed replacement Revisions:
+Replacement uses the same typed-relation syntax as every other governed relation. Adding a replacement file records its `replacement_of` edge:
 
 ```text
-child_of=parent.md@2 | REMOVE | old-file.md@4 | REPLACED BY | replacement-a.md@1, replacement-b.md@1
+child_of=parent.md@2; replacement_of=old-file.md@4 | ADD | replacement-file.md@1
 ```
 
-The replacement set is derived programmatically by reverse-querying committed `replacement_of` relations that target the removed Artifact. Every replacement file must already exist in an earlier commit, and multiple replacements are sorted by filename. Adding each replacement and removing the replaced file remain separate one-file actions.
+Removing the replaced file later is an ordinary `REMOVE`. The committed replacement file and its typed relation must already exist before that removal. Adding each replacement and removing the replaced file remain separate one-file actions.
 
 An affected governed file uses `<filename>@<version>`. A governed native file without embedded Revision properties uses the version from its external revision binding. Changing file content while moving it requires two ordered commits: one `MOVE` with unchanged version and one `UPDATE` with an advanced version. No governed commit may combine actions or change more than one repository file.
 
-The message contains no parentheses, free-form labels, summary, description, body, or trailers. Canonical relation kinds, action tokens, and `REPLACED BY` are structural syntax rather than prose labels. Once another commit references an upstream Revision, the referenced Git history must remain reachable and unchanged.
+The message contains no parentheses, free-form labels, summary, description, body, or trailers. Canonical relation kinds and action tokens are structural syntax rather than prose labels. Once another commit references an upstream Revision, the referenced Git history must remain reachable and unchanged.
 
 ## Rationale
 
