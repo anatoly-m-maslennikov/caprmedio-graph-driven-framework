@@ -1,15 +1,15 @@
 ---
 subject_scopes:
   - artifact-catalog
-project_settings:
+project_graph_state:
   artifacts:
     enabled_types:
       - plan:development_backlog
       - plan:version_plan
       - plan:change_plan
       - plan:refactoring_plan
-version: 1
-updated_at: 2026-08-19 04:55:53
+version: 2
+updated_at: 2026-08-21 00:21:06
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
