@@ -2,8 +2,8 @@
 artifact_subtype: qa_case
 subject_scopes:
   - evaluation
-version: 4
-updated_at: 2026-08-20 23:51:00
+version: 5
+updated_at: 2026-08-21 01:33:02
 relations:
   check_of:
     - CA-D-007-DELIVERY-FR_ENGN_TOOLS_COMMIT_TRIGGER--deliver-commit-trigger-script
@@ -16,11 +16,11 @@ Installing, controlling, and removing the project-local commit adapter preserves
 
 ## Test case
 
-Prepare a repository with one existing executable Hook that records a sentinel. Run the adapter's install, status, enable, disable, and uninstall operations, invoking the file-change boundary while enabled, while disabled, and after uninstall.
+Prepare a repository with one existing executable default `.git/hooks/pre-commit` Hook that records a sentinel and no local `core.hooksPath`. Run the adapter's install, status, enable, disable, and uninstall operations, invoking the file-change boundary while enabled, while disabled, and after uninstall.
 
 ## Acceptance criteria
 
-The existing Hook records its sentinel during every invocation. The enabled adapter emits exactly one `COMMIT_TRIGGER`; the disabled and uninstalled adapter emits none. Status reports each state correctly, uninstall restores the pre-install carrier bytes and executable mode, and no backup carrier is created.
+Installation leaves the existing Hook bytes and executable mode unchanged, registers `.caprmedio_runtime/hooks/git` as the local `core.hooksPath`, and its runtime-owned launcher invokes the existing Hook once before the managed Evaluation. The enabled adapter emits exactly one `COMMIT_TRIGGER`; the disabled and uninstalled adapter emits none. Status reports each state correctly. Uninstall removes only the managed registration and launchers, restores the prior absence of local `core.hooksPath`, leaves the existing Hook byte-for-byte intact, and creates no backup carrier.
 
 ## Failure disposition
 
