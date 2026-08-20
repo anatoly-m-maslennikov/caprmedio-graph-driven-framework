@@ -1,8 +1,9 @@
 ---
 subject_scopes:
   - feature-boundary
-version: 2
-updated_at: 2026-08-20 19:37:00
+tier: core
+version: 3
+updated_at: 2026-08-20 21:57:00
 relations:
   child_of:
     - CAPRMEDIO-FRAMEWORK-ENGINE-REQU-702--define-tools-feature-scope
