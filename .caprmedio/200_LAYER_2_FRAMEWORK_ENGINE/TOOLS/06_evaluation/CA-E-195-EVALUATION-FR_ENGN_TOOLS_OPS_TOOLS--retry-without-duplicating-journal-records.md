@@ -2,8 +2,8 @@
 artifact_subtype: qa_case
 subject_scopes:
   - evaluation
-version: 5
-updated_at: 2026-08-20 22:31:00
+version: 6
+updated_at: 2026-08-20 22:37:00
 relations:
   evaluation_for:
     - CA-R-804-REQUIREMENT-FR_ENGN_TOOLS_OPS_TOOLS--gather-complete-commit-action-context
@@ -22,8 +22,8 @@ Use one sealed context with multiple related records. Interrupt after a proper s
 
 ## Acceptance criteria
 
-The Journal contains exactly one copy of every sealed record identity; an identical retry preserves the originally sealed `llm_session` and `occurred_at`, reuses existing receipts, and appends only missing records despite the changed host context; the divergent payload fails before mutation with a stable identity-collision diagnostic. Git failure leaves one visible recoverable blocked action with its lease state, the different action waits, and resuming the original context creates exactly one final commit with all related sidecar lines before releasing the lease.
+The Journal contains exactly one copy of every sealed record identity; an identical retry preserves the originally sealed `llm_session` and `occurred_at`, reuses existing receipts, and appends only missing records despite the changed host context; the divergent payload fails before mutation with a stable identity-collision diagnostic. Git failure leaves one visible recoverable blocked action whose runtime state contains only Journal-resolvable action, event, receipt, and lease references, not copied LLM-session or occurrence-time values; the different action waits; and resuming the original context creates exactly one final commit with all related sidecar lines before releasing the lease.
 
 ## Failure disposition
 
-Reject the flow if retry duplicates or redefines a record, refreshes LLM-session or occurrence-time provenance, changes a partition, loses an existing receipt, silently loses or bypasses the lease, lets another action mutate the repository, omits a related sidecar line, or creates more than one successful commit.
+Reject the flow if retry duplicates or redefines a record, refreshes or copies LLM-session or occurrence-time provenance outside the Journal, changes a partition, loses an existing receipt, silently loses or bypasses the lease, lets another action mutate the repository, omits a related sidecar line, or creates more than one successful commit.
