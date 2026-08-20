@@ -1,4 +1,4 @@
-"""Deterministic acceptance tests for COMMIT_CHANGE_SET Evaluations E179 and E196-E204."""
+"""Deterministic acceptance tests for COMMIT_CHANGE_SET Evaluations E179, E196-E204, and E211-E213."""
 
 from __future__ import annotations
 
@@ -118,6 +118,13 @@ class CommitChangeSetTests(unittest.TestCase):
         self.assertTrue(envelope["ok"])
         return context, envelope["result"]
 
+    def stage_appended(self) -> dict[str, object]:
+        context, appended = self.append_only()
+        events = context["predictions"]["journal_records"]
+        commit_change_set._stage_subject(self.root, context)
+        commit_change_set._stage_receipt_sidecars(self.root, events, appended["receipts"])
+        return context
+
     def test_e179_dry_run_is_fully_mutation_free(self) -> None:
         before = self.snapshot()
         result = commit_change_set.run(self.root, {"trigger": self.trigger()}, apply=False, wait_seconds=0)
@@ -210,6 +217,65 @@ class CommitChangeSetTests(unittest.TestCase):
         )
         self.assertEqual("released", result["lease"]["status"])
         self.assertEqual([], self.git("diff", "--cached", "--name-only").splitlines())
+
+    def test_e211_pre_commit_rejects_atom_without_journal(self) -> None:
+        self.git("add", self.subject)
+        before = self.snapshot()
+        with self.assertRaisesRegex(commit_change_set.ToolError, "Journal") as captured:
+            commit_change_set.evaluate_pre_commit(self.root)
+        self.assertEqual("governed-journal-missing", captured.exception.code)
+        self.assertEqual(before, self.snapshot())
+
+    def test_e211_pre_commit_accepts_exact_subject_and_sidecars_read_only(self) -> None:
+        self.stage_appended()
+        before = self.snapshot()
+        result = commit_change_set.evaluate_pre_commit(self.root)
+        self.assertTrue(result["governed"])
+        self.assertEqual([self.subject], result["subject_paths"])
+        self.assertEqual(before, self.snapshot())
+
+    def test_e212_commit_message_requires_exact_projection(self) -> None:
+        context = self.stage_appended()
+        message_path = self.root / ".git" / "COMMIT_EDITMSG"
+        expected = context["predictions"]["git_message"]
+        message_path.write_text(expected + "\n", encoding="utf-8")
+        before = message_path.read_bytes()
+        result = commit_change_set.evaluate_commit_message(self.root, message_path)
+        self.assertTrue(result["message_valid"])
+        self.assertEqual(before, message_path.read_bytes())
+
+        message_path.write_text(expected + "\nextra body\n", encoding="utf-8")
+        changed = message_path.read_bytes()
+        with self.assertRaisesRegex(commit_change_set.ToolError, "message") as captured:
+            commit_change_set.evaluate_commit_message(self.root, message_path)
+        self.assertEqual("commit-message-mismatch", captured.exception.code)
+        self.assertEqual(changed, message_path.read_bytes())
+
+    def test_e213_post_commit_observes_once_without_governed_mutation(self) -> None:
+        commit_change_set.run(self.root, {"trigger": self.trigger()}, apply=True, wait_seconds=0)
+        head = self.git("rev-parse", "HEAD").strip()
+        journal_before = {
+            path.relative_to(self.root).as_posix(): hashlib.sha256(path.read_bytes()).hexdigest()
+            for path in (self.root / ".caprmedio/work_journal").glob("*.ndjson")
+        }
+
+        first = commit_change_set.observe_post_commit(self.root)
+        second = commit_change_set.observe_post_commit(self.root)
+
+        self.assertTrue(first["valid"])
+        self.assertTrue(first["governed"])
+        self.assertTrue(first["observation_appended"])
+        self.assertFalse(second["observation_appended"])
+        log = self.root / first["observation"]
+        self.assertEqual(1, len(log.read_text(encoding="utf-8").splitlines()))
+        self.assertEqual(head, self.git("rev-parse", "HEAD").strip())
+        self.assertEqual(
+            journal_before,
+            {
+                path.relative_to(self.root).as_posix(): hashlib.sha256(path.read_bytes()).hexdigest()
+                for path in (self.root / ".caprmedio/work_journal").glob("*.ndjson")
+            },
+        )
 
 
 if __name__ == "__main__":
