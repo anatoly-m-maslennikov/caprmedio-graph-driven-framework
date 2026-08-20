@@ -1,8 +1,8 @@
 ---
 subject_scopes:
   - provenance
-version: 10
-updated_at: 2026-08-20 19:35:00
+version: 11
+updated_at: 2026-08-20 20:01:00
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -75,19 +75,19 @@ A remove names the Revision removed from the active carrier address:
 child_of=parent.md@2 | REMOVE | file.md@4
 ```
 
-Replacement uses the same typed-relation syntax as every other governed relation. Adding a replacement file records its authored `replacement_of` edge:
+Replacement uses the same typed-relation syntax as every other governed relation. First add the successor as an active Atom without authoring an inverse replacement edge:
 
 ```text
-child_of=parent.md@2; replacement_of=old-file.md@4 | ADD | replacement-file.md@1
+child_of=parent.md@2 | ADD | replacement-file.md@1
 ```
 
-Removing the replaced file later uses the derived inverse `replaced_by` edge:
+Then add the direct `replaced_by` edge to the predecessor while moving that predecessor into its archive location:
 
 ```text
-replaced_by=replacement-file.md@1 | REMOVE | old-file.md@4
+replaced_by=replacement-file.md@1 | MOVE+UPDATE | active/old-file.md@4 -> archive/old-file.md@5
 ```
 
-The committed replacement file and its authored `replacement_of` relation must already exist before removal so the graph can derive `replaced_by`. Adding each replacement and removing the replaced file remain separate one-file commits.
+The successor must already be active before the predecessor change. The resulting archived predecessor stores direct `replaced_by`; the graph derives `replacement_of` for inverse navigation and never writes it into the successor. Adding each successor and archiving each predecessor remain separate one-file commits.
 
 An affected governed file uses `<filename>@<version>` and includes repository-relative path when the change set changes structural location. A governed native file without embedded Revision properties uses the version from its external revision binding. `UPDATE` may change content, filename, or both while preserving one file identity; content changes advance the version, while a rename-only update preserves it. `MOVE` changes structural location only. `MOVE+UPDATE` changes structural location and also performs an update. No governed commit may change more than one repository file identity.
 
