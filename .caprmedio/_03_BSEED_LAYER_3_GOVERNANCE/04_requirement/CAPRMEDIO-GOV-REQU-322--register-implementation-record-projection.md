@@ -1,12 +1,12 @@
 ---
 subject_scopes:
   - artifact-catalog
-project_settings:
+project_graph_state:
   artifacts:
     enabled_types:
       - implementation_record
-version: 2
-updated_at: 2026-08-18 20:19:17
+version: 3
+updated_at: 2026-08-21 00:21:06
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
