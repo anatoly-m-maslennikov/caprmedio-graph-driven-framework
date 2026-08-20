@@ -216,6 +216,17 @@ class CommitTriggerTests(unittest.TestCase):
         journal.parent.mkdir()
         journal.write_text('{"event_id":"fixture"}\n', encoding="utf-8")
         current = commit_trigger.scan_governed_files(self.repository)
+        carrier = ".caprmedio/work_journal/alice-2026-08-20-part-1.ndjson"
+        state = current[carrier]
+        transition = {
+            "event_id": "event-001",
+            "event_digest": hashlib.sha256(b"event").hexdigest(),
+            "carrier": carrier,
+            "line": state.line_count,
+            "previous_carrier_digest": hashlib.sha256(b"").hexdigest(),
+            "appended_carrier_digest": state.sha256,
+        }
+        correlation_id = commit_trigger._sha256({"action_id": "action-001", "transition": transition})
         observations = commit_trigger.detect_watch_observations(
             previous,
             current,
@@ -223,8 +234,12 @@ class CommitTriggerTests(unittest.TestCase):
             repository=self.repository,
             observed_at="2026-08-20T20:21:22Z",
             correlations={
-                ".caprmedio/work_journal/alice-2026-08-20-part-1.ndjson": commit_trigger.PipelineCorrelation(
-                    "action-001", ".caprmedio/work_journal/alice-2026-08-20-part-1.ndjson", "journal"
+                carrier: (
+                    commit_trigger.PipelineCorrelation(
+                        correlation_id=correlation_id,
+                        action_id="action-001",
+                        **transition,
+                    ),
                 )
             },
         )
@@ -239,6 +254,70 @@ class CommitTriggerTests(unittest.TestCase):
             ),
             [],
         )
+
+    def test_native_watch_pairs_move_and_update_by_stable_carrier_identity(self) -> None:
+        control_root = self.repository / ".caprmedio"
+        old = control_root / "04_requirement" / "CA-R-001-REQUIREMENT--old-summary.md"
+        old.parent.mkdir(parents=True)
+        old.write_text("---\nversion: 1\nrelations: {}\n---\n# Old\n", encoding="utf-8")
+        previous = commit_trigger.scan_governed_files(self.repository)
+
+        new = control_root / "100_LAYER_1_META" / "04_requirement" / "CA-R-001-REQUIREMENT--new-summary.md"
+        new.parent.mkdir(parents=True)
+        old.replace(new)
+        new.write_text("---\nversion: 2\nrelations: {}\n---\n# New\n", encoding="utf-8")
+        current = commit_trigger.scan_governed_files(self.repository)
+
+        observations = commit_trigger.detect_watch_observations(
+            previous,
+            current,
+            adapter_id=self.adapter.adapter_id,
+            repository=self.repository,
+            observed_at="2026-08-20T20:21:22Z",
+        )
+        affected = [
+            observation
+            for observation in observations
+            if observation.get("before_path") == old.relative_to(self.repository).as_posix()
+            or observation.get("after_path") == new.relative_to(self.repository).as_posix()
+        ]
+        self.assertEqual(len(affected), 1)
+        self.assertEqual(affected[0]["before_path"], old.relative_to(self.repository).as_posix())
+        self.assertEqual(affected[0]["after_path"], new.relative_to(self.repository).as_posix())
+
+    def test_digest_bound_correlation_replay_and_retirement(self) -> None:
+        carrier = ".caprmedio/work_journal/alice-2026-08-20-part-1.ndjson"
+        transition = {
+            "event_id": "event-001",
+            "event_digest": hashlib.sha256(b"event").hexdigest(),
+            "carrier": carrier,
+            "line": 1,
+            "previous_carrier_digest": hashlib.sha256(b"").hexdigest(),
+            "appended_carrier_digest": hashlib.sha256(b"record\n").hexdigest(),
+        }
+        action_id = "action-001"
+        correlation_id = commit_trigger._sha256({"action_id": action_id, "transition": transition})
+        path = self.repository / ".caprmedio_runtime/commit_trigger/pipeline_correlations.ndjson"
+        path.parent.mkdir(parents=True, exist_ok=True)
+        registered = {
+            "schema_version": 1,
+            "event": "registered",
+            "correlation_id": correlation_id,
+            "action_id": action_id,
+            "transition": transition,
+        }
+        path.write_text(json.dumps(registered, sort_keys=True) + "\n", encoding="utf-8")
+        active = commit_trigger._read_pipeline_correlations(path)
+        self.assertEqual([item.correlation_id for item in active[carrier]], [correlation_id])
+        retired = {
+            "schema_version": 1,
+            "event": "retired",
+            "correlation_id": correlation_id,
+            "action_id": action_id,
+        }
+        with path.open("a", encoding="utf-8") as handle:
+            handle.write(json.dumps(retired, sort_keys=True) + "\n")
+        self.assertEqual(commit_trigger._read_pipeline_correlations(path), {})
 
     def test_codex_host_resolution_prefers_thread_then_falls_back(self) -> None:
         self.assertEqual(
