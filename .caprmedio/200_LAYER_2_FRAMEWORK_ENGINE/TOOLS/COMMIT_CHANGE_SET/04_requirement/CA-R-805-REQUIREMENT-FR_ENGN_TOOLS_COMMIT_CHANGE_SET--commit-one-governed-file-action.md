@@ -1,14 +1,14 @@
 ---
 subject_scopes:
   - feature-boundary
-version: 8
-updated_at: 2026-08-20 23:31:00
+version: 9
+updated_at: 2026-08-21 00:02:00
 relations:
   child_of:
     - CA-R-802-REQUIREMENT-FR_ENGN_TOOLS--define-flat-auto-commit-tool-topology
     - CAPRMEDIO-GOV-REQU-309--revision-bound-parent-child-commit-messages
 ---
-# Commit one governed file change set
+# Commit one governed file action
 
 `COMMIT_CHANGE_SET` must own both the end-to-end auto-commit interface and the final Git mutation boundary. Its end-to-end interface accepts one `COMMIT_TRIGGER`, invokes the same deterministic context-gathering logic exposed by `COMMIT_CONTEXT`, passes the sealed context to `APPEND_CHANGE_RECORDS`, and then performs its own commit boundary. This orchestration composes peer Tools without giving the Doer structural ownership over them. Dry-run must execute the same resolution and validation path and return the sealed context, resolved `ADD`, `MOVE`, `UPDATE`, `MOVE+UPDATE`, or `REMOVE` change set, exact governed subject identity, complete typed upstream relation set, complete structured Journal sidecar record set, predicted partitions, deterministically projected Git message, and validation results without mutation.
 
