@@ -73,6 +73,9 @@ PACKAGE_FILES = (
 )
 CODEX_HOOK_MATCHER = r"^(apply_patch|functions\.apply_patch|Bash|exec_command|functions\.exec)$"
 CODEX_HOOK_TIMEOUT_SECONDS = 120
+MANAGED_GIT_HOOKS_PATH = ".caprmedio_runtime/hooks/git"
+GIT_HOOK_NAMES = ("pre-commit", "commit-msg", "post-commit")
+GIT_HOOK_MARKER = "# CAPRMEDIO managed Git Hook v1"
 IDENTIFIER = re.compile(r"[A-Za-z][A-Za-z0-9._-]{0,127}\Z")
 UUID_TEXT = re.compile(
     r"[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}\Z",
@@ -958,7 +961,9 @@ def install_runtime_package(repository: Path | str, *, apply: bool) -> dict[str,
         "state/work_journal",
         "cache/python",
         "hooks/codex",
+        "hooks/git",
         "logs/commit_trigger",
+        "logs/git_hooks",
         "history/backups",
         "history/migrations",
     ):
@@ -1116,6 +1121,125 @@ def uninstall_codex_hooks(repository: Path) -> dict[str, object]:
     return {"registered": False, "changed": changed, "carrier": project_config.relative_to(repository).as_posix()}
 
 
+def _local_git_hooks_path(repository: Path) -> str | None:
+    completed = subprocess.run(
+        ["git", "-C", str(repository), "config", "--local", "--get", "core.hooksPath"],
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    if completed.returncode == 1:
+        return None
+    if completed.returncode != 0:
+        detail = (completed.stderr or completed.stdout).strip()
+        raise ToolError("git-config-failed", detail or "cannot read repository-local core.hooksPath")
+    return completed.stdout.strip()
+
+
+def _managed_git_hook_script(repository: Path, hook_name: str) -> str:
+    if hook_name not in GIT_HOOK_NAMES:
+        raise ToolError("git-hook-invalid", f"unsupported Git Hook: {hook_name}")
+    status = runtime_package_status(repository)
+    if status.get("installed") is not True:
+        raise ToolError("runtime-not-installed", "install the project-local runtime before Git Hooks")
+    tool = Path(str(status["package_root"])) / "COMMIT_CHANGE_SET" / "commit_change_set.py"
+    return "\n".join(
+        [
+            "#!/bin/sh",
+            GIT_HOOK_MARKER,
+            "set -eu",
+            'repository=$(git rev-parse --show-toplevel)',
+            'git_directory=$(git rev-parse --absolute-git-dir)',
+            f'legacy="$git_directory/hooks/{hook_name}"',
+            'if [ -x "$legacy" ]; then',
+            '  "$legacy" "$@"',
+            "fi",
+            "exec "
+            + " ".join(
+                [
+                    shlex.quote(sys.executable),
+                    "-I",
+                    "-B",
+                    f'"$repository/{tool.as_posix()}"',
+                    "--repository",
+                    '"$repository"',
+                    "git-hook",
+                    hook_name,
+                    '"$@"',
+                ]
+            ),
+            "",
+        ]
+    )
+
+
+def install_git_hooks(repository: Path) -> dict[str, object]:
+    existing = _local_git_hooks_path(repository)
+    if existing not in {None, MANAGED_GIT_HOOKS_PATH}:
+        raise ToolError(
+            "git-hooks-path-conflict",
+            f"repository already uses a different local core.hooksPath: {existing}",
+        )
+    directory = repository / MANAGED_GIT_HOOKS_PATH
+    directory.mkdir(parents=True, exist_ok=True)
+    carriers: list[str] = []
+    for hook_name in GIT_HOOK_NAMES:
+        carrier = directory / hook_name
+        _atomic_write(carrier, _managed_git_hook_script(repository, hook_name))
+        carrier.chmod(0o755)
+        carriers.append(carrier.relative_to(repository).as_posix())
+    completed = subprocess.run(
+        ["git", "-C", str(repository), "config", "--local", "core.hooksPath", MANAGED_GIT_HOOKS_PATH],
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    if completed.returncode != 0:
+        detail = (completed.stderr or completed.stdout).strip()
+        raise ToolError("git-config-failed", detail or "cannot register runtime-owned Git Hooks")
+    return {
+        "registered": True,
+        "hooks_path": MANAGED_GIT_HOOKS_PATH,
+        "carriers": carriers,
+        "preserved_default_hooks": True,
+    }
+
+
+def uninstall_git_hooks(repository: Path) -> dict[str, object]:
+    existing = _local_git_hooks_path(repository)
+    changed = False
+    if existing == MANAGED_GIT_HOOKS_PATH:
+        completed = subprocess.run(
+            ["git", "-C", str(repository), "config", "--local", "--unset-all", "core.hooksPath"],
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        if completed.returncode not in {0, 5}:
+            detail = (completed.stderr or completed.stdout).strip()
+            raise ToolError("git-config-failed", detail or "cannot remove runtime-owned Git Hook registration")
+        changed = True
+    directory = repository / MANAGED_GIT_HOOKS_PATH
+    removed: list[str] = []
+    for hook_name in GIT_HOOK_NAMES:
+        carrier = directory / hook_name
+        try:
+            first_lines = carrier.read_text(encoding="utf-8").splitlines()[:2]
+        except FileNotFoundError:
+            continue
+        if GIT_HOOK_MARKER not in first_lines:
+            raise ToolError("git-hook-carrier-conflict", f"refusing to remove unrecognized runtime Hook carrier: {carrier}")
+        carrier.unlink()
+        removed.append(carrier.relative_to(repository).as_posix())
+    return {
+        "registered": False,
+        "changed": changed or bool(removed),
+        "hooks_path": MANAGED_GIT_HOOKS_PATH,
+        "removed": removed,
+        "preserved_default_hooks": True,
+    }
+
+
 def _write_registry(repository: Path, adapters: Mapping[str, AdapterSpec]) -> None:
     path = _registry_path(repository)
     if not adapters:
@@ -1142,6 +1266,8 @@ def adapter_operation(
     registered = _read_registry(resolved_repository)
     if operation == "status":
         project_hook = resolved_repository / ".codex" / "hooks.json"
+        git_hooks_path = _local_git_hooks_path(resolved_repository)
+        git_hook_carriers = [resolved_repository / MANAGED_GIT_HOOKS_PATH / name for name in GIT_HOOK_NAMES]
         return {
             "repository": resolved_repository.as_posix(),
             "registry": _registry_path(resolved_repository).relative_to(resolved_repository).as_posix(),
@@ -1157,6 +1283,9 @@ def adapter_operation(
             ],
             "host_hook_registered": project_hook.exists() or project_hook.is_symlink(),
             "host_hook_carrier": project_hook.relative_to(resolved_repository).as_posix(),
+            "git_hooks_registered": git_hooks_path == MANAGED_GIT_HOOKS_PATH and all(path.is_file() and os.access(path, os.X_OK) for path in git_hook_carriers),
+            "git_hooks_path": git_hooks_path,
+            "git_hook_carriers": [path.relative_to(resolved_repository).as_posix() for path in git_hook_carriers],
             "runtime_package": runtime_package_status(resolved_repository),
         }
 
@@ -1196,11 +1325,17 @@ def adapter_operation(
     hook_result: dict[str, object] | None = None
     if apply and manage_host_hooks and operation == "install":
         assert adapter is not None
-        hook_result = install_codex_hooks(resolved_repository, adapter.adapter_id)
+        hook_result = {
+            "codex": install_codex_hooks(resolved_repository, adapter.adapter_id),
+            "git": install_git_hooks(resolved_repository),
+        }
     if apply:
         _write_registry(resolved_repository, proposed)
     if apply and manage_host_hooks and operation == "uninstall" and not proposed:
-        hook_result = uninstall_codex_hooks(resolved_repository)
+        hook_result = {
+            "codex": uninstall_codex_hooks(resolved_repository),
+            "git": uninstall_git_hooks(resolved_repository),
+        }
     return {
         "repository": resolved_repository.as_posix(),
         "effect": effect,
@@ -1463,7 +1598,7 @@ def _describe() -> dict[str, object]:
             "runtime install": {"effects": ["self-contained project-local runtime package"]},
             "runtime status": {"effects": []},
             "codex-hook": {"input": "Codex hook JSON on stdin", "effects": ["pre snapshot or complete auto-commit flow"]},
-            "adapter install": {"input": "adapter identity and host session resolver", "effects": ["runtime registry", "Codex hook registration"]},
+            "adapter install": {"input": "adapter identity and host session resolver", "effects": ["runtime registry", "Codex Hook registration", "runtime-owned Git Hook registration"]},
             "adapter status": {"effects": []},
             "adapter enable": {"effects": ["runtime registry"]},
             "adapter disable": {"effects": ["runtime registry"]},
