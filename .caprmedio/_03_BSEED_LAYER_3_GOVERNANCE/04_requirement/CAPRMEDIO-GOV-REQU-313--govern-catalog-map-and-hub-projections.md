@@ -7,10 +7,11 @@ project_settings:
       - catalog
       - map
       - hub
-version: 5
-updated_at: 2026-08-20 02:38:43
+version: 6
+updated_at: 2026-08-20 19:10:41
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+  - codex:01a01cb4-e15e-78d1-9084-766bf6b0cd63
 relations:
   replacement_of:
     - CAPRMEDIO-GOV-REQU-466--maintained-specification-carriers
@@ -41,11 +42,11 @@ Markdown Projection filenames follow the registered Type-prefix grammar:
 <PROJECT>-<SCOPE_PATH>-<TYPE_PREFIX>-<NNN>--<SUMMARY>.md
 ```
 
-Markdown frontmatter declares only applicable non-derived properties. Native structured Projection carriers encode their registered currentness metadata without duplicating coordinates derivable from canonical placement or identity. Every Projection declares its exact source frontier through the governed provenance and relation model.
+Markdown frontmatter declares only applicable non-derived properties. Native structured Projection carriers encode their registered currentness metadata without duplicating coordinates derivable from canonical placement or identity. Every Projection declares its exact source frontier of Atom revisions and Journal records through the governed provenance and relation model.
 
-The body may contain headings, grouping and ordering labels, direct Atom IDs and links, source titles, and rendered governed relations. It must not introduce a normative paraphrase needed to understand or satisfy a source Atom. Any independently meaningful explanation, conclusion, Requirement, Method, Evaluation rule, Implementation claim, or Ops fact is emitted as its own Atom and then linked from the Projection.
+The body may contain headings, grouping and ordering labels, direct Atom IDs and links, Journal record identities and frontiers, source titles, and rendered governed relations. It must not introduce a normative paraphrase needed to understand or satisfy a source Atom. Any independently meaningful explanation, conclusion, Requirement, Method, Evaluation rule, Implementation claim, or Ops fact is emitted as its own Atom and then linked from the Projection.
 
-A Projection may be rebuilt mechanically or through governed reasoning. Generated and reasoned describe creation procedures, not Artifact forms. Creation and every rebuild are committed as new or updated children under the exact source revisions consumed.
+A Projection may be generated programmatically or through LLM inference. These are generation procedures and provenance facts, not Artifact forms or authority; neither grants authority to the Projection. Creation and every rebuild are committed as new or updated children under the exact Atom revisions and Journal records consumed.
 
 A Projection is current only when its declared source frontier and rebuild procedure reproduce the committed view. A source change triggers lineage-impact review. A compatible result may preserve the existing Projection revision; an affected result requires a rebuild before a gate that requires the Projection may pass.
 
