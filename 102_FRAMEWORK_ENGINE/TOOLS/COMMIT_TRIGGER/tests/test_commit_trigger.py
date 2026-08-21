@@ -29,6 +29,10 @@ class CommitTriggerTests(unittest.TestCase):
     def setUp(self) -> None:
         self.temporary = tempfile.TemporaryDirectory()
         self.repository = Path(self.temporary.name) / "repository"
+        self.codex_home = Path(self.temporary.name) / "codex-home"
+        self.codex_home.mkdir()
+        self.previous_codex_home = os.environ.get("CODEX_HOME")
+        os.environ["CODEX_HOME"] = str(self.codex_home)
         self.repository.mkdir()
         self._git("init", "-q")
         self._git("config", "user.name", "CAPRMEDIO Test")
@@ -47,6 +51,10 @@ class CommitTriggerTests(unittest.TestCase):
         self.environment = {"CODEX_THREAD_ID": "019f591f-04f6-70f2-8de7-828b7cccc69d"}
 
     def tearDown(self) -> None:
+        if self.previous_codex_home is None:
+            os.environ.pop("CODEX_HOME", None)
+        else:
+            os.environ["CODEX_HOME"] = self.previous_codex_home
         self.temporary.cleanup()
 
     def _git(self, *arguments: str) -> str:
@@ -443,7 +451,7 @@ class CommitTriggerTests(unittest.TestCase):
             )
             self.assertTrue(json.loads(completed.stdout)["ok"], relative)
 
-    def test_project_codex_hook_runs_installed_pipeline_and_commits_one_atom(self) -> None:
+    def test_user_codex_hook_runs_installed_pipeline_and_commits_one_atom(self) -> None:
         (self.repository / ".gitignore").write_text(
             "/.caprmedio_install/\n/.caprmedio_runtime/\n/.codex/hooks.json\n",
             encoding="utf-8",
@@ -488,12 +496,16 @@ class CommitTriggerTests(unittest.TestCase):
             text=True,
             cwd=self.repository,
         )
-        hook_config = self.repository / ".codex/hooks.json"
-        self.assertTrue(hook_config.is_symlink())
-        self.assertEqual(
-            (self.repository / ".caprmedio_install/hooks/codex/hooks.json").resolve(),
-            hook_config.resolve(),
-        )
+        hook_config = self.codex_home / "hooks.json"
+        self.assertTrue(hook_config.is_file())
+        self.assertFalse((self.repository / ".codex/hooks.json").exists())
+        hook_document = json.loads(hook_config.read_text(encoding="utf-8"))
+        self.assertEqual({"PreToolUse", "PostToolUse", "SessionStart", "Stop"}, set(hook_document["hooks"]))
+        for event in hook_document["hooks"].values():
+            command = event[-1]["hooks"][0]["command"]
+            self.assertIn(commit_trigger.CODEX_ACTIVATION_KEY, command)
+            self.assertNotIn(str(self.repository), command)
+            self.assertNotIn(".caprmedio_install/releases/", command)
         self.assertEqual(commit_trigger.MANAGED_GIT_HOOKS_PATH, commit_trigger._local_git_hooks_path(self.repository))
         for name in commit_trigger.GIT_HOOK_NAMES:
             self.assertTrue(os.access(self.repository / commit_trigger.MANAGED_GIT_HOOKS_PATH / name, os.X_OK))
@@ -546,6 +558,53 @@ class CommitTriggerTests(unittest.TestCase):
         self.assertTrue(observed["valid"])
         self.assertEqual(self._git("rev-parse", "HEAD").strip(), observed["commit"])
         self.assertEqual("", self._git("status", "--porcelain=v1"))
+
+    def test_stop_reconciles_one_missed_change_and_rejects_ambiguous_session_ownership(self) -> None:
+        (self.repository / ".gitignore").write_text(
+            "/.caprmedio_install/\n/.caprmedio_runtime/\n/.codex/hooks.json\n",
+            encoding="utf-8",
+        )
+        (self.repository / ".caprmedio").mkdir()
+        (self.repository / ".caprmedio/caprmedio_project_settings.toml").write_text(
+            "[artifact_timestamps]\ntimezone = \"Asia/Tbilisi\"\n\n"
+            "[paths]\njournal_root = \".caprmedio/work_journal\"\n"
+            "runtime_root = \".caprmedio_runtime\"\n",
+            encoding="utf-8",
+        )
+        subject = ".caprmedio/04_requirement/CA-R-001-REQUIREMENT--subject.md"
+        self._write_atom(subject, version=1, body="first")
+        self._git("config", "github.username", "anatoly-m-maslennikov")
+        self._git("add", ".gitignore", ".caprmedio")
+        self._git("commit", "-qm", "governed fixture")
+        install_release(self.repository, apply=True, source_root=commit_trigger.PACKAGE_ROOT)
+        commit_trigger.adapter_operation(
+            self.repository,
+            "install",
+            adapter=self.adapter,
+            apply=True,
+            manage_host_hooks=True,
+        )
+        payload = {"session_id": self.environment["CODEX_THREAD_ID"], "cwd": str(self.repository)}
+        started = commit_trigger.codex_hook(self.repository, "start", self.adapter.adapter_id, payload)
+        self.assertEqual("baseline-created", started["effect"])
+        self._write_atom(subject, version=2, body="second")
+        stopped = commit_trigger.codex_hook(self.repository, "stop", self.adapter.adapter_id, payload)
+        self.assertEqual("reconciled", stopped["effect"])
+        self.assertEqual(1, stopped["commit_count"])
+        self.assertEqual("", self._git("status", "--porcelain=v1"))
+
+        second_payload = {"session_id": "019f5920-04f6-70f2-8de7-828b7cccc69d", "cwd": str(self.repository)}
+        commit_trigger.codex_hook(self.repository, "start", self.adapter.adapter_id, payload)
+        commit_trigger.codex_hook(self.repository, "start", self.adapter.adapter_id, second_payload)
+        self._write_atom(subject, version=3, body="third")
+        ambiguous = commit_trigger.codex_hook(self.repository, "stop", self.adapter.adapter_id, payload)
+        self.assertEqual("ambiguous-session-ownership", ambiguous["effect"])
+        self.assertEqual(0, ambiguous["commit_count"])
+        self.assertIn(subject, self._git("status", "--porcelain=v1"))
+
+        missing_payload = {"session_id": "019f5930-04f6-70f2-8de7-828b7cccc69d", "cwd": str(self.repository)}
+        missing = commit_trigger.codex_hook(self.repository, "stop", self.adapter.adapter_id, missing_payload)
+        self.assertEqual("no-session-baseline", missing["effect"])
 
     @staticmethod
     def _run_hook(hook: Path) -> None:
