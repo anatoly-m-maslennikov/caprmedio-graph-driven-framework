@@ -99,6 +99,7 @@ class AppendChangeRecordsTest(unittest.TestCase):
         }
         source_frontier = {
             "identity": "CA-R-001",
+            "kind": "file",
             "state": "present",
             "filename": result["filename"],
             "version": result["version"],
@@ -106,10 +107,11 @@ class AppendChangeRecordsTest(unittest.TestCase):
             "sha256": result["sha256"],
         }
         event = {
-            "schema_version": 2,
+            "schema_version": 3,
             "action_id": "action-001",
             "event": "completed",
-            "kind": "governed_file_change",
+            "kind": "governed_project_change",
+            "subject_kind": "file",
             "author": "test-user",
             "occurred_at": "2026-08-20T23:59:59+04:00",
             "llm_session": {"app": "codex", "uuid": "session-001"},
@@ -123,12 +125,12 @@ class AppendChangeRecordsTest(unittest.TestCase):
         event["event_id"] = _expected_event_id(event)
         event = with_event_digest(event)
         context: dict[str, object] = {
-            "schema_version": 2,
+            "schema_version": 3,
             "action_id": "action-001",
             "trigger": {
                 "repository": {"root": str(self.root), "identity": self.repository_identity()},
             },
-            "subject": {"identity": "CA-R-001", "selected_state": "working"},
+            "subject": {"identity": "CA-R-001", "kind": "file", "selected_state": "working"},
             "structural_scope": "PROJECT",
             "action_type": action,
             "sources": [],
@@ -239,13 +241,14 @@ class AppendChangeRecordsTest(unittest.TestCase):
         assert isinstance(result, dict)
         evidence = {
             "git": {"base_commit": context["git_base"]["commit"], "path": result["path"], "sha256": result["sha256"]},
-            "carrier": {"identity": "CA-R-001", "filename": result["filename"], "version": result["version"], "sha256": result["sha256"]},
+            "carrier": {"identity": "CA-R-001", "kind": "file", "filename": result["filename"], "version": result["version"], "sha256": result["sha256"]},
         }
         recovered = {
-            "schema_version": 2,
+            "schema_version": 3,
             "action_id": "action-001",
             "event": "recovered",
-            "kind": "governed_file_state",
+            "kind": "governed_project_state",
+            "subject_kind": "file",
             "author": "test-user",
             "occurred_at": "2026-08-20T23:59:59+04:00",
             "llm_session": {"app": "codex", "uuid": "session-001"},
