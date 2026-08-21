@@ -18,8 +18,8 @@ project_graph_state:
       - implementation:pull_request
       - ops:external_evidence_record
       - ops:verification_record
-version: 2
-updated_at: 2026-08-21 00:21:06
+version: 3
+updated_at: 2026-08-21 20:51:16
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -30,11 +30,14 @@ relations:
   replacement_of:
     - CAPRMEDIO-GOV-REQU-734--register-governance-locus-atom-subtypes
 ---
-# Register external and relational Atom Types
+# Register non-default Atom Types
 
-GOV registers the following non-internal Atom Types within their owning Content roles:
+GOVERNANCE registers the following non-default Atom Types within their owning
+Content roles. External Types derive external Governance origin. Additional
+internal Types derive internal Governance origin and may use ordinary typed
+frontmatter relations.
 
-| Content role | External Type | Relational Type |
+| Content role | External Type | Additional internal Type |
 |---|---|---|
 | `concern` | `external_problem` | `conflict` |
 | `analysis` | `external_analysis_report` | `conflict_analysis_report` |
