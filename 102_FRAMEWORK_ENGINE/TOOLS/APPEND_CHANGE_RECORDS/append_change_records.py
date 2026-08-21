@@ -152,6 +152,7 @@ def _frontier_source_projection(context: Mapping[str, Any]) -> dict[str, Any]:
     result = _require_mapping(context["result"], "result")
     projection: dict[str, Any] = {
         "identity": subject["identity"],
+        "kind": subject["kind"],
         "state": "removed" if result["state"] == "removed" else "present",
         "filename": result["filename"],
         "version": result["version"],
@@ -176,8 +177,8 @@ def _normalise_context(payload: Mapping[str, Any]) -> dict[str, Any]:
         context = _require_mapping(payload["result"]["context"], "result.context")
     else:
         context = dict(payload)
-    if context.get("schema_version") != 2:
-        raise ToolError("invalid-context", "context.schema_version must be 2")
+    if context.get("schema_version") != 3:
+        raise ToolError("invalid-context", "context.schema_version must be 3")
     return context
 
 
@@ -275,10 +276,11 @@ def _expected_event_id(event: Mapping[str, Any]) -> str:
         evidence = _require_mapping(event.get("recovery_evidence"), "recovery_evidence")
         return canonical_json_digest(
             {
-                "schema_version": 2,
+                "schema_version": event["schema_version"],
                 "action_id": event["action_id"],
                 "event": "recovered",
-                "kind": "governed_file_state",
+                "kind": event["kind"],
+                "subject_kind": event["subject_kind"],
                 "result": event["result"],
                 "evidence_digest": canonical_json_digest(evidence),
             }
@@ -288,6 +290,7 @@ def _expected_event_id(event: Mapping[str, Any]) -> str:
         "action_id",
         "event",
         "kind",
+        "subject_kind",
         "author",
         "occurred_at",
         "llm_session",
@@ -314,6 +317,8 @@ def validate_context(context: Mapping[str, Any]) -> tuple[dict[str, Any], list[d
     subject = _require_mapping(value.get("subject"), "subject")
     _require_string(subject, "identity")
     _require_string(subject, "selected_state")
+    if subject.get("kind") not in {"file", "folder"}:
+        raise ToolError("invalid-context", "subject.kind must be file or folder")
     action_type = value.get("action_type")
     if action_type not in ACTIONS:
         raise ToolError("invalid-context", "action_type is invalid")
@@ -400,9 +405,9 @@ def validate_context(context: Mapping[str, Any]) -> tuple[dict[str, Any], list[d
         raise ToolError("invalid-context", "every Journal event must use sealed llm_session")
     completed = [event for event in events if event["event"] == "completed"]
     if len(completed) != 1:
-        raise ToolError("invalid-context", "event set must contain exactly one completed governed_file_change")
+        raise ToolError("invalid-context", "event set must contain exactly one completed governed_project_change")
     change = completed[0]
-    if change["action_type"] != action_type or change["sources"] != _canonical_source_projection(sources) or change["result"] != result:
+    if change.get("subject_kind") != subject["kind"] or change["action_type"] != action_type or change["sources"] != _canonical_source_projection(sources) or change["result"] != result:
         raise ToolError("invalid-context", "completed Journal event must be the exact context projection")
     if value.get("previous_result_event") != change.get("previous_result_event"):
         raise ToolError("invalid-context", "previous_result_event differs between context and Journal event")
@@ -454,6 +459,41 @@ def _sha256_file(path: Path) -> str:
         for chunk in iter(lambda: handle.read(1024 * 1024), b""):
             digest.update(chunk)
     return digest.hexdigest()
+
+
+def _working_bytes(path: Path) -> bytes:
+    if path.is_symlink():
+        return os.readlink(path).encode("utf-8")
+    return path.read_bytes()
+
+
+def _folder_entries(root: Path, folder: str) -> list[dict[str, str]]:
+    paths = [
+        value
+        for value in _git(root, "ls-files", "--cached", "--others", "--exclude-standard", "-z", "--", folder).split("\0")
+        if value
+    ]
+    prefix = folder.rstrip("/") + "/"
+    entries: list[dict[str, str]] = []
+    for relative in sorted(paths):
+        parts = Path(relative).parts
+        if not relative.startswith(prefix) or parts[:2] == (".caprmedio", "work_journal"):
+            continue
+        if len(parts) > 1 and parts[0].startswith(".") and parts[0] != ".caprmedio":
+            continue
+        path = root / relative
+        if path.is_file() or path.is_symlink():
+            entries.append({"path": relative, "sha256": hashlib.sha256(_working_bytes(path)).hexdigest()})
+    return entries
+
+
+def _folder_digest(folder: str, entries: list[dict[str, str]]) -> str:
+    return canonical_json_digest(
+        [
+            {"path": Path(entry["path"]).relative_to(folder).as_posix(), "sha256": entry["sha256"]}
+            for entry in entries
+        ]
+    )
 
 
 def _atomic_json(path: Path, value: Mapping[str, Any]) -> None:
@@ -521,17 +561,35 @@ def validate_live_preflight(root: Path, context: Mapping[str, Any]) -> None:
     if _git(root, "rev-parse", "HEAD^{tree}").strip() != git_base["tree"]:
         raise ToolError("stale-context", "Git base tree no longer matches sealed context")
     result = _require_mapping(context["result"], "result")
-    subject_paths = {
-        value
-        for value in (trigger.get("before_path"), trigger.get("after_path"), result.get("path"))
-        if isinstance(value, str) and value
-    }
-    staged = [item for item in _git(root, "diff", "--cached", "--name-only", "-z").split("\0") if item]
+    subject = _require_mapping(context["subject"], "subject")
+    committed_snapshot = _require_mapping(context["snapshots"], "snapshots").get("committed")
+    if subject.get("kind") == "folder":
+        current_entries = result.get("entries") if result.get("state") == "present" else []
+        previous_entries = committed_snapshot.get("entries", []) if isinstance(committed_snapshot, Mapping) else []
+        subject_paths = {
+            entry["path"]
+            for entry in [*previous_entries, *current_entries]
+            if isinstance(entry, Mapping) and isinstance(entry.get("path"), str)
+        }
+    else:
+        subject_paths = {
+            value
+            for value in (trigger.get("before_path"), trigger.get("after_path"), result.get("path"))
+            if isinstance(value, str) and value
+        }
+    staged = [item for item in _git(root, "diff", "--cached", "--name-only", "--no-renames", "-z").split("\0") if item]
     if any(path not in subject_paths for path in staged):
         raise ToolError("unrelated-staged-change", "repository index contains a change outside the resolved subject identity")
-    if result["state"] == "present":
+    if result["state"] == "present" and subject.get("kind") == "folder":
+        folder = str(result.get("path"))
+        current_entries = _folder_entries(root, folder)
+        if current_entries != result.get("entries") or _folder_digest(folder, current_entries) != result.get("sha256"):
+            raise ToolError("stale-context", "folder entry frontier no longer matches sealed result")
+        if Path(folder).name != result.get("filename"):
+            raise ToolError("stale-context", "folder result name and path disagree")
+    elif result["state"] == "present":
         result_path = _relative_path(root, result["path"], "result.path")
-        if not result_path.is_file() or _sha256_file(result_path) != result["sha256"]:
+        if (not result_path.is_file() and not result_path.is_symlink()) or hashlib.sha256(_working_bytes(result_path)).hexdigest() != result["sha256"]:
             raise ToolError("stale-context", "result carrier no longer matches sealed digest")
         if result_path.name != result["filename"]:
             raise ToolError("stale-context", "result carrier name no longer matches sealed filename")
@@ -540,7 +598,18 @@ def validate_live_preflight(root: Path, context: Mapping[str, Any]) -> None:
             if staged_bytes is None or hashlib.sha256(staged_bytes).hexdigest() != result["sha256"]:
                 raise ToolError("stale-context", "staged subject carrier no longer matches sealed digest")
     elif result["state"] == "removed":
-        committed = _require_mapping(_require_mapping(context["snapshots"], "snapshots").get("committed"), "snapshots.committed")
+        committed = _require_mapping(committed_snapshot, "snapshots.committed")
+        if subject.get("kind") == "folder":
+            entries = committed.get("entries")
+            if not isinstance(entries, list) or _folder_digest(str(committed.get("path")), entries) != committed.get("sha256"):
+                raise ToolError("stale-context", "removed folder predecessor digest is invalid")
+            for entry in entries:
+                if _git_bytes(root, "show", f"HEAD:{entry['path']}", allow_failure=True) is None:
+                    raise ToolError("stale-context", "removed folder predecessor entry is unavailable")
+                candidate = root / str(entry["path"])
+                if candidate.exists() or candidate.is_symlink():
+                    raise ToolError("stale-context", "removed folder entry has reappeared")
+            return
         committed_path = _relative_path(root, committed.get("path"), "snapshots.committed.path")
         committed_digest = _require_sha256(committed.get("sha256"), "snapshots.committed.sha256")
         payload = _git_bytes(root, "show", f"HEAD:{committed_path.relative_to(root).as_posix()}")
