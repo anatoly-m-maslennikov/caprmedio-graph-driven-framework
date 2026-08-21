@@ -113,6 +113,28 @@ class CommitContextTests(unittest.TestCase):
         self.assertEqual("ADD", context["action_type"])
         self.assertEqual("CA-R-002-REQUIREMENT--child.md", context["result"]["filename"])
 
+    def test_unrelated_duplicate_identity_does_not_block_logging(self) -> None:
+        self.write_atom(
+            ".caprmedio/04_requirement/CA-R-999-REQUIREMENT--first.md",
+            version=1,
+            relations={},
+        )
+        self.write_atom(
+            ".caprmedio/_03_BSEED_LAYER_3_GOVERNANCE/04_requirement/CA-R-999-REQUIREMENT-BSEED_GOVERNANCE--second.md",
+            version=1,
+            relations={},
+        )
+        path = ".caprmedio/04_requirement/CA-R-002-REQUIREMENT--child.md"
+        self.write_atom(path, version=1, relations={"child_of": ["CA-R-001-REQUIREMENT--parent"]})
+
+        context = gather_context(self.root, self.trigger(None, path))
+
+        self.assertEqual("ADD", context["action_type"])
+        self.assertEqual(
+            [{"relation_type": "child_of", "filename": "CA-R-001-REQUIREMENT--parent.md", "version": 1}],
+            context["sources"],
+        )
+
     def test_repeated_context_is_byte_identical_and_keeps_session_provenance_structured(self) -> None:
         path = ".caprmedio/04_requirement/CA-R-002-REQUIREMENT--subject.md"
         self.write_atom(path, version=1, relations={})
@@ -202,12 +224,18 @@ class CommitContextTests(unittest.TestCase):
             gather_context(self.root, self.trigger(path, path))
         self.assertEqual("no_governed_file_change", captured.exception.code)
 
-    def test_non_current_upstream_version_fails_closed(self) -> None:
+    def test_non_current_upstream_version_is_logged_as_a_diagnostic(self) -> None:
         path = ".caprmedio/04_requirement/CA-R-002-REQUIREMENT--subject.md"
         self.write_atom(path, version=1, relations={"child_of": ["CA-R-001-REQUIREMENT--parent@2"]})
-        with self.assertRaisesRegex(ContextError, "current version") as captured:
-            gather_context(self.root, self.trigger(None, path))
-        self.assertEqual("non_current_upstream_version", captured.exception.code)
+
+        context = gather_context(self.root, self.trigger(None, path))
+
+        self.assertEqual("ADD", context["action_type"])
+        self.assertEqual(1, context["sources"][0]["version"])
+        self.assertIn(
+            "relation_target_version_differs",
+            [diagnostic["code"] for diagnostic in context["validation"]["diagnostics"]],
+        )
 
     def test_trigger_and_repository_identities_are_verified(self) -> None:
         path = ".caprmedio/04_requirement/CA-R-002-REQUIREMENT--subject.md"
