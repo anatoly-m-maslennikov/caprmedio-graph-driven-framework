@@ -1,8 +1,8 @@
 ---
 subject_scopes:
   - artifact-model
-version: 1
-updated_at: 2026-08-17 19:36:01
+version: 2
+updated_at: 2026-08-21 20:51:16
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -11,14 +11,14 @@ relations:
   child_of:
     - CAPRMEDIO-META-REQU-127--define-three-governance-loci
 ---
-# Requirement — Make relational endpoints explicit
+# Represent graph relations in frontmatter
 
 ## Primary claim
 
-An artifact routed to relational governance declares one stable relation kind
-and at least two role-bearing endpoints. Each endpoint independently declares
-whether its participant is internal or external.
+Every relation in the governed graph is a typed edge declared under the
+relation-owning Atom's `relations` frontmatter. A relation is not an Artifact,
+Governance origin, or Artifact Type merely because it connects graph nodes.
 
-Endpoint origin is not another semantic routing axis. Ordinary citations,
-traceability links, and relations among otherwise standalone artifacts do not
-change their Governance locus.
+An Atom whose governed content concerns a contract, conflict, binding, or
+another relationship remains an ordinary Atom. Its graph connections use the
+same frontmatter relation mechanism as every other Atom.
