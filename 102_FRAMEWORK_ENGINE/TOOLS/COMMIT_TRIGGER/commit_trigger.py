@@ -8,9 +8,10 @@ the change, reads the Atom graph, modifies the Git index, writes a Journal, or
 invokes the downstream Tool itself.
 
 The ``adapter`` lifecycle commands write only reconstructible registration
-state below ``.caprmedio_runtime/state/commit_trigger``.  Observation is always
-read-only, including when it suppresses a correlated pipeline Journal or
-runtime-state event.
+state below ``.caprmedio_runtime/state/commit_trigger``.  The generic user-level
+Codex dispatcher delegates only for a repository carrying the installer-set
+local Git activation marker.  Observation is always read-only, including when
+it suppresses a correlated pipeline Journal or runtime-state event.
 """
 
 from __future__ import annotations
