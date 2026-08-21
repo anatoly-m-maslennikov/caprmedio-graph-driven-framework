@@ -1,0 +1,1 @@
+CAPRMEDIO automatic commit smoke test.
