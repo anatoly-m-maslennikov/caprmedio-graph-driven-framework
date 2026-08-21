@@ -46,7 +46,7 @@ EVENTS = (
     "abandoned",
     "recovered",
 )
-SEALED_SCHEMA_VERSION = 2
+SEALED_SCHEMA_VERSION = 3
 MAX_EVENTS_PER_PART = 100
 SHA256_RE = re.compile(r"^[0-9a-f]{64}$")
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
@@ -278,7 +278,7 @@ def _validate_sources(value: object) -> None:
         prior = key
 
 
-def _validate_result(value: object) -> None:
+def _validate_result(value: object, *, schema_version: int, subject_kind: str) -> None:
     if not isinstance(value, dict):
         raise WorkJournalError("invalid-event", "result must be an object")
     state = value.get("state")
@@ -286,19 +286,46 @@ def _validate_result(value: object) -> None:
     version = value.get("version")
     if state not in {"present", "removed"}:
         raise WorkJournalError("invalid-event", "result.state must be present or removed")
-    if not isinstance(filename, str) or not filename.endswith(".md"):
-        raise WorkJournalError("invalid-event", "result.filename must be a Markdown filename")
+    if not isinstance(filename, str) or not filename or Path(filename).name != filename:
+        raise WorkJournalError("invalid-event", "result.filename must be one path-segment name")
+    if schema_version == 2 and not filename.endswith(".md"):
+        raise WorkJournalError("invalid-event", "schema-v2 result.filename must be a Markdown filename")
     if not isinstance(version, int) or version < 1:
         raise WorkJournalError("invalid-event", "result.version must be a positive integer")
     if {"before_path", "before_sha256", "action_message", "previous_result"} & set(value):
         raise WorkJournalError("invalid-event", "result contains forbidden duplicated prior state")
     if state == "present":
-        if set(value) != {"state", "filename", "version", "path", "sha256"}:
+        expected = {"state", "filename", "version", "path", "sha256"}
+        if schema_version == 3 and subject_kind == "folder":
+            expected.add("entries")
+        if set(value) != expected:
             raise WorkJournalError("invalid-event", "present result has invalid fields")
         path = value.get("path")
         if not isinstance(path, str) or not path or Path(path).is_absolute() or ".." in Path(path).parts:
             raise WorkJournalError("invalid-event", "result.path must be a safe repository-relative path")
         _require_sha256(value.get("sha256"), "result.sha256")
+        if subject_kind == "folder":
+            entries = value.get("entries")
+            if not isinstance(entries, list) or not entries:
+                raise WorkJournalError("invalid-event", "present folder result requires a non-empty ordered entry set")
+            prior: str | None = None
+            prefix = path.rstrip("/") + "/"
+            for entry in entries:
+                if not isinstance(entry, dict) or set(entry) != {"path", "sha256"}:
+                    raise WorkJournalError("invalid-event", "folder entry must contain only path and sha256")
+                entry_path = entry.get("path")
+                if not isinstance(entry_path, str) or not entry_path.startswith(prefix) or Path(entry_path).is_absolute() or ".." in Path(entry_path).parts:
+                    raise WorkJournalError("invalid-event", "folder entry path must be below result.path")
+                if prior is not None and entry_path <= prior:
+                    raise WorkJournalError("invalid-event", "folder entries must be uniquely ordered by path")
+                _require_sha256(entry.get("sha256"), "result.entries.sha256")
+                prior = entry_path
+            relative_entries = [
+                {"path": Path(entry["path"]).relative_to(path).as_posix(), "sha256": entry["sha256"]}
+                for entry in entries
+            ]
+            if canonical_json_digest(relative_entries) != value.get("sha256"):
+                raise WorkJournalError("invalid-event", "folder result digest must bind the canonical entry set")
     elif set(value) != {"state", "filename", "version"}:
         raise WorkJournalError("invalid-event", "removed result has invalid fields")
 
@@ -308,16 +335,19 @@ def validate_sealed_event(event: Mapping[str, Any]) -> dict[str, Any]:
     value = dict(event)
     if {"action_message", "before_path", "before_sha256", "session_id", "session"} & set(value):
         raise WorkJournalError("invalid-event", "event contains forbidden duplicated provenance or prior state")
-    if value.get("schema_version") != SEALED_SCHEMA_VERSION:
-        raise WorkJournalError("invalid-event", "schema_version must be 2")
+    schema_version = value.get("schema_version")
+    if schema_version not in {2, SEALED_SCHEMA_VERSION}:
+        raise WorkJournalError("invalid-event", "schema_version must be 2 or 3")
     _require_string(value, "event_id")
     _require_string(value, "action_id")
     lifecycle = value.get("event")
     kind = value.get("kind")
-    if lifecycle == "completed" and kind != "governed_file_change":
-        raise WorkJournalError("invalid-event", "completed event must be governed_file_change")
-    if lifecycle == "recovered" and kind != "governed_file_state":
-        raise WorkJournalError("invalid-event", "recovered event must be governed_file_state")
+    expected_change_kind = "governed_file_change" if schema_version == 2 else "governed_project_change"
+    expected_state_kind = "governed_file_state" if schema_version == 2 else "governed_project_state"
+    if lifecycle == "completed" and kind != expected_change_kind:
+        raise WorkJournalError("invalid-event", f"completed event must be {expected_change_kind}")
+    if lifecycle == "recovered" and kind != expected_state_kind:
+        raise WorkJournalError("invalid-event", f"recovered event must be {expected_state_kind}")
     if lifecycle not in {"completed", "recovered"}:
         raise WorkJournalError("invalid-event", "event must be completed or recovered")
     author = _require_string(value, "author")
@@ -331,8 +361,11 @@ def validate_sealed_event(event: Mapping[str, Any]) -> dict[str, Any]:
     _require_string(session, "app")
     _require_string(session, "uuid")
     _require_string(value, "structural_scope")
-    _validate_result(value.get("result"))
-    if kind == "governed_file_change":
+    subject_kind = "file" if schema_version == 2 else value.get("subject_kind")
+    if subject_kind not in {"file", "folder"}:
+        raise WorkJournalError("invalid-event", "subject_kind must be file or folder")
+    _validate_result(value.get("result"), schema_version=schema_version, subject_kind=subject_kind)
+    if kind == expected_change_kind:
         allowed = {
             "schema_version",
             "event_id",
@@ -349,6 +382,8 @@ def validate_sealed_event(event: Mapping[str, Any]) -> dict[str, Any]:
             "event_digest",
             "previous_result_event",
         }
+        if schema_version == 3:
+            allowed.add("subject_kind")
         if not set(value) <= allowed:
             raise WorkJournalError("invalid-event", "governed_file_change contains unsupported fields")
         _validate_sources(value.get("sources"))
@@ -375,6 +410,8 @@ def validate_sealed_event(event: Mapping[str, Any]) -> dict[str, Any]:
             "recovery_evidence",
             "event_digest",
         }
+        if schema_version == 3:
+            allowed.add("subject_kind")
         if set(value) != allowed:
             raise WorkJournalError("invalid-event", "governed_file_state has invalid fields")
         if "action_type" in value or "previous_result_event" in value or "sources" in value:
