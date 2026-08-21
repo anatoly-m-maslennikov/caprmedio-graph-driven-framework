@@ -4,13 +4,12 @@ subject_scopes:
 project_graph_state:
   artifacts:
     routing:
-      enabled_governance_loci:
+      enabled_governance_origins:
         - internal
         - external
-        - relation
 tier: core
-version: 4
-updated_at: 2026-08-21 00:21:06
+version: 5
+updated_at: 2026-08-21 20:51:16
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -19,17 +18,20 @@ relations:
   child_of:
     - CA-M-001-PRINCIPLE-METHOD--mece_mutually-exclusive-collectively-exhaustive
 ---
-# Define three governance loci
+# Define two Governance origins
 
-Governance locus classifies where a governed artifact's primary meaning is owned. It has exactly three values:
+Governance origin classifies where a governed Artifact's primary meaning is
+owned. It has exactly two values:
 
 - `internal` means the current project establishes and owns the meaning;
 - `external` means an identified source outside the current project establishes
   or imposes the meaning, while the project records and binds itself to that
-  source; and
-- `relation` means the meaning exists only between explicit role-bearing
-  endpoints and is not owned by either endpoint in isolation.
+  source.
 
-Governance locus is independent of Artifact form, Content role, structural scope, provenance, and the internal or external origin of individual relational endpoints. A citation, dependency, or traceability edge does not make an otherwise internal or external artifact relational.
+Governance origin is independent of Artifact form, Content role, structural
+scope, provenance, and graph relations. A graph relation is a typed frontmatter
+edge and does not create another Governance origin.
 
-The current project boundary is ambient. META owns these three meanings; GOV registers the concrete Types, endpoint schemas, and carrier rules admitted at their coordinates.
+The current project boundary is ambient. SEMANTICS owns these two meanings;
+GOVERNANCE registers the concrete Types and carrier rules admitted at their
+coordinates.
