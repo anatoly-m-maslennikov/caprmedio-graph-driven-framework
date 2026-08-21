@@ -1,17 +1,17 @@
 ---
 subject_scopes:
   - provenance
-version: 7
-updated_at: 2026-08-20 23:30:00
+version: 8
+updated_at: 2026-08-21 06:34:42
 relations:
   child_of:
     - CA-R-802-REQUIREMENT-FR_ENGN_TOOLS--define-flat-auto-commit-tool-topology
     - CAPRMEDIO-FRAMEWORK-ENGINE-REQU-522--append-work-journal-events
     - CAPRMEDIO-GOV-REQU-340--recover-work-journal-coverage-without-invention
 ---
-# Append governed file-change Journal records
+# Append governed project-change Journal records
 
-After a mutation-free preflight accepts one sealed `COMMIT_CONTEXT`, `APPEND_CHANGE_RECORDS` dry-run must return the complete ordered structured Journal sidecar record set, including its `llm_session` object and single `occurred_at`, and predicted partitions without mutation. The set contains exactly one `completed` `governed_file_change` event and, only when the subject has no accepted prior result event and recovery evidence is sufficient, one preceding `recovered` `governed_file_state` baseline whose result the change event names through `previous_result_event`.
+After a mutation-free preflight accepts one sealed `COMMIT_CONTEXT`, `APPEND_CHANGE_RECORDS` dry-run must return the complete ordered structured Journal sidecar record set, including its `llm_session` object and single `occurred_at`, and predicted partitions without mutation. The set contains exactly one `completed` `governed_project_change` event for one file or folder subject and, only when the subject has no accepted prior result event and recovery evidence is sufficient, one preceding `recovered` `governed_project_state` baseline whose result the change event names through `previous_result_event`. A present folder result carries its complete ordered Git-trackable entry set and aggregate digest; its many files do not become separate Journal actions.
 
 Apply acquires one exclusive repository-scoped apply lease for the context action before repeating every stale-context, frontier, identity, LLM-session, occurrence-time, recovery-evidence, Journal, and Git-base preflight. While that lease is active, another auto-commit apply for the same resolved repository must wait without appending a Journal record, staging a file, or changing Git. The Doer then validates and uses the sealed author, timezone, `occurred_at`, and local calendar date without recomputing any of them; appends and fsyncs every sealed record through the shared non-executable Journal append logic governed by `CAPRMEDIO-FRAMEWORK-ENGINE-REQU-522`; and returns one ordered receipt set containing exactly one receipt per related record plus the live lease token required by `COMMIT_CHANGE_SET`.
 
