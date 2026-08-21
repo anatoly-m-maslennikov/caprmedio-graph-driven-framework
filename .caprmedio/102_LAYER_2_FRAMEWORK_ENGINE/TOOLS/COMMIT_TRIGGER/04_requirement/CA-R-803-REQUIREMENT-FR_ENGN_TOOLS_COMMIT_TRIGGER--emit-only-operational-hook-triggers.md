@@ -1,15 +1,17 @@
 ---
 subject_scopes:
   - feature-boundary
-version: 12
-updated_at: 2026-08-21 05:03:22
+version: 13
+updated_at: 2026-08-21 06:34:42
 relations:
   child_of:
     - CA-R-802-REQUIREMENT-FR_ENGN_TOOLS--define-flat-auto-commit-tool-topology
 ---
 # Emit only operational Hook triggers
 
-`COMMIT_TRIGGER` must establish one logical repository file-change boundary from a registered adapter event and emit one minimal trigger to the `COMMIT_CHANGE_SET` end-to-end orchestration interface. The trigger contains a stable adapter identity, stable source-event identity, resolved repository identity, observation time, observed before-path and after-path candidates, and the structured LLM-session candidate resolved from explicit invocation context or the adapter's registered host interface. The candidate contains only canonical LLM application name and host session UUID; it does not concatenate or duplicate the event time.
+`COMMIT_TRIGGER` must establish one logical repository project-path boundary from a registered adapter event and emit one minimal trigger to the `COMMIT_CHANGE_SET` end-to-end orchestration interface. A subject is one file or one folder. One folder action contains the complete ordered set of Git-trackable file changes below that folder and remains one trigger, one Journal action, and one commit. Git does not carry empty folders, so an empty-folder-only operation is not observable project state. The trigger contains a stable adapter identity, stable source-event identity, resolved repository identity, observation time, observed before-path and after-path candidates, and the structured LLM-session candidate resolved from explicit invocation context or the adapter's registered host interface. The candidate contains only canonical LLM application name and host session UUID; it does not concatenate or duplicate the event time.
+
+The native project frontier includes every repository file admitted by the current Git ignore rules. A top-level dot-directory is outside the frontier unless it is `.caprmedio`; `.git`, `.caprmedio_runtime`, `.caprmedio_install`, and other top-level dot-directories therefore remain outside project-path observation. Top-level dot-files may remain eligible when Git admits them. Work Journal carriers are observed only for exact pipeline-correlation suppression and never become an independent subject.
 
 Every logical change within an adapter's registered observation boundary must emit exactly one trigger when that adapter can establish the event and required provenance. Observation eligibility is not Artifact classification: the adapter must not infer Artifact form, Type, lifecycle, authority, or currentness from a filename delimiter, extension, or lifecycle-directory name. A before-path or after-path crossing `drafts`, `done`, `solved`, `archive`, or another registered lifecycle boundary remains an observable candidate for one later governed classification.
 
