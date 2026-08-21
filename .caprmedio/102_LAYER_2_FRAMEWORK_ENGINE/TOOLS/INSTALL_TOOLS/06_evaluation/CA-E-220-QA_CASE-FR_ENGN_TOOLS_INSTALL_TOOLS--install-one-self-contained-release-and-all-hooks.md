@@ -2,8 +2,8 @@
 atom_id: CA-E-220
 subject_scopes:
   - evaluation
-version: 3
-updated_at: 2026-08-21 04:24:00
+version: 4
+updated_at: 2026-08-21 04:52:02
 relations:
   evaluation_for:
     - CA-R-856
@@ -15,7 +15,7 @@ relations:
 
 ## Claim checked
 
-One apply installs a verified self-contained Tool release, stable launchers, the enabled Codex adapter, both Codex Hook phases, and all three Git Hook phases through `.caprmedio_install`.
+One apply installs a verified self-contained Tool release, stable launchers, the enabled Codex adapter, all four Codex lifecycle boundaries, and all three Git Hook phases without installing executable framework code into the Codex user directory.
 
 ## Test case
 
@@ -23,7 +23,7 @@ Install the complete canonical Tool source into a clean repository, inspect stat
 
 ## Acceptance criteria
 
-Status verifies every installed digest, current release, launcher, adapter, Codex Hook carrier, Git Hook, and `core.hooksPath`. The Codex Hook command addresses the stable `commit-trigger` launcher, status identifies host activation as requiring or depending on operator-controlled Codex review, representative Tool entrypoints return valid machine envelopes, every installed executable loads successfully, and `.caprmedio_install` contains no bytecode, cache, log, PID, or mutable runtime state.
+Status verifies every installed digest, current release, launcher, adapter, canonical Codex Hook fragment, merged user carrier, removed recognized project-local carrier, Git Hook, and `core.hooksPath`. The generic Codex Hook commands cover wildcard `PreToolUse`, wildcard `PostToolUse`, `SessionStart`, and `Stop`; resolve the repository at invocation time; address its stable `commit-trigger` launcher; and contain no absolute project or release path. Status identifies host activation as requiring or depending on operator-controlled Codex review, representative Tool entrypoints return valid machine envelopes, every installed executable loads successfully, and `.caprmedio_install` contains no bytecode, cache, log, PID, or mutable runtime state.
 
 ## Failure disposition
 
