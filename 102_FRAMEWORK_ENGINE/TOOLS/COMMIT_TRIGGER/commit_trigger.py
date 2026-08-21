@@ -66,8 +66,10 @@ TOOL_KIND = "hook"
 RUNTIME_DIRECTORY = Path(".caprmedio_runtime/state/commit_trigger")
 REGISTRY_NAME = "adapter_registry.toml"
 PIPELINE_CORRELATIONS_NAME = "pipeline_correlations.ndjson"
-CODEX_HOOK_MATCHER = r"^(apply_patch|functions\.apply_patch|Bash|exec_command|functions\.exec)$"
+CODEX_HOOK_MATCHER = "*"
 CODEX_HOOK_TIMEOUT_SECONDS = 120
+CODEX_ACTIVATION_KEY = "caprmedio.codex-hooks"
+CODEX_ACTIVATION_VALUE = "v1"
 MANAGED_GIT_HOOKS_PATH = ".caprmedio_install/hooks/git"
 STABLE_TRIGGER_LAUNCHER = ".caprmedio_install/bin/commit-trigger"
 GIT_HOOK_NAMES = ("pre-commit", "commit-msg", "post-commit")
@@ -844,30 +846,54 @@ def runtime_package_status(repository: Path | str) -> dict[str, object]:
         raise ToolError(error.code, error.message) from error
 
 
-def _managed_hook_command(repository: Path, phase: str, adapter_id: str) -> str:
-    status = runtime_package_status(repository)
-    if status.get("installed") is not True:
-        raise ToolError("tools-not-installed", "run INSTALL_TOOLS before installing the Codex adapter")
-    entrypoint = repository / STABLE_TRIGGER_LAUNCHER
-    return " ".join(
-        shlex.quote(value)
-        for value in (
-            str(entrypoint),
-            "codex-hook",
-            phase,
-            "--adapter-id",
-            adapter_id,
-        )
+def _codex_home(environment: Mapping[str, str] | None = None) -> Path:
+    source = os.environ if environment is None else environment
+    configured = source.get("CODEX_HOME")
+    return Path(configured).expanduser().resolve() if configured else (Path.home() / ".codex").resolve()
+
+
+def _local_codex_activation(repository: Path) -> str | None:
+    completed = subprocess.run(
+        ["git", "-C", str(repository), "config", "--local", "--get", CODEX_ACTIVATION_KEY],
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    if completed.returncode == 1:
+        return None
+    if completed.returncode != 0:
+        raise ToolError("git-config-failed", (completed.stderr or completed.stdout).strip() or "cannot read Codex activation")
+    return completed.stdout.strip()
+
+
+def _set_local_codex_activation(repository: Path, value: str | None) -> None:
+    command = ["git", "-C", str(repository), "config", "--local"]
+    command += ["--unset-all", CODEX_ACTIVATION_KEY] if value is None else [CODEX_ACTIVATION_KEY, value]
+    completed = subprocess.run(command, check=False, capture_output=True, text=True)
+    accepted = {0, 5} if value is None else {0}
+    if completed.returncode not in accepted:
+        raise ToolError("git-config-failed", (completed.stderr or completed.stdout).strip() or "cannot update Codex activation")
+
+
+def _managed_hook_command(phase: str, adapter_id: str) -> str:
+    arguments = " ".join(shlex.quote(value) for value in ("codex-hook", phase, "--adapter-id", adapter_id))
+    return (
+        "root=$(git rev-parse --show-toplevel 2>/dev/null) || exit 0; "
+        f'activation=$(git -C "$root" config --local --get {shlex.quote(CODEX_ACTIVATION_KEY)} 2>/dev/null) || exit 0; '
+        f'[ "$activation" = {shlex.quote(CODEX_ACTIVATION_VALUE)} ] || exit 0; '
+        f'launcher="$root/{STABLE_TRIGGER_LAUNCHER}"; '
+        '[ -x "$launcher" ] || exit 0; '
+        f'exec "$launcher" {arguments}'
     )
 
 
-def _managed_hook_group(repository: Path, phase: str, adapter_id: str) -> dict[str, object]:
+def _managed_hook_group(phase: str, adapter_id: str) -> dict[str, object]:
     return {
         "matcher": CODEX_HOOK_MATCHER,
         "hooks": [
             {
                 "type": "command",
-                "command": _managed_hook_command(repository, phase, adapter_id),
+                "command": _managed_hook_command(phase, adapter_id),
                 "timeout": CODEX_HOOK_TIMEOUT_SECONDS,
                 "statusMessage": f"CAPRMEDIO auto-commit {phase}",
             }
@@ -890,6 +916,7 @@ def _is_managed_hook_group(value: object) -> bool:
                 ".caprmedio_install/bin/commit-trigger",
                 ".caprmedio_install/releases/",
                 ".caprmedio_runtime/installed/tools/auto_commit/",
+                CODEX_ACTIVATION_KEY,
             )
         )
         and " codex-hook " in str(hook["command"])
@@ -897,17 +924,41 @@ def _is_managed_hook_group(value: object) -> bool:
     )
 
 
-def _hook_document(repository: Path, adapter_id: str, existing: Mapping[str, Any] | None = None) -> dict[str, Any]:
+def _hook_document(adapter_id: str, existing: Mapping[str, Any] | None = None) -> dict[str, Any]:
     document = dict(existing or {})
-    document.setdefault("description", "Project-local Codex hooks.")
+    document.setdefault("description", "User-level Codex hooks.")
     raw_hooks = document.get("hooks")
     hooks = dict(raw_hooks) if isinstance(raw_hooks, Mapping) else {}
-    for event, phase in (("PreToolUse", "pre"), ("PostToolUse", "post")):
+    for event, phase in (
+        ("PreToolUse", "pre"),
+        ("PostToolUse", "post"),
+        ("SessionStart", "start"),
+        ("Stop", "stop"),
+    ):
         groups = hooks.get(event)
         retained = [group for group in groups if not _is_managed_hook_group(group)] if isinstance(groups, list) else []
-        hooks[event] = [*retained, _managed_hook_group(repository, phase, adapter_id)]
+        hooks[event] = [*retained, _managed_hook_group(phase, adapter_id)]
     document["hooks"] = hooks
     return document
+
+
+def _without_managed_hooks(document: Mapping[str, Any]) -> tuple[dict[str, Any], bool]:
+    result = dict(document)
+    raw_hooks = result.get("hooks")
+    hooks = dict(raw_hooks) if isinstance(raw_hooks, Mapping) else {}
+    changed = False
+    for event in ("PreToolUse", "PostToolUse", "SessionStart", "Stop"):
+        groups = hooks.get(event)
+        if not isinstance(groups, list):
+            continue
+        retained = [group for group in groups if not _is_managed_hook_group(group)]
+        changed = changed or len(retained) != len(groups)
+        if retained:
+            hooks[event] = retained
+        else:
+            hooks.pop(event, None)
+    result["hooks"] = hooks
+    return result, changed
 
 
 def _read_hook_document(path: Path) -> dict[str, Any]:
@@ -925,25 +976,34 @@ def _read_hook_document(path: Path) -> dict[str, Any]:
 def install_codex_hooks(repository: Path, adapter_id: str) -> dict[str, object]:
     runtime_config = _install_root(repository) / "hooks" / "codex" / "hooks.json"
     project_config = repository / ".codex" / "hooks.json"
-    managed = _hook_document(repository, adapter_id)
+    user_config = _codex_home() / "hooks.json"
+    managed = _hook_document(adapter_id)
     _atomic_write(runtime_config, json.dumps(managed, ensure_ascii=False, indent=2, sort_keys=True) + "\n")
-    project_config.parent.mkdir(parents=True, exist_ok=True)
-    if not project_config.exists() and not project_config.is_symlink():
-        relative_target = os.path.relpath(runtime_config, project_config.parent)
-        project_config.symlink_to(relative_target)
-        carrier = "runtime-symlink"
-    elif project_config.is_symlink() and project_config.resolve() == runtime_config.resolve():
-        carrier = "runtime-symlink"
-    else:
-        existing = _read_hook_document(project_config)
-        merged = _hook_document(repository, adapter_id, existing)
-        _atomic_write(project_config, json.dumps(merged, ensure_ascii=False, indent=2, sort_keys=True) + "\n")
-        carrier = "merged-project-config"
+    merged = _hook_document(adapter_id, _read_hook_document(user_config))
+    _atomic_write(user_config, json.dumps(merged, ensure_ascii=False, indent=2, sort_keys=True) + "\n")
+
+    project_changed = False
+    if project_config.is_symlink() and project_config.resolve() == runtime_config.resolve():
+        project_config.unlink()
+        project_changed = True
+    elif project_config.is_file() and not project_config.is_symlink():
+        project_document = _read_hook_document(project_config)
+        retained, changed = _without_managed_hooks(project_document)
+        if changed:
+            remaining = retained.get("hooks")
+            if not remaining and project_document.get("description") == "Project-local Codex hooks.":
+                project_config.unlink()
+            else:
+                _atomic_write(project_config, json.dumps(retained, ensure_ascii=False, indent=2, sort_keys=True) + "\n")
+            project_changed = True
+    _set_local_codex_activation(repository, CODEX_ACTIVATION_VALUE)
     return {
         "registered": True,
-        "carrier": project_config.relative_to(repository).as_posix(),
-        "carrier_kind": carrier,
-        "runtime_config": runtime_config.relative_to(repository).as_posix(),
+        "carrier": user_config.as_posix(),
+        "carrier_kind": "merged-user-config",
+        "canonical_fragment": runtime_config.relative_to(repository).as_posix(),
+        "project_carrier_removed": project_changed,
+        "activation": CODEX_ACTIVATION_VALUE,
     }
 
 
@@ -958,22 +1018,49 @@ def uninstall_codex_hooks(repository: Path) -> dict[str, object]:
         document = _read_hook_document(project_config)
         raw_hooks = document.get("hooks")
         hooks = dict(raw_hooks) if isinstance(raw_hooks, Mapping) else {}
-        for event in ("PreToolUse", "PostToolUse"):
-            groups = hooks.get(event)
-            if isinstance(groups, list):
-                retained = [group for group in groups if not _is_managed_hook_group(group)]
-                changed = changed or len(retained) != len(groups)
-                if retained:
-                    hooks[event] = retained
-                else:
-                    hooks.pop(event, None)
-        document["hooks"] = hooks
-        _atomic_write(project_config, json.dumps(document, ensure_ascii=False, indent=2, sort_keys=True) + "\n")
+        retained, stripped = _without_managed_hooks(document)
+        changed = changed or stripped
+        _atomic_write(project_config, json.dumps(retained, ensure_ascii=False, indent=2, sort_keys=True) + "\n")
     try:
         runtime_config.unlink()
     except FileNotFoundError:
         pass
-    return {"registered": False, "changed": changed, "carrier": project_config.relative_to(repository).as_posix()}
+    _set_local_codex_activation(repository, None)
+    return {
+        "registered": False,
+        "changed": changed,
+        "shared_user_carrier_preserved": True,
+        "carrier": (_codex_home() / "hooks.json").as_posix(),
+    }
+
+
+def codex_hooks_status(repository: Path, adapter_id: str) -> dict[str, object]:
+    user_config = _codex_home() / "hooks.json"
+    fragment = _install_root(repository) / "hooks" / "codex" / "hooks.json"
+    try:
+        document = _read_hook_document(user_config)
+    except ToolError:
+        document = {}
+    raw_hooks = document.get("hooks")
+    hooks = raw_hooks if isinstance(raw_hooks, Mapping) else {}
+    phases = {
+        event: any(group == _managed_hook_group(phase, adapter_id) for group in hooks.get(event, []) if isinstance(group, Mapping))
+        for event, phase in (
+            ("PreToolUse", "pre"),
+            ("PostToolUse", "post"),
+            ("SessionStart", "start"),
+            ("Stop", "stop"),
+        )
+    }
+    return {
+        "registered": all(phases.values()) and _local_codex_activation(repository) == CODEX_ACTIVATION_VALUE,
+        "carrier": user_config.as_posix(),
+        "canonical_fragment": fragment.relative_to(repository).as_posix(),
+        "canonical_fragment_present": fragment.is_file(),
+        "activation": _local_codex_activation(repository),
+        "phases": phases,
+        "project_carrier_present": (repository / ".codex/hooks.json").exists(),
+    }
 
 
 def _local_git_hooks_path(repository: Path) -> str | None:
@@ -1120,7 +1207,7 @@ def adapter_operation(
     resolved_repository = resolve_repository(Path(repository))
     registered = _read_registry(resolved_repository)
     if operation == "status":
-        project_hook = resolved_repository / ".codex" / "hooks.json"
+        codex_status = codex_hooks_status(resolved_repository, "codex-file-events")
         git_hooks_path = _local_git_hooks_path(resolved_repository)
         git_hook_carriers = [resolved_repository / MANAGED_GIT_HOOKS_PATH / name for name in GIT_HOOK_NAMES]
         return {
@@ -1136,10 +1223,12 @@ def adapter_operation(
                 }
                 for entry in (registered[key] for key in sorted(registered))
             ],
-            "host_hook_registered": project_hook.exists() or project_hook.is_symlink(),
-            "host_hook_carrier": project_hook.relative_to(resolved_repository).as_posix(),
+            "host_hook_registered": codex_status["registered"],
+            "host_hook_carrier": codex_status["carrier"],
+            "host_hook_phases": codex_status["phases"],
+            "host_hook_project_carrier_present": codex_status["project_carrier_present"],
             "host_hook_activation": "host-controlled-unverified",
-            "host_hook_operator_action": "Review and trust the project hooks once with /hooks in Codex CLI.",
+            "host_hook_operator_action": "Restart or resume each Codex task and review the changed user hooks once with /hooks.",
             "git_hooks_registered": git_hooks_path == MANAGED_GIT_HOOKS_PATH and all(path.is_file() and os.access(path, os.X_OK) for path in git_hook_carriers),
             "git_hooks_path": git_hooks_path,
             "git_hook_carriers": [path.relative_to(resolved_repository).as_posix() for path in git_hook_carriers],
@@ -1236,6 +1325,12 @@ def _hook_snapshot_path(repository: Path, payload: Mapping[str, Any]) -> Path:
     return _runtime_directory(repository) / "hook_snapshots" / f"{key}.json"
 
 
+def _session_baseline_path(repository: Path, payload: Mapping[str, Any]) -> Path:
+    session_id = _validate_uuid(payload.get("session_id"), "session_id")
+    key = _sha256({"schema_version": 1, "session_id": session_id})
+    return _runtime_directory(repository) / "session_baselines" / f"{key}.json"
+
+
 def _frontier_document(frontier: Mapping[str, FileState]) -> dict[str, dict[str, object]]:
     return {
         path: {
@@ -1262,6 +1357,70 @@ def _frontier_from_document(value: object) -> dict[str, FileState]:
             raise ToolError("codex-hook-snapshot-invalid", f"frontier state is invalid: {path}")
         result[str(path)] = FileState(str(path), sha256, identity, line_count)
     return result
+
+
+def _write_session_baseline(
+    repository: Path,
+    payload: Mapping[str, Any],
+    frontier: Mapping[str, FileState],
+    *,
+    active: bool,
+) -> Path:
+    path = _session_baseline_path(repository, payload)
+    document = {
+        "schema_version": 1,
+        "session_id": _validate_uuid(payload.get("session_id"), "session_id"),
+        "active": active,
+        "frontier": _frontier_document(frontier),
+    }
+    _atomic_write(path, _canonical_json(document) + "\n")
+    return path
+
+
+def _read_session_baseline(path: Path) -> tuple[str, bool, dict[str, FileState]]:
+    try:
+        value = json.loads(path.read_text(encoding="utf-8"))
+    except FileNotFoundError as error:
+        raise ToolError("codex-session-baseline-missing", "Codex session baseline is missing") from error
+    except json.JSONDecodeError as error:
+        raise ToolError("codex-session-baseline-invalid", f"{path}: invalid JSON") from error
+    document = _require_mapping(value, "session baseline")
+    if document.get("schema_version") != 1 or not isinstance(document.get("active"), bool):
+        raise ToolError("codex-session-baseline-invalid", f"{path}: invalid schema")
+    session_id = _validate_uuid(document.get("session_id"), "session_id")
+    return session_id, bool(document["active"]), _frontier_from_document(document.get("frontier"))
+
+
+def _other_active_sessions(repository: Path, current: Path) -> list[str]:
+    directory = current.parent
+    if not directory.is_dir():
+        return []
+    result: list[str] = []
+    for path in sorted(directory.glob("*.json")):
+        if path == current:
+            continue
+        session_id, active, _ = _read_session_baseline(path)
+        if active:
+            result.append(session_id)
+    return result
+
+
+def _git_dirty_governed_paths(repository: Path) -> set[str]:
+    commands = (
+        ["git", "-C", str(repository), "diff", "--name-only", "--no-renames", "-z", "HEAD", "--", ".caprmedio"],
+        ["git", "-C", str(repository), "ls-files", "--others", "--exclude-standard", "-z", "--", ".caprmedio"],
+    )
+    result: set[str] = set()
+    for command in commands:
+        completed = subprocess.run(command, check=False, capture_output=True)
+        if completed.returncode != 0:
+            raise ToolError("git-status-failed", completed.stderr.decode("utf-8", "replace").strip() or "cannot read governed Git state")
+        result.update(value.decode("utf-8") for value in completed.stdout.split(b"\0") if value)
+    return result
+
+
+def _observation_intersects_paths(observation: Mapping[str, Any], paths: set[str]) -> bool:
+    return any(value in paths for value in (observation.get("before_path"), observation.get("after_path")) if isinstance(value, str))
 
 
 def _hook_log(repository: Path, value: Mapping[str, Any]) -> None:
@@ -1300,23 +1459,109 @@ def _import_commit_change_set() -> Any:
     return commit_change_set
 
 
+def _commit_hook_observations(
+    repository: Path,
+    selected: AdapterSpec,
+    observations: Sequence[Mapping[str, Any]],
+    *,
+    session_uuid: str,
+) -> list[dict[str, str]]:
+    with_session = [
+        {**observation, "llm_session": {"app": selected.application, "uuid": session_uuid}}
+        for observation in observations
+    ]
+    triggers = emit_triggers(with_session, adapter=selected, repository=repository, environment={})
+    if not triggers:
+        return []
+    committer = _import_commit_change_set()
+    commits: list[dict[str, str]] = []
+    for trigger in triggers:
+        try:
+            result = committer.run(repository, {"trigger": trigger}, apply=True)
+        except Exception as error:
+            _hook_log(
+                repository,
+                {
+                    "schema_version": 1,
+                    "event": "auto_commit_failed",
+                    "trigger_id": trigger["trigger_id"],
+                    "error_code": str(getattr(error, "code", "unexpected-error")),
+                },
+            )
+            raise ToolError("auto-commit-failed", str(error)) from error
+        commits.append({"trigger_id": str(trigger["trigger_id"]), "commit": str(result["commit"])})
+    _hook_log(repository, {"schema_version": 1, "event": "auto_commit_completed", "commits": commits})
+    return commits
+
+
 def codex_hook(repository: Path | str, phase: str, adapter_id: str, payload: Mapping[str, Any]) -> dict[str, object]:
     root = resolve_repository(Path(repository))
     cwd = Path(str(payload.get("cwd") or root)).expanduser().resolve()
     if cwd != root and root not in cwd.parents:
         return {"phase": phase, "effect": "outside-repository", "commit_count": 0}
+    selected = _read_registry(root).get(_require_identifier(adapter_id, "adapter_id"))
+    if selected is None or not selected.enabled:
+        return {"phase": phase, "effect": "adapter-not-enabled", "commit_count": 0}
+    session_uuid = _validate_uuid(payload.get("session_id"), "session_id")
+    baseline_path = _session_baseline_path(root, payload)
+    current_frontier = scan_governed_files(root)
+    if phase == "start":
+        if baseline_path.is_file():
+            _, _, baseline = _read_session_baseline(baseline_path)
+            _write_session_baseline(root, payload, baseline, active=True)
+            effect = "baseline-resumed"
+        else:
+            _write_session_baseline(root, payload, current_frontier, active=True)
+            effect = "baseline-created"
+        return {"phase": phase, "effect": effect, "commit_count": 0}
+    if phase == "stop":
+        if not baseline_path.is_file():
+            return {"phase": phase, "effect": "no-session-baseline", "commit_count": 0}
+        _, _, previous = _read_session_baseline(baseline_path)
+        other_sessions = _other_active_sessions(root, baseline_path)
+        if other_sessions:
+            return {
+                "phase": phase,
+                "effect": "ambiguous-session-ownership",
+                "commit_count": 0,
+                "other_sessions": other_sessions,
+            }
+        observed_at = dt.datetime.now(dt.UTC).replace(microsecond=0).isoformat().replace("+00:00", "Z")
+        dirty_paths = _git_dirty_governed_paths(root)
+        observations = [
+            observation
+            for observation in detect_watch_observations(
+                previous,
+                current_frontier,
+                adapter_id=selected.adapter_id,
+                repository=root,
+                observed_at=observed_at,
+                correlations=_read_pipeline_correlations(_runtime_directory(root) / PIPELINE_CORRELATIONS_NAME),
+            )
+            if _hook_eligible(observation) and _observation_intersects_paths(observation, dirty_paths)
+        ]
+        commits = _commit_hook_observations(root, selected, observations, session_uuid=session_uuid)
+        _write_session_baseline(root, payload, scan_governed_files(root), active=False)
+        return {
+            "phase": phase,
+            "effect": "reconciled" if commits else "no-eligible-uncommitted-change",
+            "commit_count": len(commits),
+            "commits": commits,
+        }
+    if phase not in {"pre", "post"}:
+        raise ToolError("codex-hook-phase-invalid", "Codex hook phase must be start, pre, post, or stop")
     snapshot_path = _hook_snapshot_path(root, payload)
     if phase == "pre":
+        if not baseline_path.is_file() or not _read_session_baseline(baseline_path)[1]:
+            _write_session_baseline(root, payload, current_frontier, active=True)
         snapshot = {
             "schema_version": 1,
             "session_id": _require_string(payload.get("session_id"), "session_id"),
             "tool_use_id": _require_string(payload.get("tool_use_id"), "tool_use_id"),
-            "frontier": _frontier_document(scan_governed_files(root)),
+            "frontier": _frontier_document(current_frontier),
         }
         _atomic_write(snapshot_path, _canonical_json(snapshot) + "\n")
         return {"phase": phase, "effect": "snapshot", "commit_count": 0}
-    if phase != "post":
-        raise ToolError("codex-hook-phase-invalid", "Codex hook phase must be pre or post")
     if not snapshot_path.is_file():
         return {"phase": phase, "effect": "no-pre-snapshot", "commit_count": 0}
     try:
@@ -1328,21 +1573,13 @@ def codex_hook(repository: Path | str, phase: str, adapter_id: str, payload: Map
         raise ToolError("codex-hook-snapshot-invalid", "Codex pre-hook snapshot schema is invalid")
     if snapshot.get("session_id") != payload.get("session_id") or snapshot.get("tool_use_id") != payload.get("tool_use_id"):
         raise ToolError("codex-hook-snapshot-mismatch", "Codex pre/post hook identities differ")
-    selected = _read_registry(root).get(_require_identifier(adapter_id, "adapter_id"))
-    if selected is None or not selected.enabled:
-        return {"phase": phase, "effect": "adapter-not-enabled", "commit_count": 0}
-    session_uuid = _validate_uuid(payload.get("session_id"), "session_id")
     previous = _frontier_from_document(snapshot.get("frontier"))
-    current = scan_governed_files(root)
     observed_at = dt.datetime.now(dt.UTC).replace(microsecond=0).isoformat().replace("+00:00", "Z")
     observations = [
-        {
-            **observation,
-            "llm_session": {"app": selected.application, "uuid": session_uuid},
-        }
+        observation
         for observation in detect_watch_observations(
             previous,
-            current,
+            current_frontier,
             adapter_id=selected.adapter_id,
             repository=root,
             observed_at=observed_at,
@@ -1350,34 +1587,10 @@ def codex_hook(repository: Path | str, phase: str, adapter_id: str, payload: Map
         )
         if _hook_eligible(observation)
     ]
-    triggers = emit_triggers(observations, adapter=selected, repository=root, environment={})
-    if not triggers:
+    commits = _commit_hook_observations(root, selected, observations, session_uuid=session_uuid)
+    _write_session_baseline(root, payload, scan_governed_files(root), active=True)
+    if not commits:
         return {"phase": phase, "effect": "no-eligible-change", "commit_count": 0}
-    committer = _import_commit_change_set()
-    commits: list[dict[str, str]] = []
-    for trigger in triggers:
-        try:
-            result = committer.run(root, {"trigger": trigger}, apply=True)
-        except Exception as error:
-            _hook_log(
-                root,
-                {
-                    "schema_version": 1,
-                    "event": "auto_commit_failed",
-                    "trigger_id": trigger["trigger_id"],
-                    "error_code": str(getattr(error, "code", "unexpected-error")),
-                },
-            )
-            raise ToolError("auto-commit-failed", str(error)) from error
-        commits.append({"trigger_id": str(trigger["trigger_id"]), "commit": str(result["commit"])})
-    _hook_log(
-        root,
-        {
-            "schema_version": 1,
-            "event": "auto_commit_completed",
-            "commits": commits,
-        },
-    )
     return {"phase": phase, "effect": "committed", "commit_count": len(commits), "commits": commits}
 
 
@@ -1452,7 +1665,10 @@ def _describe() -> dict[str, object]:
                 "effects": [],
                 "result": "one read-only handoff envelope per detected source boundary",
             },
-            "codex-hook": {"input": "Codex hook JSON on stdin", "effects": ["pre snapshot or complete auto-commit flow"]},
+            "codex-hook": {
+                "input": "Codex hook JSON on stdin",
+                "effects": ["session baseline", "pre snapshot", "immediate auto-commit", "stop reconciliation"],
+            },
             "adapter install": {"input": "adapter identity and host session resolver", "effects": ["runtime registry", "Codex Hook registration", "install-owned Git Hook registration"]},
             "adapter status": {"effects": []},
             "adapter enable": {"effects": ["runtime registry"]},
@@ -1480,8 +1696,8 @@ def _parser() -> argparse.ArgumentParser:
         "--pipeline-correlation-file",
         help="optional NDJSON action/path suppression frontier; default is the Tool runtime path",
     )
-    codex = commands.add_parser("codex-hook", help="execute one Codex pre/post Tool-use adapter phase")
-    codex.add_argument("phase", choices=("pre", "post"))
+    codex = commands.add_parser("codex-hook", help="execute one Codex lifecycle adapter phase")
+    codex.add_argument("phase", choices=("start", "pre", "post", "stop"))
     codex.add_argument("--adapter-id", required=True)
     adapter = commands.add_parser("adapter", help="manage explicit host-adapter registration")
     adapter_commands = adapter.add_subparsers(dest="adapter_command", required=True)
