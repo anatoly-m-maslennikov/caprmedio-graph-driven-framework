@@ -225,6 +225,47 @@ class InstallToolsTests(unittest.TestCase):
             },
         )
 
+    def test_user_dispatcher_requires_local_activation_and_selects_current_repository(self) -> None:
+        install_tools.install(self.repository, apply=True)
+        hook_document = json.loads(self.user_hooks.read_text(encoding="utf-8"))
+        command = hook_document["hooks"]["PreToolUse"][-1]["hooks"][0]["command"]
+        (self.repository / ".caprmedio").mkdir()
+        payload = json.dumps(
+            {
+                "session_id": "019f591f-04f6-70f2-8de7-828b7cccc69d",
+                "tool_use_id": "tool-use-001",
+                "cwd": str(self.repository),
+            }
+        )
+        delegated = subprocess.run(
+            command,
+            cwd=self.repository,
+            input=payload,
+            shell=True,
+            check=True,
+            capture_output=True,
+            text=True,
+            env={**os.environ, "CODEX_HOME": str(self.codex_home)},
+        )
+        self.assertEqual("snapshot", json.loads(delegated.stdout)["result"]["effect"])
+
+        uninstalled = Path(self.temporary.name) / "uninstalled"
+        uninstalled.mkdir()
+        subprocess.run(["git", "-C", str(uninstalled), "init", "-q"], check=True)
+        fake = uninstalled / ".caprmedio_install/bin/commit-trigger"
+        fake.parent.mkdir(parents=True)
+        sentinel = uninstalled / "unexpected-dispatch"
+        fake.write_text(f"#!/bin/sh\ntouch {sentinel}\n", encoding="utf-8")
+        fake.chmod(0o755)
+        skipped = subprocess.run(command, cwd=uninstalled, input=payload, shell=True, check=True, capture_output=True, text=True)
+        self.assertEqual("", skipped.stdout)
+        self.assertFalse(sentinel.exists())
+
+        outside = Path(self.temporary.name) / "outside"
+        outside.mkdir()
+        skipped_outside = subprocess.run(command, cwd=outside, input=payload, shell=True, check=True, capture_output=True, text=True)
+        self.assertEqual("", skipped_outside.stdout)
+
 
 if __name__ == "__main__":
     unittest.main()
