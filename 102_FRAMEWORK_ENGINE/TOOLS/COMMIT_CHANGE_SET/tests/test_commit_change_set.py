@@ -5,6 +5,7 @@ from __future__ import annotations
 import hashlib
 import importlib.util
 import json
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -18,6 +19,7 @@ assert SPEC is not None and SPEC.loader is not None
 commit_change_set = importlib.util.module_from_spec(SPEC)
 sys.modules[SPEC.name] = commit_change_set
 SPEC.loader.exec_module(commit_change_set)
+UNSET = object()
 
 class CommitChangeSetTests(unittest.TestCase):
     def setUp(self) -> None:
@@ -58,7 +60,7 @@ class CommitChangeSetTests(unittest.TestCase):
         )
         target.write_text(f"---\nversion: {version}\n{relation_lines}---\n# {target.stem}\n\n{body}\n", encoding="utf-8")
 
-    def trigger(self) -> dict[str, object]:
+    def trigger(self, before_path: object = UNSET, after_path: object = UNSET, *, source_event_id: str = "source-event-1") -> dict[str, object]:
         git_directory = (self.root / self.git("rev-parse", "--git-dir").strip()).resolve()
         repository_identity = hashlib.sha256(
             json.dumps(
@@ -68,7 +70,6 @@ class CommitChangeSetTests(unittest.TestCase):
             ).encode("utf-8")
         ).hexdigest()
         adapter_id = "codex-test"
-        source_event_id = "source-event-1"
         trigger_id = hashlib.sha256(
             json.dumps(
                 {
@@ -88,8 +89,8 @@ class CommitChangeSetTests(unittest.TestCase):
             "source_event_id": source_event_id,
             "repository": {"root": str(self.root), "identity": repository_identity},
             "observed_at": "2026-08-20T20:21:22Z",
-            "before_path": self.subject,
-            "after_path": self.subject,
+            "before_path": self.subject if before_path is UNSET else before_path,
+            "after_path": self.subject if after_path is UNSET else after_path,
             "llm_session": {"app": "codex", "uuid": "019f591f-04f6-70f2-8de7-828b7cccc69d"},
         }
 
@@ -145,6 +146,89 @@ class CommitChangeSetTests(unittest.TestCase):
         self.assertEqual(len(result["receipts"]), len(result["pipeline_correlations"]))
         self.assertEqual("released", result["lease"]["status"])
         self.assertFalse((self.root / ".caprmedio_runtime/state/commit_change_set/lease.json").exists())
+
+    def test_e236_commits_one_folder_action_with_all_entries_and_one_event(self) -> None:
+        self.git("checkout", "--", self.subject)
+        folder = self.root / "src"
+        folder.mkdir()
+        (folder / "a.py").write_text("a = 1\n", encoding="utf-8")
+        (folder / "b.py").write_text("b = 1\n", encoding="utf-8")
+        self.git("add", "src")
+        self.git("commit", "-qm", "folder fixture")
+        (folder / "a.py").write_text("a = 2\n", encoding="utf-8")
+        (folder / "b.py").write_text("b = 2\n", encoding="utf-8")
+
+        result = commit_change_set.run(
+            self.root,
+            {"trigger": self.trigger("src", "src", source_event_id="folder-event")},
+            apply=True,
+            wait_seconds=0,
+        )
+
+        changed = set(self.git("diff-tree", "--no-commit-id", "--name-only", "-r", "HEAD").splitlines())
+        self.assertEqual({"src/a.py", "src/b.py"}, {path for path in changed if not path.endswith(".ndjson")})
+        journal = next(path for path in changed if path.endswith(".ndjson"))
+        records = [json.loads(line) for line in (self.root / journal).read_text(encoding="utf-8").splitlines()]
+        completed = [record for record in records if record.get("event") == "completed"]
+        self.assertEqual(1, len(completed))
+        self.assertEqual("folder", completed[0]["subject_kind"])
+        self.assertEqual("governed_project_change", completed[0]["kind"])
+        self.assertEqual("released", result["lease"]["status"])
+
+    def test_commits_one_ordinary_project_file_without_graph_metadata(self) -> None:
+        self.git("checkout", "--", self.subject)
+        path = "notes.txt"
+        (self.root / path).write_text("first\n", encoding="utf-8")
+        self.git("add", path)
+        self.git("commit", "-qm", "ordinary fixture")
+        (self.root / path).write_text("second\n", encoding="utf-8")
+
+        result = commit_change_set.run(
+            self.root,
+            {"trigger": self.trigger(path, path, source_event_id="ordinary-file-event")},
+            apply=True,
+            wait_seconds=0,
+        )
+
+        changed = set(self.git("diff-tree", "--no-commit-id", "--name-only", "-r", "HEAD").splitlines())
+        self.assertIn(path, changed)
+        completed = result["context"]["predictions"]["journal_records"][-1]
+        self.assertEqual("file", completed["subject_kind"])
+        self.assertEqual([], completed["sources"])
+        self.assertEqual(2, completed["result"]["version"])
+
+    def test_folder_lifecycle_actions_each_remain_one_commit_and_event(self) -> None:
+        self.git("checkout", "--", self.subject)
+        folder = self.root / "src/pkg"
+        folder.mkdir(parents=True)
+        (folder / "a.py").write_text("a = 1\n", encoding="utf-8")
+        (folder / "b.py").write_text("b = 1\n", encoding="utf-8")
+        cases = [
+            (None, "src/pkg", "folder-add", "ADD", 1),
+            ("src/pkg", "lib/pkg", "folder-move", "MOVE", 2),
+            ("lib/pkg", "lib/pkg", "folder-update", "UPDATE", 3),
+            ("lib/pkg", None, "folder-remove", "REMOVE", 3),
+        ]
+        for before, after, event_id, expected_action, expected_version in cases:
+            if event_id == "folder-move":
+                (self.root / "lib").mkdir()
+                shutil.move(str(self.root / "src/pkg"), str(self.root / "lib/pkg"))
+            elif event_id == "folder-update":
+                (self.root / "lib/pkg/a.py").write_text("a = 2\n", encoding="utf-8")
+                (self.root / "lib/pkg/b.py").write_text("b = 2\n", encoding="utf-8")
+            elif event_id == "folder-remove":
+                shutil.rmtree(self.root / "lib/pkg")
+            result = commit_change_set.run(
+                self.root,
+                {"trigger": self.trigger(before, after, source_event_id=event_id)},
+                apply=True,
+                wait_seconds=0,
+            )
+            context = result["context"]
+            self.assertEqual(expected_action, context["action_type"])
+            self.assertEqual(expected_version, context["result"]["version"])
+            self.assertEqual("folder", context["subject"]["kind"])
+            self.assertEqual(1, len([record for record in context["predictions"]["journal_records"] if record["event"] == "completed"]))
 
     def test_e196_rejects_missing_receipts_without_runtime_mutation(self) -> None:
         context = commit_change_set.gather_context(self.root, self.trigger())
@@ -244,7 +328,7 @@ class CommitChangeSetTests(unittest.TestCase):
         parent = ".caprmedio/04_requirement/CA-R-001-REQUIREMENT--parent.md"
         self.write_atom(parent, version=2, relations={}, body="changed parent")
         self.git("add", parent)
-        with self.assertRaisesRegex(commit_change_set.ToolError, "Atom paths") as captured:
+        with self.assertRaisesRegex(commit_change_set.ToolError, "project paths") as captured:
             commit_change_set.evaluate_pre_commit(self.root)
         self.assertEqual("governed-subject-mismatch", captured.exception.code)
 
