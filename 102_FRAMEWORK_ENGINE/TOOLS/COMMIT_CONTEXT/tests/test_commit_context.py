@@ -135,6 +135,39 @@ class CommitContextTests(unittest.TestCase):
             context["sources"],
         )
 
+    def test_ordinary_project_file_uses_logger_revision_without_graph_requirements(self) -> None:
+        path = "README.txt"
+        (self.root / path).write_text("first\n", encoding="utf-8")
+        added = gather_context(self.root, self.trigger(None, path))
+        self.assertEqual("file", added["subject"]["kind"])
+        self.assertEqual(1, added["result"]["version"])
+        self.assertEqual([], added["sources"])
+
+        self.git("add", path)
+        self.git("commit", "-m", "ordinary fixture")
+        (self.root / path).write_text("second\n", encoding="utf-8")
+        updated = gather_context(self.root, self.trigger(path, path))
+        self.assertEqual("UPDATE", updated["action_type"])
+        self.assertEqual(2, updated["result"]["version"])
+
+    def test_folder_context_seals_one_ordered_entry_set(self) -> None:
+        folder = self.root / "src"
+        folder.mkdir()
+        (folder / "a.py").write_text("a = 1\n", encoding="utf-8")
+        (folder / "b.py").write_text("b = 1\n", encoding="utf-8")
+        self.git("add", "src")
+        self.git("commit", "-m", "folder fixture")
+        (folder / "a.py").write_text("a = 2\n", encoding="utf-8")
+        (folder / "b.py").write_text("b = 2\n", encoding="utf-8")
+
+        context = gather_context(self.root, self.trigger("src", "src"))
+
+        self.assertEqual("folder", context["subject"]["kind"])
+        self.assertEqual("UPDATE", context["action_type"])
+        self.assertEqual(["src/a.py", "src/b.py"], [entry["path"] for entry in context["result"]["entries"]])
+        self.assertEqual(2, context["result"]["version"])
+        self.assertEqual([], context["sources"])
+
     def test_repeated_context_is_byte_identical_and_keeps_session_provenance_structured(self) -> None:
         path = ".caprmedio/04_requirement/CA-R-002-REQUIREMENT--subject.md"
         self.write_atom(path, version=1, relations={})
