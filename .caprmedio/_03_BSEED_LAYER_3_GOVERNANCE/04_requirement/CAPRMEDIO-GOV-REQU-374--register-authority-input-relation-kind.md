@@ -1,8 +1,8 @@
 ---
 subject_scopes:
   - relation-model
-version: 1
-updated_at: 2026-08-17 16:39:43
+version: 2
+updated_at: 2026-08-21 20:51:16
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -15,4 +15,6 @@ relations:
 ---
 # Register authority input relation kind
 
-GOV registers `authority_input` as the relation kind for a Contract whose declared provider endpoints supply normative authority to its declared consumer endpoint, independently of the operator-chosen labels of those scopes.
+GOVERNANCE registers `authority_input` as a typed frontmatter relation owned by
+the consuming Atom and directed to the exact upstream Atoms that supply its
+normative authority, independently of Operator-chosen Scope Unit labels.
