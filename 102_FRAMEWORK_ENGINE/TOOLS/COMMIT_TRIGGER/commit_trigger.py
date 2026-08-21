@@ -410,26 +410,71 @@ def _carrier_identity(relative: str, data: bytes) -> str:
     return f"path:{relative}"
 
 
-def scan_governed_files(repository: Path | str) -> dict[str, FileState]:
-    """Read the eligible source frontier for the native Codex polling adapter.
+def _inside_excluded_dot_directory(relative: str) -> bool:
+    parts = Path(relative).parts
+    return len(parts) > 1 and parts[0].startswith(".") and parts[0] != ".caprmedio"
 
-    The native adapter treats `.caprmedio` carriers as governed source.  It
-    observes Journal carriers too, because a path alone must not determine
-    recursion suppression; `PipelineCorrelation` is the authoritative
-    suppression signal.  Runtime state is outside governed source and is not
-    scanned.
-    """
+
+def _is_work_journal_path(relative: str) -> bool:
+    return Path(relative).parts[:2] == (".caprmedio", "work_journal")
+
+
+def _git_ignores(repository: Path, relative: str) -> bool:
+    completed = subprocess.run(
+        ["git", "-C", str(repository), "check-ignore", "--no-index", "-q", "--", relative],
+        check=False,
+        capture_output=True,
+    )
+    if completed.returncode in {0, 1}:
+        return completed.returncode == 0
+    raise ToolError(
+        "git-ignore-check-failed",
+        completed.stderr.decode("utf-8", "replace").strip() or f"cannot evaluate Git ignore rules for {relative}",
+    )
+
+
+def _project_path_eligible(repository: Path, relative: str, *, journal_for_correlation: bool = False) -> bool:
+    path = Path(relative)
+    if path.is_absolute() or not path.parts or ".." in path.parts:
+        return False
+    if _inside_excluded_dot_directory(relative):
+        return False
+    if _is_work_journal_path(relative) and not journal_for_correlation:
+        return False
+    return not _git_ignores(repository, relative)
+
+
+def _working_bytes(path: Path) -> bytes:
+    if path.is_symlink():
+        return os.readlink(path).encode("utf-8")
+    return path.read_bytes()
+
+
+def scan_governed_files(repository: Path | str) -> dict[str, FileState]:
+    """Read every Git-admitted project file plus Journal correlation carriers."""
 
     resolved_repository = resolve_repository(Path(repository))
-    control_root = resolved_repository / ".caprmedio"
-    if not control_root.is_dir():
-        raise ToolError("governed-source-not-found", f"{control_root} does not exist")
+    if not (resolved_repository / ".caprmedio").is_dir():
+        raise ToolError("governed-source-not-found", f"{resolved_repository / '.caprmedio'} does not exist")
+    completed = subprocess.run(
+        ["git", "-C", str(resolved_repository), "ls-files", "--cached", "--others", "--exclude-standard", "-z"],
+        check=False,
+        capture_output=True,
+    )
+    if completed.returncode != 0:
+        raise ToolError(
+            "git-project-frontier-failed",
+            completed.stderr.decode("utf-8", "replace").strip() or "cannot enumerate the Git-admitted project frontier",
+        )
     result: dict[str, FileState] = {}
-    for path in sorted(control_root.rglob("*")):
-        if not path.is_file() or path.is_symlink():
+    candidates = sorted(value.decode("utf-8") for value in completed.stdout.split(b"\0") if value)
+    for relative in candidates:
+        if not _project_path_eligible(resolved_repository, relative, journal_for_correlation=True):
             continue
-        relative = path.relative_to(resolved_repository).as_posix()
-        data = path.read_bytes()
+        path = resolved_repository / relative
+        if not path.is_file() and not path.is_symlink():
+            continue
+        data = _working_bytes(path)
         result[relative] = FileState(
             path=relative,
             sha256=hashlib.sha256(data).hexdigest(),
@@ -539,7 +584,62 @@ def detect_watch_observations(
     active_correlations = {} if correlations is None else dict(correlations)
     removed = {path: previous[path] for path in sorted(set(previous) - set(current))}
     added = {path: current[path] for path in sorted(set(current) - set(previous))}
+    modified = {
+        path: (previous[path], current[path])
+        for path in sorted(set(previous) & set(current))
+        if previous[path].sha256 != current[path].sha256
+    }
     observations: list[dict[str, object]] = []
+
+    # One host callback is one observed operation.  When that operation changes
+    # more than one file below one non-root folder, preserve it as one folder
+    # subject instead of inventing independent file actions.  Journal changes
+    # stay singular so exact pipeline correlation can suppress them.
+    before_states = list(removed.values()) + [pair[0] for pair in modified.values()]
+    after_states = list(added.values()) + [pair[1] for pair in modified.values()]
+    logical_width = max(len(before_states), len(after_states))
+
+    def common_folder(states: Sequence[FileState]) -> str | None:
+        if not states:
+            return None
+        common = Path(os.path.commonpath([state.path for state in states]))
+        if common.as_posix() in {state.path for state in states}:
+            common = common.parent
+        value = common.as_posix()
+        return None if value in {"", "."} else value
+
+    def folder_state(folder: str, states: Sequence[FileState]) -> FileState:
+        entries = [
+            {"path": state.path, "sha256": state.sha256}
+            for state in sorted(states, key=lambda item: item.path)
+        ]
+        return FileState(
+            path=folder,
+            sha256=_sha256(entries),
+            identity=f"folder:{folder}",
+            line_count=sum(state.line_count for state in states),
+        )
+
+    before_folder = common_folder(before_states)
+    after_folder = common_folder(after_states)
+    changed_paths = {state.path for state in before_states + after_states}
+    if (
+        logical_width > 1
+        and not any(_is_work_journal_path(path) for path in changed_paths)
+        and (before_folder is None or _project_path_eligible(resolved_repository, before_folder))
+        and (after_folder is None or _project_path_eligible(resolved_repository, after_folder))
+    ):
+        observations.append(
+            _watch_observation(
+                adapter_id=adapter_id,
+                repository=resolved_repository,
+                observed_at=canonical_time,
+                before=folder_state(before_folder, before_states) if before_folder is not None else None,
+                after=folder_state(after_folder, after_states) if after_folder is not None else None,
+                correlations=active_correlations,
+            )
+        )
+        return observations
 
     # A unique stable carrier identity establishes one old/new path boundary,
     # including when the carrier was edited during relocation.  This remains
@@ -619,20 +719,18 @@ def detect_watch_observations(
                 correlations=active_correlations,
             )
         )
-    for path in sorted(set(previous) & set(current)):
-        before = previous[path]
-        after = current[path]
-        if before.sha256 != after.sha256:
-            observations.append(
-                _watch_observation(
-                    adapter_id=adapter_id,
-                    repository=resolved_repository,
-                    observed_at=canonical_time,
-                    before=before,
-                    after=after,
-                    correlations=active_correlations,
-                )
+    for path in sorted(modified):
+        before, after = modified[path]
+        observations.append(
+            _watch_observation(
+                adapter_id=adapter_id,
+                repository=resolved_repository,
+                observed_at=canonical_time,
+                before=before,
+                after=after,
+                correlations=active_correlations,
             )
+        )
     return sorted(observations, key=lambda item: str(item["source_event_id"]))
 
 
@@ -1408,15 +1506,21 @@ def _other_active_sessions(repository: Path, current: Path) -> list[str]:
 
 def _git_dirty_governed_paths(repository: Path) -> set[str]:
     commands = (
-        ["git", "-C", str(repository), "diff", "--name-only", "--no-renames", "-z", "HEAD", "--", ".caprmedio"],
-        ["git", "-C", str(repository), "ls-files", "--others", "--exclude-standard", "-z", "--", ".caprmedio"],
+        ["git", "-C", str(repository), "diff", "--name-only", "--no-renames", "-z", "HEAD", "--"],
+        ["git", "-C", str(repository), "ls-files", "--others", "--exclude-standard", "-z"],
     )
     result: set[str] = set()
     for command in commands:
         completed = subprocess.run(command, check=False, capture_output=True)
         if completed.returncode != 0:
             raise ToolError("git-status-failed", completed.stderr.decode("utf-8", "replace").strip() or "cannot read governed Git state")
-        result.update(value.decode("utf-8") for value in completed.stdout.split(b"\0") if value)
+        result.update(
+            relative
+            for value in completed.stdout.split(b"\0")
+            if value
+            for relative in (value.decode("utf-8"),)
+            if _project_path_eligible(repository, relative)
+        )
     return result
 
 
@@ -1441,12 +1545,10 @@ def _hook_log(repository: Path, value: Mapping[str, Any]) -> None:
         os.close(descriptor)
 
 
-def _hook_eligible(observation: Mapping[str, Any]) -> bool:
+def _hook_eligible(repository: Path, observation: Mapping[str, Any]) -> bool:
     paths = [observation.get("before_path"), observation.get("after_path")]
-    selected = [Path(value) for value in paths if isinstance(value, str)]
-    if not selected or not all(path.suffix == ".md" and "--" in path.name for path in selected):
-        return False
-    return not any("archive" in path.parts or "drafts" in path.parts for path in selected)
+    selected = [value for value in paths if isinstance(value, str)]
+    return bool(selected) and all(_project_path_eligible(repository, value) for value in selected)
 
 
 def _import_commit_change_set() -> Any:
@@ -1539,7 +1641,7 @@ def codex_hook(repository: Path | str, phase: str, adapter_id: str, payload: Map
                 observed_at=observed_at,
                 correlations=_read_pipeline_correlations(_runtime_directory(root) / PIPELINE_CORRELATIONS_NAME),
             )
-            if _hook_eligible(observation) and _observation_intersects_paths(observation, dirty_paths)
+            if _hook_eligible(root, observation) and _observation_intersects_paths(observation, dirty_paths)
         ]
         commits = _commit_hook_observations(root, selected, observations, session_uuid=session_uuid)
         _write_session_baseline(root, payload, scan_governed_files(root), active=False)
@@ -1586,7 +1688,7 @@ def codex_hook(repository: Path | str, phase: str, adapter_id: str, payload: Map
             observed_at=observed_at,
             correlations=_read_pipeline_correlations(_runtime_directory(root) / PIPELINE_CORRELATIONS_NAME),
         )
-        if _hook_eligible(observation)
+        if _hook_eligible(root, observation)
     ]
     commits = _commit_hook_observations(root, selected, observations, session_uuid=session_uuid)
     _write_session_baseline(root, payload, scan_governed_files(root), active=True)
