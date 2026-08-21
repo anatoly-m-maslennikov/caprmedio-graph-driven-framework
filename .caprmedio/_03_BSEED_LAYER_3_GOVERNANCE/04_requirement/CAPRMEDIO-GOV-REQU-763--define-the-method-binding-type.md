@@ -1,8 +1,8 @@
 ---
 subject_scopes:
   - artifact-catalog
-version: 1
-updated_at: 2026-08-19 04:55:53
+version: 2
+updated_at: 2026-08-21 20:51:16
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -14,4 +14,7 @@ relations:
 ---
 # Define the Method Binding Type
 
-`method_binding` is the relational Method Type that governs how exact Method revisions apply across explicit endpoints without duplicating those Methods.
+`method_binding` is an internal Method Type that governs how exact Method
+revisions apply to explicit targets without duplicating those Methods. Its
+connections to the Method revisions and targets are typed frontmatter
+relations.
