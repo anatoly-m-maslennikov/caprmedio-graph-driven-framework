@@ -2,8 +2,8 @@
 atom_id: CA-E-226
 subject_scopes:
   - evaluation
-version: 1
-updated_at: 2026-08-21 04:52:02
+version: 2
+updated_at: 2026-08-21 05:03:22
 relations:
   evaluation_for:
     - CA-R-856
@@ -19,11 +19,11 @@ One installed user-level dispatcher makes the same CAPRMEDIO Hook boundaries ava
 
 ## Test case
 
-Prepare a Codex user Hook carrier with unrelated groups, install Tools into two repositories, and invoke each managed Hook command once from each repository and once outside any repository.
+Prepare a Codex user Hook carrier with unrelated groups, install Tools into two repositories, prepare a third uninstalled repository with a lookalike launcher, and invoke each managed Hook command from every repository and once outside any repository.
 
 ## Acceptance criteria
 
-Installation preserves every unrelated group and creates exactly one generic group for each of wildcard `PreToolUse`, wildcard `PostToolUse`, `SessionStart`, and `Stop`. Each in-repository invocation delegates only to that repository's executable `.caprmedio_install/bin/commit-trigger`; the outside invocation exits successfully without effect. No command embeds an absolute project path, release digest, or executable dependency in the Codex user directory.
+Installation preserves every unrelated group and creates exactly one generic group for each of wildcard `PreToolUse`, wildcard `PostToolUse`, `SessionStart`, and `Stop`. Each installed repository carries local Git activation `caprmedio.codex-hooks = v1`, and its invocation delegates only to its executable `.caprmedio_install/bin/commit-trigger`. The uninstalled repository and outside invocation exit successfully without effect. No command embeds an absolute project path, release digest, or executable dependency in the Codex user directory.
 
 ## Failure disposition
 
