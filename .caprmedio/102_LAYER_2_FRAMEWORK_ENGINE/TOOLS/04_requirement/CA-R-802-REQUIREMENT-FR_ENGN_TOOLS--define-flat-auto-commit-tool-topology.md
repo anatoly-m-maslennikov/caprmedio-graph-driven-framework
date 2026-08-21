@@ -2,15 +2,15 @@
 subject_scopes:
   - feature-boundary
 tier: core
-version: 6
-updated_at: 2026-08-21 04:52:02
+version: 7
+updated_at: 2026-08-21 06:34:42
 relations:
   child_of:
     - CAPRMEDIO-FRAMEWORK-ENGINE-REQU-702--define-tools-feature-scope
 ---
 # Define flat auto-commit Tool topology
 
-`TOOLS` must own exactly four immediate peer `unordered_unit` Tool scopes for automatic commit after one governed file change:
+`TOOLS` must own exactly four immediate peer `unordered_unit` Tool scopes for automatic commit after one governed project-path action. One action has exactly one file or folder subject and produces one Journal action and one Git commit:
 
 | Scope | Full name and prefix | Tool kind | Structural address |
 |---|---|---|---|
