@@ -1,21 +1,13 @@
 ---
 subject_scopes:
   - framework-boundary
-version: 1
-updated_at: 2026-08-17 19:36:01
+version: 2
+updated_at: 2026-08-21 20:51:16
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   child_of:
     - CAPRMEDIO-REQU-014--support-repository-relative-work-areas
-relation_kind: scope_declaration_for
-endpoints:
-  - role: declarer
-    identity: adopting_repository_owner
-    origin: internal
-  - role: consumer
-    identity: caprmedio_governed_workflows
-    origin: internal
 ---
 
 # Contract — Repository Work Area declaration
@@ -30,11 +22,6 @@ content without requiring code or deployability.
 Every scope-dependent CAPRMEDIO consumer resolves the current accepted
 declaration before work. Session continuity may retain a bounded reference but
 cannot create, rename, reclassify, replace, or supersede the boundary.
-
-## Direction
-
-Repository scope declaration → CAPRMEDIO artifacts, workflows, evaluation, runs,
-and handoffs.
 
 ## Conformance
 
