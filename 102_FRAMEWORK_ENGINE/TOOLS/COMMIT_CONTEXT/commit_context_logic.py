@@ -367,6 +367,7 @@ def is_active_path(path: str) -> bool:
 
 def working_graph(root: Path, *, override_path: str | None = None, override: bytes | None = None) -> dict[str, Carrier]:
     graph: dict[str, Carrier] = {}
+    ambiguous: set[str] = set()
     control_root = root / ".caprmedio"
     for path in sorted(control_root.rglob("*.md")):
         relative = path.relative_to(root).as_posix()
@@ -387,8 +388,12 @@ def working_graph(root: Path, *, override_path: str | None = None, override: byt
             # and remains the responsibility of repository-wide validators.
             continue
         for key in {carrier.identity, carrier.filename, carrier.filename.removesuffix(".md")}:
+            if key in ambiguous:
+                continue
             if key in graph and graph[key].path != carrier.path:
-                raise ContextError("artifact_identity_ambiguous", "active artifact identity resolves to more than one carrier", identity=key)
+                graph.pop(key)
+                ambiguous.add(key)
+                continue
             graph[key] = carrier
     return graph
 
@@ -397,6 +402,7 @@ def committed_graph(root: Path) -> dict[str, Carrier]:
     payload = git(root, ["ls-tree", "-r", "-z", "--name-only", "HEAD", "--", ".caprmedio"])
     assert payload is not None
     graph: dict[str, Carrier] = {}
+    ambiguous: set[str] = set()
     for raw_path in payload.split(b"\0"):
         if not raw_path:
             continue
@@ -412,8 +418,12 @@ def committed_graph(root: Path) -> dict[str, Carrier]:
         except ContextError:
             continue
         for key in {carrier.identity, carrier.filename, carrier.filename.removesuffix(".md")}:
+            if key in ambiguous:
+                continue
             if key in graph and graph[key].path != carrier.path:
-                raise ContextError("artifact_identity_ambiguous", "committed artifact identity resolves to more than one carrier", identity=key)
+                graph.pop(key)
+                ambiguous.add(key)
+                continue
             graph[key] = carrier
     return graph
 
@@ -510,16 +520,33 @@ def resolve_author(root: Path, trigger: Mapping[str, Any], environment: Mapping[
     return author
 
 
-def resolve_relations(source: Carrier, graph: Mapping[str, Carrier], registry: Mapping[str, Mapping[str, Any]]) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+def resolve_relations(
+    source: Carrier,
+    graph: Mapping[str, Carrier],
+    registry: Mapping[str, Mapping[str, Any]],
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]], list[dict[str, Any]]]:
     detailed: list[dict[str, Any]] = []
+    diagnostics: list[dict[str, Any]] = []
     for relation_type, raw_targets in source.relations.items():
         row = registry.get(relation_type)
         if row is None:
-            raise ContextError("relation_kind_unknown", "carrier uses a relation type absent from the canonical registry", relation_type=relation_type, path=source.path)
-        if row["status"] != "active":
-            raise ContextError("relation_kind_inactive", "carrier uses an inactive relation type", relation_type=relation_type, path=source.path)
-        if source.lifecycle not in row["source_lifecycles"]:
-            raise ContextError("relation_source_lifecycle_invalid", "carrier lifecycle cannot author this direct relation", relation_type=relation_type, lifecycle=source.lifecycle)
+            diagnostics.append(
+                ContextError(
+                    "relation_kind_unresolved",
+                    "logger preserved the file change without resolving an unknown relation kind",
+                    relation_type=relation_type,
+                    path=source.path,
+                ).diagnostic()
+            )
+        elif row["status"] != "active" or source.lifecycle not in row["source_lifecycles"]:
+            diagnostics.append(
+                ContextError(
+                    "relation_rule_not_applicable",
+                    "logger did not enforce the relation registry while recording the file change",
+                    relation_type=relation_type,
+                    path=source.path,
+                ).diagnostic()
+            )
         for raw_target in raw_targets:
             key = raw_target.removesuffix(".md")
             if "@" in key:
@@ -528,11 +555,35 @@ def resolve_relations(source: Carrier, graph: Mapping[str, Carrier], registry: M
                 stated_version = None
             target = graph.get(key) or graph.get(Path(key).name) or graph.get(Path(key).name.removesuffix(".md"))
             if target is None:
-                raise ContextError("relation_target_missing", "direct relation target does not resolve in the selected graph", relation_type=relation_type, target=raw_target)
-            if target.lifecycle not in row["target_lifecycles"]:
-                raise ContextError("relation_target_lifecycle_invalid", "direct relation target has an ineligible lifecycle", relation_type=relation_type, target=target.filename, lifecycle=target.lifecycle)
+                diagnostics.append(
+                    ContextError(
+                        "relation_target_unresolved",
+                        "logger preserved the file change without resolving a missing or ambiguous relation target",
+                        relation_type=relation_type,
+                        target=raw_target,
+                    ).diagnostic()
+                )
+                continue
+            if row is not None and target.lifecycle not in row["target_lifecycles"]:
+                diagnostics.append(
+                    ContextError(
+                        "relation_target_rule_not_applicable",
+                        "logger did not enforce target lifecycle eligibility while recording the file change",
+                        relation_type=relation_type,
+                        target=target.filename,
+                    ).diagnostic()
+                )
             if stated_version is not None and (not stated_version.isdecimal() or int(stated_version) != target.version):
-                raise ContextError("non_current_upstream_version", "relation target does not name its current version", relation_type=relation_type, target=target.filename, stated_version=stated_version, current_version=target.version)
+                diagnostics.append(
+                    ContextError(
+                        "relation_target_version_differs",
+                        "logger used the observable target version without rejecting the file change",
+                        relation_type=relation_type,
+                        target=target.filename,
+                        stated_version=stated_version,
+                        observed_version=target.version,
+                    ).diagnostic()
+                )
             detailed.append(
                 {
                     "relation_type": relation_type,
@@ -540,19 +591,37 @@ def resolve_relations(source: Carrier, graph: Mapping[str, Carrier], registry: M
                     "version": target.version,
                     "path": target.path,
                     "sha256": target.sha256,
-                    "registry": {
-                        "direct_direction": row["direct_direction"],
-                        "upstream_endpoint": row["upstream_endpoint"],
-                        "inverse_name": row["inverse_name"],
-                    },
+                    "registry": (
+                        {
+                            "direct_direction": row["direct_direction"],
+                            "upstream_endpoint": row["upstream_endpoint"],
+                            "inverse_name": row["inverse_name"],
+                        }
+                        if row is not None
+                        else {}
+                    ),
                 }
             )
     detailed.sort(key=lambda value: (value["relation_type"], value["filename"], value["version"]))
-    seen = {(value["relation_type"], value["filename"], value["version"]) for value in detailed}
-    if len(seen) != len(detailed):
-        raise ContextError("relation_target_duplicate", "carrier has a duplicate direct relation target")
+    unique: list[dict[str, Any]] = []
+    seen: set[tuple[str, str, int]] = set()
+    for value in detailed:
+        key = (value["relation_type"], value["filename"], value["version"])
+        if key in seen:
+            diagnostics.append(
+                ContextError(
+                    "relation_target_duplicate_ignored",
+                    "logger ignored one duplicate relation target while recording the file change",
+                    relation_type=value["relation_type"],
+                    target=value["filename"],
+                ).diagnostic()
+            )
+            continue
+        seen.add(key)
+        unique.append(value)
+    detailed = unique
     sources = [{key: relation[key] for key in ("relation_type", "filename", "version")} for relation in detailed]
-    return detailed, sources
+    return detailed, sources, diagnostics
 
 
 def scan_prior_events(root: Path, journal_relative: Path, before: Carrier | None) -> tuple[dict[str, Any] | None, dict[str, Any] | None]:
@@ -816,7 +885,14 @@ def gather_context(root: Path, trigger: Mapping[str, Any], *, environment: Mappi
         graph = working_graph(root, override_path=result.path if result is not None else None, override=result.body if result is not None else None)
         relation_source = result
     assert relation_source is not None
-    relations, sources = resolve_relations(relation_source, graph, relation_registry(root))
+    relation_diagnostics: list[dict[str, Any]] = []
+    try:
+        registry = relation_registry(root)
+    except ContextError as error:
+        registry = {}
+        relation_diagnostics.append(error.diagnostic())
+    relations, sources, resolved_relation_diagnostics = resolve_relations(relation_source, graph, registry)
+    relation_diagnostics.extend(resolved_relation_diagnostics)
     current_result = removed_result(before) if change == "REMOVE" else present_result(result)  # type: ignore[arg-type]
 
     action_id = digest({"schema_version": CONTEXT_SCHEMA_VERSION, "trigger_id": normalized["trigger_id"], "identity": subject.identity})
@@ -912,7 +988,7 @@ def gather_context(root: Path, trigger: Mapping[str, Any], *, environment: Mappi
             "staged": present_result(carrier_from_bytes(after_path, state_blob(root, after_path, "staged"))) if after_path is not None and state_blob(root, after_path, "staged") is not None else None,
             "working": present_result(carrier_from_bytes(after_path, state_blob(root, after_path, "working"))) if after_path is not None and state_blob(root, after_path, "working") is not None else None,
         },
-        "validation": {"valid": True, "diagnostics": []},
+        "validation": {"valid": True, "diagnostics": relation_diagnostics},
         "predictions": {
             "journal_records": predicted_records,
             "journal_partitions": predicted_partitions(root, journal_relative, author, local_date, len(predicted_records)),
