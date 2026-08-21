@@ -1,8 +1,8 @@
 ---
 subject_scopes:
   - authority
-version: 1
-updated_at: 2026-08-17 19:36:01
+version: 2
+updated_at: 2026-08-21 20:51:16
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -12,6 +12,12 @@ relations:
   replacement_of:
     - CAPRMEDIO-GOV-REQU-386--self-hosted-governance-loci
 ---
-# Define self-hosted Governance loci
+# Define self-hosted Governance origins
 
-In the CAPRMEDIO framework repository, root framework sources and applied project artifacts are internal; the framework exposed through `.caprmedio/000_caprmedio_framework/` is external from the consuming project's context; artifacts whose primary meaning exists between explicit endpoints are relational. These loci describe meaning ownership rather than Git authorship, filesystem ownership, or byte identity.
+Within the CAPRMEDIO framework source project, Bootstrap Seed authority,
+framework authority, and applied project Artifacts have internal Governance
+origin. A distributed CAPRMEDIO framework source has external Governance origin
+relative to a consuming project until that project establishes its own internal
+Adaptation authority. Graph relations do not change either origin. These
+origins describe meaning ownership rather than Git authorship, filesystem
+ownership, or byte identity.
