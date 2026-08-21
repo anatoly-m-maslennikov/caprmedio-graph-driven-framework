@@ -266,6 +266,24 @@ class InstallToolsTests(unittest.TestCase):
         skipped_outside = subprocess.run(command, cwd=outside, input=payload, shell=True, check=True, capture_output=True, text=True)
         self.assertEqual("", skipped_outside.stdout)
 
+    def test_unavailable_user_hook_carrier_fails_with_current_selection_unchanged(self) -> None:
+        first = install_tools.install(self.repository, apply=True)
+        current_before = (self.repository / ".caprmedio_install/current.toml").read_bytes()
+        fragment_before = (self.repository / ".caprmedio_install/hooks/codex/hooks.json").read_bytes()
+        registry = self.canonical / "background_services.toml"
+        registry.write_text("schema_version = 1\nservices = []\n# blocked user carrier\n", encoding="utf-8")
+        unavailable = Path(self.temporary.name) / "codex-home-is-a-file"
+        unavailable.write_text("not a directory\n", encoding="utf-8")
+        os.environ["CODEX_HOME"] = str(unavailable)
+
+        with self.assertRaisesRegex(install_tools.ToolError, "cannot update the Codex user Hook carrier"):
+            install_tools.install(self.repository, apply=True)
+
+        self.assertEqual(current_before, (self.repository / ".caprmedio_install/current.toml").read_bytes())
+        self.assertEqual(fragment_before, (self.repository / ".caprmedio_install/hooks/codex/hooks.json").read_bytes())
+        os.environ["CODEX_HOME"] = str(self.codex_home)
+        self.assertEqual(first["release"], install_tools.tool_status(self.repository)["release"])
+
 
 if __name__ == "__main__":
     unittest.main()
