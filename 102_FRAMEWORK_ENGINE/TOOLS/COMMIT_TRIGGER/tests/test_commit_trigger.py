@@ -172,7 +172,14 @@ class CommitTriggerTests(unittest.TestCase):
         managed_change = self.repository / "managed-change.txt"
         managed_change.write_text("managed\n", encoding="utf-8")
         self._git("add", managed_change.name)
-        self._git("commit", "-qm", "ordinary managed commit")
+        rejected = subprocess.run(
+            ["git", "-C", str(self.repository), "commit", "-qm", "ordinary managed commit"],
+            check=False,
+            capture_output=True,
+            text=True,
+        )
+        self.assertNotEqual(0, rejected.returncode)
+        self._git("reset", "-q", "--", managed_change.name)
         enabled = commit_trigger.emit_from_registered_adapter(
             [self._observation()], repository=self.repository, adapter_id=self.adapter.adapter_id, environment=self.environment
         )
@@ -383,9 +390,10 @@ class CommitTriggerTests(unittest.TestCase):
             {"app": "codex", "uuid": "019f5920-04f6-70f2-8de7-828b7cccc69d"},
         )
 
-    def test_codex_hook_admits_active_atom_carriers_only(self) -> None:
+    def test_codex_hook_admits_all_project_paths_and_excludes_other_dot_directories(self) -> None:
         self.assertTrue(
             commit_trigger._hook_eligible(
+                self.repository,
                 {
                     "before_path": ".caprmedio/04_requirement/CA-R-001-REQUIREMENT--subject.md",
                     "after_path": ".caprmedio/04_requirement/CA-R-001-REQUIREMENT--subject.md",
@@ -393,12 +401,51 @@ class CommitTriggerTests(unittest.TestCase):
             )
         )
         for path in (
+            ".caprmedio_runtime/state.json",
+            ".caprmedio_install/current.toml",
+            ".github/workflows/test.yml",
+            ".f4f/config.toml",
+        ):
+            self.assertFalse(commit_trigger._hook_eligible(self.repository, {"before_path": path, "after_path": path}), path)
+        for path in (
+            "README.md",
+            "src/application.py",
+            ".gitignore",
             ".caprmedio/stg_requirements_subjects.md",
-            ".caprmedio/CA-INTENT.md",
-            ".caprmedio/04_requirement/drafts/CA-R-DRAFT-REQUIREMENT--subject.md",
             ".caprmedio/04_requirement/archive/CA-R-001-REQUIREMENT--subject.md",
         ):
-            self.assertFalse(commit_trigger._hook_eligible({"before_path": path, "after_path": path}), path)
+            self.assertTrue(commit_trigger._hook_eligible(self.repository, {"before_path": path, "after_path": path}), path)
+
+    def test_project_frontier_uses_git_ignore_and_groups_one_folder_action(self) -> None:
+        (self.repository / ".gitignore").write_text("/.caprmedio_runtime/\n/ignored/\n", encoding="utf-8")
+        (self.repository / ".caprmedio").mkdir()
+        (self.repository / ".caprmedio/settings.toml").write_text("enabled = true\n", encoding="utf-8")
+        (self.repository / "src").mkdir()
+        (self.repository / "src/a.py").write_text("a = 1\n", encoding="utf-8")
+        (self.repository / "src/b.py").write_text("b = 1\n", encoding="utf-8")
+        (self.repository / "ignored").mkdir()
+        (self.repository / "ignored/value.txt").write_text("ignored\n", encoding="utf-8")
+        (self.repository / ".github").mkdir()
+        (self.repository / ".github/workflow.yml").write_text("ignored\n", encoding="utf-8")
+        previous = commit_trigger.scan_governed_files(self.repository)
+        self.assertIn("README.md", previous)
+        self.assertIn(".caprmedio/settings.toml", previous)
+        self.assertNotIn("ignored/value.txt", previous)
+        self.assertNotIn(".github/workflow.yml", previous)
+
+        (self.repository / "src/a.py").write_text("a = 2\n", encoding="utf-8")
+        (self.repository / "src/b.py").write_text("b = 2\n", encoding="utf-8")
+        current = commit_trigger.scan_governed_files(self.repository)
+        observations = commit_trigger.detect_watch_observations(
+            previous,
+            current,
+            adapter_id=self.adapter.adapter_id,
+            repository=self.repository,
+            observed_at="2026-08-21T02:00:00Z",
+        )
+        self.assertEqual(1, len(observations))
+        self.assertEqual("src", observations[0]["before_path"])
+        self.assertEqual("src", observations[0]["after_path"])
 
     def test_cli_exposes_machine_readable_contract_and_unchanged_handoff(self) -> None:
         observation_path = self.repository / "observation.json"
