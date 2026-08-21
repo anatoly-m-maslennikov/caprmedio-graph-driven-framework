@@ -5,6 +5,7 @@ from __future__ import annotations
 import importlib.util
 import json
 import os
+import re
 import shutil
 import subprocess
 import sys
@@ -111,7 +112,9 @@ class InstallToolsTests(unittest.TestCase):
         self.assertEqual({"PreToolUse", "PostToolUse", "SessionStart", "Stop"}, set(hook_document["hooks"]))
         for event in ("PreToolUse", "PostToolUse", "SessionStart", "Stop"):
             group = hook_document["hooks"][event][-1]
-            self.assertEqual("*", group["matcher"])
+            self.assertEqual(".*", group["matcher"])
+            for tool_name in ("functions.exec", "apply_patch"):
+                self.assertIsNotNone(re.fullmatch(group["matcher"], tool_name))
             command = group["hooks"][0]["command"]
             self.assertIn("caprmedio.codex-hooks", command)
             self.assertIn(".caprmedio_install/bin/commit-trigger", command)
