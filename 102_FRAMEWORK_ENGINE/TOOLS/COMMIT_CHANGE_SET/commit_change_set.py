@@ -211,6 +211,7 @@ def _validate_context_identity_and_frontiers(context: Mapping[str, Any]) -> None
     subject = _require_mapping(context.get("subject"), "context.subject")
     source_frontier: dict[str, Any] = {
         "identity": subject.get("identity"),
+        "kind": subject.get("kind"),
         # This is the state of the selected *carrier*, not where that carrier
         # was observed (working/index/committed).  Context deliberately seals
         # a present carrier as ``present`` across those observation states.
@@ -238,9 +239,9 @@ def _validate_context_identity_and_frontiers(context: Mapping[str, Any]) -> None
 
 
 def _completed_event(events: Sequence[Mapping[str, Any]]) -> dict[str, Any]:
-    completed = [dict(event) for event in events if event.get("event") == "completed" and event.get("kind") == "governed_file_change"]
+    completed = [dict(event) for event in events if event.get("event") == "completed" and event.get("kind") == "governed_project_change"]
     if len(completed) != 1:
-        raise ToolError("invalid-context", "context must project exactly one completed governed_file_change event")
+        raise ToolError("invalid-context", "context must project exactly one completed governed_project_change event")
     return completed[0]
 
 
@@ -338,6 +339,17 @@ def _subject_paths(root: Path, context: Mapping[str, Any]) -> set[str]:
     """Return the only index paths that may already be staged for this action."""
     result = _require_mapping(context.get("result"), "context.result")
     trigger = _require_mapping(context.get("trigger"), "context.trigger")
+    subject = _require_mapping(context.get("subject"), "context.subject")
+    if subject.get("kind") == "folder":
+        snapshots = _require_mapping(context.get("snapshots"), "context.snapshots")
+        committed = snapshots.get("committed")
+        previous_entries = committed.get("entries", []) if isinstance(committed, Mapping) else []
+        current_entries = result.get("entries", []) if result.get("state") == "present" else []
+        return {
+            str(entry["path"])
+            for entry in [*previous_entries, *current_entries]
+            if isinstance(entry, Mapping) and isinstance(entry.get("path"), str)
+        }
     paths: set[str] = set()
     if result.get("state") == "present":
         current = _safe_path(root, result.get("path"), "context.result.path")
@@ -363,6 +375,12 @@ def _index_blob(root: Path, relative: str) -> bytes | None:
     return None
 
 
+def _working_bytes(path: Path) -> bytes:
+    if path.is_symlink():
+        return os.readlink(path).encode("utf-8")
+    return path.read_bytes()
+
+
 def _verify_live_relations(root: Path, context: Mapping[str, Any]) -> None:
     relations = context.get("relations")
     if not isinstance(relations, list):
@@ -385,14 +403,35 @@ def _preflight_commit_boundary(root: Path, context: Mapping[str, Any]) -> None:
     if _git_text(root, "rev-parse", "HEAD") != commit or _git_text(root, "rev-parse", "HEAD^{tree}") != tree:
         raise ToolError("stale-context", "Git base changed after context sealing")
     allowed = _subject_paths(root, context)
-    staged = {value.decode("utf-8") for value in _git(root, "diff", "--cached", "--name-only", "-z").split(b"\0") if value}
+    staged = {value.decode("utf-8") for value in _git(root, "diff", "--cached", "--name-only", "--no-renames", "-z").split(b"\0") if value}
     if not staged.issubset(allowed):
         raise ToolError("unrelated-staged-change", "repository index contains a staged path outside the sealed subject action")
     result = _require_mapping(context.get("result"), "context.result")
-    if result.get("state") == "present":
+    subject = _require_mapping(context.get("subject"), "context.subject")
+    if subject.get("kind") == "folder" and result.get("state") == "present":
+        entries = result.get("entries")
+        if not isinstance(entries, list) or not entries:
+            raise ToolError("invalid-context", "present folder result has no entries")
+        for entry in entries:
+            item = _require_mapping(entry, "context.result.entries item")
+            current = _safe_path(root, item.get("path"), "context.result.entries.path")
+            expected = item.get("sha256")
+            if (not current.is_file() and not current.is_symlink()) or not isinstance(expected, str) or _sha256(_working_bytes(current)) != expected:
+                raise ToolError("stale-context", "folder entry no longer matches the sealed result")
+            relative = _relative(root, current)
+            staged_blob = _index_blob(root, relative)
+            if relative in staged and (staged_blob is None or _sha256(staged_blob) != expected):
+                raise ToolError("stale-context", "staged folder entry differs from sealed result")
+        current_paths = {str(entry["path"]) for entry in entries}
+        for previous in allowed.difference(current_paths):
+            if (root / previous).exists() or ((root / previous).is_symlink()):
+                raise ToolError("stale-context", "removed folder entry has reappeared")
+            if previous in staged and _index_blob(root, previous) is not None:
+                raise ToolError("stale-context", "staged prior folder entry is not deleted")
+    elif result.get("state") == "present":
         current = _safe_path(root, result.get("path"), "context.result.path")
         expected = result.get("sha256")
-        if not current.is_file() or not isinstance(expected, str) or _sha256(current.read_bytes()) != expected:
+        if (not current.is_file() and not current.is_symlink()) or not isinstance(expected, str) or _sha256(_working_bytes(current)) != expected:
             raise ToolError("stale-context", "subject carrier no longer matches the sealed result")
         relative = _relative(root, current)
         staged_blob = _index_blob(root, relative)
@@ -402,11 +441,11 @@ def _preflight_commit_boundary(root: Path, context: Mapping[str, Any]) -> None:
             if previous in staged and _index_blob(root, previous) is not None:
                 raise ToolError("stale-context", "staged prior subject carrier is not deleted")
     else:
-        removed = next(iter(allowed))
-        if (root / removed).exists():
-            raise ToolError("stale-context", "removed subject carrier has reappeared")
-        if removed in staged and _index_blob(root, removed) is not None:
-            raise ToolError("stale-context", "staged removed subject carrier is not deleted")
+        for removed in allowed:
+            if (root / removed).exists() or (root / removed).is_symlink():
+                raise ToolError("stale-context", "removed subject carrier has reappeared")
+            if removed in staged and _index_blob(root, removed) is not None:
+                raise ToolError("stale-context", "staged removed subject carrier is not deleted")
     _verify_live_relations(root, context)
 
 
@@ -475,14 +514,20 @@ def _changed_paths(records: Sequence[Mapping[str, str | None]]) -> set[str]:
     }
 
 
-def _is_atom_path(path: str) -> bool:
+def _is_project_subject_path(root: Path, path: str) -> bool:
     candidate = Path(path)
-    return (
-        len(candidate.parts) >= 2
-        and candidate.parts[0] == ".caprmedio"
-        and candidate.suffix == ".md"
-        and "--" in candidate.name
+    if candidate.is_absolute() or not candidate.parts or ".." in candidate.parts or _is_journal_path(path):
+        return False
+    if len(candidate.parts) > 1 and candidate.parts[0].startswith(".") and candidate.parts[0] != ".caprmedio":
+        return False
+    completed = subprocess.run(
+        ["git", "-C", str(root), "check-ignore", "--no-index", "-q", "--", path],
+        check=False,
+        capture_output=True,
     )
+    if completed.returncode not in {0, 1}:
+        raise ToolError("git-ignore-check-failed", completed.stderr.decode("utf-8", "replace").strip() or "cannot evaluate Git ignore rules")
+    return completed.returncode == 1
 
 
 def _is_journal_path(path: str) -> bool:
@@ -601,13 +646,13 @@ def _evaluate_governed_boundary(
     )
     if forbidden:
         raise ToolError("local-machine-path-staged", "installation, runtime, and Git-internal paths cannot be part of a governed commit")
-    atom_paths = {path for path in paths if _is_atom_path(path)}
+    subject_paths = {path for path in paths if _is_project_subject_path(root, path)}
     journal_paths = {path for path in paths if _is_journal_path(path)}
-    governed = bool(atom_paths or journal_paths)
+    governed = bool(subject_paths or journal_paths)
     if not governed:
         return {"governed": False, "changed_paths": sorted(paths), "validation_results": [{"name": "ordinary-commit-boundary", "ok": True}]}
-    if not atom_paths:
-        raise ToolError("governed-subject-missing", "a governed Journal boundary has no Atom subject change")
+    if not subject_paths:
+        raise ToolError("governed-subject-missing", "a governed Journal boundary has no project-path subject change")
     if not journal_paths:
         raise ToolError("governed-journal-missing", "a governed Atom boundary has no Journal sidecar")
     events, carriers = _journal_additions(root, records, base_revision=base_revision, current_bytes=current_bytes)
@@ -623,32 +668,69 @@ def _evaluate_governed_boundary(
     if action_type == "ADD":
         if previous is not None or result.get("state") != "present":
             raise ToolError("governed-subject-mismatch", "ADD must have one present result and no previous result")
-        expected_atoms = {str(result.get("path"))}
+        expected_subjects = {str(result.get("path"))}
     elif action_type == "REMOVE":
         if previous is None or result.get("state") != "removed":
             raise ToolError("governed-subject-mismatch", "REMOVE must have one removed result and one previous result")
-        expected_atoms = {str(previous.get("path"))}
+        expected_subjects = {str(previous.get("path"))}
     else:
         if previous is None or result.get("state") != "present":
             raise ToolError("governed-subject-mismatch", f"{action_type} must have present previous and current results")
-        expected_atoms = {str(previous.get("path")), str(result.get("path"))}
-    if not expected_atoms or "None" in expected_atoms or atom_paths != expected_atoms:
-        raise ToolError("governed-subject-mismatch", "changed Atom paths do not match the structured Journal result lineage")
+        expected_subjects = {str(previous.get("path")), str(result.get("path"))}
+    subject_kind = completed.get("subject_kind", "file")
+    if subject_kind == "folder":
+        current_entries = result.get("entries", []) if result.get("state") == "present" else []
+        previous_entries = previous.get("entries", []) if isinstance(previous, Mapping) else []
+        expected_subjects = {
+            str(entry["path"])
+            for entry in [*previous_entries, *current_entries]
+            if isinstance(entry, Mapping) and isinstance(entry.get("path"), str)
+        }
+        # Only changed entries appear in a Git boundary; unchanged entries are
+        # sealed in the folder result but must not be required in the diff.
+        expected_subjects = {
+            path for path in expected_subjects
+            if (_git_show_bytes(root, base_revision, path) or b"") != (current_bytes(path) or b"")
+        }
+    if not expected_subjects or "None" in expected_subjects or subject_paths != expected_subjects:
+        raise ToolError("governed-subject-mismatch", "changed project paths do not match the structured Journal result lineage")
     current_path = result.get("path")
-    if result.get("state") == "present":
+    if result.get("state") == "present" and subject_kind == "folder":
+        entries = result.get("entries")
+        if not isinstance(entries, list) or canonical_json_digest([
+            {"path": Path(entry["path"]).relative_to(str(result.get("path"))).as_posix(), "sha256": entry["sha256"]}
+            for entry in entries
+        ]) != result.get("sha256"):
+            raise ToolError("governed-subject-mismatch", "current folder result has an invalid entry digest")
+        for entry in entries:
+            current = current_bytes(str(entry["path"]))
+            if current is None or _sha256(current) != entry.get("sha256"):
+                raise ToolError("governed-subject-mismatch", "current folder entry differs from the Journal result")
+    elif result.get("state") == "present":
         if not isinstance(current_path, str) or Path(current_path).name != result.get("filename"):
             raise ToolError("governed-subject-mismatch", "current result filename and path disagree")
         current = current_bytes(current_path)
         if current is None or _sha256(current) != result.get("sha256"):
             raise ToolError("governed-subject-mismatch", "current Atom bytes differ from the Journal result")
-    if previous is not None:
+    if previous is not None and subject_kind == "folder":
+        entries = previous.get("entries")
+        if not isinstance(entries, list) or canonical_json_digest([
+            {"path": Path(entry["path"]).relative_to(str(previous.get("path"))).as_posix(), "sha256": entry["sha256"]}
+            for entry in entries
+        ]) != previous.get("sha256"):
+            raise ToolError("governed-subject-mismatch", "previous folder result has an invalid entry digest")
+        for entry in entries:
+            base = _git_show_bytes(root, base_revision, str(entry["path"]))
+            if base is None or _sha256(base) != entry.get("sha256"):
+                raise ToolError("governed-subject-mismatch", "base folder entry differs from the previous Journal result")
+    elif previous is not None:
         previous_path = previous.get("path")
         if not isinstance(previous_path, str) or Path(previous_path).name != previous.get("filename"):
             raise ToolError("governed-subject-mismatch", "previous result filename and path disagree")
         base = _git_show_bytes(root, base_revision, previous_path)
         if base is None or _sha256(base) != previous.get("sha256"):
             raise ToolError("governed-subject-mismatch", "base Atom bytes differ from the previous Journal result")
-    allowed_paths = atom_paths | journal_paths
+    allowed_paths = subject_paths | journal_paths
     if paths != allowed_paths:
         raise ToolError("governed-extra-path", "governed commit contains a path outside its subject and Journal sidecars")
     try:
@@ -659,7 +741,7 @@ def _evaluate_governed_boundary(
         "governed": True,
         "action_id": next(iter(action_ids)),
         "action_type": action_type,
-        "subject_paths": sorted(atom_paths),
+        "subject_paths": sorted(subject_paths),
         "journal_paths": carriers,
         "changed_paths": sorted(paths),
         "expected_message": message,
@@ -728,7 +810,7 @@ def observe_post_commit(root: Path) -> dict[str, Any]:
         valid = True
     except ToolError as error:
         result = {
-            "governed": any(_is_atom_path(path) or _is_journal_path(path) for path in _changed_paths(_commit_change_records(root, parent, commit))),
+            "governed": any(_is_project_subject_path(root, path) or _is_journal_path(path) for path in _changed_paths(_commit_change_records(root, parent, commit))),
             "changed_paths": sorted(_changed_paths(_commit_change_records(root, parent, commit))),
         }
         diagnostics.append({"code": error.code, "message": str(error)})
@@ -802,9 +884,35 @@ def _stage_subject(root: Path, context: Mapping[str, Any]) -> set[str]:
     trigger = _require_mapping(context.get("trigger"), "context.trigger")
     before_path = trigger.get("before_path")
     staged: set[str] = set()
+    subject = _require_mapping(context.get("subject"), "context.subject")
+    if subject.get("kind") == "folder":
+        snapshots = _require_mapping(context.get("snapshots"), "context.snapshots")
+        committed = snapshots.get("committed")
+        previous_entries = committed.get("entries", []) if isinstance(committed, Mapping) else []
+        current_entries = result.get("entries", []) if result.get("state") == "present" else []
+        previous_paths = {str(entry["path"]): str(entry["sha256"]) for entry in previous_entries}
+        current_paths = {str(entry["path"]): str(entry["sha256"]) for entry in current_entries}
+        for relative, sha256 in sorted(current_paths.items()):
+            path = _safe_path(root, relative, "context.result.entries.path")
+            if (not path.is_file() and not path.is_symlink()) or _sha256(_working_bytes(path)) != sha256:
+                raise ToolError("stale-context", "folder entry no longer exists at its sealed digest")
+            base = _git_show_bytes(root, "HEAD", relative)
+            if base is None or _sha256(base) != sha256:
+                _git(root, "add", "--", relative)
+                staged.add(relative)
+        for relative in sorted(set(previous_paths).difference(current_paths)):
+            path = _safe_path(root, relative, "context.snapshots.committed.entries.path")
+            if path.exists() or path.is_symlink():
+                raise ToolError("stale-context", "removed folder entry has reappeared")
+            if _is_tracked(root, relative):
+                _git(root, "update-index", "--force-remove", "--", relative)
+                staged.add(relative)
+        if not staged:
+            raise ToolError("stale-context", "folder action produces no Git entry change")
+        return staged
     if result.get("state") == "present":
         current = _safe_path(root, result.get("path"), "context.result.path")
-        if not current.is_file():
+        if not current.is_file() and not current.is_symlink():
             raise ToolError("stale-context", "subject carrier no longer exists")
         relative = _relative(root, current)
         _git(root, "add", "--", relative)
@@ -867,7 +975,7 @@ def _verify_commit(root: Path, *, parent: str, message: str, expected_paths: set
         raise ToolError("commit-parent-mismatch", "created commit does not retain sealed Git base as its parent")
     if _git(root, "show", "-s", "--format=%B", "HEAD").decode("utf-8").strip("\n") != message:
         raise ToolError("commit-message-mismatch", "created commit message differs from the deterministic projection")
-    changed = {value for value in _git(root, "diff-tree", "--no-commit-id", "--name-only", "-r", "HEAD").decode("utf-8").splitlines() if value}
+    changed = {value for value in _git(root, "diff-tree", "--no-commit-id", "--name-only", "--no-renames", "-r", "HEAD").decode("utf-8").splitlines() if value}
     if changed != expected_paths:
         raise ToolError("commit-tree-mismatch", "created commit contains paths outside the exact governed subject and sidecars")
     for event in events:
@@ -1009,7 +1117,7 @@ def _commit_only(
     try:
         staged.update(_stage_subject(root, context))
         staged.update(_stage_receipt_sidecars(root, events, verified_receipts))
-        actual_staged = {value for value in _git(root, "diff", "--cached", "--name-only", "-z").decode("utf-8").split("\0") if value}
+        actual_staged = {value for value in _git(root, "diff", "--cached", "--name-only", "--no-renames", "-z").decode("utf-8").split("\0") if value}
         if actual_staged != staged:
             raise ToolError("staging-mismatch", "index does not contain exactly the governed subject and receipt-bound sidecars")
         _git(root, "commit", "-m", message)
