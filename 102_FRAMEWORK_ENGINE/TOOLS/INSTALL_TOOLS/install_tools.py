@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Install all canonical CAPRMEDIO Tools and host Hooks for one project."""
+"""Install all canonical CAPRMEDIO Tools and trust-gated host Hooks for one project."""
 
 from __future__ import annotations
 
