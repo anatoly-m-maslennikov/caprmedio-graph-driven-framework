@@ -116,6 +116,15 @@ def _preflight(root: Path) -> dict[str, Any]:
             raise ToolError("codex-hook-config-invalid", f"{project_codex}: invalid JSON") from error
         if not isinstance(document, dict):
             raise ToolError("codex-hook-config-invalid", f"{project_codex}: root must be an object")
+    codex_home = Path(os.environ.get("CODEX_HOME", Path.home() / ".codex")).expanduser().resolve()
+    user_codex = codex_home / "hooks.json"
+    if user_codex.is_file():
+        try:
+            user_document = json.loads(user_codex.read_text(encoding="utf-8"))
+        except json.JSONDecodeError as error:
+            raise ToolError("codex-hook-config-invalid", f"{user_codex}: invalid JSON") from error
+        if not isinstance(user_document, dict):
+            raise ToolError("codex-hook-config-invalid", f"{user_codex}: root must be an object")
     return {
         "canonical_source": SOURCE_DIRECTORY.as_posix(),
         "install_root": INSTALL_DIRECTORY.as_posix(),
@@ -123,7 +132,16 @@ def _preflight(root: Path) -> dict[str, Any]:
         "release": release,
         "file_count": len(rows),
         "previous_hooks_path": hooks_path,
-        "hooks": ["codex:PreToolUse", "codex:PostToolUse", "git:pre-commit", "git:commit-msg", "git:post-commit"],
+        "codex_user_hook_carrier": user_codex.as_posix(),
+        "hooks": [
+            "codex:PreToolUse",
+            "codex:PostToolUse",
+            "codex:SessionStart",
+            "codex:Stop",
+            "git:pre-commit",
+            "git:commit-msg",
+            "git:post-commit",
+        ],
     }
 
 
@@ -250,16 +268,15 @@ def tool_status(root: Path) -> dict[str, Any]:
     trigger = _load_installed_trigger(root, str(installed["package_root"]))
     adapter = trigger.adapter_operation(root, "status")
     git_hooks_path = _git_hooks_path(root)
-    codex = root / ".codex/hooks.json"
-    codex_text = codex.read_text(encoding="utf-8") if codex.is_file() else ""
+    codex = trigger.codex_hooks_status(root, ADAPTER_ID)
     release_path_fragment = f".caprmedio_install/releases/{release}/"
-    stable_trigger = root / INSTALL_DIRECTORY / "bin" / "commit-trigger"
     hook_carriers = [root / MANAGED_HOOKS_PATH / name for name in trigger.GIT_HOOK_NAMES]
     hooks_verified = (
         git_hooks_path == MANAGED_HOOKS_PATH
         and all(path.is_file() and os.access(path, os.X_OK) and release_path_fragment in path.read_text(encoding="utf-8") for path in hook_carriers)
-        and str(stable_trigger) in codex_text
-        and ".caprmedio_install/releases/" not in codex_text
+        and codex["registered"] is True
+        and codex["canonical_fragment_present"] is True
+        and not codex["project_carrier_present"]
     )
     source_rows, source_release = source_inventory(root)
     return {
@@ -269,9 +286,10 @@ def tool_status(root: Path) -> dict[str, Any]:
         "source_matches_install": source_release == release,
         "hooks_path": git_hooks_path,
         "hooks_installed": hooks_verified,
-        "codex_hook_carrier_verified": hooks_verified and bool(codex_text),
+        "codex_hook_carrier_verified": bool(codex["registered"]),
+        "codex_hook": codex,
         "codex_hook_activation": "host-controlled-unverified",
-        "codex_hook_operator_action": "Review and trust the project hooks once with /hooks in Codex CLI.",
+        "codex_hook_operator_action": "Restart or resume each Codex task and review the changed user hooks once with /hooks.",
         "adapter": adapter,
         "launchers": launchers,
         "launchers_verified": all(launchers.values()),
