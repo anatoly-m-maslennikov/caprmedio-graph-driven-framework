@@ -1,8 +1,8 @@
 ---
 subject_scopes:
   - relation-model
-version: 2
-updated_at: 2026-08-18 20:48:43
+version: 3
+updated_at: 2026-08-21 20:51:16
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -14,4 +14,7 @@ relations:
 ---
 # Register FIELD feedback relation kind
 
-GOV must register `field_feedback` as the factual feedback Contract from admitted Ops facts about field reality to PROJECT Exploration Mode without backward authority.
+GOVERNANCE must register `field_feedback` as a typed frontmatter relation from
+the Project exploration Atom receiving feedback to the admitted Ops facts about
+FIELD reality that inform it, without granting those facts backward normative
+authority.
