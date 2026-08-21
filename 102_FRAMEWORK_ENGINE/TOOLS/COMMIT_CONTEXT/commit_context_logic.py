@@ -16,7 +16,7 @@ import re
 import subprocess
 import sys
 import tomllib
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from pathlib import Path
 from typing import Any, Mapping, Sequence
 from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
@@ -36,8 +36,8 @@ for _parent in MODULE_PATH.parents:
         break
 
 SETTINGS_PATH = Path(".caprmedio/caprmedio_project_settings.toml")
-JOURNAL_EVENT_SCHEMA_VERSION = 2
-CONTEXT_SCHEMA_VERSION = 2
+JOURNAL_EVENT_SCHEMA_VERSION = 3
+CONTEXT_SCHEMA_VERSION = 3
 GITHUB_USERNAME = re.compile(r"[A-Za-z0-9](?:[A-Za-z0-9-]{0,37}[A-Za-z0-9])?")
 APP_NAME = re.compile(r"[a-z][a-z0-9_-]{0,62}")
 SHA256 = re.compile(r"[0-9a-f]{64}")
@@ -72,6 +72,9 @@ class Carrier:
     lifecycle: str
     structural_scope: str
     body: bytes
+    kind: str = "file"
+    declared_version: bool = True
+    entries: tuple[tuple[str, str], ...] = ()
 
 
 def canonical_json(value: Any) -> bytes:
@@ -304,6 +307,117 @@ def carrier_from_bytes(path: str, data: bytes) -> Carrier:
     )
 
 
+def _inside_excluded_dot_directory(path: str) -> bool:
+    parts = Path(path).parts
+    return len(parts) > 1 and parts[0].startswith(".") and parts[0] != ".caprmedio"
+
+
+def _is_work_journal_path(path: str) -> bool:
+    return Path(path).parts[:2] == (".caprmedio", "work_journal")
+
+
+def _git_ignores(root: Path, path: str) -> bool:
+    completed = subprocess.run(
+        ["git", "-C", str(root), "check-ignore", "--no-index", "-q", "--", path],
+        check=False,
+        capture_output=True,
+    )
+    if completed.returncode in {0, 1}:
+        return completed.returncode == 0
+    raise ContextError(
+        "git_ignore_check_failed",
+        "Git ignore rules could not be evaluated",
+        path=path,
+        stderr=completed.stderr.decode("utf-8", "replace").strip(),
+    )
+
+
+def project_path_eligible(root: Path, path: str) -> bool:
+    candidate = Path(path)
+    if candidate.is_absolute() or not candidate.parts or ".." in candidate.parts:
+        return False
+    if _inside_excluded_dot_directory(path) or _is_work_journal_path(path):
+        return False
+    return not _git_ignores(root, path)
+
+
+def _git_revision(root: Path, path: str) -> int:
+    payload = git(root, ["log", "--follow", "--format=%H", "HEAD", "--", path], allow_failure=True) or b""
+    return max(1, len([line for line in payload.splitlines() if line]))
+
+
+def project_file_carrier(root: Path, path: str, data: bytes, *, committed: bool) -> Carrier:
+    try:
+        return carrier_from_bytes(path, data)
+    except ContextError:
+        relative = Path(path)
+        return Carrier(
+            path=relative.as_posix(),
+            filename=relative.name,
+            identity=f"file:{relative.as_posix()}",
+            version=_git_revision(root, path) if committed else 1,
+            sha256=digest(data),
+            relations={},
+            lifecycle="active",
+            structural_scope=relative.parent.as_posix(),
+            body=data,
+            kind="file",
+            declared_version=False,
+        )
+
+
+def _entry_rows(root: Path, folder: str, *, committed: bool) -> tuple[tuple[str, str], ...]:
+    if committed:
+        payload = git(root, ["ls-tree", "-r", "-z", "--name-only", "HEAD", "--", folder]) or b""
+        paths = [value.decode("utf-8") for value in payload.split(b"\0") if value]
+    else:
+        payload = git(root, ["ls-files", "--cached", "--others", "--exclude-standard", "-z", "--", folder]) or b""
+        paths = [value.decode("utf-8") for value in payload.split(b"\0") if value]
+    rows: list[tuple[str, str]] = []
+    prefix = folder.rstrip("/") + "/"
+    for path in sorted(paths):
+        if not path.startswith(prefix) or not project_path_eligible(root, path):
+            continue
+        if committed:
+            data = state_blob(root, path, "committed")
+        else:
+            data = state_blob(root, path, "working")
+        if data is not None:
+            rows.append((path, digest(data)))
+    return tuple(rows)
+
+
+def folder_carrier(root: Path, path: str, *, committed: bool) -> Carrier | None:
+    entries = _entry_rows(root, path, committed=committed)
+    if not entries:
+        return None
+    relative = Path(path)
+    body = canonical_json(
+        [
+            {"path": Path(entry).relative_to(relative).as_posix(), "sha256": sha256}
+            for entry, sha256 in entries
+        ]
+    )
+    return Carrier(
+        path=relative.as_posix(),
+        filename=relative.name,
+        identity=f"folder:{relative.as_posix()}",
+        version=_git_revision(root, path) if committed else 1,
+        sha256=digest(body),
+        relations={},
+        lifecycle="active",
+        structural_scope=relative.parent.as_posix(),
+        body=body,
+        kind="folder",
+        declared_version=False,
+        entries=entries,
+    )
+
+
+def committed_folder_exists(root: Path, path: str) -> bool:
+    return bool(_entry_rows(root, path, committed=True))
+
+
 def registry_path(root: Path) -> Path:
     del root
     return PACKAGE_ROOT / "caprmedio_relation_types.toml"
@@ -437,6 +551,8 @@ def state_blob(root: Path, path: str | None, state: str) -> bytes | None:
         return git(root, ["show", f":{path}"], allow_failure=True)
     if state == "working":
         absolute = root / path
+        if absolute.is_symlink():
+            return os.readlink(absolute).encode("utf-8")
         return absolute.read_bytes() if absolute.is_file() else None
     raise AssertionError(f"unknown carrier state: {state}")
 
@@ -639,7 +755,7 @@ def scan_prior_events(root: Path, journal_relative: Path, before: Carrier | None
                 record = json.loads(line)
             except json.JSONDecodeError as error:
                 raise ContextError("journal_syntax_invalid", "Journal contains invalid JSON while resolving prior state", path=carrier_path.relative_to(root).as_posix(), line=line_number) from error
-            if record.get("schema_version") != JOURNAL_EVENT_SCHEMA_VERSION:
+            if record.get("schema_version") not in {2, JOURNAL_EVENT_SCHEMA_VERSION}:
                 continue
             if record.get("event") not in {"completed", "recovered"}:
                 continue
@@ -654,7 +770,8 @@ def scan_prior_events(root: Path, journal_relative: Path, before: Carrier | None
                     line=line_number,
                 )
             result = record.get("result")
-            if not isinstance(result, Mapping) or dict(result) != present_result(before):
+            observed = present_result(before)
+            if not isinstance(result, Mapping) or any(result.get(key) != value for key, value in observed.items() if key != "version"):
                 continue
             event_id = record.get("event_id")
             if not isinstance(event_id, str):
@@ -684,10 +801,16 @@ def recovery_candidate(
     result = present_result(before)
     evidence = {
         "git": {"base_commit": git_base["commit"], "path": before.path, "sha256": before.sha256},
-        "carrier": {"identity": before.identity, "filename": before.filename, "version": before.version, "sha256": before.sha256},
+        "carrier": {
+            "identity": before.identity,
+            "kind": before.kind,
+            "filename": before.filename,
+            "version": before.version,
+            "sha256": before.sha256,
+        },
     }
     evidence_digest = digest(evidence)
-    event_id = digest({"schema_version": 2, "action_id": action_id, "event": "recovered", "kind": "governed_file_state", "result": result, "evidence_digest": evidence_digest})
+    event_id = digest({"schema_version": JOURNAL_EVENT_SCHEMA_VERSION, "action_id": action_id, "event": "recovered", "kind": "governed_project_state", "subject_kind": before.kind, "result": result, "evidence_digest": evidence_digest})
     recovery = {
         "event_id": event_id,
         "result": result,
@@ -700,7 +823,8 @@ def recovery_candidate(
         "event_id": event_id,
         "action_id": action_id,
         "event": "recovered",
-        "kind": "governed_file_state",
+        "kind": "governed_project_state",
+        "subject_kind": before.kind,
         "author": author,
         "occurred_at": occurred_at,
         "llm_session": dict(llm_session),
@@ -713,13 +837,19 @@ def recovery_candidate(
 
 
 def present_result(carrier: Carrier) -> dict[str, Any]:
-    return {
+    result: dict[str, Any] = {
         "state": "present",
         "filename": carrier.filename,
         "version": carrier.version,
         "path": carrier.path,
         "sha256": carrier.sha256,
     }
+    if carrier.kind == "folder":
+        result["entries"] = [
+            {"path": path, "sha256": sha256}
+            for path, sha256 in carrier.entries
+        ]
+    return result
 
 
 def removed_result(carrier: Carrier) -> dict[str, Any]:
@@ -734,7 +864,7 @@ def action_type(before: Carrier | None, result: Carrier | None) -> str:
     if before is None or result is None:
         raise AssertionError("unreachable carrier state")
     moved = Path(before.path).parent != Path(result.path).parent
-    updated = before.filename != result.filename or before.body != result.body
+    updated = before.filename != result.filename or before.sha256 != result.sha256
     if moved and updated:
         return "MOVE+UPDATE"
     if moved:
@@ -845,28 +975,56 @@ def gather_context(root: Path, trigger: Mapping[str, Any], *, environment: Mappi
     if before_path is None and after_path is None:
         raise ContextError("trigger_no_file_candidate", "trigger must name a before_path or after_path")
 
-    before_data = state_blob(root, before_path, "committed")
+    for candidate in (before_path, after_path):
+        if candidate is not None and not project_path_eligible(root, candidate):
+            raise ContextError("project_path_ineligible", "trigger path is outside the Git-admitted project frontier", path=candidate)
+
+    before_is_folder = before_path is not None and committed_folder_exists(root, before_path)
+    after_is_folder = after_path is not None and (root / after_path).is_dir()
+    before_data = None if before_is_folder else state_blob(root, before_path, "committed")
     result_data: bytes | None = None
     result_state: str | None = None
-    if after_path is not None:
+    if after_path is not None and not after_is_folder:
         result_data, result_state = staged_or_working_result(root, after_path)
-    before = carrier_from_bytes(before_path, before_data) if before_path is not None and before_data is not None else None
-    result = carrier_from_bytes(after_path, result_data) if after_path is not None and result_data is not None else None
+    elif after_is_folder:
+        result_state = "working"
+    before = (
+        folder_carrier(root, before_path, committed=True)
+        if before_is_folder and before_path is not None
+        else project_file_carrier(root, before_path, before_data, committed=True)
+        if before_path is not None and before_data is not None
+        else None
+    )
+    result = (
+        folder_carrier(root, after_path, committed=False)
+        if after_is_folder and after_path is not None
+        else project_file_carrier(root, after_path, result_data, committed=False)
+        if after_path is not None and result_data is not None
+        else None
+    )
 
     if before is None and result is not None and before_path is None:
-        committed_same_path = state_blob(root, after_path, "committed")
-        if committed_same_path is not None:
-            before = carrier_from_bytes(after_path, committed_same_path)
+        assert after_path is not None
+        if committed_folder_exists(root, after_path):
+            before = folder_carrier(root, after_path, committed=True)
+        else:
+            committed_same_path = state_blob(root, after_path, "committed")
+            if committed_same_path is not None:
+                before = project_file_carrier(root, after_path, committed_same_path, committed=True)
     if before is not None and result is not None and before.identity != result.identity:
-        raise ContextError("multiple_file_identities", "trigger before and after carriers resolve to different governed identities", before=before.identity, after=result.identity)
+        if before.kind != result.kind:
+            raise ContextError("multiple_project_identities", "trigger before and after paths resolve to different subject kinds", before=before.kind, after=result.kind)
+        result = replace(result, identity=before.identity)
+    if result is not None and not result.declared_version:
+        result = replace(result, version=(before.version + 1 if before is not None else 1))
     if before is None and result is None:
-        raise ContextError("governed_carrier_missing", "trigger candidates do not resolve to a governed carrier")
+        raise ContextError("governed_project_path_missing", "trigger candidates do not resolve to a Git-trackable file or non-empty folder")
 
     change = action_type(before, result)
     subject = result or before
     assert subject is not None
     if before is not None and result is not None and before_path == after_path and before.body == result.body:
-        raise ContextError("no_governed_file_change", "trigger resolves to no lifecycle, structural, or carrier-state change", identity=subject.identity)
+        raise ContextError("no_governed_project_change", "trigger resolves to no project-path change", identity=subject.identity)
 
     git_base = git_text(root, ["rev-parse", "HEAD"])
     tree = git_text(root, ["rev-parse", "HEAD^{tree}"])
@@ -878,25 +1036,39 @@ def gather_context(root: Path, trigger: Mapping[str, Any], *, environment: Mappi
     local_date = occurred.astimezone(timezone).date().isoformat()
     journal_relative, runtime_relative = configured_paths(root)
 
-    if change == "REMOVE":
+    if change == "REMOVE" and subject.kind == "file" and subject.declared_version:
         graph = committed_graph(root)
         relation_source = before
-    else:
+    elif change != "REMOVE" and subject.kind == "file" and subject.declared_version:
         graph = working_graph(root, override_path=result.path if result is not None else None, override=result.body if result is not None else None)
         relation_source = result
+    else:
+        graph = {}
+        relation_source = before if change == "REMOVE" else result
     assert relation_source is not None
     relation_diagnostics: list[dict[str, Any]] = []
-    try:
-        registry = relation_registry(root)
-    except ContextError as error:
+    if relation_source.relations:
+        try:
+            registry = relation_registry(root)
+        except ContextError as error:
+            registry = {}
+            relation_diagnostics.append(error.diagnostic())
+    else:
         registry = {}
-        relation_diagnostics.append(error.diagnostic())
     relations, sources, resolved_relation_diagnostics = resolve_relations(relation_source, graph, registry)
     relation_diagnostics.extend(resolved_relation_diagnostics)
     current_result = removed_result(before) if change == "REMOVE" else present_result(result)  # type: ignore[arg-type]
 
     action_id = digest({"schema_version": CONTEXT_SCHEMA_VERSION, "trigger_id": normalized["trigger_id"], "identity": subject.identity})
     prior_record, prior_result = scan_prior_events(root, journal_relative, before)
+    if prior_result is not None and before is not None and not before.declared_version:
+        prior_version = prior_result.get("version")
+        if isinstance(prior_version, int) and prior_version >= 1:
+            before = replace(before, version=prior_version)
+            if result is not None and not result.declared_version:
+                result = replace(result, version=prior_version + 1)
+            subject = result or before
+            current_result = removed_result(before) if change == "REMOVE" else present_result(result)  # type: ignore[arg-type]
     recovery: dict[str, Any] | None = None
     predicted_records: list[dict[str, Any]] = []
     if change == "ADD":
@@ -922,7 +1094,8 @@ def gather_context(root: Path, trigger: Mapping[str, Any], *, environment: Mappi
         "schema_version": JOURNAL_EVENT_SCHEMA_VERSION,
         "action_id": action_id,
         "event": "completed",
-        "kind": "governed_file_change",
+        "kind": "governed_project_change",
+        "subject_kind": subject.kind,
         "author": author,
         "occurred_at": occurred_at,
         "llm_session": normalized["llm_session"],
@@ -946,6 +1119,7 @@ def gather_context(root: Path, trigger: Mapping[str, Any], *, environment: Mappi
     assert source_carrier is not None
     source_frontier = {
         "identity": source_carrier.identity,
+        "kind": source_carrier.kind,
         "state": "removed" if change == "REMOVE" else "present",
         "filename": source_carrier.filename,
         "version": source_carrier.version,
@@ -961,7 +1135,7 @@ def gather_context(root: Path, trigger: Mapping[str, Any], *, environment: Mappi
         "schema_version": CONTEXT_SCHEMA_VERSION,
         "action_id": action_id,
         "trigger": normalized,
-        "subject": {"identity": subject.identity, "selected_state": result_state or "committed"},
+        "subject": {"identity": subject.identity, "kind": subject.kind, "selected_state": result_state or "committed"},
         "structural_scope": subject.structural_scope,
         "action_type": change,
         "sources": sources,
@@ -985,8 +1159,8 @@ def gather_context(root: Path, trigger: Mapping[str, Any], *, environment: Mappi
         "relations": relations,
         "snapshots": {
             "committed": present_result(before) if before is not None else None,
-            "staged": present_result(carrier_from_bytes(after_path, state_blob(root, after_path, "staged"))) if after_path is not None and state_blob(root, after_path, "staged") is not None else None,
-            "working": present_result(carrier_from_bytes(after_path, state_blob(root, after_path, "working"))) if after_path is not None and state_blob(root, after_path, "working") is not None else None,
+            "staged": present_result(result) if result is not None and result_state == "staged" else None,
+            "working": present_result(result) if result is not None and result_state == "working" else None,
         },
         "validation": {"valid": True, "diagnostics": relation_diagnostics},
         "predictions": {
@@ -1059,6 +1233,9 @@ def validate_context(context: Mapping[str, Any]) -> None:
     trigger = required_mapping(context.get("trigger"), name="context.trigger")
     subject = required_mapping(context.get("subject"), name="context.subject")
     subject_identity = required_string(subject.get("identity"), name="context.subject.identity")
+    subject_kind = subject.get("kind")
+    if subject_kind not in {"file", "folder"}:
+        raise ContextError("context_subject_kind_invalid", "sealed context subject kind must be file or folder")
     expected_action_id = digest(
         {
             "schema_version": CONTEXT_SCHEMA_VERSION,
@@ -1114,6 +1291,7 @@ def validate_context(context: Mapping[str, Any]) -> None:
 
     source_frontier: dict[str, Any] = {
         "identity": subject_identity,
+        "kind": subject_kind,
         "state": "removed" if result.get("state") == "removed" else "present",
         "filename": result.get("filename"),
         "version": result.get("version"),
@@ -1148,15 +1326,17 @@ def validate_context(context: Mapping[str, Any]) -> None:
             # scope, so only current change events must equal the current scope.
             if record.get("event") != "recovered" or record.get("llm_session") != context["llm_session"]:
                 raise ContextError("context_event_provenance_mismatch", "predicted Journal record scope or session differs")
-        if record.get("event") == "completed" and record.get("kind") == "governed_file_change":
+        if record.get("event") == "completed" and record.get("kind") == "governed_project_change":
             event_core = dict(unsigned)
             event_id = event_core.pop("event_id", None)
             if not isinstance(event_id, str) or event_id != digest(event_core):
                 raise ContextError("context_event_identity_mismatch", "completed event_id does not match its structured event")
             completed_records.append(record)
     if len(completed_records) != 1:
-        raise ContextError("context_events_invalid", "context must predict exactly one completed governed_file_change")
+        raise ContextError("context_events_invalid", "context must predict exactly one completed governed_project_change")
     completed = completed_records[0]
+    if completed.get("subject_kind") != subject_kind:
+        raise ContextError("context_event_projection_mismatch", "completed event subject kind differs from context")
     for field in ("action_type", "sources", "result"):
         if completed.get(field) != context.get(field):
             raise ContextError("context_event_projection_mismatch", f"completed event {field} differs from context")
