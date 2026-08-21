@@ -1,0 +1,18 @@
+---
+subject_scopes:
+  - feature-boundary
+version: 11
+updated_at: 2026-08-21 04:52:02
+relations:
+  child_of:
+    - CA-R-802-REQUIREMENT-FR_ENGN_TOOLS--define-flat-auto-commit-tool-topology
+---
+# Emit only operational Hook triggers
+
+`COMMIT_TRIGGER` must establish one logical repository file-change boundary from a registered adapter event and emit one minimal trigger to the `COMMIT_CHANGE_SET` end-to-end orchestration interface. The trigger contains a stable adapter identity, stable source-event identity, resolved repository identity, observation time, observed before-path and after-path candidates, and the structured LLM-session candidate resolved from explicit invocation context or the adapter's registered host interface. The candidate contains only canonical LLM application name and host session UUID; it does not concatenate or duplicate the event time.
+
+Every logical change within an adapter's registered observation boundary must emit exactly one trigger when that adapter can establish the event and required provenance. Observation eligibility is not Artifact classification: the adapter must not infer Artifact form, Type, lifecycle, authority, or currentness from a filename delimiter, extension, or lifecycle-directory name. A before-path or after-path crossing `drafts`, `done`, `solved`, `archive`, or another registered lifecycle boundary remains an observable candidate for one later governed classification.
+
+Repeated or noisy observations that carry the same adapter and source-event identities must produce the same single trigger identity rather than additional actions. An adapter that cannot establish the boundary or unambiguously resolve required LLM-session provenance must fail without emitting a trigger. Canonical trigger emission must not classify the change set, traverse the graph, gather Doer context, edit or stage governed files, create commits, write Journals, or otherwise mutate governed state. A substrate adapter may retain only reconstructible runtime correlation state needed to join its host's before-event and after-event callbacks, then hand each accepted trigger unchanged to `COMMIT_CHANGE_SET`; that transport state is not part of the trigger or governed project meaning. Every pipeline-owned Work Journal or runtime-state write is correlated to its action and suppressed from emitting another `COMMIT_TRIGGER`, including when related records span multiple Journal carriers; suppression must not depend only on path spelling or timing. Adapter selection and enablement remain explicit and operator-controlled, and no one adapter's substrate event becomes canonical framework meaning.
+
+The Codex adapter must be discoverable by every Codex task through one user-level Hook definition that dispatches by the Hook payload's working directory. The dispatcher resolves the current Git root and invokes only that repository's stable installed launcher when present; it carries no framework implementation outside the project installation and is a host carrier rather than another Tool. `PreToolUse` captures the reconstructible before-frontier, and wildcard `PostToolUse` establishes the immediate after-boundary for every supported local Tool path. `SessionStart` captures a session baseline. `Stop` compares that baseline with the current uncommitted governed frontier and reconciles only eligible changes not already completed through `PostToolUse`. Reconciliation must ignore changes already committed by another task, fail closed when session ownership is ambiguous, and never treat tool Hooks as complete observation of external editors or processes.
