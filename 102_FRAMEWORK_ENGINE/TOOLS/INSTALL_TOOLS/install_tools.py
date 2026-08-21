@@ -206,6 +206,19 @@ def _remove_legacy_installation(root: Path) -> list[str]:
     return removed
 
 
+def _restore_text_carrier(path: Path, previous: bytes | None) -> None:
+    if previous is None:
+        try:
+            path.unlink()
+        except FileNotFoundError:
+            pass
+        return
+    path.parent.mkdir(parents=True, exist_ok=True)
+    temporary = path.parent / f".{path.name}.rollback-{os.getpid()}"
+    temporary.write_bytes(previous)
+    os.replace(temporary, path)
+
+
 def install(root: Path, *, apply: bool) -> dict[str, Any]:
     root = resolve_repository(root)
     preflight = _preflight(root)
@@ -215,6 +228,10 @@ def install(root: Path, *, apply: bool) -> dict[str, Any]:
 
     previous_hooks_path = _git_hooks_path(root)
     codex_was_legacy_link, codex_link_text = _legacy_codex_link(root)
+    current_manifest = root / INSTALL_DIRECTORY / "current.toml"
+    current_manifest_before = current_manifest.read_bytes() if current_manifest.is_file() else None
+    codex_fragment = root / INSTALL_DIRECTORY / "hooks/codex/hooks.json"
+    codex_fragment_before = codex_fragment.read_bytes() if codex_fragment.is_file() else None
     if previous_hooks_path == LEGACY_HOOKS_PATH:
         _set_git_hooks_path(root, None)
     if codex_was_legacy_link:
@@ -232,7 +249,9 @@ def install(root: Path, *, apply: bool) -> dict[str, Any]:
         )
         launchers = _write_launchers(root, str(installed["release"]))
         removed = _remove_legacy_installation(root)
-    except BaseException:
+    except BaseException as error:
+        _restore_text_carrier(current_manifest, current_manifest_before)
+        _restore_text_carrier(codex_fragment, codex_fragment_before)
         if _git_hooks_path(root) == MANAGED_HOOKS_PATH:
             _set_git_hooks_path(root, None)
         if previous_hooks_path is not None:
@@ -241,6 +260,8 @@ def install(root: Path, *, apply: bool) -> dict[str, Any]:
         if codex_was_legacy_link and not carrier.exists() and codex_link_text is not None:
             carrier.parent.mkdir(parents=True, exist_ok=True)
             carrier.symlink_to(codex_link_text)
+        if isinstance(error, OSError):
+            raise ToolError("host-hook-carrier-unavailable", f"cannot update the Codex user Hook carrier: {error}") from error
         raise
     status = tool_status(root)
     return {
