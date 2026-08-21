@@ -26,6 +26,30 @@ class InstallToolsTests(unittest.TestCase):
     def setUp(self) -> None:
         self.temporary = tempfile.TemporaryDirectory()
         self.repository = Path(self.temporary.name) / "repository"
+        self.codex_home = Path(self.temporary.name) / "codex-home"
+        self.codex_home.mkdir()
+        self.user_hooks = self.codex_home / "hooks.json"
+        self.user_hooks.write_text(
+            json.dumps(
+                {
+                    "description": "Existing user hooks.",
+                    "hooks": {
+                        "PreToolUse": [
+                            {
+                                "matcher": "^Bash$",
+                                "hooks": [{"type": "command", "command": "true", "timeout": 3}],
+                            }
+                        ]
+                    },
+                },
+                indent=2,
+                sort_keys=True,
+            )
+            + "\n",
+            encoding="utf-8",
+        )
+        self.previous_codex_home = os.environ.get("CODEX_HOME")
+        os.environ["CODEX_HOME"] = str(self.codex_home)
         self.repository.mkdir()
         subprocess.run(["git", "-C", str(self.repository), "init", "-q"], check=True)
         subprocess.run(["git", "-C", str(self.repository), "config", "user.name", "CAPRMEDIO Test"], check=True)
@@ -38,6 +62,10 @@ class InstallToolsTests(unittest.TestCase):
         )
 
     def tearDown(self) -> None:
+        if self.previous_codex_home is None:
+            os.environ.pop("CODEX_HOME", None)
+        else:
+            os.environ["CODEX_HOME"] = self.previous_codex_home
         self.temporary.cleanup()
 
     def test_dry_run_resolves_complete_install_without_mutation(self) -> None:
@@ -47,6 +75,7 @@ class InstallToolsTests(unittest.TestCase):
             capture_output=True,
             text=True,
         ).stdout
+        user_hooks_before = self.user_hooks.read_bytes()
         result = install_tools.install(self.repository, apply=False)
         after = subprocess.run(
             ["git", "-C", str(self.repository), "config", "--local", "--list"],
@@ -61,6 +90,7 @@ class InstallToolsTests(unittest.TestCase):
         self.assertFalse((self.repository / ".caprmedio_install").exists())
         self.assertFalse((self.repository / ".caprmedio_runtime").exists())
         self.assertFalse((self.repository / ".codex").exists())
+        self.assertEqual(user_hooks_before, self.user_hooks.read_bytes())
 
     def test_apply_installs_verified_release_launchers_and_all_hooks(self) -> None:
         result = install_tools.install(self.repository, apply=True)
@@ -74,15 +104,24 @@ class InstallToolsTests(unittest.TestCase):
         self.assertEqual("host-controlled-unverified", status["codex_hook_activation"])
         self.assertTrue(status["launchers_verified"])
         self.assertEqual(".caprmedio_install/hooks/git", status["hooks_path"])
-        self.assertTrue((self.repository / ".codex/hooks.json").is_symlink())
-        self.assertEqual(
-            (self.repository / ".caprmedio_install/hooks/codex/hooks.json").resolve(),
-            (self.repository / ".codex/hooks.json").resolve(),
-        )
+        self.assertFalse((self.repository / ".codex/hooks.json").exists())
+        hook_document = json.loads(self.user_hooks.read_text(encoding="utf-8"))
+        self.assertEqual("Existing user hooks.", hook_document["description"])
+        self.assertEqual("true", hook_document["hooks"]["PreToolUse"][0]["hooks"][0]["command"])
+        self.assertEqual({"PreToolUse", "PostToolUse", "SessionStart", "Stop"}, set(hook_document["hooks"]))
+        for event in ("PreToolUse", "PostToolUse", "SessionStart", "Stop"):
+            group = hook_document["hooks"][event][-1]
+            self.assertEqual("*", group["matcher"])
+            command = group["hooks"][0]["command"]
+            self.assertIn("caprmedio.codex-hooks", command)
+            self.assertIn(".caprmedio_install/bin/commit-trigger", command)
+            self.assertNotIn(str(self.repository), command)
+            self.assertNotIn(".caprmedio_install/releases/", command)
         package_root = self.repository / str(status["package_root"])
         self.assertTrue(status["launchers"]["commit-trigger"])
         hook_text = (self.repository / ".caprmedio_install/hooks/codex/hooks.json").read_text(encoding="utf-8")
-        self.assertIn(str(self.repository / ".caprmedio_install/bin/commit-trigger"), hook_text)
+        self.assertIn(".caprmedio_install/bin/commit-trigger", hook_text)
+        self.assertNotIn(str(self.repository), hook_text)
         self.assertNotIn(".caprmedio_install/releases/", hook_text)
         for relative in (
             "INSTALL_TOOLS/install_tools.py",
@@ -142,6 +181,7 @@ class InstallToolsTests(unittest.TestCase):
     def test_reinstall_selects_new_content_addressed_release_and_repoints_hooks(self) -> None:
         first = install_tools.install(self.repository, apply=True)
         codex_hooks_before = (self.repository / ".caprmedio_install/hooks/codex/hooks.json").read_bytes()
+        user_hooks_before = self.user_hooks.read_bytes()
         registry = self.canonical / "background_services.toml"
         registry.write_text("schema_version = 1\nservices = []\n# next release\n", encoding="utf-8")
         second = install_tools.install(self.repository, apply=True)
@@ -154,6 +194,7 @@ class InstallToolsTests(unittest.TestCase):
             codex_hooks_before,
             (self.repository / ".caprmedio_install/hooks/codex/hooks.json").read_bytes(),
         )
+        self.assertEqual(user_hooks_before, self.user_hooks.read_bytes())
         stable_launcher = (self.repository / ".caprmedio_install/bin/commit-trigger").read_text(encoding="utf-8")
         self.assertIn(second["release"], stable_launcher)
         self.assertNotIn(first["release"], stable_launcher)
