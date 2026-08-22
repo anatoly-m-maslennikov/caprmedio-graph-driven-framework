@@ -2,8 +2,8 @@
 artifact_subtype: question
 subject_scopes:
   - requirement-topology
-version: 1
-updated_at: 2026-08-19 01:02:10
+version: 2
+updated_at: 2026-08-22 02:06:05
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -13,4 +13,4 @@ relations:
 ---
 # Which global tier ladder follows the Meta-level topology?
 
-Which global RMED tier numbers should CAPRMEDIO assign after placing METAMODEL, SEMANTICS, and GOVERNANCE above PROJECT while keeping applicability tiers independent from Structural levels?
+Which global RMED tier numbers should CAPRMEDIO assign after placing METAMODEL, SEMANTICS, and GOVERNANCE above CAPRMEDIO while keeping applicability tiers independent from Structural levels?

@@ -1,8 +1,8 @@
 ---
 subject_scopes:
   - scope-topology
-version: 1
-updated_at: 2026-08-19 01:02:10
+version: 2
+updated_at: 2026-08-22 01:56:15
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -11,4 +11,4 @@ relations:
 ---
 # Keep Project Layers as siblings
 
-Every Project Layer is an immediate child of PROJECT and does not own another Project Layer's scope.
+Every Project Layer is an immediate child of CAPRMEDIO and does not own another Project Layer's scope.

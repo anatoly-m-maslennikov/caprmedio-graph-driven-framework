@@ -1,9 +1,11 @@
 ---
 subject_scopes:
   - principles
-version: 1
-updated_at: 2026-08-20 04:10:37
+version: 2
+updated_at: 2026-08-21 04:57:22
 relations:
+  replaced_by:
+    - CA-M-006
   replacement_of:
     - CAPRMEDIO-REQU-013--preserve-discipline-independent-semantics
   child_of:

@@ -2,11 +2,11 @@
 subject_scopes:
   - principles
 tier: core
-version: 3
-updated_at: 2026-08-21 00:13:49
+version: 5
+updated_at: 2026-08-21 02:55:24
 relations:
   child_of:
-    - CA-D-003-PRINCIPLE-DELIVERY--use-the-graph-to-organize-project-work
+    - CA-D-003-PRINCIPLE-DELIVERY--provide-one-project-graph-as-the-operating-model
     - CA-E-001-PRINCIPLE-EVALUATION--make-accepted-requirements-checkable
   evaluation_for:
     - CAPRMEDIO-REQU-026--define-the-project-principle-universe

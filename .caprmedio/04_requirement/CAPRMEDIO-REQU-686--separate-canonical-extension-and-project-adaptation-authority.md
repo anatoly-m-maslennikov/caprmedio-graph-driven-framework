@@ -2,15 +2,14 @@
 subject_scopes:
   - requirement-topology
 tier: core
-version: 3
-updated_at: 2026-08-20 20:03:45
+version: 4
+updated_at: 2026-08-21 00:26:09
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   child_of:
     - CA-M-001-PRINCIPLE-METHOD--mece_mutually-exclusive-collectively-exhaustive
-    - CA-O-001-PRINCIPLE-OPS--add-reusable-capabilities-through-extensions
-    - CA-O-002-PRINCIPLE-OPS--select-optional-capabilities-through-configuration
+    - CA-M-006-PRINCIPLE-METHOD--keep-shared-meanings-independent-of-discipline
 ---
 # Separate canonical, Extension, and Project Adaptation authority
 

@@ -79,18 +79,21 @@ Requirement is the only universally mandatory Atom role.
 
 ## Project structure
 
-Project Layers are ordered. Layer-owned Features are not.
+Project Layers are ordered. Project-owned and Layer-owned Features are not.
 
 ```text
-01_FR_MTHD/       — Framework Methodology: defines framework rules and methods without I/O.
-02_FR_ENGN/       — Framework Engine: applies the methodology through executable interfaces.
+FRAMEWORK_METHODOLOGY/       — Framework Methodology: defines framework rules and methods without I/O.
+FRAMEWORK_ENGINE/       — Framework Engine: applies the methodology through executable interfaces.
 ├── SKILLS/       — Skills: give operators and LLMs the primary framework interface.
 ├── TOOLS/        — Tools: find, check, and change CAPRMEDIO source artifacts.
-└── APP/          — Application: indexes sources and serves database-backed local views.
-03_FR_USERDOC/    — Framework User Documentation: explains how to use the framework.
-04_EXTNS/         — Extensions: add optional governed capabilities.
-05_RELSS/         — Releases: package and publish versioned framework changes.
-06_FIELD/         — Field: captures use, feedback, support, and improvement inputs.
+└── APPS/         — Applications and agent-host plugin packages.
+    ├── GRAPH_APP/          — Graph App: indexes sources and serves database-backed local views.
+    └── AGENT_HOST_PLUGINS/ — Agent Host Plugins: package CAPRMEDIO for supported agent hosts.
+        └── CODEX_PLUGIN/   — Codex Plugin: provides the Codex-specific plugin package and host wiring.
+OPERATOR_DOCUMENTATION/    — Operator Documentation: explains how declared operators use and control the framework.
+EXTENSIONS/         — Extensions Feature: contain admitted optional capability packages.
+RELEASES/         — Releases Feature: package and publish versioned framework changes.
+FIELD/         — Field: captures use, feedback, support, and improvement inputs.
 ```
 
 ## Principles

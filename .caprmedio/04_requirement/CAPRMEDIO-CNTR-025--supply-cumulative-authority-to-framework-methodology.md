@@ -1,33 +1,33 @@
 ---
 subject_scopes:
   - scope-topology
-version: 1
-updated_at: 2026-08-19 01:14:21
+semantic_shape: relational
+version: 4
+updated_at: 2026-08-22 02:37:15
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+relational_endpoints:
+  controller:
+    scope_unit: ./FRAMEWORK_METHODOLOGY
+    content_role: requirement
+  followers:
+    - scope_unit: ../METAMODEL
+      content_roles: [plan, requirement, method, evaluation, delivery, ops]
+    - scope_unit: ../SEMANTICS
+      content_roles: [plan, requirement, method, evaluation, delivery, ops]
+    - scope_unit: ../GOVERNANCE
+      content_roles: [plan, requirement, method, evaluation, delivery, ops]
+    - scope_unit: .
+      content_roles: [plan, requirement, method, evaluation, delivery, ops]
 relations:
-  replacement_of:
-    - CAPRMEDIO-CNTR-018--supply-cumulative-authority-to-methodology
   child_of:
-    - CAPRMEDIO-REQU-032--assign-immediate-child-scope-ownership
-relation_kind: authority_input
-endpoints:
-  - role: provider
-    identity: metamodel
-    origin: internal
-  - role: provider
-    identity: semantics
-    origin: internal
-  - role: provider
-    identity: governance
-    origin: internal
-  - role: provider
-    identity: project
-    origin: internal
-  - role: consumer
-    identity: framework_methodology_layer
-    origin: internal
+    - CA-R-881-REQUIREMENT--own-cross-unit-relational-atoms-at-the-common-scope
+  authority_input:
+    - ../METAMODEL
+    - ../SEMANTICS
+    - ../GOVERNANCE
+    - .
 ---
 # Supply cumulative authority to FRAMEWORK_METHODOLOGY
 
-FRAMEWORK_METHODOLOGY consumes the complete applicable upstream authority set from METAMODEL, SEMANTICS, GOVERNANCE, and PROJECT through the `authority_input` Contract.
+FRAMEWORK_METHODOLOGY consumes the complete applicable upstream authority set from METAMODEL, SEMANTICS, GOVERNANCE, and CAPRMEDIO through the `authority_input` Contract.

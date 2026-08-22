@@ -4,8 +4,8 @@ subject_scopes:
 project_settings:
   authority_modes:
     default: casual
-version: 1
-updated_at: 2026-08-19 01:02:10
+version: 2
+updated_at: 2026-08-22 01:56:15
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -17,4 +17,4 @@ relations:
 ---
 # Use casual authority below Project
 
-CAPRMEDIO must use casual authority mode by default for every Structural unit below PROJECT.
+CAPRMEDIO must use casual authority mode by default for every Structural unit below CAPRMEDIO.

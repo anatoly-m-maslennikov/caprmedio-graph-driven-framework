@@ -7,8 +7,8 @@ project_settings:
     metamodel: strict
     project: strict
     semantics: strict
-version: 1
-updated_at: 2026-08-19 01:02:10
+version: 2
+updated_at: 2026-08-22 01:56:15
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -20,4 +20,4 @@ relations:
 ---
 # Use strict authority for Meta levels and Project
 
-CAPRMEDIO must use strict authority mode for METAMODEL, SEMANTICS, GOVERNANCE, and PROJECT.
+CAPRMEDIO must use strict authority mode for METAMODEL, SEMANTICS, GOVERNANCE, and CAPRMEDIO.

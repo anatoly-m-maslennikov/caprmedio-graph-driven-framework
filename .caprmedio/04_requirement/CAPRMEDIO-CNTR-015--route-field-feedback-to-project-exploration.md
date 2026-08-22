@@ -1,24 +1,25 @@
 ---
 subject_scopes:
   - scope-topology
-version: 2
-updated_at: 2026-08-18 20:48:43
+semantic_shape: relational
+version: 4
+updated_at: 2026-08-22 01:51:09
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+relational_endpoints:
+  controller:
+    scope_unit: .
+    content_role: requirement
+  followers:
+    - scope_unit: ./FIELD
+      content_roles:
+        - ops
 relations:
   child_of:
-    - CAPRMEDIO-REQU-032--assign-immediate-child-scope-ownership
-  replacement_of:
-    - CAPRMEDIO-CNTR-008--route-ops-feedback-to-project-exploration
-relation_kind: field_feedback
-endpoints:
-  - role: provider
-    identity: field_observations
-    origin: internal
-  - role: consumer
-    identity: project_exploration
-    origin: internal
+    - CA-R-881-REQUIREMENT--own-cross-unit-relational-atoms-at-the-common-scope
+  field_feedback:
+    - ./FIELD
 ---
-# Route FIELD feedback to Project Exploration
+# Route FIELD feedback to CAPRMEDIO Exploration
 
-Admitted Ops facts about field reality may enter PROJECT Exploration Mode without gaining authority to rewrite their owning structural scope or upstream authority.
+Admitted Ops facts about field reality may enter CAPRMEDIO Exploration Mode without gaining authority to rewrite their owning Structural scope or upstream authority.

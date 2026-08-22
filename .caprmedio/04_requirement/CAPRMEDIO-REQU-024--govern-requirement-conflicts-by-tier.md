@@ -2,13 +2,13 @@
 subject_scopes:
   - authority
 tier: core
-version: 4
-updated_at: 2026-08-21 00:13:49
+version: 5
+updated_at: 2026-08-21 00:18:21
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   child_of:
-    - CA-E-002-PRINCIPLE-EVALUATION--state-when-conclusions-can-and-cannot-be-trusted
+    - CA-E-002-PRINCIPLE-EVALUATION--bound-every-reliance
 ---
 # Govern Requirement conflicts by tier
 

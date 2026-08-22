@@ -1,8 +1,8 @@
 ---
 subject_scopes:
   - scope-topology
-version: 1
-updated_at: 2026-08-20 01:11:19
+version: 2
+updated_at: 2026-08-22 01:56:15
 relations:
   child_of:
     - CAPRMEDIO-REQU-706--define-caprmedio-structural-topology
@@ -10,4 +10,4 @@ relations:
 ---
 # Define FIELD as an unordered Project child
 
-FIELD is an unordered direct child of PROJECT at Structural level `1`; it has no `local_order` and is not a Project Layer.
+FIELD is an unordered direct child of CAPRMEDIO at Structural level `1`; it has no `local_order` and is not a Project Layer.

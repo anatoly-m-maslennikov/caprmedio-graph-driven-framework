@@ -1,26 +1,28 @@
 ---
 subject_scopes:
   - scope-topology
-version: 2
-updated_at: 2026-08-18 20:48:43
+semantic_shape: relational
+version: 5
+updated_at: 2026-08-22 02:37:15
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+relational_endpoints:
+  controller:
+    scope_unit: ./FIELD
+    content_role: requirement
+  followers:
+    - scope_unit: ./FRAMEWORK_ENGINE
+      content_roles:
+        - implementation
+    - scope_unit: ./RELEASES
+      content_roles:
+        - delivery
 relations:
   child_of:
-    - CAPRMEDIO-REQU-032--assign-immediate-child-scope-ownership
-  replacement_of:
-    - CAPRMEDIO-CNTR-010--supply-realization-inputs-to-ops
-relation_kind: realization_input
-endpoints:
-  - role: provider
-    identity: native_realization
-    origin: internal
-  - role: provider
-    identity: published_releases
-    origin: internal
-  - role: consumer
-    identity: field_observations
-    origin: internal
+    - CA-R-881-REQUIREMENT--own-cross-unit-relational-atoms-at-the-common-scope
+  realization_input:
+    - ./FRAMEWORK_ENGINE
+    - ./RELEASES
 ---
 # Supply REALIZATION and RELEASES inputs to FIELD
 

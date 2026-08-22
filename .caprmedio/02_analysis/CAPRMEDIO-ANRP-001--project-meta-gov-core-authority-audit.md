@@ -4,8 +4,8 @@ subject_scopes:
   - requirement-topology
   - scope-topology
   - carrier-format
-version: 3
-updated_at: 2026-08-20 20:03:45
+version: 7
+updated_at: 2026-08-21 02:55:24
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -22,17 +22,17 @@ relations:
     - CAPRMEDIO-REQU-061--define-implementation-layer-scope-and-contracts
     - CAPRMEDIO-REQU-062--define-delivery-layer-scope-and-contracts
     - CAPRMEDIO-REQU-063--define-ops-layer-scope-and-contracts
-    - CA-D-003-PRINCIPLE-DELIVERY--use-the-graph-to-organize-project-work
+    - CA-D-003-PRINCIPLE-DELIVERY--provide-one-project-graph-as-the-operating-model
     - CA-M-005-PRINCIPLE-METHOD--add-complexity-only-when-necessary
     - CAPRMEDIO-REQU-065--natural-operator-surface
     - CAPRMEDIO-REQU-006--minimal-default-project-model
     - CAPRMEDIO-REQU-007--full-minimal-traceability
     - CAPRMEDIO-REQU-008--define-project-scope-boundary
-    - CA-O-001-PRINCIPLE-OPS--add-reusable-capabilities-through-extensions
-    - CA-O-002-PRINCIPLE-OPS--select-optional-capabilities-through-configuration
+    - CA-R-831-REQUIREMENT--add-reusable-capabilities-through-extensions
+    - CA-R-832-REQUIREMENT--select-optional-capabilities-through-configuration
     - CAPRMEDIO-REQU-011--minimum-sufficient-guidance
     - CAPRMEDIO-REQU-066--discipline-independent-core
-    - CA-D-001-PRINCIPLE-DELIVERY--keep-implementations-replaceable-across-technologies
+    - CA-D-001-PRINCIPLE-DELIVERY--provide-replaceable-technical-realizations
     - CAPRMEDIO-REQU-067--default-to-software-application-development
     - CAPRMEDIO-REQU-068--support-portable-execution-platforms
     - CAPRMEDIO-REQU-069--support-any-operator-language

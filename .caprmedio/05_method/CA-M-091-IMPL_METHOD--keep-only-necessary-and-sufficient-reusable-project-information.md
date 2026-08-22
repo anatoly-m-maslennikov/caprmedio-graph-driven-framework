@@ -2,13 +2,12 @@
 subject_scopes:
   - information
 tier: core
-version: 2
-updated_at: 2026-08-20 21:33:39
+version: 4
+updated_at: 2026-08-22 04:20:12
 relations:
   child_of:
-    - CA-R-815-PRINCIPLE-REQUIREMENT--let-operator-priorities-govern-project-trade-offs
-  method_for:
-    - CA-R-815-PRINCIPLE-REQUIREMENT--let-operator-priorities-govern-project-trade-offs
+    - CA-M-003-PRINCIPLE-METHOD--use-lossless-selective-exposure
+    - CA-M-005-PRINCIPLE-METHOD--add-complexity-only-when-necessary
 ---
 # Keep only necessary and sufficient reusable project information
 

@@ -1,9 +1,11 @@
 ---
 subject_scopes:
   - principles
-version: 1
-updated_at: 2026-08-20 18:21:23
+version: 2
+updated_at: 2026-08-21 04:57:22
 relations:
+  replaced_by:
+    - CA-D-002
   replacement_of:
     - CA-R-006-PRINCIPLE-REQUIREMENT--make-governed-meaning-humanly-understandable
   child_of:
