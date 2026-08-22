@@ -1,8 +1,13 @@
 ---
+subjects:
+  - relation-model
+  - scope-topology
+  - artifact-model
+  - atom-boundary
 cce_version: cce_1
 cce_form: separation
-version: 3
-updated_at: 2026-08-22 21:20:47
+version: 4
+updated_at: 2026-08-23 01:44:00
 relations:
   child_of:
     - CAPRMEDIO-META-REQU-714

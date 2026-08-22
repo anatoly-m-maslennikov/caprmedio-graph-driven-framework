@@ -1,9 +1,9 @@
 ---
 atom_id: CA-R-837
-subject_scopes:
+subjects:
   - scope-topology
-version: 2
-updated_at: 2026-08-22 01:56:15
+version: 3
+updated_at: 2026-08-23 01:44:00
 relations:
   child_of:
     - CA-R-835-REQUIREMENT-BSEED_SEMANTICS--scope-artifacts-through-scope-units

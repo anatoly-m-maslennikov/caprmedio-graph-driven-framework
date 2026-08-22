@@ -1,12 +1,12 @@
 ---
-subject_scopes:
+subjects:
   - artifact-catalog
 project_graph_state:
   artifacts:
     enabled_types:
       - evaluation:evaluation_approach
-version: 3
-updated_at: 2026-08-22 01:56:15
+version: 4
+updated_at: 2026-08-23 01:44:00
 relations:
   child_of:
     - CAPRMEDIO-META-REQU-094--mechanism-neutral-evaluation-atoms

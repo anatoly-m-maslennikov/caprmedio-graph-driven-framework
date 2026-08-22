@@ -1,8 +1,8 @@
 ---
-subject_scopes:
+subjects:
   - settings
-version: 2
-updated_at: 2026-08-21 00:21:06
+version: 3
+updated_at: 2026-08-23 01:44:00
 relations:
   rationale_for:
     - CAPRMEDIO-GOV-METH-086--resolve-framework-and-project-settings-separately

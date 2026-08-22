@@ -1,5 +1,5 @@
 ---
-subject_scopes:
+subjects:
   - artifact-catalog
 project_graph_state:
   artifacts:
@@ -7,8 +7,8 @@ project_graph_state:
       - plan:epic
       - plan:task
       - plan:action_policy
-version: 6
-updated_at: 2026-08-22 21:44:14
+version: 7
+updated_at: 2026-08-23 01:44:00
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
   - codex:01a01cb6-4ee4-7553-b68d-0823dda35094

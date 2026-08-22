@@ -1,9 +1,11 @@
 ---
+subjects:
+  - authority
 atom_id: CA-R-770
 cce_version: cce_1
 cce_form: obligation
-version: 13
-updated_at: 2026-08-22 21:20:47
+version: 14
+updated_at: 2026-08-23 01:44:00
 relations:
   child_of:
     - CAPRMEDIO-META-REQU-707

@@ -1,8 +1,12 @@
 ---
+subjects:
+  - scope-topology
+  - artifact-model
+  - authority
 cce_version: cce_1
 cce_form: obligation
-version: 8
-updated_at: 2026-08-22 17:04:18
+version: 9
+updated_at: 2026-08-23 01:44:00
 relations:
   child_of:
     - CA-R-917

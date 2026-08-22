@@ -1,9 +1,10 @@
 ---
-subject_scopes: [scope-topology]
+subjects:
+  - scope-topology
 cce_version: cce_1
 cce_form: definition
-version: 1
-updated_at: 2026-08-22 06:00:00
+version: 2
+updated_at: 2026-08-23 01:44:00
 relations:
   child_of:
     - CAPRMEDIO-META-REQU-712--define-ordered-unit-structural-kind

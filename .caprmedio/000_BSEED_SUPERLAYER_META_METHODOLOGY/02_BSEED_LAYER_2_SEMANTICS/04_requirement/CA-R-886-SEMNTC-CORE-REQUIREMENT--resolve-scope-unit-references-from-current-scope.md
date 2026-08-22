@@ -1,9 +1,11 @@
 ---
+subjects:
+  - scope-topology
 atom_id: CA-R-886
 cce_version: cce_1
 cce_form: obligation
-version: 8
-updated_at: 2026-08-22 07:44:21
+version: 9
+updated_at: 2026-08-23 01:44:00
 relations:
   child_of:
     - CA-R-858

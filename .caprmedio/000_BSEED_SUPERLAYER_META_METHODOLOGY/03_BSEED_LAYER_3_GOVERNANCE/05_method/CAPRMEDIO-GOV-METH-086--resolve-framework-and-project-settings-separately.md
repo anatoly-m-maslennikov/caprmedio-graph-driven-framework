@@ -1,9 +1,9 @@
 ---
-subject_scopes:
+subjects:
   - settings
 tier: core
-version: 3
-updated_at: 2026-08-21 00:21:06
+version: 4
+updated_at: 2026-08-23 01:44:00
 relations:
   child_of:
     - CAPRMEDIO-META-REQU-618--separate-framework-and-project-configuration

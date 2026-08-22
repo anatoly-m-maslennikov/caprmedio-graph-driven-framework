@@ -1,9 +1,13 @@
 ---
+subjects:
+  - artifact-model
+  - carrier-format
+  - evaluation
 atom_id: CA-E-242
 cce_version: cce_1
 cce_form: evaluation
-version: 2
-updated_at: 2026-08-22 08:09:26
+version: 3
+updated_at: 2026-08-23 01:44:00
 relations:
   evaluation_for:
     - CA-R-731

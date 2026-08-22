@@ -1,9 +1,12 @@
 ---
+subjects:
+  - development-flow
+  - artifact-model
 atom_id: CA-R-990
 cce_version: cce_1
 cce_form: permission
-version: 1
-updated_at: 2026-08-22 21:44:14
+version: 2
+updated_at: 2026-08-23 01:44:00
 relations:
   child_of:
     - CA-R-989

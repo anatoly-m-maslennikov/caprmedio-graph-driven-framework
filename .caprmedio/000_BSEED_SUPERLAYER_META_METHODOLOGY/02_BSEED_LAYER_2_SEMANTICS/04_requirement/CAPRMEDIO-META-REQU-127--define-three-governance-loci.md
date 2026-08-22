@@ -1,5 +1,5 @@
 ---
-subject_scopes:
+subjects:
   - semantics
 project_graph_state:
   artifacts:
@@ -8,8 +8,8 @@ project_graph_state:
         - internal
         - external
 tier: core
-version: 6
-updated_at: 2026-08-22 01:37:40
+version: 7
+updated_at: 2026-08-23 01:44:00
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:

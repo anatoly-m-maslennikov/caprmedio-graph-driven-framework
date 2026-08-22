@@ -1,9 +1,13 @@
 ---
+subjects:
+  - scope-topology
+  - carrier-format
+  - layout
 atom_id: CA-R-891
 cce_version: cce_1
 cce_form: obligation
-version: 6
-updated_at: 2026-08-22 21:20:47
+version: 7
+updated_at: 2026-08-23 01:44:00
 relations:
   child_of:
     - CA-R-972

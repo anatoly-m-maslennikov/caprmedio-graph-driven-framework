@@ -1,9 +1,13 @@
 ---
+subjects:
+  - artifact-model
+  - lifecycle-traceability
+  - carrier-format
 atom_id: CA-R-356
 cce_version: cce_1
 cce_form: obligation
-version: 8
-updated_at: 2026-08-22 08:09:26
+version: 9
+updated_at: 2026-08-23 01:44:00
 relations:
   child_of:
     - CA-R-165

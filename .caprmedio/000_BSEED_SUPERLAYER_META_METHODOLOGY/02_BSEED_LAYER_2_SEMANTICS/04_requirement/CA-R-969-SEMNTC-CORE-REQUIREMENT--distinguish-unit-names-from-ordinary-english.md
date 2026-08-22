@@ -1,9 +1,14 @@
 ---
+subjects:
+  - language
+  - scope-topology
+  - semantics
+  - cce-language
 atom_id: CA-R-969
 cce_version: cce_1
 cce_form: separation
-version: 1
-updated_at: 2026-08-22 17:04:18
+version: 2
+updated_at: 2026-08-23 01:44:00
 relations:
   child_of:
     - CA-R-963

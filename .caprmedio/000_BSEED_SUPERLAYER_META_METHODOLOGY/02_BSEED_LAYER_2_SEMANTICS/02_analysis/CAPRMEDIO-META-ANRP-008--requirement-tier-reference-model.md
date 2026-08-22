@@ -1,12 +1,14 @@
 ---
+subjects:
+  - artifact-model
 subject_scope: authority
 relations:
   analysis_of:
     - CAPRMEDIO-META-REQU-155--classify-rmed-atoms-by-applicability-tier
     - CAPRMEDIO-GOV-REQU-329--encode-rmed-applicability-tiers
     - CAPRMEDIO-PLAN-010--complete-rmed-tier-parent-links
-version: 1
-updated_at: 2026-08-17 19:36:01
+version: 2
+updated_at: 2026-08-23 01:44:00
 ---
 
 # Requirement tier reference model

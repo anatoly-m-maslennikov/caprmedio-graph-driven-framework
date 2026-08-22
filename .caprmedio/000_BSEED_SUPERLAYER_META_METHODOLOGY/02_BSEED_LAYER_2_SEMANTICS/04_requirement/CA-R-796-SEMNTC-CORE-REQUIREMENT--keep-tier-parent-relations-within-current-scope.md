@@ -1,9 +1,14 @@
 ---
+subjects:
+  - relation-model
+  - scope-topology
+  - artifact-model
+  - atom-boundary
 atom_id: CA-R-796
 cce_version: cce_1
 cce_form: obligation
-version: 4
-updated_at: 2026-08-22 07:44:21
+version: 5
+updated_at: 2026-08-23 01:44:00
 relations:
   child_of:
     - CA-R-917

@@ -1,10 +1,10 @@
 ---
-subject_scopes:
+subjects:
   - development-flow
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
-version: 1
-updated_at: 2026-08-17 08:06:54
+version: 2
+updated_at: 2026-08-23 01:44:00
 relations:
   child_of:
     - CAPRMEDIO-META-REQU-111--nine-content-roles-with-plan

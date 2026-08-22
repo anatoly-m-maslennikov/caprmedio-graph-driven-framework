@@ -1,10 +1,10 @@
 ---
-subject_scopes:
+subjects:
   - carrier-format
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
-version: 3
-updated_at: 2026-08-21 03:26:58
+version: 4
+updated_at: 2026-08-23 01:44:00
 relations:
   replacement_of:
     - CAPRMEDIO-GOV-REQU-487--encode-projection-update-time-without-version

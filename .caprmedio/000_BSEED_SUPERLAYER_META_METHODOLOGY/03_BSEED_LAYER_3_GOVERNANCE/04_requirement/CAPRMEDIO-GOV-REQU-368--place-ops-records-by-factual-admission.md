@@ -1,10 +1,10 @@
 ---
-subject_scopes:
+subjects:
   - lifecycle
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
-version: 1
-updated_at: 2026-08-17 07:52:10
+version: 2
+updated_at: 2026-08-23 01:44:00
 relations:
   child_of:
     - CAPRMEDIO-META-REQU-170--govern-ops-factual-admission-lifecycle

@@ -1,9 +1,12 @@
 ---
+subjects:
+  - artifact-catalog
+  - authority
 atom_id: CA-C-096
 cce_version: cce_1
 cce_form: question
-version: 4
-updated_at: 2026-08-22 08:09:26
+version: 5
+updated_at: 2026-08-23 01:44:00
 relations:
   concern_about:
     - CA-D-008

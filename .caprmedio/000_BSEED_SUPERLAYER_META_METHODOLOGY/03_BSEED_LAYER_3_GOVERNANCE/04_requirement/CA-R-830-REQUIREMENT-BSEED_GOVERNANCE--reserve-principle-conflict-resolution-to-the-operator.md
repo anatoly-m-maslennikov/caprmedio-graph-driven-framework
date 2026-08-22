@@ -1,9 +1,9 @@
 ---
-subject_scopes:
+subjects:
   - authority
 tier: core
-version: 4
-updated_at: 2026-08-21 04:43:43
+version: 5
+updated_at: 2026-08-23 01:44:00
 relations:
   child_of:
     - CAPRMEDIO-REQU-043--require-operator-authority-for-governed-change

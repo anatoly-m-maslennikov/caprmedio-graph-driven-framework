@@ -1,8 +1,8 @@
 ---
-subject_scopes:
+subjects:
   - development-flow
-version: 4
-updated_at: 2026-08-22 02:37:15
+version: 5
+updated_at: 2026-08-23 01:44:00
 relations:
   child_of:
     - CAPRMEDIO-META-REQU-096--propagate-caprmedio-change-forward

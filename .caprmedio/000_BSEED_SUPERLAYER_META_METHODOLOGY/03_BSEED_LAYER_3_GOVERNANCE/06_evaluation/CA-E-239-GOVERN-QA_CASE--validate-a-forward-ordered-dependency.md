@@ -1,9 +1,13 @@
 ---
+subjects:
+  - relation-model
+  - evaluation
+  - atom-boundary
 atom_id: CA-E-239
 cce_version: cce_1
 cce_form: evaluation
-version: 5
-updated_at: 2026-08-22 08:09:26
+version: 6
+updated_at: 2026-08-23 01:44:00
 relations:
   evaluation_for:
     - CA-R-878

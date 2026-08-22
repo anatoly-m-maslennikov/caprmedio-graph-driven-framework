@@ -1,8 +1,8 @@
 ---
-subject_scopes:
+subjects:
   - scope-topology
-version: 3
-updated_at: 2026-08-20 03:47:37
+version: 4
+updated_at: 2026-08-23 01:44:00
 relations:
   child_of:
     - CAPRMEDIO-R-791-REQUIREMENT-BSEED_METAMODEL--define-structural-coordinate

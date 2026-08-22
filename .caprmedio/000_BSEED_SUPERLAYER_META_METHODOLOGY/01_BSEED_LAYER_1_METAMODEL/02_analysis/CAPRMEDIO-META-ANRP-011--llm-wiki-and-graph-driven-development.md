@@ -1,7 +1,9 @@
 ---
+subjects:
+  - methodology
 subject_scope: artifact-model
-version: 1
-updated_at: 2026-08-17 19:36:01
+version: 2
+updated_at: 2026-08-23 01:44:00
 ---
 
 # LLM Wiki and graph-driven development

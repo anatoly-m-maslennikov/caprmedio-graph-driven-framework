@@ -1,8 +1,8 @@
 ---
-subject_scopes:
+subjects:
   - principles
-version: 3
-updated_at: 2026-08-21 04:43:43
+version: 4
+updated_at: 2026-08-23 01:44:00
 relations:
   child_of:
     - CA-R-854-REQUIREMENT-BSEED_SEMANTICS--distinguish-provided-outcome-and-operating-way-principles

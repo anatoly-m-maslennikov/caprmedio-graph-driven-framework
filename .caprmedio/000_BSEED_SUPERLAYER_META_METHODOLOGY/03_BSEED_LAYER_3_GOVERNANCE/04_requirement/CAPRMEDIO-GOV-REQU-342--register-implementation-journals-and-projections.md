@@ -1,8 +1,8 @@
 ---
-subject_scopes:
+subjects:
   - provenance
-version: 4
-updated_at: 2026-08-22 02:12:36
+version: 5
+updated_at: 2026-08-23 01:44:00
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
   - codex:01a01cb6-4ee4-7553-b68d-0823dda35094

@@ -1,8 +1,9 @@
 ---
-subject_scopes:
+subjects:
   - relation-model
-version: 5
-updated_at: 2026-08-22 04:39:08
+  - atom-boundary
+version: 6
+updated_at: 2026-08-23 01:44:00
 relations:
   child_of:
     - CAPRMEDIO-GOV-REQU-345--represent-accepted-meaning-faithfully

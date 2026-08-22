@@ -1,10 +1,10 @@
 ---
 atom_id: CA-R-851
-subject_scopes:
+subjects:
   - authority
 tier: core
-version: 2
-updated_at: 2026-08-21 03:22:46
+version: 3
+updated_at: 2026-08-23 01:44:00
 relations:
   child_of:
     - CA-P-034-PRINCIPLE-ACTION_POLICY--let-ai-agents-act-only-under-delegated-authority

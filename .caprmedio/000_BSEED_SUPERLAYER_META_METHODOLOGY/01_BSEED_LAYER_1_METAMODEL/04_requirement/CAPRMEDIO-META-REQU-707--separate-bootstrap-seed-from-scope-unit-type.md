@@ -1,8 +1,11 @@
 ---
+subjects:
+  - scope-topology
+  - artifact-model
 cce_version: cce_1
 cce_form: separation
-version: 8
-updated_at: 2026-08-22 21:20:47
+version: 9
+updated_at: 2026-08-23 01:44:00
 relations:
   child_of:
     - CA-R-917

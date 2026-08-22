@@ -1,9 +1,14 @@
 ---
+subjects:
+  - relation-model
+  - carrier-format
+  - framework-boundary
+  - atom-boundary
 atom_id: CA-R-948
 cce_version: cce_1
 cce_form: obligation
-version: 1
-updated_at: 2026-08-22 08:09:26
+version: 2
+updated_at: 2026-08-23 01:44:00
 relations:
   child_of:
     - CA-R-927

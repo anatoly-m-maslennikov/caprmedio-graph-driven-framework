@@ -1,9 +1,13 @@
 ---
+subjects:
+  - semantics
+  - artifact-model
+  - atom-boundary
 atom_id: CA-R-126
 cce_version: cce_1
 cce_form: cardinality
-version: 3
-updated_at: 2026-08-22 07:44:21
+version: 4
+updated_at: 2026-08-23 01:44:00
 relations:
   child_of:
     - CA-R-918

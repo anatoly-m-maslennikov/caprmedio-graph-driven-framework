@@ -1,9 +1,9 @@
 ---
-subject_scopes:
+subjects:
   - artifact-catalog
 tier: core
-version: 3
-updated_at: 2026-08-21 04:43:43
+version: 4
+updated_at: 2026-08-23 01:44:00
 relations:
   child_of:
     - CAPRMEDIO-META-REQU-085--separate-active-authority-from-preserved-history

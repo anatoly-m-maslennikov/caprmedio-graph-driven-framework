@@ -1,9 +1,13 @@
 ---
+subjects:
+  - artifact-model
+  - layout
+  - evaluation
 atom_id: CA-R-794
 cce_version: cce_1
 cce_form: obligation
-version: 5
-updated_at: 2026-08-22 08:09:26
+version: 6
+updated_at: 2026-08-23 01:44:00
 relations:
   child_of:
     - CA-R-799

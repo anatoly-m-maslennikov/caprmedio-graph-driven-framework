@@ -1,8 +1,8 @@
 ---
-subject_scopes:
+subjects:
   - methodology
-version: 1
-updated_at: 2026-08-19 22:22:41
+version: 2
+updated_at: 2026-08-23 01:44:00
 relations:
   rationale_for:
     - CAPRMEDIO-GOV-METH-004--bounded-scripted-migrations

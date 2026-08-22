@@ -1,9 +1,11 @@
 ---
+subjects:
+  - artifact-model
 atom_id: CA-R-155
 cce_version: cce_1
 cce_form: cardinality
-version: 15
-updated_at: 2026-08-22 07:44:21
+version: 16
+updated_at: 2026-08-23 01:44:00
 relations:
   child_of:
     - CA-R-680

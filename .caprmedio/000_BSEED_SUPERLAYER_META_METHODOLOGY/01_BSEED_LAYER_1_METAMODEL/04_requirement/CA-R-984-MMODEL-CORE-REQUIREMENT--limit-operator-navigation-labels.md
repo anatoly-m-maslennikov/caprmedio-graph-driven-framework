@@ -1,9 +1,12 @@
 ---
+subjects:
+  - scope-topology
+  - interaction
 atom_id: CA-R-984
 cce_version: cce_1
 cce_form: cardinality
-version: 1
-updated_at: 2026-08-22 21:20:47
+version: 2
+updated_at: 2026-08-23 01:44:00
 relations:
   child_of:
     - CAPRMEDIO-META-REQU-716

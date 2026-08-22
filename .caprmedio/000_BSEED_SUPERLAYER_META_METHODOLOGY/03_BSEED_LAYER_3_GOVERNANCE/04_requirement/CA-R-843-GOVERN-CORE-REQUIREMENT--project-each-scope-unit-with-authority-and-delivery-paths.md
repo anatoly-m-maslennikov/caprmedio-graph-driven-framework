@@ -1,9 +1,13 @@
 ---
+subjects:
+  - scope-topology
+  - layout
+  - authority
 atom_id: CA-R-843
 cce_version: cce_1
 cce_form: obligation
-version: 9
-updated_at: 2026-08-22 17:04:18
+version: 10
+updated_at: 2026-08-23 01:44:00
 relations:
   child_of:
     - CA-R-917

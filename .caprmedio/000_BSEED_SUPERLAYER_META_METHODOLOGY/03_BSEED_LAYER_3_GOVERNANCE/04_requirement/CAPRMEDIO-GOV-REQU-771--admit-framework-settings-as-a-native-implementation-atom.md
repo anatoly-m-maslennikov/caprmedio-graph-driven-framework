@@ -1,8 +1,8 @@
 ---
-subject_scopes:
+subjects:
   - settings
-version: 5
-updated_at: 2026-08-22 01:56:15
+version: 6
+updated_at: 2026-08-23 01:44:00
 relations:
   child_of:
     - CAPRMEDIO-GOV-REQU-344--all-governed-artifacts-live-under-caprmedio

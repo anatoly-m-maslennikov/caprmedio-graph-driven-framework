@@ -1,8 +1,8 @@
 ---
-subject_scopes:
+subjects:
   - development-flow
-version: 3
-updated_at: 2026-08-20 03:47:37
+version: 4
+updated_at: 2026-08-23 01:44:00
 relations:
   concern_about:
     - CAPRMEDIO-D-006-RELEASE_DEFINITION-BSEED_METAMODEL--deliver-metamodel-compilation-to-framework-methodology

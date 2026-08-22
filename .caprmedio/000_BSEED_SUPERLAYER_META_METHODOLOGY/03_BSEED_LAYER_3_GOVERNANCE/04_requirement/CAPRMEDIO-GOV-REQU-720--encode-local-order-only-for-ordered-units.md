@@ -1,8 +1,11 @@
 ---
+subjects:
+  - scope-topology
+  - carrier-format
 cce_version: cce_1
 cce_form: obligation
-version: 3
-updated_at: 2026-08-22 17:04:18
+version: 4
+updated_at: 2026-08-23 01:44:00
 relations:
   child_of:
     - CAPRMEDIO-META-REQU-712

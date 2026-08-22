@@ -1,34 +1,23 @@
-+++
-artifact_subtype = "external_audit_analysis"
-priority = "high"
-version = 1
-updated_at = "2026-08-17 19:36:01"
-llm_session_ids = ["codex:019f591f-04f6-70f2-8de7-828b7cccc69d"]
-
-[[relations]]
-type = "analysis_of"
-target = "CAPRMEDIO-GOV-REQU-395--verbose-project-settings"
-
-[[relations]]
-type = "relates_to"
-target = "CAPRMEDIO-SPEC-TOOLS-CONC-058--immutable-toml-migration"
-
-[[relations]]
-type = "relates_to"
-target = "CAPRMEDIO-SPEC-TOOLS-CONC-059--relation-bound-health"
-
-[[relations]]
-type = "relates_to"
-target = "CAPRMEDIO-GOV-CONC-023--classification-enforcement"
-
-[[relations]]
-type = "relates_to"
-target = "CAPRMEDIO-SPEC-TOOLS-CONC-060--conflict-source-truth"
-
-[[relations]]
-type = "relates_to"
-target = "CAPRMEDIO-GOV-CONC-024--evidence-record-contract"
-+++
+---
+subjects:
+  - methodology
+  - framework-boundary
+artifact_subtype: external_audit_analysis
+priority: high
+version: 2
+updated_at: 2026-08-23 01:44:00
+llm_session_ids:
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+relations:
+  analysis_of:
+    - CAPRMEDIO-GOV-REQU-395--verbose-project-settings
+  relates_to:
+    - CAPRMEDIO-SPEC-TOOLS-CONC-058--immutable-toml-migration
+    - CAPRMEDIO-SPEC-TOOLS-CONC-059--relation-bound-health
+    - CAPRMEDIO-GOV-CONC-023--classification-enforcement
+    - CAPRMEDIO-SPEC-TOOLS-CONC-060--conflict-source-truth
+    - CAPRMEDIO-GOV-CONC-024--evidence-record-contract
+---
 
 # External audit analysis — Framework coherence and FPF alignment
 

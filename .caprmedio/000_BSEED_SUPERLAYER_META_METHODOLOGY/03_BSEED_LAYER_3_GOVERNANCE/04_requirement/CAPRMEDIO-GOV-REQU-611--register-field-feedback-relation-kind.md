@@ -1,8 +1,9 @@
 ---
-subject_scopes:
+subjects:
   - relation-model
-version: 3
-updated_at: 2026-08-21 20:51:16
+  - atom-boundary
+version: 4
+updated_at: 2026-08-23 01:44:00
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:

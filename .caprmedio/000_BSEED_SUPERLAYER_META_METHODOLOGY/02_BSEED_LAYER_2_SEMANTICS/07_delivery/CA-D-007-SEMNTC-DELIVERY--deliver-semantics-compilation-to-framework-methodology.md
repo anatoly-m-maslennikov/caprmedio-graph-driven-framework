@@ -1,9 +1,13 @@
 ---
+subjects:
+  - semantics
+  - artifact-catalog
+  - methodology
 atom_id: CA-D-007
 cce_version: cce_1
 cce_form: delivery
-version: 5
-updated_at: 2026-08-22 07:44:21
+version: 6
+updated_at: 2026-08-23 01:44:00
 relations:
   delivery_for:
     - CAPRMEDIO-META-REQU-722

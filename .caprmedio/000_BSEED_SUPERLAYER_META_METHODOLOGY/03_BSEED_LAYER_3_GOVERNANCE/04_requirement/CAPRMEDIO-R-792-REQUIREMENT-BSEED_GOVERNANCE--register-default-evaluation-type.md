@@ -1,5 +1,5 @@
 ---
-subject_scopes:
+subjects:
   - artifact-catalog
 project_graph_state:
   artifacts:
@@ -7,8 +7,8 @@ project_graph_state:
       - evaluation:evaluation
     default_types:
       evaluation: evaluation
-version: 3
-updated_at: 2026-08-22 01:56:15
+version: 4
+updated_at: 2026-08-23 01:44:00
 relations:
   child_of:
     - CAPRMEDIO-META-REQU-742--permit-one-internal-default-type-per-content-role

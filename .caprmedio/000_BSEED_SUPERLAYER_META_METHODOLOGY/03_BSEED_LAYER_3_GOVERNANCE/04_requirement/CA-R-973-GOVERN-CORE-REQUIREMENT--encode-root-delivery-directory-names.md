@@ -1,9 +1,13 @@
 ---
+subjects:
+  - carrier-format
+  - layout
+  - methodology-sync
 atom_id: CA-R-973
 cce_version: cce_1
 cce_form: obligation
-version: 3
-updated_at: 2026-08-22 21:20:47
+version: 4
+updated_at: 2026-08-23 01:44:00
 relations:
   child_of:
     - CA-R-962

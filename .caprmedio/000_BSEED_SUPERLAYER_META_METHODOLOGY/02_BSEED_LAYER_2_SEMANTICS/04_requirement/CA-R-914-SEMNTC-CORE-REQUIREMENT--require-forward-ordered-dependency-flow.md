@@ -1,9 +1,12 @@
 ---
+subjects:
+  - relation-model
+  - atom-boundary
 atom_id: CA-R-914
 cce_version: cce_1
 cce_form: obligation
-version: 2
-updated_at: 2026-08-22 07:44:21
+version: 3
+updated_at: 2026-08-23 01:44:00
 relations:
   replacement_of:
     - CA-R-875

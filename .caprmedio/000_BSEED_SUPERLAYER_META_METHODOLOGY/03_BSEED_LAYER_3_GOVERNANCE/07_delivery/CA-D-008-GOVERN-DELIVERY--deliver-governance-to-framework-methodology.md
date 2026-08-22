@@ -1,9 +1,13 @@
 ---
+subjects:
+  - authority
+  - methodology
+  - methodology-sync
 atom_id: CA-D-008
 cce_version: cce_1
 cce_form: delivery
-version: 7
-updated_at: 2026-08-22 21:20:47
+version: 8
+updated_at: 2026-08-23 01:44:00
 relations:
   delivery_for:
     - CA-R-862

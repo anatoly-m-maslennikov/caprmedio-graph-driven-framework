@@ -1,8 +1,8 @@
 ---
-subject_scopes:
+subjects:
   - external-boundary
-version: 2
-updated_at: 2026-08-18 06:54:43
+version: 3
+updated_at: 2026-08-23 01:44:00
 relations:
   child_of:
     - CAPRMEDIO-GOV-REQU-345--represent-accepted-meaning-faithfully

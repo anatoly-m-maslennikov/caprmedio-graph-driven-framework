@@ -1,9 +1,12 @@
 ---
+subjects:
+  - scope-topology
+  - carrier-format
 atom_id: CA-R-859
 cce_version: cce_1
 cce_form: obligation
-version: 14
-updated_at: 2026-08-22 19:48:45
+version: 15
+updated_at: 2026-08-23 01:44:00
 relations:
   child_of:
     - CA-R-962

@@ -1,10 +1,10 @@
 ---
-subject_scopes:
+subjects:
   - provenance
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
-version: 2
-updated_at: 2026-08-21 03:26:58
+version: 3
+updated_at: 2026-08-23 01:44:00
 relations:
   child_of:
     - CAPRMEDIO-META-REQU-169--record-every-projection-rebuild-in-a-journal

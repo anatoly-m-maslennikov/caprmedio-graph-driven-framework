@@ -1,7 +1,10 @@
 ---
+subjects:
+  - interaction
+  - methodology
 subject_scope: lifecycle-traceability
-version: 1
-updated_at: 2026-08-17 19:36:01
+version: 2
+updated_at: 2026-08-23 01:44:00
 ---
 
 # Agent memory and graph-driven development

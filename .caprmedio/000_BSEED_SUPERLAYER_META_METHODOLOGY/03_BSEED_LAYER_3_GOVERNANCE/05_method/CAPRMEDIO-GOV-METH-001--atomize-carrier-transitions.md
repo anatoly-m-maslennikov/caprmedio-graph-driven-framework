@@ -1,9 +1,9 @@
 ---
-subject_scopes:
+subjects:
   - carrier-format
 tier: core
-version: 7
-updated_at: 2026-08-22 04:39:08
+version: 8
+updated_at: 2026-08-23 01:44:00
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:

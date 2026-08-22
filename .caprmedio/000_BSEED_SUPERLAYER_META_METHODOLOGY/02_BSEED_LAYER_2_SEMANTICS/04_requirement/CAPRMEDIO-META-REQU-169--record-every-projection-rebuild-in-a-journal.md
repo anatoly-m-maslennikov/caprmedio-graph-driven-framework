@@ -1,8 +1,8 @@
 ---
-subject_scopes:
+subjects:
   - lifecycle-traceability
-version: 2
-updated_at: 2026-08-20 19:10:41
+version: 3
+updated_at: 2026-08-23 01:44:00
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
   - codex:01a01cb4-e15e-78d1-9084-766bf6b0cd63

@@ -1,8 +1,8 @@
 ---
-subject_scopes:
-  - subject-scope
-version: 1
-updated_at: 2026-08-19 16:45:00
+subjects:
+  - subject
+version: 2
+updated_at: 2026-08-23 01:44:00
 relations:
   child_of:
     - CAPRMEDIO-META-REQU-157--narrowest-common-scope-ownership

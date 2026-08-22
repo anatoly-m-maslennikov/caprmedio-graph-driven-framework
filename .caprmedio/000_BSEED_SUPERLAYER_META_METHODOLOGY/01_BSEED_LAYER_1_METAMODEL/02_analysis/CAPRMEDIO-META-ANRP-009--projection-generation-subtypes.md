@@ -1,4 +1,7 @@
 ---
+subjects:
+  - artifact-model
+  - artifact-catalog
 subject_scope: artifact-model
 relations:
   analysis_of:
@@ -7,8 +10,8 @@ relations:
     - CAPRMEDIO-GOV-REQU-313--govern-catalog-map-and-hub-projections
     - CAPRMEDIO-GOV-REQU-322--register-implementation-record-projection
     - CAPRMEDIO-PLAN-006--establish-projection-generation-subtypes
-version: 1
-updated_at: 2026-08-17 19:36:01
+version: 2
+updated_at: 2026-08-23 01:44:00
 ---
 
 # Projection generation subtypes

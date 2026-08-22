@@ -1,8 +1,9 @@
 ---
-subject_scopes:
+subjects:
   - relation-model
-version: 4
-updated_at: 2026-08-22 01:32:10
+  - atom-boundary
+version: 5
+updated_at: 2026-08-23 01:44:00
 relations:
   child_of:
     - CAPRMEDIO-GOV-REQU-767--keep-active-rmed-relations-out-of-archives

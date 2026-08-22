@@ -1,10 +1,10 @@
 ---
 atom_id: CA-R-834
-subject_scopes:
+subjects:
   - artifact-model
 tier: core
-version: 2
-updated_at: 2026-08-21 02:55:24
+version: 3
+updated_at: 2026-08-23 01:44:00
 relations:
   child_of:
     - CA-D-003-PRINCIPLE-DELIVERY--provide-one-project-graph-as-the-operating-model

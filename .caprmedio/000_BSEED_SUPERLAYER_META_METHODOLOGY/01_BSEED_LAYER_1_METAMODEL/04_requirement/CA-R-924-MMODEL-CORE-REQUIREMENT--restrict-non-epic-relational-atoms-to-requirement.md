@@ -1,9 +1,14 @@
 ---
+subjects:
+  - development-flow
+  - relation-model
+  - artifact-model
+  - atom-boundary
 atom_id: CA-R-924
 cce_version: cce_1
 cce_form: classification
-version: 2
-updated_at: 2026-08-22 21:44:14
+version: 3
+updated_at: 2026-08-23 01:44:00
 relations:
   replacement_of:
     - CA-R-908

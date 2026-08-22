@@ -1,8 +1,8 @@
 ---
-subject_scopes:
+subjects:
   - scope-topology
-version: 7
-updated_at: 2026-08-22 21:20:47
+version: 8
+updated_at: 2026-08-23 01:44:00
 relations:
   delivery_for:
     - CA-R-862-REQUIREMENT-BSEED_GOVERNANCE--require-scope-unit-delivery-atoms

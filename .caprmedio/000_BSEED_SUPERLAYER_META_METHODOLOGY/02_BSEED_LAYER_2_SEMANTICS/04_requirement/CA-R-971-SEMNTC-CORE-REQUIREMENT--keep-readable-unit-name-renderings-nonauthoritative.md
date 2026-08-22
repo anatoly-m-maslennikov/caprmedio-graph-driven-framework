@@ -1,9 +1,12 @@
 ---
+subjects:
+  - scope-topology
+  - authority
 atom_id: CA-R-971
 cce_version: cce_1
 cce_form: prohibition
-version: 1
-updated_at: 2026-08-22 17:04:18
+version: 2
+updated_at: 2026-08-23 01:44:00
 relations:
   child_of:
     - CA-R-962

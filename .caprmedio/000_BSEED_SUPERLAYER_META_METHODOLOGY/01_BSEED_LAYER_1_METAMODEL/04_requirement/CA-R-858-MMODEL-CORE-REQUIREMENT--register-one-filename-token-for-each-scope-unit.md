@@ -1,9 +1,12 @@
 ---
+subjects:
+  - scope-topology
+  - carrier-format
 atom_id: CA-R-858
 cce_version: cce_1
 cce_form: cardinality
-version: 6
-updated_at: 2026-08-22 07:23:05
+version: 7
+updated_at: 2026-08-23 01:44:00
 llm_session_ids:
   - codex:01a01cb6-4ee4-7553-b68d-0823dda35094
 relations:
