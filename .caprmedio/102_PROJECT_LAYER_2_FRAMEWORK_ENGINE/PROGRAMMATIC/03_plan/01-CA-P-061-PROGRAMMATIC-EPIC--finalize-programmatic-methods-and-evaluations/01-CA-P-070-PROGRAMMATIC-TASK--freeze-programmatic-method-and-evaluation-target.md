@@ -5,13 +5,13 @@ subjects:
   - programmatic-policy
   - method-authority
   - evaluation-coverage
-version: 1
-updated_at: 2026-08-23 14:37:00
+version: 2
+updated_at: 2026-08-23 15:34:35
 autonomous_confidence_threshold: 98
 ---
 # Freeze the PROGRAMMATIC Method and Evaluation target
 
-WHEN CA-P-069 is Done, THE Assignee MUST freeze one exact target set and classify the applicability of every current or proposed Method and Evaluation that may govern PROGRAMMATIC or one of its descendant Scope Units.
+WHEN CA-P-068 is Done, THE Assignee MUST freeze one exact target set and classify the applicability of every current or proposed Method and Evaluation that may govern PROGRAMMATIC or one of its descendant Scope Units.
 
 ## Scope
 
@@ -19,7 +19,7 @@ WHEN CA-P-069 is Done, THE Assignee MUST freeze one exact target set and classif
 
 ## Definition of Done
 
-THE Task is NOT DONE IF (CA-P-069 is not Done OR the exact Task Scope Resolution is not recorded OR ANY Atom or candidate in the frozen set lacks exactly one disposition as shared PROGRAMMATIC authority, child-Scope specialization, superseded authority, rejected candidate, or unresolved Operator decision OR the historical `SOFTWARE` boundary in an FPF report is treated as current Scope authority instead of being translated to PROGRAMMATIC OR the evidence inputs and unresolved conflicts are not recorded).
+THE Task is NOT DONE IF (CA-P-068 is not Done OR the exact Task Scope Resolution is not recorded OR ANY Atom or candidate in the frozen set lacks exactly one disposition as shared PROGRAMMATIC authority, child-Scope specialization, superseded authority, rejected candidate, or unresolved Operator decision OR the historical `SOFTWARE` boundary in an FPF report is treated as current Scope authority instead of being translated to PROGRAMMATIC OR the evidence inputs and unresolved conflicts are not recorded).
 
 ## Details
 
