@@ -5,8 +5,8 @@ subjects:
   - python-runtime
   - programmatic-delivery
   - compatibility
-version: 1
-updated_at: 2026-08-23 16:33:00
+version: 2
+updated_at: 2026-08-23 16:37:00
 autonomous_confidence_threshold: 98
 ---
 # Upgrade supported Python to 3.14
@@ -15,7 +15,7 @@ WHEN the Operator accepts CPython 3.14 as the supported stable series, THE Assig
 
 ## Scope
 
-`(Atom ID IN (CA-R-1047, CA-M-110, CA-E-250, CA-D-250) OR Path IN (pyproject.toml, .github/workflows/publish-release.yml))`
+`(Atom ID IN (CA-A-054, CA-R-1047, CA-M-110, CA-E-250, CA-D-250) OR Path IN (pyproject.toml, .github/workflows/publish-release.yml))`
 
 ## Definition of Done
 
@@ -30,3 +30,15 @@ Update the configured workflow interpreter to 3.14, but distinguish the declared
 ## Source
 
 - [Python 3.14.7](https://www.python.org/downloads/release/python-3147/), released 2026-08-05.
+
+## Execution evidence
+
+- `pyproject.toml` selects `supported_python = "==3.14.*"` and preserves `required_runtime_dependencies = []`.
+- `.github/workflows/publish-release.yml` selects `python-version: "3.14"`.
+- CA-A-054 records exact bounded local validation under CPython 3.14.7 on Darwin arm64 at Git revision `26e3575635e5764d24590165106cf7480d06e67f`.
+- All 65 current Programmatic Python source files compiled in memory without a syntax failure.
+- All 15 installed launchers returned successful read-only `describe` envelopes.
+- The suspended test suite and hosted workflow were not run, and no claim of their success is made.
+- The validation created no source-tree bytecode cache. Four pre-existing source cache directories are recorded as a separate source-hygiene issue in CA-A-054.
+
+The selected series, checked-in workflow selector, local validation boundary, limitations, and unchanged dependency contract satisfy this Task.
