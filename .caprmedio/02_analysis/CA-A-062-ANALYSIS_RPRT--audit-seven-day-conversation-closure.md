@@ -7,8 +7,8 @@ subjects:
       - realized-project-state
     occurrent:
       - conversation-audit
-version: 3
-updated_at: 2026-08-25 14:22:00 +0400
+version: 4
+updated_at: 2026-08-25 14:24:00 +0400
 relations:
   analysis_of:
     - CA-C-107
@@ -49,7 +49,7 @@ must not be preserved as current intent.
 | Implement the common Tool interface, router, Finders, Doers, Markdown projections, business projections, Skills, and Graph App | `CAPRMEDIO-P-017` | Authority is present, but the Graph App contains only a placeholder and many slices remain unrealized. |
 | Give operator documentation a simpler human style and consider strict plus A2+/B1 variants | `CAPRMEDIO-P-022` and `CAPRMEDIO-P-023` | The Plans exist; no duplicate CAP item is needed. |
 | Improve the framework from observed project outcomes | `CAPRMEDIO-PLAN-009` and active Operations Principles | The loop is governed; later implementation remains under its existing Plan. |
-| Use a durable single-flight scheduler, recoverable handoffs, minimal hooks, and controlled background services | Current TOOLS draft MED authority, the PROGRAMMATIC `CA-P-083` Task, and the FRAMEWORK_ENGINE `CA-P-085` Task | Authority and implementation exist in parts, but the installed commit flow is not closed end to end. Current evidence includes a frontier-seal mismatch: context creation hashes relation registry metadata while both downstream validators omit it. Existing Tasks own this repair, so no duplicate is created here. |
+| Use a durable single-flight scheduler, recoverable handoffs, minimal hooks, and controlled background services | Current TOOLS draft MED authority and the PROGRAMMATIC `CA-P-083` Task | Authority and implementation exist in parts, but the installed commit flow is not closed end to end. Current evidence includes a frontier-seal mismatch: context creation hashes relation registry metadata while both downstream validators omit it. The existing Task owns this repair, so no duplicate is created here. |
 | Use `uv` for every admitted Python workflow capability it provides while keeping installed Tools self-contained | Current PROGRAMMATIC draft Method | The Method is not active, no lockfile establishes a reproducible development environment, and the workflow is not applied consistently. |
 
 ## Missing CAP Tasks
