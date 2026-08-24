@@ -9,8 +9,8 @@ subjects:
     occurrent:
       - conversation-audit
 priority: high
-version: 1
-updated_at: 2026-08-25 13:40:00 +0400
+version: 2
+updated_at: 2026-08-25 13:55:00 +0400
 relations:
   concern_about:
     - CA-R-861
