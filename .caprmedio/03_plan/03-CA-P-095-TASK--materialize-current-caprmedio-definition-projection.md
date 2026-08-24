@@ -7,8 +7,8 @@ subjects:
       - caprmedio-definition
       - intelligent-work-environment
       - principle-projection
-version: 1
-updated_at: 2026-08-25 14:05:00 +0400
+version: 2
+updated_at: 2026-08-25 14:10:00 +0400
 autonomous_confidence_threshold: 98
 relations:
   derived_from:
