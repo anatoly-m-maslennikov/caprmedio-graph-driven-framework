@@ -7,11 +7,11 @@ subjects:
       - realized-project-state
     occurrent:
       - conversation-audit
-version: 1
-updated_at: 2026-08-25 13:45:00 +0400
+version: 2
+updated_at: 2026-08-25 14:00:00 +0400
 relations:
   analysis_of:
-    - CA-C-106
+    - CA-C-107
 ---
 # Audit seven-day conversation closure
 
@@ -49,7 +49,7 @@ must not be preserved as current intent.
 | Implement the common Tool interface, router, Finders, Doers, Markdown projections, business projections, Skills, and Graph App | `CAPRMEDIO-P-017` | Authority is present, but the Graph App contains only a placeholder and many slices remain unrealized. |
 | Give operator documentation a simpler human style and consider strict plus A2+/B1 variants | `CAPRMEDIO-P-022` and `CAPRMEDIO-P-023` | The Plans exist; no duplicate CAP item is needed. |
 | Improve the framework from observed project outcomes | `CAPRMEDIO-PLAN-009` and active Operations Principles | The loop is governed; later implementation remains under its existing Plan. |
-| Use a durable single-flight scheduler, recoverable handoffs, minimal hooks, and controlled background services | Current TOOLS draft Methods, Evaluations, and Deliveries | The authority remains draft and the installed commit flow is not closed end to end. |
+| Use a durable single-flight scheduler, recoverable handoffs, minimal hooks, and controlled background services | Current TOOLS draft MED authority, the PROGRAMMATIC `CA-P-083` Task, and the FRAMEWORK_ENGINE `CA-P-085` Task | Authority and implementation exist in parts, but the installed commit flow is not closed end to end. Current evidence includes a frontier-seal mismatch: context creation hashes relation registry metadata while both downstream validators omit it. Existing Tasks own this repair, so no duplicate is created here. |
 | Use `uv` for every admitted Python workflow capability it provides while keeping installed Tools self-contained | Current PROGRAMMATIC draft Method | The Method is not active, no lockfile establishes a reproducible development environment, and the workflow is not applied consistently. |
 
 ## Missing CAP Tasks
@@ -64,19 +64,15 @@ must not be preserved as current intent.
 3. Implement one current Graph App vertical slice over authoritative Atoms and
    full Journals, a rebuildable database, a local backend, and an HTML/JavaScript
    frontend; keep self-contained static publication optional.
-4. Finish the automatic-commit runtime from minimal hook intake through durable
-   scheduling, context gathering, Journal append, and exact Git commit. Current
-   evidence includes a frontier-seal mismatch: context creation hashes relation
-   registry metadata while the two downstream validators omit it.
-5. Promote and apply the accepted `uv` workflow boundary.
-6. Bring current PROGRAMMATIC source into a measured conformance baseline under
+4. Promote and apply the accepted `uv` workflow boundary.
+5. Bring current PROGRAMMATIC source into a measured conformance baseline under
    the accepted Methods and remove generated Python cache directories from
    governed source locations.
-7. Add the accepted playful logo: a carp, `CAPR` on the fish, `MEDIO` above the
+6. Add the accepted playful logo: a carp, `CAPR` on the fish, `MEDIO` above the
    instrument, and a harp. Do not restore the rejected balalaika and ushanka
    variant or duplicate the wordmark.
 
-These seven gaps are represented by `CA-P-083` through `CA-P-089`.
+These six gaps are represented by `CA-P-089` through `CA-P-094`.
 
 ## Superseded input
 
@@ -93,6 +89,6 @@ These seven gaps are represented by `CA-P-083` through `CA-P-089`.
 
 ## Result
 
-The seven new Tasks close only missing ownership. Existing Plans retain their
+The six new Tasks close only missing ownership. Existing Plans retain their
 scope. This Analysis and the new CAP Tasks do not claim that any underlying
 implementation has been completed.
