@@ -2,12 +2,18 @@
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  - method
-  - evaluation
-  - delivery
-  - bootstrap-authority
-version: 1
-updated_at: 2026-08-23 15:33:00
+  declared:
+    occurrent:
+      - bseed-realization-reconciliation
+  prerequisite:
+    continuant:
+      - method
+      - evaluation
+      - delivery
+      - bootstrap-authority
+      - CA-P-062
+version: 2
+updated_at: 2026-08-23 16:30:03
 autonomous_confidence_threshold: 98
 ---
 # Replace stale BSEED Methods, Evaluations, and Deliveries

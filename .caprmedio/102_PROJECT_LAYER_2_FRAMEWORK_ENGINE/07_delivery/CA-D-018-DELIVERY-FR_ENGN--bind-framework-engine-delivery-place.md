@@ -1,11 +1,11 @@
 ---
 subject_scopes:
   - scope-topology
-version: 5
-updated_at: 2026-08-22 19:48:45
+version: 6
+updated_at: 2026-08-23 13:21:41
 relations:
   delivery_for:
-    - CA-R-862-REQUIREMENT-BSEED_GOVERNANCE--require-scope-unit-delivery-atoms
+    - CA-R-862-GOVERN-CORE-REQUIREMENT--bind-each-scope-unit-authority-place-to-its-delivery-place
 ---
 # Bind FRAMEWORK_ENGINE Delivery place
 

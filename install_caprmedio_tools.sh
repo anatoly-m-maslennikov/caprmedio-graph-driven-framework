@@ -3,7 +3,7 @@ set -eu
 
 repository=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
 installed="$repository/.caprmedio_install/bin/install-tools"
-canonical="$repository/002_FRAMEWORK_ENGINE/TOOLS/INSTALL_TOOLS/install_tools.py"
+canonical="$repository/002_FRAMEWORK_ENGINE/PROGRAMMATIC/TOOLS/INSTALL_TOOLS/install_tools.py"
 
 if [ -x "$installed" ]; then
     "$installed" run --apply

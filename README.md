@@ -83,18 +83,21 @@ Project Layers are ordered. Project-owned and Layer-owned Features are not.
 
 ```text
 001_FRAMEWORK_METHODOLOGY/       — Framework Methodology: defines framework rules and methods without I/O.
-002_FRAMEWORK_ENGINE/       — Framework Engine: applies the methodology through executable interfaces.
-├── SKILLS/       — Skills: give operators and LLMs the primary framework interface.
-├── TOOLS/        — Tools: find, check, and change CAPRMEDIO source artifacts.
-└── APPS/         — Applications and agent-host plugin packages.
-    ├── GRAPH_APP/          — Graph App: indexes sources and serves database-backed local views.
-    └── AGENT_HOST_PLUGINS/ — Agent Host Plugins: package CAPRMEDIO for supported agent hosts.
-        └── CODEX_PLUGIN/   — Codex Plugin: provides the Codex-specific plugin package and host wiring.
-003_OPERATOR_DOCUMENTATION/    — Operator Documentation: explains how declared operators use and control the framework.
-004_CORE_EXTENSIONS/         — Core Extensions Layer: contains CAPRMEDIO-owned extension capabilities.
-005_RELEASES/                — Releases Layer: packages and publishes versioned framework changes.
-010_COMMUNITY_EXTENSIONS/    — Community Extensions Feature: catalogs externally maintained extensions.
-010_FIELD/                   — Field Feature: captures evidence and feedback from operating CAPRMEDIO instances.
+002_FRAMEWORK_ENGINE/            — Framework Engine: applies the methodology through executable interfaces.
+├── PROGRAMMATIC/                — Programmatic Feature: owns deterministic software and machine interfaces.
+│   ├── TOOLS/                   — Tools: find, check, and change CAPRMEDIO source artifacts.
+│   ├── APPS/                    — Applications and agent-host plugin packages.
+│   │   ├── GRAPH_APP/           — Graph App: indexes sources and serves database-backed local views.
+│   │   └── AGENT_HOST_PLUGINS/  — Agent Host Plugins: package CAPRMEDIO for supported agent hosts.
+│   │       └── CODEX_PLUGIN/    — Codex Plugin: provides the Codex-specific plugin package and host wiring.
+│   └── MCP/                     — Provider-neutral MCP service and interface.
+└── AGENTIC/                     — Agentic Feature: owns agent-facing procedures and reasoning interfaces.
+    └── SKILLS/                  — Skills: give operators and LLMs the primary framework interface.
+003_OPERATOR_DOCUMENTATION/      — Operator Documentation: explains how declared operators use and control the framework.
+004_CORE_EXTENSIONS/             — Core Extensions Layer: contains CAPRMEDIO-owned extension capabilities.
+005_RELEASES/                    — Releases Layer: packages and publishes versioned framework changes.
+010_COMMUNITY_EXTENSIONS/        — Community Extensions Feature: catalogs externally maintained extensions.
+010_FIELD/                       — Field Feature: captures evidence and feedback from operating CAPRMEDIO instances.
 ```
 
 ## Principles

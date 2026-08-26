@@ -7,8 +7,8 @@ subjects:
       - realized-project-state
     occurrent:
       - conversation-audit
-version: 4
-updated_at: 2026-08-25 14:24:00 +0400
+version: 5
+updated_at: 2026-08-25 14:25:00 +0400
 relations:
   analysis_of:
     - CA-C-107
@@ -49,7 +49,7 @@ must not be preserved as current intent.
 | Implement the common Tool interface, router, Finders, Doers, Markdown projections, business projections, Skills, and Graph App | `CAPRMEDIO-P-017` | Authority is present, but the Graph App contains only a placeholder and many slices remain unrealized. |
 | Give operator documentation a simpler human style and consider strict plus A2+/B1 variants | `CAPRMEDIO-P-022` and `CAPRMEDIO-P-023` | The Plans exist; no duplicate CAP item is needed. |
 | Improve the framework from observed project outcomes | `CAPRMEDIO-PLAN-009` and active Operations Principles | The loop is governed; later implementation remains under its existing Plan. |
-| Use a durable single-flight scheduler, recoverable handoffs, minimal hooks, and controlled background services | Current TOOLS draft MED authority and the PROGRAMMATIC `CA-P-083` Task | Authority and implementation exist in parts, but the installed commit flow is not closed end to end. Current evidence includes a frontier-seal mismatch: context creation hashes relation registry metadata while both downstream validators omit it. The existing Task owns this repair, so no duplicate is created here. |
+| Use asynchronous durable intake, one pure decision manager, a mechanical recoverable Scheduler, atomic non-deciding workers, one serialized Git pipeline, repository reconciliation, and controlled background services | Active TOOLS authority `CA-R-802`, `CA-R-803`, `CA-R-857`, `CA-M-087`, `CA-M-104`, `CA-M-182`, their Deliveries and Evaluations, and PROGRAMMATIC Task `CA-P-083` | The latest Hook architecture is governed and its implementation Task exists, but native and installed-path realization is not closed. Current evidence includes blocking legacy Hook code and a frontier-seal mismatch: context creation hashes relation-registry metadata while both downstream validators omit it. `CA-P-083` owns implementation, lifecycle controls, recovery, and fresh end-to-end proof, so no duplicate Plan is created here. |
 | Use `uv` for every admitted Python workflow capability it provides while keeping installed Tools self-contained | Current PROGRAMMATIC draft Method | The Method is not active, no lockfile establishes a reproducible development environment, and the workflow is not applied consistently. |
 
 ## Missing CAP Tasks
@@ -92,3 +92,9 @@ These six gaps are represented by `CA-P-095` through `CA-P-100`.
 The six new Tasks close only missing ownership. Existing Plans retain their
 scope. This Analysis and the new CAP Tasks do not claim that any underlying
 implementation has been completed.
+
+The later `CA #5: hooks fixing` closure promoted the commit-automation design
+from draft discussion into active RMED authority, added numbered concurrency,
+recovery, lifecycle, and installed-path Evaluations, and created `CA-P-083`.
+That closure changes the classification from uncaptured design to governed but
+not fully realized work; it does not add another Project-level Task.

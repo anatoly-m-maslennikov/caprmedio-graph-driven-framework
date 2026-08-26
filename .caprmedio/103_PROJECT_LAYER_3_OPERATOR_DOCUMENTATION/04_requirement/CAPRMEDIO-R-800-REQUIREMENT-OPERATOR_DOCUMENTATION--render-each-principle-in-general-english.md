@@ -1,11 +1,11 @@
 ---
 subject_scopes:
   - operator-documentation
-version: 5
-updated_at: 2026-08-21 03:01:19
+version: 6
+updated_at: 2026-08-23 11:39:04
 relations:
   child_of:
-    - CAPRMEDIO-REQU-036--expose-only-task-necessary-distinctions
+    - CA-R-1057
     - CAPRMEDIO-REQU-703--define-operator-documentation-layer-scope
     - CA-D-002-PRINCIPLE-DELIVERY--provide-operator-understandable-governed-meaning
 ---

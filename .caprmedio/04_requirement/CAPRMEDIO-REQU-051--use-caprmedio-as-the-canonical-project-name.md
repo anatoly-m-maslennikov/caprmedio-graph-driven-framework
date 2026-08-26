@@ -1,17 +1,9 @@
 ---
 subject_scopes:
   - principles
-project_settings:
-  artifacts:
-    identity:
-      project_prefix: CA
-  project:
-    key: CAPRMEDIO
-    name: CAPRMEDIO
-    repository_slug: caprmedio-graph-driven-framework
 tier: core
-version: 3
-updated_at: 2026-08-20 20:02:11
+version: 4
+updated_at: 2026-08-23 02:50:00
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:

@@ -4,8 +4,8 @@ subject_scopes:
   - requirement-topology
   - scope-topology
   - carrier-format
-version: 7
-updated_at: 2026-08-21 02:55:24
+version: 8
+updated_at: 2026-08-23 11:39:04
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -30,7 +30,7 @@ relations:
     - CAPRMEDIO-REQU-008--define-project-scope-boundary
     - CA-R-831-REQUIREMENT--add-reusable-capabilities-through-extensions
     - CA-R-832-REQUIREMENT--select-optional-capabilities-through-configuration
-    - CAPRMEDIO-REQU-011--minimum-sufficient-guidance
+    - CA-R-1056
     - CAPRMEDIO-REQU-066--discipline-independent-core
     - CA-D-001-PRINCIPLE-DELIVERY--provide-replaceable-technical-realizations
     - CAPRMEDIO-REQU-067--default-to-software-application-development
@@ -40,7 +40,7 @@ relations:
     - CAPRMEDIO-REQU-071--keep-llm-operation-provider-neutral
     - CAPRMEDIO-META-REQU-189--work-area-scope
     - CAPRMEDIO-META-REQU-082--single-owner-rule-placement
-    - CAPRMEDIO-META-REQU-085--separate-active-authority-from-preserved-history
+    - CA-R-1051
     - CAPRMEDIO-META-REQU-088--meta-eligibility-rule
     - CAPRMEDIO-META-REQU-090--propagate-atomic-revision-impact-through-lineage
     - CAPRMEDIO-META-REQU-091--normative-atoms-are-the-caprmedio-specification
@@ -75,7 +75,7 @@ relations:
     - CAPRMEDIO-META-REQU-155--classify-rmed-atoms-by-applicability-tier
     - CAPRMEDIO-META-REQU-156--govern-tier-preserving-requirement-relations
     - CAPRMEDIO-META-REQU-157--narrowest-common-scope-ownership
-    - CAPRMEDIO-GOV-REQU-345--represent-accepted-meaning-faithfully
+    - CA-R-1054
 ---
 # Project, META, and GOV Core authority audit
 
