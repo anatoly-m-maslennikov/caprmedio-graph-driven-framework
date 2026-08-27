@@ -36,7 +36,7 @@ for _parent in MODULE_PATH.parents:
         break
 
 
-SETTINGS_PATH = Path(".caprmedio/caprmedio_project_settings.toml")
+SETTINGS_PATH = Path(".caprmedio_caprmedio/caprmedio_project_settings.toml")
 EVENTS = (
     "started",
     "progressed",
@@ -142,8 +142,19 @@ def configured_journal_root(root: Path) -> Path:
     if not isinstance(value, str) or not value:
         raise RuntimeError("Project Settings requires paths.journal_root")
     path = Path(value)
-    if path.is_absolute() or ".." in path.parts or path.parts[:1] != (".caprmedio",):
-        raise RuntimeError("paths.journal_root must be a safe .caprmedio-relative path")
+    control_value = settings.get("paths", {}).get("control_root", ".caprmedio_caprmedio")
+    if not isinstance(control_value, str) or not control_value:
+        raise RuntimeError("Project Settings requires paths.control_root")
+    control = Path(control_value)
+    if (
+        path.is_absolute()
+        or ".." in path.parts
+        or control.is_absolute()
+        or ".." in control.parts
+        or path == control
+        or path.parts[: len(control.parts)] != control.parts
+    ):
+        raise RuntimeError("paths.journal_root must be a safe descendant of paths.control_root")
     return path
 
 

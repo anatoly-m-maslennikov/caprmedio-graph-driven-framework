@@ -39,6 +39,7 @@ from typing import Any
 
 SCRIPT_PATH = Path(__file__).resolve()
 PACKAGE_ROOT = SCRIPT_PATH.parents[1]
+CONTEXT_ROOT = PACKAGE_ROOT / "COMMIT_CONTEXT"
 
 
 def _installed_runtime_root(path: Path) -> Path | None:
@@ -55,10 +56,18 @@ def _installed_runtime_root(path: Path) -> Path | None:
 if (runtime_root := _installed_runtime_root(SCRIPT_PATH)) is not None:
     sys.pycache_prefix = str(runtime_root / "cache" / "python")
 
-if str(PACKAGE_ROOT) not in sys.path:
-    sys.path.insert(0, str(PACKAGE_ROOT))
+for _path in (PACKAGE_ROOT, CONTEXT_ROOT):
+    if str(_path) not in sys.path:
+        sys.path.insert(0, str(_path))
 
 from framework_installation import InstallationError, installation_status  # noqa: E402
+from commit_context_logic import (  # noqa: E402
+    configured_repository_paths,
+    is_forbidden_commit_path,
+    is_journal_path,
+    project_path_eligible,
+    repository_root,
+)
 
 TOOL_SCHEMA_VERSION = 1
 TRIGGER_SCHEMA_VERSION = 1
@@ -412,13 +421,21 @@ def _carrier_identity(relative: str, data: bytes) -> str:
     return f"path:{relative}"
 
 
-def _inside_excluded_dot_directory(relative: str) -> bool:
-    parts = Path(relative).parts
-    return len(parts) > 1 and parts[0].startswith(".") and parts[0] != ".caprmedio"
+def _is_work_journal_path(repository: Path, relative: str) -> bool:
+    return is_journal_path(repository, relative, require_carrier=True)
 
 
-def _is_work_journal_path(relative: str) -> bool:
-    return Path(relative).parts[:2] == (".caprmedio", "work_journal")
+def _path_candidate_admitted(repository: Path, relative: str, *, journal_for_correlation: bool = False) -> bool:
+    path = Path(relative)
+    if path.is_absolute() or not path.parts or ".." in path.parts or is_forbidden_commit_path(repository, relative):
+        return False
+    if _is_work_journal_path(repository, relative):
+        return journal_for_correlation
+    if path.parts[0].startswith(".") and len(path.parts) > 1:
+        configured = configured_repository_paths(repository)
+        admitted = (*configured.governed_roots, *configured.legacy_migration_roots)
+        return any(path == root or path.parts[: len(root.parts)] == root.parts for root in admitted)
+    return True
 
 
 def _git_ignores(repository: Path, relative: str) -> bool:
@@ -459,14 +476,11 @@ def _git_ignored_paths(repository: Path, relatives: Sequence[str], *, timeout: f
 
 
 def _project_path_eligible(repository: Path, relative: str, *, journal_for_correlation: bool = False) -> bool:
-    path = Path(relative)
-    if path.is_absolute() or not path.parts or ".." in path.parts:
+    if not _path_candidate_admitted(repository, relative, journal_for_correlation=journal_for_correlation):
         return False
-    if _inside_excluded_dot_directory(relative):
-        return False
-    if _is_work_journal_path(relative) and not journal_for_correlation:
-        return False
-    return not _git_ignores(repository, relative)
+    if _is_work_journal_path(repository, relative):
+        return not _git_ignores(repository, relative)
+    return project_path_eligible(repository, relative)
 
 
 def _working_bytes(path: Path) -> bytes:
@@ -492,9 +506,7 @@ def scan_governed_files(
 ) -> dict[str, FileState]:
     """Read every Git-admitted project file plus Journal correlation carriers."""
 
-    resolved_repository = resolve_repository(Path(repository))
-    if not (resolved_repository / ".caprmedio").is_dir():
-        raise ToolError("governed-source-not-found", f"{resolved_repository / '.caprmedio'} does not exist")
+    resolved_repository = repository_root(resolve_repository(Path(repository)))
     try:
         completed = subprocess.run(
             ["git", "-C", str(resolved_repository), "ls-files", "--cached", "--others", "--exclude-standard", "-z"],
@@ -513,7 +525,7 @@ def scan_governed_files(
     eligible_candidates = [
         relative
         for relative in candidates
-        if not _inside_excluded_dot_directory(relative)
+        if _path_candidate_admitted(resolved_repository, relative, journal_for_correlation=True)
     ]
     ignored = _git_ignored_paths(
         resolved_repository,
@@ -683,7 +695,7 @@ def detect_watch_observations(
     changed_paths = {state.path for state in before_states + after_states}
     if (
         logical_width > 1
-        and not any(_is_work_journal_path(path) for path in changed_paths)
+        and not any(_is_work_journal_path(resolved_repository, path) for path in changed_paths)
         and (before_folder is None or _project_path_eligible(resolved_repository, before_folder))
         and (after_folder is None or _project_path_eligible(resolved_repository, after_folder))
     ):
@@ -996,6 +1008,18 @@ def _atomic_write(path: Path, content: str) -> None:
         raise
 
 
+def _atomic_write_if_changed(path: Path, content: str) -> bool:
+    """Preserve an already-current Carrier without requiring write access."""
+
+    try:
+        if path.read_text(encoding="utf-8") == content:
+            return False
+    except FileNotFoundError:
+        pass
+    _atomic_write(path, content)
+    return True
+
+
 def _hook_control_path(repository: Path) -> Path:
     return _runtime_directory(repository) / HOOK_CONTROL_NAME
 
@@ -1242,9 +1266,12 @@ def install_codex_hooks(repository: Path, adapter_id: str) -> dict[str, object]:
     project_config = repository / ".codex" / "hooks.json"
     user_config = _codex_home() / "hooks.json"
     managed = _hook_document(adapter_id)
-    _atomic_write(runtime_config, json.dumps(managed, ensure_ascii=False, indent=2, sort_keys=True) + "\n")
+    _atomic_write_if_changed(runtime_config, json.dumps(managed, ensure_ascii=False, indent=2, sort_keys=True) + "\n")
     merged = _hook_document(adapter_id, _read_hook_document(user_config))
-    _atomic_write(user_config, json.dumps(merged, ensure_ascii=False, indent=2, sort_keys=True) + "\n")
+    user_carrier_changed = _atomic_write_if_changed(
+        user_config,
+        json.dumps(merged, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
+    )
 
     project_changed = False
     if project_config.is_symlink() and project_config.resolve() == runtime_config.resolve():
@@ -1265,6 +1292,7 @@ def install_codex_hooks(repository: Path, adapter_id: str) -> dict[str, object]:
         "registered": True,
         "carrier": user_config.as_posix(),
         "carrier_kind": "merged-user-config",
+        "carrier_changed": user_carrier_changed,
         "canonical_fragment": runtime_config.relative_to(repository).as_posix(),
         "project_carrier_removed": project_changed,
         "activation": CODEX_ACTIVATION_VALUE,

@@ -46,7 +46,17 @@ for _path in (TOOLS_ROOT, CONTEXT_ROOT, APPENDER_ROOT):
     if str(_path) not in sys.path:
         sys.path.insert(0, str(_path))
 
-from commit_context_logic import ContextError, event_message, gather_context, repository_identity, repository_root  # noqa: E402
+from commit_context_logic import (  # noqa: E402
+    ContextError,
+    configured_repository_paths,
+    event_message,
+    gather_context,
+    is_forbidden_commit_path,
+    is_journal_path,
+    project_path_eligible,
+    repository_identity,
+    repository_root,
+)
 from work_journal import WorkJournalError, canonical_json_bytes, canonical_json_digest, validate_sealed_event  # noqa: E402
 
 
@@ -235,7 +245,12 @@ def _validate_context_identity_and_frontiers(context: Mapping[str, Any]) -> None
     detailed = []
     for relation in relations:
         row = _require_mapping(relation, "context.relations item")
-        detailed.append({key: row.get(key) for key in ("relation_type", "filename", "version", "path", "sha256")})
+        detailed.append(
+            {
+                key: row.get(key)
+                for key in ("relation_type", "filename", "version", "path", "sha256", "registry")
+            }
+        )
     if frontier.get("relations_sha256") != canonical_json_digest(detailed):
         raise ToolError("relation-frontier-mismatch", "relation frontier digest does not match detailed direct relations")
 
@@ -517,28 +532,11 @@ def _changed_paths(records: Sequence[Mapping[str, str | None]]) -> set[str]:
 
 
 def _is_project_subject_path(root: Path, path: str) -> bool:
-    candidate = Path(path)
-    if candidate.is_absolute() or not candidate.parts or ".." in candidate.parts or _is_journal_path(path):
-        return False
-    if len(candidate.parts) > 1 and candidate.parts[0].startswith(".") and candidate.parts[0] != ".caprmedio":
-        return False
-    completed = subprocess.run(
-        ["git", "-C", str(root), "check-ignore", "--no-index", "-q", "--", path],
-        check=False,
-        capture_output=True,
-    )
-    if completed.returncode not in {0, 1}:
-        raise ToolError("git-ignore-check-failed", completed.stderr.decode("utf-8", "replace").strip() or "cannot evaluate Git ignore rules")
-    return completed.returncode == 1
+    return project_path_eligible(root, path)
 
 
-def _is_journal_path(path: str) -> bool:
-    candidate = Path(path)
-    return (
-        len(candidate.parts) >= 3
-        and candidate.parts[:2] == (".caprmedio", "work_journal")
-        and candidate.suffix == ".ndjson"
-    )
+def _is_journal_path(root: Path, path: str) -> bool:
+    return is_journal_path(root, path, require_carrier=True)
 
 
 def _journal_rows(data: bytes, relative: str) -> list[dict[str, Any]]:
@@ -566,18 +564,43 @@ def _validate_event(event: Mapping[str, Any]) -> dict[str, Any]:
     return sealed
 
 
+def _legacy_journal_source(root: Path, relative: str, data: bytes) -> str | None:
+    paths = configured_repository_paths(root)
+    try:
+        suffix = Path(relative).relative_to(paths.journal_root)
+    except ValueError:
+        return None
+    for legacy_root in paths.legacy_migration_roots:
+        source = legacy_root / "work_journal" / suffix
+        completed = subprocess.run(
+            ["git", "-C", str(root), "log", "-1", "--format=%H", "--diff-filter=AM", "--", source.as_posix()],
+            capture_output=True,
+            check=False,
+        )
+        if completed.returncode != 0:
+            continue
+        revision = completed.stdout.decode("ascii", errors="strict").strip()
+        if not revision:
+            continue
+        source_data = _git_show_bytes(root, revision, source.as_posix())
+        if source_data == data:
+            return source.as_posix()
+    return None
+
+
 def _journal_additions(
     root: Path,
     records: Sequence[Mapping[str, str | None]],
     *,
     base_revision: str,
     current_bytes: Any,
-) -> tuple[list[dict[str, Any]], list[str]]:
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]], list[str]]:
     events: list[dict[str, Any]] = []
+    relocated_history_events: list[dict[str, Any]] = []
     carriers: list[str] = []
     for record in records:
         paths = [path for path in (record.get("before_path"), record.get("after_path")) if isinstance(path, str)]
-        journal_paths = [path for path in paths if _is_journal_path(path)]
+        journal_paths = [path for path in paths if _is_journal_path(root, path)]
         if not journal_paths:
             continue
         if record.get("status", "")[0] not in {"A", "M"} or len(set(journal_paths)) != 1:
@@ -593,16 +616,28 @@ def _journal_additions(
         added_rows = _journal_rows(addition, relative)
         if not added_rows:
             raise ToolError("journal-sidecar-empty", "changed Journal carrier contains no appended record")
-        events.extend(_validate_event(row) for row in added_rows)
+        legacy_source = _legacy_journal_source(root, relative, current) if not base else None
+        if legacy_source is not None:
+            for row in added_rows:
+                try:
+                    relocated_history_events.append(_validate_event(row))
+                except ToolError:
+                    # A byte-identical legacy Carrier remains authoritative
+                    # migration evidence without being recoded as a current
+                    # Journal event.
+                    continue
+        else:
+            events.extend(_validate_event(row) for row in added_rows)
         carriers.append(relative)
-    return events, sorted(set(carriers))
+    return events, relocated_history_events, sorted(set(carriers))
 
 
 def _base_journal_event(root: Path, revision: str, event_id: str) -> dict[str, Any] | None:
+    journal_root = configured_repository_paths(root).journal_root.as_posix()
     paths = [
         value
-        for value in _git(root, "ls-tree", "-r", "--name-only", "-z", revision, "--", ".caprmedio/work_journal").decode("utf-8").split("\0")
-        if value and _is_journal_path(value)
+        for value in _git(root, "ls-tree", "-r", "--name-only", "-z", revision, "--", journal_root).decode("utf-8").split("\0")
+        if value and _is_journal_path(root, value)
     ]
     for relative in paths:
         data = _git_show_bytes(root, revision, relative)
@@ -641,15 +676,12 @@ def _evaluate_governed_boundary(
         for path in paths
         if path == ".git"
         or path.startswith(".git/")
-        or path == ".caprmedio_install"
-        or path.startswith(".caprmedio_install/")
-        or path == ".caprmedio_runtime"
-        or path.startswith(".caprmedio_runtime/")
+        or is_forbidden_commit_path(root, path)
     )
     if forbidden:
         raise ToolError("local-machine-path-staged", "installation, runtime, and Git-internal paths cannot be part of a governed commit")
     subject_paths = {path for path in paths if _is_project_subject_path(root, path)}
-    journal_paths = {path for path in paths if _is_journal_path(path)}
+    journal_paths = {path for path in paths if _is_journal_path(root, path)}
     governed = bool(subject_paths or journal_paths)
     if not governed:
         return {"governed": False, "changed_paths": sorted(paths), "validation_results": [{"name": "ordinary-commit-boundary", "ok": True}]}
@@ -657,12 +689,12 @@ def _evaluate_governed_boundary(
         raise ToolError("governed-subject-missing", "a governed Journal boundary has no project-path subject change")
     if not journal_paths:
         raise ToolError("governed-journal-missing", "a governed Atom boundary has no Journal sidecar")
-    events, carriers = _journal_additions(root, records, base_revision=base_revision, current_bytes=current_bytes)
+    events, relocated_history_events, carriers = _journal_additions(root, records, base_revision=base_revision, current_bytes=current_bytes)
     action_ids = {event.get("action_id") for event in events}
     if len(action_ids) != 1 or not all(isinstance(value, str) and value for value in action_ids):
         raise ToolError("journal-action-mismatch", "all appended Journal records must share one action identity")
     completed = _completed_event(events)
-    previous = _previous_result(root, completed, events, base_revision)
+    previous = _previous_result(root, completed, [*events, *relocated_history_events], base_revision)
     result = _require_mapping(completed.get("result"), "completed result")
     action_type = completed.get("action_type")
     if action_type not in ACTION_TYPES:
@@ -752,6 +784,7 @@ def _evaluate_governed_boundary(
             {"name": "singular-governed-subject", "ok": True},
             {"name": "related-journal-sidecars", "ok": True},
             {"name": "structured-result-lineage", "ok": True},
+            {"name": "byte-preserving-legacy-journal-relocation", "ok": True, "carrier_count": len(carriers) - len({path for path in carriers if _git_show_bytes(root, base_revision, path) is not None})},
         ],
     }
 
@@ -812,7 +845,7 @@ def observe_post_commit(root: Path) -> dict[str, Any]:
         valid = True
     except ToolError as error:
         result = {
-            "governed": any(_is_project_subject_path(root, path) or _is_journal_path(path) for path in _changed_paths(_commit_change_records(root, parent, commit))),
+            "governed": any(_is_project_subject_path(root, path) or _is_journal_path(root, path) for path in _changed_paths(_commit_change_records(root, parent, commit))),
             "changed_paths": sorted(_changed_paths(_commit_change_records(root, parent, commit))),
         }
         diagnostics.append({"code": error.code, "message": str(error)})
@@ -966,6 +999,29 @@ def _stage_receipt_sidecars(root: Path, events: Sequence[Mapping[str, Any]], rec
     return staged
 
 
+def _relocated_journal_paths(root: Path) -> dict[str, str]:
+    journal_root = root / configured_repository_paths(root).journal_root
+    result: dict[str, str] = {}
+    if not journal_root.is_dir():
+        return result
+    for path in sorted(journal_root.rglob("*.ndjson")):
+        relative = _relative(root, path)
+        if _is_tracked(root, relative):
+            continue
+        source = _legacy_journal_source(root, relative, path.read_bytes())
+        if source is not None:
+            result[relative] = source
+    return result
+
+
+def _stage_relocated_journal_history(root: Path) -> set[str]:
+    staged: set[str] = set()
+    for relative in _relocated_journal_paths(root):
+        _git(root, "add", "--", relative)
+        staged.add(relative)
+    return staged
+
+
 def _restore_our_index_paths(root: Path, paths: Sequence[str]) -> None:
     if paths:
         _git(root, "reset", "--", *sorted(set(paths)))
@@ -993,6 +1049,143 @@ def _verify_commit(root: Path, *, parent: str, message: str, expected_paths: set
         if not found:
             raise ToolError("commit-sidecar-mismatch", "created commit does not contain each receipt-bound Journal event")
     return commit
+
+
+def _resolved_blocked_state(root: Path, action_id: str) -> tuple[Path, dict[str, Any]]:
+    path = root / configured_repository_paths(root).runtime_root / "state" / "append_change_records" / "blocked" / f"{action_id}.json"
+    try:
+        value = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as error:
+        raise ToolError("blocked-state-invalid", "resolved blocked action state is unavailable") from error
+    state = _require_mapping(value, "blocked state")
+    if state.get("status") != "resolved" or state.get("action_id") != action_id:
+        raise ToolError("blocked-state-invalid", "selected blocked action is not resolved")
+    return path, state
+
+
+def _resolved_events(root: Path, state: Mapping[str, Any]) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    event_ids = state.get("event_ids")
+    references = state.get("receipt_refs")
+    if not isinstance(event_ids, list) or not isinstance(references, list) or len(event_ids) != len(references):
+        raise ToolError("blocked-state-invalid", "resolved action receipt references are incomplete")
+    events: list[dict[str, Any]] = []
+    receipts: list[dict[str, Any]] = []
+    for event_id, raw in zip(event_ids, references, strict=True):
+        receipt = _require_mapping(raw, "resolved receipt")
+        carrier = _safe_path(root, receipt.get("carrier"), "resolved receipt.carrier")
+        line = receipt.get("line")
+        if not carrier.is_file() or not isinstance(line, int) or line < 1:
+            raise ToolError("blocked-state-invalid", "resolved action Journal carrier is unavailable")
+        lines = carrier.read_bytes().splitlines()
+        if line > len(lines):
+            raise ToolError("blocked-state-invalid", "resolved action Journal line is unavailable")
+        try:
+            raw_event = json.loads(lines[line - 1])
+        except json.JSONDecodeError as error:
+            raise ToolError("blocked-state-invalid", "resolved action Journal line is invalid JSON") from error
+        event = _validate_event(_require_mapping(raw_event, "resolved Journal event"))
+        if event.get("event_id") != event_id or event.get("event_digest") != receipt.get("event_digest") or event.get("action_id") != state.get("action_id"):
+            raise ToolError("blocked-state-invalid", "resolved action Journal identity does not match")
+        events.append(event)
+        receipts.append(receipt)
+    return events, receipts
+
+
+def _working_journal_event(root: Path, event_id: str) -> dict[str, Any] | None:
+    journal_root = root / configured_repository_paths(root).journal_root
+    if not journal_root.is_dir():
+        return None
+    for path in sorted(journal_root.rglob("*.ndjson")):
+        for row in _journal_rows(path.read_bytes(), _relative(root, path)):
+            if row.get("event_id") != event_id:
+                continue
+            return _validate_event(row)
+    return None
+
+
+def retry_resolved_action(root: Path, action_id: str, *, apply: bool) -> dict[str, Any]:
+    root = repository_root(root)
+    if not HEX64.fullmatch(action_id):
+        raise ToolError("blocked-state-invalid", "resolved action_id is invalid")
+    blocked_path, state = _resolved_blocked_state(root, action_id)
+    events, receipts = _resolved_events(root, state)
+    completed = _completed_event(events)
+    previous_id = completed.get("previous_result_event")
+    if not isinstance(previous_id, str) or not previous_id:
+        raise ToolError("previous-result-missing", "resolved non-ADD action has no previous result identity")
+    previous_event = _base_journal_event(root, "HEAD", previous_id) or _working_journal_event(root, previous_id)
+    if previous_event is None:
+        raise ToolError("previous-result-missing", "resolved action previous result cannot be recovered from committed or byte-relocated Journal evidence")
+    previous = _require_mapping(previous_event.get("result"), "previous Journal result")
+    result = _require_mapping(completed.get("result"), "completed result")
+    subject_kind = completed.get("subject_kind", "file")
+    if subject_kind != "folder" or completed.get("action_type") not in {"MOVE", "UPDATE", "MOVE+UPDATE"}:
+        raise ToolError("resolved-retry-unsupported", "resolved retry currently requires one folder move or update")
+    context = {
+        "action_type": completed["action_type"],
+        "result": result,
+        "subject": {"kind": "folder"},
+        "trigger": {"before_path": previous.get("path"), "after_path": result.get("path")},
+        "snapshots": {"committed": previous},
+    }
+    message = event_message(completed, previous)
+    relocated = _relocated_journal_paths(root)
+    planned_paths = set(relocated)
+    previous_entries = previous.get("entries")
+    current_entries = result.get("entries")
+    if not isinstance(previous_entries, list) or not isinstance(current_entries, list):
+        raise ToolError("blocked-state-invalid", "resolved folder action lacks entry snapshots")
+    previous_paths = {str(entry["path"]): str(entry["sha256"]) for entry in previous_entries}
+    current_paths = {str(entry["path"]): str(entry["sha256"]) for entry in current_entries}
+    for relative, sha256 in current_paths.items():
+        path = _safe_path(root, relative, "resolved result entry")
+        if not path.is_file() or _sha256(path.read_bytes()) != sha256:
+            raise ToolError("stale-context", "resolved result entry differs from preserved Journal evidence")
+        base = _git_show_bytes(root, "HEAD", relative)
+        if base is None or _sha256(base) != sha256:
+            planned_paths.add(relative)
+    for relative, sha256 in previous_paths.items():
+        base = _git_show_bytes(root, "HEAD", relative)
+        if base is None or _sha256(base) != sha256 or (root / relative).exists():
+            raise ToolError("stale-context", "resolved previous entry differs from preserved Journal evidence")
+        if relative not in current_paths:
+            planned_paths.add(relative)
+    planned_paths.update(str(receipt["carrier"]) for receipt in receipts)
+    result_payload = {
+        "action_id": action_id,
+        "git_message": message,
+        "relocated_journal_carriers": [{"after_path": path, "before_path": source} for path, source in sorted(relocated.items())],
+        "planned_paths": sorted(planned_paths),
+        "validation_results": [
+            {"name": "resolved-action-evidence", "ok": True},
+            {"name": "byte-preserving-legacy-journal-relocation", "ok": True},
+            {"name": "resolved-subject-frontier", "ok": True},
+        ],
+    }
+    if not apply:
+        return result_payload
+    if _git(root, "diff", "--cached", "--name-only", "-z"):
+        raise ToolError("unrelated-staged-change", "repository index is not empty before resolved retry")
+    parent = _git_text(root, "rev-parse", "HEAD")
+    staged: set[str] = set()
+    try:
+        staged.update(_stage_subject(root, context))
+        staged.update(_stage_receipt_sidecars(root, events, receipts))
+        staged.update(_stage_relocated_journal_history(root))
+        actual = {value for value in _git(root, "diff", "--cached", "--name-only", "--no-renames", "-z").decode("utf-8").split("\0") if value}
+        if actual != staged or actual != planned_paths:
+            raise ToolError("staging-mismatch", "resolved retry index differs from its exact subject, evidence, and Journal relocation set")
+        boundary = evaluate_pre_commit(root)
+        if boundary.get("expected_message") != message:
+            raise ToolError("commit-message-mismatch", "resolved retry message differs from the governed boundary")
+        _git(root, "commit", "-m", message)
+        commit = _verify_commit(root, parent=parent, message=message, expected_paths=staged, events=events)
+    except ToolError:
+        _restore_our_index_paths(root, sorted(staged))
+        raise
+    state_path_value = {**state, "status": "committed", "commit": commit, "committed_at": dt.datetime.now(dt.UTC).replace(microsecond=0).isoformat().replace("+00:00", "Z")}
+    blocked_path.write_text(json.dumps(state_path_value, ensure_ascii=False, sort_keys=True, separators=(",", ":")) + "\n", encoding="utf-8")
+    return {**result_payload, "commit": commit, "validation_results": [*result_payload["validation_results"], {"name": "commit-verification", "ok": True}]}
 
 
 def _record_blocked(appender: Any, root: Path, context: Mapping[str, Any], events: Sequence[Mapping[str, Any]], receipts: Sequence[Mapping[str, Any]], lease: Mapping[str, Any], reason: str) -> None:
@@ -1234,6 +1427,10 @@ def describe() -> dict[str, Any]:
                 "required": ["action_id", "reason"],
                 "effect": "explicitly resolve one blocked action while preserving its Journal evidence",
             },
+            "retry_resolved": {
+                "required": ["action_id"],
+                "effect": "commit one resolved folder action with exact byte-relocated legacy Journal evidence",
+            },
             "git_hook": {
                 "phases": ["pre-commit", "commit-msg", "post-commit"],
                 "effect": "evaluate staged or created Git state; only post-commit appends runtime observation evidence",
@@ -1263,6 +1460,9 @@ def _parser() -> argparse.ArgumentParser:
     resolve.add_argument("--action-id", required=True)
     resolve.add_argument("--reason", required=True)
     resolve.add_argument("--apply", action="store_true")
+    retry_resolved = subcommands.add_parser("retry-resolved", help="commit one explicitly resolved action with byte-relocated Journal evidence")
+    retry_resolved.add_argument("--action-id", required=True)
+    retry_resolved.add_argument("--apply", action="store_true")
     git_hook = subcommands.add_parser("git-hook", help="evaluate one installed Git Hook boundary")
     git_hook.add_argument("phase", choices=("pre-commit", "commit-msg", "post-commit"))
     git_hook.add_argument("message_file", nargs="?", help="Git-supplied commit message carrier for commit-msg")
@@ -1306,6 +1506,15 @@ def main(argv: Sequence[str] | None = None) -> int:
                 args.reason,
                 apply=args.apply,
             )
+        except (ToolError, ContextError) as error:
+            print(json.dumps(_envelope(ok=False, mode=mode, error=error), ensure_ascii=False, sort_keys=True, separators=(",", ":")))
+            return 2
+        print(json.dumps(_envelope(ok=True, mode=mode, result=result), ensure_ascii=False, sort_keys=True, separators=(",", ":")))
+        return 0
+    if args.command == "retry-resolved":
+        mode = "apply" if args.apply else "dry-run"
+        try:
+            result = retry_resolved_action(Path(args.repository), args.action_id, apply=args.apply)
         except (ToolError, ContextError) as error:
             print(json.dumps(_envelope(ok=False, mode=mode, error=error), ensure_ascii=False, sort_keys=True, separators=(",", ":")))
             return 2

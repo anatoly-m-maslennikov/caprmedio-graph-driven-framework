@@ -45,7 +45,7 @@ for _path in (TOOLS_ROOT, CONTEXT_ROOT):
     if str(_path) not in sys.path:
         sys.path.insert(0, str(_path))
 
-from commit_context_logic import repository_root  # noqa: E402
+from commit_context_logic import project_path_eligible, repository_root  # noqa: E402
 from work_journal import (  # noqa: E402
     WorkJournalError,
     canonical_json_bytes,
@@ -190,6 +190,7 @@ def _detailed_relation_projection(relations: list[dict[str, Any]]) -> list[dict[
             "version": relation["version"],
             "path": relation["path"],
             "sha256": relation["sha256"],
+            "registry": relation["registry"],
         }
         for relation in relations
     ]
@@ -476,10 +477,7 @@ def _folder_entries(root: Path, folder: str) -> list[dict[str, str]]:
     prefix = folder.rstrip("/") + "/"
     entries: list[dict[str, str]] = []
     for relative in sorted(paths):
-        parts = Path(relative).parts
-        if not relative.startswith(prefix) or parts[:2] == (".caprmedio", "work_journal"):
-            continue
-        if len(parts) > 1 and parts[0].startswith(".") and parts[0] != ".caprmedio":
+        if not relative.startswith(prefix) or not project_path_eligible(root, relative):
             continue
         path = root / relative
         if path.is_file() or path.is_symlink():

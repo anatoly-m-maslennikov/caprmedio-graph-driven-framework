@@ -26,24 +26,25 @@ class CommitChangeSetTests(unittest.TestCase):
         self.temporary = tempfile.TemporaryDirectory()
         self.root = Path(self.temporary.name)
         (self.root / ".caprmedio").mkdir()
-        (self.root / ".caprmedio/caprmedio_project_settings.toml").write_text(
-            "[artifact_timestamps]\ntimezone = \"Asia/Tbilisi\"\n\n[paths]\njournal_root = \".caprmedio/work_journal\"\nruntime_root = \".caprmedio_runtime\"\n",
+        (self.root / ".caprmedio_caprmedio").mkdir()
+        (self.root / ".caprmedio_caprmedio/caprmedio_project_settings.toml").write_text(
+            "[artifact_timestamps]\ntimezone = \"Asia/Tbilisi\"\n\n[paths]\njournal_root = \".caprmedio_caprmedio/work_journal\"\nruntime_root = \".caprmedio_runtime\"\n",
             encoding="utf-8",
         )
         self.git("init", "-q")
         self.git("config", "user.email", "test@example.invalid")
         self.git("config", "user.name", "CAPRMEDIO Test")
         self.git("config", "github.username", "anatoly-m-maslennikov")
-        self.write_atom(".caprmedio/04_requirement/CA-R-001-REQUIREMENT--parent.md", version=1, relations={})
+        self.write_atom(".caprmedio_caprmedio/04_requirement/CA-R-001-REQUIREMENT--parent.md", version=1, relations={})
         self.write_atom(
-            ".caprmedio/04_requirement/CA-R-002-REQUIREMENT--subject.md",
+            ".caprmedio_caprmedio/04_requirement/CA-R-002-REQUIREMENT--subject.md",
             version=1,
             relations={"child_of": ["CA-R-001-REQUIREMENT--parent"]},
             body="first",
         )
         self.git("add", ".")
         self.git("commit", "-qm", "fixture")
-        self.subject = ".caprmedio/04_requirement/CA-R-002-REQUIREMENT--subject.md"
+        self.subject = ".caprmedio_caprmedio/04_requirement/CA-R-002-REQUIREMENT--subject.md"
         self.write_atom(self.subject, version=2, relations={"child_of": ["CA-R-001-REQUIREMENT--parent"]}, body="second")
 
     def tearDown(self) -> None:
@@ -109,7 +110,7 @@ class CommitChangeSetTests(unittest.TestCase):
             "index": (self.root / ".git/index").read_bytes(),
             "head": self.git("rev-parse", "HEAD").strip(),
             "runtime": files(self.root / ".caprmedio_runtime"),
-            "journal": files(self.root / ".caprmedio/work_journal"),
+            "journal": files(self.root / ".caprmedio_caprmedio/work_journal"),
         }
 
     def append_only(self) -> tuple[dict[str, object], dict[str, object]]:
@@ -174,6 +175,36 @@ class CommitChangeSetTests(unittest.TestCase):
         self.assertEqual("folder", completed[0]["subject_kind"])
         self.assertEqual("governed_project_change", completed[0]["kind"])
         self.assertEqual("released", result["lease"]["status"])
+
+    def test_project_carrier_root_folder_commits_journal_only_as_receipt_bound_sidecar(self) -> None:
+        result = commit_change_set.run(
+            self.root,
+            {
+                "trigger": self.trigger(
+                    ".caprmedio_caprmedio",
+                    ".caprmedio_caprmedio",
+                    source_event_id="migrated-project-root-folder",
+                )
+            },
+            apply=True,
+            wait_seconds=0,
+        )
+
+        context = result["context"]
+        self.assertEqual("folder", context["subject"]["kind"])
+        self.assertEqual(".caprmedio_caprmedio", context["result"]["path"])
+        self.assertFalse(
+            any(entry["path"].startswith(".caprmedio_caprmedio/work_journal/") for entry in context["result"]["entries"])
+        )
+        changed = set(self.git("diff-tree", "--no-commit-id", "--name-only", "-r", "HEAD").splitlines())
+        journals = {path for path in changed if path.startswith(".caprmedio_caprmedio/work_journal/")}
+        subjects = changed - journals
+        self.assertEqual({self.subject}, subjects)
+        self.assertEqual(1, len(journals))
+        self.assertEqual(
+            journals,
+            {receipt["carrier"] for receipt in result["receipts"]},
+        )
 
     def test_commits_one_ordinary_project_file_without_graph_metadata(self) -> None:
         self.git("checkout", "--", self.subject)
@@ -326,7 +357,7 @@ class CommitChangeSetTests(unittest.TestCase):
 
     def test_e211_pre_commit_rejects_second_governed_atom(self) -> None:
         self.stage_appended()
-        parent = ".caprmedio/04_requirement/CA-R-001-REQUIREMENT--parent.md"
+        parent = ".caprmedio_caprmedio/04_requirement/CA-R-001-REQUIREMENT--parent.md"
         self.write_atom(parent, version=2, relations={}, body="changed parent")
         self.git("add", parent)
         with self.assertRaisesRegex(commit_change_set.ToolError, "project paths") as captured:
@@ -386,7 +417,7 @@ class CommitChangeSetTests(unittest.TestCase):
         head = self.git("rev-parse", "HEAD").strip()
         journal_before = {
             path.relative_to(self.root).as_posix(): hashlib.sha256(path.read_bytes()).hexdigest()
-            for path in (self.root / ".caprmedio/work_journal").glob("*.ndjson")
+            for path in (self.root / ".caprmedio_caprmedio/work_journal").glob("*.ndjson")
         }
 
         first = commit_change_set.observe_post_commit(self.root)
@@ -403,7 +434,7 @@ class CommitChangeSetTests(unittest.TestCase):
             journal_before,
             {
                 path.relative_to(self.root).as_posix(): hashlib.sha256(path.read_bytes()).hexdigest()
-                for path in (self.root / ".caprmedio/work_journal").glob("*.ndjson")
+                for path in (self.root / ".caprmedio_caprmedio/work_journal").glob("*.ndjson")
             },
         )
 

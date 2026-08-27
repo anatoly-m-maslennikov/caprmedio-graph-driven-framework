@@ -1,6 +1,6 @@
 """Shared, non-executable CAPRMEDIO Tool installation library.
 
-The canonical source is ``002_FRAMEWORK_ENGINE/PROGRAMMATIC/TOOLS`` in the target
+The canonical source is ``102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS`` in the target
 repository.  Installed releases are content-addressed and live below
 ``.caprmedio_install``.  Mutable state is deliberately outside this module and
 belongs below ``.caprmedio_runtime``.
@@ -24,7 +24,7 @@ from typing import Any
 
 SCHEMA_VERSION = 1
 PACKAGE = "caprmedio-framework-engine-tools"
-SOURCE_DIRECTORY = Path("002_FRAMEWORK_ENGINE/PROGRAMMATIC/TOOLS")
+SOURCE_DIRECTORY = Path("102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS")
 INSTALL_DIRECTORY = Path(".caprmedio_install")
 RUNTIME_DIRECTORY = Path(".caprmedio_runtime")
 CURRENT_MANIFEST = "current.toml"

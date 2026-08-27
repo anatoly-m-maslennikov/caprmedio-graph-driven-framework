@@ -8,7 +8,7 @@ Parameters:
     --apply: persist the change; omission is dry-run mode.
 
 The tool reads the current project's timestamp timezone from
-`.caprmedio/caprmedio_project_settings.toml`, fails closed on malformed or duplicate
+`.caprmedio_caprmedio/caprmedio_project_settings.toml`, fails closed on malformed or duplicate
 metadata, preserves YAML or TOML frontmatter syntax, and writes atomically.
 """
 
@@ -24,7 +24,7 @@ from pathlib import Path
 from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 
 
-SETTINGS_PATH = Path(".caprmedio/caprmedio_project_settings.toml")
+SETTINGS_PATH = Path(".caprmedio_caprmedio/caprmedio_project_settings.toml")
 TIMESTAMP_FORMAT = "%Y-%m-%d %H:%M:%S"
 YAML_DELIMITER = "---"
 TOML_DELIMITER = "+++"
@@ -41,10 +41,7 @@ def parse_args() -> argparse.Namespace:
 
 def repository_root(path: Path) -> Path:
     for candidate in (path.resolve(), *path.resolve().parents):
-        if (candidate / SETTINGS_PATH).is_file() or (
-            (candidate / ".caprmedio").is_dir()
-            and (candidate / "caprmedio_framework_settings.toml").is_file()
-        ):
+        if (candidate / SETTINGS_PATH).is_file():
             return candidate
     raise RuntimeError(f"cannot locate {SETTINGS_PATH} from {path}")
 

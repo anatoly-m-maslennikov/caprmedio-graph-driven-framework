@@ -55,7 +55,7 @@ class InstallToolsTests(unittest.TestCase):
         subprocess.run(["git", "-C", str(self.repository), "init", "-q"], check=True)
         subprocess.run(["git", "-C", str(self.repository), "config", "user.name", "CAPRMEDIO Test"], check=True)
         subprocess.run(["git", "-C", str(self.repository), "config", "user.email", "test@example.invalid"], check=True)
-        self.canonical = self.repository / "002_FRAMEWORK_ENGINE/PROGRAMMATIC/TOOLS"
+        self.canonical = self.repository / "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS"
         shutil.copytree(
             TOOLS_SOURCE,
             self.canonical,
@@ -232,7 +232,18 @@ class InstallToolsTests(unittest.TestCase):
         install_tools.install(self.repository, apply=True)
         hook_document = json.loads(self.user_hooks.read_text(encoding="utf-8"))
         command = hook_document["hooks"]["PreToolUse"][-1]["hooks"][0]["command"]
-        (self.repository / ".caprmedio").mkdir()
+        control = self.repository / ".caprmedio_caprmedio"
+        control.mkdir()
+        (control / "caprmedio_project_settings.toml").write_text(
+            "[paths]\n"
+            'control_root = ".caprmedio_caprmedio"\n'
+            'framework_root = ".caprmedio_framework"\n'
+            'journal_root = ".caprmedio_caprmedio/work_journal"\n'
+            'runtime_root = ".caprmedio_runtime"\n'
+            'install_root = ".caprmedio_install"\n'
+            'legacy_migration_roots = [".caprmedio"]\n',
+            encoding="utf-8",
+        )
         payload = json.dumps(
             {
                 "session_id": "019f591f-04f6-70f2-8de7-828b7cccc69d",

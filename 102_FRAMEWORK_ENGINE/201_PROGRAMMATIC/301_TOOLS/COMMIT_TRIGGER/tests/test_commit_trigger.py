@@ -39,7 +39,18 @@ class CommitTriggerTests(unittest.TestCase):
         self._git("config", "user.name", "CAPRMEDIO Test")
         self._git("config", "user.email", "test@example.invalid")
         (self.repository / "README.md").write_text("fixture\n", encoding="utf-8")
-        self._git("add", "README.md")
+        (self.repository / ".caprmedio_caprmedio").mkdir()
+        (self.repository / ".caprmedio_caprmedio/caprmedio_project_settings.toml").write_text(
+            "[artifact_timestamps]\ntimezone = \"Asia/Tbilisi\"\n\n"
+            "[paths]\ncontrol_root = \".caprmedio_caprmedio\"\n"
+            "framework_root = \".caprmedio_framework\"\n"
+            "journal_root = \".caprmedio_caprmedio/work_journal\"\n"
+            "runtime_root = \".caprmedio_runtime\"\n"
+            "install_root = \".caprmedio_install\"\n"
+            "legacy_migration_roots = [\".caprmedio\"]\n",
+            encoding="utf-8",
+        )
+        self._git("add", "README.md", ".caprmedio_caprmedio/caprmedio_project_settings.toml")
         self._git("commit", "-qm", "fixture")
         self.adapter = commit_trigger.AdapterSpec(
             "codex-file-events",
@@ -73,7 +84,7 @@ class CommitTriggerTests(unittest.TestCase):
             "source_event_id": "host-event-001",
             "observed_at": "2026-08-20T20:21:22+00:00",
             "before_path": None,
-            "after_path": ".caprmedio/04_requirement/CA-R-001.md",
+            "after_path": ".caprmedio_caprmedio/04_requirement/CA-R-001.md",
         }
         observation.update(overrides)
         return observation
@@ -97,7 +108,7 @@ class CommitTriggerTests(unittest.TestCase):
             }
 
         runtime = self.repository / ".caprmedio_runtime"
-        journals = self.repository / ".caprmedio" / "work_journal"
+        journals = self.repository / ".caprmedio_caprmedio" / "work_journal"
         return {
             "status": self._git("status", "--porcelain=v1"),
             "index": (self.repository / ".git" / "index").read_bytes(),
@@ -126,7 +137,7 @@ class CommitTriggerTests(unittest.TestCase):
         self.assertEqual(trigger["source_event_id"], "host-event-001")
         self.assertEqual(trigger["observed_at"], "2026-08-20T20:21:22Z")
         self.assertEqual(trigger["before_path"], None)
-        self.assertEqual(trigger["after_path"], ".caprmedio/04_requirement/CA-R-001.md")
+        self.assertEqual(trigger["after_path"], ".caprmedio_caprmedio/04_requirement/CA-R-001.md")
         self.assertEqual(
             trigger["llm_session"],
             {"app": "codex", "uuid": "019f591f-04f6-70f2-8de7-828b7cccc69d"},
@@ -138,15 +149,6 @@ class CommitTriggerTests(unittest.TestCase):
         """Runtime registration chains and preserves the default Git Hook."""
 
         commit_trigger.adapter_operation(self.repository, "uninstall", adapter_id=self.adapter.adapter_id, apply=True)
-        (self.repository / ".caprmedio").mkdir()
-        (self.repository / ".caprmedio/caprmedio_project_settings.toml").write_text(
-            "[artifact_timestamps]\ntimezone = \"Asia/Tbilisi\"\n\n"
-            "[paths]\njournal_root = \".caprmedio/work_journal\"\n"
-            "runtime_root = \".caprmedio_runtime\"\n",
-            encoding="utf-8",
-        )
-        self._git("add", ".caprmedio/caprmedio_project_settings.toml")
-        self._git("commit", "-qm", "settings fixture")
         hook = self.repository / ".git" / "hooks" / "pre-commit"
         sentinel = self.repository / "hook-sentinel.log"
         hook.write_text(f"#!/bin/sh\nprintf 'sentinel\\n' >> {sentinel}\n", encoding="utf-8")
@@ -220,7 +222,7 @@ class CommitTriggerTests(unittest.TestCase):
         journal = self._observation(
             source_event_id="journal-write",
             before_path=None,
-            after_path=".caprmedio/work_journal/alice-2026-08-20-part-1.ndjson",
+            after_path=".caprmedio_caprmedio/work_journal/alice-2026-08-20-part-1.ndjson",
             pipeline={"owned": True, "action_id": "action-001", "kind": "journal"},
         )
         runtime = self._observation(
@@ -241,8 +243,8 @@ class CommitTriggerTests(unittest.TestCase):
     def test_native_codex_watch_detects_one_edit_and_suppresses_correlated_pipeline_write(self) -> None:
         """The non-invasive native adapter polls a source boundary without Hooks."""
 
-        control_root = self.repository / ".caprmedio"
-        control_root.mkdir()
+        control_root = self.repository / ".caprmedio_caprmedio"
+        control_root.mkdir(exist_ok=True)
         atom = control_root / "04_requirement" / "CA-R-001.md"
 
         def write_atom() -> None:
@@ -265,7 +267,7 @@ class CommitTriggerTests(unittest.TestCase):
         triggers = [trigger for batch in batches for trigger in batch]
         self.assertEqual(len(triggers), 1)
         self.assertEqual(triggers[0]["before_path"], None)
-        self.assertEqual(triggers[0]["after_path"], ".caprmedio/04_requirement/CA-R-001.md")
+        self.assertEqual(triggers[0]["after_path"], ".caprmedio_caprmedio/04_requirement/CA-R-001.md")
         self.assertTrue(str(triggers[0]["source_event_id"]).startswith("watch-"))
 
         previous = commit_trigger.scan_governed_files(self.repository)
@@ -273,7 +275,7 @@ class CommitTriggerTests(unittest.TestCase):
         journal.parent.mkdir()
         journal.write_text('{"event_id":"fixture"}\n', encoding="utf-8")
         current = commit_trigger.scan_governed_files(self.repository)
-        carrier = ".caprmedio/work_journal/alice-2026-08-20-part-1.ndjson"
+        carrier = ".caprmedio_caprmedio/work_journal/alice-2026-08-20-part-1.ndjson"
         state = current[carrier]
         transition = {
             "event_id": "event-001",
@@ -313,7 +315,7 @@ class CommitTriggerTests(unittest.TestCase):
         )
 
     def test_native_watch_pairs_move_and_update_by_stable_carrier_identity(self) -> None:
-        control_root = self.repository / ".caprmedio"
+        control_root = self.repository / ".caprmedio_caprmedio"
         old = control_root / "04_requirement" / "CA-R-001-REQUIREMENT--old-summary.md"
         old.parent.mkdir(parents=True)
         old.write_text("---\nversion: 1\nrelations: {}\n---\n# Old\n", encoding="utf-8")
@@ -343,7 +345,7 @@ class CommitTriggerTests(unittest.TestCase):
         self.assertEqual(affected[0]["after_path"], new.relative_to(self.repository).as_posix())
 
     def test_digest_bound_correlation_replay_and_retirement(self) -> None:
-        carrier = ".caprmedio/work_journal/alice-2026-08-20-part-1.ndjson"
+        carrier = ".caprmedio_caprmedio/work_journal/alice-2026-08-20-part-1.ndjson"
         transition = {
             "event_id": "event-001",
             "event_digest": hashlib.sha256(b"event").hexdigest(),
@@ -396,8 +398,8 @@ class CommitTriggerTests(unittest.TestCase):
             commit_trigger._hook_eligible(
                 self.repository,
                 {
-                    "before_path": ".caprmedio/04_requirement/CA-R-001-REQUIREMENT--subject.md",
-                    "after_path": ".caprmedio/04_requirement/CA-R-001-REQUIREMENT--subject.md",
+                    "before_path": ".caprmedio_caprmedio/04_requirement/CA-R-001-REQUIREMENT--subject.md",
+                    "after_path": ".caprmedio_caprmedio/04_requirement/CA-R-001-REQUIREMENT--subject.md",
                 }
             )
         )
@@ -412,10 +414,17 @@ class CommitTriggerTests(unittest.TestCase):
             "README.md",
             "src/application.py",
             ".gitignore",
-            ".caprmedio/stg_requirements_subjects.md",
-            ".caprmedio/04_requirement/archive/CA-R-001-REQUIREMENT--subject.md",
+            ".caprmedio_framework/04_requirement/CA-R-001-REQUIREMENT--framework.md",
+            ".caprmedio_caprmedio/stg_requirements_subjects.md",
+            ".caprmedio_caprmedio/04_requirement/archive/CA-R-001-REQUIREMENT--subject.md",
         ):
             self.assertTrue(commit_trigger._hook_eligible(self.repository, {"before_path": path, "after_path": path}), path)
+
+    def test_current_hook_carrier_does_not_require_a_rewrite(self) -> None:
+        carrier = self.repository / "already-current-hooks.json"
+        carrier.write_text("{}\n", encoding="utf-8")
+        with mock.patch.object(commit_trigger, "_atomic_write", side_effect=AssertionError("must not rewrite current Carrier")):
+            self.assertFalse(commit_trigger._atomic_write_if_changed(carrier, "{}\n"))
 
     def test_hook_control_stops_before_scan_trips_on_failure_and_reloads_transients(self) -> None:
         payload = {
@@ -477,8 +486,7 @@ class CommitTriggerTests(unittest.TestCase):
 
     def test_project_frontier_uses_git_ignore_and_groups_one_folder_action(self) -> None:
         (self.repository / ".gitignore").write_text("/.caprmedio_runtime/\n/ignored/\n", encoding="utf-8")
-        (self.repository / ".caprmedio").mkdir()
-        (self.repository / ".caprmedio/settings.toml").write_text("enabled = true\n", encoding="utf-8")
+        (self.repository / ".caprmedio_caprmedio/settings.toml").write_text("enabled = true\n", encoding="utf-8")
         (self.repository / "src").mkdir()
         (self.repository / "src/a.py").write_text("a = 1\n", encoding="utf-8")
         (self.repository / "src/b.py").write_text("b = 1\n", encoding="utf-8")
@@ -488,7 +496,7 @@ class CommitTriggerTests(unittest.TestCase):
         (self.repository / ".github/workflow.yml").write_text("ignored\n", encoding="utf-8")
         previous = commit_trigger.scan_governed_files(self.repository)
         self.assertIn("README.md", previous)
-        self.assertIn(".caprmedio/settings.toml", previous)
+        self.assertIn(".caprmedio_caprmedio/settings.toml", previous)
         self.assertNotIn("ignored/value.txt", previous)
         self.assertNotIn(".github/workflow.yml", previous)
 
@@ -562,17 +570,10 @@ class CommitTriggerTests(unittest.TestCase):
             "/.caprmedio_install/\n/.caprmedio_runtime/\n/.codex/hooks.json\n",
             encoding="utf-8",
         )
-        (self.repository / ".caprmedio").mkdir()
-        (self.repository / ".caprmedio/caprmedio_project_settings.toml").write_text(
-            "[artifact_timestamps]\ntimezone = \"Asia/Tbilisi\"\n\n"
-            "[paths]\njournal_root = \".caprmedio/work_journal\"\n"
-            "runtime_root = \".caprmedio_runtime\"\n",
-            encoding="utf-8",
-        )
-        subject = ".caprmedio/04_requirement/CA-R-001-REQUIREMENT--subject.md"
+        subject = ".caprmedio_caprmedio/04_requirement/CA-R-001-REQUIREMENT--subject.md"
         self._write_atom(subject, version=1, body="first")
         self._git("config", "github.username", "anatoly-m-maslennikov")
-        self._git("add", ".gitignore", ".caprmedio")
+        self._git("add", ".gitignore", ".caprmedio_caprmedio")
         self._git("commit", "-qm", "governed fixture")
 
         installed = install_release(self.repository, apply=True, source_root=commit_trigger.PACKAGE_ROOT)
@@ -650,7 +651,7 @@ class CommitTriggerTests(unittest.TestCase):
         self.assertEqual(1, envelope["result"]["commit_count"])
         changed = self._git("diff-tree", "--no-commit-id", "--name-only", "-r", "HEAD").splitlines()
         self.assertIn(subject, changed)
-        journals = [path for path in changed if path.startswith(".caprmedio/work_journal/")]
+        journals = [path for path in changed if path.startswith(".caprmedio_caprmedio/work_journal/")]
         self.assertEqual(1, len(journals))
         record = json.loads((self.repository / journals[0]).read_text(encoding="utf-8").splitlines()[-1])
         self.assertEqual(
@@ -670,17 +671,10 @@ class CommitTriggerTests(unittest.TestCase):
             "/.caprmedio_install/\n/.caprmedio_runtime/\n/.codex/hooks.json\n",
             encoding="utf-8",
         )
-        (self.repository / ".caprmedio").mkdir()
-        (self.repository / ".caprmedio/caprmedio_project_settings.toml").write_text(
-            "[artifact_timestamps]\ntimezone = \"Asia/Tbilisi\"\n\n"
-            "[paths]\njournal_root = \".caprmedio/work_journal\"\n"
-            "runtime_root = \".caprmedio_runtime\"\n",
-            encoding="utf-8",
-        )
-        subject = ".caprmedio/04_requirement/CA-R-001-REQUIREMENT--subject.md"
+        subject = ".caprmedio_caprmedio/04_requirement/CA-R-001-REQUIREMENT--subject.md"
         self._write_atom(subject, version=1, body="first")
         self._git("config", "github.username", "anatoly-m-maslennikov")
-        self._git("add", ".gitignore", ".caprmedio")
+        self._git("add", ".gitignore", ".caprmedio_caprmedio")
         self._git("commit", "-qm", "governed fixture")
         install_release(self.repository, apply=True, source_root=commit_trigger.PACKAGE_ROOT)
         commit_trigger.adapter_operation(

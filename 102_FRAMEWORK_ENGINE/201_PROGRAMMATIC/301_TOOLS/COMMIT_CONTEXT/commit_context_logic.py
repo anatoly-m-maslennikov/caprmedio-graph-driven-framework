@@ -35,7 +35,7 @@ for _parent in MODULE_PATH.parents:
         sys.pycache_prefix = str(_parent.parent / ".caprmedio_runtime" / "cache" / "python")
         break
 
-SETTINGS_PATH = Path(".caprmedio/caprmedio_project_settings.toml")
+SETTINGS_PATH = Path(".caprmedio_caprmedio/caprmedio_project_settings.toml")
 JOURNAL_EVENT_SCHEMA_VERSION = 3
 CONTEXT_SCHEMA_VERSION = 3
 GITHUB_USERNAME = re.compile(r"[A-Za-z0-9](?:[A-Za-z0-9-]{0,37}[A-Za-z0-9])?")
@@ -77,6 +77,22 @@ class Carrier:
     entries: tuple[tuple[str, str], ...] = ()
 
 
+@dataclass(frozen=True)
+class RepositoryPaths:
+    """Configured durable and local roots for one governed Project."""
+
+    control_root: Path
+    framework_root: Path
+    journal_root: Path
+    runtime_root: Path
+    install_root: Path
+    legacy_migration_roots: tuple[Path, ...]
+
+    @property
+    def governed_roots(self) -> tuple[Path, ...]:
+        return (self.framework_root, self.control_root)
+
+
 def canonical_json(value: Any) -> bytes:
     return json.dumps(
         value,
@@ -94,10 +110,18 @@ def digest(value: Any) -> str:
 
 def repository_root(root: Path) -> Path:
     candidate = root.expanduser().resolve()
-    if not (candidate / ".caprmedio").is_dir():
-        raise ContextError("repository_root_invalid", "repository has no .caprmedio control root", root=str(candidate))
+    if not (candidate / SETTINGS_PATH).is_file():
+        raise ContextError("repository_root_invalid", "repository has no configured CAPRMEDIO Project settings", root=str(candidate))
     if not (candidate / ".git").exists():
         raise ContextError("repository_git_missing", "repository has no Git metadata", root=str(candidate))
+    paths = configured_repository_paths(candidate)
+    if not (candidate / paths.control_root).is_dir():
+        raise ContextError(
+            "repository_root_invalid",
+            "repository has no configured CAPRMEDIO Project carrier root",
+            root=str(candidate),
+            control_root=paths.control_root.as_posix(),
+        )
     return candidate
 
 
@@ -205,18 +229,68 @@ def configured_timezone(root: Path) -> tuple[str, dt.tzinfo]:
         raise ContextError("timezone_invalid", "configured artifact timestamp timezone is unknown", timezone=name) from error
 
 
-def configured_paths(root: Path) -> tuple[Path, Path]:
-    settings = tomllib.loads((root / SETTINGS_PATH).read_text(encoding="utf-8"))
+def _configured_relative_path(paths: Mapping[str, Any], key: str, default: str) -> Path:
+    value = paths.get(key, default)
+    if not isinstance(value, str) or not value:
+        raise ContextError("project_paths_invalid", f"{key} must be a non-empty string")
+    path = Path(value)
+    if path.is_absolute() or ".." in path.parts or path.as_posix() in {"", "."}:
+        raise ContextError("project_paths_invalid", f"{key} must be repository-relative", value=value)
+    return path
+
+
+def configured_repository_paths(root: Path) -> RepositoryPaths:
+    try:
+        settings = tomllib.loads((root / SETTINGS_PATH).read_text(encoding="utf-8"))
+    except FileNotFoundError as error:
+        raise ContextError("project_settings_missing", "project settings are required for path resolution") from error
+    except tomllib.TOMLDecodeError as error:
+        raise ContextError("project_settings_invalid", "project settings are not valid TOML") from error
     paths = settings.get("paths", {})
-    journal = paths.get("journal_root", ".caprmedio/work_journal")
-    runtime = paths.get("runtime_root", ".caprmedio_runtime")
-    if not isinstance(journal, str) or not isinstance(runtime, str):
-        raise ContextError("project_paths_invalid", "configured Journal and runtime roots must be strings")
-    for value, label in ((journal, "journal_root"), (runtime, "runtime_root")):
-        path = Path(value)
-        if path.is_absolute() or ".." in path.parts:
-            raise ContextError("project_paths_invalid", f"{label} must be repository-relative", value=value)
-    return Path(journal), Path(runtime)
+    if not isinstance(paths, Mapping):
+        raise ContextError("project_paths_invalid", "paths must be a TOML table")
+    control = _configured_relative_path(paths, "control_root", ".caprmedio_caprmedio")
+    framework = _configured_relative_path(paths, "framework_root", ".caprmedio_framework")
+    journal = _configured_relative_path(paths, "journal_root", ".caprmedio_caprmedio/work_journal")
+    runtime = _configured_relative_path(paths, "runtime_root", ".caprmedio_runtime")
+    install = _configured_relative_path(paths, "install_root", ".caprmedio_install")
+    if control != SETTINGS_PATH.parent:
+        raise ContextError("project_paths_invalid", "control_root must own the Project settings Carrier", value=control.as_posix())
+    if journal.parts[: len(control.parts)] != control.parts or journal == control:
+        raise ContextError("project_paths_invalid", "journal_root must be a descendant of control_root", value=journal.as_posix())
+    legacy_raw = paths.get("legacy_migration_roots", [".caprmedio"])
+    if not isinstance(legacy_raw, list) or not all(isinstance(value, str) for value in legacy_raw):
+        raise ContextError("project_paths_invalid", "legacy_migration_roots must be an array of strings")
+    legacy = tuple(_configured_relative_path({"value": value}, "value", value) for value in legacy_raw)
+    roots = (control, framework, runtime, install, *legacy)
+    if len({path.as_posix() for path in roots}) != len(roots):
+        raise ContextError("project_paths_invalid", "configured roots must be distinct")
+    return RepositoryPaths(control, framework, journal, runtime, install, legacy)
+
+
+def configured_paths(root: Path) -> tuple[Path, Path]:
+    paths = configured_repository_paths(root)
+    return paths.journal_root, paths.runtime_root
+
+
+def _path_is_within(path: Path, root: Path) -> bool:
+    return path == root or path.parts[: len(root.parts)] == root.parts
+
+
+def is_journal_path(root: Path, path: str, *, require_carrier: bool = False) -> bool:
+    candidate = Path(path)
+    if candidate.is_absolute() or not candidate.parts or ".." in candidate.parts:
+        return False
+    journal = configured_repository_paths(root).journal_root
+    return _path_is_within(candidate, journal) and (not require_carrier or candidate.suffix == ".ndjson")
+
+
+def is_forbidden_commit_path(root: Path, path: str) -> bool:
+    candidate = Path(path)
+    if candidate.is_absolute() or not candidate.parts or ".." in candidate.parts:
+        return True
+    configured = configured_repository_paths(root)
+    return any(_path_is_within(candidate, forbidden) for forbidden in (configured.install_root, configured.runtime_root))
 
 
 def split_frontmatter(data: bytes, *, path: str) -> str:
@@ -307,15 +381,6 @@ def carrier_from_bytes(path: str, data: bytes) -> Carrier:
     )
 
 
-def _inside_excluded_dot_directory(path: str) -> bool:
-    parts = Path(path).parts
-    return len(parts) > 1 and parts[0].startswith(".") and parts[0] != ".caprmedio"
-
-
-def _is_work_journal_path(path: str) -> bool:
-    return Path(path).parts[:2] == (".caprmedio", "work_journal")
-
-
 def _git_ignores(root: Path, path: str) -> bool:
     completed = subprocess.run(
         ["git", "-C", str(root), "check-ignore", "--no-index", "-q", "--", path],
@@ -336,8 +401,13 @@ def project_path_eligible(root: Path, path: str) -> bool:
     candidate = Path(path)
     if candidate.is_absolute() or not candidate.parts or ".." in candidate.parts:
         return False
-    if _inside_excluded_dot_directory(path) or _is_work_journal_path(path):
+    configured = configured_repository_paths(root)
+    if is_journal_path(root, path) or is_forbidden_commit_path(root, path):
         return False
+    if candidate.parts[0].startswith(".") and len(candidate.parts) > 1:
+        admitted = (*configured.governed_roots, *configured.legacy_migration_roots)
+        if not any(_path_is_within(candidate, root_path) for root_path in admitted):
+            return False
     return not _git_ignores(root, path)
 
 
@@ -418,6 +488,14 @@ def committed_folder_exists(root: Path, path: str) -> bool:
     return bool(_entry_rows(root, path, committed=True))
 
 
+def committed_object_kind(root: Path, path: str) -> str | None:
+    payload = git(root, ["cat-file", "-t", f"HEAD:{path}"], allow_failure=True)
+    if payload is None:
+        return None
+    value = payload.decode("utf-8").strip()
+    return value or None
+
+
 def registry_path(root: Path) -> Path:
     del root
     return PACKAGE_ROOT / "caprmedio_relation_types.toml"
@@ -492,8 +570,9 @@ def is_active_path(path: str) -> bool:
 def working_graph(root: Path, *, override_path: str | None = None, override: bytes | None = None) -> dict[str, Carrier]:
     graph: dict[str, Carrier] = {}
     ambiguous: set[str] = set()
-    control_root = root / ".caprmedio"
-    for path in sorted(control_root.rglob("*.md")):
+    configured = configured_repository_paths(root)
+    paths = sorted(path for governed in configured.governed_roots for path in (root / governed).rglob("*.md"))
+    for path in paths:
         relative = path.relative_to(root).as_posix()
         if not is_active_path(relative):
             continue
@@ -503,6 +582,9 @@ def working_graph(root: Path, *, override_path: str | None = None, override: byt
         # TOML-frontmatter packets and narrative Markdown remain outside the
         # authority graph and are handled by repository validators instead.
         if not data.startswith((b"---\n", b"---\r\n")):
+            continue
+        boundary = data.find(b"\n---\n", 4)
+        if boundary >= 0 and re.search(rb"(?m)^projection:\s*$", data[4:boundary]):
             continue
         try:
             carrier = carrier_from_bytes(relative, data)
@@ -523,7 +605,11 @@ def working_graph(root: Path, *, override_path: str | None = None, override: byt
 
 
 def committed_graph(root: Path) -> dict[str, Carrier]:
-    payload = git(root, ["ls-tree", "-r", "-z", "--name-only", "HEAD", "--", ".caprmedio"])
+    configured = configured_repository_paths(root)
+    payload = git(
+        root,
+        ["ls-tree", "-r", "-z", "--name-only", "HEAD", "--", *(path.as_posix() for path in configured.governed_roots)],
+    )
     assert payload is not None
     graph: dict[str, Carrier] = {}
     ambiguous: set[str] = set()
@@ -536,6 +622,9 @@ def committed_graph(root: Path) -> dict[str, Carrier]:
         data = git(root, ["show", f"HEAD:{relative}"])
         assert data is not None
         if not data.startswith((b"---\n", b"---\r\n")):
+            continue
+        boundary = data.find(b"\n---\n", 4)
+        if boundary >= 0 and re.search(rb"(?m)^projection:\s*$", data[4:boundary]):
             continue
         try:
             carrier = carrier_from_bytes(relative, data)
@@ -765,18 +854,20 @@ def resolve_relations(
 def scan_prior_events(root: Path, journal_relative: Path, before: Carrier | None) -> tuple[dict[str, Any] | None, dict[str, Any] | None]:
     if before is None:
         return None, None
-    journal_root = root / journal_relative
-    if not journal_root.is_dir():
-        return None, None
+    payload = git(root, ["ls-tree", "-r", "-z", "--name-only", "HEAD", "--", journal_relative.as_posix()]) or b""
+    carrier_paths = [value.decode("utf-8") for value in payload.split(b"\0") if value and value.endswith(b".ndjson")]
     candidates: list[tuple[str, int, dict[str, Any]]] = []
-    for carrier_path in sorted(journal_root.glob("*.ndjson")):
-        for line_number, line in enumerate(carrier_path.read_text(encoding="utf-8").splitlines(), 1):
+    for carrier_relative in sorted(carrier_paths):
+        carrier_data = state_blob(root, carrier_relative, "committed")
+        if carrier_data is None:
+            continue
+        for line_number, line in enumerate(carrier_data.decode("utf-8").splitlines(), 1):
             if not line:
                 continue
             try:
                 record = json.loads(line)
             except json.JSONDecodeError as error:
-                raise ContextError("journal_syntax_invalid", "Journal contains invalid JSON while resolving prior state", path=carrier_path.relative_to(root).as_posix(), line=line_number) from error
+                raise ContextError("journal_syntax_invalid", "Journal contains invalid JSON while resolving prior state", path=carrier_relative, line=line_number) from error
             if record.get("schema_version") not in {2, JOURNAL_EVENT_SCHEMA_VERSION}:
                 continue
             if record.get("event") not in {"completed", "recovered"}:
@@ -788,7 +879,7 @@ def scan_prior_events(root: Path, journal_relative: Path, before: Carrier | None
                 raise ContextError(
                     "journal_event_digest_invalid",
                     "Journal event digest is invalid while resolving prior state",
-                    path=carrier_path.relative_to(root).as_posix(),
+                    path=carrier_relative,
                     line=line_number,
                 )
             result = record.get("result")
@@ -1001,9 +1092,11 @@ def gather_context(root: Path, trigger: Mapping[str, Any], *, environment: Mappi
         if candidate is not None and not project_path_eligible(root, candidate):
             raise ContextError("project_path_ineligible", "trigger path is outside the Git-admitted project frontier", path=candidate)
 
-    before_is_folder = before_path is not None and committed_folder_exists(root, before_path)
+    before_object_kind = committed_object_kind(root, before_path) if before_path is not None else None
+    before_is_tree = before_object_kind == "tree"
+    before_is_folder = before_is_tree and before_path is not None and committed_folder_exists(root, before_path)
     after_is_folder = after_path is not None and (root / after_path).is_dir()
-    before_data = None if before_is_folder else state_blob(root, before_path, "committed")
+    before_data = state_blob(root, before_path, "committed") if before_object_kind == "blob" else None
     result_data: bytes | None = None
     result_state: str | None = None
     if after_path is not None and not after_is_folder:
@@ -1027,9 +1120,10 @@ def gather_context(root: Path, trigger: Mapping[str, Any], *, environment: Mappi
 
     if before is None and result is not None and before_path is None:
         assert after_path is not None
-        if committed_folder_exists(root, after_path):
+        committed_kind = committed_object_kind(root, after_path)
+        if committed_kind == "tree":
             before = folder_carrier(root, after_path, committed=True)
-        else:
+        elif committed_kind == "blob":
             committed_same_path = state_blob(root, after_path, "committed")
             if committed_same_path is not None:
                 before = project_file_carrier(root, after_path, committed_same_path, committed=True)
