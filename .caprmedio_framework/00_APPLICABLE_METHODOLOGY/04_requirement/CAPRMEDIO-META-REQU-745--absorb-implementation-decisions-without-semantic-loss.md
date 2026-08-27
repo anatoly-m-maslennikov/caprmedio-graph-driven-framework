@@ -1,0 +1,21 @@
+---
+cce_version: cce_1
+cce_form: obligation
+subjects:
+  declared:
+    continuant:
+      - method
+version: 4
+updated_at: 2026-08-23 15:00:38
+llm_session_ids:
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+relations:
+  child_of:
+    - CAPRMEDIO-META-REQU-154--semantic-irreducibility
+    - CAPRMEDIO-META-REQU-744--distinguish-implementation-methods-from-implementation-decisions
+projection:
+  source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CAPRMEDIO-META-REQU-745--absorb-implementation-decisions-without-semantic-loss.md
+---
+# Absorb Implementation Decisions without semantic loss
+
+An Implementation Decision MAY be archived as absorbed only after one or more active Implementation Methods preserve every part of its still-necessary governed meaning for the affected realization scope.

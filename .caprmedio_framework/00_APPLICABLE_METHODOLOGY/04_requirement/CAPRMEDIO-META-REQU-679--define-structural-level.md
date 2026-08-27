@@ -1,0 +1,18 @@
+---
+subjects:
+  declared:
+    continuant:
+      - scope-topology
+cce_version: cce_1
+cce_form: definition
+version: 8
+updated_at: 2026-08-23 15:00:38
+relations:
+  child_of:
+    - CAPRMEDIO-META-REQU-708
+projection:
+  source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CAPRMEDIO-META-REQU-679--define-structural-level.md
+---
+# Define Structural Level
+
+Structural Level MEANS the signed ancestry depth of peer Scope Units relative to the Project Scope Unit at level zero, with positive levels inside the Project and negative levels outside the Project.

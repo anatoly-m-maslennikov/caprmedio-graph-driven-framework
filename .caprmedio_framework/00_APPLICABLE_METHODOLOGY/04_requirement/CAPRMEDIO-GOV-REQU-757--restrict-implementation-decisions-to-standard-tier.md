@@ -1,0 +1,21 @@
+---
+cce_version: cce_1
+cce_form: obligation
+subjects:
+  declared:
+    continuant:
+      - applicability
+version: 6
+updated_at: 2026-08-23 15:00:38
+llm_session_ids:
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+relations:
+  child_of:
+    - CAPRMEDIO-R-795-REQUIREMENT-BSEED_SEMANTICS--admit-applicability-tiers-across-rmedo
+    - CAPRMEDIO-META-REQU-744--distinguish-implementation-methods-from-implementation-decisions
+projection:
+  source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CAPRMEDIO-GOV-REQU-757--restrict-implementation-decisions-to-standard-tier.md
+---
+# Restrict Implementation Decisions to Standard tier
+
+GOVERNANCE admits an `implementation_decision` Atom only at the Standard applicability tier of its Structural scope.

@@ -1,0 +1,26 @@
+---
+cce_version: cce_1
+cce_form: obligation
+subjects:
+  declared:
+    occurrent:
+      - development-flow
+version: 5
+updated_at: 2026-08-23 15:00:38
+llm_session_ids:
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+relations:
+  replacement_of:
+    - CAPRMEDIO-META-REQU-274--place-rationale-in-analysis
+  child_of:
+    - CAPRMEDIO-META-REQU-114--preserve-content-role-boundaries-through-caprmedio-loop
+projection:
+  source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CAPRMEDIO-META-REQU-120--keep-analysis-optional-before-specification.md
+---
+# Requirement — Keep Analysis optional before specification
+
+An identified AI Agent MAY create specification Atoms directly from sufficiently clear Operator input when active Operator authority permits the required actions. An Analysis Report MAY precede and inform specification when investigation or synthesis is useful, but it is not a mandatory carrier or gate for every specification claim.
+
+## Primary claim
+
+Specification MAY start directly from clear operator input without a preceding Analysis Report.

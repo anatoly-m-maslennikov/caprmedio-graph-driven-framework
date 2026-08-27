@@ -1,0 +1,21 @@
+---
+subjects:
+  declared:
+    continuant:
+      - scope-topology
+  prerequisite:
+    continuant:
+      - layout
+cce_version: cce_1
+cce_form: obligation
+version: 5
+updated_at: 2026-08-23 15:24:07
+relations:
+  child_of:
+    - CAPRMEDIO-META-REQU-716
+projection:
+  source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CAPRMEDIO-GOV-REQU-721--derive-structural-path.md
+---
+# Derive Structural Path
+
+GOVERNANCE MUST derive each Structural Path from active Scope Unit identities and structural-parent relations without storing a duplicate path.

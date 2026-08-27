@@ -1,0 +1,21 @@
+# CAPRMEDIO framework-engine settings.
+
+[confidence]
+# Accepted values are integer percentages from 0 through 100.
+necessary_information_threshold_percent = 95
+semantic_resolution_threshold_percent = 95
+
+[artifacts.identity]
+project_prefix = "CA"
+
+[authority_modes]
+default = "casual"
+governance = "strict"
+metamodel = "strict"
+project = "strict"
+semantics = "strict"
+
+[project]
+key = "CAPRMEDIO"
+name = "CAPRMEDIO"
+repository_slug = "caprmedio-graph-driven-framework"

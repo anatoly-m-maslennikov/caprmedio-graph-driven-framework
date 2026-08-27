@@ -1,0 +1,25 @@
+---
+subjects:
+  declared:
+    continuant:
+      - relation-model
+  prerequisite:
+    continuant:
+      - atom-boundary
+cce_version: cce_1
+cce_form: definition
+version: 6
+updated_at: 2026-08-23 15:24:07
+llm_session_ids:
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+relations:
+  child_of:
+    - CAPRMEDIO-META-REQU-117--store-each-semantic-relation-once
+    - CAPRMEDIO-META-REQU-120--keep-analysis-optional-before-specification
+    - CAPRMEDIO-META-REQU-121--store-only-direct-semantic-relations
+projection:
+  source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CAPRMEDIO-GOV-REQU-325--register-derived-from-relation.md
+---
+# Register derived_from relation
+
+GOVERNANCE MUST register `derived_from` as a direct relation owned by an internal Concern, Analysis, Plan, Requirement, Method, Evaluation, Delivery, or Rationale Atom and directed to its source Analysis Atom.
