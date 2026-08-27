@@ -1,0 +1,59 @@
+---
+atom_id: CA-M-110
+cce_version: cce_1
+cce_form: method
+subjects:
+  governs:
+    continuant:
+      - programmatic-components
+  depends_on:
+    continuant:
+      - PROGRAMMATIC
+version: 8
+updated_at: 2026-08-27 14:52:39 +0400
+relations:
+  method_for:
+    - CA-R-1047
+  derived_from:
+    - CA-A-053
+---
+# Implement PROGRAMMATIC components in Python
+
+Use Python for applicable PROGRAMMATIC Tools, App backend services, and MCP
+components. This Method owns the Python technology selection for that bounded
+scope. Configuration and Implementation materialize the selected runtime,
+dependencies, and exceptions; Delivery governs their carrier placement and
+encoding; Ops governs workflow execution and operational evidence. This Method
+does not govern Skills or make Python a discipline-independent CAPRMEDIO
+meaning.
+
+## Applicable when
+
+Apply when a Tool, App backend service, or MCP component is added or materially
+changed, or when its Python realization, runtime dependency, or non-Python
+exception is proposed.
+
+## Procedure
+
+1. Apply the Python selection established by this Method and read its current
+   materialization before realizing a component.
+2. Use the standard library when it provides the required behavior with
+   comparable clarity and reliability.
+3. Add or change a runtime, library, workflow tool, or non-Python exception
+   only through an accepted Method that selects it for a bounded scope.
+4. Materialize each accepted selection in canonical configuration and
+   Implementation without making either carrier a second authority.
+5. Place and encode each materialization through its Delivery, and preserve
+   actual execution results as Ops evidence.
+
+## Outcome
+
+Every applicable component follows one Method-owned technology selection.
+Configuration and Implementation reproduce it, Delivery locates its carriers,
+and Ops records its execution without taking over selection authority.
+
+## Failure or stop
+
+Stop admission or release when no accepted Method owns a required selection,
+its materialization disagrees with that Method, or the Delivery or Ops boundary
+is absent. Do not infer a platform-support claim from local execution.

@@ -1,0 +1,817 @@
+# Generated projection. Delete and regenerate; do not edit directly.
+[projection]
+schema_version = "1"
+kind = "project_scope_unit_graph"
+non_authoritative = true
+currentness = "working_tree_snapshot"
+updated_at = "2026-08-23 15:00:38"
+canonical_generator = "002_FRAMEWORK_ENGINE/PROGRAMMATIC/TOOLS/GENERATE_PROJECT_GRAPH_STATE/generate_project_graph_state.py"
+canonical_generator_sha256 = "83be4a2c04b83ac6bab37fa8aef3884ccaa0343c828f54e0c56c4b9427a7761e"
+executed_generator = ".caprmedio_install/releases/a5aa3a23d0e21d5113b507a42b4bb0c41987cb0aaee641cbcbc8b8657ed6c526/TOOLS/GENERATE_PROJECT_GRAPH_STATE/generate_project_graph_state.py"
+executed_generator_sha256 = "2b95ba79093648c9de1a11065d2b4a62d5efbf0043242a2d8f29423cf6ca9076"
+
+[configuration]
+atom_id = "CAPRMEDIO-I-001"
+revision = "3"
+carrier = "caprmedio_framework_settings.toml"
+sha256 = "abdac674ea24eb0b9241fc1fc0fc900e30e59623f89d4201192a1deda03b2024"
+binding_status = "resolved"
+journal_carrier = ".caprmedio/work_journal/src-work-journal-2026-08-23.ndjson"
+journal_line = "1"
+journal_event_id = "77b0b9ce-e070-4c59-8c28-80e70c65c312"
+
+[project]
+key = "CAPRMEDIO"
+name = "CAPRMEDIO"
+repository_slug = "caprmedio-graph-driven-framework"
+
+[artifacts.identity]
+project_prefix = "CA"
+
+[authority_modes]
+default = "casual"
+governance = "strict"
+metamodel = "strict"
+project = "strict"
+semantics = "strict"
+
+[repository]
+control_root = ".caprmedio"
+scope_unit_count = 41
+
+[[scope_units]]
+name = "META_METHODOLOGY"
+prefix = "META_MTHD"
+authority_path = ".caprmedio/000_BSEED_SUPERLAYER_META_METHODOLOGY"
+authority_materialized = false
+delivery_path = ""
+delivery_status = "tbd"
+delivery_materialized = false
+delivery_boundary = "."
+structural_kind = "ordered_unit"
+structural_level = -2
+structural_coordinate = "-2/1"
+structural_parent = ""
+authority_mode = "strict"
+local_order = 1
+upstream_unit = ""
+
+[[scope_units]]
+name = "METAMODEL"
+prefix = "MMODEL"
+authority_path = "01_BSEED_LAYER_1_METAMODEL"
+authority_materialized = false
+delivery_path = "METAMODEL"
+delivery_status = "resolved"
+delivery_materialized = false
+delivery_boundary = ""
+structural_kind = "ordered_unit"
+structural_level = -1
+structural_coordinate = "-1/1"
+structural_parent = "META_METHODOLOGY"
+authority_mode = "strict"
+local_order = 1
+upstream_unit = ""
+
+[[scope_units]]
+name = "SEMANTICS"
+prefix = "SEMNTC"
+authority_path = "02_BSEED_LAYER_2_SEMANTICS"
+authority_materialized = false
+delivery_path = ""
+delivery_status = "tbd"
+delivery_materialized = false
+delivery_boundary = "."
+structural_kind = "ordered_unit"
+structural_level = -1
+structural_coordinate = "-1/2"
+structural_parent = "META_METHODOLOGY"
+authority_mode = "strict"
+local_order = 2
+upstream_unit = "METAMODEL"
+
+[[scope_units]]
+name = "GOVERNANCE"
+prefix = "GOVERN"
+authority_path = "03_BSEED_LAYER_3_GOVERNANCE"
+authority_materialized = false
+delivery_path = ""
+delivery_status = "tbd"
+delivery_materialized = false
+delivery_boundary = "."
+structural_kind = "ordered_unit"
+structural_level = -1
+structural_coordinate = "-1/3"
+structural_parent = "META_METHODOLOGY"
+authority_mode = "strict"
+local_order = 3
+upstream_unit = "SEMANTICS"
+
+[[scope_units]]
+name = "CAPRMEDIO"
+prefix = "CA"
+authority_path = ".caprmedio"
+authority_materialized = true
+delivery_path = "."
+delivery_status = "resolved"
+delivery_materialized = true
+delivery_boundary = ""
+structural_kind = "project_root"
+structural_level = 0
+structural_coordinate = "0"
+structural_parent = ""
+authority_mode = "strict"
+
+[[scope_units]]
+name = "FRAMEWORK_METHODOLOGY"
+prefix = "FR_MTHD"
+authority_path = "101_LAYER_1_FRAMEWORK_METHODOLOGY"
+authority_materialized = true
+delivery_path = "001_FRAMEWORK_METHODOLOGY"
+delivery_status = "resolved"
+delivery_materialized = true
+delivery_boundary = ""
+structural_kind = "ordered_unit"
+structural_level = 1
+structural_coordinate = "1/1"
+structural_parent = "CAPRMEDIO"
+authority_mode = "casual"
+local_order = 1
+upstream_unit = ""
+
+[[scope_units]]
+name = "FRAMEWORK_ENGINE"
+prefix = "FR_ENGN"
+authority_path = "102_PROJECT_LAYER_2_FRAMEWORK_ENGINE"
+authority_materialized = true
+delivery_path = "002_FRAMEWORK_ENGINE"
+delivery_status = "resolved"
+delivery_materialized = true
+delivery_boundary = ""
+structural_kind = "ordered_unit"
+structural_level = 1
+structural_coordinate = "1/2"
+structural_parent = "CAPRMEDIO"
+authority_mode = "casual"
+local_order = 2
+upstream_unit = "FRAMEWORK_METHODOLOGY"
+
+[[scope_units]]
+name = "OPERATOR_DOCUMENTATION"
+prefix = "OPER_DOC"
+authority_path = "103_PROJECT_LAYER_3_OPERATOR_DOCUMENTATION"
+authority_materialized = true
+delivery_path = "003_OPERATOR_DOCUMENTATION"
+delivery_status = "resolved"
+delivery_materialized = true
+delivery_boundary = ""
+structural_kind = "ordered_unit"
+structural_level = 1
+structural_coordinate = "1/3"
+structural_parent = "CAPRMEDIO"
+authority_mode = "casual"
+local_order = 3
+upstream_unit = "FRAMEWORK_ENGINE"
+
+[[scope_units]]
+name = "CORE_EXTENSIONS"
+prefix = "CORE_EXTENSIONS"
+authority_path = "104_PROJECT_LAYER_4_CORE_EXTENSIONS"
+authority_materialized = true
+delivery_path = "004_CORE_EXTENSIONS"
+delivery_status = "resolved"
+delivery_materialized = true
+delivery_boundary = ""
+structural_kind = "ordered_unit"
+structural_level = 1
+structural_coordinate = "1/4"
+structural_parent = "CAPRMEDIO"
+authority_mode = "casual"
+local_order = 4
+upstream_unit = "OPERATOR_DOCUMENTATION"
+
+[[scope_units]]
+name = "RELEASES"
+prefix = "RELSS"
+authority_path = "105_PROJECT_LAYER_5_RELEASES"
+authority_materialized = true
+delivery_path = "005_RELEASES"
+delivery_status = "resolved"
+delivery_materialized = true
+delivery_boundary = ""
+structural_kind = "ordered_unit"
+structural_level = 1
+structural_coordinate = "1/5"
+structural_parent = "CAPRMEDIO"
+authority_mode = "casual"
+local_order = 5
+upstream_unit = "CORE_EXTENSIONS"
+
+[[scope_units]]
+name = "COMMUNITY_EXTENSIONS"
+prefix = "COMMUNITY_EXTENSIONS"
+authority_path = "110_PROJECT_FEATURE_COMMUNITY_EXTENSIONS"
+authority_materialized = true
+delivery_path = "010_COMMUNITY_EXTENSIONS"
+delivery_status = "resolved"
+delivery_materialized = true
+delivery_boundary = ""
+structural_kind = "unordered_unit"
+structural_level = 1
+structural_coordinate = "1"
+structural_parent = "CAPRMEDIO"
+authority_mode = "casual"
+
+[[scope_units]]
+name = "FIELD"
+prefix = "FIELD"
+authority_path = "110_PROJECT_FEATURE_FIELD"
+authority_materialized = true
+delivery_path = "010_FIELD"
+delivery_status = "resolved"
+delivery_materialized = true
+delivery_boundary = ""
+structural_kind = "unordered_unit"
+structural_level = 1
+structural_coordinate = "1"
+structural_parent = "CAPRMEDIO"
+authority_mode = "casual"
+
+[[scope_units]]
+name = "PROGRAMMATIC"
+prefix = "PROGRAMMATIC"
+authority_path = "PROGRAMMATIC"
+authority_materialized = true
+delivery_path = "PROGRAMMATIC"
+delivery_status = "resolved"
+delivery_materialized = true
+delivery_boundary = ""
+structural_kind = "unordered_unit"
+structural_level = 2
+structural_coordinate = "2"
+structural_parent = "FRAMEWORK_ENGINE"
+authority_mode = "casual"
+
+[[scope_units]]
+name = "AGENTIC"
+prefix = "AGENTIC"
+authority_path = "AGENTIC"
+authority_materialized = true
+delivery_path = "AGENTIC"
+delivery_status = "resolved"
+delivery_materialized = true
+delivery_boundary = ""
+structural_kind = "unordered_unit"
+structural_level = 2
+structural_coordinate = "2"
+structural_parent = "FRAMEWORK_ENGINE"
+authority_mode = "casual"
+
+[[scope_units]]
+name = "APPS"
+prefix = "APPS"
+authority_path = "APPS"
+authority_materialized = true
+delivery_path = "APPS"
+delivery_status = "resolved"
+delivery_materialized = true
+delivery_boundary = ""
+structural_kind = "unordered_unit"
+structural_level = 3
+structural_coordinate = "3"
+structural_parent = "PROGRAMMATIC"
+authority_mode = "casual"
+
+[[scope_units]]
+name = "MCP"
+prefix = "MCP"
+authority_path = "MCP"
+authority_materialized = true
+delivery_path = "MCP"
+delivery_status = "resolved"
+delivery_materialized = true
+delivery_boundary = ""
+structural_kind = "unordered_unit"
+structural_level = 3
+structural_coordinate = "3"
+structural_parent = "PROGRAMMATIC"
+authority_mode = "casual"
+
+[[scope_units]]
+name = "TOOLS"
+prefix = "TOOLS"
+authority_path = "TOOLS"
+authority_materialized = true
+delivery_path = "TOOLS"
+delivery_status = "resolved"
+delivery_materialized = true
+delivery_boundary = ""
+structural_kind = "unordered_unit"
+structural_level = 3
+structural_coordinate = "3"
+structural_parent = "PROGRAMMATIC"
+authority_mode = "casual"
+
+[[scope_units]]
+name = "SKILLS"
+prefix = "SKILLS"
+authority_path = "SKILLS"
+authority_materialized = true
+delivery_path = "SKILLS"
+delivery_status = "resolved"
+delivery_materialized = true
+delivery_boundary = ""
+structural_kind = "unordered_unit"
+structural_level = 3
+structural_coordinate = "3"
+structural_parent = "AGENTIC"
+authority_mode = "casual"
+
+[[scope_units]]
+name = "GRAPH_APP"
+prefix = "GRAPH_APP"
+authority_path = "GRAPH_APP"
+authority_materialized = true
+delivery_path = "GRAPH_APP"
+delivery_status = "resolved"
+delivery_materialized = true
+delivery_boundary = ""
+structural_kind = "unordered_unit"
+structural_level = 4
+structural_coordinate = "4"
+structural_parent = "APPS"
+authority_mode = "casual"
+
+[[scope_units]]
+name = "AGENT_HOST_PLUGINS"
+prefix = "AGENT_HOST_PLUGINS"
+authority_path = "AGENT_HOST_PLUGINS"
+authority_materialized = true
+delivery_path = "AGENT_HOST_PLUGINS"
+delivery_status = "resolved"
+delivery_materialized = true
+delivery_boundary = ""
+structural_kind = "unordered_unit"
+structural_level = 4
+structural_coordinate = "4"
+structural_parent = "APPS"
+authority_mode = "casual"
+
+[[scope_units]]
+name = "CODEX_PLUGIN"
+prefix = "CODEX_PLUGIN"
+authority_path = "CODEX_PLUGIN"
+authority_materialized = true
+delivery_path = "CODEX_PLUGIN"
+delivery_status = "resolved"
+delivery_materialized = true
+delivery_boundary = ""
+structural_kind = "unordered_unit"
+structural_level = 5
+structural_coordinate = "5"
+structural_parent = "AGENT_HOST_PLUGINS"
+authority_mode = "casual"
+
+[[scope_units]]
+name = "TARGET_SET"
+prefix = "TARGET_SET"
+authority_path = "TARGET_SET"
+authority_materialized = true
+delivery_path = "TARGET_SET"
+delivery_status = "resolved"
+delivery_materialized = false
+delivery_boundary = ""
+structural_kind = "unordered_unit"
+structural_level = 4
+structural_coordinate = "4"
+structural_parent = "TOOLS"
+authority_mode = "casual"
+
+[[scope_units]]
+name = "GRAPH_CHECK"
+prefix = "GRAPH_CHECK"
+authority_path = "GRAPH_CHECK"
+authority_materialized = true
+delivery_path = "GRAPH_CHECK"
+delivery_status = "resolved"
+delivery_materialized = false
+delivery_boundary = ""
+structural_kind = "unordered_unit"
+structural_level = 4
+structural_coordinate = "4"
+structural_parent = "TOOLS"
+authority_mode = "casual"
+
+[[scope_units]]
+name = "BULK_CHANGE"
+prefix = "BULK_CHANGE"
+authority_path = "BULK_CHANGE"
+authority_materialized = true
+delivery_path = "BULK_CHANGE"
+delivery_status = "resolved"
+delivery_materialized = false
+delivery_boundary = ""
+structural_kind = "unordered_unit"
+structural_level = 4
+structural_coordinate = "4"
+structural_parent = "TOOLS"
+authority_mode = "casual"
+
+[[scope_units]]
+name = "PROJECTION_REBUILD"
+prefix = "PROJECTION_REBUILD"
+authority_path = "PROJECTION_REBUILD"
+authority_materialized = true
+delivery_path = "PROJECTION_REBUILD"
+delivery_status = "resolved"
+delivery_materialized = false
+delivery_boundary = ""
+structural_kind = "unordered_unit"
+structural_level = 4
+structural_coordinate = "4"
+structural_parent = "TOOLS"
+authority_mode = "casual"
+
+[[scope_units]]
+name = "IMPLEMENTATION_INVENTORY"
+prefix = "IMPLEMENTATION_INVENTORY"
+authority_path = "IMPLEMENTATION_INVENTORY"
+authority_materialized = true
+delivery_path = "IMPLEMENTATION_INVENTORY"
+delivery_status = "resolved"
+delivery_materialized = false
+delivery_boundary = ""
+structural_kind = "unordered_unit"
+structural_level = 4
+structural_coordinate = "4"
+structural_parent = "TOOLS"
+authority_mode = "casual"
+
+[[scope_units]]
+name = "ADOPT_RECONCILE"
+prefix = "ADOPT_RECONCILE"
+authority_path = "ADOPT_RECONCILE"
+authority_materialized = true
+delivery_path = "ADOPT_RECONCILE"
+delivery_status = "resolved"
+delivery_materialized = false
+delivery_boundary = ""
+structural_kind = "unordered_unit"
+structural_level = 4
+structural_coordinate = "4"
+structural_parent = "TOOLS"
+authority_mode = "casual"
+
+[[scope_units]]
+name = "COMMIT_TRIGGER"
+prefix = "COMMIT_TRIGGER"
+authority_path = "COMMIT_TRIGGER"
+authority_materialized = true
+delivery_path = "COMMIT_TRIGGER"
+delivery_status = "resolved"
+delivery_materialized = true
+delivery_boundary = ""
+structural_kind = "unordered_unit"
+structural_level = 4
+structural_coordinate = "4"
+structural_parent = "TOOLS"
+authority_mode = "casual"
+
+[[scope_units]]
+name = "COMMIT_CONTEXT"
+prefix = "COMMIT_CONTEXT"
+authority_path = "COMMIT_CONTEXT"
+authority_materialized = true
+delivery_path = "COMMIT_CONTEXT"
+delivery_status = "resolved"
+delivery_materialized = true
+delivery_boundary = ""
+structural_kind = "unordered_unit"
+structural_level = 4
+structural_coordinate = "4"
+structural_parent = "TOOLS"
+authority_mode = "casual"
+
+[[scope_units]]
+name = "APPEND_CHANGE_RECORDS"
+prefix = "APPEND_CHANGE_RECORDS"
+authority_path = "APPEND_CHANGE_RECORDS"
+authority_materialized = true
+delivery_path = "APPEND_CHANGE_RECORDS"
+delivery_status = "resolved"
+delivery_materialized = true
+delivery_boundary = ""
+structural_kind = "unordered_unit"
+structural_level = 4
+structural_coordinate = "4"
+structural_parent = "TOOLS"
+authority_mode = "casual"
+
+[[scope_units]]
+name = "COMMIT_CHANGE_SET"
+prefix = "COMMIT_CHANGE_SET"
+authority_path = "COMMIT_CHANGE_SET"
+authority_materialized = true
+delivery_path = "COMMIT_CHANGE_SET"
+delivery_status = "resolved"
+delivery_materialized = true
+delivery_boundary = ""
+structural_kind = "unordered_unit"
+structural_level = 4
+structural_coordinate = "4"
+structural_parent = "TOOLS"
+authority_mode = "casual"
+
+[[scope_units]]
+name = "INSTALL_TOOLS"
+prefix = "INSTALL_TOOLS"
+authority_path = "INSTALL_TOOLS"
+authority_materialized = true
+delivery_path = "INSTALL_TOOLS"
+delivery_status = "resolved"
+delivery_materialized = true
+delivery_boundary = ""
+structural_kind = "unordered_unit"
+structural_level = 4
+structural_coordinate = "4"
+structural_parent = "TOOLS"
+authority_mode = "casual"
+
+[[scope_units]]
+name = "START_BACKGROUND_SERVICES"
+prefix = "START_BACKGROUND_SERVICES"
+authority_path = "START_BACKGROUND_SERVICES"
+authority_materialized = true
+delivery_path = "START_BACKGROUND_SERVICES"
+delivery_status = "resolved"
+delivery_materialized = true
+delivery_boundary = ""
+structural_kind = "unordered_unit"
+structural_level = 4
+structural_coordinate = "4"
+structural_parent = "TOOLS"
+authority_mode = "casual"
+
+[[scope_units]]
+name = "ATOM_SEARCH"
+prefix = "ATOM_SEARCH"
+authority_path = "ATOM_SEARCH"
+authority_materialized = true
+delivery_path = "ATOM_SEARCH"
+delivery_status = "resolved"
+delivery_materialized = true
+delivery_boundary = ""
+structural_kind = "unordered_unit"
+structural_level = 4
+structural_coordinate = "4"
+structural_parent = "TOOLS"
+authority_mode = "casual"
+
+[[scope_units]]
+name = "ATOM_READ"
+prefix = "ATOM_READ"
+authority_path = "ATOM_READ"
+authority_materialized = true
+delivery_path = "ATOM_READ"
+delivery_status = "resolved"
+delivery_materialized = true
+delivery_boundary = ""
+structural_kind = "unordered_unit"
+structural_level = 4
+structural_coordinate = "4"
+structural_parent = "TOOLS"
+authority_mode = "casual"
+
+[[scope_units]]
+name = "ATOM_CREATE"
+prefix = "ATOM_CREATE"
+authority_path = "ATOM_CREATE"
+authority_materialized = true
+delivery_path = "ATOM_CREATE"
+delivery_status = "resolved"
+delivery_materialized = true
+delivery_boundary = ""
+structural_kind = "unordered_unit"
+structural_level = 4
+structural_coordinate = "4"
+structural_parent = "TOOLS"
+authority_mode = "casual"
+
+[[scope_units]]
+name = "ATOM_UPDATE"
+prefix = "ATOM_UPDATE"
+authority_path = "ATOM_UPDATE"
+authority_materialized = true
+delivery_path = "ATOM_UPDATE"
+delivery_status = "resolved"
+delivery_materialized = true
+delivery_boundary = ""
+structural_kind = "unordered_unit"
+structural_level = 4
+structural_coordinate = "4"
+structural_parent = "TOOLS"
+authority_mode = "casual"
+
+[[scope_units]]
+name = "ATOM_MOVE"
+prefix = "ATOM_MOVE"
+authority_path = "ATOM_MOVE"
+authority_materialized = true
+delivery_path = "ATOM_MOVE"
+delivery_status = "resolved"
+delivery_materialized = true
+delivery_boundary = ""
+structural_kind = "unordered_unit"
+structural_level = 4
+structural_coordinate = "4"
+structural_parent = "TOOLS"
+authority_mode = "casual"
+
+[[scope_units]]
+name = "ATOM_ARCHIVE"
+prefix = "ATOM_ARCHIVE"
+authority_path = "ATOM_ARCHIVE"
+authority_materialized = true
+delivery_path = "ATOM_ARCHIVE"
+delivery_status = "resolved"
+delivery_materialized = true
+delivery_boundary = ""
+structural_kind = "unordered_unit"
+structural_level = 4
+structural_coordinate = "4"
+structural_parent = "TOOLS"
+authority_mode = "casual"
+
+[[scope_units]]
+name = "ATOM_PROMOTE"
+prefix = "ATOM_PROMOTE"
+authority_path = "ATOM_PROMOTE"
+authority_materialized = true
+delivery_path = "ATOM_PROMOTE"
+delivery_status = "resolved"
+delivery_materialized = true
+delivery_boundary = ""
+structural_kind = "unordered_unit"
+structural_level = 4
+structural_coordinate = "4"
+structural_parent = "TOOLS"
+authority_mode = "casual"
+
+[[scope_units]]
+name = "ATOM_UPGRADE"
+prefix = "ATOM_UPGRADE"
+authority_path = "ATOM_UPGRADE"
+authority_materialized = true
+delivery_path = "ATOM_UPGRADE"
+delivery_status = "resolved"
+delivery_materialized = true
+delivery_boundary = ""
+structural_kind = "unordered_unit"
+structural_level = 4
+structural_coordinate = "4"
+structural_parent = "TOOLS"
+authority_mode = "casual"
+
+[[admitted_contributions]]
+key = "project_graph_state"
+carrier = ".caprmedio/-100_BSEED_SUPERLAYER_META_METHODOLOGY/-102_BSEED_LAYER_2_SEMANTICS/04_requirement/CAPRMEDIO-META-REQU-127--define-two-governance-origins.md"
+atom = "CAPRMEDIO-META-REQU-127--define-two-governance-origins"
+version = "9"
+updated_at = "2026-08-23 15:00:38"
+sha256 = "4384c8477cb6599557057969e83369f987a163e9f791dbebc87c2ca5ed113dd1"
+
+[[admitted_contributions]]
+key = "project_graph_state"
+carrier = ".caprmedio/-100_BSEED_SUPERLAYER_META_METHODOLOGY/-103_BSEED_LAYER_3_GOVERNANCE/04_requirement/CAPRMEDIO-GOV-REQU-313--govern-catalog-map-and-hub-projections.md"
+atom = "CAPRMEDIO-GOV-REQU-313--govern-catalog-map-and-hub-projections"
+version = "14"
+updated_at = "2026-08-23 15:00:38"
+sha256 = "bae921a311da87f2e37de8ccf400e571de71da3ad467be1fa0d48e89e8544eae"
+
+[[admitted_contributions]]
+key = "project_graph_state"
+carrier = ".caprmedio/-100_BSEED_SUPERLAYER_META_METHODOLOGY/-103_BSEED_LAYER_3_GOVERNANCE/04_requirement/CAPRMEDIO-GOV-REQU-322--register-implementation-record-projection.md"
+atom = "CAPRMEDIO-GOV-REQU-322--register-implementation-record-projection"
+version = "8"
+updated_at = "2026-08-23 15:00:38"
+sha256 = "4e2fc7fa6b25170ba9611d1ebf07a83926252427d46185ed5abe6965a67fae74"
+
+[[admitted_contributions]]
+key = "project_graph_state"
+carrier = ".caprmedio/-100_BSEED_SUPERLAYER_META_METHODOLOGY/-103_BSEED_LAYER_3_GOVERNANCE/04_requirement/CAPRMEDIO-GOV-REQU-338--register-the-project-work-journal.md"
+atom = "CAPRMEDIO-GOV-REQU-338--register-the-project-work-journal"
+version = "12"
+updated_at = "2026-08-23 15:00:38"
+sha256 = "a0795978b256cb841b3c3ad7a0007ae405e5b84d1a88abc34e8914d1e989c0fd"
+
+[[admitted_contributions]]
+key = "project_graph_state"
+carrier = ".caprmedio/-100_BSEED_SUPERLAYER_META_METHODOLOGY/-103_BSEED_LAYER_3_GOVERNANCE/04_requirement/CAPRMEDIO-GOV-REQU-347--mirror-every-governed-file-change-in-git.md"
+atom = "CAPRMEDIO-GOV-REQU-347--mirror-every-governed-file-change-in-git"
+version = "12"
+updated_at = "2026-08-23 15:00:38"
+sha256 = "2839f82249171fb37e9103623b0c58f149e9eaabaaeff8c59dbd46641bf3a7d0"
+
+[[admitted_contributions]]
+key = "project_graph_state"
+carrier = ".caprmedio/-100_BSEED_SUPERLAYER_META_METHODOLOGY/-103_BSEED_LAYER_3_GOVERNANCE/04_requirement/CAPRMEDIO-GOV-REQU-362--configure-artifact-timestamp-timezone.md"
+atom = "CAPRMEDIO-GOV-REQU-362--configure-artifact-timestamp-timezone"
+version = "8"
+updated_at = "2026-08-23 15:00:38"
+sha256 = "67110798c61afa94033a6de59dcf382a4e38dc3fb48d2d90223e776c643da6a2"
+
+[[admitted_contributions]]
+key = "project_graph_state"
+carrier = ".caprmedio/-100_BSEED_SUPERLAYER_META_METHODOLOGY/-103_BSEED_LAYER_3_GOVERNANCE/04_requirement/CAPRMEDIO-GOV-REQU-735--default-internal-analysis-to-analysis-report.md"
+atom = "CAPRMEDIO-GOV-REQU-735--default-internal-analysis-to-analysis-report"
+version = "8"
+updated_at = "2026-08-23 15:00:38"
+sha256 = "d0fcc90d73423e4125f21395ef648617d546fabe563c9d56b1a32de1dc7590a9"
+
+[[admitted_contributions]]
+key = "project_graph_state"
+carrier = ".caprmedio/-100_BSEED_SUPERLAYER_META_METHODOLOGY/-103_BSEED_LAYER_3_GOVERNANCE/04_requirement/CAPRMEDIO-GOV-REQU-748--register-evaluation-atom-types.md"
+atom = "CAPRMEDIO-GOV-REQU-748--register-evaluation-atom-types"
+version = "7"
+updated_at = "2026-08-23 15:00:38"
+sha256 = "60920400f3cee5f0da94fee6a5fa8eafc12b90d5c825c63cf6ab31f3b4f02b11"
+
+[[admitted_contributions]]
+key = "project_graph_state"
+carrier = ".caprmedio/-100_BSEED_SUPERLAYER_META_METHODOLOGY/-103_BSEED_LAYER_3_GOVERNANCE/04_requirement/CAPRMEDIO-GOV-REQU-749--register-concern-atom-types.md"
+atom = "CAPRMEDIO-GOV-REQU-749--register-concern-atom-types"
+version = "7"
+updated_at = "2026-08-23 15:00:38"
+sha256 = "46df656e13fe4bfa7019a3e5e9902f456b7c94277c2f23ab59612678acaedc9c"
+
+[[admitted_contributions]]
+key = "project_graph_state"
+carrier = ".caprmedio/-100_BSEED_SUPERLAYER_META_METHODOLOGY/-103_BSEED_LAYER_3_GOVERNANCE/04_requirement/CAPRMEDIO-GOV-REQU-750--register-rationale-analysis-type.md"
+atom = "CAPRMEDIO-GOV-REQU-750--register-rationale-analysis-type"
+version = "7"
+updated_at = "2026-08-23 15:00:38"
+sha256 = "c9e931cedf95460a75ba53d381854d1fd32b7be4a6d829723d43c3a63c56b405"
+
+[[admitted_contributions]]
+key = "project_graph_state"
+carrier = ".caprmedio/-100_BSEED_SUPERLAYER_META_METHODOLOGY/-103_BSEED_LAYER_3_GOVERNANCE/04_requirement/CAPRMEDIO-GOV-REQU-751--register-delivery-types.md"
+atom = "CAPRMEDIO-GOV-REQU-751--register-delivery-types"
+version = "7"
+updated_at = "2026-08-23 15:00:38"
+sha256 = "e488ab3d7d4cd81a5345583704b5160f1d6aea3c5e060b579cb7334f0a838b03"
+
+[[admitted_contributions]]
+key = "project_graph_state"
+carrier = ".caprmedio/-100_BSEED_SUPERLAYER_META_METHODOLOGY/-103_BSEED_LAYER_3_GOVERNANCE/04_requirement/CAPRMEDIO-GOV-REQU-752--register-ops-types.md"
+atom = "CAPRMEDIO-GOV-REQU-752--register-ops-types"
+version = "7"
+updated_at = "2026-08-23 15:00:38"
+sha256 = "67c44d0e9eaa9e3bab102eb98af80e734d32795c37e0af6dc226d6fecec4b6aa"
+
+[[admitted_contributions]]
+key = "project_graph_state"
+carrier = ".caprmedio/-100_BSEED_SUPERLAYER_META_METHODOLOGY/-103_BSEED_LAYER_3_GOVERNANCE/04_requirement/CAPRMEDIO-GOV-REQU-753--register-plan-role-types.md"
+atom = "CAPRMEDIO-GOV-REQU-753--register-plan-role-types"
+version = "10"
+updated_at = "2026-08-23 15:00:38"
+sha256 = "8a0ece7655138a2d55ce44d5e86899949d3db4bdb36407a7cf44f7e563b3f66a"
+
+[[admitted_contributions]]
+key = "project_graph_state"
+carrier = ".caprmedio/-100_BSEED_SUPERLAYER_META_METHODOLOGY/-103_BSEED_LAYER_3_GOVERNANCE/04_requirement/CAPRMEDIO-GOV-REQU-754--register-implementation-method-type.md"
+atom = "CAPRMEDIO-GOV-REQU-754--register-implementation-method-type"
+version = "7"
+updated_at = "2026-08-23 15:00:38"
+sha256 = "f37e561f852c5a8e37e7581834302acfc77e6056b4b623fc03faa9f50a85ba14"
+
+[[admitted_contributions]]
+key = "project_graph_state"
+carrier = ".caprmedio/-100_BSEED_SUPERLAYER_META_METHODOLOGY/-103_BSEED_LAYER_3_GOVERNANCE/04_requirement/CAPRMEDIO-GOV-REQU-755--register-implementation-decision-type.md"
+atom = "CAPRMEDIO-GOV-REQU-755--register-implementation-decision-type"
+version = "7"
+updated_at = "2026-08-23 15:00:38"
+sha256 = "5ab4e6bf0972bff07a22f1a93acb45d69536fc274bbae34a6b9768b56087c3ef"
+
+[[admitted_contributions]]
+key = "project_graph_state"
+carrier = ".caprmedio/-100_BSEED_SUPERLAYER_META_METHODOLOGY/-103_BSEED_LAYER_3_GOVERNANCE/04_requirement/CAPRMEDIO-GOV-REQU-765--register-the-default-internal-requirement-type.md"
+atom = "CAPRMEDIO-GOV-REQU-765--register-the-default-internal-requirement-type"
+version = "7"
+updated_at = "2026-08-23 15:00:38"
+sha256 = "36dbe5d699484891e7266d1946e6fa534f5b929c50e0d4cee54adf276afe7ac1"
+
+[[admitted_contributions]]
+key = "project_graph_state"
+carrier = ".caprmedio/-100_BSEED_SUPERLAYER_META_METHODOLOGY/-103_BSEED_LAYER_3_GOVERNANCE/04_requirement/CAPRMEDIO-R-792-REQUIREMENT-BSEED_GOVERNANCE--register-default-evaluation-type.md"
+atom = "CAPRMEDIO-R-792-REQUIREMENT-BSEED_GOVERNANCE--register-default-evaluation-type"
+version = "7"
+updated_at = "2026-08-23 15:00:38"
+sha256 = "c0d6bb1a0a260681e42a5394e4c8ea01348b898ed37483417469a9243ff4c48c"
+
+[[admitted_contributions]]
+key = "project_graph_state"
+carrier = ".caprmedio/-100_BSEED_SUPERLAYER_META_METHODOLOGY/-103_BSEED_LAYER_3_GOVERNANCE/04_requirement/CAPRMEDIO-R-793-REQUIREMENT-BSEED_GOVERNANCE--register-evaluation-approach-type.md"
+atom = "CAPRMEDIO-R-793-REQUIREMENT-BSEED_GOVERNANCE--register-evaluation-approach-type"
+version = "7"
+updated_at = "2026-08-23 15:00:38"
+sha256 = "b1b1945a066a080107a031487210503fc20f89937ea78b632688c871e2aa96c9"
