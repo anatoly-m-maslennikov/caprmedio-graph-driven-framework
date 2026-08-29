@@ -1,16 +1,16 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
       - relation-model
-  prerequisite:
+  depends_on:
     continuant:
       - atom-boundary
 tier: core
 cce_version: cce_1
 cce_form: obligation
-version: 8
-updated_at: 2026-08-23 15:24:07
+version: 10
+updated_at: 2026-08-29 02:40:41 +0400
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -19,4 +19,4 @@ relations:
 ---
 # Keep active PRMEDO relations within active authority
 
-EVERY direct relation authored by an active PRMEDO Atom MUST target another active Atom. A target in draft, done, archived, or another inactive lifecycle placement MUST be invalid even when its historical carrier remains addressable.
+**every** direct relation authored by an active PRMEDO Atom **must** target another active Atom. A target **in** draft, done, archived, **or** another inactive lifecycle placement **must** be invalid even **when** its historical carrier remains addressable.
