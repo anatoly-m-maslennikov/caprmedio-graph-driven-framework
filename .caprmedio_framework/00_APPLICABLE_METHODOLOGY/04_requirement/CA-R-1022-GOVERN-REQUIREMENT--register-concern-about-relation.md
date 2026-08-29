@@ -9,8 +9,8 @@ subjects:
   prerequisite:
     continuant:
       - atom-boundary
-version: 3
-updated_at: 2026-08-23 15:24:07
+version: 4
+updated_at: 2026-08-29 01:16:37 +0400
 relations:
   child_of:
     - CAPRMEDIO-META-REQU-117--store-each-semantic-relation-once
@@ -20,4 +20,4 @@ projection:
 ---
 # Register concern_about relation
 
-GOVERNANCE MUST register `concern_about` as a direct relation owned by a Concern Atom and directed to one Observation or other directly affected governed entity.
+GOVERNANCE **must** register `concern_about` as a direct relation owned by a Concern Atom **and** directed to one Observation **or** other directly affected governed entity.
