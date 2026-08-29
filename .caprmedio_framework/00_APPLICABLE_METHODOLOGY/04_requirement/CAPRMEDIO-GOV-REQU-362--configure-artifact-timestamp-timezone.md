@@ -10,8 +10,8 @@ llm_session_ids:
 project_graph_state:
   artifact_timestamps:
     timezone: local
-version: 8
-updated_at: 2026-08-23 15:00:38
+version: 9
+updated_at: 2026-08-29 01:16:37 +0400
 relations:
   child_of:
     - CAPRMEDIO-META-REQU-163--define-configuration-selection-and-precedence
@@ -21,4 +21,4 @@ projection:
 ---
 # Configure the Artifact timestamp timezone
 
-CAPRMEDIO resolves `updated_at` in the operator's local timezone by default. The project setting `[artifact_timestamps].timezone` MAY select `local`, `UTC`, or an IANA timezone name; every emitted value uses `YYYY-MM-DD HH:MM:SS`, and the setting supplies its timezone interpretation.
+CAPRMEDIO resolves `updated_at` **in** the operator's local timezone by default. The project setting `[artifact_timestamps].timezone` **may** select `local`, `UTC`, **or** an IANA timezone name; **every** emitted value uses `YYYY-MM-DD HH:MM:SS`, **and** the setting supplies its timezone interpretation.
