@@ -5,14 +5,15 @@ cce_form: obligation
 subjects:
   governs:
     continuant:
-      - Atom/Content Role/PRMEDIO/Default Atom Type
+      - Atom/Local Tier
   depends_on:
     continuant:
-      - Atom/Local Tier
-version: 1
-updated_at: 2026-08-27 03:16:48 +0400
+      - Atom/Content Role
+      - Type
+version: 5
+updated_at: 2026-08-29 04:33:13 +0400
 relations: {}
 ---
-# Use Local Tiers Instead of Default Atom Types for PRMEDIO
+# Keep Local Tier Independent from Content Role and Type
 
-the Plan, Requirement, Method, Evaluation, Delivery, Implementation, and Ops Content Roles **must** use the Local Tiers PRINCIPLE, CORE, and STD instead of default Atom Types.
+an Atom's Local Tier **must** remain independent from its Content Role **and** optional Type.
