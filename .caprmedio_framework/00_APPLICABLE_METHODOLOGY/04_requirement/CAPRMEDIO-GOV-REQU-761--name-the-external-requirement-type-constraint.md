@@ -5,8 +5,8 @@ subjects:
   declared:
     continuant:
       - external-boundary
-version: 6
-updated_at: 2026-08-23 15:00:38
+version: 7
+updated_at: 2026-08-29 01:16:37 +0400
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -20,4 +20,4 @@ projection:
 ---
 # Name the external Requirement Type Constraint
 
-GOVERNANCE registers `constraint` as a non-default external Type within the Requirement Content role. Its explicit name is not derived from the default external Type naming rule.
+GOVERNANCE registers `constraint` as a non-default external Type within the Requirement Content role. Its explicit name is **not** derived from the default external Type naming rule.
