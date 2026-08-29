@@ -1,16 +1,16 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
-      - scope-topology
-  prerequisite:
+      - CAPRMEDIO Metamodel/Fractality
+  depends_on:
     continuant:
-      - authority
+      - Scope Unit
 atom_id: CA-R-917
 cce_version: cce_1
 cce_form: obligation
-version: 4
-updated_at: 2026-08-23 15:24:07
+version: 6
+updated_at: 2026-08-29 01:16:37 +0400
 relations:
   child_of:
     - CAPRMEDIO-META-REQU-153
@@ -20,4 +20,4 @@ projection:
 ---
 # Apply the same Scope Unit governance recursively
 
-THE CAPRMEDIO Metamodel MUST be fractal: apply the same Scope Unit governance pattern recursively at every Structural level.
+the CAPRMEDIO Metamodel **must** be fractal by applying the same Scope Unit governance pattern recursively at **every** Structural level.
