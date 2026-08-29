@@ -1,19 +1,19 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
-      - scope-topology
-  prerequisite:
+      - Scope Unit/Type
+  depends_on:
     continuant:
       - artifact-model
 cce_version: cce_1
 cce_form: cardinality
-version: 7
-updated_at: 2026-08-23 15:24:07
+version: 10
+updated_at: 2026-08-29 04:33:13 +0400
 relations:
   child_of:
     - CAPRMEDIO-META-REQU-708
 ---
-# Register Layer and Feature as Scope Unit Types
+# Register Layer and Feature as Type Values under Scope Unit
 
-EVERY non-Project Scope Unit MUST have EXACTLY ONE Scope Unit Type: Layer or Feature.
+**every** non-Project Scope Unit **must** have **`=1`** Type value **in** (Layer, Feature).
