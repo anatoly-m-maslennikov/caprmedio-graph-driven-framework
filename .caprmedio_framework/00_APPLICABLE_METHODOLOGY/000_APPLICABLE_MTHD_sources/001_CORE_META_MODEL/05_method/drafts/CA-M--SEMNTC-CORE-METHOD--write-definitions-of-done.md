@@ -1,15 +1,15 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
       - semantics
-  prerequisite:
+  depends_on:
     continuant:
-      - cce-language
+      - CCE
 cce_version: cce_1
 cce_form: method
-version: 1
-updated_at: 2026-08-25 00:02:08
+version: 2
+updated_at: 2026-08-29 02:40:41 +0400
 relations: {}
 ---
 # Write Definitions of Done
