@@ -8,8 +8,8 @@ subjects:
       - artifact-model
 cce_version: cce_1
 cce_form: prohibition
-version: 8
-updated_at: 2026-08-23 15:24:07
+version: 9
+updated_at: 2026-08-29 01:16:37 +0400
 relations:
   child_of:
     - CAPRMEDIO-META-REQU-708
@@ -18,4 +18,4 @@ projection:
 ---
 # Keep the Project outside sibling Scope Unit Types
 
-THE Project Scope Unit MUST NOT have a parent Scope Unit or a Scope Unit Type.
+THE Project Scope Unit **must not** have a parent Scope Unit **or** a Scope Unit Type.
