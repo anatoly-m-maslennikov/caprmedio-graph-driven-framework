@@ -3,18 +3,18 @@ atom_id: CA-R-1024
 cce_version: cce_1
 cce_form: prohibition
 subjects:
-  declared:
+  governs:
     continuant:
       - relation-model
-  prerequisite:
+  depends_on:
     continuant:
       - atom-boundary
-version: 3
-updated_at: 2026-08-23 15:24:07
+version: 5
+updated_at: 2026-08-29 02:40:41 +0400
 relations:
   child_of:
     - CAPRMEDIO-META-REQU-121--store-only-direct-semantic-relations
 ---
 # Prohibit transitive meaning for direct relations
 
-A registered direct relation MUST NOT imply a transitive relation.
+A registered direct relation **must not** imply a transitive relation.
