@@ -9,8 +9,8 @@ subjects:
   prerequisite:
     continuant:
       - atom-boundary
-version: 4
-updated_at: 2026-08-23 15:24:07
+version: 5
+updated_at: 2026-08-29 01:16:37 +0400
 relations:
   child_of:
     - CAPRMEDIO-GOV-REQU-768--validate-active-prmedo-relation-target-lifecycle
@@ -19,4 +19,4 @@ projection:
 ---
 # Reject authored inverse relations
 
-GOVERNANCE validators MUST reject every inverse typed relation authored in an Atom carrier.
+GOVERNANCE validators **must** reject **every** inverse typed relation authored **in** an Atom carrier.
