@@ -1,17 +1,17 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
-      - artifact-model
+      - Atom/Local Tier
 atom_id: CA-R-155
 cce_version: cce_1
 cce_form: cardinality
-version: 17
-updated_at: 2026-08-23 15:00:38
+version: 20
+updated_at: 2026-08-29 02:40:41 +0400
 relations:
   child_of:
     - CA-R-680
 ---
 # Classify Atoms by one Local Tier
 
-EVERY tier-classified Atom MUST use EXACTLY ONE Local Tier from Principle, Core, and Standard.
+**every** Atom **must** have **`=1`** Local Tier **in** (Principle, Core, Standard).
