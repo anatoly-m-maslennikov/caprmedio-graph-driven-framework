@@ -6,8 +6,8 @@ subjects:
     continuant:
       - scope-topology
 tier: core
-version: 9
-updated_at: 2026-08-23 15:00:38
+version: 10
+updated_at: 2026-08-29 01:16:37 +0400
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -21,6 +21,6 @@ projection:
 ---
 # Scope path does not change semantic coordinates
 
-Scope path is a project-relative address containing zero or more operator-labeled structural scopes ordered from broader parent to narrower child.
+Scope path is a project-relative address containing **`>=0`** operator-labeled structural scopes ordered from broader parent to narrower child.
 
-The current project is ambient and never repeated in `scope_path`. Project scope therefore uses an empty path. Scope MAY govern ownership, applicability, and inheritance, but it never changes stable Artifact identity, Artifact form, Content role, or Governance locus.
+The current project is ambient **and** never repeated **in** `scope_path`. Project scope therefore uses an empty path. Scope **may** govern ownership, applicability, **and** inheritance, but it never changes stable Artifact identity, Artifact form, Content role, **or** Governance locus.
