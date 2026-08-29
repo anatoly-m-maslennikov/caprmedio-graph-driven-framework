@@ -6,8 +6,8 @@ subjects:
     continuant:
       - lifecycle-traceability
 tier: core
-version: 8
-updated_at: 2026-08-23 15:00:38
+version: 9
+updated_at: 2026-08-29 01:16:37 +0400
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -18,4 +18,4 @@ projection:
 ---
 # Propagate atomic revision impact through lineage
 
-When an Atom receives a new committed revision, is replaced by a successor, or moves to the archive, CAPRMEDIO MUST assess every reachable descendant lineage branch recursively until each branch has an explicit impact disposition.
+**when** an Atom receives a new committed revision, is replaced by a successor, **or** moves to the archive, CAPRMEDIO **must** assess **every** reachable descendant lineage branch recursively **until** **every** branch has an explicit impact disposition.
