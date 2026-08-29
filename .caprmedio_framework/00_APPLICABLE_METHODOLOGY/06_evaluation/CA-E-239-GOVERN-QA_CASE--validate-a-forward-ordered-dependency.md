@@ -11,8 +11,8 @@ subjects:
 atom_id: CA-E-239
 cce_version: cce_1
 cce_form: evaluation
-version: 8
-updated_at: 2026-08-23 15:24:07
+version: 9
+updated_at: 2026-08-29 01:16:37 +0400
 relations:
   evaluation_for:
     - CA-R-878
@@ -24,15 +24,15 @@ projection:
 
 ## Claim checked
 
-An ordered dependency flows from an earlier Producer to a later Consumer, and the stored relation points from Consumer to Producer.
+An ordered dependency flows from an earlier Producer to a later Consumer, **and** the stored relation points from Consumer to Producer.
 
 ## Test case
 
-Create three ordered peer Scope Units. Declare the first as Producer and the third as Consumer. Store `depends_on` from the third to the first. Reverse the production flow, reverse the stored relation, use equal order, and omit the dependency in separate fixtures.
+Create three ordered peer Scope Units. Declare the first as Producer **and** the third as Consumer. Store `depends_on` from the third to the first. Reverse the production flow, reverse the stored relation, use equal order, **and** omit the dependency **in** separate fixtures.
 
 ## Acceptance criteria
 
-Only the earlier-Producer, later-Consumer fixture with the Consumer-to-Producer stored relation passes. Order alone creates no dependency.
+**only** the earlier-Producer, later-Consumer fixture with the Consumer-to-Producer stored relation passes. Order alone creates no dependency.
 
 ## Failure disposition
 
