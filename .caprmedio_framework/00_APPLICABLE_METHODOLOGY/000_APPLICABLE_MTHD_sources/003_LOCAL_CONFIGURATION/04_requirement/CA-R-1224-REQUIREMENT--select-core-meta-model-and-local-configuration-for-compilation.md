@@ -10,10 +10,10 @@ subjects:
     continuant:
       - Applicable Methodology/Sources/Core Meta-Model
       - Applicable Methodology/Sources/Local Configuration
-version: 1
-updated_at: 2026-08-27 01:28:30 +0400
+version: 2
+updated_at: 2026-08-29 01:16:37 +0400
 relations: {}
 ---
 # Select Core Meta-Model and Local Configuration for Compilation
 
-the Local Configuration **must** select CORE_META_MODEL and LOCAL_CONFIGURATION, in that order, as the only Source Layers for Applicable Methodology compilation.
+the Local Configuration **must** select CORE_META_MODEL **and** LOCAL_CONFIGURATION, **in** that order, as the **only** Source Layers for Applicable Methodology compilation.
