@@ -9,8 +9,8 @@ subjects:
   prerequisite:
     continuant:
       - atom-boundary
-version: 3
-updated_at: 2026-08-23 15:24:07
+version: 4
+updated_at: 2026-08-29 01:16:37 +0400
 relations:
   child_of:
     - CAPRMEDIO-META-REQU-117--store-each-semantic-relation-once
@@ -20,4 +20,4 @@ projection:
 ---
 # Register implementation_of relation
 
-GOVERNANCE MUST register `implementation_of` as a direct relation owned by a governed Implementation carrier and directed to one specification Atom that the carrier implements.
+GOVERNANCE **must** register `implementation_of` as a direct relation owned by a governed Implementation carrier **and** directed to one specification Atom that the carrier implements.
