@@ -5,18 +5,17 @@ cce_form: definition
 subjects:
   governs:
     continuant:
-      - Task
+      - "Atom/Content Role: Plan/Type: Task"
   depends_on:
     continuant:
       - Atom/Claim
       - Atom/Claim Scope
-      - Task/Job
-      - Task/Definition of Done
-      - Task/Details
-version: 4
-updated_at: 2026-08-27 00:50:08 +0400
+      - "Atom/Content Role: Plan/Type: Task/Definition of Done"
+      - "Atom/Content Role: Plan/Type: Task/Details"
+version: 8
+updated_at: 2026-08-29 04:33:13 +0400
 relations: {}
 ---
 # Define Task Atom
 
-a Task Atom **means** a Plan Atom whose Claim states one Task Job, whose Claim Scope states one Task Scope, and that carries one Definition of Done and optional Task Details.
+a Task Atom **means** an Atom with Content Role Plan **and** Type Task whose Claim states its intended result, whose Claim Scope states its Task Scope, **and** that has one Definition of Done **and** optional Task Details.
