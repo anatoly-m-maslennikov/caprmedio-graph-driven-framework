@@ -1,17 +1,17 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
       - property-bearer
-  prerequisite:
+  depends_on:
     continuant:
-      - base-entity
-      - dependent-entity
-      - property
+      - Base Entity
+      - Dependent Entity
+      - Property
 cce_version: cce_1
 cce_form: permission
-version: 1
-updated_at: 2026-08-25 01:09:39
+version: 2
+updated_at: 2026-08-29 02:40:41 +0400
 relations: {}
 ---
 # Permit Properties on Base and Dependent Entities
