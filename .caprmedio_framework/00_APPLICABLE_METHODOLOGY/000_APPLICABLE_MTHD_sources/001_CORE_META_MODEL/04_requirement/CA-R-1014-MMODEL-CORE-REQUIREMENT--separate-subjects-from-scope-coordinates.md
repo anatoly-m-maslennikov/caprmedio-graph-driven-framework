@@ -3,16 +3,16 @@ atom_id: CA-R-1014
 cce_version: cce_1
 cce_form: requirement
 subjects:
-  declared:
+  governs:
     continuant:
       - subject-scope-independence
-  prerequisite:
+  depends_on:
     continuant:
-      - subject
+      - Subject
       - scope-topology
       - atom-boundary
-version: 3
-updated_at: 2026-08-23 15:24:07
+version: 5
+updated_at: 2026-08-29 02:40:41 +0400
 relations:
   child_of:
     - CA-R-919
@@ -20,4 +20,4 @@ relations:
 ---
 # Separate Subjects from Scope Coordinates
 
-An Atom's Subjects MUST NOT determine its Current Scope or Claim Scope.
+An Atom's Subjects **must not** determine its Current Scope **or** Claim Scope.
