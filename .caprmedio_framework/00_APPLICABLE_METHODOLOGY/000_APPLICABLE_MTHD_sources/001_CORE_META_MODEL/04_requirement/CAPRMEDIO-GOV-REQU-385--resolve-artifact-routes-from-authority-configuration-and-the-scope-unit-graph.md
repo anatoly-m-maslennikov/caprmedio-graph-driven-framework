@@ -1,20 +1,19 @@
 ---
 cce_version: cce_1
-cce_form: obligation
+cce_form: resolution
 subjects:
-  declared:
+  governs:
+    occurrent:
+      - Artifact Classification Resolution
+  depends_on:
     continuant:
-      - artifact-catalog
-version: 11
-updated_at: 2026-08-23 15:00:38
-llm_session_ids:
-  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
-relations:
-  child_of:
-    - CA-R-1054
-  replacement_of:
-    - CAPRMEDIO-GOV-REQU-456--separate-route-catalog-and-project-whitelist
+      - Applicable Methodology
+      - Local Configuration
+      - Scope Unit Graph
+version: 14
+updated_at: 2026-08-29 02:40:41 +0400
+relations: {}
 ---
-# Resolve artifact routes from authority, configuration, and the Scope Unit Graph
+# Resolve Artifact Classification from Authority and Configuration
 
-CAPRMEDIO resolves Content roles, Artifact Types, class short names, semantic routes, carriers, and persistence behavior from active GOVERNANCE authority, applies operator selections from the Project Configuration Atom, and reads derived structural context from current Project Scope Unit Graph Projections. Writers and validators fail closed for unknown, disabled, stale, multiply mapped, or ambiguous classifications.
+CAPRMEDIO **must** resolve **every** Artifact Content Role, Type, **and** semantic route from Applicable Methodology, Local Configuration, **and** current Scope Unit Graph context **and** **must** fail on an unknown, disabled, stale, multiply mapped, **or** ambiguous classification.
