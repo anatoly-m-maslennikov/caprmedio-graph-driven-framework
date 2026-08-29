@@ -2,12 +2,12 @@
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  declared:
+  governs:
     continuant:
       - semantics
 tier: core
-version: 7
-updated_at: 2026-08-23 15:00:38
+version: 9
+updated_at: 2026-08-29 02:40:41 +0400
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -18,15 +18,15 @@ relations:
 ---
 # Preserve content role boundaries through CAPRMEDIO loop
 
-Every transition through Concern, Analysis, Plan, Requirement, Method, Evaluation, Delivery, Implementation, and Ops produces or updates the meaning owned by the receiving Content role without converting the source meaning into that role or implying completion of a later role.
+**every** transition through Concern, Analysis, Plan, Requirement, Method, Evaluation, Delivery, Implementation, **and** Ops produces **or** updates the meaning owned by the receiving Content role **without** converting the source meaning into that role **or** implying completion of a later role.
 
-In particular:
+**in** particular:
 
-- Analysis owns findings, alternatives, explanation, and rationale but not the action list;
-- an Action Policy governs Actors and actions without itself acting, a Task states one intended action without realizing it, and an Epic relates only its contained Tasks without adding their actions;
-- Requirement states a desired outcome but does not select its Method;
-- Method, Evaluation, and Delivery specify distinct realization obligations;
-- Implementation materially realizes accepted claims but does not prove their evaluation or operational success; and
-- Ops records enacted facts but does not silently rewrite normative authority.
+- Analysis owns findings, alternatives, explanation, **and** rationale but **not** the action list;
+- an Action Policy governs Actors **and** actions **without** itself acting, a Task states one intended action **without** realizing it, **and** an Epic relates **only** its contained Tasks **without** adding their actions;
+- Requirement states a desired outcome but does **not** select its Method;
+- Method, Evaluation, **and** Delivery specify distinct realization obligations;
+- Implementation materially realizes accepted claims but does **not** prove their evaluation **or** operational success; **and**
+- Ops records enacted facts but does **not** silently rewrite normative authority.
 
-Relations carry meaning between roles while every related artifact retains its own identity, authority, lifecycle, and owning role.
+Relations carry meaning between roles while **every** related artifact retains its own identity, authority, lifecycle, **and** owning role.
