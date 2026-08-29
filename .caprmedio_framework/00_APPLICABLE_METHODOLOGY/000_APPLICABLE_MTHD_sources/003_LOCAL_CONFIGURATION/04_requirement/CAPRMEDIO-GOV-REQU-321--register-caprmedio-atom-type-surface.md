@@ -1,12 +1,16 @@
 ---
 cce_version: cce_1
-cce_form: definition
+cce_form: requirement
 subjects:
-  declared:
+  governs:
     continuant:
-      - artifact-catalog
-version: 14
-updated_at: 2026-08-23 15:00:38
+      - Type
+  depends_on:
+    continuant:
+      - Atom
+      - Content Role
+version: 16
+updated_at: 2026-08-29 04:33:13 +0400
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -20,6 +24,6 @@ relations:
     - CAPRMEDIO-GOV-CONC-037--semantic-route-catalog-remains-incomplete
     - CAPRMEDIO-GOV-CONC-051--which-types-complete-the-semantic-route-catalog
 ---
-# Register the CAPRMEDIO Atom Type surface
+# Register the CAPRMEDIO Type Surface for Atoms
 
-GOVERNANCE registers every typed Atom within exactly one Content role. Content role states the Atom's primary semantic contribution; Type states the governed kind within that role. Atom routing admits no subtype coordinate, and a Type name MAY equal its Content-role name only when that is the canonical name of the governed kind.
+GOVERNANCE **must** register **every** typed Atom with **`=1`** Content Role value **and** **`<=1`** Type value. Content Role states the Atom's primary semantic contribution, Type states the governed kind within that role, **and** Atom routing admits no additional subtype coordinate.
