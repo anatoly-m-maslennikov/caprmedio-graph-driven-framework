@@ -5,8 +5,8 @@ subjects:
   declared:
     continuant:
       - lifecycle-traceability
-version: 5
-updated_at: 2026-08-23 15:00:38
+version: 6
+updated_at: 2026-08-29 01:16:37 +0400
 relations:
   child_of:
     - CAPRMEDIO-META-REQU-108--evolve-authority-through-governed-history
@@ -15,4 +15,4 @@ relations:
 ---
 # Select Bootstrap Seed revisions explicitly
 
-A CAPRMEDIO Project MUST apply a Bootstrap Seed update or downgrade only by selecting an identified Seed revision and reconciling its affected Project authority; the selection does not silently rewrite Extension or Project Adaptation authority.
+A CAPRMEDIO Project **must** apply a Bootstrap Seed update **or** downgrade **only** by selecting an identified Seed revision **and** reconciling its affected Project authority; the selection does **not** silently rewrite Extension **or** Project Adaptation authority.
