@@ -6,8 +6,8 @@ subjects:
 atom_id: CA-R-962
 cce_version: cce_1
 cce_form: cardinality
-version: 3
-updated_at: 2026-08-23 15:00:38
+version: 4
+updated_at: 2026-08-29 01:16:37 +0400
 relations:
   child_of:
     - CAPRMEDIO-META-REQU-708
@@ -16,4 +16,4 @@ projection:
 ---
 # Give every Scope Unit one Unit Name
 
-EVERY Scope Unit MUST have EXACTLY ONE authoritative Unit Name and MUST NOT have an independent Human Name.
+**every** Scope Unit **must** have **`=1`** authoritative Unit Name **and** **must not** have an independent Human Name.
