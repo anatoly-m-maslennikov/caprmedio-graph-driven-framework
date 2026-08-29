@@ -5,14 +5,14 @@ cce_form: definition
 subjects:
   governs:
     continuant:
-      - Atom/Claim/Subject Relation/Governs
+      - "Claim-Subject Relation/Kind: GOVERNS"
   depends_on:
     continuant:
-      - Atom/Claim/Subject Relation
-version: 1
-updated_at: 2026-08-27 00:50:08 +0400
+      - Claim-Subject Relation/Kind
+version: 3
+updated_at: 2026-08-29 02:40:41 +0400
 relations: {}
 ---
 # Define GOVERNS Claim-Subject Relation
 
-the **governs** Claim-Subject Relation **means** the Claim establishes authority about the Subject.
+GOVERNS **means** the Claim-Subject Relation Kind whose Claim establishes authority about its referenced Subject.
