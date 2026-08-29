@@ -13,10 +13,10 @@ subjects:
       - Operator
     occurrent:
       - Extension Packaging
-version: 1
-updated_at: 2026-08-27 01:17:55 +0400
+version: 3
+updated_at: 2026-08-29 02:40:41 +0400
 relations: {}
 ---
 # Defer CAPRMEDIO-Specific Extension Packaging
 
-the CAPRMEDIO-specific authority in this migration **must** remain Project Local Configuration until the Operator accepts one separately identified Extension package.
+the CAPRMEDIO-specific authority **in** this migration **must** remain Project Local Configuration **until** the Operator accepts one separately identified Extension package.
