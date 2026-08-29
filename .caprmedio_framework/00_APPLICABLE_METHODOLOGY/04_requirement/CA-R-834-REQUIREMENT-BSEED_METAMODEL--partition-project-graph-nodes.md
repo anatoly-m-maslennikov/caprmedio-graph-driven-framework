@@ -7,8 +7,8 @@ subjects:
     continuant:
       - artifact-model
 tier: core
-version: 5
-updated_at: 2026-08-23 15:00:38
+version: 6
+updated_at: 2026-08-29 01:16:37 +0400
 relations:
   child_of:
     - CA-D-003-PRINCIPLE-DELIVERY--provide-one-project-graph-as-the-operating-model
@@ -17,4 +17,4 @@ projection:
 ---
 # Partition project-graph nodes
 
-Every governed project-graph node belongs to exactly one of two disjoint partitions: Scope Unit or Artifact.
+**every** governed project-graph node belongs to **`=1`** of two disjoint partitions: Scope Unit **or** Artifact.
