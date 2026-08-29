@@ -1,23 +1,18 @@
 ---
 subjects:
-  declared:
-    continuant:
-      - scope-topology
+  governs:
     occurrent:
-      - evaluation
-  prerequisite:
+      - Scope Reference Validation
+  depends_on:
     continuant:
-      - artifact-model
+      - Atom/Current Scope
+      - Atom/Claim Scope
 atom_id: CA-E-240
 cce_version: cce_1
 cce_form: evaluation
-version: 8
-updated_at: 2026-08-26 15:38:45 +0400
-relations:
-  evaluation_for:
-    - CA-R-877
-    - CA-R-947
-    - CA-R-950
+version: 10
+updated_at: 2026-08-29 01:16:37 +0400
+relations: {}
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/06_evaluation/CA-E-240-GOVERN-QA_CASE--validate-current-scope-and-claim-scope.md
 ---
@@ -25,16 +20,16 @@ projection:
 
 ## Claim checked
 
-Every Atom has one Current Scope ownership position and one Claim Scope interpreted under its Atom Type.
+**every** Atom resolves one Current Scope reference **and** one atomic **or** composite Claim Scope **without** making a referenced Entity bearer-dependent.
 
 ## Test case
 
-Construct one Current-scope Atom, one parent-owned Job for a direct child, one external Project Job, and one permitted Demand. Then omit, duplicate, or misplace each Scope and try forbidden ancestor, descendant, and non-direct Job targets.
+create a Current-scope Atom, a parent-owned establishing Job for a direct child, an Operator-owned Project Job with empty Current Scope, a subsequent Job, composite Claim Scopes, **and** one permitted Demand. **then** omit **or** duplicate **every** Scope, leave a reference unresolved, make a referenced Scope Unit bearer-dependent, separate Job admission from Scope Unit establishment, recreate an established Scope Unit, **and** use a forbidden Job **or** Demand target.
 
 ## Acceptance criteria
 
-Every valid fixture resolves exactly one Current Scope position and one Claim Scope. Every invalid fixture fails with the incorrect Scope fact identified.
+**every** valid fixture resolves **`=1`** Current Scope **and** one Claim Scope. **every** invalid fixture fails with the incorrect reference, ownership, establishment, **or** relational fact identified.
 
 ## Failure disposition
 
-Record a Concern naming the invalid Atom and Scope fact.
+record a Concern naming the invalid Atom **and** Scope fact.
