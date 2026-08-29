@@ -1,20 +1,18 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
-      - scope-topology
-  prerequisite:
+      - Scope Expression
+  depends_on:
     continuant:
-      - cce-language
+      - Governed Entity
 atom_id: CA-R-999
 cce_version: cce_1
 cce_form: definition
-version: 3
-updated_at: 2026-08-23 15:24:07
-relations:
-  child_of:
-    - CA-R-919
+version: 6
+updated_at: 2026-08-29 02:40:41 +0400
+relations: {}
 ---
 # Define Scope Expression
 
-Scope Expression MEANS one expression that identifies governed entities directly or through an explicitly grouped combination, exclusion, or property filter.
+a Scope Expression **means** one deterministic expression that identifies Governed Entities through atomic references, explicit Atom IDs, parentheses, registered set **or** logical operators, **and** field predicates including **where**.
