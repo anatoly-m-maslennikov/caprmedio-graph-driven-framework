@@ -9,8 +9,8 @@ subjects:
       - atom-boundary
 cce_version: cce_1
 cce_form: separation
-version: 6
-updated_at: 2026-08-23 15:24:07
+version: 7
+updated_at: 2026-08-29 01:16:37 +0400
 relations:
   child_of:
     - CA-R-917
@@ -19,4 +19,4 @@ projection:
 ---
 # Coordinate Scope Units through three independent axes
 
-EVERY Scope Unit MUST characterize Project Boundary Position, Scope Unit Type when applicable, and Child Composition independently.
+**every** Scope Unit **must** characterize Project Boundary Position, Scope Unit Type **when** applicable, **and** Child Composition independently.
