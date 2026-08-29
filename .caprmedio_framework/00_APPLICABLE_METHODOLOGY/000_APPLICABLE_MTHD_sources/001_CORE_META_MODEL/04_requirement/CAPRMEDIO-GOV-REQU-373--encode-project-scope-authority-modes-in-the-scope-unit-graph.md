@@ -2,11 +2,11 @@
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  declared:
+  governs:
     continuant:
       - settings
-version: 9
-updated_at: 2026-08-23 15:00:38
+version: 11
+updated_at: 2026-08-29 02:40:41 +0400
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -16,4 +16,4 @@ relations:
 ---
 # Encode project scope authority modes in the Scope Unit Graph
 
-The generated Project Scope Unit Graph Projections MUST encode the effective `authority_mode` established by applicable active Atoms for the Project root and every current Scope Unit without making the Projection an authority for those modes.
+The generated Project Scope Unit Graph Projections **must** encode the effective `authority_mode` established by applicable active Atoms for the Project root **and** **every** current Scope Unit **without** making the Projection an authority for those modes.
