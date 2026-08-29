@@ -9,8 +9,8 @@ subjects:
   prerequisite:
     continuant:
       - atom-boundary
-version: 4
-updated_at: 2026-08-23 15:24:07
+version: 5
+updated_at: 2026-08-29 01:16:37 +0400
 relations:
   child_of:
     - CA-R-1054
@@ -19,4 +19,4 @@ projection:
 ---
 # Register implementation_of and implemented_by relation pair
 
-GOVERNANCE MUST register `implementation_of` as the declared upstream relation and `implemented_by` as its inverse-derived downstream relation in the realization ordering domain.
+GOVERNANCE **must** register `implementation_of` as the declared upstream relation **and** `implemented_by` as its inverse-derived downstream relation **in** the realization ordering domain.
