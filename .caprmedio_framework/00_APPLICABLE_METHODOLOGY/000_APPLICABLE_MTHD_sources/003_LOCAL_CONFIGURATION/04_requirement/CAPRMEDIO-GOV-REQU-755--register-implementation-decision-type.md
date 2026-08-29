@@ -2,15 +2,15 @@
 cce_version: cce_1
 cce_form: definition
 subjects:
-  declared:
+  governs:
     continuant:
-      - artifact-catalog
+      - "Atom/Content Role: Method/Type: Implementation Decision"
 project_graph_state:
   artifacts:
     enabled_types:
       - method:implementation_decision
-version: 7
-updated_at: 2026-08-23 15:00:38
+version: 8
+updated_at: 2026-08-29 04:33:13 +0400
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -20,6 +20,6 @@ relations:
   replacement_of:
     - CAPRMEDIO-GOV-REQU-357--register-implementation-decision-method-subtype
 ---
-# Register the Implementation Decision Type
+# Define Implementation Decision as a Type Value for Method Atoms
 
-GOVERNANCE registers `implementation_decision` as the internal Method Type for one concrete implementation choice bounded to an explicit realization target.
+Implementation Decision **means** the internal Type value under Content Role Method for one concrete implementation choice bounded to an explicit realization target **and** has Carrier token `implementation_decision`.
