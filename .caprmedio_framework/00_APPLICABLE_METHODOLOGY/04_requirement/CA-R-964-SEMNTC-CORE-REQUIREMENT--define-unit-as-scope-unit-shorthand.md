@@ -9,8 +9,8 @@ subjects:
 atom_id: CA-R-964
 cce_version: cce_1
 cce_form: definition
-version: 4
-updated_at: 2026-08-23 15:24:07
+version: 5
+updated_at: 2026-08-29 01:16:37 +0400
 relations:
   child_of:
     - CAPRMEDIO-META-REQU-708
@@ -19,4 +19,4 @@ projection:
 ---
 # Define Unit as Scope Unit shorthand
 
-Unit MEANS Scope Unit when CAPRMEDIO uses Unit as a governed shorthand.
+Unit **means** Scope Unit **when** CAPRMEDIO uses Unit as a governed shorthand.
