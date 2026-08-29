@@ -1,16 +1,16 @@
 ---
 subjects:
-  declared:
+  governs:
+    continuant:
+      - Work Sequence Number
+  depends_on:
     occurrent:
-      - development-flow
-  prerequisite:
-    occurrent:
-      - evaluation
+      - Work Sequence Validation
 atom_id: CA-R-997
 cce_version: cce_1
 cce_form: obligation
-version: 4
-updated_at: 2026-08-23 15:24:07
+version: 7
+updated_at: 2026-08-29 02:40:41 +0400
 relations:
   child_of:
     - CA-R-991
@@ -20,4 +20,4 @@ relations:
 ---
 # Validate Work Sequence Numbers
 
-EVERY Work Sequence Number MUST be a unique positive decimal ordinal within its carrier directory and MUST sort its sibling Epic and Task carriers in execution sequence before their Atom IDs.
+**every** Work Sequence Number **must** be a unique positive decimal ordinal among the direct Epic **and** Task members of one local Plan container.
