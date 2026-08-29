@@ -1,6 +1,6 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
       - scope-topology
     occurrent:
@@ -8,8 +8,8 @@ subjects:
 atom_id: CA-R-983
 cce_version: cce_1
 cce_form: permission
-version: 3
-updated_at: 2026-08-23 15:00:38
+version: 5
+updated_at: 2026-08-29 02:40:41 +0400
 relations:
   child_of:
     - CA-R-978
@@ -17,4 +17,4 @@ relations:
 ---
 # Let the Operator override Navigational Order Number
 
-THE Operator MAY replace the default Navigational Order Number independently for each non-Project Scope Unit.
+THE Operator **may** replace the default Navigational Order Number independently for **every** non-Project Scope Unit.
