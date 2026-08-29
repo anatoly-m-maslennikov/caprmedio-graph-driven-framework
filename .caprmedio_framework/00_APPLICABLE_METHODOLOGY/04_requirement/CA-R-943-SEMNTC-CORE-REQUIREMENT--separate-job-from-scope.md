@@ -1,17 +1,16 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
-      - relation-model
-  prerequisite:
+      - Scope Unit/Job
+  depends_on:
     continuant:
-      - scope-topology
-      - atom-boundary
+      - Scope Unit/Scope
 atom_id: CA-R-943
 cce_version: cce_1
 cce_form: prohibition
-version: 5
-updated_at: 2026-08-26 15:38:45 +0400
+version: 6
+updated_at: 2026-08-28 22:31:24 +0400
 relations:
   replacement_of:
     - CA-R-820
@@ -24,4 +23,4 @@ projection:
 ---
 # Separate Job from Scope
 
-A Job Atom MUST NOT define the Scope of its Claim Scope.
+a Job Atom **must not** define the Scope of its Claim Scope.
