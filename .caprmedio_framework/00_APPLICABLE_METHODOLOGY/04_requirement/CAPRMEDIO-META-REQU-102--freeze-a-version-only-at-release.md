@@ -5,8 +5,8 @@ subjects:
   declared:
     occurrent:
       - development-flow
-version: 6
-updated_at: 2026-08-23 15:00:38
+version: 7
+updated_at: 2026-08-29 01:16:37 +0400
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -17,14 +17,14 @@ projection:
 ---
 # Requirement — Freeze a version only at release
 
-A target version remains mutable until its configured release event succeeds. The event MAY be, for example, acceptance of a release pull request into the main branch, but each project declares its exact boundary.
+A target version remains mutable **until** its configured release event succeeds. The event **may** be, for example, acceptance of a release pull request into the main branch, but **every** project declares its exact boundary.
 
-Release creates one factual Ops Atom called the Release Record, whose primary claim is that the identified version was released with an exact manifest. The manifest binds the normative Atom revisions, realized implementation and delivery revisions, applicable evaluation and evidence, release identifier, and canonical Git commit or tag.
+Release creates one factual Ops Atom called the Release Record, whose primary claim is that the identified version was released with an exact manifest. The manifest binds the normative Atom revisions, realized implementation **and** delivery revisions, applicable evaluation **and** evidence, release identifier, **and** canonical Git commit **or** tag.
 
-SEMANTICS owns the Release Record's freeze semantics. GOVERNANCE owns its concrete Type registration and carrier rules.
+SEMANTICS owns the Release Record's freeze semantics. GOVERNANCE owns its concrete Type registration **and** carrier rules.
 
-Planning allocation, implementation completion, pull-request creation, or release-candidate naming does not freeze the version before that event.
+Planning allocation, implementation completion, pull-request creation, **or** release-candidate naming does **not** freeze the version **before** that event.
 
 ## Primary claim
 
-A version freezes only when its configured release event creates an immutable, revision-bound Release Record with the Ops Content role and exact released manifest.
+A version freezes **only** **when** its configured release event creates an immutable, revision-bound Release Record with the Ops Content role **and** exact released manifest.
