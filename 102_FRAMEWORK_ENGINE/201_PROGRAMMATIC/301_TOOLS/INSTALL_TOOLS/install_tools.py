@@ -55,6 +55,7 @@ LAUNCHERS = {
     "atom-upgrade": "TOOLS/ATOM_UPGRADE/atom_upgrade.py",
     "close-atom": "TOOLS/CLOSE_ATOM/close_atom.py",
     "commit-trigger": "TOOLS/COMMIT_TRIGGER/commit_trigger.py",
+    "generate-entity-graph": "TOOLS/GENERATE_ENTITY_GRAPH/generate_entity_graph.py",
     "install-tools": "TOOLS/INSTALL_TOOLS/install_tools.py",
     "migrate-atom-identity": "TOOLS/MIGRATE_ATOM_IDENTITY/migrate_atom_identity.py",
     "rebind-atom-relations": "TOOLS/REBIND_ATOM_RELATIONS/rebind_atom_relations.py",
