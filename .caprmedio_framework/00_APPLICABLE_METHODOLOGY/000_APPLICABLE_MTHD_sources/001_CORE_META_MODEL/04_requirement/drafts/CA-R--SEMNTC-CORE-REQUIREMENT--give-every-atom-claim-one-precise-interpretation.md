@@ -1,16 +1,16 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
       - language
-  prerequisite:
+  depends_on:
     continuant:
       - artifact-model
-      - cce-language
+      - CCE
 cce_version: cce_1
 cce_form: cardinality
-version: 1
-updated_at: 2026-08-25 00:02:08
+version: 2
+updated_at: 2026-08-29 02:40:41 +0400
 relations: {}
 ---
 # Give every Atom Claim one precise interpretation
