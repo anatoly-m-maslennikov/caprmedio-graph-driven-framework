@@ -5,17 +5,16 @@ cce_form: requirement
 subjects:
   governs:
     continuant:
-      - Atom/Claim/Subject Relation/Governs
+      - "Atom/Claim/Claim-Subject Relation/Kind: GOVERNS"
   depends_on:
     continuant:
       - Atom/Claim
-      - Subject
-version: 1
-updated_at: 2026-08-27 00:50:08 +0400
+version: 3
+updated_at: 2026-08-29 01:16:37 +0400
 relations: {}
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1201-MMODEL-CORE-REQUIREMENT--require-a-governed-subject-on-every-active-and-draft-atom.md
 ---
 # Require a Governed Subject on Every Active and Draft Atom
 
-every active or draft Atom **must** have at least one Subject with the **governs** Claim-Subject Relation.
+**every** active **or** draft Atom **must** have **`>=1`** GOVERNS Claim-Subject Relation.
