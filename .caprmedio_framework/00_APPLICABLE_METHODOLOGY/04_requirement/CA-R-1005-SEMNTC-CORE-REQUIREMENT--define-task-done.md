@@ -1,13 +1,16 @@
 ---
 subjects:
-  declared:
+  governs:
+    continuant:
+      - "Atom/Content Role: Plan/Type: Task/Status: Done"
+  depends_on:
     occurrent:
-      - development-flow
+      - Task/Definition of Done Evaluation
 atom_id: CA-R-1005
 cce_version: cce_1
 cce_form: definition
-version: 3
-updated_at: 2026-08-27 00:50:08 +0400
+version: 5
+updated_at: 2026-08-29 01:16:37 +0400
 relations:
   child_of:
     - CA-R-989
@@ -17,4 +20,4 @@ projection:
 ---
 # Define Task Done
 
-Task Done MEANS the state in which the condition expression in the Definition of Done of one Task Atom evaluates to false for the Task Scope Resolution of the same Task Atom.
+Task Done **means** the state **in** which its Definition of Done falsifying Condition Expression evaluates to false for its Task Scope Resolution.
