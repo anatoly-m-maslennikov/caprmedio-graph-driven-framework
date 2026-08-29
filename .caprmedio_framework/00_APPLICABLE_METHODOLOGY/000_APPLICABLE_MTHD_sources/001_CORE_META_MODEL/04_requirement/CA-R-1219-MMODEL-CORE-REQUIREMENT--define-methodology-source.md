@@ -5,14 +5,15 @@ cce_form: definition
 subjects:
   governs:
     continuant:
-      - Methodology Source
+      - "DERIVED_FROM/Target Role: Methodology Source"
   depends_on:
     continuant:
+      - Applicable Methodology/Revision
       - Artifact/Revision
-version: 1
-updated_at: 2026-08-27 00:50:08 +0400
+version: 4
+updated_at: 2026-08-29 02:40:41 +0400
 relations: {}
 ---
 # Define Methodology Source
 
-a Methodology Source **means** one authoritative revision used as an input to Applicable Methodology compilation.
+Methodology Source **means** the target role of DERIVED_FROM **when** one Applicable Methodology Revision derives from one exact Artifact Revision.
