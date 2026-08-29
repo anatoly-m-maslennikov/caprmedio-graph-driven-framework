@@ -9,8 +9,8 @@ subjects:
       - authority
 cce_version: cce_1
 cce_form: obligation
-version: 11
-updated_at: 2026-08-23 15:24:07
+version: 12
+updated_at: 2026-08-29 01:16:37 +0400
 relations:
   child_of:
     - CA-R-917
@@ -19,4 +19,4 @@ projection:
 ---
 # Make Scope Unit ownership immediate and recursive
 
-EVERY Scope Unit MUST own only its direct child Scope Units through the same recursive structural-parent relation.
+**every** Scope Unit **must** own **only** its direct child Scope Units through the same recursive structural-parent relation.
