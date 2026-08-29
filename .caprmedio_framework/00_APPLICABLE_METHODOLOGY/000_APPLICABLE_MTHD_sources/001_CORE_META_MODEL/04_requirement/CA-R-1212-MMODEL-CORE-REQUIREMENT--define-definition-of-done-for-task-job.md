@@ -5,16 +5,17 @@ cce_form: definition
 subjects:
   governs:
     continuant:
-      - Task/Definition of Done
+      - "Atom/Content Role: Plan/Type: Task/Definition of Done"
   depends_on:
     continuant:
-      - Task/Job
+      - Atom/Claim
+      - "Atom/Content Role: Plan/Type: Task/Scope"
     occurrent:
       - Evaluation
-version: 1
-updated_at: 2026-08-27 00:50:08 +0400
+version: 5
+updated_at: 2026-08-29 04:33:13 +0400
 relations: {}
 ---
-# Define Definition of Done for Task Job
+# Define Definition of Done for a Task
 
-the Definition of Done **means** the one non-Claim falsification statement that evaluates one Task Job within one Task Scope.
+the Definition of Done **means** one falsifying Condition Expression that **may** be atomic **or** explicitly composite **and** evaluates one Task Claim within one Task Scope.
