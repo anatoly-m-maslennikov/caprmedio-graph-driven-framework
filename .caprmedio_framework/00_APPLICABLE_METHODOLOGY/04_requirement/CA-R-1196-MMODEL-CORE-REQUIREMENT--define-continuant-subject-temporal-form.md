@@ -5,16 +5,16 @@ cce_form: definition
 subjects:
   governs:
     continuant:
-      - Subject/Temporal Form/Continuant
+      - "Claim-Subject Relation/Temporal Form: CONTINUANT"
   depends_on:
     continuant:
-      - Subject/Temporal Form
-version: 1
-updated_at: 2026-08-27 00:50:08 +0400
+      - Claim-Subject Relation/Temporal Form
+version: 2
+updated_at: 2026-08-28 22:31:24 +0400
 relations: {}
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1196-MMODEL-CORE-REQUIREMENT--define-continuant-subject-temporal-form.md
 ---
-# Define CONTINUANT Subject Temporal Form
+# Define CONTINUANT Claim-Subject Relation Temporal Form
 
-the CONTINUANT Subject Temporal Form **means** the terminal Entity exists through time as an Entity, structure, Property, state, or result.
+CONTINUANT **means** the Claim-Subject Relation presents its referenced Subject as persisting through time.
