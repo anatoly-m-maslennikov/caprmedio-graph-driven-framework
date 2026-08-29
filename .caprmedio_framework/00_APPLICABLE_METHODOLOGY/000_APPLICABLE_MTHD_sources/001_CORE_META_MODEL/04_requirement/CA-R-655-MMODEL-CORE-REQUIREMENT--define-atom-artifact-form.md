@@ -1,22 +1,21 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
-      - artifact-model
-  prerequisite:
+      - Atom
+  depends_on:
     continuant:
-      - atom-boundary
+      - Artifact
+      - Claim
 atom_id: CA-R-655
 cce_version: cce_1
 cce_form: definition
-version: 10
-updated_at: 2026-08-23 15:24:07
+version: 13
+updated_at: 2026-08-29 02:40:41 +0400
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
-relations:
-  child_of:
-    - CAPRMEDIO-META-REQU-125--three-artifact-forms-with-generated-projections
+relations: {}
 ---
 # Define Atom Artifact form
 
-Atom MEANS the smallest independently governed Artifact that has one independently replaceable Claim, one Claim Scope, and one indivisible lifecycle.
+an Atom **means** the smallest independently governed Artifact with **`=1`** independently replaceable Claim **and** **`=1`** Claim Scope.
