@@ -1,20 +1,21 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
-      - scope-topology
-  prerequisite:
+      - Unit Type Name
+  depends_on:
     continuant:
       - artifact-model
+      - scope-topology
 atom_id: CA-R-972
 cce_version: cce_1
 cce_form: definition
-version: 5
-updated_at: 2026-08-23 15:24:07
+version: 8
+updated_at: 2026-08-29 04:33:13 +0400
 relations:
   child_of:
     - CA-R-984
 ---
 # Define Unit Type Name
 
-Unit Type Name MEANS an Operator-controlled navigation label for one Scope Unit that does not determine its Scope Unit Type.
+Unit Type Name **means** an Operator-controlled navigation label for one Scope Unit that does **not** determine the Scope Unit's Type value.
