@@ -8,8 +8,8 @@ subjects:
       - cce-language
 cce_version: cce_1
 cce_form: method
-version: 5
-updated_at: 2026-08-23 15:24:07
+version: 6
+updated_at: 2026-08-29 01:16:37 +0400
 relations:
   child_of:
     - CA-R-940
@@ -18,4 +18,4 @@ projection:
 ---
 # Use English as the Project language
 
-TO express CAPRMEDIO Project meaning, the Author MUST use English as the base language.
+**to** express CAPRMEDIO Project meaning, the Author **must** use English as the base language.
