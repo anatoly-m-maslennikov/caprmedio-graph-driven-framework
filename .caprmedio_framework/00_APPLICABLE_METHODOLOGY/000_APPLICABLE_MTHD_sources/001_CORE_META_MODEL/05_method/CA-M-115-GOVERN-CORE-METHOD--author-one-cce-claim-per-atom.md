@@ -1,28 +1,27 @@
 ---
+atom_id: CA-M-115
 subjects:
-  declared:
+  governs:
+    occurrent:
+      - Atom Claim Boundary Authoring
+  depends_on:
     continuant:
-      - language
-  prerequisite:
-    continuant:
-      - artifact-model
-      - cce-language
+      - Atom
+      - Claim
+      - Claim Scope
+      - CCE
 cce_version: cce_1
 cce_form: method
-version: 6
-updated_at: 2026-08-23 15:24:07
-relations:
-  child_of:
-    - CA-M-111
-    - CA-M-113
-    - CA-R-918
-    - CA-R-919
+version: 9
+updated_at: 2026-08-29 02:40:41 +0400
+relations: {}
 ---
 # Author one CCE Claim per Atom
 
-TO author an Atom, the Author MUST PERFORM ALL OF:
+**to** author an Atom, the Author **must** perform **all** of:
 
-1. Identify one independently replaceable Claim.
-2. Identify exactly one Claim Scope.
-3. Write the Claim in the current CAPRMEDIO Controlled English version.
-4. Remove every duplicate alternate authoritative statement from the active Carrier.
+1. identify one statement whose complete effect **must** be accepted, replaced, **and** retired together.
+2. split **every** independently replaceable component into another Atom.
+3. identify **`=1`** atomic **or** composite Claim Scope.
+4. write the complete Claim **in** the current CCE version.
+5. remove **every** duplicate alternate authoritative statement.
