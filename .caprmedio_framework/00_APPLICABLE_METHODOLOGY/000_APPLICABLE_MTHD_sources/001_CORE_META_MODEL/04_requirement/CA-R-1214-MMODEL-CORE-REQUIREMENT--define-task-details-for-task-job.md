@@ -5,16 +5,16 @@ cce_form: definition
 subjects:
   governs:
     continuant:
-      - Task/Details
+      - "Atom/Content Role: Plan/Type: Task/Details"
   depends_on:
     continuant:
-      - Task/Scope
-      - Task/Job
-      - Task/Definition of Done
-version: 1
-updated_at: 2026-08-27 00:50:08 +0400
+      - "Atom/Content Role: Plan/Type: Task/Scope"
+      - Atom/Claim
+      - "Atom/Content Role: Plan/Type: Task/Definition of Done"
+version: 5
+updated_at: 2026-08-29 04:33:13 +0400
 relations: {}
 ---
-# Define Task Details for Task Job
+# Define Task Details
 
-the Task Details **mean** optional non-Claim supporting information that remains within one Task Scope and one Task Job without establishing another Definition of Done.
+the Task Details **means** optional non-Claim supporting information that remains within one Task Scope **and** Claim **without** establishing another Definition of Done.
