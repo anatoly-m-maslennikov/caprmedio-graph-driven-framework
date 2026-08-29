@@ -5,8 +5,8 @@ subjects:
   declared:
     occurrent:
       - evaluation
-version: 4
-updated_at: 2026-08-23 15:00:38
+version: 5
+updated_at: 2026-08-29 01:16:37 +0400
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -19,4 +19,4 @@ projection:
 
 ## Primary claim
 
-CAPRMEDIO permits an effect guarantee only when its scope, assumptions, owner, temporal boundary, and enforcement conditions are explicit. A bounded local guarantee MUST never be presented as universal exactly-once execution.
+CAPRMEDIO permits an effect guarantee **only** **when** its scope, assumptions, owner, temporal boundary, **and** enforcement conditions are explicit. A bounded local guarantee **must** never be presented as universal exactly-once execution.
