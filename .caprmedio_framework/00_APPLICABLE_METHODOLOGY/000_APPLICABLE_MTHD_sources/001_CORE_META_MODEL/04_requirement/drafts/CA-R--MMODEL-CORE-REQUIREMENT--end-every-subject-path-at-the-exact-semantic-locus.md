@@ -1,19 +1,18 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
-      - subject-path-terminal
-  prerequisite:
+      - Subject Path
+  depends_on:
     continuant:
-      - subject
-      - subject-path
-      - claim
+      - Claim
+      - Subject
 cce_version: cce_1
 cce_form: requirement
-version: 1
-updated_at: 2026-08-25 01:09:39
+version: 2
+updated_at: 2026-08-29 02:40:41 +0400
 relations: {}
 ---
 # End Every Subject Path at the Exact Semantic Locus
 
-a Subject Path must end at the narrowest entity that the Claim governs or depends on.
+a Subject Path **must** end at the narrowest Entity governed or required by the Claim.
