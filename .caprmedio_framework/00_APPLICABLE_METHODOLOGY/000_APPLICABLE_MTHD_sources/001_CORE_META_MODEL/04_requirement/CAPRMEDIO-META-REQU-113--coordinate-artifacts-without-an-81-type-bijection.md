@@ -2,12 +2,12 @@
 cce_version: cce_1
 cce_form: separation
 subjects:
-  declared:
+  governs:
     continuant:
       - artifact-model
 tier: core
-version: 6
-updated_at: 2026-08-23 15:00:38
+version: 8
+updated_at: 2026-08-29 02:40:41 +0400
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -18,4 +18,4 @@ relations:
 ---
 # Coordinate artifacts without an 81 Type bijection
 
-Every governed artifact occupies exactly one semantic coordinate in the three-axis classification space Artifact form × Content role × Governance locus; the space does not require a distinct Type name or admitted Artifact for every coordinate.
+**every** governed artifact occupies **`=1`** semantic coordinate **in** the three-axis classification space Artifact form × Content role × Governance locus; the space does **not** require a distinct Type name **or** admitted Artifact for **every** coordinate.
