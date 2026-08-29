@@ -5,14 +5,15 @@ cce_form: obligation
 subjects:
   governs:
     continuant:
-      - Task/Summary
+      - "Atom/Content Role: Plan/Type: Task/Summary"
   depends_on:
     continuant:
-      - Task/Job
-version: 1
-updated_at: 2026-08-27 00:50:08 +0400
+      - Claim
+      - Claim Scope
+version: 5
+updated_at: 2026-08-29 04:33:13 +0400
 relations: {}
 ---
-# Make Task Summary express Task Job
+# Derive Task Summary from Claim and Claim Scope
 
-every Task Atom Summary **must** express exactly the Task Job of that Task Atom.
+**every** Task Atom Summary **must** concisely project its complete Claim **and** Claim Scope for navigation.
