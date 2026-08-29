@@ -1,17 +1,17 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
-      - scope-topology
-  prerequisite:
+      - Current-scope Atom
+  depends_on:
     continuant:
-      - artifact-model
-      - atom-boundary
+      - Atom/Current Scope
+      - Atom/Claim Scope
 atom_id: CA-R-922
 cce_version: cce_1
 cce_form: definition
-version: 4
-updated_at: 2026-08-23 15:24:07
+version: 7
+updated_at: 2026-08-29 02:40:41 +0400
 relations:
   replacement_of:
     - CA-R-906
@@ -21,4 +21,4 @@ relations:
 ---
 # Define Current-scope Atom
 
-Current-scope Atom MEANS an Atom whose Claim Scope is its Current Scope.
+a Current-scope Atom **means** an Atom whose Claim Scope **`=`** its Current Scope.
