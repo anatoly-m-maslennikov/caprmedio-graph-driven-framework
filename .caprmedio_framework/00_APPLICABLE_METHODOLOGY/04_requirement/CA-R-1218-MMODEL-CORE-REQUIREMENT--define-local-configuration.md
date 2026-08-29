@@ -10,12 +10,12 @@ subjects:
     continuant:
       - Project
       - Extension
-version: 1
-updated_at: 2026-08-27 00:50:08 +0400
+version: 2
+updated_at: 2026-08-29 01:16:37 +0400
 relations: {}
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1218-MMODEL-CORE-REQUIREMENT--define-local-configuration.md
 ---
 # Define Local Configuration
 
-the Local Configuration **means** the Project-owned authority that selects and resolves Methodology Sources for one current Project.
+the Local Configuration **means** the Project-owned authority that selects **and** resolves Methodology Sources for one current Project.
