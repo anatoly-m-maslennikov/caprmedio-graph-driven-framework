@@ -9,8 +9,8 @@ subjects:
 atom_id: CA-R-151
 cce_version: cce_1
 cce_form: obligation
-version: 9
-updated_at: 2026-08-23 15:24:07
+version: 10
+updated_at: 2026-08-29 01:16:37 +0400
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -21,4 +21,4 @@ projection:
 ---
 # Admit only necessary Metamodel constructs
 
-THE CAPRMEDIO Metamodel MUST admit a durable construct only when the existing Metamodel cannot preserve the required operational distinction.
+THE CAPRMEDIO Metamodel **must** admit a durable construct **only** **when** the existing Metamodel cannot preserve the required operational distinction.
