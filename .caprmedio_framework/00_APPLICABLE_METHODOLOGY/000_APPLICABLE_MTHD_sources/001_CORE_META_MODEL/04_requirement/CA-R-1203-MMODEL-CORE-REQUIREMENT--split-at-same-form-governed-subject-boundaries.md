@@ -10,12 +10,12 @@ subjects:
       - Atom Splitting
   depends_on:
     continuant:
-      - Atom/Claim/Subject Relation/Governs
-      - Subject/Temporal Form
-version: 1
-updated_at: 2026-08-27 00:50:08 +0400
+      - "Claim-Subject Relation/Kind: GOVERNS"
+      - Claim-Subject Relation/Temporal Form
+version: 3
+updated_at: 2026-08-29 02:40:41 +0400
 relations: {}
 ---
 # Split at Same-Form Governed-Subject Boundaries
 
-an Atom **must** be split **if** its Claim requires more than one independently replaceable Subject with the **governs** Claim-Subject Relation and the same Subject Temporal Form.
+an Atom **must** be split **if** its Claim requires more than one independently replaceable GOVERNS Claim-Subject Relation with the same Temporal Form.
