@@ -1,9 +1,9 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
       - artifact-model
-  prerequisite:
+  depends_on:
     continuant:
       - lifecycle-traceability
 atom_id: CA-R-165
@@ -11,8 +11,8 @@ cce_version: cce_1
 cce_form: cardinality
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
-version: 5
-updated_at: 2026-08-23 15:24:07
+version: 7
+updated_at: 2026-08-29 02:40:41 +0400
 relations:
   replacement_of:
     - CAPRMEDIO-META-REQU-288--give-atoms-explicit-revision-ordinals
@@ -22,4 +22,4 @@ relations:
 ---
 # Give every Atom Revision version and updated at
 
-EVERY Atom Revision MUST have EXACTLY ONE positive monotonic `version` and EXACTLY ONE unambiguous `updated_at`.
+**every** Atom Revision **must** have **`=1`** positive monotonic `version` **and** **`=1`** unambiguous `updated_at`.
