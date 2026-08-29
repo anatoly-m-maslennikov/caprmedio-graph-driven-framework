@@ -9,8 +9,8 @@ subjects:
   prerequisite:
     continuant:
       - atom-boundary
-version: 3
-updated_at: 2026-08-23 15:24:07
+version: 4
+updated_at: 2026-08-29 01:16:37 +0400
 relations:
   child_of:
     - CAPRMEDIO-META-REQU-117--store-each-semantic-relation-once
@@ -21,4 +21,4 @@ projection:
 ---
 # Register rationale_for relation
 
-GOVERNANCE MUST register `rationale_for` as a direct relation owned by a Rationale Analysis Atom and directed to one Requirement, Method, Evaluation, or Delivery Atom that it explains.
+GOVERNANCE **must** register `rationale_for` as a direct relation owned by a Rationale Analysis Atom **and** directed to one Requirement, Method, Evaluation, **or** Delivery Atom that it explains.
