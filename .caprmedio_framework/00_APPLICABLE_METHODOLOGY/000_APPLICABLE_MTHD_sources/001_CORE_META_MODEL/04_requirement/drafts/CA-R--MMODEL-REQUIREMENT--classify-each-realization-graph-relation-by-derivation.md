@@ -1,15 +1,15 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
       - relation-model
-  prerequisite:
+  depends_on:
     continuant:
       - provenance
 cce_version: cce_1
 cce_form: obligation
-version: 3
-updated_at: 2026-08-23 15:24:07
+version: 4
+updated_at: 2026-08-29 02:40:41 +0400
 relations: {}
 ---
 # Classify each Realization Graph relation by derivation
