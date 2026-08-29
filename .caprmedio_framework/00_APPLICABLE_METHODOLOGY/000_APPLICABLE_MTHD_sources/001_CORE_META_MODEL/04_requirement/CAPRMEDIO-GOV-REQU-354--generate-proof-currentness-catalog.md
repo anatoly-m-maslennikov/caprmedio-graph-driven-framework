@@ -2,11 +2,11 @@
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  declared:
+  governs:
     occurrent:
       - evaluation
-version: 6
-updated_at: 2026-08-23 15:00:38
+version: 8
+updated_at: 2026-08-29 02:40:41 +0400
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -17,4 +17,4 @@ relations:
 ---
 # Generate the proof currentness Catalog
 
-CAPRMEDIO generates a non-authoritative proof-currentness Catalog from governed proof dependency frontiers encoded under GOV REQU 010 and their additional invalidation conditions. The Catalog reports each proof as `current`, `stale`, or `unknown`, marks only the smallest direct and transitive dependency closure affected by a change, never infers currentness from timestamps alone, and never mutates the historical proof record.
+CAPRMEDIO generates a non-authoritative proof-currentness Catalog from governed proof dependency frontiers encoded under GOV REQU 010 **and** their additional invalidation conditions. The Catalog reports **every** proof as `current`, `stale`, **or** `unknown`, marks **only** the smallest direct **and** transitive dependency closure affected by a change, never infers currentness from timestamps alone, **and** never mutates the historical proof record.
