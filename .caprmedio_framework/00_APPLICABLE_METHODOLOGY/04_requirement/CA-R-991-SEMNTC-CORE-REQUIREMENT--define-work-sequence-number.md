@@ -1,13 +1,17 @@
 ---
 subjects:
-  declared:
-    occurrent:
-      - development-flow
+  governs:
+    continuant:
+      - Work Sequence Number
+  depends_on:
+    continuant:
+      - Epic
+      - "Atom/Content Role: Plan/Type: Task"
 atom_id: CA-R-991
 cce_version: cce_1
 cce_form: definition
-version: 3
-updated_at: 2026-08-23 15:00:38
+version: 5
+updated_at: 2026-08-29 01:16:37 +0400
 relations:
   child_of:
     - CA-R-988
@@ -17,4 +21,4 @@ projection:
 ---
 # Define Work Sequence Number
 
-Work Sequence Number MEANS the mutable ordinal navigation label of one Epic or standalone Task among top-level Plan-role Atoms, or of one Task among the Task Atom files in one Epic folder or one direct `done` or `canceled` directory of that Epic folder.
+a Work Sequence Number **means** the mutable ordinal navigation label of one Epic **or** Task scoped to the direct members of one containing Epic **or** one top-level Plan collection.
