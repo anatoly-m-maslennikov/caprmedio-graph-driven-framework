@@ -6,8 +6,8 @@ subjects:
 atom_id: CA-R-886
 cce_version: cce_1
 cce_form: obligation
-version: 10
-updated_at: 2026-08-23 15:00:38
+version: 11
+updated_at: 2026-08-29 01:16:37 +0400
 relations:
   child_of:
     - CA-R-858
@@ -17,4 +17,4 @@ projection:
 ---
 # Resolve Scope Unit references from Current Scope
 
-EVERY Scope Unit reference in an Atom with a Current Scope MUST resolve relative to that Current Scope.
+**every** Scope Unit reference **in** an Atom with a Current Scope **must** resolve relative to that Current Scope.
