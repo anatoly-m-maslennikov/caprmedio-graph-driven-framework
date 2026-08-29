@@ -1,17 +1,17 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
       - layout
-  prerequisite:
+  depends_on:
     continuant:
       - authority
       - methodology
 atom_id: CA-R-952
 cce_version: cce_1
 cce_form: obligation
-version: 10
-updated_at: 2026-08-29 01:16:37 +0400
+version: 11
+updated_at: 2026-08-29 09:18:56 +0400
 relations:
   child_of:
     - CA-R-770
