@@ -1,21 +1,18 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
-      - artifact-model
-  prerequisite:
+      - Claim
+  depends_on:
     continuant:
-      - authority
-      - atom-boundary
+      - Atom
 atom_id: CA-R-643
 cce_version: cce_1
 cce_form: cardinality
-version: 6
-updated_at: 2026-08-23 15:24:07
-relations:
-  child_of:
-    - CA-R-918
+version: 9
+updated_at: 2026-08-29 02:40:41 +0400
+relations: {}
 ---
 # Give each governed Claim one authoritative Atom owner
 
-EVERY governed Claim MUST have EXACTLY ONE authoritative Atom owner.
+**every** governed Claim **must** have **`=1`** authoritative Atom owner.
