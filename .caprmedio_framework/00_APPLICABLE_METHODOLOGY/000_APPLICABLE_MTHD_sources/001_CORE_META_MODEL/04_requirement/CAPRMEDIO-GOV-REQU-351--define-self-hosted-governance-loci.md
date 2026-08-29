@@ -2,11 +2,14 @@
 cce_version: cce_1
 cce_form: definition
 subjects:
-  declared:
+  governs:
+    continuant:
+      - Self-Hosted Governance Origin
+  depends_on:
     continuant:
       - authority
-version: 5
-updated_at: 2026-08-23 15:00:38
+version: 7
+updated_at: 2026-08-29 02:40:41 +0400
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -18,4 +21,4 @@ relations:
 ---
 # Define self-hosted Governance origins
 
-Within the CAPRMEDIO framework source project, Bootstrap Seed authority, framework authority, and applied project Artifacts have internal Governance origin. A distributed CAPRMEDIO framework source has external Governance origin relative to a consuming project until that project establishes its own internal Adaptation authority. Graph relations do not change either origin. These origins describe meaning ownership rather than Git authorship, filesystem ownership, or byte identity.
+Within the CAPRMEDIO framework source project, Bootstrap Seed authority, framework authority, **and** applied project Artifacts have internal Governance origin. A distributed CAPRMEDIO framework source has external Governance origin relative to a consuming project **until** that project establishes its own internal Adaptation authority. Graph relations change **none** of the origins. These origins describe meaning ownership rather than Git authorship, filesystem ownership, **or** byte identity.
