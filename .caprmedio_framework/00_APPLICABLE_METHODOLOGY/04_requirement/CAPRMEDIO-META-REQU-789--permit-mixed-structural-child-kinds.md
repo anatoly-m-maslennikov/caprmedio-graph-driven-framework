@@ -5,8 +5,8 @@ subjects:
       - scope-topology
 cce_version: cce_1
 cce_form: permission
-version: 4
-updated_at: 2026-08-23 15:00:38
+version: 5
+updated_at: 2026-08-29 01:16:37 +0400
 relations:
   child_of:
     - CA-R-960
@@ -15,4 +15,4 @@ projection:
 ---
 # Permit mixed Child Composition
 
-A Scope Unit MAY own both Layer and Feature direct children when its Child Composition is MIXED.
+a Scope Unit **may** own (Layer **and** Feature) direct children **when** its Child Composition is MIXED.
