@@ -10,12 +10,12 @@ subjects:
     continuant:
       - Applicable Methodology/Sources/Core Meta-Model
       - Applicable Methodology/Sources/Local Configuration
-version: 1
-updated_at: 2026-08-27 01:28:30 +0400
+version: 2
+updated_at: 2026-08-29 01:16:37 +0400
 relations: {}
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/003_LOCAL_CONFIGURATION/04_requirement/CA-R-1224-REQUIREMENT--select-core-meta-model-and-local-configuration-for-compilation.md
 ---
 # Select Core Meta-Model and Local Configuration for Compilation
 
-the Local Configuration **must** select CORE_META_MODEL and LOCAL_CONFIGURATION, in that order, as the only Source Layers for Applicable Methodology compilation.
+the Local Configuration **must** select CORE_META_MODEL **and** LOCAL_CONFIGURATION, **in** that order, as the **only** Source Layers for Applicable Methodology compilation.
