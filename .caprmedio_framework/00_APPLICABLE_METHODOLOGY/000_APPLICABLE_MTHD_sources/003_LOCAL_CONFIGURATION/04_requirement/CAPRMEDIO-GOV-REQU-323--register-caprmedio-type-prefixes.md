@@ -1,12 +1,12 @@
 ---
 cce_version: cce_1
-cce_form: definition
+cce_form: requirement
 subjects:
-  declared:
+  governs:
     continuant:
-      - artifact-catalog
-version: 13
-updated_at: 2026-08-23 15:00:38
+      - Artifact/Type
+version: 15
+updated_at: 2026-08-29 04:33:13 +0400
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
   - codex:01a01cb6-4ee4-7553-b68d-0823dda35094
@@ -19,7 +19,7 @@ relations:
 ---
 # Register CAPRMEDIO Type prefixes
 
-GOVERNANCE registers these fixed lowercase prefixes only for the listed non-Atom Artifact Types; Atom identities use class short names instead.
+GOVERNANCE registers these fixed lowercase prefixes **only** for the listed Type values under Artifact; Atom identities use class short names instead.
 
 | Artifact form | Type | Prefix |
 |---|---|---|
