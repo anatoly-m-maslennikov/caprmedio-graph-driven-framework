@@ -2,11 +2,11 @@
 cce_version: cce_1
 cce_form: definition
 subjects:
-  declared:
+  governs:
     continuant:
-      - artifact-catalog
-version: 4
-updated_at: 2026-08-23 15:00:38
+      - "Atom/Content Role: Method/Type: External Implementation Method"
+version: 5
+updated_at: 2026-08-29 04:33:13 +0400
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -18,6 +18,6 @@ relations:
   relates_to:
     - CAPRMEDIO-GOV-REQU-760--derive-default-external-type-names
 ---
-# Define the External Implementation Method Type
+# Define External Implementation Method as a Type Value for Method Atoms
 
-`external_implementation_method` is the external Method Type for one reusable implementation policy whose meaning is owned by an identified external source revision.
+External Implementation Method **means** the external Type value under Content Role Method for one reusable implementation policy whose meaning is owned by an identified external source revision **and** has Carrier token `external_implementation_method`.
