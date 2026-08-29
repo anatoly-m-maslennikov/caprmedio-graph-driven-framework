@@ -8,14 +8,15 @@ subjects:
       - Subject Path
   depends_on:
     continuant:
-      - Entity/Base Entity
-      - Entity/Dependent Entity
-version: 1
-updated_at: 2026-08-27 00:50:08 +0400
+      - Base Entity
+      - Dependent Entity
+      - Subject Expression
+version: 3
+updated_at: 2026-08-29 01:16:37 +0400
 relations: {}
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1194-MMODEL-CORE-REQUIREMENT--define-subject-path.md
 ---
 # Define Subject Path
 
-a Subject Path **means** one ordered Entity Path that starts with exactly one Base Entity and continues with zero or more Dependent Entities separated by `/`.
+a Subject Path **means** one Subject Expression that **starts with** **`=1`** Base Entity occurrence **and** **may** continue through **`>=0`** bearer-qualified **or** allowed-value-qualified Dependent Entity occurrences.
