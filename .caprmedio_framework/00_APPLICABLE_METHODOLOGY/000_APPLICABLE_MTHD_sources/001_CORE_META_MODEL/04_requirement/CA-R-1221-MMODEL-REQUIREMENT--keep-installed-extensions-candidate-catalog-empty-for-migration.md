@@ -11,8 +11,8 @@ subjects:
       - Applicable Methodology/Sources/Installed Extensions/Catalog Entry
     occurrent:
       - Bootstrap-to-Real Methodology Migration
-version: 1
-updated_at: 2026-08-27 01:17:55 +0400
+version: 2
+updated_at: 2026-08-29 02:40:41 +0400
 relations: {}
 ---
 # Keep Installed Extensions Candidate Catalog Empty for Migration
