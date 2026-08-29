@@ -10,12 +10,12 @@ subjects:
     continuant:
       - Extension
       - Artifact/Revision
-version: 1
-updated_at: 2026-08-27 01:17:55 +0400
+version: 2
+updated_at: 2026-08-29 01:16:37 +0400
 relations: {}
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1220-MMODEL-REQUIREMENT--require-immutable-installed-extension-candidate-provenance.md
 ---
 # Require Immutable Installed Extension Candidate Provenance
 
-**every** Installed Extensions Catalog Entry **must** identify exactly one immutable Extension Candidate by stable Identity, Version, Author, Source, Source Version, Origin, and Content Digest.
+**every** Installed Extensions Catalog Entry **must** identify **`=1`** immutable Extension Candidate by stable Identity, Version, Author, Source, Source Version, Origin, **and** Content Digest.
