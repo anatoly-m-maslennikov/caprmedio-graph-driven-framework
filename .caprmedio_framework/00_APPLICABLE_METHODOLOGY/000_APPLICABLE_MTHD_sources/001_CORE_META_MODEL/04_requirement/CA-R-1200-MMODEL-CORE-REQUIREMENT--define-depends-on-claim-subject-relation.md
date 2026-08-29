@@ -5,14 +5,14 @@ cce_form: definition
 subjects:
   governs:
     continuant:
-      - Atom/Claim/Subject Relation/Depends On
+      - "Claim-Subject Relation/Kind: DEPENDS_ON"
   depends_on:
     continuant:
-      - Atom/Claim/Subject Relation
-version: 1
-updated_at: 2026-08-27 00:50:08 +0400
+      - Claim-Subject Relation/Kind
+version: 4
+updated_at: 2026-08-29 02:40:41 +0400
 relations: {}
 ---
 # Define DEPENDS_ON Claim-Subject Relation
 
-the **depends_on** Claim-Subject Relation **means** the Claim requires the Subject without establishing authority about the Subject.
+DEPENDS_ON **means** the Claim-Subject Relation Kind whose Claim requires its referenced Subject **without** establishing authority about that Subject.
