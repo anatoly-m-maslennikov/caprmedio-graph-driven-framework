@@ -10,12 +10,12 @@ subjects:
       - atom-boundary
 cce_version: cce_1
 cce_form: separation
-version: 6
-updated_at: 2026-08-23 15:24:07
+version: 8
+updated_at: 2026-08-29 04:33:13 +0400
 relations:
   child_of:
     - CAPRMEDIO-META-REQU-709
 ---
-# Derive Scope Unit Type only from sibling order
+# Derive the Type Value of a Scope Unit Only from Sibling Order
 
-A Scope Unit's Scope Unit Type MUST depend only on its position among siblings and MUST NOT depend on its Child Composition.
+the Type value of a Scope Unit **must** depend **only** on its position among siblings **and** **must not** depend on its Child Composition.
