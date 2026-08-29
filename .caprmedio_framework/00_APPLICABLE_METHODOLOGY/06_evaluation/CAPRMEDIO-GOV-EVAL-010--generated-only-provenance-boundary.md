@@ -1,43 +1,21 @@
 ---
 cce_version: cce_1
 cce_form: evaluation
-artifact_subtype: qa_case
 subjects:
-  declared:
+  governs:
     occurrent:
-      - evaluation
-version: 5
-updated_at: 2026-08-23 15:00:38
-llm_session_ids:
-  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
-relations:
-  replacement_of:
-    - CAPRMEDIO-GOV-EVAL-033--generated-only-provenance-test-case
-  check_of:
-    - CA-M-135
-  child_of:
-    - CA-R-1054
+      - Generated-Only Provenance Validation
+  depends_on:
+    continuant:
+      - Git Commit
+      - Implementation Relation
+      - Projection
+version: 7
+updated_at: 2026-08-29 01:16:37 +0400
+relations: {}
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/06_evaluation/CAPRMEDIO-GOV-EVAL-010--generated-only-provenance-boundary.md
 ---
-# Generated-only provenance boundary
+# Validate Generated-Only Provenance Boundary
 
-## Claim checked
-
-Every commit retains auditable provenance, while only commits containing a non-generated governed change contribute Implementation relations and coverage.
-
-## Applicable conditions
-
-1. Validate required provenance on substantive, generated-only, and mixed commits.
-2. Include substantive and mixed commits in derived implementation relations and coverage.
-3. Exclude generated-only commits from those relations and coverage.
-4. Confirm generated-only commits remain visible in Git audit history.
-5. Reject a generated carrier that cites itself as its semantic input.
-
-## Acceptance criteria
-
-All commits retain auditable provenance, while only commits with at least one non-generated governed change contribute implementation edges.
-
-## Failure disposition
-
-Reject the derived relation or coverage result and record a Concern naming the misclassified commit.
+Generated-Only Provenance Validation **must not** pass **if** a generated-only Git Commit contributes an Implementation Relation **or** a generated Projection cites itself as its semantic input.
