@@ -1,21 +1,18 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
-      - relation-model
-  prerequisite:
+      - Atom
+  depends_on:
     continuant:
-      - artifact-model
-      - atom-boundary
+      - Claim
 atom_id: CA-R-771
 cce_version: cce_1
 cce_form: obligation
-version: 5
-updated_at: 2026-08-23 15:24:07
-relations:
-  child_of:
-    - CA-R-154
+version: 8
+updated_at: 2026-08-29 02:40:41 +0400
+relations: {}
 ---
 # Split Atoms at independent Claim boundaries
 
-AN Atom MUST be split when part of its content can be replaced independently from the Atom's remaining Claim.
+an Atom **must** be split **when** part of its content can be accepted, replaced, **or** retired independently from the Atom's remaining Claim.
