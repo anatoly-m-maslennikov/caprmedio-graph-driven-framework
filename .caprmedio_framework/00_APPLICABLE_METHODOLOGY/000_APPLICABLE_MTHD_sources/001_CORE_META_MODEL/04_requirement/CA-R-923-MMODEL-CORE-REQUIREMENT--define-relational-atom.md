@@ -1,17 +1,17 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
-      - relation-model
-  prerequisite:
+      - Relational Atom
+  depends_on:
     continuant:
-      - artifact-model
-      - atom-boundary
+      - Atom/Current Scope
+      - Atom/Claim Scope
 atom_id: CA-R-923
 cce_version: cce_1
 cce_form: definition
-version: 5
-updated_at: 2026-08-23 15:24:07
+version: 8
+updated_at: 2026-08-29 02:40:41 +0400
 relations:
   replacement_of:
     - CA-R-907
@@ -21,4 +21,4 @@ relations:
 ---
 # Define Relational Atom
 
-Relational Atom MEANS an Atom whose Claim relates explicitly identified governed entities, including an Atom whose Claim Scope is not its Current Scope and an Epic Atom that relates itself to its contained Task Atoms.
+a Relational Atom **means** an Atom whose Claim Scope **`!=`** its Current Scope.
