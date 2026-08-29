@@ -1,15 +1,13 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
-      - artifact-model
-    occurrent:
-      - development-flow
+      - "Atom/Content Role: Plan/Type: Task/Assignee"
 atom_id: CA-R-1079
 cce_version: cce_1
 cce_form: cardinality
-version: 2
-updated_at: 2026-08-23 15:00:38
+version: 4
+updated_at: 2026-08-29 01:16:37 +0400
 relations:
   child_of:
     - CA-R-989
@@ -18,4 +16,4 @@ projection:
 ---
 # Give every Task one effective Assignee
 
-EVERY Task Atom MUST have EXACTLY ONE effective Assignee.
+**every** Task Atom **must** have **`=1`** effective Assignee.
