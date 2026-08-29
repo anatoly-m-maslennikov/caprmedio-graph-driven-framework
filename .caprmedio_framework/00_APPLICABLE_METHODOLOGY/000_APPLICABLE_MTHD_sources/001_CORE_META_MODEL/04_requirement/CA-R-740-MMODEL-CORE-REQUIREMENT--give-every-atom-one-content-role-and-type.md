@@ -1,13 +1,13 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
-      - artifact-model
+      - Atom/Content Role
 atom_id: CA-R-740
 cce_version: cce_1
 cce_form: cardinality
-version: 6
-updated_at: 2026-08-23 15:00:38
+version: 9
+updated_at: 2026-08-29 02:40:41 +0400
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -17,6 +17,6 @@ relations:
   replacement_of:
     - CAPRMEDIO-META-REQU-726--derive-atom-type-from-content-role
 ---
-# Give every Atom one Content Role and Type
+# Give Every Atom One Content Role
 
-EVERY Atom MUST have EXACTLY ONE Content Role and EXACTLY ONE Type.
+**every** Atom **must** have **`=1`** Content Role.
