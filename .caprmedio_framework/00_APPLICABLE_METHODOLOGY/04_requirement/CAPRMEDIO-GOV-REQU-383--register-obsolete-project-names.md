@@ -5,8 +5,8 @@ subjects:
   declared:
     continuant:
       - settings
-version: 9
-updated_at: 2026-08-23 15:00:38
+version: 10
+updated_at: 2026-08-29 01:16:37 +0400
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -18,4 +18,4 @@ projection:
 ---
 # Register obsolete project names
 
-Project Scope Unit Graph Projections MUST expose project identity from the Project Configuration Atom with `project.name` as the canonical name and `project.obsolete_names` as the registered prior names without becoming authority for either.
+Project Scope Unit Graph Projections **must** expose project identity from the Project Configuration Atom with `project.name` as the canonical name **and** `project.obsolete_names` as the registered prior names **without** becoming authority for (Project Name **or** Obsolete Project Name).
