@@ -1,16 +1,17 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
-      - relation-model
-  prerequisite:
+      - "Atom/Content Role: Requirement/Type: Demand/Direction"
+  depends_on:
     continuant:
-      - atom-boundary
+      - Atom/Current Scope
+      - Atom/Claim Scope
 atom_id: CA-R-944
 cce_version: cce_1
 cce_form: definition
-version: 4
-updated_at: 2026-08-23 15:24:07
+version: 7
+updated_at: 2026-08-29 04:33:13 +0400
 relations:
   replacement_of:
     - CA-R-876
@@ -19,4 +20,4 @@ relations:
 ---
 # Define Demand direction
 
-Demand direction MEANS from Consumer Current Scope to Producer Claim Scope.
+Demand direction **means** from its Consumer Current Scope to its Producer Claim Scope.
