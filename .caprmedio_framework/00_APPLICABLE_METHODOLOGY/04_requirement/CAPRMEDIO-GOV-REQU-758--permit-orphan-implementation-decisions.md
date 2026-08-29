@@ -5,8 +5,8 @@ subjects:
   declared:
     continuant:
       - requirement-topology
-version: 5
-updated_at: 2026-08-23 15:00:38
+version: 6
+updated_at: 2026-08-29 01:16:37 +0400
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -18,4 +18,4 @@ projection:
 ---
 # Permit orphan Implementation Decisions
 
-GOVERNANCE registers `implementation_decision` as orphan-permitted, so an active Implementation Decision MAY have no parent Implementation Method even in strict authority mode.
+GOVERNANCE registers `implementation_decision` as orphan-permitted, so an active Implementation Decision **may** have no parent Implementation Method even **in** strict authority mode.
