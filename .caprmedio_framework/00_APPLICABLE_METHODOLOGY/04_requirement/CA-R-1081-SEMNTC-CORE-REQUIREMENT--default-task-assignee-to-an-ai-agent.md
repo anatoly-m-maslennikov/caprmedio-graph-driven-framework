@@ -1,15 +1,16 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
-      - authority
-    occurrent:
-      - development-flow
+      - "Atom/Content Role: Plan/Type: Task/Assignee"
+  depends_on:
+    continuant:
+      - AI Agent
 atom_id: CA-R-1081
 cce_version: cce_1
 cce_form: conditional
-version: 2
-updated_at: 2026-08-23 15:00:38
+version: 3
+updated_at: 2026-08-28 22:31:24 +0400
 relations:
   child_of:
     - CA-R-1079
@@ -18,4 +19,4 @@ projection:
 ---
 # Default Task Assignee to an AI Agent
 
-IF a Task Atom does not declare an Assignee, THEN its effective Assignee MUST be one AI Agent selected to execute that Task.
+**if** a Task Atom has no explicit Assignee, **then** its effective Assignee **must** be one AI Agent selected to execute that Task.
