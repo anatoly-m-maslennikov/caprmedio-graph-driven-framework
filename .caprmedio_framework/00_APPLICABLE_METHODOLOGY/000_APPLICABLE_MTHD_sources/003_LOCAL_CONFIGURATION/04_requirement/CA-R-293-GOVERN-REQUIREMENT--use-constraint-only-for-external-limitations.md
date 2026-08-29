@@ -1,17 +1,17 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
-      - framework-boundary
+      - "Atom/Content Role: Requirement/Type: Constraint"
 atom_id: CA-R-293
 cce_version: cce_1
 cce_form: obligation
-version: 8
-updated_at: 2026-08-23 15:00:38
+version: 10
+updated_at: 2026-08-29 04:33:13 +0400
 relations:
   child_of:
     - CA-R-924
 ---
 # Use Constraint only for external limitations
 
-AN Author MUST use Requirement Type `constraint` only for a limitation imposed from outside the Project choice boundary.
+an Author **must** use Constraint with Carrier token `constraint` **only** for a limitation imposed from outside the Project choice boundary.
