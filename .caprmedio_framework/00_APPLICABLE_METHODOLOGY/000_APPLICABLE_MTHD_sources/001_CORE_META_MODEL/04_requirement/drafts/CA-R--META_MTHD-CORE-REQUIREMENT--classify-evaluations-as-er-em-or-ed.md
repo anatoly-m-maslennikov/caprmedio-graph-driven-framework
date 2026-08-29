@@ -1,16 +1,16 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
       - qualified-evaluation-label
-  prerequisite:
+  depends_on:
     continuant:
-      - evaluation-target-content-role
-      - content-role
+      - "Atom/Content Role: Evaluation/Target Content Role"
+      - Atom/Content Role
 cce_version: cce_1
 cce_form: classification
-version: 1
-updated_at: 2026-08-25 03:57:11
+version: 2
+updated_at: 2026-08-29 02:40:41 +0400
 relations: {}
 ---
 # Classify Evaluations as E_R, E_M, or E_D
