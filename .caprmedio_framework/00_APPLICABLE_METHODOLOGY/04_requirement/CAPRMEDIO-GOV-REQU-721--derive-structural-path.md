@@ -8,8 +8,8 @@ subjects:
       - layout
 cce_version: cce_1
 cce_form: obligation
-version: 5
-updated_at: 2026-08-23 15:24:07
+version: 6
+updated_at: 2026-08-29 01:16:37 +0400
 relations:
   child_of:
     - CAPRMEDIO-META-REQU-716
@@ -18,4 +18,4 @@ projection:
 ---
 # Derive Structural Path
 
-GOVERNANCE MUST derive each Structural Path from active Scope Unit identities and structural-parent relations without storing a duplicate path.
+GOVERNANCE **must** derive **every** Structural Path from active Scope Unit identities **and** structural-parent relations **without** storing a duplicate path.
