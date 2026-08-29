@@ -1,17 +1,16 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
-      - relation-model
-  prerequisite:
+      - "Atom/Content Role: Requirement/Type: Demand/Direction"
+  depends_on:
     continuant:
-      - scope-topology
-      - atom-boundary
+      - Scope Unit/Ancestry
 atom_id: CA-R-950
 cce_version: cce_1
 cce_form: prohibition
-version: 4
-updated_at: 2026-08-23 15:24:07
+version: 8
+updated_at: 2026-08-29 04:33:13 +0400
 relations:
   child_of:
     - CA-R-932
@@ -19,4 +18,4 @@ relations:
 ---
 # Prohibit Demand between ancestor and descendant Scopes
 
-A Demand Atom MUST NOT relate ancestor and descendant Scope Units in either direction.
+a Demand Atom **must not** relate ancestor **and** descendant Scope Units **in** (ancestor-to-descendant **or** descendant-to-ancestor) direction.
