@@ -1,13 +1,13 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
-      - artifact-model
+      - Atom/Local Tier
 atom_id: CA-R-680
 cce_version: cce_1
 cce_form: obligation
-version: 7
-updated_at: 2026-08-23 15:00:38
+version: 10
+updated_at: 2026-08-29 02:40:41 +0400
 relations:
   child_of:
     - CA-R-917
@@ -17,4 +17,4 @@ relations:
 ---
 # Order the three Local Tiers
 
-EVERY Scope Unit MUST use Principle above Core above Standard as its Local Tier order.
+**every** Scope Unit **must** order its Atom Local Tiers as Principle above Core above Standard.
