@@ -9,11 +9,12 @@ subjects:
   depends_on:
     continuant:
       - Methodology Source
-      - Artifact/Projection
-version: 1
-updated_at: 2026-08-27 00:50:08 +0400
+      - Projection
+      - Relational Artifact
+version: 4
+updated_at: 2026-08-29 02:40:41 +0400
 relations: {}
 ---
 # Define Applicable Methodology as a Compiled Projection
 
-the Applicable Methodology **must** be a derived non-authoritative Projection compiled from the exact current revisions of its selected Methodology Sources.
+the Applicable Methodology **must** be (a non-authoritative Projection **and** a Relational Artifact) derived from selected exact Methodology Source revisions.
