@@ -5,15 +5,14 @@ cce_form: definition
 subjects:
   governs:
     continuant:
-      - Subject/Temporal Form
+      - Claim-Subject Relation/Temporal Form
   depends_on:
     continuant:
-      - Subject
-      - Subject Path
-version: 1
-updated_at: 2026-08-27 00:50:08 +0400
+      - Claim-Subject Relation
+version: 4
+updated_at: 2026-08-29 02:40:41 +0400
 relations: {}
 ---
-# Define Subject Temporal Form
+# Define Claim-Subject Relation Temporal Form
 
-the Subject Temporal Form **means** the axis that classifies the terminal Entity of one Subject Path as CONTINUANT or OCCURRENT.
+the Claim-Subject Relation Temporal Form **means** the relation Property whose allowed values are CONTINUANT **and** OCCURRENT.
