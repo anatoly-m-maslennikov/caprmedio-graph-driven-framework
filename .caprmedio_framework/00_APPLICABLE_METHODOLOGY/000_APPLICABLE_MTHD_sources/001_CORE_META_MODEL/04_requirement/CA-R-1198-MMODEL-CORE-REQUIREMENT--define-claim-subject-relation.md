@@ -5,15 +5,15 @@ cce_form: definition
 subjects:
   governs:
     continuant:
-      - Atom/Claim/Subject Relation
+      - Claim-Subject Relation
   depends_on:
     continuant:
-      - Atom/Claim
+      - Claim
       - Subject
-version: 1
-updated_at: 2026-08-27 00:50:08 +0400
+version: 4
+updated_at: 2026-08-29 02:40:41 +0400
 relations: {}
 ---
 # Define Claim-Subject Relation
 
-an Atom Claim-Subject Relation **means** one directionally typed relation from one Atom Claim to one Subject whose Type is **governs** or **depends_on**.
+a Claim-Subject Relation **means** one relation occurrence from **`=1`** Claim to **`=1`** Subject.
