@@ -1,13 +1,13 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
-      - artifact-model
+      - "Atom/Local Tier: Principle"
 atom_id: CA-R-658
 cce_version: cce_1
 cce_form: definition
-version: 6
-updated_at: 2026-08-23 15:00:38
+version: 7
+updated_at: 2026-08-28 22:31:24 +0400
 relations:
   child_of:
     - CA-R-931
@@ -16,4 +16,4 @@ projection:
 ---
 # Define Principle Local Tier
 
-Principle Local Tier MEANS the highest Local Tier and uses filename token `PRINCIPLE`.
+Principle **means** the highest Local Tier.
