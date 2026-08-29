@@ -3,14 +3,15 @@ atom_id: CA-R-1018
 cce_version: cce_1
 cce_form: definition
 subjects:
-  declared:
+  governs:
     continuant:
-      - relation-model
-  prerequisite:
+      - Evaluation For Relation
+  depends_on:
     continuant:
       - atom-boundary
-version: 3
-updated_at: 2026-08-23 15:24:07
+      - relation-model
+version: 5
+updated_at: 2026-08-29 02:40:41 +0400
 relations:
   child_of:
     - CAPRMEDIO-META-REQU-117--store-each-semantic-relation-once
@@ -18,4 +19,4 @@ relations:
 ---
 # Register evaluation_for relation
 
-GOVERNANCE MUST register `evaluation_for` as a direct relation owned by an Evaluation Atom and directed to one Requirement or Method Atom that the Evaluation checks.
+GOVERNANCE **must** register `evaluation_for` as a direct relation owned by an Evaluation Atom **and** directed to one Requirement **or** Method Atom that the Evaluation checks.
