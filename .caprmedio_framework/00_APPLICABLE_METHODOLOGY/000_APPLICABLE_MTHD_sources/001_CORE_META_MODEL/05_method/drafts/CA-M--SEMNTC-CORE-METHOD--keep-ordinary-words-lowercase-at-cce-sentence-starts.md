@@ -1,15 +1,15 @@
 ---
 subjects:
-  declared:
+  governs:
     occurrent:
       - claim-authoring
-  prerequisite:
+  depends_on:
     continuant:
-      - cce-language
+      - CCE
 cce_version: cce_1
 cce_form: method
-version: 2
-updated_at: 2026-08-25 01:20:06
+version: 3
+updated_at: 2026-08-29 02:40:41 +0400
 relations:
   child_of:
     - CA-M-113
