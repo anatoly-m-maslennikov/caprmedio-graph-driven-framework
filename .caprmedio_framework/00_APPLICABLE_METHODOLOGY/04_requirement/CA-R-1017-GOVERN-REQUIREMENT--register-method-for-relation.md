@@ -9,8 +9,8 @@ subjects:
   prerequisite:
     continuant:
       - atom-boundary
-version: 3
-updated_at: 2026-08-23 15:24:07
+version: 4
+updated_at: 2026-08-29 01:16:37 +0400
 relations:
   child_of:
     - CAPRMEDIO-META-REQU-117--store-each-semantic-relation-once
@@ -20,4 +20,4 @@ projection:
 ---
 # Register method_for relation
 
-GOVERNANCE MUST register `method_for` as a direct relation owned by a Method Atom and directed to one Requirement Atom that the Method serves.
+GOVERNANCE **must** register `method_for` as a direct relation owned by a Method Atom **and** directed to one Requirement Atom that the Method serves.
