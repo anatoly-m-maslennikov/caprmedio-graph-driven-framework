@@ -10,8 +10,8 @@ subjects:
   prerequisite:
     continuant:
       - scope-topology
-version: 4
-updated_at: 2026-08-23 15:24:07
+version: 5
+updated_at: 2026-08-29 01:16:37 +0400
 relations:
   child_of:
     - CA-M-122
@@ -20,4 +20,4 @@ projection:
 ---
 # Evaluate Set-valued Property Membership
 
-TO evaluate `IN` or `NOT IN` for one set-valued governed property, the Resolver MUST evaluate `IN` as true exactly when at least one property member equals one listed value and MUST evaluate `NOT IN` as true exactly when no property member equals any listed value.
+**to** evaluate **in** **or** **not in** for one set-valued governed property, the Resolver **must** evaluate **in** as true exactly **when** **`>=1`** property member **`=`** one listed value **and** **must** evaluate **not in** as true exactly **when** no property member **`=`** **any** listed value.
