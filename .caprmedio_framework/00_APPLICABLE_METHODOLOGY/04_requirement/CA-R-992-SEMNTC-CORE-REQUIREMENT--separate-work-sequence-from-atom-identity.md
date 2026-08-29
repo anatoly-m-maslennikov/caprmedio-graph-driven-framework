@@ -1,18 +1,16 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
-      - artifact-identity
-    occurrent:
-      - development-flow
-  prerequisite:
+      - Work Sequence Number
+  depends_on:
     continuant:
-      - artifact-model
+      - Artifact/Identity
 atom_id: CA-R-992
 cce_version: cce_1
 cce_form: prohibition
-version: 4
-updated_at: 2026-08-23 15:24:07
+version: 6
+updated_at: 2026-08-29 01:16:37 +0400
 relations:
   child_of:
     - CA-R-991
@@ -21,4 +19,4 @@ projection:
 ---
 # Separate Work Sequence from Atom identity
 
-A Work Sequence Number MUST NOT establish or change an Atom ID, Current Scope, Claim Scope, Atom Type, Epic containment, or dependency.
+a Work Sequence Number **must not** establish **or** change Artifact identity, Current Scope, Claim Scope, Type, Epic membership, **or** dependency.
