@@ -1,15 +1,16 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
-      - relation-model
-  prerequisite:
+      - Feature Realization Relation
+  depends_on:
     continuant:
       - atom-boundary
+      - relation-model
 cce_version: cce_1
 cce_form: definition
-version: 9
-updated_at: 2026-08-23 15:24:07
+version: 11
+updated_at: 2026-08-29 02:40:41 +0400
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -20,4 +21,4 @@ relations:
 ---
 # Register feature realization relation kind
 
-GOVERNANCE MUST register `feature_realization` as a typed frontmatter relation that maps a declared SPEC Feature Scope Unit to its applicable native Realization targets without making those targets Scope Units.
+GOVERNANCE **must** register `feature_realization` as a typed frontmatter relation that maps a declared SPEC Feature Scope Unit to its applicable native Realization targets **without** making those targets Scope Units.
