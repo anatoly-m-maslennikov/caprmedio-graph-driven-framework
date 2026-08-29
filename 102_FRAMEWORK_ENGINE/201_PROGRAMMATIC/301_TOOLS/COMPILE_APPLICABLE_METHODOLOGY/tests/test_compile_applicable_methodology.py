@@ -35,6 +35,28 @@ def carrier(atom_id: str, version: int = 1, extra: str = "", body: str = "claim"
     ).encode()
 
 
+def definition_carrier(atom_id: str, term: str, subject_path: str | None = None) -> bytes:
+    governed = subject_path or term
+    return (
+        "---\n"
+        f"atom_id: {atom_id}\n"
+        "cce_version: cce_1\n"
+        "cce_form: definition\n"
+        "subjects:\n"
+        "  governs:\n"
+        "    continuant:\n"
+        f"      - {json.dumps(governed)}\n"
+        "  depends_on:\n"
+        "    continuant: []\n"
+        "version: 1\n"
+        "updated_at: 2026-08-29 00:00:00 +0400\n"
+        "relations: {}\n"
+        "---\n"
+        f"# Define {term}\n\n"
+        f"{term} definition.\n"
+    ).encode()
+
+
 class CompilerTest(unittest.TestCase):
     def setUp(self) -> None:
         runtime = Path.cwd() / ".caprmedio_runtime/compiler-tests"
@@ -105,6 +127,31 @@ class CompilerTest(unittest.TestCase):
         self.assertEqual(applied["apply_status"], "BLOCKED")
         for _, role in module.ROLES:
             self.assertFalse((self.temp / module.OUTPUT_RELATIVE / role).exists())
+
+    def test_duplicate_governed_term_definition_blocks_apply(self) -> None:
+        self.write(
+            "001_CORE_META_MODEL",
+            "04_requirement",
+            "CA-R-010--define-shared-term.md",
+            definition_carrier("CA-R-010", "Shared Term"),
+        )
+        self.write(
+            "003_LOCAL_CONFIGURATION",
+            "04_requirement",
+            "CA-R-011--redefine-shared-term.md",
+            definition_carrier("CA-R-011", "Shared Term", "Artifact/Type: Shared Term"),
+        )
+
+        code, report = self.invoke()
+
+        self.assertEqual(2, code)
+        conflict = next(
+            row for row in report["conflicts"] if row["type"] == "duplicate_governed_term_definition"
+        )
+        self.assertEqual("Shared Term", conflict["details"]["term"])
+        apply_code, applied = self.invoke("--apply")
+        self.assertEqual(2, apply_code)
+        self.assertEqual("BLOCKED", applied["apply_status"])
 
     def test_exact_local_configuration_approval_resolves_one_conflict(self) -> None:
         first = self.write("001_CORE_META_MODEL", "04_requirement", "CA-R-001-A--one.md", carrier("CA-R-001"))
