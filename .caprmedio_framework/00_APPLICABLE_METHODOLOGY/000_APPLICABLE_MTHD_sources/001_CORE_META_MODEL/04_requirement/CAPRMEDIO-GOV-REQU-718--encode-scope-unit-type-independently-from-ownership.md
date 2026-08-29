@@ -1,21 +1,21 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
       - relation-model
-  prerequisite:
+  depends_on:
     continuant:
       - scope-topology
       - artifact-model
       - atom-boundary
 cce_version: cce_1
 cce_form: separation
-version: 6
-updated_at: 2026-08-23 15:24:07
+version: 9
+updated_at: 2026-08-29 04:33:13 +0400
 relations:
   child_of:
     - CAPRMEDIO-META-REQU-714
 ---
-# Encode Scope Unit Type independently from parent ownership
+# Encode a Type Value for a Scope Unit Independently from Parent Ownership
 
-GOVERNANCE MUST encode a Scope Unit's Scope Unit Type independently from its structural-parent relation.
+GOVERNANCE **must** encode a Scope Unit's Type value independently from its structural-parent relation.
