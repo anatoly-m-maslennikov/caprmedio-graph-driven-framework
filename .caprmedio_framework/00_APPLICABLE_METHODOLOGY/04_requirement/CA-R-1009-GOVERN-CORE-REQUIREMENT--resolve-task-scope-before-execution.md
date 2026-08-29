@@ -9,9 +9,9 @@ subjects:
   depends_on:
     continuant:
       - Task/Scope
-      - Task/Job
-version: 3
-updated_at: 2026-08-27 00:50:08 +0400
+      - Atom/Claim
+version: 5
+updated_at: 2026-08-29 01:16:37 +0400
 relations:
   child_of:
     - CA-R-1000
@@ -22,4 +22,4 @@ projection:
 ---
 # Resolve Task Scope before execution
 
-Governance **must** resolve one Task Scope to one Task Scope Resolution at one stated Project Revision before execution of its Task Job.
+the Task executor **must** resolve one Task Scope to one Task Scope Resolution at one stated Project Revision **before** execution of its Claim.
