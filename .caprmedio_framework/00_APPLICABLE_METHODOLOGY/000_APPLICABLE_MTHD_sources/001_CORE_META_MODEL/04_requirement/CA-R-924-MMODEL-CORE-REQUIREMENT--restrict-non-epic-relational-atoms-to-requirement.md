@@ -1,25 +1,22 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
-      - relation-model
-    occurrent:
-      - development-flow
-  prerequisite:
+      - Relational Atom/Content Role
+  depends_on:
     continuant:
-      - artifact-model
-      - atom-boundary
+      - "Atom/Content Role: Requirement"
 atom_id: CA-R-924
 cce_version: cce_1
 cce_form: classification
-version: 5
-updated_at: 2026-08-23 15:24:07
+version: 8
+updated_at: 2026-08-29 02:40:41 +0400
 relations:
   replacement_of:
     - CA-R-908
   child_of:
     - CA-R-923
 ---
-# Restrict non-Epic Relational Atoms to Requirement
+# Restrict Relational Atoms to Requirement
 
-EVERY Relational Atom MUST be a Requirement Atom unless it is an Epic Atom, and EVERY Epic Atom MUST be a Plan-role Atom.
+**every** Relational Atom **must** have Content Role Requirement.
