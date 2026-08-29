@@ -5,14 +5,14 @@ cce_form: definition
 subjects:
   governs:
     continuant:
-      - Subject/Temporal Form/Occurrent
+      - "Claim-Subject Relation/Temporal Form: OCCURRENT"
   depends_on:
     continuant:
-      - Subject/Temporal Form
-version: 1
-updated_at: 2026-08-27 00:50:08 +0400
+      - Claim-Subject Relation/Temporal Form
+version: 4
+updated_at: 2026-08-29 02:40:41 +0400
 relations: {}
 ---
-# Define OCCURRENT Subject Temporal Form
+# Define OCCURRENT Claim-Subject Relation Temporal Form
 
-the OCCURRENT Subject Temporal Form **means** the terminal Entity happens or unfolds through time as an action, event, transition, or process.
+OCCURRENT **means** the Claim-Subject Relation presents its referenced Subject as happening **or** unfolding through time.
