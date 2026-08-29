@@ -5,12 +5,12 @@ cce_form: definition
 subjects:
   governs:
     continuant:
-      - Entity/Property
+      - Property
   depends_on:
     continuant:
-      - Entity/Dependent Entity
-version: 1
-updated_at: 2026-08-27 00:50:08 +0400
+      - Dependent Entity
+version: 3
+updated_at: 2026-08-29 02:40:41 +0400
 relations: {}
 ---
 # Define Property
