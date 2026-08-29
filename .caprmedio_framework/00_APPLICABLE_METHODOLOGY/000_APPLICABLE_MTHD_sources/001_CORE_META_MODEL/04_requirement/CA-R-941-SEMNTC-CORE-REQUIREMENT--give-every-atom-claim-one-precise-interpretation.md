@@ -1,17 +1,17 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
       - language
-  prerequisite:
+  depends_on:
     continuant:
       - artifact-model
-      - cce-language
+      - CCE
 atom_id: CA-R-941
 cce_version: cce_1
 cce_form: cardinality
-version: 4
-updated_at: 2026-08-23 15:24:07
+version: 6
+updated_at: 2026-08-29 02:40:41 +0400
 relations:
   replacement_of:
     - CA-R-839
@@ -21,4 +21,4 @@ relations:
 ---
 # Give every Atom Claim one precise interpretation
 
-EVERY Atom Claim MUST have EXACTLY ONE precise interpretation.
+**every** Atom Claim **must** have **`=1`** precise interpretation.
