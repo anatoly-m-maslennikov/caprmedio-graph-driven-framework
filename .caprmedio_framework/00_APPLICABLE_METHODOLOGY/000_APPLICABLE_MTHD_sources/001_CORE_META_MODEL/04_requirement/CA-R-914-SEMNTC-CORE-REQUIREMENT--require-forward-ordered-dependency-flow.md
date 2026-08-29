@@ -1,16 +1,16 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
       - relation-model
-  prerequisite:
+  depends_on:
     continuant:
       - atom-boundary
 atom_id: CA-R-914
 cce_version: cce_1
 cce_form: obligation
-version: 5
-updated_at: 2026-08-23 15:24:07
+version: 7
+updated_at: 2026-08-29 02:40:41 +0400
 relations:
   replacement_of:
     - CA-R-875
@@ -19,4 +19,4 @@ relations:
 ---
 # Require forward ordered dependency flow
 
-EVERY declared dependency between ordered peer Scope Units MUST flow from the earlier Scope Unit to the later Scope Unit.
+**every** declared dependency between ordered peer Scope Units **must** flow from the earlier Scope Unit to the later Scope Unit.
