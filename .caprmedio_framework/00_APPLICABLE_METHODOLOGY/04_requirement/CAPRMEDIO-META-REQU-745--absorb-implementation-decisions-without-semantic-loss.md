@@ -5,8 +5,8 @@ subjects:
   declared:
     continuant:
       - method
-version: 4
-updated_at: 2026-08-23 15:00:38
+version: 5
+updated_at: 2026-08-29 01:16:37 +0400
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -18,4 +18,4 @@ projection:
 ---
 # Absorb Implementation Decisions without semantic loss
 
-An Implementation Decision MAY be archived as absorbed only after one or more active Implementation Methods preserve every part of its still-necessary governed meaning for the affected realization scope.
+An Implementation Decision **may** be archived as absorbed **only** **after** **`>=1`** active Implementation Methods preserve **every** part of its still-necessary governed meaning for the affected realization scope.
