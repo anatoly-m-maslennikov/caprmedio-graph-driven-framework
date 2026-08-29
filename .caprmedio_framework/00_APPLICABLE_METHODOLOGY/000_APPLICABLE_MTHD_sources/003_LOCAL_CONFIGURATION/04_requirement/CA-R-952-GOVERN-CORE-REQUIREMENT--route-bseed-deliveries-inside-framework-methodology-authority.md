@@ -10,8 +10,8 @@ subjects:
 atom_id: CA-R-952
 cce_version: cce_1
 cce_form: obligation
-version: 9
-updated_at: 2026-08-23 15:24:07
+version: 10
+updated_at: 2026-08-29 01:16:37 +0400
 relations:
   child_of:
     - CA-R-770
@@ -19,7 +19,7 @@ relations:
 ---
 # Route Bootstrap Seed Deliveries inside FRAMEWORK_METHODOLOGY authority
 
-GOVERNANCE MUST apply this Bootstrap Seed Delivery exception:
+GOVERNANCE **must** apply this Bootstrap Seed Delivery exception:
 
 | Bootstrap Seed authority directory | Delivery directory |
 | --- | --- |
