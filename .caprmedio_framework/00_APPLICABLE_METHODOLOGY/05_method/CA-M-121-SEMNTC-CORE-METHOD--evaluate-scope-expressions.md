@@ -1,33 +1,29 @@
 ---
+atom_id: CA-M-121
 subjects:
-  declared:
+  governs:
+    occurrent:
+      - Scope Expression Evaluation
+  depends_on:
     continuant:
-      - scope-topology
-  prerequisite:
-    continuant:
-      - cce-language
+      - Scope Expression
 cce_version: cce_1
 cce_form: method
-version: 4
-updated_at: 2026-08-23 15:24:07
-relations:
-  child_of:
-    - CA-M-113
-    - CA-M-122
-    - CA-R-999
-    - CA-R-1006
+version: 6
+updated_at: 2026-08-29 01:16:37 +0400
+relations: {}
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/05_method/CA-M-121-SEMNTC-CORE-METHOD--evaluate-scope-expressions.md
 ---
 # Evaluate Scope Expressions
 
-TO evaluate one Scope Expression, the Resolver MUST PERFORM ALL OF:
+**to** evaluate one Scope Expression, the Resolver **must** perform **all** of:
 
-1. Resolve each exact Atom ID or other atomic identity to exactly one governed entity.
-2. Interpret `ALL <ENTITY_KIND>` as every governed entity of that kind within Current Scope.
-3. Interpret `OR` as set union.
-4. Interpret `AND` as set intersection.
-5. Interpret `WITHOUT` as left-side set exclusion.
-6. Interpret `WHERE` as retention of only members whose property predicate evaluates to true according to CA-M-122.
-7. Evaluate the innermost parenthesized set function before its containing set function.
-8. Use another Scope function only when an active CCE Method gives that function exactly one set meaning.
+1. resolve **every** exact Atom ID **or** other atomic identity to **`=1`** Governed Entity.
+2. interpret **all** `<ENTITY_KIND>` as **every** Governed Entity of that kind within Current Scope.
+3. interpret **or** as set union.
+4. interpret **and** as set intersection.
+5. interpret **without** as left-side set exclusion.
+6. interpret **where** as retention of **only** members whose field predicate evaluates to true according to CA-M-122.
+7. evaluate the innermost parenthesized set function **before** its containing set function.
+8. use another Scope function **only** **when** an active CCE Method gives that function **`=1`** set meaning.
