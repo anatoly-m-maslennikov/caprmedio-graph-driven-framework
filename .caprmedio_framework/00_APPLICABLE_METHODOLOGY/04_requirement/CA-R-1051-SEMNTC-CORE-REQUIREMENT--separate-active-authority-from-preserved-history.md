@@ -5,8 +5,8 @@ subjects:
   declared:
     continuant:
       - lifecycle-traceability
-version: 10
-updated_at: 2026-08-23 15:00:38
+version: 11
+updated_at: 2026-08-29 01:16:37 +0400
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -17,4 +17,4 @@ projection:
 ---
 # Separate active authority from preserved history
 
-The active RMAD authority graph represents only current governed state. Historical states and transitions are excluded from that graph and preserved through canonical lifecycle placement and append-only Journals; generated Projections MAY render history without making it active RMAD authority.
+The active RMAD authority graph represents **only** current governed state. Historical states **and** transitions are excluded from that graph **and** preserved through canonical lifecycle placement **and** append-only Journals; generated Projections **may** render history **without** making it active RMAD authority.
