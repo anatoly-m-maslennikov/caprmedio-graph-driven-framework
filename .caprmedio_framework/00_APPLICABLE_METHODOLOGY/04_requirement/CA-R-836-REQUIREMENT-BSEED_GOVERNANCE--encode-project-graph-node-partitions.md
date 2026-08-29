@@ -6,8 +6,8 @@ subjects:
   declared:
     continuant:
       - artifact-catalog
-version: 5
-updated_at: 2026-08-23 15:00:38
+version: 6
+updated_at: 2026-08-29 01:16:37 +0400
 relations:
   child_of:
     - CA-R-834-REQUIREMENT-BSEED_METAMODEL--partition-project-graph-nodes
@@ -16,4 +16,4 @@ projection:
 ---
 # Encode project-graph node partitions
 
-GOVERNANCE MUST derive exactly one project-graph node partition for every governed node from its canonical Structural-unit or Artifact classification and reject a node classified into both partitions or neither partition.
+GOVERNANCE **must** derive **`=1`** project-graph node partition for **every** governed node from its canonical Structural-unit **or** Artifact classification **and** reject a node whose Partition count is **`!=1`**.
