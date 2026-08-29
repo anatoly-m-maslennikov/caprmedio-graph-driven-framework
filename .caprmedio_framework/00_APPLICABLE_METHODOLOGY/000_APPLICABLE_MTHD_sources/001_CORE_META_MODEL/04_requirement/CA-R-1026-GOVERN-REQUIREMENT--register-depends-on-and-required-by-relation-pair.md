@@ -3,18 +3,19 @@ atom_id: CA-R-1026
 cce_version: cce_1
 cce_form: definition
 subjects:
-  declared:
+  governs:
     continuant:
-      - relation-model
-  prerequisite:
+      - Dependency Relation Pair
+  depends_on:
     continuant:
       - atom-boundary
-version: 4
-updated_at: 2026-08-23 15:24:07
+      - relation-model
+version: 6
+updated_at: 2026-08-29 02:40:41 +0400
 relations:
   child_of:
     - CA-R-1054
 ---
 # Register depends_on and required_by relation pair
 
-GOVERNANCE MUST register `depends_on` as the declared upstream relation and `required_by` as its inverse-derived downstream relation in the dependency ordering domain.
+GOVERNANCE **must** register `depends_on` as the declared upstream relation **and** `required_by` as its inverse-derived downstream relation **in** the dependency ordering domain.
