@@ -5,8 +5,8 @@ subjects:
   declared:
     continuant:
       - artifact-model
-version: 4
-updated_at: 2026-08-23 15:00:38
+version: 5
+updated_at: 2026-08-29 01:16:37 +0400
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -20,4 +20,4 @@ projection:
 ---
 # Prohibit Artifact subtypes
 
-CAPRMEDIO has no Artifact subtype axis. Every admitted Artifact classification below a Content role is a Type, and Artifact carriers, settings, registries, relations, selectors, and tools MUST NOT declare or infer a subtype property.
+CAPRMEDIO has no Artifact subtype axis. **every** admitted Artifact classification below a Content role is a Type, **and** Artifact carriers, settings, registries, relations, selectors, **and** tools **must not** declare **or** infer a subtype property.
