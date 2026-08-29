@@ -8,8 +8,8 @@ subjects:
       - atom-boundary
 cce_version: cce_1
 cce_form: definition
-version: 5
-updated_at: 2026-08-23 15:24:07
+version: 6
+updated_at: 2026-08-29 01:16:37 +0400
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -24,4 +24,4 @@ projection:
 ---
 # Register structural parent relation
 
-GOVERNANCE MUST register `structural_parent` as the kind-independent Structural ownership relation stored by a child and directed to its immediate parent.
+GOVERNANCE **must** register `structural_parent` as the kind-independent Structural ownership relation stored by a child **and** directed to its immediate parent.
