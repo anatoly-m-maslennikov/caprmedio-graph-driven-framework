@@ -76,6 +76,8 @@ class Candidate:
     priority_group: str | None
     replacements: tuple[str, ...]
     incompatibilities: tuple[str, ...]
+    definition_term: str | None
+    definition_subject_path: str | None
 
     def frontier_record(self) -> dict[str, object]:
         return {
@@ -87,11 +89,15 @@ class Candidate:
         }
 
     def report_record(self) -> dict[str, object]:
-        return {
+        record = {
             **self.frontier_record(),
             "content_role": self.role,
             "output_path": f"{OUTPUT_RELATIVE.as_posix()}/{self.role_directory}/{self.basename}",
         }
+        if self.definition_term is not None:
+            record["definition_term"] = self.definition_term
+            record["definition_subject_path"] = self.definition_subject_path
+        return record
 
 
 @dataclass(frozen=True)
@@ -206,6 +212,37 @@ def derive_atom_id(path: Path, frontmatter: str) -> str:
     return identity
 
 
+def terminal_term(subject_path: str) -> str:
+    parts = re.split(r"\s*[/:]\s*", subject_path.strip())
+    if not parts or any(not part for part in parts):
+        raise CompileError("source-subject-path-invalid", "Definition Subject Path is invalid", subject_path=subject_path)
+    return parts[-1]
+
+
+def definition_subject(frontmatter: str, path: str) -> tuple[str | None, str | None]:
+    if (top_scalar(frontmatter, "cce_form") or "").lower() != "definition":
+        return None, None
+    block = top_block(frontmatter, "subjects")
+    current_kind: str | None = None
+    governed: list[str] = []
+    for line in block:
+        kind = re.fullmatch(r"  ([a-z_]+):\s*", line)
+        if kind:
+            current_kind = kind.group(1)
+            continue
+        item = re.fullmatch(r"      -\s*(.+?)\s*", line)
+        if item and current_kind in {"governs", "declared"}:
+            governed.append(scalar_value(item.group(1)))
+    if len(governed) != 1:
+        raise CompileError(
+            "definition-term-cardinality",
+            "A Definition Atom must identify exactly one Term through GOVERNS",
+            path=path,
+            governs_count=len(governed),
+        )
+    return terminal_term(governed[0]), governed[0]
+
+
 def candidate_sort_key(candidate: Candidate) -> tuple[object, ...]:
     return (candidate.layer_order, candidate.atom_id, candidate.version, candidate.source_path)
 
@@ -295,6 +332,7 @@ def discover_candidates(root: Path) -> tuple[list[Candidate], list[dict[str, obj
                 version_raw = top_scalar(frontmatter, "version")
                 if version_raw is None or not re.fullmatch(r"[1-9][0-9]*", version_raw):
                     raise CompileError("source-version-invalid", "Selected Source Atom revision requires a positive integer version", path=relative)
+                defined_term, definition_subject_path = definition_subject(frontmatter, relative)
                 candidates.append(
                     Candidate(
                         layer=layer,
@@ -310,6 +348,8 @@ def discover_candidates(root: Path) -> tuple[list[Candidate], list[dict[str, obj
                         priority_group=top_scalar(frontmatter, "applicable_methodology_priority_group"),
                         replacements=relation_targets(frontmatter, RELATION_KINDS["replacement"]),
                         incompatibilities=relation_targets(frontmatter, RELATION_KINDS["incompatible"]),
+                        definition_term=defined_term,
+                        definition_subject_path=definition_subject_path,
                     )
                 )
     candidates.sort(key=candidate_sort_key)
@@ -350,11 +390,14 @@ def detect_conflicts(candidates: list[Candidate]) -> list[dict[str, object]]:
     alias_index: dict[str, list[Candidate]] = {}
     by_output: dict[tuple[str, str], list[Candidate]] = {}
     by_priority_group: dict[str, list[Candidate]] = {}
+    by_definition_term: dict[str, list[Candidate]] = {}
     for candidate in candidates:
         by_identity.setdefault(candidate.atom_id, []).append(candidate)
         by_output.setdefault((candidate.role_directory, candidate.basename), []).append(candidate)
         if candidate.priority_group:
             by_priority_group.setdefault(candidate.priority_group, []).append(candidate)
+        if candidate.definition_term:
+            by_definition_term.setdefault(candidate.definition_term, []).append(candidate)
         for alias in candidate_aliases(candidate):
             alias_index.setdefault(alias, []).append(candidate)
 
@@ -382,6 +425,26 @@ def detect_conflicts(candidates: list[Candidate]) -> list[dict[str, object]]:
             continue
         proposal = sorted(group, key=proposal_sort_key)[0]
         conflicts.append(conflict_record("duplicate_selected_atom_identity", group, proposal, atom_id=atom_id))
+
+    for term, group in sorted(by_definition_term.items()):
+        if len(group) <= 1:
+            continue
+        group_paths = {candidate.source_path for candidate in group}
+        if any(pair.issubset(group_paths) for pair in involved_pairs) or group_paths.intersection(involved_priority):
+            continue
+        proposal = sorted(group, key=proposal_sort_key)[0]
+        conflicts.append(
+            conflict_record(
+                "duplicate_governed_term_definition",
+                group,
+                proposal,
+                term=term,
+                definition_subject_paths={
+                    candidate.source_path: candidate.definition_subject_path
+                    for candidate in sorted(group, key=candidate_sort_key)
+                },
+            )
+        )
 
     for replacer_path, replaced_path in sorted(replacement_pairs):
         replacer = lookup[replacer_path]
