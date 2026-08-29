@@ -10,8 +10,8 @@ subjects:
       - atom-boundary
 cce_version: cce_1
 cce_form: separation
-version: 6
-updated_at: 2026-08-23 15:24:07
+version: 7
+updated_at: 2026-08-29 01:16:37 +0400
 relations:
   child_of:
     - CAPRMEDIO-META-REQU-714
@@ -20,4 +20,4 @@ projection:
 ---
 # Encode Scope Unit Type independently from parent ownership
 
-GOVERNANCE MUST encode a Scope Unit's Scope Unit Type independently from its structural-parent relation.
+GOVERNANCE **must** encode a Scope Unit's Scope Unit Type independently from its structural-parent relation.
