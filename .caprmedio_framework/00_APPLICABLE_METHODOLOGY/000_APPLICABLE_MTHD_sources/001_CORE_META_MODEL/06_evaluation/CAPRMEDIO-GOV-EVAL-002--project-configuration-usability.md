@@ -3,11 +3,11 @@ cce_version: cce_1
 cce_form: evaluation
 artifact_subtype: qa_case
 subjects:
-  declared:
+  governs:
     occurrent:
       - evaluation
-version: 7
-updated_at: 2026-08-23 15:00:38
+version: 9
+updated_at: 2026-08-29 02:40:41 +0400
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -24,16 +24,16 @@ relations:
 
 ## Claim checked
 
-An operator unfamiliar with the repository can configure reporting mode, artifact strictness, and one enabled artifact Type using only the Project Configuration Atom and its in-file documentation, while recognizing the Project Scope Unit Graph as a read-only derived view.
+An operator unfamiliar with the repository can configure reporting mode, artifact strictness, **and** one enabled artifact Type using **only** the Project Configuration Atom **and** its in-file documentation, while recognizing the Project Scope Unit Graph as a read-only derived view.
 
 ## Applicable conditions
 
-The operator has no undocumented framework knowledge and MUST NOT edit the framework catalog.
+The operator has no undocumented framework knowledge **and** **must not** edit the framework catalog.
 
 ## Acceptance criteria
 
-Every intended change is made through Project Configuration, and at least 90% of classifications correctly distinguish project choices from methodology definitions.
+**every** intended change is made through Project Configuration, **and** **`>=90`**% of classifications correctly distinguish project choices from methodology definitions.
 
 ## Failure disposition
 
-Record a Concern for every misleading or missing setting instruction and stop settings-usability readiness until it is corrected.
+Record a Concern for **every** misleading **or** missing setting instruction **and** stop settings-usability readiness **until** it is corrected.
