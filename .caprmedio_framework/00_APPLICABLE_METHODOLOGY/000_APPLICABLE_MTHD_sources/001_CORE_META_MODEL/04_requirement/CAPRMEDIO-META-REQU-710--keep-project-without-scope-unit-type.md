@@ -1,19 +1,19 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
       - scope-topology
-  prerequisite:
+  depends_on:
     continuant:
       - artifact-model
 cce_version: cce_1
 cce_form: prohibition
-version: 8
-updated_at: 2026-08-23 15:24:07
+version: 11
+updated_at: 2026-08-29 04:33:13 +0400
 relations:
   child_of:
     - CAPRMEDIO-META-REQU-708
 ---
-# Keep the Project outside sibling Scope Unit Types
+# Give the Project No Type Value
 
-THE Project Scope Unit MUST NOT have a parent Scope Unit or a Scope Unit Type.
+the Project Scope Unit **must** have no parent Scope Unit **and** **`=0`** Type values.
