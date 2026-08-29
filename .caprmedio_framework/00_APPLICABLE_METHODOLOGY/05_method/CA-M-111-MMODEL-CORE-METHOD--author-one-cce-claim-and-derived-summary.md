@@ -1,26 +1,28 @@
 ---
+atom_id: CA-M-111
 subjects:
-  declared:
+  governs:
+    occurrent:
+      - Atom Claim Authoring
+  depends_on:
     continuant:
-      - language
-  prerequisite:
-    continuant:
-      - artifact-model
-      - cce-language
+      - Claim
+      - Claim Scope
+      - CCE
+      - Summary
 cce_version: cce_1
 cce_form: method
-version: 6
-updated_at: 2026-08-23 15:24:07
-relations:
-  child_of:
-    - CA-R-918
+version: 8
+updated_at: 2026-08-29 01:16:37 +0400
+relations: {}
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/05_method/CA-M-111-MMODEL-CORE-METHOD--author-one-cce-claim-and-derived-summary.md
 ---
 # Author one CCE Claim and derived Summary
 
-TO author one CAPRMEDIO Atom Claim, the Author MUST PERFORM ALL OF:
+**to** author one CAPRMEDIO Atom Claim, the Author **must** perform **all** of:
 
-1. Write exactly one authority-bearing Claim in human-readable CAPRMEDIO Controlled English.
-2. Use one registered statement form with one precise interpretation.
-3. Derive the H1, Summary, filename Summary slug, and any Translation from the Claim.
+1. write **`=1`** independently replaceable Claim **in** CAPRMEDIO Controlled English.
+2. assign **`=1`** atomic **or** composite Claim Scope.
+3. derive one concise Summary from the complete Claim **and** Claim Scope.
+4. derive **every** Translation from the complete Claim **and** Claim Scope rather than from the Summary.
