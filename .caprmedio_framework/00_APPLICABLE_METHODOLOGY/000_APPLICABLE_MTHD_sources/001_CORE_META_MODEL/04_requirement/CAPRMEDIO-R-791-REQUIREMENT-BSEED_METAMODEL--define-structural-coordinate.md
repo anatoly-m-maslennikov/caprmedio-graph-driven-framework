@@ -1,12 +1,15 @@
 ---
 subjects:
-  declared:
+  governs:
+    continuant:
+      - Structural Coordinate
+  depends_on:
     continuant:
       - scope-topology
 cce_version: cce_1
 cce_form: definition
-version: 4
-updated_at: 2026-08-23 15:00:38
+version: 6
+updated_at: 2026-08-29 02:40:41 +0400
 relations:
   child_of:
     - CAPRMEDIO-META-REQU-679
@@ -14,4 +17,4 @@ relations:
 ---
 # Define Structural Coordinate
 
-Structural Coordinate MEANS a derived locator containing one Scope Unit's Structural Level and its Local Order when that Scope Unit is a Layer.
+Structural Coordinate **means** a derived locator containing one Scope Unit's Structural Level **and** its Local Order **when** that Scope Unit is a Layer.
