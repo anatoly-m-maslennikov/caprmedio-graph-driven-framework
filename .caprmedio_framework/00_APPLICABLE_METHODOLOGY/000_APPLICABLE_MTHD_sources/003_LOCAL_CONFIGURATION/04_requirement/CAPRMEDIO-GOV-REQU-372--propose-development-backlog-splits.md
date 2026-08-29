@@ -2,13 +2,18 @@
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  declared:
+  governs:
     occurrent:
-      - interaction
+      - Development Backlog Splitting
+  depends_on:
+    continuant:
+      - Development Backlog
+      - Epic
+      - Operator
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
-version: 6
-updated_at: 2026-08-23 15:00:38
+version: 8
+updated_at: 2026-08-29 01:16:37 +0400
 relations:
   child_of:
     - CAPRMEDIO-META-REQU-139--classify-development-backlog-as-epic
@@ -16,4 +21,4 @@ relations:
 ---
 # Propose Development Backlog splits
 
-GOVERNANCE MUST propose splitting a Development Backlog Epic that contains more than fifty Task Atoms into narrower ordered Epic Atoms and MAY apply the split only after Operator approval.
+**if** a Development Backlog Epic **contains** more than fifty Task Atoms, **then** Governance **must** propose narrower ordered Epics **and** **may** apply the split **only** **after** Operator approval.
