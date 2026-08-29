@@ -1,18 +1,16 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
-      - relation-model
-  prerequisite:
+      - "Atom/Content Role: Requirement/Type: Job/Claim Scope"
+  depends_on:
     continuant:
-      - scope-topology
-      - artifact-model
-      - atom-boundary
+      - Project
 atom_id: CA-R-946
 cce_version: cce_1
 cce_form: obligation
-version: 5
-updated_at: 2026-08-26 15:38:45 +0400
+version: 7
+updated_at: 2026-08-29 01:16:37 +0400
 relations:
   child_of:
     - CA-R-927
@@ -22,4 +20,4 @@ projection:
 ---
 # Resolve external Job Claim Scope exactly
 
-EVERY Job Atom with an empty Current Scope MUST identify its Claim Scope by the exact registered Project name.
+**every** Job Atom with an empty Current Scope **must** identify its Project Claim Scope by the exact registered Project name.
