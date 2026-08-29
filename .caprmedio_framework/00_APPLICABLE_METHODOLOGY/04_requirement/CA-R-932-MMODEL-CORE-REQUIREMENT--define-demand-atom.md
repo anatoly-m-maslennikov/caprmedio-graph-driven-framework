@@ -1,17 +1,18 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
-      - relation-model
-  prerequisite:
+      - "Atom/Content Role: Requirement/Type: Demand"
+  depends_on:
     continuant:
-      - artifact-model
-      - atom-boundary
+      - Relational Atom
+      - Consumer
+      - Producer
 atom_id: CA-R-932
 cce_version: cce_1
 cce_form: definition
-version: 4
-updated_at: 2026-08-23 15:24:07
+version: 6
+updated_at: 2026-08-29 01:16:37 +0400
 relations:
   replacement_of:
     - CA-R-900
@@ -24,4 +25,4 @@ projection:
 ---
 # Define Demand Atom
 
-Demand Atom MEANS a Relational Requirement Atom with Type Demand that is owned by a Consumer Current Scope and directed to a Producer Claim Scope.
+a Demand Atom **means** a Relational Atom with Content Role Requirement **and** Type Demand that is owned by its Consumer Current Scope **and** constrains its Producer Claim Scope.
