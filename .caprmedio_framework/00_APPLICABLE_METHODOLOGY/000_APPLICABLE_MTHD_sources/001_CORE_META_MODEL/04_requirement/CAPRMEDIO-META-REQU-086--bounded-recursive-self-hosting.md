@@ -2,11 +2,11 @@
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  declared:
+  governs:
     continuant:
       - framework-boundary
-version: 6
-updated_at: 2026-08-23 15:00:38
+version: 8
+updated_at: 2026-08-29 02:40:41 +0400
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -21,6 +21,6 @@ relations:
 
 ## Primary claim
 
-CAPRMEDIO applies the same structural constitution and governance semantics to its own repository while keeping native reusable framework source, project authority, and non-authoritative convenience locators under distinct owners.
+CAPRMEDIO applies the same structural constitution **and** governance semantics to its own repository while keeping native reusable framework source, project authority, **and** non-authoritative convenience locators under distinct owners.
 
-The recursion terminates because project-local authority governs the selected framework revision while convenience symlinks expose that one native source without creating copied authority, an additional governance owner, or a live authority cycle.
+The recursion terminates because project-local authority governs the selected framework revision while convenience symlinks expose that one native source **without** creating copied authority, an additional governance owner, **or** a live authority cycle.
