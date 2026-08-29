@@ -1,14 +1,14 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
       - cce-language
     occurrent:
       - evaluation
 cce_version: cce_1
 cce_form: method
-version: 2
-updated_at: 2026-08-25 01:20:06
+version: 3
+updated_at: 2026-08-29 02:40:41 +0400
 relations: {}
 ---
 # Evaluate condition expressions
