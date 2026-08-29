@@ -9,8 +9,8 @@ subjects:
       - atom-boundary
 cce_version: cce_1
 cce_form: obligation
-version: 6
-updated_at: 2026-08-23 15:24:07
+version: 7
+updated_at: 2026-08-29 01:16:37 +0400
 relations:
   child_of:
     - CA-R-833-REQUIREMENT--organize-normative-authority-as-an-acyclic-hierarchy
@@ -19,4 +19,4 @@ projection:
 ---
 # Validate the normative-authority hierarchy
 
-GOVERNANCE validators MUST construct the active normative-authority subgraph from registered authority-bearing direct relations and MUST reject the subgraph when any authority edge lacks registered typing or the directed subgraph contains a cycle.
+GOVERNANCE validators **must** construct the active normative-authority subgraph from registered authority-bearing direct relations **and** **must** reject the subgraph **when** **any** authority edge lacks registered typing **or** the directed subgraph **contains** a cycle.
