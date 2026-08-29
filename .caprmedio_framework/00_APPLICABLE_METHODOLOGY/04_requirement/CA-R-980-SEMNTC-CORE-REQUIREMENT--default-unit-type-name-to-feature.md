@@ -9,8 +9,8 @@ subjects:
 atom_id: CA-R-980
 cce_version: cce_1
 cce_form: obligation
-version: 4
-updated_at: 2026-08-23 15:24:07
+version: 5
+updated_at: 2026-08-29 01:16:37 +0400
 relations:
   child_of:
     - CA-R-972
@@ -19,4 +19,4 @@ projection:
 ---
 # Default Unit Type Name to FEATURE
 
-EVERY non-Project Scope Unit MUST use `FEATURE` as its default Unit Type Name.
+**every** non-Project Scope Unit **must** use `FEATURE` as its default Unit Type Name.
