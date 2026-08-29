@@ -1,18 +1,17 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
-      - relation-model
-  prerequisite:
+      - "Atom/Content Role: Requirement/Type: Job/Claim Scope"
+  depends_on:
     continuant:
-      - scope-topology
-      - artifact-model
-      - atom-boundary
+      - Scope Unit/Parent
+      - Project
 atom_id: CA-R-947
 cce_version: cce_1
 cce_form: obligation
-version: 5
-updated_at: 2026-08-26 15:38:45 +0400
+version: 9
+updated_at: 2026-08-29 04:33:13 +0400
 relations:
   child_of:
     - CA-R-925
@@ -21,4 +20,4 @@ relations:
 ---
 # Validate Job Claim Scope
 
-GOVERNANCE MUST require a Job Claim Scope to be the direct child of its Current Scope or the Project Scope Unit when the Current Scope is empty.
+a Job Atom Claim Scope **must** be the direct child of its Current Scope **or** the Project Scope Unit **when** Current Scope **is empty**.
