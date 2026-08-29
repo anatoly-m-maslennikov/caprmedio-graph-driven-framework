@@ -1,22 +1,21 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
-      - relation-model
-  prerequisite:
+      - "Atom/Content Role: Requirement/Type"
+  depends_on:
     continuant:
-      - artifact-model
-      - atom-boundary
+      - Relational Atom
 atom_id: CA-R-747
 cce_version: cce_1
 cce_form: obligation
-version: 12
-updated_at: 2026-08-26 15:38:45 +0400
+version: 15
+updated_at: 2026-08-29 04:33:13 +0400
 relations:
   child_of:
     - CA-R-923
     - CA-R-924
 ---
-# Register Job and Demand as Relational Requirement Types
+# Register Job and Demand as Type Values for Relational Requirement Atoms
 
-GOVERNANCE MUST register `job` with filename token `DEFINES_JOB_FOR` and `demand` with filename token `DEMANDS_FROM` as the only Relational Requirement Atom Types.
+the Core contribution to allowed values of `Atom/Content Role: Requirement/Type` for Relational Atoms **must** be exactly (Job, Demand).
