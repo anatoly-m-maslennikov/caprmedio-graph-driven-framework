@@ -5,8 +5,8 @@ subjects:
   declared:
     continuant:
       - method
-version: 4
-updated_at: 2026-08-23 15:00:38
+version: 5
+updated_at: 2026-08-29 01:16:37 +0400
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -18,4 +18,4 @@ projection:
 ---
 # Converge Method authority to Implementation Methods
 
-CAPRMEDIO MUST progressively absorb Implementation Decisions into Implementation Methods until no active Method Standard remains, archiving each Decision only after its necessary governed meaning is preserved by active Core authority.
+CAPRMEDIO **must** progressively absorb Implementation Decisions into Implementation Methods **until** no active Method Standard remains, archiving **every** Decision **only** **after** its necessary governed meaning is preserved by active Core authority.
