@@ -6,8 +6,8 @@ subjects:
     continuant:
       - extension-model
 tier: core
-version: 7
-updated_at: 2026-08-23 15:00:38
+version: 8
+updated_at: 2026-08-29 01:16:37 +0400
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -18,4 +18,4 @@ projection:
 ---
 # Govern Project Adaptation semantics
 
-A Project Adaptation is project-owned PRMEDO authority that adds, specializes, narrows, or prohibits capabilities for one Project without modifying the Canonical Framework or Extension authority it adapts.
+A Project Adaptation is project-owned PRMEDO authority that adds, specializes, narrows, **or** prohibits capabilities for one Project **without** modifying the Canonical Framework **or** Extension authority it adapts.
