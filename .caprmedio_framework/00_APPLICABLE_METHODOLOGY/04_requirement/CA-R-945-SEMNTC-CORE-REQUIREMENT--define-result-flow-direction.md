@@ -1,16 +1,17 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
-      - relation-model
-  prerequisite:
+      - Producer Result/Flow Direction
+  depends_on:
     continuant:
-      - atom-boundary
+      - Producer
+      - Consumer
 atom_id: CA-R-945
 cce_version: cce_1
 cce_form: definition
-version: 4
-updated_at: 2026-08-23 15:24:07
+version: 5
+updated_at: 2026-08-28 22:31:24 +0400
 relations:
   replacement_of:
     - CA-R-876
@@ -21,4 +22,4 @@ projection:
 ---
 # Define result-flow direction
 
-Result-flow direction MEANS from Producer Claim Scope to Consumer Current Scope.
+Producer result flow direction **means** from Producer Claim Scope to Consumer Current Scope.
