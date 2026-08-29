@@ -1,15 +1,15 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
       - relation-model
-  prerequisite:
+  depends_on:
     continuant:
       - atom-boundary
 cce_version: cce_1
 cce_form: obligation
-version: 6
-updated_at: 2026-08-23 15:24:07
+version: 8
+updated_at: 2026-08-29 02:40:41 +0400
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -18,4 +18,4 @@ relations:
 ---
 # Derive inverse structural ownership
 
-CAPRMEDIO MUST derive the inverse `structural_children` view from stored `structural_parent` relations and MUST NOT persist that inverse separately.
+CAPRMEDIO **must** derive the inverse `structural_children` view from stored `structural_parent` relations **and** **must not** persist that inverse separately.
