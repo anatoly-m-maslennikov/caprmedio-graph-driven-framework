@@ -2,11 +2,11 @@
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  declared:
+  governs:
     continuant:
       - applicability
-version: 6
-updated_at: 2026-08-23 15:00:38
+version: 8
+updated_at: 2026-08-29 02:40:41 +0400
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -16,4 +16,4 @@ relations:
 ---
 # Restrict Implementation Decisions to Standard tier
 
-GOVERNANCE admits an `implementation_decision` Atom only at the Standard applicability tier of its Structural scope.
+GOVERNANCE admits an `implementation_decision` Atom **only** at the Standard applicability tier of its Structural scope.
