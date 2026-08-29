@@ -2,11 +2,11 @@
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  declared:
+  governs:
     occurrent:
       - lifecycle
-version: 8
-updated_at: 2026-08-23 15:00:38
+version: 10
+updated_at: 2026-08-29 02:40:41 +0400
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -20,12 +20,12 @@ relations:
 ---
 # Gate atomic admission and promotion
 
-The Project Configuration Atom selects `medium` or `high` through `artifacts.creation_strictness`; the default is `medium`.
+The Project Configuration Atom selects `medium` **or** `high` through `artifacts.creation_strictness`; the default is `medium`.
 
-At medium strictness, CAPRMEDIO requires accepted authority, one primary claim, one enabled artifact type, owning scope, creation provenance, material relations, priority, and sufficient precision to establish a stable artifact identity and initial committed revision. Optional non-authoritative context MAY remain explicitly unknown.
+At medium strictness, CAPRMEDIO requires accepted authority, one primary claim, one enabled artifact type, owning scope, creation provenance, material relations, priority, **and** sufficient precision to establish a stable artifact identity **and** initial committed revision. Optional non-authoritative context **may** remain explicitly unknown.
 
-At high strictness, CAPRMEDIO stops before emission while any material authority, meaning, boundary, classification, scope, lineage, conflict, or evaluation question remains ambiguous. It asks focused questions until the atom meets the same one-primary-claim identity standard.
+At high strictness, CAPRMEDIO stops **before** emission while **any** material authority, meaning, boundary, classification, scope, lineage, conflict, **or** evaluation question remains ambiguous. It asks focused questions **until** the atom meets the same one-primary-claim identity standard.
 
-Both levels assess one-step promotion eligibility. Promotion is proposed only when the claim applies unchanged at the broader enabled scope and always requires explicit operator acceptance.
+the two levels assess one-step promotion eligibility. Promotion is proposed **only** **when** the claim applies unchanged at the broader enabled scope **and** always requires explicit operator acceptance.
 
-Admission does not prohibit later same-ID revisions. Every later change passes the atomic change-class gate; changing the primary claim identity requires a replacement.
+Admission does **not** prohibit later same-ID revisions. **every** later change passes the atomic change-class gate; changing the primary claim identity requires a replacement.
