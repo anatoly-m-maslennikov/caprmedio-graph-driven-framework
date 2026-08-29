@@ -1,16 +1,16 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
       - relation-model
-  prerequisite:
+  depends_on:
     continuant:
       - atom-boundary
 atom_id: CA-R-885
 cce_version: cce_1
 cce_form: obligation
-version: 8
-updated_at: 2026-08-23 15:24:07
+version: 10
+updated_at: 2026-08-29 02:40:41 +0400
 relations:
   child_of:
     - CA-R-944
@@ -18,4 +18,4 @@ relations:
 ---
 # Store depends on from Consumer to Producer
 
-EVERY stored `depends_on` relation MUST point from its Consumer owner to its Producer target.
+**every** stored `depends_on` relation **must** point from its Consumer owner to its Producer target.
