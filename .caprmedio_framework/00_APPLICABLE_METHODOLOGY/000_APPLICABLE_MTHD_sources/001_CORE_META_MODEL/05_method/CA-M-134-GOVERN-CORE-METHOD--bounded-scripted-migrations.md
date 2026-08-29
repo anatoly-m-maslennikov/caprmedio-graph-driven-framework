@@ -1,20 +1,18 @@
 ---
+atom_id: CA-M-134
 cce_version: cce_1
 cce_form: method
 subjects:
-  declared:
+  governs:
+    occurrent:
+      - Scripted Migration
+  depends_on:
     continuant:
-      - methodology
-version: 10
-updated_at: 2026-08-23 15:00:38
-llm_session_ids:
-  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
-relations:
-  method_for:
-    - CA-R-1050
-  child_of:
-    - CA-R-1054
+      - Target Set
+version: 13
+updated_at: 2026-08-29 02:40:41 +0400
+relations: {}
 ---
-# Bounded scripted migrations
+# Bound Scripted Migrations
 
-A migration script MUST be scoped to named carriers or exact patterns, fail when an expected source pattern is absent, and leave reviewable repository diffs. It does not rewrite immutable atomic artifacts unless a separately accepted carrier migration explicitly authorizes that transformation.
+**to** perform a Scripted Migration, the Agent **must** bind it to an exact governed Target Set, fail **when** an expected target is absent, **and** produce a reviewable change set.
