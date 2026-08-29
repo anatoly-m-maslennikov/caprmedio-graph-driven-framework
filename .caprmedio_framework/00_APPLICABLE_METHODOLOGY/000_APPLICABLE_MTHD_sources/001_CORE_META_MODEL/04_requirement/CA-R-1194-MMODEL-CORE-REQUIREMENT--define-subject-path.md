@@ -8,12 +8,12 @@ subjects:
       - Subject Path
   depends_on:
     continuant:
-      - Entity/Base Entity
-      - Entity/Dependent Entity
-version: 1
-updated_at: 2026-08-27 00:50:08 +0400
+      - Subject Expression
+      - Term
+version: 4
+updated_at: 2026-08-29 02:40:41 +0400
 relations: {}
 ---
 # Define Subject Path
 
-a Subject Path **means** one ordered Entity Path that starts with exactly one Base Entity and continues with zero or more Dependent Entities separated by `/`.
+a Subject Path **means** one canonical Subject Expression whose ordered Term occurrences **and** direct Term-System Relations identify **`=1`** Subject.
