@@ -9,8 +9,8 @@ subjects:
   prerequisite:
     continuant:
       - atom-boundary
-version: 6
-updated_at: 2026-08-23 15:24:07
+version: 7
+updated_at: 2026-08-29 01:16:37 +0400
 relations:
   child_of:
     - CA-R-1054
@@ -19,4 +19,4 @@ projection:
 ---
 # Defer the replacement relation pair
 
-GOVERNANCE MUST NOT realize formal `replaced_by` or `replacement_of` relations UNTIL separate authority admits that relation pair. Before separate authority admits the relation pair, EVERY replacement event MUST record explicit predecessor and successor Atom IDs only in the archival Journal event and MUST NOT create direct relation payloads or inverse views.
+GOVERNANCE **must not** realize formal `replaced_by` **or** `replacement_of` relations **until** separate authority admits that relation pair. **before** separate authority admits the relation pair, **every** replacement event **must** record explicit predecessor **and** successor Atom IDs **only** **in** the archival Journal event **and** **must not** create direct relation payloads **or** inverse views.
