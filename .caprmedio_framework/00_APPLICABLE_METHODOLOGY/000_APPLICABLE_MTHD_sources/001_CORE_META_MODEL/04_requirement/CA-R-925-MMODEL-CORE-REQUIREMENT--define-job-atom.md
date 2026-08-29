@@ -1,17 +1,17 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
-      - relation-model
-  prerequisite:
+      - "Atom/Content Role: Requirement/Type: Job"
+  depends_on:
     continuant:
-      - artifact-model
-      - atom-boundary
+      - Relational Atom
+      - Scope Unit/Job
 atom_id: CA-R-925
 cce_version: cce_1
 cce_form: definition
-version: 5
-updated_at: 2026-08-26 15:38:45 +0400
+version: 9
+updated_at: 2026-08-29 04:33:13 +0400
 relations:
   replacement_of:
     - CA-R-801
@@ -21,4 +21,4 @@ relations:
 ---
 # Define Job Atom
 
-Job Atom MEANS a Relational Requirement Atom with Type Job that defines one enduring result or responsibility for its Claim Scope.
+a Job Atom **means** a Relational Atom with Content Role Requirement **and** Type Job whose Claim establishes one Job for its Claim Scope.
