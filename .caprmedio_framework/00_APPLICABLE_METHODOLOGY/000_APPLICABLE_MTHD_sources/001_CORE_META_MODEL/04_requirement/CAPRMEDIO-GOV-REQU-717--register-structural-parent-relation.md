@@ -1,15 +1,16 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
-      - relation-model
-  prerequisite:
+      - Structural Parent Relation
+  depends_on:
     continuant:
       - atom-boundary
+      - relation-model
 cce_version: cce_1
 cce_form: definition
-version: 5
-updated_at: 2026-08-23 15:24:07
+version: 7
+updated_at: 2026-08-29 02:40:41 +0400
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -22,4 +23,4 @@ relations:
 ---
 # Register structural parent relation
 
-GOVERNANCE MUST register `structural_parent` as the kind-independent Structural ownership relation stored by a child and directed to its immediate parent.
+GOVERNANCE **must** register `structural_parent` as the kind-independent Structural ownership relation stored by a child **and** directed to its immediate parent.
