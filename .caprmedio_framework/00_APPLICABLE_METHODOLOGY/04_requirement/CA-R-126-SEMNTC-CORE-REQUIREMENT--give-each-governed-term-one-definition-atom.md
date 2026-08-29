@@ -10,8 +10,8 @@ subjects:
 atom_id: CA-R-126
 cce_version: cce_1
 cce_form: cardinality
-version: 6
-updated_at: 2026-08-23 15:24:07
+version: 7
+updated_at: 2026-08-29 01:16:37 +0400
 relations:
   child_of:
     - CA-R-918
@@ -21,4 +21,4 @@ projection:
 ---
 # Give each governed term one Definition Atom
 
-EVERY CAPRMEDIO-specific governed term MUST resolve to EXACTLY ONE active Definition Atom in its applicable Claim Scope.
+**every** CAPRMEDIO-specific governed term **must** resolve to **`=1`** active Definition Atom **in** its applicable Claim Scope.
