@@ -12,8 +12,8 @@ subjects:
 atom_id: CA-R-877
 cce_version: cce_1
 cce_form: obligation
-version: 9
-updated_at: 2026-08-26 15:38:45 +0400
+version: 10
+updated_at: 2026-08-29 01:16:37 +0400
 relations:
   child_of:
     - CA-R-923
@@ -24,4 +24,4 @@ projection:
 ---
 # Validate Relational Requirement Atoms
 
-GOVERNANCE MUST reject every Relational Atom that is not a Requirement Atom of Type `job` or `demand`.
+GOVERNANCE **must** reject **every** Relational Atom that is **not** a Requirement Atom of Type `job` **or** `demand`.
