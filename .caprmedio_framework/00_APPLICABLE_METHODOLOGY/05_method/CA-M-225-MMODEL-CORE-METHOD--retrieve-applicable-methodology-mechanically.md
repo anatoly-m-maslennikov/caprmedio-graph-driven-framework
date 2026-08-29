@@ -8,14 +8,14 @@ subjects:
       - Applicable Methodology Retrieval
   depends_on:
     continuant:
-      - Applicable Methodology/Compilation Output
-      - Applicable Methodology/Compilation Output/Subject Index
-version: 2
-updated_at: 2026-08-27 20:40:00 +0400
+      - Applicable Methodology
+      - Atom/Claim/Subject Relation
+version: 4
+updated_at: 2026-08-29 01:16:37 +0400
 relations: {}
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/05_method/CA-M-225-MMODEL-CORE-METHOD--retrieve-applicable-methodology-mechanically.md
 ---
 # Retrieve Applicable Methodology Mechanically
 
-to retrieve Applicable Methodology for one Subject or Process query, the Retriever **must** derive GOVERNS and DEPENDS_ON indexes on demand from the generated projected Atom Carriers, select matching GOVERNS paths, add DEPENDS_ON authority only through transitive prerequisite closure, retain compilation output order, store no Index Carrier, and return no Atom **if** no matching GOVERNS path exists.
+**to** retrieve Applicable Methodology for one Subject **or** Process query, the Retriever **must** derive GOVERNS **and** DEPENDS_ON indexes on demand from projected Atom relations, select matching GOVERNS paths, add DEPENDS_ON authority **only** through transitive prerequisite closure, retain Applicable Methodology membership order, make no inference, **and** return no Atom **if** no matching GOVERNS path exists.
