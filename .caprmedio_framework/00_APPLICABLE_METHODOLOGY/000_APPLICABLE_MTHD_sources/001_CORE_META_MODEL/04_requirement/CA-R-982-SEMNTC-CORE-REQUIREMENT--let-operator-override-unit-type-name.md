@@ -1,18 +1,18 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
       - scope-topology
     occurrent:
       - interaction
-  prerequisite:
+  depends_on:
     continuant:
       - artifact-model
 atom_id: CA-R-982
 cce_version: cce_1
 cce_form: permission
-version: 4
-updated_at: 2026-08-23 15:24:07
+version: 6
+updated_at: 2026-08-29 02:40:41 +0400
 relations:
   child_of:
     - CA-R-972
@@ -20,4 +20,4 @@ relations:
 ---
 # Let the Operator override Unit Type Name
 
-THE Operator MAY replace the default Unit Type Name independently for each non-Project Scope Unit.
+THE Operator **may** replace the default Unit Type Name independently for **every** non-Project Scope Unit.
