@@ -1,17 +1,17 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
       - relation-model
-  prerequisite:
+  depends_on:
     continuant:
       - scope-topology
       - artifact-model
       - atom-boundary
 cce_version: cce_1
 cce_form: separation
-version: 8
-updated_at: 2026-08-29 04:33:13 +0400
+version: 9
+updated_at: 2026-08-29 09:18:56 +0400
 relations:
   child_of:
     - CAPRMEDIO-META-REQU-709
