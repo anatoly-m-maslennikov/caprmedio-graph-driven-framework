@@ -2,11 +2,11 @@
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  declared:
+  governs:
     continuant:
       - artifact-model
-version: 4
-updated_at: 2026-08-23 15:00:38
+version: 6
+updated_at: 2026-08-29 02:40:41 +0400
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -18,10 +18,10 @@ relations:
 ---
 # Requirement — Create Rationale after its subject
 
-A Rationale is an Analysis Atom created only after every specification Atom it explains already exists. The Rationale stores the directed relation to its subjects; specification Atoms contain neither embedded rationale nor persisted rationale backlinks.
+A Rationale is an Analysis Atom created **only** **after** **every** specification Atom it explains already exists. The Rationale stores the directed relation to its subjects; specification Atoms contain **none** of (embedded Rationale, persisted Rationale backlink).
 
-Rationale is explanatory rather than normative. Changing an obligation, boundary, Method, Evaluation condition, Delivery rule, or acceptance meaning requires a new applicable specification Atom rather than a Rationale.
+Rationale is explanatory rather than normative. Changing an obligation, boundary, Method, Evaluation condition, Delivery rule, **or** acceptance meaning requires a new applicable specification Atom rather than a Rationale.
 
 ## Primary claim
 
-A Rationale follows and points to its pre-existing specification subjects without modifying them.
+A Rationale follows **and** points to its pre-existing specification subjects **without** modifying them.
