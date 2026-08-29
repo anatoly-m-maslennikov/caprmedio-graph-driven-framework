@@ -9,10 +9,10 @@ subjects:
   depends_on:
     continuant:
       - Applicable Methodology/Sources
-version: 1
-updated_at: 2026-08-27 00:26:21 +0400
+version: 3
+updated_at: 2026-08-29 02:40:41 +0400
 relations: {}
 ---
 # Preserve Installed Extension Revisions as Candidate Inputs
 
-INSTALLED_EXTENSIONS **must** preserve exact installed Extension source revisions and their provenance as immutable candidate inputs to methodology compilation without activating or modifying them.
+INSTALLED_EXTENSIONS **must** preserve exact installed Extension source revisions **and** their provenance as immutable candidate inputs to methodology compilation **without** activating **or** modifying them.
