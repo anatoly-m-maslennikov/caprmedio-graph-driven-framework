@@ -5,16 +5,16 @@ cce_form: separation
 subjects:
   governs:
     continuant:
-      - Atom/Local Tier/CORE
+      - "Atom/Local Tier: Core"
   depends_on:
     continuant:
       - Applicable Methodology/Sources/CORE_META_MODEL
-version: 1
-updated_at: 2026-08-27 03:16:48 +0400
+version: 3
+updated_at: 2026-08-29 01:16:37 +0400
 relations: {}
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1234-MMODEL-CORE-REQUIREMENT--distinguish-core-local-tier-from-core-meta-model-source-layer.md
 ---
 # Distinguish CORE Local Tier from CORE_META_MODEL Source Layer
 
-the Local Tier CORE and the Source Layer CORE_META_MODEL **are** independent coordinates.
+the Local Tier Core **and** the named Source Layer CORE_META_MODEL **must** remain independent coordinates.
