@@ -1,17 +1,17 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
       - scope-topology
-  prerequisite:
+  depends_on:
     continuant:
       - authority
       - atom-boundary
 atom_id: CA-R-718
 cce_version: cce_1
 cce_form: prohibition
-version: 6
-updated_at: 2026-08-23 15:24:07
+version: 8
+updated_at: 2026-08-29 02:40:41 +0400
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -21,4 +21,4 @@ relations:
 ---
 # Separate Structural ownership from cross-unit flow
 
-A cross-unit flow relation MUST NOT change the Structural ownership of either participating Scope Unit.
+A cross-unit flow relation **must not** change the Structural ownership of **any** participating Scope Unit.
