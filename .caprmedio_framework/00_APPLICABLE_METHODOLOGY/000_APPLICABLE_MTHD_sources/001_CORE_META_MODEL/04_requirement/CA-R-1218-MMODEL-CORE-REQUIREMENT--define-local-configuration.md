@@ -10,10 +10,10 @@ subjects:
     continuant:
       - Project
       - Extension
-version: 1
-updated_at: 2026-08-27 00:50:08 +0400
+version: 3
+updated_at: 2026-08-29 02:40:41 +0400
 relations: {}
 ---
 # Define Local Configuration
 
-the Local Configuration **means** the Project-owned authority that selects and resolves Methodology Sources for one current Project.
+the Local Configuration **means** the Project-owned authority that selects **and** resolves Methodology Sources for one current Project.
