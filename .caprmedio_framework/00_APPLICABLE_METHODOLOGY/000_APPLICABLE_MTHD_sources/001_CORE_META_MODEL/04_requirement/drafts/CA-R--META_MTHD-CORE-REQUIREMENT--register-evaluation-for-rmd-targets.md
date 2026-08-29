@@ -1,16 +1,17 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
+      - Evaluation For Relation Applicability
+  depends_on:
+    continuant:
+      - "Atom/Content Role: Evaluation"
+      - Atom/Content Role
       - evaluation-for-relation
-  prerequisite:
-    continuant:
-      - evaluation-atom
-      - content-role
 cce_version: cce_1
 cce_form: definition
-version: 1
-updated_at: 2026-08-25 03:57:11
+version: 2
+updated_at: 2026-08-29 02:40:41 +0400
 relations:
   replacement_of:
     - CA-R-1018
