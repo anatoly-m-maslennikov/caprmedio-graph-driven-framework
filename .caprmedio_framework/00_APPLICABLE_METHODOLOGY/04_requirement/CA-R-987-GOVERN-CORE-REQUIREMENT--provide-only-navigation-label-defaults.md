@@ -6,8 +6,8 @@ subjects:
 atom_id: CA-R-987
 cce_version: cce_1
 cce_form: obligation
-version: 3
-updated_at: 2026-08-23 15:00:38
+version: 4
+updated_at: 2026-08-29 01:16:37 +0400
 relations:
   child_of:
     - CA-R-980
@@ -19,4 +19,4 @@ projection:
 ---
 # Provide only navigation-label defaults
 
-GOVERNANCE MUST provide default Unit Type Name and Navigational Order Number values without fixing their effective values for individual Scope Units.
+GOVERNANCE **must** provide default Unit Type Name **and** Navigational Order Number values **without** fixing their effective values for individual Scope Units.
