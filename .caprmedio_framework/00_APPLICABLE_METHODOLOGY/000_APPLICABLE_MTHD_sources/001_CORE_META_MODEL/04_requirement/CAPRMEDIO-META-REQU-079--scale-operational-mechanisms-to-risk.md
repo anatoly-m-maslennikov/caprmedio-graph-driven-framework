@@ -2,11 +2,11 @@
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  declared:
+  governs:
     continuant:
       - scope-topology
-version: 4
-updated_at: 2026-08-23 15:00:38
+version: 6
+updated_at: 2026-08-29 02:40:41 +0400
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -17,4 +17,4 @@ relations:
 
 ## Primary claim
 
-CAPRMEDIO requires operational mechanisms to be proportional to explicit failure risk and a declared authoritative-state boundary. It never mandates one recovery or durability mechanism for every project.
+CAPRMEDIO requires operational mechanisms to be proportional to explicit failure risk **and** a declared authoritative-state boundary. It never mandates one recovery **or** durability mechanism for **every** project.
