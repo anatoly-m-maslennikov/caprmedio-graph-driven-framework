@@ -6,8 +6,8 @@ subjects:
   declared:
     occurrent:
       - evaluation
-version: 6
-updated_at: 2026-08-23 15:00:38
+version: 7
+updated_at: 2026-08-29 01:16:37 +0400
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -22,22 +22,22 @@ projection:
 
 ## Claim checked
 
-Every registered relation accepts valid endpoints and rejects unknown kinds, invalid cardinality, and ambiguous active targets.
+**every** registered relation accepts valid endpoints **and** rejects unknown kinds, invalid cardinality, **and** ambiguous active targets.
 
 ## Applicable conditions
 
-1. Admit one valid example of every registered relation kind.
+1. Admit one valid example of **every** registered relation kind.
 2. Reject an unknown relation kind.
-3. Reject a relation without the endpoint cardinality required by its kind.
-4. Resolve every target by active identity and reject zero or multiple active matches.
-5. Confirm an archived target remains addressable as history but does not become active authority.
-6. Confirm each direct relation is persisted only in its registered `declaration_carrier`, and that every inverse remains derived.
-7. Confirm `replaced_by` occurs only in the archival Work Journal event, never in either predecessor or successor Atom frontmatter.
+3. Reject a relation **without** the endpoint cardinality required by its kind.
+4. Resolve **every** target by active identity **and** reject zero **or** multiple active matches.
+5. Confirm an archived target remains addressable as history but does **not** become active authority.
+6. Confirm **every** direct relation is persisted **only** **in** its registered `declaration_carrier`, **and** that **every** inverse remains derived.
+7. Confirm `replaced_by` occurs **only** **in** the archival Work Journal event, **not in** (predecessor **or** successor) Atom frontmatter.
 
 ## Acceptance criteria
 
-All valid examples pass and every invalid fixture fails with the exact relation, endpoint, or declaration carrier identified.
+**all** valid examples pass **and** **every** invalid fixture fails with the exact relation, endpoint, **or** declaration carrier identified.
 
 ## Failure disposition
 
-Record a Concern naming the relation and invalid endpoint behavior and stop relation-schema readiness.
+Record a Concern naming the relation **and** invalid endpoint behavior **and** stop relation-schema readiness.
