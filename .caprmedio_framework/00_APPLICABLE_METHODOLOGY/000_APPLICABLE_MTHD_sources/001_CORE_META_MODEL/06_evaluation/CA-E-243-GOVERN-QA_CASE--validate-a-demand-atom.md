@@ -1,40 +1,32 @@
 ---
 subjects:
-  declared:
-    continuant:
-      - relation-model
+  governs:
     occurrent:
-      - evaluation
-  prerequisite:
+      - Demand Validation
+  depends_on:
     continuant:
-      - artifact-model
-      - atom-boundary
+      - "Atom/Content Role: Requirement/Type: Demand"
 atom_id: CA-E-243
 cce_version: cce_1
 cce_form: evaluation
-version: 6
-updated_at: 2026-08-23 15:24:07
-relations:
-  evaluation_for:
-    - CA-R-950
-    - CA-R-951
-    - CA-R-954
-    - CA-R-955
+version: 10
+updated_at: 2026-08-29 04:33:13 +0400
+relations: {}
 ---
 # Validate a Demand Atom
 
 ## Claim checked
 
-A Demand is owned by a Consumer, targets a permitted Producer Scope, depends on that Producer, and constrains one exact Implementation result only.
+a Demand is owned by its Consumer **and** constrains **only** one Producer result authorized by the Consumer's accepted Job.
 
 ## Test case
 
-Construct one valid Demand across separate branches. Then remove its dependency, target an ancestor or descendant, target two results, target a non-Implementation result, and constrain Producer authority outside the selected result.
+create valid Demands across permitted branches **and** from a later ordered sibling to an earlier ordered sibling. **then** remove the Job-authorized dependency, change ownership, target an ancestor, direct child, deeper descendant, **or** later ordered sibling, target two results, constrain Producer authority outside the selected result, fully define Producer Scope, **and** add a separate Demand-direction relation Kind.
 
 ## Acceptance criteria
 
-Only the fixture with one exact dependency and one exact Implementation result passes.
+**only** fixtures with Consumer ownership, a permitted direction, one exact Job-authorized dependency, one exact Implementation result, **and** no additional direction relation pass.
 
 ## Failure disposition
 
-Record a Concern naming the invalid Demand fact.
+record a Concern naming the invalid Demand fact.
