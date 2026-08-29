@@ -1,17 +1,17 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
       - relation-model
     occurrent:
       - evaluation
-  prerequisite:
+  depends_on:
     occurrent:
       - runtime
 cce_version: cce_1
 cce_form: permission
-version: 3
-updated_at: 2026-08-23 15:24:07
+version: 4
+updated_at: 2026-08-29 02:40:41 +0400
 relations: {}
 ---
 # Allow pre-runtime pass only with complete relation coverage
