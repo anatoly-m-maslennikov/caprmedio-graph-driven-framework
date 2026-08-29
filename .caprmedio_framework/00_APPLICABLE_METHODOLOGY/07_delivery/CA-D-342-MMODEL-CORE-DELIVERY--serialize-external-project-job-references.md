@@ -1,0 +1,20 @@
+---
+atom_id: CA-D-342
+cce_version: cce_1
+cce_form: serialization
+subjects:
+  governs:
+    continuant:
+      - Project Job Atom/Reference
+  depends_on:
+    continuant:
+      - Project Job Atom/Carrier Filename Stem
+version: 2
+updated_at: 2026-08-29 01:16:37 +0400
+relations: {}
+projection:
+  source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-342-MMODEL-CORE-DELIVERY--serialize-external-project-job-references.md
+---
+# Serialize External Project Job References
+
+**every** reference to an external Project Job Atom **without** an Atom ID **must** use its complete current Carrier filename stem.
