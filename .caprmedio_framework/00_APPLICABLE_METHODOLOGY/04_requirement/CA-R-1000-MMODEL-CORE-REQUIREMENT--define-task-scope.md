@@ -1,15 +1,16 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
-      - scope-topology
-    occurrent:
-      - development-flow
+      - "Atom/Content Role: Plan/Type: Task/Scope"
+  depends_on:
+    continuant:
+      - Atom/Claim Scope
 atom_id: CA-R-1000
 cce_version: cce_1
 cce_form: definition
-version: 2
-updated_at: 2026-08-23 15:00:38
+version: 3
+updated_at: 2026-08-28 22:31:24 +0400
 relations:
   child_of:
     - CA-R-921
@@ -18,4 +19,4 @@ projection:
 ---
 # Define Task Scope
 
-Task Scope MEANS the Claim Scope of one Task Atom.
+a Task Scope **means** the Claim Scope of one Task Atom.
