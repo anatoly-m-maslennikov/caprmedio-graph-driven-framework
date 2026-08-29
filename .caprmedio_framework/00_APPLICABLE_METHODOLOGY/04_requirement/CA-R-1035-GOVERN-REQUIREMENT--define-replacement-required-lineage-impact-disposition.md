@@ -9,8 +9,8 @@ subjects:
   prerequisite:
     continuant:
       - atom-boundary
-version: 3
-updated_at: 2026-08-23 15:24:07
+version: 4
+updated_at: 2026-08-29 01:16:37 +0400
 relations:
   child_of:
     - CAPRMEDIO-GOV-REQU-310--lineage-impact-dispositions
@@ -19,4 +19,4 @@ projection:
 ---
 # Define replacement_required Lineage Impact disposition
 
-`replacement_required` MEANS the child requires a successor and archival before traversal continues through every affected descendant.
+`replacement_required` **means** the child requires a successor **and** archival **before** traversal continues through **every** affected descendant.
