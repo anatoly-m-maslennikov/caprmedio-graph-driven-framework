@@ -10,10 +10,10 @@ subjects:
     continuant:
       - Extension
       - Artifact/Revision
-version: 1
-updated_at: 2026-08-27 01:17:55 +0400
+version: 3
+updated_at: 2026-08-29 02:40:41 +0400
 relations: {}
 ---
 # Require Immutable Installed Extension Candidate Provenance
 
-**every** Installed Extensions Catalog Entry **must** identify exactly one immutable Extension Candidate by stable Identity, Version, Author, Source, Source Version, Origin, and Content Digest.
+**every** Installed Extensions Catalog Entry **must** identify **`=1`** immutable Extension Candidate by stable Identity, Version, Author, Source, Source Version, Origin, **and** Content Digest.
