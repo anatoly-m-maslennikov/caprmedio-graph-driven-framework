@@ -3,14 +3,14 @@ atom_id: CA-R-1025
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  declared:
+  governs:
     continuant:
       - relation-model
-  prerequisite:
+  depends_on:
     continuant:
       - atom-boundary
-version: 3
-updated_at: 2026-08-23 15:24:07
+version: 5
+updated_at: 2026-08-29 02:40:41 +0400
 relations:
   child_of:
     - CA-R-151
@@ -18,4 +18,4 @@ relations:
 ---
 # Require authority for new relation meanings
 
-EVERY additional direct relation meaning MUST have separate GOVERNANCE authority instead of reusing a registered relation with a different meaning.
+**every** additional direct relation meaning **must** have separate GOVERNANCE authority instead of reusing a registered relation with a different meaning.
