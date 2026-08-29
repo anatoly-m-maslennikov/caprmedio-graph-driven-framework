@@ -1,16 +1,16 @@
 ---
 subjects:
-  declared:
+  governs:
     occurrent:
       - claim-authoring
-  prerequisite:
+  depends_on:
     continuant:
       - artifact-model
-      - cce-language
+      - CCE
 cce_version: cce_1
 cce_form: method
-version: 3
-updated_at: 2026-08-25 01:20:06
+version: 4
+updated_at: 2026-08-29 02:40:41 +0400
 relations: {}
 ---
 # Write Claims in CAPRMEDIO Controlled English
