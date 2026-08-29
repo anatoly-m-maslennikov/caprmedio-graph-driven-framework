@@ -2,11 +2,11 @@
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  declared:
+  governs:
     continuant:
       - artifact-model
-version: 4
-updated_at: 2026-08-23 15:00:38
+version: 6
+updated_at: 2026-08-29 04:33:13 +0400
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -16,6 +16,6 @@ relations:
   replacement_of:
     - CAPRMEDIO-META-REQU-729--make-type-and-subtype-identity-bearing
 ---
-# Make Atom Type identity-bearing
+# Make the Type Value of an Atom Identity-Bearing
 
-An Atom's Type is identity-bearing. An ordinary change to its Type creates a successor Atom rather than revising the existing Atom identity.
+an Atom's Type value is identity-bearing. An ordinary change to that Type value creates a successor Atom rather than revising the existing Atom identity.
