@@ -5,8 +5,8 @@ subjects:
   declared:
     continuant:
       - settings
-version: 8
-updated_at: 2026-08-23 15:00:38
+version: 9
+updated_at: 2026-08-29 01:16:37 +0400
 relations:
   child_of:
     - CAPRMEDIO-GOV-REQU-344--all-governed-artifacts-live-under-caprmedio
@@ -15,4 +15,4 @@ relations:
 ---
 # Admit Project Configuration as a native Implementation Atom
 
-GOVERNANCE expressly admits the human-editable Project Configuration carrier as the native Implementation Atom with externally bound `atom_id: CAPRMEDIO-I-001` at the registered bootstrap address. The separate decision that establishes how this bootstrap address is discovered remains required when the control root and code roots are not co-located.
+GOVERNANCE expressly admits the human-editable Project Configuration carrier as the native Implementation Atom with externally bound `atom_id: CAPRMEDIO-I-001` at the registered bootstrap address. The separate decision that establishes how this bootstrap address is discovered remains required **when** the control root **and** code roots are **not** co-located.
