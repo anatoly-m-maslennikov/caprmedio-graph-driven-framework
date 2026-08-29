@@ -1,15 +1,16 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
-      - artifact-model
-  prerequisite:
+      - Realization Graph Dependency Face
+  depends_on:
     continuant:
       - relation-model
+      - artifact-model
 cce_version: cce_1
 cce_form: definition
-version: 3
-updated_at: 2026-08-23 15:24:07
+version: 4
+updated_at: 2026-08-29 02:40:41 +0400
 relations: {}
 ---
 # Define Realization Graph Dependency Face
