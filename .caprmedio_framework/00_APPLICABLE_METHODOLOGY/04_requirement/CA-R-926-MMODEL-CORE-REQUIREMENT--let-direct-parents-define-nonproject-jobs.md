@@ -1,17 +1,16 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
-      - relation-model
-  prerequisite:
+      - Scope Unit/Establishing Job
+  depends_on:
     continuant:
-      - scope-topology
-      - atom-boundary
+      - Scope Unit/Parent
 atom_id: CA-R-926
 cce_version: cce_1
 cce_form: obligation
-version: 5
-updated_at: 2026-08-26 15:38:45 +0400
+version: 7
+updated_at: 2026-08-29 01:16:37 +0400
 relations:
   replacement_of:
     - CA-R-909
@@ -23,4 +22,4 @@ projection:
 ---
 # Let direct parents define non-Project Jobs
 
-EVERY non-Project Scope Unit MUST be the Claim Scope of AT LEAST ONE Job Atom whose Current Scope is its direct parent Scope Unit.
+**every** non-Project Scope Unit **must** have an accepted establishing Job Atom owned by its direct parent Scope Unit.
