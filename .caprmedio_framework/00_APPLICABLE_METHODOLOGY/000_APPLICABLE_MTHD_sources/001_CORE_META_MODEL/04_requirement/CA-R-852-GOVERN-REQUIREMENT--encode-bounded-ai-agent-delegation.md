@@ -1,19 +1,21 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
-      - carrier-format
+      - AI Agent Delegation
     occurrent:
-      - interaction
+      - AI Agent Delegation Establishment
+  depends_on:
+    continuant:
+      - Operator
+      - AI Agent
 atom_id: CA-R-852
 cce_version: cce_1
 cce_form: obligation
-version: 4
-updated_at: 2026-08-23 15:00:38
-relations:
-  child_of:
-    - CA-R-851
+version: 7
+updated_at: 2026-08-29 02:40:41 +0400
+relations: {}
 ---
 # Encode bounded AI Agent delegation
 
-EVERY AI Agent delegation MUST identify its Operator, AI Agent, allowed actions, allowed target Scopes, constraints, validity boundary, and revocation state.
+**every** AI Agent Delegation **must** identify its Operator, AI Agent, allowed actions, allowed target Scopes, constraints, validity boundary, **and** revocation state.
