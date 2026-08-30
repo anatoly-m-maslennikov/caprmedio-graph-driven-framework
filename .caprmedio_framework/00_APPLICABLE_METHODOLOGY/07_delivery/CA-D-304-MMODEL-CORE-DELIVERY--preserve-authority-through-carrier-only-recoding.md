@@ -13,8 +13,8 @@ subjects:
       - Atom/Claim Scope
       - Atom/Current Scope
       - Atom/Direct Relation
-version: 2
-updated_at: 2026-08-29 01:16:37 +0400
+version: 3
+updated_at: 2026-08-29 02:40:41 +0400
 relations: {}
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-304-MMODEL-CORE-DELIVERY--preserve-authority-through-carrier-only-recoding.md

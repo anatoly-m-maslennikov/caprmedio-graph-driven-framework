@@ -1,18 +1,18 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
       - authority
     occurrent:
       - methodology-sync
-  prerequisite:
+  depends_on:
     continuant:
       - methodology
 atom_id: CA-D-008
 cce_version: cce_1
 cce_form: delivery
-version: 14
-updated_at: 2026-08-29 01:16:37 +0400
+version: 15
+updated_at: 2026-08-29 09:18:56 +0400
 relations:
   delivery_for:
     - CA-R-862

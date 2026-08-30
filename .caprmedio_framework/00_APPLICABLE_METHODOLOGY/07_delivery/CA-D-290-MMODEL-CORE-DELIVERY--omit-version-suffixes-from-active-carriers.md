@@ -5,9 +5,9 @@ cce_form: prohibition
 subjects:
   governs:
     continuant:
-      - Artifact/Status: Active/Carrier Basename
-version: 1
-updated_at: 2026-08-28 23:15:00 +0400
+      - "Artifact/Status: Active/Carrier Basename"
+version: 2
+updated_at: 2026-08-29 02:40:41 +0400
 relations: {}
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-290-MMODEL-CORE-DELIVERY--omit-version-suffixes-from-active-carriers.md

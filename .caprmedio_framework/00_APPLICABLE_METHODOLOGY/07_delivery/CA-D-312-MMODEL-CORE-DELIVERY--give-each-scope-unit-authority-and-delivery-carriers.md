@@ -10,8 +10,8 @@ subjects:
     continuant:
       - Scope Unit/Authority Place
       - Scope Unit/Delivery Place
-version: 2
-updated_at: 2026-08-29 01:16:37 +0400
+version: 3
+updated_at: 2026-08-29 02:40:41 +0400
 relations: {}
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-312-MMODEL-CORE-DELIVERY--give-each-scope-unit-authority-and-delivery-carriers.md

@@ -10,8 +10,8 @@ subjects:
     continuant:
       - Applicable Methodology
       - Applicable Methodology/Sources
-version: 3
-updated_at: 2026-08-28 23:15:00 +0400
+version: 4
+updated_at: 2026-08-29 02:40:41 +0400
 relations: {}
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-253-GOVERN-DELIVERY--place-applicable-methodology-and-its-sources.md
