@@ -1,17 +1,22 @@
 ---
-subject_scopes:
-  - principles
-tier: core
-version: 4
-updated_at: 2026-08-23 02:50:00
-llm_session_ids:
-  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+atom_id: CAPRMEDIO-REQU-051
+cce_version: cce_1
+cce_form: obligation
+subjects:
+  governs:
+    continuant:
+      - caprmedio Project Identity
+  depends_on:
+    continuant:
+      - CAPRMEDIO Framework Identity
+version: 5
+updated_at: 2026-08-30 19:41:39 +0400
 relations:
   replacement_of:
     - CAPRMEDIO-META-REQU-271--caprmedio-framework-identity
   child_of:
     - CA-M-002-PRINCIPLE-METHOD--dry_dont-repeat-yourself
 ---
-# Use CAPRMEDIO as the canonical project name
+# Use caprmedio as the canonical Project name
 
-The current project's sole canonical name is CAPRMEDIO, and its canonical short prefix for every newly admitted Atom ID is \`CA\`. An existing immutable Atom ID retains the project prefix under which it was admitted.
+the Framework name **must** be `CAPRMEDIO`, the Project name **must** be `caprmedio`, and `CA` **must** remain the short prefix of newly admitted Project Atom IDs; an immutable admitted Atom ID **must** retain its admitted prefix.
