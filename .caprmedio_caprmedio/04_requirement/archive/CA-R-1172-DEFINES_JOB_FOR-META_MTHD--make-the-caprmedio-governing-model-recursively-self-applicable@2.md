@@ -3,11 +3,11 @@ atom_id: CA-R-1172
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  governs:
+  declared:
     continuant:
       - Scope Unit/Job
-version: 3
-updated_at: 2026-08-30 16:44:07 +0400
+version: 2
+updated_at: 2026-08-26 15:38:45 +0400
 relations: {}
 ---
 # Make the CAPRMEDIO Governing Model Recursively Self-Applicable
