@@ -1,0 +1,33 @@
+{
+  "authority": "non_authoritative_execution_evidence",
+  "completed_at": "2026-08-30T19:32:24+04:00",
+  "schema": "caprmedio.project_configuration_revision_binding_repair.execution.v1",
+  "task_atom_id": "CA-P-928",
+  "result": "current_native_project_configuration_binding_repaired",
+  "canonical_project_configuration": {
+    "atom_id": "CAPRMEDIO-I-001",
+    "revision": 3,
+    "carrier_path": ".caprmedio_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/003_LOCAL_CONFIGURATION/caprmedio_framework_settings.toml",
+    "sha256": "abdac674ea24eb0b9241fc1fc0fc900e30e59623f89d4201192a1deda03b2024"
+  },
+  "binding_evidence": {
+    "carrier_path": ".caprmedio_caprmedio/work_journal/src-work-journal-2026-08-30.ndjson",
+    "event_id": "588bb9db-35c3-417a-bf2b-96352e992ad4",
+    "operation": "bind_project_configuration_revision",
+    "schema_version": 1,
+    "append_only": true
+  },
+  "authority_reconciliation": {
+    "requirement": "CA-R-1055@11",
+    "delivery": "CA-D-328@1",
+    "work_journal_root": ".caprmedio_caprmedio/work_journal/",
+    "retired_control_root_binding": ".caprmedio/",
+    "status": "consistent"
+  },
+  "validation": {
+    "native_carrier_sha256_matches_binding": true,
+    "current_binding_record_count": 1,
+    "predecessor_archive": "CA-R-1055@10",
+    "unrelated_local_configuration_authority_changed": false
+  }
+}
