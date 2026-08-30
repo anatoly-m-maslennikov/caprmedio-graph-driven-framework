@@ -8,12 +8,12 @@ subjects:
       - Applicable Methodology/Sources/Local Configuration/Current Project
   depends_on:
     continuant:
-      - caprmedio Project Identity
+      - CAPRMEDIO
       - Project Configuration
-version: 2
-updated_at: 2026-08-30 19:41:39 +0400
+version: 1
+updated_at: 2026-08-27 01:28:30 +0400
 relations: {}
 ---
-# Identify caprmedio as the current Project
+# Identify CAPRMEDIO as the Current Project
 
-the Local Configuration **must** identify `caprmedio` as its **=1** current Project.
+the Local Configuration **must** identify CAPRMEDIO as its one current Project.
