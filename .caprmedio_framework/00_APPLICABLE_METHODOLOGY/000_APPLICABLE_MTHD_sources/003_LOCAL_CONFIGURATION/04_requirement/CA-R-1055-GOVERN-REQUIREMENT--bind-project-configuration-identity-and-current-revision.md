@@ -4,9 +4,9 @@ cce_form: obligation
 subjects:
   governs:
     continuant:
-      - settings
-version: 10
-updated_at: 2026-08-29 09:18:56 +0400
+      - Project Configuration/Revision Binding
+version: 11
+updated_at: 2026-08-30 19:30:26 +0400
 relations:
   child_of:
     - CAPRMEDIO-GOV-REQU-661--register-project-configuration-atom-identity
@@ -14,4 +14,4 @@ relations:
 ---
 # Bind Project Configuration identity and current revision
 
-GOVERNANCE **must** bind `atom_id: CAPRMEDIO-I-001`, the current Revision properties, **and** the canonical native Carrier locator **in** a governed carrier under `.caprmedio/`; absence, ambiguity, **or** mismatch of that binding leaves the Project Configuration Atom's currentness unknown.
+the Local Configuration **must** bind `CAPRMEDIO-I-001`, its current Revision, its SHA-256 Digest, **and** the canonical native Carrier locator `.caprmedio_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/003_LOCAL_CONFIGURATION/caprmedio_framework_settings.toml` in **=1** completed append-only Work Journal event under `.caprmedio_caprmedio/work_journal/`; absence, ambiguity, **or** mismatch leaves Project Configuration Atom currentness unknown.
