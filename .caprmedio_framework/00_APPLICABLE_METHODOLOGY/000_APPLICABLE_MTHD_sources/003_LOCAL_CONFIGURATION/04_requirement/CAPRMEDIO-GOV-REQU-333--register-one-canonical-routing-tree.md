@@ -1,14 +1,15 @@
 ---
 cce_version: cce_1
-cce_form: definition
+cce_form: obligation
 subjects:
   governs:
     continuant:
-      - public-interface
+      - CAPRMEDIO Routing Tree
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
-version: 8
-updated_at: 2026-08-29 09:18:56 +0400
+  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+version: 9
+updated_at: 2026-08-30 16:32:06 +0400
 relations:
   child_of:
     - CA-R-1054
