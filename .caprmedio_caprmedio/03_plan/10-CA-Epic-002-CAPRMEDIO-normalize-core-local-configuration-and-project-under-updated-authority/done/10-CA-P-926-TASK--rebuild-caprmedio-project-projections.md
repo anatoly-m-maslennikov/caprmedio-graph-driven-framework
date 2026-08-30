@@ -13,8 +13,8 @@ subjects:
   depends_on:
     occurrent:
       - CA-P-925
-version: 2
-updated_at: 2026-08-30 17:23:10 +0400
+version: 3
+updated_at: 2026-08-30 17:44:53 +0400
 autonomous_confidence_threshold: 99
 relations: {}
 ---
@@ -33,3 +33,9 @@ the Task is **not done if** (an affected registered persistent Projection remain
 ## Details
 
 rebuild **only** registered persistent Projections. derive Entity Graphs **and** Subject indexes on demand **and** do **not** persist them. keep Journals as evidence Carriers rather than rewriting them as Projections.
+
+## Completion Evidence
+
+the Task found two registered persistent caprmedio Project Projections. the 60 declared source Carriers have no intersection with the 1,560 Carriers changed by CA-P-918 through CA-P-925. the Task rebuilt zero Projections.
+
+the non-authoritative execution evidence is stored in `execution_evidence/CA-P-926-project-projection-rebuild.projection.json`.
