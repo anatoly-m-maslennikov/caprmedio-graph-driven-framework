@@ -1,10 +1,10 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
       - portable-text
-version: 3
-updated_at: 2026-08-23 16:16:20 +0400
+version: 4
+updated_at: 2026-08-30 16:44:07 +0400
 ---
 # Require portable repository text bytes
 

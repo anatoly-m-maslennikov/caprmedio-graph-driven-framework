@@ -1,16 +1,16 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
       - tool-authority
-  prerequisite:
+  depends_on:
     continuant:
       - artifact-operations
       - mcp
 cce_version: cce_1
 cce_form: obligation
-version: 2
-updated_at: 2026-08-23 16:16:20 +0400
+version: 3
+updated_at: 2026-08-30 16:44:07 +0400
 ---
 # Separate generic and Atom-specific Tool authority
 

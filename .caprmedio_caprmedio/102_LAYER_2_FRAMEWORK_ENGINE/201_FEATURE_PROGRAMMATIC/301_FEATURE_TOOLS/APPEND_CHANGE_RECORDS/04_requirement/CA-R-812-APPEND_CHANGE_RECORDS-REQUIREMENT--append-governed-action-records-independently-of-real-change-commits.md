@@ -1,12 +1,12 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
       - provenance
 cce_version: cce_1
 cce_form: obligation
-version: 12
-updated_at: 2026-08-23 16:16:20 +0400
+version: 13
+updated_at: 2026-08-30 16:44:07 +0400
 ---
 # Append governed action records independently of real-change commits
 

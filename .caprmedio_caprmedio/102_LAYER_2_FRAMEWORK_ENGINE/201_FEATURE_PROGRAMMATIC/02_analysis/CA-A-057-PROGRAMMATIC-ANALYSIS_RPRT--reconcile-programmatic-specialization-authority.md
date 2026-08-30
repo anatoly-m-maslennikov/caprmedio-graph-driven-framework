@@ -1,12 +1,17 @@
 ---
 atom_id: CA-A-057
 subjects:
-  - programmatic-policy
-  - method-authority
-  - evaluation-coverage
-  - scope-ownership
-version: 1
-updated_at: 2026-08-23 17:40:00 +0400
+  governs:
+    occurrent:
+      - Programmatic Specialization Authority Reconciliation
+  depends_on:
+    continuant:
+      - Programmatic Policy
+      - Method Authority
+      - Evaluation Coverage
+      - Scope Ownership
+version: 2
+updated_at: 2026-08-30 17:21:33 +0400
 relations:
   derived_from:
     - CA-A-053

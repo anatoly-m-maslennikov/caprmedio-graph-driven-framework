@@ -1,12 +1,12 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
       - programmatic-policy
     occurrent:
       - validation
-version: 1
-updated_at: 2026-08-23 18:16:51 +0400
+version: 2
+updated_at: 2026-08-30 16:44:07 +0400
 relations:
   derived_from:
     - CA-A-058

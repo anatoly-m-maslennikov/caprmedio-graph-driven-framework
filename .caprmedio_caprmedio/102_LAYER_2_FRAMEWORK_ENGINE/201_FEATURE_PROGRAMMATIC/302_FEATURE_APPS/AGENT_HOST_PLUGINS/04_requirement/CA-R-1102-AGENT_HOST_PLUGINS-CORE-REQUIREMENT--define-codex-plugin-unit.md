@@ -1,10 +1,10 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
       - feature-boundary
-version: 6
-updated_at: 2026-08-23 16:16:20 +0400
+version: 7
+updated_at: 2026-08-30 16:44:07 +0400
 ---
 # Define the CODEX_PLUGIN unit
 

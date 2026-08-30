@@ -1,10 +1,10 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
       - concern-resolution
-version: 4
-updated_at: 2026-08-23 17:53:53 +0400
+version: 5
+updated_at: 2026-08-30 16:44:07 +0400
 relations:
   method_for:
     - CA-R-1042

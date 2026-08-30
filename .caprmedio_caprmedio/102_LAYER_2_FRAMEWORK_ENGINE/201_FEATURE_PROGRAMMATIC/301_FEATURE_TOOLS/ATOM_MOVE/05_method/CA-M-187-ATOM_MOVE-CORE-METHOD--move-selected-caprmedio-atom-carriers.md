@@ -2,11 +2,11 @@
 cce_version: cce_1
 cce_form: method
 subjects:
-  declared:
+  governs:
     continuant:
       - artifact-operations
-version: 1
-updated_at: 2026-08-23 18:16:51 +0400
+version: 2
+updated_at: 2026-08-30 16:44:07 +0400
 relations:
   method_for:
     - CA-R-867

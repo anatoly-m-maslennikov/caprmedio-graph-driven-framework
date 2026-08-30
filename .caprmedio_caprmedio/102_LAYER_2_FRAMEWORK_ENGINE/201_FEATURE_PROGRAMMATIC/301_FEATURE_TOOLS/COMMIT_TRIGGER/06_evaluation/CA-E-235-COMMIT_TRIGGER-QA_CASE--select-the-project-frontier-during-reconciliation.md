@@ -1,12 +1,12 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
       - feature-boundary
     occurrent:
       - evaluation
-version: 4
-updated_at: 2026-08-25 01:49:10 +0400
+version: 5
+updated_at: 2026-08-30 16:44:07 +0400
 relations:
   evaluation_for:
     - CA-M-087

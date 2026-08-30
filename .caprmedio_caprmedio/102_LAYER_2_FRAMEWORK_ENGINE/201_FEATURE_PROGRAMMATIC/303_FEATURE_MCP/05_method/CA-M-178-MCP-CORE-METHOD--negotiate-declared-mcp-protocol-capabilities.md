@@ -2,11 +2,11 @@
 cce_version: cce_1
 cce_form: method
 subjects:
-  declared:
+  governs:
     continuant:
       - framework-engine-mcp
-version: 1
-updated_at: 2026-08-23 17:40:00 +0400
+version: 2
+updated_at: 2026-08-30 16:44:07 +0400
 relations:
   method_for:
     - CA-R-1116

@@ -1,10 +1,10 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
       - feature-boundary
-version: 9
-updated_at: 2026-08-25 01:49:10 +0400
+version: 10
+updated_at: 2026-08-30 16:44:07 +0400
 relations:
   method_for:
     - CA-R-856

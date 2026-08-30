@@ -1,10 +1,10 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
       - graph-context-routing
-version: 4
-updated_at: 2026-08-23 16:16:20 +0400
+version: 5
+updated_at: 2026-08-30 16:44:07 +0400
 ---
 # Route selected graph context into governed Codex work
 

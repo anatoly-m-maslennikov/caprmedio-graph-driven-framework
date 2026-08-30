@@ -1,10 +1,15 @@
 ---
 subjects:
-  - python-runtime
-  - compatibility
-  - validation-evidence
-version: 1
-updated_at: 2026-08-23 16:36:00
+  governs:
+    occurrent:
+      - Python 3.14 Contract Upgrade Validation
+  depends_on:
+    continuant:
+      - Python Runtime
+      - Compatibility
+      - Validation Evidence
+version: 2
+updated_at: 2026-08-30 17:21:33 +0400
 ---
 # Validate the Python 3.14 contract upgrade
 

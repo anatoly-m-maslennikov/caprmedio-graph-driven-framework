@@ -2,11 +2,11 @@
 cce_version: cce_1
 cce_form: concern_question
 subjects:
-  declared:
+  governs:
     continuant:
       - retrieval-integrity
-version: 1
-updated_at: 2026-08-25 01:45:35 +0400
+version: 2
+updated_at: 2026-08-30 16:44:07 +0400
 ---
 # How should context-retrieval integrity be evaluated?
 

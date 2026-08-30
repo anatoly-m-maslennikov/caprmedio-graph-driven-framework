@@ -1,12 +1,12 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
       - evaluation
     occurrent:
       - evaluation
-version: 8
-updated_at: 2026-08-25 01:49:10 +0400
+version: 9
+updated_at: 2026-08-30 16:44:07 +0400
 relations:
   evaluation_for:
     - CA-R-856

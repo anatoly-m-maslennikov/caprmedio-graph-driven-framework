@@ -1,10 +1,10 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
       - feature-boundary
-version: 9
-updated_at: 2026-08-23 16:16:20 +0400
+version: 10
+updated_at: 2026-08-30 16:44:07 +0400
 llm_session_ids:
   - codex:01a01cb6-4ee4-7553-b68d-0823dda35094
 ---

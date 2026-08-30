@@ -1,10 +1,15 @@
 ---
 subjects:
-  - programmatic-policy
-  - method-authority
-  - evaluation-coverage
-version: 1
-updated_at: 2026-08-23 16:29:00
+  governs:
+    occurrent:
+      - Programmatic Policy Decision Reconciliation
+  depends_on:
+    continuant:
+      - Programmatic Policy
+      - Method Authority
+      - Evaluation Coverage
+version: 2
+updated_at: 2026-08-30 17:21:33 +0400
 ---
 # Reconcile shared PROGRAMMATIC policy decisions
 

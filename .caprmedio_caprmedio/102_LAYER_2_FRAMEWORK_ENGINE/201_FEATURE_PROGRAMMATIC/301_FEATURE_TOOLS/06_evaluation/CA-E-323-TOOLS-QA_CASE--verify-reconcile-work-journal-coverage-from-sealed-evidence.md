@@ -2,13 +2,13 @@
 cce_version: cce_1
 cce_form: evaluation
 subjects:
-  declared:
+  governs:
     continuant:
       - programmatic-mutation
     occurrent:
       - evaluation
-version: 1
-updated_at: 2026-08-23 18:16:51 +0400
+version: 2
+updated_at: 2026-08-30 16:44:07 +0400
 relations:
   evaluation_for:
     - CA-M-205

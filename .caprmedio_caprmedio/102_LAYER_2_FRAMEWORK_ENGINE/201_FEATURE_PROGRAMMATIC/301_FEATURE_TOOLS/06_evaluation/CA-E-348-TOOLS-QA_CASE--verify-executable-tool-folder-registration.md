@@ -2,13 +2,13 @@
 cce_version: cce_1
 cce_form: evaluation
 subjects:
-  declared:
+  governs:
     continuant:
       - feature-boundary
     occurrent:
       - evaluation
-version: 1
-updated_at: 2026-08-25 02:10:26 +0400
+version: 2
+updated_at: 2026-08-30 16:44:07 +0400
 relations:
   evaluation_for:
     - CA-M-220

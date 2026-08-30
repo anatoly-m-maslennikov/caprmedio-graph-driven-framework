@@ -1,10 +1,15 @@
 ---
 subjects:
-  - programmatic-policy
-  - method-authority
-  - evaluation-coverage
-version: 1
-updated_at: 2026-08-23 16:05:00
+  governs:
+    continuant:
+      - Programmatic Method and Evaluation Target
+  depends_on:
+    continuant:
+      - Programmatic Policy
+      - Method Authority
+      - Evaluation Coverage
+version: 2
+updated_at: 2026-08-30 17:21:33 +0400
 ---
 # Freeze the PROGRAMMATIC Method and Evaluation target
 

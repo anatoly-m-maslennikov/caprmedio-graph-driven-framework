@@ -1,10 +1,10 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
       - projection-pipeline
-version: 6
-updated_at: 2026-08-23 17:53:53 +0400
+version: 7
+updated_at: 2026-08-30 16:44:07 +0400
 llm_session_ids:
   - codex:019fc24e-24ed-7921-b4db-cf4df3e14bf7
 relations:

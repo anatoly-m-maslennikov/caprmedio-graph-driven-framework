@@ -1,10 +1,16 @@
 ---
 subjects:
-  - programmatic-policy
-  - evaluation-coverage
-  - validation
-version: 1
-updated_at: 2026-08-23 17:12:00 +0400
+  governs:
+    occurrent:
+      - Shared Programmatic Evaluation Coverage Mapping
+  depends_on:
+    continuant:
+      - Programmatic Policy
+      - Evaluation Coverage
+    occurrent:
+      - Validation
+version: 2
+updated_at: 2026-08-30 17:21:33 +0400
 relations:
   derived_from:
     - CA-A-053

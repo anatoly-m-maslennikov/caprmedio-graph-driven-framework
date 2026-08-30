@@ -2,13 +2,13 @@
 cce_version: cce_1
 cce_form: evaluation
 subjects:
-  declared:
+  governs:
     continuant:
       - atom-identity
     occurrent:
       - evaluation
-version: 2
-updated_at: 2026-08-23 18:08:00 +0400
+version: 3
+updated_at: 2026-08-30 16:44:07 +0400
 relations:
   evaluation_for:
     - CA-M-155

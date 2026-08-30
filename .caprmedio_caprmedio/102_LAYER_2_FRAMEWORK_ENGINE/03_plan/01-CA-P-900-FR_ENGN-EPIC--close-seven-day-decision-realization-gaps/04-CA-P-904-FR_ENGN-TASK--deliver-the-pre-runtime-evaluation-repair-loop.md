@@ -2,14 +2,17 @@
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  declared:
-    continuant:
-      - software-quality
+  governs:
     occurrent:
-      - evaluation
-      - realization
-version: 1
-updated_at: 2026-08-25 02:00:28 +0400
+      - Pre-Runtime Evaluation Repair Loop Delivery
+  depends_on:
+    continuant:
+      - Software Quality
+    occurrent:
+      - Evaluation
+      - Realization
+version: 2
+updated_at: 2026-08-30 17:21:33 +0400
 autonomous_confidence_threshold: 98
 relations:
   derived_from:

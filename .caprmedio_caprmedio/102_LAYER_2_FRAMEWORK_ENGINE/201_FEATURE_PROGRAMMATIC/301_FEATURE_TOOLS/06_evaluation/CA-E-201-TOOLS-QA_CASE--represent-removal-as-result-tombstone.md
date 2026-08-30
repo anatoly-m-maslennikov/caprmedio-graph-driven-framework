@@ -1,12 +1,12 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
       - evaluation
     occurrent:
       - evaluation
-version: 5
-updated_at: 2026-08-23 17:53:53 +0400
+version: 6
+updated_at: 2026-08-30 16:44:07 +0400
 relations:
   evaluation_for:
     - CA-R-805

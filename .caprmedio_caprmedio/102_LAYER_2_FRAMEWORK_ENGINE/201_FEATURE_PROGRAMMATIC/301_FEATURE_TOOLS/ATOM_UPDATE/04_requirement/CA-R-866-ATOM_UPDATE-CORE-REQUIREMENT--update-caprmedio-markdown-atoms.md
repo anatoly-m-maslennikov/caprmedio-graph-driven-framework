@@ -1,10 +1,10 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
       - artifact-operations
-version: 5
-updated_at: 2026-08-23 16:16:20 +0400
+version: 6
+updated_at: 2026-08-30 16:44:07 +0400
 ---
 # Update CAPRMEDIO Markdown Atoms
 

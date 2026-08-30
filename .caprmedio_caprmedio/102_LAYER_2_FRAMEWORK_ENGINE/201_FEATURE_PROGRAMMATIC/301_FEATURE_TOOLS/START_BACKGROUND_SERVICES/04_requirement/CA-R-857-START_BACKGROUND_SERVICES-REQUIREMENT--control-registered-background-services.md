@@ -1,10 +1,10 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
       - feature-boundary
-version: 7
-updated_at: 2026-08-25 01:49:10 +0400
+version: 8
+updated_at: 2026-08-30 16:44:07 +0400
 ---
 # Control registered background services
 
