@@ -16,6 +16,6 @@ project = "strict"
 semantics = "strict"
 
 [project]
-key = "CAPRMEDIO"
-name = "CAPRMEDIO"
+key = "caprmedio"
+name = "caprmedio"
 repository_slug = "caprmedio-graph-driven-framework"
