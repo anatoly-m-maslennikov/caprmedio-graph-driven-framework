@@ -8,14 +8,14 @@ subjects:
       - Applicable Methodology/Sources/Local Configuration/Current Project
   depends_on:
     continuant:
-      - CAPRMEDIO
+      - caprmedio Project Identity
       - Project Configuration
-version: 1
-updated_at: 2026-08-27 01:28:30 +0400
+version: 2
+updated_at: 2026-08-30 19:41:39 +0400
 relations: {}
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/003_LOCAL_CONFIGURATION/04_requirement/CA-R-1223-REQUIREMENT--identify-caprmedio-as-the-current-project.md
 ---
-# Identify CAPRMEDIO as the Current Project
+# Identify caprmedio as the current Project
 
-the Local Configuration **must** identify CAPRMEDIO as its one current Project.
+the Local Configuration **must** identify `caprmedio` as its **=1** current Project.
