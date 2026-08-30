@@ -2,16 +2,13 @@
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  governs:
-    occurrent:
-      - CAPRMEDIO Definition Projection Materialization
-  depends_on:
+  declared:
     continuant:
-      - CAPRMEDIO Definition
-      - Intelligent Work Environment
-      - Principle Projection
-version: 3
-updated_at: 2026-08-30 17:21:33 +0400
+      - caprmedio-definition
+      - intelligent-work-environment
+      - principle-projection
+version: 2
+updated_at: 2026-08-25 14:10:00 +0400
 autonomous_confidence_threshold: 98
 relations:
   derived_from:

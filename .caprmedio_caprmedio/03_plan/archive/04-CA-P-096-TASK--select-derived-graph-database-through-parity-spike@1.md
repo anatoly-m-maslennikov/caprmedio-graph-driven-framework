@@ -2,15 +2,14 @@
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  governs:
-    occurrent:
-      - Parity Evaluation
-  depends_on:
+  declared:
     continuant:
-      - Derived Graph Database
-      - Graph App
-version: 2
-updated_at: 2026-08-30 17:21:33 +0400
+      - derived-graph-database
+      - graph-app
+    occurrent:
+      - parity-evaluation
+version: 1
+updated_at: 2026-08-25 14:12:00 +0400
 autonomous_confidence_threshold: 98
 relations:
   derived_from:

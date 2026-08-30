@@ -2,18 +2,15 @@
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  governs:
-    occurrent:
-      - Graph App Vertical Slice Implementation
-  depends_on:
+  declared:
     continuant:
-      - Graph App
-      - Derived Project Read Model
-      - Graph Projection
+      - graph-app
+      - derived-project-read-model
+      - graph-projection
     occurrent:
-      - Source Reconciliation
-version: 2
-updated_at: 2026-08-30 17:21:33 +0400
+      - source-reconciliation
+version: 1
+updated_at: 2026-08-25 14:14:00 +0400
 autonomous_confidence_threshold: 98
 relations:
   derived_from:

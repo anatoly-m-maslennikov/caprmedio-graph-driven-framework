@@ -13,14 +13,14 @@ subjects:
   depends_on:
     occurrent:
       - CA-P-926
-version: 2
-updated_at: 2026-08-30 17:23:10 +0400
+version: 1
+updated_at: 2026-08-29 05:10:05 +0400
 autonomous_confidence_threshold: 99
 relations: {}
 ---
 # Validate Updated Authority Application Closure
 
-**when** CA-P-926 is Done, **then** the Assignee **must** validate the complete normalized Core Meta-Model, Local Configuration, Applicable Methodology, caprmedio Project, Tool, **and** Projection frontier against the exact CA-P-917 baseline **and** current authority.
+**when** CA-P-926 is Done, **then** the Assignee **must** validate the complete normalized Core Meta-Model, Local Configuration, Applicable Methodology, CAPRMEDIO Project, Tool, **and** Projection frontier against the exact CA-P-917 baseline **and** current authority.
 
 ## Scope
 
@@ -32,4 +32,4 @@ the Task is **not done if** (**any** baseline entry lacks a final disposition **
 
 ## Details
 
-review **every** Task output against **all** other Task outputs. report Core-only, Core-plus-Local, compiled Applicable Methodology, **and** caprmedio Project validation separately. preserve source authority, generated outputs, implementation checks, **and** execution evidence as distinct proof surfaces.
+review **every** Task output against **all** other Task outputs. report Core-only, Core-plus-Local, compiled Applicable Methodology, **and** CAPRMEDIO Project validation separately. preserve source authority, generated outputs, implementation checks, **and** execution evidence as distinct proof surfaces.

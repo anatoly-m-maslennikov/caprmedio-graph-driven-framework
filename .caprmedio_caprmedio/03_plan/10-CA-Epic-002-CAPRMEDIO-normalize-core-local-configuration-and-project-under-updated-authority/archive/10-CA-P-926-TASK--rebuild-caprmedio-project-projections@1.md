@@ -7,20 +7,20 @@ assignee: AI Agent
 subjects:
   governs:
     continuant:
-      - caprmedio Project Projection Frontier
+      - CAPRMEDIO Project Projection Frontier
     occurrent:
-      - caprmedio Project Projection Rebuild
+      - CAPRMEDIO Project Projection Rebuild
   depends_on:
     occurrent:
       - CA-P-925
-version: 2
-updated_at: 2026-08-30 17:23:10 +0400
+version: 1
+updated_at: 2026-08-29 05:10:05 +0400
 autonomous_confidence_threshold: 99
 relations: {}
 ---
-# Rebuild caprmedio Project Projections
+# Rebuild CAPRMEDIO Project Projections
 
-**when** CA-P-925 is Done, **then** the Assignee **must** rebuild **every** registered persistent non-authoritative caprmedio Project Projection whose source frontier changed during this Epic.
+**when** CA-P-925 is Done, **then** the Assignee **must** rebuild **every** registered persistent non-authoritative CAPRMEDIO Project Projection whose source frontier changed during this Epic.
 
 ## Scope
 

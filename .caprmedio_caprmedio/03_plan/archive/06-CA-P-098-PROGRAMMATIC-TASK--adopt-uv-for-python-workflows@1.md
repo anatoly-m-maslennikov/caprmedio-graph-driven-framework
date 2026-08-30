@@ -2,17 +2,14 @@
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  governs:
-    occurrent:
-      - UV Adoption
-  depends_on:
+  declared:
     continuant:
-      - Python Toolchain
-      - Development Environment
+      - python-toolchain
+      - development-environment
     occurrent:
-      - Environment Reproduction
-version: 2
-updated_at: 2026-08-30 17:21:33 +0400
+      - environment-reproduction
+version: 1
+updated_at: 2026-08-25 14:16:00 +0400
 autonomous_confidence_threshold: 98
 relations:
   derived_from:
