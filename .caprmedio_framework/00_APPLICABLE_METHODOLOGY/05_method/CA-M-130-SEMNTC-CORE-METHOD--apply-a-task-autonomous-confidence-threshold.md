@@ -6,12 +6,12 @@ subjects:
       - Autonomous Confidence Threshold Application
   depends_on:
     continuant:
-      - Task/Autonomous Confidence Threshold
+      - "Atom/Content Role: Plan/Type: Task/Autonomous Confidence Threshold"
       - AI Agent/Confidence
 cce_version: cce_1
 cce_form: method
-version: 5
-updated_at: 2026-08-29 01:16:37 +0400
+version: 7
+updated_at: 2026-08-29 04:33:13 +0400
 relations: {}
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/05_method/CA-M-130-SEMNTC-CORE-METHOD--apply-a-task-autonomous-confidence-threshold.md

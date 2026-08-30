@@ -10,10 +10,10 @@ subjects:
     continuant:
       - CCE
       - Atom/Claim
-      - Task/Scope
-      - Task/Definition of Done
-version: 10
-updated_at: 2026-08-29 01:16:37 +0400
+      - "Atom/Content Role: Plan/Type: Task/Scope"
+      - "Atom/Content Role: Plan/Type: Task/Definition of Done"
+version: 12
+updated_at: 2026-08-29 04:33:13 +0400
 relations: {}
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/05_method/CA-M-124-SEMNTC-CORE-METHOD--author-task-atoms.md

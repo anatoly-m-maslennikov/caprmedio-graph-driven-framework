@@ -10,8 +10,8 @@ subjects:
     continuant:
       - CCE Method
       - CCE Operator Registry
-version: 2
-updated_at: 2026-08-29 00:21:37 +0400
+version: 3
+updated_at: 2026-08-29 02:40:41 +0400
 relations: {}
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/05_method/CA-M-230-SEMNTC-CORE-METHOD--define-registered-cce-operators-through-cce-methods.md

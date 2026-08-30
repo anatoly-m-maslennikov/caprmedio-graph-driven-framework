@@ -9,9 +9,9 @@ subjects:
   depends_on:
     continuant:
       - Applicable Methodology
-      - Atom/Claim/Subject Relation
-version: 4
-updated_at: 2026-08-29 01:16:37 +0400
+      - Atom/Claim/Claim-Subject Relation
+version: 5
+updated_at: 2026-08-29 02:40:41 +0400
 relations: {}
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/05_method/CA-M-225-MMODEL-CORE-METHOD--retrieve-applicable-methodology-mechanically.md

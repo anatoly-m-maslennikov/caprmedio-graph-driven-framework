@@ -2,16 +2,16 @@
 cce_version: cce_1
 cce_form: method
 subjects:
-  declared:
+  governs:
     continuant:
       - cce-language
     occurrent:
       - evaluation
-  prerequisite:
+  depends_on:
     continuant:
       - scope-topology
-version: 5
-updated_at: 2026-08-29 01:16:37 +0400
+version: 6
+updated_at: 2026-08-29 02:40:41 +0400
 relations:
   child_of:
     - CA-M-122

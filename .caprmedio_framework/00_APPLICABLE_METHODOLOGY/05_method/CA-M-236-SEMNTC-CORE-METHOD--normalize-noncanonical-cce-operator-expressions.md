@@ -10,8 +10,8 @@ subjects:
     continuant:
       - CCE Operator Expression
       - CCE Operator Registry
-version: 1
-updated_at: 2026-08-29 00:41:58 +0400
+version: 2
+updated_at: 2026-08-29 02:40:41 +0400
 relations: {}
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/05_method/CA-M-236-SEMNTC-CORE-METHOD--normalize-noncanonical-cce-operator-expressions.md
