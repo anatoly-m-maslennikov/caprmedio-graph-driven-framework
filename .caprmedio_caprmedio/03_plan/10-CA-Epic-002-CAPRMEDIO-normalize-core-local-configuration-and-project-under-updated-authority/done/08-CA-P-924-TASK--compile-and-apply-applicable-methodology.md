@@ -13,8 +13,8 @@ subjects:
   depends_on:
     occurrent:
       - CA-P-923
-version: 1
-updated_at: 2026-08-29 05:10:05 +0400
+version: 2
+updated_at: 2026-08-30 16:32:06 +0400
 autonomous_confidence_threshold: 99
 relations: {}
 ---
@@ -33,3 +33,11 @@ the Task is **not done if** (an unresolved **or** stale-approved conflict permit
 ## Details
 
 dry-run **before** apply. replace **only** generated RMEDO output directories. preserve exact selected source bytes except for registered Projection provenance. record the source-frontier **and** generated-tree digests.
+
+## Completion Evidence
+
+two byte-identical dry-runs produced digest `3fb8edbd382ff536362eea0dda429e406683503b6213ebf9f711490b261b285e`, selected 632 Atoms, **and** admitted application with zero conflicts from source-frontier digest `5f32d52ff0363624d6dc2bbd80243bb4b4eb6e2b7262d96f89183f81b75d935a`.
+
+the compiler applied 632 RMEDO Atom Carriers with generated-tree digest `7a78d9a32c6000167b6cddad43f6f4fc8e3988d8d93b5c816d3d34aef62d9e3a`; **every** generated Carrier includes a relative source Carrier path, **and** the generated surface contains **only** `04_requirement`, `05_method`, `06_evaluation`, `07_delivery`, **and** `09_ops`.
+
+all nine compiler tests pass.
