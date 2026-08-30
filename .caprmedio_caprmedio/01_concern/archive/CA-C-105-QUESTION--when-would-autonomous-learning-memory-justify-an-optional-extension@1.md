@@ -2,11 +2,11 @@
 cce_version: cce_1
 cce_form: concern_question
 subjects:
-  governs:
+  declared:
     continuant:
       - autonomous-learning-memory
-version: 2
-updated_at: 2026-08-30 16:44:07 +0400
+version: 1
+updated_at: 2026-08-25 01:45:35 +0400
 ---
 # When would autonomous learning memory justify an optional Extension?
 

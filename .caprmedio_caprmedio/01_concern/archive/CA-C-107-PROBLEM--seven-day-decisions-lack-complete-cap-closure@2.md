@@ -2,17 +2,15 @@
 cce_version: cce_1
 cce_form: concern_problem
 subjects:
-  governs:
+  declared:
     continuant:
-      - Decision Closure
-  depends_on:
-    continuant:
-      - Project Backlog
+      - decision-closure
+      - project-backlog
     occurrent:
-      - Conversation Audit
+      - conversation-audit
 priority: high
-version: 3
-updated_at: 2026-08-30 17:21:33 +0400
+version: 2
+updated_at: 2026-08-25 13:55:00 +0400
 relations:
   concern_about:
     - CA-R-861
