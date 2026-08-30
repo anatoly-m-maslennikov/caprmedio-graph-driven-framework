@@ -1,17 +1,14 @@
 ---
 subjects:
-  governs:
-    occurrent:
-      - Decision Realization Audit
-  depends_on:
+  declared:
     continuant:
-      - Development Flow
-      - Project Configuration
-      - Tool Authority
+      - development-flow
+      - project-configuration
+      - tool-authority
     occurrent:
-      - Realization
-version: 2
-updated_at: 2026-08-30 17:21:33 +0400
+      - realization
+version: 1
+updated_at: 2026-08-25 02:00:28 +0400
 llm_session_ids:
   - codex:01a01cb4-e15e-78d1-9084-766bf6b0cd63
 ---

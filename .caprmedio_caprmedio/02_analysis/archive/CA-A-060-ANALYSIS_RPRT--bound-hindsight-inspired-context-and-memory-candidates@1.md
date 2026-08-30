@@ -1,14 +1,12 @@
 ---
 subjects:
-  governs:
+  declared:
     continuant:
-      - Project Memory
-  depends_on:
-    continuant:
-      - Project Context
-      - Retrieval Integrity
-version: 2
-updated_at: 2026-08-30 17:21:33 +0400
+      - project-context
+      - project-memory
+      - retrieval-integrity
+version: 1
+updated_at: 2026-08-25 01:45:35 +0400
 ---
 # Bound Hindsight-inspired context and memory candidates
 

@@ -1,15 +1,14 @@
 ---
 subjects:
-  governs:
-    occurrent:
-      - Conversation Audit
-  depends_on:
+  declared:
     continuant:
-      - Decision Closure
-      - Project Backlog
-      - Realized Project State
-version: 6
-updated_at: 2026-08-30 17:21:33 +0400
+      - decision-closure
+      - project-backlog
+      - realized-project-state
+    occurrent:
+      - conversation-audit
+version: 5
+updated_at: 2026-08-25 14:25:00 +0400
 relations:
   analysis_of:
     - CA-C-107
