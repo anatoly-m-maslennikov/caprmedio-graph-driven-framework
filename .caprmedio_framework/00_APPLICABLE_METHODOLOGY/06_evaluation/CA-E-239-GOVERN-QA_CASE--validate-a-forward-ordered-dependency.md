@@ -1,18 +1,18 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
       - relation-model
     occurrent:
       - evaluation
-  prerequisite:
+  depends_on:
     continuant:
       - atom-boundary
 atom_id: CA-E-239
 cce_version: cce_1
 cce_form: evaluation
-version: 9
-updated_at: 2026-08-29 01:16:37 +0400
+version: 10
+updated_at: 2026-08-29 02:40:41 +0400
 relations:
   evaluation_for:
     - CA-R-878

@@ -10,11 +10,11 @@ subjects:
     continuant:
       - "Atom/Content Role: Plan/Type: Task"
       - Atom/Claim
-      - Task/Scope
-      - Task/Definition of Done
-      - Task/Autonomous Confidence Threshold
-version: 9
-updated_at: 2026-08-29 01:16:37 +0400
+      - "Atom/Content Role: Plan/Type: Task/Scope"
+      - "Atom/Content Role: Plan/Type: Task/Definition of Done"
+      - "Atom/Content Role: Plan/Type: Task/Autonomous Confidence Threshold"
+version: 11
+updated_at: 2026-08-29 04:33:13 +0400
 relations: {}
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/06_evaluation/CA-E-245-GOVERN-QA_CASE--validate-task-atoms.md
