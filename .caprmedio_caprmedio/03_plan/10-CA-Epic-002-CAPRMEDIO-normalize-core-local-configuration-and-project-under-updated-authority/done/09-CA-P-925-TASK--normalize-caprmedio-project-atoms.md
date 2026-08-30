@@ -13,8 +13,8 @@ subjects:
   depends_on:
     occurrent:
       - CA-P-924
-version: 2
-updated_at: 2026-08-30 17:23:10 +0400
+version: 3
+updated_at: 2026-08-30 17:39:21 +0400
 autonomous_confidence_threshold: 99
 relations: {}
 ---
@@ -33,3 +33,11 @@ the Task is **not done if** (**any** in-scope Project Atom violates one-Atom, on
 ## Details
 
 use generated Applicable Methodology Carriers for retrieval **and** exact source provenance, but edit **only** owning authoritative Project Carriers. treat `.caprmedio_caprmedio` as the caprmedio Project instance of `.caprmedio_<PROJECT_NAME>`.
+
+## Completion Evidence
+
+the normalization revised 452 active Project Atom Carriers **and** created 452 byte-exact predecessor archives. 432 revisions were mechanical legacy-schema migrations, **and** 20 revisions used the exact Operator-approved semantic dispositions.
+
+the resulting 543-Atom Entity Graph contains zero legacy-schema Atoms, definition conflicts, Term-system violations, dependency cycles, SUBTYPE_OF cycles, **and** error diagnostics. all nine Entity Graph tests pass, **and** `git diff --check` passes.
+
+the non-authoritative execution evidence is stored in `execution_evidence/CA-P-925-project-atom-normalization.projection.json`.
