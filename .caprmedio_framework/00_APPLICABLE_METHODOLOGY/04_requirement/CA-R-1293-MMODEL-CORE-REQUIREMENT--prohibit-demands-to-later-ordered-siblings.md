@@ -5,12 +5,12 @@ cce_form: prohibition
 subjects:
   governs:
     continuant:
-      - Demand/Direction
+      - "Atom/Content Role: Requirement/Type: Demand/Direction"
   depends_on:
     continuant:
       - Scope Unit/Order
-version: 1
-updated_at: 2026-08-28 22:31:24 +0400
+version: 3
+updated_at: 2026-08-29 04:33:13 +0400
 relations: {}
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1293-MMODEL-CORE-REQUIREMENT--prohibit-demands-to-later-ordered-siblings.md

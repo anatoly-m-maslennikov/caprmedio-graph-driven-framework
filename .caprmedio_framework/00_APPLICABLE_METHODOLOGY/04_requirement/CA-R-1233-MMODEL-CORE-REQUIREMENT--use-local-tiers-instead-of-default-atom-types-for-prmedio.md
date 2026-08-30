@@ -9,13 +9,13 @@ subjects:
   depends_on:
     continuant:
       - Atom/Content Role
-      - Atom/Content Role/Type
-version: 3
-updated_at: 2026-08-29 01:16:37 +0400
+      - Type
+version: 5
+updated_at: 2026-08-29 04:33:13 +0400
 relations: {}
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1233-MMODEL-CORE-REQUIREMENT--use-local-tiers-instead-of-default-atom-types-for-prmedio.md
 ---
-# Keep Local Tier Independent from Content Role Type
+# Keep Local Tier Independent from Content Role and Type
 
 an Atom's Local Tier **must** remain independent from its Content Role **and** optional Type.

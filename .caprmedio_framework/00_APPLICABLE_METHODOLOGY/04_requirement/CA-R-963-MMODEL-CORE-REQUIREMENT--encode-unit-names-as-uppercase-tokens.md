@@ -1,16 +1,16 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
       - scope-topology
-  prerequisite:
+  depends_on:
     continuant:
-      - carrier-format
+      - Carrier/Format
 atom_id: CA-R-963
 cce_version: cce_1
 cce_form: obligation
-version: 5
-updated_at: 2026-08-29 01:16:37 +0400
+version: 6
+updated_at: 2026-08-29 02:40:41 +0400
 relations:
   child_of:
     - CA-R-962

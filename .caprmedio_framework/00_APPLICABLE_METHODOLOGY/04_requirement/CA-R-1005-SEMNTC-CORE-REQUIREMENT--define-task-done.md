@@ -5,12 +5,12 @@ subjects:
       - "Atom/Content Role: Plan/Type: Task/Status: Done"
   depends_on:
     occurrent:
-      - Task/Definition of Done Evaluation
+      - "Atom/Content Role: Plan/Type: Task/Definition of Done Evaluation"
 atom_id: CA-R-1005
 cce_version: cce_1
 cce_form: definition
-version: 5
-updated_at: 2026-08-29 01:16:37 +0400
+version: 7
+updated_at: 2026-08-29 04:33:13 +0400
 relations:
   child_of:
     - CA-R-989

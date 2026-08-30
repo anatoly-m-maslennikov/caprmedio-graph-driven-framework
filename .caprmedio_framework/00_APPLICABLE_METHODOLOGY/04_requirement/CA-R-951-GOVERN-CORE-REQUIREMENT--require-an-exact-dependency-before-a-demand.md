@@ -2,7 +2,7 @@
 subjects:
   governs:
     continuant:
-      - Demand/Admission
+      - "Atom/Content Role: Requirement/Type: Demand/Admission"
   depends_on:
     continuant:
       - Consumer/Job
@@ -10,8 +10,8 @@ subjects:
 atom_id: CA-R-951
 cce_version: cce_1
 cce_form: obligation
-version: 6
-updated_at: 2026-08-29 01:16:37 +0400
+version: 8
+updated_at: 2026-08-29 04:33:13 +0400
 relations:
   child_of:
     - CA-R-933

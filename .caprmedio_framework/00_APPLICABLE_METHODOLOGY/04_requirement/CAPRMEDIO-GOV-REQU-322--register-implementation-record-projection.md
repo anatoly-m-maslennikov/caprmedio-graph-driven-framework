@@ -2,15 +2,18 @@
 cce_version: cce_1
 cce_form: definition
 subjects:
-  declared:
+  governs:
+    continuant:
+      - "Projection/Type: Implementation Record"
+  depends_on:
     continuant:
       - artifact-catalog
 project_graph_state:
   artifacts:
     enabled_types:
       - implementation_record
-version: 9
-updated_at: 2026-08-29 01:16:37 +0400
+version: 11
+updated_at: 2026-08-29 04:33:13 +0400
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
   - codex:01a01cb6-4ee4-7553-b68d-0823dda35094
@@ -28,7 +31,7 @@ projection:
 ---
 # Register the Implementation Record Projection
 
-GOVERNANCE registers `implementation_record` with prefix `irec` as an internal Implementation-role Projection Type. It presents the current realization, coverage, source-to-target bindings, relevant provenance, **and** unresolved gaps derived from its declared source frontier.
+Implementation Record **means** the internal Type value under Projection that presents current realization, coverage, source-to-target bindings, relevant provenance, **and** unresolved gaps derived from its declared source frontier.
 
 The Projection declares the exact normative Atom, native-target, provenance, **and** **any** registered implementation-lineage frontier it represents. Regeneration replaces its rendered content **without** converting it into an Atom **or** granting it authority over the native project, normative specification, Ops evidence, **or** Verification.
 

@@ -2,11 +2,11 @@
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  declared:
+  governs:
     continuant:
       - lifecycle-traceability
-version: 6
-updated_at: 2026-08-29 01:16:37 +0400
+version: 7
+updated_at: 2026-08-29 09:18:56 +0400
 relations:
   child_of:
     - CAPRMEDIO-META-REQU-108--evolve-authority-through-governed-history

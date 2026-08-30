@@ -5,15 +5,15 @@ cce_form: definition
 subjects:
   governs:
     continuant:
-      - Task/Definition of Done
+      - "Atom/Content Role: Plan/Type: Task/Definition of Done"
   depends_on:
     continuant:
       - Atom/Claim
-      - Task/Scope
+      - "Atom/Content Role: Plan/Type: Task/Scope"
     occurrent:
       - Evaluation
-version: 3
-updated_at: 2026-08-29 01:16:37 +0400
+version: 5
+updated_at: 2026-08-29 04:33:13 +0400
 relations: {}
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1212-MMODEL-CORE-REQUIREMENT--define-definition-of-done-for-task-job.md

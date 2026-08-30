@@ -2,12 +2,12 @@
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  declared:
+  governs:
     continuant:
       - authority
 tier: core
-version: 9
-updated_at: 2026-08-29 01:16:37 +0400
+version: 10
+updated_at: 2026-08-29 02:40:41 +0400
 relations:
   child_of:
     - CA-R-1058

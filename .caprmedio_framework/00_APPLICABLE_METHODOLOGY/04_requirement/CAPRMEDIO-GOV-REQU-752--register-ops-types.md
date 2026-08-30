@@ -1,10 +1,10 @@
 ---
 cce_version: cce_1
-cce_form: definition
+cce_form: requirement
 subjects:
-  declared:
+  governs:
     continuant:
-      - artifact-catalog
+      - "Atom/Content Role: Operations/Type"
 project_graph_state:
   artifacts:
     enabled_types:
@@ -13,8 +13,8 @@ project_graph_state:
       - ops:environment_state
       - ops:health_record
       - ops:incident_record
-version: 8
-updated_at: 2026-08-29 01:16:37 +0400
+version: 9
+updated_at: 2026-08-29 04:33:13 +0400
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -26,6 +26,6 @@ relations:
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/003_LOCAL_CONFIGURATION/04_requirement/CAPRMEDIO-GOV-REQU-752--register-ops-types.md
 ---
-# Register Ops Types
+# Register Type Values for Operations Atoms
 
-GOVERNANCE registers `release_record`, `deployment_record`, `environment_state`, `health_record`, **and** `incident_record` as internal Ops Types for their corresponding enacted facts.
+GOVERNANCE registers Release Record, Deployment Record, Environment State, Health Record, **and** Incident Record with their existing lowercase Carrier tokens as internal values of `Atom/Content Role: Operations/Type`.

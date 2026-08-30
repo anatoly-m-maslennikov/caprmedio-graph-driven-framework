@@ -2,7 +2,7 @@
 subjects:
   governs:
     continuant:
-      - Demand/Direction
+      - "Atom/Content Role: Requirement/Type: Demand/Direction"
   depends_on:
     continuant:
       - Atom/Current Scope
@@ -10,8 +10,8 @@ subjects:
 atom_id: CA-R-944
 cce_version: cce_1
 cce_form: definition
-version: 5
-updated_at: 2026-08-28 22:31:24 +0400
+version: 7
+updated_at: 2026-08-29 04:33:13 +0400
 relations:
   replacement_of:
     - CA-R-876

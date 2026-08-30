@@ -2,7 +2,7 @@
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  declared:
+  governs:
     continuant:
       - settings
 llm_session_ids:
@@ -10,8 +10,8 @@ llm_session_ids:
 project_graph_state:
   artifact_timestamps:
     timezone: local
-version: 9
-updated_at: 2026-08-29 01:16:37 +0400
+version: 10
+updated_at: 2026-08-29 09:18:56 +0400
 relations:
   child_of:
     - CAPRMEDIO-META-REQU-163--define-configuration-selection-and-precedence

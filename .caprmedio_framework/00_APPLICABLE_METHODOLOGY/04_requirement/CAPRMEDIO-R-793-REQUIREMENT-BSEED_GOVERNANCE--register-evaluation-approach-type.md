@@ -2,15 +2,15 @@
 cce_version: cce_1
 cce_form: definition
 subjects:
-  declared:
+  governs:
     continuant:
-      - artifact-catalog
+      - "Atom/Content Role: Evaluation/Type: Evaluation Approach"
 project_graph_state:
   artifacts:
     enabled_types:
       - evaluation:evaluation_approach
-version: 7
-updated_at: 2026-08-23 15:00:38
+version: 8
+updated_at: 2026-08-29 04:33:13 +0400
 relations:
   child_of:
     - CAPRMEDIO-META-REQU-094--mechanism-neutral-evaluation-atoms
@@ -19,6 +19,6 @@ relations:
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/003_LOCAL_CONFIGURATION/04_requirement/CAPRMEDIO-R-793-REQUIREMENT-BSEED_GOVERNANCE--register-evaluation-approach-type.md
 ---
-# Register the Evaluation Approach Type
+# Define Evaluation Approach as a Type Value for Evaluation Atoms
 
-GOVERNANCE registers `evaluation_approach` as the internal Evaluation Type for one reusable, mechanism-neutral evaluation policy.
+Evaluation Approach **means** the internal Type value under Content Role Evaluation for one reusable, mechanism-neutral evaluation policy **and** has Carrier token `evaluation_approach`.

@@ -5,12 +5,12 @@ cce_form: requirement
 subjects:
   governs:
     continuant:
-      - "Atom/Claim/Claim-Subject Relation/Kind: GOVERNS"
+      - "Claim-Subject Relation/Kind: GOVERNS"
   depends_on:
     continuant:
       - Claim-Subject Relation/Temporal Form
-version: 3
-updated_at: 2026-08-29 01:16:37 +0400
+version: 5
+updated_at: 2026-08-29 05:02:00 +0400
 relations: {}
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1202-MMODEL-CORE-REQUIREMENT--limit-governed-subjects-by-temporal-form.md

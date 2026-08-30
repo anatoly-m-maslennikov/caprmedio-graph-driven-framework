@@ -10,8 +10,8 @@ subjects:
 atom_id: CA-R-922
 cce_version: cce_1
 cce_form: definition
-version: 6
-updated_at: 2026-08-29 01:16:37 +0400
+version: 7
+updated_at: 2026-08-29 02:40:41 +0400
 relations:
   replacement_of:
     - CA-R-906

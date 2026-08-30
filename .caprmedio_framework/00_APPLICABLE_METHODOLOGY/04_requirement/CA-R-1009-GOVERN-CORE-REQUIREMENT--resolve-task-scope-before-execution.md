@@ -5,13 +5,13 @@ cce_form: obligation
 subjects:
   governs:
     continuant:
-      - Task/Scope Resolution
+      - "Atom/Content Role: Plan/Type: Task/Scope Resolution"
   depends_on:
     continuant:
-      - Task/Scope
+      - "Atom/Content Role: Plan/Type: Task/Scope"
       - Atom/Claim
-version: 5
-updated_at: 2026-08-29 01:16:37 +0400
+version: 7
+updated_at: 2026-08-29 04:33:13 +0400
 relations:
   child_of:
     - CA-R-1000

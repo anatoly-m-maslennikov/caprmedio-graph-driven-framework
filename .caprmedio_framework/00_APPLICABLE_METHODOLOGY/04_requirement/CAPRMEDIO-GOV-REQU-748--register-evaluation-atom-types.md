@@ -1,17 +1,17 @@
 ---
 cce_version: cce_1
-cce_form: definition
+cce_form: requirement
 subjects:
-  declared:
+  governs:
     continuant:
-      - artifact-catalog
+      - "Atom/Content Role: Evaluation/Type"
 project_graph_state:
   artifacts:
     enabled_types:
       - evaluation:qa_case
       - evaluation:evaluation_control
-version: 8
-updated_at: 2026-08-29 01:16:37 +0400
+version: 9
+updated_at: 2026-08-29 04:33:13 +0400
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -24,6 +24,6 @@ relations:
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/003_LOCAL_CONFIGURATION/04_requirement/CAPRMEDIO-GOV-REQU-748--register-evaluation-atom-types.md
 ---
-# Register Evaluation Atom Types
+# Register Type Values for Evaluation Atoms
 
-GOVERNANCE registers `qa_case` for one mechanism-neutral bounded check **and** `evaluation_control` for one condition **or** invariant evaluated during real operation as internal Evaluation Types.
+GOVERNANCE registers QA Case with Carrier token `qa_case` **and** Evaluation Control with Carrier token `evaluation_control` as internal values of `Atom/Content Role: Evaluation/Type`.

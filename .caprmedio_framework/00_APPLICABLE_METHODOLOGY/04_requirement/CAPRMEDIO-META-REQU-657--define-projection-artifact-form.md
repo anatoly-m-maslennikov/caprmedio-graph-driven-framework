@@ -2,11 +2,14 @@
 cce_version: cce_1
 cce_form: definition
 subjects:
-  declared:
+  governs:
+    continuant:
+      - Projection
+  depends_on:
     continuant:
       - artifact-model
-version: 6
-updated_at: 2026-08-29 01:16:37 +0400
+version: 7
+updated_at: 2026-08-29 02:40:41 +0400
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
   - codex:01a01cb4-e15e-78d1-9084-766bf6b0cd63

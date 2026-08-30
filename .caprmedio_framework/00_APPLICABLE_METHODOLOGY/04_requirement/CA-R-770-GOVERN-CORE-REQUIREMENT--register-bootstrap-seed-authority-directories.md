@@ -1,13 +1,13 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
       - authority
 atom_id: CA-R-770
 cce_version: cce_1
 cce_form: obligation
-version: 18
-updated_at: 2026-08-29 01:16:37 +0400
+version: 19
+updated_at: 2026-08-29 09:18:56 +0400
 relations:
   child_of:
     - CAPRMEDIO-META-REQU-707

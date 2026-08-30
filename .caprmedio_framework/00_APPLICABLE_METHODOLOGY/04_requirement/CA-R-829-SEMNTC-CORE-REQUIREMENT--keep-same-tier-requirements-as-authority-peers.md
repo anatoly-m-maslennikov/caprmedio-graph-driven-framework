@@ -1,16 +1,16 @@
 ---
 subjects:
-  declared:
+  governs:
     continuant:
       - artifact-model
-  prerequisite:
+  depends_on:
     continuant:
       - authority
 atom_id: CA-R-829
 cce_version: cce_1
 cce_form: relation_assertion
-version: 9
-updated_at: 2026-08-29 01:16:37 +0400
+version: 10
+updated_at: 2026-08-29 02:40:41 +0400
 relations:
   child_of:
     - CA-R-796

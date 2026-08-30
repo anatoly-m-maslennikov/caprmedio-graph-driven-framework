@@ -1,10 +1,10 @@
 ---
 cce_version: cce_1
-cce_form: definition
+cce_form: requirement
 subjects:
-  declared:
+  governs:
     continuant:
-      - artifact-catalog
+      - "Atom/Content Role: Concern/Type"
 project_graph_state:
   artifacts:
     enabled_types:
@@ -12,8 +12,8 @@ project_graph_state:
       - concern:problem
       - concern:risk
       - concern:opportunity
-version: 8
-updated_at: 2026-08-29 01:16:37 +0400
+version: 9
+updated_at: 2026-08-29 04:33:13 +0400
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -25,6 +25,6 @@ relations:
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/003_LOCAL_CONFIGURATION/04_requirement/CAPRMEDIO-GOV-REQU-749--register-concern-atom-types.md
 ---
-# Register Concern Atom Types
+# Register Type Values for Concern Atoms
 
-GOVERNANCE registers `question` for unresolved knowledge, `problem` for a present undesirable condition, `risk` for a possible future undesirable condition, **and** `opportunity` for optional expected value as internal Concern Types.
+GOVERNANCE registers Question with Carrier token `question`, Problem with Carrier token `problem`, Risk with Carrier token `risk`, **and** Opportunity with Carrier token `opportunity` as internal values of `Atom/Content Role: Concern/Type`.

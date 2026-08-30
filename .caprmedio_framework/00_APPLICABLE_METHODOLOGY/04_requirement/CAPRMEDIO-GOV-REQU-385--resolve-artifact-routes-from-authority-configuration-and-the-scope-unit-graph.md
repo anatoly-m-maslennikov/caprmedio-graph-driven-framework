@@ -10,8 +10,8 @@ subjects:
       - Applicable Methodology
       - Local Configuration
       - Scope Unit Graph
-version: 13
-updated_at: 2026-08-29 01:16:37 +0400
+version: 14
+updated_at: 2026-08-29 02:40:41 +0400
 relations: {}
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CAPRMEDIO-GOV-REQU-385--resolve-artifact-routes-from-authority-configuration-and-the-scope-unit-graph.md

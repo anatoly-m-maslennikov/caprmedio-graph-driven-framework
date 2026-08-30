@@ -2,15 +2,15 @@
 subjects:
   governs:
     continuant:
-      - Demand/Producer Result
+      - "Atom/Content Role: Requirement/Type: Demand/Producer Result"
   depends_on:
     continuant:
       - "Atom/Content Role: Implementation"
 atom_id: CA-R-954
 cce_version: cce_1
 cce_form: obligation
-version: 6
-updated_at: 2026-08-29 01:16:37 +0400
+version: 8
+updated_at: 2026-08-29 04:33:13 +0400
 relations:
   child_of:
     - CA-R-933

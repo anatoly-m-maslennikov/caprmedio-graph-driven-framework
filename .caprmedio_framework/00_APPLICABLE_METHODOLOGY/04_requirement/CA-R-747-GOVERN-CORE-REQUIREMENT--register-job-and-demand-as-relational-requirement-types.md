@@ -9,8 +9,8 @@ subjects:
 atom_id: CA-R-747
 cce_version: cce_1
 cce_form: obligation
-version: 13
-updated_at: 2026-08-28 22:31:24 +0400
+version: 15
+updated_at: 2026-08-29 04:33:13 +0400
 relations:
   child_of:
     - CA-R-923
@@ -18,6 +18,6 @@ relations:
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-747-GOVERN-CORE-REQUIREMENT--register-job-and-demand-as-relational-requirement-types.md
 ---
-# Register Job and Demand as Relational Requirement Types
+# Register Job and Demand as Type Values for Relational Requirement Atoms
 
-the Core Relational Requirement Type values **must** be exactly (Job, Demand).
+the Core contribution to allowed values of `Atom/Content Role: Requirement/Type` for Relational Atoms **must** be exactly (Job, Demand).

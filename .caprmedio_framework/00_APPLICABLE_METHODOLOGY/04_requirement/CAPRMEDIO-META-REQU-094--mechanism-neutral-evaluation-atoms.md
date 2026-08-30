@@ -2,11 +2,11 @@
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  declared:
+  governs:
     occurrent:
       - evaluation
-version: 6
-updated_at: 2026-08-29 01:16:37 +0400
+version: 8
+updated_at: 2026-08-29 04:33:13 +0400
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -25,7 +25,7 @@ One Evaluation Atom **may** be realized by multiple distinct evaluation implemen
 
 Deterministic Test implementations **and** qualitative, probabilistic, statistical, rubric-based, **or** model-judged Evaluation implementations retain distinct chains. **every** chain keeps its executable Implementation, configuration **or** rubric, factual Ops result, Evidence, **and** Verification judgment distinguishable. A shared runner, prompt, judge, report, **or** gate does **not** merge their meanings, results, **or** coverage.
 
-Test **and** Evaluation describe implementation mechanisms, **not** Evaluation Types. The Evaluation Atom remains the authority; executable mechanisms are Implementation, **and** their enacted results are Ops.
+Test **and** Evaluation describe implementation mechanisms, **not** Type values under Content Role Evaluation. The Evaluation Atom remains the authority; executable mechanisms are Implementation, **and** their enacted results are Ops.
 
 ## Primary claim
 

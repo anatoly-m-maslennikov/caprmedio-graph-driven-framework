@@ -10,10 +10,10 @@ subjects:
     continuant:
       - Atom/Claim
       - Atom/Claim Scope
-      - Task/Definition of Done
-      - Task/Details
-version: 6
-updated_at: 2026-08-29 01:16:37 +0400
+      - "Atom/Content Role: Plan/Type: Task/Definition of Done"
+      - "Atom/Content Role: Plan/Type: Task/Details"
+version: 8
+updated_at: 2026-08-29 04:33:13 +0400
 relations: {}
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-989-MMODEL-CORE-REQUIREMENT--define-task-atom.md

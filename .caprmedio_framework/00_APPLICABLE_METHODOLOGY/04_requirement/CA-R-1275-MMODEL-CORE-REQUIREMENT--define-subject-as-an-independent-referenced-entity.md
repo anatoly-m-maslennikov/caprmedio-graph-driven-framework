@@ -8,14 +8,13 @@ subjects:
       - Subject
   depends_on:
     continuant:
-      - Entity
       - Claim-Subject Relation
-version: 2
-updated_at: 2026-08-29 01:16:37 +0400
+version: 3
+updated_at: 2026-08-29 02:40:41 +0400
 relations: {}
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1275-MMODEL-CORE-REQUIREMENT--define-subject-as-an-independent-referenced-entity.md
 ---
-# Define Subject as an Independent Referenced Entity
+# Define Subject
 
-a Subject **means** an independent Entity referenced by a Claim-Subject Relation **without** being owned **or** stored by the relation **or** its Atom.
+a Subject **means** the exact participant referenced by **`=1`** Claim-Subject Relation **without** being owned **or** stored by that relation **or** its Atom.

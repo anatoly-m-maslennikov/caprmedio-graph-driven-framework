@@ -2,13 +2,16 @@
 cce_version: cce_1
 cce_form: definition
 subjects:
-  declared:
+  governs:
+    continuant:
+      - Generated Data Stage Prefix
+  depends_on:
     continuant:
       - artifact-catalog
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
-version: 6
-updated_at: 2026-08-29 01:16:37 +0400
+version: 7
+updated_at: 2026-08-29 02:40:41 +0400
 relations:
   child_of:
     - CAPRMEDIO-META-REQU-150--keep-data-stages-orthogonal-to-artifact-semantics

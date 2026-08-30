@@ -5,14 +5,14 @@ cce_form: definition
 subjects:
   governs:
     continuant:
-      - Task/Details
+      - "Atom/Content Role: Plan/Type: Task/Details"
   depends_on:
     continuant:
-      - Task/Scope
+      - "Atom/Content Role: Plan/Type: Task/Scope"
       - Atom/Claim
-      - Task/Definition of Done
-version: 3
-updated_at: 2026-08-29 01:16:37 +0400
+      - "Atom/Content Role: Plan/Type: Task/Definition of Done"
+version: 5
+updated_at: 2026-08-29 04:33:13 +0400
 relations: {}
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1214-MMODEL-CORE-REQUIREMENT--define-task-details-for-task-job.md

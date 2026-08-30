@@ -2,11 +2,11 @@
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  declared:
+  governs:
     continuant:
       - artifact-model
-version: 7
-updated_at: 2026-08-29 01:16:37 +0400
+version: 9
+updated_at: 2026-08-29 04:33:13 +0400
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -22,4 +22,4 @@ projection:
 ---
 # Admit Atoms only where a role has an atomic unit
 
-A Content role admits an Atom Type **only** **when** that role has an independently governed atomic unit that benefits from stable identity, admission, **and** whole-unit lifecycle; CAPRMEDIO **must not** create a placeholder Atom Type merely to fill a semantic coordinate.
+a Content Role admits a Type value for an Atom **only** **when** that role has an independently governed atomic unit that benefits from stable identity, admission, **and** whole-unit lifecycle; CAPRMEDIO **must not** create a placeholder Type value merely to fill a semantic coordinate.
