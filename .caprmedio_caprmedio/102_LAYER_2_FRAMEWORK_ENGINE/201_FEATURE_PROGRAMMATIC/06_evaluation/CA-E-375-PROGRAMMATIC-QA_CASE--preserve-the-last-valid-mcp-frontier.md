@@ -8,9 +8,9 @@ subjects:
       - framework-engine-mcp-frontier
   depends_on:
     continuant:
-      - PROGRAMMATIC
-version: 1
-updated_at: 2026-08-27 15:55:57 +0400
+      - programmatic software
+version: 2
+updated_at: 2026-09-01 02:00:00 +0400
 relations:
   evaluation_for:
     - CA-M-193
@@ -38,3 +38,7 @@ and the preceding frontier remains unchanged and callable.
 
 Reject the refresh path until replacement is atomic at the validated frontier
 boundary.
+
+## Sources
+
+- [CA-M-193 — Supply the active Tool frontier to MCP](../05_method/CA-M-193-PROGRAMMATIC-METHOD--supply-the-active-tool-frontier-to-mcp.md)
