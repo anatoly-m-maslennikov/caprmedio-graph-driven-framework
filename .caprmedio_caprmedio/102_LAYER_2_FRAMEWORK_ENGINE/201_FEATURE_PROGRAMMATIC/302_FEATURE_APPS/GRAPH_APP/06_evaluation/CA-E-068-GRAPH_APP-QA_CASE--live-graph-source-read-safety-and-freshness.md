@@ -5,8 +5,8 @@ subjects:
       - evaluation
     occurrent:
       - evaluation
-version: 8
-updated_at: 2026-08-30 16:44:07 +0400
+version: 9
+updated_at: 2026-09-01 02:30:00 +0400
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -22,7 +22,7 @@ relations:
 
 The local graph service returns the actual current registered STG or active Atom source and digest without permitting filesystem escape, inactive-source disclosure, intermediate authority, or mutation.
 
-## Applicable conditions
+## Test case
 
 1. Serve `.caprmedio/mrt_atoms.html`, request one registered Subject STG, one registered lineage-section STG, and one valid active Atom from its lineage manifest, and require exact raw UTF-8 content, source kind, canonical repository-relative path, current status, and SHA-256 digest.
 2. Reject an absolute external path, `..` traversal, a symlink escaping the project, an unregistered STG, a non-Markdown file, an unregistered Markdown file, an archived or otherwise inactive Atom, invalid UTF-8, and every non-read request.
@@ -38,3 +38,8 @@ Every valid request returns the exact current registered STG or active Atom sour
 ## Failure disposition
 
 Stop the graph service, reject the MRT interaction as unsafe or stale, and record a high-priority Concern naming the first leaked path, unauthorized read, mutation, or incorrect digest.
+
+## Sources
+
+- [CA-R-1077 — Serve live graph sources read-only](../04_requirement/CA-R-1077-GRAPH_APP-REQUIREMENT--serve-live-graph-sources-read-only.md)
+- [CA-M-154 — Serve live graph sources without mutation](../05_method/CA-M-154-GRAPH_APP-CORE-METHOD--serve-live-graph-sources-without-mutation.md)
