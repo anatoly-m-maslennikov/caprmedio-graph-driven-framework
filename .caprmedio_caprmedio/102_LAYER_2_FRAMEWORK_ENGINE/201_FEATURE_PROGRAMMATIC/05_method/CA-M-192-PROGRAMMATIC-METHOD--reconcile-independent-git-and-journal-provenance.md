@@ -8,9 +8,9 @@ subjects:
       - provenance
   depends_on:
     continuant:
-      - PROGRAMMATIC
-version: 2
-updated_at: 2026-08-27 14:52:39 +0400
+      - programmatic software
+version: 3
+updated_at: 2026-09-01 01:45:00 +0400
 relations:
   method_for:
     - CA-R-1095
@@ -54,3 +54,9 @@ converges to one recoverable cross-system binding without a digest cycle.
 Stop reliance on the affected provenance when the sealed state is absent,
 multiple canonical records or commits remain, the commit is unreachable, or
 revision and digest mismatches cannot be repaired deterministically.
+
+## Sources
+
+- [Git documentation: commits](https://git-scm.com/docs/git-commit)
+- [NDJSON specification](https://github.com/ndjson/ndjson-spec)
+- [CA-A-058 — Reconcile queue, provenance, and MCP frontier decisions](../02_analysis/CA-A-058-PROGRAMMATIC-ANALYSIS_RPRT--reconcile-queue-provenance-and-mcp-frontier-decisions.md)
