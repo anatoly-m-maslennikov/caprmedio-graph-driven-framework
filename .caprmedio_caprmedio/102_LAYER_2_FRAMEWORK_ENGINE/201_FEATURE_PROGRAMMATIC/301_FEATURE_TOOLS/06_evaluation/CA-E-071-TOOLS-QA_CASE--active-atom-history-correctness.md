@@ -5,8 +5,8 @@ subjects:
       - evaluation
     occurrent:
       - evaluation
-version: 5
-updated_at: 2026-08-30 16:44:07 +0400
+version: 6
+updated_at: 2026-09-01 02:30:00 +0400
 llm_session_ids:
   - codex:019fc24e-24ed-7921-b4db-cf4df3e14bf7
 relations:
@@ -21,7 +21,7 @@ relations:
 
 The generated history reports a replayable daily active-Atom series whose total and Type, structural-level, and structural-unit rollups reconcile at every date.
 
-## Applicable conditions
+## Test case
 
 1. Build a Git fixture spanning several dates in the configured timezone with dates that contain multiple commits and dates without commits; create, move, archive, and reactivate Atoms of multiple Types across structural units and change the topology in one historical revision.
 2. Generate the history and require exactly `<project-control-root>/biz_atoms_active_history.md`, the last authoritative revision at or before each date's end, and carry-forward values on dates without a new revision.
@@ -37,3 +37,8 @@ Every reporting date uses the correct authoritative revision and exposes exact, 
 ## Failure disposition
 
 Reject the history, retain the previous current Projection, report the first missing date, wrong frontier, malformed historical carrier, incorrect lifecycle interpretation, non-reconciling count, or stale result, and record a Concern before publication.
+
+## Sources
+
+- [CA-R-1062 — Validate Projection currentness](../04_requirement/CA-R-1062-TOOLS-REQUIREMENT--validate-projection-currentness.md)
+- [CA-R-1069 — Generate active Atom history](../04_requirement/CA-R-1069-TOOLS-REQUIREMENT--generate-active-atom-history.md)
