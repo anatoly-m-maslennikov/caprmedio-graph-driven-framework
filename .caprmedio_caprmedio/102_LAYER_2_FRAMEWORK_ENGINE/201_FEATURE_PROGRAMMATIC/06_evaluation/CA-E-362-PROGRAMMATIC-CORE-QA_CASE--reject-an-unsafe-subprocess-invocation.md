@@ -8,9 +8,9 @@ subjects:
       - subprocess-invocation
   depends_on:
     continuant:
-      - PROGRAMMATIC
-version: 1
-updated_at: 2026-08-27 15:55:57 +0400
+      - programmatic software
+version: 2
+updated_at: 2026-09-01 02:00:00 +0400
 relations:
   evaluation_for:
     - CA-M-161
@@ -38,3 +38,7 @@ the unsafe argument and shell boundary.
 
 Reject the subprocess path until it uses the complete bounded invocation
 contract.
+
+## Sources
+
+- [CA-M-161 — Bound file and subprocess effects](../05_method/CA-M-161-PROGRAMMATIC-CORE-METHOD--bound-file-and-subprocess-effects.md)
