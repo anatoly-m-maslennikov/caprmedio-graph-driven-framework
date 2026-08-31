@@ -8,10 +8,10 @@ subjects:
       - operational-diagnostic
   depends_on:
     continuant:
-      - PROGRAMMATIC
+      - programmatic software
       - Logging Policy
-version: 3
-updated_at: 2026-08-27 15:55:57 +0400
+version: 4
+updated_at: 2026-09-01 02:00:00 +0400
 relations:
   evaluation_for:
     - CA-M-163
@@ -43,3 +43,7 @@ as an operational diagnostic.
 ## Failure disposition
 
 Reject the diagnostic path until its schema and severity are corrected.
+
+## Sources
+
+- [CA-M-163 — Emit structured operational diagnostics](../05_method/CA-M-163-PROGRAMMATIC-CORE-METHOD--emit-structured-operational-diagnostics.md)
