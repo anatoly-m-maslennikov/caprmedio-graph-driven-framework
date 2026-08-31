@@ -8,10 +8,10 @@ subjects:
       - diagnostic-redaction
   depends_on:
     continuant:
-      - PROGRAMMATIC
+      - programmatic software
       - Logging Policy
-version: 3
-updated_at: 2026-08-27 15:55:57 +0400
+version: 4
+updated_at: 2026-09-01 02:00:00 +0400
 relations:
   evaluation_for:
     - CA-M-163
@@ -42,3 +42,7 @@ or irreversibly redacting the secret-bearing value.
 ## Failure disposition
 
 Stop the diagnostic path and correct its sanitization boundary before release.
+
+## Sources
+
+- [CA-M-163 — Emit structured operational diagnostics](../05_method/CA-M-163-PROGRAMMATIC-CORE-METHOD--emit-structured-operational-diagnostics.md)
