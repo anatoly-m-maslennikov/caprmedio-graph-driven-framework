@@ -8,9 +8,9 @@ subjects:
       - installed-runtime
   depends_on:
     continuant:
-      - PROGRAMMATIC
-version: 3
-updated_at: 2026-08-27 15:55:57 +0400
+      - programmatic software
+version: 4
+updated_at: 2026-09-01 02:00:00 +0400
 relations:
   evaluation_for:
     - CA-M-110
@@ -45,3 +45,7 @@ claiming selection authority.
 ## Failure disposition
 
 Reject the installation claim and return the component to its Delivery owner.
+
+## Sources
+
+- [CA-M-110 — Implement PROGRAMMATIC components in Python](../05_method/CA-M-110-PROGRAMMATIC-CORE-IMPL_METHOD--implement-programmatic-components-in-python.md)
