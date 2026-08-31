@@ -8,9 +8,9 @@ subjects:
       - programmatic-mutation-identity
   depends_on:
     continuant:
-      - PROGRAMMATIC
-version: 1
-updated_at: 2026-08-27 15:55:57 +0400
+      - programmatic software
+version: 2
+updated_at: 2026-09-01 02:00:00 +0400
 relations:
   evaluation_for:
     - CA-M-191
@@ -38,3 +38,7 @@ effect.
 
 Reject dispatch until the original Initiative and action identities are
 restored.
+
+## Sources
+
+- [CA-M-191 — Bind one programmatic mutation to its Initiative](../05_method/CA-M-191-PROGRAMMATIC-METHOD--bind-one-programmatic-mutation-to-its-initiative.md)
