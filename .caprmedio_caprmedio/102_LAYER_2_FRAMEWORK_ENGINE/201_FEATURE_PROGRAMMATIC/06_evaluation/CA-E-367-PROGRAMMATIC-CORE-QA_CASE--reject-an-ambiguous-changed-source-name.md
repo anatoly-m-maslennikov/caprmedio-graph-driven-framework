@@ -8,9 +8,9 @@ subjects:
       - source-name
   depends_on:
     continuant:
-      - PROGRAMMATIC
-version: 1
-updated_at: 2026-08-27 15:55:57 +0400
+      - programmatic software
+version: 2
+updated_at: 2026-09-01 02:00:00 +0400
 relations:
   evaluation_for:
     - CA-M-162
@@ -37,3 +37,7 @@ responsibility it owns.
 ## Failure disposition
 
 Block the changed unit from claiming naming conformance.
+
+## Sources
+
+- [CA-M-162 — Ratchet hand-authored Python source boundaries](../05_method/CA-M-162-PROGRAMMATIC-CORE-METHOD--ratchet-hand-authored-python-source-boundaries.md)
