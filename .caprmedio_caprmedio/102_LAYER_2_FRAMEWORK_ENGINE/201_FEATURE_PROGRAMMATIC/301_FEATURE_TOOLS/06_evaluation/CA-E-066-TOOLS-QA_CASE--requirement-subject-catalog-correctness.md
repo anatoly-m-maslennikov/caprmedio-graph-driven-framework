@@ -5,8 +5,8 @@ subjects:
       - evaluation
     occurrent:
       - evaluation
-version: 7
-updated_at: 2026-08-30 16:44:07 +0400
+version: 8
+updated_at: 2026-09-01 02:30:00 +0400
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -22,7 +22,7 @@ relations:
 
 The generated Subject Catalog contains exactly the selected structural unit's active Requirements, grouped by authored Subject and ordered by tier, with precise source-derived columns and Orphans last.
 
-## Applicable conditions
+## Test case
 
 1. Build a fixture with active Principle, Core, and Standard Requirements in at least two Subjects and structural units; include inactive Requirements, multiple numeric IDs, one cross-scope valid parent, one missing parent, one inactive parent, one wrong-tier parent, and one cycle.
 2. Generate the Catalog for one structural unit, require exactly `<selected-structural-unit-root>/stg_requirements_subjects.md`, and require only that unit's active Requirements as rows while validating their parents against the complete active project graph.
@@ -38,3 +38,9 @@ The Catalog has the exact selected active row set, Subject and tier ordering, th
 ## Failure disposition
 
 Reject the Catalog, retain the previous current Projection, report the first missing, extra, stale, misordered, malformed, or misclassified row, and record a Concern before publication.
+
+## Sources
+
+- [CA-R-1059 — Generate active Requirement Subject Catalog](../04_requirement/CA-R-1059-TOOLS-REQUIREMENT--generate-active-requirement-subject-catalog.md)
+- [CA-R-1061 — Rebuild one programmatic Projection](../04_requirement/CA-R-1061-TOOLS-REQUIREMENT--rebuild-one-programmatic-projection.md)
+- [CA-R-1062 — Validate Projection currentness](../04_requirement/CA-R-1062-TOOLS-REQUIREMENT--validate-projection-currentness.md)
