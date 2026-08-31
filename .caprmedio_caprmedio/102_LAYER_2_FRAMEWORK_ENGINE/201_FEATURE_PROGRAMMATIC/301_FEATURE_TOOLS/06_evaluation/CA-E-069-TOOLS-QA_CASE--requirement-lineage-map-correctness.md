@@ -5,8 +5,8 @@ subjects:
       - evaluation
     occurrent:
       - evaluation
-version: 6
-updated_at: 2026-08-30 16:44:07 +0400
+version: 7
+updated_at: 2026-09-01 02:30:00 +0400
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -22,7 +22,7 @@ relations:
 
 The generated Lineage Map places each selected active Requirement exactly once under its complete reachable Principle-root set, preserves direct parent evidence, and orders lineage groups and Orphans deterministically.
 
-## Applicable conditions
+## Test case
 
 1. Build a fixture with Principles `REQU-002` and `REQU-003`, one Core under only `REQU-002`, one Core shared by both Principles, Standards below each Core, and one Standard below both Cores; place some descendants in a different selected structural unit from their Principle roots.
 2. Generate the Map for the descendant structural unit, require exactly `<selected-structural-unit-root>/stg_requirements_lineage_sections.md`, and require ancestry to resolve through the complete active project graph while only selected-unit Requirements appear as displayed rows.
@@ -39,3 +39,9 @@ Every selected active Requirement appears exactly once in the correct numeric-ve
 ## Failure disposition
 
 Reject the Lineage Map, retain the previous current Projection, report the first missing, duplicated, incorrectly rooted, misordered, stale, or malformed row, and record a Concern before publication.
+
+## Sources
+
+- [CA-R-1061 — Rebuild one programmatic Projection](../04_requirement/CA-R-1061-TOOLS-REQUIREMENT--rebuild-one-programmatic-projection.md)
+- [CA-R-1062 — Validate Projection currentness](../04_requirement/CA-R-1062-TOOLS-REQUIREMENT--validate-projection-currentness.md)
+- [CA-R-1068 — Generate active Requirement Lineage Map](../04_requirement/CA-R-1068-TOOLS-REQUIREMENT--generate-active-requirement-lineage-map.md)
