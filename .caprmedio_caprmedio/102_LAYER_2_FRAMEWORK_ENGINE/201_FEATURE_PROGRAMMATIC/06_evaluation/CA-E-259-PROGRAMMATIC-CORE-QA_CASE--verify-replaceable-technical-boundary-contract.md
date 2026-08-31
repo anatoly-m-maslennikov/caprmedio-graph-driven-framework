@@ -8,9 +8,9 @@ subjects:
       - technical-interface
   depends_on:
     continuant:
-      - PROGRAMMATIC
-version: 3
-updated_at: 2026-08-27 15:55:57 +0400
+      - programmatic software
+version: 4
+updated_at: 2026-09-01 02:00:00 +0400
 relations:
   evaluation_for:
     - CA-M-159
@@ -45,3 +45,7 @@ representation.
 
 Reject the substitution or host integration until the explicit contract is
 restored or a bounded exception is accepted.
+
+## Sources
+
+- [CA-M-159 — Define typed contracts at replaceable technical boundaries](../05_method/CA-M-159-PROGRAMMATIC-CORE-METHOD--define-typed-contracts-at-replaceable-technical-boundaries.md)
