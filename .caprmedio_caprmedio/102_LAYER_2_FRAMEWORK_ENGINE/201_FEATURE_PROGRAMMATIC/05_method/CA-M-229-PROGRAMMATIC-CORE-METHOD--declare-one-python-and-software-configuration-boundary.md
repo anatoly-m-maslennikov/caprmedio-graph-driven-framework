@@ -9,8 +9,8 @@ subjects:
   depends_on:
     continuant:
       - programmatic software
-version: 1
-updated_at: 2026-09-01 01:50:00 +0400
+version: 2
+updated_at: 2026-09-01 02:35:00 +0400
 relations:
   method_for:
     - CA-R-1047
@@ -19,9 +19,11 @@ relations:
 ---
 # Declare one Python and software configuration boundary
 
-Select the stable CPython `3.14.*` series and one project-owned
-`pyproject.toml` surface for interpreter, formatting, linting, typing,
-evaluation, and packaging configuration. Keep this technical configuration
+Select the stable CPython `3.14.*` series and require one project-owned
+technical configuration boundary for interpreter, formatting, linting, typing,
+evaluation, and packaging. CA-D-250 owns the current carrier placement and
+encoding in the root `pyproject.toml`; configuration and Implementation
+materialize this Method's selections there. Keep that technical configuration
 separate from CAPRMEDIO project settings.
 
 ## Applicable when
@@ -31,8 +33,9 @@ dependency, formatter, linter, type checker, evaluator, or packager setting.
 
 ## Procedure
 
-1. Materialize the selected interpreter series and admitted development-tool
-   profiles in the root `pyproject.toml`.
+1. Resolve the current Delivery carrier, then materialize the selected
+   interpreter series and admitted development-tool profiles through that
+   boundary.
 2. Keep one value for each setting and make local and automated workflows read
    that value rather than reproduce it.
 3. Change the interpreter series or a selected tool profile only through its
@@ -43,13 +46,15 @@ dependency, formatter, linter, type checker, evaluator, or packager setting.
 
 ## Outcome
 
-One technical control surface materializes every accepted Python workflow
-selection without becoming a second source of methodological authority.
+This Method owns one set of Python workflow selections; Delivery owns its
+carrier, and configuration and Implementation reproduce the selections without
+becoming another methodological authority.
 
 ## Failure or stop
 
 Stop when two carriers disagree, a moving `latest` label replaces the selected
-series, or technical and CAPRMEDIO project settings are mixed.
+series, the materialization conflicts with its Delivery, or technical and
+CAPRMEDIO project settings are mixed.
 
 ## Sources
 
