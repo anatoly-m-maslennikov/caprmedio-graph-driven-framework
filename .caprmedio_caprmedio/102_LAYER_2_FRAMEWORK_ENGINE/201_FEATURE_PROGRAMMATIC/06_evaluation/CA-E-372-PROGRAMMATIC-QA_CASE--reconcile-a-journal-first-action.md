@@ -8,9 +8,9 @@ subjects:
       - provenance
   depends_on:
     continuant:
-      - PROGRAMMATIC
-version: 1
-updated_at: 2026-08-27 15:55:57 +0400
+      - programmatic software
+version: 2
+updated_at: 2026-09-01 02:00:00 +0400
 relations:
   evaluation_for:
     - CA-M-192
@@ -39,3 +39,7 @@ Pass only when the action advances from `journal_recorded_git_pending` to
 
 Preserve the pending state and reject provenance reliance until binding is
 complete.
+
+## Sources
+
+- [CA-M-192 — Reconcile independent Git and Journal provenance](../05_method/CA-M-192-PROGRAMMATIC-METHOD--reconcile-independent-git-and-journal-provenance.md)
