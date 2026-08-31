@@ -8,9 +8,9 @@ subjects:
       - programmatic-components
   depends_on:
     continuant:
-      - PROGRAMMATIC
-version: 8
-updated_at: 2026-08-27 14:52:39 +0400
+      - programmatic software
+version: 9
+updated_at: 2026-09-01 01:33:45 +0400
 relations:
   method_for:
     - CA-R-1047
@@ -57,3 +57,9 @@ and Ops records its execution without taking over selection authority.
 Stop admission or release when no accepted Method owns a required selection,
 its materialization disagrees with that Method, or the Delivery or Ops boundary
 is absent. Do not infer a platform-support claim from local execution.
+
+## Sources
+
+- [Python 3.14 documentation](https://docs.python.org/3.14/)
+- [Python Packaging User Guide: `pyproject.toml`](https://packaging.python.org/en/latest/guides/writing-pyproject-toml/)
+- [CA-A-053 — Reconcile shared PROGRAMMATIC policy decisions](../02_analysis/CA-A-053-PROGRAMMATIC-ANALYSIS_RPRT--reconcile-shared-programmatic-policy-decisions.md)
