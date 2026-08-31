@@ -8,9 +8,9 @@ subjects:
       - python-workflow-frontend
   depends_on:
     continuant:
-      - PROGRAMMATIC
-version: 3
-updated_at: 2026-08-27 14:52:39 +0400
+      - programmatic software
+version: 4
+updated_at: 2026-09-01 01:45:00 +0400
 relations:
   method_for:
     - CA-R-1047
@@ -74,3 +74,4 @@ or an exception lacks its accepted boundary.
 - [uv: Locking and syncing](https://docs.astral.sh/uv/concepts/projects/sync/)
 - [uv: Tools](https://docs.astral.sh/uv/concepts/tools/)
 - [uv: Configuring projects](https://docs.astral.sh/uv/concepts/projects/config/)
+- [CA-A-053 — Reconcile shared PROGRAMMATIC policy decisions](../02_analysis/CA-A-053-PROGRAMMATIC-ANALYSIS_RPRT--reconcile-shared-programmatic-policy-decisions.md)
