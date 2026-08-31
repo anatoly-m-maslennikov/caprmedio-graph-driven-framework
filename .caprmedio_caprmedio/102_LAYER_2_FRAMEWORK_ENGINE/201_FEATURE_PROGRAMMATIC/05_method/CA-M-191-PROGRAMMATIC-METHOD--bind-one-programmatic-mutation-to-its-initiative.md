@@ -9,8 +9,8 @@ subjects:
   depends_on:
     continuant:
       - programmatic software
-version: 3
-updated_at: 2026-09-01 01:45:00 +0400
+version: 4
+updated_at: 2026-09-01 02:40:00 +0400
 relations:
   method_for:
     - CA-R-1094
@@ -52,4 +52,4 @@ identities.
 
 ## Sources
 
-- [CA-A-058 — Reconcile queue, provenance, and MCP frontier decisions](../02_analysis/CA-A-058-PROGRAMMATIC-ANALYSIS_RPRT--reconcile-queue-provenance-and-mcp-frontier-decisions.md)
+- [CA-A-058 — Validate PROGRAMMATIC Method and Evaluation closure](../02_analysis/CA-A-058-PROGRAMMATIC-ANALYSIS_RPRT--validate-programmatic-method-and-evaluation-closure.md)
