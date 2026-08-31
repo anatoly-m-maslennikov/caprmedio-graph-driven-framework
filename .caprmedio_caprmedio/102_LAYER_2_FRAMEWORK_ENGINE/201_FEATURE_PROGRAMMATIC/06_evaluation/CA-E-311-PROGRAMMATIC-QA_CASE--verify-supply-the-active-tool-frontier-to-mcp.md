@@ -8,9 +8,9 @@ subjects:
       - framework-engine-mcp
   depends_on:
     continuant:
-      - PROGRAMMATIC
-version: 2
-updated_at: 2026-08-27 15:55:57 +0400
+      - programmatic software
+version: 3
+updated_at: 2026-09-01 02:00:00 +0400
 relations:
   evaluation_for:
     - CA-M-193
@@ -42,3 +42,7 @@ explicitly, and no call semantics or mechanics are duplicated in MCP.
 
 Reject the candidate frontier and preserve the preceding valid frontier when
 the complete projection cannot validate.
+
+## Sources
+
+- [CA-M-193 — Supply the active Tool frontier to MCP](../05_method/CA-M-193-PROGRAMMATIC-METHOD--supply-the-active-tool-frontier-to-mcp.md)
