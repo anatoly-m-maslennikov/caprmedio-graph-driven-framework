@@ -8,9 +8,9 @@ subjects:
       - provenance-reliance
   depends_on:
     continuant:
-      - PROGRAMMATIC
-version: 1
-updated_at: 2026-08-27 15:55:57 +0400
+      - programmatic software
+version: 2
+updated_at: 2026-09-01 02:00:00 +0400
 relations:
   evaluation_for:
     - CA-M-192
@@ -39,3 +39,7 @@ is blocked until the action becomes `reconciled`.
 
 Reject either behavior that blocks the originating mutation on its own pending
 state or permits later governed reliance before reconciliation.
+
+## Sources
+
+- [CA-M-192 — Reconcile independent Git and Journal provenance](../05_method/CA-M-192-PROGRAMMATIC-METHOD--reconcile-independent-git-and-journal-provenance.md)
