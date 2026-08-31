@@ -8,9 +8,9 @@ subjects:
       - technical-interface
   depends_on:
     continuant:
-      - PROGRAMMATIC
-version: 2
-updated_at: 2026-08-27 14:52:39 +0400
+      - programmatic software
+version: 3
+updated_at: 2026-09-01 01:33:45 +0400
 relations:
   method_for:
     - CA-R-1047
@@ -34,7 +34,11 @@ technical implementation for another or crosses a host-owned interface.
    and compatibility expectation at the interface.
 2. Keep callers dependent on that contract rather than on implementation-only
    state or incidental representation.
-3. Record an exception in its bounded owner when a required external interface
+3. Use a structural `Protocol` when consumers need one capability contract
+   without requiring implementations to inherit from a framework base class.
+4. Keep substrate-specific behavior in a small adapter and keep deterministic
+   semantic decisions outside that adapter.
+5. Record an exception in its bounded owner when a required external interface
    cannot meet the contract directly.
 
 ## Outcome
@@ -47,3 +51,9 @@ silently changing its callers' declared expectations.
 Stop substitution or host integration when the boundary has no explicit
 contract, its failures cannot be represented, or compatibility cannot be
 identified from current authority.
+
+## Sources
+
+- [PEP 544 — Protocols](https://peps.python.org/pep-0544/)
+- [Python documentation: `typing.Protocol`](https://docs.python.org/3.14/library/typing.html#typing.Protocol)
+- [CA-A-053 — Reconcile shared PROGRAMMATIC policy decisions](../02_analysis/CA-A-053-PROGRAMMATIC-ANALYSIS_RPRT--reconcile-shared-programmatic-policy-decisions.md)
