@@ -8,16 +8,15 @@ subjects:
       - production-debug
   depends_on:
     continuant:
-      - PROGRAMMATIC
+      - programmatic software
       - Logging Policy
-version: 1
-updated_at: 2026-08-27 15:55:57 +0400
+version: 2
+updated_at: 2026-09-01 02:00:00 +0400
 relations:
   evaluation_for:
     - CA-M-163
   derived_from:
     - CA-A-053
-    - CAPRMEDIO-GOV-REQU-315
 ---
 # Reject unbounded production DEBUG logging
 
@@ -39,3 +38,7 @@ Pass only when the configuration is rejected before deployment.
 
 Block production DEBUG until component, subject, run, entity, or equivalent
 scope and automatic expiry are present.
+
+## Sources
+
+- [CA-M-163 — Emit structured operational diagnostics](../05_method/CA-M-163-PROGRAMMATIC-CORE-METHOD--emit-structured-operational-diagnostics.md)
