@@ -8,9 +8,9 @@ subjects:
       - compatibility-boundary
   depends_on:
     continuant:
-      - PROGRAMMATIC
-version: 3
-updated_at: 2026-08-27 15:55:57 +0400
+      - programmatic software
+version: 4
+updated_at: 2026-09-01 02:00:00 +0400
 relations:
   evaluation_for:
     - CA-M-166
@@ -45,3 +45,7 @@ cross-host compatibility claim.
 
 Stop release and compatibility claims until the boundary has current authority
 or an accepted replacement.
+
+## Sources
+
+- [CA-M-166 — Preserve declared interface compatibility boundaries](../05_method/CA-M-166-PROGRAMMATIC-CORE-METHOD--preserve-declared-interface-compatibility-boundaries.md)
