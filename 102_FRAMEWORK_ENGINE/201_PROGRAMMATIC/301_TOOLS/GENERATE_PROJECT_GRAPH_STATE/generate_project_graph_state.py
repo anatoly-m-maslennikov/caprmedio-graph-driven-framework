@@ -7,6 +7,7 @@ import argparse
 import hashlib
 import json
 import re
+import subprocess
 import sys
 import tempfile
 from pathlib import Path
@@ -26,7 +27,11 @@ from framework_installation import InstallationError, installation_status  # noq
 
 OUTPUT = CONTROL / "project_scope_unit_graph.projection.toml"
 SOURCE_MAP = CONTROL / "project_scope_unit_graph_sources.projection.toml"
-CANONICAL_GENERATOR = SCRIPT
+CANONICAL_GENERATOR_CARRIER = Path(
+    "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/GENERATE_PROJECT_GRAPH_STATE/"
+    "generate_project_graph_state.py"
+)
+CANONICAL_GENERATOR = ROOT / CANONICAL_GENERATOR_CARRIER
 CONFIG = (
     ROOT
     / ".caprmedio_framework"
@@ -48,6 +53,9 @@ EPIC_DIRECTORY = re.compile(
     r"[0-9]+-CA-Epic-[0-9]+-[A-Z][A-Z0-9_]*-[a-z0-9][a-z0-9-]*\Z"
 )
 TIMESTAMP = re.compile(r"[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}\Z")
+TIMESTAMP_WITH_OFFSET = re.compile(
+    r"([0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2})(?: [+-][0-9]{4})\Z"
+)
 ISO_TIMESTAMP = re.compile(r"([0-9]{4}-[0-9]{2}-[0-9]{2})T([0-9]{2}:[0-9]{2}:[0-9]{2})(?:Z|[+-][0-9]{2}:[0-9]{2})\Z")
 
 
@@ -72,8 +80,68 @@ def normalise_timestamp(value: object) -> str:
         return ""
     if TIMESTAMP.fullmatch(value):
         return value
+    local_match = TIMESTAMP_WITH_OFFSET.fullmatch(value)
+    if local_match:
+        return local_match.group(1)
     match = ISO_TIMESTAMP.fullmatch(value)
     return f"{match.group(1)} {match.group(2)}" if match else ""
+
+
+def canonical_json_digest(value: object) -> str:
+    """Return the Work Journal canonical digest for one JSON-compatible value."""
+
+    payload = json.dumps(
+        value,
+        ensure_ascii=False,
+        sort_keys=True,
+        separators=(",", ":"),
+        allow_nan=False,
+    ).encode("utf-8")
+    return hashlib.sha256(payload).hexdigest()
+
+
+def generator_metadata(executed_generator: Path | None = None) -> dict[str, str]:
+    """Describe canonical source authority separately from this execution carrier."""
+
+    if not CANONICAL_GENERATOR.is_file():
+        raise SystemExit("canonical Project Scope Unit Graph Generator source is missing")
+    executed_path = SCRIPT if executed_generator is None else executed_generator.resolve()
+    try:
+        executed = project_relative(executed_path)
+    except ValueError as error:
+        raise SystemExit("executed Project Scope Unit Graph Generator is outside the repository") from error
+    return {
+        "canonical_generator": CANONICAL_GENERATOR_CARRIER.as_posix(),
+        "canonical_generator_sha256": sha(CANONICAL_GENERATOR),
+        "executed_generator": executed,
+        "executed_generator_sha256": sha(executed_path),
+    }
+
+
+def canonical_projection_bytes(payload: str) -> bytes:
+    """Return the execution-independent canonical bytes of one graph Projection."""
+
+    return "\n".join(
+        line
+        for line in payload.splitlines()
+        if not line.startswith("executed_generator")
+    ).encode("utf-8") + b"\n"
+
+
+def journal_records(journal: Path) -> list[tuple[Path, int, dict[str, object]]]:
+    """Return parseable Work Journal records in canonical carrier and line order."""
+
+    records: list[tuple[Path, int, dict[str, object]]] = []
+    for carrier in sorted(journal.glob("*.ndjson")):
+        with carrier.open(encoding="utf-8") as source:
+            for number, line in enumerate(source, 1):
+                try:
+                    record = json.loads(line)
+                except json.JSONDecodeError:
+                    continue
+                if isinstance(record, dict):
+                    records.append((carrier, number, record))
+    return records
 
 
 def configuration_binding(config_sha: str) -> dict[str, str]:
@@ -157,13 +225,16 @@ def parse_scope_unit_name(name: str) -> dict[str, object] | None:
         if SCOPE_UNIT_CANDIDATE.match(name):
             raise SystemExit(f"invalid Scope Unit Directory Carrier name: {name}")
         return None
-    unit_type = match["unit_type"]
+    unit_type_name = match["unit_type"]
     local_order = match["local_order"]
-    if (unit_type == "LAYER") != (local_order is not None):
+    if (unit_type_name == "LAYER") != (local_order is not None):
         raise SystemExit(f"invalid Local Order for Scope Unit Directory Carrier: {name}")
     return {
-        "name": match["name"],
-        "scope_unit_type": unit_type.title(),
+        "unit_name": match["name"],
+        "unit_type_name": unit_type_name,
+        # A Scope Unit's Type value is determined by Local Order participation,
+        # not by the independent Operator-controlled Unit Type Name.
+        "type_value": "Layer" if local_order is not None else "Feature",
         "numeric_prefix": match["numeric_prefix"],
         "local_order": int(local_order) if local_order is not None else None,
     }
@@ -210,13 +281,21 @@ def scope_units(control: Path, root: Path, modes: dict[str, object]) -> list[dic
         rows.append(
             {
                 "node_id": relative_to_control,
-                "name": parsed["name"],
+                # name, scope_unit_type, and structural_parent remain compact
+                # compatibility aliases for existing consumers. The value-bearing
+                # fields below are the governed graph representation.
+                "unit_name": parsed["unit_name"],
+                "name": parsed["unit_name"],
+                "project_boundary_position": "PROJECT",
+                "type_value": parsed["type_value"],
                 "authority_path": carrier.relative_to(root).as_posix(),
                 "authority_materialized": True,
                 "numeric_prefix": parsed["numeric_prefix"],
-                "scope_unit_type": parsed["scope_unit_type"],
+                "unit_type_name": parsed["unit_type_name"],
+                "scope_unit_type": parsed["type_value"],
                 "authority_mode": default_mode,
                 "local_order": parsed["local_order"],
+                "parent": PROJECT_IDENTITY,
                 "structural_parent": PROJECT_IDENTITY,
             }
         )
@@ -229,6 +308,7 @@ def scope_units(control: Path, root: Path, modes: dict[str, object]) -> list[dic
         while parent != control:
             parent_row = by_path.get(parent)
             if parent_row is not None:
+                row["parent"] = parent_row["node_id"]
                 row["structural_parent"] = parent_row["node_id"]
                 break
             parent = parent.parent
@@ -240,7 +320,170 @@ def scope_units(control: Path, root: Path, modes: dict[str, object]) -> list[dic
             int(row["structural_level"]),
             structural_level_width,
         )
+    for row in rows:
+        children = [child for child in rows if child["parent"] == row["node_id"]]
+        child_types = {str(child["type_value"]) for child in children}
+        if not child_types:
+            row["child_composition"] = "NONE"
+        elif child_types == {"Layer"}:
+            row["child_composition"] = "LAYERS"
+        elif child_types == {"Feature"}:
+            row["child_composition"] = "FEATURES"
+        else:
+            row["child_composition"] = "MIXED"
     return rows
+
+
+def current_directory_entries(directory: Path) -> list[dict[str, str]]:
+    """Return the exact Git-admitted current file frontier of one Directory Carrier."""
+
+    relative = project_relative(directory)
+    completed = subprocess.run(
+        ["git", "-C", str(ROOT), "ls-files", "--cached", "--others", "--exclude-standard", "--", relative],
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    if completed.returncode != 0:
+        raise SystemExit("cannot resolve the Git-admitted Scope Unit Directory Carrier frontier")
+    entries: list[dict[str, str]] = []
+    for value in completed.stdout.splitlines():
+        path = ROOT / value
+        if not path.is_file():
+            raise SystemExit(f"Scope Unit Directory Carrier contains an unresolved entry: {value}")
+        entries.append({"path": value, "sha256": sha(path)})
+    return sorted(entries, key=lambda entry: entry["path"])
+
+
+def directory_receipt(directory: Path) -> dict[str, str]:
+    """Resolve the one completed Work Journal receipt for a current Directory Carrier."""
+
+    relative = project_relative(directory)
+    current_entries = current_directory_entries(directory)
+    if not current_entries:
+        raise SystemExit(f"Scope Unit Directory Carrier is empty: {relative}")
+    relative_entries = [
+        {"path": Path(entry["path"]).relative_to(relative).as_posix(), "sha256": entry["sha256"]}
+        for entry in current_entries
+    ]
+    expected_digest = canonical_json_digest(relative_entries)
+    matches: list[dict[str, str]] = []
+    for carrier, number, record in journal_records(JOURNAL):
+        result = record.get("result")
+        if (
+            record.get("kind") != "governed_project_change"
+            or record.get("event") != "completed"
+            or record.get("subject_kind") != "folder"
+            or not isinstance(result, dict)
+            or result.get("path") != relative
+            or result.get("sha256") != expected_digest
+            or not isinstance(result.get("version"), int)
+            or result.get("entries") != current_entries
+        ):
+            continue
+        updated_at = normalise_timestamp(record.get("occurred_at"))
+        event_id = record.get("event_id")
+        if not updated_at or not isinstance(event_id, str) or not event_id:
+            continue
+        matches.append(
+            {
+                "carrier": relative,
+                "revision": str(result["version"]),
+                "sha256": expected_digest,
+                "journal_carrier": project_relative(carrier),
+                "journal_line": str(number),
+                "journal_event_id": event_id,
+                "updated_at": updated_at,
+            }
+        )
+    if len(matches) != 1:
+        state = "unresolved" if not matches else "ambiguous"
+        raise SystemExit(f"{state} exact Work Journal receipt for Scope Unit Directory Carrier: {relative}")
+    return matches[0]
+
+
+def atom_frontmatter(path: Path) -> tuple[str, str]:
+    """Return frontmatter and body from one governed Markdown Atom carrier."""
+
+    text = path.read_text(encoding="utf-8")
+    if not text.startswith("---\n"):
+        raise SystemExit(f"Delivery Atom lacks frontmatter: {project_relative(path)}")
+    boundary = text.find("\n---\n", 4)
+    if boundary < 0:
+        raise SystemExit(f"Delivery Atom has unterminated frontmatter: {project_relative(path)}")
+    return text[4:boundary], text[boundary + len("\n---\n") :]
+
+
+DELIVERY_BINDING = re.compile(
+    r"(?m)^[A-Z][A-Z0-9_]* uses authority path `(?P<authority_path>[^`]+)` "
+    r"and Delivery path `(?P<delivery_path>[^`]+)`\.$"
+)
+DELIVERY_ATOM_ID = re.compile(r"(?P<atom_id>CA-D-[0-9]+)-")
+
+
+def delivery_atom_binding(directory: Path, receipt: dict[str, str]) -> dict[str, str]:
+    """Resolve the sole active Delivery Atom which binds one Scope Unit's places."""
+
+    delivery_directory = directory / "07_delivery"
+    if not delivery_directory.is_dir():
+        raise SystemExit(f"Scope Unit lacks a Delivery directory: {project_relative(directory)}")
+    authority_path = project_relative(directory) + "/"
+    candidates: list[dict[str, str]] = []
+    receipt_entries = {
+        entry["path"]: entry["sha256"] for entry in current_directory_entries(directory)
+    }
+    for path in sorted(delivery_directory.glob("*.md")):
+        frontmatter, body = atom_frontmatter(path)
+        matches = list(DELIVERY_BINDING.finditer(body))
+        if len(matches) != 1 or matches[0]["authority_path"] != authority_path:
+            continue
+        versions = re.findall(r"(?m)^version:\s*([1-9][0-9]*)\s*$", frontmatter)
+        updated_ats = re.findall(r"(?m)^updated_at:\s*([^\n]+)\s*$", frontmatter)
+        atom_id_match = DELIVERY_ATOM_ID.match(path.name)
+        updated_at = normalise_timestamp(updated_ats[0]) if len(updated_ats) == 1 else ""
+        if len(versions) != 1 or not atom_id_match or not updated_at:
+            raise SystemExit(f"Delivery Atom lacks an exact revision: {project_relative(path)}")
+        digest = sha(path)
+        path_relative = project_relative(path)
+        if receipt_entries.get(path_relative) != digest:
+            raise SystemExit(
+                "Scope Unit Directory Carrier receipt does not bind its active Delivery Atom: "
+                f"{path_relative}"
+            )
+        candidates.append(
+            {
+                "atom_id": atom_id_match["atom_id"],
+                "carrier": path_relative,
+                "revision": versions[0],
+                "sha256": digest,
+                "authority_path": authority_path,
+                "delivery_path": matches[0]["delivery_path"],
+                "journal_carrier": receipt["journal_carrier"],
+                "journal_line": receipt["journal_line"],
+                "journal_event_id": receipt["journal_event_id"],
+                "updated_at": updated_at,
+            }
+        )
+    if len(candidates) != 1:
+        state = "missing" if not candidates else "ambiguous"
+        raise SystemExit(
+            f"{state} active Delivery Atom binding for Scope Unit Directory Carrier: "
+            f"{project_relative(directory)}"
+        )
+    return candidates[0]
+
+
+def bind_scope_unit_authority(scope_unit_rows: list[dict[str, object]]) -> list[dict[str, object]]:
+    """Attach exact current Directory Carrier receipts and Delivery Atom authority."""
+
+    for row in scope_unit_rows:
+        directory = ROOT / str(row["authority_path"])
+        receipt = directory_receipt(directory)
+        delivery = delivery_atom_binding(directory, receipt)
+        row["delivery_path"] = delivery["delivery_path"]
+        row["directory_receipt"] = receipt
+        row["delivery_atom"] = delivery
+    return scope_unit_rows
 
 
 def active_contributions() -> list[dict[str, str]]:
@@ -281,12 +524,44 @@ def active_contributions() -> list[dict[str, str]]:
     return contributions
 
 
-def source_updated_at(binding: dict[str, str], contributions: list[dict[str, str]]) -> str:
+def source_updated_at(
+    binding: dict[str, str],
+    contributions: list[dict[str, str]],
+    scope_unit_rows: list[dict[str, object]],
+) -> str:
     candidates = [binding["updated_at"], *(item["updated_at"] for item in contributions)]
+    for row in scope_unit_rows:
+        receipt = row["directory_receipt"]
+        delivery = row["delivery_atom"]
+        assert isinstance(receipt, dict) and isinstance(delivery, dict)
+        candidates.append(str(receipt["updated_at"]))
+        candidates.append(str(delivery["updated_at"]))
     valid = [value for value in candidates if TIMESTAMP.fullmatch(value)]
     if not valid:
         raise SystemExit("no valid source revision timestamp")
     return max(valid)
+
+
+SCOPE_UNIT_GRAPH_FIELDS = (
+    "node_id",
+    "unit_name",
+    "name",
+    "project_boundary_position",
+    "type_value",
+    "child_composition",
+    "structural_level",
+    "local_order",
+    "unit_type_name",
+    "navigational_order_number",
+    "parent",
+    "structural_parent",
+    "authority_path",
+    "delivery_path",
+    "authority_materialized",
+    "numeric_prefix",
+    "scope_unit_type",
+    "authority_mode",
+)
 
 
 def project_scope_unit_graph(
@@ -296,23 +571,22 @@ def project_scope_unit_graph(
     binding: dict[str, str],
     scope_unit_rows: list[dict[str, object]],
     contributions: list[dict[str, str]],
+    executed_generator: Path | None = None,
 ) -> str:
     project = config["project"]
     identity = config["artifacts"]["identity"]
     modes = config["authority_modes"]
     assert isinstance(project, dict) and isinstance(identity, dict) and isinstance(modes, dict)
+    generator = generator_metadata(executed_generator)
     lines = [
         "# Generated projection. Delete and regenerate; do not edit directly.",
         "[projection]",
-        'schema_version = "2"',
+        'schema_version = "3"',
         'kind = "project_scope_unit_graph"',
         "non_authoritative = true",
-        'currentness = "working_tree_snapshot"',
+        'currentness = "exact_source_bound"',
         f"updated_at = {quote(updated_at)}",
-        f"canonical_generator = {quote(project_relative(CANONICAL_GENERATOR))}",
-        f"canonical_generator_sha256 = {quote(sha(CANONICAL_GENERATOR))}",
-        f"executed_generator = {quote(project_relative(SCRIPT))}",
-        f"executed_generator_sha256 = {quote(sha(SCRIPT))}",
+        *[f"{key} = {quote(value)}" for key, value in generator.items()],
         "",
         "[configuration]",
         f"atom_id = {quote(binding['atom_id'])}",
@@ -341,7 +615,8 @@ def project_scope_unit_graph(
     ]
     for row in scope_unit_rows:
         lines += ["", "[[scope_units]]"]
-        for key, value in row.items():
+        for key in SCOPE_UNIT_GRAPH_FIELDS:
+            value = row[key]
             if value is None:
                 continue
             encoded = str(value).lower() if isinstance(value, bool) else value if isinstance(value, int) else quote(value)
@@ -357,17 +632,45 @@ def project_scope_unit_graph_sources(
     binding: dict[str, str],
     scope_unit_rows: list[dict[str, object]],
     contributions: list[dict[str, str]],
+    executed_generator: Path | None = None,
 ) -> str:
     configuration_revision = f"{binding['atom_id']}@{binding['revision']}"
+    generator = generator_metadata(executed_generator)
     lines = [
         "# Generated source bindings. Delete and regenerate; do not edit directly.",
         "[projection]",
-        'schema_version = "2"',
+        'schema_version = "3"',
         'kind = "project_scope_unit_graph_sources"',
         "non_authoritative = true",
+        'currentness = "exact_source_bound"',
         f"updated_at = {quote(updated_at)}",
         f"graph_projection = {quote(project_relative(OUTPUT))}",
+        *[f"{key} = {quote(value)}" for key, value in generator.items()],
     ]
+
+    def append_binding(
+        output_path: str,
+        source_kind: str,
+        source_carrier: str,
+        source_revision: str,
+        source_sha256: str,
+        journal_binding: dict[str, str],
+    ) -> None:
+        lines.extend(
+            [
+                "",
+                "[[bindings]]",
+                f"output_path = {quote(output_path)}",
+                f"source_kind = {quote(source_kind)}",
+                f"source_carrier = {quote(source_carrier)}",
+                f"source_revision = {quote(source_revision)}",
+                f"source_sha256 = {quote(source_sha256)}",
+                f"journal_carrier = {quote(journal_binding['journal_carrier'])}",
+                f"journal_line = {quote(journal_binding['journal_line'])}",
+                f"journal_event_id = {quote(journal_binding['journal_event_id'])}",
+            ]
+        )
+
     for output_path in (
         "project.key",
         "project.name",
@@ -375,25 +678,121 @@ def project_scope_unit_graph_sources(
         "artifacts.identity.project_prefix",
         "authority_modes",
     ):
-        lines += [
-            "",
-            "[[bindings]]",
-            f"output_path = {quote(output_path)}",
-            'source_kind = "project_configuration"',
-            f"source_carrier = {quote(project_relative(CONFIG))}",
-            f"source_revision = {quote(configuration_revision)}",
-            f"source_sha256 = {quote(config_sha)}",
-            f"journal_event_id = {quote(binding['journal_event_id'])}",
-        ]
+        append_binding(
+            output_path,
+            "project_configuration",
+            project_relative(CONFIG),
+            configuration_revision,
+            config_sha,
+            binding,
+        )
     for row in scope_unit_rows:
-        lines += [
-            "",
-            "[[bindings]]",
-            f"output_path = {quote('scope_units.' + str(row['node_id']))}",
-            'source_kind = "scope_unit_directory_carrier"',
-            f"source_carrier = {quote(str(row['authority_path']))}",
-            'source_revision = "working_tree_snapshot"',
-        ]
+        node_path = "scope_units." + str(row["node_id"])
+        receipt = row["directory_receipt"]
+        delivery = row["delivery_atom"]
+        assert isinstance(receipt, dict) and isinstance(delivery, dict)
+        directory_revision = "Directory Carrier@" + str(receipt["revision"])
+        directory_fields = (
+            "node_id",
+            "unit_name",
+            "name",
+            "project_boundary_position",
+            "type_value",
+            "structural_level",
+            "local_order",
+            "unit_type_name",
+            "navigational_order_number",
+            "authority_materialized",
+            "numeric_prefix",
+            "scope_unit_type",
+        )
+        for field in directory_fields:
+            if row[field] is not None:
+                append_binding(
+                    node_path + "." + field,
+                    "scope_unit_directory_carrier",
+                    str(receipt["carrier"]),
+                    directory_revision,
+                    str(receipt["sha256"]),
+                    receipt,
+                )
+        for field in ("authority_path", "delivery_path"):
+            append_binding(
+                node_path + "." + field,
+                "delivery_atom",
+                str(delivery["carrier"]),
+                str(delivery["atom_id"]) + "@" + str(delivery["revision"]),
+                str(delivery["sha256"]),
+                delivery,
+            )
+        append_binding(
+            node_path + ".authority_path",
+            "scope_unit_directory_carrier",
+            str(receipt["carrier"]),
+            directory_revision,
+            str(receipt["sha256"]),
+            receipt,
+        )
+        parent = str(row["parent"])
+        if parent == PROJECT_IDENTITY:
+            append_binding(
+                node_path + ".parent",
+                "project_configuration",
+                project_relative(CONFIG),
+                configuration_revision,
+                config_sha,
+                binding,
+            )
+            append_binding(
+                node_path + ".structural_parent",
+                "project_configuration",
+                project_relative(CONFIG),
+                configuration_revision,
+                config_sha,
+                binding,
+            )
+        else:
+            parent_row = next(candidate for candidate in scope_unit_rows if candidate["node_id"] == parent)
+            parent_receipt = parent_row["directory_receipt"]
+            assert isinstance(parent_receipt, dict)
+            parent_revision = "Directory Carrier@" + str(parent_receipt["revision"])
+            for field in ("parent", "structural_parent"):
+                append_binding(
+                    node_path + "." + field,
+                    "scope_unit_directory_carrier",
+                    str(parent_receipt["carrier"]),
+                    parent_revision,
+                    str(parent_receipt["sha256"]),
+                    parent_receipt,
+                )
+        child_rows = [candidate for candidate in scope_unit_rows if candidate["parent"] == row["node_id"]]
+        append_binding(
+            node_path + ".child_composition",
+            "scope_unit_directory_carrier",
+            str(receipt["carrier"]),
+            directory_revision,
+            str(receipt["sha256"]),
+            receipt,
+        )
+        for child in child_rows:
+            child_receipt = child["directory_receipt"]
+            assert isinstance(child_receipt, dict)
+            append_binding(
+                node_path + ".child_composition",
+                "scope_unit_directory_carrier",
+                str(child_receipt["carrier"]),
+                "Directory Carrier@" + str(child_receipt["revision"]),
+                str(child_receipt["sha256"]),
+                child_receipt,
+            )
+        append_binding(
+            node_path + ".authority_mode",
+            "project_configuration",
+            project_relative(CONFIG),
+            configuration_revision,
+            config_sha,
+            binding,
+        )
     for contribution in contributions:
         output_path = "admitted_contributions." + contribution["atom"] + "." + contribution["key"]
         revision = contribution["atom"] + "@" + contribution["version"] + "," + contribution["updated_at"]
@@ -450,8 +849,8 @@ def main() -> None:
     contributions = active_contributions()
     modes = config["authority_modes"]
     assert isinstance(modes, dict)
-    rows = scope_units(CONTROL, ROOT, modes)
-    updated_at = source_updated_at(binding, contributions)
+    rows = bind_scope_unit_authority(scope_units(CONTROL, ROOT, modes))
+    updated_at = source_updated_at(binding, contributions, rows)
     graph_payload = project_scope_unit_graph(updated_at, config, config_sha, binding, rows, contributions)
     sources_payload = project_scope_unit_graph_sources(updated_at, config_sha, binding, rows, contributions)
     changed = (not OUTPUT.is_file() or OUTPUT.read_text(encoding="utf-8") != graph_payload) or (

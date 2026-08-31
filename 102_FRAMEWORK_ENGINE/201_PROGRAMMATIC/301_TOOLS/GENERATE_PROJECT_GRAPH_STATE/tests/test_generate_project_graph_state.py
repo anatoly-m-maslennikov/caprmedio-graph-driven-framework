@@ -7,6 +7,7 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
+import tomllib
 
 
 SCRIPT = Path(__file__).resolve().parents[1] / "generate_project_graph_state.py"
@@ -87,6 +88,24 @@ class GenerateProjectGraphStateTests(unittest.TestCase):
             ],
         )
         self.assertNotIn("CA-Epic", "\n".join(row["node_id"] for row in rows))
+        required_fields = {
+            "unit_name",
+            "project_boundary_position",
+            "type_value",
+            "child_composition",
+            "structural_level",
+            "local_order",
+            "unit_type_name",
+            "navigational_order_number",
+            "parent",
+            "authority_path",
+        }
+        self.assertTrue(all(required_fields <= set(row) for row in rows))
+        self.assertTrue(all(row["project_boundary_position"] == "PROJECT" for row in rows))
+        self.assertEqual("Layer", rows[0]["type_value"])
+        self.assertEqual("LAYER", rows[0]["unit_type_name"])
+        self.assertEqual("FEATURES", rows[1]["child_composition"])
+        self.assertEqual("NONE", rows[0]["child_composition"])
 
     def test_nearest_typed_scope_unit_is_parent_even_across_an_epic_directory(self) -> None:
         self.mkdir("101_LAYER_1_ROOT")
@@ -123,9 +142,11 @@ class GenerateProjectGraphStateTests(unittest.TestCase):
         feature = generate_project_graph_state.parse_scope_unit_name("201_FEATURE_PROGRAMMATIC")
         self.assertEqual("101", layer["numeric_prefix"])
         self.assertEqual(3, layer["local_order"])
-        self.assertEqual("Layer", layer["scope_unit_type"])
+        self.assertEqual("Layer", layer["type_value"])
+        self.assertEqual("LAYER", layer["unit_type_name"])
         self.assertIsNone(feature["local_order"])
-        self.assertEqual("Feature", feature["scope_unit_type"])
+        self.assertEqual("Feature", feature["type_value"])
+        self.assertEqual("FEATURE", feature["unit_type_name"])
         with self.assertRaisesRegex(SystemExit, "Local Order"):
             generate_project_graph_state.parse_scope_unit_name("201_FEATURE_1_PROGRAMMATIC")
         with self.assertRaisesRegex(SystemExit, "Local Order"):
@@ -153,10 +174,12 @@ class GenerateProjectGraphStateTests(unittest.TestCase):
         binding = generate_project_graph_state.configuration_binding(config_sha)
         modes = config["authority_modes"]
         assert isinstance(modes, dict)
-        rows = generate_project_graph_state.scope_units(
-            generate_project_graph_state.CONTROL,
-            generate_project_graph_state.ROOT,
-            modes,
+        rows = generate_project_graph_state.bind_scope_unit_authority(
+            generate_project_graph_state.scope_units(
+                generate_project_graph_state.CONTROL,
+                generate_project_graph_state.ROOT,
+                modes,
+            )
         )
         payload = generate_project_graph_state.project_scope_unit_graph(
             binding["updated_at"], config, config_sha, binding, rows, []
@@ -172,6 +195,129 @@ class GenerateProjectGraphStateTests(unittest.TestCase):
             payload,
         )
         self.assertNotIn("002_FRAMEWORK_ENGINE", payload)
+
+    def test_exact_directory_and_delivery_bindings_cover_every_emitted_scope_unit_field(self) -> None:
+        config = generate_project_graph_state.configuration()
+        config_sha = generate_project_graph_state.sha(generate_project_graph_state.CONFIG)
+        binding = generate_project_graph_state.configuration_binding(config_sha)
+        modes = config["authority_modes"]
+        assert isinstance(modes, dict)
+        rows = generate_project_graph_state.bind_scope_unit_authority(
+            generate_project_graph_state.scope_units(
+                generate_project_graph_state.CONTROL,
+                generate_project_graph_state.ROOT,
+                modes,
+            )
+        )
+        payload = generate_project_graph_state.project_scope_unit_graph_sources(
+            generate_project_graph_state.source_updated_at(binding, [], rows),
+            config_sha,
+            binding,
+            rows,
+            [],
+        )
+        document = tomllib.loads(payload)
+        bindings = document["bindings"]
+        projection = document["projection"]
+        self.assertEqual(
+            "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/GENERATE_PROJECT_GRAPH_STATE/generate_project_graph_state.py",
+            projection["canonical_generator"],
+        )
+        self.assertEqual(
+            generate_project_graph_state.sha(generate_project_graph_state.CANONICAL_GENERATOR),
+            projection["canonical_generator_sha256"],
+        )
+        self.assertTrue(projection["executed_generator"])
+        self.assertTrue(projection["executed_generator_sha256"])
+        self.assertEqual(13, len(rows))
+        for row in rows:
+            receipt = row["directory_receipt"]
+            delivery = row["delivery_atom"]
+            assert isinstance(receipt, dict) and isinstance(delivery, dict)
+            self.assertTrue(receipt["journal_event_id"])
+            self.assertTrue(delivery["journal_event_id"])
+            self.assertEqual(
+                generate_project_graph_state.project_relative(
+                    generate_project_graph_state.ROOT / str(row["authority_path"])
+                )
+                + "/",
+                delivery["authority_path"],
+            )
+            prefix = "scope_units." + str(row["node_id"]) + "."
+            output_paths = {item["output_path"] for item in bindings if item["output_path"].startswith(prefix)}
+            for field in (
+                "unit_name",
+                "project_boundary_position",
+                "type_value",
+                "child_composition",
+                "structural_level",
+                "unit_type_name",
+                "navigational_order_number",
+                "parent",
+                "authority_path",
+                "delivery_path",
+            ):
+                self.assertIn(prefix + field, output_paths)
+            self.assertIn(prefix + "delivery_path", output_paths)
+            delivery_bindings = [
+                item
+                for item in bindings
+                if item["output_path"] == prefix + "delivery_path"
+            ]
+            self.assertEqual(1, len(delivery_bindings))
+            self.assertEqual("delivery_atom", delivery_bindings[0]["source_kind"])
+            self.assertEqual(delivery["sha256"], delivery_bindings[0]["source_sha256"])
+
+    def test_canonical_projection_bytes_do_not_depend_on_executed_generator_carrier(self) -> None:
+        config = generate_project_graph_state.configuration()
+        config_sha = generate_project_graph_state.sha(generate_project_graph_state.CONFIG)
+        binding = generate_project_graph_state.configuration_binding(config_sha)
+        modes = config["authority_modes"]
+        assert isinstance(modes, dict)
+        rows = generate_project_graph_state.bind_scope_unit_authority(
+            generate_project_graph_state.scope_units(
+                generate_project_graph_state.CONTROL,
+                generate_project_graph_state.ROOT,
+                modes,
+            )
+        )
+        installation = generate_project_graph_state.installation_status(
+            generate_project_graph_state.ROOT
+        )
+        installed = (
+            generate_project_graph_state.ROOT
+            / str(installation["package_root"])
+            / "GENERATE_PROJECT_GRAPH_STATE"
+            / "generate_project_graph_state.py"
+        )
+        self.assertTrue(installed.is_file())
+        source_payload = generate_project_graph_state.project_scope_unit_graph(
+            generate_project_graph_state.source_updated_at(binding, [], rows),
+            config,
+            config_sha,
+            binding,
+            rows,
+            [],
+            generate_project_graph_state.CANONICAL_GENERATOR,
+        )
+        installed_payload = generate_project_graph_state.project_scope_unit_graph(
+            generate_project_graph_state.source_updated_at(binding, [], rows),
+            config,
+            config_sha,
+            binding,
+            rows,
+            [],
+            installed,
+        )
+        self.assertEqual(
+            generate_project_graph_state.canonical_projection_bytes(source_payload),
+            generate_project_graph_state.canonical_projection_bytes(installed_payload),
+        )
+        self.assertIn(
+            'canonical_generator = "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/GENERATE_PROJECT_GRAPH_STATE/generate_project_graph_state.py"',
+            installed_payload,
+        )
+        self.assertIn('executed_generator = ".caprmedio_install/releases/', installed_payload)
 
     def test_identical_scope_frontier_serializes_identically(self) -> None:
         self.mkdir("101_LAYER_1_ROOT")
