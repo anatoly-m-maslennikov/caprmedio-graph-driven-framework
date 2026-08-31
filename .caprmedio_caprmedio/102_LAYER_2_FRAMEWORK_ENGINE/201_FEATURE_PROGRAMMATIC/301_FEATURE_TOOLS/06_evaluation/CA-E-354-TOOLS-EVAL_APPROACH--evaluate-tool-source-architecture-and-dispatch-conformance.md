@@ -7,8 +7,8 @@ subjects:
       - tool-source-architecture
     occurrent:
       - evaluation
-version: 4
-updated_at: 2026-08-30 16:44:07 +0400
+version: 5
+updated_at: 2026-09-01 02:30:00 +0400
 relations:
   evaluation_for:
     - CA-M-157
@@ -24,7 +24,7 @@ relations:
 Changed Tool source conforms to the shared PROGRAMMATIC function, object,
 effect, source-boundary, and manager-defined execution-graph Methods.
 
-## Applicable conditions
+## Test case
 
 Apply to every new or materially changed Tool source tree.
 
