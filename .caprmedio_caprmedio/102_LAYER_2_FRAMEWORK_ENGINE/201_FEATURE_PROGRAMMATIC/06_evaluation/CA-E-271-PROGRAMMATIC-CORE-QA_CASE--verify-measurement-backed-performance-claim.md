@@ -8,9 +8,9 @@ subjects:
       - performance-measurement
   depends_on:
     continuant:
-      - PROGRAMMATIC
-version: 3
-updated_at: 2026-08-27 15:55:57 +0400
+      - programmatic software
+version: 4
+updated_at: 2026-09-01 02:00:00 +0400
 relations:
   evaluation_for:
     - CA-M-165
@@ -44,3 +44,7 @@ claim.
 
 Reject the performance claim without a representative baseline; do not invent
 a numeric budget.
+
+## Sources
+
+- [CA-M-165 — Measure before optimizing PROGRAMMATIC performance](../05_method/CA-M-165-PROGRAMMATIC-CORE-METHOD--measure-before-optimizing-programmatic-performance.md)
