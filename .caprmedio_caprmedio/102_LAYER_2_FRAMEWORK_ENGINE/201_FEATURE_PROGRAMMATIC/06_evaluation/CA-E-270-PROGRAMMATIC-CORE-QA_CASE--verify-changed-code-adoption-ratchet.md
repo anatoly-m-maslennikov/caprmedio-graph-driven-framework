@@ -8,9 +8,9 @@ subjects:
       - engineering-ratchet
   depends_on:
     continuant:
-      - PROGRAMMATIC
-version: 3
-updated_at: 2026-08-27 15:55:57 +0400
+      - programmatic software
+version: 4
+updated_at: 2026-09-01 02:00:00 +0400
 relations:
   evaluation_for:
     - CA-M-164
@@ -44,3 +44,7 @@ must report the actual result without becoming another authority.
 ## Failure disposition
 
 Reject the ratchet claim and return the target to its change owner.
+
+## Sources
+
+- [CA-M-164 — Ratchet typing and automation adoption](../05_method/CA-M-164-PROGRAMMATIC-CORE-METHOD--ratchet-typing-and-automation-adoption.md)
