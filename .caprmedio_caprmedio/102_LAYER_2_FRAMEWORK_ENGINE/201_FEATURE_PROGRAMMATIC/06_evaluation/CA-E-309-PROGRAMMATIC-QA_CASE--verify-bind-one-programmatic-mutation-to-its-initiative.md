@@ -8,9 +8,9 @@ subjects:
       - programmatic-mutation
   depends_on:
     continuant:
-      - PROGRAMMATIC
-version: 2
-updated_at: 2026-08-27 15:55:57 +0400
+      - programmatic software
+version: 3
+updated_at: 2026-09-01 02:00:00 +0400
 relations:
   evaluation_for:
     - CA-M-191
@@ -43,3 +43,7 @@ linked execution context and never replace them.
 
 Reject the mutation provenance and return the identity propagation boundary to
 its owner before later reliance.
+
+## Sources
+
+- [CA-M-191 — Bind one programmatic mutation to its Initiative](../05_method/CA-M-191-PROGRAMMATIC-METHOD--bind-one-programmatic-mutation-to-its-initiative.md)
