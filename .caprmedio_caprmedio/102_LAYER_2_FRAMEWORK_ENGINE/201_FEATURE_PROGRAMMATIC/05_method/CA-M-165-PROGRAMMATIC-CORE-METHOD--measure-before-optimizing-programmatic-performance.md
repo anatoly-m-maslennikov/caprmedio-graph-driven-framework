@@ -8,9 +8,9 @@ subjects:
       - performance-measurement
   depends_on:
     continuant:
-      - PROGRAMMATIC
-version: 2
-updated_at: 2026-08-27 14:52:39 +0400
+      - programmatic software
+version: 3
+updated_at: 2026-09-01 01:45:00 +0400
 relations:
   method_for:
     - CA-R-1047
@@ -30,7 +30,8 @@ a performance-sensitive change.
 
 ## Procedure
 
-1. Select the applicable surface and representative workload.
+1. Profile the applicable surface to locate the measured bottleneck, then
+   select its representative workload.
 2. Preserve the input, environment, baseline, observed distribution, and
    comparison threshold with the measurement.
 3. Compare the change to the recorded baseline before accepting the claimed
@@ -47,3 +48,9 @@ measurement boundary instead of a universal or unmeasured optimization claim.
 
 Stop the performance claim when no representative workload, preserved
 baseline, or comparable observation exists; do not invent a numeric budget.
+
+## Sources
+
+- [Python documentation: profilers](https://docs.python.org/3.14/library/profile.html)
+- [pyperf documentation](https://pyperf.readthedocs.io/en/latest/)
+- [CA-A-053 — Reconcile shared PROGRAMMATIC policy decisions](../02_analysis/CA-A-053-PROGRAMMATIC-ANALYSIS_RPRT--reconcile-shared-programmatic-policy-decisions.md)
