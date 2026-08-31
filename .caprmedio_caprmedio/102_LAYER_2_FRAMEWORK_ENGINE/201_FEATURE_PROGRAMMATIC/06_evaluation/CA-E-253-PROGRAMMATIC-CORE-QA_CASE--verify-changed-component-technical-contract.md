@@ -8,9 +8,9 @@ subjects:
       - technical-contract
   depends_on:
     continuant:
-      - PROGRAMMATIC
-version: 3
-updated_at: 2026-08-27 15:55:57 +0400
+      - programmatic software
+version: 4
+updated_at: 2026-09-01 02:00:00 +0400
 relations:
   evaluation_for:
     - CA-M-110
@@ -46,3 +46,7 @@ or Delivery carrier claims independent selection authority.
 
 Reject admission or release of the component until it conforms or enters the
 separate bounded-exception evaluation.
+
+## Sources
+
+- [CA-M-110 — Implement PROGRAMMATIC components in Python](../05_method/CA-M-110-PROGRAMMATIC-CORE-IMPL_METHOD--implement-programmatic-components-in-python.md)
