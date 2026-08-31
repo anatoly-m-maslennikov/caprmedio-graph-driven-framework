@@ -8,9 +8,9 @@ subjects:
       - deterministic-transformation
   depends_on:
     continuant:
-      - PROGRAMMATIC
-version: 3
-updated_at: 2026-08-27 15:55:57 +0400
+      - programmatic software
+version: 4
+updated_at: 2026-09-01 02:00:00 +0400
 relations:
   evaluation_for:
     - CA-M-157
@@ -45,3 +45,7 @@ persistence, or logging-export effect.
 
 Stop treating the unit as deterministic and assign its missing observation or
 effect boundary to the appropriate owner.
+
+## Sources
+
+- [CA-M-157 — Allocate deterministic transformations to functions](../05_method/CA-M-157-PROGRAMMATIC-CORE-METHOD--allocate-deterministic-transformations-to-functions.md)
