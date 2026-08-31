@@ -5,8 +5,8 @@ subjects:
   governs:
     continuant:
       - framework-engine-mcp
-version: 2
-updated_at: 2026-08-30 16:44:07 +0400
+version: 3
+updated_at: 2026-09-01 01:55:00 +0400
 relations:
   method_for:
     - CA-R-1118
@@ -32,3 +32,8 @@ MCP exposes only the Tool's admitted authority without leaking credentials.
 ## Failure or stop
 
 Stop the affected projection or invocation when authority is broadened or a secret-bearing representation would be emitted.
+
+## Sources
+
+- [Model Context Protocol: authorization](https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization)
+- [CA-A-057 — Reconcile PROGRAMMATIC specialization authority](../../02_analysis/CA-A-057-PROGRAMMATIC-ANALYSIS_RPRT--reconcile-programmatic-specialization-authority.md)
