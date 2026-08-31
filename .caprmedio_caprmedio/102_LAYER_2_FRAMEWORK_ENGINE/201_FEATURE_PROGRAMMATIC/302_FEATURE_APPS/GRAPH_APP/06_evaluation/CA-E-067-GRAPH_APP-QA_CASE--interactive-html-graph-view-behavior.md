@@ -5,8 +5,8 @@ subjects:
       - evaluation
     occurrent:
       - evaluation
-version: 8
-updated_at: 2026-08-30 16:44:07 +0400
+version: 9
+updated_at: 2026-09-01 02:30:00 +0400
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -22,7 +22,7 @@ relations:
 
 The single generated MRT renders current active Requirement Subject and lineage-section views from their STG Projections and actual Atom sources without becoming a second authority surface.
 
-## Applicable conditions
+## Test case
 
 1. Create current `stg_requirements_subjects.md` and `stg_requirements_lineage_sections.md` files in multiple active structural-unit roots, materialize the MRT, and require exactly one `.caprmedio/mrt_atoms.html` with embedded JavaScript and presentation assets and no sibling script, stylesheet, data, index, view, or per-Atom HTML files.
 2. Require the MRT source-lineage manifest to name every consumed STG file and every underlying active Atom with canonical path and digest; require the Subject and lineage-section views to match the STG structure while node text, body, frontmatter, and live digest match the actual Atom.
@@ -40,3 +40,8 @@ Every selected active Requirement and direct edge appears in the correct Subject
 ## Failure disposition
 
 Reject the MRT build, identify the first missing, extra, ambiguous, stale, incorrectly linked, or incorrectly interactive element, and retain the STG Requirement Projections as the preceding current derived views.
+
+## Sources
+
+- [CA-R-1076 — Render interconnected HTML graph views](../04_requirement/CA-R-1076-GRAPH_APP-REQUIREMENT--render-interconnected-html-graph-views.md)
+- [CA-M-153 — Render and navigate active graph HTML](../05_method/CA-M-153-GRAPH_APP-CORE-METHOD--render-and-navigate-active-graph-html.md)
