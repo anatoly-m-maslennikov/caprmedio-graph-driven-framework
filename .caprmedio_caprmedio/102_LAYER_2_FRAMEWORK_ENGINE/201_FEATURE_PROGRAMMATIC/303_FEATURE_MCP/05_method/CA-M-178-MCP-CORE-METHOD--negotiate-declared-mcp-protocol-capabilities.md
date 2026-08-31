@@ -5,8 +5,8 @@ subjects:
   governs:
     continuant:
       - framework-engine-mcp
-version: 2
-updated_at: 2026-08-30 16:44:07 +0400
+version: 3
+updated_at: 2026-09-01 01:55:00 +0400
 relations:
   method_for:
     - CA-R-1116
@@ -32,3 +32,8 @@ MCP initialization selects one explicit compatible protocol boundary.
 ## Failure or stop
 
 Stop on an unsupported revision, incompatible required capability, or invalid lifecycle transition.
+
+## Sources
+
+- [Model Context Protocol: lifecycle](https://modelcontextprotocol.io/specification/2025-06-18/basic/lifecycle)
+- [CA-A-057 — Reconcile PROGRAMMATIC specialization authority](../../02_analysis/CA-A-057-PROGRAMMATIC-ANALYSIS_RPRT--reconcile-programmatic-specialization-authority.md)
