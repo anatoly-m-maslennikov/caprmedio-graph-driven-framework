@@ -8,9 +8,9 @@ subjects:
       - subtype-contract
   depends_on:
     continuant:
-      - PROGRAMMATIC
-version: 1
-updated_at: 2026-08-27 15:55:57 +0400
+      - programmatic software
+version: 2
+updated_at: 2026-09-01 02:00:00 +0400
 relations:
   evaluation_for:
     - CA-M-158
@@ -38,3 +38,7 @@ function, module, or composed collaborator.
 
 Reject the subtype boundary until substitutability is demonstrated or
 inheritance is removed.
+
+## Sources
+
+- [CA-M-158 — Allocate owned state and lifecycle to objects](../05_method/CA-M-158-PROGRAMMATIC-CORE-METHOD--allocate-owned-state-and-lifecycle-to-objects.md)
