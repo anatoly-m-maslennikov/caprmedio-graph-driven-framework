@@ -8,9 +8,9 @@ subjects:
       - installed-python-runtime
   depends_on:
     continuant:
-      - PROGRAMMATIC
-version: 1
-updated_at: 2026-08-27 15:55:57 +0400
+      - programmatic software
+version: 2
+updated_at: 2026-09-01 02:00:00 +0400
 relations:
   evaluation_for:
     - CA-M-221
@@ -38,3 +38,7 @@ installed carrier and admitted host prerequisites.
 
 Reject the installed-runtime claim until the external workflow dependency is
 removed.
+
+## Sources
+
+- [CA-M-221 — Use uv as the default Python workflow frontend](../05_method/CA-M-221-PROGRAMMATIC-CORE-METHOD--use-uv-as-the-default-python-workflow-frontend.md)
