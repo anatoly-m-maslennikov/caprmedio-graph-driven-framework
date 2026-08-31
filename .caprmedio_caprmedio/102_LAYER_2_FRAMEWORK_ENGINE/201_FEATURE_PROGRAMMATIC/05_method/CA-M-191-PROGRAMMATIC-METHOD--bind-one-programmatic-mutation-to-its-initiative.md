@@ -8,9 +8,9 @@ subjects:
       - programmatic-mutation
   depends_on:
     continuant:
-      - PROGRAMMATIC
-version: 2
-updated_at: 2026-08-27 14:52:39 +0400
+      - programmatic software
+version: 3
+updated_at: 2026-09-01 01:45:00 +0400
 relations:
   method_for:
     - CA-R-1094
@@ -49,3 +49,7 @@ and one stable action across asynchronous execution and provenance systems.
 Stop before mutation when the Initiative is unsealed, the action identity is
 absent or reused for another Initiative, or a handoff cannot preserve both
 identities.
+
+## Sources
+
+- [CA-A-058 — Reconcile queue, provenance, and MCP frontier decisions](../02_analysis/CA-A-058-PROGRAMMATIC-ANALYSIS_RPRT--reconcile-queue-provenance-and-mcp-frontier-decisions.md)
