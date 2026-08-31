@@ -8,9 +8,9 @@ subjects:
       - external-effect
   depends_on:
     continuant:
-      - PROGRAMMATIC
-version: 2
-updated_at: 2026-08-27 14:52:39 +0400
+      - programmatic software
+version: 3
+updated_at: 2026-09-01 01:45:00 +0400
 relations:
   method_for:
     - CA-R-1047
@@ -50,3 +50,9 @@ surface, observable result, and explicit recovery limit.
 Stop the effect when preconditions fail, an atomicity guarantee is unavailable
 and no weaker recovery boundary is accepted, or subprocess completion,
 timeout, and exit status cannot be observed.
+
+## Sources
+
+- [Python documentation: `tempfile`](https://docs.python.org/3.14/library/tempfile.html)
+- [Python documentation: `subprocess`](https://docs.python.org/3.14/library/subprocess.html)
+- [CA-A-053 — Reconcile shared PROGRAMMATIC policy decisions](../02_analysis/CA-A-053-PROGRAMMATIC-ANALYSIS_RPRT--reconcile-shared-programmatic-policy-decisions.md)
