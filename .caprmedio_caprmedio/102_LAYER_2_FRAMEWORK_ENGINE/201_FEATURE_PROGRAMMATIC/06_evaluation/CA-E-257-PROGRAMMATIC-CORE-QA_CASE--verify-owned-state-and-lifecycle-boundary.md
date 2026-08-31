@@ -8,9 +8,9 @@ subjects:
       - component-lifecycle
   depends_on:
     continuant:
-      - PROGRAMMATIC
-version: 3
-updated_at: 2026-08-27 15:55:57 +0400
+      - programmatic software
+version: 4
+updated_at: 2026-09-01 02:00:00 +0400
 relations:
   evaluation_for:
     - CA-M-158
@@ -43,3 +43,7 @@ responsibility is required to complete the transition.
 ## Failure disposition
 
 Stop the object boundary and split or redesign it before release.
+
+## Sources
+
+- [CA-M-158 — Allocate owned state and lifecycle to objects](../05_method/CA-M-158-PROGRAMMATIC-CORE-METHOD--allocate-owned-state-and-lifecycle-to-objects.md)
