@@ -5,13 +5,13 @@ subjects:
       - evaluation
     occurrent:
       - evaluation
-version: 9
-updated_at: 2026-08-30 16:44:07 +0400
+version: 10
+updated_at: 2026-09-01 02:45:00 +0400
 relations:
   evaluation_for:
     - CA-M-087
     - CA-R-805
-    - CAPRMEDIO-GOV-REQU-309--use-direct-typed-relation-change-set-commit-messages
+    - CA-R-807
 ---
 # Record successor IDs while archiving predecessor
 
@@ -30,3 +30,8 @@ The resulting one-file commit event records the predecessor path transition as v
 ## Failure disposition
 
 Reject the flow if the explicit predecessor or successor IDs are absent; if a formal replacement relation is authored or inferred; if the successor was not active first; if the predecessor remains active; if either Atom carrier stores replacement history; or if the archival `MOVE` changes the predecessor version.
+
+## Sources
+
+- [CA-R-807 — Record replacement transitions in the Journal](../../../../../.caprmedio_framework/00_APPLICABLE_METHODOLOGY/04_requirement/CA-R-807-REQUIREMENT-BSEED_GOVERNANCE--record-replacement-transitions-in-the-journal.md)
+- [CA-M-087 — Process one file change](../05_method/CA-M-087-TOOLS-CORE-IMPL_METHOD--process-one-file-change.md)
