@@ -8,9 +8,9 @@ subjects:
       - component-lifecycle
   depends_on:
     continuant:
-      - PROGRAMMATIC
-version: 4
-updated_at: 2026-08-27 14:52:39 +0400
+      - programmatic software
+version: 5
+updated_at: 2026-09-01 01:33:45 +0400
 relations:
   method_for:
     - CA-R-1047
@@ -61,3 +61,10 @@ Stop and split or redesign the object when it owns unrelated state or
 lifecycle concerns, hides an external effect, exists only as a namespace or
 one-shot effect wrapper, or uses an ambiguous generic name or inheritance
 where composition provides the same substitution boundary.
+
+## Sources
+
+- [Python Functional Programming HOWTO](https://docs.python.org/3.14/howto/functional.html)
+- [Python documentation: data classes](https://docs.python.org/3.14/library/dataclasses.html)
+- [PEP 544 — Protocols](https://peps.python.org/pep-0544/)
+- [CA-A-053 — Reconcile shared PROGRAMMATIC policy decisions](../02_analysis/CA-A-053-PROGRAMMATIC-ANALYSIS_RPRT--reconcile-shared-programmatic-policy-decisions.md)
