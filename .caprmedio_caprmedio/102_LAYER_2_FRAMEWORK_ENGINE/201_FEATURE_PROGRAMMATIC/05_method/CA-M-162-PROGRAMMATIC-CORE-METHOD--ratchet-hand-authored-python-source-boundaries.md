@@ -8,9 +8,9 @@ subjects:
       - source-boundary
   depends_on:
     continuant:
-      - PROGRAMMATIC
-version: 4
-updated_at: 2026-08-27 15:55:57 +0400
+      - programmatic software
+version: 5
+updated_at: 2026-09-01 01:45:00 +0400
 relations:
   method_for:
     - CA-R-1047
@@ -45,8 +45,10 @@ are outside this source rule.
    reconsideration.
 5. For an executable unit above 40 logical lines, record the specific
    source-size exception and retain its single responsibility.
-6. Externalize large static mappings rather than treating size or complexity
-   scores alone as correctness decisions.
+6. Externalize a static mapping larger than 20 entries or 25 source lines.
+   Use TOML by default, JSON for schemas or machine interchange, and YAML only
+   when its distinct features are required. Treat size and complexity scores
+   as navigation constraints rather than proof of quality.
 7. Admit a specifically named one-shot effect function only when its complete
    target, dependencies, inputs, outcomes, and failures are explicit and it
    owns no identity, state, invariant, resource, lifecycle, or adapter. Reject
@@ -73,3 +75,11 @@ function, or retains an ambiguous name. Stop when no accepted Method selects
 the complexity-lint profile and maximum, their materialization is absent or
 inconsistent, or reducing a score would obscure a separate responsibility or
 needed recovery boundary.
+
+## Sources
+
+- [PEP 8 — Style Guide for Python Code](https://peps.python.org/pep-0008/)
+- [Ruff: complex-structure rule](https://docs.astral.sh/ruff/rules/complex-structure/)
+- [Python documentation: `tomllib`](https://docs.python.org/3.14/library/tomllib.html)
+- [Python documentation: `json`](https://docs.python.org/3.14/library/json.html)
+- [CA-A-053 — Reconcile shared PROGRAMMATIC policy decisions](../02_analysis/CA-A-053-PROGRAMMATIC-ANALYSIS_RPRT--reconcile-shared-programmatic-policy-decisions.md)
