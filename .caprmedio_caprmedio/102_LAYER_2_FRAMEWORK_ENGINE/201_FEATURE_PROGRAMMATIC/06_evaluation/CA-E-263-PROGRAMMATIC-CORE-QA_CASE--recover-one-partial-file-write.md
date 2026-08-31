@@ -8,9 +8,9 @@ subjects:
       - file-mutation-recovery
   depends_on:
     continuant:
-      - PROGRAMMATIC
-version: 3
-updated_at: 2026-08-27 15:55:57 +0400
+      - programmatic software
+version: 4
+updated_at: 2026-09-01 02:00:00 +0400
 relations:
   evaluation_for:
     - CA-M-161
@@ -44,3 +44,7 @@ diagnosable from the returned context.
 
 Stop the mutation path until its weaker recovery boundary is explicit or its
 atomic replacement guarantee is restored.
+
+## Sources
+
+- [CA-M-161 — Bound file and subprocess effects](../05_method/CA-M-161-PROGRAMMATIC-CORE-METHOD--bound-file-and-subprocess-effects.md)
