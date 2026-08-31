@@ -8,9 +8,9 @@ subjects:
       - engineering-ratchet
   depends_on:
     continuant:
-      - PROGRAMMATIC
-version: 2
-updated_at: 2026-08-27 14:52:39 +0400
+      - programmatic software
+version: 3
+updated_at: 2026-09-01 01:45:00 +0400
 relations:
   method_for:
     - CA-R-1047
@@ -52,3 +52,9 @@ turning an unselected tool, version, or strictness level into shared authority.
 Stop a claimed ratchet when no accepted Method owns the selection, no passing
 baseline or bounded materialization exists, or the configuration,
 Implementation, Delivery, and Ops evidence disagree with that selection.
+
+## Sources
+
+- [Ruff documentation](https://docs.astral.sh/ruff/)
+- [Mypy: using Mypy with an existing codebase](https://mypy.readthedocs.io/en/stable/existing_code.html)
+- [CA-A-053 — Reconcile shared PROGRAMMATIC policy decisions](../02_analysis/CA-A-053-PROGRAMMATIC-ANALYSIS_RPRT--reconcile-shared-programmatic-policy-decisions.md)
