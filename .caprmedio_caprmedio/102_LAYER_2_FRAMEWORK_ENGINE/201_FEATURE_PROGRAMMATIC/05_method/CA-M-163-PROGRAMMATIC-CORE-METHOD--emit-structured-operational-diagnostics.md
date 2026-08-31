@@ -8,16 +8,15 @@ subjects:
       - operational-diagnostic
   depends_on:
     continuant:
-      - PROGRAMMATIC
+      - programmatic software
       - Logging Policy
-version: 2
-updated_at: 2026-08-27 15:55:57 +0400
+version: 3
+updated_at: 2026-09-01 01:45:00 +0400
 relations:
   method_for:
     - CA-R-1047
   derived_from:
     - CA-A-053
-    - CAPRMEDIO-GOV-REQU-315
 ---
 # Emit structured operational diagnostics
 
@@ -36,14 +35,17 @@ operation, degraded operation, failure, recovery, or diagnostic detail.
 
 1. Select ERROR, WARNING, INFO, or DEBUG according to the active Logging Policy;
    do not introduce a fifth shared severity.
-2. Include actionable, contextual, sanitized fields and keep DEBUG bounded to
+2. Emit records through one project-owned logging abstraction and schema.
+   Include timestamp, level, component, operation, outcome, and the canonical
+   action or event identity when one exists.
+3. Include actionable, contextual, sanitized fields and keep DEBUG bounded to
    diagnosable need.
-3. Materialize sink and runtime settings in configuration or Implementation,
+4. Materialize sink and runtime settings in configuration or Implementation,
    govern carrier placement and encoding through Delivery, and preserve actual
    execution and diagnostic evidence through Ops.
-4. Declare retention, loss, and back-pressure behavior at those bounded
+5. Declare retention, loss, and back-pressure behavior at those bounded
    materialization and operational boundaries.
-5. Make logging failure observable without silently breaking primary work.
+6. Make logging failure observable without silently breaking primary work.
 
 ## Outcome
 
@@ -56,3 +58,10 @@ undeclared sink behavior.
 Stop emission or release of the affected diagnostic path when required context
 cannot be sanitized, a logging failure is hidden, or the component would use
 the Journal as a substitute logging sink.
+
+## Sources
+
+- [Python Logging HOWTO](https://docs.python.org/3.14/howto/logging.html)
+- [Python Logging Cookbook](https://docs.python.org/3.14/howto/logging-cookbook.html)
+- [OpenTelemetry: logs](https://opentelemetry.io/docs/concepts/signals/logs/)
+- [CA-A-053 — Reconcile shared PROGRAMMATIC policy decisions](../02_analysis/CA-A-053-PROGRAMMATIC-ANALYSIS_RPRT--reconcile-shared-programmatic-policy-decisions.md)
