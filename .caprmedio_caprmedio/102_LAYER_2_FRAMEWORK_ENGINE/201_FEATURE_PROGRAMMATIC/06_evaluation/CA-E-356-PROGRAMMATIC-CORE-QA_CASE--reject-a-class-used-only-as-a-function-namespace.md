@@ -8,9 +8,9 @@ subjects:
       - function-allocation
   depends_on:
     continuant:
-      - PROGRAMMATIC
-version: 1
-updated_at: 2026-08-27 15:55:57 +0400
+      - programmatic software
+version: 2
+updated_at: 2026-09-01 02:00:00 +0400
 relations:
   evaluation_for:
     - CA-M-157
@@ -39,3 +39,7 @@ specifically named functions in one cohesive module.
 ## Failure disposition
 
 Reject the changed allocation until the namespace-only class is removed.
+
+## Sources
+
+- [CA-M-157 — Allocate deterministic transformations to functions](../05_method/CA-M-157-PROGRAMMATIC-CORE-METHOD--allocate-deterministic-transformations-to-functions.md)
