@@ -8,10 +8,10 @@ subjects:
       - diagnostic-failure
   depends_on:
     continuant:
-      - PROGRAMMATIC
+      - programmatic software
       - Logging Policy
-version: 3
-updated_at: 2026-08-27 15:55:57 +0400
+version: 4
+updated_at: 2026-09-01 02:00:00 +0400
 relations:
   evaluation_for:
     - CA-M-163
@@ -45,3 +45,7 @@ declared recovery or reporting path.
 
 Reject the diagnostic path when it hides its own failure or silently changes
 the primary work result.
+
+## Sources
+
+- [CA-M-163 — Emit structured operational diagnostics](../05_method/CA-M-163-PROGRAMMATIC-CORE-METHOD--emit-structured-operational-diagnostics.md)
