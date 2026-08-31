@@ -8,9 +8,9 @@ subjects:
       - framework-engine-mcp
   depends_on:
     continuant:
-      - PROGRAMMATIC
-version: 2
-updated_at: 2026-08-27 14:52:39 +0400
+      - programmatic software
+version: 3
+updated_at: 2026-09-01 01:45:00 +0400
 relations:
   method_for:
     - CA-R-1096
@@ -47,3 +47,9 @@ remains a replaceable interface rather than a second Tool authority.
 Stop refresh and preserve the preceding valid frontier when active Tool
 enumeration is incomplete, endpoint identities collide, or a machine contract
 is missing or invalid. Reject a call that cannot delegate unchanged.
+
+## Sources
+
+- [Model Context Protocol: lifecycle](https://modelcontextprotocol.io/specification/2025-06-18/basic/lifecycle)
+- [Model Context Protocol: tools](https://modelcontextprotocol.io/specification/2025-06-18/server/tools)
+- [CA-A-058 — Reconcile queue, provenance, and MCP frontier decisions](../02_analysis/CA-A-058-PROGRAMMATIC-ANALYSIS_RPRT--reconcile-queue-provenance-and-mcp-frontier-decisions.md)
