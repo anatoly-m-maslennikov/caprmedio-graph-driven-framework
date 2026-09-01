@@ -5,8 +5,8 @@ subjects:
   governs:
     continuant:
       - programmatic-mutation
-version: 3
-updated_at: 2026-09-01 23:47:24 +0400
+version: 4
+updated_at: 2026-09-02 00:15:00 +0400
 relations:
   method_for:
     - CA-R-1127
@@ -17,20 +17,20 @@ relations:
 
 ## Applicable when
 
-Use this Method when a governed subject change may be missing its required Work Journal coverage.
+Use this Method when a governed action may be missing required Work Journal coverage.
 
 ## Procedure
 
-1. Seal the subject-change frontier and collect its current carrier revision, digest, reachable commit, Initiative, author, action, and existing Journal events.
-2. Determine whether one or more required sidecar events already cover the exact subject change.
+1. Seal one governed action frontier and collect its action identity, authoritative state, reachable provenance, existing Journal events, and the active Journal-event schema.
+2. Determine whether the existing events provide the coverage required for that exact action.
 3. Classify absent, duplicate, partial, stale, or conflicting coverage without editing existing Journal lines.
-4. Append a recovered event only when sealed durable evidence determines every required event field and target revision unambiguously.
-5. Re-run coverage on the unchanged frontier and prove that no second recovery event is produced.
+4. Append one `recovered` event only when sealed durable evidence determines every schema-required event field and its action binding unambiguously.
+5. Re-run the same reconciliation on the unchanged frontier and confirm that it appends no second recovered event.
 
 ## Outcome
 
-Each governed subject change is either covered exactly by attributable Journal evidence or remains an explicit blocked discrepancy.
+Each selected governed action has an explicit coverage state: covered, recovered from sufficient evidence, or blocked for operator resolution.
 
 ## Failure or stop
 
-Never invent missing session, author, Initiative, action, revision, digest, or commit facts; preserve insufficient cases as blocked.
+Never invent a schema-required event fact, action binding, or provenance fact; preserve insufficient cases as blocked.
