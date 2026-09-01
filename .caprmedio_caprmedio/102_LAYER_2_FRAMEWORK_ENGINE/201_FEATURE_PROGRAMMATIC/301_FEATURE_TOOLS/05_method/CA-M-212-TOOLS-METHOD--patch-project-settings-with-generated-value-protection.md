@@ -5,8 +5,8 @@ subjects:
   governs:
     continuant:
       - artifact-operations
-version: 2
-updated_at: 2026-08-30 16:44:07 +0400
+version: 3
+updated_at: 2026-09-01 23:47:24 +0400
 relations:
   method_for:
     - CA-R-1143
@@ -17,18 +17,20 @@ relations:
 
 ## Applicable when
 
-Apply when realizing the current acceptance boundary of CA-R-1143.
+Use this Method when an operator authorizes a bounded change to the canonical Project Settings carrier.
 
 ## Procedure
 
-1. Resolve the current governed contract, target boundary, and allowed direct dependencies for the listed Requirement set.
-2. Apply the one shared procedure expressed by this Method without widening any listed Requirement into another Tool, Scope Unit, lifecycle, or authority boundary.
-3. Preserve explicit success, rejection, blocked, and recovery outcomes required by the current contract.
+1. Resolve the single canonical Project Settings carrier, its schema, current digest, and the requested key-level patch.
+2. Classify every target key as operator-authored, generated, unknown, or protected by another authority owner.
+3. Reject writes to generated, unknown, or externally owned values and preserve all unrelated settings exactly.
+4. Validate the complete resulting settings document and expose the exact key-level and byte-level dry-run.
+5. On authorized apply, recheck the source digest, replace the carrier atomically, and prove that only approved keys changed.
 
 ## Outcome
 
-The listed Requirements have one direct, independently replaceable realization procedure with no duplicate acceptance owner.
+Project Settings contain exactly the approved schema-valid changes while generated and unrelated values remain untouched.
 
 ## Failure or stop
 
-Stop and return an explicit failure when the selected contract, boundary, or required precondition is absent, ambiguous, stale, or invalid.
+Stop on multiple settings carriers, schema failure, stale input, protected or generated targets, or any undeclared diff.
