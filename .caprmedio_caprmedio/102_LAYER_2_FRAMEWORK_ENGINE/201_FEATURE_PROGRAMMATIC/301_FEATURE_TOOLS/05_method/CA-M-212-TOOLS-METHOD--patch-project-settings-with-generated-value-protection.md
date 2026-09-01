@@ -4,9 +4,9 @@ cce_form: method
 subjects:
   governs:
     continuant:
-      - artifact-operations
-version: 3
-updated_at: 2026-09-01 23:47:24 +0400
+      - project-settings
+version: 4
+updated_at: 2026-09-02 00:25:00 +0400
 relations:
   method_for:
     - CA-R-1143
@@ -17,13 +17,13 @@ relations:
 
 ## Applicable when
 
-Use this Method when an operator authorizes a bounded change to the canonical Project Settings carrier.
+Use this Method when a caller supplies a bounded key-level patch for the canonical Project Settings carrier.
 
 ## Procedure
 
 1. Resolve the single canonical Project Settings carrier, its schema, current digest, and the requested key-level patch.
-2. Classify every target key as operator-authored, generated, unknown, or protected by another authority owner.
-3. Reject writes to generated, unknown, or externally owned values and preserve all unrelated settings exactly.
+2. Classify every target key from the settings schema as editable, generated, or unknown.
+3. Reject writes to generated or unknown values and preserve all unrelated settings exactly.
 4. Validate the complete resulting settings document and expose the exact key-level and byte-level dry-run.
 5. On authorized apply, recheck the source digest, replace the carrier atomically, and prove that only approved keys changed.
 
@@ -33,4 +33,4 @@ Project Settings contain exactly the approved schema-valid changes while generat
 
 ## Failure or stop
 
-Stop on multiple settings carriers, schema failure, stale input, protected or generated targets, or any undeclared diff.
+Stop on multiple settings carriers, schema failure, stale input, generated or unknown targets, or any undeclared diff.
