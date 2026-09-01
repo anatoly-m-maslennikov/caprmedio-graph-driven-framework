@@ -7,8 +7,8 @@ subjects:
       - programmatic-mutation
     occurrent:
       - evaluation
-version: 2
-updated_at: 2026-08-30 16:44:07 +0400
+version: 3
+updated_at: 2026-09-01 23:47:24 +0400
 relations:
   evaluation_for:
     - CA-M-206
@@ -17,16 +17,20 @@ relations:
 
 ## Claim checked
 
-CA-M-206 realizes the current direct contract of CA-R-1128 without unowned behavior.
+CA-M-206 produces a reproducible lossless TOON Projection of one unchanged bounded Journal frontier.
+
+## Applicable when
+
+Apply whenever the Journal-to-TOON encoder, frontier grammar, or Projection metadata changes.
 
 ## Test case
 
-In one controlled fixture, execute the Method at its declared boundary with valid input and one contract-relevant invalid or stale precondition.
+Select a known ordered NDJSON event range, project it twice, and compare decoded values, identities, order, source frontier, encoder provenance, and output bytes. During a third projection, change one selected source line before completion.
 
 ## Acceptance criteria
 
-The valid path produces only the declared outcome for CA-R-1128, and the invalid or stale path fails explicitly without an unauthorized mutation, widened scope, or invented provenance.
+Both unchanged runs are byte-identical and decode to every original event field in original order; metadata identifies the exact source frontier and encoder; the changed-frontier run produces no accepted Projection.
 
 ## Failure disposition
 
-Reject the realization, preserve the observed discrepancy, and return the boundary to its named owner for correction.
+Reject the Projection method and preserve source and output digests, decoded comparisons, provenance metadata, and changed-frontier handling.
