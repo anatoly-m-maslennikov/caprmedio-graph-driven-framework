@@ -7,8 +7,8 @@ subjects:
       - programmatic-mutation
     occurrent:
       - evaluation
-version: 2
-updated_at: 2026-08-30 16:44:07 +0400
+version: 3
+updated_at: 2026-09-01 23:47:24 +0400
 relations:
   evaluation_for:
     - CA-M-205
@@ -17,16 +17,20 @@ relations:
 
 ## Claim checked
 
-CA-M-205 realizes the current direct contract of CA-R-1127 without unowned behavior.
+CA-M-205 recovers missing Journal coverage only when sealed evidence supplies every required event fact and does so idempotently.
+
+## Applicable when
+
+Apply whenever Journal coverage recovery logic or required event fields change.
 
 ## Test case
 
-In one controlled fixture, execute the Method at its declared boundary with valid input and one contract-relevant invalid or stale precondition.
+Provide two uncovered subject changes: one with complete sealed carrier, commit, Initiative, author, action, revision, digest, and session evidence; the other missing session evidence. Reconcile twice without changing the fixture.
 
 ## Acceptance criteria
 
-The valid path produces only the declared outcome for CA-R-1127, and the invalid or stale path fails explicitly without an unauthorized mutation, widened scope, or invented provenance.
+The first run appends exactly one complete recovered event for the evidenced change and reports the other as blocked; the second run appends nothing; no existing Journal line is edited.
 
 ## Failure disposition
 
-Reject the realization, preserve the observed discrepancy, and return the boundary to its named owner for correction.
+Reject the realization and preserve both evidence bundles, coverage decisions, appended event, blocked fields, Journal before-and-after digests, and second-run result.
