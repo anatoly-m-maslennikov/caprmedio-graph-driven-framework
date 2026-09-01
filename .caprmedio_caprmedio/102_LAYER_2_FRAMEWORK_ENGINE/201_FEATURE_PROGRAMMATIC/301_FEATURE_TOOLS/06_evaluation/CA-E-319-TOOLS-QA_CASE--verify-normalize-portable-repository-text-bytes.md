@@ -7,8 +7,8 @@ subjects:
       - artifact-operations
     occurrent:
       - evaluation
-version: 2
-updated_at: 2026-08-30 16:44:07 +0400
+version: 3
+updated_at: 2026-09-01 23:47:24 +0400
 relations:
   evaluation_for:
     - CA-M-201
@@ -17,16 +17,20 @@ relations:
 
 ## Claim checked
 
-CA-M-201 realizes the current direct contract of CA-R-1122 without unowned behavior.
+CA-M-201 produces one semantic-preserving and byte-idempotent representation of supported repository text.
+
+## Applicable when
+
+Apply whenever the repository text-normalization policy or normalizer implementation changes.
 
 ## Test case
 
-In one controlled fixture, execute the Method at its declared boundary with valid input and one contract-relevant invalid or stale precondition.
+Prepare equivalent supported text files with mixed line endings, optional byte-order marks, different final-newline states, and one undecodable file. Normalize the supported files twice and compare decoded text and bytes.
 
 ## Acceptance criteria
 
-The valid path produces only the declared outcome for CA-R-1122, and the invalid or stale path fails explicitly without an unauthorized mutation, widened scope, or invented provenance.
+All supported variants become byte-identical while decoded semantic text is preserved; the second pass changes no bytes; the undecodable file is rejected and remains byte-identical to its input.
 
 ## Failure disposition
 
-Reject the realization, preserve the observed discrepancy, and return the boundary to its named owner for correction.
+Reject the realization and preserve policy version, input and output digests, decoded comparisons, second-pass result, and rejected-file bytes.
