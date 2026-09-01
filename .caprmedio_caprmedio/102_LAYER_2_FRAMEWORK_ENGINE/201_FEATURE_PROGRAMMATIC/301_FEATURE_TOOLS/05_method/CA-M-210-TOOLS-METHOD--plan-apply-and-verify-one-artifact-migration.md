@@ -5,8 +5,8 @@ subjects:
   governs:
     continuant:
       - artifact-operations
-version: 2
-updated_at: 2026-08-30 16:44:07 +0400
+version: 3
+updated_at: 2026-09-01 23:47:24 +0400
 relations:
   method_for:
     - CA-R-1138
@@ -19,18 +19,20 @@ relations:
 
 ## Applicable when
 
-Apply when realizing the current acceptance boundary of CA-R-1138, CA-R-1139, CA-R-1140.
+Use this Method when one approved Artifact migration must be expanded, executed, and checked as a sealed transformation.
 
 ## Procedure
 
-1. Resolve the current governed contract, target boundary, and allowed direct dependencies for the listed Requirement set.
-2. Apply the one shared procedure expressed by this Method without widening any listed Requirement into another Tool, Scope Unit, lifecycle, or authority boundary.
-3. Preserve explicit success, rejection, blocked, and recovery outcomes required by the current contract.
+1. In read-only mode, expand the migration rule over a bounded source frontier into exact preconditions, old-to-new mappings, collision checks, reference rewrites, affected projections, and postconditions.
+2. Seal the plan and require explicit approval of that exact digest.
+3. Before apply, recheck every carrier and graph precondition; reject a changed frontier.
+4. Execute all carrier, reference, projection, and Journal effects as one rollbackable transaction using generic mechanics only.
+5. Replay every postcondition over carriers, references, projections, and Journal evidence and report residual, unexpected, or unmapped state.
 
 ## Outcome
 
-The listed Requirements have one direct, independently replaceable realization procedure with no duplicate acceptance owner.
+The approved migration is fully verified against its sealed plan or fully rolled back with exact discrepancies.
 
 ## Failure or stop
 
-Stop and return an explicit failure when the selected contract, boundary, or required precondition is absent, ambiguous, stale, or invalid.
+Never apply an unapproved or stale plan; roll back on any failed effect or postcondition and preserve the verification report.
