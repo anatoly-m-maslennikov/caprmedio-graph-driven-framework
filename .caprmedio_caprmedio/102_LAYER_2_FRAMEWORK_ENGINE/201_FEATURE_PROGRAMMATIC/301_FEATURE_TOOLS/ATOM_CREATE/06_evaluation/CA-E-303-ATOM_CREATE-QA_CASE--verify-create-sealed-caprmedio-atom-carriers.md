@@ -7,8 +7,8 @@ subjects:
       - artifact-operations
     occurrent:
       - evaluation
-version: 2
-updated_at: 2026-08-30 16:44:07 +0400
+version: 3
+updated_at: 2026-09-01 23:47:24 +0400
 relations:
   evaluation_for:
     - CA-M-185
@@ -17,16 +17,20 @@ relations:
 
 ## Claim checked
 
-CA-M-185 realizes the current direct contract of CA-R-865 without unowned behavior.
+CA-M-185 creates a sealed Atom set atomically only after complete validation and explicit apply authority.
+
+## Applicable when
+
+Apply to any ATOM_CREATE realization that can create one or more governed Atom carriers.
 
 ## Test case
 
-In one controlled fixture, execute the Method at its declared boundary with valid input and one contract-relevant invalid or stale precondition.
+Prepare a frozen two-Atom request with valid role placement and unique IDs, then introduce a collision into the second target. Observe dry-run and apply behavior for the invalid set; remove the collision and apply the unchanged valid set under a sealed Initiative.
 
 ## Acceptance criteria
 
-The valid path produces only the declared outcome for CA-R-865, and the invalid or stale path fails explicitly without an unauthorized mutation, widened scope, or invented provenance.
+Dry-run creates nothing; the colliding set creates neither Atom; the valid apply creates both first revisions exactly once with canonical filenames and complete metadata; no temporary or partial carrier remains.
 
 ## Failure disposition
 
-Reject the realization, preserve the observed discrepancy, and return the boundary to its named owner for correction.
+Reject the realization and preserve the sealed request, collision evidence, dry-run, resulting directory state, and any partial-write residue.
