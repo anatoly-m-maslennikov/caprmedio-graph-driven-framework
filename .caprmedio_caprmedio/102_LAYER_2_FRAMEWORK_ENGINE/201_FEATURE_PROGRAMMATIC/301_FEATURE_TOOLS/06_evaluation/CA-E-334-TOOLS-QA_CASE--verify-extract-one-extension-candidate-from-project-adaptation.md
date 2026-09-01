@@ -7,8 +7,8 @@ subjects:
       - artifact-operations
     occurrent:
       - evaluation
-version: 2
-updated_at: 2026-08-30 16:44:07 +0400
+version: 3
+updated_at: 2026-09-01 23:47:24 +0400
 relations:
   evaluation_for:
     - CA-M-216
@@ -17,16 +17,20 @@ relations:
 
 ## Claim checked
 
-CA-M-216 realizes the current direct contract of CA-R-1149 without unowned behavior.
+CA-M-216 extracts one independently identified Extension candidate with a complete attributable reusable dependency boundary.
+
+## Applicable when
+
+Apply whenever Project Adaptation extraction or dependency-closure rules change.
 
 ## Test case
 
-In one controlled fixture, execute the Method at its declared boundary with valid input and one contract-relevant invalid or stale precondition.
+Select two reusable adaptation Atoms whose closure includes one reusable dependency, one declared external dependency, one project setting, one secret reference, and one unresolved required dependency. Extract, then resolve the missing dependency and repeat.
 
 ## Acceptance criteria
 
-The valid path produces only the declared outcome for CA-R-1149, and the invalid or stale path fails explicitly without an unauthorized mutation, widened scope, or invented provenance.
+The unresolved attempt produces no candidate; the resolved attempt includes selected Atoms and reusable closure with exact revisions, declares the external dependency, excludes settings and secrets, and has one stable candidate identity.
 
 ## Failure disposition
 
-Reject the realization, preserve the observed discrepancy, and return the boundary to its named owner for correction.
+Reject the extraction method and preserve selection, closure graph, exclusions, unresolved dependencies, source revisions, and emitted candidate manifest.
