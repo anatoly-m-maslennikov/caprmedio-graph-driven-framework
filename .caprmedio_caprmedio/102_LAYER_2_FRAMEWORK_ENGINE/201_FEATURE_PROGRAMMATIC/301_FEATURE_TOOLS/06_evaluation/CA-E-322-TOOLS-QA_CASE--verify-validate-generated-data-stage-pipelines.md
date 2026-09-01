@@ -7,8 +7,8 @@ subjects:
       - artifact-operations
     occurrent:
       - evaluation
-version: 3
-updated_at: 2026-09-01 23:47:24 +0400
+version: 4
+updated_at: 2026-09-02 00:15:00 +0400
 relations:
   evaluation_for:
     - CA-M-204
@@ -25,12 +25,12 @@ Apply whenever a data-stage registration, dependency, source frontier, or materi
 
 ## Test case
 
-Construct one current src-to-stg-to-mrt-to-biz pipeline, then add an unregistered stage, a backward dependency, a stale materialization, and a derived row with no source provenance. Validate the combined fixture.
+Consider one bounded registered `src → stg → mrt → biz` pipeline with a current source frontier. In that same declared pipeline, include one output using an unregistered prefix, one non-forward dependency, one materialization whose recorded input frontier is stale, and one derived fact presented as semantic authority without source provenance.
 
 ## Acceptance criteria
 
-The original pipeline is accepted; each introduced defect produces one attributable blocking issue; no derived stage is treated as authority; and the report identifies exact source and materialization frontiers.
+The registered pipeline is accepted; each introduced defect produces one attributable blocking issue; no generated output is treated as semantic authority; and each issue identifies its exact source and materialization frontiers.
 
 ## Failure disposition
 
-Reject the validator and preserve stage declarations, dependency graph, frontier digests, materializations, expected defects, and observed issue map.
+Reject the validator and preserve stage declarations, dependency graph, source and materialization frontier digests, expected defects, and observed issue map.
