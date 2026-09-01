@@ -7,8 +7,8 @@ subjects:
       - artifact-operations
     occurrent:
       - evaluation
-version: 2
-updated_at: 2026-08-30 16:44:07 +0400
+version: 3
+updated_at: 2026-09-01 23:47:24 +0400
 relations:
   evaluation_for:
     - CA-M-187
@@ -17,16 +17,20 @@ relations:
 
 ## Claim checked
 
-CA-M-187 realizes the current direct contract of CA-R-867 without unowned behavior.
+CA-M-187 relocates the complete sealed target set while preserving every carrier byte, filename, and Atom ID.
+
+## Applicable when
+
+Apply to any ATOM_MOVE realization that can move individual carriers or recursive subtrees.
 
 ## Test case
 
-In one controlled fixture, execute the Method at its declared boundary with valid input and one contract-relevant invalid or stale precondition.
+Select a two-level subtree with three Atom carriers and one non-Atom file. Preview a shape-preserving move into a valid Scope Unit, introduce a destination collision, observe apply, then remove the collision and apply the unchanged move map.
 
 ## Acceptance criteria
 
-The valid path produces only the declared outcome for CA-R-867, and the invalid or stale path fails explicitly without an unauthorized mutation, widened scope, or invented provenance.
+The collision attempt moves nothing; the valid attempt moves all three Atoms to the mapped subtree, excludes the non-Atom, removes all source carriers, and preserves each filename, ID, and digest.
 
 ## Failure disposition
 
-Reject the realization, preserve the observed discrepancy, and return the boundary to its named owner for correction.
+Reject the realization and preserve source and destination maps, collision evidence, before-and-after digests, and any incomplete move state.
