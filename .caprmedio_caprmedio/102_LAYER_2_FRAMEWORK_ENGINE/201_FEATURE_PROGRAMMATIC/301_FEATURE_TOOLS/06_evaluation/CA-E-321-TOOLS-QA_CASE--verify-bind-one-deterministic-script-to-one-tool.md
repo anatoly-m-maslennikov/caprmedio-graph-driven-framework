@@ -7,8 +7,8 @@ subjects:
       - artifact-operations
     occurrent:
       - evaluation
-version: 2
-updated_at: 2026-08-30 16:44:07 +0400
+version: 3
+updated_at: 2026-09-01 23:47:24 +0400
 relations:
   evaluation_for:
     - CA-M-203
@@ -17,16 +17,20 @@ relations:
 
 ## Claim checked
 
-CA-M-203 realizes the current direct contract of CA-R-1124 without unowned behavior.
+CA-M-203 establishes a one-to-one mapping between deterministic executable entry scripts and Tool owners while excluding support modules.
+
+## Applicable when
+
+Apply whenever an executable script, Tool Scope Unit, or canonical entrypoint declaration changes.
 
 ## Test case
 
-In one controlled fixture, execute the Method at its declared boundary with valid input and one contract-relevant invalid or stale precondition.
+Create a fixture with one correctly bound Tool script, one Tool with two entry scripts, one orphan executable, one Tool with no entrypoint, and two imported worker modules. Resolve the ownership map twice.
 
 ## Acceptance criteria
 
-The valid path produces only the declared outcome for CA-R-1124, and the invalid or stale path fails explicitly without an unauthorized mutation, widened scope, or invented provenance.
+The correct pair is accepted; duplicate, orphan, and missing bindings are distinct findings; worker modules are not treated as Tools; repeated resolution produces the same mappings and findings.
 
 ## Failure disposition
 
-Reject the realization, preserve the observed discrepancy, and return the boundary to its named owner for correction.
+Reject the binding method and preserve executable inventory, Tool declarations, import classification, mappings, findings, and repeated result.
