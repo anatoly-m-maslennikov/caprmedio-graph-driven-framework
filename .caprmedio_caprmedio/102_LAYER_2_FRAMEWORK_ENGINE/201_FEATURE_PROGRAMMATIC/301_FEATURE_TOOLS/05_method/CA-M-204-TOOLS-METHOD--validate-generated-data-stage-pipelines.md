@@ -5,8 +5,8 @@ subjects:
   governs:
     continuant:
       - artifact-operations
-version: 2
-updated_at: 2026-08-30 16:44:07 +0400
+version: 3
+updated_at: 2026-09-01 23:47:24 +0400
 relations:
   method_for:
     - CA-R-1125
@@ -17,18 +17,20 @@ relations:
 
 ## Applicable when
 
-Apply when realizing the current acceptance boundary of CA-R-1125.
+Use this Method when validating a registered generated-data pipeline from source carriers through derived stages.
 
 ## Procedure
 
-1. Resolve the current governed contract, target boundary, and allowed direct dependencies for the listed Requirement set.
-2. Apply the one shared procedure expressed by this Method without widening any listed Requirement into another Tool, Scope Unit, lifecycle, or authority boundary.
-3. Preserve explicit success, rejection, blocked, and recovery outcomes required by the current contract.
+1. Load the registered source, staging, intermediate, mart, and business stage declarations and their materializations.
+2. Resolve every dataset's authoritative source frontier and declared dependencies.
+3. Check registered prefixes, forward-only stage dependencies, acyclic order, stable identity, and the absence of derived-to-source authority inversion.
+4. Recompute stage frontier digests and compare materialized outputs with the current declared inputs.
+5. Report unregistered stages, backward edges, stale materializations, missing source provenance, and independently authored derived facts.
 
 ## Outcome
 
-The listed Requirements have one direct, independently replaceable realization procedure with no duplicate acceptance owner.
+The pipeline has an attributable forward-only source-to-derived topology and current materializations, or explicit violations.
 
 ## Failure or stop
 
-Stop and return an explicit failure when the selected contract, boundary, or required precondition is absent, ambiguous, stale, or invalid.
+Block acceptance when a stage lacks a source frontier, depends backward, claims authority, or cannot prove currentness.
