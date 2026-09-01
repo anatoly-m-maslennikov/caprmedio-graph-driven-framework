@@ -5,8 +5,8 @@ subjects:
   governs:
     continuant:
       - artifact-operations
-version: 2
-updated_at: 2026-08-30 16:44:07 +0400
+version: 3
+updated_at: 2026-09-01 23:47:24 +0400
 relations:
   method_for:
     - CA-R-865
@@ -17,18 +17,21 @@ relations:
 
 ## Applicable when
 
-Apply when realizing the current acceptance boundary of CA-R-865.
+Use this Method when a sealed Initiative authorizes creation of one Atom or one frozen bulk set of Atoms.
 
 ## Procedure
 
-1. Resolve the current governed contract, target boundary, and allowed direct dependencies for the listed Requirement set.
-2. Apply the one shared procedure expressed by this Method without widening any listed Requirement into another Tool, Scope Unit, lifecycle, or authority boundary.
-3. Preserve explicit success, rejection, blocked, and recovery outcomes required by the current contract.
+1. Normalize each request into a target directory, canonical filename, complete frontmatter, and Markdown body.
+2. Validate Content role placement, filename grammar, required metadata, relations, and the initial revision before touching the filesystem.
+3. Reject any path, filename, or Atom-ID collision across both existing authority and the requested set.
+4. Freeze the target set and produce a complete dry-run showing every carrier and validation result.
+5. On explicit authorized apply, write all carriers through temporary files and publish them as one atomic transaction.
+6. If any publish step fails, remove unpublished temporary files and restore the pre-action state.
 
 ## Outcome
 
-The listed Requirements have one direct, independently replaceable realization procedure with no duplicate acceptance owner.
+The requested Atom set is either fully absent or fully present as valid first revisions with no partial creation.
 
 ## Failure or stop
 
-Stop and return an explicit failure when the selected contract, boundary, or required precondition is absent, ambiguous, stale, or invalid.
+Remain in dry-run mode unless apply authority is explicit. Stop on an unsealed Initiative, invalid carrier, collision, changed target set, or failed atomic publish.
