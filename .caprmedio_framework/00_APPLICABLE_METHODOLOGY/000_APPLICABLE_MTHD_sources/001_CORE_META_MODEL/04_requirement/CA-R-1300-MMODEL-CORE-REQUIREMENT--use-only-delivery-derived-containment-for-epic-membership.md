@@ -8,13 +8,12 @@ subjects:
       - Epic/Membership
   depends_on:
     continuant:
-      - CONTAINS
-      - IS_CONTAINED_BY
+      - Containment Relation Pair
       - Delivery
-version: 3
-updated_at: 2026-08-29 02:40:41 +0400
+version: 4
+updated_at: 2026-09-02 04:15:00 +0400
 relations: {}
 ---
 # Use Only Delivery-Derived Containment for Epic Membership
 
-Epic membership **must** use **only** **contains** **and** IS_CONTAINED_BY relations derived by Delivery authority.
+Epic membership **must** use **only** `CONTAINS` **and** `IS_CONTAINED_BY` relation pairs derived by Delivery authority.

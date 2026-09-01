@@ -6,8 +6,8 @@ subjects:
     continuant:
       - semantics
 tier: core
-version: 9
-updated_at: 2026-08-29 02:40:41 +0400
+version: 10
+updated_at: 2026-09-02 04:15:00 +0400
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -23,7 +23,7 @@ relations:
 **in** particular:
 
 - Analysis owns findings, alternatives, explanation, **and** rationale but **not** the action list;
-- an Action Policy governs Actors **and** actions **without** itself acting, a Task states one intended action **without** realizing it, **and** an Epic relates **only** its contained Tasks **without** adding their actions;
+- an Action Policy governs Actors **and** actions **without** itself acting, a Task states one intended action **without** realizing it, **and** an Epic relates **only** its contained Epic **and** Task members **without** adding member actions;
 - Requirement states a desired outcome but does **not** select its Method;
 - Method, Evaluation, **and** Delivery specify distinct realization obligations;
 - Implementation materially realizes accepted claims but does **not** prove their evaluation **or** operational success; **and**

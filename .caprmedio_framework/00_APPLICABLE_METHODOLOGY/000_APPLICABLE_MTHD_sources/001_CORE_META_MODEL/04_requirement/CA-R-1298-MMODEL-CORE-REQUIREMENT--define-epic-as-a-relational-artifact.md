@@ -9,10 +9,12 @@ subjects:
   depends_on:
     continuant:
       - Relational Artifact
-version: 3
-updated_at: 2026-08-29 02:40:41 +0400
-relations: {}
+version: 4
+updated_at: 2026-09-02 04:15:00 +0400
+relations:
+  replacement_of:
+    - CA-R-1258
 ---
 # Define Epic as a Relational Artifact
 
-an Epic **means** a Relational Artifact that organizes a directly contained set of Epic **or** Task members.
+an Epic **means** a Relational Artifact that organizes Plan work.

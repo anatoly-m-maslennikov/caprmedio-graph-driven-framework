@@ -8,11 +8,13 @@ subjects:
       - Relational Atom
       - Consumer
       - Producer
+      - Atom/Current Scope/Owner
+      - Atom/Claim Scope/Scope Unit Set
 atom_id: CA-R-932
 cce_version: cce_1
 cce_form: definition
-version: 8
-updated_at: 2026-08-29 04:33:13 +0400
+version: 9
+updated_at: 2026-09-02 00:35:23 +0400
 relations:
   replacement_of:
     - CA-R-900
@@ -23,4 +25,4 @@ relations:
 ---
 # Define Demand Atom
 
-a Demand Atom **means** a Relational Atom with Content Role Requirement **and** Type Demand that is owned by its Consumer Current Scope **and** constrains its Producer Claim Scope.
+a Demand Atom **means** a Relational Atom with Content Role Requirement **and** Type Demand that is owned by the Consumer Scope Unit identified by its Current Scope Owner **and** constrains its Producer Claim Scope.
