@@ -5,8 +5,8 @@ subjects:
   governs:
     continuant:
       - programmatic-mutation
-version: 2
-updated_at: 2026-08-30 16:44:07 +0400
+version: 3
+updated_at: 2026-09-01 23:47:24 +0400
 relations:
   method_for:
     - CA-R-1128
@@ -17,18 +17,20 @@ relations:
 
 ## Applicable when
 
-Apply when realizing the current acceptance boundary of CA-R-1128.
+Use this Method when a bounded Work Journal frontier must be represented as a compact TOON Projection.
 
 ## Procedure
 
-1. Resolve the current governed contract, target boundary, and allowed direct dependencies for the listed Requirement set.
-2. Apply the one shared procedure expressed by this Method without widening any listed Requirement into another Tool, Scope Unit, lifecycle, or authority boundary.
-3. Preserve explicit success, rejection, blocked, and recovery outcomes required by the current contract.
+1. Resolve an exact Journal file, event range, or sealed event frontier and record its ordered source identities and digests.
+2. Parse every NDJSON line strictly and reject malformed, duplicate, or changed input before projection.
+3. Encode the same ordered event values into TOON without adding authority, interpretation, or omitted fields.
+4. Attach the source frontier, encoder identity and version, output digest, and generation time to the Projection metadata.
+5. Decode or independently compare the result to prove lossless identity, value, and order preservation.
 
 ## Outcome
 
-The listed Requirements have one direct, independently replaceable realization procedure with no duplicate acceptance owner.
+One reproducible non-authoritative TOON Projection represents the exact bounded Journal frontier losslessly.
 
 ## Failure or stop
 
-Stop and return an explicit failure when the selected contract, boundary, or required precondition is absent, ambiguous, stale, or invalid.
+Produce no Projection when the frontier changes during generation, any line is malformed, or the result cannot be proven lossless.
