@@ -5,8 +5,8 @@ subjects:
   governs:
     continuant:
       - artifact-operations
-version: 2
-updated_at: 2026-08-30 16:44:07 +0400
+version: 3
+updated_at: 2026-09-01 23:47:24 +0400
 relations:
   method_for:
     - CA-R-1150
@@ -17,18 +17,20 @@ relations:
 
 ## Applicable when
 
-Apply when realizing the current acceptance boundary of CA-R-1150.
+Use this Method when an accepted Extension candidate is ready to become an exactly installable package.
 
 ## Procedure
 
-1. Resolve the current governed contract, target boundary, and allowed direct dependencies for the listed Requirement set.
-2. Apply the one shared procedure expressed by this Method without widening any listed Requirement into another Tool, Scope Unit, lifecycle, or authority boundary.
-3. Preserve explicit success, rejection, blocked, and recovery outcomes required by the current contract.
+1. Seal the Extension identity, exact version, source Atom revisions, dependency contract, compatibility boundary, and intended install root.
+2. Assemble only declared authority, implementations, deliveries, and required package metadata into a deterministic manifest.
+3. Encode installation, update, downgrade, and removal instructions against the exact package version without host-specific hidden state.
+4. Build the package reproducibly and record the manifest and package digests.
+5. Verify a clean install and exact installed-state inventory in an isolated compatible Project fixture.
 
 ## Outcome
 
-The listed Requirements have one direct, independently replaceable realization procedure with no duplicate acceptance owner.
+The Extension has one stable identity and exact reproducible version that can be installed and inventoried without ambiguity.
 
 ## Failure or stop
 
-Stop and return an explicit failure when the selected contract, boundary, or required precondition is absent, ambiguous, stale, or invalid.
+Do not publish a package with unresolved dependencies, mutable version identity, nondeterministic contents, or an unverifiable clean installation.
