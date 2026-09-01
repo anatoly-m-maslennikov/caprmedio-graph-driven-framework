@@ -5,8 +5,8 @@ subjects:
       - project-settings
     occurrent:
       - evaluation
-version: 7
-updated_at: 2026-08-30 16:44:07 +0400
+version: 8
+updated_at: 2026-09-01 23:40:00 +0400
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -19,8 +19,7 @@ relations:
 
 **Fixture:** Remove both generated Project Scope Unit Graph outputs from an
 isolated current-project fixture whose Project Configuration binding and
-admitted active `project_scope_unit_graph` or `project_graph_state`
-contributions are valid.
+admitted active `project_scope_unit_graph` contributions are valid.
 
 **Expected result:** One authorized generator run recreates both outputs from
 the exact Configuration revision, current graph structure, admitted sources,
