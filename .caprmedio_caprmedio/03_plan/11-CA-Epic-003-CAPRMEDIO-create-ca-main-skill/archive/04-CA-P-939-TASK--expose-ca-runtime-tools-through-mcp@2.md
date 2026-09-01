@@ -11,8 +11,8 @@ subjects:
       - Project-local Provider-neutral MCP Service
     occurrent:
       - CA MCP Exposure
-version: 3
-updated_at: 2026-09-02 03:30:00 +0400
+version: 2
+updated_at: 2026-09-02 00:43:03 +0400
 autonomous_confidence_threshold: 99
 relations:
   depends_on:
@@ -32,4 +32,4 @@ the Task is **not done if** (MCP omits an admitted CA Tool, exposes an inactive 
 
 ## Details
 
-keep MCP limited to provider-neutral discovery, transport validation, delegation, and result transport. preserve the distinction among accepted, queued, running, stopped, failed, completed, and reconciled states. admit the one current service realization before any Consumer Goal or Demand refers to it as a produced Implementation result.
+keep MCP limited to provider-neutral discovery, transport validation, delegation, and result transport. preserve the distinction among accepted, queued, running, stopped, failed, completed, and reconciled states. admit the one current service realization before any Consumer Job or Demand refers to it as a produced Implementation result.

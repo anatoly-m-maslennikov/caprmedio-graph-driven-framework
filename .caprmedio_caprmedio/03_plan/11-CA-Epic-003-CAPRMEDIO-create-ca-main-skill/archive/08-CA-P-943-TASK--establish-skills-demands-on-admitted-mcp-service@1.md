@@ -10,8 +10,8 @@ subjects:
       - SKILLS-to-MCP Demand Authority
     occurrent:
       - SKILLS-to-MCP Demand Authority Establishment
-version: 2
-updated_at: 2026-09-02 03:30:00 +0400
+version: 1
+updated_at: 2026-09-02 00:43:03 +0400
 autonomous_confidence_threshold: 99
 relations:
   depends_on:
@@ -19,11 +19,11 @@ relations:
 ---
 # Establish SKILLS Demands on Admitted MCP Service
 
-**when** CA-P-939 is Done, **then** the Assignee **must** establish the accepted SKILLS Goal dependency and Consumer-owned Demand authority for the admitted Project-local Provider-neutral MCP Service Implementation result.
+**when** CA-P-939 is Done, **then** the Assignee **must** establish the accepted SKILLS Job dependency and Consumer-owned Demand authority for the admitted Project-local Provider-neutral MCP Service Implementation result.
 
 ## Scope
 
-`((the exact current MCP Implementation result admitted by CA-P-939) union (the accepted SKILLS Goal CA-R-1189) union (current Demand, Claim-boundary, replacement, and Journal authority) union (the seven independently governed SKILLS acceptance Claims for MCP consumption) union (legacy CNTR-002 and its complete incoming-reference frontier))`
+`((the exact current MCP Implementation result admitted by CA-P-939) union (the accepted SKILLS Job CA-R-1189) union (current Demand, Claim-boundary, replacement, and Journal authority) union (the seven independently governed SKILLS acceptance Claims for MCP consumption) union (legacy CNTR-002 and its complete incoming-reference frontier))`
 
 ## Definition of Done
 
@@ -31,4 +31,4 @@ the Task is **not done if** (CA-P-939 has not admitted **`=1`** current Project-
 
 ## Details
 
-revise the existing CA-R-1189 Goal rather than creating another Goal. create seven `SKILLS-DEMANDS_FROM-MCP` Requirement Atoms only after binding them to the admitted result. keep lifecycle behavior in canonical Tools and let MCP expose and transport those Tool capabilities. treat the discovery, callable-identity, accepted-input, invocation, meaning-preservation, and result-interpretation Demands as the six true successors of CNTR-002; treat asynchronous handoff and lifecycle addressability as new authority with no predecessor. activate and commit all Demands before archiving CNTR-002 through a separate governed move.
+revise the existing CA-R-1189 Job rather than creating another Job. create seven `SKILLS-DEMANDS_FROM-MCP` Requirement Atoms only after binding them to the admitted result. keep lifecycle behavior in canonical Tools and let MCP expose and transport those Tool capabilities. treat the discovery, callable-identity, accepted-input, invocation, meaning-preservation, and result-interpretation Demands as the six true successors of CNTR-002; treat asynchronous handoff and lifecycle addressability as new authority with no predecessor. activate and commit all Demands before archiving CNTR-002 through a separate governed move.
