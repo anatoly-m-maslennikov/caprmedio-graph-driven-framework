@@ -7,8 +7,8 @@ subjects:
       - programmatic-mutation
     occurrent:
       - evaluation
-version: 3
-updated_at: 2026-09-01 23:47:24 +0400
+version: 4
+updated_at: 2026-09-02 00:25:00 +0400
 relations:
   evaluation_for:
     - CA-M-200
@@ -25,12 +25,12 @@ Apply to any reconciliation release or after a suspected provenance-coverage gap
 
 ## Test case
 
-Create a bounded fixture containing one fully evidenced Git commit without a Journal event, one Journal event with no reachable commit, one duplicate event, and one digest mismatch. Reconcile twice over the unchanged frontier.
+Consider one bounded sealed provenance frontier containing one fully evidenced Git commit without its Journal event, one Journal event with no reachable commit, one duplicate action or event binding, one subject-revision mismatch, one subject-digest mismatch, and one Journal-only commit-watermark lag. Reconcile that unchanged frontier twice.
 
 ## Acceptance criteria
 
-The first run appends exactly one recovered event for the fully evidenced commit and reports the other three discrepancy classes with all governed fields; the second run appends nothing and returns the same remaining discrepancies.
+The first run appends exactly one recovered event for the fully evidenced commit and reports every other introduced discrepancy class with action identity, Initiative, real-change commit SHA, Journal event identity, affected subject identity and revision or digest, and Journal-batch commit SHA; the second run appends nothing and returns the same remaining discrepancies.
 
 ## Failure disposition
 
-Reject the realization and preserve Git and Journal frontiers, matches, recovery evidence, appended lines, remaining discrepancies, and second-run comparison.
+Reject the realization and preserve Git and Journal frontiers, action bindings, recovery evidence, appended lines, all discrepancy classifications, and the second-run comparison.
