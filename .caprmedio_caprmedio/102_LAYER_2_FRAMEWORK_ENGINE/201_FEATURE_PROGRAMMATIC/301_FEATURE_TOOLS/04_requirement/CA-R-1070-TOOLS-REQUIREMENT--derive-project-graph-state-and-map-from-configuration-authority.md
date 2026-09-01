@@ -3,8 +3,8 @@ subjects:
   governs:
     continuant:
       - project-settings
-version: 9
-updated_at: 2026-08-30 16:44:07 +0400
+version: 10
+updated_at: 2026-09-01 23:40:00 +0400
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 ---
@@ -12,14 +12,15 @@ llm_session_ids:
 
 The Project Scope Unit Graph generator must resolve exactly one governed Project
 Configuration Atom as the sole source of current operator-selected values. It
-may compose only applicable active Atom `project_scope_unit_graph` or
-`project_graph_state` contributions that declare registered facts, allowed
-values, defaults, structural context, or other non-configurational inputs. No
-ordinary Atom may contribute `project_settings` values.
+may compose only applicable active Atom `project_scope_unit_graph`
+contributions that declare registered facts, allowed values, defaults,
+structural context, or other non-configurational inputs. No ordinary Atom may
+contribute `project_settings` values.
 
-The generator must derive `.caprmedio/project_scope_unit_graph.projection.toml`
-and `.caprmedio/project_scope_unit_graph_sources.projection.toml` from those
-exact sources, current graph structure, and applicable Journal inputs; it must
-never read either Projection as semantic input, preserve exact per-value
-bindings, and fail before writing on missing, malformed, unresolved, ambiguous,
-stale, contradictory, or incompletely mapped sources.
+The generator must derive
+`.caprmedio_caprmedio/project_scope_unit_graph.projection.toml` and
+`.caprmedio_caprmedio/project_scope_unit_graph_sources.projection.toml` from
+those exact sources, current graph structure, and applicable Journal inputs;
+it must never read either Projection as semantic input, preserve exact
+per-value bindings, and fail before writing on missing, malformed, unresolved,
+ambiguous, stale, contradictory, or incompletely mapped sources.
