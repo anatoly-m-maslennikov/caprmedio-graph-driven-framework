@@ -7,8 +7,8 @@ subjects:
       - artifact-operations
     occurrent:
       - evaluation
-version: 2
-updated_at: 2026-08-30 16:44:07 +0400
+version: 3
+updated_at: 2026-09-01 23:47:24 +0400
 relations:
   evaluation_for:
     - CA-M-207
@@ -17,16 +17,20 @@ relations:
 
 ## Claim checked
 
-CA-M-207 realizes the current direct contract of CA-R-1129, CA-R-1135 without unowned behavior.
+CA-M-207 returns complete deterministic metadata-filtered Artifact results without reading bodies or hiding absent and malformed fields.
+
+## Applicable when
+
+Apply whenever generic metadata extraction or Artifact index filtering changes.
 
 ## Test case
 
-In one controlled fixture, execute the Method at its declared boundary with valid input and one contract-relevant invalid or stale precondition.
+Create Artifacts spanning two Scope Units, roles, Tiers, lifecycle states, subjects, and relations; include one absent requested field and one malformed frontmatter carrier. Run one combined filter and record whether body-only sentinel text is accessed or returned.
 
 ## Acceptance criteria
 
-The valid path produces only the declared outcome for CA-R-1129, CA-R-1135, and the invalid or stale path fails explicitly without an unauthorized mutation, widened scope, or invented provenance.
+Every and only matching stable IDs and paths appear in deterministic order; requested metadata and derived identity are correct; absent and malformed fields are explicit; no body text is read or returned.
 
 ## Failure disposition
 
-Reject the realization, preserve the observed discrepancy, and return the boundary to its named owner for correction.
+Reject the realization and preserve fixture metadata, filters, expected membership, observed order, parse diagnostics, and body-access evidence.
