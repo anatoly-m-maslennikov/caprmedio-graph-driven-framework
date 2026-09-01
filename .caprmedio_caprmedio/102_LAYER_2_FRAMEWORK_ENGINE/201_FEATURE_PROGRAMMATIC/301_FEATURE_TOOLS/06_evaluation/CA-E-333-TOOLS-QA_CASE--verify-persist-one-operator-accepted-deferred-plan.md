@@ -7,8 +7,8 @@ subjects:
       - artifact-operations
     occurrent:
       - evaluation
-version: 2
-updated_at: 2026-08-30 16:44:07 +0400
+version: 3
+updated_at: 2026-09-01 23:47:24 +0400
 relations:
   evaluation_for:
     - CA-M-215
@@ -17,16 +17,20 @@ relations:
 
 ## Claim checked
 
-CA-M-215 realizes the current direct contract of CA-R-1148 without unowned behavior.
+CA-M-215 persists a deferred Plan only from explicit operator acceptance and preserves one bounded reopenable action without completion claims.
+
+## Applicable when
+
+Apply whenever deferred-Plan capture or reopening metadata changes.
 
 ## Test case
 
-In one controlled fixture, execute the Method at its declared boundary with valid input and one contract-relevant invalid or stale precondition.
+Present one assistant suggestion to defer work without operator acceptance, then present the same bounded action with explicit acceptance, session, owning scope, rationale, dependencies, and reopening condition.
 
 ## Acceptance criteria
 
-The valid path produces only the declared outcome for CA-R-1148, and the invalid or stale path fails explicitly without an unauthorized mutation, widened scope, or invented provenance.
+The suggestion creates no Plan; the accepted case creates exactly one Plan with the stated action and all provenance and reopening fields; it contains no implementation, active-work, or completion claim.
 
 ## Failure disposition
 
-Reject the realization, preserve the observed discrepancy, and return the boundary to its named owner for correction.
+Reject the realization and preserve suggestion and acceptance inputs, created carrier, relation resolution, and scans for inferred acceptance or completion language.
