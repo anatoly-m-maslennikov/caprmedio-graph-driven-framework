@@ -7,8 +7,8 @@ subjects:
       - artifact-operations
     occurrent:
       - evaluation
-version: 3
-updated_at: 2026-09-01 23:47:24 +0400
+version: 4
+updated_at: 2026-09-02 01:10:00 +0400
 relations:
   evaluation_for:
     - CA-M-188
@@ -17,20 +17,20 @@ relations:
 
 ## Claim checked
 
-CA-M-188 removes selected Atoms from current authority while preserving byte-identical historical carriers and resolvability.
+CA-M-188 removes selected active Atoms from current authority while preserving byte-identical historical carriers and resolvability.
 
 ## Applicable when
 
-Apply to any ATOM_ARCHIVE realization before it can perform active-to-archive lifecycle transitions.
+Apply to any realization of CA-M-188 before it can perform active-to-archive lifecycle transitions.
 
 ## Test case
 
-Select two related active Atoms and one draft. Preview one bulk archive request containing all three, observe rejection, then archive only the two active Atoms and inspect active discovery, archive discovery, bytes, and historical references.
+Use one fixture with one active Atom selected singly, two active Atoms selected as a bulk set, one draft, and one existing historical reference to a bulk source. Record dry-runs, attempt delegated apply without authority, submit a mixed bulk request containing the two active Atoms and the draft, then archive the single and bulk active targets through sealed Initiative envelopes.
 
 ## Acceptance criteria
 
-The mixed-lifecycle request changes nothing; the valid request places both active Atoms in role-local archives with identical filenames, IDs, versions, and bytes; current discovery excludes them; historical resolution still finds them.
+The unauthorized and mixed-lifecycle requests change nothing; valid singular and bulk applies place every selected active Atom in its owning Content-role archive with identical filenames, IDs, revisions, and bytes; current discovery excludes them; the draft remains a draft; and historical resolution still finds the archived bulk source and its existing historical reference.
 
 ## Failure disposition
 
-Reject the realization and preserve lifecycle classifications, archive map, current-authority result, digest comparison, and reference-resolution evidence.
+Reject the realization and preserve lifecycle classifications, authority result, archive map, current-authority result, digest comparison, and historical-reference evidence.
