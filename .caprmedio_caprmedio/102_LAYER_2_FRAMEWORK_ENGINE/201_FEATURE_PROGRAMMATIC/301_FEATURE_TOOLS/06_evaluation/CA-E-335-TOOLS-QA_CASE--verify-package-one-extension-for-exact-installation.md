@@ -7,8 +7,8 @@ subjects:
       - artifact-operations
     occurrent:
       - evaluation
-version: 2
-updated_at: 2026-08-30 16:44:07 +0400
+version: 3
+updated_at: 2026-09-01 23:47:24 +0400
 relations:
   evaluation_for:
     - CA-M-217
@@ -17,16 +17,20 @@ relations:
 
 ## Claim checked
 
-CA-M-217 realizes the current direct contract of CA-R-1150 without unowned behavior.
+CA-M-217 produces a reproducible exactly versioned Extension package whose clean installed state is fully inventoried.
+
+## Applicable when
+
+Apply whenever Extension packaging, manifest, versioning, or installation instructions change.
 
 ## Test case
 
-In one controlled fixture, execute the Method at its declared boundary with valid input and one contract-relevant invalid or stale precondition.
+Package the same sealed Extension candidate twice, compare manifests and package digests, then install one package into a clean compatible Project fixture and compare installed files and state to the manifest.
 
 ## Acceptance criteria
 
-The valid path produces only the declared outcome for CA-R-1150, and the invalid or stale path fails explicitly without an unauthorized mutation, widened scope, or invented provenance.
+Both builds have identical identity, exact version, manifest, and package digest; clean installation succeeds without hidden external state; installed inventory matches the manifest exactly and reports compatibility and verification status.
 
 ## Failure disposition
 
-Reject the realization, preserve the observed discrepancy, and return the boundary to its named owner for correction.
+Reject the package and preserve candidate frontier, both builds, manifests, digests, installation trace, and installed-state comparison.
