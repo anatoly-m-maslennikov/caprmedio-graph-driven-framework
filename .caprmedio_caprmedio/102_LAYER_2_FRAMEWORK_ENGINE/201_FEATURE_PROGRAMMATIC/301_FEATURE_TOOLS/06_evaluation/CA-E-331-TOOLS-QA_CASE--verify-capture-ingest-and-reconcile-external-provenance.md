@@ -7,8 +7,8 @@ subjects:
       - artifact-operations
     occurrent:
       - evaluation
-version: 2
-updated_at: 2026-08-30 16:44:07 +0400
+version: 3
+updated_at: 2026-09-01 23:47:24 +0400
 relations:
   evaluation_for:
     - CA-M-213
@@ -17,16 +17,20 @@ relations:
 
 ## Claim checked
 
-CA-M-213 realizes the current direct contract of CA-R-1144, CA-R-1145, CA-R-1146 without unowned behavior.
+CA-M-213 preserves reproducible external-source provenance through bounded analysis without implicitly creating project authority.
+
+## Applicable when
+
+Apply whenever external capture, analysis ingestion, or provenance reconciliation changes.
 
 ## Test case
 
-In one controlled fixture, execute the Method at its declared boundary with valid input and one contract-relevant invalid or stale precondition.
+Capture one external text source with complete origin and digest, ingest one derived claim into a bounded analysis frontier, then change the source and reconcile source, draft, session, target revision, and digest links without an adoption action.
 
 ## Acceptance criteria
 
-The valid path produces only the declared outcome for CA-R-1144, CA-R-1145, CA-R-1146, and the invalid or stale path fails explicitly without an unauthorized mutation, widened scope, or invented provenance.
+The capture is immutable and reproducible; the analysis names the exact original source and target frontier; reconciliation reports the changed source as stale; no Requirement or other accepted authority is created or revised.
 
 ## Failure disposition
 
-Reject the realization, preserve the observed discrepancy, and return the boundary to its named owner for correction.
+Reject the provenance method and preserve source carrier, origin and digest evidence, ingestion envelope, target frontier, reconciliation findings, and authority scan.
