@@ -5,8 +5,8 @@ subjects:
   governs:
     continuant:
       - feature-boundary
-version: 2
-updated_at: 2026-08-30 16:44:07 +0400
+version: 3
+updated_at: 2026-09-01 23:47:24 +0400
 relations:
   method_for:
     - CA-R-1102
@@ -17,18 +17,19 @@ relations:
 
 ## Applicable when
 
-Apply when realizing the current acceptance boundary of CA-R-1102.
+Use this Method when adding the Codex-specific plugin boundary under AGENT_HOST_PLUGINS.
 
 ## Procedure
 
-1. Resolve the current governed contract, target boundary, and allowed direct dependencies for the listed Requirement set.
-2. Apply the one shared procedure expressed by this Method without widening any listed Requirement into another Tool, Scope Unit, lifecycle, or authority boundary.
-3. Preserve explicit success, rejection, blocked, and recovery outcomes required by the current contract.
+1. Register CODEX_PLUGIN as one immediate child Scope Unit of AGENT_HOST_PLUGINS with its stable address, scope token, source path, and structural level.
+2. Place only Codex package metadata, supported host wiring, and Codex-specific adapters inside the unit.
+3. Reference GRAPH_APP, Skills, and provider-neutral MCP behavior from their owning Scope Units instead of copying them.
+4. Rebuild the Project Scope Unit Graph and verify the immediate typed ownership edge from AGENT_HOST_PLUGINS to CODEX_PLUGIN.
 
 ## Outcome
 
-The listed Requirements have one direct, independently replaceable realization procedure with no duplicate acceptance owner.
+The Codex integration has one explicit host-specific structural owner without duplicated provider-neutral behavior.
 
 ## Failure or stop
 
-Stop and return an explicit failure when the selected contract, boundary, or required precondition is absent, ambiguous, stale, or invalid.
+Stop on a duplicate CODEX_PLUGIN unit, an invalid address or source path, a non-immediate parent, or copied authority from another Scope Unit.
