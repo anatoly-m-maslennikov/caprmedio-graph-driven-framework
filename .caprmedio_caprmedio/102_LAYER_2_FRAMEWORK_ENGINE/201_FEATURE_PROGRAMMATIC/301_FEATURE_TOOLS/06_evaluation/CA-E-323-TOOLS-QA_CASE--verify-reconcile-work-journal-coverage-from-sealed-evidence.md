@@ -7,8 +7,8 @@ subjects:
       - programmatic-mutation
     occurrent:
       - evaluation
-version: 3
-updated_at: 2026-09-01 23:47:24 +0400
+version: 4
+updated_at: 2026-09-02 00:15:00 +0400
 relations:
   evaluation_for:
     - CA-M-205
@@ -25,12 +25,12 @@ Apply whenever Journal coverage recovery logic or required event fields change.
 
 ## Test case
 
-Provide two uncovered subject changes: one with complete sealed carrier, commit, Initiative, author, action, revision, digest, and session evidence; the other missing session evidence. Reconcile twice without changing the fixture.
+Consider two uncovered governed actions under one active Journal-event schema: one has sealed durable evidence for every schema-required event field and action binding; the other lacks one schema-required provenance field. Reconcile the same frontier twice without changing it.
 
 ## Acceptance criteria
 
-The first run appends exactly one complete recovered event for the evidenced change and reports the other as blocked; the second run appends nothing; no existing Journal line is edited.
+The first run appends exactly one complete `recovered` event for the fully evidenced action and reports the other as blocked; the second run appends nothing; and no existing Journal line is edited.
 
 ## Failure disposition
 
-Reject the realization and preserve both evidence bundles, coverage decisions, appended event, blocked fields, Journal before-and-after digests, and second-run result.
+Reject the realization and preserve both action-evidence bundles, the active event schema, coverage decisions, the appended event, blocked field, Journal before-and-after digests, and second-run result.
