@@ -4,9 +4,9 @@ cce_form: method
 subjects:
   governs:
     continuant:
-      - artifact-operations
-version: 3
-updated_at: 2026-09-01 23:47:24 +0400
+      - extension-packaging
+version: 5
+updated_at: 2026-09-02 00:40:00 +0400
 relations:
   method_for:
     - CA-R-1150
@@ -21,16 +21,16 @@ Use this Method when an accepted Extension candidate is ready to become an exact
 
 ## Procedure
 
-1. Seal the Extension identity, exact version, source Atom revisions, dependency contract, compatibility boundary, and intended install root.
+1. Seal the Extension identity, exact version, source Atom revisions, dependency contract, and compatibility boundary.
 2. Assemble only declared authority, implementations, deliveries, and required package metadata into a deterministic manifest.
-3. Encode installation, update, downgrade, and removal instructions against the exact package version without host-specific hidden state.
-4. Build the package reproducibly and record the manifest and package digests.
-5. Verify a clean install and exact installed-state inventory in an isolated compatible Project fixture.
+3. Build the package reproducibly from that manifest and record the manifest and package digests.
+4. Compare the package contents with the manifest and reject any omitted, additional, or nondeterministic packaged item.
+5. Delegate installation, uninstallation, update, downgrade, and installed-state verification to CA-M-252.
 
 ## Outcome
 
-The Extension has one stable identity and exact reproducible version that can be installed and inventoried without ambiguity.
+The Extension has one stable identity, exact version, deterministic manifest, and reproducible package digest.
 
 ## Failure or stop
 
-Do not publish a package with unresolved dependencies, mutable version identity, nondeterministic contents, or an unverifiable clean installation.
+Do not publish a package with unresolved dependencies, mutable version identity, nondeterministic contents, or a manifest-package mismatch.
