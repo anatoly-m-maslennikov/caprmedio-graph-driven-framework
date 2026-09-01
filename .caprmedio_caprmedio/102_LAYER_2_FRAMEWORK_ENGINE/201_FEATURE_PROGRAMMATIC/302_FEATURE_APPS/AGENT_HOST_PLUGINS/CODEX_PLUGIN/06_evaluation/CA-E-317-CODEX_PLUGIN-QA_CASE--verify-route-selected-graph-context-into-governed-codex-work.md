@@ -7,8 +7,8 @@ subjects:
       - graph-app-access
     occurrent:
       - evaluation
-version: 2
-updated_at: 2026-08-30 16:44:07 +0400
+version: 3
+updated_at: 2026-09-01 23:47:24 +0400
 relations:
   evaluation_for:
     - CA-M-199
@@ -17,16 +17,20 @@ relations:
 
 ## Claim checked
 
-CA-M-199 realizes the current direct contract of CA-R-1104 without unowned behavior.
+CA-M-199 preserves an exact selected graph frontier and Tool meaning when routing context into Codex work.
+
+## Applicable when
+
+Apply before accepting any Codex action path that begins from selected graph nodes.
 
 ## Test case
 
-In one controlled fixture, execute the Method at its declared boundary with valid input and one contract-relevant invalid or stale precondition.
+Select two current nodes, seal their IDs, paths, and digests, and route a read question plus a proposed irreversible change. Change one source after selection and repeat the route without widening selection or granting confirmation.
 
 ## Acceptance criteria
 
-The valid path produces only the declared outcome for CA-R-1104, and the invalid or stale path fails explicitly without an unauthorized mutation, widened scope, or invented provenance.
+The current question uses only the two selected nodes and preserves attribution; the proposed change remains unapplied without confirmation; the changed source blocks the stale route; Tool failures and provenance remain unmodified.
 
 ## Failure disposition
 
-Reject the realization, preserve the observed discrepancy, and return the boundary to its named owner for correction.
+Reject the route and preserve selection frontier, transferred context, invoked Tool contracts, response attribution, confirmation state, and any scope widening or mutation.
