@@ -5,8 +5,8 @@ subjects:
   governs:
     continuant:
       - artifact-operations
-version: 2
-updated_at: 2026-08-30 16:44:07 +0400
+version: 3
+updated_at: 2026-09-01 23:47:24 +0400
 relations:
   method_for:
     - CA-R-864
@@ -17,18 +17,21 @@ relations:
 
 ## Applicable when
 
-Apply when realizing the current acceptance boundary of CA-R-864.
+Use this Method when a caller needs the current carrier content or metadata of explicitly selected Atoms.
 
 ## Procedure
 
-1. Resolve the current governed contract, target boundary, and allowed direct dependencies for the listed Requirement set.
-2. Apply the one shared procedure expressed by this Method without widening any listed Requirement into another Tool, Scope Unit, lifecycle, or authority boundary.
-3. Preserve explicit success, rejection, blocked, and recovery outcomes required by the current contract.
+1. Resolve each selector as an exact path, full filename, filename stem, or Atom ID within the configured control root.
+2. Require every selector to resolve uniquely; keep missing and ambiguous selectors as explicit per-selector results.
+3. Read the selected carrier bytes once and parse the raw frontmatter without rewriting it.
+4. Derive identity, placement, Content role, Scope Unit, and lifecycle facts from the current path and filename.
+5. Return content, metadata, or both exactly as requested, preserving selector-to-result attribution.
+6. Perform no mutation or implicit repair.
 
 ## Outcome
 
-The listed Requirements have one direct, independently replaceable realization procedure with no duplicate acceptance owner.
+Each selector has one attributable read result containing the requested current carrier view or an explicit resolution error.
 
 ## Failure or stop
 
-Stop and return an explicit failure when the selected contract, boundary, or required precondition is absent, ambiguous, stale, or invalid.
+Do not guess when a selector is missing, ambiguous, unreadable, or outside the control root; return the exact condition to the caller.
