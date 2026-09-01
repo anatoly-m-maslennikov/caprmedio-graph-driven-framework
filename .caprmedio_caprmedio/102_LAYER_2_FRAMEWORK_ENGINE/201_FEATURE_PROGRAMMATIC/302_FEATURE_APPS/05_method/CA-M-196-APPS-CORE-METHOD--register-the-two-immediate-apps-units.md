@@ -5,8 +5,8 @@ subjects:
   governs:
     continuant:
       - feature-boundary
-version: 2
-updated_at: 2026-08-30 16:44:07 +0400
+version: 3
+updated_at: 2026-09-01 23:47:24 +0400
 relations:
   method_for:
     - CA-R-1100
@@ -18,18 +18,20 @@ relations:
 
 ## Applicable when
 
-Apply when realizing the current acceptance boundary of CA-R-1100, CA-R-1101.
+Use this Method when defining the immediate structural decomposition of the APPS Feature.
 
 ## Procedure
 
-1. Resolve the current governed contract, target boundary, and allowed direct dependencies for the listed Requirement set.
-2. Apply the one shared procedure expressed by this Method without widening any listed Requirement into another Tool, Scope Unit, lifecycle, or authority boundary.
-3. Preserve explicit success, rejection, blocked, and recovery outcomes required by the current contract.
+1. Register GRAPH_APP and AGENT_HOST_PLUGINS as the complete unordered set of immediate child Scope Units owned by APPS.
+2. Give each child its stable structural address, scope token, source path, and level directly below APPS.
+3. Assign GRAPH_APP ownership of the source indexer, rebuildable database, read-only local server, and web views.
+4. Assign AGENT_HOST_PLUGINS ownership of host-specific installation and wiring only; keep provider-neutral behavior outside it.
+5. Rebuild the Project Scope Unit Graph from these authority carriers and verify that neither child owns the other.
 
 ## Outcome
 
-The listed Requirements have one direct, independently replaceable realization procedure with no duplicate acceptance owner.
+APPS has exactly two immediate children with non-overlapping GRAPH_APP and host-plugin responsibilities.
 
 ## Failure or stop
 
-Stop and return an explicit failure when the selected contract, boundary, or required precondition is absent, ambiguous, stale, or invalid.
+Stop when either child is missing, duplicated, ordered under its sibling, assigned a conflicting address, or given authority owned by the other boundary.
