@@ -7,8 +7,8 @@ subjects:
       - artifact-operations
     occurrent:
       - evaluation
-version: 2
-updated_at: 2026-08-30 16:44:07 +0400
+version: 3
+updated_at: 2026-09-01 23:47:24 +0400
 relations:
   evaluation_for:
     - CA-M-184
@@ -17,16 +17,20 @@ relations:
 
 ## Claim checked
 
-CA-M-184 realizes the current direct contract of CA-R-864 without unowned behavior.
+CA-M-184 resolves exact Atom selectors uniquely and returns faithful requested carrier views without mutation.
+
+## Applicable when
+
+Apply to any ATOM_READ realization before it is accepted as the canonical Atom reader.
 
 ## Test case
 
-In one controlled fixture, execute the Method at its declared boundary with valid input and one contract-relevant invalid or stale precondition.
+Use one valid Atom addressed separately by path, filename, stem, and ID, plus one missing selector and one deliberately ambiguous stem. Request content-only, metadata-only, and combined views while recording the source bytes.
 
 ## Acceptance criteria
 
-The valid path produces only the declared outcome for CA-R-864, and the invalid or stale path fails explicitly without an unauthorized mutation, widened scope, or invented provenance.
+All four valid selectors resolve to the same carrier; returned content equals its body; metadata contains raw frontmatter plus correct derived placement and lifecycle facts; missing and ambiguous selectors remain explicit; source bytes do not change.
 
 ## Failure disposition
 
-Reject the realization, preserve the observed discrepancy, and return the boundary to its named owner for correction.
+Reject the realization and preserve each selector, its observed resolution, returned fields, and the source-byte comparison.
