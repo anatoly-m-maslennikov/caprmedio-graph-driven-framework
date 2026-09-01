@@ -7,8 +7,8 @@ subjects:
       - feature-boundary
     occurrent:
       - evaluation
-version: 2
-updated_at: 2026-08-30 16:44:07 +0400
+version: 3
+updated_at: 2026-09-01 23:47:24 +0400
 relations:
   evaluation_for:
     - CA-M-197
@@ -17,16 +17,20 @@ relations:
 
 ## Claim checked
 
-CA-M-197 realizes the current direct contract of CA-R-1102 without unowned behavior.
+CA-M-197 registers one CODEX_PLUGIN child under AGENT_HOST_PLUGINS without duplicating provider-neutral authority.
+
+## Applicable when
+
+Apply whenever CODEX_PLUGIN structure, package boundary, or host wiring changes.
 
 ## Test case
 
-In one controlled fixture, execute the Method at its declared boundary with valid input and one contract-relevant invalid or stale precondition.
+Build the current Scope Unit Graph and inventory every authority and source carrier inside CODEX_PLUGIN, then compare them with GRAPH_APP, SKILLS, and MCP ownership.
 
 ## Acceptance criteria
 
-The valid path produces only the declared outcome for CA-R-1102, and the invalid or stale path fails explicitly without an unauthorized mutation, widened scope, or invented provenance.
+Exactly one immediate typed ownership edge connects AGENT_HOST_PLUGINS to CODEX_PLUGIN; its address and path are valid; its owned content is Codex-specific; provider-neutral behavior appears only as references to external owners.
 
 ## Failure disposition
 
-Reject the realization, preserve the observed discrepancy, and return the boundary to its named owner for correction.
+Reject the registration and preserve the structural graph, path evidence, and each duplicated or misowned authority carrier.
