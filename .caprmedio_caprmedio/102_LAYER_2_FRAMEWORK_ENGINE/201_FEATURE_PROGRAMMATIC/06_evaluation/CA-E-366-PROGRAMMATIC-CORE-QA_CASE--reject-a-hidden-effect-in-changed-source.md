@@ -9,11 +9,11 @@ subjects:
   depends_on:
     continuant:
       - programmatic software
-version: 2
-updated_at: 2026-09-01 02:00:00 +0400
+version: 3
+updated_at: 2026-09-01 23:50:00 +0400
 relations:
   evaluation_for:
-    - CA-M-162
+    - CA-M-160
   derived_from:
     - CA-A-053
 ---
@@ -40,4 +40,4 @@ Block the changed unit until the hidden observation is removed.
 
 ## Sources
 
-- [CA-M-162 — Ratchet hand-authored Python source boundaries](../05_method/CA-M-162-PROGRAMMATIC-CORE-METHOD--ratchet-hand-authored-python-source-boundaries.md)
+- [CA-M-160 — Separate deterministic transformations from effects and lifecycle](../05_method/CA-M-160-PROGRAMMATIC-CORE-METHOD--separate-deterministic-transformations-from-effects-and-lifecycle.md)
