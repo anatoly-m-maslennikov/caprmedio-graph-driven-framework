@@ -7,8 +7,8 @@ subjects:
       - artifact-operations
     occurrent:
       - evaluation
-version: 2
-updated_at: 2026-08-30 16:44:07 +0400
+version: 3
+updated_at: 2026-09-01 23:47:24 +0400
 relations:
   evaluation_for:
     - CA-M-208
@@ -17,16 +17,20 @@ relations:
 
 ## Claim checked
 
-CA-M-208 realizes the current direct contract of CA-R-1130, CA-R-1131 without unowned behavior.
+CA-M-208 applies only schema-valid metadata and direct-relation patches while preserving body, identity, and atomicity.
+
+## Applicable when
+
+Apply whenever generic frontmatter or relation patch mechanics or schemas change.
 
 ## Test case
 
-In one controlled fixture, execute the Method at its declared boundary with valid input and one contract-relevant invalid or stale precondition.
+Seal one Artifact with known body bytes. Request one valid field change and relation addition together with an invalid endpoint that violates relation direction; observe apply, then remove the invalid operation and apply the sealed valid patch.
 
 ## Acceptance criteria
 
-The valid path produces only the declared outcome for CA-R-1130, CA-R-1131, and the invalid or stale path fails explicitly without an unauthorized mutation, widened scope, or invented provenance.
+The invalid patch changes nothing; the valid patch changes only declared frontmatter, stores the canonical direct relation, advances revision once, and preserves body bytes, path, filename, and identity.
 
 ## Failure disposition
 
-Reject the realization, preserve the observed discrepancy, and return the boundary to its named owner for correction.
+Reject the realization and preserve schema, relation policy, patch operations, endpoint evidence, exact diff, revision, and body digest.
