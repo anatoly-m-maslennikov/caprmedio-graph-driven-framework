@@ -8,15 +8,15 @@ subjects:
   governs:
     continuant:
       - CA MCP Surface
+      - Project-local Provider-neutral MCP Service
     occurrent:
       - CA MCP Exposure
-  depends_on:
-    occurrent:
-      - CA-P-938
-version: 1
-updated_at: 2026-09-01 23:04:33 +0400
+version: 2
+updated_at: 2026-09-02 00:43:03 +0400
 autonomous_confidence_threshold: 99
-relations: {}
+relations:
+  depends_on:
+    - CA-P-938
 ---
 # Expose CA Runtime Tools Through MCP
 
@@ -28,8 +28,8 @@ relations: {}
 
 ## Definition of Done
 
-the Task is **not done if** (MCP omits an admitted CA Tool, exposes an inactive or invalid Tool, changes Tool identity or meaning, duplicates routing or lifecycle mechanics, performs an effect outside the Tool gate, or reports durable submission as completed worker execution **or** discovery, input schemas, structured outputs, explicit failure states, cancellation, status inspection, and receipt retrieval are incomplete **or** headless MCP conformance and end-to-end Tool delegation tests fail).
+the Task is **not done if** (MCP omits an admitted CA Tool, exposes an inactive or invalid Tool, changes Tool identity or meaning, duplicates routing or lifecycle mechanics, performs an effect outside the Tool gate, or reports durable submission as completed worker execution **or** discovery, input schemas, structured outputs, explicit failure states, cancellation, status inspection, and receipt retrieval are incomplete **or** the Project-local Provider-neutral MCP Service is not admitted as **`=1`** current Implementation result with its exact identity, native target, revision **or** digest, governing Requirement frontier, and current-realization evidence **or** headless MCP conformance and end-to-end Tool delegation tests fail).
 
 ## Details
 
-keep MCP limited to provider-neutral discovery, transport validation, delegation, and result transport. preserve the distinction among accepted, queued, running, stopped, failed, completed, and reconciled states.
+keep MCP limited to provider-neutral discovery, transport validation, delegation, and result transport. preserve the distinction among accepted, queued, running, stopped, failed, completed, and reconciled states. admit the one current service realization before any Consumer Job or Demand refers to it as a produced Implementation result.
