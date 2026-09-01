@@ -7,8 +7,8 @@ subjects:
       - artifact-operations
     occurrent:
       - evaluation
-version: 2
-updated_at: 2026-08-30 16:44:07 +0400
+version: 3
+updated_at: 2026-09-01 23:47:24 +0400
 relations:
   evaluation_for:
     - CA-M-210
@@ -17,16 +17,20 @@ relations:
 
 ## Claim checked
 
-CA-M-210 realizes the current direct contract of CA-R-1138, CA-R-1139, CA-R-1140 without unowned behavior.
+CA-M-210 applies only the exact approved unchanged migration plan and proves every carrier, reference, Projection, and Journal postcondition.
+
+## Applicable when
+
+Apply whenever generic Artifact migration planning, execution, or verification changes.
 
 ## Test case
 
-In one controlled fixture, execute the Method at its declared boundary with valid input and one contract-relevant invalid or stale precondition.
+Plan a two-carrier migration with one reference rewrite and one affected Projection, approve its digest, then change one source before apply. Observe rejection; restore the source, apply the approved plan, and replay all declared postconditions.
 
 ## Acceptance criteria
 
-The valid path produces only the declared outcome for CA-R-1138, CA-R-1139, CA-R-1140, and the invalid or stale path fails explicitly without an unauthorized mutation, widened scope, or invented provenance.
+The stale attempt changes nothing; the valid attempt matches every approved mapping and rewrite, rebuilds the affected Projection, appends attributable Journal evidence, and reports no residual, unexpected, or unmapped state.
 
 ## Failure disposition
 
-Reject the realization, preserve the observed discrepancy, and return the boundary to its named owner for correction.
+Reject the migration method and preserve plan digest, precondition mismatch, transaction effects, rollback state, postcondition replay, and discrepancy report.
