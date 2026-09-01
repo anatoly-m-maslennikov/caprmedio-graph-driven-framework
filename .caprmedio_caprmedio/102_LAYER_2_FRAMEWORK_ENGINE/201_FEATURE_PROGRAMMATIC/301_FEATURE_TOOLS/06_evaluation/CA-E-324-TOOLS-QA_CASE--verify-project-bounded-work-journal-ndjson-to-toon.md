@@ -4,11 +4,11 @@ cce_form: evaluation
 subjects:
   governs:
     continuant:
-      - programmatic-mutation
+      - journal-projection
     occurrent:
       - evaluation
-version: 3
-updated_at: 2026-09-01 23:47:24 +0400
+version: 4
+updated_at: 2026-09-02 00:25:00 +0400
 relations:
   evaluation_for:
     - CA-M-206
@@ -25,7 +25,7 @@ Apply whenever the Journal-to-TOON encoder, frontier grammar, or Projection meta
 
 ## Test case
 
-Select a known ordered NDJSON event range, project it twice, and compare decoded values, identities, order, source frontier, encoder provenance, and output bytes. During a third projection, change one selected source line before completion.
+Select a known ordered NDJSON event range, project its unchanged sealed frontier twice, and compare decoded values, identities, order, source frontier, encoder provenance, and output bytes. Then change one selected source line between sealing and publication.
 
 ## Acceptance criteria
 
