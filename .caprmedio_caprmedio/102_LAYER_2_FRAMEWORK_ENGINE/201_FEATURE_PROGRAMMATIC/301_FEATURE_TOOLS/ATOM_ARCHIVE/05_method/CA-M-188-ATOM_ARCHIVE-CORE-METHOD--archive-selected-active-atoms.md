@@ -5,8 +5,8 @@ subjects:
   governs:
     continuant:
       - artifact-operations
-version: 2
-updated_at: 2026-08-30 16:44:07 +0400
+version: 3
+updated_at: 2026-09-01 23:47:24 +0400
 relations:
   method_for:
     - CA-R-868
@@ -17,18 +17,21 @@ relations:
 
 ## Applicable when
 
-Apply when realizing the current acceptance boundary of CA-R-868.
+Use this Method when a sealed Initiative withdraws current authority from selected active Atoms while preserving their historical carriers.
 
 ## Procedure
 
-1. Resolve the current governed contract, target boundary, and allowed direct dependencies for the listed Requirement set.
-2. Apply the one shared procedure expressed by this Method without widening any listed Requirement into another Tool, Scope Unit, lifecycle, or authority boundary.
-3. Preserve explicit success, rejection, blocked, and recovery outcomes required by the current contract.
+1. Resolve every target and prove that it is an active Atom in its owning Content role.
+2. Derive the role-local archive destination while preserving filename, bytes, ID, revision history, and historical dependents.
+3. Reject drafts, already archived carriers, non-Atoms, invalid archive locations, and destination collisions.
+4. Freeze and present the archive map as a dry-run.
+5. On explicit authorized apply, move the entire set atomically and remove it from current-authority discovery.
+6. Verify archived presence, active absence, byte identity, and retained historical resolvability; roll back on any discrepancy.
 
 ## Outcome
 
-The listed Requirements have one direct, independently replaceable realization procedure with no duplicate acceptance owner.
+Every selected Atom is preserved in its role-local archive and no longer contributes current authority.
 
 ## Failure or stop
 
-Stop and return an explicit failure when the selected contract, boundary, or required precondition is absent, ambiguous, stale, or invalid.
+Stop or roll back the full set when lifecycle, destination, collision, or postcondition checks fail.
