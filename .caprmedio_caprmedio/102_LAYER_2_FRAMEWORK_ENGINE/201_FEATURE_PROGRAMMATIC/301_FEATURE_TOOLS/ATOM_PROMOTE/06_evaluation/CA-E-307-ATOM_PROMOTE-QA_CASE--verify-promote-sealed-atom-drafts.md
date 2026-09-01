@@ -7,8 +7,8 @@ subjects:
       - artifact-operations
     occurrent:
       - evaluation
-version: 3
-updated_at: 2026-09-01 23:47:24 +0400
+version: 4
+updated_at: 2026-09-02 01:10:00 +0400
 relations:
   evaluation_for:
     - CA-M-189
@@ -17,20 +17,20 @@ relations:
 
 ## Claim checked
 
-CA-M-189 promotes each accepted draft to exactly one valid active Atom with the assigned stable role-matching ID.
+CA-M-189 promotes each accepted draft to exactly one byte-identical active Atom with the assigned stable role-matching ID.
 
 ## Applicable when
 
-Apply to any ATOM_PROMOTE realization before it can admit draft authority into the active graph.
+Apply to any realization of CA-M-189 before it can admit draft authority into the active graph.
 
 ## Test case
 
-Prepare two valid drafts and assign one valid ID plus one ID whose role token conflicts with its draft. Observe the mixed-set apply, then correct the ID and apply the same frozen pair.
+Use one fixture with one valid draft selected singly and two valid drafts selected as a frozen bulk set. Assign the bulk set one valid ID and one ID whose role token conflicts with its draft; record dry-runs, attempt delegated apply without authority, attempt the invalid bulk promotion, then assign a valid role-matching ID, reseal the corrected bulk request, and apply the single and bulk promotions through sealed Initiative envelopes.
 
 ## Acceptance criteria
 
-The mismatched set promotes neither draft; the corrected set creates exactly two canonical active carriers, removes both draft carriers, preserves accepted bodies, assigns unique stable IDs, and leaves all references valid.
+The unauthorized and mismatched requests promote no draft; valid singular and bulk promotions create exactly one canonical active carrier per source, remove the source draft carriers, preserve each source carrier's full byte digest, assign unique stable role-matching IDs, and derive canonical filenames and active locations.
 
 ## Failure disposition
 
-Reject the realization and preserve draft identities, assigned IDs, promotion map, final lifecycle locations, and any duplicate or partial active identity.
+Reject the realization and preserve source digests, draft identities, assigned IDs, promotion maps, authority result, final lifecycle locations, and any duplicate or partial active identity.
