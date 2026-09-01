@@ -4,11 +4,11 @@ cce_form: evaluation
 subjects:
   governs:
     continuant:
-      - artifact-operations
+      - extension-promotion
     occurrent:
       - evaluation
-version: 3
-updated_at: 2026-09-01 23:47:24 +0400
+version: 4
+updated_at: 2026-09-02 00:25:00 +0400
 relations:
   evaluation_for:
     - CA-M-216
@@ -25,12 +25,12 @@ Apply whenever Project Adaptation extraction or dependency-closure rules change.
 
 ## Test case
 
-Select two reusable adaptation Atoms whose closure includes one reusable dependency, one declared external dependency, one project setting, one secret reference, and one unresolved required dependency. Extract, then resolve the missing dependency and repeat.
+Select two Project Adaptation Atoms whose required dependency closure includes one transitive dependency and one unresolved required dependency. Extract, then resolve the missing dependency with an exact source reference and repeat.
 
 ## Acceptance criteria
 
-The unresolved attempt produces no candidate; the resolved attempt includes selected Atoms and reusable closure with exact revisions, declares the external dependency, excludes settings and secrets, and has one stable candidate identity.
+The unresolved attempt produces no candidate; the resolved attempt includes the selected Atoms and complete transitive closure with exact revisions and one stable candidate identity.
 
 ## Failure disposition
 
-Reject the extraction method and preserve selection, closure graph, exclusions, unresolved dependencies, source revisions, and emitted candidate manifest.
+Reject the extraction method and preserve selection, closure graph, unresolved dependencies, source revisions, emitted candidate manifest, and proof that source authority was unchanged.
