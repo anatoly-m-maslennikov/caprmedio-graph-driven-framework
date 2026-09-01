@@ -5,8 +5,8 @@ subjects:
   governs:
     continuant:
       - programmatic-mutation
-version: 2
-updated_at: 2026-08-30 16:44:07 +0400
+version: 3
+updated_at: 2026-09-01 23:47:24 +0400
 relations:
   method_for:
     - CA-R-1127
@@ -17,18 +17,20 @@ relations:
 
 ## Applicable when
 
-Apply when realizing the current acceptance boundary of CA-R-1127.
+Use this Method when a governed subject change may be missing its required Work Journal coverage.
 
 ## Procedure
 
-1. Resolve the current governed contract, target boundary, and allowed direct dependencies for the listed Requirement set.
-2. Apply the one shared procedure expressed by this Method without widening any listed Requirement into another Tool, Scope Unit, lifecycle, or authority boundary.
-3. Preserve explicit success, rejection, blocked, and recovery outcomes required by the current contract.
+1. Seal the subject-change frontier and collect its current carrier revision, digest, reachable commit, Initiative, author, action, and existing Journal events.
+2. Determine whether one or more required sidecar events already cover the exact subject change.
+3. Classify absent, duplicate, partial, stale, or conflicting coverage without editing existing Journal lines.
+4. Append a recovered event only when sealed durable evidence determines every required event field and target revision unambiguously.
+5. Re-run coverage on the unchanged frontier and prove that no second recovery event is produced.
 
 ## Outcome
 
-The listed Requirements have one direct, independently replaceable realization procedure with no duplicate acceptance owner.
+Each governed subject change is either covered exactly by attributable Journal evidence or remains an explicit blocked discrepancy.
 
 ## Failure or stop
 
-Stop and return an explicit failure when the selected contract, boundary, or required precondition is absent, ambiguous, stale, or invalid.
+Never invent missing session, author, Initiative, action, revision, digest, or commit facts; preserve insufficient cases as blocked.
