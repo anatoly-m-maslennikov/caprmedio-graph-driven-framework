@@ -5,8 +5,8 @@ subjects:
   governs:
     continuant:
       - artifact-operations
-version: 2
-updated_at: 2026-08-30 16:44:07 +0400
+version: 3
+updated_at: 2026-09-01 23:47:24 +0400
 relations:
   method_for:
     - CA-R-1144
@@ -19,18 +19,20 @@ relations:
 
 ## Applicable when
 
-Apply when realizing the current acceptance boundary of CA-R-1144, CA-R-1145, CA-R-1146.
+Use this Method when external material must be captured, imported into bounded analysis, and reconciled with project provenance.
 
 ## Procedure
 
-1. Resolve the current governed contract, target boundary, and allowed direct dependencies for the listed Requirement set.
-2. Apply the one shared procedure expressed by this Method without widening any listed Requirement into another Tool, Scope Unit, lifecycle, or authority boundary.
-3. Preserve explicit success, rejection, blocked, and recovery outcomes required by the current contract.
+1. Capture the exact external page, post, video transcript, or text as an immutable source carrier with origin, retrieval time, attribution, digest, and reproducibility result.
+2. Bind any imported analysis to that source identity, exact target frontier, source digest, and transformation session in a provenance envelope.
+3. Keep imported claims non-authoritative until a separate operator adoption action creates or revises project authority.
+4. Compare source, analysis draft, session, target revision, and digest provenance in read-only mode.
+5. Report missing, conflicting, stale, unverifiable, and current links without making adoption decisions.
 
 ## Outcome
 
-The listed Requirements have one direct, independently replaceable realization procedure with no duplicate acceptance owner.
+External material and derived analysis remain reproducible, bounded, and distinguishable from accepted project authority.
 
 ## Failure or stop
 
-Stop and return an explicit failure when the selected contract, boundary, or required precondition is absent, ambiguous, stale, or invalid.
+Stop ingestion when source identity or digest is unavailable; never invent provenance or promote imported claims implicitly.
