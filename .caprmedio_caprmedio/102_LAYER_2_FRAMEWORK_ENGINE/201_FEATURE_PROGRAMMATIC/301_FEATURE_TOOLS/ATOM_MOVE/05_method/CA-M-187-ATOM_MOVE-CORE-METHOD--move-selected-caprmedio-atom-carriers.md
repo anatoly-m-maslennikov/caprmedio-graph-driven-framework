@@ -5,8 +5,8 @@ subjects:
   governs:
     continuant:
       - artifact-operations
-version: 2
-updated_at: 2026-08-30 16:44:07 +0400
+version: 3
+updated_at: 2026-09-01 23:47:24 +0400
 relations:
   method_for:
     - CA-R-867
@@ -17,18 +17,21 @@ relations:
 
 ## Applicable when
 
-Apply when realizing the current acceptance boundary of CA-R-867.
+Use this Method when a sealed Initiative authorizes relocation of selected Atom carriers without changing their governed content or identity.
 
 ## Procedure
 
-1. Resolve the current governed contract, target boundary, and allowed direct dependencies for the listed Requirement set.
-2. Apply the one shared procedure expressed by this Method without widening any listed Requirement into another Tool, Scope Unit, lifecycle, or authority boundary.
-3. Preserve explicit success, rejection, blocked, and recovery outcomes required by the current contract.
+1. Resolve exact targets or a recursive subtree and capture every source path, digest, and destination mapping.
+2. Preserve the subtree shape by default; flatten only when the Initiative explicitly requests it.
+3. Validate destination Scope Unit and Content role placement, path uniqueness, and collision freedom without editing carrier bytes.
+4. Freeze the move map and expose it as a dry-run.
+5. On explicit authorized apply, recheck the source digests and move the complete set as one rollbackable transaction.
+6. Verify that each source is absent, each destination is present, and every moved carrier retains its original bytes, filename, and Atom ID.
 
 ## Outcome
 
-The listed Requirements have one direct, independently replaceable realization procedure with no duplicate acceptance owner.
+The selected carriers occupy exactly their approved destinations and remain byte-identical governed Atoms.
 
 ## Failure or stop
 
-Stop and return an explicit failure when the selected contract, boundary, or required precondition is absent, ambiguous, stale, or invalid.
+Stop or roll back the full move on an invalid destination, collision, stale source, incomplete mapping, or failed post-move verification.
