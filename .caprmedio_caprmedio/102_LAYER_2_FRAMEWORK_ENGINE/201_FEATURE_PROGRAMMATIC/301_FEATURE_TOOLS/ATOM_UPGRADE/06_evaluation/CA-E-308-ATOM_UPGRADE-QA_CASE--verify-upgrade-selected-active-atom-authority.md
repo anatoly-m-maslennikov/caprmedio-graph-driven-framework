@@ -7,8 +7,8 @@ subjects:
       - artifact-operations
     occurrent:
       - evaluation
-version: 2
-updated_at: 2026-08-30 16:44:07 +0400
+version: 3
+updated_at: 2026-09-01 23:47:24 +0400
 relations:
   evaluation_for:
     - CA-M-190
@@ -17,16 +17,20 @@ relations:
 
 ## Claim checked
 
-CA-M-190 realizes the current direct contract of CA-R-870 without unowned behavior.
+CA-M-190 moves one active Atom to a strictly higher enabled authority Tier while preserving one stable identity.
+
+## Applicable when
+
+Apply to any ATOM_UPGRADE realization before it can change an active Atom's Tier or authority location.
 
 ## Test case
 
-In one controlled fixture, execute the Method at its declared boundary with valid input and one contract-relevant invalid or stale precondition.
+Select one active standard-tier Atom. Preview an upgrade first to the same Tier and then to an enabled higher Tier in an explicit ancestor Scope Unit; apply both requests in sequence and inspect identity, revision, placement, and active duplicates.
 
 ## Acceptance criteria
 
-The valid path produces only the declared outcome for CA-R-870, and the invalid or stale path fails explicitly without an unauthorized mutation, widened scope, or invented provenance.
+The same-Tier request changes nothing; the valid request creates one canonical higher-Tier carrier in the approved ancestor, preserves Atom ID, advances revision once, removes the former carrier, and leaves no second active owner of the ID.
 
 ## Failure disposition
 
-Reject the realization, preserve the observed discrepancy, and return the boundary to its named owner for correction.
+Reject the realization and preserve Tier and ancestry evidence, dry-run map, identity scan, revisions, and any duplicate or stale authority carrier.
