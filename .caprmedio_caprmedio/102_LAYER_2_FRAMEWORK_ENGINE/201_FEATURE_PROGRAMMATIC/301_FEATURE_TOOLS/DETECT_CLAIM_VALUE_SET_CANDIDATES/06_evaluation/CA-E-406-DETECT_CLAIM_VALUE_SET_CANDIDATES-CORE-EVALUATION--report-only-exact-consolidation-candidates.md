@@ -1,5 +1,5 @@
 ---
-atom_id: CA-E-405
+atom_id: CA-E-406
 cce_version: cce_1
 cce_form: evaluation
 subjects:
@@ -12,8 +12,8 @@ subjects:
       - Tool/DETECT_CLAIM_VALUE_SET_CANDIDATES
       - Atom/Current Scope
       - Atom/Claim Scope
-version: 1
-updated_at: 2026-09-01 23:20:00 +0400
+version: 2
+updated_at: 2026-09-02 00:05:00 +0400
 relations:
   evaluation_for:
     - CA-M-238
