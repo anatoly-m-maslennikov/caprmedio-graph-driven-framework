@@ -9,8 +9,8 @@ subjects:
   depends_on:
     continuant:
       - programmatic software
-version: 1
-updated_at: 2026-09-01 01:50:00 +0400
+version: 2
+updated_at: 2026-09-01 23:40:00 +0400
 relations:
   method_for:
     - CA-R-1047
@@ -30,7 +30,8 @@ Apply whenever PROGRAMMATIC behavior depends on CAPRMEDIO project settings.
 
 ## Procedure
 
-1. Read `.caprmedio/caprmedio_project_settings.toml` through the shared Reader.
+1. Read `.caprmedio_caprmedio/caprmedio_project_settings.toml` through the
+   shared Reader.
 2. Validate the complete carrier at the boundary and return structured
    diagnostics for invalid input.
 3. Pass the immutable snapshot explicitly to the consuming deterministic core
