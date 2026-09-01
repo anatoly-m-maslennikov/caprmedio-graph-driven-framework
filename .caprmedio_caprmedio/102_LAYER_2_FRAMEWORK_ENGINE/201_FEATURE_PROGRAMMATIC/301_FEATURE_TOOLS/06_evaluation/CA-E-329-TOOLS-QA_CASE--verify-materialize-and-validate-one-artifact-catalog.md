@@ -7,8 +7,8 @@ subjects:
       - artifact-operations
     occurrent:
       - evaluation
-version: 2
-updated_at: 2026-08-30 16:44:07 +0400
+version: 3
+updated_at: 2026-09-01 23:47:24 +0400
 relations:
   evaluation_for:
     - CA-M-211
@@ -17,16 +17,20 @@ relations:
 
 ## Claim checked
 
-CA-M-211 realizes the current direct contract of CA-R-1141, CA-R-1142 without unowned behavior.
+CA-M-211 builds a deterministic current catalog containing exactly its registered authority contributions and no independent meaning.
+
+## Applicable when
+
+Apply whenever a catalog definition, source contribution, generator, or validator changes.
 
 ## Test case
 
-In one controlled fixture, execute the Method at its declared boundary with valid input and one contract-relevant invalid or stale precondition.
+Build a catalog twice from a known authority frontier, then inject one stale entry, one duplicate, and one unknown entry into the materialization and validate it against unchanged sources.
 
 ## Acceptance criteria
 
-The valid path produces only the declared outcome for CA-R-1141, CA-R-1142, and the invalid or stale path fails explicitly without an unauthorized mutation, widened scope, or invented provenance.
+The two clean builds are byte-identical and contain every and only registered contributions in stable order with source frontier metadata; validation identifies the stale, duplicate, and unknown entries separately.
 
 ## Failure disposition
 
-Reject the realization, preserve the observed discrepancy, and return the boundary to its named owner for correction.
+Reject the catalog method and preserve definition, source frontier, both clean outputs, tampered output, and exact validation findings.
