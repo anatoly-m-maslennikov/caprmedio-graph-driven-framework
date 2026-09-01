@@ -7,8 +7,8 @@ subjects:
       - artifact-operations
     occurrent:
       - evaluation
-version: 2
-updated_at: 2026-08-30 16:44:07 +0400
+version: 3
+updated_at: 2026-09-01 23:47:24 +0400
 relations:
   evaluation_for:
     - CA-M-218
@@ -17,16 +17,20 @@ relations:
 
 ## Claim checked
 
-CA-M-218 realizes the current direct contract of CA-R-1151, CA-R-1152 without unowned behavior.
+CA-M-218 resolves immutable GitHub Extension sources and applies exact rollbackable installed-version transitions with complete resulting-state reports.
+
+## Applicable when
+
+Apply whenever GitHub source resolution or Extension install, update, downgrade, or uninstall mechanics change.
 
 ## Test case
 
-In one controlled fixture, execute the Method at its declared boundary with valid input and one contract-relevant invalid or stale precondition.
+Resolve one Extension from a declared repository subdirectory first through an unresolved moving branch and then through an immutable revision with a verified manifest. Update an installed older version and compare resulting inventory to the exact source package.
 
 ## Acceptance criteria
 
-The valid path produces only the declared outcome for CA-R-1151, CA-R-1152, and the invalid or stale path fails explicitly without an unauthorized mutation, widened scope, or invented provenance.
+The moving unresolved source is not installed; the immutable source resolves to the declared Extension and exact version; the update completes atomically; resulting source revision, version, files, digests, and verification match the package.
 
 ## Failure disposition
 
-Reject the realization, preserve the observed discrepancy, and return the boundary to its named owner for correction.
+Reject the realization and preserve source declarations, revision resolution, manifests, transition plan, rollback state, and resulting installed inventory.
