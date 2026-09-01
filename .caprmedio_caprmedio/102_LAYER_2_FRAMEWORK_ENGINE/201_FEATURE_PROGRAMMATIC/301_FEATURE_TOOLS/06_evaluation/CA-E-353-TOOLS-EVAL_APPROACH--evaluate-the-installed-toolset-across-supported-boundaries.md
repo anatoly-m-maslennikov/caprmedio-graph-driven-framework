@@ -7,13 +7,12 @@ subjects:
       - installed-toolset
     occurrent:
       - evaluation
-version: 4
-updated_at: 2026-09-01 02:30:00 +0400
+version: 5
+updated_at: 2026-09-01 23:27:15 +0400
 relations:
   evaluation_for:
     - CA-M-103
     - CA-M-221
-    - CA-D-250
 ---
 # Evaluate the installed Toolset across supported boundaries
 
