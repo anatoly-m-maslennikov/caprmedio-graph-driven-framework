@@ -7,8 +7,8 @@ subjects:
       - artifact-operations
     occurrent:
       - evaluation
-version: 2
-updated_at: 2026-08-30 16:44:07 +0400
+version: 3
+updated_at: 2026-09-01 23:47:24 +0400
 relations:
   evaluation_for:
     - CA-M-202
@@ -17,16 +17,20 @@ relations:
 
 ## Claim checked
 
-CA-M-202 realizes the current direct contract of CA-R-1123 without unowned behavior.
+CA-M-202 deterministically blocks routing whenever the governed routing tree violates a declared structural constraint.
+
+## Applicable when
+
+Apply before any changed routing-tree authority is used for route selection.
 
 ## Test case
 
-In one controlled fixture, execute the Method at its declared boundary with valid input and one contract-relevant invalid or stale precondition.
+Start with one valid routing tree, then introduce in the same fixture an unreachable leaf, a prohibited cycle, an ambiguous root, an unresolved target, and an incomplete fallback. Validate twice without changing inputs.
 
 ## Acceptance criteria
 
-The valid path produces only the declared outcome for CA-R-1123, and the invalid or stale path fails explicitly without an unauthorized mutation, widened scope, or invented provenance.
+The valid tree permits routing; the invalid tree blocks it and emits exactly one stable attributable issue for each introduced violation; repeated validation preserves issue identity and order.
 
 ## Failure disposition
 
-Reject the realization, preserve the observed discrepancy, and return the boundary to its named owner for correction.
+Reject the validator and preserve the routing frontier, declared constraints, expected violations, observed issues, verdict, and repeat-run comparison.
