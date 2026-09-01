@@ -4,11 +4,11 @@ cce_form: evaluation
 subjects:
   governs:
     continuant:
-      - artifact-operations
+      - release
     occurrent:
       - evaluation
-version: 3
-updated_at: 2026-09-01 23:47:24 +0400
+version: 5
+updated_at: 2026-09-02 00:40:00 +0400
 relations:
   evaluation_for:
     - CA-M-214
@@ -25,11 +25,11 @@ Apply whenever release outcome recording or release acceptance criteria change.
 
 ## Test case
 
-Use the same sealed version and manifest in two attempt fixtures: one missing a required verification result and one containing all passing results with exact revisions, Journal frontier, and canonical Git identity.
+Use two distinct sealed release-attempt identities for the same version and manifest: one missing a required verification result and one containing all passing results with exact revisions, Work Journal event, and canonical Git identity.
 
 ## Acceptance criteria
 
-The incomplete attempt produces no Release Record and remains explicit failed-attempt evidence; the complete attempt produces exactly one immutable Release Record binding every required identity, revision, check, evidence, Journal, and Git fact.
+The incomplete attempt produces no Release Record and creates exactly one non-release Ops evidence carrier binding its attempted version, exact revision, checks, and Work Journal event. The complete attempt produces exactly one immutable Release Record binding every required identity, revision, check, evidence, Work Journal event, and Git fact.
 
 ## Failure disposition
 
