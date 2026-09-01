@@ -7,8 +7,8 @@ subjects:
       - feature-boundary
     occurrent:
       - evaluation
-version: 3
-updated_at: 2026-09-01 23:47:24 +0400
+version: 4
+updated_at: 2026-09-02 00:25:00 +0400
 relations:
   evaluation_for:
     - CA-M-197
@@ -17,7 +17,7 @@ relations:
 
 ## Claim checked
 
-CA-M-197 registers one CODEX_PLUGIN child under AGENT_HOST_PLUGINS without duplicating provider-neutral authority.
+CA-M-197 registers one CODEX_PLUGIN child under AGENT_HOST_PLUGINS without duplicating provider-neutral CAPRMEDIO Skill, Tool, or Methodology behavior.
 
 ## Applicable when
 
@@ -25,12 +25,12 @@ Apply whenever CODEX_PLUGIN structure, package boundary, or host wiring changes.
 
 ## Test case
 
-Build the current Scope Unit Graph and inventory every authority and source carrier inside CODEX_PLUGIN, then compare them with GRAPH_APP, SKILLS, and MCP ownership.
+Examine the current active AGENT_HOST_PLUGINS and CODEX_PLUGIN authority, using any available derived representation only as supporting evidence. Determine CODEX_PLUGIN's immediate typed ownership, identity, path, host-specific contents, and every reference to provider-neutral CAPRMEDIO behavior.
 
 ## Acceptance criteria
 
-Exactly one immediate typed ownership edge connects AGENT_HOST_PLUGINS to CODEX_PLUGIN; its address and path are valid; its owned content is Codex-specific; provider-neutral behavior appears only as references to external owners.
+Exactly one immediate typed ownership edge connects AGENT_HOST_PLUGINS to CODEX_PLUGIN; its address and path are valid; its owned content is Codex-specific package or host wiring; and every provider-neutral CAPRMEDIO Skill, Tool, or Methodology behavior appears only as a reference to its existing owner.
 
 ## Failure disposition
 
-Reject the registration and preserve the structural graph, path evidence, and each duplicated or misowned authority carrier.
+Reject the registration and preserve the examined authority, any supporting derived representation, path evidence, and every duplicated or misowned behavior claim.
