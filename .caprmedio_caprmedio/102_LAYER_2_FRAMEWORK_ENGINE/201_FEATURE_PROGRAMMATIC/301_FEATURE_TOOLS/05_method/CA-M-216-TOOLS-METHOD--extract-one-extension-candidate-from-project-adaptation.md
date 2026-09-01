@@ -4,9 +4,9 @@ cce_form: method
 subjects:
   governs:
     continuant:
-      - artifact-operations
-version: 3
-updated_at: 2026-09-01 23:47:24 +0400
+      - extension-promotion
+version: 4
+updated_at: 2026-09-02 00:25:00 +0400
 relations:
   method_for:
     - CA-R-1149
@@ -22,15 +22,15 @@ Use this Method when an operator selects reusable Project Adaptation authority f
 ## Procedure
 
 1. Seal the operator-selected adaptation Atoms and resolve their direct dependency closure across current active authority.
-2. Separate reusable capability from project-specific settings, secrets, runtime state, and unrelated local authority.
-3. Require every retained dependency to be included exactly or declared as an external compatibility requirement.
-4. Assign the candidate its own stable identity and preserve exact source Atom revisions and provenance.
-5. Emit the bounded candidate and an explicit list of excluded, unresolved, and external dependencies.
+2. Traverse declared required dependencies to the complete closure and preserve each selected and transitively required source Atom reference exactly.
+3. Reject the extraction when any required dependency is absent, ambiguous, or unresolved; do not omit it or infer a replacement.
+4. Assign the candidate its own stable identity and preserve the exact selected membership, transitive closure, source revisions, and frontier digest.
+5. Emit the bounded candidate without modifying its source Project Adaptation authority.
 
 ## Outcome
 
-One independently identified Extension candidate contains the selected reusable capability and a complete attributable dependency boundary.
+One independently identified Extension candidate contains the selected Project Adaptation authority and its complete attributable required dependency closure.
 
 ## Failure or stop
 
-Stop on unresolved required dependencies, hidden project-specific state, stale source revisions, or a candidate boundary that cannot be made independent.
+Stop on unresolved required dependencies, stale source revisions, ambiguous closure, or a candidate boundary that cannot be attributed exactly.
