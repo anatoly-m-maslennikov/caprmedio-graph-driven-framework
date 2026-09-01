@@ -7,8 +7,8 @@ subjects:
       - artifact-operations
     occurrent:
       - evaluation
-version: 2
-updated_at: 2026-08-30 16:44:07 +0400
+version: 3
+updated_at: 2026-09-01 23:47:24 +0400
 relations:
   evaluation_for:
     - CA-M-212
@@ -17,16 +17,20 @@ relations:
 
 ## Claim checked
 
-CA-M-212 realizes the current direct contract of CA-R-1143 without unowned behavior.
+CA-M-212 changes only approved operator-owned Project Settings keys and rejects generated, unknown, or stale targets.
+
+## Applicable when
+
+Apply whenever the Project Settings schema, ownership classification, or patch mechanics change.
 
 ## Test case
 
-In one controlled fixture, execute the Method at its declared boundary with valid input and one contract-relevant invalid or stale precondition.
+Seal one settings carrier and request changes to one operator-owned key, one generated key, and one unknown key. Observe rejection, then apply only the operator-owned change and compare every key and byte-level diff.
 
 ## Acceptance criteria
 
-The valid path produces only the declared outcome for CA-R-1143, and the invalid or stale path fails explicitly without an unauthorized mutation, widened scope, or invented provenance.
+The mixed patch changes nothing and identifies both prohibited keys; the valid patch changes exactly the approved key, preserves all unrelated and generated values, remains schema-valid, and has no undeclared diff.
 
 ## Failure disposition
 
-Reject the realization, preserve the observed discrepancy, and return the boundary to its named owner for correction.
+Reject the realization and preserve schema, ownership map, requested operations, dry-run diff, final carrier, and undeclared-change comparison.
