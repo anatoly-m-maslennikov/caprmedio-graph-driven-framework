@@ -5,8 +5,8 @@ subjects:
   governs:
     continuant:
       - artifact-operations
-version: 2
-updated_at: 2026-08-30 16:44:07 +0400
+version: 3
+updated_at: 2026-09-01 23:47:24 +0400
 relations:
   method_for:
     - CA-R-1123
@@ -17,18 +17,20 @@ relations:
 
 ## Applicable when
 
-Apply when realizing the current acceptance boundary of CA-R-1123.
+Use this Method before a governed router selects or traverses a route in the current routing tree.
 
 ## Procedure
 
-1. Resolve the current governed contract, target boundary, and allowed direct dependencies for the listed Requirement set.
-2. Apply the one shared procedure expressed by this Method without widening any listed Requirement into another Tool, Scope Unit, lifecycle, or authority boundary.
-3. Preserve explicit success, rejection, blocked, and recovery outcomes required by the current contract.
+1. Load the current routing-tree authority and its declared node, edge, root, leaf, priority, and fallback constraints.
+2. Resolve every referenced target against the current active graph without following derived inverse relations as authored edges.
+3. Check root uniqueness, reachability, permitted edge types, cycle rules, selector exclusivity, fallback completeness, and terminal-route validity.
+4. Emit one stable issue per violated constraint with source carrier and exact route location.
+5. Permit routing only when the selected tree frontier has no blocking issue.
 
 ## Outcome
 
-The listed Requirements have one direct, independently replaceable realization procedure with no duplicate acceptance owner.
+Routing receives a deterministic valid verdict or an attributable set of structural violations before any route is used.
 
 ## Failure or stop
 
-Stop and return an explicit failure when the selected contract, boundary, or required precondition is absent, ambiguous, stale, or invalid.
+Treat unreadable authority, unresolved targets, ambiguous roots, and stale frontiers as blocking validation failures.
