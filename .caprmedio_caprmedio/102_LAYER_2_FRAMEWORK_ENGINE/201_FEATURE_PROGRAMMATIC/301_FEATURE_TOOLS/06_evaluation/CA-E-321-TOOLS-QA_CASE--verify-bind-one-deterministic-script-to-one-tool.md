@@ -7,8 +7,8 @@ subjects:
       - artifact-operations
     occurrent:
       - evaluation
-version: 3
-updated_at: 2026-09-01 23:47:24 +0400
+version: 4
+updated_at: 2026-09-02 00:15:00 +0400
 relations:
   evaluation_for:
     - CA-M-203
@@ -17,20 +17,20 @@ relations:
 
 ## Claim checked
 
-CA-M-203 establishes a one-to-one mapping between deterministic executable entry scripts and Tool owners while excluding support modules.
+CA-M-203 establishes a one-to-one mapping between independently executable deterministic entry scripts and Tool owners, including a script invoked only by a Skill.
 
 ## Applicable when
 
-Apply whenever an executable script, Tool Scope Unit, or canonical entrypoint declaration changes.
+Apply whenever an independently executable script, Tool Scope Unit, Skill invocation, or canonical entrypoint declaration changes.
 
 ## Test case
 
-Create a fixture with one correctly bound Tool script, one Tool with two entry scripts, one orphan executable, one Tool with no entrypoint, and two imported worker modules. Resolve the ownership map twice.
+Consider one bounded declared frontier containing: a correctly bound script invoked only by a Skill, one Tool with two declared entrypoints, one orphan executable script, one Tool without an entrypoint, and two non-executable imported worker modules. Resolve its bindings twice without changing the frontier.
 
 ## Acceptance criteria
 
-The correct pair is accepted; duplicate, orphan, and missing bindings are distinct findings; worker modules are not treated as Tools; repeated resolution produces the same mappings and findings.
+The Skill-invoked entrypoint is accepted as the Tool's sole canonical script; duplicate, orphan, and missing bindings are distinct blocking findings; worker modules are not treated as Tools; and repeated resolution returns the same bindings and findings.
 
 ## Failure disposition
 
-Reject the binding method and preserve executable inventory, Tool declarations, import classification, mappings, findings, and repeated result.
+Reject the binding Method and preserve the declared frontier, executable inventory, Skill invocation evidence, Tool declarations, support-module classification, bindings, findings, and repeated result.
