@@ -5,8 +5,8 @@ subjects:
   governs:
     continuant:
       - artifact-operations
-version: 2
-updated_at: 2026-08-30 16:44:07 +0400
+version: 3
+updated_at: 2026-09-01 23:47:24 +0400
 relations:
   method_for:
     - CA-R-866
@@ -17,18 +17,21 @@ relations:
 
 ## Applicable when
 
-Apply when realizing the current acceptance boundary of CA-R-866.
+Use this Method when a sealed Initiative authorizes a content, frontmatter, or combined revision of existing Atoms without changing their identities or locations.
 
 ## Procedure
 
-1. Resolve the current governed contract, target boundary, and allowed direct dependencies for the listed Requirement set.
-2. Apply the one shared procedure expressed by this Method without widening any listed Requirement into another Tool, Scope Unit, lifecycle, or authority boundary.
-3. Preserve explicit success, rejection, blocked, and recovery outcomes required by the current contract.
+1. Resolve every target uniquely and capture its current path, ID, version, and digest as transaction preconditions.
+2. Apply the requested field and body changes in memory while preserving path, filename, and Atom ID.
+3. Validate the complete resulting carriers and advance each revision exactly once.
+4. Freeze the resulting target set and show the exact dry-run diff.
+5. On explicit authorized apply, recheck all preconditions and replace every target in one atomic transaction.
+6. Restore every original carrier if any replacement or post-write validation fails.
 
 ## Outcome
 
-The listed Requirements have one direct, independently replaceable realization procedure with no duplicate acceptance owner.
+All selected Atoms advance to their validated new revisions together, with identity and placement unchanged.
 
 ## Failure or stop
 
-Stop and return an explicit failure when the selected contract, boundary, or required precondition is absent, ambiguous, stale, or invalid.
+Stop without partial mutation when a target is missing, ambiguous, stale, invalid, duplicated, or changed after the dry-run.
