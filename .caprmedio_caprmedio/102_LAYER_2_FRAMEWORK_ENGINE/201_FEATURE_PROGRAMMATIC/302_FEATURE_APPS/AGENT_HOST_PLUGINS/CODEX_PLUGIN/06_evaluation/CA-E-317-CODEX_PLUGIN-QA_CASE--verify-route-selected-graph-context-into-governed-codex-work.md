@@ -7,8 +7,8 @@ subjects:
       - graph-app-access
     occurrent:
       - evaluation
-version: 3
-updated_at: 2026-09-01 23:47:24 +0400
+version: 4
+updated_at: 2026-09-02 00:25:00 +0400
 relations:
   evaluation_for:
     - CA-M-199
@@ -17,7 +17,7 @@ relations:
 
 ## Claim checked
 
-CA-M-199 preserves an exact selected graph frontier and Tool meaning when routing context into Codex work.
+CA-M-199 preserves an exact selected graph frontier and Tool meaning when routing context into Codex work without disclosing secrets, bypassing host permission, or applying unconfirmed irreversible work.
 
 ## Applicable when
 
@@ -25,12 +25,12 @@ Apply before accepting any Codex action path that begins from selected graph nod
 
 ## Test case
 
-Select two current nodes, seal their IDs, paths, and digests, and route a read question plus a proposed irreversible change. Change one source after selection and repeat the route without widening selection or granting confirmation.
+Select two current nodes whose bounded context includes one unavailable secret value. Seal their IDs, paths, digests, and declared selection boundary; route a read question through an existing Skill and request an irreversible MCP action without the required host confirmation. Then change one selected source and repeat the route without widening the selection.
 
 ## Acceptance criteria
 
-The current question uses only the two selected nodes and preserves attribution; the proposed change remains unapplied without confirmation; the changed source blocks the stale route; Tool failures and provenance remain unmodified.
+The current question transfers only the selected context, omits the unavailable secret, and preserves attribution; the irreversible action remains unapplied without required host confirmation; the changed source blocks the stale route; and any Tool or host-permission failure remains explicit and unmodified.
 
 ## Failure disposition
 
-Reject the route and preserve selection frontier, transferred context, invoked Tool contracts, response attribution, confirmation state, and any scope widening or mutation.
+Reject the route and preserve the selection frontier, transferred context, secret-handling evidence, invoked Skill and Tool contracts, response attribution, host-permission and confirmation states, and any scope widening or mutation.
