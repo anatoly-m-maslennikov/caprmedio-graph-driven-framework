@@ -7,8 +7,8 @@ subjects:
       - graph-app-access
     occurrent:
       - evaluation
-version: 2
-updated_at: 2026-08-30 16:44:07 +0400
+version: 3
+updated_at: 2026-09-01 23:47:24 +0400
 relations:
   evaluation_for:
     - CA-M-198
@@ -17,16 +17,20 @@ relations:
 
 ## Claim checked
 
-CA-M-198 realizes the current direct contract of CA-R-1103 without unowned behavior.
+CA-M-198 exposes current GRAPH_APP state through Codex as an attributable read-only view with explicit stale and unavailable states.
+
+## Applicable when
+
+Apply before accepting any Codex plugin release that exposes Project Graph browsing.
 
 ## Test case
 
-In one controlled fixture, execute the Method at its declared boundary with valid input and one contract-relevant invalid or stale precondition.
+Connect Codex first to a current GRAPH_APP fixture and inspect one filtered node, then alter its source carrier without rebuilding GRAPH_APP and repeat the same inspection while recording all repository digests.
 
 ## Acceptance criteria
 
-The valid path produces only the declared outcome for CA-R-1103, and the invalid or stale path fails explicitly without an unauthorized mutation, widened scope, or invented provenance.
+The current view returns navigation and node content with exact source path, digest, and provenance; the changed-source view reports stale state rather than old content as current; no repository digest changes.
 
 ## Failure disposition
 
-Reject the realization, preserve the observed discrepancy, and return the boundary to its named owner for correction.
+Reject the Codex exposure and preserve GRAPH_APP frontier data, selected node results, stale-state handling, and mutation evidence.
