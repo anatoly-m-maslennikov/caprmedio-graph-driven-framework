@@ -7,8 +7,8 @@ subjects:
       - artifact-operations
     occurrent:
       - evaluation
-version: 2
-updated_at: 2026-08-30 16:44:07 +0400
+version: 3
+updated_at: 2026-09-01 23:47:24 +0400
 relations:
   evaluation_for:
     - CA-M-204
@@ -17,16 +17,20 @@ relations:
 
 ## Claim checked
 
-CA-M-204 realizes the current direct contract of CA-R-1125 without unowned behavior.
+CA-M-204 accepts only registered forward-only source-to-derived pipelines whose materializations match their authority frontiers.
+
+## Applicable when
+
+Apply whenever a data-stage registration, dependency, source frontier, or materialized output changes.
 
 ## Test case
 
-In one controlled fixture, execute the Method at its declared boundary with valid input and one contract-relevant invalid or stale precondition.
+Construct one current src-to-stg-to-mrt-to-biz pipeline, then add an unregistered stage, a backward dependency, a stale materialization, and a derived row with no source provenance. Validate the combined fixture.
 
 ## Acceptance criteria
 
-The valid path produces only the declared outcome for CA-R-1125, and the invalid or stale path fails explicitly without an unauthorized mutation, widened scope, or invented provenance.
+The original pipeline is accepted; each introduced defect produces one attributable blocking issue; no derived stage is treated as authority; and the report identifies exact source and materialization frontiers.
 
 ## Failure disposition
 
-Reject the realization, preserve the observed discrepancy, and return the boundary to its named owner for correction.
+Reject the validator and preserve stage declarations, dependency graph, frontier digests, materializations, expected defects, and observed issue map.
