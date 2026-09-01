@@ -5,8 +5,8 @@ subjects:
   governs:
     continuant:
       - graph-app-access
-version: 3
-updated_at: 2026-09-01 23:47:24 +0400
+version: 4
+updated_at: 2026-09-02 00:25:00 +0400
 relations:
   method_for:
     - CA-R-1104
@@ -25,7 +25,7 @@ Use this Method when an operator selects graph nodes as the bounded context for 
 2. Transfer only that context and its provenance to the selected provider-neutral Skill or MCP operation.
 3. Preserve the meaning, input contract, and diagnostic vocabulary of every invoked Tool across the Codex adapter.
 4. Return answers and proposed actions with their source-node attribution and unmodified failure states.
-5. Require separate confirmation before any irreversible action and prohibit implicit scope widening, source mutation, secret disclosure, or authority bypass.
+5. Require the host's required operator confirmation before any irreversible action and prohibit implicit scope widening, source mutation, secret disclosure, Tool-validation bypass, or host-permission bypass.
 
 ## Outcome
 
@@ -33,4 +33,4 @@ Codex work remains bounded to the selected current graph context and attributabl
 
 ## Failure or stop
 
-Stop when selection digests are stale, the boundary cannot be sealed, a route would widen authority, or an irreversible action lacks confirmation.
+Stop when selection digests are stale, the boundary cannot be sealed, a route would widen authority, host permission denies it, or an irreversible action lacks required confirmation.
