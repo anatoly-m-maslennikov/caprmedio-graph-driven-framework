@@ -5,8 +5,8 @@ subjects:
   governs:
     continuant:
       - artifact-operations
-version: 2
-updated_at: 2026-08-30 16:44:07 +0400
+version: 3
+updated_at: 2026-09-01 23:47:24 +0400
 relations:
   method_for:
     - CA-R-1130
@@ -18,18 +18,20 @@ relations:
 
 ## Applicable when
 
-Apply when realizing the current acceptance boundary of CA-R-1130, CA-R-1131.
+Use this Method when a governed Tool needs the shared mechanics for patching generic Artifact metadata or authored direct relations.
 
 ## Procedure
 
-1. Resolve the current governed contract, target boundary, and allowed direct dependencies for the listed Requirement set.
-2. Apply the one shared procedure expressed by this Method without widening any listed Requirement into another Tool, Scope Unit, lifecycle, or authority boundary.
-3. Preserve explicit success, rejection, blocked, and recovery outcomes required by the current contract.
+1. Resolve the exact Artifact and seal its path, revision, digest, schema, and current frontmatter while preserving the body bytes.
+2. Apply only declared add, replace, or remove operations to registered fields and authored direct relation targets.
+3. Canonicalize Atom references and relative Scope Unit references, then validate relation kind, endpoint classes, direction, lifecycle, cardinality, role, and identity.
+4. Reject unknown fields, invalid relation types, failed preconditions, and any patch that would rewrite body content.
+5. Advance the revision once, expose the exact dry-run, and on authorized apply replace the carrier atomically and verify the unchanged body.
 
 ## Outcome
 
-The listed Requirements have one direct, independently replaceable realization procedure with no duplicate acceptance owner.
+The Artifact receives one schema-valid metadata and relation revision while its body and identity remain unchanged.
 
 ## Failure or stop
 
-Stop and return an explicit failure when the selected contract, boundary, or required precondition is absent, ambiguous, stale, or invalid.
+Stop or roll back on stale preconditions, unknown fields, invalid endpoints, relation-policy violations, or any body-byte change.
