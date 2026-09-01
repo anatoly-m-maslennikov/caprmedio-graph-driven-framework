@@ -9,8 +9,8 @@ subjects:
   depends_on:
     continuant:
       - programmatic software
-version: 5
-updated_at: 2026-09-01 01:45:00 +0400
+version: 6
+updated_at: 2026-09-01 23:50:00 +0400
 relations:
   method_for:
     - CA-R-1047
@@ -21,10 +21,11 @@ relations:
 
 Keep new or materially changed hand-authored PROGRAMMATIC Python source within
 the accepted source-size ratchet and require cyclomatic-complexity lint for
-each changed executable unit. Ratchet changed source toward side-effect-free
-functions, explicit bounded effect functions or owner methods, and
-intention-revealing names while reviewing cohesion, responsibility, dependency
-direction, and testability independently.
+each changed executable unit. Apply CA-M-157, CA-M-158, and CA-M-160 for
+function allocation, object ownership, effect boundaries, and their naming
+rules rather than restating those policies here. Review cohesion,
+responsibility, dependency direction, and testability independently from size
+and complexity scores.
 
 ## Applicable when
 
@@ -49,32 +50,22 @@ are outside this source rule.
    Use TOML by default, JSON for schemas or machine interchange, and YAML only
    when its distinct features are required. Treat size and complexity scores
    as navigation constraints rather than proof of quality.
-7. Admit a specifically named one-shot effect function only when its complete
-   target, dependencies, inputs, outcomes, and failures are explicit and it
-   owns no identity, state, invariant, resource, lifecycle, or adapter. Reject
-   hidden or unbounded effects and move persistent ownership to an object.
-8. Give each new or materially changed function, method, class, object, and
-   module a specific, intention-revealing name that states one responsibility;
-   prefer clarity over brevity and retain only established project terms and
-   abbreviations.
 
 ## Outcome
 
-Changed source ratchets toward readable, bounded units without declaring
-existing oversized or over-complex source an immediate whole-repository
-failure. Cyclomatic complexity, deterministic-function purity, bounded effect
-ownership, and naming clarity cannot regress silently in changed executable
-units.
+Changed source ratchets toward readable, bounded units and externalized static
+data without declaring existing oversized or over-complex source an immediate
+whole-repository failure. Source size and cyclomatic complexity cannot regress
+silently in changed executable units.
 
 ## Failure or stop
 
 Stop claiming conformance for a changed unit that exceeds its source-size or
-cyclomatic-complexity boundary without a documented bounded exception, hides
-or leaves an unbounded effect, assigns persistent ownership to a standalone
-function, or retains an ambiguous name. Stop when no accepted Method selects
-the complexity-lint profile and maximum, their materialization is absent or
-inconsistent, or reducing a score would obscure a separate responsibility or
-needed recovery boundary.
+cyclomatic-complexity boundary without a documented bounded exception or
+retains a large static mapping inside executable Python source. Stop when no
+accepted Method selects the complexity-lint profile and maximum, their
+materialization is absent or inconsistent, or reducing a score would obscure
+a separate responsibility or needed recovery boundary.
 
 ## Sources
 
