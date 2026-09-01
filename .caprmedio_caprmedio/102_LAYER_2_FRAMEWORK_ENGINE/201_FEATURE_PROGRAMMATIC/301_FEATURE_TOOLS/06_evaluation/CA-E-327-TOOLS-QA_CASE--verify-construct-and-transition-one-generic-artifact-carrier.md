@@ -7,8 +7,8 @@ subjects:
       - artifact-operations
     occurrent:
       - evaluation
-version: 2
-updated_at: 2026-08-30 16:44:07 +0400
+version: 3
+updated_at: 2026-09-01 23:47:24 +0400
 relations:
   evaluation_for:
     - CA-M-209
@@ -17,16 +17,20 @@ relations:
 
 ## Claim checked
 
-CA-M-209 realizes the current direct contract of CA-R-1132, CA-R-1133, CA-R-1134 without unowned behavior.
+CA-M-209 executes exactly one declared generic carrier operation as a complete rollbackable transaction under a governing public Tool.
+
+## Applicable when
+
+Apply whenever generic construction, rename, or lifecycle-transition mechanics change.
 
 ## Test case
 
-In one controlled fixture, execute the Method at its declared boundary with valid input and one contract-relevant invalid or stale precondition.
+Prepare one active Artifact with two incoming references. Request a registered lifecycle transition while also requesting a rename in the same operation; observe rejection. Then request only the lifecycle transition and inspect destination, metadata, references, source, and transaction residue.
 
 ## Acceptance criteria
 
-The valid path produces only the declared outcome for CA-R-1132, CA-R-1133, CA-R-1134, and the invalid or stale path fails explicitly without an unauthorized mutation, widened scope, or invented provenance.
+The mixed operation changes nothing; the single transition reaches the registered destination, removes the source, updates both references and required metadata, preserves identity, and leaves no partial or temporary state.
 
 ## Failure disposition
 
-Reject the realization, preserve the observed discrepancy, and return the boundary to its named owner for correction.
+Reject the realization and preserve requested operation set, transition registry entry, source and destination states, reference map, and rollback evidence.
