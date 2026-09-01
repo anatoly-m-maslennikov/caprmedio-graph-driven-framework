@@ -7,8 +7,8 @@ subjects:
       - artifact-operations
     occurrent:
       - evaluation
-version: 2
-updated_at: 2026-08-30 16:44:07 +0400
+version: 3
+updated_at: 2026-09-01 23:47:24 +0400
 relations:
   evaluation_for:
     - CA-M-183
@@ -17,16 +17,20 @@ relations:
 
 ## Claim checked
 
-CA-M-183 realizes the current direct contract of CA-R-863 without unowned behavior.
+CA-M-183 returns the complete deterministic set of matching Atom carriers without changing any project file.
+
+## Applicable when
+
+Apply to any ATOM_SEARCH realization before it is accepted for read-only discovery.
 
 ## Test case
 
-In one controlled fixture, execute the Method at its declared boundary with valid input and one contract-relevant invalid or stale precondition.
+Use a fixture containing active, draft, archived, malformed, and non-Atom files across two Scope Units. Select one subtree with combined lifecycle, Content-role, Tier, exact-field, and body-text filters, request metadata and content, then repeat the same search after recording every file digest.
 
 ## Acceptance criteria
 
-The valid path produces only the declared outcome for CA-R-863, and the invalid or stale path fails explicitly without an unauthorized mutation, widened scope, or invented provenance.
+The result contains every and only matching Atoms in stable path order; malformed candidates have separate diagnostics; excluded files never appear; both runs are identical; and every recorded digest remains unchanged.
 
 ## Failure disposition
 
-Reject the realization, preserve the observed discrepancy, and return the boundary to its named owner for correction.
+Reject the realization and preserve the fixture, query, unexpected membership or ordering, diagnostics, and any detected mutation.
