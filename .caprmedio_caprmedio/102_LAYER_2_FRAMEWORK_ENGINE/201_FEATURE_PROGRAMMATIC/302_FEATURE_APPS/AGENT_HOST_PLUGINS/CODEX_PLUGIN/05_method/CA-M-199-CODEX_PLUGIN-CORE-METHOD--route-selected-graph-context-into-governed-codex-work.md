@@ -5,8 +5,8 @@ subjects:
   governs:
     continuant:
       - graph-app-access
-version: 2
-updated_at: 2026-08-30 16:44:07 +0400
+version: 3
+updated_at: 2026-09-01 23:47:24 +0400
 relations:
   method_for:
     - CA-R-1104
@@ -17,18 +17,20 @@ relations:
 
 ## Applicable when
 
-Apply when realizing the current acceptance boundary of CA-R-1104.
+Use this Method when an operator selects graph nodes as the bounded context for a Codex question or governed action.
 
 ## Procedure
 
-1. Resolve the current governed contract, target boundary, and allowed direct dependencies for the listed Requirement set.
-2. Apply the one shared procedure expressed by this Method without widening any listed Requirement into another Tool, Scope Unit, lifecycle, or authority boundary.
-3. Preserve explicit success, rejection, blocked, and recovery outcomes required by the current contract.
+1. Seal the operator-selected node set with node IDs, source paths, current digests, and the selection frontier.
+2. Transfer only that context and its provenance to the selected provider-neutral Skill or MCP operation.
+3. Preserve the meaning, input contract, and diagnostic vocabulary of every invoked Tool across the Codex adapter.
+4. Return answers and proposed actions with their source-node attribution and unmodified failure states.
+5. Require separate confirmation before any irreversible action and prohibit implicit scope widening, source mutation, secret disclosure, or authority bypass.
 
 ## Outcome
 
-The listed Requirements have one direct, independently replaceable realization procedure with no duplicate acceptance owner.
+Codex work remains bounded to the selected current graph context and attributable to its exact source frontier.
 
 ## Failure or stop
 
-Stop and return an explicit failure when the selected contract, boundary, or required precondition is absent, ambiguous, stale, or invalid.
+Stop when selection digests are stale, the boundary cannot be sealed, a route would widen authority, or an irreversible action lacks confirmation.
