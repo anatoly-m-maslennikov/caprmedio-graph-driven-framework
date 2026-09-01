@@ -5,8 +5,8 @@ subjects:
   governs:
     continuant:
       - artifact-operations
-version: 2
-updated_at: 2026-08-30 16:44:07 +0400
+version: 3
+updated_at: 2026-09-01 23:47:24 +0400
 relations:
   method_for:
     - CA-R-1124
@@ -17,18 +17,20 @@ relations:
 
 ## Applicable when
 
-Apply when realizing the current acceptance boundary of CA-R-1124.
+Use this Method when admitting or reviewing executable deterministic scripts in the PROGRAMMATIC source tree.
 
 ## Procedure
 
-1. Resolve the current governed contract, target boundary, and allowed direct dependencies for the listed Requirement set.
-2. Apply the one shared procedure expressed by this Method without widening any listed Requirement into another Tool, Scope Unit, lifecycle, or authority boundary.
-3. Preserve explicit success, rejection, blocked, and recovery outcomes required by the current contract.
+1. Enumerate executable deterministic entry scripts and active Tool Scope Units within the selected frontier.
+2. Read each script's declared Tool identity and each Tool's canonical executable entrypoint.
+3. Require a one-to-one mapping: one executable entry script per Tool and one Tool per executable entry script.
+4. Classify imported modules, workers, and shared libraries as implementation support rather than separate Tools unless they expose an independent governed interface.
+5. Report missing, duplicate, cross-boundary, and orphan mappings with both source paths.
 
 ## Outcome
 
-The listed Requirements have one direct, independently replaceable realization procedure with no duplicate acceptance owner.
+Every deterministic executable entry script has exactly one Tool owner and every Tool has exactly one canonical executable entry script.
 
 ## Failure or stop
 
-Stop and return an explicit failure when the selected contract, boundary, or required precondition is absent, ambiguous, stale, or invalid.
+Do not infer ownership from directory proximity alone; leave ambiguous or multi-owner scripts as blocking findings.
