@@ -7,8 +7,8 @@ subjects:
       - artifact-operations
     occurrent:
       - evaluation
-version: 2
-updated_at: 2026-08-30 16:44:07 +0400
+version: 3
+updated_at: 2026-09-01 23:47:24 +0400
 relations:
   evaluation_for:
     - CA-M-189
@@ -17,16 +17,20 @@ relations:
 
 ## Claim checked
 
-CA-M-189 realizes the current direct contract of CA-R-869 without unowned behavior.
+CA-M-189 promotes each accepted draft to exactly one valid active Atom with the assigned stable role-matching ID.
+
+## Applicable when
+
+Apply to any ATOM_PROMOTE realization before it can admit draft authority into the active graph.
 
 ## Test case
 
-In one controlled fixture, execute the Method at its declared boundary with valid input and one contract-relevant invalid or stale precondition.
+Prepare two valid drafts and assign one valid ID plus one ID whose role token conflicts with its draft. Observe the mixed-set apply, then correct the ID and apply the same frozen pair.
 
 ## Acceptance criteria
 
-The valid path produces only the declared outcome for CA-R-869, and the invalid or stale path fails explicitly without an unauthorized mutation, widened scope, or invented provenance.
+The mismatched set promotes neither draft; the corrected set creates exactly two canonical active carriers, removes both draft carriers, preserves accepted bodies, assigns unique stable IDs, and leaves all references valid.
 
 ## Failure disposition
 
-Reject the realization, preserve the observed discrepancy, and return the boundary to its named owner for correction.
+Reject the realization and preserve draft identities, assigned IDs, promotion map, final lifecycle locations, and any duplicate or partial active identity.
