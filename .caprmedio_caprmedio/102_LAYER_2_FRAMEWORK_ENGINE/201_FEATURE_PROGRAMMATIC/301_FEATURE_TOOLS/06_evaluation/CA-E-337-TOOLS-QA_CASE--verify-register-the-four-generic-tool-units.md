@@ -7,8 +7,8 @@ subjects:
       - feature-boundary
     occurrent:
       - evaluation
-version: 2
-updated_at: 2026-08-30 16:44:07 +0400
+version: 3
+updated_at: 2026-09-01 23:47:24 +0400
 relations:
   evaluation_for:
     - CA-M-219
@@ -17,16 +17,20 @@ relations:
 
 ## Claim checked
 
-CA-M-219 realizes the current direct contract of CA-R-1153, CA-R-1154, CA-R-1155, CA-R-1156 without unowned behavior.
+CA-M-219 gives TOOLS four immediate unordered generic capability owners with mutually distinct selection, checking, change, and Projection responsibilities.
+
+## Applicable when
+
+Apply whenever TARGET_SET, GRAPH_CHECK, BULK_CHANGE, PROJECTION_REBUILD, or their parent decomposition changes.
 
 ## Test case
 
-In one controlled fixture, execute the Method at its declared boundary with valid input and one contract-relevant invalid or stale precondition.
+Build the Project Scope Unit Graph and inventory the governed behavior of all four units. Trace one sample workflow from target sealing through checking, approved bulk change, and affected-Projection rebuilding.
 
 ## Acceptance criteria
 
-The valid path produces only the declared outcome for CA-R-1153, CA-R-1154, CA-R-1155, CA-R-1156, and the invalid or stale path fails explicitly without an unauthorized mutation, widened scope, or invented provenance.
+TOOLS has exactly four immediate units with unique addresses and no sibling ordering; each sample step is owned once by its named unit; Finder and Checker steps do not mutate; change and rebuild require their declared approval and verification boundaries.
 
 ## Failure disposition
 
-Reject the realization, preserve the observed discrepancy, and return the boundary to its named owner for correction.
+Reject the decomposition and preserve graph nodes and edges, behavior inventory, sample trace, duplicate or missing ownership, and any boundary-crossing mutation.
