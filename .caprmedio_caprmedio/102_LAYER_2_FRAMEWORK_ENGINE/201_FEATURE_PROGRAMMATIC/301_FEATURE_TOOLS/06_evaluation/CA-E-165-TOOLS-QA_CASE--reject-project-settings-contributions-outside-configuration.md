@@ -5,8 +5,8 @@ subjects:
       - project-settings
     occurrent:
       - evaluation
-version: 7
-updated_at: 2026-08-30 16:44:07 +0400
+version: 8
+updated_at: 2026-09-01 23:40:00 +0400
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -22,4 +22,4 @@ governed Project Configuration Atom.
 
 **Expected result:** Generation fails before either output changes and reports
 that current operator-selected settings have a second owner. The sole admitted
-contribution maps remain `project_scope_unit_graph` and `project_graph_state`.
+contribution map remains `project_scope_unit_graph`.
