@@ -7,8 +7,8 @@ subjects:
       - artifact-operations
     occurrent:
       - evaluation
-version: 2
-updated_at: 2026-08-30 16:44:07 +0400
+version: 3
+updated_at: 2026-09-01 23:47:24 +0400
 relations:
   evaluation_for:
     - CA-M-186
@@ -17,16 +17,20 @@ relations:
 
 ## Claim checked
 
-CA-M-186 realizes the current direct contract of CA-R-866 without unowned behavior.
+CA-M-186 applies a sealed multi-Atom revision atomically while preserving identity and placement.
+
+## Applicable when
+
+Apply to any ATOM_UPDATE realization before it can revise active or draft Atom carriers.
 
 ## Test case
 
-In one controlled fixture, execute the Method at its declared boundary with valid input and one contract-relevant invalid or stale precondition.
+Prepare content and frontmatter changes for two Atoms, seal their paths, IDs, versions, and digests, then change one source after dry-run. Attempt apply, restore the sealed source, and apply the original update set.
 
 ## Acceptance criteria
 
-The valid path produces only the declared outcome for CA-R-866, and the invalid or stale path fails explicitly without an unauthorized mutation, widened scope, or invented provenance.
+The stale attempt changes neither Atom; the valid attempt changes both exactly as previewed, advances each revision once, preserves both paths, filenames, and IDs, and leaves no temporary or mixed state.
 
 ## Failure disposition
 
-Reject the realization, preserve the observed discrepancy, and return the boundary to its named owner for correction.
+Reject the realization and preserve preconditions, exact preview, stale-source evidence, final carriers, and any partial transaction state.
