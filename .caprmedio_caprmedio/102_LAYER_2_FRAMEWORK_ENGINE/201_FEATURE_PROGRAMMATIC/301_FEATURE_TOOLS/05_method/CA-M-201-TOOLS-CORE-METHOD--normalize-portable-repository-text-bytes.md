@@ -5,8 +5,8 @@ subjects:
   governs:
     continuant:
       - artifact-operations
-version: 2
-updated_at: 2026-08-30 16:44:07 +0400
+version: 3
+updated_at: 2026-09-01 23:47:24 +0400
 relations:
   method_for:
     - CA-R-1122
@@ -17,18 +17,20 @@ relations:
 
 ## Applicable when
 
-Apply when realizing the current acceptance boundary of CA-R-1122.
+Use this Method when governed repository text must have stable bytes across supported operating systems and tools.
 
 ## Procedure
 
-1. Resolve the current governed contract, target boundary, and allowed direct dependencies for the listed Requirement set.
-2. Apply the one shared procedure expressed by this Method without widening any listed Requirement into another Tool, Scope Unit, lifecycle, or authority boundary.
-3. Preserve explicit success, rejection, blocked, and recovery outcomes required by the current contract.
+1. Read the repository-owned normalization policy and resolve the selected tracked text files without using host defaults as authority.
+2. Detect encoding, byte-order marks, line endings, final-newline state, and disallowed control bytes.
+3. Produce an exact dry-run of byte changes using the canonical encoding and newline rules.
+4. On authorized apply, rewrite only files whose bytes differ and preserve all semantic text.
+5. Re-read every changed file and prove that a second normalization pass is byte-idempotent.
 
 ## Outcome
 
-The listed Requirements have one direct, independently replaceable realization procedure with no duplicate acceptance owner.
+Selected repository text has one policy-derived portable byte representation and remains unchanged on repeated normalization.
 
 ## Failure or stop
 
-Stop and return an explicit failure when the selected contract, boundary, or required precondition is absent, ambiguous, stale, or invalid.
+Stop on undecodable input, an unsupported file class, missing policy, or a transformation that would change semantic text.
