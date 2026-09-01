@@ -5,8 +5,8 @@ subjects:
   governs:
     continuant:
       - artifact-operations
-version: 2
-updated_at: 2026-08-30 16:44:07 +0400
+version: 3
+updated_at: 2026-09-01 23:47:24 +0400
 relations:
   method_for:
     - CA-R-1148
@@ -17,18 +17,20 @@ relations:
 
 ## Applicable when
 
-Apply when realizing the current acceptance boundary of CA-R-1148.
+Use this Method when the operator explicitly accepts postponing one bounded intended action for later reopening.
 
 ## Procedure
 
-1. Resolve the current governed contract, target boundary, and allowed direct dependencies for the listed Requirement set.
-2. Apply the one shared procedure expressed by this Method without widening any listed Requirement into another Tool, Scope Unit, lifecycle, or authority boundary.
-3. Preserve explicit success, rejection, blocked, and recovery outcomes required by the current contract.
+1. Capture the operator's explicit acceptance, the bounded action, current session, owning scope, rationale, dependencies, and reopening condition.
+2. Distinguish the accepted deferral from a suggestion, unrecorded intention, or already authorized active Task.
+3. Validate that the Plan owns one intended action and that its dependency and scope references resolve.
+4. Create or update the deferred Plan Atom with no implementation or completion claim.
+5. Return its stable identity and reopening condition to the operator and relevant queues.
 
 ## Outcome
 
-The listed Requirements have one direct, independently replaceable realization procedure with no duplicate acceptance owner.
+One operator-accepted deferred action is preserved as an attributable Plan that can be reopened without pretending it is active or done.
 
 ## Failure or stop
 
-Stop and return an explicit failure when the selected contract, boundary, or required precondition is absent, ambiguous, stale, or invalid.
+Do not persist a mere suggestion or infer acceptance; stop when action, scope, rationale, or reopening boundary is ambiguous.
