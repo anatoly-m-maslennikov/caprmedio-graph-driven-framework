@@ -12,11 +12,11 @@ subjects:
       - "Atom/Content Role: Plan/Type: Task/Scope"
     occurrent:
       - Evaluation
-version: 5
-updated_at: 2026-08-29 04:33:13 +0400
+version: 6
+updated_at: 2026-09-02 03:30:00 +0400
 relations: {}
 projection:
-  source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1212-MMODEL-CORE-REQUIREMENT--define-definition-of-done-for-task-job.md
+  source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1212-MMODEL-CORE-REQUIREMENT--define-definition-of-done-for-task.md
 ---
 # Define Definition of Done for a Task
 

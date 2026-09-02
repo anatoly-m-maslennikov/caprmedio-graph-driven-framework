@@ -6,12 +6,13 @@ subjects:
   depends_on:
     continuant:
       - scope-topology
-      - atom-boundary
+      - Atom/Current Scope/Owner
+      - Atom/Claim Scope/Scope Unit Set
 atom_id: CA-R-935
 cce_version: cce_1
 cce_form: prohibition
-version: 6
-updated_at: 2026-08-29 02:40:41 +0400
+version: 7
+updated_at: 2026-09-02 00:35:23 +0400
 relations:
   replacement_of:
     - CA-R-910
@@ -23,4 +24,4 @@ projection:
 ---
 # Prohibit Demands between ancestors and descendants
 
-A Demand Atom **must not** use an ancestor **or** descendant of its Current Scope as its Claim Scope.
+a Demand Atom **must not** target an ancestor **or** descendant of its Consumer Current Scope Owner Scope Unit **in** its Claim Scope Unit Set.

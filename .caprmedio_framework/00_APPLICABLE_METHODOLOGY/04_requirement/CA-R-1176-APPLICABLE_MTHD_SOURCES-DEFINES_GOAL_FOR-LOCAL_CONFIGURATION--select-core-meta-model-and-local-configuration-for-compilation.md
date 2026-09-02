@@ -5,15 +5,15 @@ cce_form: obligation
 subjects:
   governs:
     continuant:
-      - Applicable Methodology/Sources/Local Configuration/Job
+      - Applicable Methodology/Sources/Local Configuration/Goal
   depends_on:
     continuant:
       - Applicable Methodology/Sources
-version: 4
-updated_at: 2026-08-29 02:40:41 +0400
+version: 6
+updated_at: 2026-09-02 04:15:00 +0400
 relations: {}
 projection:
-  source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1176-APPLICABLE_MTHD_SOURCES-DEFINES_JOB_FOR-LOCAL_CONFIGURATION--select-core-meta-model-and-local-configuration-for-compilation.md
+  source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1176-APPLICABLE_MTHD_SOURCES-DEFINES_GOAL_FOR-LOCAL_CONFIGURATION--select-core-meta-model-and-local-configuration-for-compilation.md
 ---
 # Select Core Meta-Model and Local Configuration for Compilation
 

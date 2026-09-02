@@ -7,11 +7,13 @@ subjects:
     continuant:
       - Producer
       - Consumer
+      - Atom/Current Scope/Owner
+      - Atom/Claim Scope/Scope Unit Set
 atom_id: CA-R-945
 cce_version: cce_1
 cce_form: definition
-version: 6
-updated_at: 2026-08-29 02:40:41 +0400
+version: 7
+updated_at: 2026-09-02 00:35:23 +0400
 relations:
   replacement_of:
     - CA-R-876
@@ -22,4 +24,4 @@ projection:
 ---
 # Define result-flow direction
 
-Producer result flow direction **means** from Producer Claim Scope to Consumer Current Scope.
+a Producer result flow direction **means** from the Producer Claim Scope Scope Unit **to** the Consumer Current Scope Owner Scope Unit.

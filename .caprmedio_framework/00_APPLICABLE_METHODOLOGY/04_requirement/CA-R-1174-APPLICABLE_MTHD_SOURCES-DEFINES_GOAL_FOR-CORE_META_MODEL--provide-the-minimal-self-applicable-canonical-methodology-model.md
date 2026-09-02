@@ -5,15 +5,15 @@ cce_form: obligation
 subjects:
   governs:
     continuant:
-      - Applicable Methodology/Sources/Core Meta-Model/Job
+      - Applicable Methodology/Sources/Core Meta-Model/Goal
   depends_on:
     continuant:
       - Applicable Methodology/Sources
-version: 3
-updated_at: 2026-08-29 02:40:41 +0400
+version: 5
+updated_at: 2026-09-02 04:15:00 +0400
 relations: {}
 projection:
-  source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1174-APPLICABLE_MTHD_SOURCES-DEFINES_JOB_FOR-CORE_META_MODEL--provide-the-minimal-self-applicable-canonical-methodology-model.md
+  source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1174-APPLICABLE_MTHD_SOURCES-DEFINES_GOAL_FOR-CORE_META_MODEL--provide-the-minimal-self-applicable-canonical-methodology-model.md
 ---
 # Provide the Minimal Self-Applicable Canonical Methodology Model
 

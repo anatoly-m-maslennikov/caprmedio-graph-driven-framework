@@ -5,12 +5,12 @@ cce_form: obligation
 subjects:
   governs:
     continuant:
-      - Scope Unit/Job
-version: 4
-updated_at: 2026-08-29 02:40:41 +0400
+      - Scope Unit/Goal
+version: 6
+updated_at: 2026-09-02 04:15:00 +0400
 relations: {}
 projection:
-  source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1171-META_MTHD-DEFINES_JOB_FOR-GOVERN--make-caprmedio-authority-operationally-enforceable.md
+  source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1171-META_MTHD-DEFINES_GOAL_FOR-GOVERN--make-caprmedio-authority-operationally-enforceable.md
 ---
 # Make CAPRMEDIO Authority Operationally Enforceable
 
