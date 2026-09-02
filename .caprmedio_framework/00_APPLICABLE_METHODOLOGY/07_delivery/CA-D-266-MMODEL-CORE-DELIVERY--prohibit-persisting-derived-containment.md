@@ -8,15 +8,14 @@ subjects:
       - Relational Artifact/Containment
   depends_on:
     continuant:
-      - CONTAINS
-      - IS_CONTAINED_BY
+      - Containment Relation Pair
       - Directory Carrier/Nesting
-version: 3
-updated_at: 2026-08-29 02:40:41 +0400
+version: 4
+updated_at: 2026-09-02 04:15:00 +0400
 relations: {}
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-266-MMODEL-CORE-DELIVERY--prohibit-persisting-derived-containment.md
 ---
 # Prohibit Persisting Derived Containment
 
-**contains** **and** IS_CONTAINED_BY relations derived from canonical Carrier nesting **must not** be persisted as independent relation declarations.
+`CONTAINS` **and** `IS_CONTAINED_BY` relations derived from canonical Carrier nesting **must not** be persisted as independent relation declarations.
