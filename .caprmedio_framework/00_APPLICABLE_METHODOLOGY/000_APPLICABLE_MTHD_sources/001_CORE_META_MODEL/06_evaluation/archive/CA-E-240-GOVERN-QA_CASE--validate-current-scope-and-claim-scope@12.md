@@ -13,8 +13,8 @@ subjects:
 atom_id: CA-E-240
 cce_version: cce_1
 cce_form: evaluation
-version: 13
-updated_at: 2026-09-02 03:30:00 +0400
+version: 12
+updated_at: 2026-09-02 00:35:23 +0400
 relations: {}
 ---
 # Validate Current Scope and Claim Scope
@@ -25,7 +25,7 @@ relations: {}
 
 ## Test case
 
-create a Current-scope Atom, a parent-owned establishing Goal for a direct child, an Operator-owned Project Goal with no Scope Unit Current Scope Owner, a subsequent Goal, composite Claim Scopes, **and** one permitted Demand. **then** omit **or** duplicate a Current Scope component, reorder the same Governed Subject Set, leave a reference unresolved, make a referenced Scope Unit bearer-dependent, separate Goal admission from Scope Unit establishment, recreate an established Scope Unit, **and** use a forbidden Goal **or** Demand target.
+create a Current-scope Atom, a parent-owned establishing Job for a direct child, an Operator-owned Project Job with no Scope Unit Current Scope Owner, a subsequent Job, composite Claim Scopes, **and** one permitted Demand. **then** omit **or** duplicate a Current Scope component, reorder the same Governed Subject Set, leave a reference unresolved, make a referenced Scope Unit bearer-dependent, separate Job admission from Scope Unit establishment, recreate an established Scope Unit, **and** use a forbidden Job **or** Demand target.
 
 ## Acceptance criteria
 
