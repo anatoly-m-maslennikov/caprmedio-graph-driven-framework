@@ -8,12 +8,13 @@ subjects:
       - Relational Artifact/Containment
   depends_on:
     continuant:
-      - Containment Relation Pair
+      - CONTAINS
+      - IS_CONTAINED_BY
       - Directory Carrier/Nesting
-version: 4
-updated_at: 2026-09-02 04:15:00 +0400
+version: 3
+updated_at: 2026-08-29 02:40:41 +0400
 relations: {}
 ---
 # Prohibit Persisting Derived Containment
 
-`CONTAINS` **and** `IS_CONTAINED_BY` relations derived from canonical Carrier nesting **must not** be persisted as independent relation declarations.
+**contains** **and** IS_CONTAINED_BY relations derived from canonical Carrier nesting **must not** be persisted as independent relation declarations.

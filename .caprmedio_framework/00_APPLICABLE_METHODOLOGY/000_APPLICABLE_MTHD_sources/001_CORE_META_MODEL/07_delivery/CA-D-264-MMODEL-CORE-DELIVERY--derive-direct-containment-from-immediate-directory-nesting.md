@@ -8,11 +8,12 @@ subjects:
       - Relational Artifact/Direct Containment
   depends_on:
     continuant:
+      - Containment Relation Pair
       - Directory Carrier/Immediate Parent
-version: 3
-updated_at: 2026-08-29 02:40:41 +0400
+version: 4
+updated_at: 2026-09-02 04:15:00 +0400
 relations: {}
 ---
 # Derive Direct Containment from Immediate Directory Nesting
 
-an Artifact Revision whose canonical Carrier is immediately nested under a Directory Carrier **must** derive one direct **contains** **and** IS_CONTAINED_BY relation pair with that Directory Carrier's Relational Artifact Revision.
+an Artifact Revision whose canonical Carrier is immediately nested under a Directory Carrier **must** derive one direct `CONTAINS` **and** `IS_CONTAINED_BY` relation pair with that Directory Carrier's Relational Artifact Revision.
