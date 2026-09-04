@@ -5,15 +5,15 @@ subjects:
       - "Atom/Content Role: Plan/Type: Task/Scope"
   depends_on:
     continuant:
-      - Atom/Claim Scope
+      - Atom/Claim/Scope
 atom_id: CA-R-1000
 cce_version: cce_1
 cce_form: relation_assertion
-version: 5
-updated_at: 2026-08-29 04:33:13 +0400
+version: 7
+updated_at: 2026-09-04 14:21:05 +0400
 relations:
   child_of:
-    - CA-R-921
+    - CA-R-919
 ---
 # Define Task Scope
 

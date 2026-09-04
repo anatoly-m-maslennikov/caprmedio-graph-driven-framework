@@ -2,15 +2,16 @@
 subjects:
   governs:
     continuant:
-      - Scope Unit/Establishing Goal
+      - "Atom/Content Role: Requirement/Type: Goal"
   depends_on:
     continuant:
-      - Scope Unit/Parent
+      - Atom/Claim/Scope
+      - Structural Parent Relation
 atom_id: CA-R-926
 cce_version: cce_1
 cce_form: obligation
-version: 9
-updated_at: 2026-09-02 03:30:00 +0400
+version: 10
+updated_at: 2026-09-04 01:04:00 +0400
 relations:
   replacement_of:
     - CA-R-909
@@ -18,6 +19,6 @@ relations:
   child_of:
     - CA-R-925
 ---
-# Let direct parents define non-Project Goals
+# Let Direct Parents Define Non-Project Goals
 
-**every** non-Project Scope Unit **must** have an accepted establishing Goal Atom owned by its direct parent Scope Unit.
+**every** non-Project Scope Unit **must** be the Claim Scope of an accepted Goal Atom owned by its direct parent Scope Unit.

@@ -1,12 +1,13 @@
 ---
+atom_id: CA-M-253
 cce_version: cce_1
 cce_form: method
 subjects:
   governs:
     continuant:
       - feature-boundary
-version: 2
-updated_at: 2026-09-02 00:40:00 +0400
+version: 3
+updated_at: 2026-09-04 03:10:59 +0400
 relations:
   method_for:
     - CA-R-1154
@@ -21,7 +22,7 @@ Use this Method when `GRAPH_CHECK` must apply selected registered Evaluation cri
 
 ## Procedure
 
-1. Confirm that `GRAPH_CHECK` is registered as one `unordered_unit` Checker owned immediately by `TOOLS` at Structural level `4`, with prefix `GRAPH_CHECK`, address `002_FRAMEWORK_ENGINE/PROGRAMMATIC/TOOLS/GRAPH_CHECK`, and realization path `002_FRAMEWORK_ENGINE/PROGRAMMATIC/TOOLS/GRAPH_CHECK/`.
+1. Confirm that `GRAPH_CHECK` is registered as one `unordered_unit` Checker owned immediately by `TOOLS` at Structural level `4`, with prefix `GRAPH_CHECK`, address `102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/GRAPH_CHECK`, and realization path `102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/GRAPH_CHECK/`.
 2. Resolve one sealed target-set identity and selected registered Evaluation criteria.
 3. Confirm that the target set retains its recorded membership, source frontier, and digest before beginning evaluation.
 4. Apply each selected criterion to each applicable target and retain attributable issue, evidence, and verdict records in deterministic target-and-criterion order.

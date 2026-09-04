@@ -5,13 +5,13 @@ cce_form: serialization
 subjects:
   governs:
     continuant:
-      - Markdown Carrier/YAML Frontmatter
-version: 3
-updated_at: 2026-08-29 02:40:41 +0400
+      - Markdown Atom Carrier/YAML Frontmatter
+version: 4
+updated_at: 2026-09-04 03:36:02 +0400
 relations: {}
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-276-MMODEL-CORE-DELIVERY--use-economical-yaml-frontmatter.md
 ---
 # Use Economical YAML Frontmatter
 
-CAPRMEDIO YAML frontmatter **must** use the least syntax **and** nesting that preserves unambiguous deterministic parsing, validation, extensibility, **and** human readability.
+the YAML Frontmatter of a Markdown Atom Carrier **must** use the least syntax **and** nesting that preserves unambiguous deterministic parsing, validation, extensibility, **and** human readability.

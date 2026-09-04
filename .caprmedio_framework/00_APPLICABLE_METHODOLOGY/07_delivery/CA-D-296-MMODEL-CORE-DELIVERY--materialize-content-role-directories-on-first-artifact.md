@@ -5,12 +5,13 @@ cce_form: placement
 subjects:
   governs:
     continuant:
-      - Scope Unit/Content Role/Directory Carrier
+      - Directory Carrier/Content Role
   depends_on:
     continuant:
       - Atom/Content Role
-version: 3
-updated_at: 2026-08-29 02:40:41 +0400
+      - Scope Unit
+version: 4
+updated_at: 2026-09-04 01:04:00 +0400
 relations: {}
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-296-MMODEL-CORE-DELIVERY--materialize-content-role-directories-on-first-artifact.md

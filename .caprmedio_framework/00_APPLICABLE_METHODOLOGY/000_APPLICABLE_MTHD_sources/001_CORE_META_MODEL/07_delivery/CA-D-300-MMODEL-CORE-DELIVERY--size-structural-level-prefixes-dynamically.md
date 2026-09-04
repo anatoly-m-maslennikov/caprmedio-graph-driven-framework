@@ -5,9 +5,14 @@ cce_form: grammar
 subjects:
   governs:
     continuant:
-      - Scope Unit/Directory Carrier/Numeric Prefix
-version: 3
-updated_at: 2026-08-29 02:40:41 +0400
+      - Directory Carrier/Numeric Prefix
+  depends_on:
+    continuant:
+      - Scope Unit
+      - Structural Level
+      - Navigational Order Number
+version: 4
+updated_at: 2026-09-04 01:04:00 +0400
 relations: {}
 ---
 # Size Structural Level Prefixes Dynamically

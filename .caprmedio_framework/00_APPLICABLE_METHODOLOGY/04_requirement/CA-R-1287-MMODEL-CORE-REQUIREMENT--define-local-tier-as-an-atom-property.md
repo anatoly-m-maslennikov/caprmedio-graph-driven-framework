@@ -9,13 +9,16 @@ subjects:
   depends_on:
     continuant:
       - Atom
+      - Atom/Claim
+      - Atom/Scope
       - Property
-version: 2
-updated_at: 2026-08-29 02:40:41 +0400
+      - Scope Unit
+version: 3
+updated_at: 2026-09-04 03:36:02 +0400
 relations: {}
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1287-MMODEL-CORE-REQUIREMENT--define-local-tier-as-an-atom-property.md
 ---
 # Define Local Tier as an Atom Property
 
-Local Tier **means** the Atom Property that orders local authority importance within one Scope Unit.
+the Atom Property Local Tier **means** the Property that classifies how broadly one Atom Claim applies within the Scope of its current Scope Unit.

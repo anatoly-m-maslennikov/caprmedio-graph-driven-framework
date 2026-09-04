@@ -5,14 +5,14 @@ cce_form: restriction
 subjects:
   governs:
     continuant:
-      - Artifact/Status
+      - Entity/Type/Status
   depends_on:
     continuant:
       - Journal
-version: 3
-updated_at: 2026-08-29 02:40:41 +0400
+version: 4
+updated_at: 2026-09-04 03:36:02 +0400
 relations: {}
 ---
 # Keep Prior Status Transitions in the Journal
 
-an Artifact **must** expose **only** its current Status as a current Property **and** **must** preserve prior Status transitions through Journal events.
+an Entity **must** expose **only** its current type-qualified Status as a current Property **and** **must** preserve prior Status transitions through Journal events.

@@ -1,14 +1,17 @@
 ---
+atom_id: CA-R-863
+cce_version: cce_1
+cce_form: obligation
 subjects:
   governs:
     continuant:
       - artifact-operations
-version: 6
-updated_at: 2026-08-30 16:44:07 +0400
+version: 7
+updated_at: 2026-09-04 03:10:59 +0400
 ---
 # Search CAPRMEDIO Markdown Atoms
 
-The `ATOM_SEARCH` Tool is the canonical Finder for CAPRMEDIO Markdown Atom carriers under `.caprmedio`. It must support deterministic search over carrier path, filename, frontmatter, and content; exact Atom selectors; lifecycle and subtree filters; singular and bulk results; and metadata-only, content-only, or combined output. It may use generic artifact-query mechanics but owns Atom eligibility, selector, and output-view semantics. It must never mutate governed project truth.
+The `ATOM_SEARCH` Tool is the canonical Finder for CAPRMEDIO Markdown Atom carriers under the configured Project control root. It must support deterministic search over carrier path, filename, frontmatter, and content; exact Atom selectors; lifecycle and subtree filters; singular and bulk results; and metadata-only, content-only, or combined output. It may use generic artifact-query mechanics but owns Atom eligibility, selector, and output-view semantics. It must never mutate governed project truth.
 
 ## Check
 

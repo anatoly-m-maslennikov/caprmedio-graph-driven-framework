@@ -5,12 +5,13 @@ cce_form: placement
 subjects:
   governs:
     continuant:
-      - Scope Unit/Content Role/Directory Carrier
+      - Directory Carrier/Content Role
   depends_on:
     continuant:
       - Atom/Content Role
-version: 3
-updated_at: 2026-08-29 02:40:41 +0400
+      - Scope Unit
+version: 4
+updated_at: 2026-09-04 01:04:00 +0400
 relations: {}
 ---
 # Materialize Content Role Directories on First Artifact

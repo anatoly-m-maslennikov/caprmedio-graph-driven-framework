@@ -5,16 +5,16 @@ cce_form: omission
 subjects:
   governs:
     continuant:
-      - Markdown Carrier/YAML Frontmatter/Default
+      - Markdown Atom Carrier/YAML Frontmatter/Default
   depends_on:
     continuant:
       - Artifact/Property/Default
-version: 3
-updated_at: 2026-08-29 02:40:41 +0400
+version: 4
+updated_at: 2026-09-04 03:36:02 +0400
 relations: {}
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-278-MMODEL-CORE-DELIVERY--omit-resolved-frontmatter-defaults.md
 ---
 # Omit Resolved Frontmatter Defaults
 
-a writer **must** omit a frontmatter Property whose resolved value **`=`** its applicable registered default, **and** a reader **must** resolve that omission from the same authority.
+a writer **must** omit a Markdown Atom Carrier Frontmatter Property whose resolved value **`=`** its applicable registered default, **and** a reader **must** resolve that omission from the same authority.

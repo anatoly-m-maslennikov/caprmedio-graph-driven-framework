@@ -5,12 +5,12 @@ cce_form: prohibition
 subjects:
   governs:
     continuant:
-      - Epic/Identity
+      - "Atom Collection/Type: Epic/Identity"
   depends_on:
     continuant:
-      - Epic/Membership
-version: 3
-updated_at: 2026-08-29 02:40:41 +0400
+      - "Atom Collection/Type: Epic/Membership"
+version: 4
+updated_at: 2026-09-04 01:04:00 +0400
 relations: {}
 ---
 # Keep Epic Identity Independent from Its Members

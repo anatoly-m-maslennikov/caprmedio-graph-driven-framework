@@ -8,9 +8,10 @@ subjects:
       - CAPRMEDIO/Project Root/Carrier
   depends_on:
     continuant:
-      - Scope Unit/Delivery Place
-version: 2
-updated_at: 2026-08-29 01:16:37 +0400
+      - Directory Carrier
+      - Delivery
+version: 3
+updated_at: 2026-09-04 01:04:00 +0400
 relations: {}
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/003_LOCAL_CONFIGURATION/07_delivery/CA-D-327-DELIVERY--use-the-project-root-only-for-delivery-carriers.md

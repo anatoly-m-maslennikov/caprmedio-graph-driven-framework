@@ -9,8 +9,8 @@ subjects:
       - Scope Expression
 cce_version: cce_1
 cce_form: method
-version: 7
-updated_at: 2026-08-29 02:40:41 +0400
+version: 8
+updated_at: 2026-09-04 00:22:20 +0400
 relations: {}
 ---
 # Evaluate Scope Expressions
@@ -18,7 +18,7 @@ relations: {}
 **to** evaluate one Scope Expression, the Resolver **must** perform **all** of:
 
 1. resolve **every** exact Atom ID **or** other atomic identity to **`=1`** Governed Entity.
-2. interpret **all** `<ENTITY_KIND>` as **every** Governed Entity of that kind within Current Scope.
+2. interpret **all** `<ENTITY_KIND>` as **every** Governed Entity of that kind within Atom Scope.
 3. interpret **or** as set union.
 4. interpret **and** as set intersection.
 5. interpret **without** as left-side set exclusion.

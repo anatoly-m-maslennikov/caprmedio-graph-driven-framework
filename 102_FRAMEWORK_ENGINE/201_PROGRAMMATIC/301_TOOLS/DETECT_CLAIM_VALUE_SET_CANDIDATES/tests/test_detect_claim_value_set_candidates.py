@@ -106,6 +106,15 @@ class DetectClaimValueSetCandidatesTests(unittest.TestCase):
         group = report["candidate_groups"][0]
         self.assertEqual(["CA-R-001", "CA-R-002"], group["atom_ids"])
         self.assertEqual(
+            {"scope_unit_carrier": self.root.resolve().as_posix()},
+            group["fingerprint"]["atom_scope"],
+        )
+        self.assertNotIn("current_scope", group["fingerprint"])
+        self.assertEqual(
+            [{"temporal_form": "CONTINUANT", "subject_path": "Atom/Status"}],
+            group["fingerprint"]["governed_subject_set"],
+        )
+        self.assertEqual(
             "Atom/Status: (Active, Draft) **if** Atom/Content Role: Requirement.",
             group["proposed_claim"],
         )

@@ -8,11 +8,12 @@ subjects:
       - "Atom/Content Role: Requirement/Type: Demand/Direction"
   depends_on:
     continuant:
-      - Scope Unit/Order
-version: 3
-updated_at: 2026-08-29 04:33:13 +0400
+      - Local Order
+      - "Scope Unit/Type: Ordered"
+version: 4
+updated_at: 2026-09-04 01:04:00 +0400
 relations: {}
 ---
 # Prohibit Demands to Later Ordered Siblings
 
-a Demand Atom owned by an ordered Scope Unit **must not** target a later ordered sibling under the same direct parent.
+a Demand Atom owned by an Ordered Scope Unit **must not** target a later Ordered sibling under the same direct parent.

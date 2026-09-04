@@ -9,9 +9,9 @@ subjects:
   depends_on:
     continuant:
       - Claim
-      - Claim Scope
-version: 6
-updated_at: 2026-09-02 03:30:00 +0400
+      - Atom/Claim/Scope
+version: 7
+updated_at: 2026-09-04 00:22:20 +0400
 relations: {}
 ---
 # Derive Task Summary from Claim and Claim Scope

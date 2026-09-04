@@ -5,16 +5,17 @@ subjects:
       - Navigational Order Number
   depends_on:
     continuant:
-      - scope-topology
+      - Operator
+      - Scope Unit
 atom_id: CA-R-978
 cce_version: cce_1
 cce_form: definition
-version: 6
-updated_at: 2026-08-29 02:40:41 +0400
+version: 7
+updated_at: 2026-09-04 01:04:00 +0400
 relations:
   child_of:
-    - CA-R-984
+    - CAPRMEDIO-META-REQU-708
 ---
 # Define Navigational Order Number
 
-Navigational Order Number **means** an Operator-controlled decimal navigation label for one Scope Unit.
+a Navigational Order Number **means** an Operator-controlled decimal navigation label for one Scope Unit.

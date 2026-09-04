@@ -14,7 +14,7 @@ from pathlib import Path
 
 
 TOOL_ID = "DETECT_CLAIM_VALUE_SET_CANDIDATES"
-SCHEMA = "caprmedio.detect_claim_value_set_candidates.v2"
+SCHEMA = "caprmedio.detect_claim_value_set_candidates.v3"
 INACTIVE_DIRECTORY_NAMES = {
     "archive",
     "archived",
@@ -91,7 +91,7 @@ def top_block(frontmatter: str, key: str, path: str) -> list[str]:
 
 
 def governed_subject_set(frontmatter: str, path: str) -> tuple[tuple[str, str], ...]:
-    """Derive the canonical GOVERNS component of one Atom's Current Scope."""
+    """Derive the canonical GOVERNS Subject set without treating it as Atom Scope."""
 
     block = top_block(frontmatter, "subjects", path)
     current_kind: str | None = None
@@ -396,13 +396,13 @@ def build_report(
         candidate_groups.append(
             {
                 "fingerprint": {
-                    "current_scope": {
-                        "owner_scope_unit_carrier": scope_unit_coordinate,
-                        "governed_subject_set": [
-                            {"temporal_form": temporal_form, "subject_path": subject_path}
-                            for temporal_form, subject_path in governed_subjects
-                        ],
+                    "atom_scope": {
+                        "scope_unit_carrier": scope_unit_coordinate,
                     },
+                    "governed_subject_set": [
+                        {"temporal_form": temporal_form, "subject_path": subject_path}
+                        for temporal_form, subject_path in governed_subjects
+                    ],
                     "claim_scope": property_name,
                     "property": property_name,
                     "qualifier": qualifier,
@@ -445,7 +445,7 @@ def build_report(
         "mode": "report_only",
         "source_frontier": {
             "folder": scope_unit_coordinate,
-            "current_scope_owner_scope_unit_carrier": scope_unit_coordinate,
+            "atom_scope_unit_carrier": scope_unit_coordinate,
             "active_carrier_count": active_carrier_count,
             "digest_sha256": digest,
         },

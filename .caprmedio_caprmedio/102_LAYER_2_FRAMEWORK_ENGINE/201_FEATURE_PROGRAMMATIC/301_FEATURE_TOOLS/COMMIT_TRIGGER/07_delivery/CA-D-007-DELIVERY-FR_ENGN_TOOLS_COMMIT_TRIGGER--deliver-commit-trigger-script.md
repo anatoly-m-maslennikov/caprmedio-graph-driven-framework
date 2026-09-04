@@ -1,8 +1,9 @@
 ---
+atom_id: CA-D-007
 subject_scopes:
   - feature-boundary
-version: 16
-updated_at: 2026-08-25 01:49:10 +0400
+version: 17
+updated_at: 2026-09-04 03:10:59 +0400
 relations:
   delivery_for:
     - CA-R-803
@@ -11,7 +12,7 @@ relations:
 ---
 # Deliver the commit-trigger script
 
-Realize COMMIT_TRIGGER through 002_FRAMEWORK_ENGINE/PROGRAMMATIC/TOOLS/COMMIT_TRIGGER/commit_trigger.py and its content-identical carrier in the selected installed release. INSTALL_TOOLS, not COMMIT_TRIGGER, owns Tool and Hook installation.
+Realize COMMIT_TRIGGER through 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/COMMIT_TRIGGER/commit_trigger.py and its content-identical carrier in the selected installed release. INSTALL_TOOLS, not COMMIT_TRIGGER, owns Tool and Hook installation.
 
 The user-level Codex carrier is one generic asynchronous PostToolUse command Hook with full-value matcher .* and async: true. It resolves the Git root from Hook cwd, requires the exact repository-local caprmedio.codex-hooks = v1 activation, exits without effect when activation or the installed launcher is absent, and otherwise delegates to the stable install-owned commit-trigger launcher. The command identity contains no repository-specific absolute path or release digest.
 

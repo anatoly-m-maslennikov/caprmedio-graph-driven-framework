@@ -9,11 +9,11 @@ subjects:
   depends_on:
     continuant:
       - Atom/Content Role
-      - Artifact/Status
-version: 3
-updated_at: 2026-08-29 02:40:41 +0400
+      - Entity/Type/Status
+version: 5
+updated_at: 2026-09-04 14:07:21 +0400
 relations: {}
 ---
 # Select Only Current Active RMEDO Atom Revisions
 
-Applicable Methodology membership **must** contain **only** current active Atom Revisions whose Content Role is **in** (REQUIREMENT, METHOD, EVALUATION, DELIVERY, OPERATIONS).
+the Applicable Methodology membership **must** contain **only** current Atom Revisions whose type-qualified Status **`=`** Active **and** whose Content Role is **in** (Requirement, Method, Evaluation, Delivery, Ops).

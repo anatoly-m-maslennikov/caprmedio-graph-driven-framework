@@ -2,20 +2,22 @@
 subjects:
   governs:
     continuant:
-      - Project/Establishing Goal
+      - "Atom/Content Role: Requirement/Type: Goal"
   depends_on:
     continuant:
-      - Atom/Current Scope/Owner
+      - Atom/Claim/Scope
+      - Atom/Scope
       - Operator
+      - Project
 atom_id: CA-R-927
 cce_version: cce_1
 cce_form: obligation
-version: 10
-updated_at: 2026-09-02 03:30:00 +0400
+version: 12
+updated_at: 2026-09-04 01:04:00 +0400
 relations:
   child_of:
     - CA-R-925
 ---
-# Let Operators define Project Goals
+# Let Operators Define Project Goals
 
-**every** Project Scope Unit **must** have an accepted establishing Goal Atom whose Current Scope Owner **contains** no Scope Unit **and** **`>=1`** identified human Operators.
+**every** Project Scope Unit **must** be the Claim Scope of an accepted Goal Atom whose Atom Scope **contains** no Scope Unit **and** **`>=1`** identified human Operators.

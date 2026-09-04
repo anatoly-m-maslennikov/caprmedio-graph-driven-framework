@@ -7,9 +7,9 @@ subjects:
       - Obsolete Project Name
   depends_on:
     continuant:
-      - settings
-version: 11
-updated_at: 2026-08-29 02:40:41 +0400
+      - Project Settings
+version: 13
+updated_at: 2026-09-04 04:05:44 +0400
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -19,4 +19,4 @@ relations:
 ---
 # Register obsolete project names
 
-Project Scope Unit Graph Projections **must** expose project identity from the Project Configuration Atom with `project.name` as the canonical name **and** `project.obsolete_names` as the registered prior names **without** becoming authority for (Project Name **or** Obsolete Project Name).
+the Project Scope Unit Graph Projections **must** expose Project identity from the Project Settings Artifact with `project.name` as the canonical name **and** `project.obsolete_names` as the registered prior names **without** becoming authority for (Project Name **or** Obsolete Project Name).

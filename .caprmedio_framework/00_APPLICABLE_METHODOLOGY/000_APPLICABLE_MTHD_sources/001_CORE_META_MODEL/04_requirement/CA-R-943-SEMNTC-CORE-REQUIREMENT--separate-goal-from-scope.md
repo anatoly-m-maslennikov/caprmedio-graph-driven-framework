@@ -2,15 +2,15 @@
 subjects:
   governs:
     continuant:
-      - Scope Unit/Goal
+      - "Atom/Content Role: Requirement/Type: Goal"
   depends_on:
     continuant:
-      - Scope Unit/Scope
+      - Scope
 atom_id: CA-R-943
 cce_version: cce_1
 cce_form: prohibition
-version: 8
-updated_at: 2026-09-02 03:30:00 +0400
+version: 9
+updated_at: 2026-09-04 01:04:00 +0400
 relations:
   replacement_of:
     - CA-R-820

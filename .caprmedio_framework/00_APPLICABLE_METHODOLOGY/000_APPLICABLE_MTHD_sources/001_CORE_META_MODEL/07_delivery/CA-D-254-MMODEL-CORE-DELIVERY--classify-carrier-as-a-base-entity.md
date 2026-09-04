@@ -9,10 +9,10 @@ subjects:
   depends_on:
     continuant:
       - Base Entity
-version: 2
-updated_at: 2026-08-29 02:40:41 +0400
+version: 3
+updated_at: 2026-09-04 03:36:02 +0400
 relations: {}
 ---
 # Classify Carrier as a Base Entity
 
-Carrier **must** be a Base Entity classified by Delivery authority.
+the Term Carrier **must** be a **SUBTYPE_OF** Base Entity.

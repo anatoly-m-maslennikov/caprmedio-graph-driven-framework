@@ -5,17 +5,17 @@ cce_form: definition
 subjects:
   governs:
     continuant:
-      - "DERIVED_FROM/Target Role: Methodology Source"
+      - Methodology Source
   depends_on:
     continuant:
-      - Applicable Methodology/Revision
-      - Artifact/Revision
-version: 4
-updated_at: 2026-08-29 02:40:41 +0400
+      - Applicable Methodology
+      - Scope Unit
+version: 7
+updated_at: 2026-09-04 14:07:21 +0400
 relations: {}
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1219-MMODEL-CORE-REQUIREMENT--define-methodology-source.md
 ---
 # Define Methodology Source
 
-Methodology Source **means** the target role of DERIVED_FROM **when** one Applicable Methodology Revision derives from one exact Artifact Revision.
+a Methodology Source **means** a Scope Unit selected as input to Applicable Methodology compilation.

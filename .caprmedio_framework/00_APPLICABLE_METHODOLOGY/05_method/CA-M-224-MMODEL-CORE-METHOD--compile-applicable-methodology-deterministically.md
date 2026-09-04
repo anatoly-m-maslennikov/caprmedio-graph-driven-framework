@@ -12,8 +12,8 @@ subjects:
       - Applicable Methodology
       - Local Configuration
       - Artifact/Revision
-version: 7
-updated_at: 2026-08-29 02:40:41 +0400
+version: 8
+updated_at: 2026-09-04 14:07:21 +0400
 relations: {}
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/05_method/CA-M-224-MMODEL-CORE-METHOD--compile-applicable-methodology-deterministically.md
@@ -24,7 +24,7 @@ projection:
 
 1. resolve the exact current source set from Local Configuration.
 2. require CORE_META_MODEL **and** LOCAL_CONFIGURATION **and** include **only** explicitly selected active Extension revisions.
-3. select **`=1`** current active revision of **every** retained source Atom whose Content Role is **in** (REQUIREMENT, METHOD, EVALUATION, DELIVERY, OPERATIONS).
+3. select **`=1`** current active revision of **every** retained source Atom whose Content Role is **in** (Requirement, Method, Evaluation, Delivery, Ops).
 4. preserve **every** selected Atom ID, exact source revision, authority owner, **and** Claim **without** synthesis **or** merge.
 5. detect **every** duplicate selected Atom identity, unresolved replacement, incompatible retained Candidate, **and** unresolved priority.
 6. calculate one deterministic digest of the exact selected source frontier.

@@ -1,12 +1,13 @@
 ---
+atom_id: CA-M-255
 cce_version: cce_1
 cce_form: method
 subjects:
   governs:
     continuant:
       - feature-boundary
-version: 2
-updated_at: 2026-09-02 00:40:00 +0400
+version: 3
+updated_at: 2026-09-04 03:10:59 +0400
 relations:
   method_for:
     - CA-R-1156
@@ -21,7 +22,7 @@ Use this Method when `PROJECTION_REBUILD` must refresh Projections affected by d
 
 ## Procedure
 
-1. Confirm that `PROJECTION_REBUILD` is registered as one `unordered_unit` Doer owned immediately by `TOOLS` at Structural level `4`, with prefix `PROJECTION_REBUILD`, address `002_FRAMEWORK_ENGINE/PROGRAMMATIC/TOOLS/PROJECTION_REBUILD`, and realization path `002_FRAMEWORK_ENGINE/PROGRAMMATIC/TOOLS/PROJECTION_REBUILD/`.
+1. Confirm that `PROJECTION_REBUILD` is registered as one `unordered_unit` Doer owned immediately by `TOOLS` at Structural level `4`, with prefix `PROJECTION_REBUILD`, address `102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/PROJECTION_REBUILD`, and realization path `102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/PROJECTION_REBUILD/`.
 2. Resolve the changed source frontiers and derive the complete affected Projection set using declared Projection dependencies.
 3. Order affected Projections by those dependencies and reject an unresolved or cyclic dependency order.
 4. Preview every derived output effect, including output identity, source frontier, and expected currentness state.

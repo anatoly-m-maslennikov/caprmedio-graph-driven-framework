@@ -9,11 +9,14 @@ subjects:
   depends_on:
     continuant:
       - Atom
+      - Atom/Claim
+      - Atom/Scope
       - Property
-version: 2
-updated_at: 2026-08-29 02:40:41 +0400
+      - Scope Unit
+version: 3
+updated_at: 2026-09-04 03:36:02 +0400
 relations: {}
 ---
 # Define Local Tier as an Atom Property
 
-Local Tier **means** the Atom Property that orders local authority importance within one Scope Unit.
+the Atom Property Local Tier **means** the Property that classifies how broadly one Atom Claim applies within the Scope of its current Scope Unit.

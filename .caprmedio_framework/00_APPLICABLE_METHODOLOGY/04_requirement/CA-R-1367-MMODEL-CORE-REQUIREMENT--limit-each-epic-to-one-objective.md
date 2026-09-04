@@ -5,12 +5,12 @@ cce_form: cardinality
 subjects:
   governs:
     continuant:
-      - Epic/Objective
+      - "Atom Collection/Type: Epic/Objective"
   depends_on:
     continuant:
       - "Atom/Content Role: Plan/Type: Objective"
-version: 1
-updated_at: 2026-09-02 04:15:00 +0400
+version: 2
+updated_at: 2026-09-04 01:04:00 +0400
 relations: {}
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1367-MMODEL-CORE-REQUIREMENT--limit-each-epic-to-one-objective.md

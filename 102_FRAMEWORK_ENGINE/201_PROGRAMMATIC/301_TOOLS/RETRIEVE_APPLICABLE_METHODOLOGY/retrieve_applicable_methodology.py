@@ -7,6 +7,7 @@ import argparse
 import hashlib
 import json
 import re
+import tomllib
 from collections import deque
 from dataclasses import dataclass
 from pathlib import Path
@@ -14,9 +15,34 @@ from pathlib import Path
 
 APPLICABLE_RELATIVE = Path(".caprmedio_framework/00_APPLICABLE_METHODOLOGY")
 SOURCES_RELATIVE = APPLICABLE_RELATIVE / "000_APPLICABLE_MTHD_sources"
+PROJECT_SCOPE_GRAPH_RELATIVE = Path(".caprmedio_caprmedio/project_scope_unit_graph.projection.toml")
 ROLES = ("04_requirement", "05_method", "06_evaluation", "07_delivery", "09_ops")
 SCHEMA = "caprmedio.retrieve_applicable_methodology.v1"
 TEMPORAL_FORMS = ("continuant", "occurrent")
+
+# The source Superlayer and its direct children are structural Scope Units.
+# Their legacy human-readable paths remain accepted query aliases until source
+# carriers use only the canonical uppercase names.
+SOURCE_SCOPE_ALIASES = {
+    "METHODOLOGY_SOURCES": "METHODOLOGY_SOURCES",
+    "Applicable Methodology/Sources": "METHODOLOGY_SOURCES",
+    "CORE_META_MODEL": "CORE_META_MODEL",
+    "Core Meta-Model": "CORE_META_MODEL",
+    "Applicable Methodology/Sources/Core Meta-Model": "CORE_META_MODEL",
+    "INSTALLED_EXTENSIONS": "INSTALLED_EXTENSIONS",
+    "Installed Extensions": "INSTALLED_EXTENSIONS",
+    "Applicable Methodology/Sources/Installed Extensions": "INSTALLED_EXTENSIONS",
+    "LOCAL_CONFIGURATION": "LOCAL_CONFIGURATION",
+    "Local Configuration": "LOCAL_CONFIGURATION",
+    "Applicable Methodology/Sources/Local Configuration": "LOCAL_CONFIGURATION",
+    "Project": "PROJECT",
+}
+SOURCE_SCOPE_CHILDREN = {
+    "METHODOLOGY_SOURCES": ("CORE_META_MODEL", "INSTALLED_EXTENSIONS", "LOCAL_CONFIGURATION"),
+    "CORE_META_MODEL": (),
+    "INSTALLED_EXTENSIONS": (),
+    "LOCAL_CONFIGURATION": (),
+}
 
 
 class RetrievalError(Exception):
@@ -57,6 +83,33 @@ class Carrier:
             "source_carrier_sha256": self.source_sha256,
             "selection_reasons": reasons,
         }
+
+
+@dataclass(frozen=True)
+class ScopeResolution:
+    """One non-Atom structural Scope Unit retrieval result."""
+
+    subject_path: str
+    scope_unit: str
+    current_scope: str
+    structural_graph_carrier: str | None
+    source: str
+
+    def record(self, *, reason_kind: str, temporal_form: str, required_by_atom_id: str | None) -> dict[str, str]:
+        record = {
+            "category": "scope_unit",
+            "reason_kind": reason_kind,
+            "temporal_form": temporal_form,
+            "subject_path": self.subject_path,
+            "scope_unit": self.scope_unit,
+            "current_scope": self.current_scope,
+            "source": self.source,
+        }
+        if self.structural_graph_carrier is not None:
+            record["structural_graph_carrier"] = self.structural_graph_carrier
+        if required_by_atom_id is not None:
+            record["required_by_atom_id"] = required_by_atom_id
+        return record
 
 
 def sha256(data: bytes) -> str:
@@ -257,11 +310,77 @@ def discover(root: Path) -> list[Carrier]:
     return carriers
 
 
+def project_scope_name(root: Path) -> str:
+    """Read the current Project Scope Unit from its structural Projection."""
+
+    path = root / PROJECT_SCOPE_GRAPH_RELATIVE
+    if not path.is_file() or path.is_symlink():
+        raise RetrievalError(
+            "project-scope-graph-missing",
+            "Project Scope Unit retrieval requires the Project Scope Unit Graph Projection",
+            path=PROJECT_SCOPE_GRAPH_RELATIVE.as_posix(),
+        )
+    try:
+        payload = tomllib.loads(path.read_text(encoding="utf-8"))
+    except (OSError, UnicodeDecodeError, tomllib.TOMLDecodeError) as error:
+        raise RetrievalError(
+            "project-scope-graph-invalid",
+            "Project Scope Unit Graph Projection is not valid TOML",
+            path=PROJECT_SCOPE_GRAPH_RELATIVE.as_posix(),
+        ) from error
+    project = payload.get("project")
+    if not isinstance(project, dict):
+        raise RetrievalError(
+            "project-scope-graph-project-missing",
+            "Project Scope Unit Graph Projection requires one project table",
+            path=PROJECT_SCOPE_GRAPH_RELATIVE.as_posix(),
+        )
+    name = project.get("name")
+    if not isinstance(name, str) or not name or name != name.lower():
+        raise RetrievalError(
+            "project-scope-graph-project-invalid",
+            "Project Scope Unit Graph Projection requires one lowercase Project name",
+            path=PROJECT_SCOPE_GRAPH_RELATIVE.as_posix(),
+        )
+    return name
+
+
+def resolve_scope_unit(root: Path, subject_path: str) -> ScopeResolution | None:
+    """Resolve one exact structural Scope Unit without synthesizing Atom authority."""
+
+    scope_unit = SOURCE_SCOPE_ALIASES.get(subject_path)
+    if scope_unit is None:
+        return None
+    if scope_unit == "PROJECT":
+        project_name = project_scope_name(root)
+        return ScopeResolution(
+            subject_path=subject_path,
+            scope_unit=project_name,
+            current_scope=project_name,
+            structural_graph_carrier=PROJECT_SCOPE_GRAPH_RELATIVE.as_posix(),
+            source="project_scope_unit_graph",
+        )
+    return ScopeResolution(
+        subject_path=subject_path,
+        scope_unit=scope_unit,
+        current_scope="METHODOLOGY_SOURCES",
+        structural_graph_carrier=None,
+        source="applicable_methodology_source_structure",
+    )
+
+
+def is_lowercase_general_subject(subject_path: str) -> bool:
+    """Return whether a path is an explicitly terminal General Subject."""
+
+    return bool(subject_path) and subject_path[0].islower()
+
+
 def retrieve(
+    root: Path,
     carriers: list[Carrier],
     subject_paths: list[str],
     process_paths: list[str],
-) -> tuple[list[Carrier], dict[int, list[dict[str, str]]], list[dict[str, str]]]:
+) -> tuple[list[Carrier], dict[int, list[dict[str, str]]], list[dict[str, str]], list[dict[str, str]]]:
     governors: dict[tuple[str, str], list[int]] = {}
     for index, carrier in enumerate(carriers):
         for subject in carrier.governs:
@@ -269,19 +388,101 @@ def retrieve(
 
     reasons: dict[int, list[dict[str, str]]] = {}
     queue: deque[int] = deque()
+    resolutions: list[dict[str, str]] = []
+    recorded_resolutions: set[tuple[object, ...]] = set()
+
+    def record_resolution(record: dict[str, str]) -> None:
+        key = tuple(sorted(record.items()))
+        if key not in recorded_resolutions:
+            recorded_resolutions.add(key)
+            resolutions.append(record)
+
+    def select_governors(
+        temporal_form: str,
+        subject_path: str,
+        *,
+        reason_kind: str,
+        required_by_atom_id: str | None,
+    ) -> bool:
+        indexes = governors.get((temporal_form, subject_path), [])
+        if not indexes:
+            return False
+        record_resolution(
+            {
+                "category": "exact_governor",
+                "reason_kind": reason_kind,
+                "temporal_form": temporal_form,
+                "subject_path": subject_path,
+                **({"required_by_atom_id": required_by_atom_id} if required_by_atom_id is not None else {}),
+            }
+        )
+        for index in indexes:
+            reason = {"kind": reason_kind, "temporal_form": temporal_form, "subject_path": subject_path}
+            if required_by_atom_id is not None:
+                reason["required_by_atom_id"] = required_by_atom_id
+            if reason not in reasons.setdefault(index, []):
+                reasons[index].append(reason)
+            queue.append(index)
+        return True
+
+    def resolve_non_governor(
+        temporal_form: str,
+        subject_path: str,
+        *,
+        reason_kind: str,
+        required_by_atom_id: str | None,
+    ) -> bool:
+        scope_resolution = resolve_scope_unit(root, subject_path)
+        if scope_resolution is not None:
+            record_resolution(
+                scope_resolution.record(
+                    reason_kind=reason_kind,
+                    temporal_form=temporal_form,
+                    required_by_atom_id=required_by_atom_id,
+                )
+            )
+            return True
+        if is_lowercase_general_subject(subject_path):
+            record = {
+                "category": "general_subject",
+                "reason_kind": reason_kind,
+                "temporal_form": temporal_form,
+                "subject_path": subject_path,
+                "terminal": "true",
+            }
+            if required_by_atom_id is not None:
+                record["required_by_atom_id"] = required_by_atom_id
+            record_resolution(record)
+            return True
+        return False
+
+    unresolved: set[tuple[str, str]] = set()
     for query_kind, temporal_forms, values in (
         ("subject", TEMPORAL_FORMS, subject_paths),
         ("process", ("occurrent",), process_paths),
     ):
         for value in values:
+            resolved = False
             for temporal_form in temporal_forms:
-                for index in governors.get((temporal_form, value), []):
-                    reason = {"kind": query_kind, "temporal_form": temporal_form, "subject_path": value}
-                    if reason not in reasons.setdefault(index, []):
-                        reasons[index].append(reason)
-                    queue.append(index)
+                if select_governors(
+                    temporal_form,
+                    value,
+                    reason_kind=query_kind,
+                    required_by_atom_id=None,
+                ):
+                    resolved = True
+                    continue
+                if resolve_non_governor(
+                    temporal_form,
+                    value,
+                    reason_kind=query_kind,
+                    required_by_atom_id=None,
+                ):
+                    resolved = True
+                    continue
+            if not resolved:
+                unresolved.add((temporal_forms[0], value))
 
-    unresolved: set[tuple[str, str]] = set()
     expanded: set[int] = set()
     while queue:
         index = queue.popleft()
@@ -289,27 +490,27 @@ def retrieve(
             continue
         expanded.add(index)
         for temporal_form, subject_path in carriers[index].depends_on:
-            prerequisite_governors = governors.get((temporal_form, subject_path), [])
-            if not prerequisite_governors:
-                unresolved.add((temporal_form, subject_path))
+            if select_governors(
+                temporal_form,
+                subject_path,
+                reason_kind="prerequisite",
+                required_by_atom_id=carriers[index].atom_id,
+            ):
                 continue
-            for prerequisite_index in prerequisite_governors:
-                reason = {
-                    "kind": "prerequisite",
-                    "temporal_form": temporal_form,
-                    "subject_path": subject_path,
-                    "required_by_atom_id": carriers[index].atom_id,
-                }
-                if reason not in reasons.setdefault(prerequisite_index, []):
-                    reasons[prerequisite_index].append(reason)
-                queue.append(prerequisite_index)
+            if not resolve_non_governor(
+                temporal_form,
+                subject_path,
+                reason_kind="prerequisite",
+                required_by_atom_id=carriers[index].atom_id,
+            ):
+                unresolved.add((temporal_form, subject_path))
 
     selected = [carrier for index, carrier in enumerate(carriers) if index in reasons]
     diagnostics = [
         {"code": "unresolved-prerequisite", "temporal_form": temporal_form, "subject_path": subject_path}
         for temporal_form, subject_path in sorted(unresolved)
     ]
-    return selected, reasons, diagnostics
+    return selected, reasons, diagnostics, resolutions
 
 
 def canonical_digest(carriers: list[Carrier]) -> str:
@@ -339,7 +540,7 @@ def run(argv: list[str] | None = None) -> int:
             raise RetrievalError("query-missing", "At least one --subject or --process query is required")
         root = args.root.resolve() if args.root else find_project_root(Path.cwd())
         carriers = discover(root)
-        selected, reasons, diagnostics = retrieve(carriers, args.subject, args.process)
+        selected, reasons, diagnostics, resolutions = retrieve(root, carriers, args.subject, args.process)
         by_identity = {carrier.atom_id: index for index, carrier in enumerate(carriers)}
         report = {
             "schema": SCHEMA,
@@ -351,6 +552,7 @@ def run(argv: list[str] | None = None) -> int:
             "complete": not diagnostics,
             "persistent_subject_index_created": False,
             "selected_atoms": [carrier.record(reasons[by_identity[carrier.atom_id]]) for carrier in selected],
+            "resolution_outcomes": resolutions,
             "diagnostics": diagnostics,
         }
         print(json.dumps(report, ensure_ascii=False, sort_keys=True, indent=2))

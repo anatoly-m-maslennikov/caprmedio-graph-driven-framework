@@ -15,12 +15,14 @@ from pathlib import Path
 from typing import Any, Mapping, Sequence
 
 SCHEMA_VERSION = 1
-CONTROL_ROOT = ".caprmedio"
-ROLE_DIRECTORY = re.compile(r"^(0[1-9])_[a-z0-9_]+$")
-CURRENT_FILENAME = re.compile(
-    r"^CA-(?:C|A|P|R|M|E|D|O|I)-(?:[0-9]{3,})?-[A-Z][A-Z0-9_]*(?:-[A-Z][A-Z0-9_]*)*--[a-z0-9][a-z0-9_-]*\.md$"
-)
-ATOM_ID = re.compile(r"^(CA-[A-Z]+-[0-9]{3,})(?:-|$)")
+SETTINGS_PATH = Path(".caprmedio_caprmedio/caprmedio_project_settings.toml")
+DEFAULT_CONTROL_ROOT = Path(".caprmedio_caprmedio")
+ROLE_DIRECTORY = re.compile(r"^0[1-9]_[a-z0-9_]+$")
+CURRENT_FILENAME = re.compile(r"^[A-Za-z0-9][A-Za-z0-9_@-]*--[a-z0-9][a-z0-9_-]*\.md$")
+# An order token may precede an Atom ID in a Plan carrier filename.  The
+# frontmatter identifier remains canonical; a filename occurrence is a
+# consistency check, not the only identity carrier.
+ATOM_ID = re.compile(r"(?:^|-)(CA-[CAPRMEDO]-[0-9]+)(?=-|$)")
 
 
 class ToolError(RuntimeError):
@@ -63,15 +65,32 @@ def _inside(path: Path, parent: Path) -> bool:
         return False
 
 
+def control_root(root: Path) -> Path:
+    """Return the configured current Project carrier root, never a legacy root."""
+
+    root = root.resolve()
+    try:
+        settings = tomllib.loads((root / SETTINGS_PATH).read_text(encoding="utf-8"))
+    except (OSError, tomllib.TOMLDecodeError) as error:
+        raise ToolError("project-settings-unavailable", f"cannot read current Project Settings: {error}") from error
+    configured = settings.get("paths", {}).get("control_root")
+    if not isinstance(configured, str) or not configured:
+        raise ToolError("project-settings-invalid", "paths.control_root must name the Project carrier root")
+    candidate = Path(configured)
+    if candidate.is_absolute() or ".." in candidate.parts or candidate != DEFAULT_CONTROL_ROOT:
+        raise ToolError("project-settings-invalid", "paths.control_root must be .caprmedio_caprmedio")
+    return (root / candidate).resolve()
+
+
 def safe_path(root: Path, value: str, *, must_exist: bool = False) -> Path:
     root = root.resolve()
     if not value or "\x00" in value:
         raise ToolError("path-invalid", "path must be a non-empty string")
     candidate = Path(value).expanduser()
     path = candidate.resolve() if candidate.is_absolute() else (root / candidate).resolve()
-    control = (root / CONTROL_ROOT).resolve()
+    control = control_root(root)
     if not _inside(path, control):
-        raise ToolError("outside-control-root", f"path is outside {CONTROL_ROOT}: {value}")
+        raise ToolError("outside-control-root", f"path is outside {control.relative_to(root)}: {value}")
     if must_exist and not path.exists():
         raise ToolError("path-not-found", f"path does not exist: {value}")
     return path
@@ -101,29 +120,45 @@ def _lifecycle(path: Path, control: Path) -> str:
         return "archived"
     if "drafts" in parts:
         return "draft"
+    if "done" in parts:
+        return "done"
+    if "canceled" in parts or "cancelled" in parts:
+        return "canceled"
     return "active"
 
 
 def atom_from_path(root: Path, path: Path) -> Atom:
     root = root.resolve()
-    control = (root / CONTROL_ROOT).resolve()
+    control = control_root(root)
     path = path.resolve()
     if not _inside(path, control) or path.suffix.lower() != ".md" or not path.is_file():
         raise ToolError("not-markdown-atom", f"not a CAPRMEDIO Markdown Atom carrier: {path}")
     role = _role_directory(path, control)
-    if role is None and path != control / "CA-INTENT.md":
+    if role is None and path.parent != control:
         raise ToolError("not-markdown-atom", f"carrier is not placed in a CAPRMEDIO content-role directory: {path}")
     frontmatter, content = split_frontmatter(path.read_text(encoding="utf-8"))
     lifecycle = _lifecycle(path, control)
-    match = ATOM_ID.match(path.name)
-    atom_id = "CA-INTENT" if path.name == "CA-INTENT.md" else match.group(1) if match and lifecycle != "draft" else None
+    match = ATOM_ID.search(path.name)
+    declared = re.findall(r"(?m)^atom_id:\s*(CA-[CAPRMEDO]-[0-9]+)\s*$", frontmatter)
+    if len(declared) > 1:
+        raise ToolError("atom-frontmatter-invalid", f"Atom has duplicate atom_id values: {path}")
+    if lifecycle == "draft":
+        if declared:
+            raise ToolError("draft-has-stable-id", f"draft Atom cannot declare atom_id: {path}")
+        atom_id = None
+    else:
+        if not declared:
+            raise ToolError("atom-frontmatter-id-required", f"active Atom must declare atom_id in frontmatter: {path}")
+        if match is not None and declared[0] != match.group(1):
+            raise ToolError("atom-frontmatter-id-mismatch", f"filename and frontmatter atom_id differ: {path}")
+        atom_id = declared[0]
     return Atom(path, path.relative_to(root).as_posix(), path.name, atom_id,
                 lifecycle, role or "control-root", frontmatter, content)
 
 
 def scan_atoms(root: Path, *, under: str | None = None, lifecycle: str = "all") -> list[Atom]:
     root = root.resolve()
-    base = safe_path(root, under, must_exist=True) if under else (root / CONTROL_ROOT).resolve()
+    base = safe_path(root, under, must_exist=True) if under else control_root(root)
     candidates = [base] if base.is_file() else sorted(base.rglob("*.md"), key=lambda p: p.as_posix())
     atoms: list[Atom] = []
     for path in candidates:
@@ -148,6 +183,12 @@ def resolve_selector(root: Path, selector: str, atoms: Sequence[Atom] | None = N
     normalized = Path(selector).name
     matches = [atom for atom in pool if selector == atom.relative or normalized == atom.filename
                or normalized == Path(atom.filename).stem or selector == atom.atom_id]
+    if re.fullmatch(r"CA-[CAPRMEDO]-[0-9]+", selector):
+        for lifecycle in ("active", "done", "canceled", "archived"):
+            current_matches = [atom for atom in matches if atom.lifecycle == lifecycle]
+            if current_matches:
+                matches = current_matches
+                break
     unique = {atom.relative: atom for atom in matches}
     if not unique:
         raise ToolError("atom-not-found", f"no CAPRMEDIO Markdown Atom matches selector: {selector}")
@@ -231,6 +272,23 @@ def _revision(frontmatter: str, *, creating: bool) -> str:
     return "\n".join(lines)
 
 
+def _with_atom_id(frontmatter: str, atom_id: str | None) -> str:
+    """Make the current carrier identity explicit without accepting a conflict."""
+
+    declared = re.findall(r"(?m)^atom_id:\s*(\S+)\s*$", frontmatter)
+    if len(declared) > 1:
+        raise ToolError("atom-frontmatter-invalid", "frontmatter must declare atom_id at most once")
+    if atom_id is None:
+        if declared:
+            raise ToolError("draft-has-stable-id", "a draft cannot declare atom_id")
+        return frontmatter
+    if declared:
+        if declared[0] != atom_id:
+            raise ToolError("atom-frontmatter-id-mismatch", "frontmatter atom_id must equal the filename Atom ID")
+        return frontmatter
+    return (frontmatter + "\n" if frontmatter else "") + f"atom_id: {atom_id}"
+
+
 def render(frontmatter: str, content: str) -> bytes:
     if not isinstance(content, str):
         raise ToolError("input-invalid", "content must be a string")
@@ -238,9 +296,9 @@ def render(frontmatter: str, content: str) -> bytes:
 
 
 def _validate_destination(root: Path, path: Path, *, filename_required: bool) -> None:
-    control = (root / CONTROL_ROOT).resolve()
+    control = control_root(root)
     if not _inside(path, control):
-        raise ToolError("outside-control-root", f"destination is outside {CONTROL_ROOT}: {path}")
+        raise ToolError("outside-control-root", f"destination is outside {control.relative_to(root)}: {path}")
     probe = path.parent if filename_required else path
     if not any(ROLE_DIRECTORY.fullmatch(part) for part in probe.relative_to(control).parts):
         raise ToolError("destination-not-atom-place", f"destination has no CAPRMEDIO content-role directory: {path}")
@@ -310,9 +368,9 @@ def run_create(root: Path, args: argparse.Namespace) -> dict[str, Any]:
             raise ToolError("filename-invalid", f"new Atom filename does not follow current grammar: {path.name}")
         if path.exists() or any(existing == path for existing, _ in plans):
             raise ToolError("destination-collision", f"Atom destination already exists: {path.relative_to(root)}")
-        match = ATOM_ID.match(path.name)
+        match = ATOM_ID.search(path.name)
         atom_id = match.group(1) if match else None
-        destination_lifecycle = _lifecycle(path, (root / CONTROL_ROOT).resolve())
+        destination_lifecycle = _lifecycle(path, control_root(root))
         if destination_lifecycle == "draft" and atom_id is not None:
             raise ToolError("draft-has-stable-id", f"draft filename must not contain a stable Atom ID: {path.name}")
         if destination_lifecycle != "draft" and atom_id is None:
@@ -321,7 +379,8 @@ def run_create(root: Path, args: argparse.Namespace) -> dict[str, Any]:
             raise ToolError("atom-id-collision", f"Atom ID already exists: {atom_id}")
         if atom_id:
             planned_ids.add(atom_id)
-        frontmatter = _revision(_normalize_frontmatter(item.get("frontmatter", "")), creating=True)
+        frontmatter = _with_atom_id(_normalize_frontmatter(item.get("frontmatter", "")), atom_id)
+        frontmatter = _revision(frontmatter, creating=True)
         plans.append((path, render(frontmatter, item.get("content", ""))))
     result = {"count": len(plans), "changes": [{"operation": "create", "path": p.relative_to(root).as_posix()} for p, _ in plans]}
     if not args.apply:
@@ -348,6 +407,7 @@ def run_update(root: Path, args: argparse.Namespace) -> dict[str, Any]:
         if "frontmatter" not in item and "content" not in item:
             raise ToolError("input-invalid", "update item must provide frontmatter or content")
         frontmatter = _normalize_frontmatter(item["frontmatter"]) if "frontmatter" in item else atom.frontmatter
+        frontmatter = _with_atom_id(frontmatter, atom.atom_id)
         content = item["content"] if "content" in item else atom.content
         plans.append((atom, render(_revision(frontmatter, creating=False), content)))
     result = {"count": len(plans), "changes": [{"operation": "update", "path": atom.relative} for atom, _ in plans]}
@@ -419,7 +479,7 @@ def run_move(root: Path, args: argparse.Namespace) -> dict[str, Any]:
             target = destination / atom.path.relative_to(source)
         target = target.resolve()
         _validate_destination(root, target, filename_required=True)
-        target_lifecycle = _lifecycle(target, (root / CONTROL_ROOT).resolve())
+        target_lifecycle = _lifecycle(target, control_root(root))
         if target_lifecycle == "draft" and atom.atom_id is not None:
             raise ToolError("draft-has-stable-id", f"move would place a stable Atom ID in drafts: {atom.relative}")
         if target_lifecycle != "draft" and atom.atom_id is None:
@@ -431,7 +491,7 @@ def run_move(root: Path, args: argparse.Namespace) -> dict[str, Any]:
 def run_archive(root: Path, args: argparse.Namespace) -> dict[str, Any]:
     root = root.resolve()
     atoms = resolve_selectors(root, args.atom)
-    control = (root / CONTROL_ROOT).resolve()
+    control = control_root(root)
     plans: list[tuple[Atom, Path]] = []
     for atom in atoms:
         if atom.lifecycle != "active" or atom.atom_id is None:
@@ -454,8 +514,8 @@ def run_promote(root: Path, args: argparse.Namespace) -> dict[str, Any]:
     atoms = resolve_selectors(root, selectors)
     existing_ids = {atom.atom_id for atom in scan_atoms(root) if atom.atom_id}
     planned_ids: set[str] = set()
-    control = (root / CONTROL_ROOT).resolve()
-    plans: list[tuple[Atom, Path]] = []
+    control = control_root(root)
+    plans: list[tuple[Atom, Path, bytes]] = []
     for item, atom in zip(raw_items, atoms, strict=True):
         if atom.lifecycle != "draft" or atom.atom_id is not None:
             raise ToolError("atom-not-draft", f"only identity-less drafts can be promoted: {atom.relative}")
@@ -479,26 +539,88 @@ def run_promote(root: Path, args: argparse.Namespace) -> dict[str, Any]:
         active_parent = control.joinpath(*parent_parts[:index], *parent_parts[index + 1:])
         target = (active_parent / filename).resolve()
         _validate_destination(root, target, filename_required=True)
-        plans.append((atom, target))
-    return _execute_move_plans(root, plans, operation="promote", apply=args.apply)
+        frontmatter = _with_atom_id(atom.frontmatter, requested)
+        plans.append((atom, target, render(frontmatter, atom.content)))
+    moves = [(atom, target) for atom, target, _ in plans]
+    targets = [target for _, target, _ in plans]
+    if len(set(targets)) != len(targets):
+        raise ToolError("destination-collision", "more than one selected Atom resolves to the same destination")
+    for atom, target, _ in plans:
+        if target.exists():
+            raise ToolError("destination-collision", f"destination already exists: {target.relative_to(root)}")
+    result = {"count": len(plans), "changes": [{"operation": "promote", "from": atom.relative,
+               "to": target.relative_to(root).as_posix()} for atom, target in moves]}
+    if not args.apply:
+        return result
+    snapshots: dict[Path, bytes | None] = {atom.path: atom.path.read_bytes() for atom, _, _ in plans}
+    snapshots.update({target: None for _, target, _ in plans})
+    try:
+        for _, target, data in plans:
+            _atomic_write(target, data)
+        for atom, _, _ in plans:
+            atom.path.unlink()
+    except BaseException:
+        _restore(snapshots)
+        raise
+    return result
 
 
-def _frontmatter_tier(frontmatter: str) -> str:
-    matches = re.findall(r"(?m)^tier:\s*(core|standard)\s*$", frontmatter)
-    if len(matches) != 1:
-        raise ToolError("current-tier-unresolved", "active Atom must declare exactly one tier: core or standard")
-    return matches[0]
+LOCAL_TIERS = {"standard": 0, "core": 1, "principle": 2}
 
 
-def _replace_tier(frontmatter: str, target_tier: str) -> str:
-    if target_tier not in {"core", "standard"}:
-        raise ToolError("target-tier-invalid", "target tier must be core or standard")
-    _frontmatter_tier(frontmatter)
-    return re.sub(r"(?m)^tier:\s*(?:core|standard)\s*$", f"tier: {target_tier}", frontmatter)
+def _filename_parts(atom: Atom, scope_prefix: str) -> tuple[list[str], str, list[str], str]:
+    """Return Atom ID, descriptor tokens, and local tier from the current filename grammar."""
+
+    if atom.atom_id is None:
+        raise ToolError("atom-id-required", f"Atom has no stable identity: {atom.relative}")
+    head, separator, _ = atom.filename.partition("--")
+    if not separator:
+        raise ToolError("filename-invalid", f"Atom filename has no summary separator: {atom.filename}")
+    tokens = head.split("-")
+    identifier = atom.atom_id.split("-")
+    identifier_index = next(
+        (index for index in range(len(tokens) - len(identifier) + 1)
+         if tokens[index:index + len(identifier)] == identifier),
+        None,
+    )
+    if identifier_index is None:
+        raise ToolError("filename-invalid", f"Atom filename does not begin with its Atom ID: {atom.filename}")
+    leading = tokens[:identifier_index]
+    if leading and any(not token.isdigit() for token in leading):
+        raise ToolError("filename-invalid", f"only an order token may precede an Atom ID: {atom.filename}")
+    descriptor = tokens[identifier_index + len(identifier):]
+    if scope_prefix:
+        if not descriptor or descriptor[0] != scope_prefix:
+            raise ToolError("filename-scope-mismatch", f"Atom filename does not begin with current Scope Unit name: {atom.filename}")
+        descriptor = descriptor[1:]
+    if descriptor and descriptor[0] in {"CORE", "PRINCIPLE"}:
+        tier = descriptor.pop(0).lower()
+    else:
+        tier = "standard"
+    if not descriptor:
+        raise ToolError("filename-invalid", f"Atom filename has no Atom Type after its Scope Unit name: {atom.filename}")
+    return leading, atom.atom_id, descriptor, tier
+
+
+def _upgrade_filename(atom: Atom, *, current_prefix: str, target_prefix: str, target_tier: str) -> tuple[str, str]:
+    leading, atom_id, descriptor, current_tier = _filename_parts(atom, current_prefix)
+    if target_tier not in LOCAL_TIERS:
+        raise ToolError("target-tier-invalid", "target tier must be principle, core, or standard")
+    tokens = [*leading, *atom_id.split("-")]
+    if target_prefix:
+        tokens.append(target_prefix)
+    if target_tier != "standard":
+        tokens.append(target_tier.upper())
+    tokens.extend(descriptor)
+    summary = atom.filename.partition("--")[2]
+    filename = "-".join(tokens) + "--" + summary
+    if not CURRENT_FILENAME.fullmatch(filename):
+        raise ToolError("filename-invalid", f"upgraded Atom filename does not follow current grammar: {filename}")
+    return filename, current_tier
 
 
 def _scope_graph(root: Path) -> tuple[dict[str, dict[str, Any]], dict[str, str]]:
-    carrier = root / CONTROL_ROOT / "project_scope_unit_graph.projection.toml"
+    carrier = control_root(root) / "project_scope_unit_graph.projection.toml"
     try:
         document = tomllib.loads(carrier.read_text(encoding="utf-8"))
     except (OSError, tomllib.TOMLDecodeError) as error:
@@ -506,48 +628,50 @@ def _scope_graph(root: Path) -> tuple[dict[str, dict[str, Any]], dict[str, str]]
     raw_rows = document.get("scope_units")
     if not isinstance(raw_rows, list) or not raw_rows:
         raise ToolError("scope-projection-invalid", "Scope Unit projection contains no scope_units")
-    rows: dict[str, dict[str, Any]] = {}
-    selectors: dict[str, str] = {}
+    control = control_root(root)
+    rows: dict[str, dict[str, Any]] = {
+        "caprmedio": {
+            "key": "caprmedio",
+            "name": "caprmedio",
+            "prefix": "CA",
+            "structural_parent": "",
+            "full_authority_path": control,
+        }
+    }
+    selectors: dict[str, str] = {"caprmedio": "caprmedio", "ca": "caprmedio"}
+    parent_selectors: dict[str, str] = dict(selectors)
+    pending: list[tuple[dict[str, Any], str, str, str, Path]] = []
     for raw in raw_rows:
         if not isinstance(raw, dict):
             raise ToolError("scope-projection-invalid", "Scope Unit row must be a table")
-        name, prefix, parent, authority = (raw.get(field) for field in ("name", "prefix", "structural_parent", "authority_path"))
+        name, authority = (raw.get(field) for field in ("name", "authority_path"))
+        parent = raw.get("parent", raw.get("structural_parent", "caprmedio"))
+        prefix = raw.get("unit_name", name)
         if not all(isinstance(value, str) for value in (name, prefix, parent, authority)):
             raise ToolError("scope-projection-invalid", "Scope Unit identity and authority fields must be strings")
         key = name
         if key in rows:
             raise ToolError("scope-projection-invalid", f"duplicate Scope Unit key: {key}")
-        rows[key] = {**raw, "key": key}
-        for selector in {key, name, prefix}:
+        full_authority_path = (root / authority).resolve()
+        if not _inside(full_authority_path, control):
+            raise ToolError("scope-projection-invalid", f"Scope Unit authority path is outside Project carrier: {authority}")
+        rows[key] = {**raw, "key": key, "prefix": prefix, "structural_parent": parent, "full_authority_path": full_authority_path}
+        pending.append((raw, key, name, prefix, full_authority_path))
+        for selector in {key, name, prefix, full_authority_path.name}:
             normalized = selector.casefold()
             if normalized in selectors and selectors[normalized] != key:
                 raise ToolError("scope-projection-invalid", f"ambiguous Scope Unit selector: {selector}")
             selectors[normalized] = key
+            parent_selectors[normalized] = key
 
-    resolving: set[str] = set()
+    for raw, key, _, _, _ in pending:
+        parent = raw.get("parent", raw.get("structural_parent", "caprmedio"))
+        assert isinstance(parent, str)
+        parent_key = parent_selectors.get(parent.casefold())
+        if parent_key is None:
+            raise ToolError("scope-projection-invalid", f"unknown Scope Unit parent: {parent}")
+        rows[key]["structural_parent"] = parent_key
 
-    def full_path(key: str) -> Path:
-        row = rows[key]
-        cached = row.get("full_authority_path")
-        if isinstance(cached, Path):
-            return cached
-        if key in resolving:
-            raise ToolError("scope-projection-invalid", "Scope Unit authority hierarchy contains a cycle")
-        resolving.add(key)
-        parent = str(row["structural_parent"])
-        relative = Path(str(row["authority_path"]))
-        if parent:
-            if parent not in rows:
-                raise ToolError("scope-projection-invalid", f"unknown Scope Unit parent: {parent}")
-            value = (full_path(parent) / relative).resolve()
-        else:
-            value = (root / relative).resolve()
-        resolving.remove(key)
-        row["full_authority_path"] = value
-        return value
-
-    for key in rows:
-        full_path(key)
     return rows, selectors
 
 
@@ -571,18 +695,6 @@ def _is_same_or_ancestor(rows: Mapping[str, Mapping[str, Any]], current: str, ta
         cursor = parent
 
 
-def _upgrade_filename(filename: str, target_prefix: str) -> str:
-    head, separator, summary = filename.partition("--")
-    if not separator or "-" not in head:
-        raise ToolError("filename-invalid", f"cannot derive upgraded filename: {filename}")
-    segments = head.split("-")
-    segments[-1] = target_prefix
-    upgraded = "-".join(segments) + "--" + summary
-    if not CURRENT_FILENAME.fullmatch(upgraded):
-        raise ToolError("filename-invalid", f"upgraded Atom filename does not follow current grammar: {upgraded}")
-    return upgraded
-
-
 def run_upgrade(root: Path, args: argparse.Namespace) -> dict[str, Any]:
     root = root.resolve()
     raw_items = _items(_load_payload(args.input))
@@ -591,15 +703,14 @@ def run_upgrade(root: Path, args: argparse.Namespace) -> dict[str, Any]:
         raise ToolError("input-invalid", "every upgrade item requires selector")
     atoms = resolve_selectors(root, selectors_raw)
     rows, scope_selectors = _scope_graph(root)
-    control = (root / CONTROL_ROOT).resolve()
+    control = control_root(root)
     plans: list[tuple[Atom, Path, bytes, str, str, str, str]] = []
     for item, atom in zip(raw_items, atoms, strict=True):
         if atom.lifecycle != "active" or atom.atom_id is None:
             raise ToolError("atom-not-active", f"only active Atoms with stable identity can be upgraded: {atom.relative}")
         target_tier = item.get("tier")
-        if not isinstance(target_tier, str) or target_tier not in {"core", "standard"}:
-            raise ToolError("target-tier-invalid", "every upgrade item requires explicit tier: core or standard")
-        current_tier = _frontmatter_tier(atom.frontmatter)
+        if not isinstance(target_tier, str) or target_tier not in LOCAL_TIERS:
+            raise ToolError("target-tier-invalid", "every upgrade item requires explicit tier: principle, core, or standard")
         current_scope = _scope_for_atom(atom, rows, control)
         requested_scope = item.get("to_scope")
         if requested_scope is None:
@@ -610,18 +721,22 @@ def run_upgrade(root: Path, args: argparse.Namespace) -> dict[str, Any]:
             raise ToolError("target-scope-unresolved", f"unknown target Scope Unit: {requested_scope}")
         if not _is_same_or_ancestor(rows, current_scope, target_scope):
             raise ToolError("target-scope-not-upper", "target Scope Unit must be the current Scope Unit or one of its ancestors")
-        if target_scope == current_scope and not (current_tier == "standard" and target_tier == "core"):
+        current_prefix = "" if current_scope == "caprmedio" else str(rows[current_scope]["prefix"])
+        target_prefix = "" if target_scope == "caprmedio" else str(rows[target_scope]["prefix"])
+        filename, current_tier = _upgrade_filename(
+            atom,
+            current_prefix=current_prefix,
+            target_prefix=target_prefix,
+            target_tier=target_tier,
+        )
+        if target_scope == current_scope and LOCAL_TIERS[target_tier] <= LOCAL_TIERS[current_tier]:
             raise ToolError("target-tier-not-higher", f"target tier is not higher than current tier: {current_tier} -> {target_tier}")
-        frontmatter = _revision(_replace_tier(atom.frontmatter, target_tier), creating=False)
-        if target_scope == current_scope:
-            target = atom.path
-        else:
-            role_name = _role_directory(atom.path, control)
-            if role_name is None:
-                raise ToolError("upgrade-location-missing", f"Atom has no content-role location: {atom.relative}")
-            filename = _upgrade_filename(atom.filename, str(rows[target_scope]["prefix"]))
-            target = (rows[target_scope]["full_authority_path"] / role_name / filename).resolve()
-            _validate_destination(root, target, filename_required=True)
+        role_name = _role_directory(atom.path, control)
+        if role_name is None:
+            raise ToolError("upgrade-location-missing", f"Atom has no content-role location: {atom.relative}")
+        target = (rows[target_scope]["full_authority_path"] / role_name / filename).resolve()
+        _validate_destination(root, target, filename_required=True)
+        frontmatter = _revision(atom.frontmatter, creating=False)
         plans.append((atom, target, render(frontmatter, atom.content), current_tier, target_tier, current_scope, target_scope))
 
     targets = [target for _, target, *_ in plans]
@@ -660,7 +775,7 @@ def describe(tool_id: str) -> dict[str, Any]:
              "ATOM_UPDATE": "doer", "ATOM_MOVE": "doer", "ATOM_ARCHIVE": "doer",
              "ATOM_PROMOTE": "doer", "ATOM_UPGRADE": "doer"}
     return {"capability_id": tool_id, "kind": kinds[tool_id],
-            "scope": "CAPRMEDIO Markdown Atom carriers under .caprmedio", "singular_and_bulk": True,
+            "scope": "CAPRMEDIO Markdown Atom carriers under .caprmedio_caprmedio", "singular_and_bulk": True,
             "mutation_default": "dry-run" if kinds[tool_id] == "doer" else "read-only",
             "selector_forms": ["repository-relative path", "full filename", "filename stem", "Atom ID"]}
 
@@ -675,7 +790,7 @@ def parser(tool_id: str) -> argparse.ArgumentParser:
         run.add_argument("--query", action="append")
         run.add_argument("--atom", action="append")
         run.add_argument("--under")
-        run.add_argument("--lifecycle", choices=("all", "active", "draft", "archived"), default="all")
+        run.add_argument("--lifecycle", choices=("all", "active", "draft", "archived", "done", "canceled"), default="all")
         run.add_argument("--limit", type=int)
         run.add_argument("--view", choices=("metadata", "content", "both"), default="metadata")
     elif tool_id == "ATOM_READ":

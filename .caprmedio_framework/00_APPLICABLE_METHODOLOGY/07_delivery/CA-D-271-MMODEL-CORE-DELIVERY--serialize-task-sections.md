@@ -5,7 +5,7 @@ cce_form: serialization
 subjects:
   governs:
     continuant:
-      - "Atom/Content Role: Plan/Type: Task/Markdown Carrier"
+      - "Atom/Content Role: Plan/Type: Task/Markdown Atom Carrier"
   depends_on:
     continuant:
       - Atom/Summary
@@ -13,8 +13,8 @@ subjects:
       - "Atom/Content Role: Plan/Type: Task/Scope"
       - "Atom/Content Role: Plan/Type: Task/Definition of Done"
       - "Atom/Content Role: Plan/Type: Task/Details"
-version: 4
-updated_at: 2026-08-29 04:33:13 +0400
+version: 5
+updated_at: 2026-09-04 03:36:02 +0400
 relations: {}
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-271-MMODEL-CORE-DELIVERY--serialize-task-sections.md

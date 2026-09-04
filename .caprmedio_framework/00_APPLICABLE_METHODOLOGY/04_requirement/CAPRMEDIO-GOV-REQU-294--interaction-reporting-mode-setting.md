@@ -5,8 +5,8 @@ subjects:
   governs:
     occurrent:
       - interaction
-version: 9
-updated_at: 2026-08-29 02:40:41 +0400
+version: 11
+updated_at: 2026-09-04 04:05:44 +0400
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -19,20 +19,20 @@ projection:
 ---
 # Configure interaction reporting mode
 
-The Project Configuration Atom provides one project-owned interaction reporting setting:
+the Framework Instance Settings Artifact provides one framework-instance interaction reporting setting:
 
 ```toml
 [interaction]
 reporting_mode = "silent" # silent | verbose
 ```
 
-The allowed values are exactly `silent` **and** `verbose`. The default is `silent`.
+the allowed values are exactly `silent` **and** `verbose`. the default is `silent`.
 
-**in** `silent` mode, CAPRMEDIO does **not** announce ordinary mode selection, workflow routing, skill chaining, **or** gate transitions. It answers exploratory input normally **and** reports **only** durable artifacts **or** project state that it created, updated, archived, committed, **or** **otherwise** changed.
+**in** `silent` mode, CAPRMEDIO does **not** announce ordinary mode selection, workflow routing, skill chaining, **or** gate transitions. it answers exploratory input normally **and** reports **only** durable Artifacts **or** Project state that it created, updated, archived, committed, **or** **otherwise** changed.
 
 **in** `verbose` mode, CAPRMEDIO explicitly reports relevant workflow modes, mode transitions, selected skill chains, entry **and** exit gates, **and** planned **or** completed artifact operations.
 
-Reporting mode changes presentation **only**. It never changes authorization, artifact creation, workflow routing, validation, **or** safety behavior. the two values **must** still report:
+reporting mode changes presentation **only**. it never changes authorization, artifact creation, workflow routing, validation, **or** safety behavior. the two values **must** still report:
 
 - blockers **and** failed operations;
 - ambiguity that requires operator input;
@@ -40,8 +40,8 @@ Reporting mode changes presentation **only**. It never changes authorization, ar
 - safety-critical information;
 - material deviations from the requested outcome.
 
-Skills **and** tools read this setting from the current project's governance configuration. They do **not** maintain independent reporting defaults.
+skills **and** Tools read this setting from the Framework Instance Settings Artifact. they do **not** maintain independent reporting defaults.
 
 ## Rationale
 
-Silent reporting keeps ordinary CAPRMEDIO use natural **and** concise, while verbose reporting makes orchestration inspectable during adoption, debugging, audits, **and** methodology development. keeping the two behaviors behind one project-owned setting prevents individual skills from drifting into inconsistent interaction styles.
+silent reporting keeps ordinary CAPRMEDIO use natural **and** concise, while verbose reporting makes orchestration inspectable during adoption, debugging, audits, **and** methodology development. keeping the two behaviors behind one framework-instance setting prevents individual Skills from drifting into inconsistent interaction styles.

@@ -9,13 +9,13 @@ subjects:
   depends_on:
     continuant:
       - Atom/Content Role
-      - Artifact/Status
-version: 3
-updated_at: 2026-08-29 02:40:41 +0400
+      - Entity/Type/Status
+version: 5
+updated_at: 2026-09-04 14:07:21 +0400
 relations: {}
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1315-MMODEL-CORE-REQUIREMENT--select-only-current-active-rmedo-atom-revisions.md
 ---
 # Select Only Current Active RMEDO Atom Revisions
 
-Applicable Methodology membership **must** contain **only** current active Atom Revisions whose Content Role is **in** (REQUIREMENT, METHOD, EVALUATION, DELIVERY, OPERATIONS).
+the Applicable Methodology membership **must** contain **only** current Atom Revisions whose type-qualified Status **`=`** Active **and** whose Content Role is **in** (Requirement, Method, Evaluation, Delivery, Ops).

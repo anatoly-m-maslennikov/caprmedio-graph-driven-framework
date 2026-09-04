@@ -5,20 +5,20 @@ cce_form: definition
 subjects:
   governs:
     continuant:
-      - Atom/Claim Scope/Scope Unit Set
+      - Atom/Claim/Scope/Scope Unit Set
   depends_on:
     continuant:
-      - Atom/Claim Scope
+      - Atom/Claim/Scope
       - Scope Unit
       - Scope Expression
-version: 1
-updated_at: 2026-09-02 00:35:23 +0400
+version: 3
+updated_at: 2026-09-04 14:21:05 +0400
 relations:
   child_of:
-    - CA-R-921
+    - CA-R-919
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1364-MMODEL-CORE-REQUIREMENT--define-claim-scope-unit-set.md
 ---
 # Define Claim Scope Unit Set
 
-a Claim Scope Unit Set **means** the canonical set of Scope Units that contain the Entities selected by one Claim Scope.
+a Claim Scope Unit Set **means** the canonical set of Scope Units that contain the Entities selected by one Atom Claim Scope.

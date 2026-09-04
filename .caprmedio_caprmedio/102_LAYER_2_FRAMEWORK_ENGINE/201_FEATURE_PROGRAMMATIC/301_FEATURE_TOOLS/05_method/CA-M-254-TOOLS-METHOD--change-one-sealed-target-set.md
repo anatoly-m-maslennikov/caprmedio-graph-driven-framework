@@ -1,12 +1,13 @@
 ---
+atom_id: CA-M-254
 cce_version: cce_1
 cce_form: method
 subjects:
   governs:
     continuant:
       - feature-boundary
-version: 2
-updated_at: 2026-09-02 00:40:00 +0400
+version: 3
+updated_at: 2026-09-04 03:10:59 +0400
 relations:
   method_for:
     - CA-R-1155
@@ -21,7 +22,7 @@ Use this Method when `BULK_CHANGE` must compose registered carrier operations ov
 
 ## Procedure
 
-1. Confirm that `BULK_CHANGE` is registered as one `unordered_unit` Doer owned immediately by `TOOLS` at Structural level `4`, with prefix `BULK_CHANGE`, address `002_FRAMEWORK_ENGINE/PROGRAMMATIC/TOOLS/BULK_CHANGE`, and realization path `002_FRAMEWORK_ENGINE/PROGRAMMATIC/TOOLS/BULK_CHANGE/`.
+1. Confirm that `BULK_CHANGE` is registered as one `unordered_unit` Doer owned immediately by `TOOLS` at Structural level `4`, with prefix `BULK_CHANGE`, address `102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/BULK_CHANGE`, and realization path `102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/BULK_CHANGE/`.
 2. Resolve one sealed target set and declared registered create, structured patch, relation change, rename, move, lifecycle, or replacement operations.
 3. Derive a complete mutation-free change plan that identifies every target, effect, precondition, collision, reference rewrite, and rollback action.
 4. Require explicit approval of the exact plan digest and recheck the target set frontier and every effect precondition before apply.

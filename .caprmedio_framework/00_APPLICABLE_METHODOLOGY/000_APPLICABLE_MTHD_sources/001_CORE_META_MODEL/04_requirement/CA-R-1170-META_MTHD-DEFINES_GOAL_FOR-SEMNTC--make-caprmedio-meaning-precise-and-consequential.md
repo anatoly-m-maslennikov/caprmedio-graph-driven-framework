@@ -5,11 +5,14 @@ cce_form: obligation
 subjects:
   governs:
     continuant:
-      - Scope Unit/Goal
-version: 6
-updated_at: 2026-09-02 04:15:00 +0400
+      - SEMANTICS
+  depends_on:
+    continuant:
+      - "Atom/Content Role: Requirement/Type: Goal"
+version: 7
+updated_at: 2026-09-04 01:04:00 +0400
 relations: {}
 ---
 # Make CAPRMEDIO Meaning Precise and Consequential
 
-SEMANTICS **must** make **every** well-formed CAPRMEDIO construct, relation, **and** governed Term have one precise **and** coherent interpretation with explicit consequences.
+the Scope Unit SEMANTICS **must** make **every** well-formed CAPRMEDIO construct, relation, **and** governed Term have one precise **and** coherent interpretation with explicit consequences.

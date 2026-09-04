@@ -10,10 +10,10 @@ subjects:
     continuant:
       - Project
       - Extension
-version: 3
-updated_at: 2026-08-29 02:40:41 +0400
+version: 4
+updated_at: 2026-09-03 22:35:44 +0400
 relations: {}
 ---
 # Make Local Configuration Own Project Methodology Resolution
 
-the Local Configuration **must** own the current Project Extension activation, selected Extension versions, Project Customizations, replacement, priority, compatibility resolution, **and** local Tool, MCP, **and** App mode decisions.
+the Local Configuration **must** own current Project Extension activation, selected Extension revisions, Project Customizations, priority, compatibility resolution, **and** local Tool, MCP, **and** App mode decisions **only** **where** an active CORE_META_MODEL Atom permits the decision.

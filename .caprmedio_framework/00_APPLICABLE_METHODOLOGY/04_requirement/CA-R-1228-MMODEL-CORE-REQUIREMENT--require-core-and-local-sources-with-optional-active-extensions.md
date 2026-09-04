@@ -8,15 +8,16 @@ subjects:
       - Applicable Methodology/Sources
   depends_on:
     continuant:
+      - Methodology Source
       - Core Meta-Model
       - Local Configuration
       - Extension
-version: 4
-updated_at: 2026-08-29 02:40:41 +0400
+version: 5
+updated_at: 2026-09-04 14:07:21 +0400
 relations: {}
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1228-MMODEL-CORE-REQUIREMENT--require-core-and-local-sources-with-optional-active-extensions.md
 ---
 # Require Core and Local Sources with Optional Active Extensions
 
-the current Applicable Methodology Sources **must** include CORE_META_MODEL **and** LOCAL_CONFIGURATION **and** **may** include selected active Extension revisions **without** requiring INSTALLED_EXTENSIONS **when** **none** is active.
+the current Methodology Source Scope Units **must** include CORE_META_MODEL **and** LOCAL_CONFIGURATION **and** **may** include selected active Extension Scope Units **without** requiring INSTALLED_EXTENSIONS **when** **none** is active.

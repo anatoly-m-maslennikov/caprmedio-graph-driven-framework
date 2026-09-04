@@ -9,13 +9,13 @@ subjects:
   depends_on:
     continuant:
       - Atom/Revision
-      - Methodology Source
-version: 3
-updated_at: 2026-08-29 02:40:41 +0400
+      - DERIVED_FROM
+version: 4
+updated_at: 2026-09-04 14:07:21 +0400
 relations: {}
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1314-MMODEL-CORE-REQUIREMENT--preserve-source-atom-revision-identity-in-applicable-methodology.md
 ---
 # Preserve Source Atom Revision Identity in Applicable Methodology
 
-**every** Applicable Methodology member **must** preserve its exact source Atom Revision **and** **must not** acquire a new Atom **or** independent Artifact identity.
+**every** Applicable Methodology member **must** retain **`=1`** direct DERIVED_FROM relation to its exact source Atom Revision.

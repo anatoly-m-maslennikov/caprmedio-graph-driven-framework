@@ -5,12 +5,12 @@ cce_form: definition
 subjects:
   governs:
     continuant:
-      - Epic/Recursive Membership
+      - "Atom Collection/Type: Epic/Recursive Membership"
   depends_on:
     continuant:
-      - Epic/Direct Membership
-version: 2
-updated_at: 2026-08-29 02:40:41 +0400
+      - "Atom Collection/Type: Epic/Direct Membership"
+version: 3
+updated_at: 2026-09-04 01:04:00 +0400
 relations: {}
 ---
 # Derive Recursive Epic Membership by Transitive Closure

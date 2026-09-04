@@ -5,18 +5,18 @@ cce_form: definition
 subjects:
   governs:
     continuant:
-      - Atom/Claim Scope/Scope Unit Set
+      - Atom/Claim/Scope/Scope Unit Set
   depends_on:
     continuant:
-      - Atom/Claim Scope
+      - Atom/Claim/Scope
       - Scope Unit
       - Scope Expression
-version: 1
-updated_at: 2026-09-02 00:35:23 +0400
+version: 3
+updated_at: 2026-09-04 14:21:05 +0400
 relations:
   child_of:
-    - CA-R-921
+    - CA-R-919
 ---
 # Define Claim Scope Unit Set
 
-a Claim Scope Unit Set **means** the canonical set of Scope Units that contain the Entities selected by one Claim Scope.
+a Claim Scope Unit Set **means** the canonical set of Scope Units that contain the Entities selected by one Atom Claim Scope.

@@ -5,12 +5,12 @@ cce_form: prohibition
 subjects:
   governs:
     continuant:
-      - Epic/Identity
+      - "Atom Collection/Type: Epic/Identity"
   depends_on:
     continuant:
-      - Epic/Membership
-version: 3
-updated_at: 2026-08-29 02:40:41 +0400
+      - "Atom Collection/Type: Epic/Membership"
+version: 4
+updated_at: 2026-09-04 01:04:00 +0400
 relations: {}
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1299-MMODEL-CORE-REQUIREMENT--keep-epic-identity-independent-from-its-members.md

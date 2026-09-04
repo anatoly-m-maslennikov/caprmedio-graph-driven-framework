@@ -5,13 +5,13 @@ cce_form: separation
 subjects:
   governs:
     continuant:
-      - Artifact/Status
+      - Entity/Type/Status
     occurrent:
       - Artifact Transition
-version: 3
-updated_at: 2026-08-29 02:40:41 +0400
+version: 4
+updated_at: 2026-09-04 03:36:02 +0400
 relations: {}
 ---
 # Separate Governed Transitions from Status Values
 
-admission, acceptance, commitment, activation, completion, **and** archival transitions **must** remain distinct from the current Status value they **may** establish.
+admission, acceptance, commitment, activation, completion, **and** archival transitions **must** remain distinct from the current type-qualified Status value they **may** establish.

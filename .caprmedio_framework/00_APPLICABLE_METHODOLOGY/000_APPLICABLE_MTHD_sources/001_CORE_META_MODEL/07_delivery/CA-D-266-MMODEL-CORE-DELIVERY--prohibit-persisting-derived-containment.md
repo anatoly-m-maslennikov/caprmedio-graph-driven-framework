@@ -5,13 +5,13 @@ cce_form: prohibition
 subjects:
   governs:
     continuant:
-      - Relational Artifact/Containment
+      - Structural Entity/Containment
   depends_on:
     continuant:
       - Containment Relation Pair
       - Directory Carrier/Nesting
-version: 4
-updated_at: 2026-09-02 04:15:00 +0400
+version: 5
+updated_at: 2026-09-04 02:03:03 +0400
 relations: {}
 ---
 # Prohibit Persisting Derived Containment

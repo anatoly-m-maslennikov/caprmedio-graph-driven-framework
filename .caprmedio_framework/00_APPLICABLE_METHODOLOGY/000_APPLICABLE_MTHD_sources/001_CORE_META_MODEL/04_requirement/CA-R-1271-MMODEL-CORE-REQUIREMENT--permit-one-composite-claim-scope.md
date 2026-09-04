@@ -8,9 +8,9 @@ subjects:
       - Composite Claim Scope
   depends_on:
     continuant:
-      - Claim Scope
-version: 2
-updated_at: 2026-08-29 02:40:41 +0400
+      - Atom/Claim/Scope
+version: 3
+updated_at: 2026-09-04 00:22:20 +0400
 relations: {}
 ---
 # Permit One Composite Claim Scope

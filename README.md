@@ -119,7 +119,7 @@ Project Layers are ordered. Project-owned and Layer-owned Features are not.
 
 ## Governance
 
-META defines meanings and invariants. GOV defines deterministic repository rules. The complete active authority lives in [.caprmedio](.caprmedio/); this README is only a short introduction.
+META defines the model and its invariants. GOV defines deterministic Carrier rules. Framework and methodology authority live in [.caprmedio_framework](.caprmedio_framework/); this Project's governed Carriers and evidence live in [.caprmedio_caprmedio](.caprmedio_caprmedio/). The durable Engine installation and ephemeral runtime state are never governing authority.
 
 ## Thanks
 

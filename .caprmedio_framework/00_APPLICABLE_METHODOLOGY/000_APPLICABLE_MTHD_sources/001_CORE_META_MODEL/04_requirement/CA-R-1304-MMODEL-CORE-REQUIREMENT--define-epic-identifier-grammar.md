@@ -5,11 +5,11 @@ cce_form: definition
 subjects:
   governs:
     continuant:
-      - Epic/Identifier
-version: 2
-updated_at: 2026-08-29 02:40:41 +0400
+      - "Atom Collection/Type: Epic/Identifier"
+version: 4
+updated_at: 2026-09-04 14:07:21 +0400
 relations: {}
 ---
 # Define Epic Identifier Grammar
 
-an Epic Identifier **must** match `CA-Epic-<number>-<scope>-<summary>`.
+an Epic Identifier **must** match `<PROJECT_PREFIX>-Epic-<number>-<scope>-<summary>`.

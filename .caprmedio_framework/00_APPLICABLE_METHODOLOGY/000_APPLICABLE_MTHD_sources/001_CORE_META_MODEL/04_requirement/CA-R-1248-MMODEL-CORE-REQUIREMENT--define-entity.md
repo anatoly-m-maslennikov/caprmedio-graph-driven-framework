@@ -6,10 +6,10 @@ subjects:
   governs:
     continuant:
       - Entity
-version: 3
-updated_at: 2026-08-29 02:40:41 +0400
+version: 4
+updated_at: 2026-09-04 14:07:21 +0400
 relations: {}
 ---
 # Define Entity
 
-an Entity **means** one independently identified **or** bearer-qualified participant represented **in** a CAPRMEDIO Graph.
+an Entity **means** one independently identified **or** bearer-qualified object admitted by an authoritative source as a possible node in **`>=1`** CAPRMEDIO Graph.

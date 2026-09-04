@@ -5,12 +5,12 @@ subjects:
       - "Atom/Content Role: Requirement/Type: Demand/Direction"
   depends_on:
     continuant:
-      - Scope Unit/Ancestry
+      - Structural Parent Relation
 atom_id: CA-R-950
 cce_version: cce_1
 cce_form: prohibition
-version: 8
-updated_at: 2026-08-29 04:33:13 +0400
+version: 9
+updated_at: 2026-09-04 01:04:00 +0400
 relations:
   child_of:
     - CA-R-932

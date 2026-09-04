@@ -9,10 +9,10 @@ subjects:
   depends_on:
     continuant:
       - Scope Expression
-      - Atom/Claim Scope
+      - Atom/Claim/Scope
       - Atom/Carrier
-version: 1
-updated_at: 2026-09-01 23:45:22 +0400
+version: 2
+updated_at: 2026-09-04 00:22:20 +0400
 relations:
   child_of:
     - CA-R-999

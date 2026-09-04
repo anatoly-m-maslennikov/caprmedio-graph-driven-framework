@@ -8,16 +8,17 @@ subjects:
       - "Atom/Content Role: Plan/Type: Objective"
   depends_on:
     continuant:
-      - Atom/Content Role: Plan
+      - Relational Atom
+      - "Atom/Content Role: Plan"
       - Atom/Claim
-      - Atom/Claim Scope
-      - Epic
-version: 1
-updated_at: 2026-09-02 03:30:00 +0400
+      - Atom/Claim/Scope
+      - "Atom Collection/Type: Epic"
+version: 4
+updated_at: 2026-09-04 01:04:00 +0400
 relations: {}
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1365-MMODEL-CORE-REQUIREMENT--define-objective-atom.md
 ---
 # Define Objective Atom
 
-an Objective Atom **means** an Atom with Content Role Plan **and** Type Objective whose Claim states one Epic-wide outcome **and** whose Claim Scope identifies **`=1`** Epic.
+an Objective Atom **means** a Relational Atom with Content Role Plan **and** Type Objective whose Claim states one Epic-wide outcome **and** whose Claim Scope identifies **`=1`** Epic.

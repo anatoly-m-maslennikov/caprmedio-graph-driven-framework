@@ -5,12 +5,12 @@ cce_form: prohibition
 subjects:
   governs:
     continuant:
-      - Epic/Membership
+      - "Atom Collection/Type: Epic/Membership"
   depends_on:
     continuant:
-      - Epic/Recursive Membership
-version: 3
-updated_at: 2026-08-29 02:40:41 +0400
+      - "Atom Collection/Type: Epic/Recursive Membership"
+version: 4
+updated_at: 2026-09-04 01:04:00 +0400
 relations: {}
 ---
 # Prohibit Epic Containment Cycles

@@ -9,9 +9,9 @@ subjects:
   depends_on:
     continuant:
       - Claim
-      - Claim Scope
-version: 3
-updated_at: 2026-08-29 02:40:41 +0400
+      - Atom/Claim/Scope
+version: 4
+updated_at: 2026-09-04 00:22:20 +0400
 relations: {}
 ---
 # Prohibit Authority Derivation from Summary

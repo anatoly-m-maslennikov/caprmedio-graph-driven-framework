@@ -116,10 +116,10 @@ def _set_git_hooks_path(root: Path, value: str | None) -> None:
         raise ToolError("git-config-failed", (completed.stderr or completed.stdout).strip() or "cannot update core.hooksPath")
 
 
-def _preflight(root: Path) -> dict[str, Any]:
+def _preflight(root: Path, *, manage_host_hooks: bool) -> dict[str, Any]:
     rows, release = source_inventory(root)
     hooks_path = _git_hooks_path(root)
-    if hooks_path not in {None, MANAGED_HOOKS_PATH, LEGACY_HOOKS_PATH}:
+    if manage_host_hooks and hooks_path not in {None, MANAGED_HOOKS_PATH, LEGACY_HOOKS_PATH}:
         raise ToolError("git-hooks-path-conflict", f"repository already uses a different local core.hooksPath: {hooks_path}")
     project_codex = root / ".codex/hooks.json"
     if project_codex.is_file() and not project_codex.is_symlink():
@@ -237,12 +237,30 @@ def _restore_text_carrier(path: Path, previous: bytes | None) -> None:
     os.replace(temporary, path)
 
 
-def install(root: Path, *, apply: bool) -> dict[str, Any]:
+def install(root: Path, *, apply: bool, manage_host_hooks: bool = True) -> dict[str, Any]:
     root = resolve_repository(root)
-    preflight = _preflight(root)
+    preflight = _preflight(root, manage_host_hooks=manage_host_hooks)
     release_preview = install_release(root, apply=False)
     if not apply:
-        return {**preflight, **release_preview, "hooks_installed": False, "launchers": sorted(LAUNCHERS)}
+        return {
+            **preflight,
+            **release_preview,
+            "hooks_installed": False,
+            "host_hooks_managed": manage_host_hooks,
+            "launchers": sorted(LAUNCHERS),
+        }
+
+    if not manage_host_hooks:
+        installed = install_release(root, apply=True)
+        launchers = _write_launchers(root, str(installed["release"]))
+        return {
+            **preflight,
+            **installed,
+            "hooks_installed": False,
+            "host_hooks_managed": False,
+            "launchers": launchers,
+            "status": tool_status(root),
+        }
 
     previous_hooks_path = _git_hooks_path(root)
     codex_was_legacy_link, codex_link_text = _legacy_codex_link(root)
@@ -287,6 +305,7 @@ def install(root: Path, *, apply: bool) -> dict[str, Any]:
         **installed,
         "adapter": adapter_result,
         "hooks_installed": True,
+        "host_hooks_managed": True,
         "launchers": launchers,
         "removed_legacy_installation": removed,
         "status": status,
@@ -345,7 +364,7 @@ def _describe() -> dict[str, Any]:
         "commands": {
             "describe": {"mode": "read-only"},
             "status": {"mode": "read-only"},
-            "run": {"mode": "dry-run unless --apply", "effect": "install Tools, launchers, adapters, and Hooks"},
+            "run": {"mode": "dry-run unless --apply", "effect": "install Tools and launchers; manage host Hooks unless --without-hooks"},
         },
     }
 
@@ -358,6 +377,7 @@ def _parser() -> argparse.ArgumentParser:
     commands.add_parser("status")
     run = commands.add_parser("run")
     run.add_argument("--apply", action="store_true")
+    run.add_argument("--without-hooks", action="store_true")
     return parser
 
 
@@ -371,7 +391,11 @@ def cli(argv: Sequence[str] | None = None) -> int:
             result = tool_status(Path(args.repository))
         else:
             mode = "apply" if args.apply else "dry-run"
-            result = install(Path(args.repository), apply=args.apply)
+            result = install(
+                Path(args.repository),
+                apply=args.apply,
+                manage_host_hooks=not args.without_hooks,
+            )
         print(_json(_envelope(ok=True, mode=mode, result=result)))
         return 0
     except (ToolError, InstallationError) as error:

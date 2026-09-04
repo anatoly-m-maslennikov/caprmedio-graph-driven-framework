@@ -4,9 +4,14 @@ cce_form: prohibition
 subjects:
   governs:
     continuant:
-      - artifact-model
-version: 6
-updated_at: 2026-08-29 02:40:41 +0400
+      - Artifact/Type
+  depends_on:
+    continuant:
+      - Artifact
+      - Type
+      - SUBTYPE_OF
+version: 7
+updated_at: 2026-09-04 14:07:21 +0400
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -18,4 +23,4 @@ relations:
 ---
 # Prohibit Artifact subtypes
 
-CAPRMEDIO has no Artifact subtype axis. **every** admitted Artifact classification below a Content role is a Type, **and** Artifact carriers, settings, registries, relations, selectors, **and** tools **must not** declare **or** infer a subtype property.
+an Artifact Type value **must not** use SUBTYPE_OF to establish its admission as an Artifact.

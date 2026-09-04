@@ -25,7 +25,9 @@ SPEC.loader.exec_module(install_tools)
 
 class InstallToolsTests(unittest.TestCase):
     def setUp(self) -> None:
-        self.temporary = tempfile.TemporaryDirectory()
+        # Synthetic Git and CODEX_HOME carriers can be protected from deletion
+        # by the execution sandbox after a passed test.
+        self.temporary = tempfile.TemporaryDirectory(ignore_cleanup_errors=True)
         self.repository = Path(self.temporary.name) / "repository"
         self.codex_home = Path(self.temporary.name) / "codex-home"
         self.codex_home.mkdir()
@@ -164,6 +166,26 @@ class InstallToolsTests(unittest.TestCase):
             )
         self.assertEqual([], list((self.repository / ".caprmedio_install").rglob("__pycache__")))
         self.assertEqual([], list((self.repository / ".caprmedio_install").rglob("*.pyc")))
+
+    def test_apply_without_hooks_installs_tools_and_preserves_host_hook_state(self) -> None:
+        custom = self.repository / "custom-hooks"
+        custom.mkdir()
+        subprocess.run(
+            ["git", "-C", str(self.repository), "config", "--local", "core.hooksPath", "custom-hooks"],
+            check=True,
+        )
+        user_hooks_before = self.user_hooks.read_bytes()
+
+        result = install_tools.install(self.repository, apply=True, manage_host_hooks=False)
+
+        self.assertTrue(result["installed"])
+        self.assertFalse(result["hooks_installed"])
+        self.assertFalse(result["host_hooks_managed"])
+        self.assertEqual("custom-hooks", install_tools._git_hooks_path(self.repository))
+        self.assertEqual(user_hooks_before, self.user_hooks.read_bytes())
+        self.assertTrue((self.repository / ".caprmedio_install/current.toml").is_file())
+        self.assertTrue((self.repository / ".caprmedio_install/bin/commit-trigger").is_file())
+        self.assertFalse((self.repository / ".caprmedio_install/hooks/git").exists())
 
     def test_custom_git_hooks_path_rejects_install_without_mutation(self) -> None:
         custom = self.repository / "custom-hooks"

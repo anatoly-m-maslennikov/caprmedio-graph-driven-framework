@@ -9,9 +9,9 @@ subjects:
   depends_on:
     continuant:
       - caprmedio Project Identity
-      - Project Configuration
-version: 2
-updated_at: 2026-08-30 19:41:39 +0400
+      - Project Settings
+version: 3
+updated_at: 2026-09-04 04:05:44 +0400
 relations: {}
 ---
 # Identify caprmedio as the current Project

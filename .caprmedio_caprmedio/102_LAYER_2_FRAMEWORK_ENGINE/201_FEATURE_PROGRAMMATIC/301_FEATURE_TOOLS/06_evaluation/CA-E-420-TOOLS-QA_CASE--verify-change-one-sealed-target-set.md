@@ -1,4 +1,5 @@
 ---
+atom_id: CA-E-420
 cce_version: cce_1
 cce_form: evaluation
 subjects:
@@ -7,8 +8,8 @@ subjects:
       - feature-boundary
     occurrent:
       - evaluation
-version: 2
-updated_at: 2026-09-02 00:40:00 +0400
+version: 3
+updated_at: 2026-09-04 03:10:59 +0400
 relations:
   evaluation_for:
     - CA-M-254
@@ -29,7 +30,7 @@ Inspect the registered `BULK_CHANGE` unit, then use one sealed target set and re
 
 ## Acceptance criteria
 
-`BULK_CHANGE` has prefix `BULK_CHANGE`, immediate `TOOLS` owner, `unordered_unit` kind, Structural level `4`, address `002_FRAMEWORK_ENGINE/PROGRAMMATIC/TOOLS/BULK_CHANGE`, and realization path `002_FRAMEWORK_ENGINE/PROGRAMMATIC/TOOLS/BULK_CHANGE/`. The stale plan changes nothing. The unchanged plan applies every declared effect exactly once, exposes one transaction identity and final target frontier, and leaves no unplanned mutation.
+`BULK_CHANGE` has prefix `BULK_CHANGE`, immediate `TOOLS` owner, `unordered_unit` kind, Structural level `4`, address `102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/BULK_CHANGE`, and realization path `102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/BULK_CHANGE/`. The stale plan changes nothing. The unchanged plan applies every declared effect exactly once, exposes one transaction identity and final target frontier, and leaves no unplanned mutation.
 
 ## Failure disposition
 

@@ -68,6 +68,11 @@ class RetrieverTest(unittest.TestCase):
         relative = Path("../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL") / role / name
         target.write_bytes(projected(data, relative.as_posix()))
 
+    def add_project_scope_graph(self, project_name: str = "caprmedio") -> None:
+        graph = self.root / module.PROJECT_SCOPE_GRAPH_RELATIVE
+        graph.parent.mkdir(parents=True, exist_ok=True)
+        graph.write_text(f"[project]\nname = {project_name!r}\n", encoding="utf-8")
+
     def invoke(self, *arguments: str) -> tuple[int, dict[str, object]]:
         output = io.StringIO()
         with contextlib.redirect_stdout(output):
@@ -95,12 +100,42 @@ class RetrieverTest(unittest.TestCase):
         self.assertEqual(code, 0)
         self.assertEqual([item["atom_id"] for item in report["selected_atoms"]], ["CA-M-001"])
 
-    def test_no_matching_governs_path_returns_no_atom(self) -> None:
+    def test_unknown_uppercase_subject_fails_closed(self) -> None:
         self.add("04_requirement", "CA-R-001--base.md", source_carrier("CA-R-001", ("continuant", "Base")))
         code, report = self.invoke("--subject", "Missing")
-        self.assertEqual(code, 0)
+        self.assertEqual(code, 2)
         self.assertEqual(report["selected_atom_count"], 0)
+        self.assertFalse(report["complete"])
+        self.assertEqual(report["diagnostics"][0]["subject_path"], "Missing")
+
+    def test_scope_unit_query_returns_structural_frontier_without_atom_selection(self) -> None:
+        code, report = self.invoke("--subject", "CORE_META_MODEL")
+        self.assertEqual(code, 0)
         self.assertTrue(report["complete"])
+        self.assertEqual(report["selected_atom_count"], 0)
+        outcomes = report["resolution_outcomes"]
+        self.assertTrue(all(item["category"] == "scope_unit" for item in outcomes))
+        self.assertTrue(all(item["scope_unit"] == "CORE_META_MODEL" for item in outcomes))
+        self.assertTrue(all(item["current_scope"] == "METHODOLOGY_SOURCES" for item in outcomes))
+
+    def test_project_scope_unit_query_uses_project_structural_graph(self) -> None:
+        self.add_project_scope_graph()
+        code, report = self.invoke("--subject", "Project")
+        self.assertEqual(code, 0)
+        self.assertTrue(report["complete"])
+        outcomes = report["resolution_outcomes"]
+        self.assertTrue(all(item["category"] == "scope_unit" for item in outcomes))
+        self.assertTrue(all(item["scope_unit"] == "caprmedio" for item in outcomes))
+        self.assertTrue(all(item["source"] == "project_scope_unit_graph" for item in outcomes))
+
+    def test_lowercase_general_subject_is_successful_terminal(self) -> None:
+        code, report = self.invoke("--subject", "methodology")
+        self.assertEqual(code, 0)
+        self.assertTrue(report["complete"])
+        self.assertEqual(report["selected_atom_count"], 0)
+        outcomes = report["resolution_outcomes"]
+        self.assertTrue(all(item["category"] == "general_subject" for item in outcomes))
+        self.assertTrue(all(item["terminal"] == "true" for item in outcomes))
 
     def test_unresolved_prerequisite_is_explicit_and_fails_closed(self) -> None:
         self.add(

@@ -5,20 +5,20 @@ cce_form: requirement
 subjects:
   governs:
     continuant:
-      - Atom/Current Scope/Governed Subject Set
+      - Atom/Claim/Governed Subject Set
   depends_on:
     continuant:
       - Subject
-      - Atom/Current Scope/Owner
-      - Atom/Claim Scope
-      - Claim-Subject Relation/Kind: GOVERNS
-version: 6
-updated_at: 2026-09-02 00:35:23 +0400
+      - Atom/Scope
+      - Atom/Claim/Scope
+      - "Claim-Subject Relation/Kind: GOVERNS"
+version: 9
+updated_at: 2026-09-04 14:07:21 +0400
 relations:
   child_of:
     - CA-R-919
     - CA-R-1013
 ---
-# Limit Subject-derived Scope Coordinates
+# Keep Subjects Independent from Scope Coordinates
 
-an Atom's GOVERNS Subjects **must** determine **only** its Governed Subject Set **and** **must not** determine its Current Scope Owner **or** Claim Scope.
+an Atom's GOVERNS Subjects **must** determine **only** its Claim's Governed Subject Set **and** **must not** determine its Atom Scope **or** Claim Scope.

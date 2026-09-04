@@ -1,4 +1,5 @@
 ---
+atom_id: CA-E-421
 cce_version: cce_1
 cce_form: evaluation
 subjects:
@@ -7,8 +8,8 @@ subjects:
       - feature-boundary
     occurrent:
       - evaluation
-version: 2
-updated_at: 2026-09-02 00:40:00 +0400
+version: 3
+updated_at: 2026-09-04 03:10:59 +0400
 relations:
   evaluation_for:
     - CA-M-255
@@ -29,7 +30,7 @@ Inspect the registered `PROJECTION_REBUILD` unit, then use changed source fronti
 
 ## Acceptance criteria
 
-`PROJECTION_REBUILD` has prefix `PROJECTION_REBUILD`, immediate `TOOLS` owner, `unordered_unit` kind, Structural level `4`, address `002_FRAMEWORK_ENGINE/PROGRAMMATIC/TOOLS/PROJECTION_REBUILD`, and realization path `002_FRAMEWORK_ENGINE/PROGRAMMATIC/TOOLS/PROJECTION_REBUILD/`. The valid case previews and materializes both affected outputs in dependency order with source-frontier provenance; the repeated build is identical and current. The incomplete affected set produces no accepted publication.
+`PROJECTION_REBUILD` has prefix `PROJECTION_REBUILD`, immediate `TOOLS` owner, `unordered_unit` kind, Structural level `4`, address `102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/PROJECTION_REBUILD`, and realization path `102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/PROJECTION_REBUILD/`. The valid case previews and materializes both affected outputs in dependency order with source-frontier provenance; the repeated build is identical and current. The incomplete affected set produces no accepted publication.
 
 ## Failure disposition
 

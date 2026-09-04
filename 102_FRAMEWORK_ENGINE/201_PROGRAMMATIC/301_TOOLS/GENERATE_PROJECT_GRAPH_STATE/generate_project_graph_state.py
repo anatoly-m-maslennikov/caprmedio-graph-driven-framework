@@ -7,7 +7,6 @@ import argparse
 import hashlib
 import json
 import re
-import subprocess
 import sys
 import tempfile
 from pathlib import Path
@@ -40,9 +39,14 @@ CONFIG = (
     / "003_LOCAL_CONFIGURATION"
     / "caprmedio_framework_settings.toml"
 )
+METHODOLOGY_SOURCES = CONFIG.parent.parent
+METHODOLOGY_SOURCE_SCOPE_UNITS = (
+    ("CORE_META_MODEL", METHODOLOGY_SOURCES / "001_CORE_META_MODEL"),
+    ("INSTALLED_EXTENSIONS", METHODOLOGY_SOURCES / "002_INSTALLED_EXTENSIONS"),
+    ("LOCAL_CONFIGURATION", METHODOLOGY_SOURCES / "003_LOCAL_CONFIGURATION"),
+)
 JOURNAL = CONTROL / "work_journal"
-INACTIVE_FOLDERS = frozenset({"archive", "drafts", "done", "solved", "handled", "canceled"})
-CONTRIBUTION_KEYS = ("project_scope_unit_graph", "project_graph_state")
+INACTIVE_FOLDERS = frozenset({"archive", "drafts", "done", "solved", "handled", "canceled", "cancelled"})
 PROJECT_CONFIGURATION_ATOM_ID = "CAPRMEDIO-I-001"
 PROJECT_IDENTITY = "caprmedio"
 SCOPE_UNIT_NAME = re.compile(
@@ -225,16 +229,16 @@ def parse_scope_unit_name(name: str) -> dict[str, object] | None:
         if SCOPE_UNIT_CANDIDATE.match(name):
             raise SystemExit(f"invalid Scope Unit Directory Carrier name: {name}")
         return None
-    unit_type_name = match["unit_type"]
+    scope_unit_label = match["unit_type"]
     local_order = match["local_order"]
-    if (unit_type_name == "LAYER") != (local_order is not None):
+    if (scope_unit_label == "LAYER") != (local_order is not None):
         raise SystemExit(f"invalid Local Order for Scope Unit Directory Carrier: {name}")
     return {
-        "unit_name": match["name"],
-        "unit_type_name": unit_type_name,
+        "scope_unit_name": match["name"],
+        "scope_unit_label": scope_unit_label,
         # A Scope Unit's Type value is determined by Local Order participation,
-        # not by the independent Operator-controlled Unit Type Name.
-        "type_value": "Layer" if local_order is not None else "Feature",
+        # not by the independent Operator-controlled Label.
+        "scope_unit_type": "Ordered" if local_order is not None else "Unordered",
         "numeric_prefix": match["numeric_prefix"],
         "local_order": int(local_order) if local_order is not None else None,
     }
@@ -281,18 +285,13 @@ def scope_units(control: Path, root: Path, modes: dict[str, object]) -> list[dic
         rows.append(
             {
                 "node_id": relative_to_control,
-                # name, scope_unit_type, and structural_parent remain compact
-                # compatibility aliases for existing consumers. The value-bearing
-                # fields below are the governed graph representation.
-                "unit_name": parsed["unit_name"],
-                "name": parsed["unit_name"],
+                "scope_unit_name": parsed["scope_unit_name"],
                 "project_boundary_position": "PROJECT",
-                "type_value": parsed["type_value"],
+                "scope_unit_type": parsed["scope_unit_type"],
                 "authority_path": carrier.relative_to(root).as_posix(),
                 "authority_materialized": True,
                 "numeric_prefix": parsed["numeric_prefix"],
-                "unit_type_name": parsed["unit_type_name"],
-                "scope_unit_type": parsed["type_value"],
+                "scope_unit_label": parsed["scope_unit_label"],
                 "authority_mode": default_mode,
                 "local_order": parsed["local_order"],
                 "parent": PROJECT_IDENTITY,
@@ -322,13 +321,13 @@ def scope_units(control: Path, root: Path, modes: dict[str, object]) -> list[dic
         )
     for row in rows:
         children = [child for child in rows if child["parent"] == row["node_id"]]
-        child_types = {str(child["type_value"]) for child in children}
+        child_types = {str(child["scope_unit_type"]) for child in children}
         if not child_types:
             row["child_composition"] = "NONE"
-        elif child_types == {"Layer"}:
-            row["child_composition"] = "LAYERS"
-        elif child_types == {"Feature"}:
-            row["child_composition"] = "FEATURES"
+        elif child_types == {"Ordered"}:
+            row["child_composition"] = "ORDERED"
+        elif child_types == {"Unordered"}:
+            row["child_composition"] = "UNORDERED"
         else:
             row["child_composition"] = "MIXED"
     return rows
@@ -473,69 +472,82 @@ def delivery_atom_binding(directory: Path, receipt: dict[str, str]) -> dict[str,
     return candidates[0]
 
 
-def bind_scope_unit_authority(scope_unit_rows: list[dict[str, object]]) -> list[dict[str, object]]:
-    """Attach exact current Directory Carrier receipts and Delivery Atom authority."""
+def delivery_path_from_scope_unit(row: dict[str, object]) -> str:
+    """Derive one Delivery path from the typed Scope Unit directory coordinate."""
+
+    segments: list[str] = []
+    for segment in str(row["node_id"]).split("/"):
+        parsed = parse_scope_unit_name(segment)
+        if parsed is None:
+            raise SystemExit(f"Scope Unit Directory Carrier is not typed: {segment}")
+        segments.append(str(parsed["numeric_prefix"]) + "_" + str(parsed["scope_unit_name"]))
+    return "/".join(segments) + "/"
+
+
+def bind_scope_unit_structure(scope_unit_rows: list[dict[str, object]]) -> list[dict[str, object]]:
+    """Attach deterministic Delivery paths without treating Project folders as authority."""
 
     for row in scope_unit_rows:
-        directory = ROOT / str(row["authority_path"])
-        receipt = directory_receipt(directory)
-        delivery = delivery_atom_binding(directory, receipt)
-        row["delivery_path"] = delivery["delivery_path"]
-        row["directory_receipt"] = receipt
-        row["delivery_atom"] = delivery
+        row["delivery_path"] = delivery_path_from_scope_unit(row)
+        row["structure_sha256"] = canonical_json_digest(
+            {key: row[key] for key in SCOPE_UNIT_GRAPH_FIELDS if key != "delivery_path"}
+        )
     return scope_unit_rows
 
 
-def active_contributions() -> list[dict[str, str]]:
-    contributions = []
-    for path in sorted(CONTROL.rglob("*.md")):
-        if not active_path(path, CONTROL):
-            continue
-        text = path.read_text(encoding="utf-8")
-        if not text.startswith("---\n"):
-            continue
-        boundary = text.find("\n---\n", 4)
-        if boundary < 0:
-            raise SystemExit(f"unterminated Atom frontmatter: {project_relative(path)}")
-        frontmatter = text[4:boundary]
-        if re.search(r"(?m)^project_settings:\s*$", frontmatter):
-            raise SystemExit(f"ordinary Atom supplies retired project_settings: {project_relative(path)}")
-        keys = [key for key in CONTRIBUTION_KEYS if re.search(rf"(?m)^{key}:\s*$", frontmatter)]
-        if not keys:
-            continue
-        version = re.findall(r"(?m)^version:\s*([1-9][0-9]*)\s*$", frontmatter)
-        updated_at = re.findall(r"(?m)^updated_at:\s*([^\n]+)\s*$", frontmatter)
-        if len(version) != 1 or len(updated_at) != 1:
-            raise SystemExit(f"contribution lacks one revision: {project_relative(path)}")
-        timestamp = normalise_timestamp(updated_at[0])
-        if not timestamp:
-            raise SystemExit(f"contribution lacks a valid timestamp: {project_relative(path)}")
-        for key in keys:
-            contributions.append(
+def active_source_atoms() -> list[dict[str, str]]:
+    """Return the deterministic active Atom frontier of every configured source Scope Unit."""
+
+    atoms: list[dict[str, str]] = []
+    atom_ids: set[str] = set()
+    for source_scope_unit, directory in METHODOLOGY_SOURCE_SCOPE_UNITS:
+        if not directory.is_dir():
+            raise SystemExit(f"configured Methodology Source Scope Unit is missing: {project_relative(directory)}")
+        for path in sorted(directory.rglob("*.md")):
+            relative = path.relative_to(directory)
+            if INACTIVE_FOLDERS.intersection(relative.parts):
+                continue
+            text = path.read_text(encoding="utf-8")
+            if not text.startswith("---\n"):
+                continue
+            boundary = text.find("\n---\n", 4)
+            if boundary < 0:
+                raise SystemExit(f"unterminated source Atom frontmatter: {project_relative(path)}")
+            frontmatter = text[4:boundary]
+            declared_atom_id = re.findall(r"(?m)^atom_id:\s*([^\n]+)\s*$", frontmatter)
+            version = re.findall(r"(?m)^version:\s*([1-9][0-9]*)\s*$", frontmatter)
+            updated_at = re.findall(r"(?m)^updated_at:\s*([^\n]+)\s*$", frontmatter)
+            filename_atom_id = path.stem.partition("--")[0]
+            if len(declared_atom_id) > 1 or not filename_atom_id or len(version) != 1 or len(updated_at) != 1:
+                raise SystemExit(f"source Atom lacks one identity and revision: {project_relative(path)}")
+            atom_id = declared_atom_id[0] if declared_atom_id else filename_atom_id
+            if atom_id in atom_ids:
+                raise SystemExit(f"duplicate active source Atom identity: {atom_id}")
+            timestamp = normalise_timestamp(updated_at[0])
+            if not timestamp:
+                raise SystemExit(f"source Atom lacks a valid timestamp: {project_relative(path)}")
+            atom_ids.add(atom_id)
+            atoms.append(
                 {
-                    "key": key,
+                    "source_scope_unit": source_scope_unit,
                     "carrier": project_relative(path),
-                    "atom": path.stem,
+                    "atom_id": atom_id,
+                    "atom_id_source": "frontmatter" if declared_atom_id else "filename",
                     "version": version[0],
                     "updated_at": timestamp,
                     "sha256": sha(path),
                 }
             )
-    return contributions
+    if not atoms:
+        raise SystemExit("configured Methodology Source Scope Units contain no active Atoms")
+    return atoms
 
 
 def source_updated_at(
     binding: dict[str, str],
-    contributions: list[dict[str, str]],
-    scope_unit_rows: list[dict[str, object]],
+    source_atoms: list[dict[str, str]],
 ) -> str:
-    candidates = [binding["updated_at"], *(item["updated_at"] for item in contributions)]
-    for row in scope_unit_rows:
-        receipt = row["directory_receipt"]
-        delivery = row["delivery_atom"]
-        assert isinstance(receipt, dict) and isinstance(delivery, dict)
-        candidates.append(str(receipt["updated_at"]))
-        candidates.append(str(delivery["updated_at"]))
+    candidates = [binding["updated_at"], *(item["updated_at"] for item in source_atoms)]
     valid = [value for value in candidates if TIMESTAMP.fullmatch(value)]
     if not valid:
         raise SystemExit("no valid source revision timestamp")
@@ -544,14 +556,13 @@ def source_updated_at(
 
 SCOPE_UNIT_GRAPH_FIELDS = (
     "node_id",
-    "unit_name",
-    "name",
+    "scope_unit_name",
     "project_boundary_position",
-    "type_value",
+    "scope_unit_type",
+    "scope_unit_label",
     "child_composition",
     "structural_level",
     "local_order",
-    "unit_type_name",
     "navigational_order_number",
     "parent",
     "structural_parent",
@@ -559,7 +570,6 @@ SCOPE_UNIT_GRAPH_FIELDS = (
     "delivery_path",
     "authority_materialized",
     "numeric_prefix",
-    "scope_unit_type",
     "authority_mode",
 )
 
@@ -570,7 +580,7 @@ def project_scope_unit_graph(
     config_sha: str,
     binding: dict[str, str],
     scope_unit_rows: list[dict[str, object]],
-    contributions: list[dict[str, str]],
+    source_atoms: list[dict[str, str]],
     executed_generator: Path | None = None,
 ) -> str:
     project = config["project"]
@@ -612,6 +622,11 @@ def project_scope_unit_graph(
         "[repository]",
         f"control_root = {quote(project_relative(CONTROL))}",
         f"scope_unit_count = {len(scope_unit_rows)}",
+        "",
+        "[methodology_source_frontier]",
+        f"source_scope_unit_count = {len(METHODOLOGY_SOURCE_SCOPE_UNITS)}",
+        f"atom_count = {len(source_atoms)}",
+        f"digest = {quote(canonical_json_digest(source_atoms))}",
     ]
     for row in scope_unit_rows:
         lines += ["", "[[scope_units]]"]
@@ -621,8 +636,10 @@ def project_scope_unit_graph(
                 continue
             encoded = str(value).lower() if isinstance(value, bool) else value if isinstance(value, int) else quote(value)
             lines.append(f"{key} = {encoded}")
-    for contribution in contributions:
-        lines += ["", "[[admitted_contributions]]"] + [f"{key} = {quote(value)}" for key, value in contribution.items()]
+    for source_atom in source_atoms:
+        lines += ["", "[[methodology_source_atoms]]"] + [
+            f"{key} = {quote(value)}" for key, value in source_atom.items()
+        ]
     return "\n".join(lines) + "\n"
 
 
@@ -631,7 +648,7 @@ def project_scope_unit_graph_sources(
     config_sha: str,
     binding: dict[str, str],
     scope_unit_rows: list[dict[str, object]],
-    contributions: list[dict[str, str]],
+    source_atoms: list[dict[str, str]],
     executed_generator: Path | None = None,
 ) -> str:
     configuration_revision = f"{binding['atom_id']}@{binding['revision']}"
@@ -654,7 +671,7 @@ def project_scope_unit_graph_sources(
         source_carrier: str,
         source_revision: str,
         source_sha256: str,
-        journal_binding: dict[str, str],
+        journal_binding: dict[str, str] | None = None,
     ) -> None:
         lines.extend(
             [
@@ -665,11 +682,16 @@ def project_scope_unit_graph_sources(
                 f"source_carrier = {quote(source_carrier)}",
                 f"source_revision = {quote(source_revision)}",
                 f"source_sha256 = {quote(source_sha256)}",
-                f"journal_carrier = {quote(journal_binding['journal_carrier'])}",
-                f"journal_line = {quote(journal_binding['journal_line'])}",
-                f"journal_event_id = {quote(journal_binding['journal_event_id'])}",
             ]
         )
+        if journal_binding is not None:
+            lines.extend(
+                [
+                    f"journal_carrier = {quote(journal_binding['journal_carrier'])}",
+                    f"journal_line = {quote(journal_binding['journal_line'])}",
+                    f"journal_event_id = {quote(journal_binding['journal_event_id'])}",
+                ]
+            )
 
     for output_path in (
         "project.key",
@@ -688,123 +710,38 @@ def project_scope_unit_graph_sources(
         )
     for row in scope_unit_rows:
         node_path = "scope_units." + str(row["node_id"])
-        receipt = row["directory_receipt"]
-        delivery = row["delivery_atom"]
-        assert isinstance(receipt, dict) and isinstance(delivery, dict)
-        directory_revision = "Directory Carrier@" + str(receipt["revision"])
-        directory_fields = (
-            "node_id",
-            "unit_name",
-            "name",
-            "project_boundary_position",
-            "type_value",
-            "structural_level",
-            "local_order",
-            "unit_type_name",
-            "navigational_order_number",
-            "authority_materialized",
-            "numeric_prefix",
-            "scope_unit_type",
-        )
-        for field in directory_fields:
-            if row[field] is not None:
+        structure_carrier = str(row["authority_path"])
+        structure_revision = "observed_scope_unit_structure"
+        structure_sha256 = str(row["structure_sha256"])
+        for field in SCOPE_UNIT_GRAPH_FIELDS:
+            if row[field] is None:
+                continue
+            if field == "authority_mode":
                 append_binding(
                     node_path + "." + field,
-                    "scope_unit_directory_carrier",
-                    str(receipt["carrier"]),
-                    directory_revision,
-                    str(receipt["sha256"]),
-                    receipt,
+                    "project_configuration",
+                    project_relative(CONFIG),
+                    configuration_revision,
+                    config_sha,
+                    binding,
                 )
-        for field in ("authority_path", "delivery_path"):
+                continue
             append_binding(
                 node_path + "." + field,
-                "delivery_atom",
-                str(delivery["carrier"]),
-                str(delivery["atom_id"]) + "@" + str(delivery["revision"]),
-                str(delivery["sha256"]),
-                delivery,
+                "scope_unit_directory_structure",
+                structure_carrier,
+                structure_revision,
+                structure_sha256,
             )
+    for source_atom in source_atoms:
+        revision = source_atom["atom_id"] + "@" + source_atom["version"] + "," + source_atom["updated_at"]
         append_binding(
-            node_path + ".authority_path",
-            "scope_unit_directory_carrier",
-            str(receipt["carrier"]),
-            directory_revision,
-            str(receipt["sha256"]),
-            receipt,
+            "methodology_source_atoms." + source_atom["atom_id"],
+            "methodology_source_atom",
+            source_atom["carrier"],
+            revision,
+            source_atom["sha256"],
         )
-        parent = str(row["parent"])
-        if parent == PROJECT_IDENTITY:
-            append_binding(
-                node_path + ".parent",
-                "project_configuration",
-                project_relative(CONFIG),
-                configuration_revision,
-                config_sha,
-                binding,
-            )
-            append_binding(
-                node_path + ".structural_parent",
-                "project_configuration",
-                project_relative(CONFIG),
-                configuration_revision,
-                config_sha,
-                binding,
-            )
-        else:
-            parent_row = next(candidate for candidate in scope_unit_rows if candidate["node_id"] == parent)
-            parent_receipt = parent_row["directory_receipt"]
-            assert isinstance(parent_receipt, dict)
-            parent_revision = "Directory Carrier@" + str(parent_receipt["revision"])
-            for field in ("parent", "structural_parent"):
-                append_binding(
-                    node_path + "." + field,
-                    "scope_unit_directory_carrier",
-                    str(parent_receipt["carrier"]),
-                    parent_revision,
-                    str(parent_receipt["sha256"]),
-                    parent_receipt,
-                )
-        child_rows = [candidate for candidate in scope_unit_rows if candidate["parent"] == row["node_id"]]
-        append_binding(
-            node_path + ".child_composition",
-            "scope_unit_directory_carrier",
-            str(receipt["carrier"]),
-            directory_revision,
-            str(receipt["sha256"]),
-            receipt,
-        )
-        for child in child_rows:
-            child_receipt = child["directory_receipt"]
-            assert isinstance(child_receipt, dict)
-            append_binding(
-                node_path + ".child_composition",
-                "scope_unit_directory_carrier",
-                str(child_receipt["carrier"]),
-                "Directory Carrier@" + str(child_receipt["revision"]),
-                str(child_receipt["sha256"]),
-                child_receipt,
-            )
-        append_binding(
-            node_path + ".authority_mode",
-            "project_configuration",
-            project_relative(CONFIG),
-            configuration_revision,
-            config_sha,
-            binding,
-        )
-    for contribution in contributions:
-        output_path = "admitted_contributions." + contribution["atom"] + "." + contribution["key"]
-        revision = contribution["atom"] + "@" + contribution["version"] + "," + contribution["updated_at"]
-        lines += [
-            "",
-            "[[bindings]]",
-            f"output_path = {quote(output_path)}",
-            'source_kind = "atom_contribution"',
-            f"source_carrier = {quote(contribution['carrier'])}",
-            f"source_revision = {quote(revision)}",
-            f"source_sha256 = {quote(contribution['sha256'])}",
-        ]
     return "\n".join(lines) + "\n"
 
 
@@ -846,17 +783,17 @@ def main() -> None:
     binding = configuration_binding(config_sha)
     if binding["status"] != "resolved":
         raise SystemExit("Project Configuration current revision binding is unresolved or ambiguous")
-    contributions = active_contributions()
+    source_atoms = active_source_atoms()
     modes = config["authority_modes"]
     assert isinstance(modes, dict)
-    rows = bind_scope_unit_authority(scope_units(CONTROL, ROOT, modes))
-    updated_at = source_updated_at(binding, contributions, rows)
-    graph_payload = project_scope_unit_graph(updated_at, config, config_sha, binding, rows, contributions)
-    sources_payload = project_scope_unit_graph_sources(updated_at, config_sha, binding, rows, contributions)
+    rows = bind_scope_unit_structure(scope_units(CONTROL, ROOT, modes))
+    updated_at = source_updated_at(binding, source_atoms)
+    graph_payload = project_scope_unit_graph(updated_at, config, config_sha, binding, rows, source_atoms)
+    sources_payload = project_scope_unit_graph_sources(updated_at, config_sha, binding, rows, source_atoms)
     changed = (not OUTPUT.is_file() or OUTPUT.read_text(encoding="utf-8") != graph_payload) or (
         not SOURCE_MAP.is_file() or SOURCE_MAP.read_text(encoding="utf-8") != sources_payload
     )
-    print(json.dumps({"apply": args.apply, "changed": changed, "contributions": len(contributions), "outputs": [project_relative(OUTPUT), project_relative(SOURCE_MAP)], "scope_units": len(rows)}, sort_keys=True))
+    print(json.dumps({"apply": args.apply, "changed": changed, "methodology_source_atoms": len(source_atoms), "outputs": [project_relative(OUTPUT), project_relative(SOURCE_MAP)], "scope_units": len(rows)}, sort_keys=True))
     if not args.apply:
         return
     installed_generator()

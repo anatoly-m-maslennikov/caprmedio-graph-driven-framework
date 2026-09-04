@@ -8,13 +8,13 @@ subjects:
       - Atom/Claim
   depends_on:
     continuant:
-      - Atom/Current Scope
-      - Atom/Claim Scope
+      - Atom/Scope
+      - Atom/Claim/Scope
       - Claim Value Set
       - Property
       - IS_ALLOWED_VALUE_OF
-version: 3
-updated_at: 2026-09-02 01:12:00 +0400
+version: 4
+updated_at: 2026-09-04 00:22:20 +0400
 relations:
   child_of:
     - CA-R-918
@@ -22,4 +22,4 @@ relations:
 ---
 # Consolidate Single-Value Claims as One Value-Set Claim
 
-multiple Claims with the same Current Scope, Claim Scope, **and** Property X **must** be consolidated as **`=1`** Claim Value Set **if** they differ **only** by one allowed value of X.
+multiple Claims with the same Atom Scope, Claim Scope, **and** Property X **must** be consolidated as **`=1`** Claim Value Set **if** they differ **only** by one allowed value of X.

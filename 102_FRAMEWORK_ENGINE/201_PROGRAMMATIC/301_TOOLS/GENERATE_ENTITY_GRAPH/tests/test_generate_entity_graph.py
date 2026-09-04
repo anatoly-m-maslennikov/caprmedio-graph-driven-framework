@@ -285,6 +285,28 @@ class GenerateEntityGraphTests(unittest.TestCase):
             projection["term_system"]["direct_parents"]["Demand"]["IS_ALLOWED_VALUE_OF"],
         )
 
+    def test_derives_subtype_edge_from_modal_cce_claim(self) -> None:
+        self.write(
+            "CA-R-026.md",
+            atom(
+                "CA-R-026",
+                cce_form="classification",
+                governs=("Structural Entity",),
+                depends_on=("Relational Artifact",),
+                claim="the Term Structural Entity **must** be a SUBTYPE_OF Relational Artifact.",
+            ),
+        )
+
+        projection = generate_entity_graph.generate_projection(self.root, self.selected)
+        edge_keys = {
+            (edge["relation"], edge["source_subject"], edge["target_subject"])
+            for edge in projection["term_system"]["edges"]
+        }
+        self.assertIn(
+            ("SUBTYPE_OF", "Structural Entity", "Relational Artifact"),
+            edge_keys,
+        )
+
     def test_reports_typed_parent_cardinality_and_subtype_cycles(self) -> None:
         self.write(
             "CA-R-026.md",

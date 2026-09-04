@@ -11,9 +11,9 @@ subjects:
       - "Atom/Content Role: Plan/Type: Objective"
       - "Atom/Content Role: Plan/Type: Objective/Carrier/Filename"
       - "Atom/Content Role: Plan/Type: Objective/Carrier/Placement"
-      - Epic/Objective
-version: 2
-updated_at: 2026-09-02 04:15:00 +0400
+      - "Atom Collection/Type: Epic/Objective"
+version: 4
+updated_at: 2026-09-04 01:04:00 +0400
 relations:
   evaluation_for:
     - CA-R-1365
@@ -29,7 +29,7 @@ an Objective Atom states one Epic-wide outcome for **`=1`** Epic, uses the canon
 
 ## Test case
 
-create one valid Objective Atom in its Current Scope Owner's `03_plan` folder **and** one Epic with no Objective Atom. **then** create two Objective Atoms for one Epic, omit the target Epic, target multiple Epics, use a noncanonical filename, **and** move the Objective Atom Carrier into its target Epic Directory Carrier.
+create one valid Objective Atom in its Atom Scope's `03_plan` folder **and** one Epic with no Objective Atom. **then** create two Objective Atoms for one Epic, omit the target Epic, target multiple Epics, use a noncanonical filename, **and** move the Objective Atom Carrier into its target Epic Directory Carrier.
 
 ## Acceptance criteria
 

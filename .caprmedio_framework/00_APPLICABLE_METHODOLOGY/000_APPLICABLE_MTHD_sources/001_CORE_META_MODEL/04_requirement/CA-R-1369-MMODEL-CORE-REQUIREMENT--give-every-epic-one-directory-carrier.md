@@ -5,13 +5,13 @@ cce_form: cardinality
 subjects:
   governs:
     continuant:
-      - Epic/Directory Carrier
+      - "Atom Collection/Type: Epic/Directory Carrier"
   depends_on:
     continuant:
-      - Epic
+      - "Atom Collection/Type: Epic"
       - Directory Carrier
-version: 1
-updated_at: 2026-09-02 04:30:00 +0400
+version: 2
+updated_at: 2026-09-04 01:04:00 +0400
 relations: {}
 ---
 # Give Every Epic One Directory Carrier

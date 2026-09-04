@@ -10,15 +10,15 @@ subjects:
     continuant:
       - Atom/Identity
       - Atom/Claim
-      - Atom/Claim Scope
-      - Atom/Current Scope
+      - Atom/Claim/Scope
+      - Atom/Scope
       - Atom/Direct Relation
-version: 3
-updated_at: 2026-08-29 02:40:41 +0400
+version: 4
+updated_at: 2026-09-04 00:22:20 +0400
 relations: {}
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-304-MMODEL-CORE-DELIVERY--preserve-authority-through-carrier-only-recoding.md
 ---
 # Preserve Authority through Carrier-Only Recoding
 
-**every** Carrier-only recoding **must** preserve Atom identity, Claim, Claim Scope, Current Scope, **and** authored direct semantic relations **without** semantic change.
+**every** Carrier-only recoding **must** preserve Atom identity, Claim, Claim Scope, Atom Scope, **and** authored direct semantic relations **without** semantic change.

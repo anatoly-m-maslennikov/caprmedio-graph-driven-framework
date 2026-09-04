@@ -8,9 +8,9 @@ subjects:
       - Artifact
   depends_on:
     continuant:
-      - Artifact Revision
-version: 2
-updated_at: 2026-08-29 02:40:41 +0400
+      - Artifact/Revision
+version: 3
+updated_at: 2026-09-03 02:06:59 +0400
 relations: {}
 ---
 # Define Artifact

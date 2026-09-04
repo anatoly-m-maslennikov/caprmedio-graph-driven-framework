@@ -5,11 +5,18 @@ cce_form: grammar
 subjects:
   governs:
     continuant:
-      - Scope Unit/Authority Directory Carrier/Name
-version: 3
-updated_at: 2026-08-29 02:40:41 +0400
+      - Directory Carrier/Name
+  depends_on:
+    continuant:
+      - Scope Unit/Name
+      - Scope Unit/Label
+      - Structural Level
+      - Navigational Order Number
+      - Local Order
+version: 4
+updated_at: 2026-09-04 01:04:00 +0400
 relations: {}
 ---
 # Serialize Scope Unit Authority Directory Names
 
-**every** Project-internal Scope Unit authority Directory Carrier name **must** serialize Structural Level, Navigational Order Number, Unit Type Name, applicable Local Order, **and** Unit Name **in** that order.
+**every** Project-internal Scope Unit authority Directory Carrier Name **must** serialize Structural Level, Navigational Order Number, Label, applicable Local Order, **and** Scope Unit Name **in** that order.

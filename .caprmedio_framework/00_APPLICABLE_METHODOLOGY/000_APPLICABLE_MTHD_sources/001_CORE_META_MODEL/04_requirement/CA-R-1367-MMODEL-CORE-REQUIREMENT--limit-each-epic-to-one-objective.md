@@ -5,12 +5,12 @@ cce_form: cardinality
 subjects:
   governs:
     continuant:
-      - Epic/Objective
+      - "Atom Collection/Type: Epic/Objective"
   depends_on:
     continuant:
       - "Atom/Content Role: Plan/Type: Objective"
-version: 1
-updated_at: 2026-09-02 04:15:00 +0400
+version: 2
+updated_at: 2026-09-04 01:04:00 +0400
 relations: {}
 ---
 # Limit Each Epic to One Objective

@@ -414,8 +414,9 @@ def term_system_edges(
             parent_prefix = child_prefix
 
     subtype_pattern = re.compile(
-        r"(?m)^([A-Z][A-Za-z0-9]*(?: [A-Z][A-Za-z0-9]*)*) "
-        r"SUBTYPE_OF ([A-Z][A-Za-z0-9]*(?: [A-Z][A-Za-z0-9]*)*)"
+        r"(?m)^(?:the Term )?([A-Z][A-Za-z0-9]*(?: [A-Z][A-Za-z0-9]*)*) "
+        r"(?:must be (?:a )?)?SUBTYPE_OF "
+        r"([A-Z][A-Za-z0-9]*(?: [A-Z][A-Za-z0-9]*)*)"
     )
     relations_by_carrier: dict[str, list[SubjectRelation]] = defaultdict(list)
     for relation in relations:

@@ -8,11 +8,11 @@ subjects:
       - "Atom/Content Role: Plan/Type: Objective/Carrier/Filename"
   depends_on:
     continuant:
-      - Atom/Current Scope/Owner
+      - Atom/Scope
       - Atom/Summary
-      - Epic/Identity
-version: 1
-updated_at: 2026-09-02 03:30:00 +0400
+      - "Atom Collection/Type: Epic/Identity"
+version: 3
+updated_at: 2026-09-04 01:04:00 +0400
 relations: {}
 ---
 # Serialize Objective Filenames

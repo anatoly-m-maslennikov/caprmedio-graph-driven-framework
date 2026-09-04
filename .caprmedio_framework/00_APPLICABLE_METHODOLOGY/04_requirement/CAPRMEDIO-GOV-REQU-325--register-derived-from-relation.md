@@ -2,15 +2,14 @@
 subjects:
   governs:
     continuant:
-      - Derived From Relation
+      - DERIVED_FROM
   depends_on:
     continuant:
-      - atom-boundary
-      - relation-model
+      - Artifact/Revision
 cce_version: cce_1
 cce_form: definition
-version: 8
-updated_at: 2026-08-29 02:40:41 +0400
+version: 10
+updated_at: 2026-09-04 14:07:21 +0400
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -23,4 +22,4 @@ projection:
 ---
 # Register derived_from relation
 
-GOVERNANCE **must** register `derived_from` as a direct relation owned by an internal Concern, Analysis, Plan, Requirement, Method, Evaluation, Delivery, **or** Rationale Atom **and** directed to its source Analysis Atom.
+a DERIVED_FROM relation **means** a direct relation from one derived Artifact Revision to one exact source Artifact Revision used to derive it.

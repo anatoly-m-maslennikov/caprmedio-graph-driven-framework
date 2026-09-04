@@ -8,12 +8,12 @@ subjects:
     continuant:
       - Atom
       - Claim
-      - Claim Scope
+      - Atom/Claim/Scope
       - CCE
 cce_version: cce_1
 cce_form: method
-version: 9
-updated_at: 2026-08-29 02:40:41 +0400
+version: 11
+updated_at: 2026-09-04 14:07:21 +0400
 relations: {}
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/05_method/CA-M-115-GOVERN-CORE-METHOD--author-one-cce-claim-per-atom.md
@@ -24,6 +24,6 @@ projection:
 
 1. identify one statement whose complete effect **must** be accepted, replaced, **and** retired together.
 2. split **every** independently replaceable component into another Atom.
-3. identify **`=1`** atomic **or** composite Claim Scope.
+3. identify **`=0`** Claim Scope for a Current-scope Atom **or** **`=1`** atomic **or** composite Claim Scope for a Relational Atom.
 4. write the complete Claim **in** the current CCE version.
 5. remove **every** duplicate alternate authoritative statement.

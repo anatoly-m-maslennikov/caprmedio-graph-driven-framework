@@ -5,13 +5,13 @@ subjects:
       - relation-model
   depends_on:
     continuant:
-      - Atom/Current Scope/Owner
-      - Atom/Claim Scope/Scope Unit Set
+      - Atom/Scope
+      - Atom/Claim/Scope/Scope Unit Set
 atom_id: CA-R-916
 cce_version: cce_1
 cce_form: obligation
-version: 8
-updated_at: 2026-09-02 00:35:23 +0400
+version: 9
+updated_at: 2026-09-04 00:22:20 +0400
 relations:
   child_of:
     - CA-R-932
@@ -21,4 +21,4 @@ projection:
 ---
 # Restrict ordered Demands to earlier Producers
 
-**every** Demand Atom between ordered peer Scope Units **must** have a Producer Claim Scope Scope Unit that precedes its Consumer Current Scope Owner Scope Unit.
+**every** Demand Atom between ordered peer Scope Units **must** have a Producer Claim Scope Scope Unit that precedes its Consumer Atom Scope Unit.

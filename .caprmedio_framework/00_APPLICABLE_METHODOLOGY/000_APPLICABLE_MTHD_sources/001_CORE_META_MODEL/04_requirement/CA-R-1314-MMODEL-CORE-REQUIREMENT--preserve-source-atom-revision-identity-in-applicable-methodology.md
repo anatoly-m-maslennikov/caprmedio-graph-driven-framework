@@ -9,11 +9,11 @@ subjects:
   depends_on:
     continuant:
       - Atom/Revision
-      - Methodology Source
-version: 3
-updated_at: 2026-08-29 02:40:41 +0400
+      - DERIVED_FROM
+version: 4
+updated_at: 2026-09-04 14:07:21 +0400
 relations: {}
 ---
 # Preserve Source Atom Revision Identity in Applicable Methodology
 
-**every** Applicable Methodology member **must** preserve its exact source Atom Revision **and** **must not** acquire a new Atom **or** independent Artifact identity.
+**every** Applicable Methodology member **must** retain **`=1`** direct DERIVED_FROM relation to its exact source Atom Revision.

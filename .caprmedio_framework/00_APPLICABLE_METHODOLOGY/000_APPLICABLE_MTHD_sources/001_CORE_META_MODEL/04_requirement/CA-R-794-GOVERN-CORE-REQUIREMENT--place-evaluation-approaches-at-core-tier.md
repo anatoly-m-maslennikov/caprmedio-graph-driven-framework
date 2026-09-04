@@ -11,12 +11,12 @@ subjects:
 atom_id: CA-R-794
 cce_version: cce_1
 cce_form: obligation
-version: 10
-updated_at: 2026-08-29 02:40:41 +0400
+version: 11
+updated_at: 2026-09-04 00:22:20 +0400
 relations:
   child_of:
     - CA-R-799
 ---
 # Place Evaluation Approaches at Core tier
 
-**every** `evaluation_approach` Atom **must** occupy Local Tier `core` **in** its Current Scope.
+**every** `evaluation_approach` Atom **must** occupy Local Tier `core` **in** its Atom Scope.

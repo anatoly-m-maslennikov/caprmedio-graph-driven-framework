@@ -1,12 +1,13 @@
 ---
+atom_id: CA-M-219
 cce_version: cce_1
 cce_form: method
 subjects:
   governs:
     continuant:
       - feature-boundary
-version: 5
-updated_at: 2026-09-02 00:40:00 +0400
+version: 6
+updated_at: 2026-09-04 03:10:59 +0400
 relations:
   method_for:
     - CA-R-1153
@@ -21,7 +22,7 @@ Use this Method when `TARGET_SET` must resolve identities or governed selectors 
 
 ## Procedure
 
-1. Confirm that `TARGET_SET` is registered as one `unordered_unit` Finder owned immediately by `TOOLS` at Structural level `4`, with prefix `TARGET_SET`, address `002_FRAMEWORK_ENGINE/PROGRAMMATIC/TOOLS/TARGET_SET`, and realization path `002_FRAMEWORK_ENGINE/PROGRAMMATIC/TOOLS/TARGET_SET/`.
+1. Confirm that `TARGET_SET` is registered as one `unordered_unit` Finder owned immediately by `TOOLS` at Structural level `4`, with prefix `TARGET_SET`, address `102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/TARGET_SET`, and realization path `102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/TARGET_SET/`.
 2. Resolve the supplied explicit identities and composable governed selectors against the current project frontier.
 3. Deduplicate the resolved members and order them by the registered stable ordering rule.
 4. Seal membership, source frontier, and content digest together as one target-set identity.

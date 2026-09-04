@@ -12,6 +12,6 @@ support_evidence = ".github/workflows/publish-release.yml:python-version=3.14"
 
 # The default runtime is deliberately standard-library-only.
 required_runtime_dependencies = []
-dependency_exception_delivery_root = ".caprmedio/07_delivery"
-dependency_exception_evaluation_root = ".caprmedio/06_evaluation"
+dependency_exception_delivery_root = ".caprmedio_framework/00_APPLICABLE_METHODOLOGY/07_delivery"
+dependency_exception_evaluation_root = ".caprmedio_framework/00_APPLICABLE_METHODOLOGY/06_evaluation"
 exception_recording_rule = "Record each admitted third-party dependency or non-Python carrier in an active Delivery Atom under the delivery root, with its acceptance evidence in an active Evaluation Atom under the evaluation root."

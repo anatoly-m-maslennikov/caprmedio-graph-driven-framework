@@ -5,13 +5,16 @@ cce_form: obligation
 subjects:
   governs:
     continuant:
-      - Scope Unit/Goal
-version: 6
-updated_at: 2026-09-02 04:15:00 +0400
+      - METAMODEL
+  depends_on:
+    continuant:
+      - "Atom/Content Role: Requirement/Type: Goal"
+version: 7
+updated_at: 2026-09-04 01:04:00 +0400
 relations: {}
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1169-META_MTHD-DEFINES_GOAL_FOR-MMODEL--make-caprmedio-structurally-well-formed-through-one-recursive-model.md
 ---
 # Make CAPRMEDIO Structurally Well-Formed Through One Recursive Model
 
-METAMODEL **must** make CAPRMEDIO structurally well-formed through one minimal model that applies recursively to Scope Units, Artifacts, Entities, axes, relations, **and** itself.
+the Scope Unit METAMODEL **must** make CAPRMEDIO structurally well-formed through one minimal model that applies recursively to Scope Units, Artifacts, Entities, axes, relations, **and** itself.

@@ -8,9 +8,9 @@ subjects:
       - Artifact
   depends_on:
     continuant:
-      - Artifact Revision
-version: 2
-updated_at: 2026-08-29 02:40:41 +0400
+      - Artifact/Revision
+version: 3
+updated_at: 2026-09-03 02:06:59 +0400
 relations: {}
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1268-MMODEL-CORE-REQUIREMENT--define-artifact.md

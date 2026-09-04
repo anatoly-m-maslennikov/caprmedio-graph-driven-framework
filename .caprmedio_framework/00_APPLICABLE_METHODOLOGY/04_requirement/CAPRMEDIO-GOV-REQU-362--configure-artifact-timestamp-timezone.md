@@ -4,21 +4,18 @@ cce_form: obligation
 subjects:
   governs:
     continuant:
-      - settings
+      - Framework Instance Settings/Artifact Timestamp Timezone
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
-project_graph_state:
-  artifact_timestamps:
-    timezone: local
-version: 10
-updated_at: 2026-08-29 09:18:56 +0400
+version: 11
+updated_at: 2026-09-04 04:05:44 +0400
 relations:
   child_of:
-    - CAPRMEDIO-META-REQU-163--define-configuration-selection-and-precedence
+    - CA-R-1402
     - CA-R-1054
 projection:
-  source_carrier_path: ../000_APPLICABLE_MTHD_sources/003_LOCAL_CONFIGURATION/04_requirement/CAPRMEDIO-GOV-REQU-362--configure-artifact-timestamp-timezone.md
+  source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CAPRMEDIO-GOV-REQU-362--configure-artifact-timestamp-timezone.md
 ---
 # Configure the Artifact timestamp timezone
 
-CAPRMEDIO resolves `updated_at` **in** the operator's local timezone by default. The project setting `[artifact_timestamps].timezone` **may** select `local`, `UTC`, **or** an IANA timezone name; **every** emitted value uses `YYYY-MM-DD HH:MM:SS`, **and** the setting supplies its timezone interpretation.
+the Framework Instance Settings Artifact **may** set `[artifact_timestamps].timezone` to `local`, `UTC`, **or** an IANA timezone name, with `local` as the default; **every** emitted `updated_at` value uses `YYYY-MM-DD HH:MM:SS`, **and** the setting supplies its timezone interpretation.

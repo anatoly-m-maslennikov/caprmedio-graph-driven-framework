@@ -5,13 +5,13 @@ subjects:
       - Work Sequence Number
   depends_on:
     continuant:
-      - Epic
+      - "Atom Collection/Type: Epic"
       - "Atom/Content Role: Plan/Type: Task"
 atom_id: CA-R-991
 cce_version: cce_1
 cce_form: definition
-version: 7
-updated_at: 2026-08-29 04:33:13 +0400
+version: 8
+updated_at: 2026-09-04 01:04:00 +0400
 relations:
   child_of:
     - CA-R-988
