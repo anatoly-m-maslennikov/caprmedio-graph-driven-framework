@@ -166,7 +166,7 @@ class GenerateEntityGraphTests(unittest.TestCase):
         self.assertTrue(cycle_leaf["cycle"])
         self.assertEqual(["Alpha", "Beta", "Gamma", "Alpha"], cycle_leaf["cycle_path"])
 
-    def test_definition_atom_must_govern_exactly_one_term(self) -> None:
+    def test_every_atom_must_govern_exactly_one_entity(self) -> None:
         self.write(
             "CA-R-013.md",
             atom(
@@ -179,7 +179,7 @@ class GenerateEntityGraphTests(unittest.TestCase):
 
         with self.assertRaisesRegex(
             generate_entity_graph.EntityGraphError,
-            "exactly one declared Term",
+            "exactly one governed Entity",
         ):
             generate_entity_graph.generate_projection(self.root, self.selected)
 
@@ -249,7 +249,7 @@ class GenerateEntityGraphTests(unittest.TestCase):
                 cce_form="classification",
                 governs=("Type",),
                 depends_on=("Property",),
-                claim="Type SUBTYPE_OF Property.",
+                claim="Type SUBKIND_OF Property.",
             ),
         )
         self.write(
@@ -267,7 +267,7 @@ class GenerateEntityGraphTests(unittest.TestCase):
             (edge["relation"], edge["source_subject"], edge["target_subject"])
             for edge in projection["term_system"]["edges"]
         }
-        self.assertIn(("SUBTYPE_OF", "Type", "Property"), edge_keys)
+        self.assertIn(("SUBKIND_OF", "Type", "Property"), edge_keys)
         self.assertIn(
             ("IS_BORNE_BY", "Atom/Content Role: Requirement/Type", "Atom/Content Role: Requirement"),
             edge_keys,
@@ -285,7 +285,7 @@ class GenerateEntityGraphTests(unittest.TestCase):
             projection["term_system"]["direct_parents"]["Demand"]["IS_ALLOWED_VALUE_OF"],
         )
 
-    def test_derives_subtype_edge_from_modal_cce_claim(self) -> None:
+    def test_derives_subkind_edge_from_modal_cce_claim(self) -> None:
         self.write(
             "CA-R-026.md",
             atom(
@@ -293,7 +293,7 @@ class GenerateEntityGraphTests(unittest.TestCase):
                 cce_form="classification",
                 governs=("Structural Entity",),
                 depends_on=("Relational Artifact",),
-                claim="the Term Structural Entity **must** be a SUBTYPE_OF Relational Artifact.",
+                claim="the Term Structural Entity **must** be a SUBKIND_OF Relational Artifact.",
             ),
         )
 
@@ -303,11 +303,11 @@ class GenerateEntityGraphTests(unittest.TestCase):
             for edge in projection["term_system"]["edges"]
         }
         self.assertIn(
-            ("SUBTYPE_OF", "Structural Entity", "Relational Artifact"),
+            ("SUBKIND_OF", "Structural Entity", "Relational Artifact"),
             edge_keys,
         )
 
-    def test_reports_typed_parent_cardinality_and_subtype_cycles(self) -> None:
+    def test_reports_typed_parent_cardinality_and_subkind_cycles(self) -> None:
         self.write(
             "CA-R-026.md",
             atom("CA-R-026", cce_form="definition", governs=("Value",)),
@@ -327,7 +327,7 @@ class GenerateEntityGraphTests(unittest.TestCase):
                 cce_form="classification",
                 governs=("Alpha",),
                 depends_on=("Beta",),
-                claim="Alpha SUBTYPE_OF Beta.",
+                claim="Alpha SUBKIND_OF Beta.",
             ),
         )
         self.write(
@@ -337,7 +337,7 @@ class GenerateEntityGraphTests(unittest.TestCase):
                 cce_form="classification",
                 governs=("Beta",),
                 depends_on=("Alpha",),
-                claim="Beta SUBTYPE_OF Alpha.",
+                claim="Beta SUBKIND_OF Alpha.",
             ),
         )
         codes = {
@@ -347,7 +347,44 @@ class GenerateEntityGraphTests(unittest.TestCase):
             ]
         }
         self.assertIn("term-allowed-value-parent-cardinality", codes)
-        self.assertIn("term-subtype-cycle", codes)
+        self.assertIn("term-subkind-cycle", codes)
+
+    def test_allows_multiple_direct_subkind_parents(self) -> None:
+        self.write(
+            "CA-R-039.md",
+            atom("CA-R-039", cce_form="definition", governs=("Hybrid",)),
+        )
+        self.write(
+            "CA-R-040.md",
+            atom(
+                "CA-R-040",
+                cce_form="classification",
+                governs=("Hybrid",),
+                depends_on=("Alpha",),
+                claim="Hybrid SUBKIND_OF Alpha.",
+            ),
+        )
+        self.write(
+            "CA-R-041.md",
+            atom(
+                "CA-R-041",
+                cce_form="classification",
+                governs=("Hybrid",),
+                depends_on=("Beta",),
+                claim="Hybrid SUBKIND_OF Beta.",
+            ),
+        )
+
+        term_system = generate_entity_graph.generate_projection(self.root, self.selected)["term_system"]
+
+        self.assertEqual(
+            ["Alpha", "Beta"],
+            term_system["direct_parents"]["Hybrid"]["SUBKIND_OF"],
+        )
+        self.assertNotIn(
+            "term-subkind-parent-cardinality",
+            {row["code"] for row in term_system["violations"]},
+        )
 
     def test_reuses_type_across_bearer_occurrences_and_rejects_role_specific_type_terms(self) -> None:
         self.write(
@@ -356,7 +393,11 @@ class GenerateEntityGraphTests(unittest.TestCase):
         )
         self.write(
             "CA-R-032.md",
-            atom("CA-R-032", cce_form="obligation", governs=("Atom/Type", "Artifact/Type")),
+            atom("CA-R-032", cce_form="obligation", governs=("Atom/Type",)),
+        )
+        self.write(
+            "CA-R-034.md",
+            atom("CA-R-034", cce_form="obligation", governs=("Artifact/Type",)),
         )
         self.write(
             "CA-R-033.md",

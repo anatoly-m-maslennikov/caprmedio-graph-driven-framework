@@ -19,7 +19,7 @@ from pathlib import Path
 
 TOOL_ID = "GENERATE_ENTITY_GRAPH"
 TOOL_KIND = "finder"
-SCHEMA_VERSION = 4
+SCHEMA_VERSION = 5
 INACTIVE_DIRECTORY_NAMES = {"archive", "drafts", "done", "canceled", "cancelled", "solved", "handled"}
 CANONICAL_SUBJECT_KINDS = {"governs": "GOVERNS", "depends_on": "DEPENDS_ON"}
 LEGACY_SUBJECT_KINDS = {"declared": "GOVERNS", "prerequisite": "DEPENDS_ON"}
@@ -291,7 +291,7 @@ def parse_subject_relations(carrier: AtomCarrier) -> tuple[list[SubjectRelation]
             {
                 "severity": "warning",
                 "code": "legacy-subject-schema-mapped",
-                "message": "Legacy Subject roles were mapped to their current Claim-Subject relation kinds for this derived Projection.",
+                "message": "Legacy Subject roles were mapped to their current Subject relation kinds for this derived Projection.",
                 "details": {
                     "atom_id": carrier.atom_id,
                     "carrier_path": carrier.carrier_path,
@@ -302,16 +302,15 @@ def parse_subject_relations(carrier: AtomCarrier) -> tuple[list[SubjectRelation]
                 },
             }
         )
-    if carrier.cce_form == "definition":
-        defined_subjects = [relation for relation in relations if relation.kind == "GOVERNS"]
-        if len(defined_subjects) != 1:
-            raise EntityGraphError(
-                "definition-term-cardinality",
-                "A Definition Atom must identify exactly one declared Term through GOVERNS.",
-                atom_id=carrier.atom_id,
-                carrier_path=carrier.carrier_path,
-                governs_count=len(defined_subjects),
-            )
+    governed_subjects = [relation for relation in relations if relation.kind == "GOVERNS"]
+    if len(governed_subjects) != 1:
+        raise EntityGraphError(
+            "atom-governs-cardinality",
+            "Every Atom must reference exactly one governed Entity through GOVERNS.",
+            atom_id=carrier.atom_id,
+            carrier_path=carrier.carrier_path,
+            governs_count=len(governed_subjects),
+        )
     return relations, diagnostics
 
 
@@ -413,9 +412,9 @@ def term_system_edges(
                 )
             parent_prefix = child_prefix
 
-    subtype_pattern = re.compile(
+    subkind_pattern = re.compile(
         r"(?m)^(?:the Term )?([A-Z][A-Za-z0-9]*(?: [A-Z][A-Za-z0-9]*)*) "
-        r"(?:must be (?:a )?)?SUBTYPE_OF "
+        r"(?:must be (?:a )?)?SUBKIND_OF "
         r"([A-Z][A-Za-z0-9]*(?: [A-Z][A-Za-z0-9]*)*)"
     )
     relations_by_carrier: dict[str, list[SubjectRelation]] = defaultdict(list)
@@ -423,7 +422,7 @@ def term_system_edges(
         relations_by_carrier[relation.carrier_path].append(relation)
     for carrier in carriers:
         normalized_body = carrier.body.replace("**", "").replace("`", "")
-        for match in subtype_pattern.finditer(normalized_body):
+        for match in subkind_pattern.finditer(normalized_body):
             source_term, target_term = match.groups()
             governed_terms = {
                 terminal_term(row.subject_path)
@@ -438,7 +437,7 @@ def term_system_edges(
             if source_term not in governed_terms or target_term not in depended_terms:
                 continue
             add(
-                "SUBTYPE_OF",
+                "SUBKIND_OF",
                 source_term,
                 source_term,
                 target_term,
@@ -459,35 +458,24 @@ def term_system_edges(
 def term_system_analysis(
     declared_terms: Sequence[str], edges: Sequence[Mapping[str, object]]
 ) -> dict[str, object]:
-    subtype_parents: dict[str, set[str]] = defaultdict(set)
+    subkind_parents: dict[str, set[str]] = defaultdict(set)
     allowed_value_parents: dict[str, set[str]] = defaultdict(set)
     bearer_parents: dict[str, set[str]] = defaultdict(set)
-    subtype_graph: dict[str, set[str]] = defaultdict(set)
+    subkind_graph: dict[str, set[str]] = defaultdict(set)
     for edge in edges:
         relation_kind = str(edge["relation"])
         source_subject = str(edge["source_subject"])
         source_term = str(edge["source_term"])
         target_subject = str(edge["target_subject"])
-        if relation_kind == "SUBTYPE_OF":
-            subtype_parents[source_term].add(str(edge["target_term"]))
-            subtype_graph[source_term].add(str(edge["target_term"]))
+        if relation_kind == "SUBKIND_OF":
+            subkind_parents[source_term].add(str(edge["target_term"]))
+            subkind_graph[source_term].add(str(edge["target_term"]))
         elif relation_kind == "IS_ALLOWED_VALUE_OF":
             allowed_value_parents[source_term].add(target_subject)
         elif relation_kind == "IS_BORNE_BY":
             bearer_parents[source_subject].add(target_subject)
 
     violations: list[dict[str, object]] = []
-    for term, parents in sorted(subtype_parents.items()):
-        if len(parents) > 1:
-            violations.append(
-                {
-                    "code": "term-subtype-parent-cardinality",
-                    "term": term,
-                    "actual": len(parents),
-                    "maximum": 1,
-                    "parents": sorted(parents),
-                }
-            )
     for term, parents in sorted(allowed_value_parents.items()):
         if len(parents) > 1:
             violations.append(
@@ -510,9 +498,9 @@ def term_system_analysis(
                     "parents": sorted(parents),
                 }
             )
-    subtype_cycles = dependency_cycles(subtype_graph)
-    for cycle in subtype_cycles:
-        violations.append({"code": "term-subtype-cycle", "cycle": cycle})
+    subkind_cycles = dependency_cycles(subkind_graph)
+    for cycle in subkind_cycles:
+        violations.append({"code": "term-subkind-cycle", "cycle": cycle})
 
     prohibited_type_terms = sorted(
         term for term in declared_terms if term != "Type" and term.endswith(" Type")
@@ -523,15 +511,15 @@ def term_system_analysis(
     root_terms = sorted(
         term
         for term in declared_terms
-        if not subtype_parents.get(term) and not allowed_value_parents.get(term)
+        if not subkind_parents.get(term) and not allowed_value_parents.get(term)
     )
     return {
         "root_terms": root_terms,
-        "subtype_cycles": subtype_cycles,
+        "subkind_cycles": subkind_cycles,
         "prohibited_role_specific_type_terms": prohibited_type_terms,
         "direct_parents": {
             term: {
-                "SUBTYPE_OF": sorted(subtype_parents.get(term, ())),
+                "SUBKIND_OF": sorted(subkind_parents.get(term, ())),
                 "IS_ALLOWED_VALUE_OF": sorted(allowed_value_parents.get(term, ())),
             }
             for term in sorted(declared_terms)
