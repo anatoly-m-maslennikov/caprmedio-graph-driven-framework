@@ -9,10 +9,10 @@ subjects:
   depends_on:
     continuant:
       - Atom
-version: 3
-updated_at: 2026-09-04 01:04:00 +0400
+version: 4
+updated_at: 2026-09-04 23:24:00 +0400
 relations: {}
 ---
 # Keep Atom Collection Outside the Atom Taxonomy
 
-the Term Atom Collection **must not** be a SUBTYPE_OF Atom.
+the Term Atom Collection **must not** be a SUBKIND_OF Atom.

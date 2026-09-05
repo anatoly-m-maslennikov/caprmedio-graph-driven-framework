@@ -1,19 +1,22 @@
 ---
-subjects:
-  governs:
-    continuant:
-      - cce-language
-    occurrent:
-      - evaluation
+atom_id: CA-M-122
 cce_version: cce_1
 cce_form: method
-version: 5
-updated_at: 2026-08-29 02:40:41 +0400
+subjects:
+  governs:
+    occurrent:
+      - CCE Condition Expression Evaluation
+  depends_on:
+    continuant:
+      - CCE Condition Expression
+      - CCE Operator
+version: 6
+updated_at: 2026-09-04 23:11:19 +0400
 relations:
   child_of:
     - CA-M-113
 ---
-# Evaluate condition expressions
+# Evaluate Condition Expressions
 
 **to** evaluate one CCE condition expression, the Resolver **must** PERFORM **all** OF:
 

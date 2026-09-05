@@ -5,32 +5,32 @@ cce_form: evaluation
 subjects:
   governs:
     occurrent:
-      - Claim-Subject Relation Validation
+      - Atom Subject Validation
   depends_on:
     continuant:
-      - Claim-Subject Relation
+      - Atom/Subjects
       - Subject
       - Subject Path
-version: 7
-updated_at: 2026-08-29 02:40:41 +0400
+version: 8
+updated_at: 2026-09-04 23:11:19 +0400
 relations: {}
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/06_evaluation/CA-E-246-GOVERN-QA_CASE--validate-atom-subjects.md
 ---
-# Validate Claim-Subject Relations
+# Validate Atom Subjects
 
 ## Claim checked
 
-**every** active **or** draft Atom has valid Claim-Subject Relations to independent Subject Entities.
+**every** Atom has valid Subjects that connect the Atom to independent Entity references.
 
 ## Test case
 
-create fixtures for **all** Kinds, **all** Temporal Forms, one GOVERNS relation, two GOVERNS relations with different Temporal Forms, **any** number of DEPENDS_ON relations, a definition Claim, **and** a prerequisite Subject. **then** introduce a stored **or** owned Subject, a missing Kind, multiple Kinds, a missing Temporal Form, multiple Temporal Forms, zero GOVERNS relations, two GOVERNS relations with one Temporal Form, an omitted defined Term, an omitted prerequisite Subject, a duplicate relation, **and** a Subject Projection that changes **or** adds a relation.
+create fixtures for **all** Relation Kinds, **all** Temporal Forms, **`=1`** GOVERNS Subject, **`>=0`** DEPENDS_ON Subjects, a definition Claim, **and** a prerequisite Entity. **then** introduce a stored **or** owned referenced Entity, a missing Relation Kind, multiple Relation Kinds, a missing Temporal Form, multiple Temporal Forms, zero GOVERNS Subjects, multiple GOVERNS Subjects, an omitted defined Term, an omitted prerequisite Entity, a duplicate Subject, **and** a Subject Projection that changes **or** adds a Subject.
 
 ## Acceptance criteria
 
-**every** valid fixture passes. **every** invalid fixture fails with the affected Atom, Subject Path, Kind, Temporal Form, **or** cardinality rule. the Subject Projection reproduces exactly the selected current Claim-Subject Relations **without** independent authority.
+**every** valid fixture passes. **every** invalid fixture fails with the affected Atom, Subject Path, Relation Kind, Temporal Form, Entity reference, **or** cardinality rule. the Subject Projection reproduces exactly the selected current Subjects **without** independent authority.
 
 ## Failure disposition
 
-record a Concern naming **every** affected Atom **and** Claim-Subject Relation.
+record a Concern naming **every** affected Atom **and** Subject.

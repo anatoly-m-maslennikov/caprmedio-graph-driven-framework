@@ -1,28 +1,27 @@
 ---
-subjects:
-  governs:
-    continuant:
-      - relation-model
-    occurrent:
-      - evaluation
-  depends_on:
-    continuant:
-      - atom-boundary
 atom_id: CA-E-239
 cce_version: cce_1
 cce_form: evaluation
-version: 10
-updated_at: 2026-08-29 02:40:41 +0400
+subjects:
+  governs:
+    occurrent:
+      - Ordered Dependency Validation
+  depends_on:
+    continuant:
+      - Ordered Dependency
+      - Scope Unit/Order
+version: 11
+updated_at: 2026-09-04 23:11:19 +0400
 relations:
   evaluation_for:
     - CA-R-878
     - CA-R-885
 ---
-# Validate a forward ordered dependency
+# Validate a Forward Ordered Dependency
 
 ## Claim checked
 
-An ordered dependency flows from an earlier Producer to a later Consumer, **and** the stored relation points from Consumer to Producer.
+an ordered dependency flows from an earlier Producer to a later Consumer, **and** the stored relation points from Consumer to Producer.
 
 ## Test case
 

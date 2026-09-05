@@ -1,17 +1,17 @@
 ---
+atom_id: CA-M-127
 cce_version: cce_1
 cce_form: method
 subjects:
   governs:
-    continuant:
-      - cce-language
     occurrent:
-      - evaluation
+      - Set-valued Property Membership Evaluation
   depends_on:
     continuant:
-      - scope-topology
-version: 6
-updated_at: 2026-08-29 02:40:41 +0400
+      - CCE Condition Expression Evaluation
+      - Set-valued Property
+version: 7
+updated_at: 2026-09-04 23:11:19 +0400
 relations:
   child_of:
     - CA-M-122

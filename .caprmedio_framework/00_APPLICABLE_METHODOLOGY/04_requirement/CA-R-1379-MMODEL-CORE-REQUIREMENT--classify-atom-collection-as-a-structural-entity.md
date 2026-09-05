@@ -9,12 +9,12 @@ subjects:
   depends_on:
     continuant:
       - Structural Entity
-version: 1
-updated_at: 2026-09-04 01:04:00 +0400
+version: 2
+updated_at: 2026-09-04 23:24:00 +0400
 relations: {}
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1379-MMODEL-CORE-REQUIREMENT--classify-atom-collection-as-a-structural-entity.md
 ---
 # Classify Atom Collection as a Structural Entity
 
-the Term Atom Collection **must** be a SUBTYPE_OF Structural Entity.
+the Term Atom Collection **must** be a SUBKIND_OF Structural Entity.

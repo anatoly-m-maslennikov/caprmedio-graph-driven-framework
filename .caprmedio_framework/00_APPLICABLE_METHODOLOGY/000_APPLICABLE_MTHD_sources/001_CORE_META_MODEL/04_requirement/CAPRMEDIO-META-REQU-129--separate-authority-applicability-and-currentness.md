@@ -6,13 +6,13 @@ subjects:
     continuant:
       - authority
 tier: core
-version: 11
-updated_at: 2026-08-29 02:40:41 +0400
+version: 12
+updated_at: 2026-09-05 00:44:25 +0400
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   child_of:
-    - CA-M-001-PRINCIPLE-METHOD--mece_mutually-exclusive-collectively-exhaustive
+    - CA-M-001
 ---
 # Separate authority applicability and currentness
 

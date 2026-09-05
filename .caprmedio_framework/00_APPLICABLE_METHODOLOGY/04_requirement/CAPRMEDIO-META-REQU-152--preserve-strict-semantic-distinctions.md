@@ -1,19 +1,19 @@
 ---
-cce_version: cce_1
-cce_form: obligation
+cce_version: "cce_1"
+cce_form: "obligation"
 subjects:
   governs:
     continuant:
-      - semantics
-tier: core
-version: 10
-updated_at: 2026-08-29 02:40:41 +0400
+      - "semantics"
+tier: "core"
+version: 12
+updated_at: "2026-09-05 03:48:00 +0400"
 llm_session_ids:
-  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
 relations:
   child_of:
-    - CA-M-001-PRINCIPLE-METHOD--mece_mutually-exclusive-collectively-exhaustive
-    - CA-D-003-PRINCIPLE-DELIVERY--provide-one-project-graph-as-the-operating-model
+    - "CA-M-001"
+    - "CA-M-006"
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CAPRMEDIO-META-REQU-152--preserve-strict-semantic-distinctions.md
 ---

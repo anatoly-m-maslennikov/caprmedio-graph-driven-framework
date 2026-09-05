@@ -7,11 +7,11 @@ subjects:
     continuant:
       - authority
 tier: core
-version: 7
-updated_at: 2026-08-29 02:40:41 +0400
+version: 8
+updated_at: 2026-09-05 00:54:31 +0400
 relations:
   child_of:
-    - CA-P-034-PRINCIPLE-ACTION_POLICY--let-ai-agents-act-only-under-delegated-authority
+    - CA-P-034
 ---
 # Require active delegation for AI Agent actions
 

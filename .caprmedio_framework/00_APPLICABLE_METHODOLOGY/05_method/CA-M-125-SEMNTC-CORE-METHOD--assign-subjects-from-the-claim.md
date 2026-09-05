@@ -1,32 +1,34 @@
 ---
+atom_id: CA-M-125
 cce_version: cce_1
 cce_form: method
 subjects:
   governs:
     occurrent:
-      - Claim-Subject Relation Assignment
+      - Subject Assignment
   depends_on:
     continuant:
-      - Claim
+      - Atom/Claim
+      - Atom/Subjects
       - Subject Path
-      - Claim-Subject Relation
-version: 8
-updated_at: 2026-08-29 02:40:41 +0400
+      - Subject/Relation Kind
+      - Subject/Temporal Form
+version: 9
+updated_at: 2026-09-04 23:11:19 +0400
 relations: {}
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/05_method/CA-M-125-SEMNTC-CORE-METHOD--assign-subjects-from-the-claim.md
 ---
-# Assign Claim-Subject Relations from the Claim
+# Assign Subjects from the Claim
 
-**to** assign an Atom's Claim-Subject Relations, the Author **must** perform **all** of:
+**to** assign an Atom's Subjects, the Author **must** perform **all** of:
 
 1. read the complete Claim.
-2. select **every** independent Entity that the Claim governs **or** requires **and** reference its narrowest exact Subject Path.
-3. assign GOVERNS **when** the Claim establishes authority about the referenced Subject **and** assign DEPENDS_ON **when** the Claim requires the referenced Subject **without** establishing authority about it.
-4. assign CONTINUANT **when** the relation presents its referenced Subject as persisting through time **and** assign OCCURRENT **when** the relation presents its referenced Subject as happening **or** unfolding through time.
-5. include the defined Term **in** GOVERNS for **every** definition Claim.
-6. include **every** prerequisite Subject **in** DEPENDS_ON.
-7. retain **`>=1`** **and** **`<=2`** GOVERNS relations, with **`<=1`** GOVERNS relation for **every** Temporal Form.
-8. apply no GOVERNS cardinality limit to DEPENDS_ON relations.
-9. split the Atom **before** assignment **when** independently replaceable GOVERNS Subjects would share one Temporal Form.
-10. record **every** distinct Claim-Subject Relation exactly once.
+2. select the **`=1`** Entity that the Claim governs **and** reference its narrowest exact Subject Path.
+3. assign GOVERNS to that Subject.
+4. select **every** Entity that the Claim requires **without** governing it **and** assign DEPENDS_ON to its Subject.
+5. assign CONTINUANT **when** the relation presents its referenced Entity as persisting through time **and** assign OCCURRENT **when** the relation presents its referenced Entity as happening **or** unfolding through time.
+6. include the defined Term **in** GOVERNS for **every** definition Claim.
+7. include **every** prerequisite Entity **in** DEPENDS_ON.
+8. split the Atom **before** assignment **when** the Claim governs more than one Entity.
+9. record **every** distinct Subject exactly once.

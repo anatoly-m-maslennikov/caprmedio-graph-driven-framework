@@ -9,10 +9,10 @@ subjects:
   depends_on:
     continuant:
       - File Carrier
-version: 1
-updated_at: 2026-09-04 03:36:02 +0400
+version: 2
+updated_at: 2026-09-04 23:24:00 +0400
 relations: {}
 ---
 # Classify Markdown Atom Carrier
 
-the Term Markdown Atom Carrier **must** be a **SUBTYPE_OF** File Carrier.
+the Term Markdown Atom Carrier **must** be a **SUBKIND_OF** File Carrier.

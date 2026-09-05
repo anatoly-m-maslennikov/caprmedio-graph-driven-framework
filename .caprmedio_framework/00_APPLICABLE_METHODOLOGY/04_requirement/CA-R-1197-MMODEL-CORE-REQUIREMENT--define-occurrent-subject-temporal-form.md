@@ -5,16 +5,16 @@ cce_form: definition
 subjects:
   governs:
     continuant:
-      - "Claim-Subject Relation/Temporal Form: OCCURRENT"
+      - "Subject/Temporal Form: OCCURRENT"
   depends_on:
     continuant:
-      - Claim-Subject Relation/Temporal Form
-version: 4
-updated_at: 2026-08-29 02:40:41 +0400
+      - Subject/Temporal Form
+version: 5
+updated_at: 2026-09-04 23:11:19 +0400
 relations: {}
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1197-MMODEL-CORE-REQUIREMENT--define-occurrent-subject-temporal-form.md
 ---
-# Define OCCURRENT Claim-Subject Relation Temporal Form
+# Define OCCURRENT Subject Temporal Form
 
-OCCURRENT **means** the Claim-Subject Relation presents its referenced Subject as happening **or** unfolding through time.
+the OCCURRENT Subject Temporal Form **means** the Subject Temporal Form that presents the referenced Entity as happening **or** unfolding through time.

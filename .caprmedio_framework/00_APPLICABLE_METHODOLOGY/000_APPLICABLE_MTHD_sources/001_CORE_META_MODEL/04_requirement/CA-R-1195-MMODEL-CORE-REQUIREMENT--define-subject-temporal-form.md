@@ -5,14 +5,14 @@ cce_form: definition
 subjects:
   governs:
     continuant:
-      - Claim-Subject Relation/Temporal Form
+      - Subject/Temporal Form
   depends_on:
     continuant:
-      - Claim-Subject Relation
-version: 4
-updated_at: 2026-08-29 02:40:41 +0400
+      - Subject
+version: 5
+updated_at: 2026-09-04 23:11:19 +0400
 relations: {}
 ---
-# Define Claim-Subject Relation Temporal Form
+# Define Subject Temporal Form
 
-the Claim-Subject Relation Temporal Form **means** the relation Property whose allowed values are CONTINUANT **and** OCCURRENT.
+a Subject Temporal Form **means** the Subject Property whose allowed values are CONTINUANT **and** OCCURRENT.

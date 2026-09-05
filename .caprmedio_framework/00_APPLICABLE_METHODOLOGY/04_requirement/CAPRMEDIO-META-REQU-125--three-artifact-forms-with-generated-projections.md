@@ -1,20 +1,20 @@
 ---
-cce_version: cce_1
-cce_form: cardinality
+cce_version: "cce_1"
+cce_form: "cardinality"
 subjects:
   governs:
     continuant:
-      - artifact-model
-tier: core
-version: 11
-updated_at: 2026-08-29 02:40:41 +0400
+      - "artifact-model"
+tier: "core"
+version: 13
+updated_at: "2026-09-05 03:48:00 +0400"
 llm_session_ids:
-  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
-  - codex:01a01cb4-e15e-78d1-9084-766bf6b0cd63
+  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - "codex:01a01cb4-e15e-78d1-9084-766bf6b0cd63"
 relations:
   child_of:
-    - CA-M-001-PRINCIPLE-METHOD--mece_mutually-exclusive-collectively-exhaustive
-    - CA-D-003-PRINCIPLE-DELIVERY--provide-one-project-graph-as-the-operating-model
+    - "CA-M-001"
+    - "CA-R-1407"
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CAPRMEDIO-META-REQU-125--three-artifact-forms-with-generated-projections.md
 ---

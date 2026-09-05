@@ -5,15 +5,15 @@ cce_form: permission
 subjects:
   governs:
     continuant:
-      - Entity/Type/Status
+      - Artifact/Revision/Status
   depends_on:
     continuant:
       - Extension
       - Local Configuration
-version: 3
-updated_at: 2026-08-29 02:40:41 +0400
+version: 4
+updated_at: 2026-09-04 23:37:00 +0400
 relations: {}
 ---
 # Keep Qualified Status Domains Open
 
-an Extension **or** Local Configuration **may** add Status values **and** transition rules **only** under an exact complete Entity-Type path.
+an Extension **or** Local Configuration **may** add Status values **and** transition rules **only** under one exact complete qualified Artifact Type **or** Atom Content Role **and** Type path.

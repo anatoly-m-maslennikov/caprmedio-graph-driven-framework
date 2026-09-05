@@ -9,12 +9,12 @@ subjects:
   depends_on:
     continuant:
       - CAPRMEDIO Graph
-version: 3
-updated_at: 2026-08-29 02:40:41 +0400
+version: 4
+updated_at: 2026-09-04 23:24:00 +0400
 relations: {}
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1246-MMODEL-CORE-REQUIREMENT--keep-term-system-relations-graph-specific.md
 ---
 # Keep Term-System Relations Graph-Specific
 
-the Term System **must not** treat INSTANCE_OF **or** **any** relation from another CAPRMEDIO Graph as SUBTYPE_OF, IS_BORNE_BY, **or** IS_ALLOWED_VALUE_OF.
+the Term System **must not** treat INSTANCE_OF **or** **any** relation from another CAPRMEDIO Graph as SUBKIND_OF, IS_BORNE_BY, **or** IS_ALLOWED_VALUE_OF.

@@ -9,10 +9,10 @@ subjects:
   depends_on:
     continuant:
       - Carrier
-version: 2
-updated_at: 2026-08-29 02:40:41 +0400
+version: 3
+updated_at: 2026-09-04 23:24:00 +0400
 relations: {}
 ---
 # Classify File Carrier
 
-File Carrier SUBTYPE_OF Carrier.
+the Term File Carrier SUBKIND_OF Carrier.

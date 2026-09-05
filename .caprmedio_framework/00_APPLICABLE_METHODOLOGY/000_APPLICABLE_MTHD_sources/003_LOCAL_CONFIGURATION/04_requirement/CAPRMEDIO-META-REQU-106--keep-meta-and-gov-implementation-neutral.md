@@ -6,14 +6,14 @@ subjects:
     continuant:
       - principles
 tier: core
-version: 12
-updated_at: 2026-08-29 09:18:56 +0400
+version: 14
+updated_at: 2026-09-05 03:48:00 +0400
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   child_of:
-    - CA-M-001-PRINCIPLE-METHOD--mece_mutually-exclusive-collectively-exhaustive
-    - CA-D-001-PRINCIPLE-DELIVERY--provide-replaceable-technical-realizations
+    - CA-M-001
+    - CA-M-261
 ---
 # Keep SEMANTICS and GOVERNANCE implementation neutral
 

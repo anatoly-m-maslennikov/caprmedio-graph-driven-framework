@@ -9,10 +9,10 @@ subjects:
   depends_on:
     continuant:
       - Property
-version: 1
-updated_at: 2026-08-29 04:33:13 +0400
+version: 2
+updated_at: 2026-09-04 23:24:00 +0400
 relations: {}
 ---
 # Classify Type as a Property
 
-Type SUBTYPE_OF Property.
+the Term Type SUBKIND_OF Property.

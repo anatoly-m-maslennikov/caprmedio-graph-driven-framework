@@ -5,9 +5,12 @@ cce_form: serialization
 subjects:
   governs:
     continuant:
-      - "Atom/Status: Draft/Filename"
-version: 3
-updated_at: 2026-08-29 02:40:41 +0400
+      - "Atom/Revision/Status: Draft/Filename"
+  depends_on:
+    continuant:
+      - Atom/Identifier
+version: 4
+updated_at: 2026-09-04 23:37:00 +0400
 relations: {}
 ---
 # Serialize Draft Atom Filenames with an Empty Number

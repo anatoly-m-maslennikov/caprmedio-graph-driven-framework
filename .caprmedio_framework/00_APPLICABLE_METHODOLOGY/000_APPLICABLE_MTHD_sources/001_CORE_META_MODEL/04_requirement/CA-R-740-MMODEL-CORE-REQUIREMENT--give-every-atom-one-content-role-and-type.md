@@ -6,13 +6,13 @@ subjects:
 atom_id: CA-R-740
 cce_version: cce_1
 cce_form: cardinality
-version: 9
-updated_at: 2026-08-29 02:40:41 +0400
+version: 10
+updated_at: 2026-09-05 00:44:25 +0400
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   child_of:
-    - CA-M-001-PRINCIPLE-METHOD--mece_mutually-exclusive-collectively-exhaustive
+    - CA-M-001
     - CA-M-002-PRINCIPLE-METHOD--dry_dont-repeat-yourself
   replacement_of:
     - CAPRMEDIO-META-REQU-726--derive-atom-type-from-content-role

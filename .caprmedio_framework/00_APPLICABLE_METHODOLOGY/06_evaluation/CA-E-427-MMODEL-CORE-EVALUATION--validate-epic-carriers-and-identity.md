@@ -13,8 +13,9 @@ subjects:
       - "Atom Collection/Type: Epic/Directory Carrier"
       - "Atom Collection/Type: Epic/Directory Carrier/Name"
       - "Atom Collection/Type: Epic/Status"
-version: 3
-updated_at: 2026-09-04 02:03:03 +0400
+      - "Artifact/Revision/Status: Archived"
+version: 4
+updated_at: 2026-09-04 23:52:10 +0400
 relations:
   evaluation_for:
     - CA-R-1298
@@ -22,6 +23,7 @@ relations:
     - CA-R-1304
     - CA-R-1366
     - CA-R-1369
+    - CA-R-1419
     - CA-D-293
     - CA-D-295
 projection:
@@ -31,11 +33,11 @@ projection:
 
 ## Claim checked
 
-**every** Epic **must** be a Structural Entity with **`=1`** Directory Carrier, **`=1`** canonical Epic Identifier, **`=1`** canonical Directory Carrier name, **`=1`** Core Status **in** (Active, Done, Cancelled), Status-qualified placement, **and** identity independent from member changes.
+**every** Epic **must** be a Structural Entity with **`=1`** Directory Carrier, **`=1`** canonical Epic Identifier, **`=1`** canonical Directory Carrier name, **`=1`** Status allowed by its Epic Status domain, Status-qualified placement, **and** identity independent from member changes.
 
 ## Test case
 
-create one Active Epic **in** its canonical current directory, one Done Epic **in** `done`, **and** one Cancelled Epic **in** `cancelled`; use canonical identifiers **and** Directory Carrier names; **and** add, remove, reorder, **and** change members **without** changing Epic identity. **then** create an Epic with **`!=1`** Directory Carriers, use malformed identifiers **or** names, place a non-Active Epic outside its Status subdirectory, place an Active Epic inside a Status subdirectory, **and** change Epic identity **after** a member change.
+create one valid Epic Revision for **every** allowed Epic Status; place the Active revision **in** its canonical current directory **and** place **every** other revision **in** its Status subdirectory; use canonical identifiers **and** Directory Carrier names; preserve Archived **only** for a prior revision **or** the final revision of a replaced, absorbed, **or** retired Epic; **and** add, remove, reorder, **and** change members **without** changing Epic identity. **then** create an Epic with **`!=1`** Directory Carriers, use malformed identifiers **or** names, use a Status outside its resolved domain, place a non-Active Epic outside its Status subdirectory, place an Active Epic inside a Status subdirectory, assign Archived to a current unreplaced Epic revision, **and** change Epic identity **after** a member change.
 
 ## Acceptance criteria
 

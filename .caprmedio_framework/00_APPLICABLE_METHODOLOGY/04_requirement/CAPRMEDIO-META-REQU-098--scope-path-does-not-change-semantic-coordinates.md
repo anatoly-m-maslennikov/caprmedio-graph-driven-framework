@@ -6,15 +6,15 @@ subjects:
     continuant:
       - scope-topology
 tier: core
-version: 11
-updated_at: 2026-08-29 02:40:41 +0400
+version: 12
+updated_at: 2026-09-05 00:44:25 +0400
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   replacement_of:
     - CAPRMEDIO-META-REQU-227--scope-path-is-structural
   child_of:
-    - CA-M-001-PRINCIPLE-METHOD--mece_mutually-exclusive-collectively-exhaustive
+    - CA-M-001
     - CAPRMEDIO-REQU-045--separate-hierarchy-dimensions
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CAPRMEDIO-META-REQU-098--scope-path-does-not-change-semantic-coordinates.md

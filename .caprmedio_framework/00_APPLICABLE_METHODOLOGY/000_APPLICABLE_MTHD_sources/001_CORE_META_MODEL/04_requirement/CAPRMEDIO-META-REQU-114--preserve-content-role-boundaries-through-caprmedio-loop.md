@@ -6,15 +6,15 @@ subjects:
     continuant:
       - semantics
 tier: core
-version: 10
-updated_at: 2026-09-02 04:15:00 +0400
+version: 11
+updated_at: 2026-09-05 00:44:25 +0400
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   replacement_of:
     - CAPRMEDIO-META-REQU-265--preserve-content-role-boundaries-through-the-loop
   child_of:
-    - CA-M-001-PRINCIPLE-METHOD--mece_mutually-exclusive-collectively-exhaustive
+    - CA-M-001
 ---
 # Preserve content role boundaries through CAPRMEDIO loop
 

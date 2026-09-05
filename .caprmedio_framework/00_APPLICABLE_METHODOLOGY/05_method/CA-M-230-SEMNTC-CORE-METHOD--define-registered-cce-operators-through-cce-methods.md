@@ -9,13 +9,12 @@ subjects:
   depends_on:
     continuant:
       - CCE Method
-      - CCE Operator Registry
-version: 3
-updated_at: 2026-08-29 02:40:41 +0400
+version: 4
+updated_at: 2026-09-04 23:52:00 +0400
 relations: {}
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/05_method/CA-M-230-SEMNTC-CORE-METHOD--define-registered-cce-operators-through-cce-methods.md
 ---
-# Define Registered CCE Operators Through CCE Methods
+# Define Registered CCE Operators through CCE Methods
 
-within CCE, a CCE Operator **means** one canonical lowercase word-form token **or** token sequence **or** one canonical symbolic token that the CCE Operator Registry lists **and** one active CCE Method assigns one syntactic **or** logical function.
+within CCE, a CCE Operator **means** one canonical lowercase word-form token **or** token sequence **or** one canonical symbolic token that one active CCE Method assigns one syntactic **or** logical function.

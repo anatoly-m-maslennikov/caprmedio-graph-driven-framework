@@ -9,12 +9,12 @@ subjects:
   depends_on:
     continuant:
       - Atom
-version: 2
-updated_at: 2026-08-29 02:40:41 +0400
+version: 3
+updated_at: 2026-09-04 23:24:00 +0400
 relations: {}
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1264-MMODEL-CORE-REQUIREMENT--keep-scope-unit-outside-the-atom-taxonomy.md
 ---
 # Keep Scope Unit Outside the Atom Taxonomy
 
-Scope Unit **must not** be a SUBTYPE_OF Atom.
+the Term Scope Unit **must not** be a SUBKIND_OF Atom.

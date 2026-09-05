@@ -9,12 +9,12 @@ subjects:
   depends_on:
     continuant:
       - Base Entity
-version: 3
-updated_at: 2026-09-04 03:36:02 +0400
+version: 4
+updated_at: 2026-09-04 23:24:00 +0400
 relations: {}
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-254-MMODEL-CORE-DELIVERY--classify-carrier-as-a-base-entity.md
 ---
 # Classify Carrier as a Base Entity
 
-the Term Carrier **must** be a **SUBTYPE_OF** Base Entity.
+the Term Carrier **must** be a **SUBKIND_OF** Base Entity.
