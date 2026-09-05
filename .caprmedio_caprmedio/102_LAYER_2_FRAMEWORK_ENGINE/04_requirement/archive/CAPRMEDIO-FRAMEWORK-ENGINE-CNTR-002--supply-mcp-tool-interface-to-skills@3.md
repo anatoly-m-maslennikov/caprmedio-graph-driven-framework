@@ -2,8 +2,8 @@
 subject_scopes:
   - scope-topology
 semantic_shape: relational
-version: 4
-updated_at: 2026-09-05 04:24:46 +0400
+version: 3
+updated_at: 2026-08-23 13:21:41
 llm_session_ids:
   - codex:01a01cb6-4ee4-7553-b68d-0823dda35094
 relational_endpoints:
@@ -16,7 +16,7 @@ relational_endpoints:
         - delivery
 relations:
   child_of:
-    - CA-R-881
+    - CA-R-881-REQUIREMENT--own-cross-unit-relational-atoms-at-the-common-scope
   realization_input:
     - ./PROGRAMMATIC/MCP
   depends_on:
