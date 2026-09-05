@@ -2,13 +2,13 @@
 subject_scopes:
   - scope-topology
 tier: core
-version: 4
-updated_at: 2026-08-22 00:53:40
+version: 5
+updated_at: 2026-09-05 00:44:25 +0400
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   child_of:
-    - CA-M-001-PRINCIPLE-METHOD--mece_mutually-exclusive-collectively-exhaustive
+    - CA-M-001
 ---
 # Assign immediate child-scope ownership
 

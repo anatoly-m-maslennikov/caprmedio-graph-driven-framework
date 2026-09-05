@@ -1,15 +1,20 @@
 ---
 atom_id: CA-R-831
-subject_scopes:
-  - extension-model
+cce_version: cce_1
+cce_form: obligation
+subjects:
+  governs:
+    continuant:
+      - "Extension"
 tier: core
-version: 1
-updated_at: 2026-08-21 00:26:09
+version: 4
+updated_at: 2026-09-05 01:15:08 +0400
 relations:
   child_of:
+    - CA-R-1421
     - CA-M-005-PRINCIPLE-METHOD--add-complexity-only-when-necessary
-    - CA-M-006-PRINCIPLE-METHOD--keep-shared-meanings-independent-of-discipline
+    - CA-M-006
 ---
 # Add reusable capabilities through Extensions
 
-CAPRMEDIO must govern independently evolvable reusable capabilities as explicit Extensions whose extension points, authority boundaries, and compatibility conditions are declared.
+CAPRMEDIO **must** govern independently evolvable reusable capabilities as explicit Extensions whose extension points, authority boundaries, **and** compatibility conditions are declared.

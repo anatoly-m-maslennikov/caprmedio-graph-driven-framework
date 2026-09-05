@@ -1,16 +1,16 @@
 ---
 subject_scopes:
-  - principles
-tier: core
-version: 5
-updated_at: 2026-08-21 02:55:24
+  - "principles"
+tier: "core"
+version: 6
+updated_at: "2026-09-05 03:48:00 +0400"
 relations:
   child_of:
-    - CA-D-003-PRINCIPLE-DELIVERY--provide-one-project-graph-as-the-operating-model
-    - CA-E-001-PRINCIPLE-EVALUATION--make-accepted-requirements-checkable
+    - "CA-M-006"
+    - "CA-E-001"
   evaluation_for:
-    - CAPRMEDIO-REQU-026--define-the-project-principle-universe
-    - CA-R-830-REQUIREMENT-BSEED_GOVERNANCE--reserve-principle-conflict-resolution-to-the-operator
+    - "CAPRMEDIO-REQU-026--define-the-project-principle-universe"
+    - "CA-R-830-REQUIREMENT-BSEED_GOVERNANCE--reserve-principle-conflict-resolution-to-the-operator"
 ---
 # Principle-first alignment
 

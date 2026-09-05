@@ -1,21 +1,21 @@
 ---
-atom_id: CA-M-229
-cce_version: cce_1
-cce_form: method
+atom_id: "CA-M-229"
+cce_version: "cce_1"
+cce_form: "method"
 subjects:
   governs:
     continuant:
-      - python-technical-configuration
+      - "python-technical-configuration"
   depends_on:
     continuant:
-      - programmatic software
-version: 2
-updated_at: 2026-09-01 02:35:00 +0400
+      - "programmatic software"
+version: 3
+updated_at: "2026-09-05 03:48:00 +0400"
 relations:
-  method_for:
-    - CA-R-1047
   derived_from:
-    - CA-A-053
+    - "CA-A-053"
+  child_of:
+    - "CA-M-110"
 ---
 # Declare one Python and software configuration boundary
 

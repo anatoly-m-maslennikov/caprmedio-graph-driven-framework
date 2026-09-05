@@ -1,13 +1,13 @@
 ---
 subject_scopes:
-  - operator-documentation
-version: 6
-updated_at: 2026-08-23 11:39:04
+  - "operator-documentation"
+version: 8
+updated_at: "2026-09-05 03:48:00 +0400"
 relations:
   child_of:
-    - CA-R-1057
-    - CAPRMEDIO-REQU-703--define-operator-documentation-layer-scope
-    - CA-D-002-PRINCIPLE-DELIVERY--provide-operator-understandable-governed-meaning
+    - "CA-R-1057"
+    - "CAPRMEDIO-REQU-703--define-operator-documentation-layer-scope"
+    - "CA-M-263"
 ---
 # Render each Principle in general English
 

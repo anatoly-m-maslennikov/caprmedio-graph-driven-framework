@@ -2,13 +2,13 @@
 subject_scopes:
   - principles
 tier: core
-version: 1
-updated_at: 2026-08-21 05:03:35
+version: 2
+updated_at: 2026-09-05 00:41:24 +0400
 relations:
   child_of:
-    - CA-R-004-PRINCIPLE-REQUIREMENT--provide-operator-control-over-the-caprmedio-instance
+    - CA-R-004
   evaluation_for:
-    - CA-R-004-PRINCIPLE-REQUIREMENT--provide-operator-control-over-the-caprmedio-instance
+    - CA-R-004
 ---
 # Evaluate Operator control over the CAPRMEDIO instance
 

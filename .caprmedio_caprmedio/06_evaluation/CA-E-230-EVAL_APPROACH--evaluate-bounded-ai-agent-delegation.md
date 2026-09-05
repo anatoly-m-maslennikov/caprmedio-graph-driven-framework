@@ -2,13 +2,13 @@
 subject_scopes:
   - principles
 tier: core
-version: 1
-updated_at: 2026-08-21 05:03:35
+version: 2
+updated_at: 2026-09-05 00:54:31 +0400
 relations:
   child_of:
-    - CA-R-846-PRINCIPLE-REQUIREMENT--provide-bounded-delegation-to-ai-agents
+    - CA-R-846
   evaluation_for:
-    - CA-R-846-PRINCIPLE-REQUIREMENT--provide-bounded-delegation-to-ai-agents
+    - CA-R-846
 ---
 # Evaluate bounded AI Agent delegation
 

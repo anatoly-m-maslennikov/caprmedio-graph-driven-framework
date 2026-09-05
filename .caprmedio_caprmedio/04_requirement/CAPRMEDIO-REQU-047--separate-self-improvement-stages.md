@@ -1,15 +1,14 @@
 ---
 subject_scopes:
-  - requirement-topology
-tier: core
-version: 8
-updated_at: 2026-08-21 03:22:46
+  - "requirement-topology"
+tier: "core"
+version: 9
+updated_at: "2026-09-05 03:48:00 +0400"
 llm_session_ids:
-  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
 relations:
   child_of:
-    - CA-O-003-PRINCIPLE-OPS--provide-operator-guided-improvement-support-from-observed-outcomes
-    - CA-D-003-PRINCIPLE-DELIVERY--provide-one-project-graph-as-the-operating-model
+    - "CA-R-1423"
 ---
 # Separate self-improvement stages
 

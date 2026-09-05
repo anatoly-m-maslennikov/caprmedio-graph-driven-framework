@@ -1,15 +1,27 @@
 ---
-subject_scopes:
-  - authority
-tier: core
-version: 6
-updated_at: 2026-08-21 03:22:46
+tier: "core"
+version: 7
+updated_at: "2026-09-05 03:48:00 +0400"
 llm_session_ids:
-  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
 relations:
   child_of:
-    - CA-D-003-PRINCIPLE-DELIVERY--provide-one-project-graph-as-the-operating-model
+    - "CA-M-002"
+    - "CA-R-1421"
+cce_version: "cce_1"
+cce_form: "obligation"
+subjects:
+  governs:
+    continuant:
+      - "Project/settings authority"
+  depends_on:
+    continuant:
+      - "Project"
+      - "Framework Instance Settings"
+      - "Project Settings"
+      - "Artifact"
+      - "Atom"
 ---
-# Establish project configuration through PRMEDO
+# Keep selected settings in their authoritative Settings Artifact
 
-Every persistent current-project configuration choice must be encoded by an applicable active PRMEDO Atom in the current project; generated Project Settings and Map Projections never establish, select, or modify that authority.
+the CAPRMEDIO Framework Instance **must** read current selected settings from their authoritative Framework Instance Settings **or** Project Settings Artifact under CAPRMEDIO-META-REQU-675; governing Atoms **must** define the available capabilities, constraints, **and** defaults **without** duplicating a selected settings value as another authority.

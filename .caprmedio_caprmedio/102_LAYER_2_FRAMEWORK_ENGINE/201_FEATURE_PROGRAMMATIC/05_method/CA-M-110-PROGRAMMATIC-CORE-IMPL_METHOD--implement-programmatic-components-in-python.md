@@ -1,21 +1,23 @@
 ---
-atom_id: CA-M-110
-cce_version: cce_1
-cce_form: method
+atom_id: "CA-M-110"
+cce_version: "cce_1"
+cce_form: "method"
 subjects:
   governs:
     continuant:
-      - programmatic-components
+      - "programmatic-components"
   depends_on:
     continuant:
-      - programmatic software
-version: 9
-updated_at: 2026-09-01 01:33:45 +0400
+      - "programmatic software"
+version: 10
+updated_at: "2026-09-05 03:48:00 +0400"
 relations:
-  method_for:
-    - CA-R-1047
   derived_from:
-    - CA-A-053
+    - "CA-A-053"
+  child_of:
+    - "CA-M-261"
+  replacement_of:
+    - "CA-R-1047"
 ---
 # Implement PROGRAMMATIC components in Python
 

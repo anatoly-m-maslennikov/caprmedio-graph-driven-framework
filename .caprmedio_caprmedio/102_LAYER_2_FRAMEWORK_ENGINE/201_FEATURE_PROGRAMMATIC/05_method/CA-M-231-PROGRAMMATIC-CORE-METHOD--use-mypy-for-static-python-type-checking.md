@@ -1,21 +1,21 @@
 ---
-atom_id: CA-M-231
-cce_version: cce_1
-cce_form: method
+atom_id: "CA-M-231"
+cce_version: "cce_1"
+cce_form: "method"
 subjects:
   governs:
     continuant:
-      - python-static-typing
+      - "python-static-typing"
   depends_on:
     continuant:
-      - programmatic software
-version: 1
-updated_at: 2026-09-01 01:50:00 +0400
+      - "programmatic software"
+version: 2
+updated_at: "2026-09-05 03:48:00 +0400"
 relations:
-  method_for:
-    - CA-R-1047
   derived_from:
-    - CA-A-053
+    - "CA-A-053"
+  child_of:
+    - "CA-M-110"
 ---
 # Use Mypy for static Python type checking
 

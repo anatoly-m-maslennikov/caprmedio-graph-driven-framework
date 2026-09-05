@@ -1,15 +1,15 @@
 ---
-atom_id: CA-E-209
+atom_id: "CA-E-209"
 subject_scopes:
-  - principles
-tier: core
-version: 2
-updated_at: 2026-08-21 02:55:24
+  - "principles"
+tier: "core"
+version: 4
+updated_at: "2026-09-05 03:48:00 +0400"
 relations:
   child_of:
-    - CA-D-002-PRINCIPLE-DELIVERY--provide-operator-understandable-governed-meaning
+    - "CA-M-263"
   evaluation_for:
-    - CA-D-002-PRINCIPLE-DELIVERY--provide-operator-understandable-governed-meaning
+    - "CA-M-263"
 ---
 # Evaluate operator comprehension
 

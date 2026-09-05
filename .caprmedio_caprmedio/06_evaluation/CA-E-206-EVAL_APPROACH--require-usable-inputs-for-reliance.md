@@ -3,11 +3,11 @@ atom_id: CA-E-206
 subject_scopes:
   - authority
 tier: core
-version: 1
-updated_at: 2026-08-21 00:18:21
+version: 2
+updated_at: 2026-09-05 00:51:50 +0400
 relations:
   child_of:
-    - CA-E-002-PRINCIPLE-EVALUATION--bound-every-reliance
+    - CA-E-002
 ---
 # Require usable inputs for reliance
 

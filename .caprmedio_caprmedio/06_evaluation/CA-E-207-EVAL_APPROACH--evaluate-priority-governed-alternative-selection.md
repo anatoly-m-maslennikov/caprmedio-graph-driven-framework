@@ -3,11 +3,11 @@ atom_id: CA-E-207
 subject_scopes:
   - operator-priorities
 tier: core
-version: 3
-updated_at: 2026-08-21 07:29:53
+version: 4
+updated_at: 2026-09-05 00:41:24 +0400
 relations:
   child_of:
-    - CA-R-815-PRINCIPLE-REQUIREMENT--provide-operator-priority-governed-project-trade-offs
+    - CA-R-815
   evaluation_for:
     - CA-R-860-REQUIREMENT--derive-one-effective-operator-priority-order
 ---

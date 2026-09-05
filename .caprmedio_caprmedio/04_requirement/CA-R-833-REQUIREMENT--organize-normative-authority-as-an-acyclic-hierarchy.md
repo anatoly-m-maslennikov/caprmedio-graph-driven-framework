@@ -1,13 +1,13 @@
 ---
-atom_id: CA-R-833
+atom_id: "CA-R-833"
 subject_scopes:
-  - requirement-topology
-tier: core
-version: 2
-updated_at: 2026-08-21 02:55:24
+  - "requirement-topology"
+tier: "core"
+version: 3
+updated_at: "2026-09-05 03:48:00 +0400"
 relations:
   child_of:
-    - CA-D-003-PRINCIPLE-DELIVERY--provide-one-project-graph-as-the-operating-model
+    - "CA-R-1407"
 ---
 # Organize normative authority as an acyclic hierarchy
 

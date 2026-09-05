@@ -2,11 +2,11 @@
 subject_scopes:
   - operator-priorities
 tier: core
-version: 2
-updated_at: 2026-08-21 02:55:24
+version: 3
+updated_at: 2026-09-05 00:41:24 +0400
 relations:
   child_of:
-    - CA-R-815-PRINCIPLE-REQUIREMENT--provide-operator-priority-governed-project-trade-offs
+    - CA-R-815
 ---
 # Help operators optimize the active rule set
 

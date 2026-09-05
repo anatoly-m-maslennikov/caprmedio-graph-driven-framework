@@ -3,13 +3,13 @@ atom_id: CA-E-208
 subject_scopes:
   - principles
 tier: core
-version: 3
-updated_at: 2026-08-21 03:58:43
+version: 4
+updated_at: 2026-09-05 00:48:29 +0400
 relations:
   child_of:
-    - CA-R-819-PRINCIPLE-REQUIREMENT--provide-project-operation-without-specialist-craft-work
+    - CA-R-819
   evaluation_for:
-    - CA-R-819-PRINCIPLE-REQUIREMENT--provide-project-operation-without-specialist-craft-work
+    - CA-R-819
 ---
 # Evaluate craft-independent project operation
 
