@@ -2,8 +2,8 @@
 subject_scopes:
   - scope-topology
 semantic_shape: relational
-version: 4
-updated_at: 2026-08-22 01:51:09
+version: 5
+updated_at: 2026-09-05 04:24:46 +0400
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relational_endpoints:
@@ -19,7 +19,7 @@ relational_endpoints:
       content_roles: [plan, requirement, method, evaluation, delivery, ops]
 relations:
   child_of:
-    - CA-R-881-REQUIREMENT--own-cross-unit-relational-atoms-at-the-common-scope
+    - CA-R-881
   authority_input:
     - ../METAMODEL
     - ../SEMANTICS
