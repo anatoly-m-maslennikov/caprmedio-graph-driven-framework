@@ -2,11 +2,11 @@
 atom_id: CA-R-826
 subject_scopes:
   - applicability
-version: 1
-updated_at: 2026-08-20 22:36:00
+version: 2
+updated_at: 2026-09-06 01:45:12 +0400
 relations:
   child_of:
-    - CAPRMEDIO-REQU-622--establish-project-configuration-through-rmed
+    - CAPRMEDIO-REQU-622-CORE-REQUIREMENT--keep-selected-settings-in-their-authoritative-settings-artifact
 ---
 # Codex native support only
 

@@ -2,11 +2,9 @@
 subjects:
   governs:
     continuant:
-      - evaluation
-    occurrent:
-      - evaluation
-version: 9
-updated_at: 2026-08-30 16:44:07 +0400
+      - Git Hook
+version: 10
+updated_at: 2026-09-12 04:15:38 +0400
 relations:
   evaluation_for:
     - CA-R-856

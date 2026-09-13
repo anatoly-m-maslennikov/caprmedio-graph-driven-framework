@@ -2,8 +2,19 @@
 atom_id: CA-R-975
 cce_version: cce_1
 cce_form: obligation
-version: 1
-updated_at: 2026-08-22 19:48:45
+subjects:
+  governs:
+    continuant:
+      - Structural Coordinate
+  depends_on:
+    continuant:
+      - Project
+      - Scope Unit
+      - Structural Level
+      - "Scope Unit/Local Order"
+      - "Scope Unit/Type: Ordered"
+version: 2
+updated_at: "2026-09-11 23:26:40 +0400"
 relations:
   child_of:
     - CAPRMEDIO-REQU-707

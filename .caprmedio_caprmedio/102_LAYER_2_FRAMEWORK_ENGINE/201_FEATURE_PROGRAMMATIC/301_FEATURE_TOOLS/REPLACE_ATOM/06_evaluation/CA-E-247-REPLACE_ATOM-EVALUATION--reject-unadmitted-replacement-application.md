@@ -3,10 +3,8 @@ subjects:
   governs:
     continuant:
       - artifact-operations
-    occurrent:
-      - evaluation
-version: 6
-updated_at: 2026-09-01 02:30:00 +0400
+version: 7
+updated_at: 2026-09-12 04:15:38 +0400
 relations:
   evaluation_for:
     - CA-R-1041

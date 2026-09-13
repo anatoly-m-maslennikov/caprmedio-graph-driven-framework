@@ -9,11 +9,11 @@ subjects:
   depends_on:
     continuant:
       - Tool/DETECT_CLAIM_VALUE_SET_CANDIDATES
-version: 1
-updated_at: 2026-09-01 22:40:10 +0400
+version: 2
+updated_at: 2026-09-12 04:15:08
 relations:
   delivery_for:
-    - CA-I-001
+    - CA-M-238
 ---
 # Deliver Report-Only Candidate Detector
 

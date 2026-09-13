@@ -1,22 +1,23 @@
 ---
+atom_id: CAPRMEDIO-GOV-REQU-762
 cce_version: cce_1
 cce_form: definition
 subjects:
   governs:
     continuant:
       - "Atom/Content Role: Method/Type: External Implementation Method"
-version: 5
-updated_at: 2026-08-29 04:33:13 +0400
+version: 6
+updated_at: 2026-09-06 01:45:12 +0400
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   replacement_of:
     - CAPRMEDIO-GOV-REQU-738--define-external-method-subtype
   child_of:
-    - CAPRMEDIO-META-REQU-100--preserve-external-boundary-obligations
-    - CAPRMEDIO-META-REQU-744--distinguish-implementation-methods-from-implementation-decisions
+    - CAPRMEDIO-META-REQU-100-CORE_META_MODEL-REQUIREMENT--preserve-external-boundary-obligations
+    - CAPRMEDIO-META-REQU-744-CORE_META_MODEL-CORE-REQUIREMENT--distinguish-implementation-methods-from-implementation-decisions
   relates_to:
-    - CAPRMEDIO-GOV-REQU-760--derive-default-external-type-names
+    - CAPRMEDIO-GOV-REQU-760-CORE_META_MODEL-REQUIREMENT--derive-default-external-type-names
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/003_LOCAL_CONFIGURATION/04_requirement/CAPRMEDIO-GOV-REQU-762--define-the-external-implementation-method-type.md
 ---

@@ -3,10 +3,8 @@ subjects:
   governs:
     continuant:
       - feature-boundary
-    occurrent:
-      - evaluation
-version: 6
-updated_at: 2026-09-01 02:30:00 +0400
+version: 8
+updated_at: 2026-09-12 04:15:38 +0400
 relations:
   evaluation_for:
     - CA-M-087
@@ -21,4 +19,4 @@ Given multiple Git-admitted changes below one non-root folder and an explicitly 
 
 ## Sources
 
-- [CA-M-087 — Process one project-path action](../../05_method/CA-M-087-TOOLS-CORE-IMPL_METHOD--process-one-file-change.md)
+- [CA-M-087 — Process one project-path action](../../05_method/CA-M-087-TOOLS-CORE-IMPL_METHOD--process-one-project-path-action.md)

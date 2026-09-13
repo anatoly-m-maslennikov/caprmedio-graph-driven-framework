@@ -1,17 +1,18 @@
 ---
+atom_id: CAPRMEDIO-META-REQU-102
 cce_version: cce_1
 cce_form: obligation
 subjects:
   governs:
     occurrent:
       - development-flow
-version: 8
-updated_at: 2026-08-29 09:18:56 +0400
+version: 9
+updated_at: 2026-09-06 01:45:12 +0400
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   child_of:
-    - CAPRMEDIO-META-REQU-114--preserve-content-role-boundaries-through-caprmedio-loop
+    - CAPRMEDIO-META-REQU-114-CORE_META_MODEL-CORE-REQUIREMENT--preserve-content-role-boundaries-through-caprmedio-loop
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/003_LOCAL_CONFIGURATION/04_requirement/CAPRMEDIO-META-REQU-102--freeze-a-version-only-at-release.md
 ---

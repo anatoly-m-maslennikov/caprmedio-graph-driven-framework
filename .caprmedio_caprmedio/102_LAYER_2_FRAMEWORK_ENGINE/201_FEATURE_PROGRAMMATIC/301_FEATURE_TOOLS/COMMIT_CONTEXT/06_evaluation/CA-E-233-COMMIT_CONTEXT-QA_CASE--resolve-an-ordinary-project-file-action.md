@@ -3,10 +3,8 @@ subjects:
   governs:
     continuant:
       - feature-boundary
-    occurrent:
-      - evaluation
-version: 5
-updated_at: 2026-09-01 02:30:00 +0400
+version: 7
+updated_at: 2026-09-12 04:15:38 +0400
 relations:
   evaluation_for:
     - CA-R-804
@@ -23,4 +21,4 @@ Given a Git-eligible non-Atom project file, when `COMMIT_CONTEXT` resolves an ad
 ## Sources
 
 - [CA-R-804 — Gather provisional programmatic action context concurrently](../04_requirement/CA-R-804-COMMIT_CONTEXT-REQUIREMENT--gather-provisional-programmatic-action-context-concurrently.md)
-- [CA-M-087 — Process one project-path action](../../05_method/CA-M-087-TOOLS-CORE-IMPL_METHOD--process-one-file-change.md)
+- [CA-M-087 — Process one project-path action](../../05_method/CA-M-087-TOOLS-CORE-IMPL_METHOD--process-one-project-path-action.md)

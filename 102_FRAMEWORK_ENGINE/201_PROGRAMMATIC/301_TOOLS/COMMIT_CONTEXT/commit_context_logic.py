@@ -24,6 +24,9 @@ from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 
 MODULE_PATH = Path(__file__).resolve()
 PACKAGE_ROOT = MODULE_PATH.parents[1]
+sys.path.insert(0, str(PACKAGE_ROOT))
+from artifact_metadata import atom_identifier
+
 for _parent in MODULE_PATH.parents:
     if _parent.name == ".caprmedio_runtime":
         sys.pycache_prefix = str(_parent / "cache" / "python")
@@ -351,13 +354,7 @@ def frontmatter_scalar(frontmatter: str, key: str) -> str | None:
 
 
 def derive_identity(filename: str, frontmatter: str) -> str:
-    explicit = frontmatter_scalar(frontmatter, "atom_id")
-    if explicit:
-        return explicit
-    match = re.match(r"(CA-[RMCAPIDEO]-[0-9]+)(?:-|$)", filename)
-    if match:
-        return match.group(1)
-    return filename.split("--", 1)[0].removesuffix(".md")
+    return atom_identifier(filename, frontmatter_scalar(frontmatter, "atom_id"))
 
 
 def carrier_from_bytes(path: str, data: bytes) -> Carrier:

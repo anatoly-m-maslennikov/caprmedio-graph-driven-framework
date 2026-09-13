@@ -2,6 +2,14 @@
 atom_id: "CA-E-436"
 cce_version: "cce_1"
 cce_form: "evaluation"
+version: 2
+updated_at: "2026-09-05 23:00:00 +0400"
+relations:
+  child_of:
+    - "CA-E-001"
+  evaluation_for:
+    - "CA-R-1407"
+    - "CAPRMEDIO-REQU-007"
 subjects:
   governs:
     occurrent:
@@ -14,14 +22,7 @@ subjects:
       - "Atom/Content Role: Implementation"
       - "Scope Unit"
       - "CAPRMEDIO Framework Instance"
-version: 1
-updated_at: "2026-09-05 03:48:00 +0400"
-relations:
-  child_of:
-    - "CA-E-001"
-  evaluation_for:
-    - "CA-R-1407"
-    - "CAPRMEDIO-REQU-007--full-minimal-traceability"
+      - "Atom/Content Role: Evaluation"
 ---
 # Evaluate graph-of-graphs connectivity
 

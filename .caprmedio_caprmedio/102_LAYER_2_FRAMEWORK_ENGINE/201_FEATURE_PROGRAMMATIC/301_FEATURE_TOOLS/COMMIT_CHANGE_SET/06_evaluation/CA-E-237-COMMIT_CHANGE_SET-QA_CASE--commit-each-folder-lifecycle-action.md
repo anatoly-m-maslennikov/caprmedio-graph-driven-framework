@@ -3,10 +3,8 @@ subjects:
   governs:
     continuant:
       - feature-boundary
-    occurrent:
-      - evaluation
-version: 5
-updated_at: 2026-09-01 02:30:00 +0400
+version: 7
+updated_at: 2026-09-12 04:15:38 +0400
 relations:
   evaluation_for:
     - CA-R-805
@@ -22,5 +20,5 @@ Given a non-empty Git-trackable folder, when it is added, structurally moved, up
 
 ## Sources
 
-- [CA-R-805 — Serialize repository Git mutations through one logical gate](../04_requirement/CA-R-805-COMMIT_CHANGE_SET-REQUIREMENT--serialize-repository-git-mutations-through-one-logical-gate.md)
-- [CA-M-087 — Process one project-path action](../../05_method/CA-M-087-TOOLS-CORE-IMPL_METHOD--process-one-file-change.md)
+- [CA-R-805 — Serialize repository Git mutations through one logical gate](../04_requirement/CA-R-805-COMMIT_CHANGE_SET-REQUIREMENT--serialize-admitted-local-commits-through-one-logical-gate.md)
+- [CA-M-087 — Process one project-path action](../../05_method/CA-M-087-TOOLS-CORE-IMPL_METHOD--process-one-project-path-action.md)

@@ -11,11 +11,13 @@ subjects:
       - Tool/DERIVE_CCE_CANONICAL_SIGNATURES
       - Atom/Claim
       - Atom/Claim/Canonical Signature
-version: 1
-updated_at: 2026-09-02 01:12:00 +0400
+version: 2
+updated_at: 2026-09-12 04:14:47 +0400
 relations:
   child_of:
     - CA-M-240
+  method_for:
+    - CA-R-1450
 ---
 # Derive Restricted CCE Canonical Signatures
 

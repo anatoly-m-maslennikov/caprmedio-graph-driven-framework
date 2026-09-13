@@ -3,9 +3,11 @@
 from __future__ import annotations
 
 import importlib.util
+import json
 import sys
 import tempfile
 import unittest
+from unittest import mock
 from pathlib import Path
 import tomllib
 
@@ -19,12 +21,27 @@ SPEC.loader.exec_module(generate_project_graph_state)
 
 
 class GenerateProjectGraphStateTests(unittest.TestCase):
+    def test_quoted_source_timestamps_use_the_existing_supported_formats(self) -> None:
+        for value in ('"2026-09-06 12:00:00 +0400"', "'2026-09-06 12:00:00'", "2026-09-06 12:00:00 +0400"):
+            self.assertEqual("2026-09-06 12:00:00", generate_project_graph_state.normalise_timestamp(value))
+        self.assertEqual("", generate_project_graph_state.normalise_timestamp('"invalid"'))
+
     def setUp(self) -> None:
         self.temporary = tempfile.TemporaryDirectory(dir="/private/tmp", ignore_cleanup_errors=True)
         self.root = Path(self.temporary.name) / "repository"
         self.control = self.root / ".caprmedio_caprmedio"
         self.control.mkdir(parents=True)
         self.modes = {"default": "casual"}
+        self.project_settings = self.root / generate_project_graph_state.SETTINGS_PATH
+        self.project_settings.write_text(
+            "[project]\nkey = 'fixture_project'\nname = 'fixture_project'\nrepository_slug = 'test'\n"
+            "[artifacts.identity]\nproject_prefix = 'TEST'\n", encoding="utf-8",
+        )
+        self.framework_settings = self.root / "framework_settings.toml"
+        self.framework_settings.write_text(
+            "[authority_modes]\ndefault = 'casual'\ngovernance = 'strict'\n"
+            "metamodel = 'strict'\nproject = 'strict'\nsemantics = 'strict'\n", encoding="utf-8",
+        )
 
     def tearDown(self) -> None:
         self.temporary.cleanup()
@@ -170,8 +187,7 @@ class GenerateProjectGraphStateTests(unittest.TestCase):
 
     def test_current_configuration_binding_and_projection_keep_project_identity_lowercase(self) -> None:
         config = generate_project_graph_state.configuration()
-        config_sha = generate_project_graph_state.sha(generate_project_graph_state.CONFIG)
-        binding = generate_project_graph_state.configuration_binding(config_sha)
+        bindings = generate_project_graph_state.settings_bindings()
         modes = config["authority_modes"]
         assert isinstance(modes, dict)
         rows = generate_project_graph_state.bind_scope_unit_structure(
@@ -183,24 +199,97 @@ class GenerateProjectGraphStateTests(unittest.TestCase):
         )
         source_atoms = generate_project_graph_state.active_source_atoms()
         payload = generate_project_graph_state.project_scope_unit_graph(
-            generate_project_graph_state.source_updated_at(binding, source_atoms), config, config_sha, binding, rows, source_atoms
+            generate_project_graph_state.source_updated_at(bindings, source_atoms), config, bindings, rows, source_atoms
         )
 
-        self.assertEqual("resolved", binding["status"])
-        self.assertEqual("4", binding["revision"])
+        self.assertEqual(
+            ".caprmedio_caprmedio/caprmedio_project_settings.toml",
+            bindings["project_settings"]["carrier"],
+        )
+        self.assertEqual("CA", config["artifacts"]["identity"]["project_prefix"])
         self.assertEqual("caprmedio", config["project"]["key"])
         self.assertIn('key = "caprmedio"', payload)
         self.assertIn('name = "caprmedio"', payload)
         self.assertIn(
-            'carrier = ".caprmedio_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/003_LOCAL_CONFIGURATION/caprmedio_framework_settings.toml"',
+            'carrier = ".caprmedio_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/003_PROJECT_CONFIGURATION/caprmedio_framework_settings.toml"',
             payload,
         )
         self.assertNotIn("002_FRAMEWORK_ENGINE", payload)
 
+
+    def test_identity_and_structural_project_parent_come_only_from_project_settings(self) -> None:
+        self.mkdir("101_LAYER_1_ROOT")
+        with mock.patch.object(generate_project_graph_state, "ROOT", self.root), mock.patch.object(
+            generate_project_graph_state, "CONFIG", self.framework_settings
+        ):
+            config = generate_project_graph_state.configuration()
+            rows = generate_project_graph_state.scope_units(self.control, self.root, config["authority_modes"])
+        self.assertEqual("fixture_project", config["project"]["name"])
+        self.assertEqual("TEST", config["artifacts"]["identity"]["project_prefix"])
+        self.assertEqual("fixture_project", rows[0]["parent"])
+        self.assertEqual("fixture_project", rows[0]["structural_parent"])
+
+    def test_missing_or_invalid_project_settings_never_falls_back_to_framework_settings(self) -> None:
+        self.framework_settings.write_text(
+            self.framework_settings.read_text() + "\n[project]\nkey='caprmedio'\nname='caprmedio'\nrepository_slug='test'\n"
+            "[artifacts.identity]\nproject_prefix='CA'\n", encoding="utf-8",
+        )
+        self.project_settings.unlink()
+        with mock.patch.object(generate_project_graph_state, "ROOT", self.root), mock.patch.object(
+            generate_project_graph_state, "CONFIG", self.framework_settings
+        ):
+            with self.assertRaisesRegex(SystemExit, "Project Settings"):
+                generate_project_graph_state.configuration()
+            for payload in ("not valid TOML", "project='bad'", "[project]\nname='caprmedio'\n"):
+                with self.subTest(payload=payload):
+                    self.project_settings.write_text(payload)
+                    with self.assertRaisesRegex(SystemExit, "Project Settings"):
+                        generate_project_graph_state.configuration()
+
+    def test_duplicate_project_identity_in_framework_settings_is_rejected(self) -> None:
+        original = self.framework_settings.read_text()
+        with mock.patch.object(generate_project_graph_state, "ROOT", self.root), mock.patch.object(
+            generate_project_graph_state, "CONFIG", self.framework_settings
+        ):
+            for addition in ("\n[project]\nname='other'\n", "\n[artifacts.identity]\nproject_prefix='OTHER'\n"):
+                with self.subTest(addition=addition):
+                    self.framework_settings.write_text(original + addition)
+                    with self.assertRaisesRegex(SystemExit, "belongs only in Project Settings"):
+                        generate_project_graph_state.configuration()
+
+    def test_receipts_bind_both_settings_separately_and_detect_drift_or_ambiguity(self) -> None:
+        journal = self.control / "work_journal"
+        journal.mkdir()
+        records = [
+            {
+                "kind": "governed_project_change", "event": "completed", "subject_kind": "file",
+                "occurred_at": "2026-09-11 00:00:00 +0400", "event_id": path.stem,
+                "result": {"path": path.relative_to(self.root).as_posix(),
+                           "sha256": generate_project_graph_state.sha(path), "version": 1},
+            }
+            for path in (self.project_settings, self.framework_settings)
+        ]
+        receipt = journal / "settings.ndjson"
+        receipt.write_text("\n".join(json.dumps(record) for record in records) + "\n")
+        with mock.patch.object(generate_project_graph_state, "ROOT", self.root), mock.patch.object(
+            generate_project_graph_state, "CONFIG", self.framework_settings
+        ), mock.patch.object(generate_project_graph_state, "JOURNAL", journal):
+            bindings = generate_project_graph_state.settings_bindings()
+            self.assertTrue(all(item["status"] == "resolved" for item in bindings.values()))
+            self.assertNotEqual(bindings["project_settings"]["carrier"], bindings["framework_settings"]["carrier"])
+            self.assertTrue(all("atom_id" not in item for item in bindings.values()))
+            original = self.project_settings.read_text()
+            self.project_settings.write_text(original + "\n# drift\n")
+            bindings = generate_project_graph_state.settings_bindings()
+            self.assertEqual("unresolved", bindings["project_settings"]["status"])
+            self.assertEqual("resolved", bindings["framework_settings"]["status"])
+            self.project_settings.write_text(original)
+            receipt.write_text(receipt.read_text() + json.dumps(records[0]) + "\n")
+            self.assertEqual("ambiguous", generate_project_graph_state.settings_bindings()["project_settings"]["status"])
+
     def test_active_methodology_source_frontier_covers_every_emitted_scope_unit_field(self) -> None:
         config = generate_project_graph_state.configuration()
-        config_sha = generate_project_graph_state.sha(generate_project_graph_state.CONFIG)
-        binding = generate_project_graph_state.configuration_binding(config_sha)
+        bindings = generate_project_graph_state.settings_bindings()
         modes = config["authority_modes"]
         assert isinstance(modes, dict)
         rows = generate_project_graph_state.bind_scope_unit_structure(
@@ -212,15 +301,20 @@ class GenerateProjectGraphStateTests(unittest.TestCase):
         )
         source_atoms = generate_project_graph_state.active_source_atoms()
         payload = generate_project_graph_state.project_scope_unit_graph_sources(
-            generate_project_graph_state.source_updated_at(binding, source_atoms),
-            config_sha,
-            binding,
+            generate_project_graph_state.source_updated_at(bindings, source_atoms),
+            bindings,
             rows,
             source_atoms,
         )
         document = tomllib.loads(payload)
         bindings = document["bindings"]
         projection = document["projection"]
+        by_field = {item["output_path"]: item for item in bindings}
+        for field in ("project.key", "project.name", "project.repository_slug", "project.obsolete_names", "artifacts.identity.project_prefix"):
+            self.assertEqual("project_settings", by_field[field]["source_kind"])
+            self.assertEqual(generate_project_graph_state.SETTINGS_PATH.as_posix(), by_field[field]["source_carrier"])
+        self.assertEqual("framework_settings", by_field["authority_modes"]["source_kind"])
+
         self.assertEqual(
             "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/GENERATE_PROJECT_GRAPH_STATE/generate_project_graph_state.py",
             projection["canonical_generator"],
@@ -269,8 +363,7 @@ class GenerateProjectGraphStateTests(unittest.TestCase):
 
     def test_canonical_projection_bytes_do_not_depend_on_executed_generator_carrier(self) -> None:
         config = generate_project_graph_state.configuration()
-        config_sha = generate_project_graph_state.sha(generate_project_graph_state.CONFIG)
-        binding = generate_project_graph_state.configuration_binding(config_sha)
+        bindings = generate_project_graph_state.settings_bindings()
         modes = config["authority_modes"]
         assert isinstance(modes, dict)
         rows = generate_project_graph_state.bind_scope_unit_structure(
@@ -292,19 +385,17 @@ class GenerateProjectGraphStateTests(unittest.TestCase):
         )
         self.assertTrue(installed.is_file())
         source_payload = generate_project_graph_state.project_scope_unit_graph(
-            generate_project_graph_state.source_updated_at(binding, source_atoms),
+            generate_project_graph_state.source_updated_at(bindings, source_atoms),
             config,
-            config_sha,
-            binding,
+            bindings,
             rows,
             source_atoms,
             generate_project_graph_state.CANONICAL_GENERATOR,
         )
         installed_payload = generate_project_graph_state.project_scope_unit_graph(
-            generate_project_graph_state.source_updated_at(binding, source_atoms),
+            generate_project_graph_state.source_updated_at(bindings, source_atoms),
             config,
-            config_sha,
-            binding,
+            bindings,
             rows,
             source_atoms,
             installed,

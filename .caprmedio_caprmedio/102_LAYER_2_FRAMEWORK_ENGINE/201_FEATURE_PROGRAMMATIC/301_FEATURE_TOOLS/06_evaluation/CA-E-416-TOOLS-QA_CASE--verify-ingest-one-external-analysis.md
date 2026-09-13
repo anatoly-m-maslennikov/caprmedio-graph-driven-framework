@@ -5,10 +5,8 @@ subjects:
   governs:
     continuant:
       - provenance
-    occurrent:
-      - evaluation
-version: 1
-updated_at: 2026-09-02 00:25:00 +0400
+version: 2
+updated_at: 2026-09-12 04:15:38 +0400
 relations:
   evaluation_for:
     - CA-M-250

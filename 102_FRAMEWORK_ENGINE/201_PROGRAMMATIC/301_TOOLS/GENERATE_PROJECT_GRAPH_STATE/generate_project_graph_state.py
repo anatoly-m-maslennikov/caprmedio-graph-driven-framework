@@ -22,6 +22,7 @@ if str(TOOLS_ROOT) not in sys.path:
     sys.path.insert(0, str(TOOLS_ROOT))
 
 from framework_installation import InstallationError, installation_status  # noqa: E402
+from artifact_metadata import SETTINGS_PATH, atom_identifier, project_identity  # noqa: E402
 
 
 OUTPUT = CONTROL / "project_scope_unit_graph.projection.toml"
@@ -36,19 +37,17 @@ CONFIG = (
     / ".caprmedio_framework"
     / "00_APPLICABLE_METHODOLOGY"
     / "000_APPLICABLE_MTHD_sources"
-    / "003_LOCAL_CONFIGURATION"
+    / "003_PROJECT_CONFIGURATION"
     / "caprmedio_framework_settings.toml"
 )
 METHODOLOGY_SOURCES = CONFIG.parent.parent
 METHODOLOGY_SOURCE_SCOPE_UNITS = (
     ("CORE_META_MODEL", METHODOLOGY_SOURCES / "001_CORE_META_MODEL"),
     ("INSTALLED_EXTENSIONS", METHODOLOGY_SOURCES / "002_INSTALLED_EXTENSIONS"),
-    ("LOCAL_CONFIGURATION", METHODOLOGY_SOURCES / "003_LOCAL_CONFIGURATION"),
+    ("PROJECT_CONFIGURATION", METHODOLOGY_SOURCES / "003_PROJECT_CONFIGURATION"),
 )
 JOURNAL = CONTROL / "work_journal"
 INACTIVE_FOLDERS = frozenset({"archive", "drafts", "done", "solved", "handled", "canceled", "cancelled"})
-PROJECT_CONFIGURATION_ATOM_ID = "CAPRMEDIO-I-001"
-PROJECT_IDENTITY = "caprmedio"
 SCOPE_UNIT_NAME = re.compile(
     r"(?P<numeric_prefix>[0-9]+)_(?P<unit_type>LAYER|FEATURE)_(?:(?P<local_order>[1-9][0-9]*)_)?(?P<name>[A-Z][A-Z0-9_]*)\Z"
 )
@@ -82,6 +81,8 @@ def project_relative(path: Path) -> str:
 def normalise_timestamp(value: object) -> str:
     if not isinstance(value, str):
         return ""
+    if len(value) >= 2 and value[0] == value[-1] and value[0] in {"'", '\"'}:
+        value = value[1:-1]
     if TIMESTAMP.fullmatch(value):
         return value
     local_match = TIMESTAMP_WITH_OFFSET.fullmatch(value)
@@ -148,16 +149,19 @@ def journal_records(journal: Path) -> list[tuple[Path, int, dict[str, object]]]:
     return records
 
 
-def configuration_binding(config_sha: str) -> dict[str, str]:
+def configuration_binding(config_sha: str, carrier: Path | None = None) -> dict[str, str]:
     """Resolve the one completed receipt for the canonical native carrier."""
 
     matches: list[dict[str, str]] = []
-    configuration_path = project_relative(CONFIG)
+    carrier = CONFIG if carrier is None else carrier
+    configuration_path = project_relative(carrier)
     for carrier in sorted(JOURNAL.glob("*.ndjson")):
         for number, line in enumerate(carrier.read_text(encoding="utf-8").splitlines(), 1):
             try:
                 record = json.loads(line)
             except json.JSONDecodeError:
+                continue
+            if not isinstance(record, dict):
                 continue
             result = record.get("result")
             if (
@@ -183,9 +187,9 @@ def configuration_binding(config_sha: str) -> dict[str, str]:
                 }
             )
     if len(matches) == 1:
-        return {"atom_id": PROJECT_CONFIGURATION_ATOM_ID, "status": "resolved", **matches[0]}
+        return {"identifier": carrier.stem, "status": "resolved", **matches[0]}
     return {
-        "atom_id": PROJECT_CONFIGURATION_ATOM_ID,
+        "identifier": carrier.stem,
         "status": "unresolved" if not matches else "ambiguous",
         "revision": "unknown",
         "journal_carrier": "",
@@ -195,28 +199,41 @@ def configuration_binding(config_sha: str) -> dict[str, str]:
     }
 
 
+def settings_bindings() -> dict[str, dict[str, str]]:
+    """Bind both authoritative Settings Carriers independently."""
+    bindings = {}
+    for kind, carrier in (("project_settings", ROOT / SETTINGS_PATH), ("framework_settings", CONFIG)):
+        digest = sha(carrier)
+        bindings[kind] = {
+            **configuration_binding(digest, carrier),
+            "carrier": project_relative(carrier),
+            "sha256": digest,
+        }
+    return bindings
+
+
 def configuration() -> dict[str, object]:
     try:
-        document = tomllib.loads(CONFIG.read_text(encoding="utf-8"))
-    except tomllib.TOMLDecodeError as error:
-        raise SystemExit(f"invalid Project Configuration: {error}") from error
-    project = document.get("project")
-    artifacts = document.get("artifacts")
-    identity = artifacts.get("identity") if isinstance(artifacts, dict) else None
-    modes = document.get("authority_modes")
-    if not isinstance(project, dict) or not isinstance(identity, dict) or not isinstance(modes, dict):
-        raise SystemExit("Project Configuration lacks project, artifacts.identity, or authority_modes")
-    for key in ("key", "name", "repository_slug"):
-        if not isinstance(project.get(key), str) or not project[key]:
-            raise SystemExit(f"Project Configuration lacks project.{key}")
-    if project["key"] != PROJECT_IDENTITY or project["name"] != PROJECT_IDENTITY:
-        raise SystemExit("Project Configuration must identify the Project as lowercase caprmedio")
-    if not isinstance(identity.get("project_prefix"), str) or not identity["project_prefix"]:
-        raise SystemExit("Project Configuration lacks artifacts.identity.project_prefix")
+        identity = project_identity(ROOT)
+        if not CONFIG.is_file() or CONFIG.is_symlink():
+            raise ValueError("Framework Instance Settings Carrier is missing or invalid")
+        framework = tomllib.loads(CONFIG.read_text(encoding="utf-8"))
+    except (OSError, UnicodeDecodeError, ValueError) as error:
+        raise SystemExit(str(error)) from error
+    artifacts = framework.get("artifacts")
+    if "project" in framework or (isinstance(artifacts, dict) and "identity" in artifacts):
+        raise SystemExit("Project identity belongs only in Project Settings, not Framework Instance Settings")
+    modes = framework.get("authority_modes")
+    if not isinstance(modes, dict):
+        raise SystemExit("Framework Instance Settings lacks authority_modes")
     for key in ("default", "governance", "metamodel", "project", "semantics"):
         if not isinstance(modes.get(key), str) or not modes[key]:
-            raise SystemExit(f"Project Configuration lacks authority_modes.{key}")
-    return document
+            raise SystemExit(f"Framework Instance Settings lacks authority_modes.{key}")
+    return {
+        "project": identity["project"],
+        "artifacts": {"identity": identity["identity"]},
+        "authority_modes": modes,
+    }
 
 
 def active_path(path: Path, control: Path) -> bool:
@@ -269,6 +286,10 @@ def navigational_order_number(
 def scope_units(control: Path, root: Path, modes: dict[str, object]) -> list[dict[str, object]]:
     """Discover active typed Scope Units and link each to its nearest typed parent."""
 
+    try:
+        project_name = project_identity(root)["project"]["name"]
+    except ValueError as error:
+        raise SystemExit(str(error)) from error
     default_mode = modes.get("default")
     if not isinstance(default_mode, str) or not default_mode:
         raise SystemExit("Project Configuration lacks authority_modes.default")
@@ -294,8 +315,8 @@ def scope_units(control: Path, root: Path, modes: dict[str, object]) -> list[dic
                 "scope_unit_label": parsed["scope_unit_label"],
                 "authority_mode": default_mode,
                 "local_order": parsed["local_order"],
-                "parent": PROJECT_IDENTITY,
-                "structural_parent": PROJECT_IDENTITY,
+                "parent": project_name,
+                "structural_parent": project_name,
             }
         )
     if not rows:
@@ -520,7 +541,7 @@ def active_source_atoms() -> list[dict[str, str]]:
             filename_atom_id = path.stem.partition("--")[0]
             if len(declared_atom_id) > 1 or not filename_atom_id or len(version) != 1 or len(updated_at) != 1:
                 raise SystemExit(f"source Atom lacks one identity and revision: {project_relative(path)}")
-            atom_id = declared_atom_id[0] if declared_atom_id else filename_atom_id
+            atom_id = atom_identifier(path.name, declared_atom_id[0] if declared_atom_id else None)
             if atom_id in atom_ids:
                 raise SystemExit(f"duplicate active source Atom identity: {atom_id}")
             timestamp = normalise_timestamp(updated_at[0])
@@ -544,10 +565,10 @@ def active_source_atoms() -> list[dict[str, str]]:
 
 
 def source_updated_at(
-    binding: dict[str, str],
+    bindings: dict[str, dict[str, str]],
     source_atoms: list[dict[str, str]],
 ) -> str:
-    candidates = [binding["updated_at"], *(item["updated_at"] for item in source_atoms)]
+    candidates = [*(item["updated_at"] for item in bindings.values()), *(item["updated_at"] for item in source_atoms)]
     valid = [value for value in candidates if TIMESTAMP.fullmatch(value)]
     if not valid:
         raise SystemExit("no valid source revision timestamp")
@@ -574,11 +595,19 @@ SCOPE_UNIT_GRAPH_FIELDS = (
 )
 
 
+def settings_binding_lines(bindings: dict[str, dict[str, str]]) -> list[str]:
+    lines = []
+    for kind, binding in bindings.items():
+        lines += [f"[settings.{kind}]"]
+        lines += [f"{key} = {quote(value)}" for key, value in binding.items()]
+        lines.append("")
+    return lines
+
+
 def project_scope_unit_graph(
     updated_at: str,
     config: dict[str, object],
-    config_sha: str,
-    binding: dict[str, str],
+    bindings: dict[str, dict[str, str]],
     scope_unit_rows: list[dict[str, object]],
     source_atoms: list[dict[str, str]],
     executed_generator: Path | None = None,
@@ -591,27 +620,19 @@ def project_scope_unit_graph(
     lines = [
         "# Generated projection. Delete and regenerate; do not edit directly.",
         "[projection]",
-        'schema_version = "3"',
+        'schema_version = "4"',
         'kind = "project_scope_unit_graph"',
         "non_authoritative = true",
-        'currentness = "exact_source_bound"',
+        f"currentness = {quote('exact_source_bound' if all(item['status'] == 'resolved' for item in bindings.values()) else 'unknown')}",
         f"updated_at = {quote(updated_at)}",
         *[f"{key} = {quote(value)}" for key, value in generator.items()],
         "",
-        "[configuration]",
-        f"atom_id = {quote(binding['atom_id'])}",
-        f"revision = {quote(binding['revision'])}",
-        f"carrier = {quote(project_relative(CONFIG))}",
-        f"sha256 = {quote(config_sha)}",
-        f"binding_status = {quote(binding['status'])}",
-        f"journal_carrier = {quote(binding['journal_carrier'])}",
-        f"journal_line = {quote(binding['journal_line'])}",
-        f"journal_event_id = {quote(binding['journal_event_id'])}",
-        "",
+        *settings_binding_lines(bindings),
         "[project]",
         f"key = {quote(project['key'])}",
         f"name = {quote(project['name'])}",
         f"repository_slug = {quote(project['repository_slug'])}",
+        f"obsolete_names = {quote(project['obsolete_names'])}",
         "",
         "[artifacts.identity]",
         f"project_prefix = {quote(identity['project_prefix'])}",
@@ -645,21 +666,19 @@ def project_scope_unit_graph(
 
 def project_scope_unit_graph_sources(
     updated_at: str,
-    config_sha: str,
-    binding: dict[str, str],
+    bindings: dict[str, dict[str, str]],
     scope_unit_rows: list[dict[str, object]],
     source_atoms: list[dict[str, str]],
     executed_generator: Path | None = None,
 ) -> str:
-    configuration_revision = f"{binding['atom_id']}@{binding['revision']}"
     generator = generator_metadata(executed_generator)
     lines = [
         "# Generated source bindings. Delete and regenerate; do not edit directly.",
         "[projection]",
-        'schema_version = "3"',
+        'schema_version = "4"',
         'kind = "project_scope_unit_graph_sources"',
         "non_authoritative = true",
-        'currentness = "exact_source_bound"',
+        f"currentness = {quote('exact_source_bound' if all(item['status'] == 'resolved' for item in bindings.values()) else 'unknown')}",
         f"updated_at = {quote(updated_at)}",
         f"graph_projection = {quote(project_relative(OUTPUT))}",
         *[f"{key} = {quote(value)}" for key, value in generator.items()],
@@ -694,19 +713,14 @@ def project_scope_unit_graph_sources(
             )
 
     for output_path in (
-        "project.key",
-        "project.name",
-        "project.repository_slug",
-        "artifacts.identity.project_prefix",
-        "authority_modes",
+        "project.key", "project.name", "project.repository_slug", "project.obsolete_names",
+        "artifacts.identity.project_prefix", "authority_modes",
     ):
+        kind = "framework_settings" if output_path == "authority_modes" else "project_settings"
+        binding = bindings[kind]
         append_binding(
-            output_path,
-            "project_configuration",
-            project_relative(CONFIG),
-            configuration_revision,
-            config_sha,
-            binding,
+            output_path, kind, binding["carrier"],
+            f"{binding['identifier']}@{binding['revision']}", binding["sha256"], binding,
         )
     for row in scope_unit_rows:
         node_path = "scope_units." + str(row["node_id"])
@@ -717,13 +731,16 @@ def project_scope_unit_graph_sources(
             if row[field] is None:
                 continue
             if field == "authority_mode":
+                kind = "framework_settings"
+            elif field in {"parent", "structural_parent"} and row[field] not in {item["node_id"] for item in scope_unit_rows}:
+                kind = "project_settings"
+            else:
+                kind = None
+            if kind is not None:
+                binding = bindings[kind]
                 append_binding(
-                    node_path + "." + field,
-                    "project_configuration",
-                    project_relative(CONFIG),
-                    configuration_revision,
-                    config_sha,
-                    binding,
+                    node_path + "." + field, kind, binding["carrier"],
+                    f"{binding['identifier']}@{binding['revision']}", binding["sha256"], binding,
                 )
                 continue
             append_binding(
@@ -779,17 +796,16 @@ def main() -> None:
     if not CONTROL.is_dir() or not CONFIG.is_file():
         raise SystemExit("required control root or Project Configuration is missing")
     config = configuration()
-    config_sha = sha(CONFIG)
-    binding = configuration_binding(config_sha)
-    if binding["status"] != "resolved":
-        raise SystemExit("Project Configuration current revision binding is unresolved or ambiguous")
+    bindings = settings_bindings()
+    if any(item["status"] != "resolved" for item in bindings.values()):
+        raise SystemExit("Settings current revision binding is unresolved or ambiguous")
     source_atoms = active_source_atoms()
     modes = config["authority_modes"]
     assert isinstance(modes, dict)
     rows = bind_scope_unit_structure(scope_units(CONTROL, ROOT, modes))
-    updated_at = source_updated_at(binding, source_atoms)
-    graph_payload = project_scope_unit_graph(updated_at, config, config_sha, binding, rows, source_atoms)
-    sources_payload = project_scope_unit_graph_sources(updated_at, config_sha, binding, rows, source_atoms)
+    updated_at = source_updated_at(bindings, source_atoms)
+    graph_payload = project_scope_unit_graph(updated_at, config, bindings, rows, source_atoms)
+    sources_payload = project_scope_unit_graph_sources(updated_at, bindings, rows, source_atoms)
     changed = (not OUTPUT.is_file() or OUTPUT.read_text(encoding="utf-8") != graph_payload) or (
         not SOURCE_MAP.is_file() or SOURCE_MAP.read_text(encoding="utf-8") != sources_payload
     )

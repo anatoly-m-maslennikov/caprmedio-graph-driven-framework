@@ -55,6 +55,15 @@ def atom(
 
 
 class GenerateEntityGraphTests(unittest.TestCase):
+    def test_filename_migration_preserves_unstated_canonical_identity(self) -> None:
+        first = self.write("CA-R-123-MMODEL-CORE-REQUIREMENT--old.md",
+                           atom("CA-R-123", cce_form="definition", governs=("Atom",)).replace("atom_id: CA-R-123\n", ""))
+        before, _ = generate_entity_graph.discover_atoms(self.root, self.selected)
+        first.rename(first.with_name("CA-R-123-CORE_META_MODEL-CORE-REQUIREMENT--new.md"))
+        after, _ = generate_entity_graph.discover_atoms(self.root, self.selected)
+        self.assertEqual(["CA-R-123"], [item.atom_id for item in before])
+        self.assertEqual([item.atom_id for item in before], [item.atom_id for item in after])
+
     def setUp(self) -> None:
         self.temporary = tempfile.TemporaryDirectory(dir="/private/tmp", ignore_cleanup_errors=True)
         self.root = Path(self.temporary.name) / "repository"

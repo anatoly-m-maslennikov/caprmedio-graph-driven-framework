@@ -30,6 +30,47 @@ YAML_DELIMITER = "---"
 TOML_DELIMITER = "+++"
 
 
+def project_identity(root: Path) -> dict[str, dict[str, object]]:
+    """Read Project identity only from the selected Project Settings Carrier."""
+    path = root / SETTINGS_PATH
+    if not path.is_file() or path.is_symlink():
+        raise ValueError(f"Project Settings Carrier is missing or invalid: {SETTINGS_PATH}")
+    try:
+        settings = tomllib.loads(path.read_text(encoding="utf-8"))
+    except (OSError, UnicodeDecodeError, tomllib.TOMLDecodeError) as error:
+        raise ValueError(f"invalid Project Settings: {SETTINGS_PATH}") from error
+    project = settings.get("project")
+    artifacts = settings.get("artifacts")
+    identity = artifacts.get("identity") if isinstance(artifacts, dict) else None
+    if not isinstance(project, dict) or not isinstance(identity, dict):
+        raise ValueError("Project Settings lacks project or artifacts.identity")
+    for key in ("key", "name", "repository_slug"):
+        value = project.get(key)
+        if not isinstance(value, str) or not value.strip():
+            raise ValueError(f"Project Settings lacks project.{key}")
+    if project["name"] != project["name"].strip().lower():
+        raise ValueError("Project Settings project.name must be lowercase without surrounding whitespace")
+    prefix = identity.get("project_prefix")
+    if not isinstance(prefix, str) or not prefix.strip():
+        raise ValueError("Project Settings lacks artifacts.identity.project_prefix")
+    obsolete = project.get("obsolete_names", [])
+    if not isinstance(obsolete, list) or any(not isinstance(name, str) or not name for name in obsolete):
+        raise ValueError("Project Settings project.obsolete_names must be a list of names")
+    return {"project": dict(project, obsolete_names=obsolete), "identity": identity}
+
+
+def atom_identifier(filename: str, explicit: str | None = None) -> str:
+    """Resolve stable identity without absorbing mutable scope, tier, type, or sequence."""
+    if explicit:
+        return explicit.strip().strip('\"\'')
+    name = Path(filename).name
+    canonical = re.match(r"(?:[0-9]+-)?(CA-[CAPRMEDIO]-[0-9]+)(?:-|\.|@|$)", name)
+    if canonical:
+        return canonical.group(1)
+    # Unmigrated legacy identities remain opaque; never allocate or renumber here.
+    return name.removesuffix(".md").split("--", 1)[0]
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("path", type=Path, help="Markdown carrier")

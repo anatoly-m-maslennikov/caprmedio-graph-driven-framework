@@ -2,6 +2,12 @@
 atom_id: "CA-R-1424"
 cce_version: "cce_1"
 cce_form: "obligation"
+version: 3
+updated_at: "2026-09-09 23:04:14 +0400"
+relations:
+  child_of:
+    - "CA-M-006"
+    - "CA-P-033"
 subjects:
   governs:
     continuant:
@@ -13,13 +19,9 @@ subjects:
       - "Operator"
       - "Tool"
       - "Project"
-version: 1
-updated_at: "2026-09-05 03:48:00 +0400"
-relations:
-  child_of:
-    - "CA-M-006"
-    - "CA-P-033"
+      - "Atom"
+      - "Artifact"
 ---
 # Provide tools to maintain methodology alignment
 
-the CAPRMEDIO Framework Instance **must** provide Tools sufficient **to** evaluate, repair, **and** maintain instance alignment with the current Applicable Methodology **in** `.caprmedio_framework`, including accurate reporting of orphan Atoms **and** other nonconformance; repair **must** remain under Operator control, **and** the Operator **may** leave findings unresolved **or** retain nonconforming Artifacts.
+the CAPRMEDIO Framework Instance **must** provide Tools sufficient **to** evaluate, repair, **and** maintain instance alignment with the current Applicable Methodology from the Project's registered Framework Instance directory, including accurate reporting of orphan Atoms **and** other nonconformance; repair **must** remain under Operator control, **and** the Operator **may** leave findings unresolved **or** retain nonconforming Artifacts.

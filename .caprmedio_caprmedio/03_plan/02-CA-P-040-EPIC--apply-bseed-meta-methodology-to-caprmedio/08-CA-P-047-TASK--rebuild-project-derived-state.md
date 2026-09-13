@@ -2,9 +2,9 @@
 atom_id: CA-P-047
 cce_version: cce_1
 cce_form: obligation
-version: 2
-updated_at: 2026-08-23 13:00:00
+version: 3
+updated_at: "2026-09-09 21:56:59 +0400"
 ---
 # Rebuild Project derived state
 
-THE Assignee MUST rebuild every CAPRMEDIO Project Setting and Projection affected by the accepted BSEED meta-methodology from its final authoritative sources.
+the Assignee **must** rebuild **every** Project Projection affected by the current Applicable Methodology from its authoritative sources **without** regenerating Operator-selected Settings as derived authority.

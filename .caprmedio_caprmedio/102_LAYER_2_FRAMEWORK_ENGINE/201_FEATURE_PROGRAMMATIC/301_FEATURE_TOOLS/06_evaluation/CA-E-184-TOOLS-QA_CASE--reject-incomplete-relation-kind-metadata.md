@@ -2,11 +2,9 @@
 subjects:
   governs:
     continuant:
-      - evaluation
-    occurrent:
-      - evaluation
-version: 5
-updated_at: 2026-08-30 16:44:07 +0400
+      - Relation Kind/Registry Entry
+version: 6
+updated_at: 2026-09-12 04:15:38 +0400
 relations:
   evaluation_for:
     - CA-R-806

@@ -2,11 +2,9 @@
 subjects:
   governs:
     continuant:
-      - evaluation
-    occurrent:
-      - evaluation
-version: 7
-updated_at: 2026-09-01 02:30:00 +0400
+      - Requirement Lineage Map
+version: 8
+updated_at: 2026-09-12 04:15:38 +0400
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:

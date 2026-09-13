@@ -1,4 +1,5 @@
 ---
+atom_id: CAPRMEDIO-GOV-EVAL-006
 cce_version: cce_1
 cce_form: evaluation
 artifact_subtype: qa_case
@@ -6,17 +7,17 @@ subjects:
   governs:
     occurrent:
       - evaluation
-version: 11
-updated_at: 2026-09-04 04:05:44 +0400
+version: 12
+updated_at: 2026-09-06 01:45:12 +0400
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   replacement_of:
     - CAPRMEDIO-GOV-EVAL-027--canonical-settings-selections-test-case
   check_of:
-    - CAPRMEDIO-GOV-REQU-294--interaction-reporting-mode-setting
-    - CAPRMEDIO-GOV-REQU-385--resolve-artifact-routes-from-authority-configuration-and-the-scope-unit-graph
-    - CAPRMEDIO-GOV-REQU-302--atomic-admission-and-promotion-gate
+    - CAPRMEDIO-GOV-REQU-294-CORE_META_MODEL-REQUIREMENT--configure-interaction-reporting-mode
+    - CAPRMEDIO-GOV-REQU-385-CORE_META_MODEL-REQUIREMENT--resolve-artifact-classification-from-authority-and-configuration
+    - CAPRMEDIO-GOV-REQU-302-CORE_META_MODEL-REQUIREMENT--gate-atomic-admission-and-promotion
   child_of:
     - CA-R-1054
 projection:

@@ -9,11 +9,11 @@ subjects:
   depends_on:
     continuant:
       - Tool/DERIVE_SCOPE_CANONICAL_SIGNATURES
-version: 1
-updated_at: 2026-09-02 01:12:00 +0400
+version: 2
+updated_at: 2026-09-12 04:15:08
 relations:
   delivery_for:
-    - CA-I-003
+    - CA-M-257
 ---
 # Deliver Scope Canonical Signature Tool
 

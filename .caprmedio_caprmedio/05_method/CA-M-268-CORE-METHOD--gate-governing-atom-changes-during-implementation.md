@@ -2,6 +2,16 @@
 atom_id: CA-M-268
 cce_version: "cce_1"
 cce_form: "method"
+version: 2
+updated_at: "2026-09-05 23:00:00 +0400"
+relations:
+  child_of:
+    - "CA-M-261"
+  relates_to:
+    - "CA-M-130"
+    - "CA-R-851"
+    - "CA-R-1080"
+    - "CA-M-262"
 subjects:
   governs:
     occurrent:
@@ -14,16 +24,13 @@ subjects:
       - "AI Agent/Confidence"
       - "Atom/Content Role: Plan/Type: Task/Autonomous Confidence Threshold"
       - "Spec"
-version: 1
-updated_at: "2026-09-05 18:40:03 +0400"
-relations:
-  child_of:
-    - "CA-M-261"
-  relates_to:
-    - "CA-M-130"
-    - "CA-R-851"
-    - "CA-R-1080"
-    - "CA-M-262"
+      - "Atom"
+      - "Atom/Content Role: Plan/Type: Task"
+      - "Atom/Content Role: Evaluation"
+      - "Atom/Content Role: Requirement"
+      - "Atom/Content Role: Method"
+      - "Atom/Content Role: Delivery"
+      - "Project"
 ---
 # Gate governing Atom changes during implementation
 

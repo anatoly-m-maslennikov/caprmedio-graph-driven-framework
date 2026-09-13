@@ -2,6 +2,15 @@
 atom_id: CA-M-269
 cce_version: "cce_1"
 cce_form: "method"
+version: 2
+updated_at: "2026-09-05 23:00:00 +0400"
+relations:
+  child_of:
+    - "CA-M-261"
+  relates_to:
+    - "CA-M-267"
+    - "CA-M-268"
+    - "CA-M-130"
 subjects:
   governs:
     occurrent:
@@ -13,15 +22,8 @@ subjects:
       - "Atom/Content Role: Implementation"
       - "Atom/Content Role: Plan/Type: Task"
       - "Atom/Content Role: Plan/Type: Task/Autonomous Confidence Threshold"
-version: 1
-updated_at: "2026-09-05 18:40:03 +0400"
-relations:
-  child_of:
-    - "CA-M-261"
-  relates_to:
-    - "CA-M-267"
-    - "CA-M-268"
-    - "CA-M-130"
+      - "Atom"
+      - "Project"
 ---
 # Retry failed implementation three times by default
 

@@ -164,7 +164,7 @@ def _describe() -> dict[str, Any]:
             "rewrite_relations": "registered active direct atom_carrier relations only",
             "removal_relations": "exact one-occurrence cleanup; semantic admission is not required",
         },
-        "governing_atoms": ["CA-R-1049", "CA-M-156", "CA-E-252", "CA-D-030"],
+        "governing_atoms": ["CA-R-1049", "CA-M-156", "CA-E-252", "CA-D-413"],
         "journal": "not_performed",
         "git": "not_performed",
     }

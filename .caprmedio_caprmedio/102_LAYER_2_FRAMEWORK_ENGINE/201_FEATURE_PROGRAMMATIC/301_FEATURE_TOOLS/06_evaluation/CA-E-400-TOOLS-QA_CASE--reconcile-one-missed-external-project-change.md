@@ -6,13 +6,11 @@ subjects:
   governs:
     continuant:
       - repository-reconciliation
-    occurrent:
-      - evaluation
   depends_on:
     continuant:
       - commit-automation
-version: 1
-updated_at: 2026-09-01 02:20:00 +0400
+version: 3
+updated_at: 2026-09-12 04:15:38 +0400
 relations:
   evaluation_for:
     - CA-M-087
@@ -43,4 +41,4 @@ invented Codex provenance, bypasses the normal pipeline, or is processed twice.
 ## Sources
 
 - [Git documentation: porcelain v2](https://git-scm.com/docs/git-status#_porcelain_format_version_2)
-- [CA-M-087 — Process one file change](../05_method/CA-M-087-TOOLS-CORE-IMPL_METHOD--process-one-file-change.md)
+- [CA-M-087 — Process one file change](../05_method/CA-M-087-TOOLS-CORE-IMPL_METHOD--process-one-project-path-action.md)

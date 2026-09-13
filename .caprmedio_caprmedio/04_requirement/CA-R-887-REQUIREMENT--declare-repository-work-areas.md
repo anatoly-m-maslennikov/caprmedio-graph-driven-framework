@@ -1,11 +1,11 @@
 ---
 subject_scopes:
   - framework-boundary
-version: 1
-updated_at: 2026-08-22 01:56:15
+version: 2
+updated_at: 2026-09-06 01:45:12 +0400
 relations:
   child_of:
-    - CAPRMEDIO-REQU-031--model-project-structure-as-numbered-levels
+    - CAPRMEDIO-REQU-031-CORE-REQUIREMENT--model-project-structure-as-numbered-levels
 ---
 # Declare repository Work Areas
 

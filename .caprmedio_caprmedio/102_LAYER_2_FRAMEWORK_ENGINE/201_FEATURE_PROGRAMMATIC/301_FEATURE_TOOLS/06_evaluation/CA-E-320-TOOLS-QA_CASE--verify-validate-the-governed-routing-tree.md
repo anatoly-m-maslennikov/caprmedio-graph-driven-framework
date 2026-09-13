@@ -5,10 +5,8 @@ subjects:
   governs:
     continuant:
       - artifact-operations
-    occurrent:
-      - evaluation
-version: 3
-updated_at: 2026-09-01 23:47:24 +0400
+version: 4
+updated_at: 2026-09-12 04:15:38 +0400
 relations:
   evaluation_for:
     - CA-M-202

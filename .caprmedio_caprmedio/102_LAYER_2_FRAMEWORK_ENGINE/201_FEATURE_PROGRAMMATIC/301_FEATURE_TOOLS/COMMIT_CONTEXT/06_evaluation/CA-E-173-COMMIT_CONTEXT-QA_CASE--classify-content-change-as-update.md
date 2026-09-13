@@ -2,11 +2,9 @@
 subjects:
   governs:
     continuant:
-      - evaluation
-    occurrent:
-      - evaluation
-version: 6
-updated_at: 2026-08-30 16:44:07 +0400
+      - Governed Change/Change Class
+version: 7
+updated_at: 2026-09-12 04:15:38 +0400
 relations:
   evaluation_for:
     - CA-M-087

@@ -5,10 +5,8 @@ subjects:
   governs:
     continuant:
       - installed-toolset
-    occurrent:
-      - evaluation
-version: 5
-updated_at: 2026-09-01 23:27:15 +0400
+version: 6
+updated_at: 2026-09-12 04:15:38 +0400
 relations:
   evaluation_for:
     - CA-M-103

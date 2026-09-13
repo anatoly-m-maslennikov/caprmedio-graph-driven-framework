@@ -109,7 +109,7 @@ def _envelope(*, ok: bool, mode: str, result: dict[str, Any] | None = None, erro
 
 
 def _describe() -> dict[str, Any]:
-    return {"input_schema": {"input": "one exact JSON request", "mutation_default": "dry-run", "apply": "one sealed source carrier only", "derived_frontmatter": "atom_id and tier are removal-only when present"}, "governing_atoms": ["CA-R-1048", "CA-M-155", "CA-E-251", "CA-D-029"], "journal": "not_performed", "git": "not_performed"}
+    return {"input_schema": {"input": "one exact JSON request", "mutation_default": "dry-run", "apply": "one sealed source carrier only", "derived_frontmatter": "atom_id and tier are removal-only when present"}, "governing_atoms": ["CA-R-1048", "CA-M-155", "CA-E-251", "CA-D-412"], "journal": "not_performed", "git": "not_performed"}
 
 
 def cli(argv: list[str] | None = None) -> int:

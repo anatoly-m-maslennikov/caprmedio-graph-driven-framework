@@ -1,12 +1,13 @@
 ---
+atom_id: CAPRMEDIO-A-029-ANALYSIS_RPRT
 subject_scopes:
   - method
-version: 4
-updated_at: 2026-08-22 02:37:15
+version: 5
+updated_at: 2026-09-06 01:45:12 +0400
 relations:
   child_of:
     - CAPRMEDIO-P-027-CHANGE_PLAN--remediate-bootstrap-seed-semantics
-    - CAPRMEDIO-META-REQU-744--distinguish-implementation-methods-from-implementation-decisions
+    - CAPRMEDIO-META-REQU-744-CORE_META_MODEL-CORE-REQUIREMENT--distinguish-implementation-methods-from-implementation-decisions
 ---
 # Classify current Method authority
 

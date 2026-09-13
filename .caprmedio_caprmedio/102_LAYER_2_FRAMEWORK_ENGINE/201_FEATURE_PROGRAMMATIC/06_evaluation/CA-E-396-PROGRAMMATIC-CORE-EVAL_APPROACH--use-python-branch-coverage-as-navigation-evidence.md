@@ -9,11 +9,11 @@ subjects:
   depends_on:
     continuant:
       - programmatic software
-version: 1
-updated_at: 2026-09-01 02:10:00 +0400
+version: 2
+updated_at: "2026-09-11 20:58:34 +0400"
 relations:
   evaluation_for:
-    - CA-M-233
+    - CA-M-285
   derived_from:
     - CA-A-053
 ---
@@ -42,4 +42,4 @@ Reject reliance based solely on the coverage percentage.
 ## Sources
 
 - [Coverage.py: branch coverage](https://coverage.readthedocs.io/en/latest/branch.html)
-- [CA-M-233 — Select software Evaluation techniques by failure mode](../05_method/CA-M-233-PROGRAMMATIC-CORE-METHOD--select-software-evaluation-techniques-by-failure-mode.md)
+- [CA-M-285 — Select software Evaluation techniques by failure mode](../05_method/CA-M-285-PROGRAMMATIC-CORE-METHOD--select-software-evaluation-techniques-by-failure-mode.md)

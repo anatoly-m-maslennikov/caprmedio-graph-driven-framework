@@ -59,15 +59,15 @@ class ExpansionBoundaryTest(unittest.TestCase):
         return code, json.loads(stream.getvalue())
 
     def test_accepts_non_mutating_local_expansion(self) -> None:
-        self.write("003_LOCAL_CONFIGURATION", "CA-R-200--local.md", carrier("CA-R-200"))
+        self.write("003_PROJECT_CONFIGURATION", "CA-R-200--local.md", carrier("CA-R-200"))
         code, report = self.invoke()
         self.assertEqual(0, code)
         self.assertTrue(report["can_conform"])
-        self.assertEqual(1, report["source_counts"]["LOCAL_CONFIGURATION"])
+        self.assertEqual(1, report["source_counts"]["PROJECT_CONFIGURATION"])
         self.assertEqual("EXPANSION_CANDIDATE", report["external_members"][0]["classification"])
 
     def test_core_only_selection_excludes_local_members(self) -> None:
-        self.write("003_LOCAL_CONFIGURATION", "CA-R-200--local.md", carrier("CA-R-200"))
+        self.write("003_PROJECT_CONFIGURATION", "CA-R-200--local.md", carrier("CA-R-200"))
         stream = io.StringIO()
         with contextlib.redirect_stdout(stream):
             code = module.run(["--root", str(self.temp), "--include-layer", "CORE_META_MODEL"])
@@ -79,7 +79,7 @@ class ExpansionBoundaryTest(unittest.TestCase):
     def test_rejects_direct_mutation_of_active_core_authority(self) -> None:
         self.write("001_CORE_META_MODEL", "CA-R-001--core.md", carrier("CA-R-001"))
         self.write(
-            "003_LOCAL_CONFIGURATION",
+            "003_PROJECT_CONFIGURATION",
             "CA-R-200--local.md",
             carrier("CA-R-200", relations="\n  replacement_of:\n    - CA-R-001\n"),
         )
@@ -93,7 +93,7 @@ class ExpansionBoundaryTest(unittest.TestCase):
 
     def test_reports_missing_legacy_lineage_without_treating_it_as_core_mutation(self) -> None:
         self.write(
-            "003_LOCAL_CONFIGURATION",
+            "003_PROJECT_CONFIGURATION",
             "CA-R-200--local.md",
             carrier("CA-R-200", relations="\n  replacement_of:\n    - CA-R-099--retired-local\n"),
         )

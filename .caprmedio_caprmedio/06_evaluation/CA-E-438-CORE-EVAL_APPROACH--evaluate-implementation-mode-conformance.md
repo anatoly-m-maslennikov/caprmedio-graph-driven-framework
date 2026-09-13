@@ -2,6 +2,14 @@
 atom_id: CA-E-438
 cce_version: "cce_1"
 cce_form: "evaluation"
+version: 2
+updated_at: "2026-09-05 23:00:00 +0400"
+relations:
+  child_of:
+    - "CA-E-001"
+  evaluation_for:
+    - "CA-M-266"
+    - "CA-M-262"
 subjects:
   governs:
     occurrent:
@@ -12,14 +20,11 @@ subjects:
       - "Spec"
       - "Atom/Content Role: Plan/Type: Task"
       - "Atom/Content Role: Implementation"
-version: 1
-updated_at: "2026-09-05 18:40:03 +0400"
-relations:
-  child_of:
-    - "CA-E-001"
-  evaluation_for:
-    - "CA-M-266"
-    - "CA-M-262"
+      - "Atom/Content Role: Evaluation"
+      - "Atom/Content Role: Requirement"
+      - "Atom/Content Role: Method"
+      - "Atom/Content Role: Delivery"
+      - "Project"
 ---
 # Evaluate implementation mode conformance
 

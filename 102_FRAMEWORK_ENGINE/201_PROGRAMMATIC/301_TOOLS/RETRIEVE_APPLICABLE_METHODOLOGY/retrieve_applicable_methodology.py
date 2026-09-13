@@ -7,7 +7,7 @@ import argparse
 import hashlib
 import json
 import re
-import tomllib
+import sys
 from collections import deque
 from dataclasses import dataclass
 from pathlib import Path
@@ -15,7 +15,11 @@ from pathlib import Path
 
 APPLICABLE_RELATIVE = Path(".caprmedio_framework/00_APPLICABLE_METHODOLOGY")
 SOURCES_RELATIVE = APPLICABLE_RELATIVE / "000_APPLICABLE_MTHD_sources"
-PROJECT_SCOPE_GRAPH_RELATIVE = Path(".caprmedio_caprmedio/project_scope_unit_graph.projection.toml")
+TOOLS_ROOT = Path(__file__).resolve().parents[1]
+if str(TOOLS_ROOT) not in sys.path:
+    sys.path.insert(0, str(TOOLS_ROOT))
+
+from artifact_metadata import SETTINGS_PATH, project_identity  # noqa: E402
 ROLES = ("04_requirement", "05_method", "06_evaluation", "07_delivery", "09_ops")
 SCHEMA = "caprmedio.retrieve_applicable_methodology.v1"
 TEMPORAL_FORMS = ("continuant", "occurrent")
@@ -32,16 +36,16 @@ SOURCE_SCOPE_ALIASES = {
     "INSTALLED_EXTENSIONS": "INSTALLED_EXTENSIONS",
     "Installed Extensions": "INSTALLED_EXTENSIONS",
     "Applicable Methodology/Sources/Installed Extensions": "INSTALLED_EXTENSIONS",
-    "LOCAL_CONFIGURATION": "LOCAL_CONFIGURATION",
-    "Local Configuration": "LOCAL_CONFIGURATION",
-    "Applicable Methodology/Sources/Local Configuration": "LOCAL_CONFIGURATION",
+    "PROJECT_CONFIGURATION": "PROJECT_CONFIGURATION",
+    "Project Configuration": "PROJECT_CONFIGURATION",
+    "Applicable Methodology/Sources/Project Configuration": "PROJECT_CONFIGURATION",
     "Project": "PROJECT",
 }
 SOURCE_SCOPE_CHILDREN = {
-    "METHODOLOGY_SOURCES": ("CORE_META_MODEL", "INSTALLED_EXTENSIONS", "LOCAL_CONFIGURATION"),
+    "METHODOLOGY_SOURCES": ("CORE_META_MODEL", "INSTALLED_EXTENSIONS", "PROJECT_CONFIGURATION"),
     "CORE_META_MODEL": (),
     "INSTALLED_EXTENSIONS": (),
-    "LOCAL_CONFIGURATION": (),
+    "PROJECT_CONFIGURATION": (),
 }
 
 
@@ -92,7 +96,7 @@ class ScopeResolution:
     subject_path: str
     scope_unit: str
     current_scope: str
-    structural_graph_carrier: str | None
+    project_settings_carrier: str | None
     source: str
 
     def record(self, *, reason_kind: str, temporal_form: str, required_by_atom_id: str | None) -> dict[str, str]:
@@ -105,8 +109,8 @@ class ScopeResolution:
             "current_scope": self.current_scope,
             "source": self.source,
         }
-        if self.structural_graph_carrier is not None:
-            record["structural_graph_carrier"] = self.structural_graph_carrier
+        if self.project_settings_carrier is not None:
+            record["project_settings_carrier"] = self.project_settings_carrier
         if required_by_atom_id is not None:
             record["required_by_atom_id"] = required_by_atom_id
         return record
@@ -311,38 +315,13 @@ def discover(root: Path) -> list[Carrier]:
 
 
 def project_scope_name(root: Path) -> str:
-    """Read the current Project Scope Unit from its structural Projection."""
-
-    path = root / PROJECT_SCOPE_GRAPH_RELATIVE
-    if not path.is_file() or path.is_symlink():
-        raise RetrievalError(
-            "project-scope-graph-missing",
-            "Project Scope Unit retrieval requires the Project Scope Unit Graph Projection",
-            path=PROJECT_SCOPE_GRAPH_RELATIVE.as_posix(),
-        )
+    """Read the Project name from authoritative Project Settings, never a Projection."""
     try:
-        payload = tomllib.loads(path.read_text(encoding="utf-8"))
-    except (OSError, UnicodeDecodeError, tomllib.TOMLDecodeError) as error:
+        return str(project_identity(root)["project"]["name"])
+    except ValueError as error:
         raise RetrievalError(
-            "project-scope-graph-invalid",
-            "Project Scope Unit Graph Projection is not valid TOML",
-            path=PROJECT_SCOPE_GRAPH_RELATIVE.as_posix(),
+            "project-settings-invalid", str(error), path=SETTINGS_PATH.as_posix()
         ) from error
-    project = payload.get("project")
-    if not isinstance(project, dict):
-        raise RetrievalError(
-            "project-scope-graph-project-missing",
-            "Project Scope Unit Graph Projection requires one project table",
-            path=PROJECT_SCOPE_GRAPH_RELATIVE.as_posix(),
-        )
-    name = project.get("name")
-    if not isinstance(name, str) or not name or name != name.lower():
-        raise RetrievalError(
-            "project-scope-graph-project-invalid",
-            "Project Scope Unit Graph Projection requires one lowercase Project name",
-            path=PROJECT_SCOPE_GRAPH_RELATIVE.as_posix(),
-        )
-    return name
 
 
 def resolve_scope_unit(root: Path, subject_path: str) -> ScopeResolution | None:
@@ -357,14 +336,14 @@ def resolve_scope_unit(root: Path, subject_path: str) -> ScopeResolution | None:
             subject_path=subject_path,
             scope_unit=project_name,
             current_scope=project_name,
-            structural_graph_carrier=PROJECT_SCOPE_GRAPH_RELATIVE.as_posix(),
-            source="project_scope_unit_graph",
+            project_settings_carrier=SETTINGS_PATH.as_posix(),
+            source="project_settings",
         )
     return ScopeResolution(
         subject_path=subject_path,
         scope_unit=scope_unit,
         current_scope="METHODOLOGY_SOURCES",
-        structural_graph_carrier=None,
+        project_settings_carrier=None,
         source="applicable_methodology_source_structure",
     )
 

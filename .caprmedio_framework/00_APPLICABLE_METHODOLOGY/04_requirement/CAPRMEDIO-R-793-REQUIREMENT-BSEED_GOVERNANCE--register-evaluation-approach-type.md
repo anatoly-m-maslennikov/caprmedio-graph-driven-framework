@@ -1,4 +1,5 @@
 ---
+atom_id: CAPRMEDIO-R-793-REQUIREMENT-BSEED_GOVERNANCE
 cce_version: cce_1
 cce_form: definition
 subjects:
@@ -9,11 +10,11 @@ project_graph_state:
   artifacts:
     enabled_types:
       - evaluation:evaluation_approach
-version: 8
-updated_at: 2026-08-29 04:33:13 +0400
+version: 9
+updated_at: 2026-09-06 01:45:12 +0400
 relations:
   child_of:
-    - CAPRMEDIO-META-REQU-094--mechanism-neutral-evaluation-atoms
+    - CAPRMEDIO-META-REQU-094-CORE_META_MODEL-REQUIREMENT--requirement-keep-evaluation-atoms-mechanism-neutral-and-chains-distinct
     - CAPRMEDIO-META-REQU-740--separate-content-role-from-artifact-type
     - CA-R-1054
 projection:

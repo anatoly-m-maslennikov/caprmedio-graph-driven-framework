@@ -16,17 +16,20 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Iterable
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from artifact_metadata import atom_identifier
+
 
 SOURCE_RELATIVE = Path(
     ".caprmedio_framework/00_APPLICABLE_METHODOLOGY/"
     "000_APPLICABLE_MTHD_sources"
 )
 OUTPUT_RELATIVE = Path(".caprmedio_framework/00_APPLICABLE_METHODOLOGY")
-APPROVAL_RELATIVE = SOURCE_RELATIVE / "003_LOCAL_CONFIGURATION/applicable_methodology_conflict_approvals.toml"
+APPROVAL_RELATIVE = SOURCE_RELATIVE / "003_PROJECT_CONFIGURATION/applicable_methodology_conflict_approvals.toml"
 LAYERS = (
     ("CORE_META_MODEL", "001_CORE_META_MODEL", 0, True),
     ("INSTALLED_EXTENSIONS", "002_INSTALLED_EXTENSIONS", 1, False),
-    ("LOCAL_CONFIGURATION", "003_LOCAL_CONFIGURATION", 2, True),
+    ("PROJECT_CONFIGURATION", "003_PROJECT_CONFIGURATION", 2, True),
 )
 ROLES = (
     ("REQUIREMENT", "04_requirement"),
@@ -204,9 +207,7 @@ def relation_targets(frontmatter: str, kinds: set[str]) -> tuple[str, ...]:
 
 def derive_atom_id(path: Path, frontmatter: str) -> str:
     explicit = top_scalar(frontmatter, "atom_id")
-    if explicit:
-        return explicit
-    identity = path.stem.split("--", 1)[0]
+    identity = atom_identifier(path.name, explicit)
     if not identity:
         raise CompileError("source-atom-identity-missing", "Cannot derive Source Atom identity", path=path.as_posix())
     return identity
@@ -281,7 +282,12 @@ def discover_candidates(root: Path) -> tuple[list[Candidate], list[dict[str, obj
     if not source_root.is_dir():
         raise CompileError("source-root-missing", "Applicable Methodology source root is missing", path=SOURCE_RELATIVE.as_posix())
 
-    observed_layers = sorted(path.name for path in source_root.iterdir() if path.is_dir())
+    root_role_directories = {directory for _, directory in ROLES}
+    observed_layers = sorted(
+        path.name
+        for path in source_root.iterdir()
+        if path.is_dir() and path.name not in root_role_directories
+    )
     expected_layers = [directory for _, directory, _, _ in LAYERS]
     if observed_layers != expected_layers:
         raise CompileError(
@@ -501,16 +507,16 @@ def discover_approvals(root: Path, candidates: list[Candidate]) -> list[Approval
     if not path.exists():
         return []
     if not path.is_file() or path.is_symlink():
-        raise CompileError("approval-carrier-invalid", "Local Configuration approval Carrier must be a regular TOML file", path=APPROVAL_RELATIVE.as_posix())
+        raise CompileError("approval-carrier-invalid", "Project Configuration approval Carrier must be a regular TOML file", path=APPROVAL_RELATIVE.as_posix())
     try:
         document = tomllib.loads(path.read_text(encoding="utf-8"))
     except (OSError, UnicodeDecodeError, tomllib.TOMLDecodeError) as error:
-        raise CompileError("approval-carrier-invalid", "Local Configuration approval Carrier is not valid UTF-8 TOML", path=APPROVAL_RELATIVE.as_posix()) from error
+        raise CompileError("approval-carrier-invalid", "Project Configuration approval Carrier is not valid UTF-8 TOML", path=APPROVAL_RELATIVE.as_posix()) from error
     if document.get("schema") != "caprmedio.applicable_methodology_conflict_approvals.v1":
-        raise CompileError("approval-schema-invalid", "Local Configuration approval Carrier schema is invalid", path=APPROVAL_RELATIVE.as_posix())
+        raise CompileError("approval-schema-invalid", "Project Configuration approval Carrier schema is invalid", path=APPROVAL_RELATIVE.as_posix())
     records = document.get("approvals", [])
     if not isinstance(records, list) or any(not isinstance(record, dict) for record in records):
-        raise CompileError("approval-record-invalid", "Local Configuration approvals must be an array of tables", path=APPROVAL_RELATIVE.as_posix())
+        raise CompileError("approval-record-invalid", "Project Configuration approvals must be an array of tables", path=APPROVAL_RELATIVE.as_posix())
     required = {"conflict_id", "source_frontier_digest", "selected_source_carrier_path", "operator"}
     approvals: list[Approval] = []
     for record in records:
@@ -518,14 +524,14 @@ def discover_approvals(root: Path, candidates: list[Candidate]) -> list[Approval
         if missing:
             raise CompileError(
                 "approval-record-incomplete",
-                "Local Configuration approval record is incomplete",
+                "Project Configuration approval record is incomplete",
                 carrier_path=APPROVAL_RELATIVE.as_posix(),
                 missing=missing,
             )
         if any(not isinstance(record[key], str) for key in required):
             raise CompileError(
                 "approval-record-invalid",
-                "Local Configuration approval fields must be strings",
+                "Project Configuration approval fields must be strings",
                 carrier_path=APPROVAL_RELATIVE.as_posix(),
             )
         approvals.append(

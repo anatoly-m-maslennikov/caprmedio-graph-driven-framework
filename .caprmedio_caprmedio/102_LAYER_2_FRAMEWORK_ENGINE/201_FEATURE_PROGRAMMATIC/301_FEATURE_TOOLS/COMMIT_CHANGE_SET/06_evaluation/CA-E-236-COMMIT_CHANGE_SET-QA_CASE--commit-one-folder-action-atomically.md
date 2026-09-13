@@ -1,17 +1,15 @@
 ---
 subjects:
   governs:
-    continuant:
-      - feature-boundary
     occurrent:
-      - evaluation
-version: 5
-updated_at: 2026-09-01 02:30:00 +0400
+      - Governed Change/Git Commit Creation
+version: 8
+updated_at: "2026-09-12 04:12:43 +0400"
 relations:
   evaluation_for:
     - CA-R-805
     - CA-R-812
-    - CA-R-1121
+    - CA-D-417
 ---
 # Commit one folder action atomically
 
@@ -21,5 +19,5 @@ Given one sealed folder action with its complete ordered entry set, when `COMMIT
 
 ## Sources
 
-- [CA-R-805 — Serialize repository Git mutations through one logical gate](../04_requirement/CA-R-805-COMMIT_CHANGE_SET-REQUIREMENT--serialize-repository-git-mutations-through-one-logical-gate.md)
+- [CA-R-805 — Serialize repository Git mutations through one logical gate](../04_requirement/CA-R-805-COMMIT_CHANGE_SET-REQUIREMENT--serialize-admitted-local-commits-through-one-logical-gate.md)
 - [CA-R-812 — Append governed action records independently of real-change commits](../../APPEND_CHANGE_RECORDS/04_requirement/CA-R-812-APPEND_CHANGE_RECORDS-REQUIREMENT--append-governed-action-records-independently-of-real-change-commits.md)

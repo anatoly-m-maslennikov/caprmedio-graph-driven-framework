@@ -11,11 +11,13 @@ subjects:
       - Tool/DERIVE_SCOPE_CANONICAL_SIGNATURES
       - Scope Expression
       - Scope Expression/Canonical Scope Signature
-version: 1
-updated_at: 2026-09-02 01:12:00 +0400
+version: 2
+updated_at: 2026-09-12 04:14:47 +0400
 relations:
   child_of:
     - CA-M-241
+  method_for:
+    - CA-R-1451
 ---
 # Derive Scope Expression Canonical Signatures
 

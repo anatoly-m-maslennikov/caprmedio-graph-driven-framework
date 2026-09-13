@@ -1,0 +1,18 @@
+# CAPRMEDIO reusable Framework Instance Settings defaults.
+# Parameter definitions and allowed values are governed by source Atoms.
+# Resolution: explicit Project instance parameter, otherwise this default.
+# Project identity and target-specific selections belong to Project/instance settings.
+
+[confidence]
+# Integer percentages, from 0 through 100.
+necessary_information_threshold_percent = 95
+semantic_resolution_threshold_percent = 95
+
+[authority_modes]
+default = "casual"
+
+[interaction]
+reporting_mode = "silent"
+
+[artifacts]
+creation_strictness = "medium"

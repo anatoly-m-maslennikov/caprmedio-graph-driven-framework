@@ -16,6 +16,9 @@ from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from artifact_metadata import atom_identifier
+
 
 TOOL_ID = "GENERATE_ENTITY_GRAPH"
 TOOL_KIND = "finder"
@@ -189,7 +192,7 @@ def discover_atoms(repository: Path, selected_folder: Path) -> tuple[list[AtomCa
                 }
             )
             continue
-        atom_id = top_scalar(frontmatter, "atom_id") or path.stem.split("--", 1)[0]
+        atom_id = atom_identifier(path.name, top_scalar(frontmatter, "atom_id"))
         cce_form = (top_scalar(frontmatter, "cce_form") or "").lower()
         raw_version = top_scalar(frontmatter, "version")
         if not raw_version or not raw_version.isdigit() or int(raw_version) < 1:

@@ -16,8 +16,8 @@ relations:
   analysis_of:
     - CA-R-1186
 atom_id: CA-A-067
-version: 1
-updated_at: 2026-09-09 04:43:50
+version: 2
+updated_at: "2026-09-11 20:58:34 +0400"
 ---
 # Python vs Go for CAPRMEDIO Tools: SoTA harvest
 
@@ -27,7 +27,7 @@ This is a read-only, dated evidence harvest for a later operator decision about 
 
 The live baseline was inspected on 2026-09-09. It contains 16 public launchers and approximately 23,121 lines across 65 production Python files, plus approximately 4,494 lines across 15 test files. The installer copies source into content-addressed project-local releases, and launchers invoke the selected host Python in isolated mode. Machine-facing commands already use versioned JSON result envelopes. The repository describes the toolchain as local-only and under active development, and `background_services.toml` currently declares no services.
 
-The governing evidence is not a standard-library-only rule. Active `CA-M-110` prefers the Python standard library when it is comparably clear and reliable but permits a bounded, accepted library or non-Python exception. Active `CA-M-234` already selects Pydantic for untrusted structured Python boundaries. Active `CA-M-221` allows accepted dependencies in `pyproject.toml` and `uv.lock` while requiring installed releases to execute without uv or a project virtual environment. Root `pyproject.toml` currently declares no runtime dependencies and names two authority IDs that now resolve only to archived carriers; it is therefore evidence about the present materialization and freshness drift, not an operator constraint. The operator's correction—mature, well-adopted libraries are allowed in both ecosystems—is the controlling comparison premise.
+The governing evidence is not a standard-library-only rule. Active `CA-M-110` prefers the Python standard library when it is comparably clear and reliable but permits a bounded, accepted library or non-Python exception. Active `CA-M-286` already selects Pydantic for untrusted structured Python boundaries. Active `CA-M-221` allows accepted dependencies in `pyproject.toml` and `uv.lock` while requiring installed releases to execute without uv or a project virtual environment. Root `pyproject.toml` currently declares no runtime dependencies and names two authority IDs that now resolve only to archived carriers; it is therefore evidence about the present materialization and freshness drift, not an operator constraint. The operator's correction—mature, well-adopted libraries are allowed in both ecosystems—is the controlling comparison premise.
 
 The comparison is constrained by current CAPRMEDIO requirements: deterministic transformation cores separated from effects; prevalidated file and subprocess actions; explicit operation identity; recoverable partial failure; structured, sanitized diagnostics; compatibility across declared hosts; content-addressed installation separated from mutable runtime state; source and installed-tool conformance; and measurement on representative Hook, interactive, batch, MCP, App, or background workloads before optimization. Current active authority selects Python, so a Go or hybrid implementation would require an accepted bounded Method change; this harvest neither requests nor makes that change.
 
@@ -59,7 +59,7 @@ All web sources below were retrieved or checked on 2026-09-09. “Primary” mea
 |---|---|---|---|
 | L-01 | CAPRMEDIO `README.md`, live checkout | Local primary; system boundary and principles | [`README.md`](/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/README.md) |
 | L-02 | Root `pyproject.toml` and `uv.lock`, live checkout | Local materialization; current Python/dependency declaration, not governing authority | [`pyproject.toml`](/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/pyproject.toml), [`uv.lock`](/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/uv.lock) |
-| L-03 | Active `CA-M-110`, `CA-M-234`, `CA-M-221`, `CA-M-229` | Local authoritative Methods; language, library, validation, workflow, and Python-version boundaries | [Programmatic Methods](/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method) |
+| L-03 | Active `CA-M-110`, `CA-M-286`, `CA-M-221`, `CA-M-281` | Local authoritative Methods; language, library, validation, workflow, and Python-version boundaries | [Programmatic Methods](/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method) |
 | L-04 | Active `CA-M-160`, `CA-M-161`, `CA-M-163`, `CA-M-165`, `CA-M-166` | Local authoritative Methods; architecture, effects, diagnostics, performance, compatibility | [Programmatic Methods](/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method) |
 | L-05 | Active `CA-R-1065`, `CA-M-223`, `CA-E-353`, `CA-E-354`, `CA-D-250` | Local authoritative requirement/method/evaluation/delivery carriers | [Tool authority](/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/301_FEATURE_TOOLS) |
 | L-06 | Tool source and tests, live checkout | Local implementation evidence; inventory, interfaces, imports, behavior | [Tool tree](/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS) |
@@ -89,7 +89,7 @@ Coverage is intentionally non-exhaustive. It is strong for the live CAPRMEDIO co
 
 | Claim ID | Source claim and anchor | Reviewer synthesis for CAPRMEDIO | Operator decision |
 |---|---|---|---|
-| CS-01 | Active `CA-M-110` allows bounded libraries or a non-Python exception; `CA-M-234` selects Pydantic. Root `pyproject.toml` has no runtime dependencies and references two archived authority IDs. L-02, L-03. | Standard-library-only is present implementation state, not the governing decision premise. The carrier drift must be reconciled independently of the language choice. | Mature, well-adopted libraries may be considered in both stacks. |
+| CS-01 | Active `CA-M-110` allows bounded libraries or a non-Python exception; `CA-M-286` selects Pydantic. Root `pyproject.toml` has no runtime dependencies and references two archived authority IDs. L-02, L-03. | Standard-library-only is present implementation state, not the governing decision premise. The carrier drift must be reconciled independently of the language choice. | Mature, well-adopted libraries may be considered in both stacks. |
 | CS-02 | The live tree is Python, exposes 16 launchers, uses content-addressed releases and isolated host-Python launch, and has a substantial existing test/source estate. L-06, L-07. | Python is the incumbent with material validated behavior; Go begins as a parity migration, not a greenfield comparison. | None; observation only. |
 | CS-03 | CPython 3.14 is in bugfix support; 3.14.7 was current on the harvest date. PY-01. | The declared `==3.14.*` boundary is current, but exact patch/runtime availability remains a platform installation concern. | None. |
 | CS-04 | Python free-threading is supported but optional; extension modules can re-enable the GIL. The JIT remains experimental and workload effects vary. PY-02. | Neither free-threading nor the JIT is admissible as a guaranteed CAPRMEDIO performance advantage. | None. |

@@ -1,9 +1,18 @@
 ---
 atom_id: CA-R-844
-subject_scopes:
-  - scope-topology
-version: 3
-updated_at: 2026-08-22 19:48:45
+subjects:
+  governs:
+    continuant:
+      - Structural Coordinate
+  depends_on:
+    continuant:
+      - Project
+      - Scope Unit
+      - Structural Level
+      - "Scope Unit/Local Order"
+      - "Scope Unit/Type: Ordered"
+version: 4
+updated_at: "2026-09-11 23:26:40 +0400"
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:

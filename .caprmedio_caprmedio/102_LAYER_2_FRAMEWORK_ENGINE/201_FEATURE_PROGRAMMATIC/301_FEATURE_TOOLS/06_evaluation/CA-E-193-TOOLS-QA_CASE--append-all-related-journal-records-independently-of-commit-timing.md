@@ -4,12 +4,10 @@ cce_version: cce_1
 cce_form: evaluation
 subjects:
   governs:
-    continuant:
-      - evaluation
     occurrent:
-      - evaluation
-version: 10
-updated_at: 2026-09-04 03:10:59 +0400
+      - Work Journal/Append
+version: 11
+updated_at: 2026-09-12 04:15:38 +0400
 relations:
   evaluation_for:
     - CA-M-087

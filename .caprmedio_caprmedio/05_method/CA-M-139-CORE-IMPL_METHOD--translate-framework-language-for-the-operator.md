@@ -1,15 +1,25 @@
 ---
-subject_scopes:
-  - operator-interface
-version: 4
-updated_at: 2026-08-23 11:39:04
+version: 5
+updated_at: "2026-09-05 23:00:00 +0400"
 relations:
   child_of:
     - CA-M-005
   method_for:
     - CA-R-1056
     - CA-R-1057
+subjects:
+  governs:
+    occurrent:
+      - "Operator/communication"
+  depends_on:
+    continuant:
+      - "Operator"
+      - "Term"
+      - "CAPRMEDIO Framework Instance"
+cce_version: cce_1
+cce_form: method
+atom_id: CA-M-139
 ---
 # Translate framework language for the operator
 
-Address the operator in ordinary language by default; introduce only the canonical CAPRMEDIO terms needed when ordinary language would make a material distinction ambiguous or incorrect, and explain each introduced term in ordinary language.
+**to** address the Operator, use ordinary language by default; introduce **only** the canonical CAPRMEDIO Terms needed **when** ordinary language would make a material distinction ambiguous **or** incorrect, **and** explain **every** introduced Term **in** ordinary language.

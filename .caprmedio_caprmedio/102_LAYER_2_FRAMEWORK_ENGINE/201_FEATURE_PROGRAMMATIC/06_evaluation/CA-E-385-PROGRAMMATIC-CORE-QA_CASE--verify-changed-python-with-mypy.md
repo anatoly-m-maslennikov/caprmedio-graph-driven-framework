@@ -9,11 +9,11 @@ subjects:
   depends_on:
     continuant:
       - programmatic software
-version: 1
-updated_at: 2026-09-01 02:10:00 +0400
+version: 2
+updated_at: "2026-09-11 20:58:34 +0400"
 relations:
   evaluation_for:
-    - CA-M-231
+    - CA-M-283
   derived_from:
     - CA-A-053
 ---
@@ -41,4 +41,4 @@ is accepted.
 ## Sources
 
 - [Mypy: strict mode](https://mypy.readthedocs.io/en/stable/command_line.html#cmdoption-mypy-strict)
-- [CA-M-231 — Use Mypy for static Python type checking](../05_method/CA-M-231-PROGRAMMATIC-CORE-METHOD--use-mypy-for-static-python-type-checking.md)
+- [CA-M-283 — Use Mypy for static Python type checking](../05_method/CA-M-283-PROGRAMMATIC-CORE-METHOD--use-mypy-for-static-python-type-checking.md)

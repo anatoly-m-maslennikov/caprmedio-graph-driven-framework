@@ -2,6 +2,11 @@
 atom_id: "CA-M-261"
 cce_version: "cce_1"
 cce_form: "method"
+version: 2
+updated_at: "2026-09-05 23:00:00 +0400"
+relations:
+  replacement_of:
+    - "CA-D-001"
 subjects:
   governs:
     continuant:
@@ -11,11 +16,10 @@ subjects:
       - "Project"
       - "Atom/Content Role: Implementation"
       - "Spec"
-version: 1
-updated_at: "2026-09-05 03:48:00 +0400"
-relations:
-  replacement_of:
-    - "CA-D-001"
+      - "Atom/Content Role: Requirement"
+      - "Atom/Content Role: Method"
+      - "Atom/Content Role: Evaluation"
+      - "Atom/Content Role: Delivery"
 ---
 # Rebuild Implementation from its governing specification
 

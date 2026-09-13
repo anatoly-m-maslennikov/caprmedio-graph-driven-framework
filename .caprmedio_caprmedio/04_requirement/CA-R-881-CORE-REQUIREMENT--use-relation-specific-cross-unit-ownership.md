@@ -1,13 +1,13 @@
 ---
-tier: "core"
-version: 4
-updated_at: "2026-09-05 03:48:00 +0400"
+version: 5
+updated_at: "2026-09-05 23:00:00 +0400"
 relations:
   child_of:
     - "CA-R-1407"
     - "CA-M-001"
 cce_version: "cce_1"
 cce_form: "obligation"
+atom_id: "CA-R-881"
 subjects:
   governs:
     continuant:
@@ -21,7 +21,7 @@ subjects:
       - "Atom/Claim/Scope"
       - "Consumer"
       - "Producer"
-atom_id: "CA-R-881"
+      - "Atom/Content Role: Requirement/Type: Demand"
 ---
 # Use relation-specific cross-unit ownership
 

@@ -2,6 +2,14 @@
 atom_id: CA-E-435
 cce_version: "cce_1"
 cce_form: "evaluation"
+version: 3
+updated_at: "2026-09-05 23:00:00 +0400"
+relations:
+  child_of:
+    - "CA-E-001"
+  evaluation_for:
+    - "CA-M-261"
+    - "CA-M-262"
 subjects:
   governs:
     occurrent:
@@ -14,14 +22,7 @@ subjects:
       - "Atom/Content Role: Method"
       - "Atom/Content Role: Evaluation"
       - "Atom/Content Role: Delivery"
-version: 2
-updated_at: "2026-09-05 18:40:03 +0400"
-relations:
-  child_of:
-    - "CA-E-001"
-  evaluation_for:
-    - "CA-M-261"
-    - "CA-M-262"
+      - "Project"
 ---
 # Evaluate reconstruction readiness
 

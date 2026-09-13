@@ -1,5 +1,6 @@
-# Generated CAPRMEDIO Project Settings Projection.
-# Direct edits do not establish project authority.
+# Project Settings: [project] and [artifacts.identity] are authoritative Operator inputs.
+# Other sections are retained legacy compatibility data pending Settings migration.
+# The legacy projection metadata below does not govern Project identity.
 
 schema_version = "2.0"
 
@@ -57,7 +58,6 @@ source_frontier = [
 "artifacts.default_types.evaluation" = ["CAPRMEDIO-R-792-REQUIREMENT-BSEED_GOVERNANCE--register-default-evaluation-type@1,2026-08-20 03:40:53"]
 "artifacts.default_types.requirement" = ["CAPRMEDIO-GOV-REQU-765--register-the-default-internal-requirement-type@1,2026-08-19 04:55:53"]
 "artifacts.enabled_types" = ["CAPRMEDIO-GOV-REQU-313--govern-catalog-map-and-hub-projections@5,2026-08-20 02:38:43", "CAPRMEDIO-GOV-REQU-322--register-implementation-record-projection@2,2026-08-18 20:19:17", "CAPRMEDIO-GOV-REQU-338--register-the-project-work-journal@4,2026-08-20 04:03:30", "CAPRMEDIO-GOV-REQU-735--default-internal-analysis-to-analysis-report@2,2026-08-19 04:55:53", "CAPRMEDIO-GOV-REQU-747--register-external-and-relational-atom-types@1,2026-08-19 04:55:53", "CAPRMEDIO-GOV-REQU-748--register-evaluation-atom-types@1,2026-08-19 04:55:53", "CAPRMEDIO-GOV-REQU-749--register-concern-atom-types@1,2026-08-19 04:55:53", "CAPRMEDIO-GOV-REQU-750--register-rationale-analysis-type@1,2026-08-19 04:55:53", "CAPRMEDIO-GOV-REQU-751--register-delivery-types@1,2026-08-19 04:55:53", "CAPRMEDIO-GOV-REQU-752--register-ops-types@1,2026-08-19 04:55:53", "CAPRMEDIO-GOV-REQU-753--register-plan-types@1,2026-08-19 04:55:53", "CAPRMEDIO-GOV-REQU-754--register-implementation-method-type@1,2026-08-19 04:55:53", "CAPRMEDIO-GOV-REQU-755--register-implementation-decision-type@1,2026-08-19 04:55:53", "CAPRMEDIO-GOV-REQU-765--register-the-default-internal-requirement-type@1,2026-08-19 04:55:53", "CAPRMEDIO-GOV-REQU-781--register-goal-requirement-type@1,2026-08-20 02:38:43", "CAPRMEDIO-GOV-REQU-783--register-project-definition-projection-type@1,2026-08-20 02:38:43", "CAPRMEDIO-R-792-REQUIREMENT-BSEED_GOVERNANCE--register-default-evaluation-type@1,2026-08-20 03:40:53", "CAPRMEDIO-R-793-REQUIREMENT-BSEED_GOVERNANCE--register-evaluation-approach-type@1,2026-08-20 03:40:53", "CAPRMEDIO-R-798-REQUIREMENT-BSEED_GOVERNANCE--register-principle-types-across-rmedo@1,2026-08-20 05:09:11"]
-"artifacts.identity.project_prefix" = ["CAPRMEDIO-REQU-051--use-caprmedio-as-the-canonical-project-name@2,2026-08-18 20:19:17"]
 "artifacts.routing.enabled_governance_loci" = ["CAPRMEDIO-META-REQU-127--define-three-governance-loci@2,2026-08-18 20:19:17"]
 "authority.tiers.default" = ["CAPRMEDIO-R-799-REQUIREMENT-BSEED_GOVERNANCE--encode-rmedo-applicability-tiers@1,2026-08-20 05:09:11"]
 "authority.tiers.ordered" = ["CAPRMEDIO-META-REQU-155--classify-rmed-atoms-by-applicability-tier@7,2026-08-18 20:19:17"]
@@ -74,14 +74,9 @@ source_frontier = [
 "governance_surfaces.relation_map" = ["CAPRMEDIO-GOV-REQU-305--optional-governance-surface-activation@2,2026-08-18 20:19:17"]
 "governance_surfaces.requirement_catalog" = ["CAPRMEDIO-GOV-REQU-305--optional-governance-surface-activation@2,2026-08-18 20:19:17"]
 "governance_surfaces.scope_hub" = ["CAPRMEDIO-GOV-REQU-305--optional-governance-surface-activation@2,2026-08-18 20:19:17"]
-"interaction.reporting_mode" = ["CAPRMEDIO-GOV-REQU-294--interaction-reporting-mode-setting@2,2026-08-18 20:19:17"]
 "paths.control_root" = ["CAPRMEDIO-GOV-REQU-344--all-governed-artifacts-live-under-caprmedio@3,2026-08-19 16:45:00"]
 "paths.journal_root" = ["CAPRMEDIO-GOV-REQU-338--register-the-project-work-journal@4,2026-08-20 04:03:30"]
 "paths.runtime_root" = ["CAPRMEDIO-GOV-REQU-344--all-governed-artifacts-live-under-caprmedio@3,2026-08-19 16:45:00"]
-"project.key" = ["CAPRMEDIO-REQU-051--use-caprmedio-as-the-canonical-project-name@2,2026-08-18 20:19:17"]
-"project.name" = ["CAPRMEDIO-REQU-051--use-caprmedio-as-the-canonical-project-name@2,2026-08-18 20:19:17"]
-"project.obsolete_names" = ["CAPRMEDIO-GOV-REQU-383--register-obsolete-project-names@3,2026-08-18 20:19:17"]
-"project.repository_slug" = ["CAPRMEDIO-REQU-051--use-caprmedio-as-the-canonical-project-name@2,2026-08-18 20:19:17"]
 "schema_version" = ["CAPRMEDIO-GOV-REQU-626--encode-project-settings-as-a-generated-toml-projection@2,2026-08-18 20:19:17"]
 
 [artifact_timestamps]
@@ -97,7 +92,7 @@ evaluation = "evaluation"
 requirement = "requirement"
 
 [artifacts.identity]
-project_prefix = "CAPRMEDIO"
+project_prefix = "CA"
 
 [artifacts.routing]
 enabled_governance_loci = ["internal", "external", "relation"]
@@ -125,9 +120,6 @@ relation_map = false
 requirement_catalog = false
 scope_hub = false
 
-[interaction]
-reporting_mode = "silent"
-
 [paths]
 control_root = ".caprmedio_caprmedio"
 framework_root = ".caprmedio_framework"
@@ -137,7 +129,7 @@ install_root = ".caprmedio_install"
 legacy_migration_roots = [".caprmedio"]
 
 [project]
-key = "CAPRMEDIO"
-name = "CAPRMEDIO"
+key = "caprmedio"
+name = "caprmedio"
 obsolete_names = ["DSET", "CARMAIO", "CARMADIO"]
 repository_slug = "caprmedio-graph-driven-framework"

@@ -2,6 +2,15 @@
 atom_id: CA-E-441
 cce_version: "cce_1"
 cce_form: "evaluation"
+version: 2
+updated_at: "2026-09-05 23:00:00 +0400"
+relations:
+  child_of:
+    - "CA-E-001"
+  evaluation_for:
+    - "CA-M-269"
+    - "CA-M-267"
+    - "CA-M-268"
 subjects:
   governs:
     occurrent:
@@ -12,15 +21,7 @@ subjects:
       - "Atom/Content Role: Evaluation"
       - "Atom/Content Role: Implementation"
       - "Atom/Content Role: Plan/Type: Task/Autonomous Confidence Threshold"
-version: 1
-updated_at: "2026-09-05 18:40:03 +0400"
-relations:
-  child_of:
-    - "CA-E-001"
-  evaluation_for:
-    - "CA-M-269"
-    - "CA-M-267"
-    - "CA-M-268"
+      - "Project"
 ---
 # Evaluate retry budget and escalation
 

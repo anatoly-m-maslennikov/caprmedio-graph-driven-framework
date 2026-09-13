@@ -58,6 +58,19 @@ def definition_carrier(atom_id: str, term: str, subject_path: str | None = None)
 
 
 class CompilerTest(unittest.TestCase):
+    def test_identity_is_independent_of_mutable_filename_tokens(self) -> None:
+        for name in (
+            "CA-M-120-GOVERN-CORE-METHOD--old.md",
+            "CA-M-120-CORE_META_MODEL-CORE-METHOD--new.md",
+            "03-CA-M-120-CORE_META_MODEL-METHOD--new.md",
+        ):
+            self.assertEqual("CA-M-120", module.derive_atom_id(Path(name), "version: 1"))
+        self.assertEqual(
+            "CAPRMEDIO-E-169-EVAL_APPROACH",
+            module.derive_atom_id(Path("CAPRMEDIO-E-169-CORE-EVAL_APPROACH--new.md"),
+                                 'atom_id: "CAPRMEDIO-E-169-EVAL_APPROACH"'),
+        )
+
     def setUp(self) -> None:
         runtime = Path.cwd() / ".caprmedio_runtime/compiler-tests"
         runtime.mkdir(parents=True, exist_ok=True)
@@ -66,7 +79,7 @@ class CompilerTest(unittest.TestCase):
         for _, directory, _, _ in module.LAYERS:
             (self.source / directory).mkdir(parents=True)
         (self.source / "002_INSTALLED_EXTENSIONS/.gitkeep").write_text("")
-        for layer in ("001_CORE_META_MODEL", "003_LOCAL_CONFIGURATION"):
+        for layer in ("001_CORE_META_MODEL", "003_PROJECT_CONFIGURATION"):
             for _, role in module.ROLES:
                 (self.source / layer / role).mkdir()
 
@@ -86,7 +99,7 @@ class CompilerTest(unittest.TestCase):
 
     def test_dry_run_apply_rerun_and_regeneration_are_deterministic(self) -> None:
         source = self.write("001_CORE_META_MODEL", "04_requirement", "CA-R-001-REQUIREMENT--one.md", carrier("CA-R-001"))
-        local = self.write("003_LOCAL_CONFIGURATION", "05_method", "CA-M-001-METHOD--two.md", carrier("CA-M-001", body="two"))
+        local = self.write("003_PROJECT_CONFIGURATION", "05_method", "CA-M-001-METHOD--two.md", carrier("CA-M-001", body="two"))
         before = {source: source.read_bytes(), local: local.read_bytes()}
 
         first_code, first = self.invoke()
@@ -115,9 +128,20 @@ class CompilerTest(unittest.TestCase):
         self.assertEqual(first_tree, regenerated["generated_tree_digest"])
         self.assertEqual(before, {source: source.read_bytes(), local: local.read_bytes()})
 
+    def test_source_unit_role_directories_do_not_count_as_source_layers(self) -> None:
+        (self.source / "04_requirement").mkdir()
+        (self.source / "04_requirement/CA-R-100--define-source-layer-goal.md").write_bytes(carrier("CA-R-100"))
+        self.write("001_CORE_META_MODEL", "04_requirement", "CA-R-001--one.md", carrier("CA-R-001"))
+
+        code, report = self.invoke()
+
+        self.assertEqual(code, 0)
+        self.assertTrue(report["can_apply"])
+        self.assertEqual(report["selected_candidate_count"], 1)
+
     def test_duplicate_identity_blocks_apply_without_exact_approval(self) -> None:
         self.write("001_CORE_META_MODEL", "04_requirement", "CA-R-001-A--one.md", carrier("CA-R-001"))
-        self.write("003_LOCAL_CONFIGURATION", "04_requirement", "CA-R-001-B--two.md", carrier("CA-R-001", version=2))
+        self.write("003_PROJECT_CONFIGURATION", "04_requirement", "CA-R-001-B--two.md", carrier("CA-R-001", version=2))
         code, report = self.invoke()
         self.assertEqual(code, 2)
         self.assertGreaterEqual(report["conflict_count"], 1)
@@ -136,7 +160,7 @@ class CompilerTest(unittest.TestCase):
             definition_carrier("CA-R-010", "Shared Term"),
         )
         self.write(
-            "003_LOCAL_CONFIGURATION",
+            "003_PROJECT_CONFIGURATION",
             "04_requirement",
             "CA-R-011--redefine-shared-term.md",
             definition_carrier("CA-R-011", "Shared Term", "Artifact/Type: Shared Term"),
@@ -153,9 +177,9 @@ class CompilerTest(unittest.TestCase):
         self.assertEqual(2, apply_code)
         self.assertEqual("BLOCKED", applied["apply_status"])
 
-    def test_exact_local_configuration_approval_resolves_one_conflict(self) -> None:
+    def test_exact_project_configuration_approval_resolves_one_conflict(self) -> None:
         first = self.write("001_CORE_META_MODEL", "04_requirement", "CA-R-001-A--one.md", carrier("CA-R-001"))
-        second = self.write("003_LOCAL_CONFIGURATION", "04_requirement", "CA-R-001-B--two.md", carrier("CA-R-001", version=2))
+        second = self.write("003_PROJECT_CONFIGURATION", "04_requirement", "CA-R-001-B--two.md", carrier("CA-R-001", version=2))
         _, initial = self.invoke()
         conflict = next(item for item in initial["conflicts"] if item["type"] == "duplicate_selected_atom_identity")
         approval_path = self.temp / module.APPROVAL_RELATIVE
@@ -178,7 +202,7 @@ class CompilerTest(unittest.TestCase):
 
     def test_stale_approval_does_not_replace_output(self) -> None:
         self.write("001_CORE_META_MODEL", "04_requirement", "CA-R-001-A--one.md", carrier("CA-R-001"))
-        selected = self.write("003_LOCAL_CONFIGURATION", "04_requirement", "CA-R-001-B--two.md", carrier("CA-R-001", version=2))
+        selected = self.write("003_PROJECT_CONFIGURATION", "04_requirement", "CA-R-001-B--two.md", carrier("CA-R-001", version=2))
         _, initial = self.invoke()
         conflict = initial["conflicts"][0]
         approval = (
@@ -196,28 +220,28 @@ class CompilerTest(unittest.TestCase):
 
     def test_output_collision_is_reported(self) -> None:
         self.write("001_CORE_META_MODEL", "04_requirement", "SHARED--claim.md", carrier("CA-R-001"))
-        self.write("003_LOCAL_CONFIGURATION", "04_requirement", "SHARED--claim.md", carrier("CA-R-002"))
+        self.write("003_PROJECT_CONFIGURATION", "04_requirement", "SHARED--claim.md", carrier("CA-R-002"))
         code, report = self.invoke()
         self.assertEqual(code, 2)
         self.assertIn("output_path_collision", {item["type"] for item in report["conflicts"]})
 
     def test_dry_run_reports_all_five_conflict_classes(self) -> None:
         self.write("001_CORE_META_MODEL", "04_requirement", "CA-R-001-A--one.md", carrier("CA-R-001"))
-        self.write("003_LOCAL_CONFIGURATION", "04_requirement", "CA-R-001-B--two.md", carrier("CA-R-001", version=2))
+        self.write("003_PROJECT_CONFIGURATION", "04_requirement", "CA-R-001-B--two.md", carrier("CA-R-001", version=2))
         self.write(
             "001_CORE_META_MODEL",
             "04_requirement",
             "CA-R-002--replacer.md",
             carrier("CA-R-002", relations="\n  replacement_of:\n    - CA-R-003"),
         )
-        self.write("003_LOCAL_CONFIGURATION", "04_requirement", "CA-R-003--replaced.md", carrier("CA-R-003"))
+        self.write("003_PROJECT_CONFIGURATION", "04_requirement", "CA-R-003--replaced.md", carrier("CA-R-003"))
         self.write(
             "001_CORE_META_MODEL",
             "04_requirement",
             "CA-R-004--incompatible.md",
             carrier("CA-R-004", relations="\n  incompatible_with:\n    - CA-R-005"),
         )
-        self.write("003_LOCAL_CONFIGURATION", "04_requirement", "CA-R-005--other.md", carrier("CA-R-005"))
+        self.write("003_PROJECT_CONFIGURATION", "04_requirement", "CA-R-005--other.md", carrier("CA-R-005"))
         self.write(
             "001_CORE_META_MODEL",
             "05_method",
@@ -225,13 +249,13 @@ class CompilerTest(unittest.TestCase):
             carrier("CA-M-001", extra="applicable_methodology_priority_group: group-one\npriority: 10\n"),
         )
         self.write(
-            "003_LOCAL_CONFIGURATION",
+            "003_PROJECT_CONFIGURATION",
             "05_method",
             "CA-M-002--priority-b.md",
             carrier("CA-M-002", extra="applicable_methodology_priority_group: group-one\npriority: 20\n"),
         )
         self.write("001_CORE_META_MODEL", "06_evaluation", "SHARED--collision.md", carrier("CA-E-001"))
-        self.write("003_LOCAL_CONFIGURATION", "06_evaluation", "SHARED--collision.md", carrier("CA-E-002"))
+        self.write("003_PROJECT_CONFIGURATION", "06_evaluation", "SHARED--collision.md", carrier("CA-E-002"))
 
         code, report = self.invoke()
         self.assertEqual(code, 2)

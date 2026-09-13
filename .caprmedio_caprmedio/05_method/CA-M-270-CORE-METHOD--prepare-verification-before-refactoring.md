@@ -2,6 +2,16 @@
 atom_id: CA-M-270
 cce_version: "cce_1"
 cce_form: "method"
+version: 2
+updated_at: "2026-09-05 23:00:00 +0400"
+relations:
+  child_of:
+    - "CA-M-261"
+  relates_to:
+    - "CA-M-262"
+    - "CA-M-267"
+    - "CA-M-268"
+    - "CA-M-269"
 subjects:
   governs:
     occurrent:
@@ -14,16 +24,7 @@ subjects:
       - "Atom/Content Role: Evaluation"
       - "Atom/Content Role: Delivery"
       - "Atom/Content Role: Implementation"
-version: 1
-updated_at: "2026-09-05 18:40:03 +0400"
-relations:
-  child_of:
-    - "CA-M-261"
-  relates_to:
-    - "CA-M-262"
-    - "CA-M-267"
-    - "CA-M-268"
-    - "CA-M-269"
+      - "Project"
 ---
 # Prepare verification before refactoring
 

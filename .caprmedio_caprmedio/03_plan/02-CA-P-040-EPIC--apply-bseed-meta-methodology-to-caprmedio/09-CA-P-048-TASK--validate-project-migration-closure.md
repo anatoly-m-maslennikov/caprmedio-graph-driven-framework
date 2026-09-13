@@ -2,9 +2,9 @@
 atom_id: CA-P-048
 cce_version: cce_1
 cce_form: obligation
-version: 2
-updated_at: 2026-08-23 13:00:00
+version: 3
+updated_at: "2026-09-09 21:56:59 +0400"
 ---
 # Validate Project migration closure
 
-THE Assignee MUST validate that CAPRMEDIO conforms to the accepted BSEED meta-methodology without unresolved legacy carriers, duplicate authority, invalid relations, stale derived state, or unowned unfinished work.
+the Assignee **must** validate the caprmedio Project against its active Project Principles **and** current Applicable Methodology **without** unresolved legacy Carriers, duplicate authority, invalid relations, stale derived state, **or** unowned unfinished work.

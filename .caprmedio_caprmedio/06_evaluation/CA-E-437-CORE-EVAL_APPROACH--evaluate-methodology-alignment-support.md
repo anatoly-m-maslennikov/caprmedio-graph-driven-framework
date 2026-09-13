@@ -2,6 +2,13 @@
 atom_id: "CA-E-437"
 cce_version: "cce_1"
 cce_form: "evaluation"
+version: 2
+updated_at: "2026-09-05 23:00:00 +0400"
+relations:
+  child_of:
+    - "CA-E-001"
+  evaluation_for:
+    - "CA-R-1424"
 subjects:
   governs:
     occurrent:
@@ -13,13 +20,8 @@ subjects:
       - "Operator"
       - "Tool"
       - "Artifact"
-version: 1
-updated_at: "2026-09-05 03:48:00 +0400"
-relations:
-  child_of:
-    - "CA-E-001"
-  evaluation_for:
-    - "CA-R-1424"
+      - "Atom/Content Role: Evaluation"
+      - "Scope"
 ---
 # Evaluate methodology alignment support
 

@@ -68,10 +68,10 @@ class RetrieverTest(unittest.TestCase):
         relative = Path("../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL") / role / name
         target.write_bytes(projected(data, relative.as_posix()))
 
-    def add_project_scope_graph(self, project_name: str = "caprmedio") -> None:
-        graph = self.root / module.PROJECT_SCOPE_GRAPH_RELATIVE
+    def add_project_settings(self, project_name: str = "caprmedio") -> None:
+        graph = self.root / module.SETTINGS_PATH
         graph.parent.mkdir(parents=True, exist_ok=True)
-        graph.write_text(f"[project]\nname = {project_name!r}\n", encoding="utf-8")
+        graph.write_text(f"[project]\nkey = {project_name!r}\nname = {project_name!r}\nrepository_slug = 'test'\n[artifacts.identity]\nproject_prefix = 'TEST'\n", encoding="utf-8")
 
     def invoke(self, *arguments: str) -> tuple[int, dict[str, object]]:
         output = io.StringIO()
@@ -118,15 +118,49 @@ class RetrieverTest(unittest.TestCase):
         self.assertTrue(all(item["scope_unit"] == "CORE_META_MODEL" for item in outcomes))
         self.assertTrue(all(item["current_scope"] == "METHODOLOGY_SOURCES" for item in outcomes))
 
-    def test_project_scope_unit_query_uses_project_structural_graph(self) -> None:
-        self.add_project_scope_graph()
+    def test_project_scope_unit_query_uses_project_settings(self) -> None:
+        self.add_project_settings()
         code, report = self.invoke("--subject", "Project")
         self.assertEqual(code, 0)
         self.assertTrue(report["complete"])
         outcomes = report["resolution_outcomes"]
         self.assertTrue(all(item["category"] == "scope_unit" for item in outcomes))
         self.assertTrue(all(item["scope_unit"] == "caprmedio" for item in outcomes))
-        self.assertTrue(all(item["source"] == "project_scope_unit_graph" for item in outcomes))
+        self.assertTrue(all(item["source"] == "project_settings" for item in outcomes))
+
+
+    def test_stale_graph_cannot_override_settings_identity(self) -> None:
+        self.add_project_settings("different_project")
+        graph = self.root / ".caprmedio_caprmedio/project_scope_unit_graph.projection.toml"
+        graph.write_text("[project]\nname = 'CAPRMEDIO'\n", encoding="utf-8")
+        code, report = self.invoke("--subject", "Project")
+        self.assertEqual(0, code)
+        self.assertTrue(all(item["scope_unit"] == "different_project" for item in report["resolution_outcomes"]))
+        self.assertTrue(all(item["project_settings_carrier"] == module.SETTINGS_PATH.as_posix() for item in report["resolution_outcomes"]))
+
+    def test_project_query_fails_closed_without_valid_settings(self) -> None:
+        path = self.root / module.SETTINGS_PATH
+        path.parent.mkdir(parents=True)
+        graph = path.parent / "project_scope_unit_graph.projection.toml"
+        graph.write_text("[project]\nname = 'caprmedio'\n", encoding="utf-8")
+        for payload in (None, "[project", "project = 'bad'", "[project]\nname = 'caprmedio'\n"):
+            with self.subTest(payload=payload):
+                if payload is not None:
+                    path.write_text(payload, encoding="utf-8")
+                code, report = self.invoke("--subject", "Project")
+                self.assertEqual(2, code)
+                self.assertEqual("project-settings-invalid", report["diagnostics"][0]["code"])
+
+    def test_project_settings_rejects_nonlowercase_name_and_symlink(self) -> None:
+        self.add_project_settings("CAPRMEDIO")
+        code, _ = self.invoke("--subject", "Project")
+        self.assertEqual(2, code)
+        path = self.root / module.SETTINGS_PATH
+        original = path.with_suffix(".original")
+        path.rename(original)
+        path.symlink_to(original)
+        code, _ = self.invoke("--subject", "Project")
+        self.assertEqual(2, code)
 
     def test_lowercase_general_subject_is_successful_terminal(self) -> None:
         code, report = self.invoke("--subject", "methodology")

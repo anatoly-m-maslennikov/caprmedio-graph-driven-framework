@@ -1,4 +1,5 @@
 ---
+atom_id: CAPRMEDIO-GOV-REQU-321
 cce_version: cce_1
 cce_form: requirement
 subjects:
@@ -9,15 +10,15 @@ subjects:
     continuant:
       - Atom
       - Content Role
-version: 16
-updated_at: 2026-08-29 04:33:13 +0400
+version: 17
+updated_at: 2026-09-06 01:45:12 +0400
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   replacement_of:
     - CAPRMEDIO-GOV-REQU-470--register-current-atom-type-surface
   child_of:
-    - CAPRMEDIO-META-REQU-112--role-specific-atom-occupancy
+    - CAPRMEDIO-META-REQU-112-CORE_META_MODEL-REQUIREMENT--admit-atoms-only-where-a-role-has-an-atomic-unit
     - CAPRMEDIO-META-REQU-740--separate-content-role-from-artifact-type
     - CA-R-1054
   resolution_of:

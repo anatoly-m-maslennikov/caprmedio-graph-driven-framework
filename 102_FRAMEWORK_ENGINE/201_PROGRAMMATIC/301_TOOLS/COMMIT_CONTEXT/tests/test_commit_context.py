@@ -17,7 +17,14 @@ for _parent in Path(__file__).resolve().parents:
         break
 sys.path.insert(0, str(TOOL_DIRECTORY))
 
-from commit_context_logic import ContextError, digest, gather_context, repository_identity, validate_context  # noqa: E402
+from commit_context_logic import ContextError, derive_identity, digest, gather_context, repository_identity, validate_context  # noqa: E402
+
+class IdentityTests(unittest.TestCase):
+    def test_task_sequence_and_scope_are_not_identity(self) -> None:
+        self.assertEqual("CA-P-095", derive_identity("03-CA-P-095-TASK--old.md", ""))
+        self.assertEqual("CA-P-095", derive_identity("08-CA-P-095-TOOLS-TASK--new.md", ""))
+        self.assertEqual("LEGACY-ID", derive_identity("CA-P-095-TASK--new.md", "atom_id: LEGACY-ID"))
+
 
 class CommitContextTests(unittest.TestCase):
     def setUp(self) -> None:

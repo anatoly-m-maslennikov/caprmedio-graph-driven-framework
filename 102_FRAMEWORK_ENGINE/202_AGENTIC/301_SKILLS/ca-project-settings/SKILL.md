@@ -5,7 +5,7 @@ description: Check and regenerate the governed CAPRMEDIO Project Scope Unit Grap
 
 # CA Project Scope Unit Graph
 
-Use the registered Tools as the only writers of the two Project Scope Unit Graph Projections. Treat `.caprmedio_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/003_LOCAL_CONFIGURATION/caprmedio_framework_settings.toml` as the sole Carrier of current Operator-selected Project Configuration values. Treat applicable active RMED `project_scope_unit_graph` and `project_graph_state` contributions, current Project graph structure, and applicable Journal inputs as the only other admitted inputs.
+Use the registered Tools as the only writers of the two Project Scope Unit Graph Projections. Treat `.caprmedio_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/003_PROJECT_CONFIGURATION/caprmedio_framework_settings.toml` as the sole Carrier of current Operator-selected Project Configuration values. Treat applicable active RMED `project_scope_unit_graph` and `project_graph_state` contributions, current Project graph structure, and applicable Journal inputs as the only other admitted inputs.
 
 ## Workflow
 

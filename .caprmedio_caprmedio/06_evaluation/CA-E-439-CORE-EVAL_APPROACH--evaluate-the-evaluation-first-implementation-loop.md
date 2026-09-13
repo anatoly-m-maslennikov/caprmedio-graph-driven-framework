@@ -2,6 +2,14 @@
 atom_id: CA-E-439
 cce_version: "cce_1"
 cce_form: "evaluation"
+version: 2
+updated_at: "2026-09-05 23:00:00 +0400"
+relations:
+  child_of:
+    - "CA-E-001"
+  evaluation_for:
+    - "CA-M-267"
+    - "CA-M-239"
 subjects:
   governs:
     occurrent:
@@ -14,16 +22,10 @@ subjects:
       - "Atom/Content Role: Evaluation"
       - "Atom/Content Role: Delivery"
       - "Atom/Content Role: Implementation"
+      - "Project Atom ID"
+      - "Project"
     occurrent:
       - "Dependency Order Derivation"
-version: 1
-updated_at: "2026-09-05 18:40:03 +0400"
-relations:
-  child_of:
-    - "CA-E-001"
-  evaluation_for:
-    - "CA-M-267"
-    - "CA-M-239"
 ---
 # Evaluate the Evaluation-first implementation loop
 
