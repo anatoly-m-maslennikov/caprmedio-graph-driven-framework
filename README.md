@@ -74,7 +74,7 @@ Reasoning may remain in the operator’s mind, exist ephemerally in a session, h
 | **Evaluation** | How claims are checked | Tier |
 | **Delivery** | Release, deployment, installation, and rollback | Tier |
 | **Implementation** | The actual code | — |
-| **Ops** | Evidence from running and using the system | — |
+| **Operations** | Evidence from running and using the system | — |
 
 Requirement is the only universally mandatory Atom role.
 
