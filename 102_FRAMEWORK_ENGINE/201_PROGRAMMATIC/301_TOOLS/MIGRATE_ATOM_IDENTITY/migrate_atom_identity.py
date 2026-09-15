@@ -23,7 +23,7 @@ from migrate_atom_identity_workers.frontmatter import edit_fields, edit_relation
 from migrate_atom_identity_workers.models import MigrationError, Plan, Request, State
 
 
-ROLE_DIRECTORY = {"01_concern": "C", "02_analysis": "A", "03_plan": "P", "04_requirement": "R", "05_method": "M", "06_evaluation": "E", "07_delivery": "D", "08_implementation": "I", "09_ops": "O"}
+ROLE_DIRECTORY = {"01_concern": "C", "02_analysis": "A", "03_plan": "P", "04_requirement": "R", "05_method": "M", "06_evaluation": "E", "07_delivery": "D", "08_implementation": "I", "09_operations": "O"}
 
 
 def plan_identity_migration(request: Request, state: State) -> Plan:

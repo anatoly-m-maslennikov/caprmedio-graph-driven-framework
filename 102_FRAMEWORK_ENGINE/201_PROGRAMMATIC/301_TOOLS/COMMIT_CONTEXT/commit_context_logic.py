@@ -9,6 +9,7 @@ resolved once, in one way, regardless of which public interface receives it.
 from __future__ import annotations
 
 import datetime as dt
+import functools
 import hashlib
 import json
 import os
@@ -162,6 +163,53 @@ def git_text(root: Path, arguments: Sequence[str], *, allow_failure: bool = Fals
     return None if payload is None else payload.decode("utf-8", errors="strict").strip()
 
 
+def _git_batch_blobs(root: Path, object_names: Sequence[str]) -> dict[str, bytes | None]:
+    """Read many Git blobs through one cat-file process."""
+
+    if not object_names:
+        return {}
+    completed = subprocess.run(
+        ["git", "-C", str(root), "cat-file", "--batch"],
+        input="".join(f"{name}\n" for name in object_names).encode("utf-8"),
+        check=False,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    if completed.returncode != 0:
+        raise ContextError(
+            "git_read_failed",
+            "Git batch read failed while gathering commit context",
+            command=["cat-file", "--batch"],
+            stderr=completed.stderr.decode("utf-8", errors="replace").strip(),
+        )
+    payload = completed.stdout
+    cursor = 0
+    result: dict[str, bytes | None] = {}
+    for name in object_names:
+        boundary = payload.find(b"\n", cursor)
+        if boundary < 0:
+            raise ContextError("git_read_failed", "Git batch read returned a truncated object header")
+        header = payload[cursor:boundary]
+        cursor = boundary + 1
+        if header.endswith(b" missing"):
+            result[name] = None
+            continue
+        fields = header.rsplit(b" ", 2)
+        if len(fields) != 3 or fields[1] != b"blob" or not fields[2].isdigit():
+            raise ContextError(
+                "git_read_failed",
+                "Git batch read returned an unexpected object header",
+                header=header.decode("utf-8", errors="replace"),
+            )
+        size = int(fields[2])
+        end = cursor + size
+        if end >= len(payload) or payload[end : end + 1] != b"\n":
+            raise ContextError("git_read_failed", "Git batch read returned truncated object content")
+        result[name] = payload[cursor:end]
+        cursor = end + 1
+    return result
+
+
 def relative_path(value: Any, *, name: str) -> str | None:
     if value is None:
         return None
@@ -242,6 +290,7 @@ def _configured_relative_path(paths: Mapping[str, Any], key: str, default: str) 
     return path
 
 
+@functools.cache
 def configured_repository_paths(root: Path) -> RepositoryPaths:
     try:
         settings = tomllib.loads((root / SETTINGS_PATH).read_text(encoding="utf-8"))
@@ -394,7 +443,25 @@ def _git_ignores(root: Path, path: str) -> bool:
     )
 
 
-def project_path_eligible(root: Path, path: str) -> bool:
+def _git_ignored_paths(root: Path, paths: Sequence[str]) -> set[str]:
+    if not paths:
+        return set()
+    completed = subprocess.run(
+        ["git", "-C", str(root), "check-ignore", "--no-index", "-z", "--stdin"],
+        input=b"".join(path.encode("utf-8") + b"\0" for path in paths),
+        check=False,
+        capture_output=True,
+    )
+    if completed.returncode not in {0, 1}:
+        raise ContextError(
+            "git_ignore_check_failed",
+            "Git ignore rules could not be evaluated",
+            stderr=completed.stderr.decode("utf-8", "replace").strip(),
+        )
+    return {value.decode("utf-8") for value in completed.stdout.split(b"\0") if value}
+
+
+def _project_path_allowed_before_ignore(root: Path, path: str) -> bool:
     candidate = Path(path)
     if candidate.is_absolute() or not candidate.parts or ".." in candidate.parts:
         return False
@@ -405,7 +472,16 @@ def project_path_eligible(root: Path, path: str) -> bool:
         admitted = (*configured.governed_roots, *configured.legacy_migration_roots)
         if not any(_path_is_within(candidate, root_path) for root_path in admitted):
             return False
-    return not _git_ignores(root, path)
+    return True
+
+
+def project_path_eligible(root: Path, path: str) -> bool:
+    return _project_path_allowed_before_ignore(root, path) and not _git_ignores(root, path)
+
+
+def project_paths_eligible(root: Path, paths: Sequence[str]) -> set[str]:
+    candidates = [path for path in paths if _project_path_allowed_before_ignore(root, path)]
+    return set(candidates).difference(_git_ignored_paths(root, candidates))
 
 
 def _git_revision(root: Path, path: str) -> int:
@@ -440,13 +516,18 @@ def _entry_rows(root: Path, folder: str, *, committed: bool) -> tuple[tuple[str,
     else:
         payload = git(root, ["ls-files", "--cached", "--others", "--exclude-standard", "-z", "--", folder]) or b""
         paths = [value.decode("utf-8") for value in payload.split(b"\0") if value]
-    rows: list[tuple[str, str]] = []
     prefix = folder.rstrip("/") + "/"
-    for path in sorted(paths):
-        if not path.startswith(prefix) or not project_path_eligible(root, path):
-            continue
+    candidates = [
+        path
+        for path in sorted(paths)
+        if path.startswith(prefix) and _project_path_allowed_before_ignore(root, path)
+    ]
+    candidates = sorted(project_paths_eligible(root, candidates))
+    committed_blobs = _git_batch_blobs(root, [f"HEAD:{path}" for path in candidates]) if committed else {}
+    rows: list[tuple[str, str]] = []
+    for path in candidates:
         if committed:
-            data = state_blob(root, path, "committed")
+            data = committed_blobs[f"HEAD:{path}"]
         else:
             data = state_blob(root, path, "working")
         if data is not None:
@@ -1079,6 +1160,7 @@ def gather_context(root: Path, trigger: Mapping[str, Any], *, environment: Mappi
     """
 
     root = repository_root(root)
+    configured_repository_paths.cache_clear()
     normalized = validate_trigger(root, trigger)
     before_path = normalized["before_path"]
     after_path = normalized["after_path"]

@@ -58,6 +58,20 @@ def definition_carrier(atom_id: str, term: str, subject_path: str | None = None)
 
 
 class CompilerTest(unittest.TestCase):
+    def test_definition_subject_accepts_scalar_governs_shorthand(self) -> None:
+        frontmatter = (
+            "atom_id: CA-R-001\n"
+            "cce_form: definition\n"
+            "subjects:\n"
+            '  governs: "Evaluation For Relation"\n'
+            "version: 1\n"
+        )
+
+        term, subject_path = module.definition_subject(frontmatter, "CA-R-001.md")
+
+        self.assertEqual("Evaluation For Relation", term)
+        self.assertEqual("Evaluation For Relation", subject_path)
+
     def test_identity_is_independent_of_mutable_filename_tokens(self) -> None:
         for name in (
             "CA-M-120-GOVERN-CORE-METHOD--old.md",
@@ -271,7 +285,12 @@ class CompilerTest(unittest.TestCase):
         )
 
     def test_drafts_archives_cap_and_implementation_are_excluded(self) -> None:
-        active = self.write("001_CORE_META_MODEL", "09_ops", "CA-O-001-OPS--active.md", carrier("CA-O-001"))
+        active = self.write(
+            "001_CORE_META_MODEL",
+            "09_operations",
+            "CA-O-001-OPERATIONS--active.md",
+            carrier("CA-O-001"),
+        )
         drafts = self.source / "001_CORE_META_MODEL/04_requirement/drafts"
         archive = self.source / "001_CORE_META_MODEL/04_requirement/archive"
         drafts.mkdir()

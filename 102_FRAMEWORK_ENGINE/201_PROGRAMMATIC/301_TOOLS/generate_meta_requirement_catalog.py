@@ -44,7 +44,7 @@ ROLE_DIRECTORIES = {
     "05_method",
     "06_evaluation",
     "07_delivery",
-    "09_ops",
+    "09_operations",
 }
 LIFECYCLE_DIRECTORIES = {"archive", "drafts", "done", "solved", "handled"}
 PROJECTION_TYPES = {"catalog", "development_backlog", "hub", "implementation_record", "map", "specification"}

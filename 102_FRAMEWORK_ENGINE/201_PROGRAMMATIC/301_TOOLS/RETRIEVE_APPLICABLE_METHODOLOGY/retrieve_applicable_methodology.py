@@ -20,7 +20,7 @@ if str(TOOLS_ROOT) not in sys.path:
     sys.path.insert(0, str(TOOLS_ROOT))
 
 from artifact_metadata import SETTINGS_PATH, project_identity  # noqa: E402
-ROLES = ("04_requirement", "05_method", "06_evaluation", "07_delivery", "09_ops")
+ROLES = ("04_requirement", "05_method", "06_evaluation", "07_delivery", "09_operations")
 SCHEMA = "caprmedio.retrieve_applicable_methodology.v1"
 TEMPORAL_FORMS = ("continuant", "occurrent")
 

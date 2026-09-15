@@ -28,7 +28,7 @@ INACTIVE_DIRECTORY_NAMES = {
 }
 QUALIFIER_OPERATORS = ("if", "unless", "when", "while", "before", "after", "until")
 CONTENT_ROLE_DIRECTORY = re.compile(
-    r"^[0-9]+_(?:concern|analysis|plan|requirement|method|evaluation|delivery|implementation|ops)$",
+    r"^[0-9]+_(?:concern|analysis|plan|requirement|method|evaluation|delivery|implementation|operations)$",
     re.IGNORECASE,
 )
 

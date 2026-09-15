@@ -160,7 +160,7 @@ transitive = false
 symmetric = false
 authority_modes = ["strict", "casual"]
 status = "active"
-exclusive_meaning = "An Ops Evidence Atom supports its named active Evaluation or Implementation subject."
+exclusive_meaning = "An Operations Evidence Atom supports its named active Evaluation or Implementation subject."
 
 [[relation_types]]
 direct_name = "implementation_of"

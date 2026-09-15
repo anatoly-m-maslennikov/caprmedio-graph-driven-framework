@@ -36,7 +36,7 @@ ROLES = (
     ("METHOD", "05_method"),
     ("EVALUATION", "06_evaluation"),
     ("DELIVERY", "07_delivery"),
-    ("OPS", "09_ops"),
+    ("OPERATIONS", "09_operations"),
 )
 ROLE_BY_DIRECTORY = {directory: role for role, directory in ROLES}
 ROLE_ORDER = {directory: index for index, (_, directory) in enumerate(ROLES)}
@@ -227,11 +227,14 @@ def definition_subject(frontmatter: str, path: str) -> tuple[str | None, str | N
     current_kind: str | None = None
     governed: list[str] = []
     for line in block:
-        kind = re.fullmatch(r"  ([a-z_]+):\s*", line)
+        kind = re.fullmatch(r"  ([a-z_]+):\s*(.*?)\s*", line)
         if kind:
             current_kind = kind.group(1)
+            raw = kind.group(2)
+            if raw and current_kind in {"governs", "declared"}:
+                governed.append(scalar_value(raw))
             continue
-        item = re.fullmatch(r"      -\s*(.+?)\s*", line)
+        item = re.fullmatch(r"(?:    |      )-\s*(.+?)\s*", line)
         if item and current_kind in {"governs", "declared"}:
             governed.append(scalar_value(item.group(1)))
     if len(governed) != 1:
