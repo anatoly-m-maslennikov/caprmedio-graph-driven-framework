@@ -7,12 +7,13 @@ import json
 import os
 import re
 import sys
-import tempfile
 import tomllib
 from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
 from typing import Any, Mapping, Sequence
+
+from project_runtime import atomic_tempfile
 
 SCHEMA_VERSION = 1
 SETTINGS_PATH = Path(".caprmedio_caprmedio/caprmedio_project_settings.toml")
@@ -306,7 +307,7 @@ def _validate_destination(root: Path, path: Path, *, filename_required: bool) ->
 
 def _atomic_write(path: Path, data: bytes) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    descriptor, temporary_name = tempfile.mkstemp(prefix=f".{path.name}.", dir=path.parent)
+    descriptor, temporary_name = atomic_tempfile(path, "atom_operations")
     temporary = Path(temporary_name)
     try:
         with os.fdopen(descriptor, "wb") as handle:

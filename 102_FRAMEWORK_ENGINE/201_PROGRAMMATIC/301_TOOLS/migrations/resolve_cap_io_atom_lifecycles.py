@@ -15,8 +15,13 @@ from __future__ import annotations
 import argparse
 import os
 import runpy
-import tempfile
+import sys
 from pathlib import Path
+
+_PROJECT_TOOLS_ROOT = Path(__file__).resolve().parents[1]
+if str(_PROJECT_TOOLS_ROOT) not in sys.path:
+    sys.path.insert(0, str(_PROJECT_TOOLS_ROOT))
+from project_runtime import atomic_tempfile  # noqa: E402
 
 
 META_REQUIREMENTS = Path(".caprmedio/100_LAYER_1_META/04_requirement")
@@ -292,7 +297,7 @@ def analysis_sources(root: Path) -> list[Path]:
 
 def atomic_write(path: Path, text: str) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    descriptor, temporary_name = tempfile.mkstemp(prefix=f".{path.name}.", dir=path.parent)
+    descriptor, temporary_name = atomic_tempfile(path, "migrations")
     try:
         with os.fdopen(descriptor, "w", encoding="utf-8", newline="\n") as handle:
             handle.write(text)

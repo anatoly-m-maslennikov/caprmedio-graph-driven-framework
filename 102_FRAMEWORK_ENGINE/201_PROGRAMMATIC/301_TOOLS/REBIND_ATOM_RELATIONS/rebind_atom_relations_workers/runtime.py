@@ -7,7 +7,7 @@ import hashlib
 import json
 import os
 import re
-import tempfile
+import sys
 import tomllib
 from pathlib import Path
 from typing import Any
@@ -15,6 +15,12 @@ from typing import Any
 from .contract import ATOM_ID, load_request
 from .frontmatter import fields, split_document
 from .models import Plan, RebindError, Request, State
+
+TOOLS_ROOT = Path(__file__).resolve().parents[2]
+if str(TOOLS_ROOT) not in sys.path:
+    sys.path.insert(0, str(TOOLS_ROOT))
+
+from project_runtime import atomic_tempfile  # noqa: E402
 CONTROL = ".caprmedio"
 INACTIVE = frozenset({"archive", "drafts", "done", "solved", "canceled", "cancelled"})
 ROLE = re.compile(r"^0[1-9]_[a-z0-9_]+$")
@@ -133,8 +139,8 @@ def _tool_root() -> Path:
 
 
 def _atomic_write(path: Path, value: bytes) -> None:
-    """Write bytes beside the source and replace it without backups or copies."""
-    descriptor, temporary_name = tempfile.mkstemp(prefix=f".{path.name}.", dir=path.parent)
+    """Write through Project Temporary State and replace without backups or copies."""
+    descriptor, temporary_name = atomic_tempfile(path, "rebind_atom_relations")
     temporary = Path(temporary_name)
     try:
         with os.fdopen(descriptor, "wb") as handle:

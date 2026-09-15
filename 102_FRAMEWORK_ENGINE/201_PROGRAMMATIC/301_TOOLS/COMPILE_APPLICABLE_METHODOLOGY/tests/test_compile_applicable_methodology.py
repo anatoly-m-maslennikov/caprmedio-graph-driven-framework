@@ -72,9 +72,9 @@ class CompilerTest(unittest.TestCase):
         )
 
     def setUp(self) -> None:
-        runtime = Path.cwd() / ".caprmedio_runtime/compiler-tests"
-        runtime.mkdir(parents=True, exist_ok=True)
-        self.temp = Path(tempfile.mkdtemp(prefix="case-", dir=runtime))
+        temporary = Path.cwd() / ".caprmedio_tmp/compiler-tests"
+        temporary.mkdir(parents=True, exist_ok=True)
+        self.temp = Path(tempfile.mkdtemp(prefix="case-", dir=temporary))
         self.source = self.temp / module.SOURCE_RELATIVE
         for _, directory, _, _ in module.LAYERS:
             (self.source / directory).mkdir(parents=True)

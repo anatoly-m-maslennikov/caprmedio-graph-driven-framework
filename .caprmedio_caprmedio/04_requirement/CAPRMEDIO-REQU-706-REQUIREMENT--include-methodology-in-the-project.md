@@ -10,8 +10,8 @@ subjects:
       - Scope Unit
       - Methodology Source
       - "Atom/Local Tier: Principle"
-version: 9
-updated_at: "2026-09-10 04:30:51 +0400"
+version: 10
+updated_at: "2026-09-14 23:34:13 +0000"
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -20,7 +20,7 @@ relations:
   child_of:
     - CAPRMEDIO-R-791-REQUIREMENT-BSEED_METAMODEL
     - CAPRMEDIO-REQU-031-CORE-REQUIREMENT--model-project-structure-as-numbered-levels
-    - CAPRMEDIO-REQU-032-CORE-REQUIREMENT--let-parents-own-immediate-child-goals
+    - CAPRMEDIO-REQU-032
 ---
 # Include Methodology in the Project
 

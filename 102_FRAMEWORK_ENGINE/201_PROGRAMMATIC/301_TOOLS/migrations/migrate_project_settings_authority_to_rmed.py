@@ -12,10 +12,15 @@ from __future__ import annotations
 import argparse
 import os
 import re
-import tempfile
+import sys
 import tomllib
 from pathlib import Path
 from typing import Any
+
+_PROJECT_TOOLS_ROOT = Path(__file__).resolve().parents[1]
+if str(_PROJECT_TOOLS_ROOT) not in sys.path:
+    sys.path.insert(0, str(_PROJECT_TOOLS_ROOT))
+from project_runtime import atomic_tempfile  # noqa: E402
 
 
 CONTROL_ROOT = Path(".caprmedio")
@@ -271,7 +276,7 @@ def revise_atom(path: Path, tree: dict[str, Any]) -> str:
 
 
 def atomic_write(path: Path, text: str) -> None:
-    descriptor, temporary = tempfile.mkstemp(prefix=f".{path.name}.", dir=path.parent)
+    descriptor, temporary = atomic_tempfile(path, "migrations")
     try:
         with os.fdopen(descriptor, "w", encoding="utf-8", newline="\n") as handle:
             handle.write(text)

@@ -34,13 +34,13 @@ CONTEXT_ROOT = TOOLS_ROOT / "COMMIT_CONTEXT"
 APPENDER_ROOT = TOOLS_ROOT / "APPEND_CHANGE_RECORDS"
 for _parent in SCRIPT_PATH.parents:
     if _parent.name == ".caprmedio_runtime":
-        sys.pycache_prefix = str(_parent / "cache" / "python")
+        sys.pycache_prefix = str(_parent.parent / ".caprmedio_tmp" / "cache" / "python")
         break
     if _parent.name == ".caprmedio_install":
-        sys.pycache_prefix = str(_parent.parent / ".caprmedio_runtime" / "cache" / "python")
+        sys.pycache_prefix = str(_parent.parent / ".caprmedio_tmp" / "cache" / "python")
         break
     if _parent.name == ".caprmedio":
-        sys.pycache_prefix = str(_parent.parent / ".caprmedio_runtime" / "cache" / "python")
+        sys.pycache_prefix = str(_parent.parent / ".caprmedio_tmp" / "cache" / "python")
         break
 for _path in (TOOLS_ROOT, CONTEXT_ROOT, APPENDER_ROOT):
     if str(_path) not in sys.path:

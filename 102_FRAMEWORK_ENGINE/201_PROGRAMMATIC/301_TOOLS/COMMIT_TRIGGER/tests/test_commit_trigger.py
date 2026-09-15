@@ -14,6 +14,10 @@ import threading
 import time
 import unittest
 from pathlib import Path
+
+
+TEST_TEMP_ROOT = Path.cwd() / ".caprmedio_tmp" / "tests" / Path(__file__).stem
+TEST_TEMP_ROOT.mkdir(parents=True, exist_ok=True)
 from unittest import mock
 
 
@@ -28,7 +32,7 @@ from framework_installation import install_release
 
 class CommitTriggerTests(unittest.TestCase):
     def setUp(self) -> None:
-        self.temporary = tempfile.TemporaryDirectory()
+        self.temporary = tempfile.TemporaryDirectory(dir=TEST_TEMP_ROOT, ignore_cleanup_errors=True)
         self.repository = Path(self.temporary.name) / "repository"
         self.codex_home = Path(self.temporary.name) / "codex-home"
         self.codex_home.mkdir()
@@ -46,7 +50,7 @@ class CommitTriggerTests(unittest.TestCase):
             "framework_root = \".caprmedio_framework\"\n"
             "journal_root = \".caprmedio_caprmedio/work_journal\"\n"
             "runtime_root = \".caprmedio_runtime\"\n"
-            "install_root = \".caprmedio_install\"\n"
+            "temporary_root = \".caprmedio_tmp\"\n"
             "legacy_migration_roots = [\".caprmedio\"]\n",
             encoding="utf-8",
         )
@@ -405,7 +409,7 @@ class CommitTriggerTests(unittest.TestCase):
         )
         for path in (
             ".caprmedio_runtime/state.json",
-            ".caprmedio_install/current.toml",
+            ".caprmedio_tmp/cache.json",
             ".github/workflows/test.yml",
             ".f4f/config.toml",
         ):
@@ -567,7 +571,7 @@ class CommitTriggerTests(unittest.TestCase):
 
     def test_user_codex_hook_runs_installed_pipeline_and_commits_one_atom(self) -> None:
         (self.repository / ".gitignore").write_text(
-            "/.caprmedio_install/\n/.caprmedio_runtime/\n/.codex/hooks.json\n",
+            "/.caprmedio_runtime/\n/.caprmedio_tmp/\n/.codex/hooks.json\n",
             encoding="utf-8",
         )
         subject = ".caprmedio_caprmedio/04_requirement/CA-R-001-REQUIREMENT--subject.md"
@@ -612,7 +616,7 @@ class CommitTriggerTests(unittest.TestCase):
             command = event[-1]["hooks"][0]["command"]
             self.assertIn(commit_trigger.CODEX_ACTIVATION_KEY, command)
             self.assertNotIn(str(self.repository), command)
-            self.assertNotIn(".caprmedio_install/releases/", command)
+            self.assertNotIn(".caprmedio_runtime/tools/releases/", command)
         self.assertEqual(commit_trigger.MANAGED_GIT_HOOKS_PATH, commit_trigger._local_git_hooks_path(self.repository))
         for name in commit_trigger.GIT_HOOK_NAMES:
             self.assertTrue(os.access(self.repository / commit_trigger.MANAGED_GIT_HOOKS_PATH / name, os.X_OK))
@@ -647,7 +651,7 @@ class CommitTriggerTests(unittest.TestCase):
             envelope = json.loads(completed.stdout)
             self.assertTrue(envelope["ok"], completed.stdout)
 
-        self.assertEqual("committed", envelope["result"]["effect"])
+        self.assertEqual("committed", envelope["result"]["effect"], envelope)
         self.assertEqual(1, envelope["result"]["commit_count"])
         changed = self._git("diff-tree", "--no-commit-id", "--name-only", "-r", "HEAD").splitlines()
         self.assertIn(subject, changed)
@@ -668,7 +672,7 @@ class CommitTriggerTests(unittest.TestCase):
 
     def test_stop_reconciles_one_missed_change_and_rejects_ambiguous_session_ownership(self) -> None:
         (self.repository / ".gitignore").write_text(
-            "/.caprmedio_install/\n/.caprmedio_runtime/\n/.codex/hooks.json\n",
+            "/.caprmedio_runtime/\n/.caprmedio_tmp/\n/.codex/hooks.json\n",
             encoding="utf-8",
         )
         subject = ".caprmedio_caprmedio/04_requirement/CA-R-001-REQUIREMENT--subject.md"

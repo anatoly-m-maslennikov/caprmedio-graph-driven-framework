@@ -17,7 +17,6 @@ import os
 import re
 import stat
 import sys
-import tempfile
 from collections import Counter
 from dataclasses import dataclass
 from pathlib import Path
@@ -25,6 +24,10 @@ from pathlib import Path
 
 SCRIPT_RELATIVE_PATH = Path("002_FRAMEWORK_ENGINE/PROGRAMMATIC/TOOLS/migrations/migrate_framework_identity.py")
 SCRIPT_PATH = Path(__file__).resolve()
+TOOLS_ROOT = SCRIPT_PATH.parents[1]
+if str(TOOLS_ROOT) not in sys.path:
+    sys.path.insert(0, str(TOOLS_ROOT))
+from project_runtime import atomic_tempfile  # noqa: E402
 
 LEFT_TOKEN_BOUNDARY = r"(?:(?<![A-Za-z0-9])|(?<=\\[nrt]))"
 FRAMEWORK_PATTERN = re.compile(
@@ -342,8 +345,8 @@ def build_plan(root: Path) -> Plan:
 
 def atomic_write(path: Path, payload: bytes, mode: int) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    descriptor, temporary_name = tempfile.mkstemp(
-        prefix=".identity-migration-", suffix=".tmp", dir=path.parent
+    descriptor, temporary_name = atomic_tempfile(
+        path, "migrations", prefix=".identity-migration-", suffix=".tmp"
     )
     try:
         with os.fdopen(descriptor, "wb") as handle:

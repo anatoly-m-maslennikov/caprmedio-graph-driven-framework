@@ -24,15 +24,15 @@ subjects:
       - "AI Agent"
       - "Atom/Content Role: Plan/Type: Task"
       - "Autonomous Confidence Threshold"
-version: 2
-updated_at: "2026-09-13 05:38:50 +0400"
+version: 3
+updated_at: "2026-09-14 01:17:47 +0400"
 relations:
   depends_on:
     - CA-P-982
 ---
 # Define the two Journal responsibilities
 
-the Assignee **must** distinguish State Change Log **and** Process Execution Log responsibilities.
+the Assignee **must** define artifact-change **and** Process-execution log views as non-authoritative Projections of the shared Project Journal.
 
 ## Scope
 
@@ -40,12 +40,14 @@ the Assignee **must** distinguish State Change Log **and** Process Execution Log
 
 ## Definition of Done
 
-the Task is **not** Done **if** ((state-change facts **and** execution facts have no distinct responsibility) **or** (an execution record **must** duplicate authoritative state-change details) **or** (a read-**only** execution requires a fictitious state change) **or** (two logical Journal Types force two physical files **without** D authority)).
+the Task is **not** Done **if** ((state-change facts **and** execution facts have no distinct responsibility) **or** (an execution record **must** duplicate authoritative state-change details) **or** (a read-**only** execution requires a fictitious state change) **or** (either derived log is classified as a separate Journal Type **or** independently authored historical source)).
 
 ## Details
 
-consume the general Journal model **and** Carrier authority from the completed CA-Epic-016, especially CA-P-1088 **and** CA-P-1090. this Task owns **only** the Operation-specific State Change Log **and** Process Execution Log specialization **and** its necessary record relations, D refinements, **and** E checks; do **not** redefine generic Journal authority **or** graph ownership.
+consume the general Journal model **and** Carrier authority from the completed CA-Epic-016, especially CA-P-1088 **and** CA-P-1090. this Task owns **only** the Operation-specific artifact-change **and** Process-execution log Projection responsibilities **and** its necessary record relations, D refinements, **and** E checks; do **not** redefine generic Journal authority **or** graph ownership.
 
-State Change Log records what changed; Process Execution Log records what ran **and** its outcomes. link an execution **to** its produced state-change records **without** duplicating authority. distinguish executions from their persistent records. permit these two logical responsibilities within the accepted one logical Project Journal, **without** requiring separate Journals per Scope Unit **or** two physical files merely because there are two responsibilities. define necessary model **and** Carrier authority **only**; do **not** rewrite historical Journals, create a new logging implementation, **or** migrate existing log files.
+the shared Project Journal records the historical events once. the artifact-change log selects recorded Artifact changes; the Process-execution log organizes recorded events by their execution **and** recorded outcomes. both are rebuildable, non-authoritative Projections, **not** Journal Types. link an execution **to** its recorded Artifact changes using the source event references **without** duplicating historical authority; the same event **may** appear **in** both views. distinguish executions from their records **and** permit read-only executions **without** inventing changes. view selection **and** grouping do **not** require separate Journals, new Projection Types, **or** an unapproved number of physical files. define necessary model **and** Carrier authority **only**; do **not** rewrite historical Journals, create a new logging implementation, **or** migrate existing log files.
 
 execute **only** **after** the explicit prerequisite is Done. **if** confidence **in** a decision is below the effective Autonomous Confidence Threshold, check Project Principles first **and** ask the Operator **if** uncertainty remains; do **not** silently select a new design. no migration is executed merely by creating this Task.
+
+consume the Operator-directed [shared event Journal authority update](../execution_evidence/CA-P-1088-shared-event-journal-authority-update.md) **and** [ordered source-change map](../execution_evidence/CA-P-1088-shared-event-journal-changed-source-map.projection.json). this administrative alignment does **not** execute this Task **or** settle the deferred event-field schema **and** concrete execution associations.

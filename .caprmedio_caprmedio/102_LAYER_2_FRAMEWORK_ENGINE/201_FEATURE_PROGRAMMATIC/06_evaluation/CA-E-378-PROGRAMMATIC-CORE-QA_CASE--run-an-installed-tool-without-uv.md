@@ -9,8 +9,8 @@ subjects:
   depends_on:
     continuant:
       - programmatic software
-version: 2
-updated_at: 2026-09-01 02:00:00 +0400
+version: 3
+updated_at: 2026-09-15 03:15:32 +0400
 relations:
   evaluation_for:
     - CA-M-221
@@ -21,8 +21,9 @@ relations:
 
 ## Claim checked
 
-One installed CAPRMEDIO Tool executes from `.caprmedio_install` without uv, a
-project virtual environment, or another dependency outside the installation.
+One installed CAPRMEDIO Tool executes from `.caprmedio_runtime/tools` without uv, a
+project virtual environment, or another dependency outside the selected
+runtime release.
 
 ## Test case
 

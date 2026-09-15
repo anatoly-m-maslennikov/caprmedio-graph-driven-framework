@@ -22,8 +22,8 @@ __pycache__/
 
 # Local configuration and secrets
 /.codex/hooks.json
-/.caprmedio_install/
 /.caprmedio_runtime/
+/.caprmedio_tmp/
 .env
 .env.*
 !.env.example

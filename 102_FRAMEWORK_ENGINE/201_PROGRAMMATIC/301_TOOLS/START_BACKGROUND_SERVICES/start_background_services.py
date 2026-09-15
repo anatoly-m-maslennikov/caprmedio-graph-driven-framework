@@ -10,7 +10,6 @@ import re
 import signal
 import subprocess
 import sys
-import tempfile
 import time
 import tomllib
 from collections.abc import Mapping, Sequence
@@ -22,19 +21,21 @@ from typing import Any
 SCRIPT_PATH = Path(__file__).resolve()
 TOOLS_ROOT = SCRIPT_PATH.parents[1]
 for parent in SCRIPT_PATH.parents:
-    if parent.name == ".caprmedio_install":
-        sys.pycache_prefix = str(parent.parent / ".caprmedio_runtime/cache/python")
+    if parent.name in {".caprmedio_install", ".caprmedio_runtime"}:
+        sys.pycache_prefix = str(parent.parent / ".caprmedio_tmp/cache/python")
         break
 if str(TOOLS_ROOT) not in sys.path:
     sys.path.insert(0, str(TOOLS_ROOT))
 
 from framework_installation import (  # noqa: E402
-    INSTALL_DIRECTORY,
     InstallationError,
     RUNTIME_DIRECTORY,
+    TEMP_DIRECTORY,
+    TOOLS_RUNTIME_DIRECTORY,
     installation_status,
     resolve_repository,
 )
+from project_runtime import atomic_tempfile  # noqa: E402
 
 
 TOOL_ID = "START_BACKGROUND_SERVICES"
@@ -42,7 +43,7 @@ TOOL_KIND = "doer"
 TOOL_SCHEMA_VERSION = 1
 REGISTRY_NAME = "background_services.toml"
 SERVICE_ID = re.compile(r"[a-z][a-z0-9_-]{0,63}\Z")
-PLACEHOLDER = re.compile(r"\{(python|repository|install_root|tools_root|runtime_root)\}")
+PLACEHOLDER = re.compile(r"\{(python|repository|tools_runtime_root|tools_root|runtime_root|temporary_root)\}")
 
 
 class ToolError(RuntimeError):
@@ -147,15 +148,17 @@ def _replace_placeholders(token: str, values: Mapping[str, str]) -> str:
 
 
 def _resolved_service(root: Path, service: Service, installed: Mapping[str, Any]) -> dict[str, Any]:
-    install_root = root / INSTALL_DIRECTORY
+    tools_runtime_root = root / TOOLS_RUNTIME_DIRECTORY
     runtime_root = root / RUNTIME_DIRECTORY
+    temporary_root = root / TEMP_DIRECTORY
     tools_root = root / str(installed["package_root"])
     values = {
         "python": sys.executable,
         "repository": str(root),
-        "install_root": str(install_root),
+        "tools_runtime_root": str(tools_runtime_root),
         "tools_root": str(tools_root),
         "runtime_root": str(runtime_root),
+        "temporary_root": str(temporary_root),
     }
     command = [_replace_placeholders(token, values) for token in service.command]
     working_directory = root if service.working_directory == "." else root / service.working_directory
@@ -165,9 +168,12 @@ def _resolved_service(root: Path, service: Service, installed: Mapping[str, Any]
     if command[0] != sys.executable:
         resolved_executable = executable if executable.is_absolute() else working_directory / executable
         try:
-            resolved_executable.resolve().relative_to(install_root.resolve())
+            resolved_executable.resolve().relative_to(tools_runtime_root.resolve())
         except ValueError as error:
-            raise ToolError("service-dependency-outside-install", f"service {service.service_id} executable is outside .caprmedio_install") from error
+            raise ToolError(
+                "service-dependency-outside-tools-runtime",
+                f"service {service.service_id} executable is outside .caprmedio_runtime/tools",
+            ) from error
     elif len(command) < 2:
         raise ToolError("service-registry-invalid", f"service {service.service_id} Python command has no installed script")
     if command[0] == sys.executable:
@@ -175,9 +181,12 @@ def _resolved_service(root: Path, service: Service, installed: Mapping[str, Any]
         if not script_tokens:
             raise ToolError("service-registry-invalid", f"service {service.service_id} Python command has no installed script")
         try:
-            Path(script_tokens[0]).resolve().relative_to(install_root.resolve())
+            Path(script_tokens[0]).resolve().relative_to(tools_runtime_root.resolve())
         except ValueError as error:
-            raise ToolError("service-dependency-outside-install", f"service {service.service_id} script is outside .caprmedio_install") from error
+            raise ToolError(
+                "service-dependency-outside-tools-runtime",
+                f"service {service.service_id} script is outside .caprmedio_runtime/tools",
+            ) from error
     return {
         "id": service.service_id,
         "command": command,
@@ -226,7 +235,7 @@ def _atomic_state(path: Path, *, service_id: str, pid: int, command: Sequence[st
         ]
     )
     path.parent.mkdir(parents=True, exist_ok=True)
-    descriptor, temporary_name = tempfile.mkstemp(prefix=f".{path.name}.", dir=path.parent)
+    descriptor, temporary_name = atomic_tempfile(path, "start_background_services")
     try:
         with os.fdopen(descriptor, "w", encoding="utf-8", newline="\n") as handle:
             handle.write(content)
@@ -298,10 +307,11 @@ def start_services(root: Path, *, apply: bool) -> dict[str, Any]:
             stderr = (directory / "stderr.log").open("ab", buffering=0)
             environment = {
                 **os.environ,
-                "PYTHONPYCACHEPREFIX": str(root / RUNTIME_DIRECTORY / "cache/python"),
+                "PYTHONPYCACHEPREFIX": str(root / ".caprmedio_tmp/cache/python"),
                 "CAPRMEDIO_REPOSITORY": str(root),
-                "CAPRMEDIO_INSTALL_ROOT": str(root / INSTALL_DIRECTORY),
+                "CAPRMEDIO_TOOLS_RUNTIME_ROOT": str(root / TOOLS_RUNTIME_DIRECTORY),
                 "CAPRMEDIO_RUNTIME_ROOT": str(root / RUNTIME_DIRECTORY),
+                "CAPRMEDIO_TEMP_ROOT": str(root / ".caprmedio_tmp"),
             }
             try:
                 process = subprocess.Popen(
@@ -360,7 +370,9 @@ def _describe() -> dict[str, Any]:
         "capability_id": TOOL_ID,
         "kind": TOOL_KIND,
         "registry": REGISTRY_NAME,
+        "tools_runtime_root": TOOLS_RUNTIME_DIRECTORY.as_posix(),
         "runtime_root": RUNTIME_DIRECTORY.as_posix(),
+        "temporary_root": TEMP_DIRECTORY.as_posix(),
         "commands": {
             "describe": {"mode": "read-only"},
             "status": {"mode": "read-only"},

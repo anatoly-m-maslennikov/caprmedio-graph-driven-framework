@@ -11,6 +11,10 @@ import unittest
 from pathlib import Path
 
 
+TEST_TEMP_ROOT = Path.cwd() / ".caprmedio_tmp" / "tests" / Path(__file__).stem
+TEST_TEMP_ROOT.mkdir(parents=True, exist_ok=True)
+
+
 SCRIPT = Path(__file__).resolve().parents[1] / "detect_claim_value_set_candidates.py"
 SPEC = importlib.util.spec_from_file_location("detect_claim_value_set_candidates", SCRIPT)
 assert SPEC is not None and SPEC.loader is not None
@@ -50,7 +54,7 @@ def atom(
 
 class DetectClaimValueSetCandidatesTests(unittest.TestCase):
     def setUp(self) -> None:
-        self.temporary = tempfile.TemporaryDirectory(dir="/private/tmp", ignore_cleanup_errors=True)
+        self.temporary = tempfile.TemporaryDirectory(dir=TEST_TEMP_ROOT, ignore_cleanup_errors=True)
         self.root = Path(self.temporary.name) / "frontier"
         self.root.mkdir(parents=True)
         self.term_system = Path(self.temporary.name) / "term-system.json"

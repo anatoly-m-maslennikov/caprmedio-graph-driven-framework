@@ -1,9 +1,10 @@
-"""Shared, non-executable CAPRMEDIO Tool installation library.
+"""Shared, non-executable CAPRMEDIO Tool runtime-publication library.
 
 The canonical source is ``102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS`` in the target
 repository.  Installed releases are content-addressed and live below
-``.caprmedio_install``.  Mutable state is deliberately outside this module and
-belongs below ``.caprmedio_runtime``.
+``.caprmedio_runtime/tools``. Persistent operational state belongs below
+``.caprmedio_runtime``; disposable staging and cache state belongs below
+``.caprmedio_tmp``.
 """
 
 from __future__ import annotations
@@ -21,12 +22,14 @@ from collections.abc import Mapping, Sequence
 from pathlib import Path
 from typing import Any
 
+from project_runtime import RUNTIME_DIRECTORY, TEMPORARY_DIRECTORY, atomic_tempfile
+
 
 SCHEMA_VERSION = 1
 PACKAGE = "caprmedio-framework-engine-tools"
 SOURCE_DIRECTORY = Path("102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS")
-INSTALL_DIRECTORY = Path(".caprmedio_install")
-RUNTIME_DIRECTORY = Path(".caprmedio_runtime")
+TOOLS_RUNTIME_DIRECTORY = RUNTIME_DIRECTORY / "tools"
+TEMP_DIRECTORY = TEMPORARY_DIRECTORY
 CURRENT_MANIFEST = "current.toml"
 RELEASE_MANIFEST = "manifest.toml"
 TOOLS_DIRECTORY = "TOOLS"
@@ -35,6 +38,7 @@ TRIGGER_ENTRYPOINT = "TOOLS/COMMIT_TRIGGER/commit_trigger.py"
 SERVICE_ENTRYPOINT = "TOOLS/START_BACKGROUND_SERVICES/start_background_services.py"
 REQUIRED_FILES = (
     "framework_installation.py",
+    "project_runtime.py",
     "atom_operations.py",
     "background_services.toml",
     "INSTALL_TOOLS/install_tools.py",
@@ -97,7 +101,7 @@ def _quoted(value: str) -> str:
 
 def _atomic_write(path: Path, content: str, *, mode: int | None = None) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    descriptor, temporary_name = tempfile.mkstemp(prefix=f".{path.name}.", dir=path.parent)
+    descriptor, temporary_name = atomic_tempfile(path, "install_tools")
     temporary = Path(temporary_name)
     try:
         with os.fdopen(descriptor, "w", encoding="utf-8", newline="\n") as handle:
@@ -204,10 +208,10 @@ def _read_toml(path: Path, code: str) -> dict[str, Any]:
 
 def installation_status(repository: Path | str) -> dict[str, Any]:
     root = resolve_repository(repository)
-    install_root = root / INSTALL_DIRECTORY
-    current_path = install_root / CURRENT_MANIFEST
+    tools_runtime_root = root / TOOLS_RUNTIME_DIRECTORY
+    current_path = tools_runtime_root / CURRENT_MANIFEST
     if not current_path.is_file():
-        return {"installed": False, "install_root": INSTALL_DIRECTORY.as_posix()}
+        return {"installed": False, "tools_runtime_root": TOOLS_RUNTIME_DIRECTORY.as_posix()}
     current = _read_toml(current_path, "current-manifest-invalid")
     release = current.get("release")
     if current.get("schema_version") != SCHEMA_VERSION or current.get("package") != PACKAGE:
@@ -216,7 +220,7 @@ def installation_status(repository: Path | str) -> dict[str, Any]:
         raise InstallationError("current-manifest-invalid", "installed release identity is invalid")
     tools_root_name = _safe_manifest_path(current.get("tools_root"), "tools_root")
     entrypoint_name = _safe_manifest_path(current.get("entrypoint"), "entrypoint")
-    release_root = install_root / "releases" / release
+    release_root = tools_runtime_root / "releases" / release
     manifest = _read_toml(release_root / RELEASE_MANIFEST, "release-manifest-invalid")
     if (
         manifest.get("schema_version") != SCHEMA_VERSION
@@ -258,7 +262,7 @@ def installation_status(repository: Path | str) -> dict[str, Any]:
         "installed": True,
         "verified": True,
         "release": release,
-        "install_root": INSTALL_DIRECTORY.as_posix(),
+        "tools_runtime_root": TOOLS_RUNTIME_DIRECTORY.as_posix(),
         "release_root": release_root.relative_to(root).as_posix(),
         "package_root": tools_root.relative_to(root).as_posix(),
         "entrypoint": entrypoint.relative_to(root).as_posix(),
@@ -275,13 +279,13 @@ def install_release(
     root = resolve_repository(repository)
     canonical = (source_root or (root / SOURCE_DIRECTORY)).resolve()
     rows, release = source_inventory(root, source_root=canonical)
-    install_root = root / INSTALL_DIRECTORY
-    release_root = install_root / "releases" / release
+    tools_runtime_root = root / TOOLS_RUNTIME_DIRECTORY
+    release_root = tools_runtime_root / "releases" / release
     result = {
         "installed": apply,
         "verified": False,
         "release": release,
-        "install_root": INSTALL_DIRECTORY.as_posix(),
+        "tools_runtime_root": TOOLS_RUNTIME_DIRECTORY.as_posix(),
         "release_root": release_root.relative_to(root).as_posix(),
         "package_root": (release_root / TOOLS_DIRECTORY).relative_to(root).as_posix(),
         "entrypoint": (release_root / INSTALL_ENTRYPOINT).relative_to(root).as_posix(),
@@ -290,8 +294,8 @@ def install_release(
     }
     if not apply:
         return result
-    install_root.mkdir(parents=True, exist_ok=True)
-    staging_root = root / RUNTIME_DIRECTORY / "tmp" / "install_tools"
+    tools_runtime_root.mkdir(parents=True, exist_ok=True)
+    staging_root = root / TEMP_DIRECTORY / "install_tools"
     staging_root.mkdir(parents=True, exist_ok=True)
     staging = Path(tempfile.mkdtemp(prefix=f".staging-{uuid.uuid4().hex}-", dir=staging_root))
     try:
@@ -344,21 +348,30 @@ def install_release(
                         promoted.stderr.decode("utf-8", "replace").strip()
                         or f"cannot promote release: {release}",
                     )
-        _atomic_write(install_root / CURRENT_MANIFEST, _render_current_manifest(release), mode=0o644)
+        _atomic_write(tools_runtime_root / CURRENT_MANIFEST, _render_current_manifest(release), mode=0o644)
     finally:
         if staging.exists():
             try:
                 shutil.rmtree(staging)
             except PermissionError:
-                pass
+                # Some sandboxed hosts permit file cleanup but prohibit
+                # directory removal. Reclaim the disposable bytes and leave
+                # only empty cleanup remnants in Project Temporary State.
+                for carrier in staging.rglob("*"):
+                    if carrier.is_file() or carrier.is_symlink():
+                        try:
+                            carrier.unlink()
+                        except (FileNotFoundError, PermissionError):
+                            pass
     return installation_status(root)
 
 
 __all__ = [
-    "INSTALL_DIRECTORY",
     "InstallationError",
     "PACKAGE",
     "RUNTIME_DIRECTORY",
+    "TEMP_DIRECTORY",
+    "TOOLS_RUNTIME_DIRECTORY",
     "SCHEMA_VERSION",
     "SERVICE_ENTRYPOINT",
     "SOURCE_DIRECTORY",

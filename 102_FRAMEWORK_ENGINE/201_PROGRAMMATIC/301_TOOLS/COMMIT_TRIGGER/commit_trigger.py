@@ -25,7 +25,6 @@ import re
 import shlex
 import subprocess
 import sys
-import tempfile
 import threading
 import time
 import tomllib
@@ -42,25 +41,26 @@ PACKAGE_ROOT = SCRIPT_PATH.parents[1]
 CONTEXT_ROOT = PACKAGE_ROOT / "COMMIT_CONTEXT"
 
 
-def _installed_runtime_root(path: Path) -> Path | None:
+def _installed_project_root(path: Path) -> Path | None:
     for parent in path.parents:
         if parent.name == ".caprmedio_runtime":
-            return parent
+            return parent.parent
         if parent.name == ".caprmedio_install":
-            return parent.parent / ".caprmedio_runtime"
+            return parent.parent
         if parent.name == ".caprmedio":
-            return parent.parent / ".caprmedio_runtime"
+            return parent.parent
     return None
 
 
-if (runtime_root := _installed_runtime_root(SCRIPT_PATH)) is not None:
-    sys.pycache_prefix = str(runtime_root / "cache" / "python")
+if (project_root := _installed_project_root(SCRIPT_PATH)) is not None:
+    sys.pycache_prefix = str(project_root / ".caprmedio_tmp" / "cache" / "python")
 
 for _path in (PACKAGE_ROOT, CONTEXT_ROOT):
     if str(_path) not in sys.path:
         sys.path.insert(0, str(_path))
 
 from framework_installation import InstallationError, installation_status  # noqa: E402
+from project_runtime import atomic_tempfile  # noqa: E402
 from commit_context_logic import (  # noqa: E402
     configured_repository_paths,
     is_forbidden_commit_path,
@@ -82,8 +82,8 @@ CODEX_HOOK_TIMEOUT_SECONDS = 5
 CODEX_HOOK_BUDGET_SECONDS = 4.0
 CODEX_ACTIVATION_KEY = "caprmedio.codex-hooks"
 CODEX_ACTIVATION_VALUE = "v1"
-MANAGED_GIT_HOOKS_PATH = ".caprmedio_install/hooks/git"
-STABLE_TRIGGER_LAUNCHER = ".caprmedio_install/bin/commit-trigger"
+MANAGED_GIT_HOOKS_PATH = ".caprmedio_runtime/tools/hooks/git"
+STABLE_TRIGGER_LAUNCHER = ".caprmedio_runtime/tools/bin/commit-trigger"
 GIT_HOOK_NAMES = ("pre-commit", "commit-msg", "post-commit")
 GIT_HOOK_MARKER = "# CAPRMEDIO managed Git Hook v1"
 IDENTIFIER = re.compile(r"[A-Za-z][A-Za-z0-9._-]{0,127}\Z")
@@ -931,8 +931,8 @@ def _runtime_root(repository: Path) -> Path:
     return repository / ".caprmedio_runtime"
 
 
-def _install_root(repository: Path) -> Path:
-    return repository / ".caprmedio_install"
+def _tools_runtime_root(repository: Path) -> Path:
+    return repository / ".caprmedio_runtime/tools"
 
 
 def _registry_path(repository: Path) -> Path:
@@ -991,9 +991,9 @@ def _render_registry(adapters: Mapping[str, AdapterSpec]) -> str:
     return "\n".join(lines)
 
 
-def _atomic_write(path: Path, content: str) -> None:
+def _atomic_write(path: Path, content: str, *, repository: Path | None = None) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    descriptor, temporary = tempfile.mkstemp(prefix=f".{path.name}.", dir=path.parent)
+    descriptor, temporary = atomic_tempfile(path, "commit_trigger", repository=repository)
     try:
         with os.fdopen(descriptor, "w", encoding="utf-8", newline="\n") as handle:
             handle.write(content)
@@ -1008,7 +1008,7 @@ def _atomic_write(path: Path, content: str) -> None:
         raise
 
 
-def _atomic_write_if_changed(path: Path, content: str) -> bool:
+def _atomic_write_if_changed(path: Path, content: str, *, repository: Path | None = None) -> bool:
     """Preserve an already-current Carrier without requiring write access."""
 
     try:
@@ -1016,7 +1016,7 @@ def _atomic_write_if_changed(path: Path, content: str) -> bool:
             return False
     except FileNotFoundError:
         pass
-    _atomic_write(path, content)
+    _atomic_write(path, content, repository=repository)
     return True
 
 
@@ -1201,6 +1201,8 @@ def _is_managed_hook_group(value: object) -> bool:
         and any(
             marker in str(hook["command"])
             for marker in (
+                ".caprmedio_runtime/tools/bin/commit-trigger",
+                ".caprmedio_runtime/tools/releases/",
                 ".caprmedio_install/bin/commit-trigger",
                 ".caprmedio_install/releases/",
                 ".caprmedio_runtime/installed/tools/auto_commit/",
@@ -1262,7 +1264,7 @@ def _read_hook_document(path: Path) -> dict[str, Any]:
 
 
 def install_codex_hooks(repository: Path, adapter_id: str) -> dict[str, object]:
-    runtime_config = _install_root(repository) / "hooks" / "codex" / "hooks.json"
+    runtime_config = _tools_runtime_root(repository) / "hooks" / "codex" / "hooks.json"
     project_config = repository / ".codex" / "hooks.json"
     user_config = _codex_home() / "hooks.json"
     managed = _hook_document(adapter_id)
@@ -1271,6 +1273,7 @@ def install_codex_hooks(repository: Path, adapter_id: str) -> dict[str, object]:
     user_carrier_changed = _atomic_write_if_changed(
         user_config,
         json.dumps(merged, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
+        repository=repository,
     )
 
     project_changed = False
@@ -1300,7 +1303,7 @@ def install_codex_hooks(repository: Path, adapter_id: str) -> dict[str, object]:
 
 
 def uninstall_codex_hooks(repository: Path) -> dict[str, object]:
-    runtime_config = _install_root(repository) / "hooks" / "codex" / "hooks.json"
+    runtime_config = _tools_runtime_root(repository) / "hooks" / "codex" / "hooks.json"
     project_config = repository / ".codex" / "hooks.json"
     changed = False
     if project_config.is_symlink() and project_config.resolve() == runtime_config.resolve():
@@ -1328,7 +1331,7 @@ def uninstall_codex_hooks(repository: Path) -> dict[str, object]:
 
 def codex_hooks_status(repository: Path, adapter_id: str) -> dict[str, object]:
     user_config = _codex_home() / "hooks.json"
-    fragment = _install_root(repository) / "hooks" / "codex" / "hooks.json"
+    fragment = _tools_runtime_root(repository) / "hooks" / "codex" / "hooks.json"
     try:
         document = _read_hook_document(user_config)
     except ToolError:

@@ -19,31 +19,36 @@ from typing import Any
 SCRIPT_PATH = Path(__file__).resolve()
 TOOLS_ROOT = SCRIPT_PATH.parents[1]
 for parent in SCRIPT_PATH.parents:
-    if parent.name == ".caprmedio_install":
-        sys.pycache_prefix = str(parent.parent / ".caprmedio_runtime/cache/python")
+    if parent.name == ".caprmedio_runtime":
+        sys.pycache_prefix = str(parent.parent / ".caprmedio_tmp/cache/python")
         break
 if str(TOOLS_ROOT) not in sys.path:
     sys.path.insert(0, str(TOOLS_ROOT))
 
 from framework_installation import (  # noqa: E402
-    INSTALL_DIRECTORY,
     InstallationError,
     RUNTIME_DIRECTORY,
     SERVICE_ENTRYPOINT,
     SOURCE_DIRECTORY,
+    TEMP_DIRECTORY,
+    TOOLS_RUNTIME_DIRECTORY,
     install_release,
     installation_status,
     resolve_repository,
     source_inventory,
 )
+from project_runtime import atomic_tempfile  # noqa: E402
 
 
 TOOL_ID = "INSTALL_TOOLS"
 TOOL_KIND = "doer"
 TOOL_SCHEMA_VERSION = 1
 ADAPTER_ID = "codex-file-events"
-MANAGED_HOOKS_PATH = ".caprmedio_install/hooks/git"
-LEGACY_HOOKS_PATH = ".caprmedio_runtime/hooks/git"
+MANAGED_HOOKS_PATH = ".caprmedio_runtime/tools/hooks/git"
+LEGACY_HOOKS_PATHS = {
+    ".caprmedio_install/hooks/git",
+    ".caprmedio_runtime/hooks/git",
+}
 LAUNCHERS = {
     "atom-archive": "TOOLS/ATOM_ARCHIVE/atom_archive.py",
     "atom-create": "TOOLS/ATOM_CREATE/atom_create.py",
@@ -119,7 +124,7 @@ def _set_git_hooks_path(root: Path, value: str | None) -> None:
 def _preflight(root: Path, *, manage_host_hooks: bool) -> dict[str, Any]:
     rows, release = source_inventory(root)
     hooks_path = _git_hooks_path(root)
-    if manage_host_hooks and hooks_path not in {None, MANAGED_HOOKS_PATH, LEGACY_HOOKS_PATH}:
+    if manage_host_hooks and hooks_path not in {None, MANAGED_HOOKS_PATH, *LEGACY_HOOKS_PATHS}:
         raise ToolError("git-hooks-path-conflict", f"repository already uses a different local core.hooksPath: {hooks_path}")
     project_codex = root / ".codex/hooks.json"
     if project_codex.is_file() and not project_codex.is_symlink():
@@ -140,8 +145,9 @@ def _preflight(root: Path, *, manage_host_hooks: bool) -> dict[str, Any]:
             raise ToolError("codex-hook-config-invalid", f"{user_codex}: root must be an object")
     return {
         "canonical_source": SOURCE_DIRECTORY.as_posix(),
-        "install_root": INSTALL_DIRECTORY.as_posix(),
+        "tools_runtime_root": TOOLS_RUNTIME_DIRECTORY.as_posix(),
         "runtime_root": RUNTIME_DIRECTORY.as_posix(),
+        "temporary_root": TEMP_DIRECTORY.as_posix(),
         "release": release,
         "file_count": len(rows),
         "previous_hooks_path": hooks_path,
@@ -175,7 +181,7 @@ def _load_installed_trigger(root: Path, package_root: str):
 
 
 def _launcher(root: Path, release: str, relative: str) -> str:
-    target = root / INSTALL_DIRECTORY / "releases" / release / relative
+    target = root / TOOLS_RUNTIME_DIRECTORY / "releases" / release / relative
     return "\n".join(
         [
             "#!/bin/sh",
@@ -188,15 +194,23 @@ def _launcher(root: Path, release: str, relative: str) -> str:
 
 
 def _write_launchers(root: Path, release: str) -> list[str]:
-    directory = root / INSTALL_DIRECTORY / "bin"
+    directory = root / TOOLS_RUNTIME_DIRECTORY / "bin"
     directory.mkdir(parents=True, exist_ok=True)
     carriers: list[str] = []
     for name, relative in LAUNCHERS.items():
         carrier = directory / name
-        temporary = directory / f".{name}.{os.getpid()}"
-        temporary.write_text(_launcher(root, release, relative), encoding="utf-8", newline="\n")
-        temporary.chmod(0o755)
-        os.replace(temporary, carrier)
+        descriptor, temporary_name = atomic_tempfile(carrier, "install_tools")
+        temporary = Path(temporary_name)
+        try:
+            with os.fdopen(descriptor, "w", encoding="utf-8", newline="\n") as handle:
+                handle.write(_launcher(root, release, relative))
+                handle.flush()
+                os.fsync(handle.fileno())
+            temporary.chmod(0o755)
+            os.replace(temporary, carrier)
+        except BaseException:
+            temporary.unlink(missing_ok=True)
+            raise
         carriers.append(carrier.relative_to(root).as_posix())
     return carriers
 
@@ -210,13 +224,20 @@ def _legacy_codex_link(root: Path) -> tuple[bool, str | None]:
         resolved = carrier.resolve()
     except OSError:
         return False, link_text
-    legacy = (root / ".caprmedio_runtime/hooks/codex/hooks.json").resolve()
-    return resolved == legacy, link_text
+    legacy = {
+        (root / ".caprmedio_install/hooks/codex/hooks.json").resolve(),
+        (root / ".caprmedio_runtime/hooks/codex/hooks.json").resolve(),
+    }
+    return resolved in legacy, link_text
 
 
 def _remove_legacy_installation(root: Path) -> list[str]:
     removed: list[str] = []
-    for relative in (Path(".caprmedio_runtime/installed"), Path(".caprmedio_runtime/hooks")):
+    for relative in (
+        Path(".caprmedio_install"),
+        Path(".caprmedio_runtime/installed"),
+        Path(".caprmedio_runtime/hooks"),
+    ):
         target = root / relative
         if target.is_dir() and not target.is_symlink():
             shutil.rmtree(target)
@@ -232,9 +253,17 @@ def _restore_text_carrier(path: Path, previous: bytes | None) -> None:
             pass
         return
     path.parent.mkdir(parents=True, exist_ok=True)
-    temporary = path.parent / f".{path.name}.rollback-{os.getpid()}"
-    temporary.write_bytes(previous)
-    os.replace(temporary, path)
+    descriptor, temporary_name = atomic_tempfile(path, "install_tools")
+    temporary = Path(temporary_name)
+    try:
+        with os.fdopen(descriptor, "wb") as handle:
+            handle.write(previous)
+            handle.flush()
+            os.fsync(handle.fileno())
+        os.replace(temporary, path)
+    except BaseException:
+        temporary.unlink(missing_ok=True)
+        raise
 
 
 def install(root: Path, *, apply: bool, manage_host_hooks: bool = True) -> dict[str, Any]:
@@ -264,11 +293,11 @@ def install(root: Path, *, apply: bool, manage_host_hooks: bool = True) -> dict[
 
     previous_hooks_path = _git_hooks_path(root)
     codex_was_legacy_link, codex_link_text = _legacy_codex_link(root)
-    current_manifest = root / INSTALL_DIRECTORY / "current.toml"
+    current_manifest = root / TOOLS_RUNTIME_DIRECTORY / "current.toml"
     current_manifest_before = current_manifest.read_bytes() if current_manifest.is_file() else None
-    codex_fragment = root / INSTALL_DIRECTORY / "hooks/codex/hooks.json"
+    codex_fragment = root / TOOLS_RUNTIME_DIRECTORY / "hooks/codex/hooks.json"
     codex_fragment_before = codex_fragment.read_bytes() if codex_fragment.is_file() else None
-    if previous_hooks_path == LEGACY_HOOKS_PATH:
+    if previous_hooks_path in LEGACY_HOOKS_PATHS:
         _set_git_hooks_path(root, None)
     if codex_was_legacy_link:
         (root / ".codex/hooks.json").unlink()
@@ -320,14 +349,14 @@ def tool_status(root: Path) -> dict[str, Any]:
     release = str(installed["release"])
     launchers = {}
     for name, relative in LAUNCHERS.items():
-        carrier = root / INSTALL_DIRECTORY / "bin" / name
+        carrier = root / TOOLS_RUNTIME_DIRECTORY / "bin" / name
         expected = _launcher(root, release, relative)
         launchers[name] = carrier.is_file() and os.access(carrier, os.X_OK) and carrier.read_text(encoding="utf-8") == expected
     trigger = _load_installed_trigger(root, str(installed["package_root"]))
     adapter = trigger.adapter_operation(root, "status")
     git_hooks_path = _git_hooks_path(root)
     codex = trigger.codex_hooks_status(root, ADAPTER_ID)
-    release_path_fragment = f".caprmedio_install/releases/{release}/"
+    release_path_fragment = f".caprmedio_runtime/tools/releases/{release}/"
     hook_carriers = [root / MANAGED_HOOKS_PATH / name for name in trigger.GIT_HOOK_NAMES]
     hooks_verified = (
         git_hooks_path == MANAGED_HOOKS_PATH
@@ -359,8 +388,9 @@ def _describe() -> dict[str, Any]:
         "capability_id": TOOL_ID,
         "kind": TOOL_KIND,
         "canonical_source": SOURCE_DIRECTORY.as_posix(),
-        "install_root": INSTALL_DIRECTORY.as_posix(),
+        "tools_runtime_root": TOOLS_RUNTIME_DIRECTORY.as_posix(),
         "runtime_root": RUNTIME_DIRECTORY.as_posix(),
+        "temporary_root": TEMP_DIRECTORY.as_posix(),
         "commands": {
             "describe": {"mode": "read-only"},
             "status": {"mode": "read-only"},

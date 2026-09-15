@@ -7,12 +7,18 @@ import hashlib
 import json
 import os
 import re
-import tempfile
+import sys
 from pathlib import Path
 from typing import Any
 
 from .contract import ATOM_ID, load_request
 from .models import MigrationError, Plan, Request, State
+
+TOOLS_ROOT = Path(__file__).resolve().parents[2]
+if str(TOOLS_ROOT) not in sys.path:
+    sys.path.insert(0, str(TOOLS_ROOT))
+
+from project_runtime import atomic_tempfile  # noqa: E402
 
 
 CONTROL = ".caprmedio"
@@ -74,7 +80,7 @@ def collect_state(root: Path, request: Request) -> State:
 
 
 def _atomic_write(path: Path, value: bytes) -> None:
-    descriptor, temporary_name = tempfile.mkstemp(prefix=f".{path.name}.", dir=path.parent)
+    descriptor, temporary_name = atomic_tempfile(path, "migrate_atom_identity")
     temporary = Path(temporary_name)
     try:
         with os.fdopen(descriptor, "wb") as handle:

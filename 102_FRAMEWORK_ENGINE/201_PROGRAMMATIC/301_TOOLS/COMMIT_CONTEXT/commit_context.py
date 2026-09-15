@@ -13,13 +13,13 @@ from typing import Any
 SCRIPT_PATH = Path(__file__).resolve()
 for _parent in SCRIPT_PATH.parents:
     if _parent.name == ".caprmedio_runtime":
-        sys.pycache_prefix = str(_parent / "cache" / "python")
+        sys.pycache_prefix = str(_parent.parent / ".caprmedio_tmp" / "cache" / "python")
         break
     if _parent.name == ".caprmedio_install":
-        sys.pycache_prefix = str(_parent.parent / ".caprmedio_runtime" / "cache" / "python")
+        sys.pycache_prefix = str(_parent.parent / ".caprmedio_tmp" / "cache" / "python")
         break
     if _parent.name == ".caprmedio":
-        sys.pycache_prefix = str(_parent.parent / ".caprmedio_runtime" / "cache" / "python")
+        sys.pycache_prefix = str(_parent.parent / ".caprmedio_tmp" / "cache" / "python")
         break
 if str(Path(__file__).resolve().parent) not in sys.path:
     sys.path.insert(0, str(Path(__file__).resolve().parent))

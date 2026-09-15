@@ -15,7 +15,7 @@ from typing import Any, Sequence
 
 SCRIPT_PATH = Path(__file__).resolve()
 REPOSITORY_ROOT = next(parent for parent in SCRIPT_PATH.parents if (parent / ".git").exists())
-sys.pycache_prefix = str(REPOSITORY_ROOT / ".caprmedio_runtime/cache/python")
+sys.pycache_prefix = str(REPOSITORY_ROOT / ".caprmedio_tmp/cache/python")
 
 from artifact_metadata import repository_root
 from work_journal import append_record, configured_journal_root, event_record

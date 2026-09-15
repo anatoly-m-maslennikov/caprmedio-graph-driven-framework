@@ -3,8 +3,8 @@ subjects:
   governs:
     continuant:
       - Tool/common CLI interface
-version: 9
-updated_at: "2026-09-11 22:54:39 +0400"
+version: 10
+updated_at: "2026-09-15 03:15:32 +0400"
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -32,9 +32,9 @@ Every registered Tool is discoverable and invocable through one common interface
 6. Run representative Projection-materializing Doer fixtures first in dry-run mode and then in apply mode, and require writes only to declared governed Projections or non-authoritative runtime rendering outputs.
 7. Inspect every process environment and dependency resolution path. Require
    executable Tool code and shared libraries to resolve only from the selected
-   project-local release under `.caprmedio_install`, and require
-   `.caprmedio_runtime` to contain only mutable state with no executable Tool
-   implementation or Tool-specific environment.
+   project-local release under `.caprmedio_runtime/tools`; require other
+   `.caprmedio_runtime` descendants to contain only persistent operational
+   state; and require disposable state only below `.caprmedio_tmp`.
 
 ## Acceptance criteria
 
@@ -48,6 +48,6 @@ Reject Tool registration or execution, identify the first divergent interface or
 
 - [CA-R-1063 — Provide a Tool router CLI](../04_requirement/CA-R-1063-TOOLS-REQUIREMENT--provide-a-tool-router-cli.md)
 - [CA-R-1064 — Use a common Tool CLI interface](../04_requirement/CA-R-1064-TOOLS-REQUIREMENT--use-a-common-tool-cli-interface.md)
-- [CA-R-1065 — Separate project-local Tool installation and runtime](../04_requirement/CA-R-1065-TOOLS-REQUIREMENT--separate-project-local-tool-installation-and-runtime.md)
+- [CA-R-1065 — Separate project-local runtime and temporary state](../04_requirement/CA-R-1065-TOOLS-REQUIREMENT--separate-project-local-runtime-and-temporary-state.md)
 - [CA-R-1066 — Register extensible Tool capability classes](../04_requirement/CA-R-1066-TOOLS-REQUIREMENT--register-extensible-tool-capability-classes.md)
 - [CA-R-1067 — Accept common Atom target selectors](../04_requirement/CA-R-1067-TOOLS-REQUIREMENT--accept-common-atom-target-selectors.md)

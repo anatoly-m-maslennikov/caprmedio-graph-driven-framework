@@ -13,6 +13,10 @@ import unittest
 from pathlib import Path
 
 
+TEST_TEMP_ROOT = Path.cwd() / ".caprmedio_tmp" / "tests" / Path(__file__).stem
+TEST_TEMP_ROOT.mkdir(parents=True, exist_ok=True)
+
+
 SCRIPT = Path(__file__).resolve().parents[1] / "start_background_services.py"
 TOOLS_SOURCE = SCRIPT.parents[1]
 SPEC = importlib.util.spec_from_file_location("start_background_services", SCRIPT)
@@ -25,11 +29,11 @@ from framework_installation import install_release
 
 class StartBackgroundServicesTests(unittest.TestCase):
     def setUp(self) -> None:
-        self.temporary = tempfile.TemporaryDirectory()
+        self.temporary = tempfile.TemporaryDirectory(dir=TEST_TEMP_ROOT, ignore_cleanup_errors=True)
         self.repository = Path(self.temporary.name) / "repository"
         self.repository.mkdir()
         subprocess.run(["git", "-C", str(self.repository), "init", "-q"], check=True)
-        self.canonical = self.repository / "002_FRAMEWORK_ENGINE/PROGRAMMATIC/TOOLS"
+        self.canonical = self.repository / "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS"
         shutil.copytree(
             TOOLS_SOURCE,
             self.canonical,
@@ -97,9 +101,10 @@ class StartBackgroundServicesTests(unittest.TestCase):
         self.assertEqual(1, second["already_running_count"])
         self.assertTrue(start_services.service_status(self.repository)["services"][0]["running"])
         self.assertTrue((self.repository / ".caprmedio_runtime/services/fixture/state.toml").is_file())
-        self.assertEqual([], list((self.repository / ".caprmedio_install").rglob("__pycache__")))
+        self.assertEqual([], list((self.repository / ".caprmedio_runtime").rglob("__pycache__")))
+        self.assertEqual([], list((self.repository / ".caprmedio_runtime").rglob("*.pyc")))
 
-    def test_rejects_service_script_outside_install(self) -> None:
+    def test_rejects_service_script_outside_tools_runtime(self) -> None:
         (self.canonical / "background_services.toml").write_text(
             "\n".join(
                 [
@@ -117,7 +122,7 @@ class StartBackgroundServicesTests(unittest.TestCase):
         (self.repository / "outside.py").write_text("pass\n", encoding="utf-8")
         self._install_release()
 
-        with self.assertRaisesRegex(start_services.ToolError, "outside .caprmedio_install"):
+        with self.assertRaisesRegex(start_services.ToolError, "outside .caprmedio_runtime/tools"):
             start_services.start_services(self.repository, apply=False)
         self.assertFalse((self.repository / ".caprmedio_runtime/services").exists())
 

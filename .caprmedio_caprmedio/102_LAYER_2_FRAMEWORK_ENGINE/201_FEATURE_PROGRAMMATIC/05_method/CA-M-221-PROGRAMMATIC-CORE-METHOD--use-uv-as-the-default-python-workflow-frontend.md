@@ -9,8 +9,8 @@ subjects:
   depends_on:
     continuant:
       - "programmatic software"
-version: 5
-updated_at: "2026-09-05 03:48:00 +0400"
+version: 6
+updated_at: "2026-09-15 03:15:32 +0400"
 relations:
   derived_from:
     - "CA-A-053"
@@ -51,9 +51,10 @@ source. Installed CAPRMEDIO runtime execution remains outside this Method.
    added operational cost, cleanup or recovery procedure, and Operator
    acceptance.
 8. Keep uv outside the installed CAPRMEDIO runtime contract. Installed Tools
-   remain self-contained under `.caprmedio_install` and execute without uv, a
-   project virtual environment, or another dependency outside that
-   installation.
+   remain self-contained under `.caprmedio_runtime/tools` and execute without uv, a
+   project virtual environment, or another dependency outside that selected
+   runtime release. Route uv cache, build, and staging state into
+   `.caprmedio_tmp/`.
 
 ## Outcome
 

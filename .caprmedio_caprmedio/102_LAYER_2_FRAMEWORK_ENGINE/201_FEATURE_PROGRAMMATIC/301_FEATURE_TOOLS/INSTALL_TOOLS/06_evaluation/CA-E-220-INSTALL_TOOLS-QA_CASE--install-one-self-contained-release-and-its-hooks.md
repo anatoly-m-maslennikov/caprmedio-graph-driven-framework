@@ -3,8 +3,8 @@ subjects:
   governs:
     occurrent:
       - Tool Installation
-version: 11
-updated_at: 2026-09-12 04:15:38 +0400
+version: 12
+updated_at: 2026-09-15 03:15:32 +0400
 relations:
   evaluation_for:
     - CA-R-856
@@ -22,8 +22,8 @@ Install the complete canonical Tool source into a clean repository, inspect stat
 
 ## Acceptance criteria
 
-Status verifies every installed digest, selected release, launcher, adapter, service registration, canonical Codex Hook fragment, merged user carrier, local caprmedio.codex-hooks = v1 activation, Git Hooks, and core.hooksPath. Exactly one generic Codex PostToolUse command group has matcher .* and async: true, resolves the repository at invocation time, requires activation, and addresses the stable installed commit-trigger launcher. No automatic-commit PreToolUse, SessionStart, or Stop group exists. Every installed executable loads without canonical source, and .caprmedio_install contains no mutable state.
+Status verifies every installed digest, selected release, launcher, adapter, service registration, canonical Codex Hook fragment, merged user Carrier, local `caprmedio.codex-hooks = v1` activation, Git Hooks, and `core.hooksPath`. The generic Codex dispatcher resolves the repository at invocation time, requires activation, and addresses the stable runtime Tool launcher. Every installed executable loads without canonical source; persistent operational Carriers exist only below `.caprmedio_runtime/`; disposable staging, bytecode, cache, Evaluation, and atomic-write intermediate Carriers exist only below `.caprmedio_tmp/`; and `.caprmedio_install/` does not exist after successful migration.
 
 ## Failure disposition
 
-Reject delivery if any Tool, dependency, Hook, or service registration is missing or duplicated; if a Hook addresses another location; if automatic-commit synchronous lifecycle groups remain; if installed code imports outside its release; or if mutable state enters the installation.
+Reject delivery if any Tool, dependency, Hook, or service registration is missing or duplicated; if a Hook addresses another location; if installed code imports outside its release; if disposable state enters runtime; if persistent operational state enters temporary state; or if the legacy installation root remains after successful migration.

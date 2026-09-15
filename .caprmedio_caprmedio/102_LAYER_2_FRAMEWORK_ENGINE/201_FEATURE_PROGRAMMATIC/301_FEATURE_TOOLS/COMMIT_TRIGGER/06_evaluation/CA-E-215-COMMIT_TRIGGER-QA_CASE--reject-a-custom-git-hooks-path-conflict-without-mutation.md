@@ -3,8 +3,8 @@ subjects:
   governs:
     continuant:
       - Git Hook/Path
-version: 7
-updated_at: 2026-09-12 04:15:38 +0400
+version: 8
+updated_at: 2026-09-15 03:37:13
 relations:
   evaluation_for:
     - CA-R-856
@@ -22,7 +22,7 @@ Prepare a repository with a custom local `core.hooksPath`, executable Hook carri
 
 ## Acceptance criteria
 
-Installation returns one stable conflict diagnostic. The configured path, every referenced Hook byte and mode, adapter registry, Git configuration, index, refs, `.caprmedio_install`, and `.caprmedio_runtime` remain unchanged, and no backup carrier is created.
+Installation returns one stable conflict diagnostic. The configured path, every referenced Hook byte and mode, adapter registry, Git configuration, index, refs, `.caprmedio_runtime/tools`, and `.caprmedio_runtime` remain unchanged, and no backup carrier is created.
 
 ## Failure disposition
 

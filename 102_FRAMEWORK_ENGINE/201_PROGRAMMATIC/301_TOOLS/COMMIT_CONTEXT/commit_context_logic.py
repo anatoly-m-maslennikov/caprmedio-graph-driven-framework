@@ -29,13 +29,13 @@ from artifact_metadata import atom_identifier
 
 for _parent in MODULE_PATH.parents:
     if _parent.name == ".caprmedio_runtime":
-        sys.pycache_prefix = str(_parent / "cache" / "python")
+        sys.pycache_prefix = str(_parent.parent / ".caprmedio_tmp" / "cache" / "python")
         break
     if _parent.name == ".caprmedio_install":
-        sys.pycache_prefix = str(_parent.parent / ".caprmedio_runtime" / "cache" / "python")
+        sys.pycache_prefix = str(_parent.parent / ".caprmedio_tmp" / "cache" / "python")
         break
     if _parent.name == ".caprmedio":
-        sys.pycache_prefix = str(_parent.parent / ".caprmedio_runtime" / "cache" / "python")
+        sys.pycache_prefix = str(_parent.parent / ".caprmedio_tmp" / "cache" / "python")
         break
 
 SETTINGS_PATH = Path(".caprmedio_caprmedio/caprmedio_project_settings.toml")
@@ -88,7 +88,7 @@ class RepositoryPaths:
     framework_root: Path
     journal_root: Path
     runtime_root: Path
-    install_root: Path
+    temporary_root: Path
     legacy_migration_roots: tuple[Path, ...]
 
     @property
@@ -256,7 +256,7 @@ def configured_repository_paths(root: Path) -> RepositoryPaths:
     framework = _configured_relative_path(paths, "framework_root", ".caprmedio_framework")
     journal = _configured_relative_path(paths, "journal_root", ".caprmedio_caprmedio/work_journal")
     runtime = _configured_relative_path(paths, "runtime_root", ".caprmedio_runtime")
-    install = _configured_relative_path(paths, "install_root", ".caprmedio_install")
+    temporary = _configured_relative_path(paths, "temporary_root", ".caprmedio_tmp")
     if control != SETTINGS_PATH.parent:
         raise ContextError("project_paths_invalid", "control_root must own the Project settings Carrier", value=control.as_posix())
     if journal.parts[: len(control.parts)] != control.parts or journal == control:
@@ -265,10 +265,10 @@ def configured_repository_paths(root: Path) -> RepositoryPaths:
     if not isinstance(legacy_raw, list) or not all(isinstance(value, str) for value in legacy_raw):
         raise ContextError("project_paths_invalid", "legacy_migration_roots must be an array of strings")
     legacy = tuple(_configured_relative_path({"value": value}, "value", value) for value in legacy_raw)
-    roots = (control, framework, runtime, install, *legacy)
+    roots = (control, framework, runtime, temporary, *legacy)
     if len({path.as_posix() for path in roots}) != len(roots):
         raise ContextError("project_paths_invalid", "configured roots must be distinct")
-    return RepositoryPaths(control, framework, journal, runtime, install, legacy)
+    return RepositoryPaths(control, framework, journal, runtime, temporary, legacy)
 
 
 def configured_paths(root: Path) -> tuple[Path, Path]:
@@ -293,7 +293,7 @@ def is_forbidden_commit_path(root: Path, path: str) -> bool:
     if candidate.is_absolute() or not candidate.parts or ".." in candidate.parts:
         return True
     configured = configured_repository_paths(root)
-    return any(_path_is_within(candidate, forbidden) for forbidden in (configured.install_root, configured.runtime_root))
+    return any(_path_is_within(candidate, forbidden) for forbidden in (configured.runtime_root, configured.temporary_root))
 
 
 def split_frontmatter(data: bytes, *, path: str) -> str:

@@ -3,8 +3,8 @@ subjects:
   governs:
     continuant:
       - Background Service/Process
-version: 5
-updated_at: 2026-09-12 04:15:38 +0400
+version: 6
+updated_at: 2026-09-15 03:15:32 +0400
 relations:
   evaluation_for:
     - CA-R-857
@@ -23,8 +23,8 @@ Install one enabled long-running Python service, invoke dry-run, apply, apply ag
 
 ## Acceptance criteria
 
-Dry-run predicts one start without mutation. First apply starts one process and writes its PID and logs only under its runtime service directory. Second apply reports the same PID as already running and starts no process. Status reports one enabled and running service, and the installation contains no Python cache.
+Dry-run predicts one start without mutation. First apply starts one process and writes its PID and logs only under its runtime service directory. Second apply reports the same PID as already running and starts no process. Status reports one enabled and running service; `.caprmedio_runtime/tools` contains no Python cache; and disposable bytecode and cache Carriers exist only below `.caprmedio_tmp`.
 
 ## Failure disposition
 
-Reject delivery if dry-run mutates, apply duplicates a live service, state is written outside `.caprmedio_runtime`, implementation is read outside `.caprmedio_install`, or liveness is reported incorrectly.
+Reject delivery if dry-run mutates, apply duplicates a live service, state is written outside `.caprmedio_runtime`, implementation is read outside `.caprmedio_runtime/tools`, or liveness is reported incorrectly.

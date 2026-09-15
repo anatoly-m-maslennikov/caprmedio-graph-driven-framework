@@ -14,12 +14,14 @@ import os
 import re
 import subprocess
 import sys
-import tempfile
 from pathlib import Path
 
 SCRIPT_PATH = Path(__file__).resolve()
 ROOT = next(parent for parent in SCRIPT_PATH.parents if (parent / ".git").exists())
 TOOLS_ROOT = SCRIPT_PATH.parents[1]
+if str(TOOLS_ROOT) not in sys.path:
+    sys.path.insert(0, str(TOOLS_ROOT))
+from project_runtime import atomic_tempfile  # noqa: E402
 TIMESTAMP_FORMAT = "%Y-%m-%d %H:%M:%S"
 SESSION_ENVIRONMENT = "CAPRMEDIO_SESSION_ID"
 PRIOR_VERSIONS = {
@@ -60,7 +62,7 @@ TOP = re.compile(r"^[A-Za-z_][A-Za-z0-9_-]*:(?:\s|$)")
 
 def atomic_write(path: Path, text: str) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    fd, tmp = tempfile.mkstemp(prefix=f".{path.name}.", dir=path.parent)
+    fd, tmp = atomic_tempfile(path, "migrations")
     try:
         with os.fdopen(fd, "w", encoding="utf-8", newline="\n") as handle:
             handle.write(text.rstrip() + "\n")

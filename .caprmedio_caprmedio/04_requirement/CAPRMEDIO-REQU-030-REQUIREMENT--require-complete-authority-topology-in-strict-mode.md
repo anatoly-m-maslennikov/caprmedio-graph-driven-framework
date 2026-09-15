@@ -2,14 +2,14 @@
 atom_id: CAPRMEDIO-REQU-030
 subject_scopes:
   - requirement-topology
-version: 10
-updated_at: "2026-09-09 21:56:59 +0400"
+version: 11
+updated_at: "2026-09-14 23:34:13 +0000"
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   child_of:
     - CAPRMEDIO-REQU-029-CORE-REQUIREMENT--govern-each-scope-by-authority-mode
-    - CA-R-833-CORE-REQUIREMENT--organize-normative-authority-as-an-acyclic-hierarchy
+    - CA-R-833
 ---
 # Require complete authority topology in strict mode
 

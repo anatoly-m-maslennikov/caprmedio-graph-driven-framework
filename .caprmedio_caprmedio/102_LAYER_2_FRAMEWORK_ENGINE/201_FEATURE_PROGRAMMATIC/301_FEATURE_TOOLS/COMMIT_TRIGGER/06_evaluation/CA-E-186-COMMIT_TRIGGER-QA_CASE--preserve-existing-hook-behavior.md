@@ -3,8 +3,8 @@ subjects:
   governs:
     continuant:
       - Git Hook
-version: 10
-updated_at: 2026-09-12 04:15:38 +0400
+version: 11
+updated_at: 2026-09-15 03:37:12
 relations:
   evaluation_for:
     - CA-R-856
@@ -22,7 +22,7 @@ Prepare a repository with one existing executable default `.git/hooks/pre-commit
 
 ## Acceptance criteria
 
-Installation leaves the existing Hook bytes and executable mode unchanged, registers `.caprmedio_install/hooks/git` as the local `core.hooksPath`, and its installed launcher invokes the existing Hook once before the managed Evaluation. The enabled adapter emits exactly one `COMMIT_TRIGGER`; the disabled and uninstalled adapter emits none. Status reports each state correctly. Uninstall removes only the managed registration and launchers, restores the prior absence of local `core.hooksPath`, leaves the existing Hook byte-for-byte intact, and creates no backup carrier.
+Installation leaves the existing Hook bytes and executable mode unchanged, registers `.caprmedio_runtime/tools/hooks/git` as the local `core.hooksPath`, and its installed launcher invokes the existing Hook once before the managed Evaluation. The enabled adapter emits exactly one `COMMIT_TRIGGER`; the disabled and uninstalled adapter emits none. Status reports each state correctly. Uninstall removes only the managed registration and launchers, restores the prior absence of local `core.hooksPath`, leaves the existing Hook byte-for-byte intact, and creates no backup carrier.
 
 ## Failure disposition
 

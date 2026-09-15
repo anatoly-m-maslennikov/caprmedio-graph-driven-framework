@@ -13,12 +13,17 @@ import unittest
 from pathlib import Path
 
 
+TEST_TEMP_ROOT = Path.cwd() / ".caprmedio_tmp" / "tests" / Path(__file__).stem
+TEST_TEMP_ROOT.mkdir(parents=True, exist_ok=True)
+from typing import Any
+
+
 TOOLS = Path(__file__).resolve().parents[2]
 APPENDER = TOOLS / "APPEND_CHANGE_RECORDS"
 CONTEXT_TOOL = TOOLS / "COMMIT_CONTEXT"
 for _parent in Path(__file__).resolve().parents:
     if _parent.name == ".caprmedio":
-        sys.pycache_prefix = str(_parent.parent / ".caprmedio_runtime" / "cache" / "python")
+        sys.pycache_prefix = str(_parent.parent / ".caprmedio_tmp" / "cache" / "python")
         break
 for path in (str(APPENDER), str(TOOLS)):
     if path not in sys.path:
@@ -32,8 +37,12 @@ from append_change_records import (  # noqa: E402
     run,
 )
 from work_journal import (  # noqa: E402
+    WorkJournalError,
     append_sealed_events,
+    canonical_json_bytes,
     canonical_json_digest,
+    event_digest,
+    validate_sealed_event,
     with_event_digest,
 )
 sys.path.insert(0, str(CONTEXT_TOOL))
@@ -47,7 +56,7 @@ def sha(value: bytes | str) -> str:
 
 class AppendChangeRecordsTest(unittest.TestCase):
     def setUp(self) -> None:
-        self.temporary = tempfile.TemporaryDirectory()
+        self.temporary = tempfile.TemporaryDirectory(dir=TEST_TEMP_ROOT, ignore_cleanup_errors=True)
         self.root = Path(self.temporary.name)
         control = self.root / ".caprmedio_caprmedio"
         control.mkdir()
@@ -316,6 +325,270 @@ class AppendChangeRecordsTest(unittest.TestCase):
         output = run(self.root, {"context": context}, apply=False, wait_seconds=0)
         self.assertTrue(output["ok"])
         self.assertEqual("dry-run", output["mode"])
+
+
+class ReplacementPayloadTest(unittest.TestCase):
+    """Exercise the sealed library boundary without a live Git or Atom frontier."""
+
+    def event(self) -> dict[str, Any]:
+        filename = "CA-M-224-CORE_META_MODEL-METHOD--compile-methodology@12.md"
+        return with_event_digest({
+            "schema_version": 3,
+            "event_id": "replacement-event",
+            "action_id": "replacement-action",
+            "event": "completed",
+            "kind": "governed_project_change",
+            "subject_kind": "file",
+            "author": "test-user",
+            "occurred_at": "2026-09-14T00:00:00+04:00",
+            "llm_session": {"app": "codex", "uuid": "replacement-session"},
+            "structural_scope": "CORE_META_MODEL",
+            "action_type": "MOVE",
+            "sources": [],
+            "previous_result_event": "predecessor-event",
+            "predecessor_atom_id": "CA-M-224",
+            "successor_atom_ids": ["CA-O-101", "CA-O-102"],
+            "result": {
+                "state": "present",
+                "filename": filename,
+                "version": 12,
+                "path": f".caprmedio_caprmedio/05_method/archive/{filename}",
+                "sha256": sha("unchanged predecessor content"),
+            },
+        })
+
+    def assert_invalid(self, event: dict[str, Any], message: str) -> None:
+        with self.assertRaisesRegex(WorkJournalError, message) as raised:
+            validate_sealed_event(with_event_digest(event))
+        self.assertEqual("invalid-event", raised.exception.code)
+
+    def set_filename(self, event: dict[str, Any], filename: str) -> None:
+        event["result"]["filename"] = filename
+        event["result"]["path"] = f".caprmedio_caprmedio/05_method/archive/{filename}"
+
+    def recover(self, event: dict[str, Any]) -> None:
+        event.update(event="recovered", kind="governed_project_state")
+        for key in ("action_type", "sources", "previous_result_event"):
+            event.pop(key)
+        event["recovery_evidence"] = {
+            "git": {"base_commit": "1" * 40},
+            "carrier": {"filename": event["result"]["filename"]},
+        }
+
+    def test_accepts_explicit_replacement_and_preserves_successor_order(self) -> None:
+        for successors in (["CA-O-101"], [f"CA-O-{number}" for number in range(108, 100, -1)]):
+            with self.subTest(successors=successors):
+                event = self.event()
+                event["successor_atom_ids"] = successors
+                sealed = with_event_digest(event)
+                before = canonical_json_bytes(sealed)
+                self.assertEqual(sealed, validate_sealed_event(sealed))
+                self.assertEqual(before, canonical_json_bytes(sealed))
+
+    def test_accepts_project_owned_ids_and_sequence_prefixed_filenames(self) -> None:
+        for atom_id in ("CA-M-224", "TEST-I-001", "PROJ_2-P-17", "MY-PROJECT-R-7"):
+            for sequence in ("", "03-"):
+                with self.subTest(atom_id=atom_id, sequence=sequence):
+                    event = self.event()
+                    event["predecessor_atom_id"] = atom_id
+                    event["successor_atom_ids"] = ["TEST-O-002"]
+                    self.set_filename(event, f"{sequence}{atom_id}-SCOPE--summary@12.md")
+                    sealed = with_event_digest(event)
+                    self.assertEqual(sealed, validate_sealed_event(sealed))
+
+    def test_requires_both_fields_and_rejects_null(self) -> None:
+        for key in ("predecessor_atom_id", "successor_atom_ids"):
+            with self.subTest(missing=key):
+                event = self.event()
+                event.pop(key)
+                self.assert_invalid(event, "must appear together")
+            with self.subTest(null=key):
+                event = self.event()
+                event[key] = None
+                self.assert_invalid(event, key)
+
+    def test_rejects_malformed_predecessor_ids(self) -> None:
+        invalid = (
+            "", " ", 224, True, [], {}, " CA-M-224", "CA-M-224 ", "ca-M-224",
+            "CA-X-224", "CA-M--224", "CA-M-", "CA-M-224@12", "CA-M-224.md",
+            "CA-M-224-SCOPE--summary", "folder/CA-M-224", "CA-M-224\n",
+            "CAPRMEDIO-META-METH-224", "-M-224",
+            "CA--M-224", "CA---M-224", "CA_-M-224", "C--A-M-224",
+        )
+        for predecessor in invalid:
+            with self.subTest(predecessor=predecessor):
+                event = self.event()
+                event["predecessor_atom_id"] = predecessor
+                self.assert_invalid(event, "predecessor_atom_id")
+
+    def test_rejects_malformed_successor_arrays_and_ids(self) -> None:
+        invalid = (
+            [], "CA-O-101", ("CA-O-101",), {}, [None], [False], [101], [[]], [{}],
+            [""], [" "], ["CA-O-101 "], ["CA-O-101.md"], ["folder/CA-O-101"],
+            ["CA-O-101@1"], ["CA-O-101-SCOPE--summary"], ["CA-X-101"],
+            ["CAPRMEDIO-META-METH-101"], ["CA-O-101", "CA-O-101"], ["CA-M-224"],
+            ["CA--O-101"], ["CA---O-101"], ["CA_-O-101"], ["C--A-O-101"],
+        )
+        for successors in invalid:
+            with self.subTest(successors=successors):
+                event = self.event()
+                event["successor_atom_ids"] = successors
+                self.assert_invalid(event, "successor_atom_ids")
+
+    def test_rejects_schema_two_and_recovered_payloads(self) -> None:
+        event = self.event()
+        event.update(schema_version=2, kind="governed_file_change")
+        event.pop("subject_kind")
+        self.assert_invalid(event, "replacement.*schema-v3 completed file MOVE")
+        event = self.event()
+        self.recover(event)
+        self.assert_invalid(event, "replacement.*schema-v3 completed file MOVE")
+        event = self.event()
+        event["schema_version"] = 3.0
+        self.assert_invalid(event, "replacement.*schema-v3 completed file MOVE")
+
+    def test_rejects_folder_replacement(self) -> None:
+        event = self.event()
+        event["subject_kind"] = "folder"
+        result = event["result"]
+        result["entries"] = [{"path": f"{result['path']}/entry.txt", "sha256": sha("entry")}]
+        result["sha256"] = canonical_json_digest([{"path": "entry.txt", "sha256": sha("entry")}])
+        self.assert_invalid(event, "replacement.*schema-v3 completed file MOVE")
+
+    def test_rejects_each_non_move_action(self) -> None:
+        for action in ("ADD", "UPDATE", "MOVE+UPDATE", "REMOVE"):
+            with self.subTest(action=action):
+                event = self.event()
+                event["action_type"] = action
+                if action == "ADD":
+                    event.pop("previous_result_event")
+                self.assert_invalid(event, "replacement.*schema-v3 completed file MOVE")
+
+    def test_requires_present_result_under_exact_archive_segment(self) -> None:
+        event = self.event()
+        event["result"]["state"] = "removed"
+        for key in ("path", "sha256"):
+            event["result"].pop(key)
+        self.assert_invalid(event, "replacement.*present")
+        for directory in ("active", "archived", "not-archive", "Archive"):
+            with self.subTest(directory=directory):
+                event = self.event()
+                event["result"]["path"] = f"{directory}/{event['result']['filename']}"
+                self.assert_invalid(event, "replacement.*archive")
+
+    def test_binds_predecessor_to_exact_result_filename(self) -> None:
+        filenames = (
+            "CA-M-225-SCOPE--summary@12.md", "CA-M-2240-SCOPE--summary@12.md",
+            "NOT-CA-M-224-SCOPE--summary@12.md", "CA-M-224garbage@12.md",
+            "CAPRMEDIO-META-METH-224--summary@12.md", "artifact@12.md",
+        )
+        for filename in filenames:
+            with self.subTest(filename=filename):
+                event = self.event()
+                self.set_filename(event, filename)
+                self.assert_invalid(event, "replacement.*predecessor_atom_id")
+
+    def test_requires_exact_archive_suffix_and_version(self) -> None:
+        filenames = (
+            "CA-M-224-SCOPE--summary.md", "CA-M-224-SCOPE--summary@11.md",
+            "CA-M-224-SCOPE--summary@012.md", "CA-M-224-SCOPE--summary@12.md.md",
+            "CA-M-224-SCOPE--summary@12.MD", "CA-M-224-SCOPE--summary@1@12.md",
+        )
+        for filename in filenames:
+            with self.subTest(filename=filename):
+                event = self.event()
+                self.set_filename(event, filename)
+                self.assert_invalid(event, "replacement.*archive")
+        event = self.event()
+        event["result"]["version"] = True
+        self.assert_invalid(event, "replacement.*version")
+
+    def test_requires_result_path_basename_to_match_filename(self) -> None:
+        event = self.event()
+        event["result"]["path"] = ".caprmedio_caprmedio/05_method/archive/other@12.md"
+        self.assert_invalid(event, "replacement.*filename")
+
+    def test_rejects_digest_tampering_after_successors_change(self) -> None:
+        for successors in (["CA-O-103"], ["CA-O-102", "CA-O-101"]):
+            with self.subTest(successors=successors):
+                event = self.event()
+                event["successor_atom_ids"] = successors
+                self.assertNotEqual(event["event_digest"], event_digest(event))
+                with self.assertRaises(WorkJournalError) as raised:
+                    validate_sealed_event(event)
+                self.assertEqual("event-digest-mismatch", raised.exception.code)
+        event = self.event()
+        event["predecessor_atom_id"] = "CA-M-225"
+        self.assertNotEqual(event["event_digest"], event_digest(event))
+
+    def test_ordinary_and_legacy_events_retain_exact_bytes_without_payload(self) -> None:
+        for schema in (2, 3):
+            for lifecycle in ("completed", "recovered"):
+                for action in ("ADD", "MOVE", "UPDATE", "MOVE+UPDATE", "REMOVE"):
+                    with self.subTest(schema=schema, lifecycle=lifecycle, action=action):
+                        event = self.event()
+                        event.pop("predecessor_atom_id")
+                        event.pop("successor_atom_ids")
+                        event["action_type"] = action
+                        self.set_filename(event, "CAPRMEDIO-META-METH-224--legacy.md")
+                        if action == "ADD":
+                            event.pop("previous_result_event")
+                        if lifecycle == "recovered":
+                            # Recovery has no change fields, including an ADD predecessor.
+                            event.setdefault("previous_result_event", "prior-event")
+                            self.recover(event)
+                        if schema == 2:
+                            event["schema_version"] = 2
+                            event["kind"] = "governed_file_change" if lifecycle == "completed" else "governed_file_state"
+                            event.pop("subject_kind")
+                        sealed = with_event_digest(event)
+                        self.assertEqual(canonical_json_bytes(sealed), canonical_json_bytes(validate_sealed_event(sealed)))
+
+    def test_repeated_replacement_append_is_idempotent(self) -> None:
+        with tempfile.TemporaryDirectory(dir=TEST_TEMP_ROOT, ignore_cleanup_errors=True) as directory:
+            root = Path(directory)
+            control = root / ".caprmedio_caprmedio"
+            control.mkdir()
+            (control / "caprmedio_project_settings.toml").write_text(
+                '[paths]\njournal_root = ".caprmedio_caprmedio/work_journal"\n', encoding="utf-8"
+            )
+            event = self.event()
+            partition = {"author": "test-user", "local_date": "2026-09-14", "timezone": "Asia/Tbilisi"}
+            first = append_sealed_events(root, [event], **partition)
+            second = append_sealed_events(root, [event], **partition)
+            self.assertEqual(first, second)
+            carrier = root / first[0]["carrier"]
+            self.assertEqual(canonical_json_bytes(event) + b"\n", carrier.read_bytes())
+            changed = copy.deepcopy(event)
+            changed["successor_atom_ids"] = ["CA-O-103"]
+            with self.assertRaises(WorkJournalError) as raised:
+                append_sealed_events(root, [with_event_digest(changed)], **partition)
+            self.assertEqual("identity-collision", raised.exception.code)
+            self.assertEqual(canonical_json_bytes(event) + b"\n", carrier.read_bytes())
+
+
+    def test_ordinary_folder_and_removed_results_remain_supported(self) -> None:
+        event = self.event()
+        event.pop("predecessor_atom_id")
+        event.pop("successor_atom_ids")
+        event["subject_kind"] = "folder"
+        event["result"] = {
+            "state": "present",
+            "filename": "source",
+            "version": 1,
+            "path": "source",
+            "entries": [{"path": "source/entry.txt", "sha256": sha("entry")}],
+            "sha256": canonical_json_digest([{"path": "entry.txt", "sha256": sha("entry")}]),
+        }
+        sealed = with_event_digest(event)
+        self.assertEqual(sealed, validate_sealed_event(sealed))
+        for subject_kind in ("file", "folder"):
+            with self.subTest(subject_kind=subject_kind):
+                event["subject_kind"] = subject_kind
+                event["action_type"] = "REMOVE"
+                event["result"] = {"state": "removed", "filename": "source", "version": 1}
+                sealed = with_event_digest(event)
+                self.assertEqual(sealed, validate_sealed_event(sealed))
 
 
 if __name__ == "__main__":

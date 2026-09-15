@@ -24,6 +24,13 @@ The name describes four connected parts:
 - More than one person can use CAPRMEDIO on a project, but the framework does not yet provide native support for team workflows.
 - CAPRMEDIO is not only local-first; it is currently local-only.
 
+## Local operational state
+
+- **`.caprmedio_runtime/`** keeps persistent, non-authoritative operational state: selected Tool releases and launchers, logs, sessions, databases, service state, and resumable state. Selected releases and launchers are reconstructible; the operational timeline may not be.
+- **`.caprmedio_tmp/`** keeps disposable scratch, staging, caches, builds, Evaluation state, atomic-write intermediates, and interrupted-cleanup remnants.
+
+`.caprmedio_install/` is a retired compatibility root, not part of the current model. The local bootstrap launcher stays under `.caprmedio_runtime/` and remains outside Git; the canonical installer implementation is [`INSTALL_TOOLS/install_tools.py`](102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/INSTALL_TOOLS/install_tools.py). Recognized legacy installations are removed only after active Hook references have been repointed safely.
+
 ## Status
 
 The current released version is declared in [version.toml](version.toml). The framework foundation is under active development; this is not yet a complete production toolchain.
@@ -119,7 +126,7 @@ Project Layers are ordered. Project-owned and Layer-owned Features are not.
 
 ## Governance
 
-META defines the model and its invariants. GOV defines deterministic Carrier rules. Framework and methodology authority live in [.caprmedio_framework](.caprmedio_framework/); this Project's governed Carriers and evidence live in [.caprmedio_caprmedio](.caprmedio_caprmedio/). The durable Engine installation and ephemeral runtime state are never governing authority.
+META defines the model and its invariants. GOV defines deterministic Carrier rules. Framework and methodology authority live in [.caprmedio_framework](.caprmedio_framework/); this Project's governed Carriers and evidence live in [.caprmedio_caprmedio](.caprmedio_caprmedio/). Reconstructible operational state under `.caprmedio_runtime/` and disposable state under `.caprmedio_tmp/` are never governing authority.
 
 ## Thanks
 

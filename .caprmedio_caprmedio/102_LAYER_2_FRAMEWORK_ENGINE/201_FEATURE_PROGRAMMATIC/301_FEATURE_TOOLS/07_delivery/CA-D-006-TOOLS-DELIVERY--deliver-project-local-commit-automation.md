@@ -6,8 +6,8 @@ subjects:
   governs:
     continuant:
       - provenance
-version: 27
-updated_at: 2026-09-12 04:15:08
+version: 28
+updated_at: 2026-09-15 03:15:32 +0400
 relations:
   depends_on:
     - CA-D-417
@@ -27,7 +27,7 @@ relations:
 ---
 # Deliver project-local commit automation
 
-Deliver four peer Tool units, COMMIT_TRIGGER, COMMIT_CONTEXT, APPEND_CHANGE_RECORDS, and COMMIT_CHANGE_SET, plus one independently supervised repository-local COMMIT_AUTOMATION service. Canonical source and shared libraries live under 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS; INSTALL_TOOLS publishes a content-addressed self-contained release under .caprmedio_install; mutable operational state stays below .caprmedio_runtime.
+Deliver four peer Tool units, COMMIT_TRIGGER, COMMIT_CONTEXT, APPEND_CHANGE_RECORDS, and COMMIT_CHANGE_SET, plus one independently supervised repository-local COMMIT_AUTOMATION service. Canonical source and shared libraries live under `102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS`; INSTALL_TOOLS publishes a content-addressed self-contained release under `.caprmedio_runtime/tools`; persistent operational state stays below `.caprmedio_runtime`; and disposable staging, cache, and atomic-write intermediates stay below `.caprmedio_tmp`.
 
 The Codex transport is one asynchronous PostToolUse command Hook. It normalizes one host event, atomically renames one immutable envelope into .caprmedio_runtime/state/commit_automation/inbox/, and exits. It contains no broad scan, graph traversal, before-event snapshot, context gathering, Journal append, Git mutation, retry, or pipeline-worker spawn. The background service consumes the durable inbox, performs low-frequency repository reconciliation, asks one pure manager for the admissible graph or next command, persists every transition, and lets a mechanical Scheduler dispatch COMMIT_CONTEXT followed by independent real-change and Journal branches. APPEND_CHANGE_RECORDS appends provenance independently; COMMIT_CHANGE_SET creates real-change commits and later Journal-only batch commits through one fenced gate.
 

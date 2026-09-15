@@ -11,10 +11,15 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import sys
 from datetime import datetime
 from pathlib import Path
-from tempfile import NamedTemporaryFile
 from uuid import uuid4
+
+_PROJECT_TOOLS_ROOT = Path(__file__).resolve().parents[1]
+if str(_PROJECT_TOOLS_ROOT) not in sys.path:
+    sys.path.insert(0, str(_PROJECT_TOOLS_ROOT))
+from project_runtime import atomic_tempfile  # noqa: E402
 
 
 SESSION_ID = "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
@@ -35,10 +40,17 @@ def parse_args() -> argparse.Namespace:
 
 def atomic_write(path: Path, text: str) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    with NamedTemporaryFile("w", encoding="utf-8", newline="", dir=path.parent, delete=False) as handle:
-        handle.write(text)
-        temporary_path = Path(handle.name)
-    os.replace(temporary_path, path)
+    descriptor, temporary_name = atomic_tempfile(path, "migrations")
+    temporary_path = Path(temporary_name)
+    try:
+        with os.fdopen(descriptor, "w", encoding="utf-8", newline="") as handle:
+            handle.write(text)
+            handle.flush()
+            os.fsync(handle.fileno())
+        os.replace(temporary_path, path)
+    except BaseException:
+        temporary_path.unlink(missing_ok=True)
+        raise
 
 
 def exact_replace(text: str, old: str, new: str, path: Path) -> str:

@@ -6,6 +6,10 @@ import tempfile
 import unittest
 from pathlib import Path
 
+
+TEST_TEMP_ROOT = Path.cwd() / ".caprmedio_tmp" / "tests" / Path(__file__).stem
+TEST_TEMP_ROOT.mkdir(parents=True, exist_ok=True)
+
 import sys
 
 TOOLS = Path(__file__).resolve().parents[2]
@@ -19,7 +23,7 @@ class AtomOperationsTest(unittest.TestCase):
         # The fixture needs a synthetic .git directory for repository discovery.
         # macOS sandbox policy can deny removal of that synthetic control directory,
         # which is unrelated to the operation behavior under test.
-        self.temporary = tempfile.TemporaryDirectory(ignore_cleanup_errors=True)
+        self.temporary = tempfile.TemporaryDirectory(dir=TEST_TEMP_ROOT, ignore_cleanup_errors=True)
         self.root = Path(self.temporary.name)
         (self.root / ".git").mkdir()
         self.scope = "FRAMEWORK_METHODOLOGY"

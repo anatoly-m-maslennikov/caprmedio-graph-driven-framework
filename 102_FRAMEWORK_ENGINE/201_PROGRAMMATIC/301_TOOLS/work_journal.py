@@ -13,7 +13,6 @@ import json
 import os
 import re
 import sys
-import tempfile
 import time
 import tomllib
 import uuid
@@ -22,17 +21,19 @@ from pathlib import Path
 from typing import Any, Iterator, Mapping, Sequence
 from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 
+from project_runtime import atomic_tempfile
+
 
 MODULE_PATH = Path(__file__).resolve()
 for _parent in MODULE_PATH.parents:
     if _parent.name == ".caprmedio_runtime":
-        sys.pycache_prefix = str(_parent / "cache" / "python")
+        sys.pycache_prefix = str(_parent.parent / ".caprmedio_tmp" / "cache" / "python")
         break
     if _parent.name == ".caprmedio_install":
-        sys.pycache_prefix = str(_parent.parent / ".caprmedio_runtime" / "cache" / "python")
+        sys.pycache_prefix = str(_parent.parent / ".caprmedio_tmp" / "cache" / "python")
         break
     if _parent.name == ".caprmedio":
-        sys.pycache_prefix = str(_parent.parent / ".caprmedio_runtime" / "cache" / "python")
+        sys.pycache_prefix = str(_parent.parent / ".caprmedio_tmp" / "cache" / "python")
         break
 
 
@@ -51,6 +52,11 @@ MAX_EVENTS_PER_PART = 100
 SHA256_RE = re.compile(r"^[0-9a-f]{64}$")
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 AUTHOR_RE = re.compile(r"^[A-Za-z0-9](?:[A-Za-z0-9-]{0,37}[A-Za-z0-9])?$")
+# CA-D-378 numbered project-owned IDs only. Opaque legacy and external identity
+# forms require separate admission for replacement payloads, not filename fallback.
+# This bounded format guard does not establish prefix registration or live Atom authority.
+PROJECT_OWNED_ATOM_ID_RE = re.compile(r"[A-Z][A-Z0-9]*(?:[-_][A-Z0-9]+)*-[CAPRMEDIO]-[0-9]+")
+REPLACEMENT_FIELDS = frozenset({"predecessor_atom_id", "successor_atom_ids"})
 
 
 def repository_root(path: Path) -> Path:
@@ -120,7 +126,7 @@ def _write_all(descriptor: int, payload: bytes) -> None:
 
 def _atomic_json(path: Path, value: Mapping[str, Any]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    descriptor, temporary_name = tempfile.mkstemp(prefix=f".{path.name}.", dir=path.parent)
+    descriptor, temporary_name = atomic_tempfile(path, "work_journal")
     temporary = Path(temporary_name)
     try:
         with os.fdopen(descriptor, "wb") as handle:
@@ -341,6 +347,61 @@ def _validate_result(value: object, *, schema_version: int, subject_kind: str) -
         raise WorkJournalError("invalid-event", "removed result has invalid fields")
 
 
+def _validate_replacement_ids(value: Mapping[str, Any]) -> str:
+    predecessor = value.get("predecessor_atom_id")
+    if not isinstance(predecessor, str) or not PROJECT_OWNED_ATOM_ID_RE.fullmatch(predecessor):
+        raise WorkJournalError("invalid-event", "predecessor_atom_id must be a canonical numbered project-owned Atom ID")
+    successors = value.get("successor_atom_ids")
+    if not isinstance(successors, list) or not successors:
+        raise WorkJournalError("invalid-event", "successor_atom_ids must be a non-empty array of Atom IDs")
+    if any(not isinstance(item, str) or not PROJECT_OWNED_ATOM_ID_RE.fullmatch(item) for item in successors):
+        raise WorkJournalError("invalid-event", "successor_atom_ids must contain only canonical numbered project-owned Atom IDs")
+    if len(set(successors)) != len(successors):
+        raise WorkJournalError("invalid-event", "successor_atom_ids must not contain duplicates")
+    if predecessor in successors:
+        raise WorkJournalError("invalid-event", "successor_atom_ids must not contain predecessor_atom_id")
+    return predecessor
+
+
+def _validate_replacement_result(result: Mapping[str, Any], predecessor: str) -> None:
+    if result["state"] != "present":
+        raise WorkJournalError("invalid-event", "replacement result must be present")
+    filename = result["filename"]
+    path = Path(result["path"])
+    if "archive" not in path.parts[:-1]:
+        raise WorkJournalError("invalid-event", "replacement result must be under an archive folder")
+    if path.name != filename:
+        raise WorkJournalError("invalid-event", "replacement result.path basename must equal result.filename")
+    version = result["version"]
+    if type(version) is not int or version < 1:
+        raise WorkJournalError("invalid-event", "replacement result.version must be a positive integer")
+    if filename.count("@") != 1 or not filename.endswith(f"@{version}.md"):
+        raise WorkJournalError("invalid-event", "replacement archive filename must end with exact @<result.version>.md")
+    # Match the declared identity at the canonical filename boundary; do not use
+    # atom_identifier's opaque legacy fallback to infer an ID from mutable text.
+    pattern = rf"(?:[0-9]+-)?{re.escape(predecessor)}(?:-[^/@\\\x00]+)?@{version}\.md"
+    if not re.fullmatch(pattern, filename):
+        raise WorkJournalError("invalid-event", "replacement filename must identify predecessor_atom_id")
+
+
+def _validate_replacement_payload(value: Mapping[str, Any]) -> None:
+    present = REPLACEMENT_FIELDS & value.keys()
+    if not present:
+        return
+    if present != REPLACEMENT_FIELDS:
+        raise WorkJournalError("invalid-event", "predecessor_atom_id and successor_atom_ids must appear together")
+    if (
+        type(value["schema_version"]) is not int
+        or value["schema_version"] != 3
+        or value["event"] != "completed"
+        or value.get("subject_kind") != "file"
+        or value.get("action_type") != "MOVE"
+    ):
+        raise WorkJournalError("invalid-event", "replacement payload requires a schema-v3 completed file MOVE event")
+    predecessor = _validate_replacement_ids(value)
+    _validate_replacement_result(value["result"], predecessor)
+
+
 def validate_sealed_event(event: Mapping[str, Any]) -> dict[str, Any]:
     """Validate an event already sealed by COMMIT_CONTEXT without re-resolution."""
     value = dict(event)
@@ -376,6 +437,7 @@ def validate_sealed_event(event: Mapping[str, Any]) -> dict[str, Any]:
     if subject_kind not in {"file", "folder"}:
         raise WorkJournalError("invalid-event", "subject_kind must be file or folder")
     _validate_result(value.get("result"), schema_version=schema_version, subject_kind=subject_kind)
+    _validate_replacement_payload(value)
     if kind == expected_change_kind:
         allowed = {
             "schema_version",
@@ -395,6 +457,7 @@ def validate_sealed_event(event: Mapping[str, Any]) -> dict[str, Any]:
         }
         if schema_version == 3:
             allowed.add("subject_kind")
+            allowed.update(REPLACEMENT_FIELDS)
         if not set(value) <= allowed:
             raise WorkJournalError("invalid-event", "governed_file_change contains unsupported fields")
         _validate_sources(value.get("sources"))

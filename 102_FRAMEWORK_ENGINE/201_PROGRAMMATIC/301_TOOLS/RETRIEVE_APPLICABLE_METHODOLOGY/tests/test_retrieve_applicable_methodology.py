@@ -49,9 +49,9 @@ def projected(source: bytes, relative_source: str) -> bytes:
 
 class RetrieverTest(unittest.TestCase):
     def setUp(self) -> None:
-        runtime = Path.cwd() / ".caprmedio_runtime/retriever-tests"
-        runtime.mkdir(parents=True, exist_ok=True)
-        self.root = Path(tempfile.mkdtemp(prefix="case-", dir=runtime))
+        temporary = Path.cwd() / ".caprmedio_tmp/retriever-tests"
+        temporary.mkdir(parents=True, exist_ok=True)
+        self.root = Path(tempfile.mkdtemp(prefix="case-", dir=temporary))
         self.applicable = self.root / module.APPLICABLE_RELATIVE
         self.source_root = self.root / module.SOURCES_RELATIVE / "001_CORE_META_MODEL"
         for role in module.ROLES:

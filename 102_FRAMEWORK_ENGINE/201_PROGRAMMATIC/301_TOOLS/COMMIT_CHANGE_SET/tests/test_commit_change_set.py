@@ -13,6 +13,10 @@ import unittest
 from pathlib import Path
 
 
+TEST_TEMP_ROOT = Path.cwd() / ".caprmedio_tmp" / "tests" / Path(__file__).stem
+TEST_TEMP_ROOT.mkdir(parents=True, exist_ok=True)
+
+
 SCRIPT = Path(__file__).resolve().parents[1] / "commit_change_set.py"
 SPEC = importlib.util.spec_from_file_location("commit_change_set", SCRIPT)
 assert SPEC is not None and SPEC.loader is not None
@@ -23,7 +27,7 @@ UNSET = object()
 
 class CommitChangeSetTests(unittest.TestCase):
     def setUp(self) -> None:
-        self.temporary = tempfile.TemporaryDirectory()
+        self.temporary = tempfile.TemporaryDirectory(dir=TEST_TEMP_ROOT, ignore_cleanup_errors=True)
         self.root = Path(self.temporary.name)
         (self.root / ".caprmedio").mkdir()
         (self.root / ".caprmedio_caprmedio").mkdir()
@@ -243,13 +247,16 @@ class CommitChangeSetTests(unittest.TestCase):
         ]
         for before, after, event_id, expected_action, expected_version in cases:
             if event_id == "folder-move":
-                (self.root / "lib").mkdir()
-                shutil.move(str(self.root / "src/pkg"), str(self.root / "lib/pkg"))
+                destination = self.root / "lib/pkg"
+                destination.mkdir(parents=True)
+                for carrier in sorted((self.root / "src/pkg").iterdir()):
+                    carrier.replace(destination / carrier.name)
             elif event_id == "folder-update":
                 (self.root / "lib/pkg/a.py").write_text("a = 2\n", encoding="utf-8")
                 (self.root / "lib/pkg/b.py").write_text("b = 2\n", encoding="utf-8")
             elif event_id == "folder-remove":
-                shutil.rmtree(self.root / "lib/pkg")
+                for carrier in sorted((self.root / "lib/pkg").iterdir()):
+                    carrier.unlink()
             result = commit_change_set.run(
                 self.root,
                 {"trigger": self.trigger(before, after, source_event_id=event_id)},
@@ -372,8 +379,8 @@ class CommitChangeSetTests(unittest.TestCase):
             commit_change_set.evaluate_pre_commit(self.root)
         self.assertEqual("staged-content-invalid", captured.exception.code)
 
-    def test_e216_pre_commit_rejects_installation_and_runtime_state(self) -> None:
-        for relative in (".caprmedio_install/state.toml", ".caprmedio_runtime/state.toml"):
+    def test_e216_pre_commit_rejects_runtime_and_temporary_state(self) -> None:
+        for relative in (".caprmedio_runtime/state.toml", ".caprmedio_tmp/state.toml"):
             with self.subTest(relative=relative):
                 carrier = self.root / relative
                 carrier.parent.mkdir(parents=True, exist_ok=True)

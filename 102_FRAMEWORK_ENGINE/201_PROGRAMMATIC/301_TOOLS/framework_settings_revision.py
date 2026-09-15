@@ -9,7 +9,7 @@ from pathlib import Path
 
 SCRIPT_PATH = Path(__file__).resolve()
 REPOSITORY_ROOT = next(parent for parent in SCRIPT_PATH.parents if (parent / ".git").exists())
-sys.pycache_prefix = str(REPOSITORY_ROOT / ".caprmedio_runtime/cache/python")
+sys.pycache_prefix = str(REPOSITORY_ROOT / ".caprmedio_tmp/cache/python")
 TOOLS_ROOT = SCRIPT_PATH.parent
 if str(TOOLS_ROOT) not in sys.path:
     sys.path.insert(0, str(TOOLS_ROOT))

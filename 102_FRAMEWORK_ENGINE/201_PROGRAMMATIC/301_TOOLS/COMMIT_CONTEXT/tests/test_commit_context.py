@@ -10,10 +10,14 @@ import unittest
 from pathlib import Path
 
 
+TEST_TEMP_ROOT = Path.cwd() / ".caprmedio_tmp" / "tests" / Path(__file__).stem
+TEST_TEMP_ROOT.mkdir(parents=True, exist_ok=True)
+
+
 TOOL_DIRECTORY = Path(__file__).resolve().parents[1]
 for _parent in Path(__file__).resolve().parents:
     if _parent.name == ".caprmedio":
-        sys.pycache_prefix = str(_parent.parent / ".caprmedio_runtime" / "cache" / "python")
+        sys.pycache_prefix = str(_parent.parent / ".caprmedio_tmp" / "cache" / "python")
         break
 sys.path.insert(0, str(TOOL_DIRECTORY))
 
@@ -28,7 +32,7 @@ class IdentityTests(unittest.TestCase):
 
 class CommitContextTests(unittest.TestCase):
     def setUp(self) -> None:
-        self.temporary = tempfile.TemporaryDirectory()
+        self.temporary = tempfile.TemporaryDirectory(dir=TEST_TEMP_ROOT, ignore_cleanup_errors=True)
         self.root = Path(self.temporary.name)
         (self.root / ".caprmedio").mkdir()
         (self.root / ".caprmedio_caprmedio").mkdir()

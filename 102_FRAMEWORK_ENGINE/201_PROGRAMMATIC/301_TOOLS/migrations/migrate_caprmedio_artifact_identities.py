@@ -24,7 +24,6 @@ import re
 import shutil
 import stat
 import sys
-import tempfile
 import tomllib
 from collections import Counter, defaultdict
 from dataclasses import dataclass
@@ -33,11 +32,12 @@ from typing import Any
 
 
 SCRIPT_PATH = Path(__file__).resolve()
-REPOSITORY_ROOT = next(parent for parent in SCRIPT_PATH.parents if (parent / ".git").exists())
-sys.pycache_prefix = str(REPOSITORY_ROOT / ".caprmedio_runtime/cache/python")
 TOOLS_ROOT = SCRIPT_PATH.parents[1]
 if str(TOOLS_ROOT) not in sys.path:
     sys.path.insert(0, str(TOOLS_ROOT))
+from project_runtime import atomic_tempfile  # noqa: E402
+REPOSITORY_ROOT = next(parent for parent in SCRIPT_PATH.parents if (parent / ".git").exists())
+sys.pycache_prefix = str(REPOSITORY_ROOT / ".caprmedio_tmp/cache/python")
 
 from artifact_metadata import repository_root  # noqa: E402
 from work_journal import append_record, event_record  # noqa: E402
@@ -677,7 +677,7 @@ def mapping_digest(payload: list[dict[str, str]]) -> str:
 
 def atomic_write_bytes(path: Path, payload: bytes, mode: int) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    descriptor, temporary_name = tempfile.mkstemp(prefix=f".{path.name}.", dir=path.parent)
+    descriptor, temporary_name = atomic_tempfile(path, "migrations")
     try:
         with os.fdopen(descriptor, "wb") as handle:
             handle.write(payload)

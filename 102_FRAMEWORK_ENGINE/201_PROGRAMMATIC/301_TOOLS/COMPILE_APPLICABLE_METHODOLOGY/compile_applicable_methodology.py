@@ -632,9 +632,9 @@ def validate_existing_output_ownership(output_root: Path) -> None:
 def stage_outputs(root: Path, candidates: list[Candidate], source_snapshot: dict[str, str]) -> Path:
     output_root = root / OUTPUT_RELATIVE
     output_root.mkdir(parents=True, exist_ok=True)
-    runtime_staging = root / ".caprmedio_runtime/compile_applicable_methodology"
-    runtime_staging.mkdir(parents=True, exist_ok=True)
-    staging = Path(tempfile.mkdtemp(prefix="transaction-", dir=runtime_staging))
+    temporary_staging = root / ".caprmedio_tmp/compile_applicable_methodology"
+    temporary_staging.mkdir(parents=True, exist_ok=True)
+    staging = Path(tempfile.mkdtemp(prefix="transaction-", dir=temporary_staging))
     new_root = staging / "new"
     for _, role_directory in ROLES:
         (new_root / role_directory).mkdir(parents=True)

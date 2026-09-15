@@ -6,9 +6,9 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import os
 import re
 import sys
-import tempfile
 from pathlib import Path
 import tomllib
 
@@ -16,13 +16,13 @@ import tomllib
 SCRIPT = Path(__file__).resolve()
 ROOT = next(parent for parent in SCRIPT.parents if (parent / ".git").exists())
 CONTROL = ROOT / ".caprmedio_caprmedio"
-RUNTIME = ROOT / ".caprmedio_runtime"
 TOOLS_ROOT = SCRIPT.parents[1]
 if str(TOOLS_ROOT) not in sys.path:
     sys.path.insert(0, str(TOOLS_ROOT))
 
 from framework_installation import InstallationError, installation_status  # noqa: E402
 from artifact_metadata import SETTINGS_PATH, atom_identifier, project_identity  # noqa: E402
+from project_runtime import atomic_tempfile  # noqa: E402
 
 
 OUTPUT = CONTROL / "project_scope_unit_graph.projection.toml"
@@ -780,12 +780,17 @@ def installed_generator() -> None:
 
 
 def write_output(path: Path, payload: str) -> None:
-    temporary_directory = RUNTIME / "state" / "generate_project_graph_state"
-    temporary_directory.mkdir(parents=True, exist_ok=True)
-    with tempfile.NamedTemporaryFile("w", encoding="utf-8", dir=temporary_directory, delete=False) as handle:
-        temporary = Path(handle.name)
-        handle.write(payload)
-    temporary.replace(path)
+    descriptor, temporary_name = atomic_tempfile(path, "generate_project_graph_state")
+    temporary = Path(temporary_name)
+    try:
+        with os.fdopen(descriptor, "w", encoding="utf-8", newline="\n") as handle:
+            handle.write(payload)
+            handle.flush()
+            os.fsync(handle.fileno())
+        temporary.replace(path)
+    except BaseException:
+        temporary.unlink(missing_ok=True)
+        raise
 
 
 def main() -> None:

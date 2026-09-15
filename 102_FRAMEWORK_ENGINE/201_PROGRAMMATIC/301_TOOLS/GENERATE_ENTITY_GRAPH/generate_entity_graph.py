@@ -9,7 +9,6 @@ import json
 import os
 import re
 import sys
-import tempfile
 from collections import defaultdict
 from collections.abc import Iterable, Mapping, Sequence
 from dataclasses import dataclass
@@ -18,6 +17,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from artifact_metadata import atom_identifier
+from project_runtime import atomic_tempfile
 
 
 TOOL_ID = "GENERATE_ENTITY_GRAPH"
@@ -1023,7 +1023,7 @@ def envelope(
 
 def atomic_write(path: Path, content: str) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    descriptor, temporary_name = tempfile.mkstemp(prefix=f".{path.name}.", dir=path.parent)
+    descriptor, temporary_name = atomic_tempfile(path, "generate_entity_graph")
     temporary = Path(temporary_name)
     try:
         with os.fdopen(descriptor, "w", encoding="utf-8", newline="\n") as stream:

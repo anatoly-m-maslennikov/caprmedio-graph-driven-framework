@@ -36,9 +36,9 @@ def carrier(atom_id: str, relations: str = "{}", cce_form: str = "obligation", s
 
 class ExpansionBoundaryTest(unittest.TestCase):
     def setUp(self) -> None:
-        runtime = Path.cwd() / ".caprmedio_runtime/expansion-boundary-tests"
-        runtime.mkdir(parents=True, exist_ok=True)
-        self.temp = Path(tempfile.mkdtemp(prefix="case-", dir=runtime))
+        temporary = Path.cwd() / ".caprmedio_tmp/expansion-boundary-tests"
+        temporary.mkdir(parents=True, exist_ok=True)
+        self.temp = Path(tempfile.mkdtemp(prefix="case-", dir=temporary))
         self.source = self.temp / module.compiler.SOURCE_RELATIVE
         for _, directory in module.LAYER_DIRECTORIES:
             (self.source / directory / "04_requirement").mkdir(parents=True)

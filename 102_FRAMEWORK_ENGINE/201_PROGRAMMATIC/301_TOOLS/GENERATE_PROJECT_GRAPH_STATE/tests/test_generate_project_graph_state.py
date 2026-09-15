@@ -9,6 +9,10 @@ import tempfile
 import unittest
 from unittest import mock
 from pathlib import Path
+
+
+TEST_TEMP_ROOT = Path.cwd() / ".caprmedio_tmp" / "tests" / Path(__file__).stem
+TEST_TEMP_ROOT.mkdir(parents=True, exist_ok=True)
 import tomllib
 
 
@@ -27,7 +31,7 @@ class GenerateProjectGraphStateTests(unittest.TestCase):
         self.assertEqual("", generate_project_graph_state.normalise_timestamp('"invalid"'))
 
     def setUp(self) -> None:
-        self.temporary = tempfile.TemporaryDirectory(dir="/private/tmp", ignore_cleanup_errors=True)
+        self.temporary = tempfile.TemporaryDirectory(dir=TEST_TEMP_ROOT, ignore_cleanup_errors=True)
         self.root = Path(self.temporary.name) / "repository"
         self.control = self.root / ".caprmedio_caprmedio"
         self.control.mkdir(parents=True)
@@ -408,7 +412,7 @@ class GenerateProjectGraphStateTests(unittest.TestCase):
             'canonical_generator = "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/GENERATE_PROJECT_GRAPH_STATE/generate_project_graph_state.py"',
             installed_payload,
         )
-        self.assertIn('executed_generator = ".caprmedio_install/releases/', installed_payload)
+        self.assertIn('executed_generator = ".caprmedio_runtime/tools/releases/', installed_payload)
 
     def test_identical_scope_frontier_serializes_identically(self) -> None:
         self.mkdir("101_LAYER_1_ROOT")

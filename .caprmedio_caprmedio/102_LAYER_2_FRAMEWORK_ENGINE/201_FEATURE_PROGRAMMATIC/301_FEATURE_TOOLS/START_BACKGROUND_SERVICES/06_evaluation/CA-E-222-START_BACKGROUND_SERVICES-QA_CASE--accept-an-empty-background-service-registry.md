@@ -3,8 +3,8 @@ subjects:
   governs:
     continuant:
       - Background Service/Registry
-version: 5
-updated_at: 2026-09-12 04:15:38 +0400
+version: 6
+updated_at: 2026-09-15 03:37:14
 relations:
   evaluation_for:
     - CA-R-857
@@ -23,7 +23,7 @@ Install a release whose valid service registry contains zero services; invoke dr
 
 ## Acceptance criteria
 
-All invocations succeed and report zero planned, started, enabled, and running services. No service runtime directory, PID, log, cache, process, governed carrier, Git state, or installation byte changes.
+All invocations succeed and report zero planned, started, enabled, and running services. No service runtime directory, PID, log, cache, process, governed carrier, Git state, selected Tool release, or temporary-state byte changes.
 
 ## Failure disposition
 

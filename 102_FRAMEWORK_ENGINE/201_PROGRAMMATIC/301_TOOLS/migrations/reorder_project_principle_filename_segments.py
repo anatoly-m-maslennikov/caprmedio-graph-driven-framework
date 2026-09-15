@@ -12,8 +12,13 @@ import datetime as dt
 import json
 import os
 import shutil
-import tempfile
+import sys
 from pathlib import Path
+
+_PROJECT_TOOLS_ROOT = Path(__file__).resolve().parents[1]
+if str(_PROJECT_TOOLS_ROOT) not in sys.path:
+    sys.path.insert(0, str(_PROJECT_TOOLS_ROOT))
+from project_runtime import atomic_tempfile  # noqa: E402
 
 
 CONTROL_ROOT = Path(".caprmedio")
@@ -75,7 +80,7 @@ def active_markdown(root: Path) -> list[Path]:
 
 
 def atomic_write(path: Path, text: str) -> None:
-    descriptor, temporary = tempfile.mkstemp(prefix=f".{path.name}.", dir=path.parent)
+    descriptor, temporary = atomic_tempfile(path, "migrations")
     try:
         with os.fdopen(descriptor, "w", encoding="utf-8", newline="\n") as handle:
             handle.write(text)

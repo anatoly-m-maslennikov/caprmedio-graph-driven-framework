@@ -5,8 +5,8 @@ subjects:
   governs:
     continuant:
       - installed-toolset
-version: 6
-updated_at: 2026-09-12 04:15:38 +0400
+version: 7
+updated_at: 2026-09-15 03:37:14
 relations:
   evaluation_for:
     - CA-M-103
@@ -29,7 +29,9 @@ Operator uses.
 
 Build or install that deliverable and run its public evaluations under every
 declared Python and platform boundary. Inspect imports and runtime access for
-undeclared state outside the installation and runtime places.
+undeclared state outside the selected release under `.caprmedio_runtime/tools`,
+persistent operational state under `.caprmedio_runtime`, and disposable state
+under `.caprmedio_tmp`.
 
 ## Acceptance
 
@@ -40,7 +42,8 @@ unsupported combination explicitly.
 ## Failure and stop
 
 Fail when only the local source tree passes, an installed boundary fails, or
-the release depends on an undeclared source, environment, or runtime place.
+the release depends on an undeclared source, environment, runtime place, or
+temporary place.
 
 ## Sources
 

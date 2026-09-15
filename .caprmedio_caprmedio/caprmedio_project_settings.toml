@@ -125,7 +125,7 @@ control_root = ".caprmedio_caprmedio"
 framework_root = ".caprmedio_framework"
 journal_root = ".caprmedio_caprmedio/work_journal"
 runtime_root = ".caprmedio_runtime"
-install_root = ".caprmedio_install"
+temporary_root = ".caprmedio_tmp"
 legacy_migration_roots = [".caprmedio"]
 
 [project]

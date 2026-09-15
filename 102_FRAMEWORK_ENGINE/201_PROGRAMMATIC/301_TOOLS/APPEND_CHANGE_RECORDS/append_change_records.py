@@ -20,7 +20,6 @@ import json
 import os
 import subprocess
 import sys
-import tempfile
 import time
 import uuid
 from contextlib import contextmanager
@@ -33,19 +32,20 @@ TOOLS_ROOT = SCRIPT_PATH.parents[1]
 CONTEXT_ROOT = TOOLS_ROOT / "COMMIT_CONTEXT"
 for _parent in SCRIPT_PATH.parents:
     if _parent.name == ".caprmedio_runtime":
-        sys.pycache_prefix = str(_parent / "cache" / "python")
+        sys.pycache_prefix = str(_parent.parent / ".caprmedio_tmp" / "cache" / "python")
         break
     if _parent.name == ".caprmedio_install":
-        sys.pycache_prefix = str(_parent.parent / ".caprmedio_runtime" / "cache" / "python")
+        sys.pycache_prefix = str(_parent.parent / ".caprmedio_tmp" / "cache" / "python")
         break
     if _parent.name == ".caprmedio":
-        sys.pycache_prefix = str(_parent.parent / ".caprmedio_runtime" / "cache" / "python")
+        sys.pycache_prefix = str(_parent.parent / ".caprmedio_tmp" / "cache" / "python")
         break
 for _path in (TOOLS_ROOT, CONTEXT_ROOT):
     if str(_path) not in sys.path:
         sys.path.insert(0, str(_path))
 
 from commit_context_logic import project_path_eligible, repository_root  # noqa: E402
+from project_runtime import atomic_tempfile  # noqa: E402
 from work_journal import (  # noqa: E402
     WorkJournalError,
     canonical_json_bytes,
@@ -497,7 +497,7 @@ def _folder_digest(folder: str, entries: list[dict[str, str]]) -> str:
 def _atomic_json(path: Path, value: Mapping[str, Any]) -> None:
     """Persist non-authoritative runtime state durably and replace atomically."""
     path.parent.mkdir(parents=True, exist_ok=True)
-    descriptor, temporary_name = tempfile.mkstemp(prefix=f".{path.name}.", dir=path.parent)
+    descriptor, temporary_name = atomic_tempfile(path, "append_change_records")
     temporary = Path(temporary_name)
     try:
         with os.fdopen(descriptor, "wb") as handle:

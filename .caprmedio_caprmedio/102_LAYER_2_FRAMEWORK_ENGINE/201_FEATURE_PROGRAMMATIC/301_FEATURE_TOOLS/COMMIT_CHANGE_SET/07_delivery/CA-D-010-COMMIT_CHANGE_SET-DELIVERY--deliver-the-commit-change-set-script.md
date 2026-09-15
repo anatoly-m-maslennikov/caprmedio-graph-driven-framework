@@ -4,8 +4,8 @@ subjects:
   governs:
     continuant:
       - provenance
-version: 19
-updated_at: 2026-09-12 04:15:08
+version: 20
+updated_at: 2026-09-15 03:37:12
 relations:
   depends_on:
     - CA-D-417
@@ -16,7 +16,7 @@ relations:
 ---
 # Deliver the commit-change-set script
 
-Realize `COMMIT_CHANGE_SET` through the canonical source script `102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/COMMIT_CHANGE_SET/commit_change_set.py` and its content-identical carrier in the selected `.caprmedio_install` release. It exposes the common Doer CLI in dry-run and authorized-MCP apply modes. It consumes only sealed peer results and MUST NOT import, invoke, schedule, or otherwise orchestrate `COMMIT_TRIGGER`, `COMMIT_CONTEXT`, or `APPEND_CHANGE_RECORDS`.
+Realize `COMMIT_CHANGE_SET` through the canonical source script `102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/COMMIT_CHANGE_SET/commit_change_set.py` and its content-identical carrier in the selected `.caprmedio_runtime/tools` release. It exposes the common Doer CLI in dry-run and authorized-MCP apply modes. It consumes only sealed peer results and MUST NOT import, invoke, schedule, or otherwise orchestrate `COMMIT_TRIGGER`, `COMMIT_CONTEXT`, or `APPEND_CHANGE_RECORDS`.
 
 The script receives a durable outbox action, chooses it only while holding the repository-scoped lease and current fencing token, and revalidates the sealed Initiative, expected Git base, subject frontier, and complete target set immediately before staging, Git mutation, and result recording. An atomic real-change commit stages exactly one action target; a bulk commit stages all and only its frozen targets. Both use the Initiative-based message Projection and stage no Journal carrier. Journal append is a peer operation; a later Journal-only batch is a distinct gate item with only Journal carrier changes and the batch message form.
 

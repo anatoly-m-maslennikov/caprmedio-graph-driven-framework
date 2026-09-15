@@ -18,10 +18,11 @@ import argparse
 import datetime as dt
 import os
 import re
-import tempfile
 import tomllib
 from pathlib import Path
 from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
+
+from project_runtime import atomic_tempfile
 
 
 SETTINGS_PATH = Path(".caprmedio_caprmedio/caprmedio_project_settings.toml")
@@ -175,7 +176,7 @@ def update_projection(frontmatter: str, delimiter: str, timestamp: str) -> str:
 
 
 def atomic_write(path: Path, text: str) -> None:
-    descriptor, temporary_name = tempfile.mkstemp(prefix=f".{path.name}.", dir=path.parent)
+    descriptor, temporary_name = atomic_tempfile(path, "artifact_metadata")
     try:
         with os.fdopen(descriptor, "w", encoding="utf-8", newline="\n") as handle:
             handle.write(text)

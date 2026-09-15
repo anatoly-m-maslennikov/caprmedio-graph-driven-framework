@@ -35,19 +35,19 @@ import os
 import re
 import shutil
 import sys
-import tempfile
 from dataclasses import dataclass
 from pathlib import Path
 
 
 SCRIPT_PATH = Path(__file__).resolve()
 REPOSITORY_ROOT = next(parent for parent in SCRIPT_PATH.parents if (parent / ".git").exists())
-sys.pycache_prefix = str(REPOSITORY_ROOT / ".caprmedio_runtime/cache/python")
+sys.pycache_prefix = str(REPOSITORY_ROOT / ".caprmedio_tmp/cache/python")
 TOOLS_ROOT = SCRIPT_PATH.parents[1]
 if str(TOOLS_ROOT) not in sys.path:
     sys.path.insert(0, str(TOOLS_ROOT))
 
 from artifact_metadata import repository_root  # noqa: E402
+from project_runtime import atomic_tempfile  # noqa: E402
 from work_journal import append_record, event_record  # noqa: E402
 
 
@@ -438,9 +438,7 @@ def build_payloads(
 
 
 def atomic_write(path: Path, text: str) -> None:
-    descriptor, temporary_name = tempfile.mkstemp(
-        prefix=f".{path.name}.", dir=path.parent
-    )
+    descriptor, temporary_name = atomic_tempfile(path, "migrations")
     try:
         with os.fdopen(descriptor, "w", encoding="utf-8", newline="\n") as handle:
             handle.write(text)
