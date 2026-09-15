@@ -6,8 +6,8 @@ subjects:
   governs:
     occurrent:
       - development-flow
-version: 11
-updated_at: "2026-09-11 23:47:49 +0400"
+version: 12
+updated_at: 2026-09-15 05:51:38
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -18,7 +18,7 @@ relations:
 
 A target version remains mutable **until** its configured release event succeeds. The event **may** be, for example, acceptance of a release pull request into the main branch, but **every** project declares its exact boundary.
 
-Release creates one factual Ops Atom called the Release Record, whose primary claim is that the identified version was released with an exact manifest. The manifest binds the normative Atom revisions, realized implementation **and** delivery revisions, applicable evaluation **and** evidence, release identifier, **and** canonical Git commit **or** tag.
+Release creates one factual Operations Atom called the Release Record, whose primary claim is that the identified version was released with an exact manifest. The manifest binds the normative Atom revisions, realized implementation **and** delivery revisions, applicable evaluation **and** evidence, release identifier, **and** canonical Git commit **or** tag.
 
 Requirement authority defines the Release Record's freeze boundary **and** Type values. Delivery authority defines its Carrier encoding.
 
@@ -26,4 +26,4 @@ Planning allocation, implementation completion, pull-request creation, **or** re
 
 ## Primary claim
 
-A version freezes **only** **when** its configured release event creates an immutable, revision-bound Release Record with the Ops Content role **and** exact released manifest.
+A version freezes **only** **when** its configured release event creates an immutable, revision-bound Release Record with the Operations Content role **and** exact released manifest.

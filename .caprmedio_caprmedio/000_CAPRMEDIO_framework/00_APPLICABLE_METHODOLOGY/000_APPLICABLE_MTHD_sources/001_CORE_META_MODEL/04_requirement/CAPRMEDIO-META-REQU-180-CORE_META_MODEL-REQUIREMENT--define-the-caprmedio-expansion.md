@@ -9,8 +9,8 @@ subjects:
   depends_on:
     continuant:
       - semantics
-version: 9
-updated_at: "2026-09-11 15:04:40 +0400"
+version: 10
+updated_at: 2026-09-15 05:51:38
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -20,4 +20,4 @@ relations:
 ---
 # Define the CAPRMEDIO expansion
 
-CAPRMEDIO expands to Concern, Analysis, Plan, Requirement, Method, Evaluation, Delivery, Implementation, **and** Ops **in** that canonical order.
+CAPRMEDIO expands to Concern, Analysis, Plan, Requirement, Method, Evaluation, Delivery, Implementation, **and** Operations **in** that canonical order.

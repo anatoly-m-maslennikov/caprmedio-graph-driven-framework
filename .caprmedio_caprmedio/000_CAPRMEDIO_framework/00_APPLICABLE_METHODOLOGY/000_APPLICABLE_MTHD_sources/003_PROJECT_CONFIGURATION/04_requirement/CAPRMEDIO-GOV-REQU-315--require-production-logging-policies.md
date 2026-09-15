@@ -9,8 +9,8 @@ subjects:
     continuant:
       - "Evaluation Control"
       - "Production Evaluation Checklist"
-version: 10
-updated_at: "2026-09-11 23:47:49 +0400"
+version: 11
+updated_at: 2026-09-15 05:51:38
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -54,4 +54,4 @@ Important health counters, thresholds, **and** service-level signals receive exp
 
 ## Rationale
 
-Logs are production Ops records, but their required coverage, structure, severity, safety, **and** retention **must** be governed **before** failures occur. a component-specific policy provides that evaluation boundary while leaving the logger implementation **and** emitted records **in** their proper artifact roles.
+Logs are production Operations records, but their required coverage, structure, severity, safety, **and** retention **must** be governed **before** failures occur. a component-specific policy provides that evaluation boundary while leaving the logger implementation **and** emitted records **in** their proper artifact roles.

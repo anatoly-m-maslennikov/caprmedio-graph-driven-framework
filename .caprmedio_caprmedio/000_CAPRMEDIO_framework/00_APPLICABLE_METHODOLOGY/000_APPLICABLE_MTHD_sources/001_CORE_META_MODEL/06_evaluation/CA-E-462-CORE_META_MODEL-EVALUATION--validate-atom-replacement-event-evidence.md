@@ -9,9 +9,9 @@ subjects:
     - "Atom/Identifier"
     - "Atom/Revision"
     - "Carrier"
-    - "Atom/Content Role: Ops"
-version: 2
-updated_at: "2026-09-14 06:21:07 +0400"
+    - "Atom/Content Role: Operations"
+version: 3
+updated_at: 2026-09-15 05:51:38
 relations:
   evaluation_for:
     - CA-R-807

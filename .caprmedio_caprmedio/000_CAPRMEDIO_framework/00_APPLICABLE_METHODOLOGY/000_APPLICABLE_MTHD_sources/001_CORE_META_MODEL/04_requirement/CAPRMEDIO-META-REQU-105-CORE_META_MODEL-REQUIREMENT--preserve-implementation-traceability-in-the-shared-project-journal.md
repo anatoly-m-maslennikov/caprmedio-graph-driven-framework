@@ -14,8 +14,8 @@ subjects:
       - Implementation
       - Projection
       - Verification
-version: 9
-updated_at: "2026-09-14 06:21:07 +0400"
+version: 10
+updated_at: 2026-09-15 05:51:38
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -28,7 +28,7 @@ relations:
 
 **every** structural Scope Unit that realizes RMED Atoms **must** record its Implementation Bindings **in** the shared Project Work Journal. its admitted Records establish, replace, correct, **or** remove Implementation Bindings **and** bind exact Requirement, Method, Evaluation, **and** Delivery Atom Revisions **to** the native implementation targets that declare their realization.
 
-the Journal is canonical for the declared implementation relationship. Native source, configuration, executable evaluation mechanisms, packages, **and** delivery automation remain canonical for the operative realization itself. Ops evidence **and** Verification remain the authorities for what occurred **and** whether the realization is sufficiently assured. Recording an implementation relationship never proves correctness **or** successful operation.
+the Journal is canonical for the declared implementation relationship. Native source, configuration, executable evaluation mechanisms, packages, **and** delivery automation remain canonical for the operative realization itself. Operations evidence **and** Verification remain the authorities for what occurred **and** whether the realization is sufficiently assured. Recording an implementation relationship never proves correctness **or** successful operation.
 
 an Implementation Binding **must** survive transformations **or** migration of secondary storage history. the binding therefore identifies **every** source Atom by stable artifact identity plus revision digest **and** **every** native implementation target by a stable locator plus content digest. secondary storage records, review records, Authors, sessions, **and** signatures remain useful provenance but are **not** the sole semantic identity of the binding.
 

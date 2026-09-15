@@ -3,11 +3,11 @@ atom_id: CA-D-433
 cce_version: cce_1
 cce_form: serialization
 subjects:
-  governs: "Atom/Content Role: Ops/Type"
+  governs: "Atom/Content Role: Operations/Type"
   depends_on:
     - "Carrier"
-version: 1
-updated_at: "2026-09-14 01:36:43 +0400"
+version: 2
+updated_at: 2026-09-15 05:51:38
 relations: {}
 ---
 # Serialize Action and Process Atom Type tokens

@@ -3,14 +3,11 @@ atom_id: CA-R-680
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  governs:
-    continuant:
-      - Atom/Local Tier
+  governs: Atom/Local Tier
   depends_on:
-    continuant:
-      - Project
-version: 13
-updated_at: "2026-09-10 02:19:47 +0400"
+    - Project
+version: 14
+updated_at: "2026-09-15 06:32:56 +0400"
 relations:
   child_of:
     - CA-R-917
@@ -20,4 +17,4 @@ relations:
 ---
 # Order Project Local Tiers
 
-a Project Scope Unit **must** order its Atom Local Tiers as Principle above Core above General above Standard.
+a Project Scope Unit **must** admit **only** the Atom Local Tiers Principle, Core, **and** Standard, ordered as Principle above Core above Standard.

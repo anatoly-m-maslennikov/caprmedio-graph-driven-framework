@@ -6,8 +6,8 @@ subjects:
   governs:
     occurrent:
       - interaction
-version: 13
-updated_at: "2026-09-10 04:26:29 +0400"
+version: 14
+updated_at: 2026-09-15 05:51:38
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -23,7 +23,7 @@ development is the default flow:
 active atomic authority
 → QA Cases
 → Implementation, including executable Tests and Evaluations
-→ factual Ops records
+→ factual Operations records
 → development Verification
 ```
 
@@ -40,7 +40,7 @@ all active atomic authority
 → repeat to a fixed point
 → reconcile implementation and evaluation
 → execute Tests and Evaluations at the exact candidate head
-→ fresh Ops records and Verification
+→ fresh Operations records and Verification
 → accepted readiness Verification Record
 ```
 

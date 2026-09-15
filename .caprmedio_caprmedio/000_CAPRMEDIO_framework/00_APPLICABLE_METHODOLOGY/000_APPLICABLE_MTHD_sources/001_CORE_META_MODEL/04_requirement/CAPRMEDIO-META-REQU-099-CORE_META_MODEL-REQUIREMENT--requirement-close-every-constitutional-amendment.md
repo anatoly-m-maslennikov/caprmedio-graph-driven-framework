@@ -6,8 +6,8 @@ subjects:
   governs:
     continuant:
       - authority
-version: 12
-updated_at: "2026-09-14 06:21:07 +0400"
+version: 13
+updated_at: 2026-09-15 05:51:38
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -21,7 +21,7 @@ relations:
 
 1. explore **without** changing governed truth;
 2. obtain explicit operator acceptance for one primary claim;
-3. map affected authority, layers, handoffs, Projections, Methods, Evaluation, Delivery, Implementations, **and** Ops;
+3. map affected authority, layers, handoffs, Projections, Methods, Evaluation, Delivery, Implementations, **and** Operations;
 4. verify CORE_META_MODEL eligibility **and** acyclic layer placement;
 5. persist the accepted Atom **or** Atom Revision;
 6. archive **only** predecessors that are fully replaced;

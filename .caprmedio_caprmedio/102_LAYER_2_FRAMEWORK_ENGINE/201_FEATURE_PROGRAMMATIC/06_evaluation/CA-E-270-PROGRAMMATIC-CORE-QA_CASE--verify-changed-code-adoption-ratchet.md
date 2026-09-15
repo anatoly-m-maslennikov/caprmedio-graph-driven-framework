@@ -9,8 +9,8 @@ subjects:
   depends_on:
     continuant:
       - programmatic software
-version: 4
-updated_at: 2026-09-01 02:00:00 +0400
+version: 5
+updated_at: 2026-09-15 05:51:38
 relations:
   evaluation_for:
     - CA-M-164
@@ -38,7 +38,7 @@ Evaluate one changed target against its current admitted passing boundary.
 
 Pass only when the target meets the current Method-owned boundary or has one
 accepted Method-owned bounded exception. Configuration and Implementation must
-materialize that selection, Delivery must govern its carrier, and Ops evidence
+materialize that selection, Delivery must govern its carrier, and Operations evidence
 must report the actual result without becoming another authority.
 
 ## Failure disposition

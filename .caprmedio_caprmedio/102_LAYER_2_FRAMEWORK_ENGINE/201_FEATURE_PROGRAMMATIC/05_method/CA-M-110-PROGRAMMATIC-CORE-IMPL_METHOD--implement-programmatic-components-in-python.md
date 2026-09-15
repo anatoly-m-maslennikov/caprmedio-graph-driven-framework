@@ -9,8 +9,8 @@ subjects:
   depends_on:
     continuant:
       - "programmatic software"
-version: 10
-updated_at: "2026-09-05 03:48:00 +0400"
+version: 11
+updated_at: 2026-09-15 05:51:38
 relations:
   derived_from:
     - "CA-A-053"
@@ -25,7 +25,7 @@ Use Python for applicable PROGRAMMATIC Tools, App backend services, and MCP
 components. This Method owns the Python technology selection for that bounded
 scope. Configuration and Implementation materialize the selected runtime,
 dependencies, and exceptions; Delivery governs their carrier placement and
-encoding; Ops governs workflow execution and operational evidence. This Method
+encoding; Operations governs workflow execution and operational evidence. This Method
 does not govern Skills or make Python a discipline-independent CAPRMEDIO
 meaning.
 
@@ -46,18 +46,18 @@ exception is proposed.
 4. Materialize each accepted selection in canonical configuration and
    Implementation without making either carrier a second authority.
 5. Place and encode each materialization through its Delivery, and preserve
-   actual execution results as Ops evidence.
+   actual execution results as Operations evidence.
 
 ## Outcome
 
 Every applicable component follows one Method-owned technology selection.
 Configuration and Implementation reproduce it, Delivery locates its carriers,
-and Ops records its execution without taking over selection authority.
+and Operations records its execution without taking over selection authority.
 
 ## Failure or stop
 
 Stop admission or release when no accepted Method owns a required selection,
-its materialization disagrees with that Method, or the Delivery or Ops boundary
+its materialization disagrees with that Method, or the Delivery or Operations boundary
 is absent. Do not infer a platform-support claim from local execution.
 
 ## Sources

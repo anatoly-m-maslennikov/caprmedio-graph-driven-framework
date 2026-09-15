@@ -9,12 +9,12 @@ subjects:
     - "Atom/Content Role: Requirement"
     - "Atom/Content Role: Method"
     - "Atom/Content Role: Delivery"
-    - "Atom/Content Role: Ops"
+    - "Atom/Content Role: Operations"
     - "Atom/Local Tier"
-version: 9
-updated_at: "2026-09-14 00:26:45 +0400"
+version: 10
+updated_at: 2026-09-15 05:51:38
 relations: {}
 ---
 # Register Evaluation targets
 
-`evaluation_for` **means** a direct relation owned by an Evaluation Atom **and** directed **to** an Atom whose Content Role is **in** (Requirement, Method, Evaluation, Delivery, Ops) **and** whose authority the Evaluation checks; a Standard Evaluation Atom **must** own **`>=1`** such target relations, while a Core **or** General Evaluation **may** state a representation-independent evaluation policy **without** an artificial list of individual targets. **every** supplied target relation **must** retain the same checked-authority qualification regardless of the Evaluation's Local Tier.
+`evaluation_for` **means** a direct relation owned by an Evaluation Atom **and** directed **to** an Atom whose Content Role is **in** (Requirement, Method, Evaluation, Delivery, Operations) **and** whose authority the Evaluation checks; a Standard Evaluation Atom **must** own **`>=1`** such target relations, while a Core **or** General Evaluation **may** state a representation-independent evaluation policy **without** an artificial list of individual targets. **every** supplied target relation **must** retain the same checked-authority qualification regardless of the Evaluation's Local Tier.

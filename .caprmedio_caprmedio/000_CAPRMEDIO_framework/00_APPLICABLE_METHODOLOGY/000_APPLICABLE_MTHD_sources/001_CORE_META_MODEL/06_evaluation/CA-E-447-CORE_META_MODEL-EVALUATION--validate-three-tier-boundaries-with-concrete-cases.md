@@ -3,23 +3,20 @@ atom_id: CA-E-447
 cce_version: cce_1
 cce_form: evaluation
 subjects:
-  governs:
-    occurrent:
-      - "Atom Tier Validation/concrete cases"
+  governs: "Atom Tier Validation/concrete cases"
   depends_on:
-    continuant:
-      - "Atom/Local Tier"
-      - "Atom/Global Tier"
-      - "Scope Unit"
-      - "Atom/Claim/Structural Entity"
-      - "Subtree-targeting Atoms"
-      - "Atom/Content Role"
-      - "Atom/Status"
-      - "Evaluation For Relation"
-      - "Methodology Source/Expansion Boundary"
-      - "Framework Instance Settings"
-version: 5
-updated_at: "2026-09-14 00:26:45 +0400"
+    - "Atom/Local Tier"
+    - "Atom/Global Tier"
+    - "Scope Unit"
+    - "Atom/Claim/Structural Entity"
+    - "Subtree-targeting Atoms"
+    - "Atom/Content Role"
+    - "Atom/Status"
+    - "Evaluation For Relation"
+    - "Methodology Source/Expansion Boundary"
+    - "Framework Instance Settings"
+version: 7
+updated_at: "2026-09-15 06:32:56 +0400"
 relations:
   evaluation_for:
     - CA-R-1402
@@ -61,16 +58,16 @@ construct the following fixtures against their exact current source Revisions **
 
 1. classify the complete Claims of CA-R-1402, CA-R-1430, CA-M-235, CA-M-265, CA-E-456, CA-E-446, CA-D-280, **and** CA-D-368. use the exact prefix-versus-suffix cardinality specimen from CA-M-235, a renamed confidence field **and** a string percentage for CA-D-368, **and** the two-Project scenario of CA-E-446. keep the original semantic inputs **and** change **only** the selected concrete choice for **every** representation counterexample.
 2. encode the same default **and** target override selections under `authority_modes` **and** under a counterfactual `instance_modes` decoder. **then** remove the default **and** require explicit values for **every** target while retaining one Operator-owned Settings Artifact for one Framework Instance **and** one Project. the counterfactuals are test specimens **and** do **not** authorize source replacement.
-3. derive CA-M-265's groups from **all** twelve CA-E-446 targets using ordinary traversal, reversed traversal, **and** a target set; compare those results with a first-target-only implementation. include an unresolved target, an invalid Concern target, qualifying Evaluation **and** Ops targets whose authority the Evaluation checks, a targetless General policy, **and** a targetless Standard case.
-4. place Principle, Core, General, **and** Standard at the Project, Core, General, **and** Standard at a direct child **and** grandchild, an external Project Goal, **and** parent-owned Goals for those two descendants. **then** use historical two-tier ranks, a non-Project Principle, a wrong Goal owner, missing parentage, **and** a structural cycle; leave one ordinary tier unoccupied **and** keep two siblings distinct.
-5. construct one Active locally owned Current-scope Atom for **every** RMED Content Role, a local Active Plan Atom, a Draft Revision, an Archived Revision, an incoming Active Goal targeting the selected Scope Unit, an outgoing relational Claim targeting a Scope Unit outside the selected subtree, an inherited Claim targeting an ancestor, **and** one Active Requirement owned by **and** targeting a descendant Scope Unit. independently reassign the four local RMED tiers while retaining their complete Claims **and** structural targets. repeat with a complete empty frontier, an incomplete frontier, contradictory ownership, unresolved ancestry, **and** an unresolved required Claim Structural Entity.
+3. derive CA-M-265's groups from **all** twelve CA-E-446 targets using ordinary traversal, reversed traversal, **and** a target set; compare those results with a first-target-only implementation. include an unresolved target, an invalid Concern target, qualifying Evaluation **and** Operations targets whose authority the Evaluation checks, a targetless General policy, **and** a targetless Standard case.
+4. place Principle, Core, **and** Standard at the Project, Core, General, **and** Standard at a direct child **and** grandchild, an external Project Goal, **and** parent-owned Goals for those two descendants. **then** use a Project General Atom, a Project Standard Atom assigned Global Tier **`3`**, stale descendant ranks derived from that invalid Project rank, a non-Project Principle, a wrong Goal owner, missing parentage, **and** a structural cycle; leave one ordinary tier unoccupied **and** keep two siblings distinct.
+5. construct one Active locally owned Current-scope Atom for **every** RMED Content Role, a local Active Plan Atom, a Draft Revision, an Archived Revision, an incoming Active Goal targeting the selected Scope Unit, an outgoing relational Claim targeting a Scope Unit outside the selected subtree, an inherited Claim targeting an ancestor, **and** one Active Requirement owned by **and** targeting a descendant Scope Unit. independently reassign the four local RMED Atoms among their current Scope Unit's admitted Local Tiers while retaining their complete Claims **and** structural targets. repeat with a complete empty frontier, an incomplete frontier, contradictory ownership, unresolved ancestry, **and** an unresolved required Claim Structural Entity.
 6. attempt Project Configuration replacement of one CORE_META_MODEL Claim at **every** ordinary tier, including replacement by a numerically higher-ranked local Claim; compare with an addition at one explicitly active source-authorized variation point.
 7. serialize ordinary Core, General, **and** Standard Atoms with `CORE`, `GENERAL`, **and** omission, **then** use `STD`, `STANDARD`, `DETAIL`, **and** combined tier segments. retain `CORE_META_MODEL` as the owner name, use the external Project Goal grammar, **and** keep concrete Goal, Objective, **and** Task identity, target, **and** sequence grammar intact.
 8. classify the Principle, Core, General, **and** Standard definition Atoms from their complete Claims; **then** add Requirement tier-parent edges based on their defined values **or** between same-tier Requirement peers. use an independently replaceable settings definition **and** unrelated concrete serialization obligation merged into one candidate, **and** a candidate classified from an old filename **only**.
 
 ## Acceptance criteria
 
-the first classification fixture yields Core, General, Standard, General, General, Standard, Standard, **and** Standard respectively. a concrete encoding change preserves its higher semantic contract while failing the unchanged concrete authority; the explicit-only mode policy preserves settings identity **and** ownership while failing CA-R-1430. complete target grouping yields Er **and** Ed for CA-E-446, accepts qualifying Evaluation **and** Ops targets under CA-R-1018 **without** inventing Er/Em/Ed membership for them, rejects unresolved **or** invalid targets including Concern, permits a legitimate targetless Core **or** General policy **without** invented groups, **and** rejects a targetless Standard case. structural fixtures follow the governing mappings **without** tier compression **or** sibling ownership merging. the Active RMED Subtree-targeting Atoms selected by the alias `spec` remain exactly the four local RMED Atoms, the incoming Goal, **and** the descendant Requirement through **every** tier-only reassignment; the outgoing Claim, ancestor-targeting inherited Claim, Plan Atom, Draft Revision, **and** Archived Revision are excluded. empty input is accepted **only** **when** complete, **and** failed binding remains identified **and** unresolved. source replacement fails at **every** tier, **and** a permitted addition respects its exact variation point. **only** canonical filename cases pass; all four constitutive tier definitions classify Core **without** fabricated parentage. mixed independent Claims **and** evidence-free classifications fail for explicit admission review.
+the first classification fixture yields Core, General, Standard, General, General, Standard, Standard, **and** Standard respectively. a concrete encoding change preserves its higher semantic contract while failing the unchanged concrete authority; the explicit-only mode policy preserves settings identity **and** ownership while failing CA-R-1430. complete target grouping yields Er **and** Ed for CA-E-446, accepts qualifying Evaluation **and** Operations targets under CA-R-1018 **without** inventing Er/Em/Ed membership for them, rejects unresolved **or** invalid targets including Concern, permits a legitimate targetless Core **or** General policy **without** invented groups, **and** rejects a targetless Standard case. structural fixtures yield Project Global Tiers **`0`**, **`1`**, **and** **`2`** for Principle, Core, **and** Standard; a direct child's Core, General, **and** Standard yield **`3`**, **`4`**, **and** **`5`**; a grandchild's yield **`6`**, **`7`**, **and** **`8`**. the external Project Goal remains at **`-1`**; a Goal for the direct child uses the Project's Standard rank **`2`**, **and** a Goal for the grandchild uses its parent's Standard rank **`5`**. a Project General Atom **and** stale Project **or** descendant ranks fail. an unoccupied tier does **not** compress these mappings, **and** siblings do **not** merge ownership. the Active RMED Subtree-targeting Atoms selected by the alias `spec` remain exactly the four local RMED Atoms, the incoming Goal, **and** the descendant Requirement through **every** tier-only reassignment; the outgoing Claim, ancestor-targeting inherited Claim, Plan Atom, Draft Revision, **and** Archived Revision are excluded. empty input is accepted **only** **when** complete, **and** failed binding remains identified **and** unresolved. source replacement fails at **every** tier, **and** a permitted addition respects its exact variation point. **only** canonical filename cases pass; all four constitutive tier definitions classify Core **without** fabricated parentage. mixed independent Claims **and** evidence-free classifications fail for explicit admission review.
 
 ## Failure disposition
 

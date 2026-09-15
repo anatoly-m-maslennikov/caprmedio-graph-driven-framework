@@ -8,13 +8,13 @@ subjects:
 project_graph_state:
   artifacts:
     enabled_types:
-      - ops:release_record
-      - ops:deployment_record
-      - ops:environment_state
-      - ops:health_record
-      - ops:incident_record
-version: 14
-updated_at: "2026-09-11 23:47:49 +0400"
+      - operations:release_record
+      - operations:deployment_record
+      - operations:environment_state
+      - operations:health_record
+      - operations:incident_record
+version: 15
+updated_at: 2026-09-15 05:51:38
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:

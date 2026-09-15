@@ -9,8 +9,8 @@ subjects:
   depends_on:
     continuant:
       - "programmatic software"
-version: 4
-updated_at: "2026-09-05 03:48:00 +0400"
+version: 5
+updated_at: 2026-09-15 05:51:38
 relations:
   derived_from:
     - "CA-A-053"
@@ -40,7 +40,7 @@ behavioral-check capability.
 4. Prevent changed or new targets from regressing below the current admitted
    boundary.
 5. Expand or replace a selected capability only through a Method change;
-   materialize that change separately and preserve actual runs as Ops evidence.
+   materialize that change separately and preserve actual runs as Operations evidence.
 
 ## Outcome
 
@@ -51,7 +51,7 @@ turning an unselected tool, version, or strictness level into shared authority.
 
 Stop a claimed ratchet when no accepted Method owns the selection, no passing
 baseline or bounded materialization exists, or the configuration,
-Implementation, Delivery, and Ops evidence disagree with that selection.
+Implementation, Delivery, and Operations evidence disagree with that selection.
 
 ## Sources
 

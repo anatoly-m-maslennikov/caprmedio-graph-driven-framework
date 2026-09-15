@@ -12,8 +12,8 @@ subjects:
       - "Atom/Content Role: Requirement/Type: Goal"
       - "Atom/Content Role: Requirement/Type: Demand"
       - "Atom/Content Role: Plan/Type: Objective"
-version: 5
-updated_at: "2026-09-10 07:15:17 +0400"
+version: 6
+updated_at: 2026-09-15 05:51:38
 relations:
   evaluation_for:
     - CA-R-923
@@ -28,7 +28,7 @@ relations:
 
 ## Test case
 
-create one relational Requirement/Goal Atom, one relational Requirement/Demand Atom, **and** one relational Plan/Objective Atom. **then** create relational Atoms with Requirement/Task, Plan/Task, Method, Evaluation, Delivery, Implementation, **and** Ops qualified Types **without** an additional Applicable Methodology contribution.
+create one relational Requirement/Goal Atom, one relational Requirement/Demand Atom, **and** one relational Plan/Objective Atom. **then** create relational Atoms with Requirement/Task, Plan/Task, Method, Evaluation, Delivery, Implementation, **and** Operations qualified Types **without** an additional Applicable Methodology contribution.
 
 ## Acceptance criteria
 

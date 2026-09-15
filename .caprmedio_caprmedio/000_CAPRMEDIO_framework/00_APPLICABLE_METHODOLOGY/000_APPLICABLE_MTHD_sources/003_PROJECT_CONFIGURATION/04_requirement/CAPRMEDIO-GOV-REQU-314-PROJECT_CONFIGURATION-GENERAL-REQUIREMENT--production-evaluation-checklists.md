@@ -6,8 +6,8 @@ subjects:
   governs:
     occurrent:
       - evaluation
-version: 14
-updated_at: "2026-09-11 23:47:49 +0400"
+version: 15
+updated_at: 2026-09-15 05:51:38
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -32,7 +32,7 @@ relations:
 - the accountable owner **and** escalation destination;
 - the alert, incident, investigation, degradation, rollback, **or** recovery action triggered by failure;
 - the diagnostic context required to investigate the condition;
-- the required Ops record **and** evidence-retention boundary; **and**
+- the required Operations record **and** evidence-retention boundary; **and**
 - known blind spots, sampling limits, unavailable signals, **and** other evaluation limitations.
 
 A Production Evaluation Checklist is an Evaluation-role Catalog Projection over the applicable `evaluation_control` Atoms. It organizes **and** navigates those controls **without** absorbing, paraphrasing, **or** replacing their claims.
@@ -41,7 +41,7 @@ A Production Evaluation Checklist is an Evaluation-role Catalog Projection over 
 
 - the Evaluation Control defines the production evaluation condition;
 - monitors, dashboards, alerts, health checks, **and** operational automation are Implementation;
-- metrics, logs, traces, alerts, incidents, **and** recorded check outcomes are Ops; **and**
+- metrics, logs, traces, alerts, incidents, **and** recorded check outcomes are Operations; **and**
 - a Concern Atom of Type `problem` records a material discrepancy requiring disposition.
 
 A Production Evaluation Checklist governs real production operation. It is **not** a QA Case, **and** passing pre-release Test **or** Evaluation implementations does **not** by itself satisfy the production-evaluation obligation.

@@ -11,12 +11,12 @@ subjects:
       - Tool/COMPILE_APPLICABLE_METHODOLOGY
       - Applicable Methodology/Sources
       - Applicable Methodology/Compilation Output
-version: 1
-updated_at: 2026-08-27 21:37:28 +0400
+version: 2
+updated_at: 2026-09-15 05:51:38
 relations:
   method_for:
     - CA-R-1240
 ---
 # Compile Projected RMEDO Carriers Transactionally
 
-to compile Applicable Methodology, `COMPILE_APPLICABLE_METHODOLOGY` **must** implement CA-M-224 mechanically, stage the complete projected RMEDO Carrier set under `.caprmedio_runtime`, preserve and revalidate every selected Source Carrier digest, and replace only files in `04_requirement`, `05_method`, `06_evaluation`, `07_delivery`, and `09_ops` through atomic file replacement with complete transaction rollback on failure.
+to compile Applicable Methodology, `COMPILE_APPLICABLE_METHODOLOGY` **must** implement CA-M-224 mechanically, stage the complete projected RMEDO Carrier set under `.caprmedio_runtime`, preserve and revalidate every selected Source Carrier digest, and replace only files in `04_requirement`, `05_method`, `06_evaluation`, `07_delivery`, and `09_operations` through atomic file replacement with complete transaction rollback on failure.

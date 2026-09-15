@@ -10,8 +10,8 @@ subjects:
     continuant:
       - "programmatic software"
       - "Logging Policy"
-version: 4
-updated_at: "2026-09-05 03:48:00 +0400"
+version: 5
+updated_at: 2026-09-15 05:51:38
 relations:
   derived_from:
     - "CA-A-053"
@@ -42,7 +42,7 @@ operation, degraded operation, failure, recovery, or diagnostic detail.
    diagnosable need.
 4. Materialize sink and runtime settings in configuration or Implementation,
    govern carrier placement and encoding through Delivery, and preserve actual
-   execution and diagnostic evidence through Ops.
+   execution and diagnostic evidence through Operations.
 5. Declare retention, loss, and back-pressure behavior at those bounded
    materialization and operational boundaries.
 6. Make logging failure observable without silently breaking primary work.

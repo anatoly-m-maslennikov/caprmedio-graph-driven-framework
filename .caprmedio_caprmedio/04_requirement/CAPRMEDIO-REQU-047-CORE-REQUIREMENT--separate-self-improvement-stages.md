@@ -1,6 +1,6 @@
 ---
-version: 11
-updated_at: 2026-09-06 01:45:12 +0400
+version: 12
+updated_at: 2026-09-15 05:51:38
 llm_session_ids:
   - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
 relations:
@@ -12,7 +12,7 @@ subjects:
       - "Project/improvement cycle"
   depends_on:
     continuant:
-      - "Atom/Content Role: Ops"
+      - "Atom/Content Role: Operations"
       - "Atom/Content Role: Analysis"
       - "Atom/Content Role: Plan"
       - "Atom/Content Role: Implementation"
@@ -28,4 +28,4 @@ atom_id: CAPRMEDIO-REQU-047
 ---
 # Separate self-improvement stages
 
-a CAPRMEDIO self-improvement cycle **must** keep **every** participating Ops observation, Analysis, action-point Plan, PRMEDO authority change, Implementation, Delivery, **and** follow-up evaluation distinct **and** traceably related.
+a CAPRMEDIO self-improvement cycle **must** keep **every** participating Operations observation, Analysis, action-point Plan, PRMEDO authority change, Implementation, Delivery, **and** follow-up evaluation distinct **and** traceably related.

@@ -6,10 +6,10 @@ subjects:
   governs:
     continuant:
       - Atom/Content Role
-version: 4
-updated_at: 2026-09-06 01:45:12 +0400
+version: 5
+updated_at: 2026-09-15 05:51:38
 relations: {}
 ---
 # Register Content Role Values
 
-the allowed Content Role values **must** be exactly (Concern, Analysis, Plan, Requirement, Method, Evaluation, Delivery, Implementation, Ops).
+the allowed Content Role values **must** be exactly (Concern, Analysis, Plan, Requirement, Method, Evaluation, Delivery, Implementation, Operations).

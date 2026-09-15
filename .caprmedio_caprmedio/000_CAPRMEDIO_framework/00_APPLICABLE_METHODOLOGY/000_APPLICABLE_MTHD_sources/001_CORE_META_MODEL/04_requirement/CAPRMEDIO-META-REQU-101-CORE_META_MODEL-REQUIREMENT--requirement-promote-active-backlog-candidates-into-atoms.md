@@ -6,8 +6,8 @@ subjects:
   governs:
     occurrent:
       - development-flow
-version: 9
-updated_at: 2026-09-06 01:45:12 +0400
+version: 10
+updated_at: 2026-09-15 05:51:38
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -17,9 +17,9 @@ relations:
 ---
 # Requirement — Promote active backlog candidates into Atoms
 
-Assigning a Development Backlog candidate to a current **or** future version does **not** establish governed truth. The candidate becomes active work **only** **when** the operator selects it **and** CAPRMEDIO creates one bounded Task Atom for its action. Execution **then** materializes the minimum Requirement, Method, Evaluation, Delivery, **or** future Ops Atoms needed to govern that work.
+Assigning a Development Backlog candidate to a current **or** future version does **not** establish governed truth. The candidate becomes active work **only** **when** the operator selects it **and** CAPRMEDIO creates one bounded Task Atom for its action. Execution **then** materializes the minimum Requirement, Method, Evaluation, Delivery, **or** future Operations Atoms needed to govern that work.
 
-One backlog line **may** produce multiple Atoms. Multiple closely related backlog lines **may** produce one Concern **or** RMED Atom **only** **when** they resolve to one independently replaceable claim. Analysis, Task, Implementation, **and** Ops use their separately governed atomicity models.
+One backlog line **may** produce multiple Atoms. Multiple closely related backlog lines **may** produce one Concern **or** RMED Atom **only** **when** they resolve to one independently replaceable claim. Analysis, Task, Implementation, **and** Operations use their separately governed atomicity models.
 
 The backlog entry **may** link the resulting Atoms for navigation but remains a non-authoritative planning candidate **until** release finalization removes **or** reschedules it.
 

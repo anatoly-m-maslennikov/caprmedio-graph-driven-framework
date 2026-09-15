@@ -1,6 +1,6 @@
 ---
-version: 11
-updated_at: "2026-09-09 23:04:14 +0400"
+version: 12
+updated_at: 2026-09-15 05:51:38
 llm_session_ids:
   - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
 relations:
@@ -22,7 +22,7 @@ subjects:
       - "Atom/Content Role: Evaluation"
       - "Atom/Content Role: Delivery"
       - "Atom/Content Role: Plan"
-      - "Atom/Content Role: Ops"
+      - "Atom/Content Role: Operations"
 cce_version: cce_1
 cce_form: obligation
 atom_id: CAPRMEDIO-REQU-029

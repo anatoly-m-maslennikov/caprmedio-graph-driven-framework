@@ -6,8 +6,8 @@ subjects:
   governs:
     occurrent:
       - evaluation
-version: 10
-updated_at: "2026-09-14 06:21:07 +0400"
+version: 11
+updated_at: 2026-09-15 05:51:38
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations: {}
@@ -18,7 +18,7 @@ Provenance establishes the origin, carrier identity, revision, sequence, **and**
 
 complete governed provenance remains owned under CAPRMEDIO-META-REQU-158. a storage-history record, Author identity, session identifier, signature, hash, **or** intact Carrier proves **only** the bounded historical fact it records. **none** of those facts becomes evidence for the carrier's semantic claim **without** a separate, explicit claim-bound Evidence relation.
 
-Evidence used for reliance **must** identify the claim it supports, the relevant carrier **or** Ops record, the producing **or** interpreting work **or** Method **when** material, **and** the applicable scope **and** time boundary. Verification remains a separate Evaluation conclusion. A claim, its carrier, **and** the work that created it **must not** silently evidence themselves.
+Evidence used for reliance **must** identify the claim it supports, the relevant carrier **or** Operations record, the producing **or** interpreting work **or** Method **when** material, **and** the applicable scope **and** time boundary. Verification remains a separate Evaluation conclusion. A claim, its carrier, **and** the work that created it **must not** silently evidence themselves.
 
 ## Primary claim
 

@@ -9,8 +9,8 @@ subjects:
   depends_on:
     continuant:
       - "programmatic software"
-version: 6
-updated_at: "2026-09-15 03:15:32 +0400"
+version: 7
+updated_at: 2026-09-15 05:51:38
 relations:
   derived_from:
     - "CA-A-053"
@@ -21,7 +21,7 @@ relations:
 
 Use uv as the default frontend for every admitted Python workflow capability
 that uv provides. This Method owns that tool selection; configuration and
-Implementation materialize it, Delivery governs its carriers, and Ops records
+Implementation materialize it, Delivery governs its carriers, and Operations records
 actual workflow execution and evidence.
 
 ## Applicable when

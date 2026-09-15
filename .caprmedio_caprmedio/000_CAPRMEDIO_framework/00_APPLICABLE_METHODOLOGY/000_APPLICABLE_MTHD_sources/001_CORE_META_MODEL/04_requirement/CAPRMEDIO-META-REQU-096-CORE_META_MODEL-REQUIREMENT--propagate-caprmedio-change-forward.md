@@ -6,8 +6,8 @@ subjects:
   governs:
     continuant:
       - scope-topology
-version: 11
-updated_at: "2026-09-10 06:29:38 +0400"
+version: 12
+updated_at: 2026-09-15 05:51:38
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
@@ -18,9 +18,9 @@ relations:
 
 An accepted upstream change propagates **only** forward through the ordered layer graph. It:
 
-1. identifies affected downstream Projections, Methods, Evaluation criteria, Delivery rules, Implementations, **and** Ops consumers;
+1. identifies affected downstream Projections, Methods, Evaluation criteria, Delivery rules, Implementations, **and** Operations consumers;
 2. marks **every** affected downstream artifact potentially stale **without** mutating historical atoms;
 3. routes required reconciliation to the artifact's owning layer; **and**
 4. closes **only** **when** **every** affected currentness **or** evaluation gate reaches its required disposition.
 
-Refreshing a Projection alone does **not** complete propagation. Downstream Method, Evaluation, Delivery, Implementation, **and** Ops remain independently accountable. Feedback from a later layer **may** create a new upstream Concern, but cannot rewrite upstream authority **or** introduce a backward dependency.
+Refreshing a Projection alone does **not** complete propagation. Downstream Method, Evaluation, Delivery, Implementation, **and** Operations remain independently accountable. Feedback from a later layer **may** create a new upstream Concern, but cannot rewrite upstream authority **or** introduce a backward dependency.
