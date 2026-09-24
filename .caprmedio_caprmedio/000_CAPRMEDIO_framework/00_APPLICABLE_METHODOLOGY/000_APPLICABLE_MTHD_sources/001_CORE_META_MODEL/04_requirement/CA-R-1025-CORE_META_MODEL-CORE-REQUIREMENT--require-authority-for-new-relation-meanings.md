@@ -1,15 +1,9 @@
 ---
-atom_id: CA-R-1025
-cce_version: cce_1
-cce_form: obligation
 subjects:
-  governs:
-    continuant:
-      - relation-model
+  governs: "relation-model"
   depends_on:
-    continuant:
-      - atom-boundary
-version: 8
+    - "atom-boundary"
+version: 12
 updated_at: "2026-09-10 04:16:18 +0400"
 relations: {}
 ---

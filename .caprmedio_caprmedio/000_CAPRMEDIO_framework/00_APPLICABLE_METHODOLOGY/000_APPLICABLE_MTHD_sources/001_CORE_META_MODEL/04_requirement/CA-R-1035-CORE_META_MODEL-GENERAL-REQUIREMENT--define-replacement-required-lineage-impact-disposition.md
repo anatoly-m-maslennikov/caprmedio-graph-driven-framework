@@ -1,16 +1,10 @@
 ---
-atom_id: CA-R-1035
-cce_version: cce_1
-cce_form: definition
 subjects:
-  governs:
-    continuant:
-      - Replacement-Required Lineage Impact Disposition
+  governs: "Replacement-Required Lineage Impact Disposition"
   depends_on:
-    continuant:
-      - atom-boundary
-      - relation-model
-version: 7
+    - "atom-boundary"
+    - "relation-model"
+version: 11
 updated_at: "2026-09-10 06:39:08 +0400"
 relations: {}
 ---

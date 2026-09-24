@@ -1,16 +1,12 @@
 ---
-atom_id: CA-E-454
 cce_version: cce_1
 cce_form: evaluation
 subjects:
-  governs:
-    continuant:
-      - engine-settings-reader
+  governs: "engine-settings-reader"
   depends_on:
-    continuant:
-      - programmatic software
-version: 3
-updated_at: "2026-09-11 23:07:09 +0400"
+    - "programmatic software"
+version: 4
+updated_at: "2026-09-15 21:31:49 +0000"
 relations:
   evaluation_for:
     - CA-M-284
@@ -31,9 +27,7 @@ consumer from **every** PROGRAMMATIC child feature.
 
 ## Acceptance criteria
 
-pass **only** **when** **every** consumer reads exactly once through the fake, receives the
-same Carrier **and** digest provenance, **and** performs no direct read, fallback,
-private default selection, **or** mutation.
+pass **only** **when** the shared Reader validates the input at its boundary **and** **every** consumer receives the immutable snapshot explicitly, preserves the same Carrier **and** digest provenance, **and** performs no direct read, fallback, private default selection, **or** mutation. a consumer **may** reuse an already validated snapshot **without** calling the Reader; this Evaluation does **not** impose a per-consumer read count.
 
 ## Failure disposition
 

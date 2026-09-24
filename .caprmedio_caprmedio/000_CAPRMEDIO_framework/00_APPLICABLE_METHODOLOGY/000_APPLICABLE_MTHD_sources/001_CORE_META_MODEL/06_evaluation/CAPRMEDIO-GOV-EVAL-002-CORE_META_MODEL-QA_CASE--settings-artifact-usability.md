@@ -1,7 +1,4 @@
 ---
-atom_id: CAPRMEDIO-GOV-EVAL-002
-cce_version: cce_1
-cce_form: evaluation
 subjects:
   governs: "Framework Instance Settings"
   depends_on:
@@ -9,10 +6,8 @@ subjects:
     - "Project Structure"
     - "Authority Mode"
     - "Operator"
-version: 16
+version: 18
 updated_at: "2026-09-15 00:13:02 +0000"
-llm_session_ids:
-  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   evaluation_for:
     - CA-R-1052

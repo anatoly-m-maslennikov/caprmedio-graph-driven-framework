@@ -1,17 +1,11 @@
 ---
-atom_id: CA-R-1319
-cce_version: cce_1
-cce_form: definition
 subjects:
-  governs:
-    continuant:
-      - Governed Term
+  governs: "Governed Term"
   depends_on:
-    continuant:
-      - "Definition Atom"
-      - "Term"
-      - "Project"
-version: 4
+    - "Definition Atom"
+    - "Term"
+    - "Project"
+version: 8
 updated_at: "2026-09-09 02:44:46 +0400"
 relations: {}
 ---

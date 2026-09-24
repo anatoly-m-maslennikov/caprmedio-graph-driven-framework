@@ -1,19 +1,17 @@
 ---
-atom_id: CA-R-1178
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  governs:
-    continuant:
-      - FRAMEWORK_ENGINE/Goal
+  governs: "FRAMEWORK_ENGINE/Goal"
   depends_on:
-    continuant:
-      - AI Agent
-      - Applicable Methodology
-      - Project
-version: 5
+    - "AI Agent"
+    - "Applicable Methodology"
+    - "Project"
+version: 8
 updated_at: "2026-09-09 02:11:00 +0400"
 relations: {}
+llm_session_ids:
+  - codex:01a02650-eff7-7453-8c37-0699b36773c6
 ---
 # Reduce tokens, mistakes, and context clutter
 

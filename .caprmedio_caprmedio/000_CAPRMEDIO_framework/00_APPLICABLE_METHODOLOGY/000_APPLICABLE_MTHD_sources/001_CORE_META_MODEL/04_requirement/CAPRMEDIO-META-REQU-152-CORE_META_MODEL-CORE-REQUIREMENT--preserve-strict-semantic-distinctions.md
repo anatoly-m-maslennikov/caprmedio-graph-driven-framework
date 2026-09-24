@@ -1,15 +1,9 @@
 ---
-atom_id: CAPRMEDIO-META-REQU-152
-cce_version: "cce_1"
-cce_form: "obligation"
 subjects:
-  governs:
-    continuant:
-      - "semantics"
-version: 13
-updated_at: 2026-09-06 01:45:12 +0400
-llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  governs: "semantics"
+  depends_on: []
+version: 20
+updated_at: "2026-09-18 14:16:20 +0000"
 relations:
   child_of:
     - "CA-M-001"
@@ -17,6 +11,15 @@ relations:
 ---
 # Preserve strict semantic distinctions
 
-CAPRMEDIO keeps independently governed meanings distinct even **when** ordinary language, one carrier, one workflow, **or** one implementation change presents them together. An entity is **not** its description **or** carrier; a Requirement is **not** its Method; a Method is **not** its Implementation; an Evaluation criterion is **not** its execution result; provenance is **not** evidence; **and** an observed fact is **not** authority for the desired state.
+independently governed meanings **must** remain distinct even **when** ordinary language, one Carrier, one workflow, **or** one Implementation change presents them together:
 
-**when** wording could resolve to more than one governed meaning, the writer **or** tool **must** recover the intended meaning **and** its owning Type **before** the Claim is admitted. Co-location, readable presentation, automation, **or** a relation between meanings never merges their identities **or** transfers their semantic force.
+- an Entity is **not** its description **or** Carrier;
+- a Requirement is **not** its Method;
+- a Method is **not** its Implementation;
+- an Evaluation criterion is **not** its execution result;
+- provenance is **not** evidence; **and**
+- an observed fact is **not** authority for the desired state.
+
+**if** wording could resolve **to** multiple governed meanings, **then** the intended meaning **and** its owning Type **must** be resolved **before** the Claim is admitted. this is an admission condition, **not** a definition of the recovery Action **or** Workflow.
+
+co-location, readable presentation, automation, **or** a Relation between meanings **must not** merge their identities **or** transfer their semantic force.

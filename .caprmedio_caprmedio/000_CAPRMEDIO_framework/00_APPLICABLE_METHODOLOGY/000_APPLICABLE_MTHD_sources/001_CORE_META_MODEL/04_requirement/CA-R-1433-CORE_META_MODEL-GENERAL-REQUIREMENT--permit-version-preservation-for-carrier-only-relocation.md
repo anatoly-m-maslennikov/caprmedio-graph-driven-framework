@@ -1,17 +1,11 @@
 ---
-atom_id: CA-R-1433
-cce_version: cce_1
-cce_form: permission
 subjects:
-  governs:
-    continuant:
-      - Atom/Revision/Version
+  governs: "Atom/Revision/Version"
   depends_on:
-    continuant:
-      - Atom
-      - Artifact/Revision
-      - Carrier-Only Recoding
-version: 1
+    - "Atom"
+    - "Artifact/Revision"
+    - "Carrier-Only Recoding"
+version: 5
 updated_at: "2026-09-10 06:39:08 +0400"
 relations: {}
 ---

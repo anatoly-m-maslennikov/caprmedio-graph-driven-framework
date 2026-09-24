@@ -1,20 +1,18 @@
 ---
-atom_id: CA-R-1447
-cce_version: cce_1
-cce_form: definition
 subjects:
-  governs:
-    continuant:
-      - "Owned Atoms"
+  governs: "Owned Atoms"
   depends_on:
-    continuant:
-      - "Atom"
-      - "Scope Unit"
-      - "Atom Collection"
-version: 1
-updated_at: "2026-09-12 04:10:58 +0400"
+    - "Atom"
+    - "Scope Unit"
+    - "Atom Collection"
+version: 6
+updated_at: "2026-09-24 13:59:55 +0000"
 relations: {}
 ---
 # Define Owned Atoms
 
-Owned Atoms **means** the set of **all** Atoms whose nearest containing Scope Unit is the selected Scope Unit, including Atoms inside its nested Atom Collections.
+Owned Atoms **means** the set of **all** Atoms whose internally carried current Scope Unit equals the selected Scope Unit.
+
+- a grouping Carrier, Plan decomposition, **or** physical placement does **not** replace that ownership value.
+- a missing, invalid, **or** ambiguous ownership value leaves membership unresolved; do **not** derive it from the filename **or** containing folders.
+- evaluate placement consistency separately **without** changing the selected Atom's declared ownership.

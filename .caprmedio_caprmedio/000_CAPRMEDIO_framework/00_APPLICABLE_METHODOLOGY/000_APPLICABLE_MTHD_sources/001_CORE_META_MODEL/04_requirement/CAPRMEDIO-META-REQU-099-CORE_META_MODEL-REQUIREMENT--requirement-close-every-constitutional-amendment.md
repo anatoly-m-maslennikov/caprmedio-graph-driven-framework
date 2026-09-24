@@ -1,23 +1,14 @@
 ---
-atom_id: CAPRMEDIO-META-REQU-099
-cce_version: cce_1
-cce_form: obligation
 subjects:
-  governs:
-    continuant:
-      - authority
-version: 13
-updated_at: 2026-09-15 05:51:38
-llm_session_ids:
-  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
-relations:
-  child_of:
-    - CAPRMEDIO-META-REQU-090
-    - CAPRMEDIO-META-REQU-108-CORE_META_MODEL-CORE-REQUIREMENT--evolve-authority-through-governed-history
+  governs: "authority"
+  depends_on: []
+version: 20
+updated_at: "2026-09-17 13:16:29 +0000"
+relations: {"child_of":["CA-O-058","CAPRMEDIO-META-REQU-108-CORE_META_MODEL-CORE-REQUIREMENT--evolve-authority-through-governed-history"]}
 ---
 # Requirement — Close every constitutional amendment
 
-**every** semantic change to CORE_META_MODEL follows one closed amendment sequence:
+**every** semantic change **to** CORE_META_MODEL follows one closed amendment sequence:
 
 1. explore **without** changing governed truth;
 2. obtain explicit operator acceptance for one primary claim;
@@ -29,8 +20,8 @@ relations:
 8. refresh **every** affected declared Projection required by the applicable gate; **and**
 9. verify the resulting authority **and** downstream fixed point.
 
-A failed **or** ambiguous step leaves the amendment incomplete **and** cannot claim a new fixed point. the admitted Carrier **and** Journal history preserve **every** accepted authority Revision; lineage analysis records the disposition of **every** affected branch.
+a failed **or** ambiguous step leaves the amendment incomplete **and** cannot claim a new fixed point. the admitted Carrier **and** Journal history preserve **every** accepted authority Revision; lineage analysis records the disposition of **every** affected branch.
 
 ## Primary claim
 
-A CORE_META_MODEL amendment closes **only** **after** accepting the exact Atom revision, archiving **any** fully replaced predecessors, reviewing descendant impact, refreshing Projections required by the active gate, **and** verifying the resulting fixed point.
+a CORE_META_MODEL amendment closes **only** **after** accepting the exact Atom revision, archiving **any** fully replaced predecessors, reviewing descendant impact, refreshing Projections required by the active gate, **and** verifying the resulting fixed point.

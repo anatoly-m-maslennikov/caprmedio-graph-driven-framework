@@ -1,17 +1,11 @@
 ---
-cce_version: cce_1
-cce_form: obligation
-atom_id: CA-R-836
 subjects:
-  governs:
-    continuant:
-      - project-containment graph
+  governs: "project-containment graph"
   depends_on:
-    continuant:
-      - Primary Entity
-      - Artifact
-      - Structural Entity
-version: 10
+    - "Primary Entity"
+    - "Artifact"
+    - "Structural Entity"
+version: 14
 updated_at: "2026-09-10 07:15:17 +0400"
 relations:
   child_of:

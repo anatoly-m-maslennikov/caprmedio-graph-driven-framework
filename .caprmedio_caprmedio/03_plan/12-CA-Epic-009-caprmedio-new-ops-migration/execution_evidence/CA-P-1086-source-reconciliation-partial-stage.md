@@ -51,7 +51,7 @@ Tool verification supplied by its implementation worker:
   },
   "path_map": [
     {
-      "source": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/work_journal.py",
+      "source": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/work_journal.py",
       "before_snapshot": "/private/tmp/ca-p-1086.ACurlj/tool-before/work_journal.py",
       "before_sha256": "e8c133608ff56cdbb6a7a62b59c74f06a8de5c2e899ab89a4aa581ae1e45c643",
       "after_sha256": "7b49f15fc33b12e6529b873dbb3ce6174cc368e063d70637004b32813d3874f9",
@@ -59,7 +59,7 @@ Tool verification supplied by its implementation worker:
       "deletions": 0
     },
     {
-      "source": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/APPEND_CHANGE_RECORDS/tests/test_append_change_records.py",
+      "source": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/APPEND_CHANGE_RECORDS/tests/test_append_change_records.py",
       "before_snapshot": "/private/tmp/ca-p-1086.ACurlj/tool-before/test_append_change_records.py",
       "before_sha256": "2978c4c465f506723fa360aec2d926b8b25d18f9840471884425ab4ac255ad0c",
       "after_sha256": "fa5d1637ab252ba6f5772690b32c38dc5e68ae0596dc490552652051c50fb4ea",
@@ -83,7 +83,7 @@ Tool verification supplied by its implementation worker:
   "checks": [
     {
       "name": "pre-edit APPEND_CHANGE_RECORDS suite",
-      "command": "UV_PROJECT_ENVIRONMENT=/private/tmp/ca-p-1086.ACurlj/tool-check-venv PYTHONDONTWRITEBYTECODE=1 uv run --locked --python 3.14 python -B -m unittest discover -s 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/APPEND_CHANGE_RECORDS/tests -v",
+      "command": "UV_PROJECT_ENVIRONMENT=/private/tmp/ca-p-1086.ACurlj/tool-check-venv PYTHONDONTWRITEBYTECODE=1 uv run --locked --python 3.14 python -B -m unittest discover -s 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/APPEND_CHANGE_RECORDS/tests -v",
       "exit_code": 1,
       "tests_run": 8,
       "errors": 8,
@@ -92,7 +92,7 @@ Tool verification supplied by its implementation worker:
     },
     {
       "name": "first direct replacement class",
-      "command": "TMPDIR=/private/tmp UV_PROJECT_ENVIRONMENT=/private/tmp/ca-p-1086.ACurlj/tool-check-venv PYTHONDONTWRITEBYTECODE=1 uv run --locked --python 3.14 python -B 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/APPEND_CHANGE_RECORDS/tests/test_append_change_records.py ReplacementPayloadTest -v",
+      "command": "TMPDIR=/private/tmp UV_PROJECT_ENVIRONMENT=/private/tmp/ca-p-1086.ACurlj/tool-check-venv PYTHONDONTWRITEBYTECODE=1 uv run --locked --python 3.14 python -B 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/APPEND_CHANGE_RECORDS/tests/test_append_change_records.py ReplacementPayloadTest -v",
       "exit_code": 1,
       "tests_run": 15,
       "errors": 1,
@@ -115,13 +115,13 @@ Tool verification supplied by its implementation worker:
     },
     {
       "name": "syntax",
-      "command": "TMPDIR=/private/tmp UV_PROJECT_ENVIRONMENT=/private/tmp/ca-p-1086.ACurlj/tool-check-venv PYTHONDONTWRITEBYTECODE=1 uv run --locked --python 3.14 python -B -c 'import ast, pathlib, sys; paths = [pathlib.Path(p) for p in sys.argv[1:]]; trees = [ast.parse(p.read_bytes(), filename=str(p)) for p in paths]; print(\"Syntax accepted for\", len(trees), \"files\"); print(sys.version)' 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/work_journal.py 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/APPEND_CHANGE_RECORDS/tests/test_append_change_records.py",
+      "command": "TMPDIR=/private/tmp UV_PROJECT_ENVIRONMENT=/private/tmp/ca-p-1086.ACurlj/tool-check-venv PYTHONDONTWRITEBYTECODE=1 uv run --locked --python 3.14 python -B -c 'import ast, pathlib, sys; paths = [pathlib.Path(p) for p in sys.argv[1:]]; trees = [ast.parse(p.read_bytes(), filename=str(p)) for p in paths]; print(\"Syntax accepted for\", len(trees), \"files\"); print(sys.version)' 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/work_journal.py 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/APPEND_CHANGE_RECORDS/tests/test_append_change_records.py",
       "exit_code": 0,
       "outcome": "Syntax accepted for both changed files under CPython 3.14.7."
     },
     {
       "name": "diff whitespace",
-      "command": "git diff --check -- 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/work_journal.py 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/APPEND_CHANGE_RECORDS/tests/test_append_change_records.py",
+      "command": "git diff --check -- 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/work_journal.py 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/APPEND_CHANGE_RECORDS/tests/test_append_change_records.py",
       "exit_code": 0,
       "outcome": "PASS"
     },

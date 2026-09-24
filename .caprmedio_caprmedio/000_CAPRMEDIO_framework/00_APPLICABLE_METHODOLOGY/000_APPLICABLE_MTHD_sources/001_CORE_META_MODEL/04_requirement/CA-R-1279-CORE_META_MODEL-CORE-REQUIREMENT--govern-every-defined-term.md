@@ -1,7 +1,4 @@
 ---
-atom_id: CA-R-1279
-cce_version: cce_1
-cce_form: obligation
 subjects:
   governs: "GOVERNS"
   depends_on:
@@ -10,7 +7,7 @@ subjects:
     - "Term"
     - "Subject Path"
     - "Atom/Claim"
-version: 8
+version: 10
 updated_at: "2026-09-14 04:00:22 +0400"
 relations: {}
 ---

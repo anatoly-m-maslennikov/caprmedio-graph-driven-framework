@@ -1,5 +1,5 @@
 ---
-version: 4
+version: 7
 updated_at: 2026-09-06 01:45:12 +0400
 relations:
   child_of:
@@ -7,19 +7,17 @@ relations:
   evaluation_for:
     - CA-R-846
 subjects:
-  governs:
-    occurrent:
-      - "AI Agent/authorization"
+  governs: "AI Agent/authorization"
   depends_on:
-    continuant:
-      - "Operator"
-      - "AI Agent Delegation"
-      - "AI Agent"
-      - "Carrier"
-      - "Atom/Content Role: Implementation"
+    - "Operator"
+    - "AI Agent Delegation"
+    - "AI Agent"
+    - "Carrier"
+    - "Atom/Content Role: Implementation"
 cce_version: cce_1
 cce_form: evaluation
-atom_id: CA-E-230
+llm_session_ids:
+  - codex:01a02650-eff7-7453-8c37-0699b36773c6
 ---
 # Evaluate Operator control of AI permissions
 

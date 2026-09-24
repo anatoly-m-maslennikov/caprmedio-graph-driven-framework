@@ -1,7 +1,4 @@
 ---
-atom_id: CA-R-1484
-cce_version: cce_1
-cce_form: obligation
 subjects:
   governs: "Scope Unit"
   depends_on:
@@ -10,7 +7,7 @@ subjects:
     - "Project"
     - "Atom/Content Role: Requirement/Type: Goal"
     - "Structural Parent Relation"
-version: 1
+version: 3
 updated_at: "2026-09-15 00:05:45 +0000"
 relations: {}
 ---

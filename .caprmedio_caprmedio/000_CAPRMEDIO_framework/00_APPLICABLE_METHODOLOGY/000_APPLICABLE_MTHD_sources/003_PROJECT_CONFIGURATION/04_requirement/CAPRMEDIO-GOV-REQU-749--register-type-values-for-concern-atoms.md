@@ -1,11 +1,7 @@
 ---
-atom_id: CAPRMEDIO-GOV-REQU-749
-cce_version: cce_1
-cce_form: requirement
 subjects:
-  governs:
-    continuant:
-      - "Atom/Content Role: Concern/Type"
+  governs: "Atom/Content Role: Concern/Type"
+  depends_on: []
 project_graph_state:
   artifacts:
     enabled_types:
@@ -13,10 +9,8 @@ project_graph_state:
       - concern:problem
       - concern:risk
       - concern:opportunity
-version: 15
+version: 19
 updated_at: "2026-09-11 23:47:49 +0400"
-llm_session_ids:
-  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   child_of:
     - CAPRMEDIO-META-REQU-740--separate-content-role-from-artifact-type

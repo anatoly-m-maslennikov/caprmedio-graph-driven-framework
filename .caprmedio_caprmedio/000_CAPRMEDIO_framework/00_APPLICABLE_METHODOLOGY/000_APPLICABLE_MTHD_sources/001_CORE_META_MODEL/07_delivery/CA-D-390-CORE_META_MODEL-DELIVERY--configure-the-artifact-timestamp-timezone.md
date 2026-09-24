@@ -1,17 +1,11 @@
 ---
-atom_id: CA-D-390
-cce_version: cce_1
-cce_form: serialization
 subjects:
-  governs:
-    continuant:
-      - "Framework Instance Settings/Artifact Timestamp Timezone"
+  governs: "Framework Instance Settings/Artifact Timestamp Timezone"
   depends_on:
-    continuant:
-      - "Framework Instance Settings"
-      - "Artifact/Revision"
-      - "Carrier"
-version: 2
+    - "Framework Instance Settings"
+    - "Artifact/Revision"
+    - "Carrier"
+version: 6
 updated_at: "2026-09-11 22:30:02 +0400"
 relations:
   child_of:

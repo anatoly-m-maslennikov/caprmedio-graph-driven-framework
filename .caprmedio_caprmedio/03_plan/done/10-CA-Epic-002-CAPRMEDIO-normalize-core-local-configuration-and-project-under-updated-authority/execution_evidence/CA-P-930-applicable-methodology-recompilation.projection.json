@@ -66,7 +66,7 @@
     "every_generated_source_path_resolves_to_selected_source": true
   },
   "validation": {
-    "compiler_test_command": "python3 -m unittest 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_compile_applicable_methodology.py",
+    "compiler_test_command": "python3 -m unittest 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_compile_applicable_methodology.py",
     "compiler_tests_passed": 9,
     "compiler_tests_failed": 0,
     "source_frontier_carrier_count": 632,

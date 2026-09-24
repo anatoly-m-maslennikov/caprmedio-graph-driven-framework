@@ -1,16 +1,10 @@
 ---
-atom_id: CA-R-1417
-cce_version: cce_1
-cce_form: cardinality
 subjects:
-  governs:
-    continuant:
-      - Atom/Revision/Content
+  governs: "Atom/Revision/Content"
   depends_on:
-    continuant:
-      - Atom/Revision
-      - Atom/Claim
-version: 2
+    - "Atom/Revision"
+    - "Atom/Claim"
+version: 6
 updated_at: 2026-09-06 01:45:12 +0400
 relations: {}
 ---

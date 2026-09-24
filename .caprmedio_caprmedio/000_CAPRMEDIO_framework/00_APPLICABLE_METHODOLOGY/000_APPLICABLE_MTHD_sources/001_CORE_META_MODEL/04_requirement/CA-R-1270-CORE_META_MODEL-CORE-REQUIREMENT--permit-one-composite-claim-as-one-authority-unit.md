@@ -1,15 +1,9 @@
 ---
-atom_id: CA-R-1270
-cce_version: cce_1
-cce_form: conditional
 subjects:
-  governs:
-    continuant:
-      - Composite Claim
+  governs: "Composite Claim"
   depends_on:
-    continuant:
-      - Claim
-version: 4
+    - "Claim"
+version: 8
 updated_at: 2026-09-06 01:45:12 +0400
 relations: {}
 ---

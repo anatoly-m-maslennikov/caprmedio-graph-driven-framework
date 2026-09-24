@@ -35,7 +35,7 @@ the Assignee **must** align this Global Tier 13 batch **in** GENERATE_ENTITY_GRA
 
 ## Scope
 
-(selected directly owned RMEDO Atoms at Global Tier 13, Local Tier Core, **in** `.caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/301_FEATURE_TOOLS/GENERATE_ENTITY_GRAPH`; child Scope Units are excluded); the source **and** lifecycle admission boundary established by CA-P-976 applies; historical versions, generated copies, runtime, Implementation code, **and** other CAP Atoms are excluded.
+(selected directly owned RMEDO Atoms at Global Tier 13, Local Tier Core, **in** `.caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/GENERATE_ENTITY_GRAPH`; child Scope Units are excluded); the source **and** lifecycle admission boundary established by CA-P-976 applies; historical versions, generated copies, runtime, Implementation code, **and** other CAP Atoms are excluded.
 
 ## Definition of Done
 

@@ -1,18 +1,10 @@
 ---
-atom_id: CAPRMEDIO-GOV-REQU-767
 subjects:
-  governs:
-    continuant:
-      - relation-model
+  governs: "relation-model"
   depends_on:
-    continuant:
-      - atom-boundary
-cce_version: cce_1
-cce_form: obligation
-version: 12
+    - "atom-boundary"
+version: 16
 updated_at: 2026-09-07 09:59:57 +0000
-llm_session_ids:
-  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   child_of:
     - CA-R-1051

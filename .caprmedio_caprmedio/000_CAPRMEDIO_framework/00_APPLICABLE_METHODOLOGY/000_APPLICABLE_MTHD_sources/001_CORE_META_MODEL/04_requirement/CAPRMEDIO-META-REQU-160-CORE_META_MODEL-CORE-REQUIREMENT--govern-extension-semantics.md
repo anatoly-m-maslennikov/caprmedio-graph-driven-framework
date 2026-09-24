@@ -1,15 +1,12 @@
 ---
-atom_id: CAPRMEDIO-META-REQU-160
-cce_version: cce_1
-cce_form: obligation
 subjects:
-  governs:
-    continuant:
-      - extension-model
-version: 11
-updated_at: "2026-09-11 23:47:49 +0400"
-llm_session_ids:
-  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+  governs: "Extension"
+  depends_on:
+    - "Methodology Source"
+    - "Core Meta-Model"
+    - "Project Configuration"
+version: 16
+updated_at: "2026-09-17 13:15:34 +0000"
 relations:
   child_of:
     - CA-R-831-CORE-REQUIREMENT--add-reusable-capabilities-through-extensions
@@ -17,4 +14,6 @@ relations:
 ---
 # Govern extension semantics
 
-An Extension is a reusable, independently governed, optional capability package whose meaning **and** evolution remain separate from Canonical Framework **and** Project Adaptation authority.
+an Extension **must** provide a reusable, independently governed, optional package of capability contributions. its authority **and** evolution remain distinct from Core Meta-Model **and** Project Configuration authority.
+
+this packaging requirement does **not** establish another Entity classification: the Extension definition **and** its permitted expansion boundary remain governed by CA-R-1217.

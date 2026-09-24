@@ -1,7 +1,4 @@
 ---
-atom_id: CA-R-1198
-cce_version: cce_1
-cce_form: definition
 subjects:
   governs: "Atom/Subjects"
   depends_on:
@@ -9,8 +6,10 @@ subjects:
     - "Subject"
     - "GOVERNS"
     - "DEPENDS_ON"
-version: 8
-updated_at: "2026-09-14 04:00:22 +0400"
+    - "Property"
+    - "Entity"
+version: 11
+updated_at: "2026-09-17 17:09:59 +0000"
 relations: {}
 ---
 # Define Atom Subjects

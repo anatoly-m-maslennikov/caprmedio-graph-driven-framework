@@ -1,15 +1,9 @@
 ---
-atom_id: CA-R-1297
-cce_version: cce_1
-cce_form: prohibition
 subjects:
-  governs:
-    continuant:
-      - Scope Unit/Name
+  governs: "Scope Unit/Name"
   depends_on:
-    continuant:
-      - CCE Operator
-version: 5
+    - "CCE Operator"
+version: 9
 updated_at: "2026-09-10 03:25:26 +0400"
 relations: {}
 ---

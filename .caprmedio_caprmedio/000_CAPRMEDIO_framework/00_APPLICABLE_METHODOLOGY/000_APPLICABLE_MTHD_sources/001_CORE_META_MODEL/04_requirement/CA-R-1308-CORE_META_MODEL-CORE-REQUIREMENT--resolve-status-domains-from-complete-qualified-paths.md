@@ -1,17 +1,11 @@
 ---
-atom_id: CA-R-1308
-cce_version: cce_1
-cce_form: prohibition
 subjects:
-  governs:
-    continuant:
-      - Artifact/Revision/Status
+  governs: "Artifact/Revision/Status"
   depends_on:
-    continuant:
-      - Artifact/Type
-      - Atom/Content Role
-      - Type
-version: 4
+    - "Artifact/Type"
+    - "Atom/Content Role"
+    - "Type"
+version: 8
 updated_at: 2026-09-06 01:45:12 +0400
 relations: {}
 ---

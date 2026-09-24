@@ -1,7 +1,4 @@
 ---
-atom_id: CA-R-1430
-cce_version: cce_1
-cce_form: obligation
 subjects:
   governs: "Framework Instance Settings/Authority Modes"
   depends_on:
@@ -11,7 +8,7 @@ subjects:
     - "Project"
     - "Scope Unit"
     - "Atom"
-version: 4
+version: 6
 updated_at: "2026-09-15 00:05:45 +0000"
 relations:
   child_of:

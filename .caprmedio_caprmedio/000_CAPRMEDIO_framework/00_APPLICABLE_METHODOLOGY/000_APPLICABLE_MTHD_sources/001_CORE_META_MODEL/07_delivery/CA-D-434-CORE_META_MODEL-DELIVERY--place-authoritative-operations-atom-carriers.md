@@ -1,13 +1,10 @@
 ---
-atom_id: CA-D-434
-cce_version: cce_1
-cce_form: placement
 subjects:
   governs: "Carrier"
   depends_on:
     - "Atom/Content Role: Operations"
     - "Scope Unit"
-version: 2
+version: 4
 updated_at: 2026-09-15 05:51:38
 relations: {}
 ---

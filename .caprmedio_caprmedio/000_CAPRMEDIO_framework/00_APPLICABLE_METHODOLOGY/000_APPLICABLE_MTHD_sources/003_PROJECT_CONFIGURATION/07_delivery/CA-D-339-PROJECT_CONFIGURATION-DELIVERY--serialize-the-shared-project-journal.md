@@ -1,7 +1,4 @@
 ---
-atom_id: CA-D-339
-cce_version: cce_1
-cce_form: serialization
 subjects:
   governs: "Journal/Carrier"
   depends_on:
@@ -11,7 +8,7 @@ subjects:
     - "Work Journal"
     - "Scope Unit"
     - "Atom/Content Role"
-version: 8
+version: 10
 updated_at: "2026-09-14 06:21:07 +0400"
 relations:
   relates_to:

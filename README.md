@@ -29,7 +29,7 @@ The name describes four connected parts:
 - **`.caprmedio_runtime/`** keeps persistent, non-authoritative operational state: selected Tool releases and launchers, logs, sessions, databases, service state, and resumable state. Selected releases and launchers are reconstructible; the operational timeline may not be.
 - **`.caprmedio_tmp/`** keeps disposable scratch, staging, caches, builds, Evaluation state, atomic-write intermediates, and interrupted-cleanup remnants.
 
-`.caprmedio_install/` is a retired compatibility root, not part of the current model. The local bootstrap launcher stays under `.caprmedio_runtime/` and remains outside Git; the canonical installer implementation is [`INSTALL_TOOLS/install_tools.py`](102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/INSTALL_TOOLS/install_tools.py). Recognized legacy installations are removed only after active Hook references have been repointed safely.
+`.caprmedio_install/` is a retired compatibility root, not part of the current model. The local bootstrap launcher stays under `.caprmedio_runtime/` and remains outside Git; the canonical installer implementation is [`INSTALL_TOOLS/install_tools.py`](102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/INSTALL_TOOLS/install_tools.py). Recognized legacy installations are removed only after active Hook references have been repointed safely.
 
 ## Status
 

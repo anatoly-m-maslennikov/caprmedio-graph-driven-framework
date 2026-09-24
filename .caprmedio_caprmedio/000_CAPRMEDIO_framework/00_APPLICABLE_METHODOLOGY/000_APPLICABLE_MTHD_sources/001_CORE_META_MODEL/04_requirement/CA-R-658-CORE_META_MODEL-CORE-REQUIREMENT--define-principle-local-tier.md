@@ -1,15 +1,9 @@
 ---
-atom_id: CA-R-658
-cce_version: cce_1
-cce_form: definition
 subjects:
-  governs:
-    continuant:
-      - "Atom/Local Tier: Principle"
+  governs: "Atom/Local Tier: Principle"
   depends_on:
-    continuant:
-      - Project
-version: 11
+    - "Project"
+version: 15
 updated_at: "2026-09-10 02:19:47 +0400"
 relations: {}
 ---

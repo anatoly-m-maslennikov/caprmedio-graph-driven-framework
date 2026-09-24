@@ -1,7 +1,4 @@
 ---
-atom_id: CA-R-1467
-cce_version: cce_1
-cce_form: definition
 subjects:
   governs: "Projection/Type: Artifact Change Log"
   depends_on:
@@ -9,7 +6,7 @@ subjects:
     - "Journal"
     - "Journal/Record"
     - "Artifact"
-version: 1
+version: 3
 updated_at: "2026-09-14 06:21:07 +0400"
 relations: {}
 ---

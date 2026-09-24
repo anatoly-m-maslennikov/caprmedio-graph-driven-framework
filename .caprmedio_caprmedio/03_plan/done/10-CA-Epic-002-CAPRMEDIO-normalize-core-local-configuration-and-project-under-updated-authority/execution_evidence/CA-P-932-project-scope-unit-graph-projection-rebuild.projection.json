@@ -12,7 +12,7 @@
   "generation": {
     "selected_installed_generator": ".caprmedio_install/releases/2e541306bdeefe3926c0ed502d462076274733cd2e94baea335ae8a7725bd2de/TOOLS/GENERATE_PROJECT_GRAPH_STATE/generate_project_graph_state.py",
     "selected_installed_generator_sha256": "88ab6552b5f26eeca27dd5f4f47a0edaa2664d2e03f10eb27e33dca4600a6dd4",
-    "canonical_source_generator": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/GENERATE_PROJECT_GRAPH_STATE/generate_project_graph_state.py",
+    "canonical_source_generator": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/GENERATE_PROJECT_GRAPH_STATE/generate_project_graph_state.py",
     "canonical_source_generator_sha256": "88ab6552b5f26eeca27dd5f4f47a0edaa2664d2e03f10eb27e33dca4600a6dd4",
     "selected_release": "2e541306bdeefe3926c0ed502d462076274733cd2e94baea335ae8a7725bd2de",
     "source_and_installed_execution_bytes_identical": true,
@@ -80,7 +80,7 @@
     "epics_absent": true,
     "independent_authority_absent": true,
     "focused_generator_tests": {
-      "command": "python3 -m unittest 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/GENERATE_PROJECT_GRAPH_STATE/tests/test_generate_project_graph_state.py -v",
+      "command": "python3 -m unittest 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/GENERATE_PROJECT_GRAPH_STATE/tests/test_generate_project_graph_state.py -v",
       "passed": 8,
       "failed": 0
     },

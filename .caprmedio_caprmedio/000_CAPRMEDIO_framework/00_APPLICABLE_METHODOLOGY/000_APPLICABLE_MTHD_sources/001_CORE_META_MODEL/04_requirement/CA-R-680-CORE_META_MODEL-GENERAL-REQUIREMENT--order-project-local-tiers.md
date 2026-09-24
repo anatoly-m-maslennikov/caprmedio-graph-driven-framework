@@ -1,12 +1,9 @@
 ---
-atom_id: CA-R-680
-cce_version: cce_1
-cce_form: obligation
 subjects:
   governs: Atom/Local Tier
   depends_on:
     - Project
-version: 14
+version: 16
 updated_at: "2026-09-15 06:32:56 +0400"
 relations:
   child_of:

@@ -1,19 +1,21 @@
 ---
-atom_id: CA-D-336
-cce_version: cce_1
-cce_form: resolution
 subjects:
-  governs:
-    occurrent:
-      - Active Atom Carrier Discovery
+  governs: "Active Atom Carrier Discovery"
   depends_on:
-    continuant:
-      - Atom/Identity
-      - Carrier/Canonical Address
-version: 5
-updated_at: "2026-09-10 02:49:14 +0400"
+    - "Atom/Identity"
+    - "Carrier/Canonical Address"
+version: 10
+updated_at: "2026-09-22 23:02:20 +0000"
 relations: {}
 ---
-# Resolve Active Atoms from Canonical Carrier Identities
+# Summary
 
-Active Atom Carrier discovery **must** resolve requested Atom IDs from canonical identity segments **in** the selected Project-owned Carrier frontier, exclude **every** non-Active Status directory, **and** fail on zero **or** multiple active matches.
+Resolve Active Atoms from Canonical Carrier Identities
+
+## Claim
+
+Active Atom Carrier discovery **must** resolve requested Atom IDs from the identities carried inside the selected Project-owned Markdown source frontier **and** select carried Status Active.
+
+- validate the associated canonical addresses against those internal values under CA-D-480.
+- report zero **or** multiple Active matches **and** missing **or** conflicting identity **or** Status; do **not** repair discovery by silently preferring a filename **or** directory.
+- a non-Active containing Hub does **not** change the Status of a nested Atom.

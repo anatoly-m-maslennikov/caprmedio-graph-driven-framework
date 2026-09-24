@@ -1,15 +1,9 @@
 ---
-atom_id: CA-R-1352
-cce_version: cce_1
-cce_form: classification
 subjects:
-  governs:
-    continuant:
-      - Type
+  governs: "Type"
   depends_on:
-    continuant:
-      - Property
-version: 4
+    - "Property"
+version: 8
 updated_at: "2026-09-11 05:27:15 +0400"
 relations: {}
 ---

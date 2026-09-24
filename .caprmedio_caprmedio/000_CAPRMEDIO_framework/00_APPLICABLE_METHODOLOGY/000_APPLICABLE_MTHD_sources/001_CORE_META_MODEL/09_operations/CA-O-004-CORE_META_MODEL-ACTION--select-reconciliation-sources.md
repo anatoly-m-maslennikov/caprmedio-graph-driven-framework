@@ -1,7 +1,4 @@
 ---
-atom_id: CA-O-004
-cce_version: cce_1
-cce_form: definition
 subjects:
   governs: "Select Reconciliation Sources"
   depends_on:
@@ -9,7 +6,7 @@ subjects:
     - "Projection/Type: Reconciled Projection"
     - "Artifact/Revision"
     - "Atom/Claim"
-version: 1
+version: 3
 updated_at: "2026-09-14 01:36:43 +0400"
 relations: {}
 ---

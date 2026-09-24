@@ -1,20 +1,18 @@
 ---
-atom_id: CA-R-1179
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  governs:
-    continuant:
-      - OPERATOR_DOCUMENTATION/Goal
+  governs: "OPERATOR_DOCUMENTATION/Goal"
   depends_on:
-    continuant:
-      - Operator
-      - CAPRMEDIO Framework Instance
-      - Project
-      - "Atom/Content Role: Requirement/Type: Goal"
-version: 5
+    - "Operator"
+    - "CAPRMEDIO Framework Instance"
+    - "Project"
+    - "Atom/Content Role: Requirement/Type: Goal"
+version: 8
 updated_at: "2026-09-09 03:00:55 +0400"
 relations: {}
+llm_session_ids:
+  - codex:01a02650-eff7-7453-8c37-0699b36773c6
 ---
 # Help Operators use CAPRMEDIO to achieve Project Goals
 

@@ -1,18 +1,12 @@
 ---
-atom_id: CA-R-1306
-cce_version: cce_1
-cce_form: definition
 subjects:
-  governs:
-    continuant:
-      - Artifact/Revision/Status
+  governs: "Artifact/Revision/Status"
   depends_on:
-    continuant:
-      - Artifact/Revision
-      - Property
-      - Artifact/Type
-      - Atom/Content Role
-version: 5
+    - "Artifact/Revision"
+    - "Property"
+    - "Artifact/Type"
+    - "Atom/Content Role"
+version: 9
 updated_at: 2026-09-06 01:45:12 +0400
 relations: {}
 ---

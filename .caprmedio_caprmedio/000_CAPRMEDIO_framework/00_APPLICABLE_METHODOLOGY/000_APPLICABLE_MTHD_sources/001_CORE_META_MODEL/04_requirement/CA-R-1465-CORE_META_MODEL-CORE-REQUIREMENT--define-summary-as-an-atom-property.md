@@ -1,16 +1,12 @@
 ---
-atom_id: CA-R-1465
-cce_version: cce_1
-cce_form: definition
 subjects:
   governs: "Atom/Summary"
   depends_on:
     - "Atom"
     - "Property"
     - "Atom/Claim"
-    - "Atom/Claim/Scope"
-version: 1
-updated_at: "2026-09-14 02:40:31 +0400"
+version: 4
+updated_at: "2026-09-22 17:59:17 +0000"
 relations: {}
 ---
 # Define Summary as an Atom Property

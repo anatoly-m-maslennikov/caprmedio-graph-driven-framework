@@ -1,17 +1,11 @@
 ---
-atom_id: CA-E-405
-cce_version: cce_1
-cce_form: evaluation
 subjects:
-  governs:
-    occurrent:
-      - Canonical Signature Derivation Validation
+  governs: "Canonical Signature Derivation Validation"
   depends_on:
-    continuant:
-      - Atom/Claim
-      - Atom/Claim/Canonical Signature
-      - CCE Operator
-version: 3
+    - "Atom/Claim"
+    - "Atom/Claim/Canonical Signature"
+    - "CCE Operator"
+version: 7
 updated_at: "2026-09-10 05:21:58 +0400"
 relations:
   evaluation_for:

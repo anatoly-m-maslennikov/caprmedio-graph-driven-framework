@@ -1,16 +1,10 @@
 ---
-atom_id: CA-D-327
-cce_version: cce_1
-cce_form: restriction
 subjects:
-  governs:
-    continuant:
-      - CAPRMEDIO/Project Root/Carrier
+  governs: "CAPRMEDIO/Project Root/Carrier"
   depends_on:
-    continuant:
-      - Directory Carrier
-      - Delivery
-version: 4
+    - "Directory Carrier"
+    - "Delivery"
+version: 8
 updated_at: "2026-09-11 23:47:49 +0400"
 relations: {}
 ---

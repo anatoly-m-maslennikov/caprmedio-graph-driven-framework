@@ -1,19 +1,11 @@
 ---
-atom_id: CAPRMEDIO-GOV-REQU-372
-cce_version: cce_1
-cce_form: obligation
 subjects:
-  governs:
-    occurrent:
-      - Development Backlog Splitting
+  governs: "Development Backlog Splitting"
   depends_on:
-    continuant:
-      - Development Backlog
-      - "Atom Collection/Type: Epic"
-      - Operator
-llm_session_ids:
-  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
-version: 12
+    - "Development Backlog"
+    - "Atom Collection/Type: Epic"
+    - "Operator"
+version: 16
 updated_at: "2026-09-11 23:47:49 +0400"
 relations:
   child_of:

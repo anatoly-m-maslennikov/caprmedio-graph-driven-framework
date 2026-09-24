@@ -1,7 +1,4 @@
 ---
-atom_id: CA-R-1456
-cce_version: cce_1
-cce_form: obligation
 subjects:
   governs: "Projection/Type: Entities Graph"
   depends_on:
@@ -20,7 +17,7 @@ subjects:
     - "Scope Unit"
     - "Journal"
     - "Carrier"
-version: 3
+version: 5
 updated_at: "2026-09-15 01:47:49 +0400"
 relations:
   child_of:

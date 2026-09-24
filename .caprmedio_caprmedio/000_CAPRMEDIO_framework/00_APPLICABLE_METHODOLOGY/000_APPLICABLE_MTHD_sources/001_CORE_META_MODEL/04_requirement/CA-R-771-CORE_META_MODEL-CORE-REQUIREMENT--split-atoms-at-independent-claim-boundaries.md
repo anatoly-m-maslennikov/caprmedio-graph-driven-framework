@@ -1,15 +1,9 @@
 ---
 subjects:
-  governs:
-    continuant:
-      - Atom
+  governs: "Atom"
   depends_on:
-    continuant:
-      - Claim
-atom_id: CA-R-771
-cce_version: cce_1
-cce_form: obligation
-version: 9
+    - "Claim"
+version: 13
 updated_at: 2026-09-06 01:45:12 +0400
 relations: {}
 ---

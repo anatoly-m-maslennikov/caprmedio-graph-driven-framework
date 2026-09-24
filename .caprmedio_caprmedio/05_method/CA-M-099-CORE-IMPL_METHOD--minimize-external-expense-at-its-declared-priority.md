@@ -1,5 +1,5 @@
 ---
-version: 5
+version: 8
 updated_at: "2026-09-05 23:00:00 +0400"
 relations:
   child_of:
@@ -7,16 +7,14 @@ relations:
   method_for:
     - CA-R-815
 subjects:
-  governs:
-    occurrent:
-      - "Project/external expense optimization"
+  governs: "Project/external expense optimization"
   depends_on:
-    continuant:
-      - "Operator"
-      - "Project"
+    - "Operator"
+    - "Project"
 cce_version: cce_1
 cce_form: method
-atom_id: CA-M-099
+llm_session_ids:
+  - codex:01a02650-eff7-7453-8c37-0699b36773c6
 ---
 # Minimize external expense at its declared priority
 

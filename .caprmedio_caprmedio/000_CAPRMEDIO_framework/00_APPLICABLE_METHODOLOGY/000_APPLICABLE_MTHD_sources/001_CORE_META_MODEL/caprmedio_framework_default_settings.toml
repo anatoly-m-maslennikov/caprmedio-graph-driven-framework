@@ -16,3 +16,15 @@ reporting_mode = "silent"
 
 [artifacts]
 creation_strictness = "medium"
+
+[implementation]
+# Additional fix-and-evaluate rounds after the initial failed Evaluation.
+retry_limit = 3
+
+[atom_validation]
+# Per-invocation validation budgets. Explicit instance/request values may override.
+max_candidates = 10000
+max_file_bytes = 8388608
+max_total_read_bytes = 268435456
+timeout_seconds = 60
+max_findings = 10000

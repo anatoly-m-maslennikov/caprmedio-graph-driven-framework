@@ -1,28 +1,19 @@
 ---
-version: 9
-updated_at: "2026-09-09 21:56:59 +0400"
-relations:
-  child_of:
-    - "CA-M-006"
-    - "CA-E-001"
-  evaluation_for:
-    - "CAPRMEDIO-REQU-026"
-    - "CAPRMEDIO-REQU-706"
-    - "CA-R-830-CORE_META_MODEL-CORE-REQUIREMENT--reserve-principle-conflict-resolution-to-the-operator"
+version: 14
+updated_at: "2026-09-21 00:39:50 +0000"
+relations: {"child_of":["CA-M-006","CA-E-001"],"evaluation_for":["CAPRMEDIO-REQU-026","CAPRMEDIO-REQU-706","CA-R-1551"]}
 subjects:
-  governs:
-    occurrent:
-      - "Project/Principle alignment"
+  governs: "Project/Principle alignment"
   depends_on:
-    continuant:
-      - "Structural Level"
-      - "Atom"
-      - "Project"
-      - "Atom/Local Tier: Principle"
-      - "Operator"
+    - "Structural Level"
+    - "Atom"
+    - "Project"
+    - "Atom/Local Tier: Principle"
+    - "Operator"
 cce_version: cce_1
 cce_form: evaluation
-atom_id: CAPRMEDIO-E-169-EVAL_APPROACH
+llm_session_ids:
+  - codex:01a02650-eff7-7453-8c37-0699b36773c6
 ---
 # Principle-first alignment
 
@@ -40,4 +31,4 @@ pass **only** **when** no Atom conflicts with a Project Principle **and** no low
 
 ## Failure
 
-report **every** conflicting Atom **and** Principle pair; route **every** conflict between active Project Principles **to** the Operator under `CA-R-830`.
+report **every** conflicting Atom **and** Principle pair; route **every** conflict between active Project Principles **to** the Operator under `CA-R-1551`.

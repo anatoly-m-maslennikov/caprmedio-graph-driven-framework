@@ -1,16 +1,10 @@
 ---
-atom_id: CA-R-1439
-cce_version: cce_1
-cce_form: obligation
 subjects:
-  governs:
-    continuant:
-      - "Framework Instance Settings/interaction/reporting mode/effects"
+  governs: "Framework Instance Settings/interaction/reporting mode/effects"
   depends_on:
-    continuant:
-      - "Framework Instance Settings/interaction/reporting mode"
-      - "Artifact"
-version: 1
+    - "Framework Instance Settings/interaction/reporting mode"
+    - "Artifact"
+version: 5
 updated_at: "2026-09-11 18:18:55 +0400"
 relations:
   child_of:

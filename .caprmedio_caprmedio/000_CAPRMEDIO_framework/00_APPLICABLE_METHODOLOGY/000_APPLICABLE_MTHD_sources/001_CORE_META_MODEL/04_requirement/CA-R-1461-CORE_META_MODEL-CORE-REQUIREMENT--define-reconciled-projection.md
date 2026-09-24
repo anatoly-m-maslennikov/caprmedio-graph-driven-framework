@@ -1,7 +1,4 @@
 ---
-atom_id: CA-R-1461
-cce_version: cce_1
-cce_form: definition
 subjects:
   governs: "Projection/Type: Reconciled Projection"
   depends_on:
@@ -11,7 +8,7 @@ subjects:
     - "Atom/Claim"
     - "Carrier"
     - "Operator"
-version: 1
+version: 3
 updated_at: "2026-09-13 22:36:08 +0400"
 relations: {}
 ---

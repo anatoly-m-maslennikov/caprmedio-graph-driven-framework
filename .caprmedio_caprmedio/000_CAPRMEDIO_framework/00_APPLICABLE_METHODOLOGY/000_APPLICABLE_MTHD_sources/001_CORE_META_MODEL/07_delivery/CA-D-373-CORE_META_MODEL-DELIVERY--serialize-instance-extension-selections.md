@@ -1,16 +1,10 @@
 ---
-atom_id: CA-D-373
-cce_version: cce_1
-cce_form: serialization
 subjects:
-  governs:
-    continuant:
-      - "Framework Instance Settings/Extension selections"
+  governs: "Framework Instance Settings/Extension selections"
   depends_on:
-    continuant:
-      - "Framework Instance Settings"
-      - "Extension"
-version: 1
+    - "Framework Instance Settings"
+    - "Extension"
+version: 5
 updated_at: "2026-09-09 23:04:14 +0400"
 relations:
   child_of:

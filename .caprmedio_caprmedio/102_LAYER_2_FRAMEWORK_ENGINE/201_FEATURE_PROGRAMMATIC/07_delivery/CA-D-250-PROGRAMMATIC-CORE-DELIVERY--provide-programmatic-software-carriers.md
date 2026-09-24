@@ -1,7 +1,5 @@
 ---
-atom_id: "CA-D-250"
-tier: "core"
-version: 5
+version: 9
 updated_at: "2026-09-11 20:58:34 +0400"
 relations:
   child_of:
@@ -12,15 +10,14 @@ relations:
 cce_version: "cce_1"
 cce_form: "obligation"
 subjects:
-  governs:
-    continuant:
-      - "PROGRAMMATIC/software carriers"
+  governs: "PROGRAMMATIC/software carriers"
   depends_on:
-    continuant:
-      - "Atom/Content Role: Implementation"
-      - "Atom/Content Role: Method"
-      - "Artifact/Carrier"
+    - "Atom/Content Role: Implementation"
+    - "Atom/Content Role: Method"
+    - "Artifact/Carrier"
+llm_session_ids:
+  - codex:01a02650-eff7-7453-8c37-0699b36773c6
 ---
 # Provide PROGRAMMATIC software carriers
 
-the PROGRAMMATIC source, installable runtime Carriers, admitted dependency records, **and** non-Python exception records **must** occupy the locations **and** use the encoding declared by the technical contract **in** the root `pyproject.toml`, table `tool.caprmedio.framework_engine_software`; corresponding acceptance evidence **must** occupy its declared Evaluation location. this Delivery owns that configuration Carrier **and** the integration-contract Carriers, while CA-M-110 **and** CA-M-281-PROGRAMMATIC-CORE-METHOD--declare-one-python-**and**-software-configuration-boundary own the technology selections materialized there.
+the PROGRAMMATIC source, installable runtime Carriers, admitted dependency records, **and** non-Python exception records **must** occupy the locations **and** use the encoding declared by the technical contract **in** the root `pyproject.toml`, table `tool.caprmedio.framework_engine_software`; corresponding acceptance evidence **must** occupy its declared Evaluation location. this Delivery owns that configuration Carrier **and** the integration-contract Carriers, while CA-M-110 **and** CA-M-281-PROGRAMMATIC-CORE-METHOD--declare-one-python-and-software-configuration-boundary own the technology selections materialized there.

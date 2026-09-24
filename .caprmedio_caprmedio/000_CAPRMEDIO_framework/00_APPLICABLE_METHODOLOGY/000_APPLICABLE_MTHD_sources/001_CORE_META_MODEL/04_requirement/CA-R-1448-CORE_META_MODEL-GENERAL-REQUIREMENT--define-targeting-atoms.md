@@ -1,20 +1,14 @@
 ---
-atom_id: CA-R-1448
-cce_version: cce_1
-cce_form: definition
 subjects:
-  governs:
-    continuant:
-      - "Targeting Atoms"
+  governs: "Targeting Atoms"
   depends_on:
-    continuant:
-      - "Atom"
-      - "Atom/Claim/Structural Entity"
-      - "Scope Unit"
-version: 1
-updated_at: "2026-09-12 04:10:58 +0400"
+    - "Atom"
+    - "Atom/Claim/Target Scope Unit"
+    - "Scope Unit"
+version: 7
+updated_at: "2026-09-22 17:59:17 +0000"
 relations: {}
 ---
 # Define Targeting Atoms
 
-Targeting Atoms **means** the set of **all** Atoms whose resolved Claim Structural Entity **`=`** the selected Scope Unit, independently of where those Atoms are owned **or** stored.
+Targeting Atoms **means** the set of **all** Atoms whose resolved Claim Target Scope Unit **`=`** the selected Scope Unit, independently of **where** those Atoms are owned **or** stored.

@@ -1,12 +1,8 @@
 ---
-atom_id: CAPRMEDIO-META-REQU-789
 subjects:
-  governs:
-    continuant:
-      - scope-topology
-cce_version: cce_1
-cce_form: permission
-version: 8
+  governs: "scope-topology"
+  depends_on: []
+version: 12
 updated_at: "2026-09-10 05:08:55 +0400"
 relations: {}
 ---

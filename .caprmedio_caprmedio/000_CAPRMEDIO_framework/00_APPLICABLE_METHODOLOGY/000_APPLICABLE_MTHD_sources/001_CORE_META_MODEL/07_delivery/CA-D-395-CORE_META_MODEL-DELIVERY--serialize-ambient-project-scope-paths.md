@@ -1,16 +1,10 @@
 ---
-atom_id: CA-D-395
-cce_version: cce_1
-cce_form: serialization
 subjects:
-  governs:
-    continuant:
-      - "Carrier/Representation"
+  governs: "Carrier/Representation"
   depends_on:
-    continuant:
-      - "Project"
-      - "Scope Unit"
-version: 1
+    - "Project"
+    - "Scope Unit"
+version: 5
 updated_at: "2026-09-10 20:55:21 +0400"
 relations: {}
 ---

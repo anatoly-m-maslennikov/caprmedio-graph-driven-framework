@@ -1,12 +1,8 @@
 ---
-atom_id: CA-D-279
-cce_version: cce_1
-cce_form: serialization
 subjects:
-  governs:
-    continuant:
-      - Markdown Atom Carrier/Main Content/Paragraph
-version: 6
+  governs: "Markdown Atom Carrier/Main Content/Paragraph"
+  depends_on: []
+version: 10
 updated_at: "2026-09-10 02:49:14 +0400"
 relations: {}
 ---

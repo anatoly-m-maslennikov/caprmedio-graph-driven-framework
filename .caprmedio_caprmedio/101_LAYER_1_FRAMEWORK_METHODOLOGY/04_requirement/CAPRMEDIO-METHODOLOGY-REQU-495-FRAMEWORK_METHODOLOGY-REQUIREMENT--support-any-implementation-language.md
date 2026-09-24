@@ -1,17 +1,13 @@
 ---
-atom_id: CAPRMEDIO-METHODOLOGY-REQU-495
 subject_scopes:
   - portability
-version: 4
-updated_at: 2026-09-06 01:45:12 +0400
+version: 6
+updated_at: "2026-09-17 02:13:04 +0000"
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
-relations:
-  child_of:
-    - CAPRMEDIO-METHODOLOGY-REQU-506-FRAMEWORK_METHODOLOGY-CORE-REQUIREMENT--govern-substrate-neutral-framework-behavior
-  replacement_of:
-    - CAPRMEDIO-REQU-070--support-any-implementation-language
+  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+relations: {"child_of":["CAPRMEDIO-METHODOLOGY-REQU-506-FRAMEWORK_METHODOLOGY-CORE-REQUIREMENT--govern-substrate-neutral-framework-behavior"]}
 ---
 # Support any Implementation language
 
-CAPRMEDIO imposes no programming language on project Implementation, while reusable language-specific construction rules and tooling belong to Extensions and project-specific rules to Project Adaptations.
+CAPRMEDIO imposes no programming language on project Implementation, while reusable language-specific construction rules **and** tooling belong **to** Extensions **and** project-specific rules **to** Project Adaptations.

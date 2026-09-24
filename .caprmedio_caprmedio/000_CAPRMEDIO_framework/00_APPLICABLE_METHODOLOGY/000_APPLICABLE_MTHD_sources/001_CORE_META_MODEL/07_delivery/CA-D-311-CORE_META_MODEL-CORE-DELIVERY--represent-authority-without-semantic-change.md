@@ -1,15 +1,9 @@
 ---
-atom_id: CA-D-311
-cce_version: cce_1
-cce_form: preservation
 subjects:
-  governs:
-    continuant:
-      - Carrier/Representation
+  governs: "Carrier/Representation"
   depends_on:
-    continuant:
-      - Artifact/Revision
-version: 4
+    - "Artifact/Revision"
+version: 8
 updated_at: 2026-09-06 01:45:12 +0400
 relations: {}
 ---

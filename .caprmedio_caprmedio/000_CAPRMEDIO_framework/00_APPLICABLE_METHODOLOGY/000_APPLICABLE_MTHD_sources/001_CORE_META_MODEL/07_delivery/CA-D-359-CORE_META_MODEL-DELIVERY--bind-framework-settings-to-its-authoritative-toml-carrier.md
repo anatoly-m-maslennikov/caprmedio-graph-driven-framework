@@ -1,16 +1,10 @@
 ---
-atom_id: CA-D-359
-cce_version: cce_1
-cce_form: delivery
 subjects:
-  governs:
-    continuant:
-      - Framework Instance Settings/Authoritative Carrier
+  governs: "Framework Instance Settings/Authoritative Carrier"
   depends_on:
-    continuant:
-      - File Carrier
-      - File Carrier/Format
-version: 4
+    - "File Carrier"
+    - "File Carrier/Format"
+version: 8
 updated_at: "2026-09-10 02:49:14 +0400"
 relations:
   child_of:

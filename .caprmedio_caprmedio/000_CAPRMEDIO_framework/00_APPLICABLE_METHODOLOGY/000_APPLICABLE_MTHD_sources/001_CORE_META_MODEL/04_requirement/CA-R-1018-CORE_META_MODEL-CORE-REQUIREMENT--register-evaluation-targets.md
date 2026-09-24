@@ -1,7 +1,4 @@
 ---
-atom_id: "CA-R-1018"
-cce_version: "cce_1"
-cce_form: "definition"
 subjects:
   governs: "Evaluation For Relation"
   depends_on:
@@ -11,10 +8,15 @@ subjects:
     - "Atom/Content Role: Delivery"
     - "Atom/Content Role: Operations"
     - "Atom/Local Tier"
-version: 10
+version: 13
 updated_at: 2026-09-15 05:51:38
 relations: {}
 ---
 # Register Evaluation targets
 
-`evaluation_for` **means** a direct relation owned by an Evaluation Atom **and** directed **to** an Atom whose Content Role is **in** (Requirement, Method, Evaluation, Delivery, Operations) **and** whose authority the Evaluation checks; a Standard Evaluation Atom **must** own **`>=1`** such target relations, while a Core **or** General Evaluation **may** state a representation-independent evaluation policy **without** an artificial list of individual targets. **every** supplied target relation **must** retain the same checked-authority qualification regardless of the Evaluation's Local Tier.
+`evaluation_for` **means** a direct relation owned by an Evaluation Atom **and** directed **to** an Atom whose Content Role is **in** (Requirement, Method, Evaluation, Delivery, Operations) **and** whose authority the Evaluation checks;
+
+- a Standard Evaluation Atom **must** own **`>=1`** such target relations,
+- while a Core **or** General Evaluation **may** state a representation-independent evaluation policy **without** an artificial list of individual targets.
+
+**every** supplied target relation **must** retain the same checked-authority qualification regardless of the Evaluation's Local Tier.

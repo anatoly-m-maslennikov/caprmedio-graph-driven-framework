@@ -1,12 +1,8 @@
 ---
-atom_id: CA-D-338
-cce_version: cce_1
-cce_form: serialization
 subjects:
-  governs:
-    continuant:
-      - Work Journal/Projection Rebuild/Completed Event
-version: 5
+  governs: "Work Journal/Projection Rebuild/Completed Event"
+  depends_on: []
+version: 9
 updated_at: "2026-09-10 05:41:36 +0400"
 relations: {}
 ---

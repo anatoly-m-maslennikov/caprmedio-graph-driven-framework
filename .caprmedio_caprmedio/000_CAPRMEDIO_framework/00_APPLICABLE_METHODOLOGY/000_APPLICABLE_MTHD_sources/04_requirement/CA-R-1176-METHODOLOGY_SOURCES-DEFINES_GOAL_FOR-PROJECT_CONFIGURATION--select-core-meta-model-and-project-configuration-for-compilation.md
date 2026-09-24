@@ -1,15 +1,9 @@
 ---
-atom_id: CA-R-1176
-cce_version: cce_1
-cce_form: obligation
 subjects:
-  governs:
-    continuant:
-      - PROJECT_CONFIGURATION/Goal
+  governs: "PROJECT_CONFIGURATION/Goal"
   depends_on:
-    continuant:
-      - METHODOLOGY_SOURCES
-version: 9
+    - "METHODOLOGY_SOURCES"
+version: 13
 updated_at: "2026-09-11 23:47:49 +0400"
 relations: {}
 ---

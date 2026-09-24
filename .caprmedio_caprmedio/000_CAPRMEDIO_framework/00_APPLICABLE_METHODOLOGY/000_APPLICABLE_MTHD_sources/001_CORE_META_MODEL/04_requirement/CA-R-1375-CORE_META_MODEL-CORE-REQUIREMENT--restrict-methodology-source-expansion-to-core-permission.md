@@ -1,21 +1,18 @@
 ---
-atom_id: CA-R-1375
-cce_version: cce_1
-cce_form: obligation
 subjects:
-  governs:
-    continuant:
-      - Methodology Source/Expansion Boundary
+  governs: "Methodology Source/Expansion Boundary"
   depends_on:
-    continuant:
-      - Core Meta-Model
-      - Extension
-      - Project Configuration
-      - Atom/Claim
-version: 6
-updated_at: 2026-09-15 05:51:38
+    - "Core Meta-Model"
+    - "Extension"
+    - "Project Configuration"
+    - "Atom/Claim"
+    - "Framework Instance Settings"
+version: 11
+updated_at: "2026-09-17 04:15:08 +0000"
 relations: {}
 ---
 # Restrict Methodology Source Expansion to Core Permission
 
-an Extension **or** Project Configuration **must** add Claims, Terms, allowed values, Types, Methods, Evaluations, Deliveries, Operations, activation decisions, compatibility decisions, **or** priority decisions **only** **where** one active CORE_META_MODEL Atom permits the addition **and** **must not** redefine, replace, shadow, weaken, delete, contradict, reinterpret, **or** mutate Core Meta-Model authority at **any** Local Tier; a higher-ranked local Claim grants no exception **to** this source authority boundary.
+an Extension **or** Project Configuration **must** add Claims, Terms, allowed values, Types, Methods, Evaluations, Deliveries, Operations, activation rules, compatibility rules, **or** priority rules **only** **where** one active CORE_META_MODEL Atom permits the addition **and** **must not** redefine, replace, shadow, weaken, delete, contradict, reinterpret, **or** mutate Core Meta-Model authority at **any** Local Tier; a higher-ranked local Claim grants no exception **to** this source authority boundary.
+
+current Extension activation **and** selected Extension Revisions remain owned by Framework Instance Settings under CA-R-1207. permission **to** add a rule does **not** duplicate **or** transfer ownership of its current selection.

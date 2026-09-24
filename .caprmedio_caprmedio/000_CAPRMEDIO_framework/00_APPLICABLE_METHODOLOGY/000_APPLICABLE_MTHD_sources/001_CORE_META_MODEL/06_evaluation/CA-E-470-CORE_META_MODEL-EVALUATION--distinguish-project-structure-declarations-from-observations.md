@@ -1,7 +1,4 @@
 ---
-atom_id: CA-E-470
-cce_version: cce_1
-cce_form: evaluation
 subjects:
   governs: "Project Structure"
   depends_on:
@@ -9,7 +6,7 @@ subjects:
     - "Goal"
     - "Carrier"
     - "Project Scope Unit Graph Projection"
-version: 1
+version: 3
 updated_at: "2026-09-15 00:13:02 +0000"
 relations:
   evaluation_for:

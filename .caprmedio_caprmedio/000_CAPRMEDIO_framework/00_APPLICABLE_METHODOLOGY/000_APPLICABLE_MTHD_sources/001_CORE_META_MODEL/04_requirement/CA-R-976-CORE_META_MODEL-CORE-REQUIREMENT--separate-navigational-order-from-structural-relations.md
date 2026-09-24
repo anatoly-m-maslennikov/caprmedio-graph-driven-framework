@@ -1,16 +1,10 @@
 ---
 subjects:
-  governs:
-    continuant:
-      - relation-model
+  governs: "relation-model"
   depends_on:
-    continuant:
-      - scope-topology
-      - atom-boundary
-atom_id: CA-R-976
-cce_version: cce_1
-cce_form: prohibition
-version: 10
+    - "scope-topology"
+    - "atom-boundary"
+version: 14
 updated_at: "2026-09-10 05:08:55 +0400"
 relations: {}
 ---

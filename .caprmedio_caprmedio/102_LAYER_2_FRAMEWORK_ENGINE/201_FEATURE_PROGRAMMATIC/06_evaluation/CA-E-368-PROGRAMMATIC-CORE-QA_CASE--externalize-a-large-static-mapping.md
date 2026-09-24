@@ -1,43 +1,41 @@
 ---
-atom_id: CA-E-368
 cce_version: cce_1
 cce_form: evaluation
 subjects:
-  governs:
-    continuant:
-      - static-mapping
+  governs: "static-mapping"
   depends_on:
-    continuant:
-      - programmatic software
-version: 3
+    - "programmatic software"
+version: 8
 updated_at: 2026-09-01 02:15:00 +0400
 relations:
   evaluation_for:
     - CA-M-162
   derived_from:
     - CA-A-053
+llm_session_ids:
+  - codex:01a02650-eff7-7453-8c37-0699b36773c6
 ---
 # Externalize a large static mapping
 
 ## Claim checked
 
-One large reusable static mapping is stored outside a hand-authored Python
+one large reusable static mapping is stored outside a hand-authored Python
 module while its loader retains a typed, validated boundary.
 
 ## Test case
 
-Evaluate one changed Python module containing a static mapping above 20 entries
-or 25 source lines.
+evaluate one changed Python module containing a static mapping above 20 entries
+**or** 25 source lines.
 
 ## Acceptance criteria
 
-Pass only when the mapping is moved to TOML by default, JSON for a schema or
-machine-interchange need, or YAML for one declared distinct feature; its loader
-must validate the expected structure without changing the mapping's meaning.
+pass **only** **when** the mapping is moved **to** TOML by default, JSON for a schema **or**
+machine-interchange need, **or** YAML for one declared distinct feature; its loader
+**must** validate the expected structure **without** changing the mapping's meaning.
 
 ## Failure disposition
 
-Reject the source-size claim until data and executable behavior are separated.
+reject the source-size claim **until** data **and** executable behavior are separated.
 
 ## Sources
 

@@ -1,7 +1,4 @@
 ---
-atom_id: CA-O-009
-cce_version: cce_1
-cce_form: definition
 subjects:
   governs: "Publish Reconciled Projection"
   depends_on:
@@ -11,7 +8,7 @@ subjects:
     - "Atom/Claim"
     - "Carrier"
     - "Atom/Content Role: Delivery"
-version: 1
+version: 3
 updated_at: "2026-09-14 01:36:43 +0400"
 relations: {}
 ---

@@ -1,17 +1,11 @@
 ---
-atom_id: CA-R-1444
-cce_version: cce_1
-cce_form: definition
 subjects:
-  governs:
-    continuant:
-      - Atom/Global Tier
+  governs: "Atom/Global Tier"
   depends_on:
-    continuant:
-      - Atom/Scope
-      - Atom/Local Tier
-      - Structural Level
-version: 3
+    - "Atom/Scope"
+    - "Atom/Local Tier"
+    - "Structural Level"
+version: 7
 updated_at: "2026-09-11 20:58:34 +0400"
 relations: {}
 ---

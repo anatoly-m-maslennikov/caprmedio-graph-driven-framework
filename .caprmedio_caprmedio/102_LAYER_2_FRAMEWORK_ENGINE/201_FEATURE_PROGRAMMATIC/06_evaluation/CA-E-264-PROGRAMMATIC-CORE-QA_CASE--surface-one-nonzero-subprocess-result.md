@@ -1,46 +1,44 @@
 ---
-atom_id: CA-E-264
 cce_version: cce_1
 cce_form: evaluation
 subjects:
-  governs:
-    continuant:
-      - subprocess-effect
+  governs: "subprocess-effect"
   depends_on:
-    continuant:
-      - programmatic software
-version: 4
+    - "programmatic software"
+version: 9
 updated_at: 2026-09-01 02:00:00 +0400
 relations:
   evaluation_for:
     - CA-M-161
   derived_from:
     - CA-A-053
+llm_session_ids:
+  - codex:01a02650-eff7-7453-8c37-0699b36773c6
 ---
 # Surface one nonzero subprocess result
 
 ## Claim checked
 
-One PROGRAMMATIC subprocess boundary observes and returns a non-zero exit
-status with the context required for diagnosis or recovery.
+one PROGRAMMATIC subprocess boundary observes **and** returns a non-zero exit
+status with the context required for diagnosis **or** recovery.
 
 ## Applicable conditions
 
-Apply only when a component invokes a subprocess. Components without a
-subprocess boundary are not applicable.
+apply **only** **when** a component invokes a subprocess. components **without** a
+subprocess boundary are **not** applicable.
 
 ## Test case
 
-Invoke one declared subprocess that returns a non-zero exit status.
+invoke one declared subprocess that returns a non-zero exit status.
 
 ## Acceptance criteria
 
-Pass only when the boundary reports the explicit status and declared input
-context without treating the invocation as successful.
+pass **only** **when** the boundary reports the explicit status **and** declared input
+context **without** treating the invocation as successful.
 
 ## Failure disposition
 
-Stop the affected operation and return the failure to its caller or recovery
+stop the affected operation **and** return the failure **to** its caller **or** recovery
 owner.
 
 ## Sources

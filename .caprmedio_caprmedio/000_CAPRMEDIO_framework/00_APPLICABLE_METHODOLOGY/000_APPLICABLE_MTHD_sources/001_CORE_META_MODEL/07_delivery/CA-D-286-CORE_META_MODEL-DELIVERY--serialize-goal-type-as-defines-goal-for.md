@@ -1,12 +1,8 @@
 ---
-atom_id: CA-D-286
-cce_version: cce_1
-cce_form: serialization
 subjects:
-  governs:
-    continuant:
-      - "Atom/Content Role: Requirement/Type: Goal/Filename Token"
-version: 8
+  governs: "Atom/Content Role: Requirement/Type: Goal/Filename Token"
+  depends_on: []
+version: 12
 updated_at: "2026-09-10 02:49:14 +0400"
 relations: {}
 ---

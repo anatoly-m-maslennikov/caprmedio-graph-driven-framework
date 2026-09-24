@@ -1,15 +1,9 @@
 ---
-atom_id: CA-R-1038
-cce_version: cce_1
-cce_form: permission
 subjects:
-  governs:
-    continuant:
-      - relation-model
+  governs: "relation-model"
   depends_on:
-    continuant:
-      - atom-boundary
-version: 7
+    - "atom-boundary"
+version: 11
 updated_at: "2026-09-10 07:34:05 +0400"
 relations:
   child_of:

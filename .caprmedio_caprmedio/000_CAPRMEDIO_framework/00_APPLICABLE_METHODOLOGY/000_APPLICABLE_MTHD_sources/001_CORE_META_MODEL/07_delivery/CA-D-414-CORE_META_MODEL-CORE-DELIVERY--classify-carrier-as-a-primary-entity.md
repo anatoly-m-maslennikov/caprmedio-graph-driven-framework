@@ -1,15 +1,9 @@
 ---
-atom_id: CA-D-414
-cce_version: cce_1
-cce_form: classification
 subjects:
-  governs:
-    continuant:
-      - Carrier
+  governs: "Carrier"
   depends_on:
-    continuant:
-      - Primary Entity
-version: 8
+    - "Primary Entity"
+version: 12
 updated_at: "2026-09-11 20:58:34 +0400"
 relations: {}
 ---

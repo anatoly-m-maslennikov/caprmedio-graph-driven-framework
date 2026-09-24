@@ -1,17 +1,11 @@
 ---
-atom_id: CA-D-341
-cce_version: cce_1
-cce_form: separation
 subjects:
-  governs:
-    continuant:
-      - Carrier/Storage Boundary
+  governs: "Carrier/Storage Boundary"
   depends_on:
-    continuant:
-      - Framework-Owned Carrier
-      - Project-Owned Carrier
-      - Runtime State Carrier
-version: 4
+    - "Framework-Owned Carrier"
+    - "Project-Owned Carrier"
+    - "Runtime State Carrier"
+version: 8
 updated_at: 2026-09-06 01:45:12 +0400
 relations: {}
 ---

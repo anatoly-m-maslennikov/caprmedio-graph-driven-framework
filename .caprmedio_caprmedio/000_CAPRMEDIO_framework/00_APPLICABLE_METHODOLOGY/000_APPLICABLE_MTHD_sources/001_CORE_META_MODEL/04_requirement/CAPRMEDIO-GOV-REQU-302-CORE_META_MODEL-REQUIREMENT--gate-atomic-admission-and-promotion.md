@@ -1,19 +1,11 @@
 ---
-atom_id: CAPRMEDIO-GOV-REQU-302
-cce_version: cce_1
-cce_form: obligation
 subjects:
-  governs:
-    occurrent:
-      - lifecycle
+  governs: "lifecycle"
   depends_on:
-    continuant:
-      - Framework Instance Settings
-      - Default Settings
-version: 19
+    - "Framework Instance Settings"
+    - "Default Settings"
+version: 23
 updated_at: "2026-09-14 06:21:07 +0400"
-llm_session_ids:
-  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   relates_to:
     - "CA-R-1439"

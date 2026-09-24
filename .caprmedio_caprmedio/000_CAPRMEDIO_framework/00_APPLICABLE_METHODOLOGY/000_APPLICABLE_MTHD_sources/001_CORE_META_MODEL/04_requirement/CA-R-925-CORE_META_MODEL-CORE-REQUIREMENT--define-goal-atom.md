@@ -1,16 +1,10 @@
 ---
 subjects:
-  governs:
-    continuant:
-      - "Atom/Content Role: Requirement/Type: Goal"
+  governs: "Atom/Content Role: Requirement/Type: Goal"
   depends_on:
-    continuant:
-      - Relational Atom
-      - Scope Unit
-atom_id: CA-R-925
-cce_version: cce_1
-cce_form: definition
-version: 14
+    - "Relational Atom"
+    - "Scope Unit"
+version: 18
 updated_at: "2026-09-10 07:15:17 +0400"
 relations:
   child_of:

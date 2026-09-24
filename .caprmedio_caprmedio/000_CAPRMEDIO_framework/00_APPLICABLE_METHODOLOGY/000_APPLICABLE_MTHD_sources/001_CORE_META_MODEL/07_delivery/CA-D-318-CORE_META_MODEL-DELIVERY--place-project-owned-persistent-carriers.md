@@ -1,12 +1,8 @@
 ---
-atom_id: CA-D-318
-cce_version: cce_1
-cce_form: placement
 subjects:
-  governs:
-    continuant:
-      - Project-Owned Carrier Root
-version: 4
+  governs: "Project-Owned Carrier Root"
+  depends_on: []
+version: 8
 updated_at: "2026-09-10 02:49:14 +0400"
 relations: {}
 ---

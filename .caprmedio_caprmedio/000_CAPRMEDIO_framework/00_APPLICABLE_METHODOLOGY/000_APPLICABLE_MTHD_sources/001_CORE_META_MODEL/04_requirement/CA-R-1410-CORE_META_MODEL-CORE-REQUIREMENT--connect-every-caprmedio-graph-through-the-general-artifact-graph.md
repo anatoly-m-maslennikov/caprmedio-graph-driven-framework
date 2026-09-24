@@ -1,14 +1,11 @@
 ---
-atom_id: CA-R-1410
-cce_version: cce_1
-cce_form: obligation
 subjects:
   governs: "CAPRMEDIO Graph/Connectivity"
   depends_on:
     - "General Artifact Graph"
     - "Artifact"
     - "Structural Entity"
-version: 3
+version: 5
 updated_at: "2026-09-14 21:49:27 +0400"
 relations: {}
 ---

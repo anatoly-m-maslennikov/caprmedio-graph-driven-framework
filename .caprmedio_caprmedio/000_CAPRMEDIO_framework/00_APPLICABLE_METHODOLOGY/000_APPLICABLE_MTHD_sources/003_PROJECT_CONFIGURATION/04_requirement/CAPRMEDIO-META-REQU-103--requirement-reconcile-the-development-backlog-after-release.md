@@ -1,19 +1,10 @@
 ---
-atom_id: CAPRMEDIO-META-REQU-103
-cce_version: cce_1
-cce_form: obligation
 subjects:
-  governs:
-    occurrent:
-      - development-flow
-version: 10
-updated_at: "2026-09-11 23:47:49 +0400"
-llm_session_ids:
-  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
-relations:
-  child_of:
-    - CAPRMEDIO-META-REQU-090
-    - CAPRMEDIO-META-REQU-114-CORE_META_MODEL-CORE-REQUIREMENT--preserve-content-role-boundaries-through-caprmedio-loop
+  governs: "development-flow"
+  depends_on: []
+version: 15
+updated_at: "2026-09-17 13:16:29 +0000"
+relations: {"child_of":["CA-O-058","CAPRMEDIO-META-REQU-114-CORE_META_MODEL-CORE-REQUIREMENT--preserve-content-role-boundaries-through-caprmedio-loop"]}
 ---
 # Requirement — Reconcile the Development Backlog after release
 

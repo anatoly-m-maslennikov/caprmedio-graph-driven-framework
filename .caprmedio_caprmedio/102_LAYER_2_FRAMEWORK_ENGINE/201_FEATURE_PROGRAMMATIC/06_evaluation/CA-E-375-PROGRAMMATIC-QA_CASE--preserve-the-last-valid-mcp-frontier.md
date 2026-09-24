@@ -1,42 +1,44 @@
 ---
-atom_id: CA-E-375
 cce_version: cce_1
 cce_form: evaluation
 subjects:
-  governs:
-    continuant:
-      - framework-engine-mcp-frontier
+  governs: "framework-engine-mcp-frontier"
   depends_on:
-    continuant:
-      - programmatic software
-version: 2
-updated_at: 2026-09-01 02:00:00 +0400
+    - "Projection"
+    - "programmatic software"
+version: 8
+updated_at: "2026-09-17 19:19:57 +0000"
 relations:
   evaluation_for:
     - CA-M-193
   derived_from:
     - CA-A-058
+llm_session_ids:
+  - codex:01a02650-eff7-7453-8c37-0699b36773c6
 ---
 # Preserve the last valid MCP frontier
 
 ## Claim checked
 
-One invalid MCP frontier refresh leaves the preceding complete valid frontier
-available and reports the invalid active Tool.
+one invalid MCP frontier refresh preserves the preceding complete valid frontier
+bytes for recovery **and** reports the invalid active Tool **without** presenting
+that previous frontier as current.
 
 ## Test case
 
-Start with one valid exposed Tool frontier, then refresh from a candidate set
+start with one valid exposed Tool frontier, **then** refresh from a candidate set
 containing one active Tool with a colliding endpoint identity.
 
 ## Acceptance criteria
 
-Pass only when the candidate frontier is rejected, the collision is reported,
-and the preceding frontier remains unchanged and callable.
+pass **only** **when** the candidate frontier is rejected, the collision is reported,
+**and** the preceding frontier bytes remain unchanged for recovery. no new
+current registry is published **and** the preceding registry is **not** presented as
+current, under CA-R-1110; byte retention alone does **not** authorize call admission.
 
 ## Failure disposition
 
-Reject the refresh path until replacement is atomic at the validated frontier
+reject the refresh path **until** replacement is atomic at the validated frontier
 boundary.
 
 ## Sources

@@ -1,15 +1,9 @@
 ---
 subjects:
-  governs:
-    continuant:
-      - Atom/Claim
+  governs: "Atom/Claim"
   depends_on:
-    continuant:
-      - Atom
-atom_id: CA-R-918
-cce_version: cce_1
-cce_form: cardinality
-version: 8
+    - "Atom"
+version: 12
 updated_at: 2026-09-06 01:45:12 +0400
 relations: {}
 ---

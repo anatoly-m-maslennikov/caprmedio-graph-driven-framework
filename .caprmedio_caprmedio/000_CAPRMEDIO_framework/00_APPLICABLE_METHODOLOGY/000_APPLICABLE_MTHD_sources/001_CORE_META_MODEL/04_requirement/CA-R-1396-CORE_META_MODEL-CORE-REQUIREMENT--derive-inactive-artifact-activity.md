@@ -1,16 +1,10 @@
 ---
-atom_id: CA-R-1396
-cce_version: cce_1
-cce_form: conditional
 subjects:
-  governs:
-    continuant:
-      - "Artifact/Activity: Inactive"
+  governs: "Artifact/Activity: Inactive"
   depends_on:
-    continuant:
-      - Artifact/Activity
-      - Artifact/Revision/Status
-version: 4
+    - "Artifact/Activity"
+    - "Artifact/Revision/Status"
+version: 8
 updated_at: "2026-09-11 02:13:22 +0400"
 relations: {}
 ---

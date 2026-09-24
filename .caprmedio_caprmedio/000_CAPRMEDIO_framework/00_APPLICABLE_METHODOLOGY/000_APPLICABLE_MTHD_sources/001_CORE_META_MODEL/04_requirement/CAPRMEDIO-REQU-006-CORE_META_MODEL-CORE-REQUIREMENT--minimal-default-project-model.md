@@ -1,26 +1,19 @@
 ---
-version: 7
+version: 11
 updated_at: "2026-09-14 23:34:13 +0000"
-llm_session_ids:
-  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   child_of:
     - CA-M-005-PRINCIPLE-METHOD--add-complexity-only-when-necessary
 subjects:
-  governs:
-    continuant:
-      - "Project/minimum model"
+  governs: "Project/minimum model"
   depends_on:
-    continuant:
-      - "Project"
-      - "Atom/Content Role: Requirement"
-      - "Atom/Content Role: Implementation"
-      - "Atom"
-      - "Structural Level"
-      - "CAPRMEDIO Framework Instance"
-cce_version: cce_1
-cce_form: obligation
-atom_id: CAPRMEDIO-REQU-006
+    - "Project"
+    - "Atom/Content Role: Requirement"
+    - "Atom/Content Role: Implementation"
+    - "Atom"
+    - "Structural Level"
+    - "CAPRMEDIO Framework Instance"
+
 ---
 # Minimal default project model
 

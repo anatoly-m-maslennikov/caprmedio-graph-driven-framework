@@ -1,7 +1,4 @@
 ---
-atom_id: CA-R-1435
-cce_version: cce_1
-cce_form: definition
 subjects:
   governs: "NARROWER_THAN"
   depends_on:
@@ -10,7 +7,7 @@ subjects:
     - "Relation"
     - "Property"
     - "Definition Atom"
-version: 3
+version: 5
 updated_at: "2026-09-13 03:24:04 +0400"
 relations: {}
 ---

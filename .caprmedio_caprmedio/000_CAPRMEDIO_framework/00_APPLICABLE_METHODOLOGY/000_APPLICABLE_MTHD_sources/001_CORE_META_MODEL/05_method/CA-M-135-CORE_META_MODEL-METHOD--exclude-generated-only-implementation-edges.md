@@ -1,14 +1,9 @@
 ---
-cce_version: cce_1
-cce_form: method
 subjects:
-  governs:
-    continuant:
-      - provenance
-version: 13
+  governs: "provenance"
+  depends_on: []
+version: 16
 updated_at: "2026-09-14 06:21:07 +0400"
-llm_session_ids:
-  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations: {}
 ---
 # Exclude generated-only implementation edges

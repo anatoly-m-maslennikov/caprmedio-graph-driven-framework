@@ -1,18 +1,10 @@
 ---
 subjects:
-  governs:
-    continuant:
-      - Atom
+  governs: "Atom"
   depends_on:
-    continuant:
-      - Artifact
-atom_id: CA-R-655
-cce_version: cce_1
-cce_form: definition
-version: 16
+    - "Artifact"
+version: 20
 updated_at: 2026-09-06 01:45:12 +0400
-llm_session_ids:
-  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations: {}
 ---
 # Define Atom Artifact Form

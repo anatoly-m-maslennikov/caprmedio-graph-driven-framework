@@ -1,20 +1,12 @@
 ---
-atom_id: CAPRMEDIO-META-REQU-163
-cce_version: cce_1
-cce_form: definition
 subjects:
-  governs:
-    continuant:
-      - Configuration Selection and Precedence
+  governs: "Configuration Selection and Precedence"
   depends_on:
-    continuant:
-      - Framework Instance Settings
-      - Extension
-      - Tool
-version: 14
+    - "Framework Instance Settings"
+    - "Extension"
+    - "Tool"
+version: 18
 updated_at: "2026-09-10 04:26:29 +0400"
-llm_session_ids:
-  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations: {}
 ---
 # Define Configuration selection and precedence

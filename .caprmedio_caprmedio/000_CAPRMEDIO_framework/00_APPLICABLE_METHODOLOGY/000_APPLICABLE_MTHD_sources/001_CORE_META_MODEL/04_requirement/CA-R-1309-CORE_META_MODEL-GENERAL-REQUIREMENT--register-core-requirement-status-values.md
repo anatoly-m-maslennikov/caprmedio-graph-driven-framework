@@ -1,15 +1,9 @@
 ---
-atom_id: CA-R-1309
-cce_version: cce_1
-cce_form: requirement
 subjects:
-  governs:
-    continuant:
-      - "Atom/Content Role: Requirement/Status"
+  governs: "Atom/Content Role: Requirement/Status"
   depends_on:
-    continuant:
-      - "Atom/Content Role: Requirement"
-version: 6
+    - "Atom/Content Role: Requirement"
+version: 10
 updated_at: "2026-09-10 03:38:57 +0400"
 relations: {}
 ---

@@ -1,14 +1,9 @@
 ---
 subjects:
-  governs:
-    continuant:
-      - relation-model
+  governs: "relation-model"
   depends_on:
-    continuant:
-      - atom-boundary
-cce_version: cce_1
-cce_form: obligation
-version: 14
+    - "atom-boundary"
+version: 17
 updated_at: "2026-09-10 06:39:08 +0400"
 relations: {}
 ---

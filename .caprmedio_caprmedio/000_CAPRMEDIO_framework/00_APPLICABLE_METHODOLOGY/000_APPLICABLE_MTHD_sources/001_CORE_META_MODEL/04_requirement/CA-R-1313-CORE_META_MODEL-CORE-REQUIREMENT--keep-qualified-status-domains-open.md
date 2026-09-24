@@ -1,16 +1,10 @@
 ---
-atom_id: CA-R-1313
-cce_version: cce_1
-cce_form: permission
 subjects:
-  governs:
-    continuant:
-      - Artifact/Revision/Status
+  governs: "Artifact/Revision/Status"
   depends_on:
-    continuant:
-      - Extension
-      - Project Configuration
-version: 6
+    - "Extension"
+    - "Project Configuration"
+version: 10
 updated_at: "2026-09-11 23:47:49 +0400"
 relations: {}
 ---

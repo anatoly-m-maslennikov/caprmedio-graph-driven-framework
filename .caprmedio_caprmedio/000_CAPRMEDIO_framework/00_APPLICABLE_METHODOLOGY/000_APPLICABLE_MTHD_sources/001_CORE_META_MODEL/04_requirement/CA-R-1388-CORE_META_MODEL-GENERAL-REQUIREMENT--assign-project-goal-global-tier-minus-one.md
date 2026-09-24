@@ -1,16 +1,10 @@
 ---
-atom_id: CA-R-1388
-cce_version: cce_1
-cce_form: requirement
 subjects:
-  governs:
-    continuant:
-      - Atom/Global Tier
+  governs: "Atom/Global Tier"
   depends_on:
-    continuant:
-      - "Atom/Content Role: Requirement/Type: Goal"
-      - Project
-version: 3
+    - "Atom/Content Role: Requirement/Type: Goal"
+    - "Project"
+version: 7
 updated_at: "2026-09-10 06:59:09 +0400"
 relations: {}
 ---

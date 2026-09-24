@@ -1,15 +1,9 @@
 ---
-atom_id: CAPRMEDIO-META-REQU-713
 subjects:
-  governs:
-    continuant:
-      - "Scope Unit/Type: Unordered"
+  governs: "Scope Unit/Type: Unordered"
   depends_on:
-    continuant:
-      - Local Order
-cce_version: cce_1
-cce_form: definition
-version: 13
+    - "Local Order"
+version: 17
 updated_at: "2026-09-10 05:08:55 +0400"
 relations: {}
 ---

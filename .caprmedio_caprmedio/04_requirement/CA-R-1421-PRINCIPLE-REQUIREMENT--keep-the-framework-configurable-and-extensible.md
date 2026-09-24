@@ -1,18 +1,16 @@
 ---
-atom_id: CA-R-1421
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  governs:
-    continuant:
-      - CAPRMEDIO Framework Instance
+  governs: "CAPRMEDIO Framework Instance"
   depends_on:
-    continuant:
-      - Configuration
-      - Extension
-version: 1
+    - "Configuration"
+    - "Extension"
+version: 4
 updated_at: 2026-09-05 01:09:17 +0400
 relations: {}
+llm_session_ids:
+  - codex:01a02650-eff7-7453-8c37-0699b36773c6
 ---
 # Keep the framework configurable and extensible
 

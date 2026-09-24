@@ -1,21 +1,19 @@
 ---
-atom_id: CA-M-260
 cce_version: cce_1
 cce_form: method
 subjects:
-  governs:
-    continuant:
-      - Project/authoritative statement
+  governs: "Project/authoritative statement"
   depends_on:
-    continuant:
-      - Project
-      - Project/authoritative statement/source
-      - Project/authoritative statement/representation
-version: 2
+    - "Project"
+    - "Project/authoritative statement/source"
+    - "Project/authoritative statement/representation"
+version: 5
 updated_at: 2026-09-05 01:23:51 +0400
 relations:
   child_of:
     - CA-M-002
+llm_session_ids:
+  - codex:01a02650-eff7-7453-8c37-0699b36773c6
 ---
 # One statement, one source
 

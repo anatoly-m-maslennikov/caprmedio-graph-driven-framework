@@ -1,21 +1,15 @@
 ---
-atom_id: CA-R-1434
-cce_version: cce_1
-cce_form: obligation
 subjects:
-  governs:
-    continuant:
-      - Core Meta-Model
+  governs: "Core Meta-Model"
   depends_on:
-    continuant:
-      - Applicable Methodology
-      - Applicable Methodology/Sources
-      - Extension
-      - Project Configuration
-      - Methodology Source/Expansion Boundary
-      - Atom/Content Role
-      - Project
-version: 2
+    - "Applicable Methodology"
+    - "Applicable Methodology/Sources"
+    - "Extension"
+    - "Project Configuration"
+    - "Methodology Source/Expansion Boundary"
+    - "Atom/Content Role"
+    - "Project"
+version: 6
 updated_at: "2026-09-11 23:47:49 +0400"
 relations: {}
 ---

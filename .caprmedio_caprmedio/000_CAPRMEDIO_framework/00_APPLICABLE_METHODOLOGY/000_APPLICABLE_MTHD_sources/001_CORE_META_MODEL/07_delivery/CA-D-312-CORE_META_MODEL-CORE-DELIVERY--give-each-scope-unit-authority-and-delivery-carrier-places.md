@@ -1,16 +1,10 @@
 ---
-atom_id: CA-D-312
-cce_version: cce_1
-cce_form: cardinality
 subjects:
-  governs:
-    continuant:
-      - Carrier
+  governs: "Carrier"
   depends_on:
-    continuant:
-      - Scope Unit
-      - Delivery
-version: 5
+    - "Scope Unit"
+    - "Delivery"
+version: 9
 updated_at: 2026-09-06 01:45:12 +0400
 relations: {}
 ---

@@ -122,11 +122,11 @@
     },
     {
       "delivery_atom": {
-        "authority_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/301_FEATURE_TOOLS/",
-        "delivery_path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/",
-        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/301_FEATURE_TOOLS/07_delivery/CA-D-025-DELIVERY-TOOLS--bind-tools-delivery-place.md",
+        "authority_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/",
+        "delivery_path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/",
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/07_delivery/CA-D-025-DELIVERY-TOOLS--bind-tools-delivery-place.md",
         "predecessor_archive": {
-          "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/301_FEATURE_TOOLS/07_delivery/archive/CA-D-025-DELIVERY-TOOLS--bind-tools-delivery-place@6.md",
+          "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/07_delivery/archive/CA-D-025-DELIVERY-TOOLS--bind-tools-delivery-place@6.md",
           "revision": 6,
           "sha256": "5835f76a3c193232b6135120409f390c36a424b55fc439256fb97bd6ce471522"
         },
@@ -142,19 +142,19 @@
           "line": 5,
           "occurred_at": "2026-08-31T17:18:02Z"
         },
-        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/301_FEATURE_TOOLS",
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS",
         "revision": 3,
         "sha256": "15eae63368c929cbbfbbd4405461d8e80782f9f2586b751567497b184162fe6d"
       },
-      "scope_unit": "102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/301_FEATURE_TOOLS"
+      "scope_unit": "102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS"
     },
     {
       "delivery_atom": {
-        "authority_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/302_FEATURE_APPS/",
-        "delivery_path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/302_APPS/",
-        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/302_FEATURE_APPS/07_delivery/CA-D-023-DELIVERY-APPS--bind-apps-delivery-place.md",
+        "authority_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/203_FEATURE_APPS/",
+        "delivery_path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/",
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/203_FEATURE_APPS/07_delivery/CA-D-023-DELIVERY-APPS--bind-apps-delivery-place.md",
         "predecessor_archive": {
-          "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/302_FEATURE_APPS/07_delivery/archive/CA-D-023-DELIVERY-APPS--bind-apps-delivery-place@7.md",
+          "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/203_FEATURE_APPS/07_delivery/archive/CA-D-023-DELIVERY-APPS--bind-apps-delivery-place@7.md",
           "revision": 7,
           "sha256": "fe640364587467dfe3f30475fdcc359b8b623156378f16ee7848f4aa03a083c1"
         },
@@ -170,19 +170,19 @@
           "line": 7,
           "occurred_at": "2026-08-31T17:20:17Z"
         },
-        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/302_FEATURE_APPS",
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/203_FEATURE_APPS",
         "revision": 3,
         "sha256": "c5cb08057357b27cfa57b0ba6e975f53e48362e19cac0bde1ee165535a14c8bc"
       },
-      "scope_unit": "102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/302_FEATURE_APPS"
+      "scope_unit": "102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/203_FEATURE_APPS"
     },
     {
       "delivery_atom": {
-        "authority_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/303_FEATURE_MCP/",
-        "delivery_path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/303_MCP/",
-        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/303_FEATURE_MCP/07_delivery/CA-D-049-DELIVERY-MCP--bind-mcp-delivery-place.md",
+        "authority_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/204_FEATURE_MCP/",
+        "delivery_path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/",
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/204_FEATURE_MCP/07_delivery/CA-D-049-DELIVERY-MCP--bind-mcp-delivery-place.md",
         "predecessor_archive": {
-          "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/303_FEATURE_MCP/07_delivery/archive/CA-D-049-DELIVERY-MCP--bind-mcp-delivery-place@3.md",
+          "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/204_FEATURE_MCP/07_delivery/archive/CA-D-049-DELIVERY-MCP--bind-mcp-delivery-place@3.md",
           "revision": 3,
           "sha256": "33b7ed0df540b1e7c05ddbb64012c1aa1e585b77fa7be1514ee6b7bfb360e6fc"
         },
@@ -198,11 +198,11 @@
           "line": 9,
           "occurred_at": "2026-08-31T17:20:31Z"
         },
-        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/303_FEATURE_MCP",
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/204_FEATURE_MCP",
         "revision": 3,
         "sha256": "595ed5e1de5c3f2c432b52b4bbb722050e1865d2d86f2437f79af421112ac449"
       },
-      "scope_unit": "102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/303_FEATURE_MCP"
+      "scope_unit": "102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/204_FEATURE_MCP"
     },
     {
       "delivery_atom": {
@@ -234,11 +234,11 @@
     },
     {
       "delivery_atom": {
-        "authority_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/202_FEATURE_AGENTIC/301_FEATURE_SKILLS/",
-        "delivery_path": "102_FRAMEWORK_ENGINE/202_AGENTIC/301_SKILLS/",
-        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/202_FEATURE_AGENTIC/301_FEATURE_SKILLS/07_delivery/CA-D-024-DELIVERY-SKILLS--bind-skills-delivery-place.md",
+        "authority_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/202_FEATURE_AGENTIC/205_FEATURE_SKILLS/",
+        "delivery_path": "102_FRAMEWORK_ENGINE/202_AGENTIC/205_SKILLS/",
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/202_FEATURE_AGENTIC/205_FEATURE_SKILLS/07_delivery/CA-D-024-DELIVERY-SKILLS--bind-skills-delivery-place.md",
         "predecessor_archive": {
-          "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/202_FEATURE_AGENTIC/301_FEATURE_SKILLS/07_delivery/archive/CA-D-024-DELIVERY-SKILLS--bind-skills-delivery-place@6.md",
+          "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/202_FEATURE_AGENTIC/205_FEATURE_SKILLS/07_delivery/archive/CA-D-024-DELIVERY-SKILLS--bind-skills-delivery-place@6.md",
           "revision": 6,
           "sha256": "dda165f5d32eac396b8c7703dc55bea1a65390e1bf450c79535bf27ca9f45cf0"
         },
@@ -254,11 +254,11 @@
           "line": 13,
           "occurred_at": "2026-08-31T17:23:53Z"
         },
-        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/202_FEATURE_AGENTIC/301_FEATURE_SKILLS",
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/202_FEATURE_AGENTIC/205_FEATURE_SKILLS",
         "revision": 2,
         "sha256": "00c6c24ffeeacf7087043d218a80706be97cead0a9ebbbe07f6fe32b6b0d9df6"
       },
-      "scope_unit": "102_LAYER_2_FRAMEWORK_ENGINE/202_FEATURE_AGENTIC/301_FEATURE_SKILLS"
+      "scope_unit": "102_LAYER_2_FRAMEWORK_ENGINE/202_FEATURE_AGENTIC/205_FEATURE_SKILLS"
     },
     {
       "delivery_atom": {

@@ -1,7 +1,4 @@
 ---
-atom_id: CA-R-1246
-cce_version: cce_1
-cce_form: obligation
 subjects:
   governs: "Relation Kind"
   depends_on:
@@ -9,7 +6,7 @@ subjects:
     - "Applicable Methodology"
     - "Projection"
     - "Relation Kind/Metadata"
-version: 7
+version: 9
 updated_at: "2026-09-15 01:47:49 +0400"
 relations: {}
 ---

@@ -1,25 +1,19 @@
 ---
-atom_id: CA-R-1358
-cce_version: cce_1
-cce_form: obligation
 subjects:
-  governs:
-    continuant:
-      - Atom/Claim
+  governs: "Atom/Claim"
   depends_on:
-    continuant:
-      - Atom/Scope
-      - Atom/Claim/Scope
-      - Claim Value Set
-      - Property
-      - IS_ALLOWED_VALUE_OF
-version: 6
-updated_at: "2026-09-10 06:59:09 +0400"
+    - "Atom/Scope"
+    - "Atom/Claim"
+    - "Claim Value Set"
+    - "Property"
+    - "IS_ALLOWED_VALUE_OF"
+version: 11
+updated_at: "2026-09-22 17:59:17 +0000"
 relations:
   child_of:
     - CA-R-918
-    - CA-R-919
+    - CA-R-1596
 ---
 # Consolidate Single-Value Claims as One Value-Set Claim
 
-multiple Claims with the same Atom Scope, Claim Scope, **and** Property X **must** be consolidated as **`=1`** Claim Value Set **if** they differ **only** by one allowed value of X.
+multiple Claims with the same Atom Scope, Claim Target Scope Unit, textual Claim Scope, **and** Property X **must** be consolidated as **`=1`** Claim Value Set **if** they differ **only** by one allowed value of X.

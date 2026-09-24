@@ -1,7 +1,4 @@
 ---
-atom_id: CA-D-361
-cce_version: cce_1
-cce_form: serialization
 subjects:
   governs: "Framework Instance Settings/Authoritative Carrier/Content"
   depends_on:
@@ -9,7 +6,7 @@ subjects:
     - "Extension"
     - "Framework Instance Settings"
     - "Default Settings"
-version: 6
+version: 8
 updated_at: "2026-09-15 00:13:02 +0000"
 relations:
   child_of:

@@ -1,16 +1,10 @@
 ---
-atom_id: CA-D-262
-cce_version: cce_1
-cce_form: registry
 subjects:
-  governs:
-    continuant:
-      - File Carrier/Format
+  governs: "File Carrier/Format"
   depends_on:
-    continuant:
-      - Extension
-      - Project Configuration
-version: 6
+    - "Extension"
+    - "Project Configuration"
+version: 10
 updated_at: "2026-09-11 23:47:49 +0400"
 relations: {}
 ---

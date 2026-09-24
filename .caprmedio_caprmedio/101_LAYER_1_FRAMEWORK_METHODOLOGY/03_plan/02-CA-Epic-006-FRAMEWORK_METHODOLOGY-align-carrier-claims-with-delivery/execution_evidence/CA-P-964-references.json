@@ -313,7 +313,7 @@
       "blocking_external_prerequisite": false,
       "current_consumer": {
         "identity": "CAPRMEDIO-FRAMEWORK-ENGINE-REQU-561",
-        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/202_FEATURE_AGENTIC/301_FEATURE_SKILLS/04_requirement/CAPRMEDIO-FRAMEWORK-ENGINE-REQU-561-SKILLS-REQUIREMENT--route-generated-data-pipeline-work.md",
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/202_FEATURE_AGENTIC/205_FEATURE_SKILLS/04_requirement/CAPRMEDIO-FRAMEWORK-ENGINE-REQU-561-SKILLS-REQUIREMENT--route-generated-data-pipeline-work.md",
         "version": 5,
         "sha256": "993476271bd4f44bd9709d1a2133553c311712f4a61557b100024043a0b6b4f3"
       },
@@ -374,7 +374,7 @@
       "text": "    - \"CAPRMEDIO-GOV-REQU-294\""
     },
     {
-      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/202_FEATURE_AGENTIC/301_FEATURE_SKILLS/04_requirement/CAPRMEDIO-FRAMEWORK-ENGINE-REQU-561-SKILLS-REQUIREMENT--route-generated-data-pipeline-work.md",
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/202_FEATURE_AGENTIC/205_FEATURE_SKILLS/04_requirement/CAPRMEDIO-FRAMEWORK-ENGINE-REQU-561-SKILLS-REQUIREMENT--route-generated-data-pipeline-work.md",
       "line": 11,
       "target": "CAPRMEDIO-GOV-REQU-337",
       "context": "external_active_RMED",
@@ -4986,8 +4986,8 @@
     "active_external_RMED_count": 781,
     "external_parse_diagnostics": [
       {
-        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/202_FEATURE_AGENTIC/301_FEATURE_SKILLS/01_concern/CAPRMEDIO-FRAMEWORK-ENGINE-CONC-076-SKILLS-PROBLEM--problem-core-skill-runtime-is-incomplete.md",
-        "diagnostic": "Missing frontmatter: .caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/202_FEATURE_AGENTIC/301_FEATURE_SKILLS/01_concern/CAPRMEDIO-FRAMEWORK-ENGINE-CONC-076-SKILLS-PROBLEM--problem-core-skill-runtime-is-incomplete.md"
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/202_FEATURE_AGENTIC/205_FEATURE_SKILLS/01_concern/CAPRMEDIO-FRAMEWORK-ENGINE-CONC-076-SKILLS-PROBLEM--problem-core-skill-runtime-is-incomplete.md",
+        "diagnostic": "Missing frontmatter: .caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/202_FEATURE_AGENTIC/205_FEATURE_SKILLS/01_concern/CAPRMEDIO-FRAMEWORK-ENGINE-CONC-076-SKILLS-PROBLEM--problem-core-skill-runtime-is-incomplete.md"
       }
     ],
     "limits": "Repository-local read-only rg includes hidden/ignored files. .git, secret files, .DS_Store and execution_evidence excluded; symlinks not followed. Prose matching covers changed predecessor/successor identities, not every natural-language conceptual mention."

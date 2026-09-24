@@ -1,16 +1,10 @@
 ---
-atom_id: CAPRMEDIO-META-REQU-709
 subjects:
-  governs:
-    continuant:
-      - Scope Unit/Type
+  governs: "Scope Unit/Type"
   depends_on:
-    continuant:
-      - Scope Unit
-      - Type
-cce_version: cce_1
-cce_form: cardinality
-version: 13
+    - "Scope Unit"
+    - "Type"
+version: 17
 updated_at: "2026-09-10 05:08:55 +0400"
 relations: {}
 ---

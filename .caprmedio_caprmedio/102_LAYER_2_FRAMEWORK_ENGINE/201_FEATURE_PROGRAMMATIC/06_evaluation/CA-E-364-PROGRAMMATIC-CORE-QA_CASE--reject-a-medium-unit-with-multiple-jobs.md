@@ -1,41 +1,38 @@
 ---
-atom_id: CA-E-364
 cce_version: cce_1
 cce_form: evaluation
 subjects:
-  governs:
-    continuant:
-      - executable-unit-size
+  governs: "executable-unit-size"
   depends_on:
-    continuant:
-      - programmatic software
-version: 2
+    - "programmatic software"
+version: 8
 updated_at: 2026-09-01 02:00:00 +0400
 relations:
   evaluation_for:
     - CA-M-162
   derived_from:
     - CA-A-053
+llm_session_ids:
+  - codex:01a02650-eff7-7453-8c37-0699b36773c6
 ---
 # Reject a medium unit with multiple jobs
 
 ## Claim checked
 
-One changed executable unit between 26 and 40 logical lines performs exactly
-one coherent job.
+one changed executable unit between 26 **and** 40 logical lines performs **=1** coherent job.
 
 ## Test case
 
-Evaluate one 30-line changed function whose accurate name and branches reveal
+evaluate one 30-line changed function whose accurate name **and** branches reveal
 two independently reusable responsibilities.
 
 ## Acceptance criteria
 
-Pass only when the unit is rejected until the two responsibilities are split.
+pass **only** **when** the unit is rejected **until** the two responsibilities are split.
 
 ## Failure disposition
 
-Block the unit from claiming the 26-to-40-line allowance.
+block the unit from claiming the 26-to-40-line allowance.
 
 ## Sources
 

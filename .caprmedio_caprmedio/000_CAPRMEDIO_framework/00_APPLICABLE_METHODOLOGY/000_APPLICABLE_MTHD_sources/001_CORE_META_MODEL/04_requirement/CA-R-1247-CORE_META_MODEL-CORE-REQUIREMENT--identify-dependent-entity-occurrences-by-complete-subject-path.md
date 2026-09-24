@@ -1,15 +1,9 @@
 ---
-atom_id: CA-R-1247
-cce_version: cce_1
-cce_form: requirement
 subjects:
-  governs:
-    continuant:
-      - Dependent Entity Occurrence
+  governs: "Dependent Entity Occurrence"
   depends_on:
-    continuant:
-      - Subject Path
-version: 4
+    - "Subject Path"
+version: 8
 updated_at: 2026-09-06 01:45:12 +0400
 relations: {}
 ---

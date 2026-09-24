@@ -1,17 +1,10 @@
 ---
-atom_id: CA-R-1418
-cce_version: cce_1
-cce_form: cardinality
 subjects:
-  governs:
-    continuant:
-      - Atom/Summary
+  governs: "Atom/Summary"
   depends_on:
-    continuant:
-      - Atom/Claim
-      - Atom/Claim/Scope
-version: 3
-updated_at: "2026-09-10 06:59:09 +0400"
+    - "Atom/Claim"
+version: 8
+updated_at: "2026-09-22 17:59:17 +0000"
 relations: {}
 ---
 # Give Every Atom One Summary

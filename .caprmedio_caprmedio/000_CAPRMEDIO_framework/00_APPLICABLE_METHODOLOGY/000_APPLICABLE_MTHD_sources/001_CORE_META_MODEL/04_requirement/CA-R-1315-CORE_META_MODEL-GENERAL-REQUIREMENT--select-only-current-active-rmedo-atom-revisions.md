@@ -1,16 +1,10 @@
 ---
-atom_id: CA-R-1315
-cce_version: cce_1
-cce_form: restriction
 subjects:
-  governs:
-    continuant:
-      - Applicable Methodology/Member Selection
+  governs: "Applicable Methodology/Member Selection"
   depends_on:
-    continuant:
-      - Atom/Content Role
-      - Entity/Type/Status
-version: 8
+    - "Atom/Content Role"
+    - "Entity/Type/Status"
+version: 12
 updated_at: 2026-09-15 05:51:38
 relations: {}
 ---

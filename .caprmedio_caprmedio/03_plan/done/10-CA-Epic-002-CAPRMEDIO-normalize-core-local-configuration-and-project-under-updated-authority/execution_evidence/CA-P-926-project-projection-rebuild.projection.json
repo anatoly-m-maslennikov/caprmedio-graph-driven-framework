@@ -51,7 +51,7 @@
     "rebuild_count": 0,
     "output_carrier_path_sha256": "a9f5b3d94be490520d1c3890adcf7c7bfa05b749501197495f94356d1dc5fa95",
     "canonical_generator_dry_run": {
-      "command": "python3 -B 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/GENERATE_PROJECT_GRAPH_STATE/generate_project_graph_state.py",
+      "command": "python3 -B 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/GENERATE_PROJECT_GRAPH_STATE/generate_project_graph_state.py",
       "status": "not_needed_for_no_op",
       "observation": "the legacy generator exits before source evaluation because its legacy control-root configuration is absent; this unrelated repair is outside CA-P-926"
     }

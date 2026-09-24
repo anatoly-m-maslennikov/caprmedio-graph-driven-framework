@@ -1,16 +1,10 @@
 ---
-atom_id: CA-R-1342
-cce_version: cce_1
-cce_form: definition
 subjects:
-  governs:
-    continuant:
-      - "Atom/Content Role: Delivery"
+  governs: "Atom/Content Role: Delivery"
   depends_on:
-    continuant:
-      - Atom/Content Role
-      - Claim
-version: 3
+    - "Atom/Content Role"
+    - "Claim"
+version: 7
 updated_at: 2026-09-06 01:45:12 +0400
 relations: {}
 ---

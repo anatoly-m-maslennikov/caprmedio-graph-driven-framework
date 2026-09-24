@@ -1,55 +1,33 @@
 ---
-atom_id: "CA-M-285"
 cce_version: "cce_1"
 cce_form: "method"
 subjects:
-  governs:
-    continuant:
-      - "software-evaluation-selection"
+  governs: "software-evaluation-selection"
   depends_on:
-    continuant:
-      - "programmatic software"
-version: 3
-updated_at: "2026-09-11 20:58:34 +0400"
+    - "programmatic software"
+version: 10
+updated_at: "2026-09-24 17:18:07 +0000"
 relations:
   derived_from:
     - "CA-A-053"
   child_of:
     - "CA-M-110"
+llm_session_ids:
+  - codex:01a02650-eff7-7453-8c37-0699b36773c6
 ---
 # Select software Evaluation techniques by failure mode
 
-Select the smallest complementary Evaluation set that can expose the declared
-failure modes of the affected PROGRAMMATIC component.
+## Claim
 
-## Applicable when
+select PROGRAMMATIC behavioral Evaluations with end-to-end tests as the first acceptance boundary, a reviewed golden corpus as their repeatable evidence base, **and** targeted complementary tests for discovered issues.
 
-Apply when defining or changing behavioral evidence for a Tool, App, MCP
-component, Hook, or background service.
-
-## Procedure
-
-1. Enumerate the failure modes and the observable condition for each.
-2. Use examples for known behavior, property-based or stateful generation for
-   broad input or transition spaces, mutation testing for weak assertions,
-   contract checks for machine boundaries, and reviewed golden baselines for
-   large deterministic output.
-3. Keep fast syntax, format, lint, type, and focused behavioral checks in the
-   changed-code gate.
-4. Run expensive mutation, fuzz, broad compatibility, and snapshot-review work
-   outside synchronous Git or host Hooks unless a measured bound admits it.
-5. Record target, configuration, source frontier, tool versions, seed or case,
-   result, and replay command.
-
-## Outcome
-
-Each Evaluation technique covers a named failure mode and no passing technique
-is treated as evidence for an uncovered one.
-
-## Failure or stop
-
-Stop acceptance when a declared failure mode lacks evidence or the evidence
-cannot be replayed at its recorded frontier.
+- prepare end-to-end tests **before** implementing the behavior they check. exercise the real public command, interface, **or** installed component boundary; a small explicit prerequisite needed **to** run the test does **not** justify implementing the feature first.
+- use a golden corpus of mock inputs, fixtures, controlled external responses, **and** reviewed expected outputs. include valid, invalid, boundary, **and** representative combined cases. mock admitted external dependencies **or** input data, **not** the implementation being checked.
+- derive expected outputs **and** observable effects from governing RED authority. do **not** accept current implementation output as its own oracle **or** automatically refresh a golden baseline after a failure.
+- use unit, integration, property-based, stateful, mutation, **or** other focused tests **when** they reproduce, isolate, **or** prevent recurrence of an observed issue. preserve the failing case **and** verify the fix with the focused regression **and** relevant end-to-end corpus. additional tests complement, **not** replace, the end-to-end boundary; retain already-required checks.
+- select the smallest complementary test set that covers the declared failure modes. keep fast syntax, format, lint, type, **and** focused behavioral checks **in** the changed-code gate; expensive campaigns stay outside synchronous Hooks **unless** an admitted measured bound permits them.
+- keep expected results, actual results, failed assertions, diagnosis, fix, relevant inputs, source frontier, test configuration, **and** replay command traceable. these observations are evidence for a separately invoked Method-learning Workflow, **not** new M authority created by the implementation Workflow.
+- reject acceptance **when** required coverage is missing, a result is stale **or** unreplayable, **or** a focused passing test masks a failed required end-to-end check.
 
 ## Sources
 

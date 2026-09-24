@@ -1,16 +1,10 @@
 ---
-atom_id: CA-D-266
-cce_version: cce_1
-cce_form: prohibition
 subjects:
-  governs:
-    continuant:
-      - Structural Entity/Containment
+  governs: "Structural Entity/Containment"
   depends_on:
-    continuant:
-      - Containment Relation Pair
-      - Directory Carrier/Nesting
-version: 6
+    - "Containment Relation Pair"
+    - "Directory Carrier/Nesting"
+version: 10
 updated_at: 2026-09-06 01:45:12 +0400
 relations: {}
 ---

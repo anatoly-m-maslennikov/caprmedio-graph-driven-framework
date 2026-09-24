@@ -1,7 +1,4 @@
 ---
-atom_id: CA-D-442
-cce_version: cce_1
-cce_form: obligation
 subjects:
   governs: "Project Structure"
   depends_on:
@@ -13,7 +10,7 @@ subjects:
     - "Navigational Order Number"
     - "Framework Instance Settings"
     - "Carrier"
-version: 1
+version: 4
 updated_at: "2026-09-15 00:13:02 +0000"
 relations:
   child_of:
@@ -25,7 +22,7 @@ relations:
 ---
 # Encode Scope Unit declaration fields
 
-**every** `[[scope_units]]` table **must** use the following field signatures **and** field order for readable serialization. omission is permitted **only** where stated; an empty string **or** copied default **must not** substitute for omission.
+**every** `[[scope_units]]` table **must** use the following field signatures **and** field order for readable serialization. omission is permitted **only** **where** stated; an empty string **or** copied default **must not** substitute for omission.
 
 | Field | TOML value **and** responsibility |
 |---|---|

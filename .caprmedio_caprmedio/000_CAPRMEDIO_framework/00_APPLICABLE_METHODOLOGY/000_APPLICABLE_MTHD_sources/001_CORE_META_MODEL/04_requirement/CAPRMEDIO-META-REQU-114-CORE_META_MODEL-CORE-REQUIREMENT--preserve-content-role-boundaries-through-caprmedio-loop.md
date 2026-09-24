@@ -1,15 +1,16 @@
 ---
-atom_id: CAPRMEDIO-META-REQU-114
-cce_version: cce_1
-cce_form: obligation
 subjects:
-  governs:
-    continuant:
-      - semantics
-version: 14
-updated_at: "2026-09-13 00:51:00 +0400"
-llm_session_ids:
-  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+  governs: "semantics"
+  depends_on:
+    - "Atom/Content Role"
+    - "Implementation"
+    - "Action"
+    - "Workflow"
+    - "Actor"
+    - "Journal/Record"
+    - "Relation"
+version: 23
+updated_at: "2026-09-22 14:41:44 +0000"
 relations:
   child_of:
     - CA-M-001
@@ -21,10 +22,10 @@ relations:
 **in** particular:
 
 - Analysis owns findings, alternatives, explanation, **and** rationale;
-- Plan states intended Tasks **and** Objectives **without** realizing them; an Epic groups contained Epics **and** Tasks **without** adding member actions;
-- Requirement states a required outcome **or** boundary **without** selecting its Method;
-- Method provides Implementation choices **and** conventions, Evaluation checks Spec authority, **and** Delivery specifies Carrier contents **and** boundaries;
+- Plan states intended work **without** realizing it; decomposition relates independent Plan Atoms **without** merging their Claims;
+- Requirement establishes model definitions, required properties, outcomes, **or** boundaries **without** selecting their Method;
+- Method provides authorship, construction, **and** Implementation conventions, Evaluation checks correctness, **and** Delivery specifies Carrier contents **and** boundaries;
 - Implementation materially realizes accepted Spec Claims **and** **may** contain procedural code, but does **not** prove Evaluation **or** operational success; **and**
-- Operations owns reusable Action **and** Process behavior **and** Actor participation/authorization policies; actual executions **and** their Journal Records carrying execution evidence **and** state changes are distinct from those definitions **and** from RMED Spec.
+- Operations owns specific reusable Action, Workflow, **and** Actor participation/authorization behavior under CA-R-1530; actual executions **and** their Journal Records carrying execution evidence **and** state changes are distinct from those definitions **and** from RMED Spec.
 
 Relations carry meaning between roles while **every** related Artifact retains its own identity, authority, lifecycle, **and** owning role.

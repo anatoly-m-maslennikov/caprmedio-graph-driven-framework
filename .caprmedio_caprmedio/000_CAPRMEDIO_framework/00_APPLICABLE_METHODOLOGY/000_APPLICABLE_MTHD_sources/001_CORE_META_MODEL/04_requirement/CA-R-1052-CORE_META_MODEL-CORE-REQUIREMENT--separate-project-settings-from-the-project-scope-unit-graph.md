@@ -1,7 +1,4 @@
 ---
-atom_id: CA-R-1052
-cce_version: cce_1
-cce_form: separation
 subjects:
   governs: "Project Settings"
   depends_on:
@@ -9,10 +6,8 @@ subjects:
     - "Framework Instance Settings"
     - "Project Scope Unit Graph Projection"
     - "Projection"
-version: 17
+version: 19
 updated_at: "2026-09-15 00:05:45 +0000"
-llm_session_ids:
-  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   child_of:
     - CA-R-832-CORE-REQUIREMENT--select-optional-capabilities-through-configuration

@@ -1,32 +1,49 @@
 ---
-atom_id: CAPRMEDIO-EVAL-001
-subject_scopes:
-  - authority
-version: 4
-updated_at: 2026-09-06 01:45:12 +0400
+version: 8
+updated_at: "2026-09-17 16:19:27 +0000"
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+  - codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations:
   evaluation_for:
     - CA-M-001
     - CAPRMEDIO-REQU-642-CORE-REQUIREMENT--govern-canonical-decomposition-conformance
   child_of:
     - CAPRMEDIO-REQU-642-CORE-REQUIREMENT--govern-canonical-decomposition-conformance
+subjects:
+  governs: "Project/decomposition"
+  depends_on:
+    - "Project"
+    - "Atom/Content Role: Concern"
+cce_version: cce_1
+cce_form: evaluation
 ---
 # Canonical decomposition conformance
 
 ## Claim checked
 
-Every canonical decomposition satisfies REQU-002 and REQU-642.
+**every** canonical decomposition satisfies CA-M-001 **and** CAPRMEDIO-REQU-642.
 
 ## Check
 
-For each declared axis, enumerate the bounded universe and classify every admissible member. Report any missing universe or axis declaration, unclassified member, multiple same-axis assignments, or forced near match without changing the governed decomposition.
+for **every** declared axis:
+
+- enumerate the bounded universe; **and**
+- classify **every** admissible member.
+
+report **any**:
+
+- missing universe **or** axis declaration;
+- unclassified member;
+- multiple same-axis assignments; **or**
+- forced near match.
+
+the check **must not** change the governed decomposition.
 
 ## Acceptance
 
-Pass only when no conformance issue is found.
+pass **only** **when** no conformance issue is found.
 
 ## Failure
 
-Record each issue as a Concern against the narrowest owning scope.
+record **every** issue as a Concern against the narrowest owning scope.

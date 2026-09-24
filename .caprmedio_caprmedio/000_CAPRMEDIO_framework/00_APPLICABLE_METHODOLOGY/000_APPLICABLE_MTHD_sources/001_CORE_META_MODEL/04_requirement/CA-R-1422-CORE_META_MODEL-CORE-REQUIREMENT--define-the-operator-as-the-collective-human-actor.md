@@ -1,17 +1,11 @@
 ---
-atom_id: CA-R-1422
-cce_version: cce_1
-cce_form: definition
 subjects:
-  governs:
-    continuant:
-      - Operator
+  governs: "Operator"
   depends_on:
-    continuant:
-      - Actor
-      - Project
-      - CAPRMEDIO Framework Instance
-version: 2
+    - "Actor"
+    - "Project"
+    - "CAPRMEDIO Framework Instance"
+version: 6
 updated_at: "2026-09-14 23:34:13 +0000"
 relations:
   child_of:

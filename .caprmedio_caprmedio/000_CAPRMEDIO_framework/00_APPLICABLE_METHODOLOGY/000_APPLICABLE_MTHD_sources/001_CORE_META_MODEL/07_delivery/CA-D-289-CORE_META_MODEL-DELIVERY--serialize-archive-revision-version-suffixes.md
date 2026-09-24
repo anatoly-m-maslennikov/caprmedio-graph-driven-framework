@@ -1,15 +1,9 @@
 ---
-atom_id: CA-D-289
-cce_version: cce_1
-cce_form: serialization
 subjects:
-  governs:
-    continuant:
-      - Artifact/Revision/Archive Carrier Basename
+  governs: "Artifact/Revision/Archive Carrier Basename"
   depends_on:
-    continuant:
-      - Artifact/Revision/Version
-version: 6
+    - "Artifact/Revision/Version"
+version: 10
 updated_at: "2026-09-10 02:49:14 +0400"
 relations: {}
 ---

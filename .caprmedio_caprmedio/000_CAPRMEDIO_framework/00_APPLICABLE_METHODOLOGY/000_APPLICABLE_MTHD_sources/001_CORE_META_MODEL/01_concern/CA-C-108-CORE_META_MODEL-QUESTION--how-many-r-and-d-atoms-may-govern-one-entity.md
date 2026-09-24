@@ -1,7 +1,5 @@
 ---
 atom_id: CA-C-108
-cce_version: cce_1
-cce_form: concern_question
 priority: low
 subjects:
   governs: "Entity"
@@ -13,7 +11,7 @@ subjects:
     - "Atom/Content Role: Delivery"
     - "Scope Unit"
     - "Atom/Tier/Local Tier"
-version: 1
+version: 2
 updated_at: "2026-09-14 19:40:02 +0400"
 relations: {}
 ---

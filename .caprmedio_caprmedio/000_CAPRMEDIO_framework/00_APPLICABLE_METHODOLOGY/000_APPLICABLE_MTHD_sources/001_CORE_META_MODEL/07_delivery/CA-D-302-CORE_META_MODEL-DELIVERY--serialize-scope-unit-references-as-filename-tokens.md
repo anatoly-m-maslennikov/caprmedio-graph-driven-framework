@@ -1,16 +1,10 @@
 ---
-atom_id: CA-D-302
-cce_version: cce_1
-cce_form: cardinality
 subjects:
-  governs:
-    continuant:
-      - Atom/Scope/Filename Token
+  governs: "Atom/Scope/Filename Token"
   depends_on:
-    continuant:
-      - Scope Unit/Name
-      - Project Configuration
-version: 7
+    - "Scope Unit/Name"
+    - "Project Configuration"
+version: 11
 updated_at: "2026-09-11 23:47:49 +0400"
 relations: {}
 ---

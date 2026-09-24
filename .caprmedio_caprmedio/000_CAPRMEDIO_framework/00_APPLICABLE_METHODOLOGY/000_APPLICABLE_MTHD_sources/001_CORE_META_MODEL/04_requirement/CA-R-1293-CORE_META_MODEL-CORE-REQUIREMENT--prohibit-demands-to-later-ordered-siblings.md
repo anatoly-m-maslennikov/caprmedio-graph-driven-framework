@@ -1,16 +1,10 @@
 ---
-atom_id: CA-R-1293
-cce_version: cce_1
-cce_form: prohibition
 subjects:
-  governs:
-    continuant:
-      - "Atom/Content Role: Requirement/Type: Demand/Direction"
+  governs: "Atom/Content Role: Requirement/Type: Demand/Direction"
   depends_on:
-    continuant:
-      - Local Order
-      - "Scope Unit/Type: Ordered"
-version: 5
+    - "Local Order"
+    - "Scope Unit/Type: Ordered"
+version: 9
 updated_at: 2026-09-06 01:45:12 +0400
 relations: {}
 ---

@@ -1,15 +1,9 @@
 ---
-atom_id: CA-D-280
-cce_version: cce_1
-cce_form: serialization
 subjects:
-  governs:
-    continuant:
-      - Markdown Atom Carrier/Main Content/CCE Operator
+  governs: "Markdown Atom Carrier/Main Content/CCE Operator"
   depends_on:
-    continuant:
-      - CCE Operator
-version: 6
+    - "CCE Operator"
+version: 10
 updated_at: "2026-09-10 02:49:14 +0400"
 relations: {}
 ---

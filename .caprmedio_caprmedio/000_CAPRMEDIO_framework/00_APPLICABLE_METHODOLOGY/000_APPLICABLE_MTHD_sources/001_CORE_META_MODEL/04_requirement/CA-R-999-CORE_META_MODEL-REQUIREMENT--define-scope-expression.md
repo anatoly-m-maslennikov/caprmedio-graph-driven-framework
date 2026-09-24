@@ -1,15 +1,9 @@
 ---
 subjects:
-  governs:
-    continuant:
-      - Scope Expression
+  governs: "Scope Expression"
   depends_on:
-    continuant:
-      - Governed Entity
-atom_id: CA-R-999
-cce_version: cce_1
-cce_form: definition
-version: 8
+    - "Governed Entity"
+version: 12
 updated_at: "2026-09-10 05:08:55 +0400"
 relations: {}
 ---

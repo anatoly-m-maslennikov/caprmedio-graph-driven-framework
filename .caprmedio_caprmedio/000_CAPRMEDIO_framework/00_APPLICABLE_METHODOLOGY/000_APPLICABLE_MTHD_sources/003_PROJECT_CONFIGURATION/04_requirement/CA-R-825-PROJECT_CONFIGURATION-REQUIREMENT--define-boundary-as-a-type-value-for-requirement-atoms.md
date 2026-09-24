@@ -1,12 +1,8 @@
 ---
 subjects:
-  governs:
-    continuant:
-      - "Atom/Content Role: Requirement/Type: Boundary"
-atom_id: CA-R-825
-cce_version: cce_1
-cce_form: definition
-version: 13
+  governs: "Atom/Content Role: Requirement/Type: Boundary"
+  depends_on: []
+version: 17
 updated_at: "2026-09-11 23:47:49 +0400"
 relations:
   child_of:

@@ -1,16 +1,10 @@
 ---
-atom_id: CA-D-393
-cce_version: cce_1
-cce_form: serialization
 subjects:
-  governs:
-    continuant:
-      - "Type"
+  governs: "Type"
   depends_on:
-    continuant:
-      - "Atom/Content Role"
-      - "Carrier"
-version: 1
+    - "Atom/Content Role"
+    - "Carrier"
+version: 5
 updated_at: "2026-09-10 20:55:13 +0400"
 relations:
   child_of:

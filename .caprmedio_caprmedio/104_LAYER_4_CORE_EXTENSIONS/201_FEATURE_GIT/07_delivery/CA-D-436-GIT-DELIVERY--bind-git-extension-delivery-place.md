@@ -1,5 +1,4 @@
 ---
-atom_id: CA-D-436
 cce_version: cce_1
 cce_form: serialization
 subjects:
@@ -8,9 +7,11 @@ subjects:
     - "Scope Unit"
     - "Implementation"
     - "Carrier"
-version: 1
+version: 2
 updated_at: "2026-09-14 06:21:07 +0400"
 relations: {}
+llm_session_ids:
+  - codex:01a02650-eff7-7453-8c37-0699b36773c6
 ---
 # Bind Git Extension Delivery place
 

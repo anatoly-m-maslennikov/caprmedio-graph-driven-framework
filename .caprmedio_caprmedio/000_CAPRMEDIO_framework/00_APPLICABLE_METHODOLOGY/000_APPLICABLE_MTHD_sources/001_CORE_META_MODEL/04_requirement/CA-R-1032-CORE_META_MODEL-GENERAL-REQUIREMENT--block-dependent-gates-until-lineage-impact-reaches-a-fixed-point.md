@@ -1,16 +1,10 @@
 ---
-atom_id: CA-R-1032
-cce_version: cce_1
-cce_form: obligation
 subjects:
-  governs:
-    continuant:
-      - relation-model
+  governs: "relation-model"
   depends_on:
-    continuant:
-      - atom-boundary
-      - lifecycle-traceability
-version: 7
+    - "atom-boundary"
+    - "lifecycle-traceability"
+version: 11
 updated_at: "2026-09-10 06:39:08 +0400"
 relations: {}
 ---

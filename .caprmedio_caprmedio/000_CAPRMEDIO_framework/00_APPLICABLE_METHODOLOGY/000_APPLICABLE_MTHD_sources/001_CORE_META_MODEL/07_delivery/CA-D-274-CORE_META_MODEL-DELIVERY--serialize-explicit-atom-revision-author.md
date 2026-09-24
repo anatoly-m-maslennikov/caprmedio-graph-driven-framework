@@ -1,18 +1,19 @@
 ---
-atom_id: CA-D-274
-cce_version: cce_1
-cce_form: serialization
 subjects:
-  governs:
-    continuant:
-      - Atom/Revision/Author/Frontmatter
+  governs: "Atom/Revision/Author/Frontmatter"
   depends_on:
-    continuant:
-      - Actor
-version: 7
-updated_at: "2026-09-10 02:49:14 +0400"
+    - "Actor"
+version: 13
+updated_at: "2026-09-24 14:16:19 +0000"
 relations: {}
 ---
-# Serialize Explicit Atom Revision Author
+# Summary
 
-a Markdown Atom Carrier **may** serialize one explicit Author override as top-level frontmatter Property `author`, **and** omission **must** preserve the default Author.
+Serialize Explicit Atom Revision Author
+
+## Claim
+
+a Markdown Atom Carrier **must** serialize **`=1`** resolved Author as the top-level frontmatter Property `author`; apply the applicable Author default during authoring rather than leaving the accepted Revision dependent on an omitted Author.
+
+- encode `author` as **=1** nonempty YAML string referencing the identified Author under the applicable Actor authority, **not** a list **or** a null value.
+- resolve required Actor details from their canonical authority rather than adding an independently maintained Author record **to** this field. the Author need **not** be the Atom's owner.

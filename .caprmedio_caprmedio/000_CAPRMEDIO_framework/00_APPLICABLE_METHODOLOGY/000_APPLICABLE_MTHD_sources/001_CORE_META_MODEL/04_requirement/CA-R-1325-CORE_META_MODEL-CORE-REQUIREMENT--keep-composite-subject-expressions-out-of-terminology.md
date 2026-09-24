@@ -1,13 +1,10 @@
 ---
-atom_id: CA-R-1325
-cce_version: cce_1
-cce_form: prohibition
 subjects:
   governs: "Projection/Type: Catalog"
   depends_on:
     - "Subject Expression"
     - "Term"
-version: 4
+version: 6
 updated_at: "2026-09-13 14:15:09 +0400"
 relations: {}
 ---

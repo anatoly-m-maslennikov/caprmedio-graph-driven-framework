@@ -1,16 +1,10 @@
 ---
-atom_id: CAPRMEDIO-R-791-REQUIREMENT-BSEED_METAMODEL
 subjects:
-  governs:
-    continuant:
-      - Structural Coordinate
+  governs: "Structural Coordinate"
   depends_on:
-    continuant:
-      - scope-topology
-cce_version: cce_1
-cce_form: definition
-version: 9
-updated_at: "2026-09-10 04:26:29 +0400"
+    - "scope-topology"
+version: 13
+updated_at: "2026-09-16 21:48:51 +0000"
 relations: {}
 ---
 # Define Structural Coordinate

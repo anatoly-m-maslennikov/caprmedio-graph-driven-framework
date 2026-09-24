@@ -35,7 +35,7 @@ the Assignee **must** replace duplicated Tool procedure authority with precise c
 
 ## Scope
 
-(selected RMEDO authority **in** the TOOLS subtree at `.caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/301_FEATURE_TOOLS`); the source **and** lifecycle admission boundary established by CA-P-976 applies; historical versions, generated copies, runtime, Implementation code, **and** other CAP Atoms are excluded.
+(selected RMEDO authority **in** the TOOLS subtree at `.caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS`); the source **and** lifecycle admission boundary established by CA-P-976 applies; historical versions, generated copies, runtime, Implementation code, **and** other CAP Atoms are excluded.
 
 ## Definition of Done
 

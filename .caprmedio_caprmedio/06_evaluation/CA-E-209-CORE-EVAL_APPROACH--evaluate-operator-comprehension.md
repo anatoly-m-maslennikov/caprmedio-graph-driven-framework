@@ -1,6 +1,5 @@
 ---
-atom_id: "CA-E-209"
-version: 6
+version: 9
 updated_at: 2026-09-06 01:45:12 +0400
 relations:
   child_of:
@@ -8,15 +7,14 @@ relations:
   evaluation_for:
     - "CA-M-263"
 subjects:
-  governs:
-    occurrent:
-      - "Operator/comprehension"
+  governs: "Operator/comprehension"
   depends_on:
-    continuant:
-      - "Operator"
-      - "Project"
+    - "Operator"
+    - "Project"
 cce_version: cce_1
 cce_form: evaluation
+llm_session_ids:
+  - codex:01a02650-eff7-7453-8c37-0699b36773c6
 ---
 # Evaluate operator comprehension
 

@@ -1,18 +1,11 @@
 ---
-cce_version: cce_1
-cce_form: obligation
 subjects:
-  governs:
-    continuant:
-      - "Logging Policy"
+  governs: "Logging Policy"
   depends_on:
-    continuant:
-      - "Evaluation Control"
-      - "Production Evaluation Checklist"
-version: 11
+    - "Evaluation Control"
+    - "Production Evaluation Checklist"
+version: 14
 updated_at: 2026-09-15 05:51:38
-llm_session_ids:
-  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   relates_to:
     - CAPRMEDIO-GOV-REQU-338--register-the-project-work-journal

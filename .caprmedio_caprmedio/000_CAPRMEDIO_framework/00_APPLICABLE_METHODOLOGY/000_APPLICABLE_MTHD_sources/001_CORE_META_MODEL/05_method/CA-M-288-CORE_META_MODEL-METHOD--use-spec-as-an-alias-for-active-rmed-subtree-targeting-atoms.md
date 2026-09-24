@@ -1,17 +1,11 @@
 ---
-atom_id: CA-M-288
-cce_version: cce_1
-cce_form: method
 subjects:
-  governs:
-    continuant:
-      - "Subtree-targeting Atoms"
+  governs: "Subtree-targeting Atoms"
   depends_on:
-    continuant:
-      - "Atom/Content Role"
-      - "Atom/Status"
-      - "Author"
-version: 1
+    - "Atom/Content Role"
+    - "Atom/Status"
+    - "Author"
+version: 5
 updated_at: "2026-09-12 04:10:58 +0400"
 relations: {}
 ---

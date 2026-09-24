@@ -1,7 +1,4 @@
 ---
-atom_id: CA-R-1463
-cce_version: cce_1
-cce_form: obligation
 subjects:
   governs: "Projection"
   depends_on:
@@ -10,12 +7,12 @@ subjects:
     - "Work Journal/Event"
     - "Artifact"
     - "Action"
-    - "Process"
+    - "Workflow"
     - "Project"
     - "Projection/Type: Artifact Change Log"
     - "Projection/Type: Process Log"
-version: 2
-updated_at: "2026-09-14 06:21:07 +0400"
+version: 5
+updated_at: "2026-09-18 14:16:20 +0000"
 relations: {}
 ---
 # Derive log views from the shared Journal

@@ -1,16 +1,10 @@
 ---
-atom_id: CA-M-234
-cce_version: cce_1
-cce_form: definition
 subjects:
-  governs:
-    continuant:
-      - CCE Operator Registry
+  governs: "CCE Operator Registry"
   depends_on:
-    continuant:
-      - CCE Operator
-      - CCE Method
-version: 6
+    - "CCE Operator"
+    - "CCE Method"
+version: 10
 updated_at: "2026-09-10 03:25:26 +0400"
 relations: {}
 ---

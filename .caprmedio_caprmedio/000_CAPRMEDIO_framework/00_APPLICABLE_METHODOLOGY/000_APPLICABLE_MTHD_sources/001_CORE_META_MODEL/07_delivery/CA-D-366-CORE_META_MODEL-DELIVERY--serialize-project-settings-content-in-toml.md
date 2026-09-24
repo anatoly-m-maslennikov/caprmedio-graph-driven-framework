@@ -1,7 +1,4 @@
 ---
-atom_id: CA-D-366
-cce_version: cce_1
-cce_form: serialization
 subjects:
   governs: "Project Settings/Authoritative Carrier/Content"
   depends_on:
@@ -9,7 +6,7 @@ subjects:
     - "Atom/Identifier/Project Prefix"
     - "Framework Instance Settings"
     - "Projection"
-version: 4
+version: 6
 updated_at: "2026-09-15 00:13:02 +0000"
 relations:
   child_of:

@@ -1,50 +1,49 @@
 ---
 atom_id: CA-E-460
-cce_version: cce_1
-cce_form: evaluation
+content_role: Evaluation
+type: QA Case
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+local_tier: Standard
+author: Anatoly Maslennikov
+status: Active
 subjects:
-  governs:
-    occurrent:
-      - "Atom selection"
+  governs: "Atom selection"
   depends_on:
-    continuant:
-      - "Owned Atoms"
-      - "Targeting Atoms"
-      - "Subtree-owned Atoms"
-      - "Subtree-targeting Atoms"
-      - "Scope Unit"
-      - "Atom Collection"
-      - "Atom/Claim/Structural Entity"
-      - "Atom/Content Role"
-      - "Atom/Status"
-version: 1
-updated_at: "2026-09-12 04:10:58 +0400"
-relations:
-  evaluation_for:
-    - CA-R-919
-    - CA-R-942
-    - CA-R-1446
-    - CA-R-1447
-    - CA-R-1448
-    - CA-R-1449
-    - CA-M-273
-    - CA-M-288
+    - "Atom Collection"
+    - "Atom/Claim"
+    - "Atom/Claim/Target Scope Unit"
+    - "Atom/Content Role"
+    - "Atom/Status"
+    - "Hub Atom"
+    - "Owned Atoms"
+    - "Scope Unit"
+    - "Subtree-owned Atoms"
+    - "Subtree-targeting Atoms"
+    - "Targeting Atoms"
+version: 10
+updated_at: "2026-09-23 20:47:56 +0000"
+relations: {"evaluation_for": ["CA-D-477", "CA-D-482", "CA-M-273", "CA-M-288", "CA-R-1271", "CA-R-1447", "CA-R-1448", "CA-R-1449", "CA-R-1595", "CA-R-1596", "CA-R-942"]}
 ---
-# Validate Atom-set Selection and the spec Alias
+# Summary
 
-## Claim checked
+Validate Atom-set Selection and the spec Alias
+
+## Claim
+
+### Claim checked
 
 ownership **and** Claim targeting produce their respective direct **and** recursive Atom sets, **and** the alias `spec` selects **only** Active RMED Subtree-targeting Atoms.
 
-## Test case
+### Test case
 
-construct Scope Unit `A`, its child Scope Unit `A_CHILD`, a sibling Scope Unit `B`, **and** nested Atom Collections inside `A`. use the following distinct source Atoms; an omitted target resolves **to** the current Scope Unit.
+construct Scope Unit `A`, its child Scope Unit `A_CHILD`, a sibling Scope Unit `B`, **and** nested Atom Collections inside `A`. the fixture Scope Units are Unordered. use the following distinct source Atoms; a Current-scope Atom explicitly carries its current Scope Unit as target. `d`, `e`, **and** `f` have Content Role Requirement **and** Type Demand under CA-R-932, with their applicable Demand conditions satisfied. the remaining rows are valid Current-scope Atoms with admitted non-relational Types; their resolved targets are carried internally under CA-D-482; equality **to** ownership does **not** make them Relational.
 
-| Atom | Current Scope Unit | Placement | Claim Structural Entity | Content Role | Status |
+| Atom | Current Scope Unit | Placement | Claim Target Scope Unit | Content Role | Status |
 |---|---|---|---|---|---|
-| `a` | `A` | directly under `A` | omitted | Requirement | Active |
-| `b` | `A` | nested Atom Collection | omitted | Method | Active |
-| `c` | `A_CHILD` | directly under `A_CHILD` | omitted | Evaluation | Active |
+| `a` | `A` | directly under `A` | `A` | Requirement | Active |
+| `b` | `A` | nested Atom Collection | `A` | Method | Active |
+| `c` | `A_CHILD` | directly under `A_CHILD` | `A_CHILD` | Evaluation | Active |
 | `d` | `B` | directly under `B` | `A` | Requirement | Active |
 | `e` | `B` | directly under `B` | `A_CHILD` | Requirement | Active |
 | `f` | `A` | directly under `A` | `B` | Requirement | Active |
@@ -52,9 +51,9 @@ construct Scope Unit `A`, its child Scope Unit `A_CHILD`, a sibling Scope Unit `
 | `h` | `A` | directly under `A` | `A` | Plan | Active |
 | `i` | `A` | Archived placement | `A` | Delivery | Archived |
 
-derive **all** four sets for `A` **and** the alias `spec`. repeat **after** moving `a` into a nested Atom Collection under `A` **and** changing **only** Local Tiers; repeat with `b` assigned **every** RMED Content Role while retaining its other properties. **then** omit `B` from the claimed-complete source frontier, treat an Epic as a Scope Unit, replace targeting with ownership, copy a selected Atom as new authority, use an unresolved structural target **or** cyclic ancestry, **or** register `spec` as a separate Entity.
+derive **all** four sets for `A` **and** the alias `spec`. repeat **after** moving `a` into a nested Atom Collection under `A` **and** changing **only** Local Tiers; repeat with narrower **and** explicitly grouped composite Claim Scope restrictions **in** the Claim text while retaining the carried targets; repeat with `b` assigned **every** RMED Content Role while retaining its other properties. **then** omit `B` from the claimed-complete source frontier, treat a Hub Plan as a Scope Unit, replace targeting with ownership, copy a selected Atom as new authority, omit a carried target, infer a different target from Claim text, use an unresolved structural target **or** cyclic ancestry, **or** register `spec` as a separate Entity.
 
-## Acceptance criteria
+### Acceptance criteria
 
 the results **must** be:
 
@@ -66,8 +65,8 @@ the results **must** be:
 | Subtree-targeting Atoms | `a, b, c, d, e, g, h, i` |
 | `spec` alias | `a, b, c, d, e` |
 
-collection nesting **and** tier-only changes **must not** alter those results. `spec` **must not** create a separate Entity, independently maintained Atom set, **or** source of authority. incoming `d` **and** `e` retain ownership under `B`; outgoing `f` remains owned by `A` **without** entering its Targeting Atoms **or** `spec`. incomplete source coverage, unresolved required bindings, cyclic ancestry, ownership/target substitution, **and** duplicate authority fail explicitly.
+collection nesting, textual applicability restrictions, **and** tier-only changes **must not** alter those results. `spec` **must not** create a separate Entity, independently maintained Atom set, **or** source of authority. incoming `d` **and** `e` retain ownership under `B`; outgoing `f` remains owned by `A` **without** entering its Targeting Atoms **or** `spec`. incomplete source coverage, missing **or** unresolved carried targets, targets inferred from Claim text, cyclic ancestry, ownership/target substitution, **and** duplicate authority fail explicitly.
 
-## Failure disposition
+### Failure disposition
 
 report the source Revision, selected Scope Unit, expected set, **and** exact missing, extra, duplicated, **or** unresolved member; do **not** silently return a complete result **or** rewrite source ownership.

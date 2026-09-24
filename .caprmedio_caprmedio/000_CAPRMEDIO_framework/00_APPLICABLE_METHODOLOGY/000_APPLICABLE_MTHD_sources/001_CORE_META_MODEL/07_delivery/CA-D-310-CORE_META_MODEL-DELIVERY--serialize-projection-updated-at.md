@@ -1,12 +1,8 @@
 ---
-atom_id: CA-D-310
-cce_version: cce_1
-cce_form: serialization
 subjects:
-  governs:
-    continuant:
-      - Projection/Carrier/Updated At
-version: 5
+  governs: "Projection/Carrier/Updated At"
+  depends_on: []
+version: 9
 updated_at: "2026-09-10 02:49:14 +0400"
 relations: {}
 ---

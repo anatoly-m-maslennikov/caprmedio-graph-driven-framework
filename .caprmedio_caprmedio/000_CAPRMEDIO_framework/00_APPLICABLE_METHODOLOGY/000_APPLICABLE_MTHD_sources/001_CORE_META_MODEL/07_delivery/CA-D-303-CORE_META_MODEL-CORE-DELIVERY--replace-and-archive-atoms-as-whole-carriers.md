@@ -1,15 +1,9 @@
 ---
-atom_id: CA-D-303
-cce_version: cce_1
-cce_form: atomicity
 subjects:
-  governs:
-    occurrent:
-      - Atom Carrier Replacement
+  governs: "Atom Carrier Replacement"
   depends_on:
-    continuant:
-      - Atom/Revision
-version: 4
+    - "Atom/Revision"
+version: 8
 updated_at: 2026-09-06 01:45:12 +0400
 relations: {}
 ---

@@ -1,7 +1,4 @@
 ---
-atom_id: CA-D-435
-cce_version: cce_1
-cce_form: serialization
 subjects:
   governs: "Work Journal/Event/Carrier Serialization"
   depends_on:
@@ -9,12 +6,16 @@ subjects:
     - "Atom/Identifier"
     - "Atom/Revision"
     - "Carrier"
-version: 2
-updated_at: "2026-09-14 06:21:07 +0400"
+version: 5
+updated_at: "2026-09-17 02:23:47 +0000"
 relations: {}
 ---
 # Serialize Atom replacement event references
 
-the schema-version `3` completed File Carrier `MOVE` event that archives a replaced numbered Project-owned Atom **must** serialize the replacement references together as top-level `predecessor_atom_id` **and** `successor_atom_ids`. `predecessor_atom_id` stores **`=1`** canonical stable Atom ID; `successor_atom_ids` stores an array of **`>=1`** distinct canonical stable Atom IDs, excluding the predecessor. these fields carry assigned identities **only**, **not** paths, mutable filename components, **or** Revision suffixes; their array order does **not** establish a priority **or** execution order.
+a schema-version `3` completed File Carrier `MOVE` event recording an Atom replacement **must** serialize its observed replacement references as paired top-level `predecessor_atom_id` **and** `successor_atom_ids` fields.
 
-the predecessor identity **must** match the archived result filename's Atom ID, whose `@<version>.md` suffix **must** match the result Version **in** its `archive/` directory. the ordinary result **and** `previous_result_event` preserve the Carrier/Revision evidence; the replacement fields **must not** duplicate that evidence. both fields **must** be included **in** the existing Event digest. a partial pair, an empty list, a duplicate successor, a self successor, **or** a pair on a recovered, folder, non-archive, **or** non-`MOVE` event is invalid. ordinary events **and** historical records **without** these fields retain their existing schema; absence of a pair does **not** assert that a move was a replacement. the active-successor prerequisite remains governed by CA-R-807, **not** established by payload syntax alone.
+- `predecessor_atom_id` stores the observed identity as a string; `successor_atom_ids` stores the observed successor identities as an array of strings. preserve their values **and** array order exactly through safe encoding. array order does **not** establish priority **or** execution order.
+- the pair is optional on ordinary events; absence does **not** establish whether a move was a replacement. a partial pair, a null field, **or** a value with the wrong storage type fails this encoding.
+- both fields participate **in** the existing Event digest. the ordinary result **and** `previous_result_event` retain Carrier **and** Revision evidence **without** duplicating it **in** replacement fields.
+- legacy **or** nonconforming IDs, an empty observed successor array, duplicate **or** self-referencing identities, a filename mismatch, **and** an invalid archive placement remain recordable payload. CA-E-462 evaluates the replacement independently; failed conformance **must not** become a Journal-admission gate under CA-R-1491.
+- ordinary **and** historical records **without** these fields retain their selected schema. preserved observations **must not** be rewritten **to** satisfy current Atom grammar, archive rules, **or** successor conditions. successful storage proves **only** event **and** storage integrity, **not** a valid replacement.

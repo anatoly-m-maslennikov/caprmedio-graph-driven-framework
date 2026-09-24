@@ -1,15 +1,9 @@
 ---
 subjects:
-  governs:
-    continuant:
-      - Scope Unit/Label
+  governs: "Scope Unit/Label"
   depends_on:
-    continuant:
-      - "Scope Unit/Type: Unordered"
-atom_id: CA-R-980
-cce_version: cce_1
-cce_form: obligation
-version: 9
+    - "Scope Unit/Type: Unordered"
+version: 13
 updated_at: "2026-09-10 03:38:57 +0400"
 relations:
   child_of:

@@ -1,18 +1,13 @@
 ---
 subjects:
-  governs:
-    continuant:
-      - relation-model
+  governs: "relation-model"
   depends_on:
-    continuant:
-      - scope-topology
-      - artifact-model
-      - atom-boundary
-atom_id: CA-R-796
-cce_version: cce_1
-cce_form: obligation
-version: 11
-updated_at: 2026-09-06 01:45:12 +0400
+    - "Atom/Scope"
+    - "Atom"
+    - "Atom/Local Tier"
+    - "Relation"
+version: 16
+updated_at: "2026-09-21 15:41:53 +0000"
 relations:
   child_of:
     - CA-R-917
@@ -20,4 +15,4 @@ relations:
 ---
 # Keep tier-parent relations within Atom Scope
 
-**every** tier-parent relation between Requirement Atoms **must** connect Atoms with the same Atom Scope.
+**every** tier-parent relation between Atoms **must** connect Atoms with the same Atom Scope.

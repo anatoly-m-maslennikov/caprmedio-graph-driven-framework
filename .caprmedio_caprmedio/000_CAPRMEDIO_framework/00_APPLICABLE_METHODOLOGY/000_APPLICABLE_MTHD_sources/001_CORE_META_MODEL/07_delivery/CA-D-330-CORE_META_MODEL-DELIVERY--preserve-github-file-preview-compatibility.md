@@ -1,17 +1,11 @@
 ---
-atom_id: CA-D-330
-cce_version: cce_1
-cce_form: compatibility
 subjects:
-  governs:
-    continuant:
-      - File Carrier/GitHub Preview
+  governs: "File Carrier/GitHub Preview"
   depends_on:
-    continuant:
-      - Markdown
-      - TOML
-      - YAML
-version: 5
+    - "Markdown"
+    - "TOML"
+    - "YAML"
+version: 9
 updated_at: "2026-09-10 02:49:14 +0400"
 relations: {}
 ---

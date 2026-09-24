@@ -1,29 +1,31 @@
 ---
-atom_id: CAPRMEDIO-META-REQU-102
-cce_version: cce_1
-cce_form: obligation
 subjects:
-  governs:
-    occurrent:
-      - development-flow
-version: 12
-updated_at: 2026-09-15 05:51:38
-llm_session_ids:
-  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+  governs: "Version/release"
+  depends_on:
+    - "Version"
+    - "Journal/Record"
+    - "Artifact/Revision"
+    - "Atom/Content Role: Operations"
+    - "Atom/Content Role: Implementation"
+    - "Atom/Content Role: Delivery"
+    - "Atom/Content Role: Evaluation"
+    - "Extension"
+    - "Project Configuration"
+version: 15
+updated_at: "2026-09-18 14:16:20 +0000"
 relations:
-  child_of:
-    - CAPRMEDIO-META-REQU-114-CORE_META_MODEL-CORE-REQUIREMENT--preserve-content-role-boundaries-through-caprmedio-loop
+  relates_to:
+    - "CAPRMEDIO-META-REQU-143"
+    - "CAPRMEDIO-GOV-REQU-353"
+    - "CA-O-025"
 ---
 # Requirement — Freeze a version only at release
 
-A target version remains mutable **until** its configured release event succeeds. The event **may** be, for example, acceptance of a release pull request into the main branch, but **every** project declares its exact boundary.
+a target Version **must** remain mutable **until** its selected authorized release event succeeds **and** the shared Journal records that outcome for the exact released candidate.
 
-Release creates one factual Operations Atom called the Release Record, whose primary claim is that the identified version was released with an exact manifest. The manifest binds the normative Atom revisions, realized implementation **and** delivery revisions, applicable evaluation **and** evidence, release identifier, **and** canonical Git commit **or** tag.
+- the release record is a factual Journal Record under CAPRMEDIO-META-REQU-143, **not** an Operations Atom.
+- its exact manifest binds the released governing Atom Revisions, Implementation **and** Delivery Revisions, applicable Evaluations **and** evidence, **and** release identifier.
+- the selected release policy defines the event boundary. applicable Delivery authority defines the manifest **and** Journal representation; a selected Extension owns mechanism-specific references.
+- planning allocation, implementation completion, readiness acceptance, **or** release-candidate naming does **not** freeze the Version **before** the successful event.
 
-Requirement authority defines the Release Record's freeze boundary **and** Type values. Delivery authority defines its Carrier encoding.
-
-Planning allocation, implementation completion, pull-request creation, **or** release-candidate naming does **not** freeze the version **before** that event.
-
-## Primary claim
-
-A version freezes **only** **when** its configured release event creates an immutable, revision-bound Release Record with the Operations Content role **and** exact released manifest.
+this Project Configuration Claim does **not** impose its release Workflow on **every** Project.

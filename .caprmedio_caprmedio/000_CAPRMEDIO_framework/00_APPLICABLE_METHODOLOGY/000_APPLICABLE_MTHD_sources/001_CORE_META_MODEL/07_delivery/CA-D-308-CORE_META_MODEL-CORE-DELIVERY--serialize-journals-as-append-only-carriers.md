@@ -1,15 +1,9 @@
 ---
-atom_id: CA-D-308
-cce_version: cce_1
-cce_form: serialization
 subjects:
-  governs:
-    continuant:
-      - Journal/Carrier
+  governs: "Journal/Carrier"
   depends_on:
-    continuant:
-      - Journal/Record
-version: 4
+    - "Journal/Record"
+version: 8
 updated_at: 2026-09-06 01:45:12 +0400
 relations: {}
 ---

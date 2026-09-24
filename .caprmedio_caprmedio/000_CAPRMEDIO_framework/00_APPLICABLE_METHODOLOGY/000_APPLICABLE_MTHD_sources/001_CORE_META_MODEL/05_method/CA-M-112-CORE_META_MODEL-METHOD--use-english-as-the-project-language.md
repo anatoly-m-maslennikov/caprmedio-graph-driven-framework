@@ -1,14 +1,9 @@
 ---
 subjects:
-  governs:
-    continuant:
-      - language
+  governs: "language"
   depends_on:
-    continuant:
-      - CCE
-cce_version: cce_1
-cce_form: method
-version: 9
+    - "CCE"
+version: 12
 updated_at: "2026-09-10 03:25:26 +0400"
 relations:
   child_of:

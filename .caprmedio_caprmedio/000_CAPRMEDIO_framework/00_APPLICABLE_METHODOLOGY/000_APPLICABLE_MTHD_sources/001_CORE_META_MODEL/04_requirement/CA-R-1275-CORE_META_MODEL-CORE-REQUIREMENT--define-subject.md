@@ -1,23 +1,22 @@
 ---
-atom_id: CA-R-1275
-cce_version: cce_1
-cce_form: definition
 subjects:
   governs: "Subject"
   depends_on:
     - "Atom"
     - "Entity"
-    - "Action"
-    - "Process"
     - "Term"
     - "Relation"
     - "GOVERNS"
     - "DEPENDS_ON"
     - "Subject Path"
-version: 8
-updated_at: "2026-09-14 04:00:22 +0400"
+version: 12
+updated_at: "2026-09-22 20:07:50 +0000"
 relations: {}
 ---
 # Define Subject
 
-a Subject **means** a direct typed Relation from an Atom **to** its canonical Entity, Action, **or** Process target, using GOVERNS **or** DEPENDS_ON. the Subject is the Relation, **not** its target, the path identifying that target, **or** a Term used **in** the path. this Relation does **not** create a separately identified intermediate object, make its target bearer-dependent on the Atom, **or** make a reusable Action **or** Process interchangeable with a particular execution.
+a Subject **means** a direct Relation between an Atom **and** an Entity, typed as GOVERNS **or** DEPENDS_ON.
+
+- the Atom is the source; the Entity is the target identified by its full canonical Subject Path.
+- the Subject is the Relation, **not** its target, its target's path, **or** a Term used **in** that path.
+- the Relation creates no intermediate Subject object **and** no additional target identity; it does **not** make the target bearer-dependent on the source Atom.

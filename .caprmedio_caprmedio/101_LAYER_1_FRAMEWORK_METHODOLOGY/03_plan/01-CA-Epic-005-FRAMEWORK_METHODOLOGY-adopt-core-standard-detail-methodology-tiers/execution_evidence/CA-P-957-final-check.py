@@ -106,7 +106,7 @@ def main():
         summary["external_project_reference_revisions_verified"] = len(records)
         summary["external_project_identities_verified"] = len({r["atom_id"] for r in records})
     if args.check_references:
-        tool = ROOT / "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS"
+        tool = ROOT / "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS"
         sys.path[:0] = [str(tool), str(tool / "COMMIT_CONTEXT")]
         import commit_context_logic as canonical
         graph = canonical.working_graph(ROOT)

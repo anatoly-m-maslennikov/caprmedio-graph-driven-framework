@@ -1,8 +1,7 @@
 ---
-atom_id: CA-E-435
 cce_version: "cce_1"
 cce_form: "evaluation"
-version: 3
+version: 6
 updated_at: "2026-09-05 23:00:00 +0400"
 relations:
   child_of:
@@ -11,18 +10,17 @@ relations:
     - "CA-M-261"
     - "CA-M-262"
 subjects:
-  governs:
-    occurrent:
-      - "Project/Implementation/reconstruction"
+  governs: "Project/Implementation/reconstruction"
   depends_on:
-    continuant:
-      - "Spec"
-      - "Atom/Content Role: Implementation"
-      - "Atom/Content Role: Requirement"
-      - "Atom/Content Role: Method"
-      - "Atom/Content Role: Evaluation"
-      - "Atom/Content Role: Delivery"
-      - "Project"
+    - "Spec"
+    - "Atom/Content Role: Implementation"
+    - "Atom/Content Role: Requirement"
+    - "Atom/Content Role: Method"
+    - "Atom/Content Role: Evaluation"
+    - "Atom/Content Role: Delivery"
+    - "Project"
+llm_session_ids:
+  - codex:01a02650-eff7-7453-8c37-0699b36773c6
 ---
 # Evaluate reconstruction readiness
 

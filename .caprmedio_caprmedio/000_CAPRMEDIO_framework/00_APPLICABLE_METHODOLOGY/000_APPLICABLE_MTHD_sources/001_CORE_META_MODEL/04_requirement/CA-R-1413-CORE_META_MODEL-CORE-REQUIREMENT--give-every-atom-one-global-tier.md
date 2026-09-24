@@ -1,15 +1,9 @@
 ---
-atom_id: CA-R-1413
-cce_version: cce_1
-cce_form: cardinality
 subjects:
-  governs:
-    continuant:
-      - Atom/Global Tier
+  governs: "Atom/Global Tier"
   depends_on:
-    continuant:
-      - Atom
-version: 2
+    - "Atom"
+version: 6
 updated_at: 2026-09-06 01:45:12 +0400
 relations: {}
 ---

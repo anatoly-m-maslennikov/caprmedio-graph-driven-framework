@@ -1,16 +1,10 @@
 ---
-atom_id: CA-R-1285
-cce_version: cce_1
-cce_form: cardinality
 subjects:
-  governs:
-    continuant:
-      - Entity/Type
+  governs: "Entity/Type"
   depends_on:
-    continuant:
-      - Entity
-      - Type
-version: 6
+    - "Entity"
+    - "Type"
+version: 10
 updated_at: 2026-09-06 01:45:12 +0400
 relations: {}
 ---

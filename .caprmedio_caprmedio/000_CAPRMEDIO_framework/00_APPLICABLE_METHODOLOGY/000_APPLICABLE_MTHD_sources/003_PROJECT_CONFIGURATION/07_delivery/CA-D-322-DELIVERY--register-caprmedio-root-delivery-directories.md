@@ -1,12 +1,8 @@
 ---
-atom_id: CA-D-322
-cce_version: cce_1
-cce_form: registry
 subjects:
-  governs:
-    continuant:
-      - CAPRMEDIO/Project Root/Delivery Directory Carrier
-version: 2
+  governs: "CAPRMEDIO/Project Root/Delivery Directory Carrier"
+  depends_on: []
+version: 6
 updated_at: "2026-09-11 23:47:49 +0400"
 relations: {}
 ---

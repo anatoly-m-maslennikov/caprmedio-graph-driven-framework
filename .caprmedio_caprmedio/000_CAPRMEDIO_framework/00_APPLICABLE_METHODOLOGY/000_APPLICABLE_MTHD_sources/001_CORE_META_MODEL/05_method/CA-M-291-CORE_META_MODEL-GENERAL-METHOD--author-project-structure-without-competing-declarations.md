@@ -1,7 +1,4 @@
 ---
-atom_id: CA-M-291
-cce_version: cce_1
-cce_form: method
 subjects:
   governs: "Project Structure"
   depends_on:
@@ -14,7 +11,7 @@ subjects:
     - "Goal"
     - "Framework Instance Settings"
     - "Carrier"
-version: 1
+version: 3
 updated_at: "2026-09-15 00:13:02 +0000"
 relations:
   relates_to:

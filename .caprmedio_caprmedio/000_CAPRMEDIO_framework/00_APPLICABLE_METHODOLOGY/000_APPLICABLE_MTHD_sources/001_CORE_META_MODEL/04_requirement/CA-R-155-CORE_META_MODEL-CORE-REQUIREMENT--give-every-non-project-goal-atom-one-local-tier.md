@@ -1,16 +1,10 @@
 ---
-atom_id: CA-R-155
-cce_version: cce_1
-cce_form: cardinality
 subjects:
-  governs:
-    continuant:
-      - Atom/Local Tier
+  governs: "Atom/Local Tier"
   depends_on:
-    continuant:
-      - Atom
-      - "Atom/Content Role: Requirement/Type: Goal"
-version: 24
+    - "Atom"
+    - "Atom/Content Role: Requirement/Type: Goal"
+version: 28
 updated_at: "2026-09-10 02:19:47 +0400"
 relations: {}
 ---

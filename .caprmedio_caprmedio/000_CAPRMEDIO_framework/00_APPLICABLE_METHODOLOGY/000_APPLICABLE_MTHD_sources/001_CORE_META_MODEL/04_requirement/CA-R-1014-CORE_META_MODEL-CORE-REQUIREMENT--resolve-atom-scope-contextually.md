@@ -1,19 +1,16 @@
 ---
-atom_id: CA-R-1014
-cce_version: cce_1
-cce_form: requirement
 subjects:
   governs: "Atom/Scope"
   depends_on:
     - "Scope Unit/Scope"
     - "Operator"
     - "Atom/Governed Subject"
-    - "Atom/Claim/Scope"
-version: 12
-updated_at: "2026-09-13 02:05:21 +0400"
+    - "Atom/Claim"
+version: 15
+updated_at: "2026-09-22 17:59:17 +0000"
 relations:
   child_of:
-    - CA-R-919
+    - CA-R-1596
 ---
 # Resolve Atom Scope Contextually
 

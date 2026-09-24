@@ -1,15 +1,9 @@
 ---
-atom_id: CA-D-416
-cce_version: cce_1
-cce_form: classification
 subjects:
-  governs:
-    continuant:
-      - Markdown Atom Carrier
+  governs: "Markdown Atom Carrier"
   depends_on:
-    continuant:
-      - File Carrier
-version: 5
+    - "File Carrier"
+version: 9
 updated_at: "2026-09-11 20:58:34 +0400"
 relations: {}
 ---

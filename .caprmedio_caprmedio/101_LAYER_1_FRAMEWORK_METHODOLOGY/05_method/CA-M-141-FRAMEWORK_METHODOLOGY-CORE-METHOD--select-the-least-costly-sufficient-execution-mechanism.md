@@ -1,10 +1,11 @@
 ---
 subject_scopes:
   - routing
-version: 8
-updated_at: 2026-09-06 01:45:12 +0400
+version: 11
+updated_at: "2026-09-17 18:05:03 +0000"
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+  - codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations:
   child_of:
     - CA-M-098
@@ -14,28 +15,30 @@ relations:
 
 For one requested operation, first establish the required outcome, applicable
 non-negotiable constraints, available source inputs, acceptance conditions,
-candidate execution mechanisms, their capability limits, and the effective
-Operator priority order. Do not select automatically when any of these inputs
-is absent, contradictory, or insufficient to distinguish the candidates.
+candidate execution mechanisms, their capability limits, **and** the effective
+Operator-selected priority model, its parameters, **and** active criteria. Do **not** select automatically **when** **any** of these inputs
+is absent, contradictory, **or** insufficient **to** distinguish the candidates.
 
-Classify a candidate operation as **deterministically specifiable** only when
-its accepted inputs, transformation, decision rules, and acceptance conditions
+Classify a candidate operation as **deterministically specifiable** **only** **when**
+its accepted inputs, transformation, decision rules, **and** acceptance conditions
 are explicit enough that the same admitted inputs require the same result
-without interpretation, judgment, or open-ended planning. Select a sufficient
+**without** interpretation, judgment, **or** open-ended planning. Select a sufficient
 deterministic mechanism for that operation whenever one is available. An LLM
-may prepare or interpret work around such an operation, but it must not replace
+**may** prepare **or** interpret work around such an operation, but it **must not** replace
 the deterministic execution of the bounded operation itself.
 
-When the operation requires interpretation, judgment, or open-ended
-orchestration, use an LLM only for that irreducibly interpretive boundary and
-keep every fully specifiable sub-operation deterministic. From the remaining
-sufficient candidates, apply the effective Operator priority order, including
-declared human-effort and external-expense priorities, to choose the least
-costly acceptable mechanism. Equal-ranked candidates require a declared
-deterministic tie-breaker; incomparable candidates, an unavailable required
-mechanism, or an unresolved cost estimate return the choice to the Operator
-without execution.
+**when** the operation requires interpretation, judgment, **or** open-ended
+orchestration, use an LLM **only** for that irreducibly interpretive boundary **and**
+keep **every** fully specifiable sub-operation deterministic. From the remaining
+sufficient candidates, apply the effective Operator-selected priority model, including
+declared human-effort **and** external-expense criteria **when** selected, **to** choose
+the least costly acceptable mechanism under that model. apply a declared
+tie-breaker **only** **when** the selected model admits it. unresolved ties,
+incomparable candidates, an unavailable required mechanism, **or** an unresolved
+cost estimate required by that model return the choice **to** the Operator
+**without** execution. do **not** substitute comparison by priority order **or**
+another algorithm for the selected model.
 
-Stop at that boundary. Record the unresolved input or comparison as a
-diagnostic; do not guess a deterministic rule, silently substitute an LLM, or
+Stop at that boundary. Record the unresolved input **or** comparison as a
+diagnostic; do **not** guess a deterministic rule, silently substitute an LLM, **or**
 claim that an LLM result establishes deterministic sufficiency.

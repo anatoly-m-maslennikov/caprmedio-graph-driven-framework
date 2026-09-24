@@ -1,17 +1,10 @@
 ---
 subjects:
-  governs:
-    occurrent:
-      - Demand Validation
+  governs: "Atom/Content Role: Requirement/Type: Demand"
   depends_on:
-    continuant:
-      - "Atom/Content Role: Requirement/Type: Demand"
-      - Local Order
-atom_id: CA-E-243
-cce_version: cce_1
-cce_form: evaluation
-version: 14
-updated_at: "2026-09-10 05:21:58 +0400"
+    - "Local Order"
+version: 20
+updated_at: "2026-09-17 17:46:34 +0000"
 relations:
   evaluation_for:
     - CA-R-932
@@ -30,7 +23,7 @@ a Demand is owned by its Consumer **and** constrains **only** one Producer resul
 
 ## Test case
 
-create valid Demand Atoms with Consumer **and** Producer Scope Unit references in permitted branches **and** with a later ordered sibling as Consumer **and** an earlier ordered sibling as Producer. **then** remove the Goal-authorized need for the Producer result, change ownership, target an ancestor, direct child, deeper descendant, **or** later ordered sibling, use equal Producer **and** Consumer Local Order, target two results, constrain Producer authority outside the selected result, fully define Producer Scope, **and** add a separate Demand-direction relation Kind.
+create valid Demand Atoms with Consumer **and** Producer Scope Unit references **in** permitted branches **and** with a later ordered sibling as Consumer **and** an earlier ordered sibling as Producer. **then** remove the Goal-authorized need for the Producer result, change ownership, target an ancestor, direct child, deeper descendant, **or** later ordered sibling, use equal Producer **and** Consumer Local Order, target two results, constrain Producer authority outside the selected result, fully define Producer Scope, **and** add a separate Demand-direction relation Kind.
 
 ## Acceptance criteria
 

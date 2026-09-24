@@ -1,8 +1,7 @@
 ---
-atom_id: CA-R-831
 cce_version: cce_1
 cce_form: obligation
-version: 6
+version: 9
 updated_at: 2026-09-06 01:45:12 +0400
 relations:
   child_of:
@@ -10,12 +9,11 @@ relations:
     - CA-M-005-PRINCIPLE-METHOD--add-complexity-only-when-necessary
     - CA-M-006
 subjects:
-  governs:
-    continuant:
-      - "Extension"
+  governs: "Extension"
   depends_on:
-    continuant:
-      - "CAPRMEDIO Framework Instance"
+    - "CAPRMEDIO Framework Instance"
+llm_session_ids:
+  - codex:01a02650-eff7-7453-8c37-0699b36773c6
 ---
 # Add reusable capabilities through Extensions
 

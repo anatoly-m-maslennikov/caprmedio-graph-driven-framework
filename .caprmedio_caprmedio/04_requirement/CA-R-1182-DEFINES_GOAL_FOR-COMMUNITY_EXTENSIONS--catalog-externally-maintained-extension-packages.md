@@ -1,18 +1,16 @@
 ---
-atom_id: CA-R-1182
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  governs:
-    continuant:
-      - COMMUNITY_EXTENSIONS/Goal
+  governs: "COMMUNITY_EXTENSIONS/Goal"
   depends_on:
-    continuant:
-      - CAPRMEDIO
-version: 3
+    - "CAPRMEDIO"
+version: 7
 updated_at: 2026-09-02 04:15:00 +0400
 relations: {}
+llm_session_ids:
+  - codex:01a02650-eff7-7453-8c37-0699b36773c6
 ---
 # Catalog Externally Maintained Extension Packages
 
-COMMUNITY_EXTENSIONS **must** catalog externally maintained Extension packages without making those packages CAPRMEDIO-owned Scope Units.
+COMMUNITY_EXTENSIONS **must** catalog externally maintained Extension packages **without** making those packages CAPRMEDIO-owned Scope Units.

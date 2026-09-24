@@ -1,19 +1,13 @@
 ---
-atom_id: CA-E-461
-cce_version: cce_1
-cce_form: evaluation
 subjects:
-  governs:
-    continuant:
-      - Atom/Claim
+  governs: "Atom/Claim"
   depends_on:
-    continuant:
-      - Atom
-      - "Atom/Content Role: Evaluation"
-      - Scope Unit
-      - Atom/Claim/Structural Entity
-version: 1
-updated_at: "2026-09-12 16:07:47 +0400"
+    - "Atom"
+    - "Atom/Content Role: Evaluation"
+    - "Scope Unit"
+    - "Atom/Claim/Target Scope Unit"
+version: 6
+updated_at: "2026-09-22 17:59:17 +0000"
 relations: {}
 ---
 # Warn About Selected-sibling Claim Boundaries

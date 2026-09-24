@@ -94,26 +94,26 @@
     },
     {
       "scope_unit": "TOOLS",
-      "authority_path": ".caprmedio_project/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/301_FEATURE_TOOLS",
-      "delivery_path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS",
+      "authority_path": ".caprmedio_project/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS",
+      "delivery_path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS",
       "delivery_atom": "CA-D-025"
     },
     {
       "scope_unit": "APPS",
-      "authority_path": ".caprmedio_project/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/302_FEATURE_APPS",
-      "delivery_path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/302_APPS",
+      "authority_path": ".caprmedio_project/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/203_FEATURE_APPS",
+      "delivery_path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS",
       "delivery_atom": "CA-D-023"
     },
     {
       "scope_unit": "MCP",
-      "authority_path": ".caprmedio_project/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/303_FEATURE_MCP",
-      "delivery_path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/303_MCP",
+      "authority_path": ".caprmedio_project/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/204_FEATURE_MCP",
+      "delivery_path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP",
       "delivery_atom": "CA-D-049"
     },
     {
       "scope_unit": "SKILLS",
-      "authority_path": ".caprmedio_project/102_LAYER_2_FRAMEWORK_ENGINE/202_FEATURE_AGENTIC/301_FEATURE_SKILLS",
-      "delivery_path": "102_FRAMEWORK_ENGINE/202_AGENTIC/301_SKILLS",
+      "authority_path": ".caprmedio_project/102_LAYER_2_FRAMEWORK_ENGINE/202_FEATURE_AGENTIC/205_FEATURE_SKILLS",
+      "delivery_path": "102_FRAMEWORK_ENGINE/202_AGENTIC/205_SKILLS",
       "delivery_atom": "CA-D-024"
     }
   ],

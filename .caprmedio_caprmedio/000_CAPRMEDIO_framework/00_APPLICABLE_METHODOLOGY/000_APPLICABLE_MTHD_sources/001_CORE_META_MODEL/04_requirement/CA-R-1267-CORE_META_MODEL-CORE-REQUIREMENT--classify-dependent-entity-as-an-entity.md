@@ -1,15 +1,9 @@
 ---
-atom_id: CA-R-1267
-cce_version: cce_1
-cce_form: requirement
 subjects:
-  governs:
-    continuant:
-      - Dependent Entity
+  governs: "Dependent Entity"
   depends_on:
-    continuant:
-      - Entity
-version: 5
+    - "Entity"
+version: 9
 updated_at: "2026-09-11 05:27:15 +0400"
 relations: {}
 ---

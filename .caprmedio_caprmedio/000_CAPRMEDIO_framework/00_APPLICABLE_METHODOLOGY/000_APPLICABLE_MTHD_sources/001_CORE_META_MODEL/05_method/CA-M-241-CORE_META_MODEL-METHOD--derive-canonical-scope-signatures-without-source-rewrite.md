@@ -1,17 +1,11 @@
 ---
-atom_id: CA-M-241
-cce_version: cce_1
-cce_form: method
 subjects:
-  governs:
-    occurrent:
-      - Canonical Scope Signature Derivation
+  governs: "Canonical Scope Signature Derivation"
   depends_on:
-    continuant:
-      - Scope Expression
-      - Scope Expression/Canonical Scope Signature
-      - Atom/Carrier
-version: 3
+    - "Scope Expression"
+    - "Scope Expression/Canonical Scope Signature"
+    - "Atom/Carrier"
+version: 7
 updated_at: "2026-09-10 03:25:26 +0400"
 relations:
   child_of:

@@ -1,27 +1,25 @@
 ---
-version: 5
-updated_at: "2026-09-05 23:00:00 +0400"
+version: 9
+updated_at: "2026-09-22 17:59:17 +0000"
 relations:
   child_of:
     - "CA-R-1407"
     - "CA-M-001"
 cce_version: "cce_1"
 cce_form: "obligation"
-atom_id: "CA-R-881"
 subjects:
-  governs:
-    continuant:
-      - "Project/cross-unit relation ownership"
+  governs: "Project/cross-unit relation ownership"
   depends_on:
-    continuant:
-      - "Project"
-      - "Scope Unit"
-      - "Relational Atom"
-      - "Atom/Scope"
-      - "Atom/Claim/Scope"
-      - "Consumer"
-      - "Producer"
-      - "Atom/Content Role: Requirement/Type: Demand"
+    - "Project"
+    - "Scope Unit"
+    - "Relational Atom"
+    - "Atom/Scope"
+    - "Atom/Claim"
+    - "Consumer"
+    - "Producer"
+    - "Atom/Content Role: Requirement/Type: Demand"
+llm_session_ids:
+  - codex:01a02650-eff7-7453-8c37-0699b36773c6
 ---
 # Use relation-specific cross-unit ownership
 

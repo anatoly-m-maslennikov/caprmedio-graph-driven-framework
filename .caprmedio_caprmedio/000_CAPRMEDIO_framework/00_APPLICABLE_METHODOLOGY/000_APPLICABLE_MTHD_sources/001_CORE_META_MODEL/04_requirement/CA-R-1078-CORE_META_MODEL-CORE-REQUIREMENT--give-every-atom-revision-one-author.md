@@ -1,20 +1,14 @@
 ---
-atom_id: CA-R-1078
-cce_version: cce_1
-cce_form: cardinality
 subjects:
-  governs:
-    continuant:
-      - Atom/Revision/Author
+  governs: "Atom/Revision/Author"
   depends_on:
-    continuant:
-      - Atom/Revision
-      - Actor
-version: 8
-updated_at: 2026-09-06 01:45:12 +0400
+    - "Atom/Revision"
+    - "Actor"
+version: 13
+updated_at: "2026-09-22 14:41:44 +0000"
 relations:
   child_of:
-    - CA-R-989
+    - CA-R-1574
 ---
 # Give Every Atom Revision One Author
 

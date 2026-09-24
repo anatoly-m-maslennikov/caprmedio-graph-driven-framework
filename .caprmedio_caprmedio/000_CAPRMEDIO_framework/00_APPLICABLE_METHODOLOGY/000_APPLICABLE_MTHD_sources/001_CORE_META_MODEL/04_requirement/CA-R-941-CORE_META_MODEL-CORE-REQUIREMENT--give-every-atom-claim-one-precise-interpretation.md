@@ -1,16 +1,10 @@
 ---
 subjects:
-  governs:
-    continuant:
-      - language
+  governs: "language"
   depends_on:
-    continuant:
-      - artifact-model
-      - CCE
-atom_id: CA-R-941
-cce_version: cce_1
-cce_form: cardinality
-version: 8
+    - "artifact-model"
+    - "CCE"
+version: 12
 updated_at: 2026-09-07 09:59:57 +0000
 relations:
   child_of:

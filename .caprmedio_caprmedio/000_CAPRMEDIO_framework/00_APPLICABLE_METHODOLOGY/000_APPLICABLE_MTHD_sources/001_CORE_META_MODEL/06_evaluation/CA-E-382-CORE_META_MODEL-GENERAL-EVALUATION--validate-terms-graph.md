@@ -1,7 +1,4 @@
 ---
-atom_id: CA-E-382
-cce_version: cce_1
-cce_form: evaluation
 subjects:
   governs: "Projection/Type: Terms Graph"
   depends_on:
@@ -17,10 +14,11 @@ subjects:
     - "Artifact/Revision"
     - "Entity"
     - "Action"
-    - "Process"
+    - "Workflow"
     - "Projection"
-version: 14
-updated_at: "2026-09-15 01:47:49 +0400"
+    - "Atom"
+version: 18
+updated_at: "2026-09-22 20:07:50 +0000"
 relations:
   evaluation_for:
     - CA-R-1335
@@ -52,7 +50,7 @@ for a governed-only view under CA-R-1454, the Evaluation **must** reject graph v
 
 filtering out a parent **must not** establish **or** change canonical Root Term classification. **if** the available source evidence is insufficient **to** establish the CA-R-1347 criterion, the classification **must** remain unresolved **without** silently importing source nodes **or** edges from outside the requested selection.
 
-the same NARROWER_THAN implication check applies **when** the Terms name Actions **or** Processes; the Evaluation **must not** require **or** create Entity duplicates **to** admit operational vocabulary. an empty set of observed instances does **not** prove a hierarchy Relation; acceptance requires the governing Term definitions **and** explicit Relation authority.
+the same NARROWER_THAN implication check applies **when** the Terms name Actions **or** Workflows. those operational Atoms already are Entities; the Evaluation **must not** require **or** create separate Entity identities for them **or** infer a Terms Graph edge merely from their classification. an empty set of observed instances does **not** prove a hierarchy Relation; acceptance requires the governing Term definitions **and** explicit Relation authority.
 
 ## Projection fidelity and source traceability
 

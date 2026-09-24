@@ -1,25 +1,19 @@
 ---
-atom_id: CA-E-386
-cce_version: cce_1
-cce_form: evaluation
 subjects:
-  governs:
-    occurrent:
-      - Type-Qualified Status Validation
+  governs: "Type-Qualified Status Validation"
   depends_on:
-    continuant:
-      - Artifact/Revision/Status
-      - Artifact/Activity
-      - Atom/Content Role
-      - Type
-      - "Atom Collection/Type: Epic/Status"
-version: 10
-updated_at: "2026-09-11 02:13:22 +0400"
+    - "Artifact/Revision/Status"
+    - "Artifact/Activity"
+    - "Atom/Content Role"
+    - "Type"
+    - "Atom/Content Role: Plan/Type: Plan/Status"
+version: 16
+updated_at: "2026-09-22 14:41:44 +0000"
 relations: {}
 ---
 # Validate Type-Qualified Status and Artifact Activity
 
-the Evaluation **must** reject an Artifact **if** any applicable condition holds:
+the Evaluation **must** reject an Artifact **if** **any** applicable condition holds:
 
 - **when** an explicitly defined Status model applies, its Status domain is resolved outside its complete qualified Type **or** Atom Content Role **and** Type path, its current Status cardinality **`!=1`**, its current Status is **not** an allowed value of that domain, its Activity cardinality **`!=1`**, its Activity violates CA-R-1395 **or** CA-R-1396, a prior transition coexists as current Status metadata, **or** a second revision-disposition axis duplicates Status.
 - **when** no explicitly defined Status model applies, its Activity cardinality **`!=0`** under CA-R-1307.

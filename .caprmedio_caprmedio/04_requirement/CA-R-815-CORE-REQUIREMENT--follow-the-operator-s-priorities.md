@@ -1,21 +1,19 @@
 ---
-atom_id: CA-R-815
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  governs:
-    continuant:
-      - "Project/priorities"
+  governs: "Project/priorities"
   depends_on:
-    continuant:
-      - "Project"
-      - "Operator"
-      - "CAPRMEDIO Framework Instance"
-version: 11
+    - "Project"
+    - "Operator"
+    - "CAPRMEDIO Framework Instance"
+version: 14
 updated_at: 2026-09-06 01:45:12 +0400
 relations:
   child_of:
     - CA-P-033
+llm_session_ids:
+  - codex:01a02650-eff7-7453-8c37-0699b36773c6
 ---
 # Follow the Operator's priorities
 

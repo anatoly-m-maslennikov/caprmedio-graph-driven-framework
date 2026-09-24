@@ -1,15 +1,9 @@
 ---
-atom_id: CA-R-1379
-cce_version: cce_1
-cce_form: classification
 subjects:
-  governs:
-    continuant:
-      - Atom Collection
+  governs: "Atom Collection"
   depends_on:
-    continuant:
-      - Structural Entity
-version: 4
+    - "Structural Entity"
+version: 8
 updated_at: "2026-09-11 05:27:15 +0400"
 relations: {}
 ---

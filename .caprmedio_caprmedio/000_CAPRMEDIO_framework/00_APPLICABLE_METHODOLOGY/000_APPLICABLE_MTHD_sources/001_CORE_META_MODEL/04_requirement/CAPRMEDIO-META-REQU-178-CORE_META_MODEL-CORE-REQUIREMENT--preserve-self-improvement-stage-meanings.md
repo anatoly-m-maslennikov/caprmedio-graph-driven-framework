@@ -1,15 +1,9 @@
 ---
-atom_id: CAPRMEDIO-META-REQU-178
-cce_version: cce_1
-cce_form: obligation
 subjects:
-  governs:
-    occurrent:
-      - continuous-improvement
-version: 7
+  governs: "continuous-improvement"
+  depends_on: []
+version: 11
 updated_at: 2026-09-06 01:45:12 +0400
-llm_session_ids:
-  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   child_of:
     - CAPRMEDIO-REQU-047-CORE-REQUIREMENT--separate-self-improvement-stages

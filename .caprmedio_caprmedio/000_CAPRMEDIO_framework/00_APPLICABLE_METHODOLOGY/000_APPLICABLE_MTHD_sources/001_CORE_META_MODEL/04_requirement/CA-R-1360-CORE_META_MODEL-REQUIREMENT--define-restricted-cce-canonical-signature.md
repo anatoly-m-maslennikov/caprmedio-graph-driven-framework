@@ -1,16 +1,10 @@
 ---
-atom_id: CA-R-1360
-cce_version: cce_1
-cce_form: definition
 subjects:
-  governs:
-    continuant:
-      - Atom/Claim/Canonical Signature
+  governs: "Atom/Claim/Canonical Signature"
   depends_on:
-    continuant:
-      - Atom/Claim
-      - CCE Operator
-version: 3
+    - "Atom/Claim"
+    - "CCE Operator"
+version: 7
 updated_at: "2026-09-10 03:25:26 +0400"
 relations:
   child_of:

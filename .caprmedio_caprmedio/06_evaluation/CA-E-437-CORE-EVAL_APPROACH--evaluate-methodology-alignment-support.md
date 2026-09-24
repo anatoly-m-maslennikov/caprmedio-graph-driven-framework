@@ -1,8 +1,7 @@
 ---
-atom_id: "CA-E-437"
 cce_version: "cce_1"
 cce_form: "evaluation"
-version: 2
+version: 5
 updated_at: "2026-09-05 23:00:00 +0400"
 relations:
   child_of:
@@ -10,18 +9,17 @@ relations:
   evaluation_for:
     - "CA-R-1424"
 subjects:
-  governs:
-    occurrent:
-      - "CAPRMEDIO Framework Instance/alignment support"
+  governs: "CAPRMEDIO Framework Instance/alignment support"
   depends_on:
-    continuant:
-      - "CAPRMEDIO Framework Instance"
-      - "Applicable Methodology"
-      - "Operator"
-      - "Tool"
-      - "Artifact"
-      - "Atom/Content Role: Evaluation"
-      - "Scope"
+    - "CAPRMEDIO Framework Instance"
+    - "Applicable Methodology"
+    - "Operator"
+    - "Tool"
+    - "Artifact"
+    - "Atom/Content Role: Evaluation"
+    - "Scope"
+llm_session_ids:
+  - codex:01a02650-eff7-7453-8c37-0699b36773c6
 ---
 # Evaluate methodology alignment support
 

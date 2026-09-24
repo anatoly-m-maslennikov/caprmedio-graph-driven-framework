@@ -1,18 +1,12 @@
 ---
-atom_id: CA-E-450
-cce_version: cce_1
-cce_form: evaluation
 subjects:
-  governs:
-    occurrent:
-      - "Framework Instance Settings/parameter resolution validation"
+  governs: "Framework Instance Settings/parameter resolution validation"
   depends_on:
-    continuant:
-      - "Framework Instance Settings"
-      - "Default Settings"
-      - "Project"
-      - "Operator"
-version: 1
+    - "Framework Instance Settings"
+    - "Default Settings"
+    - "Project"
+    - "Operator"
+version: 5
 updated_at: "2026-09-11 19:51:42 +0400"
 relations:
   evaluation_for:

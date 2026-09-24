@@ -1,16 +1,10 @@
 ---
-atom_id: CA-R-1346
-cce_version: cce_1
-cce_form: permission
 subjects:
-  governs:
-    continuant:
-      - IS_ALLOWED_VALUE_OF
+  governs: "IS_ALLOWED_VALUE_OF"
   depends_on:
-    continuant:
-      - Term
-      - Property
-version: 4
+    - "Term"
+    - "Property"
+version: 8
 updated_at: "2026-09-11 04:18:03 +0400"
 relations: {}
 ---

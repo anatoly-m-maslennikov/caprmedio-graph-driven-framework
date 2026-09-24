@@ -1,15 +1,9 @@
 ---
-atom_id: CA-R-1257
-cce_version: cce_1
-cce_form: requirement
 subjects:
-  governs:
-    continuant:
-      - Scope Unit
+  governs: "Scope Unit"
   depends_on:
-    continuant:
-      - Structural Entity
-version: 6
+    - "Structural Entity"
+version: 10
 updated_at: "2026-09-11 05:27:15 +0400"
 relations: {}
 ---

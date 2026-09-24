@@ -1,7 +1,4 @@
 ---
-atom_id: CA-O-007
-cce_version: cce_1
-cce_form: definition
 subjects:
   governs: "Obtain Source Correction Decision"
   depends_on:
@@ -11,10 +8,18 @@ subjects:
     - "Artifact/Revision"
     - "Atom/Claim"
     - "Journal"
-version: 1
-updated_at: "2026-09-14 01:36:43 +0400"
+    - "Journal/Record"
+version: 4
+updated_at: "2026-09-16 22:01:42 +0000"
 relations: {}
 ---
 # Obtain source correction decisions
 
-Obtain Source Correction Decision **means** the reusable Action that presents an exact conflict-resolution proposal **and** its selected source frontier **to** the Operator, requests an explicit decision, **and** records the actual decision with its proposal, conflict, source-frontier binding, **and** provenance under applicable source-authority **and** Journal rules. approval, rejection, requested revision, **and** absence of a decision **must** remain distinguishable. absence of an Operator decision, inferred intent, AI Agent confidence, **or** an LLM judgment **must not** be treated as approval. the Action **must not** apply a proposed correction **or** record approval that the Operator did **not** give; a changed proposal **or** source frontier requires the decision's applicability **to** be checked again **before** reliance.
+Obtain Source Correction Decision **means** the reusable Action that obtains the Operator's explicit decision about an exact conflict-resolution proposal.
+
+1. present the proposal, the conflict it addresses, **and** the selected source frontier **to** the Operator.
+2. request an explicit decision. distinguish approval, rejection, requested revision, **and** absence of a decision; confidence, inferred intent, **or** an LLM judgment is **not** approval.
+3. record the actual decision **in** the Journal with its proposal, conflict, exact source-frontier binding, **and** provenance. record a missing decision as missing, **not** as an approval **or** rejection.
+4. return the recorded decision for the applicable authorization checks. a changed proposal **or** source frontier requires the decision's applicability **to** be checked again **before** reliance.
+
+this Action **must not** apply the correction, record approval the Operator did **not** give, **or** create a duplicate approval Atom **in** Project Configuration. the Journal records the decision; it does **not** independently redefine the governing source Claims.

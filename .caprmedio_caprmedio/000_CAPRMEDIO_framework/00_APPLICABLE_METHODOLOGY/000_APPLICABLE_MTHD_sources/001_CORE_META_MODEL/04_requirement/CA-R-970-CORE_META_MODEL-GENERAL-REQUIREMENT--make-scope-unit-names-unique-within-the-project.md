@@ -1,15 +1,9 @@
 ---
 subjects:
-  governs:
-    continuant:
-      - Scope Unit/Name
+  governs: "Scope Unit/Name"
   depends_on:
-    continuant:
-      - Project
-atom_id: CA-R-970
-cce_version: cce_1
-cce_form: obligation
-version: 10
+    - "Project"
+version: 14
 updated_at: "2026-09-10 05:08:55 +0400"
 relations:
   child_of:

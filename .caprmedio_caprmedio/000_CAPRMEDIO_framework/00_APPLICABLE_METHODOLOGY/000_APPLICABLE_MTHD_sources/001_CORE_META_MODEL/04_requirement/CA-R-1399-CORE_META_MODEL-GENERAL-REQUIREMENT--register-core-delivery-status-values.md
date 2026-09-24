@@ -1,15 +1,9 @@
 ---
-atom_id: CA-R-1399
-cce_version: cce_1
-cce_form: requirement
 subjects:
-  governs:
-    continuant:
-      - "Atom/Content Role: Delivery/Status"
+  governs: "Atom/Content Role: Delivery/Status"
   depends_on:
-    continuant:
-      - "Atom/Content Role: Delivery"
-version: 3
+    - "Atom/Content Role: Delivery"
+version: 7
 updated_at: "2026-09-10 03:38:57 +0400"
 relations: {}
 ---

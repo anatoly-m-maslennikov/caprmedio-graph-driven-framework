@@ -1,5 +1,4 @@
 ---
-atom_id: CA-M-114
 subjects:
   governs: "Terminology Projection Derivation"
   depends_on:
@@ -14,11 +13,9 @@ subjects:
     - "Entity"
     - "Term"
     - "Action"
-    - "Process"
-cce_version: cce_1
-cce_form: method
-version: 15
-updated_at: "2026-09-14 04:00:22 +0400"
+    - "Workflow"
+version: 18
+updated_at: "2026-09-18 14:16:20 +0000"
 relations: {}
 ---
 # Derive Terminology Projection from Definition Atoms

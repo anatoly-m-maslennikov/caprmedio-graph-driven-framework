@@ -1,16 +1,10 @@
 ---
-atom_id: CA-D-397
-cce_version: cce_1
-cce_form: serialization
 subjects:
-  governs:
-    continuant:
-      - "Artifact/Type"
+  governs: "Artifact/Type"
   depends_on:
-    continuant:
-      - "Artifact"
-      - "Atom/Identifier"
-version: 4
+    - "Artifact"
+    - "Atom/Identifier"
+version: 8
 updated_at: "2026-09-11 23:47:49 +0400"
 relations:
   child_of:

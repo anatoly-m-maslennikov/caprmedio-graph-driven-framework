@@ -1,18 +1,12 @@
 ---
-atom_id: CA-R-1260
-cce_version: cce_1
-cce_form: definition
 subjects:
-  governs:
-    continuant:
-      - IS_BORNE_BY
+  governs: "IS_BORNE_BY"
   depends_on:
-    continuant:
-      - Entity
-      - Dependent Entity
-      - Entities Graph
-      - Relation
-version: 6
+    - "Entity"
+    - "Dependent Entity"
+    - "Entities Graph"
+    - "Relation"
+version: 10
 updated_at: "2026-09-11 04:05:41 +0400"
 relations: {}
 ---

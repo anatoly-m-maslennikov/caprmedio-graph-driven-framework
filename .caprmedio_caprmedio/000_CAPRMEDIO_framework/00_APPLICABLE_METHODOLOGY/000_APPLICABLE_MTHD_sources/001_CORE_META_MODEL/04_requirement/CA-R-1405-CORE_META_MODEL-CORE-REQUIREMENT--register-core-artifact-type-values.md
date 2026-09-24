@@ -1,18 +1,12 @@
 ---
-atom_id: CA-R-1405
-cce_version: cce_1
-cce_form: allowed_values
 subjects:
-  governs:
-    continuant:
-      - Artifact/Type
+  governs: "Artifact/Type"
   depends_on:
-    continuant:
-      - Artifact
-      - Default Settings
-      - Type
-      - IS_ALLOWED_VALUE_OF
-version: 4
+    - "Artifact"
+    - "Default Settings"
+    - "Type"
+    - "IS_ALLOWED_VALUE_OF"
+version: 8
 updated_at: "2026-09-11 19:51:42 +0400"
 relations:
   child_of:

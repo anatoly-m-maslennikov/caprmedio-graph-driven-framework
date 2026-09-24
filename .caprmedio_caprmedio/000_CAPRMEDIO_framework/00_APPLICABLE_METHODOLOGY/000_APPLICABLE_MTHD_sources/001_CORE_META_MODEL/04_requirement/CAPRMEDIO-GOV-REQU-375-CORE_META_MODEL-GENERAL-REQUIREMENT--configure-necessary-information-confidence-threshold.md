@@ -1,20 +1,12 @@
 ---
-atom_id: CAPRMEDIO-GOV-REQU-375
-cce_version: cce_1
-cce_form: obligation
 subjects:
-  governs:
-    continuant:
-      - "Framework Instance Settings/Confidence/Necessary Information Threshold"
+  governs: "Framework Instance Settings/Confidence/Necessary Information Threshold"
   depends_on:
-    continuant:
-      - "Confidence Threshold"
-      - "Framework Instance Settings"
-      - "Operator"
-version: 15
+    - "Confidence Threshold"
+    - "Framework Instance Settings"
+    - "Operator"
+version: 19
 updated_at: "2026-09-11 19:51:42 +0400"
-llm_session_ids:
-  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   child_of:
     - CAPRMEDIO-REQU-035-CORE-REQUIREMENT--identify-necessary-information-by-confidence

@@ -1,7 +1,4 @@
 ---
-atom_id: CA-D-374
-cce_version: cce_1
-cce_form: serialization
 subjects:
   governs: "Framework Instance Settings"
   depends_on:
@@ -9,7 +6,7 @@ subjects:
     - "Authority Mode"
     - "Project"
     - "Scope Unit"
-version: 3
+version: 5
 updated_at: "2026-09-15 00:13:02 +0000"
 relations:
   child_of:

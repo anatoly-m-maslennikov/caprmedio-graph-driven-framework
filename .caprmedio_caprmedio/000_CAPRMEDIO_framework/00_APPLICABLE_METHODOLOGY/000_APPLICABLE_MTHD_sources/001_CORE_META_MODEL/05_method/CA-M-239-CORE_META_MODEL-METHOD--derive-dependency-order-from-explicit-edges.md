@@ -1,25 +1,19 @@
 ---
-atom_id: CA-M-239
-cce_version: cce_1
-cce_form: method
 subjects:
-  governs:
-    occurrent:
-      - Dependency Order Derivation
+  governs: "Dependency Order Derivation"
   depends_on:
-    continuant:
-      - DEPENDS_ON
-      - DERIVED_FROM
-      - Atom/Direct Relation Serialization
-      - Artifact/Revision
-      - Artifact
-      - "Atom/Content Role: Plan/Type: Task"
-version: 4
-updated_at: "2026-09-10 03:25:26 +0400"
+    - "DEPENDS_ON"
+    - "DERIVED_FROM"
+    - "Atom/Direct Relation Serialization"
+    - "Artifact/Revision"
+    - "Artifact"
+    - "Atom/Content Role: Plan/Type: Plan"
+version: 9
+updated_at: "2026-09-22 14:41:44 +0000"
 relations:
   child_of:
     - CA-M-120
 ---
 # Derive Dependency Order from Explicit Edges
 
-**to** derive one Artifact dependency order, the resolver **must** construct one directed graph from direct `relations.depends_on` edges from **every** dependent Artifact **to** **every** prerequisite Artifact, derive its `required_by` inverse view **without** authoring inverse edges, calculate one deterministic prerequisite-first topological order with canonical identity **only** as a tie-breaker, **and** reject a cycle; it **must not** use target-list position, Local Order, **or** `relations.derived_from` as a dependency edge.
+**to** derive one non-Plan Artifact dependency order, the resolver **must** construct one directed graph from direct `relations.depends_on` edges from **every** dependent Artifact **to** **every** prerequisite Artifact, derive its `required_by` inverse view **without** authoring inverse edges, calculate one deterministic prerequisite-first topological order with canonical identity **only** as a tie-breaker, **and** reject a cycle; it **must not** use target-list position, Local Order, **or** `relations.derived_from` as a dependency edge. Plan readiness follows `BLOCKS` under CA-R-1580: **all** blockers **must** be Done, **and** independent ready Plans **may** execute concurrently subject **to** their permissions; navigation order **must not** add blocking.

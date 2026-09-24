@@ -1,16 +1,10 @@
 ---
-atom_id: CA-D-253
-cce_version: cce_1
-cce_form: delivery
 subjects:
-  governs:
-    continuant:
-      - Applicable Methodology/Carrier
+  governs: "Applicable Methodology/Carrier"
   depends_on:
-    continuant:
-      - Applicable Methodology
-      - Applicable Methodology/Sources
-version: 6
+    - "Applicable Methodology"
+    - "Applicable Methodology/Sources"
+version: 10
 updated_at: "2026-09-10 05:41:36 +0400"
 relations: {}
 ---

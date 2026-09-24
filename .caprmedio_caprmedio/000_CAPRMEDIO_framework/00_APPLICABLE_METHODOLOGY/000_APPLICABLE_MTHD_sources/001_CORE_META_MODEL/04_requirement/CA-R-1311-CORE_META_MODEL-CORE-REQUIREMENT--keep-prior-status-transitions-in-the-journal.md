@@ -1,15 +1,9 @@
 ---
-atom_id: CA-R-1311
-cce_version: cce_1
-cce_form: restriction
 subjects:
-  governs:
-    continuant:
-      - Artifact/Revision/Status
+  governs: "Artifact/Revision/Status"
   depends_on:
-    continuant:
-      - Journal
-version: 6
+    - "Journal"
+version: 10
 updated_at: 2026-09-06 01:45:12 +0400
 relations: {}
 ---

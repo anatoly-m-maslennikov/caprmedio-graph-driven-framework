@@ -35,7 +35,7 @@ the Assignee **must** produce one exhaustive Action **and** Process candidate in
 
 ## Scope
 
-(the complete selected RMEDO subtree of TOOLS at `.caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/301_FEATURE_TOOLS`, plus its migration successors **and** preserved pre-migration source map); the source **and** lifecycle admission boundary established by CA-P-976 applies; historical versions, generated copies, runtime, Implementation code, **and** other CAP Atoms are excluded.
+(the complete selected RMEDO subtree of TOOLS at `.caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS`, plus its migration successors **and** preserved pre-migration source map); the source **and** lifecycle admission boundary established by CA-P-976 applies; historical versions, generated copies, runtime, Implementation code, **and** other CAP Atoms are excluded.
 
 ## Definition of Done
 

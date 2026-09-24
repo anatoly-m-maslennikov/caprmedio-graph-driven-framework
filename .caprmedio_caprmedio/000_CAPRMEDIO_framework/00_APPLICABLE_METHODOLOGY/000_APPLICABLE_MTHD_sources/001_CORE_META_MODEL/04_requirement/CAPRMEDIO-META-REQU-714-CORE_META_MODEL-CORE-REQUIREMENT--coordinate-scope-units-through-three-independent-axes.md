@@ -1,19 +1,14 @@
 ---
-atom_id: CAPRMEDIO-META-REQU-714
 subjects:
-  governs:
-    continuant:
-      - relation-model
+  governs: "Scope Unit"
   depends_on:
-    continuant:
-      - scope-topology
-      - atom-boundary
-cce_version: cce_1
-cce_form: separation
-version: 11
-updated_at: "2026-09-10 05:08:55 +0400"
+    - "Project Boundary Position"
+    - "Scope Unit/Type"
+    - "Child Composition"
+version: 16
+updated_at: "2026-09-17 12:58:11 +0000"
 relations: {}
 ---
 # Coordinate Scope Units through three independent axes
 
-**every** Scope Unit **must** characterize Project Boundary Position, its Type value **when** applicable, **and** Child Composition independently.
+**every** Scope Unit **must** characterize its Project Boundary Position, Type value, **and** Child Composition independently. the Type value is required under CAPRMEDIO-META-REQU-709, including the Project's Unordered value under CAPRMEDIO-META-REQU-710.

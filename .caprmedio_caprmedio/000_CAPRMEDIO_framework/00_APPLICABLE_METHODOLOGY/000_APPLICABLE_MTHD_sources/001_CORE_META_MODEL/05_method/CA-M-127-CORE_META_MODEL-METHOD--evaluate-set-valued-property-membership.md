@@ -1,16 +1,10 @@
 ---
-atom_id: CA-M-127
-cce_version: cce_1
-cce_form: method
 subjects:
-  governs:
-    occurrent:
-      - Set-valued Property Membership Evaluation
+  governs: "Set-valued Property Membership Evaluation"
   depends_on:
-    continuant:
-      - CCE Condition Expression Evaluation
-      - Set-valued Property
-version: 9
+    - "CCE Condition Expression Evaluation"
+    - "Set-valued Property"
+version: 13
 updated_at: "2026-09-10 03:25:26 +0400"
 relations:
   child_of:

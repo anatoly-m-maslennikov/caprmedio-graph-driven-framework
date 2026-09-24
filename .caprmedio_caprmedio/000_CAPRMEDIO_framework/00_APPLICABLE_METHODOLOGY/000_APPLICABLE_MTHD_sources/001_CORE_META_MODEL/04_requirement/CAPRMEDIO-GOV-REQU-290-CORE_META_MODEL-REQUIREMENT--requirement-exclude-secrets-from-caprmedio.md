@@ -1,23 +1,28 @@
 ---
-atom_id: CAPRMEDIO-GOV-REQU-290
-cce_version: cce_1
-cce_form: prohibition
 subjects:
-  governs:
-    continuant:
-      - external-boundary
-version: 12
-updated_at: "2026-09-14 06:21:07 +0400"
+  governs: "external-boundary"
+version: 15
+updated_at: "2026-09-17 14:04:16 +0000"
 relations: {}
 ---
 # Requirement — Exclude secrets from CAPRMEDIO
 
-CAPRMEDIO never stores, transmits, summarizes, **or** reproduces secret values. secrets include passwords, API keys, access **or** refresh tokens, session cookies, private keys, signing **or** encryption keys, authentication certificates, one-time **or** recovery codes, **and** connection strings **or** URLs containing credentials.
+secret values **must** remain **in** the permitted secret storage defined by CA-D-452. secrets include passwords, API keys, access **or** refresh tokens, session cookies, private keys, signing **or** encryption keys, authentication certificates, one-time **or** recovery codes, **and** connection strings **or** URLs containing credentials.
 
-the prohibition covers atomic **and** evergreen artifacts, settings, generated files, runtime traces, logs, prompts, checkpoints, Evaluation inputs **and** results, Test fixtures **and** snapshots, evidence, support bundles, issues, pull requests, commits, **and** release records. a secret **must** be redacted **before** **any** such surface enters CAPRMEDIO; encoding **or** encrypting a value does **not** make it ordinary CAPRMEDIO data.
+## authorized use
 
-production **and** shared automation use the host's secret injection **or** a dedicated secret manager, **not** a committed file **or** CAPRMEDIO setting.
+- Tools **may** receive secrets from that storage, including through host injection, **and** use them for Operator-authorized authentication.
+- credential use **must** remain within the authorized transport **and** resource boundary. permission **to** authenticate does **not** authorize disclosure elsewhere.
 
-email addresses, usernames, **and** account identifiers are identifiers rather than authenticators. they **may** appear **in** CAPRMEDIO **when** necessary **and** authorized, but **must** be minimized **and** treated as potentially personal data. CAPRMEDIO does **not** become the runtime owner merely because a human-readable artifact names it.
+## excluded surfaces
 
-**if** a secret reaches **any** durable **or** shared surface, stop propagation, revoke **or** rotate it immediately, **then** clean affected carriers **and** record the incident **without** reproducing the value. deleting a current file is **not** sufficient remediation for a value already present **in** durable history **or** another replica.
+- secret values **must not** appear **in** Atoms, Project Settings, Framework Instance Settings, generated Artifacts, runtime traces, logs, prompts, checkpoints, Evaluation inputs **and** results, Test fixtures **and** snapshots, evidence, support bundles, issues, pull requests, commits, **or** release records.
+- secret values **must** be redacted **before** data enters those surfaces. encoding **or** encrypting a secret does **not** permit its inclusion outside the permitted secret storage.
+
+## personal identifiers
+
+email addresses, usernames, **and** account identifiers are identifiers rather than authenticators. they **may** appear **in** CAPRMEDIO **when** necessary **and** authorized, but **must** be minimized **and** treated as potentially personal data. CAPRMEDIO does **not** become the runtime owner merely because a human-readable Artifact names it.
+
+## exposure response
+
+**if** a secret reaches an unauthorized durable **or** shared surface, stop propagation, revoke **or** rotate it immediately, **then** clean affected Carriers **and** record the incident **without** reproducing the value. deleting a current file is **not** sufficient remediation for a value already present **in** durable history **or** another replica.

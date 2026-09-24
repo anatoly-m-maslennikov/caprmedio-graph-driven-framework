@@ -1,15 +1,9 @@
 ---
-atom_id: CAPRMEDIO-META-REQU-086
-cce_version: cce_1
-cce_form: obligation
 subjects:
-  governs:
-    continuant:
-      - framework-boundary
-version: 12
+  governs: "framework-boundary"
+  depends_on: []
+version: 16
 updated_at: "2026-09-10 20:55:18 +0400"
-llm_session_ids:
-  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   child_of:
     - CAPRMEDIO-REQU-014-REQUIREMENT--support-repository-relative-work-areas

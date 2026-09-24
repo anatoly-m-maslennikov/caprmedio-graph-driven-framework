@@ -1,15 +1,11 @@
 ---
-atom_id: CAPRMEDIO-META-REQU-172
-cce_version: cce_1
-cce_form: obligation
 subjects:
-  governs:
-    continuant:
-      - scope-topology
-version: 9
-updated_at: 2026-09-07 09:59:57 +0000
-llm_session_ids:
-  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+  governs: "Structural Level"
+  depends_on:
+    - "Scope Unit"
+    - "Structural Parent Relation"
+version: 14
+updated_at: "2026-09-17 12:58:39 +0000"
 relations:
   child_of:
     - CA-M-005-PRINCIPLE-METHOD--add-complexity-only-when-necessary
@@ -17,4 +13,4 @@ relations:
 ---
 # Admit only necessary structural levels
 
-CAPRMEDIO **may** add a structural level **only** **when** it creates a necessary ownership boundary that scopes **in** the existing levels cannot represent while preserving a finite acyclic hierarchy.
+a proposed Structural Level is admissible **only** **when** it creates a necessary ownership boundary that Scope Units at existing Structural Levels cannot represent while preserving a finite acyclic hierarchy.

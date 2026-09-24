@@ -1,15 +1,9 @@
 ---
-atom_id: CA-M-275
-cce_version: cce_1
-cce_form: method
 subjects:
-  governs:
-    continuant:
-      - "Scope Unit/Name"
+  governs: "Scope Unit/Name"
   depends_on:
-    continuant:
-      - "Scope Unit"
-version: 1
+    - "Scope Unit"
+version: 5
 updated_at: "2026-09-10 20:53:43 +0400"
 relations:
   method_for:

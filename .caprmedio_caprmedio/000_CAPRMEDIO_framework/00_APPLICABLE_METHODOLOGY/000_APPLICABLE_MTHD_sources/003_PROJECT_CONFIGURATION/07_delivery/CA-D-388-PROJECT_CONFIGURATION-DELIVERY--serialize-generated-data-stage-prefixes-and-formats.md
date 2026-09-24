@@ -1,17 +1,11 @@
 ---
-atom_id: CA-D-388
-cce_version: cce_1
-cce_form: serialization
 subjects:
-  governs:
-    continuant:
-      - "Generated Data Stage Prefix"
+  governs: "Generated Data Stage Prefix"
   depends_on:
-    continuant:
-      - "Journal"
-      - "Projection"
-      - "Carrier/Format"
-version: 2
+    - "Journal"
+    - "Projection"
+    - "Carrier/Format"
+version: 6
 updated_at: "2026-09-14 06:21:07 +0400"
 relations: {}
 ---

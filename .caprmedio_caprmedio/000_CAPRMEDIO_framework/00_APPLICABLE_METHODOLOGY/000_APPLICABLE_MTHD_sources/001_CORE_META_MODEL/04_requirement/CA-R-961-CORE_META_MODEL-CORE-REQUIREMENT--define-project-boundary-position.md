@@ -1,15 +1,9 @@
 ---
 subjects:
-  governs:
-    continuant:
-      - Project Boundary Position
+  governs: "Project Boundary Position"
   depends_on:
-    continuant:
-      - scope-topology
-atom_id: CA-R-961
-cce_version: cce_1
-cce_form: definition
-version: 7
+    - "scope-topology"
+version: 11
 updated_at: "2026-09-10 05:08:55 +0400"
 relations: {}
 ---

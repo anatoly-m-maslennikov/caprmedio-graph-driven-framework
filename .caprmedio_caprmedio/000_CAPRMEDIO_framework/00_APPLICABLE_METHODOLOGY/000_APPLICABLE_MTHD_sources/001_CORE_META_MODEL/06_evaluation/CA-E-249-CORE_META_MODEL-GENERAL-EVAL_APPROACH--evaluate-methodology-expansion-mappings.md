@@ -1,27 +1,16 @@
 ---
-atom_id: "CA-E-249"
-version: 5
-updated_at: "2026-09-11 23:47:49 +0400"
-relations:
-  child_of:
-    - "CA-E-001"
-  evaluation_for:
-    - "CA-M-106"
-    - "CA-R-1375"
-cce_version: "cce_1"
-cce_form: "evaluation"
+version: 10
+updated_at: "2026-09-17 05:07:33 +0000"
+relations: {"child_of":["CA-E-001"],"evaluation_for":["CA-M-298","CA-O-054","CA-R-1375"]}
 subjects:
-  governs:
-    continuant:
-      - "Methodology Source/expansion mapping"
+  governs: "Methodology Source/expansion mapping"
   depends_on:
-    continuant:
-      - "Methodology Source"
-      - "Core Meta-Model"
-      - "Extension"
-      - "Project Configuration"
-      - "Operator"
-      - "Entity"
+    - "Methodology Source"
+    - "Core Meta-Model"
+    - "Extension"
+    - "Project Configuration"
+    - "Operator"
+    - "Entity"
 ---
 # Evaluate methodology expansion mappings
 

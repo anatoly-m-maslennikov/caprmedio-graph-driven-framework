@@ -1,7 +1,4 @@
 ---
-atom_id: CA-D-299
-cce_version: cce_1
-cce_form: grammar
 subjects:
   governs: "Directory Carrier/Name"
   depends_on:
@@ -10,7 +7,7 @@ subjects:
     - "Structural Level"
     - "Navigational Order Number"
     - "Local Order"
-version: 7
+version: 9
 updated_at: "2026-09-15 00:13:02 +0000"
 relations: {}
 ---

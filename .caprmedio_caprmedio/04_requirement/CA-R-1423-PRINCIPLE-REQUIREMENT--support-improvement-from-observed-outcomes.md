@@ -1,21 +1,17 @@
 ---
-atom_id: "CA-R-1423"
 cce_version: "cce_1"
 cce_form: "obligation"
 subjects:
-  governs:
-    continuant:
-      - "Project/improvement support"
+  governs: "Project/improvement support"
   depends_on:
-    continuant:
-      - "Project"
-      - "Operator"
-      - "CAPRMEDIO Framework Instance"
-version: 1
-updated_at: "2026-09-05 03:48:00 +0400"
-relations:
-  replacement_of:
-    - "CA-O-003"
+    - "Project"
+    - "Operator"
+    - "CAPRMEDIO Framework Instance"
+version: 4
+updated_at: "2026-09-17 02:13:04 +0000"
+relations: {}
+llm_session_ids:
+  - codex:01a02650-eff7-7453-8c37-0699b36773c6
 ---
 # Support improvement from observed outcomes
 

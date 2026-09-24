@@ -1,12 +1,8 @@
 ---
-atom_id: CA-R-1283
-cce_version: cce_1
-cce_form: cardinality
 subjects:
-  governs:
-    continuant:
-      - Atom/Content Role
-version: 5
+  governs: "Atom/Content Role"
+  depends_on: []
+version: 9
 updated_at: 2026-09-15 05:51:38
 relations: {}
 ---

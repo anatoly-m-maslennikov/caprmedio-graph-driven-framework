@@ -1,12 +1,9 @@
 ---
-atom_id: CA-R-1201
-cce_version: cce_1
-cce_form: cardinality
 subjects:
   governs: "Atom/Subjects"
   depends_on:
     - "GOVERNS"
-version: 8
+version: 10
 updated_at: "2026-09-13 02:05:21 +0400"
 relations: {}
 ---

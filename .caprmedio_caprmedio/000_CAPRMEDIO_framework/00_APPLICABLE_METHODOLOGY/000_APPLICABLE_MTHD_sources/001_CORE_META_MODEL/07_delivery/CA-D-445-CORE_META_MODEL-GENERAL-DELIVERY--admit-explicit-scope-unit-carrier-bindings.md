@@ -1,14 +1,11 @@
 ---
-atom_id: CA-D-445
-cce_version: cce_1
-cce_form: obligation
 subjects:
   governs: "Scope Unit"
   depends_on:
     - "Project Structure"
     - "Carrier"
     - "Implementation Folder"
-version: 1
+version: 3
 updated_at: "2026-09-15 00:13:02 +0000"
 relations:
   relates_to:

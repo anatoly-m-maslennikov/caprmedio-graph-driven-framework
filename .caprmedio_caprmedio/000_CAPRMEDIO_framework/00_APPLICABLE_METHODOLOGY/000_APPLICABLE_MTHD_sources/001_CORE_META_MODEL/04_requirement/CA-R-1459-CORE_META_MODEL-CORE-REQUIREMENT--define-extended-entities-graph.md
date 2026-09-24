@@ -1,7 +1,4 @@
 ---
-atom_id: CA-R-1459
-cce_version: cce_1
-cce_form: definition
 subjects:
   governs: "Projection/Type: Extended Entities Graph"
   depends_on:
@@ -16,7 +13,7 @@ subjects:
     - "Relation"
     - "Relation Kind"
     - "Artifact/Revision"
-version: 1
+version: 3
 updated_at: "2026-09-13 13:05:58 +0400"
 relations: {}
 ---

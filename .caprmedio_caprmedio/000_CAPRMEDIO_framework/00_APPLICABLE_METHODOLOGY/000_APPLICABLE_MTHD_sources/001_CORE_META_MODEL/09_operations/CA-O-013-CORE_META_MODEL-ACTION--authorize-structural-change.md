@@ -1,7 +1,4 @@
 ---
-atom_id: CA-O-013
-cce_version: cce_1
-cce_form: definition
 subjects:
   governs: "Authorize Structural Change"
   depends_on:
@@ -10,7 +7,7 @@ subjects:
     - "Operator"
     - "AI Agent"
     - "Autonomous Confidence Threshold"
-version: 1
+version: 3
 updated_at: "2026-09-15 00:13:02 +0000"
 relations: {}
 ---

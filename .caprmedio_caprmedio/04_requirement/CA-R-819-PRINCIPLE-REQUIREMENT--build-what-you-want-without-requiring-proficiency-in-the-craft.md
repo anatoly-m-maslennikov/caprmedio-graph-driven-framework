@@ -1,21 +1,17 @@
 ---
-atom_id: "CA-R-819"
 cce_version: "cce_1"
 cce_form: "obligation"
-version: 11
-updated_at: "2026-09-05 23:00:00 +0400"
+version: 12
+updated_at: "2026-09-15 21:31:49 +0000"
 relations:
   child_of:
-    - "ANATOLY-MASLENNIKOV-DEFINES_GOAL_FOR-CAPRMEDIO--create-and-evolve-a-working-caprmedio-framework"
+    - "ANATOLY-MASLENNIKOV-DEFINES_GOAL_FOR-caprmedio--create-and-evolve-a-working-caprmedio-framework"
 subjects:
-  governs:
-    continuant:
-      - "Project/lifecycle"
+  governs: "Project/lifecycle"
   depends_on:
-    continuant:
-      - "Project"
-      - "Operator"
-      - "CAPRMEDIO Framework Instance"
+    - "Project"
+    - "Operator"
+    - "CAPRMEDIO Framework Instance"
 ---
 # Build what you want without requiring proficiency in the craft
 

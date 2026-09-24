@@ -1,15 +1,9 @@
 ---
-atom_id: CA-R-1175
-cce_version: cce_1
-cce_form: obligation
 subjects:
-  governs:
-    continuant:
-      - INSTALLED_EXTENSIONS/Goal
+  governs: "INSTALLED_EXTENSIONS/Goal"
   depends_on:
-    continuant:
-      - METHODOLOGY_SOURCES
-version: 7
+    - "METHODOLOGY_SOURCES"
+version: 11
 updated_at: "2026-09-08 20:49:12 +0400"
 relations: {}
 ---

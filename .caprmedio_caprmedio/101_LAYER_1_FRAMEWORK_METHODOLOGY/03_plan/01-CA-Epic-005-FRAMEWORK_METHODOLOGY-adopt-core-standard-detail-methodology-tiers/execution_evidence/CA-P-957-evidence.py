@@ -226,7 +226,7 @@ def main():
     if args.check_proposed_relations:
         batch = args.check_proposed_relations
         _, plan = read_batch_plan(batch)
-        tool_root = ROOT / '102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS'
+        tool_root = ROOT / '102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS'
         sys.path[:0] = [str(tool_root), str(tool_root / 'COMMIT_CONTEXT')]
         import commit_context_logic as canonical
         base_graph = canonical.working_graph(ROOT)

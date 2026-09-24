@@ -1,12 +1,8 @@
 ---
-atom_id: CA-D-325
-cce_version: cce_1
-cce_form: placement
 subjects:
-  governs:
-    continuant:
-      - CAPRMEDIO/Applicable Methodology/Methodology Source Carrier
-version: 7
+  governs: "CAPRMEDIO/Applicable Methodology/Methodology Source Carrier"
+  depends_on: []
+version: 11
 updated_at: "2026-09-15 02:06:34 +0400"
 relations: {}
 ---

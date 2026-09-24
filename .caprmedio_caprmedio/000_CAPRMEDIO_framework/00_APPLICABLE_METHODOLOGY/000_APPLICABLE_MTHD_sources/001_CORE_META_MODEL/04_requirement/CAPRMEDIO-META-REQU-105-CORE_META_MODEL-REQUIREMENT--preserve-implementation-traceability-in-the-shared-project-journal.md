@@ -1,23 +1,15 @@
 ---
-atom_id: CAPRMEDIO-META-REQU-105
-cce_version: cce_1
-cce_form: obligation
 subjects:
-  governs:
-    continuant:
-      - Implementation Binding
+  governs: "Implementation Binding"
   depends_on:
-    continuant:
-      - Work Journal
-      - Scope Unit
-      - Atom/Revision
-      - Implementation
-      - Projection
-      - Verification
-version: 10
+    - "Work Journal"
+    - "Scope Unit"
+    - "Atom/Revision"
+    - "Implementation"
+    - "Projection"
+    - "Verification"
+version: 14
 updated_at: 2026-09-15 05:51:38
-llm_session_ids:
-  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   child_of:
     - CAPRMEDIO-META-REQU-091-CORE_META_MODEL-CORE-REQUIREMENT--normative-atoms-are-the-caprmedio-specification

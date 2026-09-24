@@ -1,7 +1,4 @@
 ---
-atom_id: CA-D-269
-cce_version: cce_1
-cce_form: serialization
 subjects:
   governs: "Atom/Subjects/Frontmatter"
   depends_on:
@@ -11,7 +8,7 @@ subjects:
     - "Subject Path"
     - "Subject"
     - "Relation Kind"
-version: 8
+version: 10
 updated_at: "2026-09-14 04:00:22 +0400"
 relations: {}
 ---

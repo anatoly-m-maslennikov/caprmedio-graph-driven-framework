@@ -35,7 +35,7 @@ the Assignee **must** align this Global Tier 18 batch **in** CODEX_PLUGIN with t
 
 ## Scope
 
-(selected directly owned RMEDO Atoms at Global Tier 18, Local Tier Standard, **in** `.caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/302_FEATURE_APPS/AGENT_HOST_PLUGINS/CODEX_PLUGIN`; child Scope Units are excluded); the source **and** lifecycle admission boundary established by CA-P-976 applies; historical versions, generated copies, runtime, Implementation code, **and** other CAP Atoms are excluded.
+(selected directly owned RMEDO Atoms at Global Tier 18, Local Tier Standard, **in** `.caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/203_FEATURE_APPS/AGENT_HOST_PLUGINS/CODEX_PLUGIN`; child Scope Units are excluded); the source **and** lifecycle admission boundary established by CA-P-976 applies; historical versions, generated copies, runtime, Implementation code, **and** other CAP Atoms are excluded.
 
 ## Definition of Done
 

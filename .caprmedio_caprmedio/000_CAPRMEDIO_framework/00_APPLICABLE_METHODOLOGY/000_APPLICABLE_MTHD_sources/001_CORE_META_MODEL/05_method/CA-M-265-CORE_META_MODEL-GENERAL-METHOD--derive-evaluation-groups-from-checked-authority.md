@@ -1,16 +1,10 @@
 ---
-atom_id: "CA-M-265"
-cce_version: "cce_1"
-cce_form: "method"
 subjects:
-  governs:
-    continuant:
-      - "Atom/Content Role: Evaluation/grouping"
+  governs: "Atom/Content Role: Evaluation/grouping"
   depends_on:
-    continuant:
-      - "Atom/Content Role"
-      - "Evaluation For Relation"
-version: 3
+    - "Atom/Content Role"
+    - "Evaluation For Relation"
+version: 7
 updated_at: "2026-09-10 02:19:47 +0400"
 relations: {}
 ---

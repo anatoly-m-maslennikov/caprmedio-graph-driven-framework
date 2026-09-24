@@ -1,17 +1,11 @@
 ---
-atom_id: CA-R-1391
-cce_version: cce_1
-cce_form: derivation
 subjects:
-  governs:
-    continuant:
-      - Atom/Global Tier
+  governs: "Atom/Global Tier"
   depends_on:
-    continuant:
-      - "Atom/Local Tier: General"
-      - "Atom/Local Tier: Standard"
-      - Scope Unit
-version: 3
+    - "Atom/Local Tier: General"
+    - "Atom/Local Tier: Standard"
+    - "Scope Unit"
+version: 7
 updated_at: "2026-09-10 02:19:47 +0400"
 relations: {}
 ---

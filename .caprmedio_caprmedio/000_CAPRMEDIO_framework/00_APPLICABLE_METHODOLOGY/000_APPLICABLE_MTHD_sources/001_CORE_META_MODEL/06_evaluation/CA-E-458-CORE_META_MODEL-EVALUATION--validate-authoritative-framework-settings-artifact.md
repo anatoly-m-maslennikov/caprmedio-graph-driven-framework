@@ -1,18 +1,12 @@
 ---
-atom_id: CA-E-458
-cce_version: cce_1
-cce_form: evaluation
 subjects:
-  governs:
-    occurrent:
-      - Framework Instance Settings Validation
+  governs: "Framework Instance Settings Validation"
   depends_on:
-    continuant:
-      - Framework Instance Settings
-      - Default Settings
-      - Framework Instance Settings/Authoritative Carrier
-      - Framework Instance Settings/Revision Binding
-version: 7
+    - "Framework Instance Settings"
+    - "Default Settings"
+    - "Framework Instance Settings/Authoritative Carrier"
+    - "Framework Instance Settings/Revision Binding"
+version: 13
 updated_at: "2026-09-14 06:21:07 +0400"
 relations:
   evaluation_for:
@@ -29,4 +23,13 @@ relations:
 ---
 # Validate Authoritative Framework Settings Artifact
 
-the Evaluation **must** reject Framework Instance Settings **if** it is treated as an Atom **or** Projection, has an Atom ID **or** Atom Content Role, resolves outside the current Project's registered instance directory, uses another Project's Settings Carrier, has other than **`=1`** authoritative TOML Carrier, contains Project initialization inputs **or** independently editable Project Structure, violates its Core content boundary, applicable General settings specifications, **or** applicable Standard field specifications after parameter resolution governed by CA-M-279, **or** lacks an exact current Revision, SHA-256 Digest, **and** governed-change Work Journal receipt.
+the Evaluation **must** reject Framework Instance Settings **if**
+
+- it is treated as an Atom **or** Projection,
+- has an Atom ID **or** Atom Content Role,
+- resolves outside the current Project's registered instance directory,
+- uses another Project's Settings Carrier,
+- has other than **`=1`** authoritative TOML Carrier,
+- **contains** Project initialization inputs **or** independently editable Project Structure,
+- violates its Core content boundary, applicable General settings specifications, **or** applicable Standard field specifications **after** parameter resolution governed by CA-M-279,
+- **or** lacks an exact current Revision, SHA-256 Digest, **and** governed-change Work Journal receipt.

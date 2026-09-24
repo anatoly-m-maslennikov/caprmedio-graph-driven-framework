@@ -1,17 +1,11 @@
 ---
 subjects:
-  governs:
-    continuant:
-      - Atom/Revision/Reference
+  governs: "Atom/Revision/Reference"
   depends_on:
-    continuant:
-      - Atom/Identity
-      - Atom/Revision/Version
-      - Atom/Revision/Updated At
-atom_id: CA-R-366
-cce_version: cce_1
-cce_form: obligation
-version: 15
+    - "Atom/Identity"
+    - "Atom/Revision/Version"
+    - "Atom/Revision/Updated At"
+version: 19
 updated_at: "2026-09-10 07:15:17 +0400"
 relations: {}
 ---

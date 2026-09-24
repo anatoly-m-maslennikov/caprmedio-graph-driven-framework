@@ -1,17 +1,11 @@
 ---
-atom_id: CA-R-1284
-cce_version: cce_1
-cce_form: definition
 subjects:
-  governs:
-    continuant:
-      - Type
+  governs: "Type"
   depends_on:
-    continuant:
-      - Applicable Methodology Revision
-      - Methodology Source
-      - Property
-version: 4
+    - "Applicable Methodology Revision"
+    - "Methodology Source"
+    - "Property"
+version: 8
 updated_at: 2026-09-06 01:45:12 +0400
 relations: {}
 ---

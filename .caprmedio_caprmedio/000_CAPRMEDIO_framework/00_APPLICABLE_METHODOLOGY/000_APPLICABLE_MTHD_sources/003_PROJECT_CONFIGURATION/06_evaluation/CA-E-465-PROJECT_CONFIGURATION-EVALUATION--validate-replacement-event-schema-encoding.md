@@ -1,7 +1,4 @@
 ---
-atom_id: CA-E-465
-cce_version: cce_1
-cce_form: evaluation
 subjects:
   governs: "Work Journal/Event/Carrier Serialization"
   depends_on:
@@ -9,8 +6,8 @@ subjects:
     - "Atom/Identifier"
     - "Atom/Revision"
     - "Carrier"
-version: 1
-updated_at: "2026-09-14 06:21:07 +0400"
+version: 4
+updated_at: "2026-09-17 02:23:47 +0000"
 relations:
   evaluation_for:
     - CA-D-435
@@ -18,6 +15,21 @@ relations:
 ---
 # Validate replacement Event schema encoding
 
-the selected schema-version `3` replacement Event encoding **must** satisfy CA-D-435. accept a valid archive `MOVE` with paired predecessor **and** distinct successor identities; reject missing, null, malformed, duplicate, self-referencing, mismatched-predecessor, mismatched-Version, **or** wrongly placed replacement fields. a changed payload with an unchanged digest **must** fail.
+## Claim checked
 
-ordinary historical records **without** replacement fields retain their previous validation behavior. replay of the same sealed Event **must** reuse its canonical receipt rather than append another record. passing schema validation does **not** establish CA-E-462's active-successor, exact-archive, **or** historical-evidence conditions.
+the selected schema-version `3` replacement Event Carrier satisfies CA-D-435 **without** treating Project conformance as storage integrity.
+
+## Cases
+
+1. encode a completed File Carrier `MOVE` event with paired string predecessor **and** array-of-string successor fields; preserve the supplied successor order.
+2. keep that envelope valid **and** vary the observed IDs: canonical, legacy, nonconforming, duplicate, self-referencing, **or** an empty successor array. also vary the result filename **or** archive placement independently of the safe Event path encoding.
+3. omit **only** one paired field, supply null **or** the wrong storage type, use a schema **or** Event kind that does **not** define the pair, **or** change the payload **without** updating its digest.
+4. replay an identical sealed Event; **then** submit a different payload under the same Event identity.
+5. validate an ordinary historical record **without** replacement fields.
+
+## Acceptance
+
+- cases 1 **and** 2 remain recordable with the supplied values unchanged. case 2 **may** fail CA-E-462 independently; its conformance verdict **must not** prevent recording under CA-R-1491.
+- case 3 fails the selected encoding **or** integrity check **without** changing accepted history.
+- the identical replay reuses the existing receipt **without** a duplicate record; an identity collision with a different payload fails **without** overwriting history.
+- case 5 retains its selected historical schema. passing this Evaluation does **not** prove active successors, exact archive preservation, valid Project identifiers, valid placement, **or** a correctly performed replacement.

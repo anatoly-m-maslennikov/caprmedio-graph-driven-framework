@@ -1,20 +1,16 @@
 ---
-atom_id: CA-R-1432
-cce_version: cce_1
-cce_form: classification
 subjects:
   governs: "Atom Change Classification"
   depends_on:
     - "Atom"
     - "Atom/Claim"
-    - "Atom/Claim/Scope"
     - "Atom/Summary"
     - "Artifact/Revision"
     - "Carrier-Only Recoding"
     - "Lineage Impact Analysis"
     - "Tool"
-version: 3
-updated_at: "2026-09-14 06:21:07 +0400"
+version: 6
+updated_at: "2026-09-22 17:59:17 +0000"
 relations: {}
 ---
 # Classify admitted Atom changes by semantic effect

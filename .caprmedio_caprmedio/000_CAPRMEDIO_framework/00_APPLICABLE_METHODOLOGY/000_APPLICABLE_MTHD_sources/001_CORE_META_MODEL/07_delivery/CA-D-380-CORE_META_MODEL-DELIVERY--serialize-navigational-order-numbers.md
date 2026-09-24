@@ -1,14 +1,11 @@
 ---
-atom_id: CA-D-380
-cce_version: cce_1
-cce_form: serialization
 subjects:
   governs: "Navigational Order Number"
   depends_on:
     - "Carrier"
     - "Scope Unit"
     - "Project Structure"
-version: 2
+version: 4
 updated_at: "2026-09-15 00:13:02 +0000"
 relations: {}
 ---

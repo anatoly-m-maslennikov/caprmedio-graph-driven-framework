@@ -1,12 +1,8 @@
 ---
-atom_id: CA-D-329
-cce_version: cce_1
-cce_form: serialization
 subjects:
-  governs:
-    continuant:
-      - Proof Carrier/Dependency Frontier
-version: 6
+  governs: "Proof Carrier/Dependency Frontier"
+  depends_on: []
+version: 10
 updated_at: "2026-09-10 20:54:39 +0400"
 relations: {}
 ---

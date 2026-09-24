@@ -1,18 +1,14 @@
 ---
-atom_id: CAPRMEDIO-GOV-REQU-312
 subjects:
-  governs:
-    continuant:
-      - relation-model
+  governs: "Lineage Impact Analysis"
   depends_on:
-    continuant:
-      - atom-boundary
-cce_version: cce_1
-cce_form: obligation
-version: 11
-updated_at: "2026-09-10 07:34:05 +0400"
-llm_session_ids:
-  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+    - "Atom"
+    - "Artifact/Revision"
+    - "Atom Change Classification"
+    - "Carrier-Only Recoding"
+    - "Verification"
+version: 16
+updated_at: "2026-09-17 12:02:45 +0000"
 relations:
   relates_to:
     - CAPRMEDIO-META-REQU-097

@@ -1,17 +1,11 @@
 ---
-atom_id: CA-D-408
-cce_version: cce_1
-cce_form: serialization
 subjects:
-  governs:
-    continuant:
-      - "Default Settings/Carrier/Content"
+  governs: "Default Settings/Carrier/Content"
   depends_on:
-    continuant:
-      - "Default Settings"
-      - "Framework Instance Settings"
-      - "Carrier"
-version: 1
+    - "Default Settings"
+    - "Framework Instance Settings"
+    - "Carrier"
+version: 5
 updated_at: "2026-09-11 19:51:42 +0400"
 relations:
   child_of:

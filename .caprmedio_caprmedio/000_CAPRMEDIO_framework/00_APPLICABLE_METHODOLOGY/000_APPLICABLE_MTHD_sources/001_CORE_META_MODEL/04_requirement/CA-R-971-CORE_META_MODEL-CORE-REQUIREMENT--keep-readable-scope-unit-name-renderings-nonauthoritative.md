@@ -1,15 +1,9 @@
 ---
 subjects:
-  governs:
-    continuant:
-      - Scope Unit/Name
+  governs: "Scope Unit/Name"
   depends_on:
-    continuant:
-      - Authority
-atom_id: CA-R-971
-cce_version: cce_1
-cce_form: prohibition
-version: 8
+    - "Authority"
+version: 12
 updated_at: 2026-09-06 01:45:12 +0400
 relations:
   child_of:

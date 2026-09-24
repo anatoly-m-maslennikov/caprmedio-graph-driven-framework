@@ -1,20 +1,18 @@
 ---
-version: 7
+version: 10
 updated_at: "2026-09-05 23:00:00 +0400"
 relations:
   child_of:
     - CA-M-003
     - CA-M-005
 subjects:
-  governs:
-    continuant:
-      - "Project/information"
+  governs: "Project/information"
   depends_on:
-    continuant:
-      - "Project"
+    - "Project"
 cce_version: cce_1
 cce_form: method
-atom_id: CA-M-091
+llm_session_ids:
+  - codex:01a02650-eff7-7453-8c37-0699b36773c6
 ---
 # Keep only necessary and sufficient reusable project information
 

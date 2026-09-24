@@ -1,14 +1,9 @@
 ---
 subjects:
-  governs:
-    continuant:
-      - Previous Unit
+  governs: "Previous Unit"
   depends_on:
-    continuant:
-      - scope-topology
-cce_version: cce_1
-cce_form: definition
-version: 8
+    - "scope-topology"
+version: 11
 updated_at: "2026-09-10 05:08:55 +0400"
 relations: {}
 ---

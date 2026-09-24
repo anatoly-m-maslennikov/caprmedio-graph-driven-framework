@@ -1,16 +1,10 @@
 ---
 subjects:
-  governs:
-    continuant:
-      - Scope Unit/Label
+  governs: "Scope Unit/Label"
   depends_on:
-    continuant:
-      - Operator
-      - Scope Unit/Type
-atom_id: CA-R-982
-cce_version: cce_1
-cce_form: permission
-version: 9
+    - "Operator"
+    - "Scope Unit/Type"
+version: 13
 updated_at: "2026-09-10 05:08:55 +0400"
 relations:
   child_of:

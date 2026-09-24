@@ -1,16 +1,10 @@
 ---
-atom_id: CA-R-1307
-cce_version: cce_1
-cce_form: cardinality
 subjects:
-  governs:
-    continuant:
-      - Artifact/Activity
+  governs: "Artifact/Activity"
   depends_on:
-    continuant:
-      - Artifact
-      - Artifact/Revision/Status
-version: 6
+    - "Artifact"
+    - "Artifact/Revision/Status"
+version: 10
 updated_at: "2026-09-11 02:13:22 +0400"
 relations: {}
 ---

@@ -1,15 +1,9 @@
 ---
-atom_id: CAPRMEDIO-GOV-REQU-355
-cce_version: cce_1
-cce_form: classification
 subjects:
-  governs:
-    continuant:
-      - external-boundary
-version: 13
+  governs: "external-boundary"
+  depends_on: []
+version: 17
 updated_at: "2026-09-11 22:30:02 +0400"
-llm_session_ids:
-  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   child_of:
     - CAPRMEDIO-META-REQU-164

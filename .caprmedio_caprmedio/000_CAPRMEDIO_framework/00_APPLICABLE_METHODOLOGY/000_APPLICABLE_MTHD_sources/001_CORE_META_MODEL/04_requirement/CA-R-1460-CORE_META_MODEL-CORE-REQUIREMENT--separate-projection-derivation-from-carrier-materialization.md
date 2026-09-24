@@ -1,14 +1,11 @@
 ---
-atom_id: CA-R-1460
-cce_version: cce_1
-cce_form: obligation
 subjects:
   governs: "Projection"
   depends_on:
     - "Carrier"
     - "Type"
     - "Atom/Claim"
-version: 1
+version: 3
 updated_at: "2026-09-13 15:47:24 +0400"
 relations: {}
 ---

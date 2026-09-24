@@ -1,18 +1,12 @@
 ---
-atom_id: CA-D-407
-cce_version: cce_1
-cce_form: placement
 subjects:
-  governs:
-    continuant:
-      - "Default Settings/Carrier"
+  governs: "Default Settings/Carrier"
   depends_on:
-    continuant:
-      - "Default Settings"
-      - "File Carrier"
-      - "Scope Unit"
-      - "Methodology Source"
-version: 1
+    - "Default Settings"
+    - "File Carrier"
+    - "Scope Unit"
+    - "Methodology Source"
+version: 5
 updated_at: "2026-09-11 19:51:42 +0400"
 relations:
   child_of:

@@ -1,15 +1,9 @@
 ---
-atom_id: CA-D-396
-cce_version: cce_1
-cce_form: serialization
 subjects:
-  governs:
-    continuant:
-      - "Carrier"
+  governs: "Carrier"
   depends_on:
-    continuant:
-      - "Logging Policy"
-version: 2
+    - "Logging Policy"
+version: 6
 updated_at: "2026-09-11 23:47:49 +0400"
 relations: {}
 ---

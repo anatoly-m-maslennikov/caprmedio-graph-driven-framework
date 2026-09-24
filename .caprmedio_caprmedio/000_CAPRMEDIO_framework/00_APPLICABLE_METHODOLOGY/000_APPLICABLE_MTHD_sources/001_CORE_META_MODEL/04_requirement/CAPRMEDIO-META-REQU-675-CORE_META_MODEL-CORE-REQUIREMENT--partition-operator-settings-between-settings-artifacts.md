@@ -1,7 +1,4 @@
 ---
-atom_id: CAPRMEDIO-META-REQU-675
-cce_version: cce_1
-cce_form: obligation
 subjects:
   governs: "Framework Instance Settings"
   depends_on:
@@ -12,10 +9,8 @@ subjects:
     - "Project Name"
     - "Atom/Identifier/Project Prefix"
     - "Atom"
-version: 16
+version: 18
 updated_at: "2026-09-15 00:05:45 +0000"
-llm_session_ids:
-  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   relates_to:
     - CAPRMEDIO-META-REQU-627-CORE_META_MODEL-REQUIREMENT--bind-every-project-scope-unit-graph-value-to-exact-sources

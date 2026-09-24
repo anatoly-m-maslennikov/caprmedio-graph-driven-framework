@@ -1,15 +1,9 @@
 ---
-atom_id: CA-D-306
-cce_version: cce_1
-cce_form: restriction
 subjects:
-  governs:
-    continuant:
-      - Applicable Methodology/Carrier Set
+  governs: "Applicable Methodology/Carrier Set"
   depends_on:
-    continuant:
-      - Applicable Methodology/Member
-version: 5
+    - "Applicable Methodology/Member"
+version: 9
 updated_at: "2026-09-10 02:49:14 +0400"
 relations: {}
 ---

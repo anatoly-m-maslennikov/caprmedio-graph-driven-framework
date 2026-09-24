@@ -1,19 +1,15 @@
 ---
-atom_id: CAPRMEDIO-META-REQU-715
 subjects:
-  governs:
-    continuant:
-      - Local Order
+  governs: "Local Order"
   depends_on:
-    continuant:
-      - Scope Unit
-      - Scope Unit/Type
-cce_version: cce_1
-cce_form: definition
-version: 10
-updated_at: "2026-09-10 05:08:55 +0400"
+    - "Scope Unit"
+    - "Scope Unit/Type"
+    - "Structural Parent Relation"
+    - "Relation"
+version: 15
+updated_at: "2026-09-17 12:58:36 +0000"
 relations: {}
 ---
 # Define Local Order
 
-Local Order **means** the dependency-relevant position of an Ordered Scope Unit among Ordered Scope Units with the same direct parent.
+Local Order **means** the position of an Ordered Scope Unit among Ordered Scope Units with the same direct parent. applicable Atom Relation constraints **may** use this position; the position alone **must not** establish **or** alter a dependency under CA-R-915.

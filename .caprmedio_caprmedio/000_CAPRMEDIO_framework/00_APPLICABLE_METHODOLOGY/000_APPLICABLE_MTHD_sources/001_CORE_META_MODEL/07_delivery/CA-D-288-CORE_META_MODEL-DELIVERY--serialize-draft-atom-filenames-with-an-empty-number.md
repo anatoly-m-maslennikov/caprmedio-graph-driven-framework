@@ -1,15 +1,9 @@
 ---
-atom_id: CA-D-288
-cce_version: cce_1
-cce_form: serialization
 subjects:
-  governs:
-    continuant:
-      - "Atom/Revision/Status: Draft/Filename"
+  governs: "Atom/Revision/Status: Draft/Filename"
   depends_on:
-    continuant:
-      - Atom/Identifier
-version: 6
+    - "Atom/Identifier"
+version: 10
 updated_at: "2026-09-10 02:49:14 +0400"
 relations: {}
 ---

@@ -1,21 +1,15 @@
 ---
-atom_id: CA-R-923
-cce_version: cce_1
-cce_form: definition
 subjects:
-  governs:
-    continuant:
-      - "Relational Atom"
+  governs: "Relational Atom"
   depends_on:
-    continuant:
-      - "Atom/Claim/Structural Entity"
-      - "Scope Unit"
-version: 15
-updated_at: "2026-09-12 04:10:58 +0400"
+    - "Atom/Claim/Target Scope Unit"
+    - "Scope Unit"
+version: 20
+updated_at: "2026-09-22 17:59:17 +0000"
 relations:
   child_of:
-    - CA-R-919
+    - CA-R-1596
 ---
 # Define Relational Atom
 
-a Relational Atom **means** an Atom that has no containing Scope Unit **or** whose resolved Claim Structural Entity differs from its current Scope Unit.
+a Relational Atom **means** an Atom that has no containing Scope Unit **or** whose resolved Claim Target Scope Unit differs from its current Scope Unit.

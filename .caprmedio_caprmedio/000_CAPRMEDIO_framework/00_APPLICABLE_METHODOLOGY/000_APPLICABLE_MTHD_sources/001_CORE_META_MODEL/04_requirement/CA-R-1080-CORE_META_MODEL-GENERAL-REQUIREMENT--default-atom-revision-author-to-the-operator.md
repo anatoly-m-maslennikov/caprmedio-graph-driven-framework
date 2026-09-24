@@ -1,15 +1,9 @@
 ---
-atom_id: CA-R-1080
-cce_version: cce_1
-cce_form: conditional
 subjects:
-  governs:
-    continuant:
-      - Atom/Revision/Author
+  governs: "Atom/Revision/Author"
   depends_on:
-    continuant:
-      - Operator
-version: 8
+    - "Operator"
+version: 12
 updated_at: "2026-09-10 03:38:57 +0400"
 relations:
   child_of:

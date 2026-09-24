@@ -1,15 +1,9 @@
 ---
 subjects:
-  governs:
-    continuant:
-      - CAPRMEDIO Metamodel/Fractality
+  governs: "CAPRMEDIO Metamodel/Fractality"
   depends_on:
-    continuant:
-      - Scope Unit
-atom_id: CA-R-917
-cce_version: cce_1
-cce_form: obligation
-version: 10
+    - "Scope Unit"
+version: 14
 updated_at: "2026-09-09 21:56:59 +0400"
 relations:
   child_of:

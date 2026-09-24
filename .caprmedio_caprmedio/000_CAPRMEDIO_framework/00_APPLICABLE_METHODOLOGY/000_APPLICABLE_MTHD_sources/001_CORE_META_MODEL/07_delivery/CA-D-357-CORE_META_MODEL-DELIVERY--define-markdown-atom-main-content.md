@@ -1,15 +1,9 @@
 ---
-atom_id: CA-D-357
-cce_version: cce_1
-cce_form: definition
 subjects:
-  governs:
-    continuant:
-      - Markdown Atom Carrier/Main Content
+  governs: "Markdown Atom Carrier/Main Content"
   depends_on:
-    continuant:
-      - Markdown Atom Carrier/YAML Frontmatter
-version: 3
+    - "Markdown Atom Carrier/YAML Frontmatter"
+version: 7
 updated_at: "2026-09-10 02:49:14 +0400"
 relations: {}
 ---

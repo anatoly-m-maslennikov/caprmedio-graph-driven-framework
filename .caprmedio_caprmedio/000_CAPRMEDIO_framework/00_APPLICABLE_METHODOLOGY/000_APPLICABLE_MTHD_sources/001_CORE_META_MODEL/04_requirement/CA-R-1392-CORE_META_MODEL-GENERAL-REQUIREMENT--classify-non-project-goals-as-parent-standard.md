@@ -1,16 +1,10 @@
 ---
-atom_id: CA-R-1392
-cce_version: cce_1
-cce_form: obligation
 subjects:
-  governs:
-    continuant:
-      - "Atom/Content Role: Requirement/Type: Goal"
+  governs: "Atom/Content Role: Requirement/Type: Goal"
   depends_on:
-    continuant:
-      - "Atom/Local Tier: Standard"
-      - Structural Parent Relation
-version: 3
+    - "Atom/Local Tier: Standard"
+    - "Structural Parent Relation"
+version: 7
 updated_at: "2026-09-10 06:59:09 +0400"
 relations: {}
 ---

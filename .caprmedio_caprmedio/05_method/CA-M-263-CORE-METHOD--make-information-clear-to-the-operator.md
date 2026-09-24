@@ -1,22 +1,16 @@
 ---
-atom_id: "CA-M-263"
 cce_version: "cce_1"
 cce_form: "method"
 subjects:
-  governs:
-    continuant:
-      - "Operator/communication"
+  governs: "Operator/communication"
   depends_on:
-    continuant:
-      - "Operator"
-      - "CAPRMEDIO Framework Instance"
-version: 1
-updated_at: "2026-09-05 03:48:00 +0400"
-relations:
-  child_of:
-    - "CA-R-1420"
-  replacement_of:
-    - "CA-D-002"
+    - "Operator"
+    - "CAPRMEDIO Framework Instance"
+version: 4
+updated_at: "2026-09-17 02:13:04 +0000"
+relations: {"child_of":["CA-R-1420"]}
+llm_session_ids:
+  - codex:01a02650-eff7-7453-8c37-0699b36773c6
 ---
 # Make information clear to the Operator
 

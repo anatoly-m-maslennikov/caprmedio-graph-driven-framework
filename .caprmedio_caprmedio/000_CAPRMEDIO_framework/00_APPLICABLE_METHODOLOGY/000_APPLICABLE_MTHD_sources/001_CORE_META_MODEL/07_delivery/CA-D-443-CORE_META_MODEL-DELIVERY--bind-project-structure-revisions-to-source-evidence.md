@@ -1,14 +1,11 @@
 ---
-atom_id: CA-D-443
-cce_version: cce_1
-cce_form: obligation
 subjects:
   governs: "Project Structure"
   depends_on:
     - "Artifact/Revision"
     - "Journal"
     - "Carrier"
-version: 1
+version: 3
 updated_at: "2026-09-15 00:13:02 +0000"
 relations:
   child_of:

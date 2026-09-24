@@ -175,7 +175,7 @@
     "CA-R-1385": [
       {
         "identity": "CA-R-1385",
-        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/301_FEATURE_TOOLS/04_requirement/CA-R-1385-TOOLS-REQUIREMENT--bound-commit-automation-with-an-explicit-autonomy-envelope.md",
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/04_requirement/CA-R-1385-TOOLS-REQUIREMENT--bound-commit-automation-with-an-explicit-autonomy-envelope.md",
         "version": 1,
         "sha256": "b7aa31a288f5c0b5e6d97a4426da25cdf2e52c747a6f8faf687356b5f01539c1"
       },
@@ -189,7 +189,7 @@
     "CA-R-1386": [
       {
         "identity": "CA-R-1386",
-        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/301_FEATURE_TOOLS/04_requirement/CA-R-1386-TOOLS-REQUIREMENT--define-the-generate-entity-graph-tool-unit.md",
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/04_requirement/CA-R-1386-TOOLS-REQUIREMENT--define-the-generate-entity-graph-tool-unit.md",
         "version": 2,
         "sha256": "9d3ccf56ec5bc6daea9481a3dc620b9f97cfa1da0e58d94704c77dabbc463538"
       },
@@ -203,7 +203,7 @@
     "CA-E-428": [
       {
         "identity": "CA-E-428",
-        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/301_FEATURE_TOOLS/06_evaluation/CA-E-428-TOOLS-QA_CASE--admit-only-two-local-commit-action-kinds.md",
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/06_evaluation/CA-E-428-TOOLS-QA_CASE--admit-only-two-local-commit-action-kinds.md",
         "version": 1,
         "sha256": "2cac75a515cea206c4f332e0beea6bb3c1aba7f97fe480466814df0a318f782d"
       },
@@ -217,7 +217,7 @@
     "CA-E-429": [
       {
         "identity": "CA-E-429",
-        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/301_FEATURE_TOOLS/06_evaluation/CA-E-429-TOOLS-QA_CASE--stop-commit-automation-at-every-envelope-bound.md",
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/06_evaluation/CA-E-429-TOOLS-QA_CASE--stop-commit-automation-at-every-envelope-bound.md",
         "version": 1,
         "sha256": "b8c12b81cb1b8ea19ad2db1990e871846fbf205bfb24fc62d0870ecf07f6350d"
       },
@@ -231,7 +231,7 @@
     "CA-E-430": [
       {
         "identity": "CA-E-430",
-        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/301_FEATURE_TOOLS/06_evaluation/CA-E-430-TOOLS-QA_CASE--control-pause-resume-narrowing-and-escalation-independently.md",
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/06_evaluation/CA-E-430-TOOLS-QA_CASE--control-pause-resume-narrowing-and-escalation-independently.md",
         "version": 1,
         "sha256": "2991bedf7f28ec0b3fef124e4bbcba7f3ee08981b85085aef576358c22bf16a5"
       },
@@ -245,7 +245,7 @@
     "CA-E-431": [
       {
         "identity": "CA-E-431",
-        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/301_FEATURE_TOOLS/06_evaluation/CA-E-431-TOOLS-QA_CASE--preserve-independent-real-change-and-journal-commit-progress.md",
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/06_evaluation/CA-E-431-TOOLS-QA_CASE--preserve-independent-real-change-and-journal-commit-progress.md",
         "version": 1,
         "sha256": "50dd4e43c3b9896756c23ce4361323f7d831b8838166b5c31131ea9ae021d579"
       },
@@ -259,13 +259,13 @@
     "CA-D-028": [
       {
         "identity": "CA-D-028",
-        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/301_FEATURE_TOOLS/BULK_CHANGE/07_delivery/CA-D-028-BULK_CHANGE-DELIVERY--bind-bulk-change-delivery-place.md",
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/BULK_CHANGE/07_delivery/CA-D-028-BULK_CHANGE-DELIVERY--bind-bulk-change-delivery-place.md",
         "version": 5,
         "sha256": "770528ee9597ef83e556740014d9d8a434d8453069680387fb9fd01ee3e316b3"
       },
       {
         "identity": "CA-D-028",
-        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/301_FEATURE_TOOLS/CLOSE_ATOM/07_delivery/CA-D-028-CLOSE_ATOM-DELIVERY--deliver-close-atom-intent-doer.md",
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/CLOSE_ATOM/07_delivery/CA-D-028-CLOSE_ATOM-DELIVERY--deliver-close-atom-intent-doer.md",
         "version": 5,
         "sha256": "64143e9b9768be7cc638a3a3ffef3a4fe8d54cf7fcde12155d8866c091c97fa1"
       }
@@ -273,7 +273,7 @@
     "CA-D-254": [
       {
         "identity": "CA-D-254",
-        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/301_FEATURE_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/07_delivery/CA-D-254-COMPILE_APPLICABLE_METHODOLOGY-DELIVERY--bind-compiler-authority-and-delivery-places.md",
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/07_delivery/CA-D-254-COMPILE_APPLICABLE_METHODOLOGY-DELIVERY--bind-compiler-authority-and-delivery-places.md",
         "version": 2,
         "sha256": "302e7c29663b02c7a0e29ea8a594404f14666437bd9055e77fb484b4ea529817"
       },
@@ -287,7 +287,7 @@
     "CA-R-1387": [
       {
         "identity": "CA-R-1387",
-        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/301_FEATURE_TOOLS/GENERATE_ENTITY_GRAPH/04_requirement/CA-R-1387-GENERATE_ENTITY_GRAPH-CORE-REQUIREMENT--persist-reproducible-non-authoritative-entity-and-term-graph-projections.md",
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/GENERATE_ENTITY_GRAPH/04_requirement/CA-R-1387-GENERATE_ENTITY_GRAPH-CORE-REQUIREMENT--persist-reproducible-non-authoritative-entity-and-term-graph-projections.md",
         "version": 2,
         "sha256": "e6b70ab63c386417ab11cfabe97bad9e4dc77ec253c1a97976dff5827af2b4de"
       },
@@ -301,7 +301,7 @@
     "CA-D-354": [
       {
         "identity": "CA-D-354",
-        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/301_FEATURE_TOOLS/GENERATE_ENTITY_GRAPH/07_delivery/CA-D-354-GENERATE_ENTITY_GRAPH-DELIVERY--bind-entity-graph-generator-authority-and-delivery-places.md",
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/GENERATE_ENTITY_GRAPH/07_delivery/CA-D-354-GENERATE_ENTITY_GRAPH-DELIVERY--bind-entity-graph-generator-authority-and-delivery-places.md",
         "version": 2,
         "sha256": "ec99d72b1fc59204afd9bc46ced98f9bfde7ebd65f89ebc9c1bc0b1ec48523ef"
       },
@@ -315,13 +315,13 @@
     "CA-D-027": [
       {
         "identity": "CA-D-027",
-        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/301_FEATURE_TOOLS/GRAPH_CHECK/07_delivery/CA-D-027-GRAPH_CHECK-DELIVERY--bind-graph-check-delivery-place.md",
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/GRAPH_CHECK/07_delivery/CA-D-027-GRAPH_CHECK-DELIVERY--bind-graph-check-delivery-place.md",
         "version": 5,
         "sha256": "33b469a2df8ee94700afb3bedc2f9fd27928f696ddaa97665cb7404bee951030"
       },
       {
         "identity": "CA-D-027",
-        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/301_FEATURE_TOOLS/REPLACE_ATOM/07_delivery/CA-D-027-REPLACE_ATOM-DELIVERY--deliver-replace-atom-intent-doer.md",
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/REPLACE_ATOM/07_delivery/CA-D-027-REPLACE_ATOM-DELIVERY--deliver-replace-atom-intent-doer.md",
         "version": 5,
         "sha256": "2587612b57b5b0b933d7b0e3150d3dd9a4d08bcdb2bbf4334f6ab8dc5e14ef45"
       }
@@ -329,13 +329,13 @@
     "CA-D-030": [
       {
         "identity": "CA-D-030",
-        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/301_FEATURE_TOOLS/IMPLEMENTATION_INVENTORY/07_delivery/CA-D-030-IMPLEMENTATION_INVENTORY-DELIVERY--bind-implementation-inventory-delivery-place.md",
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/IMPLEMENTATION_INVENTORY/07_delivery/CA-D-030-IMPLEMENTATION_INVENTORY-DELIVERY--bind-implementation-inventory-delivery-place.md",
         "version": 5,
         "sha256": "528ff18ae130c31f6f785ae12e46278be3bb9ceaddca3c16d411c6a4e24708e5"
       },
       {
         "identity": "CA-D-030",
-        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/301_FEATURE_TOOLS/REBIND_ATOM_RELATIONS/07_delivery/CA-D-030-REBIND_ATOM_RELATIONS-RELEASE_DEFINITION--deliver-sealed-atom-relation-rebinding-doer.md",
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/REBIND_ATOM_RELATIONS/07_delivery/CA-D-030-REBIND_ATOM_RELATIONS-RELEASE_DEFINITION--deliver-sealed-atom-relation-rebinding-doer.md",
         "version": 5,
         "sha256": "65f163ec3949071d7800b70a06c96ac2df773a06595e5bd7dbb202a15c3818ce"
       }
@@ -343,13 +343,13 @@
     "CA-D-029": [
       {
         "identity": "CA-D-029",
-        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/301_FEATURE_TOOLS/MIGRATE_ATOM_IDENTITY/07_delivery/CA-D-029-MIGRATE_ATOM_IDENTITY-RELEASE_DEFINITION--deliver-sealed-atom-identity-migration-doer.md",
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/MIGRATE_ATOM_IDENTITY/07_delivery/CA-D-029-MIGRATE_ATOM_IDENTITY-RELEASE_DEFINITION--deliver-sealed-atom-identity-migration-doer.md",
         "version": 5,
         "sha256": "3b9c3e40656251101bcdff457204502c5e60deb1bbfbd45cedb31cab6ac34ae8"
       },
       {
         "identity": "CA-D-029",
-        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/301_FEATURE_TOOLS/PROJECTION_REBUILD/07_delivery/CA-D-029-PROJECTION_REBUILD-DELIVERY--bind-projection-rebuild-delivery-place.md",
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/PROJECTION_REBUILD/07_delivery/CA-D-029-PROJECTION_REBUILD-DELIVERY--bind-projection-rebuild-delivery-place.md",
         "version": 5,
         "sha256": "b65ca8f12ef47ba6fe1e2de992c5a9aa32164e6623446e0cfe1f69c35417487f"
       }
@@ -357,7 +357,7 @@
     "CA-D-255": [
       {
         "identity": "CA-D-255",
-        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/301_FEATURE_TOOLS/RETRIEVE_APPLICABLE_METHODOLOGY/07_delivery/CA-D-255-RETRIEVE_APPLICABLE_METHODOLOGY-DELIVERY--bind-retrieval-authority-and-delivery-places.md",
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/RETRIEVE_APPLICABLE_METHODOLOGY/07_delivery/CA-D-255-RETRIEVE_APPLICABLE_METHODOLOGY-DELIVERY--bind-retrieval-authority-and-delivery-places.md",
         "version": 2,
         "sha256": "9752ab6d03c24c3af357239b39c0e10ba88b03f01fee118fef8a05fb8dfe0155"
       },
@@ -371,7 +371,7 @@
     "CA-D-026": [
       {
         "identity": "CA-D-026",
-        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/301_FEATURE_TOOLS/TARGET_SET/07_delivery/CA-D-026-TARGET_SET-DELIVERY--bind-target-set-delivery-place.md",
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/TARGET_SET/07_delivery/CA-D-026-TARGET_SET-DELIVERY--bind-target-set-delivery-place.md",
         "version": 5,
         "sha256": "aec08b568dd0cb652b6581e5ec7b6be3fa927a8465a613fd4d5f78f0c9111307"
       },
@@ -385,7 +385,7 @@
     "CA-M-242": [
       {
         "identity": "CA-M-242",
-        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/302_FEATURE_APPS/05_method/CA-M-242-APPS-CORE-METHOD--register-the-agent-host-plugins-unit.md",
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/203_FEATURE_APPS/05_method/CA-M-242-APPS-CORE-METHOD--register-the-agent-host-plugins-unit.md",
         "version": 1,
         "sha256": "1c48d5e7770493400ada7104114934a52b74a1ccffc0d018e3c5f257d5057011"
       },

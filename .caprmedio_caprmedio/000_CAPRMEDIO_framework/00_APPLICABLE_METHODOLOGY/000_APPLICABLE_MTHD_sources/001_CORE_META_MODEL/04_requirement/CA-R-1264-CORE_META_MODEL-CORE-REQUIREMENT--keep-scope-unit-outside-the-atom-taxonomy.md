@@ -1,15 +1,9 @@
 ---
-atom_id: CA-R-1264
-cce_version: cce_1
-cce_form: prohibition
 subjects:
-  governs:
-    continuant:
-      - Scope Unit
+  governs: "Scope Unit"
   depends_on:
-    continuant:
-      - Atom
-version: 5
+    - "Atom"
+version: 9
 updated_at: "2026-09-11 05:27:15 +0400"
 relations: {}
 ---

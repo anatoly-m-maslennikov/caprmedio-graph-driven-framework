@@ -1,7 +1,4 @@
 ---
-atom_id: CA-E-466
-cce_version: cce_1
-cce_form: evaluation
 subjects:
   governs: "CAPRMEDIO Graph"
   depends_on:
@@ -13,7 +10,7 @@ subjects:
     - "Journal"
     - "Relation"
     - "Relation Kind"
-version: 1
+version: 3
 updated_at: "2026-09-15 01:47:49 +0400"
 relations:
   evaluation_for:

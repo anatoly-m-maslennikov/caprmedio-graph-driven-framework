@@ -1,42 +1,42 @@
 ---
-atom_id: CA-E-453
 cce_version: cce_1
 cce_form: evaluation
 subjects:
-  governs:
-    continuant:
-      - python-formatting-and-linting
+  governs: "python-formatting-and-linting"
   depends_on:
-    continuant:
-      - programmatic software
-version: 2
-updated_at: "2026-09-11 20:58:34 +0400"
+    - "programmatic software"
+version: 8
+updated_at: "2026-09-17 19:28:07 +0000"
 relations:
   evaluation_for:
     - CA-M-282
   derived_from:
     - CA-A-053
+llm_session_ids:
+  - codex:01a02650-eff7-7453-8c37-0699b36773c6
 ---
 # Verify changed Python with Ruff
 
 ## Claim checked
 
-Changed Python passes the one admitted Ruff format, lint, and complexity
-profile or carries one bounded exception.
+changed Python passes the one admitted Ruff format, lint, **and** complexity
+profile **or** carries one bounded exception.
 
 ## Test case
 
-Run the pinned Ruff profile against one changed module containing an executable
+run the pinned Ruff profile against one changed module containing an executable
 unit above the configured `C901` maximum.
 
 ## Acceptance criteria
 
-Pass only when Ruff reports the unit and the change is rejected or one explicit
-exception records the rule, value, reason, and review condition.
+pass **only** **when** **all** of the following hold:
+
+- Ruff reports the unit that exceeds the configured maximum.
+- the change is rejected **or** an accepted bounded exception records the rule, value, reason, **and** review condition.
 
 ## Failure disposition
 
-Reject the changed target until the diagnostic is resolved or bounded.
+reject the changed target **until** the diagnostic is resolved **or** bounded.
 
 ## Sources
 

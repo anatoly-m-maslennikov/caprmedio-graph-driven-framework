@@ -1,20 +1,19 @@
 ---
-atom_id: CA-D-300
-cce_version: cce_1
-cce_form: grammar
 subjects:
-  governs:
-    continuant:
-      - Directory Carrier/Numeric Prefix
+  governs: "Directory Carrier/Numeric Prefix"
   depends_on:
-    continuant:
-      - Scope Unit
-      - Structural Level
-      - Navigational Order Number
-version: 6
-updated_at: "2026-09-10 02:49:14 +0400"
+    - "Scope Unit"
+    - "Structural Level"
+    - "Navigational Order Number"
+version: 12
+updated_at: "2026-09-17 14:21:56 +0000"
 relations: {}
 ---
 # Size Structural Level Prefixes Dynamically
 
-**every** Project-internal numeric Scope Unit Directory Carrier prefix **must** allocate to Structural Level the decimal digit count of the greatest current Structural Level **and** **must** use the remaining digits for Navigational Order Number.
+**when** the default Scope Unit directory convention is used, **every** Project-internal numeric Scope Unit Directory Carrier prefix **must** concatenate these components **without** a separator:
+
+- the Structural Level, using the decimal digit count of the greatest current Project Structural Level as its width.
+- the Navigational Order Number, using the decimal rendering governed by CA-D-380.
+
+the total prefix width is the sum of those component widths, **not** a fixed limit on the Navigational Order Number. decoding consumes the Structural Level width first **and** treats the remaining digits as the Navigational Order Number. a declared native Carrier binding under CA-D-445 **must not** be reinterpreted through this default convention.

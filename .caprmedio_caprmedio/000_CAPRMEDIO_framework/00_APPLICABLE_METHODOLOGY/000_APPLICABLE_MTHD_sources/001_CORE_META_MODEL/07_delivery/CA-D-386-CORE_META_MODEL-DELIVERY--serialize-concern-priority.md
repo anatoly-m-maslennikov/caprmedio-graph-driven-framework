@@ -1,20 +1,14 @@
 ---
-atom_id: CA-D-386
-cce_version: cce_1
-cce_form: serialization
 subjects:
-  governs:
-    continuant:
-      - "Atom/Carrier"
+  governs: "Atom/Carrier"
   depends_on:
-    continuant:
-      - "Atom/Content Role"
-      - "Priority"
-      - "Atom Collection/Type: Epic"
-version: 1
-updated_at: "2026-09-10 20:54:34 +0400"
+    - "Atom/Content Role"
+    - "Priority"
+    - "Atom/Content Role: Plan/Type: Plan"
+version: 6
+updated_at: "2026-09-22 14:41:44 +0000"
 relations: {}
 ---
 # Serialize Concern Priority
 
-a Concern Atom Carrier **must** serialize **`=1`** selected Priority as `priority` with the lowercase value `high`, `medium`, **or** `low`. **every** Epic, Task, Action Policy, **and** non-Concern Content Role Atom Carrier **must** omit `priority`; virtual `highest` **must not** be stored.
+a Concern Atom Carrier **must** serialize **`=1`** selected Priority as `priority` with the lowercase value `high`, `medium`, **or** `low`. **every** non-Concern Content Role Atom Carrier **must** omit `priority`; virtual `highest` **must not** be stored.

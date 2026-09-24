@@ -1,7 +1,4 @@
 ---
-atom_id: CA-R-1455
-cce_version: cce_1
-cce_form: obligation
 subjects:
   governs: "Projection/Type: Catalog"
   depends_on:
@@ -19,7 +16,7 @@ subjects:
     - "Relation"
     - "Relation Kind"
     - "Projection/Type: Terms Graph"
-version: 3
+version: 5
 updated_at: "2026-09-13 14:15:09 +0400"
 relations:
   child_of:

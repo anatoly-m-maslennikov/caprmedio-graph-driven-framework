@@ -1,7 +1,4 @@
 ---
-atom_id: CA-R-1466
-cce_version: cce_1
-cce_form: obligation
 subjects:
   governs: "Extension"
   depends_on:
@@ -9,7 +6,7 @@ subjects:
     - "Journal"
     - "Projection"
     - "Project Configuration"
-version: 1
+version: 3
 updated_at: "2026-09-14 06:21:07 +0400"
 relations: {}
 ---

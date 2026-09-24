@@ -35,7 +35,7 @@ the Assignee **must** align this Global Tier 15 batch **in** MIGRATE_ATOM_IDENTI
 
 ## Scope
 
-(selected directly owned RMEDO Atoms at Global Tier 15, Local Tier Standard, **in** `.caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/301_FEATURE_TOOLS/MIGRATE_ATOM_IDENTITY`; child Scope Units are excluded); the source **and** lifecycle admission boundary established by CA-P-976 applies; historical versions, generated copies, runtime, Implementation code, **and** other CAP Atoms are excluded.
+(selected directly owned RMEDO Atoms at Global Tier 15, Local Tier Standard, **in** `.caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/MIGRATE_ATOM_IDENTITY`; child Scope Units are excluded); the source **and** lifecycle admission boundary established by CA-P-976 applies; historical versions, generated copies, runtime, Implementation code, **and** other CAP Atoms are excluded.
 
 ## Definition of Done
 

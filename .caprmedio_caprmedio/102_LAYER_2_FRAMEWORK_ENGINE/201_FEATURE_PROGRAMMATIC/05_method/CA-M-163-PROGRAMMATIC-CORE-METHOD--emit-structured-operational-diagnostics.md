@@ -1,62 +1,65 @@
 ---
-atom_id: "CA-M-163"
 cce_version: "cce_1"
 cce_form: "method"
 subjects:
-  governs:
-    continuant:
-      - "operational-diagnostic"
+  governs: "operational-diagnostic"
   depends_on:
-    continuant:
-      - "programmatic software"
-      - "Logging Policy"
-version: 5
-updated_at: 2026-09-15 05:51:38
+    - "Atom/Content Role: Operations"
+    - "Carrier"
+    - "Journal/Record"
+    - "programmatic software"
+    - "Logging Policy"
+version: 12
+updated_at: "2026-09-17 18:36:46 +0000"
 relations:
   derived_from:
     - "CA-A-053"
   child_of:
     - "CA-M-110"
+llm_session_ids:
+  - codex:01a02650-eff7-7453-8c37-0699b36773c6
 ---
 # Emit structured operational diagnostics
 
-Emit structured operational diagnostics for PROGRAMMATIC work under the active
-Logging Policy in `CAPRMEDIO-GOV-REQU-315`, including its ERROR, WARNING, INFO,
-and DEBUG meanings. This Method applies that authority to PROGRAMMATIC
-diagnosis; it does not own the level vocabulary, level meanings, or Journal
+emit structured operational diagnostics for PROGRAMMATIC work under the active
+Logging Policy **in** `CAPRMEDIO-GOV-REQU-315`, including its ERROR, WARNING, INFO,
+**and** DEBUG meanings. this Method applies that authority **to** PROGRAMMATIC
+diagnosis; it does **not** own the level vocabulary, level meanings, **or** Journal
 meaning.
 
 ## Applicable when
 
-Apply when a Tool, App backend service, or MCP component reports normal
-operation, degraded operation, failure, recovery, or diagnostic detail.
+apply **when** a Tool, App backend service, **or** MCP component reports normal
+operation, degraded operation, failure, recovery, **or** diagnostic detail.
 
 ## Procedure
 
-1. Select ERROR, WARNING, INFO, or DEBUG according to the active Logging Policy;
-   do not introduce a fifth shared severity.
-2. Emit records through one project-owned logging abstraction and schema.
-   Include timestamp, level, component, operation, outcome, and the canonical
-   action or event identity when one exists.
-3. Include actionable, contextual, sanitized fields and keep DEBUG bounded to
+1. select ERROR, WARNING, INFO, **or** DEBUG according **to** the active Logging Policy;
+   do **not** introduce a fifth shared severity.
+2. emit records through one project-owned logging abstraction **and** schema.
+   include timestamp, level, component, operation, outcome, **and** the canonical
+   action **or** event identity **when** one exists.
+3. include actionable, contextual, sanitized fields **and** keep DEBUG bounded **to**
    diagnosable need.
-4. Materialize sink and runtime settings in configuration or Implementation,
-   govern carrier placement and encoding through Delivery, and preserve actual
-   execution and diagnostic evidence through Operations.
-5. Declare retention, loss, and back-pressure behavior at those bounded
-   materialization and operational boundaries.
-6. Make logging failure observable without silently breaking primary work.
+4. materialize sink **and** runtime settings **in** configuration **or** Implementation,
+   govern carrier placement **and** encoding through Delivery, **and** preserve actual
+   execution evidence through Journal Records **and** diagnostic evidence through
+   the applicable production-log Carriers. Operations defines the reusable behavior;
+   it does **not** make emitted records O Atoms.
+5. declare retention, loss, **and** back-pressure behavior at those bounded
+   materialization **and** operational boundaries.
+6. make logging failure observable **without** silently breaking primary work.
 
 ## Outcome
 
-Operators can diagnose component behavior without exposing secrets, confusing
-operational diagnostics with governed Journal history, or relying on an
+Operators can diagnose component behavior **without** exposing secrets, confusing
+operational diagnostics with governed Journal history, **or** relying on an
 undeclared sink behavior.
 
 ## Failure or stop
 
-Stop emission or release of the affected diagnostic path when required context
-cannot be sanitized, a logging failure is hidden, or the component would use
+stop emission **or** release of the affected diagnostic path **when** required context
+cannot be sanitized, a logging failure is hidden, **or** the component would use
 the Journal as a substitute logging sink.
 
 ## Sources

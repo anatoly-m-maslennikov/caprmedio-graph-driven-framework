@@ -1,19 +1,13 @@
 ---
-atom_id: CA-R-1218
-cce_version: cce_1
-cce_form: definition
 subjects:
-  governs:
-    continuant:
-      - Project Configuration
+  governs: "Project Configuration"
   depends_on:
-    continuant:
-      - Project
-      - Extension
-      - Methodology Source
-      - Framework Instance Settings
-      - Project Settings
-version: 7
+    - "Project"
+    - "Extension"
+    - "Methodology Source"
+    - "Framework Instance Settings"
+    - "Project Settings"
+version: 11
 updated_at: "2026-09-11 23:47:49 +0400"
 relations: {}
 ---

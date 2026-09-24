@@ -1,7 +1,4 @@
 ---
-atom_id: CA-R-1409
-cce_version: cce_1
-cce_form: definition
 subjects:
   governs: "General Artifact Graph"
   depends_on:
@@ -12,8 +9,11 @@ subjects:
     - "Carrier"
     - "CAPRMEDIO Graph"
     - "Structural Entity/Direct Containment"
-version: 3
-updated_at: "2026-09-14 21:49:27 +0400"
+    - "Atom"
+    - "Journal"
+    - "Projection"
+version: 6
+updated_at: "2026-09-17 17:18:52 +0000"
 relations: {}
 ---
 # Define General Artifact Graph

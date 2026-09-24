@@ -1,7 +1,4 @@
 ---
-atom_id: CA-R-806
-cce_version: cce_1
-cce_form: cardinality
 subjects:
   governs: "Relation Kind/Metadata"
   depends_on:
@@ -9,7 +6,7 @@ subjects:
     - "CAPRMEDIO Graph"
     - "Projection"
     - "Atom"
-version: 17
+version: 19
 updated_at: "2026-09-15 01:47:49 +0400"
 relations: {}
 ---

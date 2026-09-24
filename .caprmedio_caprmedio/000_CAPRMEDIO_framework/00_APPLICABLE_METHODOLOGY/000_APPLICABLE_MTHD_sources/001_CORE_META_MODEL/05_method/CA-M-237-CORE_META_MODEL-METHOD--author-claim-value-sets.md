@@ -1,20 +1,14 @@
 ---
-atom_id: CA-M-237
-cce_version: cce_1
-cce_form: method
 subjects:
-  governs:
-    occurrent:
-      - Claim Value Set Authoring
+  governs: "Claim Value Set Authoring"
   depends_on:
-    continuant:
-      - Atom/Claim
-      - Author
-      - Claim Value Set
-      - Property
-      - Subject Expression
-      - IS_ALLOWED_VALUE_OF
-version: 4
+    - "Atom/Claim"
+    - "Author"
+    - "Claim Value Set"
+    - "Property"
+    - "Subject Expression"
+    - "IS_ALLOWED_VALUE_OF"
+version: 8
 updated_at: "2026-09-10 03:25:26 +0400"
 relations:
   child_of:

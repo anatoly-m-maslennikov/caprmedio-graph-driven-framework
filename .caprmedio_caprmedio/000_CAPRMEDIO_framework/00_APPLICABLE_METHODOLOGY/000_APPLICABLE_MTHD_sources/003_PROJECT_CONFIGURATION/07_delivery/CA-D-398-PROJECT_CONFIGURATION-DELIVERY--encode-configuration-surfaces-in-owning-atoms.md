@@ -1,7 +1,4 @@
 ---
-atom_id: CA-D-398
-cce_version: cce_1
-cce_form: serialization
 subjects:
   governs: "Atom/Revision/Frontmatter"
   depends_on:
@@ -9,7 +6,7 @@ subjects:
     - "Project Structure"
     - "Project Settings"
     - "Framework Instance Settings"
-version: 4
+version: 6
 updated_at: "2026-09-15 00:19:55 +0000"
 relations:
   child_of:

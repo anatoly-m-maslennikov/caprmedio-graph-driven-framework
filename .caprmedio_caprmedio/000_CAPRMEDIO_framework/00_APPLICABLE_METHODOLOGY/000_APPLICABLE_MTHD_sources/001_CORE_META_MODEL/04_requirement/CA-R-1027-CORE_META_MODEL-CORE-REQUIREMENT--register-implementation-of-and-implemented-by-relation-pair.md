@@ -1,16 +1,10 @@
 ---
-atom_id: CA-R-1027
-cce_version: cce_1
-cce_form: definition
 subjects:
-  governs:
-    continuant:
-      - Implementation Relation Pair
+  governs: "Implementation Relation Pair"
   depends_on:
-    continuant:
-      - atom-boundary
-      - relation-model
-version: 9
+    - "atom-boundary"
+    - "relation-model"
+version: 13
 updated_at: "2026-09-10 04:16:18 +0400"
 relations: {}
 ---

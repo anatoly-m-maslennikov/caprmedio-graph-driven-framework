@@ -7,10 +7,7 @@ subjects:
     - "Projection"
     - "Atom/Content Role: Requirement/Type: Goal"
     - "Framework Instance Settings"
-atom_id: CA-R-626
-cce_version: cce_1
-cce_form: obligation
-version: 19
+version: 21
 updated_at: "2026-09-15 00:05:45 +0000"
 relations:
   child_of:

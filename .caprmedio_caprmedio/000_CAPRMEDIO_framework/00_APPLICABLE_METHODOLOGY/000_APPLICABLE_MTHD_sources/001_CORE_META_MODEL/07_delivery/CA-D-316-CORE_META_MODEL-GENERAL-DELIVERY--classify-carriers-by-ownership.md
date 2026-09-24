@@ -1,12 +1,8 @@
 ---
-atom_id: CA-D-316
-cce_version: cce_1
-cce_form: classification
 subjects:
-  governs:
-    continuant:
-      - Carrier/Ownership Class
-version: 5
+  governs: "Carrier/Ownership Class"
+  depends_on: []
+version: 9
 updated_at: "2026-09-10 05:41:36 +0400"
 relations: {}
 ---

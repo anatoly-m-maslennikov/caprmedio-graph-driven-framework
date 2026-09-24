@@ -1,15 +1,9 @@
 ---
-atom_id: CA-R-1373
-cce_version: cce_1
-cce_form: definition
 subjects:
-  governs:
-    continuant:
-      - Applicable Methodology/Conflict
+  governs: "Applicable Methodology/Conflict"
   depends_on:
-    continuant:
-      - Applicable Methodology
-version: 2
+    - "Applicable Methodology"
+version: 6
 updated_at: 2026-09-06 01:45:12 +0400
 relations: {}
 ---

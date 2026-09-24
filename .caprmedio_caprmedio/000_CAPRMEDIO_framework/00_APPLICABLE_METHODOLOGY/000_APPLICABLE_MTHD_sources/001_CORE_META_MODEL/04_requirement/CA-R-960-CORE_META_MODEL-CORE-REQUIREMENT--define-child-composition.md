@@ -1,17 +1,11 @@
 ---
 subjects:
-  governs:
-    continuant:
-      - Child Composition
+  governs: "Child Composition"
   depends_on:
-    continuant:
-      - scope-topology
-      - atom-boundary
-      - relation-model
-atom_id: CA-R-960
-cce_version: cce_1
-cce_form: definition
-version: 8
+    - "scope-topology"
+    - "atom-boundary"
+    - "relation-model"
+version: 12
 updated_at: "2026-09-10 05:08:55 +0400"
 relations: {}
 ---

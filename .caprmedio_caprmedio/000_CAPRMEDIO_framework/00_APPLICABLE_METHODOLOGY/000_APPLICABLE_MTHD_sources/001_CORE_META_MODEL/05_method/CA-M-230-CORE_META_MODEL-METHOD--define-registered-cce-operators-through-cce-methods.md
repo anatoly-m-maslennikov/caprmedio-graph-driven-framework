@@ -1,15 +1,9 @@
 ---
-atom_id: CA-M-230
-cce_version: cce_1
-cce_form: definition
 subjects:
-  governs:
-    continuant:
-      - CCE Operator
+  governs: "CCE Operator"
   depends_on:
-    continuant:
-      - CCE Method
-version: 6
+    - "CCE Method"
+version: 10
 updated_at: "2026-09-10 03:25:26 +0400"
 relations: {}
 ---

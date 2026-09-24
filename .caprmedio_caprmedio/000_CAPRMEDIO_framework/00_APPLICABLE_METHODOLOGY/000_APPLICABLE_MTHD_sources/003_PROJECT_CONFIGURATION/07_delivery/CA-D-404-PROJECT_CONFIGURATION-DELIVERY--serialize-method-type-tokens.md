@@ -1,18 +1,19 @@
 ---
-atom_id: CA-D-404
-cce_version: cce_1
-cce_form: serialization
 subjects:
-  governs:
-    continuant:
-      - "Atom/Content Role: Method/Type"
+  governs: "Atom/Content Role: Method/Type"
   depends_on:
-    continuant:
-      - "Carrier"
-version: 2
-updated_at: "2026-09-11 23:47:49 +0400"
+    - "Carrier"
+version: 7
+updated_at: "2026-09-17 15:05:43 +0000"
 relations: {}
 ---
 # Serialize Method Type Tokens
 
-Implementation Method **must** use Carrier token `implementation_method`; Implementation Decision **must** use Carrier token `implementation_decision`; External Implementation Method **must** use Carrier token `external_implementation_method`; Method Binding **must** use Carrier token `method_binding`.
+a Method Atom File Carrier **must** serialize the following Type components within the Atom filename grammar governed by CA-D-283 **and** CA-D-284:
+
+- Implementation Method: `IMPLEMENTATION_METHOD`.
+- Implementation Decision: `IMPLEMENTATION_DECISION`.
+- External Implementation Method: `EXTERNAL_IMPLEMENTATION_METHOD`.
+- Method Binding: `METHOD_BINDING`.
+
+these mappings govern filename representation; they do **not** rename a Type, admit a new Type, **or** prescribe a YAML Type value.

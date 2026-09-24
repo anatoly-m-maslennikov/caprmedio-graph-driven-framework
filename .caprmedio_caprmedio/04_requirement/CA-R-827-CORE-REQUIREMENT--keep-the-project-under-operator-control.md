@@ -1,21 +1,19 @@
 ---
-atom_id: CA-R-827
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  governs:
-    continuant:
-      - "Project/control"
+  governs: "Project/control"
   depends_on:
-    continuant:
-      - "Project"
-      - "Operator"
-      - "CAPRMEDIO Framework Instance"
-version: 8
+    - "Project"
+    - "Operator"
+    - "CAPRMEDIO Framework Instance"
+version: 11
 updated_at: 2026-09-05 01:15:08 +0400
 relations:
   child_of:
     - CA-P-033
+llm_session_ids:
+  - codex:01a02650-eff7-7453-8c37-0699b36773c6
 ---
 # Keep the project under Operator control
 

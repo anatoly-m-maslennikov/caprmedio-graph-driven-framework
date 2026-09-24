@@ -35,7 +35,7 @@
     }
   },
   "validation_tool": {
-    "carrier_path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/validate_expansion_boundary.py",
+    "carrier_path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/validate_expansion_boundary.py",
     "schema": "caprmedio.validate_methodology_expansion_boundary.v1",
     "mechanical_checks": [
       "one active Core expansion-boundary Requirement exists",

@@ -1,12 +1,8 @@
 ---
-atom_id: CA-D-331
-cce_version: cce_1
-cce_form: restriction
 subjects:
-  governs:
-    continuant:
-      - Hub/Carrier/Navigation Entry
-version: 5
+  governs: "Hub/Carrier/Navigation Entry"
+  depends_on: []
+version: 9
 updated_at: "2026-09-10 02:49:14 +0400"
 relations: {}
 ---

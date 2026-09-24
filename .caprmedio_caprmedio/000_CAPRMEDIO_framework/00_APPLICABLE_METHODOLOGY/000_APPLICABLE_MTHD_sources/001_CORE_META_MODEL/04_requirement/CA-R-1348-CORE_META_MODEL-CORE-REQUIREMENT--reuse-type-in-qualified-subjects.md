@@ -1,16 +1,10 @@
 ---
-atom_id: CA-R-1348
-cce_version: cce_1
-cce_form: requirement
 subjects:
-  governs:
-    continuant:
-      - Type
+  governs: "Type"
   depends_on:
-    continuant:
-      - Subject Expression
-      - Term
-version: 2
+    - "Subject Expression"
+    - "Term"
+version: 6
 updated_at: 2026-09-06 01:45:12 +0400
 relations: {}
 ---

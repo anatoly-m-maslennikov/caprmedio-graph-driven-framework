@@ -1,7 +1,4 @@
 ---
-atom_id: CA-O-014
-cce_version: cce_1
-cce_form: definition
 subjects:
   governs: "Apply Structural Change"
   depends_on:
@@ -11,7 +8,7 @@ subjects:
     - "Carrier"
     - "Goal"
     - "Journal"
-version: 1
+version: 3
 updated_at: "2026-09-15 00:13:02 +0000"
 relations: {}
 ---

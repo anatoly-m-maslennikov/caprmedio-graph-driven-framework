@@ -1,43 +1,41 @@
 ---
-atom_id: CA-E-391
 cce_version: cce_1
 cce_form: evaluation
 subjects:
-  governs:
-    continuant:
-      - mutation-testing
+  governs: "mutation-testing"
   depends_on:
-    continuant:
-      - programmatic software
-version: 2
+    - "programmatic software"
+version: 7
 updated_at: "2026-09-11 20:58:34 +0400"
 relations:
   evaluation_for:
     - CA-M-285
   derived_from:
     - CA-A-053
+llm_session_ids:
+  - codex:01a02650-eff7-7453-8c37-0699b36773c6
 ---
 # Detect weak Python assertions through mutation testing
 
 ## Claim checked
 
-Decision-dense changed Python has assertions strong enough to distinguish its
+decision-dense changed Python has assertions strong enough **to** distinguish its
 relevant alternative behavior.
 
 ## Test case
 
-Run a pinned mutation profile after normal cases pass and preserve one
-surviving relevant mutant in a manager or validator.
+run a pinned mutation profile **after** normal cases pass **and** preserve one
+surviving relevant mutant **in** a manager **or** validator.
 
 ## Acceptance criteria
 
-Pass only when the mutant is classified as missing assertion, unreachable,
-equivalent, or intentionally uncovered, and the frontier and replay command are
+pass **only** **when** the mutant is classified as missing assertion, unreachable,
+equivalent, **or** intentionally uncovered, **and** the frontier **and** replay command are
 preserved.
 
 ## Failure disposition
 
-Reject unexplained survivors; keep this expensive campaign outside synchronous
+reject unexplained survivors; keep this expensive campaign outside synchronous
 Hooks.
 
 ## Sources

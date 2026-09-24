@@ -3,44 +3,37 @@ subjects:
   governs: "Scope Reference Validation"
   depends_on:
     - "Atom/Scope"
-    - "Atom/Governed Subject"
-    - "Atom/Claim/Scope"
-    - "Atom/Claim/Scope/Scope Unit Set"
-    - "Structural Parent Relation"
-    - "Subject"
-atom_id: CA-E-240
-cce_version: cce_1
-cce_form: evaluation
-version: 20
-updated_at: "2026-09-13 02:05:21 +0400"
-relations:
-  evaluation_for:
-    - CA-R-1014
-    - CA-R-920
-    - CA-R-919
-    - CA-R-1363
-    - CA-R-1201
-    - CA-R-923
-    - CA-R-947
-    - CA-R-944
-    - CA-R-946
-    - CA-D-269
-    - CA-D-367
+    - "Atom/Claim/Target Scope Unit"
+    - "Atom/Claim"
+    - "Atom/Subjects"
+    - "Scope Unit"
+    - "Project Structure"
+    - "Operator"
+    - "Hub Atom"
+version: 26
+updated_at: "2026-09-22 23:02:20 +0000"
+relations: {"evaluation_for": ["CA-R-1595", "CA-R-1596", "CA-R-922", "CA-R-923", "CA-R-1588", "CA-R-1271", "CA-R-947", "CA-R-944", "CA-R-1201", "CA-R-1202", "CA-D-482", "CA-D-477"]}
 ---
-# Validate Atom Scope and Claim Scope
+# Summary
 
-## Claim checked
+Validate Atom Scope and Claim Scope
 
-**every** Atom resolves **`=1`** Atom Scope, **`=1`** Atom Governed Subject, **and** **`=1`** resolved atomic **or** composite Claim Scope **without** making a referenced Subject bearer-dependent.
+## Claim
 
-## Test case
+### Claim checked
 
-create a Current-scope Atom, a parent-owned Goal for a direct child, an Operator-owned Project Goal with no Scope Unit Atom Scope, composite Claim Scopes, **and** one permitted Demand. **then** omit **or** duplicate an Atom Scope component **or** GOVERNS Subject, reorder dependency references alongside **`=1`** GOVERNS Subject **and** prerequisite DEPENDS_ON Subjects **without** changing their canonical target identities **or** direct Relation Kinds, leave a reference unresolved, make a referenced Scope Unit bearer-dependent, **and** use a forbidden Goal **or** Demand target.
+**every** Atom resolves its ownership, **`=1`** GOVERNS Relation, **and** **`=1`** Claim Target Scope Unit independently of **any** applicability restrictions **in** its Claim text.
 
-## Acceptance criteria
+### Test case
 
-**every** valid fixture resolves **`=1`** Atom Scope **and** **`=1`** Claim Scope, resolves an omitted Claim Scope representation to the current Scope for a Current-scope Atom, classifies an explicitly represented different Claim Scope as a Relational Atom, **and** preserves canonical component equality independent of authored Subject order. **every** invalid fixture fails with the incorrect reference, ownership, Subject declaration, **or** relational fact identified.
+create a Current-scope Atom with its own Scope Unit carried as the target; repeat with a narrower restriction **and** a composite restriction **in** its Claim text. create a parent-owned Goal for a declared direct child, an Operator-owned Project Goal with an explicit Project target, **and** a permitted Demand. include a Plan **in** a nested Hub whose carried target is its owning Scope Unit.
 
-## Failure disposition
+**then** omit a required target, provide two target values, supply a Hub **or** another non-Scope-Unit target, leave a reference unresolved, infer a different target merely from textual restrictions, change ownership from the target, make the referenced Scope Unit bearer-dependent, reorder Subject declarations, **or** use a forbidden Goal **or** Demand target.
 
-record a Concern naming the invalid Atom **and** Scope fact.
+### Acceptance criteria
+
+**every** valid fixture retains its ownership, resolves **`=1`** canonical GOVERNS target **and** **`=1`** Claim Target Scope Unit, **and** preserves its applicability restrictions **in** the Claim text. a Current-scope target is selected from the owning Scope Unit during authoring **and** carried explicitly; an Operator-owned Goal requires its explicit Project target. narrower **or** composite Claim Scope alone does **not** make an Atom Relational. a different permitted target does **not** transfer ownership **or** create Scope Unit ancestry. Subject ordering **and** Hub nesting do **not** change these facts. **every** invalid fixture fails with the exact affected fact identified.
+
+### Failure disposition
+
+report the invalid Atom **and** ownership, target, textual restriction, **or** Subject fact; do **not** repair unresolved references by guessing.

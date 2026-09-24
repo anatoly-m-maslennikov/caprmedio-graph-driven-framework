@@ -1,7 +1,4 @@
 ---
-atom_id: CAPRMEDIO-META-REQU-115
-cce_version: cce_1
-cce_form: classification
 subjects:
   governs: "Projection/Type: Implementation Overview"
   depends_on:
@@ -13,10 +10,8 @@ subjects:
     - "Implementation"
     - "Verification"
     - "Atom/Content Role"
-version: 11
+version: 13
 updated_at: 2026-09-15 05:51:38
-llm_session_ids:
-  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations: {}
 ---
 # Use Implementation Overview as a Projection

@@ -1,12 +1,8 @@
 ---
 subjects:
-  governs:
-    continuant:
-      - Scope Unit/Type
-atom_id: CA-R-979
-cce_version: cce_1
-cce_form: obligation
-version: 9
+  governs: "Scope Unit/Type"
+  depends_on: []
+version: 13
 updated_at: "2026-09-10 05:08:55 +0400"
 relations:
   child_of:

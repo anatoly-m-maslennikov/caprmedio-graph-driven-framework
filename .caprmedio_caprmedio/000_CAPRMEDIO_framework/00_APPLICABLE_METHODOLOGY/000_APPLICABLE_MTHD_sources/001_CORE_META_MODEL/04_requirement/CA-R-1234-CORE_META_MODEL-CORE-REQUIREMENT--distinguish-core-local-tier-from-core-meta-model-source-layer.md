@@ -1,15 +1,9 @@
 ---
-atom_id: CA-R-1234
-cce_version: cce_1
-cce_form: separation
 subjects:
-  governs:
-    continuant:
-      - "Atom/Local Tier: Core"
+  governs: "Atom/Local Tier: Core"
   depends_on:
-    continuant:
-      - Applicable Methodology/Sources/CORE_META_MODEL
-version: 5
+    - "Applicable Methodology/Sources/CORE_META_MODEL"
+version: 9
 updated_at: 2026-09-06 01:45:12 +0400
 relations: {}
 ---

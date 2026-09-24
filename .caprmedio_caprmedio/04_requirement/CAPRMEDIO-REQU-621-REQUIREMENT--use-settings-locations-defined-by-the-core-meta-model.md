@@ -1,11 +1,11 @@
 ---
-atom_id: CAPRMEDIO-REQU-621
 subject_scopes:
   - scope-topology
-version: 3
+version: 4
 updated_at: "2026-09-09 23:04:14 +0400"
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+  - codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations:
   depends_on:
     - CA-D-359

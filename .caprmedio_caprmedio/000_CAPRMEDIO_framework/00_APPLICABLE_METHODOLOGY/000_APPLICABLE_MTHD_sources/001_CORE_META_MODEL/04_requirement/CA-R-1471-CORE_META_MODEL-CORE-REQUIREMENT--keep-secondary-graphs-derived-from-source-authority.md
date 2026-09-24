@@ -1,7 +1,4 @@
 ---
-atom_id: CA-R-1471
-cce_version: cce_1
-cce_form: obligation
 subjects:
   governs: "CAPRMEDIO Graph"
   depends_on:
@@ -12,7 +9,7 @@ subjects:
     - "Structural Entity"
     - "Journal"
     - "Relation"
-version: 1
+version: 3
 updated_at: "2026-09-15 01:47:49 +0400"
 relations: {}
 ---

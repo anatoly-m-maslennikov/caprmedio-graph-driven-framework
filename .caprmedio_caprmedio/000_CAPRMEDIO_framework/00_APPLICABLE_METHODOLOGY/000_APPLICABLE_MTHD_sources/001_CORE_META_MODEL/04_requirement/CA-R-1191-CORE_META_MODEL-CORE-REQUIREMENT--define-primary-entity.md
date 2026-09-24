@@ -1,15 +1,9 @@
 ---
-atom_id: CA-R-1191
-cce_version: cce_1
-cce_form: definition
 subjects:
-  governs:
-    continuant:
-      - Primary Entity
+  governs: "Primary Entity"
   depends_on:
-    continuant:
-      - Entity
-version: 6
+    - "Entity"
+version: 10
 updated_at: 2026-09-07 09:59:57 +0000
 relations: {}
 ---

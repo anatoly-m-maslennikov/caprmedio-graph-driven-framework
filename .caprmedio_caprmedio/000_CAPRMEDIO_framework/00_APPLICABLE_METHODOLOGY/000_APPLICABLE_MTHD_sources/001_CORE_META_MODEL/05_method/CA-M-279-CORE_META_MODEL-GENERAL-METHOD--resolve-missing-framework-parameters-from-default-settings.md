@@ -1,18 +1,12 @@
 ---
-atom_id: CA-M-279
-cce_version: cce_1
-cce_form: method
 subjects:
-  governs:
-    occurrent:
-      - "Framework Instance Settings/parameter resolution"
+  governs: "Framework Instance Settings/parameter resolution"
   depends_on:
-    continuant:
-      - "Framework Instance Settings"
-      - "Default Settings"
-      - "Project"
-      - "Operator"
-version: 1
+    - "Framework Instance Settings"
+    - "Default Settings"
+    - "Project"
+    - "Operator"
+version: 5
 updated_at: "2026-09-11 19:51:42 +0400"
 relations:
   relates_to:

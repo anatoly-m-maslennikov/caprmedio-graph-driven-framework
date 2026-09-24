@@ -1,12 +1,8 @@
 ---
-atom_id: CA-D-337
-cce_version: cce_1
-cce_form: placement
 subjects:
-  governs:
-    continuant:
-      - CAPRMEDIO/Legal File Carrier
-version: 3
+  governs: "CAPRMEDIO/Legal File Carrier"
+  depends_on: []
+version: 7
 updated_at: "2026-09-11 23:47:49 +0400"
 relations: {}
 ---

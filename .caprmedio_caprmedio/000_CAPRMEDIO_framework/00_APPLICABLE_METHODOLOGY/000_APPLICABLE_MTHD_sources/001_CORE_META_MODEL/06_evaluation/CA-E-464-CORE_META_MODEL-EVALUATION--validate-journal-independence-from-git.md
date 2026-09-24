@@ -1,7 +1,4 @@
 ---
-atom_id: CA-E-464
-cce_version: cce_1
-cce_form: evaluation
 subjects:
   governs: "Journal"
   depends_on:
@@ -9,7 +6,7 @@ subjects:
     - "Extension"
     - "Projection/Type: Artifact Change Log"
     - "Projection/Type: Process Log"
-version: 1
+version: 3
 updated_at: "2026-09-14 06:21:07 +0400"
 relations:
   evaluation_for:

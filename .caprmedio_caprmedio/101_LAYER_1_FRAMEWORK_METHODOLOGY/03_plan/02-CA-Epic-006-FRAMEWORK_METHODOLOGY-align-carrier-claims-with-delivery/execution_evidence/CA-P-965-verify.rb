@@ -191,7 +191,7 @@ need(reference_only.all?{|id|current[id]['body']==original[id]['body'] && curren
 need(%w[CA-D-270 CA-D-268 CA-D-281 CA-D-282 CA-D-310 CA-D-328 CA-D-339 CAPRMEDIO-META-REQU-119].all?{|id|current[id]['sha256']==original[id]['sha256']}, 'Reused owner changed')
 need(current['CA-D-378']['body'].include?('Analysis: A') && current['CAPRMEDIO-GOV-REQU-296']['meta']['subjects']['depends_on']['continuant'].include?('provenance'), 'Intermediate correction lost')
 
-expansion_command = %w[python3 -B 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/validate_expansion_boundary.py --root . --include-layer CORE_META_MODEL --include-layer LOCAL_CONFIGURATION]
+expansion_command = %w[python3 -B 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/validate_expansion_boundary.py --root . --include-layer CORE_META_MODEL --include-layer LOCAL_CONFIGURATION]
 expansion_out, expansion_err, expansion_status = Open3.capture3(*expansion_command)
 need(expansion_status.success?, "Expansion boundary failed: #{expansion_err} #{expansion_out}")
 expansion = JSON.parse(expansion_out)

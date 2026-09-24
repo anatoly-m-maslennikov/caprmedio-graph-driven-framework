@@ -6,14 +6,11 @@ subjects:
     - "Implementation Folder"
     - "Carrier"
     - "Atom/Content Role: Delivery"
-atom_id: CA-R-862
-cce_version: cce_1
-cce_form: obligation
-version: 11
-updated_at: "2026-09-15 00:05:45 +0000"
+version: 14
+updated_at: "2026-09-17 02:33:07 +0000"
 relations:
   child_of:
-    - CA-R-843
+    - CA-R-1484
 ---
 # Bind Scope Unit Places without Requiring Local Delivery Atoms
 

@@ -1,15 +1,9 @@
 ---
-atom_id: CAPRMEDIO-GOV-REQU-758
-cce_version: cce_1
-cce_form: permission
 subjects:
-  governs:
-    continuant:
-      - requirement-topology
-version: 9
+  governs: "requirement-topology"
+  depends_on: []
+version: 13
 updated_at: "2026-09-09 21:56:59 +0400"
-llm_session_ids:
-  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   child_of:
     - CAPRMEDIO-REQU-037-REQUIREMENT--require-parent-coverage-without-claiming-topology-completeness

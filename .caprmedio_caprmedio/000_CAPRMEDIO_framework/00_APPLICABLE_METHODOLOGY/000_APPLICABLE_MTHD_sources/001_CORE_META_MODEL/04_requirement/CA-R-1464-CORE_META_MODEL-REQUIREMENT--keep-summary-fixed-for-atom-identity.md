@@ -1,7 +1,4 @@
 ---
-atom_id: CA-R-1464
-cce_version: cce_1
-cce_form: obligation
 subjects:
   governs: "Atom/Summary"
   depends_on:
@@ -9,7 +6,7 @@ subjects:
     - "Atom/Identifier"
     - "Atom/Revision"
     - "Atom/Claim"
-version: 1
+version: 3
 updated_at: "2026-09-14 02:40:31 +0400"
 relations: {}
 ---

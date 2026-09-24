@@ -1,55 +1,53 @@
 ---
-atom_id: "CA-M-286"
 cce_version: "cce_1"
 cce_form: "method"
 subjects:
-  governs:
-    continuant:
-      - "python-boundary-validation"
+  governs: "python-boundary-validation"
   depends_on:
-    continuant:
-      - "programmatic software"
-version: 3
+    - "programmatic software"
+version: 8
 updated_at: "2026-09-11 20:58:34 +0400"
 relations:
   derived_from:
     - "CA-A-053"
   child_of:
     - "CA-M-110"
+llm_session_ids:
+  - codex:01a02650-eff7-7453-8c37-0699b36773c6
 ---
 # Validate untrusted structured data with Pydantic
 
-Use Pydantic when untrusted structured data crosses an admitted Python
-boundary. Validate once at the boundary and pass accepted typed values into
-the deterministic core without making Pydantic the universal internal model.
+use Pydantic **when** untrusted structured data crosses an admitted Python
+boundary. validate once at the boundary **and** pass accepted typed values into
+the deterministic core **without** making Pydantic the universal internal model.
 
 ## Applicable when
 
-Apply to an admitted CLI payload, Hook event, configuration carrier, Journal
-record, protocol message, or external adapter whose invalid structure could
+apply **to** an admitted CLI payload, Hook event, configuration carrier, Journal
+record, protocol message, **or** external adapter whose invalid structure could
 hide a contract defect.
 
 ## Procedure
 
-1. Define the bounded input model with field types and constraints before
+1. define the bounded input model with field types **and** constraints **before**
    custom validators.
-2. Use strict validation when coercion could hide a defect; admit lax conversion
-   only for a declared interoperability need and make it observable.
-3. Reject undeclared extra fields for closed machine contracts.
-4. Return structured validation diagnostics and pass the accepted typed value
-   to the deterministic core.
-5. Add Pydantic as a runtime dependency only where validation and schema value
+2. use strict validation **when** coercion could hide a defect; admit lax conversion
+   **only** for a declared interoperability need **and** make it observable.
+3. reject undeclared extra fields for closed machine contracts.
+4. return structured validation diagnostics **and** pass the accepted typed value
+   **to** the deterministic core.
+5. add Pydantic as a runtime dependency **only** **where** validation **and** schema value
    justify its dependency cost.
 
 ## Outcome
 
-Untrusted structured inputs become explicit typed values at one boundary while
+untrusted structured inputs become explicit typed values at one boundary while
 the internal model remains independent of the validation library.
 
 ## Failure or stop
 
-Stop admission when the boundary is not declared, coercion is silent, extra
-fields escape a closed contract, or the dependency has no bounded benefit.
+stop admission **when** the boundary is **not** declared, coercion is silent, extra
+fields escape a closed contract, **or** the dependency has no bounded benefit.
 
 ## Sources
 

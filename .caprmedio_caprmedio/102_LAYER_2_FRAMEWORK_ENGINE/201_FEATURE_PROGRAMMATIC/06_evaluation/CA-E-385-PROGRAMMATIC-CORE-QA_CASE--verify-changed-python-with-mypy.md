@@ -1,41 +1,39 @@
 ---
-atom_id: CA-E-385
 cce_version: cce_1
 cce_form: evaluation
 subjects:
-  governs:
-    continuant:
-      - python-static-typing
+  governs: "python-static-typing"
   depends_on:
-    continuant:
-      - programmatic software
-version: 2
+    - "programmatic software"
+version: 7
 updated_at: "2026-09-11 20:58:34 +0400"
 relations:
   evaluation_for:
     - CA-M-283
   derived_from:
     - CA-A-053
+llm_session_ids:
+  - codex:01a02650-eff7-7453-8c37-0699b36773c6
 ---
 # Verify changed Python with Mypy
 
 ## Claim checked
 
-New Python passes the strict admitted Mypy profile and changed Python does not
+new Python passes the strict admitted Mypy profile **and** changed Python does **not**
 regress below its passing baseline.
 
 ## Test case
 
-Add one incompatible return type and one unexplained broad suppression to a
-changed target in the admitted Mypy set.
+add one incompatible return type **and** one unexplained broad suppression **to** a
+changed target **in** the admitted Mypy set.
 
 ## Acceptance criteria
 
-Pass only when both defects are reported and the target is rejected.
+pass **only** **when** both defects are reported **and** the target is rejected.
 
 ## Failure disposition
 
-Reject the changed target until types agree or a narrow explained suppression
+reject the changed target **until** types agree **or** a narrow explained suppression
 is accepted.
 
 ## Sources

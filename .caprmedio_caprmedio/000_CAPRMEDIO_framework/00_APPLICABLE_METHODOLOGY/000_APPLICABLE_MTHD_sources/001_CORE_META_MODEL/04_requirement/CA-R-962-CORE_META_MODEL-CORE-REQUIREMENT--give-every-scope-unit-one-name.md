@@ -1,15 +1,9 @@
 ---
 subjects:
-  governs:
-    continuant:
-      - Scope Unit/Name
+  governs: "Scope Unit/Name"
   depends_on:
-    continuant:
-      - Scope Unit
-atom_id: CA-R-962
-cce_version: cce_1
-cce_form: cardinality
-version: 8
+    - "Scope Unit"
+version: 12
 updated_at: "2026-09-10 05:08:55 +0400"
 relations: {}
 ---

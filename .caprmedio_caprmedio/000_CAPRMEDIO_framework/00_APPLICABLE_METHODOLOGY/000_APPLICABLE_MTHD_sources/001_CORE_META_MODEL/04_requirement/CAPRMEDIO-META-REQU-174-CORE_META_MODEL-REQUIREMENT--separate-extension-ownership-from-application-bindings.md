@@ -1,18 +1,10 @@
 ---
-atom_id: CAPRMEDIO-META-REQU-174
-cce_version: cce_1
-cce_form: separation
 subjects:
-  governs:
-    continuant:
-      - extension-model
+  governs: "extension-model"
   depends_on:
-    continuant:
-      - Framework Instance Settings
-version: 10
+    - "Framework Instance Settings"
+version: 14
 updated_at: "2026-09-10 20:57:22 +0400"
-llm_session_ids:
-  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   child_of:
     - CAPRMEDIO-META-REQU-127-CORE_META_MODEL-CORE-REQUIREMENT--define-two-governance-origins

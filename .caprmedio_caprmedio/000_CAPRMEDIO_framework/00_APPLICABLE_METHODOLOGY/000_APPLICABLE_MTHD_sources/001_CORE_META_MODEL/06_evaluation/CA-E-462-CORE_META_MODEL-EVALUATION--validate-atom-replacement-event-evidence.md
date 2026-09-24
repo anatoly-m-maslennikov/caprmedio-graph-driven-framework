@@ -1,7 +1,4 @@
 ---
-atom_id: CA-E-462
-cce_version: cce_1
-cce_form: evaluation
 subjects:
   governs: "Journal/Record"
   depends_on:
@@ -10,14 +7,33 @@ subjects:
     - "Atom/Revision"
     - "Carrier"
     - "Atom/Content Role: Operations"
-version: 3
-updated_at: 2026-09-15 05:51:38
+    - "Journal"
+    - "Atom"
+    - "Artifact/Carrier"
+    - "Project"
+    - "Applicable Methodology"
+version: 8
+updated_at: "2026-09-18 14:16:20 +0000"
 relations:
   evaluation_for:
+    - CA-R-1491
     - CA-R-807
 ---
 # Validate Atom replacement event evidence
 
-an Atom replacement event Evaluation **must** reject missing, unresolved, duplicate, self-referencing, **or** mismatched predecessor **and** successor identities under CA-R-807. the Evaluation **must** verify that **every** named successor is already Active **before** the predecessor is archived, that the archived predecessor preserves its exact prior bytes **and** Version, **and** that **`=1`** authoritative Journal event records the same replacement.
+## Claim checked
 
-a format check alone **must not** be reported as evidence of those state conditions. repeating the same recorded event **must not** create another authoritative record. event field names, encoding, receipt representation, **and** storage transaction mechanics remain checked against the separately selected Delivery authority; this Core Evaluation **must not** require a Git Commit **or** a particular Journal serialization.
+the Evaluation **must** check whether an Atom replacement satisfies CA-R-807. Journal acceptance is **not** proof that the replacement is correct.
+
+## Checks
+
+- report a failed replacement Evaluation **if** predecessor **or** successor identities are missing, unresolved, duplicate, self-referencing, **or** mismatched.
+- verify that **every** named successor was Active **before** the predecessor was archived, that the archive preserves the predecessor's exact prior bytes **and** Version, **and** that **`=1`** authoritative Journal event records that replacement.
+- check event field representation against the selected Delivery authority. a format check alone **must not** be reported as proof of replacement correctness.
+- repeated submission of the same event **must not** create another authoritative record.
+
+## Failure disposition
+
+a failed **or** unresolved replacement Evaluation **must not** prevent the Journal from preserving the observed event under CA-R-1491. preserve the supplied identities **and** evidence **without** inventing a conforming replacement **or** claiming that a failed check passed. correction changes the governed source through its authorized Workflow; it does **not** rewrite accepted history.
+
+this Evaluation **must not** require a Git Commit **or** a particular Journal serialization.

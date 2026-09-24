@@ -1,7 +1,4 @@
 ---
-atom_id: CAPRMEDIO-GOV-REQU-313
-cce_version: cce_1
-cce_form: classification
 subjects:
   governs: "Projection/Type"
   depends_on:
@@ -11,7 +8,7 @@ subjects:
     - "Projection/Type: Map"
     - "Projection/Type: Hub"
     - "Atom/Claim"
-version: 21
+version: 23
 updated_at: "2026-09-13 14:15:09 +0400"
 relations: {}
 ---

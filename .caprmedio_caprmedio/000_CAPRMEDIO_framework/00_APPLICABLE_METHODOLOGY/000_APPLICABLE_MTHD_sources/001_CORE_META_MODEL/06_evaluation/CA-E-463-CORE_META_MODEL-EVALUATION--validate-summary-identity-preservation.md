@@ -1,7 +1,4 @@
 ---
-atom_id: CA-E-463
-cce_version: cce_1
-cce_form: evaluation
 subjects:
   governs: "Atom/Summary"
   depends_on:
@@ -10,7 +7,7 @@ subjects:
     - "Atom/Revision"
     - "Atom/Claim"
     - "Artifact/Revision"
-version: 1
+version: 3
 updated_at: "2026-09-14 02:40:31 +0400"
 relations:
   evaluation_for:

@@ -1,19 +1,15 @@
 ---
-atom_id: CA-D-257
-cce_version: cce_1
-cce_form: definition
 subjects:
-  governs:
-    continuant:
-      - IS_CARRIED_BY
+  governs: "IS_CARRIED_BY"
   depends_on:
-    continuant:
-      - Artifact/Revision
-      - Carrier
-version: 4
-updated_at: 2026-09-06 01:45:12 +0400
+    - "Artifact/Revision"
+    - "Structural Entity"
+    - "Carrier"
+    - "CARRIES"
+version: 10
+updated_at: "2026-09-17 12:23:57 +0000"
 relations: {}
 ---
 # Define IS_CARRIED_BY
 
-IS_CARRIED_BY **means** the directed relation from one Artifact Revision to the Carrier that stores **or** attaches it **and** is the inverse of CARRIES.
+IS_CARRIED_BY **means** the inverse of CARRIES, directed from the exact Artifact Revision **or** Structural Entity Revision **to** its Carrier. its endpoint domain follows CA-D-256; the applicable Carrier authority determines the permitted binding.

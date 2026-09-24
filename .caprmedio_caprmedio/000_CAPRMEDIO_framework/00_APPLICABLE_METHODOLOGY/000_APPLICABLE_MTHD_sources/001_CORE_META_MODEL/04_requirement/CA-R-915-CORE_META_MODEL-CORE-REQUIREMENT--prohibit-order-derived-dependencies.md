@@ -1,15 +1,9 @@
 ---
 subjects:
-  governs:
-    continuant:
-      - relation-model
+  governs: "relation-model"
   depends_on:
-    continuant:
-      - atom-boundary
-atom_id: CA-R-915
-cce_version: cce_1
-cce_form: prohibition
-version: 10
+    - "atom-boundary"
+version: 14
 updated_at: 2026-09-07 09:59:57 +0000
 relations:
   child_of:

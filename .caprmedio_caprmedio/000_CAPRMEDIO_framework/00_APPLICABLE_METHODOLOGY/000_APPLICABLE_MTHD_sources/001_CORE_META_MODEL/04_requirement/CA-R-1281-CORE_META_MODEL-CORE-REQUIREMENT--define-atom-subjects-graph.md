@@ -1,7 +1,4 @@
 ---
-atom_id: CA-R-1281
-cce_version: cce_1
-cce_form: definition
 subjects:
   governs: "Projection/Type: Atom Subjects Graph"
   depends_on:
@@ -10,8 +7,6 @@ subjects:
     - "Atom/Subjects"
     - "Subject Path"
     - "Entity"
-    - "Action"
-    - "Process"
     - "GOVERNS"
     - "DEPENDS_ON"
     - "Relation"
@@ -20,12 +15,12 @@ subjects:
     - "Artifact/Revision"
     - "Subject"
     - "Term"
-version: 6
-updated_at: "2026-09-14 04:00:22 +0400"
+version: 10
+updated_at: "2026-09-22 20:07:50 +0000"
 relations: {}
 ---
 # Define Atom Subjects Graph
 
-Atom Subjects Graph **means** the Type value under Projection whose instances are non-authoritative CAPRMEDIO Graphs derived from selected current Atom Subjects, with Atom nodes linked by direct GOVERNS **and** DEPENDS_ON Subject Relations **to** their canonical Entity, Action, **or** Process target nodes. the Subjects are the links, **not** the target nodes **or** intermediate Subject nodes.
+Atom Subjects Graph **means** the Type value under Projection whose instances are non-authoritative CAPRMEDIO Graphs derived from selected current Atom Subjects, with Atom nodes linked by direct GOVERNS **and** DEPENDS_ON Subject Relations **to** their canonical Entity target nodes. the Subjects are the links, **not** the target nodes **or** intermediate Subject nodes.
 
-**every** represented link retains the source Atom identity, exact Subject Path, canonical target identity, Relation Kind, direction, **and** source Artifact Revision. its Relation Kinds **and** endpoint constraints remain governed by their existing graph-qualified authority; naming this Projection Type does **not** admit another Relation Kind owner **or** an independently authored relation fact. represented targets retain their Entity, Action, **or** Process identities **without** an intermediate Subject object **or** duplicated target definitions.
+**every** represented link retains the source Atom identity, exact Subject Path, canonical target identity, Relation Kind, direction, **and** source Artifact Revision. its Relation Kinds **and** endpoint constraints remain governed by their existing graph-qualified authority; naming this Projection Type does **not** admit another Relation Kind owner **or** an independently authored relation fact. represented targets retain their Entity identities **without** an intermediate Subject object **or** duplicated target definitions.

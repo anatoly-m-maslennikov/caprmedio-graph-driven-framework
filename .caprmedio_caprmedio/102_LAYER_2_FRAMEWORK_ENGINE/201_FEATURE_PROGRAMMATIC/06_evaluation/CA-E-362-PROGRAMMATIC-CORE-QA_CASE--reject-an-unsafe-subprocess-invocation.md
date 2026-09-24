@@ -1,16 +1,12 @@
 ---
-atom_id: CA-E-362
 cce_version: cce_1
 cce_form: evaluation
 subjects:
-  governs:
-    continuant:
-      - subprocess-invocation
+  governs: "subprocess-invocation"
   depends_on:
-    continuant:
-      - programmatic software
-version: 2
-updated_at: 2026-09-01 02:00:00 +0400
+    - "programmatic software"
+version: 3
+updated_at: "2026-09-15 21:31:49 +0000"
 relations:
   evaluation_for:
     - CA-M-161
@@ -21,24 +17,19 @@ relations:
 
 ## Claim checked
 
-One PROGRAMMATIC subprocess uses an argument array, explicit timeout, checked
-exit status, controlled environment input, and shell execution disabled.
+**when** no explicit governing exception applies, a PROGRAMMATIC subprocess invocation **must** use an argument array, an explicit timeout, checked exit status, controlled environment input, **and** disabled shell execution under CA-M-161.
 
 ## Test case
 
-Evaluate one invocation expressed as a shell command string with shell
-execution enabled.
+- evaluate a default-policy invocation expressed as a shell command string with shell execution enabled **and** no governing exception.
+- evaluate a bounded argument-array invocation with disabled shell execution, timeout, checked exit status, **and** controlled environment input.
 
 ## Acceptance criteria
 
-Pass only when the invocation is rejected before process creation and reports
-the unsafe argument and shell boundary.
+- reject the first invocation **before** process creation **and** report the unsafe argument **and** shell boundary.
+- admit the second invocation **only** **when** its complete bounded effect contract is satisfied.
+- evaluate an explicitly permitted exception against its governing authority; this default-policy fixture **must not** create a universal prohibition **or** authorize an exception.
 
 ## Failure disposition
 
-Reject the subprocess path until it uses the complete bounded invocation
-contract.
-
-## Sources
-
-- [CA-M-161 — Bound file and subprocess effects](../05_method/CA-M-161-PROGRAMMATIC-CORE-METHOD--bound-file-and-subprocess-effects.md)
+reject an invocation that violates its governing effect boundary.

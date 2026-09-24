@@ -1,43 +1,41 @@
 ---
-atom_id: CA-E-395
 cce_version: cce_1
 cce_form: evaluation
 subjects:
-  governs:
-    continuant:
-      - generated-boundary-evaluation
+  governs: "generated-boundary-evaluation"
   depends_on:
-    continuant:
-      - programmatic software
-version: 2
+    - "programmatic software"
+version: 7
 updated_at: "2026-09-11 20:58:34 +0400"
 relations:
   evaluation_for:
     - CA-M-285
   derived_from:
     - CA-A-053
+llm_session_ids:
+  - codex:01a02650-eff7-7453-8c37-0699b36773c6
 ---
 # Fuzz parsers and stateful boundaries
 
 ## Claim checked
 
-Broad input or transition spaces preserve accepted invariants under generated
-valid, invalid, and ordered cases.
+broad input **or** transition spaces preserve accepted invariants under generated
+valid, invalid, **and** ordered cases.
 
 ## Test case
 
-Run a bounded property or state-machine campaign against one parser or
-lifecycle and inject an invariant-breaking generated sequence.
+run a bounded property **or** state-machine campaign against one parser **or**
+lifecycle **and** inject an invariant-breaking generated sequence.
 
 ## Acceptance criteria
 
-Pass only when the minimal failing input or sequence and seed are preserved,
-the defect is accepted or rejected explicitly, and an accepted defect gains a
+pass **only** **when** the minimal failing input **or** sequence **and** seed are preserved,
+the defect is accepted **or** rejected explicitly, **and** an accepted defect gains a
 deterministic regression case.
 
 ## Failure disposition
 
-Reject unreplayable generated evidence and keep expensive campaigns outside
+reject unreplayable generated evidence **and** keep expensive campaigns outside
 synchronous Hooks.
 
 ## Sources

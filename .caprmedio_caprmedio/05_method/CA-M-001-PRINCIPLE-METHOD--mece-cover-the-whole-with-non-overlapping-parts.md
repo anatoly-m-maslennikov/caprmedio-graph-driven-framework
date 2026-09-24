@@ -1,19 +1,15 @@
 ---
-atom_id: "CA-M-001"
 cce_version: "cce_1"
 cce_form: "method"
-version: 9
-updated_at: "2026-09-05 23:00:00 +0400"
+version: 10
+updated_at: "2026-09-15 21:31:49 +0000"
 relations:
   child_of:
-    - "ANATOLY-MASLENNIKOV-DEFINES_GOAL_FOR-CAPRMEDIO--create-and-evolve-a-working-caprmedio-framework"
+    - "ANATOLY-MASLENNIKOV-DEFINES_GOAL_FOR-caprmedio--create-and-evolve-a-working-caprmedio-framework"
 subjects:
-  governs:
-    occurrent:
-      - "Project/decomposition"
+  governs: "Project/decomposition"
   depends_on:
-    continuant:
-      - "Project"
+    - "Project"
 ---
 # MECE: Cover the whole with non-overlapping parts
 

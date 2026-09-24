@@ -76,10 +76,10 @@
   "consumer_updates": [
     "README.md",
     "pyproject.toml",
-    "102_FRAMEWORK_ENGINE/202_AGENTIC/301_SKILLS/ca-project-settings/SKILL.md",
-    "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/RETRIEVE_APPLICABLE_METHODOLOGY/retrieve_applicable_methodology.py",
-    "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/GENERATE_PROJECT_GRAPH_STATE/generate_project_graph_state.py",
-    "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/atom_operations.py"
+    "102_FRAMEWORK_ENGINE/202_AGENTIC/205_SKILLS/ca-project-settings/SKILL.md",
+    "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/RETRIEVE_APPLICABLE_METHODOLOGY/retrieve_applicable_methodology.py",
+    "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/GENERATE_PROJECT_GRAPH_STATE/generate_project_graph_state.py",
+    "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_operations.py"
   ],
   "installation": {
     "tool_release_installed_without_host_hooks": true,

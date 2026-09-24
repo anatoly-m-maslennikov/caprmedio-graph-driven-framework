@@ -1,15 +1,12 @@
 ---
-atom_id: CAPRMEDIO-META-REQU-181
-cce_version: cce_1
-cce_form: obligation
 subjects:
-  governs:
-    continuant:
-      - scope-topology
-version: 8
-updated_at: "2026-09-10 07:24:21 +0400"
-llm_session_ids:
-  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+  governs: "Structural Level"
+  depends_on:
+    - "Scope Unit"
+    - "Structural Parent Relation"
+    - "Relation"
+version: 13
+updated_at: "2026-09-17 12:58:39 +0000"
 relations:
   child_of:
     - CAPRMEDIO-META-REQU-172-CORE_META_MODEL-CORE-REQUIREMENT--admit-only-necessary-structural-levels
@@ -18,4 +15,4 @@ relations:
 ---
 # Require an irreducible ownership boundary for new structural levels
 
-CAPRMEDIO **may** admit a proposed structural level **only** **after** identifying **`>=1`** required ownership boundary that no existing structural level **or** relation can represent **without** violating single ownership, acyclicity, **or** semantic irreducibility.
+admission of a proposed Structural Level requires identification of **`>=1`** required ownership boundary that no existing Structural Level **or** Relation can represent **without** violating single ownership, acyclicity, **or** semantic irreducibility.

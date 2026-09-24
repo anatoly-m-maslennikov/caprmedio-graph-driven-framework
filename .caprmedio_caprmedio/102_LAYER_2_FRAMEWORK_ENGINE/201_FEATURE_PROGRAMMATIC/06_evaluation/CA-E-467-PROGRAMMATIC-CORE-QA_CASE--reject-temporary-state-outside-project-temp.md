@@ -1,18 +1,14 @@
 ---
-atom_id: CA-E-467
 cce_version: cce_1
 cce_form: evaluation
 subjects:
-  governs:
-    continuant:
-      - PROGRAMMATIC/temporary execution state
+  governs: "PROGRAMMATIC/temporary execution state"
   depends_on:
-    continuant:
-      - programmatic software
+    - "programmatic software"
 llm_session_ids:
   - codex:01a0263a-7510-7672-bce4-58830bc4d184
-version: 3
-updated_at: 2026-09-15 04:19:10 +0400
+version: 4
+updated_at: "2026-09-15 21:31:49 +0000"
 relations:
   evaluation_for:
     - CA-R-1473
@@ -22,36 +18,25 @@ relations:
 
 ## Claim checked
 
-One CAPRMEDIO-controlled PROGRAMMATIC execution confines every temporary
-Carrier created by its components and configured dependencies below the
-Project Temporary State root.
+**every** CAPRMEDIO-controlled PROGRAMMATIC execution **must** confine temporary Carriers created by its components **and** configured dependencies **to** the Project Temporary State root.
 
 ## Test case
 
-Set the process working directory and ambient host temporary location to
-repository locations outside `.caprmedio_tmp/`. Run representative Tool,
-App backend, and MCP fixtures, including their test runner and one configured
-dependency. Exercise Python bytecode and dependency cache creation, a temporary
-workspace, atomic staging, and an interrupted or denied cleanup. Compare the complete path frontier
-outside the Temporary State root before and after execution, and inspect the
-applicable source and technical configuration for unredirected temporary-path
-creation.
+1. set the working directory **and** ambient host temporary location outside the configured Project Temporary State root.
+2. run representative Tool, App backend, **and** MCP fixtures, including their test runner **and** a configured dependency. exercise bytecode creation, caches, temporary workspaces, atomic staging, **and** interrupted **or** denied cleanup.
+3. compare the path frontier outside the Temporary State root **before** **and** **after** execution. inspect the applicable source **and** configuration for unredirected temporary-path creation.
+4. delete **only** the Temporary State root **in** an isolated fixture **and** compare its protected authority **and** runtime state.
 
 ## Acceptance criteria
 
-Pass only when every created temporary, scratch, staging, cache, build,
-Evaluation, and cleanup-remnant File or Directory Carrier is below the
-configured `.caprmedio_tmp/` root; each concurrent owner uses its declared
-component or run-specific descendant; no applicable source or configuration
-uses an ambient or hard-coded host temporary fallback; and deleting the Runtime
-State root cannot delete governed authority, Project Journal history, selected
-runtime releases, logs, sessions, databases, service state, or resumable state.
-No `__pycache__/` Directory Carrier or `.pyc` File Carrier exists below
-`.caprmedio_runtime/` after the execution.
+**all** of the following **must** hold:
+
+- **every** temporary, scratch, staging, cache, build, Evaluation, **and** cleanup-remnant Carrier is below the configured Project Temporary State root.
+- concurrent owners use their declared component **or** run-specific descendants.
+- no applicable source **or** configuration uses an ambient **or** hard-coded host temporary fallback.
+- deletion of the Temporary State root leaves governed authority, Project Journal history, selected runtime releases, logs, sessions, databases, service state, **and** resumable state unchanged.
+- no Python bytecode cache remains below the Runtime State root.
 
 ## Failure disposition
 
-Reject the changed component, test workflow, dependency configuration, or
-release until every observed and statically detectable temporary Carrier is
-redirected to the Project Temporary State root. Report each violating path and
-its creating owner.
+reject the changed component, test workflow, dependency configuration, **or** release **until** **every** observed **and** statically detectable temporary Carrier uses the Project Temporary State root. report **every** violating path **and** its creating owner.

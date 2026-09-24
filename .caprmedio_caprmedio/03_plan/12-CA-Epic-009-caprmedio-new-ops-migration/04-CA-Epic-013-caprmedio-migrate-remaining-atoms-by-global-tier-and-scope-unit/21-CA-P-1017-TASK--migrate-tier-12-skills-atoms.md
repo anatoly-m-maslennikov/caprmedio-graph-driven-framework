@@ -35,7 +35,7 @@ the Assignee **must** align this Global Tier 12 batch **in** SKILLS with the upd
 
 ## Scope
 
-(selected directly owned RMEDO Atoms at Global Tier 12, Local Tier Standard, **in** `.caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/202_FEATURE_AGENTIC/301_FEATURE_SKILLS`; child Scope Units are excluded); the source **and** lifecycle admission boundary established by CA-P-976 applies; historical versions, generated copies, runtime, Implementation code, **and** other CAP Atoms are excluded.
+(selected directly owned RMEDO Atoms at Global Tier 12, Local Tier Standard, **in** `.caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/202_FEATURE_AGENTIC/205_FEATURE_SKILLS`; child Scope Units are excluded); the source **and** lifecycle admission boundary established by CA-P-976 applies; historical versions, generated copies, runtime, Implementation code, **and** other CAP Atoms are excluded.
 
 ## Definition of Done
 

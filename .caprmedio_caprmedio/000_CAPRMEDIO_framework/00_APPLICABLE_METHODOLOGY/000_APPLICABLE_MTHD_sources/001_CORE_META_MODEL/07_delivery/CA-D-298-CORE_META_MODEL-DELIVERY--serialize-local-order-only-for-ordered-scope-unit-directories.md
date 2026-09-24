@@ -1,7 +1,4 @@
 ---
-atom_id: CA-D-298
-cce_version: cce_1
-cce_form: serialization
 subjects:
   governs: "Directory Carrier/Name"
   depends_on:
@@ -9,7 +6,7 @@ subjects:
     - "Scope Unit/Type: Unordered"
     - "Scope Unit/Label"
     - "Local Order"
-version: 7
+version: 9
 updated_at: "2026-09-15 00:13:02 +0000"
 relations: {}
 ---

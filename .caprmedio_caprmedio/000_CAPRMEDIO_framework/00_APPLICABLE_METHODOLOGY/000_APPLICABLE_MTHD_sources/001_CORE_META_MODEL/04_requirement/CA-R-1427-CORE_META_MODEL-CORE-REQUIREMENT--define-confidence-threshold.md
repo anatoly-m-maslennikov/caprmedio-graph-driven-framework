@@ -1,12 +1,8 @@
 ---
-atom_id: CA-R-1427
-cce_version: cce_1
-cce_form: definition
 subjects:
-  governs:
-    continuant:
-      - "Confidence Threshold"
-version: 1
+  governs: "Confidence Threshold"
+  depends_on: []
+version: 5
 updated_at: "2026-09-09 02:24:28 +0400"
 relations: {}
 ---

@@ -1137,7 +1137,7 @@
     "command": [
       "python3",
       "-B",
-      "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/validate_expansion_boundary.py",
+      "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/validate_expansion_boundary.py",
       "--root",
       ".",
       "--include-layer",

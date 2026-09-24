@@ -1,21 +1,19 @@
 ---
-atom_id: CA-R-004
 cce_version: cce_1
 cce_form: obligation
-version: 13
+version: 16
 updated_at: "2026-09-05 23:00:00 +0400"
 relations:
   child_of:
     - CA-P-033
 subjects:
-  governs:
-    continuant:
-      - "CAPRMEDIO Framework Instance/control"
+  governs: "CAPRMEDIO Framework Instance/control"
   depends_on:
-    continuant:
-      - "CAPRMEDIO Framework Instance"
-      - "Operator"
-      - "Project"
+    - "CAPRMEDIO Framework Instance"
+    - "Operator"
+    - "Project"
+llm_session_ids:
+  - codex:01a02650-eff7-7453-8c37-0699b36773c6
 ---
 # Keep the framework under Operator control
 

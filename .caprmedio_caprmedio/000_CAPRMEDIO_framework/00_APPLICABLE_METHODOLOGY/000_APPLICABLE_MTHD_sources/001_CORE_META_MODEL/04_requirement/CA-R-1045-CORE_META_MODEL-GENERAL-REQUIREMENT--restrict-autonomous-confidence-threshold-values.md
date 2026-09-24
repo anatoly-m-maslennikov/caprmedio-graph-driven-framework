@@ -1,17 +1,12 @@
 ---
 subjects:
-  governs:
-    continuant:
-      - Autonomous Confidence Threshold
-atom_id: CA-R-1045
-cce_version: cce_1
-cce_form: obligation
-version: 7
-updated_at: "2026-09-10 03:38:57 +0400"
+  governs: "Autonomous Confidence Threshold"
+version: 10
+updated_at: "2026-09-15 21:31:49 +0000"
 relations:
   child_of:
     - CA-R-1044
 ---
 # Restrict Autonomous Confidence Threshold values
 
-**every** Autonomous Confidence Threshold **must** equal one value **in** (80, 90, 95, 98, 99).
+**every** Autonomous Confidence Threshold **must** be an integer percentage **`>=0`** **and** **`<=100`**. resolve its effective value from the applicable source under CA-M-271; the methodology **must not** restrict that value **to** a closed list of preferred percentages.

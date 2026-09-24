@@ -1,22 +1,20 @@
 ---
-atom_id: CA-R-846
 cce_version: cce_1
 cce_form: obligation
-version: 7
+version: 10
 updated_at: "2026-09-05 23:00:00 +0400"
 relations:
   child_of:
     - CA-P-033
 subjects:
-  governs:
-    continuant:
-      - "AI Agent/authorization"
+  governs: "AI Agent/authorization"
   depends_on:
-    continuant:
-      - "AI Agent"
-      - "Operator"
-      - "AI Agent Delegation"
-      - "CAPRMEDIO Framework Instance"
+    - "AI Agent"
+    - "Operator"
+    - "AI Agent Delegation"
+    - "CAPRMEDIO Framework Instance"
+llm_session_ids:
+  - codex:01a02650-eff7-7453-8c37-0699b36773c6
 ---
 # Let the Operator control AI permissions
 

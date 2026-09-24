@@ -1,19 +1,11 @@
 ---
-atom_id: CAPRMEDIO-GOV-REQU-381
 subjects:
-  governs:
-    continuant:
-      - Feature Realization Relation
+  governs: "Feature Realization Relation"
   depends_on:
-    continuant:
-      - atom-boundary
-      - relation-model
-cce_version: cce_1
-cce_form: definition
-version: 15
+    - "atom-boundary"
+    - "relation-model"
+version: 19
 updated_at: "2026-09-11 22:30:02 +0400"
-llm_session_ids:
-  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 relations:
   child_of:
     - CAPRMEDIO-META-REQU-084--relational-artifacts-declare-endpoints

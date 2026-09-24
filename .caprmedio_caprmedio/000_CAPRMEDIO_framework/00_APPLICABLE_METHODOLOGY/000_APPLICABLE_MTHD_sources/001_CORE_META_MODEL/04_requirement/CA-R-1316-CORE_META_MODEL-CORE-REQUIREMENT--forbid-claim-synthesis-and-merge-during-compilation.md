@@ -1,15 +1,9 @@
 ---
-atom_id: CA-R-1316
-cce_version: cce_1
-cce_form: prohibition
 subjects:
-  governs:
-    occurrent:
-      - Applicable Methodology Compilation/Claim Transformation
+  governs: "Applicable Methodology Compilation/Claim Transformation"
   depends_on:
-    continuant:
-      - Atom/Claim
-version: 4
+    - "Atom/Claim"
+version: 8
 updated_at: 2026-09-06 01:45:12 +0400
 relations: {}
 ---

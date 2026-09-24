@@ -1,16 +1,10 @@
 ---
-atom_id: CAPRMEDIO-GOV-REQU-305
-cce_version: cce_1
-cce_form: resolution
 subjects:
-  governs:
-    continuant:
-      - Optional Projection/Activation
+  governs: "Optional Projection/Activation"
   depends_on:
-    continuant:
-      - Framework Instance Settings
-      - Projection
-version: 13
+    - "Framework Instance Settings"
+    - "Projection"
+version: 17
 updated_at: "2026-09-10 07:34:05 +0400"
 relations: {}
 ---

@@ -1,17 +1,11 @@
 ---
-atom_id: CA-R-1394
-cce_version: cce_1
-cce_form: definition
 subjects:
-  governs:
-    continuant:
-      - Artifact/Activity
+  governs: "Artifact/Activity"
   depends_on:
-    continuant:
-      - Artifact
-      - Artifact/Revision/Status
-      - Property
-version: 4
+    - "Artifact"
+    - "Artifact/Revision/Status"
+    - "Property"
+version: 8
 updated_at: "2026-09-11 02:13:22 +0400"
 relations: {}
 ---

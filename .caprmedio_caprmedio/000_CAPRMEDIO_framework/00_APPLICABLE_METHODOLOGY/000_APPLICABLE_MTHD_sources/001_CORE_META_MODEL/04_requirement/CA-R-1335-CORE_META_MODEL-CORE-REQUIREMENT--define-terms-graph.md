@@ -1,7 +1,4 @@
 ---
-atom_id: CA-R-1335
-cce_version: cce_1
-cce_form: definition
 subjects:
   governs: "Projection/Type: Terms Graph"
   depends_on:
@@ -10,7 +7,7 @@ subjects:
     - "Relation Kind"
     - "Relation"
     - "CAPRMEDIO Graph"
-version: 8
+version: 10
 updated_at: "2026-09-15 01:47:49 +0400"
 relations: {}
 ---

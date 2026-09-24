@@ -1,16 +1,10 @@
 ---
-atom_id: CA-R-1442
-cce_version: cce_1
-cce_form: obligation
 subjects:
-  governs:
-    continuant:
-      - Atom/Local Tier
+  governs: "Atom/Local Tier"
   depends_on:
-    continuant:
-      - Project
-      - Scope Unit
-version: 4
+    - "Project"
+    - "Scope Unit"
+version: 8
 updated_at: "2026-09-11 20:58:34 +0400"
 relations: {}
 ---

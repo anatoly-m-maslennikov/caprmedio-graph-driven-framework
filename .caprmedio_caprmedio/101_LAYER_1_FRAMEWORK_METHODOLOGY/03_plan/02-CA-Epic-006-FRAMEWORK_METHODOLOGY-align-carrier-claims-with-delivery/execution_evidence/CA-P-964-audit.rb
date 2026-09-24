@@ -224,7 +224,7 @@ stdout.each_line do |line|
   text = data['lines'].fetch('text','').chomp; next if text.match?(/\Aatom_id\s*:/)
   parts = path.split('/'); consumer = by_path[path]
   generated = path.match?(%r{00_APPLICABLE_METHODOLOGY/0[45679]_}) || path.include?('.projection.') || parts.include?('.caprmedio_install') || parts.include?('.caprmedio_runtime')
-  context = !(parts & INACTIVE).empty? || path.include?('/work_journal/') ? 'historical_or_journal' : generated ? 'generated_or_installed' : consumer && ROLES.include?(File.basename(File.dirname(path))) ? (current.key?(consumer['identity']) ? 'active_source_RMED' : 'external_active_RMED') : parts.include?('03_plan') ? 'other_plan' : path.match?(%r{(?:/301_TOOLS/|\.py\z|\.rb\z|\.js\z|\.ts\z)}) ? 'tool_or_implementation' : 'other_non_RMED'
+  context = !(parts & INACTIVE).empty? || path.include?('/work_journal/') ? 'historical_or_journal' : generated ? 'generated_or_installed' : consumer && ROLES.include?(File.basename(File.dirname(path))) ? (current.key?(consumer['identity']) ? 'active_source_RMED' : 'external_active_RMED') : parts.include?('03_plan') ? 'other_plan' : path.match?(%r{(?:/201_TOOLS/|\.py\z|\.rb\z|\.js\z|\.ts\z)}) ? 'tool_or_implementation' : 'other_non_RMED'
   data['submatches'].each do |m|
     target = m['match']['text']; next if consumer && consumer['identity'] == target
     row = { 'path' => path, 'line' => data['line_number'], 'target' => target, 'context' => context, 'retired_target' => retired.include?(target) }

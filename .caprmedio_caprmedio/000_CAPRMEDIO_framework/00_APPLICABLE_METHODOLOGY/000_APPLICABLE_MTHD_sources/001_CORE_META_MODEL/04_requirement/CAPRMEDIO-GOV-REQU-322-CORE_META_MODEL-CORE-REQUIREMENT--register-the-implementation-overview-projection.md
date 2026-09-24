@@ -1,7 +1,4 @@
 ---
-atom_id: CAPRMEDIO-GOV-REQU-322
-cce_version: cce_1
-cce_form: definition
 subjects:
   governs: "Projection/Type: Implementation Overview"
   depends_on:
@@ -16,11 +13,8 @@ project_graph_state:
   artifacts:
     enabled_types:
       - implementation_record
-version: 18
+version: 22
 updated_at: 2026-09-15 05:51:38
-llm_session_ids:
-  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
-  - codex:01a01cb6-4ee4-7553-b68d-0823dda35094
 relations:
   relates_to:
     - CAPRMEDIO-GOV-REQU-313
@@ -36,6 +30,6 @@ its storage **and** retention policy is configured separately. a generated runti
 
 ## Rationale
 
-The predecessor incorrectly bundled Change Plan **and** Implementation Record under one Implementation-role Projection rule. The split preserves the record while routing Change Plan to the new Plan Atom family.
+the predecessor incorrectly bundled Change Plan **and** Implementation Record under one Implementation-role Projection rule. the split preserves the record while routing Change Plan **to** the new Plan Atom family.
 
 the historical name Implementation Record **in** this rationale referred **to** the current-state Projection now named Implementation Overview; the name change distinguishes that view from the implementation event records retained **in** the Journal.

@@ -1,7 +1,4 @@
 ---
-atom_id: CA-R-1437
-cce_version: cce_1
-cce_form: obligation
 subjects:
   governs: "Relation/authority"
   depends_on:
@@ -13,7 +10,7 @@ subjects:
     - "Atom/Claim"
     - "Structural Entity"
     - "Journal"
-version: 2
+version: 4
 updated_at: "2026-09-15 01:47:49 +0400"
 relations: {}
 ---

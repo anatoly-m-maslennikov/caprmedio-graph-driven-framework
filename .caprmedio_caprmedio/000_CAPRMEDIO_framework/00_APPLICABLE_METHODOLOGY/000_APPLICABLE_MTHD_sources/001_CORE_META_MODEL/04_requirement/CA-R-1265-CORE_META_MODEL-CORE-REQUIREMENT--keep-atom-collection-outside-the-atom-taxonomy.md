@@ -1,15 +1,9 @@
 ---
-atom_id: CA-R-1265
-cce_version: cce_1
-cce_form: prohibition
 subjects:
-  governs:
-    continuant:
-      - Atom Collection
+  governs: "Atom Collection"
   depends_on:
-    continuant:
-      - Atom
-version: 6
+    - "Atom"
+version: 10
 updated_at: "2026-09-11 05:27:15 +0400"
 relations: {}
 ---

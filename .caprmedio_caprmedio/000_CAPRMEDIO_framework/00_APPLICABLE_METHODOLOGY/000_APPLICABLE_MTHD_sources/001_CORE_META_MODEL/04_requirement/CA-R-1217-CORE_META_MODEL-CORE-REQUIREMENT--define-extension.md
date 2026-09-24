@@ -1,18 +1,14 @@
 ---
-atom_id: CA-R-1217
-cce_version: cce_1
-cce_form: definition
 subjects:
-  governs:
-    continuant:
-      - Extension
+  governs: "Extension"
   depends_on:
-    continuant:
-      - Applicable Methodology/Sources/Core Meta-Model
-version: 4
-updated_at: 2026-09-06 01:45:12 +0400
+    - "Methodology Source"
+    - "Core Meta-Model"
+    - "Methodology Source/Expansion Boundary"
+version: 9
+updated_at: "2026-09-17 04:15:06 +0000"
 relations: {}
 ---
 # Define Extension
 
-an Extension **means** an immutable authority source that adds **or** specializes Methodology authority **without** modifying the Core Meta-Model authority.
+an Extension **means** an immutable Methodology Source that adds authority within the Core Meta-Model's permitted expansion boundary under CA-R-1375. specialization is admitted **only** **where** that boundary permits it **and** preserves applicable Core Meta-Model authority; unchanged Core Carrier bytes alone do **not** establish preservation.

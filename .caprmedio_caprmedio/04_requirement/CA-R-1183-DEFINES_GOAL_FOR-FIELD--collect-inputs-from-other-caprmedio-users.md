@@ -1,17 +1,15 @@
 ---
-atom_id: CA-R-1183
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  governs:
-    continuant:
-      - FIELD/Goal
+  governs: "FIELD/Goal"
   depends_on:
-    continuant:
-      - CAPRMEDIO
-version: 4
+    - "CAPRMEDIO"
+version: 7
 updated_at: "2026-09-09 16:14:03 +0400"
 relations: {}
+llm_session_ids:
+  - codex:01a02650-eff7-7453-8c37-0699b36773c6
 ---
 # Collect inputs from other CAPRMEDIO users
 

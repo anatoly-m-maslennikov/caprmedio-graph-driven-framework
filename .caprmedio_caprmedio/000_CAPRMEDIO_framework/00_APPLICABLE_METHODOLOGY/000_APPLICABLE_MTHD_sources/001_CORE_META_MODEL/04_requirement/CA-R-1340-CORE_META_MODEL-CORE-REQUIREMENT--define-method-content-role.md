@@ -1,19 +1,17 @@
 ---
-atom_id: CA-R-1340
-cce_version: cce_1
-cce_form: definition
 subjects:
-  governs:
-    continuant:
-      - "Atom/Content Role: Method"
+  governs: "Atom/Content Role: Method"
   depends_on:
-    continuant:
-      - Atom/Content Role
-      - Claim
-version: 5
-updated_at: "2026-09-13 01:25:33 +0400"
+    - "Atom/Content Role"
+    - "Atom/Claim"
+    - "Spec"
+    - "Implementation"
+    - "Action"
+    - "Workflow"
+version: 11
+updated_at: "2026-09-21 00:39:50 +0000"
 relations: {}
 ---
 # Define Method Content Role
 
-Method **means** the Content Role of an Atom Claim that establishes one reusable Implementation choice **or** convention for satisfying accepted Spec authority, such as a library choice **or** code convention, **without** serving as the authoritative operational Action **or** Process definition.
+Method **means** the Content Role of an Atom Claim that establishes a reusable authorship, construction, **or** Implementation choice **or** convention for satisfying accepted Spec authority, **without** defining a particular operational Action **or** Workflow.

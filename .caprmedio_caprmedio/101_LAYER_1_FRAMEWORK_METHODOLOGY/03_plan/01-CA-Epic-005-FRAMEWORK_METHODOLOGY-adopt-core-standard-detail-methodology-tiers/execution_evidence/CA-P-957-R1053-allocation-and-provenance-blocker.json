@@ -124,17 +124,17 @@
     "observation": "R1054 has only Archive Carriers. R1053's sole actual direct relation cannot supply any fresh preserving successor ID to the canonical source list.",
     "schema_evidence": [
       {
-        "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/work_journal.py",
+        "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/work_journal.py",
         "lines": "263-287",
         "constraint": "Sources are actual relation_type, filename and version records; no fictitious source may be authored."
       },
       {
-        "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/work_journal.py",
+        "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/work_journal.py",
         "lines": "292-341",
         "constraint": "Present result has exact filename/version/path/sha256/state fields; no extra successor payload."
       },
       {
-        "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/work_journal.py",
+        "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/work_journal.py",
         "lines": "344-409",
         "constraint": "Completed sealed-event top-level fields are constrained and include no independent replacement/absorption mapping payload."
       }

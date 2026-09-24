@@ -1,7 +1,4 @@
 ---
-atom_id: CA-M-232
-cce_version: cce_1
-cce_form: method
 subjects:
   governs: "Subject Projection Derivation"
   depends_on:
@@ -12,7 +9,7 @@ subjects:
     - "Atom"
     - "GOVERNS"
     - "DEPENDS_ON"
-version: 8
+version: 10
 updated_at: "2026-09-14 04:00:22 +0400"
 relations: {}
 ---

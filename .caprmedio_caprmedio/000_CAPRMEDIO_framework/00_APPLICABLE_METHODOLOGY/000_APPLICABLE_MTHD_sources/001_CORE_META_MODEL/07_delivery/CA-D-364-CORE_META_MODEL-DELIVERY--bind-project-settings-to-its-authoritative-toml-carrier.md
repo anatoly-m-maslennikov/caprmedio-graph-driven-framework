@@ -1,15 +1,9 @@
 ---
-atom_id: CA-D-364
-cce_version: cce_1
-cce_form: delivery
 subjects:
-  governs:
-    continuant:
-      - Project Settings/Authoritative Carrier
+  governs: "Project Settings/Authoritative Carrier"
   depends_on:
-    continuant:
-      - Project Settings/Authoritative Carrier/Filename
-version: 3
+    - "Project Settings/Authoritative Carrier/Filename"
+version: 7
 updated_at: "2026-09-10 02:49:14 +0400"
 relations:
   child_of:

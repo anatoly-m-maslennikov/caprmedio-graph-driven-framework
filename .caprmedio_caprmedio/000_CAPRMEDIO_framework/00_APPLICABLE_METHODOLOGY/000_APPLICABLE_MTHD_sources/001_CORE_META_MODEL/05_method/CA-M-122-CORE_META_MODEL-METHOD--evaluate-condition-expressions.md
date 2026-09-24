@@ -1,16 +1,10 @@
 ---
-atom_id: CA-M-122
-cce_version: cce_1
-cce_form: method
 subjects:
-  governs:
-    occurrent:
-      - CCE Condition Expression Evaluation
+  governs: "CCE Condition Expression Evaluation"
   depends_on:
-    continuant:
-      - CCE Condition Expression
-      - CCE Operator
-version: 8
+    - "CCE Condition Expression"
+    - "CCE Operator"
+version: 14
 updated_at: "2026-09-10 03:25:26 +0400"
 relations:
   child_of:
@@ -18,20 +12,20 @@ relations:
 ---
 # Evaluate Condition Expressions
 
-**to** evaluate one CCE condition expression, the Resolver **must** PERFORM **all** OF:
+**to** evaluate one CCE condition expression, the Resolver **must** perform **all** of:
 
-1. Evaluate the innermost parenthesized function **before** its containing function.
-2. Evaluate **`=`** **and** **`!=`** as exact equality **and** inequality between one governed property **and** one canonical value.
-3. Evaluate **`<`**, **`<=`**, **`>`**, **and** **`>=`** **only** for properties with one governed comparison order.
-4. Evaluate **in** **and** **not in** as scalar membership **and** non-membership **in** one explicitly parenthesized value list, **or** according to CA-M-127 **when** the governed property is set-valued.
-5. Evaluate **is empty** **and** **is not empty** as absence **and** presence of a governed property value.
-6. Evaluate **contains**, **starts with**, **and** **ends with** **only** for governed textual property values.
-7. Evaluate **and** as true **only** **when** **every** argument is true.
-8. Evaluate **or** as true **when** **`>=1`** argument is true.
-9. Evaluate **not** as the inverse truth value of its argument.
-10. Evaluate **if** ... **then** as false **only** **when** its antecedent is true **and** its consequent is false.
-11. Evaluate **every** as true **only** **when** its predicate is true for **every** member of its population.
-12. Evaluate **any** as true **when** its predicate is true for **`>=1`** member of its population.
-13. Evaluate **none** as true **only** **when** its predicate is false for **every** member of its population.
-14. Evaluate **where** as restriction of one population to members whose predicate is true.
-15. Use another logical function **only** **when** an active CCE Method gives that function **`=1`** logical meaning.
+1. evaluate the innermost parenthesized function **before** its containing function.
+2. evaluate **`=`** **and** **`!=`** as exact equality **and** inequality between one governed property **and** one canonical value.
+3. evaluate **`<`**, **`<=`**, **`>`**, **and** **`>=`** **only** for properties with one governed comparison order.
+4. evaluate **in** **and** **not in** as scalar membership **and** non-membership **in** one explicitly parenthesized value list, **or** according **to** CA-M-127 **when** the governed property is set-valued.
+5. evaluate **is empty** **and** **is not empty** as absence **and** presence of a governed property value.
+6. evaluate **contains**, **starts with**, **and** **ends with** **only** for governed textual property values.
+7. evaluate **and** as true **only** **when** **every** argument is true.
+8. evaluate **or** as true **when** **`>=1`** argument is true.
+9. evaluate **not** as the inverse truth value of its argument.
+10. evaluate **if** ... **then** as false **only** **when** its antecedent is true **and** its consequent is false.
+11. evaluate **every** as true **only** **when** its predicate is true for **every** member of its population.
+12. evaluate **any** as true **when** its predicate is true for **`>=1`** member of its population.
+13. evaluate **none** as true **only** **when** its predicate is false for **every** member of its population.
+14. evaluate **where** as restriction of one population **to** members whose predicate is true.
+15. use another logical function **only** **when** an active CCE Method gives that function **`=1`** logical meaning.

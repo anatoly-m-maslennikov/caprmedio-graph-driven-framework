@@ -1,16 +1,10 @@
 ---
-atom_id: CA-R-1443
-cce_version: cce_1
-cce_form: restriction
 subjects:
-  governs:
-    continuant:
-      - "Atom/Local Tier: Principle"
+  governs: "Atom/Local Tier: Principle"
   depends_on:
-    continuant:
-      - Atom/Scope
-      - Project
-version: 3
+    - "Atom/Scope"
+    - "Project"
+version: 7
 updated_at: "2026-09-11 20:58:34 +0400"
 relations: {}
 ---

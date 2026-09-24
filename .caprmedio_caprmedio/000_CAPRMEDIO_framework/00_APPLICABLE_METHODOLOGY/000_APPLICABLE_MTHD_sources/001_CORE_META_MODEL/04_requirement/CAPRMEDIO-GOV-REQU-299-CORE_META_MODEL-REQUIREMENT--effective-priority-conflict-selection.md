@@ -1,34 +1,24 @@
 ---
-atom_id: CAPRMEDIO-GOV-REQU-299
-cce_version: cce_1
-cce_form: obligation
 subjects:
-  governs:
-    continuant:
-      - "Priority"
+  governs: "Priority"
   depends_on:
-    continuant:
-      - "Atom/Content Role: Concern"
-      - "Scope Unit"
-      - "Framework Instance Settings"
-      - "Operator"
-version: 17
-updated_at: "2026-09-11 22:30:02 +0400"
-llm_session_ids:
-  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+    - "Atom/Content Role: Concern"
+    - "Scope Unit"
+    - "Framework Instance Settings"
+    - "Operator"
+version: 19
+updated_at: "2026-09-16 07:58:43 +0000"
 relations: {}
 ---
 # Effective priority conflict selection
 
-a Concern Atom has **`=1`** Priority value: High, Medium, **or** Low. Highest is a virtual comparison result.
+a Concern Atom has **`=1`** Priority value: High, Medium, **or** Low.
 
-during direct comparison of two Concern Atoms:
+direct comparison of Concern Atoms **must** follow the admissible Operator-selected priority model governed by CA-R-1487:
 
-1. start with **every** artifact's stored priority;
-2. add one level **when** its scope is a strict ancestor of the competing scope; **and**
-3. cap the result at virtual `highest`.
-
-an unrelated **or** incomparable Scope receives no Scope increment.
+- use the selected model, its effective parameters, **and** its active criteria.
+- Scope Unit ancestry **must not** add an implicit Priority increment.
+- **if** the model **or** its application does **not** justify a selection, leave the conflict unresolved **and** ask the Operator.
 
 the Framework Instance Settings Artifact exposes **`=2`** selection modes:
 

@@ -1,42 +1,40 @@
 ---
-atom_id: CA-E-455
 cce_version: cce_1
 cce_form: evaluation
 subjects:
-  governs:
-    continuant:
-      - changed-python-evaluation
+  governs: "changed-python-evaluation"
   depends_on:
-    continuant:
-      - programmatic software
-version: 2
+    - "programmatic software"
+version: 8
 updated_at: "2026-09-11 20:58:34 +0400"
 relations:
   evaluation_for:
     - CA-M-164
   derived_from:
     - CA-A-053
+llm_session_ids:
+  - codex:01a02650-eff7-7453-8c37-0699b36773c6
 ---
 # Evaluate changed Python targets under one configuration
 
 ## Claim checked
 
-Each changed Python target receives distinct syntax, Ruff, Mypy, and relevant
-behavioral evidence under one declared interpreter and configuration.
+**every** changed Python target receives distinct syntax, Ruff, Mypy, **and** relevant
+behavioral evidence under one declared interpreter **and** configuration.
 
 ## Test case
 
-Evaluate one changed target for which Ruff passes, Mypy fails, and its focused
+evaluate one changed target for which Ruff passes, Mypy fails, **and** its focused
 behavioral case passes.
 
 ## Acceptance criteria
 
-Pass only when the three results remain separate and the aggregate changed-code
-gate fails with the target, diagnostic, boundary, and replay command.
+pass **only** **when** the three results remain separate **and** the aggregate changed-code
+gate fails with the target, diagnostic, boundary, **and** replay command.
 
 ## Failure disposition
 
-Reject masking one mechanism with another and return the failed evidence to its
+reject masking one mechanism with another **and** return the failed evidence **to** its
 owner.
 
 ## Sources

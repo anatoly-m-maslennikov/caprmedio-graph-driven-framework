@@ -1,17 +1,11 @@
 ---
-atom_id: CA-D-392
-cce_version: cce_1
-cce_form: serialization
 subjects:
-  governs:
-    continuant:
-      - "Project Scope Unit Graph Projection"
+  governs: "Project Scope Unit Graph Projection"
   depends_on:
-    continuant:
-      - "Project Settings"
-      - "Project Name"
-      - "Obsolete Project Name"
-version: 2
+    - "Project Settings"
+    - "Project Name"
+    - "Obsolete Project Name"
+version: 6
 updated_at: "2026-09-11 15:04:40 +0400"
 relations:
   child_of:

@@ -87,6 +87,6 @@ Run from the repository root:
 python3 -B .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/03_plan/01-CA-Epic-005-FRAMEWORK_METHODOLOGY-adopt-core-standard-detail-methodology-tiers/execution_evidence/CA-P-954-authority-mapping-cases.py
 ~~~
 
-Deferred runtime impact was verified in 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/atom_operations.py: LOCAL_TIERS at line 568 and filename parsing at line 596 admit only the old tiers; the upgrade check at line 607 rejects General. Those consumers and their tests need later governed reconciliation before operational use of GENERAL. No Tool or generated projection was changed.
+Deferred runtime impact was verified in 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_operations.py: LOCAL_TIERS at line 568 and filename parsing at line 596 admit only the old tiers; the upgrade check at line 607 rejects General. Those consumers and their tests need later governed reconciliation before operational use of GENERAL. No Tool or generated projection was changed.
 
 **Mapping DoD: PASS at the 99% threshold.** Accepted choices, structural derivation, Goal placement, role/Type and parentage restrictions, default/token representation, and expansion limits have explicit dispositions. No further Operator policy choice is needed within this mapping. This is not source application, full classifier admission, corpus migration, or runtime closure. The worker changed only this report and its bounded case script; parent receipt and Task lifecycle handling remain separate.

@@ -1,18 +1,10 @@
 ---
-atom_id: CA-D-344
-cce_version: cce_1
-cce_form: serialization
 subjects:
-  governs:
-    continuant:
-      - CAPRMEDIO Main Skill/Host Invocation
+  governs: "CAPRMEDIO Main Skill/Host Invocation"
   depends_on:
-    continuant:
-      - CAPRMEDIO Main Skill
-version: 3
+    - "CAPRMEDIO Main Skill"
+version: 7
 updated_at: "2026-09-11 23:47:49 +0400"
-llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations: {}
 ---
 # Serialize Main Skill Invocation per Host

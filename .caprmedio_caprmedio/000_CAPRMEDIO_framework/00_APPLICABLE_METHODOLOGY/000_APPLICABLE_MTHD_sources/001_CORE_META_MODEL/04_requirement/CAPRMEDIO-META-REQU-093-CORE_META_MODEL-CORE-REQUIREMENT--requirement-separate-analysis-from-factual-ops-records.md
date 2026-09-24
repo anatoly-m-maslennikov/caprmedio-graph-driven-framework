@@ -1,15 +1,9 @@
 ---
-atom_id: CAPRMEDIO-META-REQU-093
-cce_version: cce_1
-cce_form: separation
 subjects:
-  governs:
-    occurrent:
-      - evaluation
-version: 10
-updated_at: "2026-09-13 00:51:00 +0400"
-llm_session_ids:
-  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+  governs: "evaluation"
+  depends_on: []
+version: 15
+updated_at: "2026-09-17 14:09:14 +0000"
 relations: {}
 ---
 # Separate Analysis from factual execution records
@@ -22,6 +16,4 @@ Analysis interprets Concerns, factual Records, Requirements, Methods, Evaluation
 
 **when** one Carrier mixes factual input with interpretation, the factual Record **and** interpretive Analysis remain separate governed contributions with explicit references.
 
-## Primary claim
-
-factual execution Records **and** interpretive Analysis are separate semantic contributions; neither is a reusable Operations definition.
+factual execution Records **and** interpretive Analysis are **not** reusable Operations definitions.

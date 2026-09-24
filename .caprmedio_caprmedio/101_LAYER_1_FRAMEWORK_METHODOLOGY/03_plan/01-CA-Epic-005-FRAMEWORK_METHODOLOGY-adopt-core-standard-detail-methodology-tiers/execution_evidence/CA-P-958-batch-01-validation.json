@@ -788,7 +788,7 @@
     },
     {
       "atom_id": "CAPRMEDIO-FRAMEWORK-ENGINE-REQU-517",
-      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/202_FEATURE_AGENTIC/301_FEATURE_SKILLS/04_requirement/CAPRMEDIO-FRAMEWORK-ENGINE-REQU-517-SKILLS-REQUIREMENT--provide-a-deterministic-routing-engine.md",
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/202_FEATURE_AGENTIC/205_FEATURE_SKILLS/04_requirement/CAPRMEDIO-FRAMEWORK-ENGINE-REQU-517-SKILLS-REQUIREMENT--provide-a-deterministic-routing-engine.md",
       "diagnostics": [
         {
           "code": "relation_target_unresolved",

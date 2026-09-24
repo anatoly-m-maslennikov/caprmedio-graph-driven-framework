@@ -1,7 +1,4 @@
 ---
-atom_id: CA-R-1470
-cce_version: cce_1
-cce_form: definition
 subjects:
   governs: "Single Source of Truth"
   depends_on:
@@ -11,7 +8,7 @@ subjects:
     - "Structural Entity"
     - "Journal"
     - "Projection"
-version: 2
+version: 4
 updated_at: "2026-09-15 00:05:45 +0000"
 relations: {}
 ---

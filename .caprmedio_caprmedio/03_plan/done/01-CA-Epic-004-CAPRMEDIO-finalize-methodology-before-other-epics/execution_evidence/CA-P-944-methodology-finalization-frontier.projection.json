@@ -9350,14 +9350,14 @@
       " M .caprmedio_framework/00_APPLICABLE_METHODOLOGY/04_requirement/CAPRMEDIO-META-REQU-166--projections-have-updated-at.md",
       " D .caprmedio_framework/00_APPLICABLE_METHODOLOGY/07_delivery/CA-D-264-MMODEL-CORE-DELIVERY--derive-direct-containment-from-immediate-directory-nesting.md",
       " D .caprmedio_framework/00_APPLICABLE_METHODOLOGY/07_delivery/CA-D-265-MMODEL-CORE-DELIVERY--derive-recursive-containment-from-directory-ancestry.md",
-      " M 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/ATOM_SEARCH/tests/test_atom_operations.py",
-      " M 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/GENERATE_PROJECT_GRAPH_STATE/generate_project_graph_state.py",
-      " M 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/GENERATE_PROJECT_GRAPH_STATE/tests/test_generate_project_graph_state.py",
-      " M 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/INSTALL_TOOLS/install_tools.py",
-      " M 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/INSTALL_TOOLS/tests/test_install_tools.py",
-      " M 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/RETRIEVE_APPLICABLE_METHODOLOGY/retrieve_applicable_methodology.py",
-      " M 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/RETRIEVE_APPLICABLE_METHODOLOGY/tests/test_retrieve_applicable_methodology.py",
-      " M 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/atom_operations.py",
+      " M 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_atom_operations.py",
+      " M 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/GENERATE_PROJECT_GRAPH_STATE/generate_project_graph_state.py",
+      " M 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/GENERATE_PROJECT_GRAPH_STATE/tests/test_generate_project_graph_state.py",
+      " M 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/INSTALL_TOOLS/install_tools.py",
+      " M 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/INSTALL_TOOLS/tests/test_install_tools.py",
+      " M 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/RETRIEVE_APPLICABLE_METHODOLOGY/retrieve_applicable_methodology.py",
+      " M 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/RETRIEVE_APPLICABLE_METHODOLOGY/tests/test_retrieve_applicable_methodology.py",
+      " M 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_operations.py",
       "?? .caprmedio_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1301-MMODEL-CORE-REQUIREMENT--limit-epic-members-to-epics-and-tasks.md",
       "?? .caprmedio_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1370-MMODEL-CORE-REQUIREMENT--limit-each-task-to-one-direct-epic.md",
       "?? .caprmedio_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1371-MMODEL-CORE-REQUIREMENT--define-artifact-revision.md",
@@ -16206,7 +16206,7 @@
         "carrier_kind": "TOOL",
         "identity": "METHODOLOGY_COMPILER",
         "lifecycle": "CURRENT",
-        "location": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py",
+        "location": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py",
         "revision": "sha256:ca7609e872149e5d105e2b09dfdbd167e6b70bdbed41e534e558eec7d0682a7b",
         "sha256": "ca7609e872149e5d105e2b09dfdbd167e6b70bdbed41e534e558eec7d0682a7b"
       },
@@ -16215,7 +16215,7 @@
         "carrier_kind": "TEST",
         "identity": "METHODOLOGY_COMPILER_TEST",
         "lifecycle": "CURRENT",
-        "location": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_compile_applicable_methodology.py",
+        "location": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests/test_compile_applicable_methodology.py",
         "revision": "sha256:ac2319f1138264b5dc219a9cf9c1dc5b35dffdc10dc0828261efd9dcc3ceec68",
         "sha256": "ac2319f1138264b5dc219a9cf9c1dc5b35dffdc10dc0828261efd9dcc3ceec68"
       },
@@ -16224,7 +16224,7 @@
         "carrier_kind": "TOOL",
         "identity": "METHODOLOGY_RETRIEVAL",
         "lifecycle": "CURRENT",
-        "location": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/RETRIEVE_APPLICABLE_METHODOLOGY/retrieve_applicable_methodology.py",
+        "location": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/RETRIEVE_APPLICABLE_METHODOLOGY/retrieve_applicable_methodology.py",
         "revision": "sha256:7317580a3cb96e8385f7ddcf417123fc2cb2a995930e1b8cf1661defaa91706b",
         "sha256": "7317580a3cb96e8385f7ddcf417123fc2cb2a995930e1b8cf1661defaa91706b"
       },
@@ -16233,7 +16233,7 @@
         "carrier_kind": "TEST",
         "identity": "METHODOLOGY_RETRIEVAL_TEST",
         "lifecycle": "CURRENT",
-        "location": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/RETRIEVE_APPLICABLE_METHODOLOGY/tests/test_retrieve_applicable_methodology.py",
+        "location": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/RETRIEVE_APPLICABLE_METHODOLOGY/tests/test_retrieve_applicable_methodology.py",
         "revision": "sha256:44dbe5c919ca70de5a5d23b3b34b1ab999b8d45e4cc94d3d7634464421fb32c5",
         "sha256": "44dbe5c919ca70de5a5d23b3b34b1ab999b8d45e4cc94d3d7634464421fb32c5"
       },
@@ -16242,7 +16242,7 @@
         "carrier_kind": "TOOL",
         "identity": "ENTITY_AND_SUBJECT_GRAPH",
         "lifecycle": "CURRENT",
-        "location": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/GENERATE_ENTITY_GRAPH/generate_entity_graph.py",
+        "location": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/GENERATE_ENTITY_GRAPH/generate_entity_graph.py",
         "revision": "sha256:f4cbe3a68f9e384c9b539260e35e50e6b5e82e8708392fcee71d0198b97ae95f",
         "sha256": "f4cbe3a68f9e384c9b539260e35e50e6b5e82e8708392fcee71d0198b97ae95f"
       },
@@ -16251,7 +16251,7 @@
         "carrier_kind": "TEST",
         "identity": "ENTITY_AND_SUBJECT_GRAPH_TEST",
         "lifecycle": "CURRENT",
-        "location": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/GENERATE_ENTITY_GRAPH/tests/test_generate_entity_graph.py",
+        "location": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/GENERATE_ENTITY_GRAPH/tests/test_generate_entity_graph.py",
         "revision": "sha256:3c5d5006ee9bcc065a06b66d899b7a56abcb4ba0822a3dce162f4663d47c08fe",
         "sha256": "3c5d5006ee9bcc065a06b66d899b7a56abcb4ba0822a3dce162f4663d47c08fe"
       },
@@ -16260,7 +16260,7 @@
         "carrier_kind": "TOOL",
         "identity": "PROJECT_SCOPE_GRAPH",
         "lifecycle": "CURRENT",
-        "location": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/GENERATE_PROJECT_GRAPH_STATE/generate_project_graph_state.py",
+        "location": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/GENERATE_PROJECT_GRAPH_STATE/generate_project_graph_state.py",
         "revision": "sha256:ab634edf6b2903cb066f3bce058d66c0e52ca6df900b751949322f7a47137644",
         "sha256": "ab634edf6b2903cb066f3bce058d66c0e52ca6df900b751949322f7a47137644"
       },
@@ -16269,7 +16269,7 @@
         "carrier_kind": "TEST",
         "identity": "PROJECT_SCOPE_GRAPH_TEST",
         "lifecycle": "CURRENT",
-        "location": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/GENERATE_PROJECT_GRAPH_STATE/tests/test_generate_project_graph_state.py",
+        "location": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/GENERATE_PROJECT_GRAPH_STATE/tests/test_generate_project_graph_state.py",
         "revision": "sha256:fef397d9d523cada69e15befd15e63348211ba1426d482420229ce12f8a53adc",
         "sha256": "fef397d9d523cada69e15befd15e63348211ba1426d482420229ce12f8a53adc"
       },
@@ -16278,7 +16278,7 @@
         "carrier_kind": "TOOL",
         "identity": "ATOM_CARRIER_VALIDATION",
         "lifecycle": "CURRENT",
-        "location": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/atom_operations.py",
+        "location": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_operations.py",
         "revision": "sha256:c924347c61ed8b7279c54f0b7ebafc0ca700b360fa213ffd825b6aa9c33e1c14",
         "sha256": "c924347c61ed8b7279c54f0b7ebafc0ca700b360fa213ffd825b6aa9c33e1c14"
       },
@@ -16287,7 +16287,7 @@
         "carrier_kind": "TEST",
         "identity": "ATOM_CARRIER_VALIDATION_TEST",
         "lifecycle": "CURRENT",
-        "location": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/ATOM_SEARCH/tests/test_atom_operations.py",
+        "location": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_atom_operations.py",
         "revision": "sha256:03a2186696d6b5972204ee93a5b47ff8251a7d74b5b798fe668b87cdedfaefd4",
         "sha256": "03a2186696d6b5972204ee93a5b47ff8251a7d74b5b798fe668b87cdedfaefd4"
       },
@@ -16296,7 +16296,7 @@
         "carrier_kind": "TOOL",
         "identity": "ARTIFACT_METADATA",
         "lifecycle": "CURRENT",
-        "location": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/artifact_metadata.py",
+        "location": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/artifact_metadata.py",
         "revision": "sha256:d1335e8cafe38d303379e1dfa5634ee6e832e3023e9ef589f56c4c74e8d73f61",
         "sha256": "d1335e8cafe38d303379e1dfa5634ee6e832e3023e9ef589f56c4c74e8d73f61"
       },
@@ -16305,7 +16305,7 @@
         "carrier_kind": "TOOL",
         "identity": "LIFECYCLE_INTENTS",
         "lifecycle": "CURRENT",
-        "location": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/lifecycle_intents.py",
+        "location": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/lifecycle_intents.py",
         "revision": "sha256:6747af28f49d8b4ce177b9f975bd427046c812ea548952da2cabd03d2e5fa580",
         "sha256": "6747af28f49d8b4ce177b9f975bd427046c812ea548952da2cabd03d2e5fa580"
       },
@@ -16314,7 +16314,7 @@
         "carrier_kind": "TOOL",
         "identity": "PROJECT_SETTINGS_GENERATOR",
         "lifecycle": "CURRENT",
-        "location": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/generate_project_settings.py",
+        "location": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/generate_project_settings.py",
         "revision": "sha256:7b728ebe295b1466089af96be2d75517dfad15c9248ac1d48e8bd87ad656953c",
         "sha256": "7b728ebe295b1466089af96be2d75517dfad15c9248ac1d48e8bd87ad656953c"
       },
@@ -16323,7 +16323,7 @@
         "carrier_kind": "TOOL",
         "identity": "PROJECT_SETTINGS_REVISION",
         "lifecycle": "CURRENT",
-        "location": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/framework_settings_revision.py",
+        "location": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/framework_settings_revision.py",
         "revision": "sha256:139af0086ff35e8877303123d4de6640d18dd68474a682ba366a7807fbd3370e",
         "sha256": "139af0086ff35e8877303123d4de6640d18dd68474a682ba366a7807fbd3370e"
       }
@@ -16341,7 +16341,7 @@
           "unittest",
           "discover",
           "-s",
-          "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests",
+          "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests",
           "-p",
           "test_*.py"
         ],
@@ -16357,7 +16357,7 @@
           "unittest",
           "discover",
           "-s",
-          "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/RETRIEVE_APPLICABLE_METHODOLOGY/tests",
+          "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/RETRIEVE_APPLICABLE_METHODOLOGY/tests",
           "-p",
           "test_*.py"
         ],
@@ -16373,7 +16373,7 @@
           "unittest",
           "discover",
           "-s",
-          "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/GENERATE_ENTITY_GRAPH/tests",
+          "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/GENERATE_ENTITY_GRAPH/tests",
           "-p",
           "test_*.py"
         ],
@@ -16389,7 +16389,7 @@
           "unittest",
           "discover",
           "-s",
-          "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/GENERATE_PROJECT_GRAPH_STATE/tests",
+          "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/GENERATE_PROJECT_GRAPH_STATE/tests",
           "-p",
           "test_*.py"
         ],
@@ -16405,7 +16405,7 @@
           "unittest",
           "discover",
           "-s",
-          "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/ATOM_SEARCH/tests",
+          "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests",
           "-p",
           "test_atom_operations.py"
         ],

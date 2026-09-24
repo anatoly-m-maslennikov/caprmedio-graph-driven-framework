@@ -19,6 +19,7 @@ relations:
 projection:
   source_carrier_path: ../000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/05_method/CA-M-113-CORE_META_MODEL-CORE-METHOD--write-claims-in-caprmedio-controlled-english.md
 ---
+
 # Write Claims in CAPRMEDIO Controlled English
 
 **to** write one Claim **in** CAPRMEDIO Controlled English, the Author **must** PERFORM **all** OF:

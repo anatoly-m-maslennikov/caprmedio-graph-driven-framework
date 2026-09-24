@@ -1,8 +1,7 @@
 ---
-atom_id: CA-M-266
 cce_version: "cce_1"
 cce_form: "method"
-version: 2
+version: 5
 updated_at: "2026-09-05 23:00:00 +0400"
 relations:
   child_of:
@@ -10,20 +9,19 @@ relations:
   relates_to:
     - "CA-M-262"
 subjects:
-  governs:
-    occurrent:
-      - "Project/Implementation/mode selection"
+  governs: "Project/Implementation/mode selection"
   depends_on:
-    continuant:
-      - "Operator"
-      - "Spec"
-      - "Atom/Content Role: Plan/Type: Task"
-      - "Atom/Content Role: Implementation"
-      - "Atom/Content Role: Requirement"
-      - "Atom/Content Role: Method"
-      - "Atom/Content Role: Evaluation"
-      - "Atom/Content Role: Delivery"
-      - "Project"
+    - "Operator"
+    - "Spec"
+    - "Atom/Content Role: Plan/Type: Task"
+    - "Atom/Content Role: Implementation"
+    - "Atom/Content Role: Requirement"
+    - "Atom/Content Role: Method"
+    - "Atom/Content Role: Evaluation"
+    - "Atom/Content Role: Delivery"
+    - "Project"
+llm_session_ids:
+  - codex:01a02650-eff7-7453-8c37-0699b36773c6
 ---
 # Follow the Operator-selected implementation mode
 

@@ -1,15 +1,9 @@
 ---
-atom_id: CAPRMEDIO-GOV-REQU-339
-cce_version: cce_1
-cce_form: registry
 subjects:
-  governs:
-    continuant:
-      - Work Journal/Event/Type
+  governs: "Work Journal/Event/Type"
   depends_on:
-    continuant:
-      - Work Journal/Event
-version: 15
+    - "Work Journal/Event"
+version: 19
 updated_at: "2026-09-10 07:34:05 +0400"
 relations: {}
 ---

@@ -1,7 +1,4 @@
 ---
-atom_id: CA-D-333
-cce_version: cce_1
-cce_form: serialization
 subjects:
   governs: "Project Scope Unit Graph Projection"
   depends_on:
@@ -9,7 +6,7 @@ subjects:
     - "Framework Instance Settings"
     - "Project Settings"
     - "Carrier"
-version: 8
+version: 10
 updated_at: "2026-09-15 00:13:02 +0000"
 relations: {}
 ---

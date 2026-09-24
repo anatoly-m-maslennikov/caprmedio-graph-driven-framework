@@ -1,17 +1,11 @@
 ---
-atom_id: CA-R-1402
-cce_version: cce_1
-cce_form: definition
 subjects:
-  governs:
-    continuant:
-      - Framework Instance Settings
+  governs: "Framework Instance Settings"
   depends_on:
-    continuant:
-      - Artifact
-      - Project
-      - Operator
-version: 4
+    - "Artifact"
+    - "Project"
+    - "Operator"
+version: 8
 updated_at: "2026-09-11 19:51:42 +0400"
 relations: {}
 ---

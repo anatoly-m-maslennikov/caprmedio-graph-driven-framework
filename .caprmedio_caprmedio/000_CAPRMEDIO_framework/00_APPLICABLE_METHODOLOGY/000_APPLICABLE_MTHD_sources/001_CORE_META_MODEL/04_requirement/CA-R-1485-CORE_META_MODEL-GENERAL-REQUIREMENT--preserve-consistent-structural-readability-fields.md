@@ -1,7 +1,4 @@
 ---
-atom_id: CA-R-1485
-cce_version: cce_1
-cce_form: obligation
 subjects:
   governs: "Project Structure"
   depends_on:
@@ -10,7 +7,7 @@ subjects:
     - "Structural Level"
     - "Navigational Order Number"
     - "Carrier"
-version: 1
+version: 3
 updated_at: "2026-09-15 00:05:45 +0000"
 relations: {}
 ---

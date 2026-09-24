@@ -1,16 +1,10 @@
 ---
-atom_id: CAPRMEDIO-META-REQU-708
 subjects:
-  governs:
-    continuant:
-      - "Scope Unit"
+  governs: "Scope Unit"
   depends_on:
-    continuant:
-      - "Structural Entity"
-      - "Atom"
-cce_version: cce_1
-cce_form: definition
-version: 10
+    - "Structural Entity"
+    - "Atom"
+version: 14
 updated_at: "2026-09-12 04:10:58 +0400"
 relations: {}
 ---

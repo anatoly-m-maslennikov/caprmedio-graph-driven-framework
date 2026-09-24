@@ -85,7 +85,7 @@
       "journal_event_id": "59613820628308f1ee20b996b6af1bc77dc04539e6e001e922b022474e5ec10c"
     },
     "selected_installed_generator": ".caprmedio_install/releases/2e541306bdeefe3926c0ed502d462076274733cd2e94baea335ae8a7725bd2de/TOOLS/GENERATE_PROJECT_GRAPH_STATE/generate_project_graph_state.py",
-    "canonical_generator": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/301_TOOLS/GENERATE_PROJECT_GRAPH_STATE/generate_project_graph_state.py",
+    "canonical_generator": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/GENERATE_PROJECT_GRAPH_STATE/generate_project_graph_state.py",
     "generator_sha256": "88ab6552b5f26eeca27dd5f4f47a0edaa2664d2e03f10eb27e33dca4600a6dd4",
     "source_matches_install": true,
     "installed_dry_run_changed": false,

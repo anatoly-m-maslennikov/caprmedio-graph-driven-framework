@@ -1,17 +1,11 @@
 ---
-atom_id: CA-M-235
-cce_version: cce_1
-cce_form: method
 subjects:
-  governs:
-    occurrent:
-      - Cardinality Constraint Authoring
+  governs: "Cardinality Constraint Authoring"
   depends_on:
-    continuant:
-      - Cardinality Constraint
-      - CCE Operator Registry
-      - Nonnegative Integer Literal
-version: 5
+    - "Cardinality Constraint"
+    - "CCE Operator Registry"
+    - "Nonnegative Integer Literal"
+version: 9
 updated_at: "2026-09-10 02:49:14 +0400"
 relations: {}
 ---

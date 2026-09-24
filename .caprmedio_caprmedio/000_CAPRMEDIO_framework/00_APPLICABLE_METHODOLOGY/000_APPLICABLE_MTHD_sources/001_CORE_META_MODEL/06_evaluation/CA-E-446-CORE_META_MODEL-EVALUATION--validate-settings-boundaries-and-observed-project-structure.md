@@ -1,7 +1,4 @@
 ---
-atom_id: CA-E-446
-cce_version: cce_1
-cce_form: evaluation
 subjects:
   governs: "Project Structure"
   depends_on:
@@ -12,7 +9,7 @@ subjects:
     - "Goal"
     - "Carrier"
     - "Applicable Methodology"
-version: 5
+version: 8
 updated_at: "2026-09-15 00:13:02 +0000"
 relations:
   evaluation_for:
@@ -36,7 +33,7 @@ relations:
 
 ## Test case
 
-create two Projects in one repository, **every** Project with its own Project Settings **and** `000_CAPRMEDIO_framework` directory. resolve both settings before creating Project Atoms **or** Implementation. select different Authority Modes, installed Extensions, **and** Project Configuration for the two instances. give the two instances distinct Methodology Sources **and** compiled Applicable Methodology results. declare a Scope Unit with no Active Goal **and** no directory; separately add an undeclared candidate Scope Unit directory. include Draft **and** archived Goals as non-active evidence. give a declared unit an explicit Authority Mode override **in** its Project Structure **and** leave another unit's override omitted.
+create two Projects **in** one repository, **every** Project with its own Project Settings **and** `000_CAPRMEDIO_framework` directory. resolve both settings **before** creating Project Atoms **or** Implementation. select different Authority Modes, installed Extensions, **and** Project Configuration for the two instances. give the two instances distinct Methodology Sources **and** compiled Applicable Methodology results. declare a Scope Unit with no Active Goal **and** no directory; separately add an undeclared candidate Scope Unit directory. include Draft **and** archived Goals as non-active evidence. give a declared unit an explicit Authority Mode override **in** its Project Structure **and** leave another unit's override omitted.
 
 ## Acceptance criteria
 

@@ -1,15 +1,9 @@
 ---
-atom_id: CA-R-1266
-cce_version: cce_1
-cce_form: requirement
 subjects:
-  governs:
-    continuant:
-      - Primary Entity
+  governs: "Primary Entity"
   depends_on:
-    continuant:
-      - Entity
-version: 6
+    - "Entity"
+version: 10
 updated_at: "2026-09-11 05:27:15 +0400"
 relations: {}
 ---

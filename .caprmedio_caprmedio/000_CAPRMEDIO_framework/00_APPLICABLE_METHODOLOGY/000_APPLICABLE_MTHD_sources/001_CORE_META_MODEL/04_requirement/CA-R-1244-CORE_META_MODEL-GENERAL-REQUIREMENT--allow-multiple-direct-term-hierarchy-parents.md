@@ -1,16 +1,10 @@
 ---
-atom_id: CA-R-1244
-cce_version: cce_1
-cce_form: cardinality
 subjects:
-  governs:
-    continuant:
-      - NARROWER_THAN
+  governs: "NARROWER_THAN"
   depends_on:
-    continuant:
-      - Terms Graph
-      - Term
-version: 9
+    - "Terms Graph"
+    - "Term"
+version: 13
 updated_at: "2026-09-11 05:44:27 +0400"
 relations: {}
 ---

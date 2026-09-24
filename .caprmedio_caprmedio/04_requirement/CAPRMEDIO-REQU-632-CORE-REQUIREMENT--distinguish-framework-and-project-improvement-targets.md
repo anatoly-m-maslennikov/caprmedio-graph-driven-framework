@@ -1,22 +1,24 @@
 ---
-version: 8
-updated_at: 2026-09-06 01:45:12 +0400
+version: 12
+updated_at: "2026-09-17 16:30:58 +0000"
 llm_session_ids:
-  - "codex:019f591f-04f6-70f2-8de7-828b7cccc69d"
+  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+  - codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations:
   child_of:
     - "CA-R-1423"
 subjects:
-  governs:
-    continuant:
-      - "Project/improvement target"
+  governs: "Project/improvement target"
   depends_on:
-    continuant:
-      - "Project"
+    - "Project"
+    - "CAPRMEDIO Framework Instance"
+    - "CAPRMEDIO Framework"
 cce_version: cce_1
 cce_form: obligation
-atom_id: CAPRMEDIO-REQU-632
 ---
 # Distinguish framework and Project improvement targets
 
-**every** governed improvement cycle **must** declare **`=1`** primary target: the framework operating within the Project **or** the system being developed.
+**every** governed improvement cycle **in** caprmedio **must** declare **`=1`** primary target:
+
+- the CAPRMEDIO Framework Instance operating within caprmedio; **or**
+- the CAPRMEDIO Framework being developed as the caprmedio Project's output.

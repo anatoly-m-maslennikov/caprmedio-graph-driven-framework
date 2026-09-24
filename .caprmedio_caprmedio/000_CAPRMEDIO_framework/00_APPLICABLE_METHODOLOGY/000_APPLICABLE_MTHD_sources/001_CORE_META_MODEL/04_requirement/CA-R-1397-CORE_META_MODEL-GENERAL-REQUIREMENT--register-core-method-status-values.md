@@ -1,15 +1,9 @@
 ---
-atom_id: CA-R-1397
-cce_version: cce_1
-cce_form: requirement
 subjects:
-  governs:
-    continuant:
-      - "Atom/Content Role: Method/Status"
+  governs: "Atom/Content Role: Method/Status"
   depends_on:
-    continuant:
-      - "Atom/Content Role: Method"
-version: 3
+    - "Atom/Content Role: Method"
+version: 7
 updated_at: "2026-09-10 03:38:57 +0400"
 relations: {}
 ---

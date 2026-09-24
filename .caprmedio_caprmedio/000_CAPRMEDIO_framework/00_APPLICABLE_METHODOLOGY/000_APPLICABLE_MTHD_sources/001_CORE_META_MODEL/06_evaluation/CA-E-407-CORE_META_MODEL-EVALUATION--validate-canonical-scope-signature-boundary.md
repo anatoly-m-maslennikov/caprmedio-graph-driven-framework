@@ -1,17 +1,11 @@
 ---
-atom_id: CA-E-407
-cce_version: cce_1
-cce_form: evaluation
 subjects:
-  governs:
-    occurrent:
-      - Canonical Scope Signature Derivation Validation
+  governs: "Canonical Scope Signature Derivation Validation"
   depends_on:
-    continuant:
-      - Scope Expression
-      - Scope Expression/Canonical Scope Signature
-      - Atom/Carrier
-version: 3
+    - "Scope Expression"
+    - "Scope Expression/Canonical Scope Signature"
+    - "Atom/Carrier"
+version: 7
 updated_at: "2026-09-10 05:21:58 +0400"
 relations:
   evaluation_for:

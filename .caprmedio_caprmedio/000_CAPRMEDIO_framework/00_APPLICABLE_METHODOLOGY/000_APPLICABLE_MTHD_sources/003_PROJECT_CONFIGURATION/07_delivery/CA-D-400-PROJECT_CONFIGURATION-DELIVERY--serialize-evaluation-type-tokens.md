@@ -1,18 +1,18 @@
 ---
-atom_id: CA-D-400
-cce_version: cce_1
-cce_form: serialization
 subjects:
-  governs:
-    continuant:
-      - "Atom/Content Role: Evaluation/Type"
+  governs: "Atom/Content Role: Evaluation/Type"
   depends_on:
-    continuant:
-      - "Carrier"
-version: 2
-updated_at: "2026-09-11 23:47:49 +0400"
+    - "Carrier"
+version: 7
+updated_at: "2026-09-17 15:05:40 +0000"
 relations: {}
 ---
 # Serialize Evaluation Type Tokens
 
-QA Case **must** use Carrier token `qa_case`; Evaluation Control **must** use Carrier token `evaluation_control`; Evaluation Approach **must** use Carrier token `evaluation_approach`.
+an Evaluation Atom File Carrier **must** serialize the following Type components within the Atom filename grammar governed by CA-D-283 **and** CA-D-284:
+
+- QA Case: `QA_CASE`.
+- Evaluation Control: `EVALUATION_CONTROL`.
+- Evaluation Approach: `EVALUATION_APPROACH`.
+
+these mappings govern filename representation; they do **not** rename a Type, admit a new Type, **or** prescribe a YAML Type value.

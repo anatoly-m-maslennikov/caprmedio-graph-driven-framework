@@ -1,15 +1,9 @@
 ---
-atom_id: CA-R-1345
-cce_version: cce_1
-cce_form: requirement
 subjects:
-  governs:
-    continuant:
-      - NARROWER_THAN
+  governs: "NARROWER_THAN"
   depends_on:
-    continuant:
-      - Terms Graph
-version: 5
+    - "Terms Graph"
+version: 9
 updated_at: "2026-09-11 05:44:27 +0400"
 relations: {}
 ---

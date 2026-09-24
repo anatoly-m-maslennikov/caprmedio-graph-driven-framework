@@ -1,12 +1,8 @@
 ---
-atom_id: CA-D-326
-cce_version: cce_1
-cce_form: placement
 subjects:
-  governs:
-    continuant:
-      - CAPRMEDIO/Applicable Methodology/Projected Atom Carrier
-version: 5
+  governs: "CAPRMEDIO/Applicable Methodology/Projected Atom Carrier"
+  depends_on: []
+version: 9
 updated_at: 2026-09-15 05:51:38
 relations: {}
 ---

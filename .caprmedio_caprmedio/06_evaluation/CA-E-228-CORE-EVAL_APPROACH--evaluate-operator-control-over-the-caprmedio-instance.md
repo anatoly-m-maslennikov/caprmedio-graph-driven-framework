@@ -1,5 +1,5 @@
 ---
-version: 4
+version: 7
 updated_at: 2026-09-06 01:45:12 +0400
 relations:
   child_of:
@@ -7,17 +7,15 @@ relations:
   evaluation_for:
     - CA-R-004
 subjects:
-  governs:
-    occurrent:
-      - "CAPRMEDIO Framework Instance/control"
+  governs: "CAPRMEDIO Framework Instance/control"
   depends_on:
-    continuant:
-      - "Operator"
-      - "Project"
-      - "CAPRMEDIO Framework Instance"
+    - "Operator"
+    - "Project"
+    - "CAPRMEDIO Framework Instance"
 cce_version: cce_1
 cce_form: evaluation
-atom_id: CA-E-228
+llm_session_ids:
+  - codex:01a02650-eff7-7453-8c37-0699b36773c6
 ---
 # Evaluate Operator control over the CAPRMEDIO instance
 

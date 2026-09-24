@@ -1,52 +1,50 @@
 ---
-atom_id: "CA-M-283"
 cce_version: "cce_1"
 cce_form: "method"
 subjects:
-  governs:
-    continuant:
-      - "python-static-typing"
+  governs: "python-static-typing"
   depends_on:
-    continuant:
-      - "programmatic software"
-version: 3
+    - "programmatic software"
+version: 8
 updated_at: "2026-09-11 20:58:34 +0400"
 relations:
   derived_from:
     - "CA-A-053"
   child_of:
     - "CA-M-110"
+llm_session_ids:
+  - codex:01a02650-eff7-7453-8c37-0699b36773c6
 ---
 # Use Mypy for static Python type checking
 
-Use Mypy as the selected static type checker for hand-authored PROGRAMMATIC
-Python source and ratchet changed targets toward the strict admitted profile.
+use Mypy as the selected static type checker for hand-authored PROGRAMMATIC
+Python source **and** ratchet changed targets toward the strict admitted profile.
 
 ## Applicable when
 
-Apply to new or materially changed Python source within Tools, App, or MCP.
+apply **to** new **or** materially changed Python source within Tools, App, **or** MCP.
 
 ## Procedure
 
-1. Materialize one pinned Mypy profile and bounded target set in
+1. materialize one pinned Mypy profile **and** bounded target set **in**
    `pyproject.toml`.
-2. Run Mypy through the selected uv workflow.
-3. Require new targets to pass the strict admitted profile and prevent changed
+2. run Mypy through the selected uv workflow.
+3. require new targets **to** pass the strict admitted profile **and** prevent changed
    targets from regressing below their passing baseline.
-4. Explain every suppression at the narrowest affected line or symbol; reject
+4. explain **every** suppression at the narrowest affected line **or** symbol; reject
    an unexplained broad suppression.
-5. Keep static typing evidence distinct from runtime validation and behavioral
+5. keep static typing evidence distinct from runtime validation **and** behavioral
    evidence.
 
 ## Outcome
 
-Changed Python interfaces become more explicit without making untyped legacy
+changed Python interfaces become more explicit **without** making untyped legacy
 source an unrelated whole-project blocker.
 
 ## Failure or stop
 
-Stop claiming conformance when the profile or target set is absent, a changed
-target regresses, or a new unexplained suppression hides the defect.
+stop claiming conformance **when** the profile **or** target set is absent, a changed
+target regresses, **or** a new unexplained suppression hides the defect.
 
 ## Sources
 

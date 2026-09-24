@@ -1,7 +1,4 @@
 ---
-atom_id: CA-R-1472
-cce_version: cce_1
-cce_form: permission
 subjects:
   governs: "CAPRMEDIO Graph/Connectivity"
   depends_on:
@@ -13,7 +10,7 @@ subjects:
     - "Relation"
     - "Relation Kind"
     - "Relation Kind/Metadata"
-version: 1
+version: 3
 updated_at: "2026-09-15 01:47:49 +0400"
 relations: {}
 ---

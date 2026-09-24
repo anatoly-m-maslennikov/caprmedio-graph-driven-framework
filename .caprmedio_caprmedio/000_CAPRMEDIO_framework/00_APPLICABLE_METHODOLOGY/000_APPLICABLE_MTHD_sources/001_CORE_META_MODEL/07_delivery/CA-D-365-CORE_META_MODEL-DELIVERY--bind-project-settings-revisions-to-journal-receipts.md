@@ -1,16 +1,10 @@
 ---
-atom_id: CA-D-365
-cce_version: cce_1
-cce_form: traceability
 subjects:
-  governs:
-    continuant:
-      - Project Settings/Revision Binding
+  governs: "Project Settings/Revision Binding"
   depends_on:
-    continuant:
-      - Artifact/Revision
-      - Work Journal/Record
-version: 4
+    - "Artifact/Revision"
+    - "Work Journal/Record"
+version: 9
 updated_at: "2026-09-14 06:21:07 +0400"
 relations:
   child_of:
@@ -18,4 +12,4 @@ relations:
 ---
 # Bind Project Settings Revisions to Journal Receipts
 
-the current Project Settings Revision **and** SHA-256 Digest **must** bind to its authoritative TOML Carrier through the canonical completed governed-change Work Journal receipt; absence, ambiguity, **or** mismatch **must** leave its currentness unknown.
+the current Project Settings Revision **and** SHA-256 Digest **must** bind **to** its authoritative TOML Carrier through the canonical completed governed-change Work Journal receipt; absence, ambiguity, **or** mismatch **must** leave its currentness unknown.

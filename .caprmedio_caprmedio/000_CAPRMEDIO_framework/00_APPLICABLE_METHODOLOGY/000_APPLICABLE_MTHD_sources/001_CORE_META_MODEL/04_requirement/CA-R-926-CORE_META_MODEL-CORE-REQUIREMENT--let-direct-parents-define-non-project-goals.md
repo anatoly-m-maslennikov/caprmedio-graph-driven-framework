@@ -4,13 +4,10 @@ subjects:
   depends_on:
     - "Scope Unit"
     - "Project Structure"
-    - "Atom/Claim/Scope"
+    - "Atom/Claim"
     - "Structural Parent Relation"
-atom_id: CA-R-926
-cce_version: cce_1
-cce_form: obligation
-version: 13
-updated_at: "2026-09-15 00:05:45 +0000"
+version: 16
+updated_at: "2026-09-22 17:59:17 +0000"
 relations:
   child_of:
     - CA-R-925

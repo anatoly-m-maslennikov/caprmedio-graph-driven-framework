@@ -1,44 +1,44 @@
 ---
-atom_id: CA-E-365
 cce_version: cce_1
 cce_form: evaluation
 subjects:
-  governs:
-    continuant:
-      - cyclomatic-complexity
+  governs: "cyclomatic-complexity"
   depends_on:
-    continuant:
-      - programmatic software
-version: 2
-updated_at: 2026-09-01 02:00:00 +0400
+    - "programmatic software"
+version: 9
+updated_at: "2026-09-17 19:28:02 +0000"
 relations:
   evaluation_for:
     - CA-M-162
     - CA-M-164
   derived_from:
     - CA-A-053
+llm_session_ids:
+  - codex:01a02650-eff7-7453-8c37-0699b36773c6
 ---
 # Reject unchecked cyclomatic complexity
 
 ## Claim checked
 
-Every new or materially changed executable unit has a result from the admitted
-cyclomatic-complexity lint and stays within its Method-owned maximum or one
+**every** new **or** materially changed executable unit has a result from the admitted
+cyclomatic-complexity lint **and** stays within its Method-owned maximum **or** one
 accepted bounded exception.
 
 ## Test case
 
-Evaluate one materially changed function for which no current complexity-lint
+evaluate one materially changed function for which no current complexity-lint
 result exists.
 
 ## Acceptance criteria
 
-Pass only when conformance is rejected until the admitted lint reports a value
-and that value passes the Method-owned maximum or its accepted exception.
+pass **only** **when** conformance is rejected **until** **all** of the following hold:
+
+- the admitted lint reports a value for the changed unit.
+- that value satisfies the Method-owned maximum **or** an accepted bounded exception covers that value.
 
 ## Failure disposition
 
-Block the changed unit from claiming source-boundary conformance.
+block the changed unit from claiming source-boundary conformance.
 
 ## Sources
 

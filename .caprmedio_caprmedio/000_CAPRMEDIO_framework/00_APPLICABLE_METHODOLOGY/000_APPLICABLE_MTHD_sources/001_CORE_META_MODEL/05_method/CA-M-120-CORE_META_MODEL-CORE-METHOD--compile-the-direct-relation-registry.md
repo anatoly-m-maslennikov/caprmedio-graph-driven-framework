@@ -1,5 +1,4 @@
 ---
-atom_id: CA-M-120
 subjects:
   governs: "Relation Kind/registry compilation"
   depends_on:
@@ -13,9 +12,7 @@ subjects:
     - "Generator"
     - "Relation"
     - "Single Source of Truth"
-cce_version: cce_1
-cce_form: method
-version: 10
+version: 12
 updated_at: "2026-09-15 01:47:49 +0400"
 relations:
   child_of:

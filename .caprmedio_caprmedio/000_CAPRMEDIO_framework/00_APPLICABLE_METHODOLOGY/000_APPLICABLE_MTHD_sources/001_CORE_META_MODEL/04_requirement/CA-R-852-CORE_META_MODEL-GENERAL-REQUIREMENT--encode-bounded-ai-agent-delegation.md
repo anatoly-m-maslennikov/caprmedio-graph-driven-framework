@@ -1,16 +1,10 @@
 ---
-atom_id: CA-R-852
-cce_version: cce_1
-cce_form: obligation
 subjects:
-  governs:
-    continuant:
-      - AI Agent Delegation
+  governs: "AI Agent Delegation"
   depends_on:
-    continuant:
-      - Operator
-      - AI Agent
-version: 10
+    - "Operator"
+    - "AI Agent"
+version: 14
 updated_at: "2026-09-10 07:15:17 +0400"
 relations: {}
 ---

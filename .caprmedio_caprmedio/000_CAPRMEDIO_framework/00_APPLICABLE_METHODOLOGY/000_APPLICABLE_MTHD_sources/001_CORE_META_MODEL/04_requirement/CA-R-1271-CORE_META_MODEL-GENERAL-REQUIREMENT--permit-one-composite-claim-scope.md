@@ -1,18 +1,13 @@
 ---
-atom_id: CA-R-1271
-cce_version: cce_1
-cce_form: requirement
 subjects:
-  governs:
-    continuant:
-      - Composite Claim Scope
+  governs: "Atom/Claim"
   depends_on:
-    continuant:
-      - Atom/Claim/Scope
-version: 5
-updated_at: "2026-09-10 06:59:09 +0400"
+    - "Scope Expression"
+    - "Atom/Claim/Target Scope Unit"
+version: 10
+updated_at: "2026-09-22 17:59:17 +0000"
 relations: {}
 ---
 # Permit One Composite Claim Scope
 
-one Claim Scope **may** select a composite set through an explicitly grouped deterministic Scope Expression.
+one Claim **may** express composite applicability restrictions as its Claim Scope through an explicitly grouped deterministic Scope Expression within its own text.

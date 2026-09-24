@@ -1,17 +1,11 @@
 ---
-atom_id: CA-R-1378
-cce_version: cce_1
-cce_form: definition
 subjects:
-  governs:
-    continuant:
-      - "Atom Collection"
+  governs: "Atom Collection"
   depends_on:
-    continuant:
-      - "Atom"
-      - "Scope Unit"
-      - "Structural Entity"
-version: 3
+    - "Atom"
+    - "Scope Unit"
+    - "Structural Entity"
+version: 7
 updated_at: "2026-09-12 04:10:58 +0400"
 relations: {}
 ---

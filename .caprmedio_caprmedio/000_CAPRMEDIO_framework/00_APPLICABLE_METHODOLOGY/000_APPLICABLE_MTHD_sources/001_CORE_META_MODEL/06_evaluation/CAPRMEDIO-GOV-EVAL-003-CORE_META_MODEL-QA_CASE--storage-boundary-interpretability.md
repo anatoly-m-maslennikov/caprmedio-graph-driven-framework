@@ -1,7 +1,4 @@
 ---
-atom_id: CAPRMEDIO-GOV-EVAL-003
-cce_version: cce_1
-cce_form: evaluation
 subjects:
   governs: "Carrier"
   depends_on:
@@ -11,15 +8,13 @@ subjects:
     - "Journal/Record"
     - "Work Journal/Event"
     - "Projection"
-    - "Process"
+    - "Workflow"
     - "Scope Unit"
     - "Atom/Content Role"
     - "Operator"
     - "Runtime State"
-version: 13
-updated_at: "2026-09-14 06:21:07 +0400"
-llm_session_ids:
-  - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+version: 16
+updated_at: "2026-09-18 14:16:20 +0000"
 relations:
   evaluation_for:
     - CAPRMEDIO-META-REQU-656
@@ -48,7 +43,7 @@ the Evaluation **must** fail **if** placement creates a separate authoritative J
 
 ## Journal-view fixtures
 
-use one admitted Artifact-change event associated with an execution **and** one admitted read-only execution event. derive an artifact-change view **and** a Process-execution view from the same Journal selection. the first event **may** appear **in** both views with the same canonical Event identity; the read-only execution **must not** require a fabricated Artifact-change event.
+use one admitted Artifact-change event associated with an execution **and** one admitted read-only execution event. derive an artifact-change view **and** a Workflow-execution view from the same Journal selection. the first event **may** appear **in** both views with the same canonical Event identity; the read-only execution **must not** require a fabricated Artifact-change event.
 
 reject a fixture that independently writes history into either view, creates a second authoritative record merely **to** serve the other view, changes a represented fact **without** its source record, invents an execution association **or** successful outcome, treats a record as proof that its claimed outcome occurred, **or** reports known incomplete **or** stale coverage as complete current history. rebuilding either view from the same declared Journal selection **must** preserve its source event references **and** represented historical facts. this mandatory Journal-view check is independent of the aggregate storage-classification score.
 

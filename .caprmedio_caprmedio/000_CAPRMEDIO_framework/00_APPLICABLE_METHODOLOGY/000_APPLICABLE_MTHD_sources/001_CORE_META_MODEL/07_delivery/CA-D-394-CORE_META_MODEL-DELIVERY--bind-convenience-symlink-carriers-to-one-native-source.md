@@ -1,16 +1,10 @@
 ---
-atom_id: CA-D-394
-cce_version: cce_1
-cce_form: serialization
 subjects:
-  governs:
-    continuant:
-      - "Carrier"
+  governs: "Carrier"
   depends_on:
-    continuant:
-      - "Methodology Source"
-      - "Project"
-version: 1
+    - "Methodology Source"
+    - "Project"
+version: 5
 updated_at: "2026-09-10 20:55:17 +0400"
 relations: {}
 ---

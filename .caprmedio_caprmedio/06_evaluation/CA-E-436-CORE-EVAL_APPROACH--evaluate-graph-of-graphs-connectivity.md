@@ -1,8 +1,7 @@
 ---
-atom_id: "CA-E-436"
 cce_version: "cce_1"
 cce_form: "evaluation"
-version: 2
+version: 5
 updated_at: "2026-09-05 23:00:00 +0400"
 relations:
   child_of:
@@ -11,18 +10,17 @@ relations:
     - "CA-R-1407"
     - "CAPRMEDIO-REQU-007"
 subjects:
-  governs:
-    occurrent:
-      - "Project/Graph of Graphs/connectivity"
+  governs: "Project/Graph of Graphs/connectivity"
   depends_on:
-    continuant:
-      - "Project"
-      - "Graph of Graphs"
-      - "Artifact"
-      - "Atom/Content Role: Implementation"
-      - "Scope Unit"
-      - "CAPRMEDIO Framework Instance"
-      - "Atom/Content Role: Evaluation"
+    - "Project"
+    - "Graph of Graphs"
+    - "Artifact"
+    - "Atom/Content Role: Implementation"
+    - "Scope Unit"
+    - "CAPRMEDIO Framework Instance"
+    - "Atom/Content Role: Evaluation"
+llm_session_ids:
+  - codex:01a02650-eff7-7453-8c37-0699b36773c6
 ---
 # Evaluate graph-of-graphs connectivity
 

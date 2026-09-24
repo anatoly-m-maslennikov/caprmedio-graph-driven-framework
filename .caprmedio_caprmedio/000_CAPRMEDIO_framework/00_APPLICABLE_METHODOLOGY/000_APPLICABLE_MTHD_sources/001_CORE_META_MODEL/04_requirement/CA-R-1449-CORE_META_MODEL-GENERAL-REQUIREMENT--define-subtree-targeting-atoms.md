@@ -1,16 +1,10 @@
 ---
-atom_id: CA-R-1449
-cce_version: cce_1
-cce_form: definition
 subjects:
-  governs:
-    continuant:
-      - "Subtree-targeting Atoms"
+  governs: "Subtree-targeting Atoms"
   depends_on:
-    continuant:
-      - "Targeting Atoms"
-      - "Scope Unit"
-version: 1
+    - "Targeting Atoms"
+    - "Scope Unit"
+version: 5
 updated_at: "2026-09-12 04:10:58 +0400"
 relations: {}
 ---
