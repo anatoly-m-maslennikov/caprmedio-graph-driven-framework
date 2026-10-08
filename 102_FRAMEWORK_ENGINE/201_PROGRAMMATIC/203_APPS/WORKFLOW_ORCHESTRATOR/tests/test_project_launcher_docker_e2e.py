@@ -214,6 +214,55 @@ def _compose_services(selection, token, row):
     return sorted(services)
 
 
+def _collision_diagnostic(rows):
+    """Classify a failed explicit-port start without accepting a host remap."""
+    assert isinstance(rows, list)
+    if not rows:
+        return "DOCKER_START_FAILED", []
+    assert len(rows) == 1, "collision created more than one selected runtime"
+    observed = []
+    for row in rows:
+        assert isinstance(row, dict)
+        state = row.get("State")
+        assert isinstance(state, dict)
+        health = state.get("Health")
+        assert isinstance(health, dict)
+        network = row.get("NetworkSettings")
+        assert isinstance(network, dict)
+        ports = network.get("Ports")
+        assert isinstance(ports, dict) and set(ports) == {"8092/tcp"}
+        assert ports["8092/tcp"] == [], "collision created a host publisher"
+        assert state.get("Status") == "running" and health.get("Status") == "healthy"
+        observed.append({"container_id": row.get("Id"), "state": state.get("Status"),
+                         "health": health.get("Status"), "ports": {"8092/tcp": ports["8092/tcp"]}})
+    return "DOCKER_PUBLICATION_FAILED", observed
+
+
+def _bounded_collision_observed(rows):
+    """Safe failure receipt: identity, lifecycle state, and publisher counts only."""
+    if not isinstance(rows, list):
+        return [{"shape": type(rows).__name__}]
+    observed = []
+    for row in rows[:2]:
+        if not isinstance(row, dict):
+            observed.append({"shape": type(row).__name__})
+            continue
+        state = row.get("State") if isinstance(row.get("State"), dict) else {}
+        health = state.get("Health") if isinstance(state.get("Health"), dict) else {}
+        network = row.get("NetworkSettings") if isinstance(row.get("NetworkSettings"), dict) else {}
+        ports = network.get("Ports") if isinstance(network.get("Ports"), dict) else {}
+        observed.append({"container_id": row.get("Id"), "state": state.get("Status"),
+                         "health": health.get("Status"), "ports": {
+                             key: len(value) if isinstance(value, list) else "invalid"
+                             for key, value in ports.items() if isinstance(key, str)}})
+    return observed
+
+
+def _assert_collision_refusal(result, expected):
+    assert result["condition"] == expected, result
+    assert result["readiness"] is False and "url" not in result, result
+
+
 async def _prove_group(parent, group, source_root, image, deadline, evidence):
     from project_mcp_backend import ProjectMcpBackend
     fixtures = _fixtures(parent, group)
@@ -324,13 +373,15 @@ async def _prove_group(parent, group, source_root, image, deadline, evidence):
         records[:] = [row for row in records if row.get("project_id") != beta_selection.instance_id]
         occupied = await asyncio.to_thread(_launch, fixtures[1], tokens[1], source_root, image,
                                            deadline=deadline, port=alpha["port"])
-        assert occupied["condition"] == "DOCKER_START_FAILED", occupied
         alpha_rows = await asyncio.to_thread(backend.inspect, resolve_project(fixtures[0].root, fixtures[0].control))
         assert len(alpha_rows) == 1 and alpha_rows[0]["Id"] == alpha["container_id"], alpha_rows
         alpha_publishers = alpha_rows[0]["NetworkSettings"]["Ports"]["8092/tcp"]
         assert alpha_publishers == [{"HostIp": "127.0.0.1", "HostPort": str(alpha["port"])}], alpha_rows
         failed_beta_rows = await asyncio.to_thread(backend.inspect, beta_selection)
-        assert all(row["State"].get("Status") != "running" for row in failed_beta_rows), failed_beta_rows
+        evidence["collision_observed"] = _bounded_collision_observed(failed_beta_rows)
+        evidence["occupied_result"] = occupied
+        expected_collision, _collision_shape = _collision_diagnostic(failed_beta_rows)
+        _assert_collision_refusal(occupied, expected_collision)
         failed_cleanup, failed_cleanup_failures = await asyncio.to_thread(
             _cleanup, [fixtures[1]], [tokens[1]], records)
         assert not failed_cleanup_failures, {"cleanup_failures": failed_cleanup_failures}
@@ -433,6 +484,43 @@ class ProjectLauncherFixtureTests(unittest.TestCase):
         self.assertEqual("failed", report["status"])
         self.assertEqual("AssertionError", report["failure_type"])
         self.assertFalse(report["retained_N"]["equal"])
+
+    def test_collision_diagnostics_distinguish_start_and_publication_failures(self):
+        self.assertEqual("DOCKER_START_FAILED", _collision_diagnostic([])[0])
+        stopped = [{"Id": "beta-stopped", "State": {"Status": "exited"},
+                    "NetworkSettings": {"Ports": {"8092/tcp": []}}}]
+        with self.assertRaises(AssertionError):
+            _collision_diagnostic(stopped)
+        unpublished = [{"Id": "beta-unpublished", "State": {"Status": "running", "Health": {"Status": "healthy"}},
+                        "NetworkSettings": {"Ports": {"8092/tcp": []}}}]
+        code, observed = _collision_diagnostic(unpublished)
+        self.assertEqual("DOCKER_PUBLICATION_FAILED", code)
+        self.assertEqual([], observed[0]["ports"]["8092/tcp"])
+
+    def test_collision_diagnostic_rejects_a_silent_host_remap(self):
+        remapped = [{"Id": "beta-remapped", "State": {"Status": "running", "Health": {"Status": "healthy"}},
+                     "NetworkSettings": {"Ports": {"8092/tcp": [{"HostIp": "127.0.0.1", "HostPort": "54321"}]}}}]
+        with self.assertRaisesRegex(AssertionError, "host publisher"):
+            _collision_diagnostic(remapped)
+
+    def test_collision_diagnostic_rejects_multiple_or_other_target_publications(self):
+        healthy = {"State": {"Status": "running", "Health": {"Status": "healthy"}},
+                   "NetworkSettings": {"Ports": {"8092/tcp": []}}}
+        with self.assertRaisesRegex(AssertionError, "more than one"):
+            _collision_diagnostic([{**healthy, "Id": "beta-one"}, {**healthy, "Id": "beta-two"}])
+        other_target = {**healthy, "Id": "beta-other", "NetworkSettings": {"Ports": {
+            "8092/tcp": [], "8093/tcp": [{"HostIp": "127.0.0.1", "HostPort": "54322"}],
+        }}}
+        with self.assertRaises(AssertionError):
+            _collision_diagnostic([other_target])
+
+    def test_collision_refusal_rejects_a_wrong_code_or_url(self):
+        with self.assertRaises(AssertionError):
+            _assert_collision_refusal({"condition": "DOCKER_START_FAILED", "readiness": False,
+                                       "url": "http://127.0.0.1:1/mcp"}, "DOCKER_START_FAILED")
+        with self.assertRaises(AssertionError):
+            _assert_collision_refusal({"condition": "DOCKER_START_FAILED", "readiness": False},
+                                       "DOCKER_PUBLICATION_FAILED")
 
 
 def main(argv=None):
