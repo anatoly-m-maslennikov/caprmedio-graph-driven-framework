@@ -11,7 +11,7 @@ global_tier: 2
 status: Active
 author: Anatoly Maslennikov
 version: 1
-updated_at: "2026-10-08 23:56:13 +0400"
+updated_at: "2026-10-09 01:26:54 +0400"
 subjects:
   governs: "CAPRMEDIO Framework Instance"
   depends_on:
@@ -50,3 +50,7 @@ the AI Agent runs the bounded real-Docker launcher proof for two disposable Proj
 ### Definition of Done
 
 the Plan is **not** Done **if** ((a required real-Docker case lacks a terminal result) **or** (two repository runtimes collide) **or** (the proof changes an unrelated existing runtime)).
+
+- execution evidence: the saved opt-in proof attempt `launcher-proof-4lng87od` failed during missing-image build **before** Project startup; its retained `result.json` contains no completed group.
+- current blocker: Docker cannot resolve `auth.docker.io` for base-image metadata. a bounded diagnostic confirmed the DNS failure; the Docker host remains reachable **and** reports **`=0`** running containers. no installed runtime was replaced.
+- acceptance remains incomplete; retry the declared harness **after** Docker Hub DNS/network access is restored. evidence: `.caprmedio_tmp/launcher-epic-1829/live-proof-blocker.md`.
