@@ -10,6 +10,7 @@ from pathlib import Path
 from pydantic import BaseModel, ConfigDict, Field
 
 from validate_atoms_workers.parsing import parse_carrier
+from project_selection import bound_selection
 
 
 class Query(BaseModel):
@@ -69,6 +70,9 @@ class Service:
 
     def _control_root(self):
         """Resolve the Project's declared control root from its one settings Carrier."""
+        selection = bound_selection(self.root)
+        if selection is not None:
+            return selection.control_root
         settings_paths = sorted(
             path for path in self.root.glob('.caprmedio_*/caprmedio_project_settings.toml')
             if path.is_file() and not path.is_symlink() and not path.parent.is_symlink()

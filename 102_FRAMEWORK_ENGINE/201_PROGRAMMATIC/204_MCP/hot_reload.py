@@ -7,6 +7,7 @@ from pathlib import Path
 import re
 import sys
 import time
+from contextlib import nullcontext
 from typing import Literal
 
 from jsonschema import Draft202012Validator
@@ -14,6 +15,16 @@ from mcp import Client, StdioServerParameters, types
 from mcp.server.lowlevel import Server, NotificationOptions
 from mcp.server.stdio import stdio_server
 from pydantic import BaseModel, ConfigDict
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / '201_TOOLS'))
+from project_selection import ProjectSelection, bind_selection, resolve_project, rebind_selection
+
+
+def startup_selection(root, control_root=None, instance_id=None, host_root=None):
+    selection = resolve_project(root, control_root)
+    if host_root is not None and instance_id is None:
+        raise ValueError('Host Project binding requires an explicit instance identity')
+    return rebind_selection(selection, instance_id, host_root=host_root) if instance_id is not None else selection
 
 
 class ReloadRequest(BaseModel):
@@ -116,12 +127,15 @@ class Generation:
 
 
 class Gateway:
-    def __init__(self, root, implementation=None):
+    def __init__(self, root, implementation=None, *, selection=None):
         self.root = Path(root).resolve(strict=True)
+        self.selection = selection
+        if selection is not None and (not isinstance(selection, ProjectSelection) or selection.root != self.root):
+            raise ValueError('Gateway selection belongs to another Project')
         self.implementation = Path(implementation or Path(__file__).with_name('implementation_server.py'))
         self.active, self.generations = None, []
         self.reload_lock, self.receipts = asyncio.Lock(), {}
-        self.storage = self.root / '.caprmedio_install/mcp_hot_reload'
+        self.storage = selection.reload_state if selection is not None else self.root / '.caprmedio_install/mcp_hot_reload'
 
     def _fingerprint_with_timing(self, phase):
         started = time.monotonic()
@@ -143,9 +157,15 @@ class Gateway:
 
     async def prepare(self, fingerprint):
         environment = self.child_environment()
+        arguments = [str(self.implementation), '--project-root', str(self.root)]
+        if self.selection is not None:
+            arguments += ['--control-root', self.selection.control_relative.as_posix(),
+                          '--instance-id', self.selection.instance_id]
+            if self.selection.host_root is not None:
+                arguments += ['--host-project-root', str(self.selection.host_root)]
         generation = Generation(StdioServerParameters(command=sys.executable,
             args=['-B', '-X', f'pycache_prefix={self.storage / "bytecode" / fingerprint}',
-                  str(self.implementation), '--project-root', str(self.root)],
+                  *arguments],
             env=environment), fingerprint)
         phase = 'generation_ready'
         started = time.monotonic()
@@ -194,8 +214,11 @@ class Gateway:
                                 for g in self.generations]}
 
     def persist(self, request_id, value):
-        if self.storage.is_symlink() or self.storage.parent.is_symlink():
-            raise ValueError('Symlink checkpoint directory')
+        current = self.storage
+        while current != self.root:
+            if current.is_symlink():
+                raise ValueError('Symlink checkpoint directory')
+            current = current.parent
         self.storage.mkdir(parents=True, exist_ok=True)
         path = self.storage / f'{request_id}.json'
         temporary = self.storage / f'{request_id}.pending'
@@ -264,6 +287,10 @@ class Gateway:
             return result({'outcome': 'rejected', 'diagnostics': [str(error)]}, True)
 
     async def call(self, context, params):
+        with bind_selection(self.selection) if self.selection is not None else nullcontext():
+            return await self._call(context, params)
+
+    async def _call(self, context, params):
         if params.name == STATUS.name:
             if params.arguments != {'request': {}}:
                 return result({'outcome': 'rejected', 'diagnostics': ['Expected an empty request']}, True)

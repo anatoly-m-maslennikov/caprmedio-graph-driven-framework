@@ -22,6 +22,7 @@ from .check_graph_extended import relations_resolution, plan_resolution
 from .proposed_references import ProposedReferenceError, inventory_proposed_references
 from .graph_authority_refresh import APPROVED_GRAPH_AUTHORITY_IDS
 from authoritative_status_models import StatusModelError, resolve_status_model
+from project_selection import bound_selection
 
 
 _REGISTRY_IDS = (
@@ -67,6 +68,9 @@ def _source(root: Path, identifier: str, reader: ReadContext, report: Record, *,
     digest = entry.get("sha256") if isinstance(entry, dict) else None
     if not isinstance(path, str) or type(version) is not int or not isinstance(digest, str):
         raise ProposedCarrierError("required source pin is unavailable")
+    selection = bound_selection(root)
+    if selection is not None and Path(path).is_relative_to('.caprmedio_caprmedio'):
+        path = (selection.control_relative / Path(path).relative_to('.caprmedio_caprmedio')).as_posix()
     absolute = root / path
     item = load_source(
         absolute,
@@ -86,8 +90,10 @@ def source_context_from_project(root: Path) -> VerifiedSourceContext:
     reader = ReadContext(roots=[str(root)], limits=dict(CEILINGS))
     report: Record = {"bindings": {}, "coverage": {"gaps": []}}
     sources = [_source(root, identifier, reader, report) for identifier in (*_REGISTRY_IDS, *_SUPPORT_IDS)]
-    project_structure = root / ".caprmedio_caprmedio/project_structure.toml"
-    operators = root / ".caprmedio_caprmedio/operators_registry.toml"
+    selection = bound_selection(root)
+    control = selection.control_relative if selection is not None else Path('.caprmedio_caprmedio')
+    project_structure = root / control / "project_structure.toml"
+    operators = root / control / "operators_registry.toml"
     try:
         structure = tomllib.loads(reader.read(project_structure).decode("utf-8"))
         operator_raw = reader.read(operators)
@@ -95,6 +101,7 @@ def source_context_from_project(root: Path) -> VerifiedSourceContext:
         raise ProposedCarrierError("required Project context is unreadable") from error
     inputs: Record = {
         "sources": sources,
+        "control_relative": control.as_posix(),
         "structure": structure,
         "operators_registry": load_operators_registry(
             {"operators_registry": {"path": str(operators), "sha256": hashlib.sha256(operator_raw).hexdigest()}},
@@ -166,7 +173,7 @@ def validate_proposed_carrier(
                 verified_source_context.inputs["structure"],
                 targets,
                 candidate_metadata=metadata,
-                candidate_path=Path(".caprmedio_caprmedio") / relative_path,
+                candidate_path=Path(verified_source_context.inputs.get("control_relative", ".caprmedio_caprmedio")) / relative_path,
                 admitted_plan_status_folders=plan_mapping or None,
             )
         except ProposedReferenceError as error:
@@ -188,7 +195,7 @@ def validate_proposed_carrier(
             ],
             reader=graph_reader,
             reference_complete=True,
-            path=verified_source_context.root / ".caprmedio_caprmedio" / relative_path,
+            path=verified_source_context.root / verified_source_context.inputs.get("control_relative", ".caprmedio_caprmedio") / relative_path,
             references=[
                 {"path": verified_source_context.root / item.path, "metadata": item.metadata}
                 for item in (*inventory.direct_targets, *inventory.plan_parent_closure)
@@ -224,7 +231,7 @@ def validate_proposed_carrier(
     if not isinstance(row, dict) or not isinstance(row.get("authority_path"), str):
         raise ProposedCarrierError("carrier owner authority is unresolved")
     authority_path = Path(row["authority_path"])
-    project_relative_path = Path(".caprmedio_caprmedio") / relative_path
+    project_relative_path = Path(verified_source_context.inputs.get("control_relative", ".caprmedio_caprmedio")) / relative_path
     if not project_relative_path.is_relative_to(authority_path):
         raise ProposedCarrierError("carrier path is outside its carried owner authority")
     expected_status_directory = (

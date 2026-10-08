@@ -15,6 +15,7 @@ from pathlib import Path
 from typing import Any, Mapping, Sequence
 
 from project_runtime import atomic_tempfile
+from project_selection import bound_selection
 from VALIDATE_ATOMS.validate_atoms_workers.proposed_carrier import (
     ProposedCarrierError,
     source_context_from_project,
@@ -58,6 +59,12 @@ def canonical_json(value: object) -> str:
 
 
 def resolve_repository(value: str | Path) -> Path:
+    selection = bound_selection()
+    if selection is not None:
+        candidate = Path(value).expanduser().resolve()
+        if not _inside(candidate, selection.root):
+            raise ToolError("outside-project", "path is outside the selected Project")
+        return selection.root
     candidate = Path(value).expanduser().resolve()
     for root in (candidate, *candidate.parents):
         if (root / ".git").exists():
@@ -77,6 +84,9 @@ def control_root(root: Path) -> Path:
     """Return the configured current Project carrier root, never a legacy root."""
 
     root = root.resolve()
+    selection = bound_selection(root)
+    if selection is not None:
+        return selection.control_root
     try:
         settings = tomllib.loads((root / SETTINGS_PATH).read_text(encoding="utf-8"))
     except (OSError, tomllib.TOMLDecodeError) as error:
@@ -94,7 +104,8 @@ def project_identity_prefix(root: Path) -> str:
     """Read the authoritative Project-owned Atom prefix from Project Settings."""
 
     try:
-        settings = tomllib.loads((root.resolve() / SETTINGS_PATH).read_text(encoding="utf-8"))
+        selection = bound_selection(root)
+        settings = selection.settings if selection is not None else tomllib.loads((root.resolve() / SETTINGS_PATH).read_text(encoding="utf-8"))
     except (OSError, tomllib.TOMLDecodeError) as error:
         raise ToolError("project-settings-unavailable", "cannot read Project Settings identity") from error
     prefix = settings.get("artifacts", {}).get("identity", {}).get("project_prefix")

@@ -7,8 +7,12 @@ import json
 import re
 import sys
 import tomllib
+import copy
 from pathlib import Path
 from typing import Any, Callable, Mapping
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / '201_TOOLS'))
+from project_selection import bound_selection
 
 
 DEFAULT_CONTROL_ROOT = Path(".caprmedio_caprmedio")
@@ -117,6 +121,9 @@ def canonical_digest(value: Any) -> str:
 
 def _configured_control_root(root: Path) -> Path:
     """Read the Project-local control root, retaining caprmedio as the default."""
+    selection = bound_selection(root)
+    if selection is not None:
+        return selection.control_relative
     settings_path = root / PROJECT_SETTINGS_REF
     if settings_path.is_symlink():
         raise SelectedRouteError("project settings carrier is unavailable")
@@ -141,6 +148,31 @@ def _configured_control_root(root: Path) -> Path:
     if root != resolved and root not in resolved.parents:
         raise SelectedRouteError("paths.control_root escapes project root")
     return candidate
+
+
+def _selected_authority_ref(root: Path, reference: str) -> str:
+    """Bind a trusted authority location without changing its exact byte pin."""
+    selection = bound_selection(root)
+    path = Path(reference)
+    if selection is not None and path.is_relative_to(DEFAULT_CONTROL_ROOT):
+        return (selection.control_relative / path.relative_to(DEFAULT_CONTROL_ROOT)).as_posix()
+    return reference
+
+
+def _query_admission_specs(root: Path) -> tuple[dict[str, Any], ...]:
+    specifications = copy.deepcopy(_QUERY_SOURCE_ADMISSION_SPECS)
+    def bind(value):
+        if isinstance(value, dict):
+            for key, child in value.items():
+                if key == 'source_path':
+                    value[key] = _selected_authority_ref(root, child)
+                else:
+                    bind(child)
+        elif isinstance(value, list):
+            for child in value:
+                bind(child)
+    bind(list(specifications))
+    return specifications
 
 
 def selected_manifest_ref(root: str | Path | None = None) -> str:
@@ -184,6 +216,7 @@ def selected_manifest_contract(root: str | Path | None = None) -> dict[str, Any]
 
 
 def _safe_path(root: Path, relative: str) -> Path:
+    bound_selection(root)
     if not isinstance(relative, str) or not relative or relative.startswith("/") or "\\" in relative:
         raise SelectedRouteError("source_path must be a safe repository-relative path")
     path = (root / relative).resolve()
@@ -206,6 +239,11 @@ def _validate_pin(root: Path, pin: Any) -> dict[str, Any]:
     if not isinstance(digest, str) or not _DIGEST.fullmatch(digest):
         raise SelectedRouteError("definition pin has invalid digest")
     path = _safe_path(root, source_path)
+    selection = bound_selection(root)
+    relative_parts = path.relative_to(root).parts
+    if (selection is not None and relative_parts and relative_parts[0].startswith('.caprmedio_')
+            and not path.is_relative_to(selection.control_root)):
+        raise SelectedRouteError("source pin belongs to another Project authority")
     if not path.is_file():
         raise SelectedRouteError(f"source pin is unavailable: {source_path}")
     contents = path.read_bytes()
@@ -273,11 +311,12 @@ def _validate_query_source_admissions(
     root: Path, admissions: Any, routes: list[dict[str, Any]],
 ) -> list[dict[str, Any]]:
     """Validate the two admission-frontier proofs without creating a registry."""
-    if not isinstance(admissions, list) or len(admissions) != len(_QUERY_SOURCE_ADMISSION_SPECS):
+    specifications = _query_admission_specs(root)
+    if not isinstance(admissions, list) or len(admissions) != len(specifications):
         raise SelectedRouteError("selected query-source admissions must contain exactly two routes")
     by_route = {entry["route"]: entry for entry in routes}
     validated: list[dict[str, Any]] = []
-    for value, expected in zip(admissions, _QUERY_SOURCE_ADMISSION_SPECS, strict=True):
+    for value, expected in zip(admissions, specifications, strict=True):
         if not isinstance(value, Mapping) or set(value) != _QUERY_SOURCE_ADMISSION_FIELDS:
             raise SelectedRouteError("query-source admission has an incomplete or unknown schema")
         if value.get("route") != expected["route"]:
@@ -470,7 +509,7 @@ def load_release_manifest_refresh_base(root: str | Path) -> dict[str, Any]:
     if (not _DIGEST.fullmatch(freshness["selected_source_registry_digest"])
             or not _DIGEST.fullmatch(freshness["selected_binding_digest"])):
         raise SelectedRouteError("selected workflow binding manifest freshness digest is invalid")
-    if (freshness["selected_source_registry_ref"] != _ORIGINAL_SELECTED_SOURCE_REGISTRY_REF
+    if (freshness["selected_source_registry_ref"] != _selected_authority_ref(project_root, _ORIGINAL_SELECTED_SOURCE_REGISTRY_REF)
             or freshness["selected_source_registry_version"] != _ORIGINAL_SELECTED_SOURCE_REGISTRY_VERSION):
         raise SelectedRouteError("selected workflow binding manifest does not retain the CA-A-1142 registry authority")
     if freshness["selected_binding_ref"] != f"{manifest_ref}#/routes":
@@ -534,9 +573,11 @@ def validate_selected_manifest_document(root: str | Path, manifest: Any) -> dict
         raise SelectedRouteError("selected workflow binding manifest source freshness is incomplete")
     if not _DIGEST.fullmatch(freshness["selected_source_registry_digest"]) or not _DIGEST.fullmatch(freshness["selected_binding_digest"]):
         raise SelectedRouteError("selected workflow binding manifest freshness digest is invalid")
-    if (freshness["selected_source_registry_ref"] != _ORIGINAL_SELECTED_SOURCE_REGISTRY_REF
+    if (freshness["selected_source_registry_ref"] != _selected_authority_ref(project_root, _ORIGINAL_SELECTED_SOURCE_REGISTRY_REF)
             or freshness["selected_source_registry_version"] != _ORIGINAL_SELECTED_SOURCE_REGISTRY_VERSION):
         raise SelectedRouteError("selected workflow binding manifest does not retain the CA-A-1142 registry authority")
+    if freshness["selected_binding_ref"] != f"{manifest_ref}#/routes":
+        raise SelectedRouteError("selected workflow binding manifest does not retain its binding reference")
     registry = _safe_path(project_root, freshness["selected_source_registry_ref"])
     if not registry.is_file() or hashlib.sha256(registry.read_bytes()).hexdigest() != freshness["selected_source_registry_digest"]:
         raise SelectedRouteError("selected source registry pin is stale")

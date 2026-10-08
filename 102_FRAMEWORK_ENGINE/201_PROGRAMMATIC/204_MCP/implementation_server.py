@@ -18,6 +18,7 @@ from capability_discovery.service import Service, Query, Context, Observation, W
 sys.path.insert(0, str(TOOLS_ROOT.parent / '203_APPS/WORKFLOW_ORCHESTRATOR'))
 from orchestrator import Request as OrchestratorRequest, run as orchestrate  # noqa: E402
 from selected_routes import QUERY_ROUTE_NAMES, register_selected_routes  # noqa: E402
+from hot_reload import startup_selection, bind_selection
 
 
 def register_orchestrator(server, root):
@@ -93,5 +94,10 @@ def create_server(root):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--project-root', required=True, type=Path)
+    parser.add_argument('--control-root')
+    parser.add_argument('--instance-id')
+    parser.add_argument('--host-project-root')
     args = parser.parse_args()
-    create_server(args.project_root).run(transport='stdio')
+    selection = startup_selection(args.project_root, args.control_root, args.instance_id, args.host_project_root)
+    with bind_selection(selection):
+        create_server(args.project_root).run(transport='stdio')

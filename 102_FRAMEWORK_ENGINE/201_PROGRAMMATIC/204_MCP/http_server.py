@@ -2,6 +2,7 @@
 import argparse
 import asyncio
 from contextlib import asynccontextmanager
+from contextlib import nullcontext
 import hashlib
 import hmac
 import os
@@ -12,7 +13,7 @@ from starlette.requests import Request
 from starlette.responses import JSONResponse, Response
 from starlette.routing import Route
 
-from hot_reload import Gateway
+from hot_reload import Gateway, startup_selection, bind_selection
 from mcp.server.transport_security import TransportSecuritySettings
 
 PATH = "/mcp"
@@ -37,11 +38,16 @@ def token_from_environment():
 
 class BearerGuard:
     """Apply transport authentication before the MCP ASGI application."""
-    def __init__(self, app, token):
+    def __init__(self, app, token, selection=None):
         self.app = app
+        self.selection = selection
         self.token_digest = hashlib.sha256(_require_token(token).encode()).digest()
 
     async def __call__(self, scope, receive, send):
+        with bind_selection(self.selection) if self.selection is not None else nullcontext():
+            await self._call(scope, receive, send)
+
+    async def _call(self, scope, receive, send):
         if scope["type"] != "http":
             await self.app(scope, receive, send)
             return
@@ -75,10 +81,10 @@ async def health(request, gateway):
     return JSONResponse({"ready": True})
 
 
-def create_app(root, token=None, implementation=None):
+def create_app(root, token=None, implementation=None, *, selection=None):
     token = token if token is not None else token_from_environment()
     token = _require_token(token)
-    gateway = Gateway(root, implementation=implementation)
+    gateway = Gateway(root, implementation=implementation, selection=selection)
     server = gateway.build_server()
     async def readiness(request):
         return await health(request, gateway)
@@ -101,7 +107,7 @@ def create_app(root, token=None, implementation=None):
                 await gateway.close()
 
     app.router.lifespan_context = lifespan
-    guarded = BearerGuard(app, token)
+    guarded = BearerGuard(app, token, selection)
     guarded.gateway = gateway
     guarded.starlette_app = app
     return guarded
@@ -110,13 +116,17 @@ def create_app(root, token=None, implementation=None):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--project-root", required=True, type=Path)
+    parser.add_argument("--control-root")
+    parser.add_argument("--instance-id")
+    parser.add_argument("--host-project-root")
     parser.add_argument("--host", default="0.0.0.0")
     parser.add_argument("--port", default=PORT, type=int)
     args = parser.parse_args()
     if args.host != "0.0.0.0" or args.port != PORT:
         raise ValueError("HTTP MCP requires the container bind 0.0.0.0:8092")
     import uvicorn
-    uvicorn.run(create_app(args.project_root), host=args.host, port=args.port, log_level="warning")
+    selection = startup_selection(args.project_root, args.control_root, args.instance_id, args.host_project_root)
+    uvicorn.run(create_app(args.project_root, selection=selection), host=args.host, port=args.port, log_level="warning")
 
 
 if __name__ == "__main__":

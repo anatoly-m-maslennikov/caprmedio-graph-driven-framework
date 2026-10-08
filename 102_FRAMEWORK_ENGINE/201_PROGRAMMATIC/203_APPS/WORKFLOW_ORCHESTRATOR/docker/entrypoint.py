@@ -63,6 +63,12 @@ def main():
         command = [sys.executable, str(paths[mode]), "--project-root", str(PROJECT_ROOT)]
         if mode == "mcp-http":
             command += ["--transport", "streamable-http"]
+        if mode in {"mcp", "mcp-http"}:
+            for flag, key in (("--control-root", "CAPRMEDIO_CONTROL_ROOT"),
+                              ("--instance-id", "CAPRMEDIO_PROJECT_INSTANCE_ID"),
+                              ("--host-project-root", "CAPRMEDIO_HOST_PROJECT_ROOT")):
+                if key in os.environ:
+                    command += [flag, os.environ[key]]
         if mode == "worker":
             command.append("worker")
         os.execv(sys.executable, command)

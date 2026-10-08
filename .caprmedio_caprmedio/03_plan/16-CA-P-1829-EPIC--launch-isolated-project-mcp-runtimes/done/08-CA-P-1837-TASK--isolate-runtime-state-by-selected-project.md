@@ -8,10 +8,10 @@ current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
 local_tier: Standard
 global_tier: 2
-status: Active
+status: Done
 author: Anatoly Maslennikov
 version: 1
-updated_at: "2026-10-08 23:56:13 +0400"
+updated_at: "2026-10-09 00:53:47 +0400"
 subjects:
   governs: "CAPRMEDIO Framework Instance"
   depends_on:
@@ -48,5 +48,7 @@ the AI Agent binds container naming, persistent state, **and** declared mounts *
 - effort: **`<=15`** minutes for **`=1`** AI Agent; the Epic's decomposition rule applies **before** execution **if** the estimate no longer holds.
 
 ### Definition of Done
+
+- completion evidence: shared selection-derived Compose, launcher **and** reload namespaces **and** the standalone endpoint-only mount declaration are implemented. 2 state/mount tests passed, including a left-only same-ID receipt leaving the other nested Project unchanged.
 
 the Plan is **not** Done **if** ((two selected Projects share mutable runtime state) **or** (the resulting mounts exceed the accepted Project boundary) **or** (the namespace/isolation tests fail)).

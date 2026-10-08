@@ -1,0 +1,37 @@
+services:
+  mcp-http:
+    image: ${CAPRMEDIO_IMAGE:?An admitted immutable image is required}
+    init: true
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    restart: "no"
+    stop_grace_period: 10s
+    tmpfs: [/tmp:size=128m,mode=1777]
+    pids_limit: 128
+    mem_limit: 512m
+    cpus: 1
+    command: [mcp-http]
+    environment:
+      CAPRMEDIO_RUNTIME_NAMESPACE: docker
+      CAPRMEDIO_CONTROL_ROOT: ${CAPRMEDIO_CONTROL_ROOT:?Selected control root is required}
+      CAPRMEDIO_PROJECT_INSTANCE_ID: ${CAPRMEDIO_PROJECT_INSTANCE_ID:?Selected identity is required}
+      CAPRMEDIO_HOST_PROJECT_ROOT: ${CAPRMEDIO_PROJECT_ROOT:?Selected Project root is required}
+      CAPRMEDIO_MCP_HTTP_SECRET_TOKEN: ${CAPRMEDIO_MCP_HTTP_SECRET_TOKEN:?Configure an explicit token}
+    labels:
+      org.caprmedio.project: ${CAPRMEDIO_PROJECT_INSTANCE_ID}
+      org.caprmedio.runtime.fingerprint: ${CAPRMEDIO_RUNTIME_FINGERPRINT:?Image fingerprint is required}
+      org.caprmedio.service: mcp-http
+      org.caprmedio.control_root: ${CAPRMEDIO_CONTROL_ROOT}
+      org.caprmedio.host_project_root: ${CAPRMEDIO_PROJECT_ROOT}
+    volumes:
+      - type: bind
+        source: ${CAPRMEDIO_PROJECT_ROOT}
+        target: /project
+    ports: ["127.0.0.1::8092"]
+    healthcheck:
+      test: [CMD, python, -c, "import json,os,urllib.request; r=urllib.request.Request('http://127.0.0.1:8092/health',headers={'Authorization':'Bearer '+os.environ['CAPRMEDIO_MCP_HTTP_SECRET_TOKEN']}); assert json.load(urllib.request.urlopen(r,timeout=3))['ready'] is True"]
+      interval: 2s
+      timeout: 5s
+      retries: 25
+      start_period: 3s
