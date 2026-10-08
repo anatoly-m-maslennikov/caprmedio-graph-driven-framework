@@ -418,8 +418,9 @@ class Launcher:
                                                       default=_DEFAULT_BUILD_TIMEOUT)
             if type(build_if_missing) is not bool:
                 raise LaunchError("IMAGE_REFUSED")
-            source = (Path(__file__).resolve().parents[5]
-                      if source_root is None else Path(source_root))
+            if source_root is None:
+                return self._failure("IMAGE_INPUT_UNAVAILABLE", selection)
+            source = Path(source_root)
             backend = self._backend(self.backend, build_if_missing=build_if_missing,
                                     build_timeout=bounded_build_timeout)
             with _project_lock(selection, startup_timeout):

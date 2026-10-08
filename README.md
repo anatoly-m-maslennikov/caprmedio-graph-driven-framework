@@ -283,9 +283,11 @@ canonical Workflow terminal evidence rather than a scheduler or child-Action
 outcome.
 
 The MCP remains available over local stdio. The Docker runtime additionally
-offers an explicitly started, bearer-authenticated Streamable HTTP MCP endpoint
-published only on `127.0.0.1`; see the
-[Docker runtime README](102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/README.md).
+offers `project-mcp` to start or reuse a bearer-authenticated Streamable HTTP
+endpoint for an explicitly selected Project folder, including nested Projects
+in one repository, with an explicit independent Framework source path.
+Docker allocates its `127.0.0.1` port; see the
+[launcher usage and connection examples](102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/README.md#launch-a-selected-project-mcp-endpoint).
 Neither transport starts work or grants authorization by itself.
 
 This cut has golden mock-Agent evidence for the Implementation Workflow (W09),

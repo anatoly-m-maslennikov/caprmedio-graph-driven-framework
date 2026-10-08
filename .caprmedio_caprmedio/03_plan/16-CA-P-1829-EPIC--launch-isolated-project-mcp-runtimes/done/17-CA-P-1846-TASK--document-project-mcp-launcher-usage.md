@@ -8,10 +8,10 @@ current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
 local_tier: Standard
 global_tier: 2
-status: Active
+status: Done
 author: Anatoly Maslennikov
 version: 1
-updated_at: "2026-10-08 23:56:13 +0400"
+updated_at: "2026-10-09 01:23:38 +0400"
 subjects:
   governs: "CAPRMEDIO Framework Instance"
   depends_on:
@@ -50,3 +50,6 @@ the AI Agent documents the implemented launcher so the Operator can obtain **and
 ### Definition of Done
 
 the Plan is **not** Done **if** ((a documented command differs from the implemented interface) **or** (the connection example omits required authentication) **or** (documentation implies automatic Workflow execution **or** unverified readiness)).
+
+- completion evidence: root README **and** Docker README document the actual Project root, direct control folder, separately explicit Framework source, JSON/URL output, bearer-header authentication, safe reuse, failure conditions, **and** HTTP-only boundary.
+- verification: CLI help agrees with documented flags; **`=3`** CLI tests passed; documentation diff checks passed. no release **or** installed runtime change is claimed.

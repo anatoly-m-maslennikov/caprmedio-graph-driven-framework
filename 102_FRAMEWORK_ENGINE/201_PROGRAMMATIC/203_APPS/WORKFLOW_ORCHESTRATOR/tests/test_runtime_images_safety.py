@@ -3,13 +3,14 @@
 from __future__ import annotations
 
 import json
+import os
 from pathlib import Path
 import subprocess
 import sys
 import tempfile
 import time
 import unittest
-from unittest.mock import patch
+from unittest.mock import MagicMock, patch
 
 
 APP = Path(__file__).resolve().parents[1]
@@ -66,6 +67,35 @@ class ImageOutputSafetyTests(unittest.TestCase):
         with patch.object(images, "_bounded_run", return_value=subprocess.CompletedProcess([], 0, "", "")) as reader:
             self.assertEqual("", manager._run(("docker", "build"), code="BUILD_FAILED"))
         self.assertFalse(reader.call_args.kwargs["capture_stdout"])
+
+    def test_default_image_commands_receive_only_the_docker_client_environment(self):
+        client = {
+            "HOME": "/synthetic-home", "PATH": "/synthetic-bin",
+            "DOCKER_HOST": "unix:///synthetic/docker.sock", "DOCKER_CONTEXT": "fixture",
+            "DOCKER_CONFIG": "/synthetic-docker-config", "XDG_RUNTIME_DIR": "/synthetic-runtime",
+            "TMPDIR": "/synthetic-tmp",
+        }
+        caller = dict(client, CAPRMEDIO_MCP_HTTP_SECRET_TOKEN=PRIVATE_MARKER,
+                      AWS_SECRET_ACCESS_KEY=PRIVATE_MARKER, GITHUB_TOKEN=PRIVATE_MARKER,
+                      HTTP_PROXY=PRIVATE_MARKER, LANG="en_US.UTF-8")
+        manager = images.ImageManager(APP.parents[3], platform="linux/amd64")
+        commands = (("docker", "image", "ls"), ("docker", "image", "inspect", IMAGE_ID),
+                    ("docker", "build"))
+        for command in commands:
+            with self.subTest(command=command):
+                process = MagicMock()
+                process.wait.return_value = 0
+                process.poll.return_value = 0
+                process.stdout = None if command[1] == "build" else MagicMock()
+                with patch.dict(os.environ, caller, clear=True), \
+                        patch.object(images.subprocess, "Popen", return_value=process) as start, \
+                        patch.object(images.selectors, "DefaultSelector") as selector:
+                    selector.return_value.get_map.return_value = {}
+                    self.assertEqual("", manager._run(command))
+                child_environment = start.call_args.kwargs["env"]
+                self.assertEqual(client, child_environment)
+                self.assertNotIn("CAPRMEDIO_MCP_HTTP_SECRET_TOKEN", child_environment)
+                self.assertNotIn(PRIVATE_MARKER, child_environment.values())
 
     def test_mock_oversize_and_timeout_report_only_safe_conditions(self):
         def noisy(argv, **_kwargs):

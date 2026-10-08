@@ -163,6 +163,15 @@ class ProjectMcpBackend:
         return environment
 
     @staticmethod
+    def _docker_client_environment() -> dict[str, str]:
+        """Pass Docker client context without ambient service credentials."""
+        environment = {"PATH": os.environ.get("PATH", "")}
+        for name in _DOCKER_CLIENT_ENV:
+            if name in os.environ:
+                environment[name] = os.environ[name]
+        return environment
+
+    @staticmethod
     def _projection_matches_selection(row: Mapping[str, Any], selection: object) -> bool:
         """Require the narrow inspect projection to bind exactly one Project mount."""
         if set(row) != _PROJECTED_INSPECT_KEYS:
@@ -194,7 +203,7 @@ class ProjectMcpBackend:
         listing = _bounded_run([
             "docker", "ps", "--all", "--filter", f"label=org.caprmedio.project={instance}",
             "--format", "{{.ID}}",
-        ], timeout=30.0)
+        ], timeout=30.0, env=self._docker_client_environment())
         identifiers = [line.strip() for line in listing.splitlines() if line.strip()]
         if len(identifiers) > 1 or any(_CONTAINER_ID.fullmatch(value) is None for value in identifiers):
             raise BackendError("DOCKER_PUBLICATION_FAILED")
@@ -202,7 +211,7 @@ class ProjectMcpBackend:
         for identifier in identifiers:
             raw = _bounded_run([
                 "docker", "container", "inspect", "--format", _INSPECT_FORMAT, identifier,
-            ], timeout=30.0)
+            ], timeout=30.0, env=self._docker_client_environment())
             try:
                 value = json.loads(raw, object_pairs_hook=_unique_object)
                 if not isinstance(value, dict) or not self._projection_matches_selection(value, selection):
@@ -244,7 +253,8 @@ class ProjectMcpBackend:
             valid = (address.scheme == 'http' and address.hostname == '127.0.0.1'
                      and address.port is not None and 1 <= address.port <= 65535
                      and address.path == '/mcp' and not address.query and not address.fragment
-                     and address.username is None and address.password is None)
+                     and address.username is None and address.password is None
+                     and address.netloc == f'127.0.0.1:{address.port}')
         except (TypeError, ValueError):
             valid = False
         if (not valid

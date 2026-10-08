@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 import fcntl
+import os
 from pathlib import Path
 import sys
 import tempfile
@@ -40,6 +41,7 @@ class Backend:
         self.resolve_image_calls = 0
         self.start_calls = 0
         self.health_calls = []
+        self.inspect_envs = []
         self.start_error = None
         self.health_result = True
         self.start_entered = threading.Event()
@@ -50,6 +52,11 @@ class Backend:
         return IMAGE_ID, FINGERPRINT
 
     def inspect(self, selection):
+        # Model the backend subprocess boundary: only its sanitized environment
+        # is observable by Docker inspection, never the launcher credential.
+        environment = dict(os.environ)
+        environment.pop("CAPRMEDIO_MCP_HTTP_SECRET_TOKEN", None)
+        self.inspect_envs.append(environment)
         return list(self.rows)
 
     def start(self, selection, image_id, fingerprint, token, timeout):
@@ -109,6 +116,7 @@ class LauncherStartupContractTests(unittest.TestCase):
         self.launcher = Launcher(backend=self.backend)
 
     def launch(self, *, token="secret-token", **kwargs):
+        kwargs.setdefault("source_root", APP.parents[3])
         with patch("project_mcp_launcher.resolve_project", return_value=self.selection):
             return self.launcher.launch(self.project_root, token, **kwargs)
 
@@ -167,6 +175,22 @@ class LauncherStartupContractTests(unittest.TestCase):
         self.assert_public_failure(self.launch(token=""), "refused", "CREDENTIAL_SOURCE_REFUSED")
         self.assertEqual(0, self.backend.resolve_image_calls)
         self.assertEqual(0, self.backend.start_calls)
+
+    def test_omitted_source_root_is_truthful_image_input_refusal(self):
+        with patch("project_mcp_launcher.resolve_project", return_value=self.selection):
+            result = self.launcher.launch(self.project_root, "secret-token")
+        self.assert_public_failure(result, "failed", "IMAGE_INPUT_UNAVAILABLE")
+        self.assertEqual(0, self.backend.resolve_image_calls)
+        self.assertEqual(0, self.backend.start_calls)
+        self.assertEqual([], self.backend.inspect_envs)
+
+    def test_runtime_inspection_environment_contains_no_http_secret(self):
+        with patch.dict(os.environ, {"CAPRMEDIO_MCP_HTTP_SECRET_TOKEN": "secret-token"}):
+            self.backend.rows = [healthy_row()]
+            result = self.launch(source_root=APP.parents[3])
+        self.assertEqual("reused", result["disposition"])
+        self.assertTrue(self.backend.inspect_envs)
+        self.assertNotIn("CAPRMEDIO_MCP_HTTP_SECRET_TOKEN", self.backend.inspect_envs[0])
 
     def test_image_and_build_boundary_failures_preserve_their_codes(self):
         for code, disposition in (("IMAGE_INPUT_UNAVAILABLE", "failed"),

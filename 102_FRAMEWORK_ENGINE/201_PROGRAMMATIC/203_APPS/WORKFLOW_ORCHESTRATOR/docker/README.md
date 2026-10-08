@@ -1,6 +1,7 @@
 # Project-scoped Docker runtime
 
-One image runs three separate services: MCP, durable DBOS worker, and Codex Agent.
+One image supports separate MCP, durable DBOS worker, and Codex Agent services.
+`project-mcp` starts or reuses only the selected Project's HTTP MCP container.
 Nothing starts automatically or enqueues a Workflow during startup.
 
 The worker and MCP receive one Project bind mount at `/project`, allowing atomic
@@ -14,9 +15,8 @@ the executor still restricts edits to the explicitly admitted selection.
 The worker alone applies authorized Atom proposals. The Agent has no Project,
 host-home, or Docker-socket mount. It receives the explicit frozen source/rules
 over the private Compose network. The ordinary worker, stdio MCP, and Agent
-publish no ports. The separately started HTTP MCP publishes only an explicitly
-selected `127.0.0.1` port. Containers run as a non-root user with a read-only
-image and dropped capabilities.
+publish no ports. HTTP MCP publishes only on `127.0.0.1`. Containers run as a
+non-root user with a read-only image and dropped capabilities.
 
 ## Build and test without credentials
 
@@ -84,7 +84,63 @@ mcp
 Start the worker/Agent first. The stdio MCP container exists only for that client
 connection. MCP shutdown does not stop the worker or its queue.
 
-## Authenticated localhost HTTP MCP
+## Launch a selected Project MCP endpoint
+
+Set `CAPRMEDIO_MCP_HTTP_SECRET_TOKEN` in the launching process's environment
+through your credential configuration before running this command:
+
+```sh
+python3 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/runtime.py \
+  --project-root /ABSOLUTE/PROJECT --source-root /ABSOLUTE/FRAMEWORK-SOURCE project-mcp
+```
+
+`--project-root` is the actual Project folder: it directly contains its own
+`.caprmedio_<project>/` folder with `caprmedio_project_settings.toml` and
+`project_structure.toml`.
+Projects nested in one repository use their separate Project folders as roots.
+The HTTP endpoint requires no local `.git`. `--control-root .caprmedio_<project>`
+can explicitly select a direct control folder when needed.
+
+The command admits a compatible immutable image, builds it when absent, and
+lets Docker allocate a loopback port. JSON is the default; successful output
+includes these fields, alongside Project, image, and container identities:
+
+```json
+{"disposition":"started","condition":"READY_STARTED","readiness":true,"url":"http://127.0.0.1:49152/mcp","port":49152}
+```
+
+The illustrated port is not fixed. A healthy repeat returns `reused` and
+`READY_REUSED` with the same container and URL. A mismatched or unhealthy runtime
+is retained and reported without replacement. Explicit recreation may change
+the URL, so reconnect using the newly returned endpoint.
+
+Every `project-mcp` invocation requires `--source-root` to name a readable
+Framework source checkout for image identity and build inputs. Omitting it
+returns JSON with `condition: IMAGE_INPUT_UNAVAILABLE`; no repository or ancestor
+is inferred. A retained Framework package lacks the Dockerfile and dependency
+inputs, so supply the separate source checkout when using its launcher:
+
+```sh
+python3 /ABSOLUTE/FRAMEWORK-PACKAGE/FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/runtime.py \
+  --project-root /ABSOLUTE/PROJECT --source-root /ABSOLUTE/FRAMEWORK-SOURCE \
+  --output url project-mcp
+```
+
+`--output url` prints only the URL on success. Failures still return JSON with
+`disposition` and `condition`, exit nonzero, and contain no success URL. Use
+`--no-build` to refuse a missing compatible image. `--startup-timeout` defaults
+to 60 seconds and accepts at most 60; `--build-timeout` defaults to 600 seconds
+and accepts at most 600. Build source is independent of the selected Project.
+
+Configure your Streamable HTTP MCP client with the returned URL and a separate
+`Authorization: Bearer <configured-secret>` header using the same token. The
+token is absent from the URL and results, is not a command-line argument, and
+is not loaded from an `.env` file. Each endpoint uses one container limited to
+512 MiB and one CPU. Readiness confirms authenticated host access to MCP; this
+command does not start a worker, Agent, queue, or Workflow, or grant execution
+authority.
+
+## Explicit-port localhost HTTP MCP
 
 The Docker runtime can additionally expose Streamable HTTP MCP at a caller-chosen
 loopback port. Supply both values explicitly in the invoking environment; neither

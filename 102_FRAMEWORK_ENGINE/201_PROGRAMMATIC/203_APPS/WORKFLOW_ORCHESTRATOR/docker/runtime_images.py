@@ -47,6 +47,9 @@ _CREDENTIAL_DIRECTORIES = frozenset({
 _PLATFORM = re.compile(r"linux/(?:amd64|arm64|arm|386|ppc64le|s390x|riscv64)(?:/v[0-9]+)?")
 _MAX_OUTPUT = 4 * 1024 * 1024
 _DEFAULT_EXECUTOR = subprocess.run
+_DOCKER_ENVIRONMENT = frozenset({
+    "HOME", "PATH", "DOCKER_HOST", "DOCKER_CONTEXT", "DOCKER_CONFIG", "XDG_RUNTIME_DIR", "TMPDIR",
+})
 
 
 class ImageError(RuntimeError):
@@ -108,9 +111,10 @@ def _unique_object(pairs):
 def _bounded_run(argv, *, cwd, timeout, capture_stdout=True, max_output=_MAX_OUTPUT):
     """Read a finite stdout prefix; never retain command stderr or build logs."""
     deadline = time.monotonic() + timeout
+    environment = {name: value for name, value in os.environ.items() if name in _DOCKER_ENVIRONMENT}
     process = subprocess.Popen(argv, cwd=cwd, stdin=subprocess.DEVNULL,
                                stdout=subprocess.PIPE if capture_stdout else subprocess.DEVNULL,
-                               stderr=subprocess.DEVNULL, shell=False)
+                               stderr=subprocess.DEVNULL, shell=False, env=environment)
     selector = None
     output = bytearray()
     try:
