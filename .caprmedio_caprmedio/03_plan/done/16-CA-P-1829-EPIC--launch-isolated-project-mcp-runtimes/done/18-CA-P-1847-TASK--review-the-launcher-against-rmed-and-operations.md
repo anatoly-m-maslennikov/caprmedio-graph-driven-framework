@@ -8,10 +8,10 @@ current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
 local_tier: Standard
 global_tier: 2
-status: Active
+status: Done
 author: Anatoly Maslennikov
 version: 1
-updated_at: "2026-10-08 23:56:13 +0400"
+updated_at: "2026-10-09 03:46:50 +0400"
 subjects:
   governs: "CAPRMEDIO Framework Instance"
   depends_on:
@@ -48,3 +48,5 @@ an independent AI Agent reviews the completed launcher frontier against its curr
 ### Definition of Done
 
 the Plan is **not** Done **if** ((a required RMED/O behavior lacks source **and** applicable test evidence) **or** (an unresolved launcher finding remains) **or** (incomplete evidence is represented as a pass)).
+
+- final completion evidence: independent authority, live-proof, **and** documentation/package reviews accept the frozen `fd10b3e2f` frontier, **`=60`** current host tests, both completed `launcher-proof-0omrljbe` groups, **and** the exact Docker-preservation comparison. the requirement-to-evidence mapping is `.caprmedio_tmp/launcher-epic-1829/final-review.md`; no required launcher finding remains. earlier failed receipts remain failed history, **not** substituted passing evidence. installed runtime N remains unchanged; no release, worker, queue dispatch, **or** proxy startup is claimed.

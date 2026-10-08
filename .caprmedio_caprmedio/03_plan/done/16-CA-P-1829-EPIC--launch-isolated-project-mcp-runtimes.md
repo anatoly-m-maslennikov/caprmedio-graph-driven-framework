@@ -8,10 +8,10 @@ current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
 local_tier: Standard
 global_tier: 2
-status: Active
+status: Done
 author: Anatoly Maslennikov
 version: 2
-updated_at: "2026-10-09 00:24:24 +0400"
+updated_at: "2026-10-09 03:46:50 +0400"
 subjects:
   governs: "CAPRMEDIO Framework Instance"
   depends_on:
@@ -52,3 +52,5 @@ the intended outcome is a Python launcher that gives the Operator an authenticat
 ### Definition of Done
 
 the Plan is **not** Done **if** ((**any** decomposing Task is **not** Done) **or** (a required launcher behavior lacks applicable golden **and** real-Docker evidence) **or** (an unresolved Project-isolation, readiness, credential, image, **or** reuse finding remains) **or** (the packaged command **and** connection documentation are missing)).
+
+- completion evidence: **all** **`=18`** decomposing Tasks are Done. the frozen Engine frontier `fd10b3e2f` has **`=60`** current passing host checks **and** a terminal exit-**`=0`** real-Docker proof for separate repositories **and** two Project roots in one repository: `.caprmedio_tmp/launcher-epic-1829/e2e/launcher-proof-0omrljbe/result.json`. the default command built the exact missing compatible image; authenticated startup, Project isolation, dynamic/explicit ports, safe refusals, reuse, **and** reload isolation passed. independent RMED/O, live-proof, **and** documentation/package reviews accepted the result. retained runtime N **and** every pre-existing Docker resource in the captured inventory remained unchanged; no fixture container remains. final mapping: `.caprmedio_tmp/launcher-epic-1829/final-review.md`.

@@ -8,10 +8,10 @@ current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
 local_tier: Standard
 global_tier: 2
-status: Active
+status: Done
 author: Anatoly Maslennikov
 version: 1
-updated_at: "2026-10-09 01:51:11 +0400"
+updated_at: "2026-10-09 03:46:50 +0400"
 subjects:
   governs: "CAPRMEDIO Framework Instance"
   depends_on:
@@ -55,5 +55,6 @@ the Plan is **not** Done **if** ((a required real-Docker case lacks a terminal r
 - corrected diagnosis: the launcher dropped the standard proxy-routing variables required by the Codex session. the Operator's terminal resolves `auth.docker.io`; a session HTTP request through its configured proxy receives HTTP 200. the earlier failed build is retained as failure evidence, **not** a general host-DNS outage.
 - repair evidence: commit `961dc2b35` preserves proxy routing for Docker client processes while excluding MCP **and** unrelated credentials; **`=43`** launcher tests **and** independent source review pass. no permission profile, Docker settings, **or** DNS configuration was changed.
 - subsequent repair: attempt `launcher-proof-u72b4_2q` built the image **but** exposed a malformed tmpfs Carrier; commit `cfdb461f0` fixes it **and** the parser regression passes.
-- current live evidence: attempt `launcher-proof-m3djwss7` built the exact repaired image using cached dependencies; repository launches returned `READINESS_FAILED`. a bounded disposable-fixture diagnostic starts the container successfully **and** reports healthy state, **but** this Codex session's direct localhost HTTP access fails with `Operation not permitted`; its configured proxy returns HTTP 403. authenticated MCP initialization remains unverified.
-- acceptance remains incomplete pending authorized host HTTP/MCP proof access. scoped fixture cleanup succeeded **and** reports **`=0`** running containers; installed runtime **and** permission configuration remain unchanged. evidence: `.caprmedio_tmp/launcher-epic-1829/live-proof-blocker.md`.
+- historical live evidence: attempt `launcher-proof-m3djwss7` built the exact repaired image using cached dependencies; repository launches returned `READINESS_FAILED`. its disposable-fixture diagnostic started a healthy container, **but** direct localhost HTTP was then denied; authenticated MCP initialization was unverified at that point.
+- historical acceptance state: the earlier attempt awaited authorized host HTTP/MCP access; its scoped cleanup succeeded with **`=0`** running containers. the retained blocker note is historical, **not** the current result: `.caprmedio_tmp/launcher-epic-1829/live-proof-blocker.md`.
+- final completion evidence: the frozen-source `launcher-proof-0omrljbe/result.json` exited **`=0`** with the `two-repositories` group completed. the default CLI built **and** admitted image `sha256:3e19248bbb4ed7b852e0821f8cb0ac65ff839eeb2df56211f2ef4150b190055c` from the exact current source fingerprint. authenticated MCP reads, refusal probes, dynamic/explicit publication, repeat/concurrent reuse, **and** separate reload receipts passed. cleanup has no failure **and** empty fixture sets; retained runtime N is equal. `docker-preservation-0omrljbe.json` proves **all** **`=18`** pre-existing image entries **and** **all** **`=44`** existing containers remained unchanged; **only** the admitted build image was added.

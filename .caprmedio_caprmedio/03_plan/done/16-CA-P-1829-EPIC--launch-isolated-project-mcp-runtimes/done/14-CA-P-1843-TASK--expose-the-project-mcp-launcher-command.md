@@ -11,7 +11,7 @@ global_tier: 2
 status: Done
 author: Anatoly Maslennikov
 version: 1
-updated_at: "2026-10-09 01:15:08 +0400"
+updated_at: "2026-10-09 03:46:50 +0400"
 subjects:
   governs: "CAPRMEDIO Framework Instance"
   depends_on:
@@ -53,4 +53,8 @@ the AI Agent connects the admitted launcher components **to** one usable Python 
 
 - completion evidence: the existing packaged Engine entry point now exposes `project-mcp`, separate `--source-root`, bounded deadlines, `--no-build` **and** JSON/URL output. 3 command tests passed, including non-success JSON with a nonzero exit; existing worker/stdin commands remain unchanged.
 
+- reopened **after** independent final review: expose the admitted optional explicit port **and** verify propagation **and** refusal at the command boundary. prior command evidence does **not** cover this missing input.
+
 the Plan is **not** Done **if** ((the command cannot resolve its accepted Project input) **or** (its packaged entry point is absent) **or** (the command-level golden tests fail)).
+
+- final completion evidence: **`=5`** command tests pass, including `--port` forwarding **and** bounds refusal. `launcher-proof-0omrljbe/result.json` records a real default `runtime.py ... project-mcp` invocation without `--image` **or** `--no-build`, the resulting immutable image, **and** successful repeated CLI invocations in both Project layouts. independent documentation/package review accepts the Project-root selection, credential, explicit-port, **and** endpoint-only contract.

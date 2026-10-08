@@ -8,10 +8,10 @@ current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
 local_tier: Standard
 global_tier: 2
-status: Active
+status: Done
 author: Anatoly Maslennikov
 version: 2
-updated_at: "2026-10-09 00:24:24 +0400"
+updated_at: "2026-10-09 03:46:50 +0400"
 subjects:
   governs: "CAPRMEDIO Framework Instance"
   depends_on:
@@ -51,3 +51,5 @@ the AI Agent runs the bounded real-Docker proof for two selected CAPRMEDIO Frame
 ### Definition of Done
 
 the Plan is **not** Done **if** ((a selected runtime resolves another Project's authority **or** state) **or** (repeat/concurrent launch violates the accepted identity contract) **or** (a required same-repository/security case lacks a terminal result)).
+
+- final completion evidence: `launcher-proof-0omrljbe/result.json` exited **`=0`** with `same-repository` completed for two distinct nested Project roots. own-authority reads passed **and** foreign-Atom reads were rejected. credentials, containers, ports, **and** reload paths stayed distinct; identical reload request IDs produced separate Project-local receipts. stable repeated/concurrent reuse, exact requested ports, occupied-publication refusal, wrong-token readiness refusal, **and** endpoint-only `mcp-http` observations passed. Project authority/Journal snapshots **and** retained runtime N are unchanged; **all** fixture containers were cleaned up with no failure.
