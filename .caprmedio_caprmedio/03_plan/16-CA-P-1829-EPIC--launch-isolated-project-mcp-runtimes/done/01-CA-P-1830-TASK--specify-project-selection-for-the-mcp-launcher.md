@@ -8,10 +8,10 @@ current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
 local_tier: Standard
 global_tier: 2
-status: Active
+status: Done
 author: Anatoly Maslennikov
 version: 2
-updated_at: "2026-10-09 00:24:24 +0400"
+updated_at: "2026-10-09 00:27:59 +0400"
 subjects:
   governs: "CAPRMEDIO Framework Instance"
   depends_on:
@@ -48,5 +48,7 @@ the AI Agent defines the Project-selection contract for the Python launcher so t
 - effort: **`<=15`** minutes for **`=1`** AI Agent; the Epic's decomposition rule applies **before** execution **if** the estimate no longer holds.
 
 ### Definition of Done
+
+- completion evidence: R1900, M355, E599, D593 source contract; independent launcher_security review passed the explicit Project-root, no-Git-precondition, selected-mount, identity, ambiguity, authority **and** state boundaries.
 
 the Plan is **not** Done **if** ((the selected Project cannot be resolved uniquely from the specified inputs) **or** (same-repository instance identity **and** state boundaries are unspecified) **or** (the source contract has no recorded independent review)).

@@ -8,10 +8,10 @@ current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
 local_tier: Standard
 global_tier: 2
-status: Active
+status: Done
 author: Anatoly Maslennikov
 version: 1
-updated_at: "2026-10-08 23:56:13 +0400"
+updated_at: "2026-10-09 00:29:48 +0400"
 subjects:
   governs: "CAPRMEDIO Framework Instance"
   depends_on:
@@ -49,5 +49,7 @@ the AI Agent specifies the observable success **and** failure contract for the P
 - effort: **`<=15`** minutes for **`=1`** AI Agent; the Epic's decomposition rule applies **before** execution **if** the estimate no longer holds.
 
 ### Definition of Done
+
+- completion evidence: O188, E601 **and** D595; independent launcher_security review passed bounded host-authenticated MCP readiness, URL admission, safe structured failures **and** credential redaction.
 
 the Plan is **not** Done **if** ((a success URL can be returned **before** authenticated readiness) **or** (a required startup outcome lacks an Evaluation) **or** (the output contract permits credential disclosure)).
