@@ -11,7 +11,7 @@ global_tier: 2
 status: Active
 author: Anatoly Maslennikov
 version: 1
-updated_at: "2026-10-09 01:26:54 +0400"
+updated_at: "2026-10-09 01:35:54 +0400"
 subjects:
   governs: "CAPRMEDIO Framework Instance"
   depends_on:
@@ -52,5 +52,6 @@ the AI Agent runs the bounded real-Docker launcher proof for two disposable Proj
 the Plan is **not** Done **if** ((a required real-Docker case lacks a terminal result) **or** (two repository runtimes collide) **or** (the proof changes an unrelated existing runtime)).
 
 - execution evidence: the saved opt-in proof attempt `launcher-proof-4lng87od` failed during missing-image build **before** Project startup; its retained `result.json` contains no completed group.
-- current blocker: Docker cannot resolve `auth.docker.io` for base-image metadata. a bounded diagnostic confirmed the DNS failure; the Docker host remains reachable **and** reports **`=0`** running containers. no installed runtime was replaced.
-- acceptance remains incomplete; retry the declared harness **after** Docker Hub DNS/network access is restored. evidence: `.caprmedio_tmp/launcher-epic-1829/live-proof-blocker.md`.
+- corrected diagnosis: the launcher dropped the standard proxy-routing variables required by the Codex session. the Operator's terminal resolves `auth.docker.io`; a session HTTP request through its configured proxy receives HTTP 200. the earlier failed build is retained as failure evidence, **not** a general host-DNS outage.
+- repair evidence: commit `961dc2b35` preserves proxy routing for Docker client processes while excluding MCP **and** unrelated credentials; **`=43`** launcher tests **and** independent source review pass. no permission profile, Docker settings, **or** DNS configuration was changed.
+- acceptance remains incomplete; the fresh declared harness retry is running. evidence: `.caprmedio_tmp/launcher-epic-1829/live-proof-blocker.md`.
