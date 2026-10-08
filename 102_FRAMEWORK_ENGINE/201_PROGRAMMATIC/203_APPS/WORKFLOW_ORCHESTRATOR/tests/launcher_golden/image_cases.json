@@ -1,0 +1,12 @@
+[
+  {"id": "identity-is-stable-for-unchanged-admitted-source", "scenario": "stable_identity", "outcome": "identity"},
+  {"id": "source-change-changes-fingerprint", "scenario": "admitted_source_change", "outcome": "changed_identity"},
+  {"id": "project-context-change-does-not-change-fingerprint", "scenario": "project_context_change", "outcome": "same_identity"},
+  {"id": "missing-source-input-refuses", "scenario": "missing_source_input", "condition": "IMAGE_INPUT_UNAVAILABLE"},
+  {"id": "matching-local-image-is-reused", "scenario": "matching_image", "outcome": "resolved"},
+  {"id": "missing-image-builds-by-default", "scenario": "missing_image_default_build", "outcome": "resolved"},
+  {"id": "missing-image-with-no-build-refuses", "scenario": "missing_image_no_build", "condition": "IMAGE_REFUSED"},
+  {"id": "mutable-explicit-image-refuses", "scenario": "mutable_explicit", "condition": "IMAGE_REFUSED"},
+  {"id": "stale-explicit-image-refuses", "scenario": "stale_explicit", "condition": "IMAGE_REFUSED"},
+  {"id": "build-failure-is-attributable", "scenario": "build_failure", "condition": "BUILD_FAILED"}
+]

@@ -1,0 +1,15 @@
+[
+  {"name": "fresh_start", "disposition": "started", "condition": "READY_STARTED", "url": true},
+  {"name": "healthy_reuse", "disposition": "reused", "condition": "READY_REUSED", "url": true},
+  {"name": "project_selection_refused", "disposition": "refused", "condition": "PROJECT_SELECTION_REFUSED", "url": false},
+  {"name": "credential_source_refused", "disposition": "refused", "condition": "CREDENTIAL_SOURCE_REFUSED", "url": false},
+  {"name": "image_unavailable", "disposition": "failed", "condition": "IMAGE_INPUT_UNAVAILABLE", "url": false},
+  {"name": "image_refused", "disposition": "refused", "condition": "IMAGE_REFUSED", "url": false},
+  {"name": "lock_busy", "disposition": "busy", "condition": "PROJECT_LOCK_BUSY", "url": false},
+  {"name": "runtime_mismatch", "disposition": "refused", "condition": "RUNTIME_MISMATCH", "url": false},
+  {"name": "runtime_unhealthy", "disposition": "refused", "condition": "RUNTIME_UNHEALTHY", "url": false},
+  {"name": "build_failed", "disposition": "failed", "condition": "BUILD_FAILED", "url": false},
+  {"name": "docker_start_failed", "disposition": "failed", "condition": "DOCKER_START_FAILED", "url": false},
+  {"name": "publication_failed", "disposition": "failed", "condition": "DOCKER_PUBLICATION_FAILED", "url": false},
+  {"name": "readiness_failed", "disposition": "failed", "condition": "READINESS_FAILED", "url": false}
+]

@@ -8,10 +8,10 @@ current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
 local_tier: Standard
 global_tier: 2
-status: Active
+status: Done
 author: Anatoly Maslennikov
 version: 1
-updated_at: "2026-10-08 23:56:13 +0400"
+updated_at: "2026-10-09 00:37:12 +0400"
 subjects:
   governs: "CAPRMEDIO Framework Instance"
   depends_on:
@@ -49,5 +49,7 @@ the AI Agent creates the test-first golden corpus for Project selection **and** 
 - effort: **`<=15`** minutes for **`=1`** AI Agent; the Epic's decomposition rule applies **before** execution **if** the estimate no longer holds.
 
 ### Definition of Done
+
+- completion evidence: selection **and** image executable golden fixtures; expected missing-module test-first failures saved **in** `.caprmedio_tmp/launcher-epic-1829/pre-implementation-selection-images.md`; source-change, immutable default-build reinspection **and** foreign-context cases added following review.
 
 the Plan is **not** Done **if** ((a listed selection **or** image case is absent) **or** (the fixtures depend on live Project secrets **or** mutable host state) **or** (the pre-implementation test result is missing)).

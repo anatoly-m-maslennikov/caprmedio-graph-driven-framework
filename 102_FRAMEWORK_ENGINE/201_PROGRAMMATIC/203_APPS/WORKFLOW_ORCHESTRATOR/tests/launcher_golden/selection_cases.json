@@ -1,0 +1,10 @@
+[
+  {"id": "separate-project-roots-have-separate-identities", "scenario": "separate_roots", "outcome": "selected"},
+  {"id": "sibling-project-roots-under-one-repository-stay-isolated", "scenario": "sibling_roots", "outcome": "selected"},
+  {"id": "single-project-root-needs-no-git-directory", "scenario": "no_git", "outcome": "selected"},
+  {"id": "multiple-direct-control-roots-refuse", "scenario": "ambiguous_control_roots", "outcome": "refused"},
+  {"id": "selector-path-traversal-refuses", "scenario": "unsafe_selector", "outcome": "refused"},
+  {"id": "selector-symlink-refuses", "scenario": "symlink_selector", "outcome": "refused"},
+  {"id": "wrong-settings-control-binding-refuses", "scenario": "contradictory_binding", "outcome": "refused"},
+  {"id": "foreign-frontier-binding-refuses", "scenario": "foreign_context_binding", "outcome": "refused"}
+]

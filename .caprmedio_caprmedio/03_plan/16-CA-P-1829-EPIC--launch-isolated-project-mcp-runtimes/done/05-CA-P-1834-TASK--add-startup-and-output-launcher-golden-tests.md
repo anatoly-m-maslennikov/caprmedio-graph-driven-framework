@@ -8,10 +8,10 @@ current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
 local_tier: Standard
 global_tier: 2
-status: Active
+status: Done
 author: Anatoly Maslennikov
 version: 1
-updated_at: "2026-10-08 23:58:46 +0400"
+updated_at: "2026-10-09 00:37:49 +0400"
 subjects:
   governs: "CAPRMEDIO Framework Instance"
   depends_on:
@@ -50,5 +50,7 @@ the AI Agent creates the test-first golden corpus for repeat startup, port admis
 - effort: **`<=15`** minutes for **`=1`** AI Agent; the Epic's decomposition rule applies **before** execution **if** the estimate no longer holds.
 
 ### Definition of Done
+
+- completion evidence: the startup suite exercises the 13 O188 condition codes, strict publication, token redaction, authenticated readiness, real lock contention **and** concurrent reuse; direct unittest invocation recorded expected pre-implementation missing-module failure.
 
 the Plan is **not** Done **if** ((a required startup **or** result case is absent) **or** (a failure fixture accepts a success URL) **or** (the pre-implementation test result is missing)).
