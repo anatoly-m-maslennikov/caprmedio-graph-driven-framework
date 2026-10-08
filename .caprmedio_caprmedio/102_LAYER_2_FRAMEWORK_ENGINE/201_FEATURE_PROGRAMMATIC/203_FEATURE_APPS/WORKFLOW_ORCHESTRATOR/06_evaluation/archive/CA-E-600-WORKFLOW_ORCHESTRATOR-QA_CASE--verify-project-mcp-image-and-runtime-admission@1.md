@@ -5,9 +5,9 @@ type: QA Case
 current_scope_unit: WORKFLOW_ORCHESTRATOR
 local_tier: Standard
 global_tier: 14
-status: Active
+status: Archived
 author: Anatoly Maslennikov
-version: 2
+version: 1
 updated_at: "2026-10-09 03:06:01 +0400"
 subjects:
   governs: "Workflow Orchestrator/Project MCP runtime admission evaluation"
@@ -30,7 +30,6 @@ the Evaluation **must** prove that only a matching immutable image and a healthy
 
 ## Details
 
-- regression-test and real-build-check that Buildx writable configuration, state, and logs are located only in the private build attempt sibling `buildx/` directory selected by `BUILDX_CONFIG`; unrelated secret environment variables are excluded, the admitted manifest remains exact, and any failure preserves the immutable admitted context without a `~/.docker/buildx` write or worker start.
 - unit-test the ordered source manifest/fingerprint against a changed explicit `--source-root` Engine, dependency, Dockerfile/ignore, platform, or build argument; each change produces a different fingerprint. Verify Project Carriers, credentials, installed state, generated outputs, and any unrelated repository source do not enter the image fingerprint.
 - test explicit image references that are mutable, missing, wrong-schema, fingerprint-mismatched, or correct. Verify missing matching images build under the invocation's default `build_if_missing=true`, refuse under `--no-build`, and capture/re-inspect an immutable digest without retagging or replacing another image.
 - exercise a packaged launcher lacking a required Engine/Docker/dependency input. Verify `IMAGE_INPUT_UNAVAILABLE` safely requests `--source-root`, preserves installed runtime N, and does not begin a full Release, package replacement, or Framework promotion.
