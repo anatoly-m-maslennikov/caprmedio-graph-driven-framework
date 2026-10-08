@@ -44,6 +44,7 @@ class ProjectStateTests(unittest.TestCase):
                           'target': '/project'}], service['volumes'])
         self.assertTrue(service['read_only'])
         self.assertEqual('no', service['restart'])
+        self.assertEqual(['/tmp:size=128m,mode=1777'], service['tmpfs'])
         self.assertEqual('512m', service['mem_limit'])
         self.assertEqual(1, service['cpus'])
         self.assertNotIn('CODEX_AUTHFILE', service['environment'])

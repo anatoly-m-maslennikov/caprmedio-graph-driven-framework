@@ -7,7 +7,7 @@ services:
     security_opt: [no-new-privileges:true]
     restart: "no"
     stop_grace_period: 10s
-    tmpfs: [/tmp:size=128m,mode=1777]
+    tmpfs: ["/tmp:size=128m,mode=1777"]
     pids_limit: 128
     mem_limit: 512m
     cpus: 1
