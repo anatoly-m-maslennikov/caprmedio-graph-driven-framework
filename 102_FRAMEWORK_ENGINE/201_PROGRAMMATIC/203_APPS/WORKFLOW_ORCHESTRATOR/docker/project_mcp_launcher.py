@@ -477,8 +477,14 @@ class Launcher:
                         return complete(self._failure(self._failure_code(
                             error, "DOCKER_PUBLICATION_FAILED"), selection, image_id, fingerprint))
                     if isinstance(candidate, str):
+                        # The service was absent before one bounded start attempt.
+                        # If Docker leaves no selected runtime afterwards (for
+                        # example, an occupied explicitly requested host port),
+                        # that attempt failed to start.  A present runtime with
+                        # malformed publication still retains its distinct
+                        # DOCKER_PUBLICATION_FAILED classification.
                         return complete(self._failure(candidate if candidate != "absent"
-                                                      else "DOCKER_PUBLICATION_FAILED", selection,
+                                                      else "DOCKER_START_FAILED", selection,
                                                       image_id, fingerprint))
                     if not self._ready(backend, candidate, token, deadline):
                         return complete(self._failure("READINESS_FAILED", selection,

@@ -44,6 +44,7 @@ class Backend:
         self.inspect_envs = []
         self.start_ports = []
         self.start_error = None
+        self.publish_after_start = True
         self.health_result = True
         self.start_entered = threading.Event()
         self.release_start = None
@@ -68,7 +69,8 @@ class Backend:
             self.release_start.wait(timeout=2)
         if self.start_error is not None:
             raise self.start_error
-        self.rows = [healthy_row(host_port=str(port) if port is not None else "8099")]
+        if self.publish_after_start:
+            self.rows = [healthy_row(host_port=str(port) if port is not None else "8099")]
 
     def health(self, url, token, timeout):
         self.health_calls.append((url, token, timeout))
@@ -248,6 +250,17 @@ class LauncherStartupContractTests(unittest.TestCase):
 
     def test_occupied_requested_port_reports_failure_without_resource_destruction(self):
         self.backend.start_error = LaunchError("DOCKER_START_FAILED")
+        result = self.launch(port=8123)
+        self.assert_public_failure(result, "failed", "DOCKER_START_FAILED")
+        self.assertEqual([8123], self.backend.start_ports)
+        self.assertEqual([], self.backend.rows)
+
+    def test_requested_port_without_post_start_publication_is_a_start_failure(self):
+        # Docker may return from the compose invocation but expose no selected
+        # container on the immediately following inspection (for example when
+        # a requested host listener is unavailable).  This is an attempted
+        # start that failed to publish, not a malformed pre-existing runtime.
+        self.backend.publish_after_start = False
         result = self.launch(port=8123)
         self.assert_public_failure(result, "failed", "DOCKER_START_FAILED")
         self.assertEqual([8123], self.backend.start_ports)
