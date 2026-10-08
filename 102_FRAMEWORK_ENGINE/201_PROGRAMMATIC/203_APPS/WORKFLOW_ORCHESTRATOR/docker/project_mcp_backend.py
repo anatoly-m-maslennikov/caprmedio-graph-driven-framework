@@ -22,6 +22,8 @@ _CONTAINER_ID = re.compile(r"[0-9a-f]{12,64}\Z")
 _MAX_STDOUT = 64 * 1024
 _DOCKER_CLIENT_ENV = (
     "HOME", "DOCKER_HOST", "DOCKER_CONTEXT", "DOCKER_CONFIG", "XDG_RUNTIME_DIR", "TMPDIR",
+    "HTTP_PROXY", "HTTPS_PROXY", "ALL_PROXY", "NO_PROXY",
+    "http_proxy", "https_proxy", "all_proxy", "no_proxy",
 )
 _PROJECTED_INSPECT_KEYS = frozenset({
     "Id", "Image", "Config", "State", "NetworkSettings", "Mounts",

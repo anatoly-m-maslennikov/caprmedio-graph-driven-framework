@@ -49,6 +49,8 @@ _MAX_OUTPUT = 4 * 1024 * 1024
 _DEFAULT_EXECUTOR = subprocess.run
 _DOCKER_ENVIRONMENT = frozenset({
     "HOME", "PATH", "DOCKER_HOST", "DOCKER_CONTEXT", "DOCKER_CONFIG", "XDG_RUNTIME_DIR", "TMPDIR",
+    "HTTP_PROXY", "HTTPS_PROXY", "ALL_PROXY", "NO_PROXY",
+    "http_proxy", "https_proxy", "all_proxy", "no_proxy",
 })
 
 

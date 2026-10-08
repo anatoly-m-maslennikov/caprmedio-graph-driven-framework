@@ -10,16 +10,24 @@ import sys
 import tempfile
 import time
 import unittest
+from types import SimpleNamespace
 from unittest.mock import MagicMock, patch
 
 
 APP = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(APP / "docker"))
 import runtime_images as images  # noqa: E402
+from project_mcp_backend import ProjectMcpBackend  # noqa: E402
 
 
 IMAGE_ID = "sha256:" + "a" * 64
 PRIVATE_MARKER = "synthetic-private-diagnostic"
+PROXY_ROUTING = {
+    "HTTP_PROXY": "http://proxy.invalid:3128", "HTTPS_PROXY": "http://proxy.invalid:3128",
+    "ALL_PROXY": "socks5://proxy.invalid:1080", "NO_PROXY": "localhost,127.0.0.1",
+    "http_proxy": "http://proxy.invalid:3128", "https_proxy": "http://proxy.invalid:3128",
+    "all_proxy": "socks5://proxy.invalid:1080", "no_proxy": "localhost,127.0.0.1",
+}
 
 
 class ImageOutputSafetyTests(unittest.TestCase):
@@ -75,9 +83,10 @@ class ImageOutputSafetyTests(unittest.TestCase):
             "DOCKER_CONFIG": "/synthetic-docker-config", "XDG_RUNTIME_DIR": "/synthetic-runtime",
             "TMPDIR": "/synthetic-tmp",
         }
+        client.update(PROXY_ROUTING)
         caller = dict(client, CAPRMEDIO_MCP_HTTP_SECRET_TOKEN=PRIVATE_MARKER,
                       AWS_SECRET_ACCESS_KEY=PRIVATE_MARKER, GITHUB_TOKEN=PRIVATE_MARKER,
-                      HTTP_PROXY=PRIVATE_MARKER, LANG="en_US.UTF-8")
+                      LANG="en_US.UTF-8")
         manager = images.ImageManager(APP.parents[3], platform="linux/amd64")
         commands = (("docker", "image", "ls"), ("docker", "image", "inspect", IMAGE_ID),
                     ("docker", "build"))
@@ -96,6 +105,30 @@ class ImageOutputSafetyTests(unittest.TestCase):
                 self.assertEqual(client, child_environment)
                 self.assertNotIn("CAPRMEDIO_MCP_HTTP_SECRET_TOKEN", child_environment)
                 self.assertNotIn(PRIVATE_MARKER, child_environment.values())
+                for proxy in PROXY_ROUTING.values():
+                    self.assertNotIn(proxy, start.call_args.args[0])
+
+    def test_backend_environments_preserve_present_proxy_routing_without_ambient_credentials(self):
+        selection = SimpleNamespace(root=APP.parents[3], control_relative=Path(".caprmedio_fixture"),
+                                    instance_id="c" * 64)
+        caller = dict(PROXY_ROUTING, PATH="/synthetic-bin",
+                      CAPRMEDIO_MCP_HTTP_SECRET_TOKEN=PRIVATE_MARKER,
+                      AWS_SECRET_ACCESS_KEY=PRIVATE_MARKER, GITHUB_TOKEN=PRIVATE_MARKER)
+        explicit_token = "synthetic-explicit-service-token"
+        with patch.dict(os.environ, caller, clear=True):
+            client = ProjectMcpBackend._docker_client_environment()
+            service = ProjectMcpBackend._environment(selection, IMAGE_ID, "b" * 64, explicit_token)
+        self.assertEqual(dict(PROXY_ROUTING, PATH="/synthetic-bin"), client)
+        for name, value in PROXY_ROUTING.items():
+            self.assertEqual(value, service[name])
+        self.assertEqual(explicit_token, service["CAPRMEDIO_MCP_HTTP_SECRET_TOKEN"])
+        self.assertNotIn(PRIVATE_MARKER, client.values())
+        self.assertNotIn(PRIVATE_MARKER, service.values())
+        self.assertNotIn("AWS_SECRET_ACCESS_KEY", service)
+        self.assertNotIn("GITHUB_TOKEN", service)
+        with patch.dict(os.environ, {"PATH": "/synthetic-bin"}, clear=True):
+            absent = ProjectMcpBackend._docker_client_environment()
+        self.assertEqual({"PATH": "/synthetic-bin"}, absent)
 
     def test_mock_oversize_and_timeout_report_only_safe_conditions(self):
         def noisy(argv, **_kwargs):
@@ -134,6 +167,8 @@ class ImageCredentialContextTests(unittest.TestCase):
         manager = images.ImageManager(source, executor=lambda *_a, **_k: None,
                                       uid=1000, gid=1000, platform="linux/amd64")
         before = manager.identity()
+        with patch.dict(os.environ, PROXY_ROUTING):
+            self.assertEqual(before, manager.identity(), "proxy routing is not an image input")
         engine = source / images.ENGINE_ROOT
         protected = set()
         for name in ("auth.json", "credentials.json", "token.txt", "token.json", "secrets.json", "secrets.txt"):

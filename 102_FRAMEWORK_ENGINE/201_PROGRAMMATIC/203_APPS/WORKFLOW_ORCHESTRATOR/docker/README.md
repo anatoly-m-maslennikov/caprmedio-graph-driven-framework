@@ -132,6 +132,10 @@ python3 /ABSOLUTE/FRAMEWORK-PACKAGE/FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/W
 to 60 seconds and accepts at most 60; `--build-timeout` defaults to 600 seconds
 and accepts at most 600. Build source is independent of the selected Project.
 
+Docker client commands preserve configured HTTP/HTTPS/SOCKS proxy routing,
+including uppercase and lowercase proxy variables. These host routing values
+are not emitted in launcher results or supplied as image build arguments.
+
 Configure your Streamable HTTP MCP client with the returned URL and a separate
 `Authorization: Bearer <configured-secret>` header using the same token. The
 token is absent from the URL and results, is not a command-line argument, and
