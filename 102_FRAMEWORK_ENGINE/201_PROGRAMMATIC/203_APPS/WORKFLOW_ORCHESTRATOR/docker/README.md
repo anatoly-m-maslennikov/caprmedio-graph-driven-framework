@@ -32,6 +32,8 @@ python3 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/doc
 Docker Desktop/Engine and Compose must already be available. The image pins
 Python 3.14.7, Node 22.20.0, Codex CLI 0.156.1, uv 0.12.18, and the checked-in
 Python dependency lock. Build uses the invoking user's UID/GID for mount access.
+Each build uses a private, attempt-local Buildx client-state cache outside the
+immutable build context; it does not modify the user's global Buildx state.
 The build context includes Engine source and dependency declarations, not Project
 Atoms, runtime state, authentication, or `.env` files. Compose explicitly disables
 implicit `.env` loading. Network restrictions still apply to image building;

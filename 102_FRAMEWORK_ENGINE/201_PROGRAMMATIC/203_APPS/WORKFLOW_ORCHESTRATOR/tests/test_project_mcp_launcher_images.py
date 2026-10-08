@@ -3,11 +3,13 @@
 from __future__ import annotations
 
 import json
+import os
 from pathlib import Path
 import subprocess
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 
 
 APP = Path(__file__).resolve().parents[1]
@@ -182,6 +184,50 @@ class ImageGoldenTests(unittest.TestCase):
         inspections = [command for command in calls if "inspect" in command]
         self.assertTrue(inspections, calls)
         self.assertTrue(any(IMAGE_ID in command for command in inspections))
+
+    def test_build_uses_private_sibling_buildx_client_state_only_for_that_subprocess(self) -> None:
+        source = self.source_fixture()
+        manager = self.manager(source, lambda *_a, **_k: None)
+        identity = manager.identity()
+        calls = []
+        client = {"HOME": "/synthetic-home", "PATH": "/synthetic-bin",
+                  "DOCKER_CONFIG": "/synthetic-docker-config"}
+        caller = dict(client, AWS_SECRET_ACCESS_KEY="synthetic-private-secret")
+
+        def executor(argv, **kwargs):
+            argv = tuple(argv)
+            calls.append((argv, kwargs))
+            if "ls" in argv:
+                return subprocess.CompletedProcess(argv, 0, "", "")
+            if "build" in argv:
+                iidfile = Path(argv[argv.index("--iidfile") + 1])
+                iidfile.write_text(IMAGE_ID + "\n", encoding="utf-8")
+                return subprocess.CompletedProcess(argv, 0, "", "")
+            inspection = json.dumps([{
+                "Id": IMAGE_ID, "Os": "linux", "Architecture": "amd64",
+                "Config": {"Labels": {
+                    "org.caprmedio.runtime.schema": "1",
+                    "org.caprmedio.runtime.fingerprint": identity.fingerprint,
+                }},
+            }])
+            return subprocess.CompletedProcess(argv, 0, inspection, "")
+
+        manager.executor = executor
+        with patch.dict(os.environ, caller, clear=True):
+            self.assertEqual(IMAGE_ID, manager.resolve())
+        self.assertEqual(identity, manager.identity())
+        build, build_kwargs = next((call for call in calls if "build" in call[0]))
+        state = Path(build_kwargs["env"]["BUILDX_CONFIG"])
+        self.assertEqual(build[build.index("--iidfile") + 1], str(state.parent / "image.id"))
+        self.assertEqual("buildx", state.name)
+        self.assertTrue(state.is_dir())
+        self.assertEqual(dict(client, BUILDX_CONFIG=str(state)), build_kwargs["env"])
+        self.assertNotIn("synthetic-private-secret", build_kwargs["env"].values())
+        self.assertNotIn(str(state), build)
+        self.assertNotIn(str(state), " ".join(build))
+        for command, kwargs in calls:
+            if "build" not in command:
+                self.assertNotIn("env", kwargs)
 
 
 if __name__ == "__main__":

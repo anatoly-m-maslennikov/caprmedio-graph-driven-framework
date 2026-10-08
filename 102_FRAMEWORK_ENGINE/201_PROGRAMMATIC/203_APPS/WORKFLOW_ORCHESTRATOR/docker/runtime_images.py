@@ -110,10 +110,18 @@ def _unique_object(pairs):
     return value
 
 
-def _bounded_run(argv, *, cwd, timeout, capture_stdout=True, max_output=_MAX_OUTPUT):
+def _docker_client_environment(*, buildx_config=None):
+    environment = {name: value for name, value in os.environ.items() if name in _DOCKER_ENVIRONMENT}
+    if buildx_config is not None:
+        environment["BUILDX_CONFIG"] = str(buildx_config)
+    return environment
+
+
+def _bounded_run(argv, *, cwd, timeout, capture_stdout=True, max_output=_MAX_OUTPUT,
+                 buildx_config=None):
     """Read a finite stdout prefix; never retain command stderr or build logs."""
     deadline = time.monotonic() + timeout
-    environment = {name: value for name, value in os.environ.items() if name in _DOCKER_ENVIRONMENT}
+    environment = _docker_client_environment(buildx_config=buildx_config)
     process = subprocess.Popen(argv, cwd=cwd, stdin=subprocess.DEVNULL,
                                stdout=subprocess.PIPE if capture_stdout else subprocess.DEVNULL,
                                stderr=subprocess.DEVNULL, shell=False, env=environment)
@@ -244,17 +252,21 @@ class ImageManager:
         return ImageIdentity(fingerprint, "caprmedio-runtime:inputs-" + fingerprint,
                              self.platform, rows, self.uid, self.gid)
 
-    def _run(self, argv, *, code="IMAGE_REFUSED", cwd=None):
+    def _run(self, argv, *, code="IMAGE_REFUSED", cwd=None, buildx_config=None):
         build = len(argv) > 1 and argv[1] == "build"
         try:
             if self.executor is _DEFAULT_EXECUTOR:
                 result = _bounded_run(list(argv), cwd=cwd or self._root(), timeout=self.timeout,
-                                      capture_stdout=not build, max_output=_MAX_OUTPUT)
+                                      capture_stdout=not build, max_output=_MAX_OUTPUT,
+                                      buildx_config=buildx_config)
             else:
                 # Test executors keep the existing CompletedProcess interface.
-                result = self.executor(list(argv), cwd=cwd or self._root(), stdin=subprocess.DEVNULL,
-                                       capture_output=True, text=True, shell=False,
-                                       timeout=self.timeout, check=False)
+                kwargs = {"cwd": cwd or self._root(), "stdin": subprocess.DEVNULL,
+                          "capture_output": True, "text": True, "shell": False,
+                          "timeout": self.timeout, "check": False}
+                if buildx_config is not None:
+                    kwargs["env"] = _docker_client_environment(buildx_config=buildx_config)
+                result = self.executor(list(argv), **kwargs)
         except subprocess.TimeoutExpired:
             message = ("Image build timed out; its effect is uncertain and was not retried"
                        if code == "BUILD_FAILED" else "Docker image inspection timed out")
@@ -328,6 +340,9 @@ class ImageManager:
             attempt.chmod(0o700)
             context = attempt / "context"
             context.mkdir()
+            buildx = attempt / "buildx"
+            buildx.mkdir(mode=0o700)
+            buildx.chmod(0o700)
         except OSError as error:
             raise ImageError("BUILD_FAILED", "Private image build context is unavailable") from error
         self._assemble(context, identity)
@@ -341,7 +356,7 @@ class ImageManager:
                    "--build-arg", f"RUNTIME_UID={identity.uid}",
                    "--build-arg", f"RUNTIME_GID={identity.gid}",
                    "--file", str(context / DOCKERFILE), str(context))
-        self._run(command, code="BUILD_FAILED", cwd=context)
+        self._run(command, code="BUILD_FAILED", cwd=context, buildx_config=buildx)
         self._current(identity)
         self._verify_context(context, identity)
         try:
