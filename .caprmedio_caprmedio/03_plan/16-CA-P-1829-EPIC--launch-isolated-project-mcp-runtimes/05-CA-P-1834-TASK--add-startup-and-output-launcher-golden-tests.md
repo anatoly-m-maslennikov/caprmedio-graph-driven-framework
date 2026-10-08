@@ -1,0 +1,54 @@
+---
+atom_id: CA-P-1834
+content_role: Plan
+type: Plan
+label: Task
+work_sequence_number: 5
+current_scope_unit: caprmedio
+claim_target_scope_unit: caprmedio
+local_tier: Standard
+global_tier: 2
+status: Active
+author: Anatoly Maslennikov
+version: 1
+updated_at: "2026-10-08 23:58:46 +0400"
+subjects:
+  governs: "CAPRMEDIO Framework Instance"
+  depends_on:
+    - "Project"
+    - "Project Settings"
+    - "Project Structure"
+    - "Framework Instance Settings"
+    - "Tool"
+    - "Action"
+    - "Workflow Run"
+    - "Carrier"
+    - "Evaluation"
+    - "AI Agent"
+    - "Operator"
+relations:
+  is_decomposition_of:
+    - CA-P-1829
+  blocks:
+    - CA-P-1837
+    - CA-P-1840
+    - CA-P-1842
+---
+# Summary
+
+Add startup **and** output launcher golden tests
+
+## Objective
+
+the AI Agent creates the test-first golden corpus for repeat startup, port admission, **and** safe readiness results.
+
+## Details
+
+- input: the reviewed startup/result RMED **and** existing HTTP runtime tests.
+- output: mocked tests for healthy reuse, concurrent same-Project launch, identical request IDs across distinct Project reload stores, container/image mismatch, Docker-allocated ports, wrong publishers, failed health, wrong credentials, timeout, **and** URL output with no credential.
+- verification: run the bounded tests **before** implementation; require correct non-success results rather than a fabricated ready endpoint.
+- effort: **`<=15`** minutes for **`=1`** AI Agent; the Epic's decomposition rule applies **before** execution **if** the estimate no longer holds.
+
+### Definition of Done
+
+the Plan is **not** Done **if** ((a required startup **or** result case is absent) **or** (a failure fixture accepts a success URL) **or** (the pre-implementation test result is missing)).
