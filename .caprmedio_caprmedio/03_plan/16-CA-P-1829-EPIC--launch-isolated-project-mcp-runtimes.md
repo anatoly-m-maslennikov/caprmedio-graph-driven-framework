@@ -10,8 +10,8 @@ local_tier: Standard
 global_tier: 2
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-08 23:56:13 +0400"
+version: 2
+updated_at: "2026-10-09 00:24:24 +0400"
 subjects:
   governs: "CAPRMEDIO Framework Instance"
   depends_on:
@@ -41,6 +41,7 @@ the intended outcome is a Python launcher that gives the Operator an authenticat
 - scope: the Project MCP runtime launcher **and** the minimum selected-Project reader/state changes needed **to** support it. reuse the existing Python launcher under `102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker`.
 - intended flow: resolve Project, admit compatible image **or** build it **if** missing, reuse **or** start the selected runtime, discover the Docker-allocated localhost port, check authenticated readiness, **and** return the MCP URL.
 - cover separate repositories **and** two named Projects **in** one repository. Project selection **and** runtime state **must** identify the selected Framework Instance, **not** merely the repository directory.
+- the input path is the Project root folder. its `.caprmedio_<project>` folder is directly **in** that Project root. Projects **in** the same repository have their own Project root folders; the repository root is **not** an implicit Project selector. image build sources are a separate Framework input.
 - the file **and** matching directory are the Carriers of this Epic; each contained Task stores its explicit `is_decomposition_of` Relation. prerequisite Tasks store `blocks`; numbering is navigation, **not** a second execution-order source.
 - start with source RMED **and** the bounded O launcher Action, then test-first implementation, real-Docker proof, documentation, **and** independent final review. implementation Tasks **must not** silently bypass an unresolved authority conflict.
 - leaf estimates are **`<=15`** minutes for **`=1`** AI Agent. **if** a leaf cannot remain within that boundary, decompose it **before** execution; preserve its Objective **and** DoD.

@@ -10,8 +10,8 @@ local_tier: Standard
 global_tier: 2
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-08 23:56:13 +0400"
+version: 2
+updated_at: "2026-10-09 00:24:24 +0400"
 subjects:
   governs: "CAPRMEDIO Framework Instance"
   depends_on:
@@ -43,6 +43,7 @@ the AI Agent runs the bounded real-Docker proof for two selected CAPRMEDIO Frame
 ## Details
 
 - input: the integrated launcher, accepted same-repository fixtures, selected-Project reader changes, **and** startup Evaluation cases.
+- the fixture contains two distinct Project root folders **in** the same repository; each root directly contains its own `.caprmedio_<project>` folder. a Project root **does not** need its own `.git` directory for HTTP MCP startup.
 - output: saved evidence for distinct authority, settings, state, containers, credentials, **and** allocated ports, plus stable repeated/concurrent same-Project launch **and** the selected readiness-failure cases. include simultaneous reload/receipt activity with identical request IDs **and** prove distinct persistent paths.
 - verification: perform the admitted MCP read **or** mutation fixture against one selected Project **and** prove the other Project remains unchanged; reject wrong-Project source frontiers **and** shared reload storage; use synthetic fixture data **and** preserve actual terminal receipts.
 - effort: **`<=15`** minutes for **`=1`** AI Agent; the Epic's decomposition rule applies **before** execution **if** the estimate no longer holds.
