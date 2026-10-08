@@ -14,8 +14,10 @@ import os
 from pathlib import Path
 import platform as host_platform
 import re
+import selectors
 import subprocess
 import tempfile
+import time
 
 try:
     from .image_reference import IMMUTABLE_IMAGE
@@ -36,9 +38,15 @@ _TRANSIENT_DIRECTORIES = frozenset({
     ".tox", ".nox", ".venv", ".virtualenv", "venv", "virtualenv",
     "node_modules", "testcache", ".testcache", "tmp",
 })
-_SECRET_FILES = frozenset({"auth.json", "credentials.json"})
+_SECRET_FILES = frozenset({
+    "auth.json", "credentials.json", "token.txt", "token.json", "secrets.json", "secrets.txt",
+})
+_CREDENTIAL_DIRECTORIES = frozenset({
+    "vault", ".vault", "secrets", ".secrets", "credentials", ".credentials",
+})
 _PLATFORM = re.compile(r"linux/(?:amd64|arm64|arm|386|ppc64le|s390x|riscv64)(?:/v[0-9]+)?")
 _MAX_OUTPUT = 4 * 1024 * 1024
+_DEFAULT_EXECUTOR = subprocess.run
 
 
 class ImageError(RuntimeError):
@@ -77,7 +85,8 @@ def _canonical(value: object) -> bytes:
 
 
 def _excluded_directory(name: str) -> bool:
-    return name in _TRANSIENT_DIRECTORIES or name.startswith(".caprmedio_")
+    return (name in _TRANSIENT_DIRECTORIES or name in _CREDENTIAL_DIRECTORIES
+            or name.startswith(".caprmedio_"))
 
 
 def _excluded_file(name: str) -> bool:
@@ -96,8 +105,52 @@ def _unique_object(pairs):
     return value
 
 
+def _bounded_run(argv, *, cwd, timeout, capture_stdout=True, max_output=_MAX_OUTPUT):
+    """Read a finite stdout prefix; never retain command stderr or build logs."""
+    deadline = time.monotonic() + timeout
+    process = subprocess.Popen(argv, cwd=cwd, stdin=subprocess.DEVNULL,
+                               stdout=subprocess.PIPE if capture_stdout else subprocess.DEVNULL,
+                               stderr=subprocess.DEVNULL, shell=False)
+    selector = None
+    output = bytearray()
+    try:
+        if capture_stdout:
+            selector = selectors.DefaultSelector()
+            selector.register(process.stdout, selectors.EVENT_READ)
+            while selector.get_map():
+                remaining = deadline - time.monotonic()
+                if remaining <= 0:
+                    raise subprocess.TimeoutExpired(argv, timeout)
+                for key, _events in selector.select(remaining):
+                    chunk = os.read(key.fileobj.fileno(), min(65536, max_output + 1 - len(output)))
+                    if not chunk:
+                        selector.unregister(key.fileobj)
+                        continue
+                    output.extend(chunk)
+                    if len(output) > max_output:
+                        raise ValueError("Docker image stdout exceeded its bounded read")
+        remaining = deadline - time.monotonic()
+        if remaining <= 0:
+            raise subprocess.TimeoutExpired(argv, timeout)
+        returncode = process.wait(timeout=remaining)
+        return subprocess.CompletedProcess(argv, returncode, output.decode("utf-8"), "")
+    finally:
+        if selector is not None:
+            selector.close()
+        if process.stdout is not None:
+            process.stdout.close()
+        if process.poll() is None:
+            # Killing the local CLI is not proof that a Docker daemon effect
+            # stopped.  The caller reports uncertainty and never retries it.
+            try:
+                process.kill()
+                process.wait(timeout=1)
+            except (OSError, subprocess.TimeoutExpired):
+                pass
+
+
 class ImageManager:
-    def __init__(self, source_root, executor=subprocess.run, timeout=600, *,
+    def __init__(self, source_root, executor=_DEFAULT_EXECUTOR, timeout=600, *,
                  uid=None, gid=None, platform=None):
         self.source_root = Path(source_root)
         self.executor = executor
@@ -186,20 +239,26 @@ class ImageManager:
                              self.platform, rows, self.uid, self.gid)
 
     def _run(self, argv, *, code="IMAGE_REFUSED", cwd=None):
+        build = len(argv) > 1 and argv[1] == "build"
         try:
-            result = self.executor(list(argv), cwd=cwd or self._root(), stdin=subprocess.DEVNULL,
-                                   capture_output=True, text=True, shell=False,
-                                   timeout=self.timeout, check=False)
-        except subprocess.TimeoutExpired as error:
+            if self.executor is _DEFAULT_EXECUTOR:
+                result = _bounded_run(list(argv), cwd=cwd or self._root(), timeout=self.timeout,
+                                      capture_stdout=not build, max_output=_MAX_OUTPUT)
+            else:
+                # Test executors keep the existing CompletedProcess interface.
+                result = self.executor(list(argv), cwd=cwd or self._root(), stdin=subprocess.DEVNULL,
+                                       capture_output=True, text=True, shell=False,
+                                       timeout=self.timeout, check=False)
+        except subprocess.TimeoutExpired:
             message = ("Image build timed out; its effect is uncertain and was not retried"
                        if code == "BUILD_FAILED" else "Docker image inspection timed out")
-            raise ImageError(code, message) from error
-        except (OSError, ValueError) as error:
-            raise ImageError(code, "Docker image operation is unavailable") from error
+            raise ImageError(code, message) from None
+        except (OSError, ValueError):
+            raise ImageError(code, "Docker image operation is unavailable") from None
         if (not isinstance(result, subprocess.CompletedProcess)
                 or type(result.returncode) is not int or result.returncode != 0):
             raise ImageError(code, "Docker image operation failed")
-        output = result.stdout
+        output = "" if build else result.stdout
         if not isinstance(output, str) or len(output.encode("utf-8")) > _MAX_OUTPUT:
             raise ImageError(code, "Docker image output is incomplete or invalid")
         return output
@@ -257,40 +316,40 @@ class ImageManager:
         """One missing-image attempt, without moving tags or runtime resources."""
         self._current(identity)
         try:
-            temporary = tempfile.TemporaryDirectory(prefix="caprmedio-runtime-image-",
-                                                     ignore_cleanup_errors=True)
-        except OSError as error:
-            raise ImageError("BUILD_FAILED", "Private image build context is unavailable") from error
-        with temporary as directory:
-            attempt = Path(directory)
+            # Retain one private attempt as build evidence.  Cleanup must never
+            # mask a build result or retry a denied directory deletion.
+            attempt = Path(tempfile.mkdtemp(prefix="caprmedio-runtime-image-"))
+            attempt.chmod(0o700)
             context = attempt / "context"
             context.mkdir()
-            self._assemble(context, identity)
-            iidfile = attempt / "image.id"
-            self._current(identity)
-            self._verify_context(context, identity)
-            command = ("docker", "build", "--iidfile", str(iidfile),
-                       "--label", f"{SCHEMA_LABEL}={SCHEMA}",
-                       "--label", f"{FINGERPRINT_LABEL}={identity.fingerprint}",
-                       "--platform", identity.platform,
-                       "--build-arg", f"RUNTIME_UID={identity.uid}",
-                       "--build-arg", f"RUNTIME_GID={identity.gid}",
-                       "--file", str(context / DOCKERFILE), str(context))
-            self._run(command, code="BUILD_FAILED", cwd=context)
-            self._current(identity)
-            self._verify_context(context, identity)
-            try:
-                if iidfile.is_symlink() or not iidfile.is_file() or iidfile.stat().st_size > 1024:
-                    raise ValueError("immutable builder identity is absent")
-                image = iidfile.read_text(encoding="ascii").strip()
-                if IMMUTABLE_IMAGE.fullmatch(image) is None:
-                    raise ValueError("immutable builder identity is invalid")
-            except (OSError, ValueError, UnicodeError) as error:
-                raise ImageError("BUILD_FAILED", "Builder did not capture one immutable sha256 image ID") from error
-            self._inspect(image, identity, code="BUILD_FAILED")
-            self._current(identity)
-            self._verify_context(context, identity)
-            return image
+        except OSError as error:
+            raise ImageError("BUILD_FAILED", "Private image build context is unavailable") from error
+        self._assemble(context, identity)
+        iidfile = attempt / "image.id"
+        self._current(identity)
+        self._verify_context(context, identity)
+        command = ("docker", "build", "--iidfile", str(iidfile),
+                   "--label", f"{SCHEMA_LABEL}={SCHEMA}",
+                   "--label", f"{FINGERPRINT_LABEL}={identity.fingerprint}",
+                   "--platform", identity.platform,
+                   "--build-arg", f"RUNTIME_UID={identity.uid}",
+                   "--build-arg", f"RUNTIME_GID={identity.gid}",
+                   "--file", str(context / DOCKERFILE), str(context))
+        self._run(command, code="BUILD_FAILED", cwd=context)
+        self._current(identity)
+        self._verify_context(context, identity)
+        try:
+            if iidfile.is_symlink() or not iidfile.is_file() or iidfile.stat().st_size > 1024:
+                raise ValueError("immutable builder identity is absent")
+            image = iidfile.read_text(encoding="ascii").strip()
+            if IMMUTABLE_IMAGE.fullmatch(image) is None:
+                raise ValueError("immutable builder identity is invalid")
+        except (OSError, ValueError, UnicodeError) as error:
+            raise ImageError("BUILD_FAILED", "Builder did not capture one immutable sha256 image ID") from error
+        self._inspect(image, identity, code="BUILD_FAILED")
+        self._current(identity)
+        self._verify_context(context, identity)
+        return image
 
     def _assemble(self, context: Path, identity: ImageIdentity):
         root = self._root()
@@ -312,7 +371,10 @@ class ImageManager:
 
     def _verify_context(self, context: Path, identity: ImageIdentity):
         expected = {row.path: row for row in identity.manifest}
+        expected_directories = {parent.as_posix() for row in identity.manifest
+                                for parent in Path(row.path).parents if parent != Path(".")}
         observed = set()
+        observed_directories = set()
         if context.is_symlink() or not context.is_dir():
             raise self._input_error()
 
@@ -324,8 +386,11 @@ class ImageManager:
                 folder = Path(current)
                 for name in directories:
                     path = folder / name
-                    if path.is_symlink() or not path.is_dir():
+                    relative = path.relative_to(context).as_posix()
+                    if (relative not in expected_directories
+                            or path.is_symlink() or not path.is_dir()):
                         raise self._input_error()
+                    observed_directories.add(relative)
                 for name in names:
                     path = folder / name
                     relative = path.relative_to(context).as_posix()
@@ -339,5 +404,5 @@ class ImageManager:
                     observed.add(relative)
         except OSError as error:
             raise self._input_error() from error
-        if observed != expected.keys():
+        if observed != expected.keys() or observed_directories != expected_directories:
             raise self._input_error()

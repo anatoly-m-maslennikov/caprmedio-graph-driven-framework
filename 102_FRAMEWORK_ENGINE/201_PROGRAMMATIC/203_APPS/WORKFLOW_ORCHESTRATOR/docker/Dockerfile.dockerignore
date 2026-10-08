@@ -9,6 +9,16 @@
 **/*.env
 **/auth.json
 **/credentials.json
+**/token.txt
+**/token.json
+**/secrets.json
+**/secrets.txt
+**/vault
+**/.vault
+**/secrets
+**/.secrets
+**/credentials
+**/.credentials
 **/*.pem
 **/*.key
 **/.git

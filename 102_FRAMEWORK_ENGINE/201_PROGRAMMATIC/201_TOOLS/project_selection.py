@@ -151,7 +151,7 @@ def _read_toml(reader: ReadContext, path: Path) -> dict[str, Any]:
         raise ProjectSelectionError(f"Required Project carrier is unavailable or invalid: {path.name}") from error
 
 
-def _validate_structure(structure: Mapping[str, Any]) -> None:
+def _validate_structure(structure: Mapping[str, Any], root: Path) -> None:
     if type(structure.get("schema_version")) is not int or structure["schema_version"] != 1:
         raise ProjectSelectionError("Project Structure schema_version must be 1")
     rows = structure.get("scope_units", [])
@@ -165,6 +165,22 @@ def _validate_structure(structure: Mapping[str, Any]) -> None:
         if not isinstance(name, str) or not name or name in names:
             raise ProjectSelectionError("Project Structure Scope Unit names must be unique and non-empty")
         names.add(name)
+        if "authority_path" in row:
+            value = row["authority_path"]
+            if not isinstance(value, str) or not value:
+                raise ProjectSelectionError("Project Structure authority_path must be a relative path")
+            authority = Path(value)
+            if (authority.is_absolute() or ".." in authority.parts or value != authority.as_posix()
+                    or protected(authority)):
+                raise ProjectSelectionError("Project Structure authority_path is unsafe")
+            # The authority may be declared before materialization.  Check all
+            # existing components without requiring the final directory to exist.
+            try:
+                declared = root / authority
+                if declared.resolve() != declared or not declared.is_relative_to(root):
+                    raise ProjectSelectionError("Project Structure authority_path escapes or contains a symlink")
+            except (OSError, RuntimeError, ValueError) as error:
+                raise ProjectSelectionError("Project Structure authority_path is unavailable or unsafe") from error
 
 
 def _instance_id(root: Path, relative: Path) -> str:
@@ -198,7 +214,7 @@ def resolve_project(project_root: str | Path, control_root: str | Path | None = 
         if not isinstance(project, dict) or not isinstance(project.get("name"), str) or not project["name"].strip():
             raise ProjectSelectionError("Project Settings must contain a non-empty Project name")
         structure = _read_toml(reader, structure_path)
-        _validate_structure(structure)
+        _validate_structure(structure, root)
         if reader.currentness()["state"] != "unchanged":
             raise ProjectSelectionError("Project carriers changed during selection")
         provenance = {
@@ -229,15 +245,20 @@ def bind_selection(selection: ProjectSelection) -> Iterator[ProjectSelection]:
         _SELECTION.reset(token)
 
 
-def active_selection(root: str | Path) -> ProjectSelection:
-    """Use the bound selection, refusing foreign roots; otherwise resolve once."""
-    canonical = _project_root(root)
+def bound_selection(root: str | Path | None = None) -> ProjectSelection | None:
+    """Return only explicit startup context, validating its root when supplied."""
     selection = _SELECTION.get()
     if selection is None:
-        return resolve_project(canonical)
-    if selection.root != canonical:
+        return None
+    if root is not None and selection.root != _project_root(root):
         raise ProjectSelectionError("Active Project selection belongs to another root")
     return selection
+
+
+def active_selection(root: str | Path) -> ProjectSelection:
+    """Use the bound selection, refusing foreign roots; otherwise resolve once."""
+    selection = bound_selection(root)
+    return selection if selection is not None else resolve_project(root)
 
 
 def rebind_selection(selection: ProjectSelection, instance_id: str, *,
@@ -245,19 +266,26 @@ def rebind_selection(selection: ProjectSelection, instance_id: str, *,
     """Retain an explicitly admitted host identity after container translation.
 
     Only startup callers transport this value.  When the canonical host root is
-    carried too, verify its identity formula without trying to access host files
-    from inside the container.  This helper never reads an environment variable.
+    carried too, verify its identity formula.  Existing host directories must
+    use canonical non-symlink spelling; an unmounted host path need not exist
+    inside the container.  This helper never reads an environment variable.
     """
     if not isinstance(selection, ProjectSelection) or not isinstance(instance_id, str) or not _IDENTITY.fullmatch(instance_id):
         raise ProjectSelectionError("Transported Project identity is invalid")
     host = selection.host_root if instance_id == selection.instance_id else None
     if host_root is not None:
-        host = Path(host_root)
+        try:
+            host = Path(host_root)
+        except (TypeError, ValueError) as error:
+            raise ProjectSelectionError("Transported host root is invalid") from error
         if (not host.is_absolute() or ".." in host.parts or str(host_root) != host.as_posix()
+                or host.as_posix().startswith("//")
                 or protected(host) or _instance_id(host, selection.control_relative) != instance_id):
             raise ProjectSelectionError("Transported Project identity contradicts its host binding")
+        if os.path.lexists(host):
+            _project_root(host)
     return replace(selection, instance_id=instance_id, host_root=host)
 
 
 __all__ = ["ProjectSelection", "ProjectSelectionError", "resolve_project", "bind_selection",
-           "active_selection", "rebind_selection"]
+           "bound_selection", "active_selection", "rebind_selection"]
