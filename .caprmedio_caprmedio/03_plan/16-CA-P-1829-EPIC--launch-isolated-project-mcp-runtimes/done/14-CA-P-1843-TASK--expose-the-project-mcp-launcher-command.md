@@ -8,10 +8,10 @@ current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
 local_tier: Standard
 global_tier: 2
-status: Active
+status: Done
 author: Anatoly Maslennikov
 version: 1
-updated_at: "2026-10-08 23:56:13 +0400"
+updated_at: "2026-10-09 01:15:08 +0400"
 subjects:
   governs: "CAPRMEDIO Framework Instance"
   depends_on:
@@ -50,5 +50,7 @@ the AI Agent connects the admitted launcher components **to** one usable Python 
 - effort: **`<=15`** minutes for **`=1`** AI Agent; the Epic's decomposition rule applies **before** execution **if** the estimate no longer holds.
 
 ### Definition of Done
+
+- completion evidence: the existing packaged Engine entry point now exposes `project-mcp`, separate `--source-root`, bounded deadlines, `--no-build` **and** JSON/URL output. 3 command tests passed, including non-success JSON with a nonzero exit; existing worker/stdin commands remain unchanged.
 
 the Plan is **not** Done **if** ((the command cannot resolve its accepted Project input) **or** (its packaged entry point is absent) **or** (the command-level golden tests fail)).

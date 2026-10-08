@@ -219,11 +219,29 @@ def main():
     parser.add_argument("--auth-file", type=Path)
     parser.add_argument("--image", help=argparse.SUPPRESS)
     parser.add_argument("--mock", action="store_true")
+    parser.add_argument("--control-root", help="Direct .caprmedio_<project> folder, when explicit selection is needed")
+    parser.add_argument("--source-root", type=Path, help="Independent Framework checkout with image build inputs")
+    parser.add_argument("--startup-timeout", type=float, default=60, help="Bound startup/readiness seconds (maximum 60)")
+    parser.add_argument("--build-timeout", type=float, default=600, help="Bound image build seconds (maximum 600)")
+    parser.add_argument("--no-build", action="store_true", help="Refuse a missing compatible image instead of building")
+    parser.add_argument("--output", choices=["json", "url"], default="json", help="Project MCP result format")
     parser.add_argument(
         "operation", choices=["build", "start", "stop", "restart", "status", "logs", "mcp",
-                              "mcp-http-start", "mcp-http-stop", "mcp-http-status"]
+                              "mcp-http-start", "mcp-http-stop", "mcp-http-status", "project-mcp"]
     )
     args = parser.parse_args()
+    if args.operation == "project-mcp":
+        from project_mcp_launcher import Launcher
+        token = os.environ.get("CAPRMEDIO_MCP_HTTP_SECRET_TOKEN")
+        # Codex-agent seeds/mock worker modes cannot establish HTTP MCP credentials.
+        if args.mock or args.auth_file is not None:
+            token = None
+        result = Launcher().launch(args.project_root, token, control_root=args.control_root,
+            image=args.image, source_root=args.source_root, timeout=args.startup_timeout,
+            build_if_missing=not args.no_build, build_timeout=args.build_timeout)
+        ready = result.get("disposition") in ("started", "reused") and result.get("readiness") is True
+        print(result["url"] if args.output == "url" and ready else json.dumps(result, sort_keys=True))
+        return 0 if ready else 1
     runtime = Runtime(args.project_root, mock=args.mock, auth_file=args.auth_file, image=args.image)
     if args.operation == "build":
         runtime.build()
@@ -252,4 +270,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

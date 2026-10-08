@@ -8,10 +8,10 @@ current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
 local_tier: Standard
 global_tier: 2
-status: Active
+status: Done
 author: Anatoly Maslennikov
 version: 1
-updated_at: "2026-10-08 23:56:13 +0400"
+updated_at: "2026-10-09 01:12:07 +0400"
 subjects:
   governs: "CAPRMEDIO Framework Instance"
   depends_on:
@@ -48,5 +48,7 @@ the AI Agent makes Docker reserve the MCP host port **and** implements exact pub
 - effort: **`<=15`** minutes for **`=1`** AI Agent; the Epic's decomposition rule applies **before** execution **if** the estimate no longer holds.
 
 ### Definition of Done
+
+- completion evidence: the exact single `8092/tcp` loopback publisher tests passed; the Docker backend observes the actual allocated port without reserving a socket or starting another service.
 
 the Plan is **not** Done **if** ((host-port selection requires an unreserved free-port scan) **or** (publication is admitted on a non-loopback address) **or** (the publisher-admission tests fail)).

@@ -8,10 +8,10 @@ current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
 local_tier: Standard
 global_tier: 2
-status: Active
+status: Done
 author: Anatoly Maslennikov
 version: 1
-updated_at: "2026-10-08 23:56:13 +0400"
+updated_at: "2026-10-09 01:12:07 +0400"
 subjects:
   governs: "CAPRMEDIO Framework Instance"
   depends_on:
@@ -48,5 +48,7 @@ the AI Agent implements serialized startup **and** idempotent healthy-runtime re
 - effort: **`<=15`** minutes for **`=1`** AI Agent; the Epic's decomposition rule applies **before** execution **if** the estimate no longer holds.
 
 ### Definition of Done
+
+- completion evidence: real flock contention **and** concurrent startup tests passed; the same Project starts once, then reuses the healthy matching container without replacement.
 
 the Plan is **not** Done **if** ((repeat startup force-recreates a healthy matching container) **or** (concurrent requests create duplicate runtimes) **or** (reuse/mismatch tests fail)).

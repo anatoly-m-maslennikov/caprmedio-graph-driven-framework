@@ -8,10 +8,10 @@ current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
 local_tier: Standard
 global_tier: 2
-status: Active
+status: Done
 author: Anatoly Maslennikov
 version: 1
-updated_at: "2026-10-08 23:56:13 +0400"
+updated_at: "2026-10-09 01:12:07 +0400"
 subjects:
   governs: "CAPRMEDIO Framework Instance"
   depends_on:
@@ -48,5 +48,7 @@ the AI Agent implements the launcher's authenticated readiness gate **and** safe
 - effort: **`<=15`** minutes for **`=1`** AI Agent; the Epic's decomposition rule applies **before** execution **if** the estimate no longer holds.
 
 ### Definition of Done
+
+- completion evidence: all 12 startup test methods passed, covering the 13 safe condition codes, authenticated readiness, failure attribution, metadata **and** token redaction; the default backend uses a bounded host MCP initialization exchange.
 
 the Plan is **not** Done **if** ((a success result precedes the required readiness evidence) **or** (credentials appear **in** URLs, ordinary results, **or** diagnostics) **or** (the readiness/output tests fail)).
