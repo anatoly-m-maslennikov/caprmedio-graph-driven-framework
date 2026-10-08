@@ -8,10 +8,10 @@ current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
 local_tier: Standard
 global_tier: 2
-status: Active
+status: Done
 author: Anatoly Maslennikov
 version: 1
-updated_at: "2026-10-08 23:58:46 +0400"
+updated_at: "2026-10-09 00:41:20 +0400"
 subjects:
   governs: "CAPRMEDIO Framework Instance"
   depends_on:
@@ -48,5 +48,7 @@ the AI Agent implements the accepted Project selector **and** canonical Framewor
 - effort: **`<=15`** minutes for **`=1`** AI Agent; the Epic's decomposition rule applies **before** execution **if** the estimate no longer holds.
 
 ### Definition of Done
+
+- completion evidence: the shared frozen Project selector **and** derived namespace properties are implemented; all 5 selection tests passed, including distinct nested Project roots, no Git prerequisite, unsafe bindings **and** foreign context refusal.
 
 the Plan is **not** Done **if** ((the selector chooses an unrequested Project) **or** (two selected Projects share an instance identity) **or** (the bounded selector tests fail)).

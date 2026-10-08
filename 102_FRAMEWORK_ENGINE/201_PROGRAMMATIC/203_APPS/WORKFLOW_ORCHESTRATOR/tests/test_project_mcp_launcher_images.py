@@ -96,7 +96,12 @@ class ImageGoldenTests(unittest.TestCase):
                 "org.caprmedio.runtime.schema": "1",
                 "org.caprmedio.runtime.fingerprint": expected.fingerprint,
             }
-            inspection = json.dumps([{"Id": IMAGE_ID, "Config": {"Labels": labels}}])
+            inspection = json.dumps([{
+                "Id": IMAGE_ID,
+                "Os": "linux",
+                "Architecture": "amd64",
+                "Config": {"Labels": labels},
+            }])
             return subprocess.CompletedProcess(argv, 0, inspection, "")
 
         resolved = self.manager(source, executor).resolve(build_if_missing=False)

@@ -8,10 +8,10 @@ current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
 local_tier: Standard
 global_tier: 2
-status: Active
+status: Done
 author: Anatoly Maslennikov
 version: 1
-updated_at: "2026-10-08 23:56:13 +0400"
+updated_at: "2026-10-09 00:41:20 +0400"
 subjects:
   governs: "CAPRMEDIO Framework Instance"
   depends_on:
@@ -48,5 +48,7 @@ the AI Agent implements the accepted image-compatibility check for the requested
 - effort: **`<=15`** minutes for **`=1`** AI Agent; the Epic's decomposition rule applies **before** execution **if** the estimate no longer holds.
 
 ### Definition of Done
+
+- completion evidence: strict immutable-image resolution **and** source fingerprinting are implemented; the resolver-only golden tests passed with exact OS/architecture admission. Build behavior remains the next Task.
 
 the Plan is **not** Done **if** ((tag existence alone admits an image) **or** (the selected image identity is mutable **or** ambiguous) **or** (the image-admission tests fail)).
