@@ -213,6 +213,16 @@ class Runtime:
         return result
 
 
+def _project_mcp_port(value):
+    try:
+        port = int(value)
+    except (TypeError, ValueError) as error:
+        raise argparse.ArgumentTypeError("--port must be an integer in 1..65535") from error
+    if not 1 <= port <= 65535:
+        raise argparse.ArgumentTypeError("--port must be an integer in 1..65535")
+    return port
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--project-root", type=Path, default=SOURCE_ROOT)
@@ -224,6 +234,8 @@ def main():
     parser.add_argument("--startup-timeout", type=float, default=60, help="Bound startup/readiness seconds (maximum 60)")
     parser.add_argument("--build-timeout", type=float, default=600, help="Bound image build seconds (maximum 600)")
     parser.add_argument("--no-build", action="store_true", help="Refuse a missing compatible image instead of building")
+    parser.add_argument("--port", type=_project_mcp_port,
+                        help="Optional loopback port for project-mcp (1..65535)")
     parser.add_argument("--output", choices=["json", "url"], default="json", help="Project MCP result format")
     parser.add_argument(
         "operation", choices=["build", "start", "stop", "restart", "status", "logs", "mcp",
@@ -238,7 +250,7 @@ def main():
             token = None
         result = Launcher().launch(args.project_root, token, control_root=args.control_root,
             image=args.image, source_root=args.source_root, timeout=args.startup_timeout,
-            build_if_missing=not args.no_build, build_timeout=args.build_timeout)
+            port=args.port, build_if_missing=not args.no_build, build_timeout=args.build_timeout)
         ready = result.get("disposition") in ("started", "reused") and result.get("readiness") is True
         print(result["url"] if args.output == "url" and ready else json.dumps(result, sort_keys=True))
         return 0 if ready else 1

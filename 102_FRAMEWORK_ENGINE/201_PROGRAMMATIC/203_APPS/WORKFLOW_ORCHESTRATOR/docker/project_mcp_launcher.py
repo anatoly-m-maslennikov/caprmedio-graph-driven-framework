@@ -146,6 +146,17 @@ def _positive_timeout(value: object, *, ceiling: float, default: float) -> float
     return float(value)
 
 
+def _requested_port(value: object) -> int | None:
+    """Admit the optional Docker-owned or caller-selected host port."""
+    if value is None:
+        return None
+    if isinstance(value, bool) or not isinstance(value, int) or not 1 <= value <= 65535:
+        # CA-O-188 has a closed public condition vocabulary.  This defensive
+        # programmatic seam is never reached by the CLI's argument validator.
+        raise LaunchError("DOCKER_START_FAILED")
+    return value
+
+
 def _labels(row: Mapping[str, Any]) -> Mapping[str, Any] | None:
     config = row.get("Config")
     labels = config.get("Labels") if isinstance(config, Mapping) else None
@@ -294,7 +305,8 @@ def _valid_token(token: object) -> bool:
     )
 
 
-def _admit_runtime(rows: object, selection: object, image_id: str, fingerprint: str):
+def _admit_runtime(rows: object, selection: object, image_id: str, fingerprint: str,
+                   requested_port: int | None = None):
     """Return absent, a ready candidate, or its terminal safe condition."""
     if not isinstance(rows, list):
         return "DOCKER_PUBLICATION_FAILED"
@@ -323,6 +335,8 @@ def _admit_runtime(rows: object, selection: object, image_id: str, fingerprint: 
     publisher = _publisher(row)
     if publisher is None:
         return "DOCKER_PUBLICATION_FAILED"
+    if requested_port is not None and publisher[1] != requested_port:
+        return "RUNTIME_MISMATCH"
     container = row.get("Id")
     if not isinstance(container, str) or not container:
         return "DOCKER_PUBLICATION_FAILED"
@@ -401,8 +415,12 @@ class Launcher:
         return code if isinstance(code, str) and code in _CONDITIONS else fallback
 
     def launch(self, project_root, token, control_root=None, image=None, source_root=None,
-               timeout=60, *, build_if_missing=True, build_timeout=600):
+               timeout=60, *, port=None, build_if_missing=True, build_timeout=600):
         """Return one safe result; never stop, replace, or retry a live runtime."""
+        try:
+            requested_port = _requested_port(port)
+        except LaunchError as error:
+            return self._failure(error.code)
         try:
             selection = resolve_project(project_root, control_root)
         except ProjectSelectionError:
@@ -434,7 +452,7 @@ class Launcher:
                     return complete(self._failure(error.code, selection))
                 try:
                     candidate = _admit_runtime(backend.inspect(selection), selection,
-                                               image_id, fingerprint)
+                                               image_id, fingerprint, requested_port)
                 except Exception as error:
                     return complete(self._failure(self._failure_code(
                         error, "DOCKER_PUBLICATION_FAILED"), selection, image_id, fingerprint))
@@ -445,7 +463,8 @@ class Launcher:
                         if remaining <= 0:
                             return complete(self._failure("DOCKER_START_FAILED", selection,
                                                           image_id, fingerprint))
-                        backend.start(selection, image_id, fingerprint, token, remaining)
+                        backend.start(selection, image_id, fingerprint, token, remaining,
+                                      requested_port)
                     except LaunchError as error:
                         return complete(self._failure(error.code, selection, image_id, fingerprint))
                     except Exception as error:
@@ -453,7 +472,7 @@ class Launcher:
                             error, "DOCKER_START_FAILED"), selection, image_id, fingerprint))
                     try:
                         candidate = _admit_runtime(backend.inspect(selection), selection,
-                                                   image_id, fingerprint)
+                                                   image_id, fingerprint, requested_port)
                     except Exception as error:
                         return complete(self._failure(self._failure_code(
                             error, "DOCKER_PUBLICATION_FAILED"), selection, image_id, fingerprint))

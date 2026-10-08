@@ -28,7 +28,7 @@ services:
       - type: bind
         source: ${CAPRMEDIO_PROJECT_ROOT}
         target: /project
-    ports: ["127.0.0.1::8092"]
+    ports: ["127.0.0.1:${CAPRMEDIO_MCP_HTTP_PORT:-}:8092"]
     healthcheck:
       test: [CMD, python, -c, "import json,os,urllib.request; r=urllib.request.Request('http://127.0.0.1:8092/health',headers={'Authorization':'Bearer '+os.environ['CAPRMEDIO_MCP_HTTP_SECRET_TOKEN']}); assert json.load(urllib.request.urlopen(r,timeout=3))['ready'] is True"]
       interval: 2s

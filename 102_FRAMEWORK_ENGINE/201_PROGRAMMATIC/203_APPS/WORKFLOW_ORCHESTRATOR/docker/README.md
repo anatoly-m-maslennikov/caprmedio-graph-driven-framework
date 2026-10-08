@@ -114,6 +114,20 @@ The illustrated port is not fixed. A healthy repeat returns `reused` and
 is retained and reported without replacement. Explicit recreation may change
 the URL, so reconnect using the newly returned endpoint.
 
+To request one particular loopback port, pass `--port` with an integer from
+`1` through `65535`:
+
+```sh
+python3 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/runtime.py \
+  --project-root /ABSOLUTE/PROJECT --source-root /ABSOLUTE/FRAMEWORK-SOURCE \
+  --port 18092 project-mcp
+```
+
+The omitted default lets Docker allocate the port atomically. An existing
+healthy Project runtime must already use a requested port exactly; otherwise it
+is retained and reported as a mismatch. If a requested port is occupied, startup
+fails without stopping the other runtime or selecting a different port.
+
 Every `project-mcp` invocation requires `--source-root` to name a readable
 Framework source checkout for image identity and build inputs. Omitting it
 returns JSON with `condition: IMAGE_INPUT_UNAVAILABLE`; no repository or ancestor

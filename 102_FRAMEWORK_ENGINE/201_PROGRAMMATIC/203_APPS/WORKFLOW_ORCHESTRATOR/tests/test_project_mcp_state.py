@@ -39,7 +39,7 @@ class ProjectStateTests(unittest.TestCase):
         self.assertEqual({'mcp-http'}, set(spec['services']))
         service = spec['services']['mcp-http']
         self.assertEqual(['mcp-http'], service['command'])
-        self.assertEqual(['127.0.0.1::8092'], service['ports'])
+        self.assertEqual(['127.0.0.1:${CAPRMEDIO_MCP_HTTP_PORT:-}:8092'], service['ports'])
         self.assertEqual([{'type': 'bind', 'source': '${CAPRMEDIO_PROJECT_ROOT}',
                           'target': '/project'}], service['volumes'])
         self.assertTrue(service['read_only'])

@@ -142,13 +142,17 @@ class ProjectMcpBackend:
         return value
 
     @staticmethod
-    def _environment(selection: object, image_id: str, fingerprint: str, token: str) -> dict[str, str]:
+    def _environment(selection: object, image_id: str, fingerprint: str, token: str,
+                     port: int | None = None) -> dict[str, str]:
         root = ProjectMcpBackend._root(selection)
         if not isinstance(image_id, str) or not re.fullmatch(r"sha256:[0-9a-f]{64}", image_id):
             raise BackendError()
         if not isinstance(fingerprint, str) or not re.fullmatch(r"[0-9a-f]{64}", fingerprint):
             raise BackendError()
         if not isinstance(token, str) or not token:
+            raise BackendError()
+        if (port is not None and (isinstance(port, bool) or not isinstance(port, int)
+                                  or not 1 <= port <= 65535)):
             raise BackendError()
         environment = {
             "PATH": os.environ.get("PATH", ""),
@@ -158,6 +162,9 @@ class ProjectMcpBackend:
             "CAPRMEDIO_PROJECT_INSTANCE_ID": ProjectMcpBackend._safe_instance(selection),
             "CAPRMEDIO_RUNTIME_FINGERPRINT": fingerprint,
             "CAPRMEDIO_MCP_HTTP_SECRET_TOKEN": token,
+            # An empty segment preserves Compose's Docker-owned dynamic
+            # `127.0.0.1::8092` publication; a decimal segment is exact.
+            "CAPRMEDIO_MCP_HTTP_PORT": "" if port is None else str(port),
         }
         for name in _DOCKER_CLIENT_ENV:
             if name in os.environ:
@@ -223,7 +230,7 @@ class ProjectMcpBackend:
                 raise BackendError("RUNTIME_MISMATCH") from error
         return rows
 
-    def start(self, selection, image_id, fingerprint, token, timeout):
+    def start(self, selection, image_id, fingerprint, token, timeout, port=None):
         if not isinstance(timeout, (int, float)) or isinstance(timeout, bool) or timeout <= 0:
             raise BackendError()
         command = [
@@ -232,7 +239,7 @@ class ProjectMcpBackend:
             "--wait-timeout", str(max(1, int(timeout))), "--no-recreate", "--no-deps", "mcp-http",
         ]
         _bounded_run(command, timeout=float(timeout),
-                     env=self._environment(selection, image_id, fingerprint, token))
+                     env=self._environment(selection, image_id, fingerprint, token, port))
 
     @staticmethod
     async def _initialize(url: str, token: str, timeout: float) -> None:

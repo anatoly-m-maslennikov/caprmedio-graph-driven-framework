@@ -1,5 +1,5 @@
 """Public command output/exit gates; no Docker or workflow dispatch."""
-from contextlib import redirect_stdout
+from contextlib import redirect_stderr, redirect_stdout
 import io
 import json
 from pathlib import Path
@@ -55,6 +55,28 @@ class ProjectMcpCommandTests(unittest.TestCase):
         self.assertFalse(launch.call_args.kwargs['build_if_missing'])
         self.assertEqual(20, launch.call_args.kwargs['timeout'])
         self.assertEqual(120, launch.call_args.kwargs['build_timeout'])
+
+    def test_explicit_port_is_forwarded_to_the_project_launcher(self):
+        result = {'disposition': 'started', 'condition': 'READY_STARTED',
+                  'readiness': True, 'url': 'http://127.0.0.1:8123/mcp'}
+        code, output, launch = self.invoke(result, '--port', '8123')
+        self.assertEqual(0, code)
+        self.assertEqual(result, json.loads(output))
+        self.assertEqual(8123, launch.call_args.kwargs['port'])
+
+    def test_port_parser_refuses_noninteger_and_out_of_range_values_before_launch(self):
+        for value in ('not-a-port', '0', '65536'):
+            with self.subTest(value=value), \
+                 patch.object(sys, 'argv', ['runtime.py', '--project-root', '/project',
+                                            'project-mcp', '--port', value]), \
+                 patch('project_mcp_launcher.Launcher.launch') as launch, \
+                 patch.dict(runtime.os.environ, {'CAPRMEDIO_MCP_HTTP_SECRET_TOKEN': 'synthetic-cli-token'}), \
+                 redirect_stdout(io.StringIO()), redirect_stderr(io.StringIO()) as errors:
+                with self.assertRaises(SystemExit) as exit_code:
+                    runtime.main()
+            self.assertEqual(2, exit_code.exception.code)
+            launch.assert_not_called()
+            self.assertNotIn('synthetic-cli-token', errors.getvalue())
 
 
 if __name__ == '__main__':
