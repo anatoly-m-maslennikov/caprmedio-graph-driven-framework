@@ -143,10 +143,15 @@ class ReleaseE2EGateContractTests(unittest.TestCase):
 
     def test_confirmed_private_gate_signature_and_evidence_fields(self) -> None:
         signature = inspect.signature(run_candidate_e2e_gate)
-        self.assertEqual(("candidate", "compilation", "unit_suite", "image", "image_build", "executor"), tuple(signature.parameters))
+        self.assertEqual(
+            ("candidate", "compilation", "unit_suite", "image", "image_build", "executor", "prepared_package"),
+            tuple(signature.parameters),
+        )
         self.assertIn(signature.parameters["image"].kind, (inspect.Parameter.POSITIONAL_ONLY, inspect.Parameter.POSITIONAL_OR_KEYWORD))
         self.assertTrue(signature.parameters["image_build"].kind is inspect.Parameter.KEYWORD_ONLY)
         self.assertTrue(signature.parameters["executor"].kind is inspect.Parameter.KEYWORD_ONLY)
+        self.assertTrue(signature.parameters["prepared_package"].kind is inspect.Parameter.KEYWORD_ONLY)
+        self.assertIsNone(signature.parameters["prepared_package"].default)
         self.assertTrue({
             "candidate_snapshot_manifest_sha256", "candidate_image_digest", "phase_map_sha256", "grammar_sha256",
             "outcome", "reason", "harness_receipts", "evidence_root", "receipt_sha256", "execution_kind",
