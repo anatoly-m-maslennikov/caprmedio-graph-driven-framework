@@ -14,6 +14,9 @@ import unittest
 TOOLS = Path(__file__).resolve().parents[1]
 if str(TOOLS) not in sys.path:
     sys.path.insert(0, str(TOOLS))
+TESTS = Path(__file__).resolve().parent
+if str(TESTS) not in sys.path:
+    sys.path.insert(0, str(TESTS))
 DOCKER = TOOLS.parent / "203_APPS" / "WORKFLOW_ORCHESTRATOR" / "docker"
 if str(DOCKER) not in sys.path:
     sys.path.insert(0, str(DOCKER))
@@ -22,6 +25,7 @@ from framework_package import assemble_framework_package, verify_framework_packa
 from installed_mcp_binding import MCP_FILES  # noqa: E402
 from installed_mcp_cli import InstalledMcpCliError, run_installed_mcp_cli  # noqa: E402
 from project_mcp_launcher import Launcher  # noqa: E402
+from source_admission_fixture import write_source_admission_receipt  # noqa: E402
 
 
 IMAGE = "a" * 64
@@ -170,13 +174,27 @@ class InstalledMcpCliTests(unittest.TestCase):
             ("methodology", "methodology", "methodology/active"),
             ("support", "support", "methodology/support"),
         )
+        descriptors = tuple(
+            {
+                "identity": identity,
+                "kind": kind,
+                "revision": self._tree_digest(source / relative),
+                "sha256": self._tree_digest(source / relative),
+                "visibility": "public",
+                "selection_default": False,
+                "path": relative,
+            }
+            for identity, kind, relative in rows
+        )
+        receipt = write_source_admission_receipt(source, descriptors)
         lines = ["schema_version = 1", ""]
-        for identity, kind, relative in rows:
+        for descriptor in descriptors:
             lines.extend((
-                f"[source.{identity}]", f'kind = "{kind}"', f'revision = "{"a" * 40}"',
-                f'sha256 = "{self._tree_digest(source / relative)}"',
-                f'admission_receipt_sha256 = "{"b" * 64}"', 'visibility = "public"',
-                "selection_default = false", f'path = "{relative}"', "",
+                f"[source.{descriptor['identity']}]", f'kind = "{descriptor["kind"]}"',
+                f'revision = "{descriptor["revision"]}"',
+                f'sha256 = "{descriptor["sha256"]}"',
+                f'admission_receipt_sha256 = "{receipt.sha256}"', f'visibility = "{descriptor["visibility"]}"',
+                "selection_default = false", f'path = "{descriptor["path"]}"', "",
             ))
         (source / "catalog.toml").write_text("\n".join(lines), encoding="utf-8")
 

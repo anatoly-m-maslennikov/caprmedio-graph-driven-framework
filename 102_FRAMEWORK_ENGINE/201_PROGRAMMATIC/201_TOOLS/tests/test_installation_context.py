@@ -11,9 +11,12 @@ import unittest
 
 
 TOOLS = Path(__file__).resolve().parents[1]
+TESTS = Path(__file__).resolve().parent
 TEST_TEMP_ROOT = Path.cwd() / ".caprmedio_tmp" / "tests" / Path(__file__).stem
 TEST_TEMP_ROOT.mkdir(parents=True, exist_ok=True)
 sys.path.insert(0, str(TOOLS))
+if str(TESTS) not in sys.path:
+    sys.path.insert(0, str(TESTS))
 
 from installation_context import (  # noqa: E402
     InstallationContextError,
@@ -22,6 +25,7 @@ from installation_context import (  # noqa: E402
     bind_target_project_context,
 )
 from framework_package import assemble_framework_package, provide_installation_package_evidence  # noqa: E402
+from source_admission_fixture import write_source_admission_receipt  # noqa: E402
 
 
 def _sha(value: str) -> str:
@@ -40,7 +44,7 @@ class InstallationContextTests(unittest.TestCase):
         self.package = self.physical_package("default-package")
         self.package_evidence = provide_installation_package_evidence(self.package.root)
 
-    def physical_package(self, name: str, *, revision: str = "a" * 40):
+    def physical_package(self, name: str):
         source = self.base / name / "source"
         releases = self.base / name / "releases"
 
@@ -63,18 +67,31 @@ class InstallationContextTests(unittest.TestCase):
             ("methodology", "methodology", "methodology/active/CA-R-001--fixture.md"),
             ("support", "support", "methodology/support/CA-D-001--fixture.md"),
         )
+        descriptors = tuple(
+            {
+                "identity": identity,
+                "kind": kind,
+                "revision": _sha_bytes((source / relative).read_bytes()),
+                "sha256": _sha_bytes((source / relative).read_bytes()),
+                "visibility": "public",
+                "selection_default": False,
+                "path": relative,
+            }
+            for identity, kind, relative in source_rows
+        )
+        receipt = write_source_admission_receipt(source, descriptors)
         lines = ["schema_version = 1", ""]
-        for identity, kind, relative in source_rows:
+        for descriptor in descriptors:
             lines.extend(
                 [
-                    f"[source.{identity}]",
-                    f'kind = "{kind}"',
-                    f'revision = "{revision}"',
-                    f'sha256 = "{_sha_bytes((source / relative).read_bytes())}"',
-                    f'admission_receipt_sha256 = "{"b" * 64}"',
-                    'visibility = "public"',
+                    f"[source.{descriptor['identity']}]",
+                    f'kind = "{descriptor["kind"]}"',
+                    f'revision = "{descriptor["revision"]}"',
+                    f'sha256 = "{descriptor["sha256"]}"',
+                    f'admission_receipt_sha256 = "{receipt.sha256}"',
+                    f'visibility = "{descriptor["visibility"]}"',
                     "selection_default = false",
-                    f'path = "{relative}"',
+                    f'path = "{descriptor["path"]}"',
                     "",
                 ]
             )
@@ -220,7 +237,7 @@ class InstallationContextTests(unittest.TestCase):
         self.assertFalse((root / ".caprmedio_runtime").exists())
 
     def test_accepts_provider_valid_sixty_four_character_revision_without_context_revalidation(self) -> None:
-        package = self.physical_package("revision-sixty-four", revision="c" * 64)
+        package = self.physical_package("revision-sixty-four")
         evidence = provide_installation_package_evidence(package.root)
         root, control = self.project("revision-sixty-four")
 
