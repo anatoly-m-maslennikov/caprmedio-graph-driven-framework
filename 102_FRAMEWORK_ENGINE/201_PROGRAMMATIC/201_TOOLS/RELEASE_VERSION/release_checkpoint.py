@@ -26,7 +26,11 @@ from release_actions import (
     SelectedReleaseActionContext,
     _fingerprint,
 )
-from release_compilation import ReleaseCompilationPreflight
+from release_compilation import (
+    ReleaseCompilationPreflight,
+    SealedPrivateMethodologyCompilation,
+    read_sealed_private_methodology_compilation,
+)
 from release_contract import (
     CandidateBuildRequest,
     CandidateSnapshotManifest,
@@ -39,16 +43,36 @@ from release_contract import (
 from release_handoff import (
     CompilerEntrypoint,
     SealedCandidateCompilation,
+    SealedMethodologyExport,
     SealedSourceCopy,
+    bind_sealed_methodology_export,
 )
 from release_e2e_gate import CandidateE2EGateEvidence, HarnessReceipt
-from release_image import ImageBuildEvidence, ImageRetirementEvidence, ImageVerificationEvidence
+from release_image import (
+    ImageBuildEvidence,
+    ImageRetirementEvidence,
+    ImageVerificationEvidence,
+    PortableImageBuildEvidence,
+    PortableImageVerificationEvidence,
+)
+from release_portable_contract import (
+    PortablePackageRow,
+    SealedPortableCandidateCompilation,
+    SealedPortableSourceSnapshot,
+    collect_portable_source_snapshot,
+    seal_portable_source_snapshot,
+)
+from release_portable_package import (
+    PreparedPortableReleasePackage,
+    reopen_portable_release_package,
+)
 from release_promotion import PromotionEvidence
-from release_suite import SuiteGateEvidence
+from release_suite import PortableSuiteGateEvidence, SuiteGateEvidence
 from release_version import ReleaseVersionRequest
 
 
 RELEASE_ACTION_CHECKPOINT_SCHEMA = "caprmedio.release_version.action_run_checkpoint.v1"
+NATIVE_PORTABLE_RELEASE_ACTION_CHECKPOINT_SCHEMA = "caprmedio.release_version.action_run_checkpoint.v2-portable"
 _TAGGED_TYPES = {
     "candidate": ValidatedCandidate,
     "preflight": ReleaseCompilationPreflight,
@@ -79,6 +103,23 @@ _PHASE_STATE = {
     "aggregate_full_gate": "full_gate",
     "promote": "promotion",
     "retire": "retirement",
+}
+_NATIVE_STATE_NAMES = (
+    "candidate", "preflight", "methodology_export", "private_compilation",
+    "portable_source_snapshot", "portable_compilation", "portable_suite",
+    "prepared_portable_package", "build", "verification", "e2e", "full_gate",
+)
+_NATIVE_PHASE_STATE = {
+    "freeze": "candidate",
+    "validate": "candidate",
+    "deliver_sources": "methodology_export",
+    "compile": "portable_compilation",
+    "closed_unit_gate": "portable_suite",
+    "stage_candidate": "prepared_portable_package",
+    "candidate_image_build": "build",
+    "candidate_image_canary": "verification",
+    "host_candidate_e2e": "e2e",
+    "aggregate_full_gate": "full_gate",
 }
 _SHA256_HEX = frozenset("0123456789abcdef")
 _PENDING_EVENT_OUTCOMES = frozenset({"completed", "no_op", "failed", "cancelled", "partial", "interrupted_pending"})
@@ -448,7 +489,7 @@ def _context_value(context: SelectedReleaseActionContext) -> dict[str, Any]:
 # Checkpoints preserve the selected Workflow definition recorded when the Run
 # began.  Retain the immediately preceding O164 revision for status/recovery,
 # but reject an unknown revision rather than silently rebinding it.
-_SUPPORTED_RELEASE_WORKFLOW_VERSIONS = frozenset({5, 6})
+_SUPPORTED_RELEASE_WORKFLOW_VERSIONS = frozenset({5, 6, 9})
 
 
 def _load_context(value: Any, index: int, *, root: str, workflow_run_id: str, fingerprint: str) -> SelectedReleaseActionContext:
@@ -830,6 +871,396 @@ def _load_pending_recordings(
     return restored
 
 
+def _native_portable_run(run: ReleaseActionRun) -> bool:
+    """Identify the separate O164@9 frontier from selected contexts only."""
+
+    contexts = [*run.contexts.values()]
+    if run.in_progress is not None:
+        contexts.append(run.in_progress)
+    versions = {context.workflow_version for context in contexts}
+    if not versions:
+        return False
+    if versions == {9}:
+        return True
+    if versions <= {5, 6}:
+        return False
+    raise _error("release-checkpoint-binding-mismatch", "checkpoint mixes unsupported selected workflow revisions")
+
+
+def _native_rows(rows: tuple[PortablePackageRow, ...], label: str) -> list[dict[str, Any]]:
+    if not isinstance(rows, tuple) or any(type(row) is not PortablePackageRow for row in rows):
+        raise _error("release-checkpoint-invalid", f"{label} is not exact portable row state")
+    return [_json_value(row.record(), label) for row in rows]
+
+
+def _load_native_rows(value: Any, label: str) -> tuple[PortablePackageRow, ...]:
+    if not isinstance(value, list):
+        raise _error("release-checkpoint-invalid", f"{label} must be a canonical row list")
+    rows: list[PortablePackageRow] = []
+    for item in value:
+        payload = _mapping(item, {"resource", "source_path", "destination_path", "sha256", "mode"}, label)
+        resource = _text(payload["resource"], f"{label}.resource")
+        source_path = _safe_path(payload["source_path"], f"{label}.source_path")
+        destination_path = _safe_path(payload["destination_path"], f"{label}.destination_path")
+        digest = _sha256(payload["sha256"], f"{label}.sha256")
+        mode = payload["mode"]
+        if type(mode) is not int or not 0 <= mode <= 0o777:
+            raise _error("release-checkpoint-invalid", f"{label}.mode is invalid")
+        rows.append(PortablePackageRow(resource, source_path, destination_path, digest, mode))
+    return tuple(rows)
+
+
+def _native_export_value(value: Any) -> dict[str, Any]:
+    if type(value) is not SealedMethodologyExport:
+        raise _error("release-checkpoint-invalid", "methodology_export is not typed portable state")
+    return {
+        "release_candidate_root": _safe_path(value.release_candidate_root, "methodology_export.release_candidate_root"),
+        "source_export_root": _safe_path(value.source_export_root, "methodology_export.source_export_root"),
+        "frozen_manifest_sha256": _sha256(value.frozen_manifest_sha256, "methodology_export.frozen_manifest_sha256"),
+        "export_inventory_sha256": _sha256(value.export_inventory_sha256, "methodology_export.export_inventory_sha256"),
+        "export_seal_sha256": _sha256(value.export_seal_sha256, "methodology_export.export_seal_sha256"),
+    }
+
+
+def _load_native_export(value: Any, candidate: ValidatedCandidate, root: str) -> SealedMethodologyExport:
+    payload = _mapping(value, {
+        "release_candidate_root", "source_export_root", "frozen_manifest_sha256",
+        "export_inventory_sha256", "export_seal_sha256",
+    }, "methodology_export")
+    release_root = _safe_path(payload["release_candidate_root"], "methodology_export.release_candidate_root")
+    expected = {
+        "release_candidate_root": release_root,
+        "source_export_root": _safe_path(payload["source_export_root"], "methodology_export.source_export_root"),
+        "frozen_manifest_sha256": _sha256(payload["frozen_manifest_sha256"], "methodology_export.frozen_manifest_sha256"),
+        "export_inventory_sha256": _sha256(payload["export_inventory_sha256"], "methodology_export.export_inventory_sha256"),
+        "export_seal_sha256": _sha256(payload["export_seal_sha256"], "methodology_export.export_seal_sha256"),
+    }
+    observed = bind_sealed_methodology_export(candidate, Path(root) / release_root)
+    if _native_export_value(observed) != expected:
+        raise _error("release-checkpoint-binding-mismatch", "private Methodology export changed after checkpoint")
+    return observed
+
+
+def _native_private_value(value: Any) -> dict[str, Any]:
+    if type(value) is not SealedPrivateMethodologyCompilation:
+        raise _error("release-checkpoint-invalid", "private_compilation is not typed portable state")
+    return {
+        "compiled_root": _safe_path(value.compiled_root, "private_compilation.compiled_root"),
+        "compiled_manifest_sha256": _sha256(value.compiled_manifest_sha256, "private_compilation.compiled_manifest_sha256"),
+        "compiled_output_sha256": _sha256(value.compiled_output_sha256, "private_compilation.compiled_output_sha256"),
+    }
+
+
+def _load_native_private(value: Any, export: SealedMethodologyExport) -> SealedPrivateMethodologyCompilation:
+    payload = _mapping(value, {"compiled_root", "compiled_manifest_sha256", "compiled_output_sha256"}, "private_compilation")
+    expected = {
+        "compiled_root": _safe_path(payload["compiled_root"], "private_compilation.compiled_root"),
+        "compiled_manifest_sha256": _sha256(payload["compiled_manifest_sha256"], "private_compilation.compiled_manifest_sha256"),
+        "compiled_output_sha256": _sha256(payload["compiled_output_sha256"], "private_compilation.compiled_output_sha256"),
+    }
+    observed = read_sealed_private_methodology_compilation(export)
+    if _native_private_value(observed) != expected:
+        raise _error("release-checkpoint-binding-mismatch", "private Methodology compilation changed after checkpoint")
+    return observed
+
+
+def _native_snapshot_value(value: Any) -> dict[str, Any]:
+    if type(value) is not SealedPortableSourceSnapshot:
+        raise _error("release-checkpoint-invalid", "portable_source_snapshot is not typed state")
+    return {
+        "candidate_run_id": _text(value.candidate_run_id, "portable_source_snapshot.candidate_run_id"),
+        "rows": _native_rows(value.portable_package_rows, "portable_source_snapshot.rows"),
+    }
+
+
+def _load_native_snapshot(value: Any, candidate: ValidatedCandidate, private: SealedPrivateMethodologyCompilation) -> SealedPortableSourceSnapshot:
+    payload = _mapping(value, {"candidate_run_id", "rows"}, "portable_source_snapshot")
+    run_id = _text(payload["candidate_run_id"], "portable_source_snapshot.candidate_run_id")
+    expected_rows = _load_native_rows(payload["rows"], "portable_source_snapshot.rows")
+    observed = collect_portable_source_snapshot(candidate, private, candidate_run_id=run_id)
+    if observed.portable_package_rows != expected_rows:
+        raise _error("release-checkpoint-binding-mismatch", "portable pre-catalog source snapshot changed after checkpoint")
+    return observed
+
+
+def _native_compilation_value(value: Any) -> dict[str, Any]:
+    if type(value) is not SealedPortableCandidateCompilation:
+        raise _error("release-checkpoint-invalid", "portable_compilation is not typed state")
+    return {
+        "candidate_run_id": _text(value.candidate_run_id, "portable_compilation.candidate_run_id"),
+        "source_catalog_sha256": _sha256(value.source_catalog_sha256, "portable_compilation.source_catalog_sha256"),
+        "input_manifest_sha256": _sha256(value.input_manifest_sha256, "portable_compilation.input_manifest_sha256"),
+        "rows": _native_rows(value.portable_package_rows, "portable_compilation.rows"),
+    }
+
+
+def _load_native_compilation(value: Any, snapshot: SealedPortableSourceSnapshot) -> SealedPortableCandidateCompilation:
+    payload = _mapping(value, {"candidate_run_id", "source_catalog_sha256", "input_manifest_sha256", "rows"}, "portable_compilation")
+    expected = {
+        "candidate_run_id": _text(payload["candidate_run_id"], "portable_compilation.candidate_run_id"),
+        "source_catalog_sha256": _sha256(payload["source_catalog_sha256"], "portable_compilation.source_catalog_sha256"),
+        "input_manifest_sha256": _sha256(payload["input_manifest_sha256"], "portable_compilation.input_manifest_sha256"),
+        "rows": _native_rows(
+            _load_native_rows(payload["rows"], "portable_compilation.rows"),
+            "portable_compilation.rows",
+        ),
+    }
+    observed = seal_portable_source_snapshot(snapshot)
+    if _native_compilation_value(observed) != expected:
+        raise _error("release-checkpoint-binding-mismatch", "portable catalog/admission compilation changed after checkpoint")
+    return observed
+
+
+def _native_package_value(value: Any) -> dict[str, Any]:
+    if type(value) is not PreparedPortableReleasePackage:
+        raise _error("release-checkpoint-invalid", "prepared_portable_package is not typed state")
+    return {
+        "candidate_run_id": _text(value.candidate_run_id, "prepared_portable_package.candidate_run_id"),
+        "candidate_snapshot_manifest_sha256": _sha256(value.candidate_snapshot_manifest_sha256, "prepared_portable_package.candidate_snapshot_manifest_sha256"),
+        "input_manifest_sha256": _sha256(value.input_manifest_sha256, "prepared_portable_package.input_manifest_sha256"),
+        "package_manifest_sha256": _sha256(value.package_manifest_sha256, "prepared_portable_package.package_manifest_sha256"),
+    }
+
+
+def _load_native_package(value: Any, root: str, portable: SealedPortableCandidateCompilation) -> PreparedPortableReleasePackage:
+    payload = _mapping(value, {
+        "candidate_run_id", "candidate_snapshot_manifest_sha256", "input_manifest_sha256", "package_manifest_sha256",
+    }, "prepared_portable_package")
+    candidate_run_id = _text(payload["candidate_run_id"], "prepared_portable_package.candidate_run_id")
+    candidate_sha = _sha256(payload["candidate_snapshot_manifest_sha256"], "prepared_portable_package.candidate_snapshot_manifest_sha256")
+    manifest_sha = _sha256(payload["package_manifest_sha256"], "prepared_portable_package.package_manifest_sha256")
+    input_sha = _sha256(payload["input_manifest_sha256"], "prepared_portable_package.input_manifest_sha256")
+    if (candidate_run_id != portable.candidate_run_id or candidate_sha != portable.candidate_snapshot_manifest_sha256
+            or input_sha != portable.input_manifest_sha256):
+        raise _error("release-checkpoint-binding-mismatch", "private portable package differs from sealed portable compilation")
+    package = reopen_portable_release_package(root, candidate_run_id, manifest_sha)
+    return PreparedPortableReleasePackage(candidate_run_id, candidate_sha, input_sha, package)
+
+
+def _native_dataclass_value(value: Any, cls: type[Any], label: str) -> dict[str, Any]:
+    return _dump_dataclass(value, cls, label)
+
+
+def _native_state_value(run: ReleaseActionRun, name: str) -> Any:
+    value = getattr(run, name)
+    if value is None:
+        return None
+    if name == "candidate":
+        return _candidate_value(value)
+    if name == "preflight":
+        return _preflight_value(value)
+    if name == "methodology_export":
+        return _native_export_value(value)
+    if name == "private_compilation":
+        return _native_private_value(value)
+    if name == "portable_source_snapshot":
+        return _native_snapshot_value(value)
+    if name == "portable_compilation":
+        return _native_compilation_value(value)
+    if name == "portable_suite":
+        return _native_dataclass_value(value, PortableSuiteGateEvidence, name)
+    if name == "prepared_portable_package":
+        return _native_package_value(value)
+    if name == "build":
+        return _native_dataclass_value(value, PortableImageBuildEvidence, name)
+    if name == "verification":
+        return _native_dataclass_value(value, PortableImageVerificationEvidence, name)
+    if name == "e2e":
+        return _dump_dataclass(value, CandidateE2EGateEvidence, name)
+    if name == "full_gate":
+        from release_full_gate import NativeFullGateEvidence
+        return _native_dataclass_value(value, NativeFullGateEvidence, name)
+    raise _error("release-checkpoint-invalid", "native checkpoint has an unsupported state field")
+
+
+def _load_native_state(value: Mapping[str, Any], root: str) -> dict[str, Any]:
+    state_payload = _mapping(dict(value), set(_NATIVE_STATE_NAMES), "native state")
+    state: dict[str, Any] = {name: None for name in _NATIVE_STATE_NAMES}
+    if state_payload["candidate"] is not None:
+        state["candidate"] = _load_candidate(state_payload["candidate"], root)
+    candidate = state["candidate"]
+    if candidate is None:
+        if any(state_payload[name] is not None for name in _NATIVE_STATE_NAMES[1:]):
+            raise _error("release-checkpoint-phase-mismatch", "native post-freeze state lacks candidate")
+        return state
+    if state_payload["preflight"] is None:
+        raise _error("release-checkpoint-phase-mismatch", "native candidate lacks compiler preflight")
+    state["preflight"] = _load_preflight(state_payload["preflight"], candidate)
+    if state_payload["methodology_export"] is not None:
+        state["methodology_export"] = _load_native_export(state_payload["methodology_export"], candidate, root)
+    if state_payload["private_compilation"] is not None:
+        if state["methodology_export"] is None:
+            raise _error("release-checkpoint-phase-mismatch", "native private compilation lacks export")
+        state["private_compilation"] = _load_native_private(state_payload["private_compilation"], state["methodology_export"])
+    if state_payload["portable_source_snapshot"] is not None:
+        if state["private_compilation"] is None:
+            raise _error("release-checkpoint-phase-mismatch", "native source snapshot lacks private compilation")
+        state["portable_source_snapshot"] = _load_native_snapshot(
+            state_payload["portable_source_snapshot"], candidate, state["private_compilation"],
+        )
+    if state_payload["portable_compilation"] is not None:
+        if state["portable_source_snapshot"] is None:
+            raise _error("release-checkpoint-phase-mismatch", "native portable compilation lacks source snapshot")
+        state["portable_compilation"] = _load_native_compilation(
+            state_payload["portable_compilation"], state["portable_source_snapshot"],
+        )
+    portable = state["portable_compilation"]
+    if state_payload["portable_suite"] is not None:
+        state["portable_suite"] = _load_dataclass(
+            state_payload["portable_suite"], PortableSuiteGateEvidence, "portable_suite",
+            tuple_fields=frozenset({"command", "coverage"}),
+        )
+    if state_payload["prepared_portable_package"] is not None:
+        if portable is None:
+            raise _error("release-checkpoint-phase-mismatch", "native package lacks portable compilation")
+        state["prepared_portable_package"] = _load_native_package(
+            state_payload["prepared_portable_package"], root, portable,
+        )
+    if state_payload["build"] is not None:
+        state["build"] = _load_dataclass(state_payload["build"], PortableImageBuildEvidence, "build")
+    if state_payload["verification"] is not None:
+        state["verification"] = _load_dataclass(state_payload["verification"], PortableImageVerificationEvidence, "verification")
+    if state_payload["e2e"] is not None:
+        state["e2e"] = _load_e2e(state_payload["e2e"])
+    if state_payload["full_gate"] is not None:
+        from release_full_gate import NativeFullGateEvidence
+        state["full_gate"] = _load_dataclass(state_payload["full_gate"], NativeFullGateEvidence, "full_gate")
+    if portable is None and any(state[name] is not None for name in _NATIVE_STATE_NAMES[6:]):
+        raise _error("release-checkpoint-phase-mismatch", "native later evidence lacks portable compilation")
+    if state["portable_suite"] is None and any(state[name] is not None for name in _NATIVE_STATE_NAMES[7:]):
+        raise _error("release-checkpoint-phase-mismatch", "native package or gates lack Unit evidence")
+    if state["prepared_portable_package"] is None and any(state[name] is not None for name in _NATIVE_STATE_NAMES[8:]):
+        raise _error("release-checkpoint-phase-mismatch", "native image evidence lacks private prepared package")
+    return state
+
+
+def _native_result_value(result: ReleasePhaseResult, index: int) -> dict[str, Any]:
+    if type(result) is not ReleasePhaseResult:
+        raise _error("release-checkpoint-invalid", "native phase result is not typed state")
+    payload = {
+        item.name: _json_value(getattr(result, item.name), f"native result.{item.name}")
+        for item in fields(ReleasePhaseResult)
+        if item.name != "output"
+    }
+    output = result.output
+    if output is None:
+        payload["output"] = None
+    else:
+        phase = PHASES[index][2]
+        expected = _NATIVE_PHASE_STATE.get(phase)
+        if expected is None:
+            raise _error("release-checkpoint-invalid", "native promotion/retirement cannot retain publication output")
+        payload["output"] = expected
+    return payload
+
+
+def _load_native_result(
+    value: Any, index: int, context: SelectedReleaseActionContext,
+    candidate: ValidatedCandidate, state: Mapping[str, Any],
+) -> ReleasePhaseResult:
+    required = {item.name for item in fields(ReleasePhaseResult)}
+    payload = _mapping(value, required, "native result")
+    output_name = payload["output"]
+    expected = _NATIVE_PHASE_STATE.get(PHASES[index][2])
+    if output_name is not None:
+        if output_name != expected or expected is None:
+            raise _error("release-checkpoint-phase-mismatch", "native result output has an invalid observation type")
+        output = state[expected]
+        if output is None:
+            raise _error("release-checkpoint-phase-mismatch", "native result output has no retained observation")
+    else:
+        output = None
+    copied = dict(payload)
+    copied["output"] = output
+    if copied.get("shared_action_recording") is not None:
+        raise _error("release-checkpoint-phase-mismatch", "native portable path cannot retain legacy retirement recording")
+    result = _load_dataclass(
+        copied, ReleasePhaseResult, "native result",
+        tuple_fields=frozenset({"attempted_effects", "effect_evidence_refs", "declared_run_receipt_refs"}),
+    )
+    step, action, phase = PHASES[index]
+    if (
+        result.workflow_run_id != context.workflow_run_id or result.step_run_id != context.step_run_id
+        or result.action_run_id != context.action_run_id or result.step_atom_id != step
+        or result.action_atom_id != action or result.phase != phase
+        or result.candidate_snapshot_manifest_sha256 != candidate.manifest.sha256
+        or result.recording_state != "shared_session_provider_pending"
+        or result.outcome not in {"prepared", "completed", "blocked", "failed", "pending", "effect_uncertain"}
+    ):
+        raise _error("release-checkpoint-phase-mismatch", "native result does not match its selected phase context")
+    return result
+
+
+def _validate_native_result_outputs(results: Mapping[int, ReleasePhaseResult], state: Mapping[str, Any]) -> None:
+    for index, result in results.items():
+        expected_name = _NATIVE_PHASE_STATE.get(PHASES[index][2])
+        expected = None if expected_name is None else state[expected_name]
+        if result.output is not None and result.output != expected:
+            raise _error("release-checkpoint-phase-mismatch", "native phase result differs from retained native observation")
+        if result.outcome == "completed" and result.output is None:
+            raise _error("release-checkpoint-phase-mismatch", "completed native phase lacks typed observation")
+
+
+def _encode_native_release_action_checkpoint(
+    run: ReleaseActionRun, *, shared_recordings: Mapping[int, Mapping[str, Any]] | None,
+    pending_recordings: Mapping[int, Mapping[str, Any]] | None,
+) -> bytes:
+    root = str(Path(run.project_root).resolve(strict=True))
+    request = _load_model(run.request.model_dump(mode="json", by_alias=True), ReleaseVersionRequest, "request")
+    if request.project_root != root or _fingerprint(request) != _sha256(run.frozen_parameters_sha256, "frozen_parameters_sha256"):
+        raise _error("release-checkpoint-binding-mismatch", "native run request, root, or fingerprint is not frozen")
+    contexts = []
+    for index, context in sorted(run.contexts.items()):
+        if context.workflow_version != 9:
+            raise _error("release-checkpoint-binding-mismatch", "native checkpoint context is not O164@9")
+        _load_context(_context_value(context), _index(index, "contexts.index"), root=root,
+                      workflow_run_id=run.workflow_run_id, fingerprint=run.frozen_parameters_sha256)
+        contexts.append({"index": index, "context": _context_value(context)})
+    state = {name: _native_state_value(run, name) for name in _NATIVE_STATE_NAMES}
+    restored_state = _load_native_state(state, root)
+    candidate = restored_state["candidate"]
+    results = []
+    for index, result in sorted(run.results.items()):
+        if candidate is None or index not in run.contexts:
+            raise _error("release-checkpoint-phase-mismatch", "native result has no frozen candidate or context")
+        encoded = _native_result_value(result, index)
+        _load_native_result(encoded, index, run.contexts[index], candidate, restored_state)
+        results.append({"index": index, "result": encoded})
+    if run.in_progress is not None:
+        if run.in_progress.workflow_version != 9:
+            raise _error("release-checkpoint-binding-mismatch", "native in-progress context is not O164@9")
+        _load_context(_context_value(run.in_progress), run.next_phase, root=root,
+                      workflow_run_id=run.workflow_run_id, fingerprint=run.frozen_parameters_sha256)
+    _validate_phase_continuity(next_phase=run.next_phase, stopped=run.stopped, in_progress=run.in_progress,
+                               contexts=run.contexts, results=run.results)
+    _validate_native_result_outputs(run.results, restored_state)
+    recording_payload = _shared_recordings_value(shared_recordings, run.results)
+    pending_payload = _pending_recordings_value(
+        pending_recordings, run.results, {record["index"]: record for record in recording_payload},
+    )
+    payload = {
+        "schema": NATIVE_PORTABLE_RELEASE_ACTION_CHECKPOINT_SCHEMA,
+        "kind": "release_action_run",
+        "sha256": "0" * 64,
+        "project_root": root,
+        "workflow_run_id": _text(run.workflow_run_id, "workflow_run_id"),
+        "frozen_parameters_sha256": _sha256(run.frozen_parameters_sha256, "frozen_parameters_sha256"),
+        "request": _dump_model(request, ReleaseVersionRequest, "request"),
+        "next_phase": run.next_phase,
+        "stopped": run.stopped,
+        "in_progress": None if run.in_progress is None else _context_value(run.in_progress),
+        "contexts": contexts,
+        "results": results,
+        "shared_recordings": recording_payload,
+        "pending_recordings": pending_payload,
+        "state": state,
+    }
+    if type(run.stopped) is not bool:
+        raise _error("release-checkpoint-invalid", "native stopped must be a boolean")
+    payload["sha256"] = release_action_checkpoint_sha256(payload)
+    return canonical_json(payload)
+
+
 def encode_release_action_checkpoint(
     run: ReleaseActionRun, *, shared_recordings: Mapping[int, Mapping[str, Any]] | None = None,
     pending_recordings: Mapping[int, Mapping[str, Any]] | None = None,
@@ -838,6 +1269,10 @@ def encode_release_action_checkpoint(
 
     if type(run) is not ReleaseActionRun:
         raise _error("release-checkpoint-invalid", "checkpoint requires one private ReleaseActionRun")
+    if _native_portable_run(run):
+        return _encode_native_release_action_checkpoint(
+            run, shared_recordings=shared_recordings, pending_recordings=pending_recordings,
+        )
     root = str(Path(run.project_root).resolve(strict=True))
     if root != run.project_root:
         raise _error("release-checkpoint-binding-mismatch", "run root is not canonical")
@@ -975,12 +1410,95 @@ def derive_unknown_effect_terminal_checkpoint(payload: Mapping[str, Any]) -> dic
     return dump_release_checkpoint(run, shared_recordings=shared_recordings, pending_recordings={})
 
 
+def _restore_native_release_action_checkpoint(
+    payload: Mapping[str, Any], *, image_executor: AdmittedImageExecutor | None = None,
+) -> tuple[ReleaseActionRun, dict[int, dict[str, Any]], dict[int, dict[str, str]]]:
+    """Restore the closed O164@9 portable frontier without legacy coercion."""
+
+    source = _mapping(dict(payload), {
+        "schema", "kind", "sha256", "project_root", "workflow_run_id", "frozen_parameters_sha256", "request",
+        "next_phase", "stopped", "in_progress", "contexts", "results", "shared_recordings", "pending_recordings", "state",
+    }, "native checkpoint")
+    if source["schema"] != NATIVE_PORTABLE_RELEASE_ACTION_CHECKPOINT_SCHEMA or source["kind"] != "release_action_run":
+        raise _error("release-checkpoint-schema-unsupported", "native checkpoint schema or kind is not supported")
+    if _sha256(source["sha256"], "sha256") != release_action_checkpoint_sha256(source):
+        raise _error("release-checkpoint-digest-mismatch", "native checkpoint content digest does not match its canonical bytes")
+    root = str(Path(_text(source["project_root"], "project_root")).resolve(strict=True))
+    if source["project_root"] != root:
+        raise _error("release-checkpoint-binding-mismatch", "native checkpoint root is not canonical")
+    workflow_run_id = _text(source["workflow_run_id"], "workflow_run_id")
+    fingerprint = _sha256(source["frozen_parameters_sha256"], "frozen_parameters_sha256")
+    request = _load_model(source["request"], ReleaseVersionRequest, "request")
+    if request.project_root != root or _fingerprint(request) != fingerprint:
+        raise _error("release-checkpoint-binding-mismatch", "native checkpoint request root or fingerprint does not match")
+    if type(source["next_phase"]) is not int or not 0 <= source["next_phase"] <= len(PHASES) or type(source["stopped"]) is not bool:
+        raise _error("release-checkpoint-phase-mismatch", "native checkpoint next phase or stopped value is invalid")
+    if image_executor is not None and (
+        type(image_executor) is not AdmittedImageExecutor or image_executor.project_root != root
+        or image_executor.workflow_run_id != workflow_run_id or not callable(getattr(image_executor.executor, "run", None))
+    ):
+        raise _error("release-checkpoint-executor-unadmitted", "restored native Run executor is not externally re-admitted")
+    state = _load_native_state(source["state"], root)
+    candidate = state["candidate"]
+    contexts: dict[int, SelectedReleaseActionContext] = {}
+    if not isinstance(source["contexts"], list):
+        raise _error("release-checkpoint-invalid", "native contexts must be a canonical list")
+    for entry in source["contexts"]:
+        record = _mapping(entry, {"index", "context"}, "native context record")
+        index = _index(record["index"], "native contexts.index")
+        if index in contexts:
+            raise _error("release-checkpoint-invalid", "native contexts repeat a selected phase")
+        context = _load_context(record["context"], index, root=root, workflow_run_id=workflow_run_id, fingerprint=fingerprint)
+        if context.workflow_version != 9:
+            raise _error("release-checkpoint-binding-mismatch", "native checkpoint context is not O164@9")
+        contexts[index] = context
+    if not isinstance(source["results"], list) or candidate is None:
+        if source["results"] or candidate is not None:
+            raise _error("release-checkpoint-invalid", "native results require one frozen candidate")
+        results: dict[int, ReleasePhaseResult] = {}
+    else:
+        results = {}
+        for entry in source["results"]:
+            record = _mapping(entry, {"index", "result"}, "native result record")
+            index = _index(record["index"], "native results.index")
+            if index in results or index not in contexts:
+                raise _error("release-checkpoint-invalid", "native result repeats or lacks selected context")
+            results[index] = _load_native_result(record["result"], index, contexts[index], candidate, state)
+    in_progress = None
+    if source["in_progress"] is not None:
+        in_progress = _load_context(source["in_progress"], source["next_phase"], root=root,
+                                    workflow_run_id=workflow_run_id, fingerprint=fingerprint)
+        if in_progress.workflow_version != 9:
+            raise _error("release-checkpoint-binding-mismatch", "native in-progress context is not O164@9")
+    _validate_phase_continuity(next_phase=source["next_phase"], stopped=source["stopped"], in_progress=in_progress,
+                               contexts=contexts, results=results)
+    _validate_native_result_outputs(results, state)
+    shared_recordings = _load_shared_recordings(source["shared_recordings"], results)
+    pending_recordings = _load_pending_recordings(source["pending_recordings"], results, shared_recordings)
+    return ReleaseActionRun(
+        project_root=root,
+        workflow_run_id=workflow_run_id,
+        frozen_parameters_sha256=fingerprint,
+        request=request,
+        image_executor=image_executor,
+        next_phase=source["next_phase"],
+        stopped=source["stopped"],
+        in_progress=in_progress,
+        contexts=contexts,
+        results=results,
+        **state,
+    ), shared_recordings, pending_recordings
+
+
 def _restore_release_action_checkpoint(
     checkpoint: bytes | str, *, image_executor: AdmittedImageExecutor | None = None,
 ) -> tuple[ReleaseActionRun, dict[int, dict[str, Any]], dict[int, dict[str, str]]]:
     """Restore exact private state; an executor is deliberately reinjected externally."""
 
-    payload = _mapping(_canonical_input(checkpoint), {
+    decoded = _canonical_input(checkpoint)
+    if decoded.get("schema") == NATIVE_PORTABLE_RELEASE_ACTION_CHECKPOINT_SCHEMA:
+        return _restore_native_release_action_checkpoint(decoded, image_executor=image_executor)
+    payload = _mapping(decoded, {
         "schema", "kind", "sha256", "project_root", "workflow_run_id", "frozen_parameters_sha256", "request",
         "next_phase", "stopped", "in_progress", "contexts", "results", "shared_recordings", "pending_recordings", "state",
     }, "checkpoint")
@@ -1111,6 +1629,7 @@ def extract_pending_recordings(payload: Mapping[str, Any]) -> Mapping[int, Mappi
 
 __all__ = [
     "RELEASE_ACTION_CHECKPOINT_SCHEMA",
+    "NATIVE_PORTABLE_RELEASE_ACTION_CHECKPOINT_SCHEMA",
     "derive_unknown_effect_terminal_checkpoint",
     "release_action_checkpoint_sha256",
     "dump_release_checkpoint",
