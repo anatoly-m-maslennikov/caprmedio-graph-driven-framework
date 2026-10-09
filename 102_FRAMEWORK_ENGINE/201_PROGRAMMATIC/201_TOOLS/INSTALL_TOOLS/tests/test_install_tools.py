@@ -12,6 +12,7 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 
 TEST_TEMP_ROOT = Path.cwd() / ".caprmedio_tmp" / "tests" / Path(__file__).stem
@@ -31,7 +32,7 @@ class InstallToolsTests(unittest.TestCase):
     def setUp(self) -> None:
         # Synthetic Git and CODEX_HOME carriers can be protected from deletion
         # by the execution sandbox after a passed test.
-        self.temporary = tempfile.TemporaryDirectory(dir=TEST_TEMP_ROOT, ignore_cleanup_errors=True)
+        self.temporary = tempfile.TemporaryDirectory(dir=TEST_TEMP_ROOT, delete=False)
         self.repository = Path(self.temporary.name) / "repository"
         self.codex_home = Path(self.temporary.name) / "codex-home"
         self.codex_home.mkdir()
@@ -78,7 +79,6 @@ class InstallToolsTests(unittest.TestCase):
             os.environ.pop("CODEX_HOME", None)
         else:
             os.environ["CODEX_HOME"] = self.previous_codex_home
-        self.temporary.cleanup()
 
     def test_dry_run_resolves_complete_install_without_mutation(self) -> None:
         before = subprocess.run(
@@ -97,6 +97,7 @@ class InstallToolsTests(unittest.TestCase):
         ).stdout
 
         self.assertFalse(result["installed"])
+        self.assertEqual("replace-managed-installed-tool-version", result["planned_effect"])
         self.assertGreater(result["file_count"], 10)
         self.assertEqual(before, after)
         self.assertFalse((self.repository / ".caprmedio_runtime/tools").exists())
@@ -245,6 +246,8 @@ class InstallToolsTests(unittest.TestCase):
         second = install_tools.install(self.repository, apply=True)
 
         self.assertNotEqual(first["release"], second["release"])
+        old_release = self.repository / ".caprmedio_runtime/tools/releases" / str(first["release"])
+        self.assertFalse(any(path.is_file() for path in old_release.rglob("*")))
         status = install_tools.tool_status(self.repository)
         self.assertEqual(second["release"], status["release"])
         self.assertTrue(status["hooks_installed"])
@@ -261,27 +264,16 @@ class InstallToolsTests(unittest.TestCase):
             self.assertIn(second["release"], text)
             self.assertNotIn(first["release"], text)
 
-    def test_rejects_drift_in_an_existing_content_addressed_release(self) -> None:
+    def test_same_version_reinstall_repairs_drift_in_the_managed_release(self) -> None:
         installed = install_tools.install(self.repository, apply=True)
         carrier = self.repository / str(installed["package_root"]) / "background_services.toml"
         carrier.write_text("schema_version = 1\nservices = []\n# drift\n", encoding="utf-8")
-        current_before = (self.repository / ".caprmedio_runtime/tools/current.toml").read_bytes()
-        hooks_before = {
-            name: (self.repository / ".caprmedio_runtime/tools/hooks/git" / name).read_bytes()
-            for name in ("pre-commit", "commit-msg", "post-commit")
-        }
 
-        with self.assertRaisesRegex(install_tools.InstallationError, "existing release file differs"):
-            install_tools.install(self.repository, apply=True)
+        repaired = install_tools.install(self.repository, apply=True)
 
-        self.assertEqual(current_before, (self.repository / ".caprmedio_runtime/tools/current.toml").read_bytes())
-        self.assertEqual(
-            hooks_before,
-            {
-                name: (self.repository / ".caprmedio_runtime/tools/hooks/git" / name).read_bytes()
-                for name in ("pre-commit", "commit-msg", "post-commit")
-            },
-        )
+        self.assertEqual(installed["release"], repaired["release"])
+        self.assertEqual((self.canonical / "background_services.toml").read_bytes(), carrier.read_bytes())
+        self.assertTrue(install_tools.tool_status(self.repository)["verified"])
 
     def test_user_dispatcher_requires_local_activation_and_selects_current_repository(self) -> None:
         install_tools.install(self.repository, apply=True)
@@ -345,13 +337,30 @@ class InstallToolsTests(unittest.TestCase):
         unavailable.write_text("not a directory\n", encoding="utf-8")
         os.environ["CODEX_HOME"] = str(unavailable)
 
-        with self.assertRaisesRegex(install_tools.ToolError, "cannot update the Codex user Hook carrier"):
+        with self.assertRaisesRegex(install_tools.ToolError, "CODEX_HOME must be a directory"):
             install_tools.install(self.repository, apply=True)
 
         self.assertEqual(current_before, (self.repository / ".caprmedio_runtime/tools/current.toml").read_bytes())
         self.assertEqual(fragment_before, (self.repository / ".caprmedio_runtime/tools/hooks/codex/hooks.json").read_bytes())
         os.environ["CODEX_HOME"] = str(self.codex_home)
         self.assertEqual(first["release"], install_tools.tool_status(self.repository)["release"])
+
+    def test_late_adapter_failure_after_wipe_leaves_no_active_selector(self) -> None:
+        first = install_tools.install(self.repository, apply=True)
+        registry = self.canonical / "background_services.toml"
+        registry.write_text("schema_version = 1\nservices = []\n# adapter failure release\n", encoding="utf-8")
+
+        with patch.object(
+            install_tools,
+            "_load_installed_trigger",
+            side_effect=install_tools.ToolError("fixture-adapter-failure", "adapter fixture failed"),
+        ), self.assertRaisesRegex(install_tools.ToolError, "adapter fixture failed"):
+            install_tools.install(self.repository, apply=True)
+
+        self.assertFalse((self.repository / ".caprmedio_runtime/tools/current.toml").exists())
+        old_release = self.repository / ".caprmedio_runtime/tools/releases" / str(first["release"])
+        self.assertFalse(any(path.is_file() for path in old_release.rglob("*")))
+        self.assertFalse(install_tools.installation_status(self.repository)["installed"])
 
 
 if __name__ == "__main__":

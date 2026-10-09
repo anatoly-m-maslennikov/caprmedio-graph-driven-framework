@@ -1,9 +1,10 @@
 """Shared, non-executable CAPRMEDIO Tool runtime-publication library.
 
 The canonical source is ``102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS`` in the target
-repository.  Installed releases are content-addressed and live below
-``.caprmedio_runtime/tools``. Persistent operational state belongs below
-``.caprmedio_runtime``; disposable staging and cache state belongs below
+repository.  Only the current installed Tool version lives below
+``.caprmedio_runtime/tools``; replacement keeps no prior version.  Persistent
+configuration and operational state outside that managed Tool surface survive
+below ``.caprmedio_runtime``; disposable staging and cache state belongs below
 ``.caprmedio_tmp``.
 """
 
@@ -15,11 +16,10 @@ import os
 import re
 import shutil
 import stat
-import subprocess
 import tempfile
 import tomllib
 import uuid
-from collections.abc import Mapping, Sequence
+from collections.abc import Callable, Mapping, Sequence
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
@@ -323,11 +323,152 @@ def installation_status(repository: Path | str) -> dict[str, Any]:
     }
 
 
+def _managed_tools_surface(root: Path) -> Path:
+    """Return the one replaceable legacy Tool-version surface.
+
+    This intentionally excludes every other runtime carrier: in particular,
+    target configuration, install-state receipts, Project control, and the
+    Work Journal do not belong to a Tool-version replacement.
+    """
+
+    return root / TOOLS_RUNTIME_DIRECTORY
+
+
+def _replacement_surface_is_safe(root: Path, surface: Path) -> None:
+    """Refuse aliases and protected names before removing a managed version."""
+
+    runtime = root / RUNTIME_DIRECTORY
+    try:
+        runtime_stat = runtime.lstat()
+    except FileNotFoundError:
+        return
+    if runtime.is_symlink() or not stat.S_ISDIR(runtime_stat.st_mode):
+        raise InstallationError("installed-version-surface-unsafe", "runtime root is not a real directory")
+    try:
+        surface_stat = surface.lstat()
+    except FileNotFoundError:
+        return
+    if surface.is_symlink() or not stat.S_ISDIR(surface_stat.st_mode):
+        raise InstallationError("installed-version-surface-unsafe", "managed Tool surface is not a real directory")
+
+    def walk_error(error: OSError) -> None:
+        raise InstallationError("installed-version-surface-unsafe", "managed Tool surface cannot be fully inspected") from error
+
+    for directory, directories, files in os.walk(surface, topdown=True, followlinks=False, onerror=walk_error):
+        parent = Path(directory)
+        for name in (*directories, *files):
+            lowered = name.lower()
+            if lowered.startswith(".env") or lowered.endswith(".env"):
+                raise InstallationError("installed-version-surface-protected", "managed Tool surface contains a protected env path")
+            carrier = parent / name
+            try:
+                observed = carrier.lstat()
+            except FileNotFoundError as error:
+                raise InstallationError("installed-version-surface-unsafe", "managed Tool surface changed while checking") from error
+            if carrier.is_symlink() or not (stat.S_ISDIR(observed.st_mode) or stat.S_ISREG(observed.st_mode)):
+                raise InstallationError("installed-version-surface-unsafe", "managed Tool surface contains an unsafe alias")
+            if stat.S_ISREG(observed.st_mode) and observed.st_nlink != 1:
+                raise InstallationError("installed-version-surface-unsafe", "managed Tool surface contains an aliased file")
+
+
+def _verify_staged_release(staging: Path, release: str, rows: Sequence[Mapping[str, Any]]) -> None:
+    """Prove that the disposable stage is a complete, exact release tree."""
+
+    expected_manifest = _render_release_manifest(release, rows)
+    manifest = staging / RELEASE_MANIFEST
+    if not manifest.is_file() or manifest.is_symlink() or manifest.read_text(encoding="utf-8") != expected_manifest:
+        raise InstallationError("release-stage-invalid", "staged release manifest differs")
+    expected_paths = {RELEASE_MANIFEST, *(str(row["path"]) for row in rows)}
+    expected_rows = {str(row["path"]): row for row in rows}
+    actual_paths: set[str] = set()
+    for carrier in staging.rglob("*"):
+        if carrier.name == ".DS_Store":
+            continue
+        if carrier.is_symlink():
+            raise InstallationError("release-stage-invalid", "staged release contains an unsafe carrier")
+        if carrier.is_dir():
+            continue
+        if not carrier.is_file():
+            raise InstallationError("release-stage-invalid", "staged release contains an unsafe carrier")
+        relative = carrier.relative_to(staging).as_posix()
+        actual_paths.add(relative)
+        if relative == RELEASE_MANIFEST:
+            continue
+        expected = expected_rows.get(relative)
+        if expected is None or (
+            hashlib.sha256(carrier.read_bytes()).hexdigest() != expected["sha256"]
+            or carrier.stat().st_mode & 0o777 != expected["mode"]
+        ):
+            raise InstallationError("release-stage-invalid", f"staged release file differs: {relative}")
+    if actual_paths != expected_paths:
+        raise InstallationError("release-stage-invalid", "staged release inventory differs")
+
+
+def _wipe_managed_tools_surface(surface: Path) -> None:
+    """Remove managed Tool bytes; a sandbox may retain empty directories only."""
+
+    try:
+        shutil.rmtree(surface)
+        return
+    except OSError:
+        pass
+
+    def walk_error(error: OSError) -> None:
+        raise InstallationError("installed-version-wipe-failed", "managed Tool surface cannot be fully removed") from error
+
+    for directory, _directories, files in os.walk(surface, topdown=False, followlinks=False, onerror=walk_error):
+        for name in files:
+            try:
+                (Path(directory) / name).unlink()
+            except OSError as error:
+                raise InstallationError("installed-version-wipe-failed", "managed Tool bytes cannot be removed") from error
+    for directory, _directories, files in os.walk(surface, topdown=True, followlinks=False, onerror=walk_error):
+        if files:
+            raise InstallationError("installed-version-wipe-failed", "managed Tool bytes remain after removal")
+
+
+def _replace_managed_tools_surface(
+    root: Path,
+    staging: Path,
+    release: str,
+    rows: Sequence[Mapping[str, Any]],
+    *,
+    before_activation: Callable[[], None] | None = None,
+) -> None:
+    """Wipe only the old Tool version after the replacement stage is verified."""
+
+    surface = _managed_tools_surface(root)
+    _replacement_surface_is_safe(root, surface)
+    selector = surface / CURRENT_MANIFEST
+    try:
+        selector_stat = selector.lstat()
+    except FileNotFoundError:
+        pass
+    else:
+        if selector.is_symlink() or not stat.S_ISREG(selector_stat.st_mode) or selector_stat.st_nlink != 1:
+            raise InstallationError("installed-version-surface-unsafe", "managed Tool selector is unsafe")
+        selector.unlink()
+    if surface.exists():
+        _wipe_managed_tools_surface(surface)
+
+    release_root = surface / "releases" / release
+    release_root.parent.mkdir(parents=True, exist_ok=True)
+    try:
+        shutil.copytree(staging, release_root, dirs_exist_ok=True)
+    except OSError as error:
+        raise InstallationError("release-promotion-failed", f"cannot promote release: {release}") from error
+    _verify_staged_release(release_root, release, rows)
+    if before_activation is not None:
+        before_activation()
+    _atomic_write(surface / CURRENT_MANIFEST, _render_current_manifest(release), mode=0o644)
+
+
 def install_release(
     repository: Path | str,
     *,
     apply: bool,
     source_root: Path | None = None,
+    before_activation: Callable[[Mapping[str, Any]], None] | None = None,
 ) -> dict[str, Any]:
     root = resolve_repository(repository)
     canonical = (source_root or (root / SOURCE_DIRECTORY)).resolve()
@@ -343,11 +484,10 @@ def install_release(
         "package_root": (release_root / TOOLS_DIRECTORY).relative_to(root).as_posix(),
         "entrypoint": (release_root / INSTALL_ENTRYPOINT).relative_to(root).as_posix(),
         "file_count": len(rows),
-        "planned_effect": "install-or-select-content-addressed-tool-release",
+        "planned_effect": "replace-managed-installed-tool-version",
     }
     if not apply:
         return result
-    tools_runtime_root.mkdir(parents=True, exist_ok=True)
     staging_root = root / TEMP_DIRECTORY / "install_tools"
     staging_root.mkdir(parents=True, exist_ok=True)
     staging = Path(tempfile.mkdtemp(prefix=f".staging-{uuid.uuid4().hex}-", dir=staging_root))
@@ -366,50 +506,16 @@ def install_release(
             try:
                 with source.open("rb") as source_handle, target.open("wb") as target_handle:
                     shutil.copyfileobj(source_handle, target_handle)
-            except PermissionError:
-                copied = subprocess.run(["cp", str(source), str(target)], capture_output=True, check=False)
-                if copied.returncode != 0:
-                    raise InstallationError(
-                        "release-copy-failed",
-                        copied.stderr.decode("utf-8", "replace").strip() or f"cannot copy release file: {relative}",
-                    )
+            except OSError as error:
+                raise InstallationError("release-copy-failed", f"cannot copy release file: {relative}") from error
             target.chmod(int(row["mode"]))
             if (hashlib.sha256(target.read_bytes()).hexdigest() != row["sha256"]
                     or target.stat().st_mode & 0o777 != row["mode"]):
                 raise InstallationError("release-copy-failed", f"copied release file differs: {relative.as_posix()}")
         _atomic_write(staging / RELEASE_MANIFEST, _render_release_manifest(release, rows), mode=0o644)
-        if release_root.exists():
-            expected_manifest = _render_release_manifest(release, rows)
-            manifest_path = release_root / RELEASE_MANIFEST
-            if not manifest_path.is_file() or manifest_path.read_text(encoding="utf-8") != expected_manifest:
-                raise InstallationError("installed-release-collision", f"existing release manifest differs: {release}")
-            for row in rows:
-                carrier = release_root / str(row["path"])
-                if (
-                    not carrier.is_file()
-                    or carrier.is_symlink()
-                    or hashlib.sha256(carrier.read_bytes()).hexdigest() != row["sha256"]
-                    or carrier.stat().st_mode & 0o777 != row["mode"]
-                ):
-                    raise InstallationError("installed-release-collision", f"existing release file differs: {row['path']}")
-        else:
-            release_root.parent.mkdir(parents=True, exist_ok=True)
-            try:
-                os.replace(staging, release_root)
-            except PermissionError:
-                release_root.mkdir()
-                promoted = subprocess.run(
-                    ["cp", "-R", f"{staging}/.", str(release_root)],
-                    capture_output=True,
-                    check=False,
-                )
-                if promoted.returncode != 0:
-                    raise InstallationError(
-                        "release-promotion-failed",
-                        promoted.stderr.decode("utf-8", "replace").strip()
-                        or f"cannot promote release: {release}",
-                    )
-        _atomic_write(tools_runtime_root / CURRENT_MANIFEST, _render_current_manifest(release), mode=0o644)
+        _verify_staged_release(staging, release, rows)
+        activation = None if before_activation is None else lambda: before_activation(result)
+        _replace_managed_tools_surface(root, staging, release, rows, before_activation=activation)
     finally:
         if staging.exists():
             try:

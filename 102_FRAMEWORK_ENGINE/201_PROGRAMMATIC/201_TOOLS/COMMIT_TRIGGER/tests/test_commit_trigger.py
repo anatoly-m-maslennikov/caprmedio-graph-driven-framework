@@ -82,6 +82,17 @@ class CommitTriggerTests(unittest.TestCase):
         )
         return completed.stdout
 
+    def test_preselector_hook_rejects_package_outside_managed_release_surface(self) -> None:
+        outside = self.repository / "ordinary-package"
+        outside.mkdir()
+
+        with self.assertRaisesRegex(commit_trigger.ToolError, "outside the managed release surface"):
+            commit_trigger._managed_git_hook_script(
+                self.repository,
+                "pre-commit",
+                verified_package_root=outside,
+            )
+
     def _observation(self, **overrides: object) -> dict[str, object]:
         observation: dict[str, object] = {
             "adapter_id": self.adapter.adapter_id,

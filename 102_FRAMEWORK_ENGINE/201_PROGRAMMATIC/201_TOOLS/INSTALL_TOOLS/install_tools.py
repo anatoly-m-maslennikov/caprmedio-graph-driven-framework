@@ -133,7 +133,10 @@ def _preflight(root: Path, *, manage_host_hooks: bool) -> dict[str, Any]:
             raise ToolError("codex-hook-config-invalid", f"{project_codex}: invalid JSON") from error
         if not isinstance(document, dict):
             raise ToolError("codex-hook-config-invalid", f"{project_codex}: root must be an object")
-    codex_home = Path(os.environ.get("CODEX_HOME", Path.home() / ".codex")).expanduser().resolve()
+    codex_home = Path(os.environ.get("CODEX_HOME", Path.home() / ".codex")).expanduser()
+    if codex_home.exists() and not codex_home.is_dir():
+        raise ToolError("codex-home-invalid", "CODEX_HOME must be a directory when it already exists")
+    codex_home = codex_home.resolve()
     user_codex = codex_home / "hooks.json"
     if user_codex.is_file():
         try:
@@ -275,8 +278,12 @@ def install(root: Path, *, apply: bool, manage_host_hooks: bool = True) -> dict[
         }
 
     if not manage_host_hooks:
-        installed = install_release(root, apply=True)
-        launchers = _write_launchers(root, str(installed["release"]))
+        launchers: list[str] = []
+
+        def activate_without_hooks(installed: Mapping[str, Any]) -> None:
+            launchers.extend(_write_launchers(root, str(installed["release"])))
+
+        installed = install_release(root, apply=True, before_activation=activate_without_hooks)
         return {
             **preflight,
             **installed,
@@ -288,16 +295,15 @@ def install(root: Path, *, apply: bool, manage_host_hooks: bool = True) -> dict[
 
     previous_hooks_path = _git_hooks_path(root)
     codex_was_legacy_link, codex_link_text = _legacy_codex_link(root)
-    current_manifest = root / TOOLS_RUNTIME_DIRECTORY / "current.toml"
-    current_manifest_before = current_manifest.read_bytes() if current_manifest.is_file() else None
-    codex_fragment = root / TOOLS_RUNTIME_DIRECTORY / "hooks/codex/hooks.json"
-    codex_fragment_before = codex_fragment.read_bytes() if codex_fragment.is_file() else None
     if previous_hooks_path in LEGACY_HOOKS_PATHS:
         _set_git_hooks_path(root, None)
     if codex_was_legacy_link:
         (root / ".codex/hooks.json").unlink()
-    try:
-        installed = install_release(root, apply=True)
+    adapter_result: object | None = None
+    launchers: list[str] = []
+
+    def activate_with_hooks(installed: Mapping[str, Any]) -> None:
+        nonlocal adapter_result
         trigger = _load_installed_trigger(root, str(installed["package_root"]))
         adapter = trigger.AdapterSpec(ADAPTER_ID, "codex", "CODEX_THREAD_ID", "CODEX_SESSION_ID", True)
         adapter_result = trigger.adapter_operation(
@@ -306,12 +312,14 @@ def install(root: Path, *, apply: bool, manage_host_hooks: bool = True) -> dict[
             adapter=adapter,
             apply=True,
             manage_host_hooks=True,
+            verified_package_root=root / str(installed["package_root"]),
         )
-        launchers = _write_launchers(root, str(installed["release"]))
+        launchers.extend(_write_launchers(root, str(installed["release"])))
+
+    try:
+        installed = install_release(root, apply=True, before_activation=activate_with_hooks)
         removed = _remove_legacy_installation(root)
     except BaseException as error:
-        _restore_text_carrier(current_manifest, current_manifest_before)
-        _restore_text_carrier(codex_fragment, codex_fragment_before)
         if _git_hooks_path(root) == MANAGED_HOOKS_PATH:
             _set_git_hooks_path(root, None)
         if previous_hooks_path is not None:

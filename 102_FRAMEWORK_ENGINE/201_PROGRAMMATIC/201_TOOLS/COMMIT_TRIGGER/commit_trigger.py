@@ -23,6 +23,7 @@ import json
 import os
 import re
 import shlex
+import stat
 import subprocess
 import sys
 import threading
@@ -59,7 +60,7 @@ for _path in (PACKAGE_ROOT, CONTEXT_ROOT):
     if str(_path) not in sys.path:
         sys.path.insert(0, str(_path))
 
-from framework_installation import InstallationError, installation_status  # noqa: E402
+from framework_installation import InstallationError, TOOLS_RUNTIME_DIRECTORY, installation_status  # noqa: E402
 from project_runtime import atomic_tempfile  # noqa: E402
 from commit_context_logic import (  # noqa: E402
     configured_repository_paths,
@@ -1373,13 +1374,73 @@ def _local_git_hooks_path(repository: Path) -> str | None:
     return completed.stdout.strip()
 
 
-def _managed_git_hook_script(repository: Path, hook_name: str) -> str:
+def _managed_hook_package_root(repository: Path, verified_package_root: Path | None) -> Path:
+    """Return the exact physical current or pre-selector release package."""
+
+    release_root = repository / TOOLS_RUNTIME_DIRECTORY / "releases"
+    if verified_package_root is None:
+        status = runtime_package_status(repository)
+        if status.get("installed") is not True:
+            raise ToolError("tools-not-installed", "run INSTALL_TOOLS before installing Git Hooks")
+        package_root = repository / str(status["package_root"])
+    else:
+        package_root = verified_package_root
+    try:
+        relative = package_root.relative_to(release_root)
+    except ValueError as error:
+        raise ToolError("tools-package-invalid", "verified Tool package is outside the managed release surface") from error
+    if len(relative.parts) != 2 or relative.parts[1] != "TOOLS" or re.fullmatch(r"[0-9a-f]{64}", relative.parts[0]) is None:
+        raise ToolError("tools-package-invalid", "verified Tool package path is not an exact managed release package")
+    canonical = release_root / relative.parts[0] / "TOOLS"
+    if package_root != canonical:
+        raise ToolError("tools-package-invalid", "verified Tool package path contains an alias")
+    for carrier in (
+        repository / TOOLS_RUNTIME_DIRECTORY.parent,
+        repository / TOOLS_RUNTIME_DIRECTORY,
+        repository / TOOLS_RUNTIME_DIRECTORY / "releases",
+        release_root / relative.parts[0],
+        canonical,
+    ):
+        try:
+            observed = carrier.lstat()
+        except FileNotFoundError as error:
+            raise ToolError("tools-package-invalid", "verified Tool package is unavailable") from error
+        if carrier.is_symlink() or not stat.S_ISDIR(observed.st_mode):
+            raise ToolError("tools-package-invalid", "verified Tool package contains an unsafe directory")
+    return canonical
+
+
+def _managed_git_hook_script(
+    repository: Path,
+    hook_name: str,
+    *,
+    verified_package_root: Path | None = None,
+) -> str:
+    """Render a managed hook from the selected or just-verified package.
+
+    The optional root is an installer-only handoff used while a replacement
+    release is complete but intentionally has no current selector yet.  It is
+    not an installed-status claim: ordinary adapter operations still derive
+    their package from the verified current selector.
+    """
+
     if hook_name not in GIT_HOOK_NAMES:
         raise ToolError("git-hook-invalid", f"unsupported Git Hook: {hook_name}")
-    status = runtime_package_status(repository)
-    if status.get("installed") is not True:
-        raise ToolError("tools-not-installed", "run INSTALL_TOOLS before installing Git Hooks")
-    tool = Path(str(status["package_root"])) / "COMMIT_CHANGE_SET" / "commit_change_set.py"
+    package_root = _managed_hook_package_root(repository, verified_package_root)
+    change_set = package_root / "COMMIT_CHANGE_SET"
+    tool = change_set / "commit_change_set.py"
+    try:
+        change_set_stat = change_set.lstat()
+        tool_stat = tool.lstat()
+    except FileNotFoundError as error:
+        raise ToolError("tools-package-invalid", "verified Tool package has no safe COMMIT_CHANGE_SET entrypoint") from error
+    if (
+        change_set.is_symlink()
+        or not stat.S_ISDIR(change_set_stat.st_mode)
+        or tool.is_symlink()
+        or not stat.S_ISREG(tool_stat.st_mode)
+    ):
+        raise ToolError("tools-package-invalid", "verified Tool package has no safe COMMIT_CHANGE_SET entrypoint")
     return "\n".join(
         [
             "#!/bin/sh",
@@ -1397,7 +1458,7 @@ def _managed_git_hook_script(repository: Path, hook_name: str) -> str:
                     shlex.quote(sys.executable),
                     "-I",
                     "-B",
-                    f'"$repository/{tool.as_posix()}"',
+                    f'"$repository/{tool.relative_to(repository).as_posix()}"',
                     "--repository",
                     '"$repository"',
                     "git-hook",
@@ -1410,7 +1471,11 @@ def _managed_git_hook_script(repository: Path, hook_name: str) -> str:
     )
 
 
-def install_git_hooks(repository: Path) -> dict[str, object]:
+def install_git_hooks(
+    repository: Path,
+    *,
+    verified_package_root: Path | None = None,
+) -> dict[str, object]:
     existing = _local_git_hooks_path(repository)
     if existing not in {None, MANAGED_GIT_HOOKS_PATH}:
         raise ToolError(
@@ -1422,7 +1487,10 @@ def install_git_hooks(repository: Path) -> dict[str, object]:
     carriers: list[str] = []
     for hook_name in GIT_HOOK_NAMES:
         carrier = directory / hook_name
-        _atomic_write(carrier, _managed_git_hook_script(repository, hook_name))
+        _atomic_write(
+            carrier,
+            _managed_git_hook_script(repository, hook_name, verified_package_root=verified_package_root),
+        )
         carrier.chmod(0o755)
         carriers.append(carrier.relative_to(repository).as_posix())
     completed = subprocess.run(
@@ -1496,6 +1564,7 @@ def adapter_operation(
     adapter_id: str | None = None,
     apply: bool = False,
     manage_host_hooks: bool = False,
+    verified_package_root: Path | None = None,
 ) -> dict[str, object]:
     """Inspect or explicitly change reconstructible adapter registration state."""
 
@@ -1568,7 +1637,7 @@ def adapter_operation(
         assert adapter is not None
         hook_result = {
             "codex": install_codex_hooks(resolved_repository, adapter.adapter_id),
-            "git": install_git_hooks(resolved_repository),
+            "git": install_git_hooks(resolved_repository, verified_package_root=verified_package_root),
         }
     if apply:
         _write_registry(resolved_repository, proposed)
