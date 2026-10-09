@@ -24,6 +24,7 @@ from framework_package import (  # noqa: E402
     FrameworkPackageError,
     assemble_framework_package,
     provide_installation_package_evidence,
+    read_source_catalog_records,
     verify_current_package_selector,
     verify_framework_package,
 )
@@ -135,6 +136,25 @@ class FrameworkPackageTests(unittest.TestCase):
                 with self.assertRaises(FrameworkPackageError) as raised:
                     assemble_framework_package(self.source, self.releases)
                 self.assertEqual(raised.exception.code, "catalog-revision-invalid")
+
+    def test_shared_catalog_reader_refuses_non_scalar_kind_and_visibility(self) -> None:
+        """TOML arrays must not bypass closed scalar descriptor checks."""
+
+        original = (self.source / "catalog.toml").read_bytes()
+        for expected, replacement in (
+            (b'kind = "core"', b'kind = ["core"]'),
+            (b'visibility = "public"', b'visibility = ["public"]'),
+        ):
+            with self.subTest(replacement=replacement):
+                payload = original.replace(expected, replacement, 1)
+                with self.assertRaises(FrameworkPackageError) as raised:
+                    read_source_catalog_records(payload)
+                self.assertEqual(raised.exception.code, "catalog-invalid")
+                self._write("catalog.toml", payload)
+                with self.assertRaises(FrameworkPackageError) as assembly:
+                    assemble_framework_package(self.source, self.releases)
+                self.assertEqual(assembly.exception.code, "catalog-invalid")
+                self._write("catalog.toml", original)
 
     def test_refuses_boolean_schema_versions_in_all_closed_toml_carriers(self) -> None:
         catalog = self.source / "catalog.toml"

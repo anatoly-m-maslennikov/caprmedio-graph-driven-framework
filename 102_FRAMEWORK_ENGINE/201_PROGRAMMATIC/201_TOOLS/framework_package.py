@@ -285,7 +285,14 @@ def _path_digest(root: Path, relative: Path, *, code: str) -> str:
     return _sha256(json.dumps(rows, sort_keys=True, separators=(",", ":"), ensure_ascii=False).encode("utf-8"))
 
 
-def _validate_catalog(root: Path, payload: bytes) -> tuple[tuple[str, Mapping[str, Any]], ...]:
+def read_source_catalog_records(payload: bytes) -> tuple[tuple[str, Mapping[str, Any]], ...]:
+    """Read one closed source-catalog descriptor without opening its sources.
+
+    Filesystem consumers retain their own digest and coverage checks.  Sharing
+    this descriptor reader keeps package assembly and planned portable rows on
+    the same closed schema, type, revision and visible-path boundary.
+    """
+
     document = _read_toml_bytes(payload, code="catalog-invalid", subject=CATALOG_NAME)
     if set(document) != {"schema_version", "source"} or not _is_schema_version(document.get("schema_version")):
         raise FrameworkPackageError("catalog-invalid", "catalog.toml has an invalid closed root schema")
@@ -306,13 +313,13 @@ def _validate_catalog(root: Path, payload: bytes) -> tuple[tuple[str, Mapping[st
         receipt = raw.get("admission_receipt_sha256")
         visibility = raw.get("visibility")
         selection_default = raw.get("selection_default")
-        if kind not in _CATALOG_KINDS:
+        if not isinstance(kind, str) or kind not in _CATALOG_KINDS:
             raise FrameworkPackageError("catalog-invalid", f"catalog source kind is invalid: {identity}")
         if not _is_immutable_revision(revision):
             raise FrameworkPackageError("catalog-revision-invalid", f"catalog source revision is not immutable: {identity}")
         if not _is_sha256(expected_digest) or not _is_sha256(receipt):
             raise FrameworkPackageError("catalog-invalid", f"catalog source digest is invalid: {identity}")
-        if visibility not in _CATALOG_VISIBILITIES or not isinstance(selection_default, bool):
+        if not isinstance(visibility, str) or visibility not in _CATALOG_VISIBILITIES or not isinstance(selection_default, bool):
             raise FrameworkPackageError("catalog-invalid", f"catalog source selection is invalid: {identity}")
         if visibility == "private" and selection_default:
             raise FrameworkPackageError("catalog-invalid", f"private catalog source cannot be a default: {identity}")
@@ -320,8 +327,6 @@ def _validate_catalog(root: Path, payload: bytes) -> tuple[tuple[str, Mapping[st
         _check_visible_path(relative)
         if relative == Path(CATALOG_NAME) or relative.is_relative_to(Path(".caprmedio_install")):
             raise FrameworkPackageError("catalog-invalid", f"catalog source targets package control state: {identity}")
-        if _path_digest(root, relative, code="catalog-source-missing") != expected_digest:
-            raise FrameworkPackageError("catalog-source-digest-mismatch", f"catalog source digest differs: {identity}")
         saw_core |= kind == "core"
         saw_methodology |= kind == "methodology"
         saw_support |= kind == "support"
@@ -329,6 +334,17 @@ def _validate_catalog(root: Path, payload: bytes) -> tuple[tuple[str, Mapping[st
     if not (saw_core and saw_methodology and saw_support):
         raise FrameworkPackageError("catalog-incomplete", "catalog must admit Core, active Methodology, and declared support")
     return tuple(records)
+
+
+def _validate_catalog(root: Path, payload: bytes) -> tuple[tuple[str, Mapping[str, Any]], ...]:
+    """Validate closed catalog descriptors against actual package source bytes."""
+
+    records = read_source_catalog_records(payload)
+    for identity, record in records:
+        relative = _safe_relative(record["path"], f"source.{identity}.path", code="catalog-invalid")
+        if _path_digest(root, relative, code="catalog-source-missing") != record["sha256"]:
+            raise FrameworkPackageError("catalog-source-digest-mismatch", f"catalog source digest differs: {identity}")
+    return records
 
 
 def _catalog_covers(relative: Path, *, kind: str, records: tuple[tuple[str, Mapping[str, Any]], ...]) -> bool:
@@ -665,6 +681,7 @@ __all__ = [
     "VerifiedFrameworkPackage",
     "assemble_framework_package",
     "provide_installation_package_evidence",
+    "read_source_catalog_records",
     "verify_current_package_selector",
     "verify_framework_package",
 ]
