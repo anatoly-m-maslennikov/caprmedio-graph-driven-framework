@@ -6,8 +6,8 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 7
-updated_at: "2026-10-09 20:37:32 +0400"
+version: 8
+updated_at: "2026-10-09 22:13:15 +0400"
 subjects:
   governs: "Tool/RELEASE_VERSION/Validated compiler and package handoff"
   depends_on: [Tool, Manifest, Digest, Methodology, Projection, Installation, Runtime]
@@ -41,7 +41,9 @@ The completed `SealedSourceCopy` handoff is also the predecessor-only source-cop
 - `source_catalog_sha256`: the exact locally read root `catalog.toml` bytes.
 - `input_manifest_sha256`: the canonical JSON checksum binding this run, candidate, canonical Version value/bytes, private compiled manifest/output, source catalog and all portable rows.
 
-The portable rows cover the whole `102_FRAMEWORK_ENGINE` tree, locked root dependencies, root `version.toml`, root `catalog.toml`, admitted defaults, the canonical ca payload projected to `SKILLS/ca`, and only sealed selected active Methodology Atoms and declared support projected to their D596 package paths. The intentional ca projection may reuse source bytes, but destination paths remain unique. Every source digest and mode is locally observed; catalog source paths and digests must match the planned package rows. A missing catalog, malformed record, changed input or unsealed private compilation blocks the handoff rather than creating an admission receipt or reconstructing absent authority.
+The portable rows cover the whole `102_FRAMEWORK_ENGINE` tree, locked root dependencies, root `version.toml`, root `catalog.toml`, its referenced admission proofs, admitted defaults, the canonical ca payload projected to `SKILLS/ca`, and only sealed selected active Methodology Atoms and declared support projected to their D596 package paths. Admission proof rows use `resource = "SOURCE_ADMISSION"` and retain `admissions/<receipt_sha256>.json` as their source and destination. A shared proof appears once. The intentional ca projection may reuse source bytes, but destination paths remain unique. Every source digest and mode is locally observed; catalog source paths and digests must match the planned package rows. The proof bytes and their exact descriptor matches are reopened under D602. A missing catalog, missing or malformed proof, changed input or unsealed private compilation blocks the handoff rather than creating an admission receipt or reconstructing absent authority.
+
+`collect_portable_source_snapshot` provides a typed, read-only `SealedPortableSourceSnapshot` with the same run, candidate and private-compilation binding and the observed package rows before catalog or admission proofs exist. `revalidate_portable_source_snapshot` repeats those observations. This snapshot is input to the separately commanded source-admission Action; it is not approval, a catalog, a package staging handoff or a test result.
 
 `build_sealed_portable_compilation` observes this handoff without assembling a package. `revalidate_sealed_portable_compilation` repeats the physical observations and requires exact equality before the package producer copies those bytes. The producer stages only a private D597 candidate package; this handoff grants no test pass, image selection, live installation or promotion.
 
