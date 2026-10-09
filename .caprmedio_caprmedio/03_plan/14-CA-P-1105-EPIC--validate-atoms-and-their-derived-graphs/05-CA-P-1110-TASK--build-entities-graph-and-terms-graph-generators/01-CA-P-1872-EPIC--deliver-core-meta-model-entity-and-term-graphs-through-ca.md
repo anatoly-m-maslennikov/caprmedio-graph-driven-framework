@@ -26,7 +26,7 @@ subjects:
     - Journal
     - Plan
 version: 3
-updated_at: "2026-10-09 19:23:34 +0400"
+updated_at: "2026-10-09 21:55:59 +0400"
 relations:
   is_decomposition_of:
     - CA-P-1110
@@ -53,6 +53,8 @@ The Operator added this prerequisite on 2026-10-09: review and fix entity and te
 - The current Operator authorization permits local implementation and graph RMED+O repair without MCP. It does not bypass the MCP admission gate, authorize unrelated source changes, or claim live graph delivery.
 
 The independent review rejected the pre-repair packet. CA-P-1898 now decomposes into five bounded repair/inventory children. The Operator approved a derived, source-pinned fact-context design; no new source authority or admission proof is implied.
+
+Latest bounded implementation evidence is recorded in CA-P-1899. The Operator chose Core Meta-model by itself, not Core as applied through Project Configuration and Extensions. The local portfolio passed 170 graph tests and admitted 32 source-backed Term definitions; Entity and native relation coverage remain incomplete. The question about ontology concepts versus declared Entity instances is still open. These are partial implementation receipts, not completed graph delivery. The Epic remains Active.
 
 ### Creation and execution state
 

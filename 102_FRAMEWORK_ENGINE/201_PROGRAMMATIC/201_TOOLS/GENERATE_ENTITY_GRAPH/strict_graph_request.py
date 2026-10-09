@@ -86,6 +86,8 @@ def _native_payload(context, graph_kind, display, source_atoms, incidence, struc
         "native_relations": native, "external_references": external,
         "source_atoms": source_atoms, "incidence": incidence, "project_structure": structure,
     }
+    if context["provider"]["id"] == "caprmedio.graph-fact-context.declared-core":
+        result["declaration_context"] = {"kind": "declared_core_model", "scope_unit": "CORE_META_MODEL"}
     if graph_kind == "entities":
         result["native_properties"] = [row for row in facts if row["fact_class"] == "entity_property" and row["payload"]["entity_identity"] in shown]
         if any(row["payload"]["entity_identity"] not in identities for row in facts if row["fact_class"] == "entity_property"):

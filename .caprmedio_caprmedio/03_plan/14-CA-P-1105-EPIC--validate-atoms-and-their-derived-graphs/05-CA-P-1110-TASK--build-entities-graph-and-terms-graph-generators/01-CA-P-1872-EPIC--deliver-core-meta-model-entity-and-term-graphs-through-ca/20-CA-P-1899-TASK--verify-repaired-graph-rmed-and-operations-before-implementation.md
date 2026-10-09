@@ -24,7 +24,7 @@ subjects:
     - Term
     - Plan
 version: 1
-updated_at: "2026-10-09 21:35:28 +0400"
+updated_at: "2026-10-09 21:55:59 +0400"
 relations:
   is_decomposition_of:
     - CA-P-1872
@@ -136,6 +136,45 @@ backend.py 9f54448addcd7a2e6f36ae9c72f45ac82e7cc3303e4bcad57982016ca8ec6745
 ```
 
 This is fixture/code acceptance, not an actual Journal or live MCP receipt. A parent Step/Workflow already recorded as interrupted remains incomplete; the Release-only recovered-Run capability was not widened. The broader selected-execution receipt remains 18 of 20, with two current graph-manifest positive cases blocked by stale repaired Action bindings. Frozen bindings were not rewritten to conceal that gate.
+
+### Declared Core portfolio integration
+
+The Operator explicitly selected Core Meta-model by itself. Project Configuration and enabled Extensions do not alter the native meaning of these projections. The provider and graph namespace retain `declared_core_model`; this is not project-effective applicability.
+
+Independent bounded reviews accepted the current Term profile, candidate-only Entity profile, three native Relation Kind registry records, closed fact-context validator, and candidate-only Term relation integration. The Term profile binds twelve current authorities, preserves source-owned Scope evidence and rejects structural Scope copies. The Entity profile binds seventeen current authorities but does not claim to perform Action/Workflow semantic admission. Registry Kind Status is explicit source content; Atom lifecycle Status is not transferred to a Kind or governed Entity. BEARS stays a declared derived inverse, not a primitive registry Kind.
+
+Fresh local verification: 170 graph tests passed through uv-selected Python 3.14 without writing bytecode. Seven integration cases check isolated Core context, current source lineage, determinism, display boundaries, candidate-only relation output, and the absence of native facts inferred from registry metadata. Existing recording/status acceptance remains the separate 26-fixture receipt above. The source-backed context validator checks exact closed fields, canonical digests, contribution references, coverage counts and safe structured diagnostics before the private factory mints a context.
+
+The fresh read-only Core check bound 951 discovered Carriers and selected 908 exact-Active Core-owned Atoms. It did not publish a graph or create a Run/Journal receipt:
+
+| Family | Candidates | Admitted facts | Coverage |
+|---|---:|---:|---|
+| Term definitions | 77 | 32 | unknown |
+| Term relations | 12 | 0 | unknown |
+| Entity admissions | 26 | 0 | unknown |
+| Entity Properties | 26 | 0 | unknown |
+| Entity relations | 0 | 0 | unknown |
+
+Current derived context digests:
+
+```text
+terms 058700ebd7de6d1e3d85c587cc5ba6f203debd0a3d1c012bceaa876b0b2b0410
+entities 98e09939d85713eb49d955b9813abbf7f15b165c36f70a1df6c3b9b10084c5b7
+```
+
+Accepted implementation pins:
+
+```text
+graph_fact_context.py fb263671bca3cdad58018983a9cd771a7e3df2fc93703aaae398af24bb0b0427
+strict_graph_request.py b2a9c3a5323c8a2101d11833d91ca17b92431b1c02fd621d6ecf0267522491c4
+core_entity_admission.py a54ad6e8f2780e0ea51bbd7f72e8f50ff8545653ce30daf4306e7fa3446662a6
+core_relation_candidates.py 8d3db0a80e447cad6e8b8bc14bc466a12359addf1c568cd0df29d341e4e094c4
+core_relation_registry.py c15b66ad1e2d0d8466fe67e9bfd44f9b7a39388b833232945d322aaf3b69adce
+core_term_admission.py 823d5976e0095ea43c05c2386e1b04f5f5318d093ab3ad69d2fce1cb90735ece
+fact_context_contract.py 2568204b360bd33e49aee2d9e9100230b474783ca386fe53e6e0b6ae1530e3e3
+```
+
+Remaining boundaries: the Operator question about ontology concepts versus explicitly declared Entity instances is unanswered. Native Entity/Property admission and complete Term relation admission remain unperformed; unresolved candidates do not become facts. Full-positive graph Evaluation, current manifest admission, runtime activation and durable live delivery remain separate gates. Exact-Active selection is not proof that every Content Role's lifecycle family is fully implemented. Historical partial receipts above describe their earlier snapshots, not current full coverage. This Task and the Epic remain Active.
 
 ### Definition of Done
 

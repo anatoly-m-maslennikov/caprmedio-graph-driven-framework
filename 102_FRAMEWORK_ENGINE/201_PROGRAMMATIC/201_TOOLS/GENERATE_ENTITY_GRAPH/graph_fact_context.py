@@ -1,8 +1,8 @@
 """Checked, immutable D539 fact contexts; recognition never grants admission.
 
-This deliberately partial profile recognizes simple explicit means candidates
-at their primary-content location. No executable admission/registry profile is
-present, so nonempty selections remain unknown and contain no native facts.
+Bounded Core profiles can admit individually proven definitions. Unsupported
+source families remain unresolved, and registry metadata alone admits no
+Relation fact. The selected Core view is not project-effective methodology.
 """
 
 from __future__ import annotations
@@ -453,11 +453,84 @@ def _means_candidate(pin: dict, raw: bytes, primary: dict, target: str) -> dict 
     return {"term_identity": found[0], "subject_path": target}
 
 
+def _declared_core(repository: Path, frontier: dict, selection: dict) -> bool:
+    """Recognize the isolated registered source, not effective methodology."""
+    evidence = frontier.get("project_structure")
+    if not evidence or selection["scope_unit_names"] != ["CORE_META_MODEL"]:
+        return False
+    path = _safe_path(repository, evidence["carrier_path"])
+    units = tomllib.loads(path.read_text(encoding="utf-8")).get("scope_units", [])
+    rows = [row for row in units if isinstance(row, dict) and row.get("scope_unit_name") == "CORE_META_MODEL"]
+    return len(rows) == 1 and rows[0].get("authority_path") == frontier["selected_folder"]
+
+
+def _bundle_sources(value: object):
+    """Collect exact proof references, never carrier metadata as declarations."""
+    if isinstance(value, dict):
+        if set(value) == {"atom_id", "atom_revision", "carrier_path", "carrier_sha256", "contribution"}:
+            yield value
+        else:
+            for item in value.values():
+                yield from _bundle_sources(item)
+    elif isinstance(value, list):
+        for item in value:
+            yield from _bundle_sources(item)
+
+
+def _verify_bundle_sources(bundle: dict, pool: dict, sources: dict) -> None:
+    for reference in _bundle_sources(bundle):
+        record = pool.get(reference["atom_id"])
+        if record is None or {key: reference[key] for key in record[1]} != record[1]:
+            _fail("context-proof-unbound", "A profile proof does not bind a current source Carrier")
+        carrier, pin, raw = record
+        contribution = reference["contribution"]
+        lines = raw.splitlines(keepends=True)
+        start, end = contribution.get("start_line"), contribution.get("end_line")
+        if (type(start) is not int or type(end) is not int or start < 1 or end < start or end > len(lines)
+                or hashlib.sha256(b"".join(lines[start - 1:end])).hexdigest() != contribution.get("text_sha256")):
+            _fail("context-proof-locator-invalid", "A profile proof span differs from exact source bytes")
+        if contribution.get("kind") == "primary_content" and reference != _primary(pin, raw, carrier.content_role):
+            _fail("context-proof-locator-invalid", "A primary proof must retain the exact role-primary contribution")
+        sources[_source_key(reference)] = reference
+
+
+def _core_admission(repository: Path, graph_kind: str, carriers: Sequence,
+                    selection: dict, frontier: dict) -> dict:
+    """Execute a bounded reviewed family; unavailable regions stay unresolved."""
+    if graph_kind == "terms":
+        from core_term_admission import prepare_core_term_profile, checked_requirement_source, review_core_term_candidates
+        profile = prepare_core_term_profile(repository, carriers, frontier, selection)
+        checked = [checked_requirement_source(repository, carrier, profile)
+                   for carrier in carriers if carrier.atom_id in selection["atom_ids"]]
+        return review_core_term_candidates(checked, profile)
+    from core_entity_admission import (CoreEntityAdmissionError, prepare_core_entity_profile,
+                                       checked_operations_source, review_core_entity_candidates)
+    profile = prepare_core_entity_profile(repository, carriers, frontier, selection)
+    checked, unresolved = [], []
+    for carrier in carriers:
+        if (carrier.atom_id not in selection["atom_ids"] or carrier.content_role != "Operations"
+                or carrier.atom_type not in {"Action", "Workflow"} or carrier.status != "Active"):
+            continue
+        try:
+            checked.append(checked_operations_source(repository, carrier, profile))
+        except CoreEntityAdmissionError as error:
+            if error.code not in {"core-source-unsupported", "core-operation-unresolved", "core-type-unresolved"}:
+                _fail(error.code, "Core admission could not revalidate its checked source")
+            unresolved.append({"code": "core-entity-source-unresolved", "severity": "warning", "source_refs": [],
+                               "details": {"atom_id": carrier.atom_id, "carrier_path": carrier.carrier_path,
+                                           "carrier_sha256": carrier.sha256, "reason": error.code}})
+    bundle = review_core_entity_candidates(checked, profile)
+    bundle["diagnostics"].extend(unresolved)
+    return bundle
+
+
 def prepare_fact_context(repository: Path, graph_kind: str, carriers: Sequence,
                          selection: Mapping, source_frontier: Mapping,
                          authority_sources: Sequence) -> DerivedFactContext:
     """Read and bind sources; keep unavailable semantic checks unresolved."""
     _check_loaded_profile()
+    from fact_context_contract import ContractError, implementation_sha256, validate_fact_context
+    contract_digest = implementation_sha256()
     repository = Path(repository).resolve()
     if not repository.is_dir() or graph_kind not in {"entities", "terms"}:
         _fail("context-input-invalid", "An existing repository and one supported graph kind are required")
@@ -477,6 +550,7 @@ def prepare_fact_context(repository: Path, graph_kind: str, carriers: Sequence,
                                            "details_assignment_pins": [list(pin) for pin in _DETAILS_ASSIGNMENT_PINS],
                                            "admission": "unavailable"})}
     details_bound = _details_assignment_bound(authorities)
+    declared_core = _declared_core(repository, frontier, selected)
     sources: dict[tuple, dict] = {}
     candidates = []
     diagnostics = []
@@ -527,7 +601,6 @@ def prepare_fact_context(repository: Path, graph_kind: str, carriers: Sequence,
         if not details_bound:
             diagnostics.append({"code": "details-assignment-profile-unavailable", "severity": "warning",
                                 "source_refs": [], "details": {"required_authority_ids": [pin[0] for pin in _DETAILS_ASSIGNMENT_PINS]}})
-    source_rows = sorted(sources.values(), key=_source_key)
     required = ("entity_admission", "entity_property", "relation") if graph_kind == "entities" else ("definition", "relation")
     coverage = [{"fact_class": fact_class, "disposition": "complete" if empty else "unknown",
                  "selected_result": "empty" if empty else "unknown",
@@ -535,13 +608,81 @@ def prepare_fact_context(repository: Path, graph_kind: str, carriers: Sequence,
                  "admitted_count": 0,
                  "source_refs": sorted([candidate["source_ref"] for candidate in candidates if candidate["fact_class"] == fact_class], key=_source_key)}
                 for fact_class in sorted(required)]
+    admitted = []
+    registry = []
+    portfolio = []
+    if declared_core and selected["atom_ids"]:
+        try:
+            bundle = _core_admission(repository, graph_kind, carriers, selected, frontier)
+        except FactContextError:
+            raise
+        except (ImportError, ValueError, OSError):
+            diagnostics.append({"code": "core-admission-profile-unavailable", "severity": "warning", "source_refs": [],
+                                "details": {"graph_kind": graph_kind}})
+        else:
+            _verify_bundle_sources(bundle, combined, sources)
+            candidates = bundle["candidates"]
+            decisions = bundle["admission_decisions"]
+            admitted = bundle["admitted_facts"]
+            coverage = bundle["coverage"]
+            diagnostics = [row for row in diagnostics if row["code"] != "semantic-profile-unavailable"]
+            diagnostics.extend(bundle["diagnostics"])
+            portfolio.append(bundle["provider"])
+    if declared_core:
+        from core_relation_registry import prepare_core_relation_registry
+        registry_bundle = prepare_core_relation_registry(repository, carriers, frontier, selected)
+        registry = [row for row in registry_bundle.records if row["kind"]["graph_kind"] == graph_kind]
+        _verify_bundle_sources({"records": registry, "diagnostics": list(registry_bundle.diagnostics)}, combined, sources)
+        diagnostics.extend(registry_bundle.diagnostics)
+        if registry:
+            portfolio.append(registry_bundle.profile)
+        if graph_kind == "terms" and registry and selected["atom_ids"]:
+            from core_relation_candidates import CoreRelationCandidateError, recognize_core_term_relations
+            try:
+                relation_bundle = recognize_core_term_relations(repository, carriers, selected, registry)
+            except CoreRelationCandidateError as error:
+                if error.code != "relation-registry-unavailable":
+                    _fail(error.code, "Core relation recognition could not revalidate its checked sources")
+                diagnostics.append({"code": "core-term-relation-profile-unavailable", "severity": "warning",
+                                    "source_refs": [], "details": {"graph_kind": graph_kind}})
+            else:
+                _verify_bundle_sources(relation_bundle, combined, sources)
+                candidates.extend(relation_bundle["candidates"])
+                decisions.extend(relation_bundle["admission_decisions"])
+                admitted.extend(relation_bundle["admitted_facts"])
+                diagnostics.extend(relation_bundle["diagnostics"])
+                portfolio.append(relation_bundle["provider"])
+                relation_sources = {canonical_bytes(row["source_ref"]): row["source_ref"]
+                                    for row in candidates if row["fact_class"] == "relation"}
+                for row in coverage:
+                    if row["fact_class"] == "relation":
+                        row.update(disposition="unknown", selected_result="unknown",
+                                   candidate_count=sum(item["fact_class"] == "relation" for item in candidates),
+                                   admitted_count=sum(item["fact_class"] == "relation" for item in admitted),
+                                   source_refs=sorted(relation_sources.values(), key=_source_key))
+        profile = {"id": "caprmedio.graph-fact-context.declared-core", "version": "1",
+                   "profile_sha256": _digest({"base_profile": profile, "portfolio": portfolio,
+                                               "declaration_context": "declared_core_model"})}
+    source_rows = sorted(sources.values(), key=_source_key)
+    candidates.sort(key=lambda row: row["candidate_id"])
+    decisions.sort(key=lambda row: row["candidate_id"])
+    admitted.sort(key=lambda row: row["fact_id"])
+    coverage.sort(key=lambda row: row["fact_class"])
     diagnostics.sort(key=lambda item: (item["code"], tuple(_source_key(ref) for ref in item["source_refs"]), canonical_bytes(item["details"])))
+    profile = {"id": profile["id"], "version": profile["version"],
+               "profile_sha256": _digest({"provider": profile, "contract_sha256": contract_digest})}
     context = {"schema_version": 1, "context_kind": "caprmedio.derived_fact_context", "graph_kind": graph_kind,
                "source_binding": {"source_frontier_sha256": frontier["source_frontier_sha256"],
                                   "selection_sha256": _digest(selected), "authority_frontier_sha256": _digest(source_rows)},
-               "provider": profile, "authority_sources": source_rows, "relation_registry": [],
+               "provider": profile, "authority_sources": source_rows, "relation_registry": registry,
                "coverage": coverage, "candidates": candidates, "admission_decisions": decisions,
-               "admitted_facts": [], "derivations": [], "diagnostics": diagnostics}
+               "admitted_facts": admitted, "derivations": [], "diagnostics": diagnostics}
     context["context_sha256"] = _digest(context)
+    try:
+        validate_fact_context(context)
+    except ContractError as error:
+        if error.code == "profile-stale":
+            _fail("profile-stale", "Validator implementation changed after its profile was loaded")
+        _fail("context-contract-invalid", "A provider record failed the closed fact-context contract")
     return DerivedFactContext(canonical_bytes(context), canonical_bytes({"repository": repository.as_posix(),
                               "source_frontier": frontier, "selection": selected}), _token=_FACTORY_TOKEN)
