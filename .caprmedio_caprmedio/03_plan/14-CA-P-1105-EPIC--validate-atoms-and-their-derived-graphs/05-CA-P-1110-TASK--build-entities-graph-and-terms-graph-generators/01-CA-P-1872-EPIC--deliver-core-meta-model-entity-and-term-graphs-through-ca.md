@@ -25,8 +25,8 @@ subjects:
     - Action
     - Journal
     - Plan
-version: 7
-updated_at: "2026-10-10 01:05:46 +0400"
+version: 8
+updated_at: "2026-10-10 01:17:19 +0400"
 relations:
   is_decomposition_of:
     - CA-P-1110
@@ -46,9 +46,9 @@ Make the existing entity and term graph builders usable through the Project MCP 
 The Operator replaced the immediate execution plan on 2026-10-09. Do these steps one by one. Finish and verify one step before starting the next. The source is the Core Meta-model by itself, not Project Configuration or Extensions.
 
 1. **Build mechanically from existing Atoms.** Read their current Subjects, using only the existing `/` and `:` syntax. Preserve complete Subject paths, supporting prefixes and exact source references. Keep `/` steps unclassified. `:` links an allowed value to its qualified Property; it is not an assignment. Do not infer relations from Main Content, rewrite Subjects, normalize to the proposed new notation or create source-Atom nodes as model objects. Output a derived graph and the literal Term components. Verify deterministic output and unchanged Core source bytes.
-2. **Review the current graph and design its structure.** Use current Active Core Atom content to interpret old slash paths, group Continuant/Occurrent and inherit common constraints. Review every Entity for duplication, redundancy, emptiness, lack of meaning or possible generalization. Mark proposed drops, consolidations and generalizations; do not apply them. Keep source evidence and every old identity traceable. Ask the Operator below 90% confidence. Do not change the step-1 graph or Atom Subjects.
-3. **Give the Operator the new graph candidate.** Present the grouped, inherited and visibly marked candidate in compact notation using `/`, `.`, `:` and `@`. Use NARROWER_THAN, IS_BORNE_BY, IS_ALLOWED_VALUE_OF and IS_CARRIED_BY with correct directions and qualified identities. Preserve the baseline. Candidate delivery is not acceptance; apply accepted decisions to a separate derived graph before any source migration.
-4. **Update Atom Subjects.** After graph review, write the confirmed `/`, `.` and `:` notation into the authoritative Subjects. Reconcile affected grammar contracts, revisions and source references. Rebuild only to verify that the updated Subjects reproduce the reviewed graph.
+2. **Review the current graph and design its structure.** Use current Active Core Atom content to interpret old slash paths, group Continuant/Occurrent and inherit common constraints. Review every Entity for duplication, redundancy, emptiness, lack of meaning or possible generalization. Mark proposed drops, consolidations and generalizations; do not apply them. Record a complete source-occurrence ledger for old relations, including qualified prefixes and unchanged `:` links, not only deduplicated graph edges. Keep source evidence and every old identity traceable. Ask the Operator below 90% confidence. Do not change the step-1 graph or Atom Subjects.
+3. **Give the Operator the new graph candidate.** Present the grouped, inherited and visibly marked candidate in compact notation using `/`, `.`, `:` and `@`. Use NARROWER_THAN, IS_BORNE_BY, IS_ALLOWED_VALUE_OF and IS_CARRIED_BY with correct directions and qualified identities. Hand off its complete relation ledger, node dispositions, exact source pins and candidate hash. Preserve the baseline. Candidate delivery is not acceptance. Only after an explicit Operator decision tied to that candidate may CA-P-1909 apply accepted decisions to a separate derived graph and verify it.
+4. **Update Atom Subjects.** Only after explicit Operator acceptance and verification of the separate accepted graph may CA-P-1910 prepare the exact migration preview. CA-P-1911 may write the confirmed `/`, `.` and `:` notation and required grammar/revision changes only after separate Operator authorization of that sealed preview. CA-P-1912 then rebuilds and verifies reproduction of the accepted graph with its source-backed relation evidence. The display operator `@` is not automatically added to Subject grammar.
 
 Step **1 is complete**; step **2 is next and has not started** under this sequence. Steps 3–4 remain pending. Earlier classification drafts and migration code are preparation only, not accepted decisions or source updates. The approved compact graph notation is `/` for broader-to-narrower, `.` for bearer qualification, `:` for allowed values and `@` for IS_CARRIED_BY; step 1 does not apply it to old `/` occurrences. Exact `@` bindings identify the carried state and Carrier rather than assigning a Property value.
 
@@ -61,14 +61,16 @@ This sequence governs the immediate local work without MCP. A mechanical project
 - Selection: 908 exact-Active owned-Core sources out of 951 captured source files; 43 excluded sources retain their pins. Extraction is complete: 4,534 Subject occurrences, no unresolved selected sources.
 - Graph: 706 full-path/prefix nodes, 294 unclassified `/` links, 66 allowed-value `:` links and 534 literal Term components. The Terms view has no inferred taxonomy links.
 - Graph fingerprint: `0ea18486fd43ccd546a5d09888e98bc42f56d42d392e5669fecee19fa25f93d1`. JSON file SHA-256: `57cba13073aa0de34876a734c784a43d124f09ff03584de03252b9d12a89ac0b`.
-- Checks: 197 graph/acceptance tests plus 10 builder tests passed. Matching before/after pin-set fingerprints verify all 951 Core source files unchanged. Publication file hashes match their receipt.
+- Entities DOT file SHA-256: `2754760bde5bce25b9500682d2af71a819b34df342e1da5cf4a91ec2a5cf48dd`.
+- Terms DOT file SHA-256: `41dc2e8befbf0a91b40cf5ca90858e4916c8c08e98fac16ff7555d0ce7ee6ebc`.
+- Checks: 197 graph/acceptance tests plus 10 builder tests passed. Matching before/after pin-set fingerprints verify all 951 Core source files unchanged. This self-contained receipt identifies all three Step 1 file hashes above; it does not refer to an unlinked external receipt.
 - No Main Content classification, dot interpretation, Atom Subject rewrite, native semantic admission, MCP execution or Run/Journal recording was performed.
 
 ### Current graph review and candidate Tasks
 
 The Operator added this work and broadened Task 3 on 2026-10-10. Task creation is not execution. Run the new Tasks one by one, with their explicit BLOCKS chain:
 
-`CA-P-1905 → CA-P-1906 → CA-P-1907 → CA-P-1908`
+`CA-P-1905 → CA-P-1906 → CA-P-1907 → CA-P-1908 → CA-P-1909 → CA-P-1910 → CA-P-1911 → CA-P-1912`
 
 - Review the current Entities Graph derived from exact-Active Core-owned Atoms. Recheck current pins instead of treating the saved step-1 counts as permanent.
 - Give the Operator a new graph candidate grouped by Continuant and Occurrent, separating definitions from actual executions.
@@ -79,8 +81,20 @@ The Operator added this work and broadened Task 3 on 2026-10-10. Task creation i
 - Use `/`, `.`, `:` and `@` in the compact candidate display: narrower-than, bearer qualification, allowed value and IS_CARRIED_BY. Reuse CARRIES as the inverse direction of the Carrier binding; do not add an equivalent primitive.
 - Use concept names such as `Version Number`, `Updated At` and `Status`, not YAML keys. Present the candidate with plain two-space indentation and compact cross-link statements. Preserve qualified identities and graph ownership.
 - Every baseline identity needs a traceable retain/move/inherit/consolidate/generalize/drop-candidate/question disposition. Give root counts before and after, count marked candidates separately, and expose uncertainty instead of forcing a smaller graph.
+- Every original relation occurrence needs a row with the source Atom/revision/hash, Subject field/index/path/segment, old qualified endpoints, graph kind and disposition. An evidenced proposal records its operator/relation/direction/endpoints and Main Content evidence. An unresolved or not-native row has no asserted native relation proposal; record the missing-evidence or inapplicability reason, what was checked and any required Operator question. Preserve these reasons through candidate changes and handoff; do not invent native edges from syntax or Atom incidence. Additional candidate relations need their own source evidence, not fabricated old occurrences. CA-P-1907 must keep this ledger complete when marking generalizations or consolidations.
 
-These Tasks refine steps 2–3 above. Their outputs remain proposals for Operator review; they do not accept a new ontology, update the step-1 graph or Core Subjects, rename YAML keys, implement a runtime, or complete the Epic. `@` is approved compact graph notation, not an automatically admitted Subject-path serialization operator.
+CA-P-1905–1908 refine steps 2–3 above. Their outputs remain proposals for Operator review; they do not accept a new ontology, update the step-1 graph or Core Subjects, rename YAML keys, implement a runtime, or complete the Epic. `@` is approved compact graph notation, not an automatically admitted Subject-path serialization operator.
+
+### Candidate acceptance and migration gates
+
+CA-P-1909–1912 own the previously missing follow-on work. They are created as Active Plans, but their work is deferred until their start conditions are met. Creating or fixing this Epic is not candidate acceptance or migration authorization.
+
+- CA-P-1909 starts only after CA-P-1908 is Done and the Operator records accepted decisions tied to the candidate hash, source pins and complete ledgers. Build and verify a separate accepted graph; preserve the Step 1 baseline and every disposition.
+- CA-P-1910 starts only after CA-P-1909 is Done. Prepare a sealed preview of exact Subject changes and any required grammar/revision/history changes. Do not write authoritative sources. Candidate approval is not approval of this preview.
+- CA-P-1911 starts only after CA-P-1910 is Done and the Operator separately authorizes the exact sealed preview. Recheck pins and authority before writing only approved changes. New Claim meanings, YAML-key renames, unapproved deletions and automatic `@` Subject serialization remain outside that authorization.
+- CA-P-1912 starts only after CA-P-1911 is Done. Rebuild separately, compare qualified identities and relations with the accepted graph, verify allowed source changes and preserve unchanged sources and history. Carrier bindings retain their independently governed evidence.
+
+Each required Plan dependency is explicit in BLOCKS. The two Operator decisions are additional readiness conditions, not facts inferred from Task Status or folder order. Changed pins require a fresh preview and affected approval. The older MCP delivery work remains separately pending under its current admission/runtime gates; completing these local Tasks does not resume it automatically.
 
 ### RMED and Operations review gate
 
@@ -183,6 +197,10 @@ Each leaf has one AI Agent Assignee and <=15 minutes of hands-on work. Composite
 | [CA-P-1906](01-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/22-CA-P-1906-TASK--design-continuant-occurrent-groups-and-inherited-constraints.md) | Design Continuant Occurrent groups and inherited constraints | 15 min |
 | [CA-P-1907](01-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/23-CA-P-1907-TASK--mark-entity-drop-and-consolidation-candidates-without-deleting.md) | Mark Entity drop and consolidation candidates without deleting | 15 min |
 | [CA-P-1908](01-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/24-CA-P-1908-TASK--present-compact-entities-graph-candidate-for-operator-review.md) | Present compact Entities Graph candidate for Operator review | 15 min |
+| [CA-P-1909](01-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/25-CA-P-1909-TASK--build-and-verify-the-accepted-core-entities-graph.md) | Build and verify the accepted Core Entities Graph | 15 min |
+| [CA-P-1910](01-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/26-CA-P-1910-TASK--prepare-the-accepted-core-subject-migration-preview.md) | Prepare the accepted Core Subject migration preview | 15 min |
+| [CA-P-1911](01-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/27-CA-P-1911-TASK--apply-the-approved-core-subject-migration.md) | Apply the approved Core Subject migration | 15 min |
+| [CA-P-1912](01-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/28-CA-P-1912-TASK--verify-the-migrated-core-graph-reproduction.md) | Verify the migrated Core graph reproduction | 15 min |
 
 Each child owns its immediate is_decomposition_of relation. A prerequisite owns blocks; folder order is navigation, not dependency authority.
 
@@ -197,6 +215,8 @@ the Plan is **not** Done **if** ((either graph is missing **or** cannot be repro
 An `incomplete`, `conflicting`, `stale`, `blocked`, `failed` or recording-pending result remains that result. A valid no-op needs current selection, matching prior output evidence and the required actual receipts. A generated file, a queued Run or a successful reload alone does not satisfy this Definition of Done.
 
 ### Review disposition
+
+The 2026-10-10 repair adds the complete relation-occurrence ledger and sealed candidate handoff, four bounded follow-on Tasks with explicit acceptance/migration gates, and both DOT hashes. This records Plan repairs only; no candidate, migration, Core Subject change or graph execution has been performed by fixing the Epic.
 
 Independent reviews covered graph semantics, execution/admission and Plan structure. This revision adds explicit Property ownership and owned-Core selection, separates manual Plan creation from admitted execution, resolves overlap through CA-P-1110 decomposition, binds live runtime identity to reviewed code, splits broad work into bounded leaves/composites, and uses a parenthesized Definition of Done.
 

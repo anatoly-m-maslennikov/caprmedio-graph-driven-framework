@@ -14,10 +14,11 @@ status: Active
 subjects:
   governs: Projection
   depends_on: [Entity, Term, Atom, Property, Carrier, Plan]
-version: 2
-updated_at: "2026-10-10 01:05:46 +0400"
+version: 3
+updated_at: "2026-10-10 01:17:19 +0400"
 relations:
   is_decomposition_of: [CA-P-1872]
+  blocks: [CA-P-1909]
 ---
 # Summary
 
@@ -31,7 +32,7 @@ Give the Operator the new marked Entities Graph candidate in a compact, indented
 
 Estimated own work: 15 minutes. Assignee: AI Agent.
 
-Required start prerequisite: CA-P-1907. Inputs: the pinned current-graph review, grouped/inherited candidate structure and complete disposition ledger from CA-P-1905 through CA-P-1907.
+Required start prerequisite: CA-P-1907. Inputs: the pinned current-graph review, grouped/inherited candidate structure, complete occurrence-to-proposed-relation ledger and complete disposition ledger from CA-P-1905 through CA-P-1907.
 
 Use these operators in the candidate display:
 - `/`: broader to narrower; its canonical NARROWER_THAN direction is narrower to broader.
@@ -45,7 +46,7 @@ Present a plain two-space-indented view without tree connector glyphs, plus comp
 
 Give a before/candidate comparison, root counts, traceable dispositions and unresolved questions. Preserve the step-1 baseline. A candidate is a proposal, not admitted native facts, Operator acceptance, a source migration or a completed MCP Run.
 
-Output: the accessible candidate graph and review package, handed to the Operator for a decision before any Atom Subject changes. The @ display operator is not automatically admitted into Subject-path serialization.
+Output: the accessible candidate graph and review package, handed to the Operator for a decision before any Atom Subject changes. Hand off the full occurrence-to-proposed-relation ledger, node-disposition ledger, exact source pins and canonical hash of the candidate together, so that the decision is reproducible. Preserve every unresolved/not-native reason, check performed and required Operator question; those rows must not acquire an invented native proposal during presentation. Map and evidence every newly authored synthesized candidate Relation separately; do not give it a fake original source occurrence. The @ display operator is not automatically admitted into Subject-path serialization.
 
 Exclusive scope: derived candidate outputs and their handoff evidence only. Do not implement a new graph frontend, modify Core Atoms or Subjects, overwrite the baseline, delete marked entities, rename YAML keys, activate a runtime, push or create a PR.
 
@@ -53,4 +54,4 @@ Inherit CA-P-1872's explicit 90% confidence threshold and local-without-MCP auth
 
 ### Definition of Done
 
-the Plan is **not** Done **if** ((the stated output, complete source traceability **or** required handoff is missing) **or** (a required start prerequisite is **not** Done) **or** (the stated acceptance conditions are failed, stale **or** unverified) **or** (uncertainty below the inherited confidence threshold is silently resolved **or** not put to the Operator) **or** (work exceeds the admitted boundary **or** any source, Subject, history **or** marked Entity was changed **or** deleted without separate authorization) **or** (any direct decomposing Plan is **not** Done)).
+the Plan is **not** Done **if** ((the stated output, complete source traceability, source pins, canonical candidate hash, complete occurrence-to-proposed-relation ledger, node-disposition ledger **or** required handoff is missing) **or** (a handed-off relation cannot be traced either to its complete ledger row or to separate evidence as a newly authored candidate Relation) **or** (an unresolved **or** not-native row loses its reason, checks performed **or** required question **or** acquires an invented native proposal) **or** (a required start prerequisite is **not** Done) **or** (the stated acceptance conditions are failed, stale **or** unverified) **or** (uncertainty below the inherited confidence threshold is silently resolved **or** not put to the Operator) **or** (work exceeds the admitted boundary **or** any source, Subject, history **or** marked Entity was changed **or** deleted without separate authorization) **or** (any direct decomposing Plan is **not** Done)).
