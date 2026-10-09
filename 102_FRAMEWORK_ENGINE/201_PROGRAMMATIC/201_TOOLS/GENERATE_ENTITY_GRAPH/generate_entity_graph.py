@@ -15,8 +15,10 @@ from collections.abc import Iterable, Mapping, Sequence
 from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
+from types import MappingProxyType
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 from artifact_metadata import atom_identifier
 from project_runtime import atomic_tempfile
 
@@ -53,7 +55,10 @@ class EntityGraphError(RuntimeError):
         return record
 
 
-@dataclass(frozen=True)
+_RECORDING_FACTORY_TOKEN = object()
+
+
+@dataclass(frozen=True, init=False)
 class ActualRunRecordingContext:
     """An execution-local proof that this Action has a recorded start.
 
@@ -68,6 +73,29 @@ class ActualRunRecordingContext:
     step_run_id: str
     action_run_id: str
     start_event_receipt: Mapping[str, object]
+    execution_authorization_bytes: bytes | None = None
+    _factory_token: object = None
+
+    def __init__(self, workflow_run_id, step_run_id, action_run_id, start_event_receipt,
+                 *, execution_authorization_bytes=None, _token=None):
+        if _token is not _RECORDING_FACTORY_TOKEN:
+            raise EntityGraphError("recording-context-untrusted", "Actual context must come from the executor-bound factory")
+        for key, value in (
+            ("workflow_run_id", workflow_run_id), ("step_run_id", step_run_id),
+            ("action_run_id", action_run_id), ("start_event_receipt", start_event_receipt),
+            ("execution_authorization_bytes", execution_authorization_bytes), ("_factory_token", _token),
+        ):
+            object.__setattr__(self, key, value)
+
+    def authorization_evidence(self) -> dict[str, object] | None:
+        """Return a detached copy of executor-retained admission, not caller JSON."""
+        if self.execution_authorization_bytes is None:
+            return None
+        return json.loads(self.execution_authorization_bytes)
+
+
+def is_actual_recording_context(value: object) -> bool:
+    return type(value) is ActualRunRecordingContext and getattr(value, "_factory_token", None) is _RECORDING_FACTORY_TOKEN
 
 
 def actual_run_recording_context(
@@ -75,6 +103,8 @@ def actual_run_recording_context(
     step_run_id: str,
     action_run_id: str,
     start_event_receipt: Mapping[str, object],
+    *,
+    execution_authorization: Mapping[str, object] | None = None,
 ) -> ActualRunRecordingContext:
     """Build the executor-only graph recording capability.
 
@@ -103,11 +133,37 @@ def actual_run_recording_context(
         ))
     ):
         raise EntityGraphError("recording-context-invalid", "Actual Action start receipt is invalid")
+    authorization_bytes = None
+    if execution_authorization is not None:
+        required_authorization = {
+            "authorization_ref", "authorization_freshness", "request_id", "operation_route",
+            "proposal_receipt_digest", "parameters_digest", "target_frontier_digest",
+            "effects_digest", "definition_manifest", "source_freshness",
+        }
+        if not isinstance(execution_authorization, Mapping) or set(execution_authorization) != required_authorization:
+            raise EntityGraphError("execution-authorization-invalid", "Actual execution authorization is incomplete")
+        freshness = execution_authorization["authorization_freshness"]
+        if (not isinstance(freshness, Mapping) or set(freshness) != {"state", "digest"}
+                or freshness.get("state") != "current"
+                or not isinstance(freshness.get("digest"), str)
+                or not re.fullmatch(r"[0-9a-f]{64}", freshness["digest"])):
+            raise EntityGraphError("execution-authorization-invalid", "Actual execution authorization is not current")
+        if (any(not isinstance(execution_authorization[key], str) or not execution_authorization[key]
+                for key in ("authorization_ref", "request_id", "operation_route"))
+                or any(not isinstance(execution_authorization[key], str) or not re.fullmatch(r"[0-9a-f]{64}", execution_authorization[key])
+                       for key in ("proposal_receipt_digest", "parameters_digest", "target_frontier_digest", "effects_digest"))
+                or not isinstance(execution_authorization["definition_manifest"], Mapping)
+                or not isinstance(execution_authorization["source_freshness"], Mapping)):
+            raise EntityGraphError("execution-authorization-invalid", "Actual execution authorization has invalid bindings")
+        from graph_fact_context import canonical_bytes
+        authorization_bytes = canonical_bytes(dict(execution_authorization))
     return ActualRunRecordingContext(
         workflow_run_id=workflow_run_id,
         step_run_id=step_run_id,
         action_run_id=action_run_id,
-        start_event_receipt=dict(start_event_receipt),
+        start_event_receipt=MappingProxyType(dict(start_event_receipt)),
+        execution_authorization_bytes=authorization_bytes,
+        _token=_RECORDING_FACTORY_TOKEN,
     )
 
 
@@ -1285,11 +1341,15 @@ def _selected_carriers(
     if unknown:
         raise EntityGraphError("selection-unknown-field", "Selection has unknown fields", fields=unknown)
     atom_ids = selection.get("atom_ids")
-    if not isinstance(atom_ids, list) or not atom_ids or any(not isinstance(item, str) or not item for item in atom_ids):
-        raise EntityGraphError("selection-atoms-invalid", "Selection requires a non-empty atom_ids array")
+    if not isinstance(atom_ids, list) or any(not isinstance(item, str) or not item for item in atom_ids):
+        raise EntityGraphError("selection-atoms-invalid", "Selection requires an explicit atom_ids array")
     if atom_ids != sorted(set(atom_ids)):
         raise EntityGraphError("selection-atoms-ambiguous", "Selection atom_ids must be unique and canonically sorted")
-    available = {carrier.atom_id: carrier for carrier in carriers}
+    available = {}
+    for carrier in carriers:
+        if carrier.atom_id in available:
+            raise EntityGraphError("source-atom-identity-duplicate", "Source frontier contains duplicate Atom identities", atom_id=carrier.atom_id)
+        available[carrier.atom_id] = carrier
     missing = sorted(set(atom_ids) - set(available))
     if missing:
         raise EntityGraphError("selection-atom-unresolved", "Selection names atoms outside the admitted frontier", atom_ids=missing)
@@ -1327,11 +1387,13 @@ def _selected_structure(
     raw_units = parsed.get("scope_units")
     if not isinstance(raw_units, list):
         raise EntityGraphError("project-structure-invalid", "Project Structure lacks scope_units", path=path_value)
-    by_name = {
-        unit.get("scope_unit_name"): unit
-        for unit in raw_units
-        if isinstance(unit, dict) and isinstance(unit.get("scope_unit_name"), str)
-    }
+    by_name = {}
+    for unit in raw_units:
+        if not isinstance(unit, dict) or not isinstance(unit.get("scope_unit_name"), str) or not unit["scope_unit_name"]:
+            raise EntityGraphError("project-structure-invalid", "Project Structure contains an invalid Scope Unit record")
+        if unit["scope_unit_name"] in by_name:
+            raise EntityGraphError("scope-unit-identity-duplicate", "Project Structure contains duplicate Scope Unit names")
+        by_name[unit["scope_unit_name"]] = unit
     missing = sorted(set(scope_unit_names) - set(by_name))
     diagnostics: list[dict[str, object]] = []
     if missing:
@@ -1468,6 +1530,16 @@ def _ancestor_sets(parents: Mapping[str, Sequence[str]]) -> tuple[dict[str, list
 def _publication_path(repository: Path, value: object) -> Path:
     if not isinstance(value, str) or not value:
         raise EntityGraphError("output-destination-invalid", "output_destination must be a non-empty path")
+    if "\\" in value or "\x00" in value or value != Path(value).as_posix():
+        raise EntityGraphError("output-destination-invalid", "Output destination must be canonical repository-relative POSIX text")
+    # Inspect the lexical path before resolve() can erase a symlink boundary.
+    probe = repository / value
+    if Path(value).is_absolute() or ".." in Path(value).parts:
+        raise EntityGraphError("unsafe-path", "Output destination must be repository-relative")
+    while probe != repository:
+        if probe.is_symlink():
+            raise EntityGraphError("output-destination-symlink", "Output destination must not traverse a symlink")
+        probe = probe.parent
     destination = _safe_repository_path(repository, value, name="output_destination")
     try:
         destination.relative_to(_configured_projection_root(repository))
@@ -1488,348 +1560,14 @@ def _publication_path(repository: Path, value: object) -> Path:
 
 
 def _strict_error_result(graph_kind: object, error: EntityGraphError) -> dict[str, object]:
-    key = "entities_graph" if graph_kind == "entities" else "terms_graph" if graph_kind == "terms" else None
-    result: dict[str, object] = {
-        "outcome": "failed",
-        "source_frontier_evidence": {},
-        "selection_evidence": {},
-        "lineage": [],
-        "quality_dispositions": {name: "unresolved" for name in ("coverage", "fidelity", "validity", "currentness", "permission", "persistence", "recording")},
-        "diagnostics": [error.record()],
-        "non_authoritative": True,
-        "output_effects": {"state": "none", "paths": []},
-        "run_receipt_refs": [],
-    }
-    if key is not None:
-        result[key] = {}
-    return result
+    from strict_graph_request import error_result
+    return error_result(graph_kind, error)
 
 
 def build_graph(repository: Path, request: Mapping[str, object]) -> dict[str, object]:
-    """Build one source-sealed Entities or Terms Graph without source mutation.
-
-    This is the public Tool/Action API for CA-O-134 and CA-O-137.  It accepts
-    only the CA-D-539 request fields, returns the common Run-compatible result
-    envelope, and leaves Journal persistence to the shared support owner.
-    """
-
-    graph_kind: object = request.get("graph_kind") if isinstance(request, Mapping) else None
-    try:
-        if not isinstance(request, Mapping):
-            raise EntityGraphError("request-invalid", "Graph request must be an object")
-        unknown = sorted(set(request) - STRICT_REQUEST_FIELDS)
-        missing = sorted(STRICT_REQUIRED_REQUEST_FIELDS - set(request))
-        if unknown or missing:
-            raise EntityGraphError("request-schema-invalid", "Graph request fields are not exact", unknown=unknown, missing=missing)
-        graph_kind = request["graph_kind"]
-        if graph_kind not in GRAPH_KINDS:
-            raise EntityGraphError("graph-kind-invalid", "graph_kind must be entities or terms", graph_kind=graph_kind)
-        repository = repository.resolve()
-        frontier = _mapping(request["source_frontier"], "source_frontier")
-        selection = _mapping(request["selection"], "selection")
-        configuration = _mapping(request["representation_configuration"], "representation_configuration")
-        permission = _mapping(request["capability_permission_evidence"], "capability_permission_evidence")
-        recording = request["run_recording_context"]
-        display_selection = request.get("display_selection")
-        if display_selection is not None:
-            display_selection = dict(_mapping(display_selection, "display_selection"))
-        if set(permission) != {"authorized"} or not isinstance(permission["authorized"], bool):
-            raise EntityGraphError("permission-evidence-invalid", "Permission evidence must contain only authorized:boolean")
-        if not isinstance(recording, ActualRunRecordingContext):
-            raise EntityGraphError(
-                "recording-context-untrusted",
-                "Graph publication requires the actual selected Action start recording context.",
-            )
-        folder, actual_frontier, frontier_diagnostics = _validate_frontier(repository, frontier)
-        if frontier_diagnostics:
-            result = _strict_error_result(graph_kind, EntityGraphError("source-frontier-stale", "Admitted source frontier is stale"))
-            result["outcome"] = "stale"
-            result["source_frontier_evidence"] = actual_frontier
-            result["diagnostics"] = frontier_diagnostics
-            result["output_effects"] = {"state": "none", "paths": []}
-            return result
-        carriers, discovery_diagnostics = discover_atoms(repository, folder)
-        selected_carriers, scope_unit_names = _selected_carriers(carriers, selection)
-        # Validate every serializable source Property before constructing either
-        # graph representation.  Terms Graph does not currently expose these
-        # values, but a shared fail-closed boundary prevents future drift.
-        for carrier in selected_carriers:
-            _frontmatter_properties(carrier)
-        relations: list[SubjectRelation] = []
-        diagnostics: list[dict[str, object]] = list(discovery_diagnostics)
-        for carrier in selected_carriers:
-            parsed, carrier_diagnostics = parse_subject_relations(carrier)
-            relations.extend(parsed)
-            diagnostics.extend(carrier_diagnostics)
-        relations.sort(key=_relation_sort_key)
-        structure_rows, structure_diagnostics = _selected_structure(repository, frontier, scope_unit_names)
-        diagnostics.extend(structure_diagnostics)
-        graph_payload: dict[str, object]
-        if graph_kind == "entities":
-            typed_edges = term_system_edges(selected_carriers, relations)
-            governed_by_subject: dict[str, list[SubjectRelation]] = defaultdict(list)
-            for relation in relations:
-                if relation.kind == "GOVERNS":
-                    governed_by_subject[relation.subject_path].append(relation)
-            property_nodes: list[dict[str, object]] = []
-            for carrier in selected_carriers:
-                governed = [
-                    relation.subject_path
-                    for relation in relations
-                    if relation.atom_id == carrier.atom_id
-                    and relation.carrier_path == carrier.carrier_path
-                    and relation.kind == "GOVERNS"
-                ]
-                for key, value in _frontmatter_properties(carrier).items():
-                    property_nodes.append(
-                        {
-                            "identity": f"{carrier.atom_id}#{key}",
-                            "entity_identities": governed,
-                            "name": key,
-                            "value": value,
-                            "source": carrier.evidence(),
-                        }
-                    )
-            graph_payload = {
-                "entities": [
-                    {
-                        "identity": subject_path,
-                        "governing_sources": [relation.evidence() for relation in governed_by_subject[subject_path]],
-                    }
-                    for subject_path in sorted(governed_by_subject)
-                ],
-                "properties": sorted(property_nodes, key=lambda row: str(row["identity"])),
-                "relations": [
-                    {
-                        "identity": f"{relation.atom_id}:{relation.kind}:{relation.subject_path}",
-                        "relation": relation.kind,
-                        "source_atom_id": relation.atom_id,
-                        "target_entity": relation.subject_path,
-                        "temporal_form": relation.temporal_form,
-                        "source_lineage": _edge_evidence(relation),
-                    }
-                    for relation in relations
-                ],
-                "structural_relations": [
-                    {
-                        "relation": edge["relation"],
-                        "source": edge["source_subject"],
-                        "target": edge["target_subject"],
-                        "source_term": edge["source_term"],
-                        "target_term": edge["target_term"],
-                        "evidence": edge["evidence"],
-                    }
-                    for edge in typed_edges
-                    if edge["relation"] in {"IS_BORNE_BY", "IS_ALLOWED_VALUE_OF"}
-                ],
-                "source_atoms": [
-                    {
-                        "atom_id": carrier.atom_id,
-                        "properties": _frontmatter_properties(carrier),
-                        "claim": {"sha256": hashlib.sha256(carrier.body.encode("utf-8")).hexdigest()},
-                        "source": carrier.evidence(),
-                    }
-                    for carrier in selected_carriers
-                ],
-                "project_structure": structure_rows,
-                "external_references": [],
-            }
-        else:
-            _, _, declared, _, depended = dependency_edges(selected_carriers, relations)
-            terms = sorted(declared)
-            terms_set = set(terms)
-            conflicts = {term: rows for term, rows in declared.items() if len(rows) != 1}
-            for term, rows in sorted(conflicts.items()):
-                diagnostics.append(
-                    {
-                        "severity": "error",
-                        "code": "governed-term-definition-conflict",
-                        "message": "A selected Term has conflicting defining Atom evidence.",
-                        "details": {"term": term, "definitions": [row.evidence() for row in rows]},
-                    }
-                )
-            typed_edges = term_system_edges(selected_carriers, relations)
-            term_edges = [
-                {
-                    "relation": edge["relation"],
-                    "source": edge["source_term"],
-                    "target": edge["target_term"],
-                    "source_subject": edge["source_subject"],
-                    "target_subject": edge["target_subject"],
-                    "evidence": edge["evidence"],
-                }
-                for edge in typed_edges
-                if str(edge["source_term"]) in terms_set and str(edge["target_term"]) in terms_set
-                and edge["relation"] == "SUBKIND_OF"
-            ]
-            external_edges = [
-                edge
-                for edge in typed_edges
-                if edge["relation"] == "SUBKIND_OF"
-                and (str(edge["source_term"]) not in terms_set or str(edge["target_term"]) not in terms_set)
-            ]
-            parent_sets: dict[str, list[str]] = {term: [] for term in terms}
-            for edge in term_edges:
-                if edge["relation"] == "SUBKIND_OF":
-                    parent_sets[str(edge["source"])].append(str(edge["target"]))
-            parent_sets = {term: sorted(set(values)) for term, values in sorted(parent_sets.items())}
-            ancestors, parent_cycles = _ancestor_sets(parent_sets)
-            dependencies, dependency_evidence, dependency_cycles_found = _term_dependencies(relations, terms_set)
-            unresolved = sorted(
-                subject_path
-                for subject_path in depended
-                if terminal_term(subject_path) not in terms_set
-            )
-            for subject_path in unresolved:
-                diagnostics.append(
-                    {
-                        "severity": "warning",
-                        "code": "term-unresolved",
-                        "message": "A selected dependency names no governed Term in the selected frontier.",
-                        "details": {"subject_path": subject_path},
-                    }
-                )
-            for cycle in parent_cycles + dependency_cycles_found:
-                diagnostics.append(
-                    {
-                        "severity": "error",
-                        "code": "self-reference" if len(cycle) == 1 else "dependency-cycle",
-                        "message": "Selected Term relation data contains a cycle.",
-                        "details": {"cycle": cycle},
-                    }
-                )
-            graph_payload = {
-                "terms": [
-                    {
-                        "identity": term,
-                        "defining_sources": [
-                            {"subject_path": row.subject_path, "source": row.evidence()}
-                            for row in declared[term]
-                        ],
-                    }
-                    for term in terms
-                ],
-                "relations": sorted(term_edges + dependency_evidence, key=lambda row: (str(row["relation"]), str(row["source"]), str(row["target"]))),
-                "parents_by_term": parent_sets,
-                "ancestors_by_term": ancestors,
-                "dependencies_by_term": dependencies,
-                "unresolved_terms": unresolved,
-                "cycles": sorted(parent_cycles + dependency_cycles_found, key=lambda cycle: tuple(cycle)),
-                "external_references": external_edges,
-            }
-        diagnostics.sort(key=lambda row: (str(row.get("severity", "")), str(row.get("code", "")), canonical_json(row.get("details", {}))))
-        final_frontier = source_frontier_for(repository, folder)
-        current = canonical_json(final_frontier) == canonical_json(frontier)
-        authorized = bool(permission["authorized"])
-        # The shared session has already durably recorded this Action's start.
-        # Its terminal fact necessarily follows effect publication and remains
-        # the executor's responsibility, avoiding a circular pre-effect gate.
-        recording_confirmed = True
-        destination: Path
-        persistence_valid = True
-        if "output_destination" in request:
-            destination = _publication_path(repository, request["output_destination"])
-        else:
-            assert isinstance(graph_kind, str)
-            destination = _default_publication_path(repository, graph_kind)
-        quality = _quality(
-            diagnostics=diagnostics,
-            current=current,
-            authorized=authorized,
-            recording_confirmed=recording_confirmed,
-            persistence_valid=persistence_valid,
-        )
-        outcome = _outcome_for(quality, diagnostics)
-        graph_key = "entities_graph" if graph_kind == "entities" else "terms_graph"
-        selection_evidence = {"selection": dict(selection)}
-        if display_selection is not None:
-            selection_evidence["display_selection"] = display_selection
-        settings_digest = hashlib.sha256(
-            canonical_json(
-                {
-                    "graph_kind": graph_kind,
-                    "selection_evidence": selection_evidence,
-                    "representation_configuration": dict(configuration),
-                }
-            ).encode("utf-8")
-        ).hexdigest()
-        result: dict[str, object] = {
-            "outcome": outcome,
-            graph_key: graph_payload,
-            "source_frontier_evidence": final_frontier,
-            "selection_evidence": selection_evidence,
-            "representation_configuration": dict(configuration),
-            "settings_sha256": settings_digest,
-            "lineage": [carrier.evidence() for carrier in selected_carriers],
-            "quality_dispositions": quality,
-            "diagnostics": diagnostics,
-            "non_authoritative": True,
-            "output_effects": {"state": "none", "paths": []},
-            "run_receipt_refs": [str(recording.start_event_receipt["event_id"])],
-        }
-        if outcome != "built":
-            return result
-        publication = {
-            "schema_version": SCHEMA_VERSION,
-            "tool": TOOL_ID,
-            "graph_kind": graph_kind,
-            graph_key: graph_payload,
-            "source_frontier_evidence": final_frontier,
-            "selection_evidence": selection_evidence,
-            "representation_configuration": dict(configuration),
-            "settings_sha256": settings_digest,
-            "lineage": result["lineage"],
-            "quality_dispositions": quality,
-            "diagnostics": diagnostics,
-            "non_authoritative": True,
-        }
-        rendered = canonical_json(publication, pretty=True)
-        requested_existing = request.get("existing_projection_evidence")
-        if requested_existing is not None:
-            existing = _mapping(requested_existing, "existing_projection_evidence")
-            expected_digest = existing.get("sha256")
-            if not isinstance(expected_digest, str) or not destination.is_file() or _sha256(destination) != expected_digest:
-                result["outcome"] = "stale"
-                result["quality_dispositions"] = {**quality, "currentness": "fail"}
-                result["diagnostics"] = diagnostics + [
-                    {
-                        "severity": "error",
-                        "code": "existing-projection-stale",
-                        "message": "Existing Projection evidence does not match the explicit destination.",
-                        "details": {"path": _display_path(destination, repository)},
-                    }
-                ]
-                return result
-        publication_frontier = source_frontier_for(repository, folder)
-        if canonical_json(publication_frontier) != canonical_json(frontier):
-            result["outcome"] = "stale"
-            result["source_frontier_evidence"] = publication_frontier
-            result["quality_dispositions"] = {**quality, "currentness": "fail"}
-            result["diagnostics"] = diagnostics + [
-                {
-                    "severity": "error",
-                    "code": "source-frontier-changed-before-publication",
-                    "message": "Source bytes changed after construction and before publication.",
-                    "details": {"actual": publication_frontier},
-                }
-            ]
-            return result
-        if destination.is_file() and destination.read_text(encoding="utf-8") == rendered:
-            result["outcome"] = "no_op"
-            result["output_effects"] = {"state": "unchanged", "paths": []}
-            result["projection_revision"] = _sha256(destination)
-            return result
-        atomic_write(destination, rendered)
-        result["output_effects"] = {
-            "state": "created" if not requested_existing else "replaced",
-            "paths": [_display_path(destination, repository)],
-        }
-        result["projection_revision"] = _sha256(destination)
-        return result
-    except EntityGraphError as error:
-        return _strict_error_result(graph_kind, error)
-
-
+    """Construct one source-bound graph; completion is owned by the executor."""
+    from strict_graph_request import build_graph as strict_build_graph
+    return strict_build_graph(repository, request, sys.modules[__name__])
 def construct_entities_graph_projection(repository: Path, request: Mapping[str, object]) -> dict[str, object]:
     """CA-O-134 Action adapter for the source graph executor."""
 
@@ -1882,7 +1620,25 @@ def queue_action_handlers(repository: Path) -> dict[str, object]:
                     EntityGraphError("queue-parameters-invalid", "Selected queue context lacks a graph request"),
                 ),
             }
-        request = dict(parameters.get("graph_request", parameters))
+        nested_request = parameters.get("graph_request", parameters)
+        if not isinstance(nested_request, Mapping):
+            return {
+                "result": "blocked",
+                "effect_refs": [],
+                "graph_result": _strict_error_result(
+                    graph_kind,
+                    EntityGraphError("queue-parameters-invalid", "Selected queue graph request must be an object"),
+                ),
+            }
+        request = dict(nested_request)
+        outer_recording = parameters.get("run_recording_context")
+        if nested_request is not parameters:
+            # Caller nesting cannot carry trusted capabilities.  Only the
+            # outer executor-injected value may cross this adapter boundary.
+            request.pop("run_recording_context", None)
+            request.pop("source_fact_context", None)
+        if is_actual_recording_context(outer_recording):
+            request["run_recording_context"] = outer_recording
         if request.get("graph_kind", graph_kind) != graph_kind:
             result = _strict_error_result(
                 request.get("graph_kind"),

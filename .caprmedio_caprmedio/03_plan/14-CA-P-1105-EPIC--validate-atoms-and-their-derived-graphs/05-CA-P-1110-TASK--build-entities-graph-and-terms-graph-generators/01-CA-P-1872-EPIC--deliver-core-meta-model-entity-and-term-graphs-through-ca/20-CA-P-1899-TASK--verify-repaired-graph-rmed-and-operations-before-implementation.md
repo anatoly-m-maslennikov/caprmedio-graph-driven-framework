@@ -24,7 +24,7 @@ subjects:
     - Term
     - Plan
 version: 1
-updated_at: "2026-10-09 19:57:25 +0400"
+updated_at: "2026-10-09 21:02:24 +0400"
 relations:
   is_decomposition_of:
     - CA-P-1872
@@ -84,6 +84,42 @@ Applicable Method inventory: 237 unique Carriers; 118 confirmed Active Methods, 
 Preliminary code reconciliation: definition and hierarchy helpers recognize candidates only; Entity metadata and Subject incidence stay source-owned; the former main-builder metadata transfer, inferred native Relations, default publication and start-as-terminal behavior are being replaced, not accepted. The provider retains unknown coverage for unsupported nonempty selections. A checked partial implementation may proceed against the accepted source boundary; no provider profile or full-positive graph result is accepted by this source review.
 
 This Task remains Active: final code reconciliation and independent implementation acceptance are separate evidence. CA-E-555/556 complete-positive cases, CA-E-557/558 exposed Tool/MCP and Docker proof, live delivery and recording-only recovery remain pending. No source-only review is an MCP Run, runtime receipt or completed graph Action. Existing frozen migration/manifest pins are stale where these sources changed and were not rebound.
+
+### Preliminary implementation reconciliation
+
+The corrected preliminary local pipeline passed independent bounded semantic and operational code review. It now has a factory-only immutable fact context; original-byte Claim/Operation evidence; candidate/native separation; checked source, authority, selection and loaded-profile bindings; explicit empty selection; exact prior-output replacement evidence; and closed, truthful effects/completion results. The executor helper supplies authorization only from its actual admitted session. Caller JSON, direct unminted contexts and nested caller capabilities cannot grant permission or terminal completion.
+
+Verification: 101 graph tests, 8 isolated executor-authorization tests and 23 discovery tests passed. The broader selected-execution suite passed 18 of 20 tests; the two current-manifest positive tests correctly encounter Action bindings that are stale after the source repair. No frozen map or runtime admission was manually rebound to make those tests pass.
+
+Reviewed implementation pins:
+
+```text
+generate_entity_graph.py ed9f6b5895bad44d077cec031b5d066e6d8abbf0f78f52f7516e88c831894584
+strict_graph_request.py 69f1a83c9f25ad55a9ce3aa205ee616b3bb4d081962cf2867e2b8ad1dc1e3e60
+graph_fact_context.py a021646fbb0ef8432ef70ae52cdddc5a33ef41912c91b74d5dc54ab0c55a3d70
+definition_claims.py e21728f4fbfff61c4ae92c06e67c2d51e8a462eb56871cc787c8f90104a6baae
+selected_execution.py cc148c105014029ac7e76a68831032d3c363e7d01ea13db772ecae7c3c0d928f
+```
+
+Remaining implementation boundaries: nonempty native fact admission still lacks a complete definition/property/registry evaluator portfolio. The Operator chose Core Meta-model by itself: Project Configuration overrides and enabled Extensions are not part of this graph's native meaning. This is a declared Core model, not project-effective applicability. A Term retains its exact Claim applicability Scope and needs uniqueness proof over the complete isolated Core authority frontier; ownership or matching prose cannot replace those checks. The isolated Core declaration/uniqueness profile is the next bounded evaluator work. The shared executor's terminal-finalization and recording-only recovery handoff remains separate work; the pure builder never reports built/no_op or writes a Journal.
+
+These are partial-path receipts, not CA-E-555/556 full-positive acceptance or an Epic completion claim. The Task and Epic remain Active.
+
+### Verified foundation integration
+
+The revised foundation passed 107 graph tests. Independent review accepted exact source-owned Details evidence under D478/D479/R1624, the exact raw lifecycle boundary, and the two declared informational frontier exclusions. Concern's lowercase `active` remains pinned source evidence, not an invented universal lifecycle normalization or native admission. Unsupported lifecycle families retain an unresolved diagnostic. Scope evidence is permitted only inside a bounded RMED Claim-applicability evaluator with D478/D479/D495 support; it cannot become a separate native fact.
+
+A read-only current Core check bound all 951 discovered carriers and selected 908 exact-Active Core-owned source Atoms. It recognized 135 preliminary candidates, admitted zero facts, and retained unknown definition/relation coverage. These counts describe this partial source snapshot, not the required final graph, lifecycle completeness, a publication, or a Run receipt.
+
+Current independently reviewed foundation pins:
+
+```text
+graph_fact_context.py b4c33a8c3430b9b09f5f9f4afbd3915e5ca34a0c164e8fee839d24559075391f
+strict_graph_request.py da4bbb9d8c81f658559008812997370b61f1e33d735f3b9b877da5bb261964f0
+owned_scope_selection.py 174254059d5695c32b2beeff72fcc949b9f81a04baffc472bbcb9058c02ed64d
+```
+
+Native Core profiles and shared terminal reconciliation are separately owned in-progress changes and are not accepted by this foundation receipt. No MCP, runtime or source-manifest activation was performed.
 
 ### Definition of Done
 
