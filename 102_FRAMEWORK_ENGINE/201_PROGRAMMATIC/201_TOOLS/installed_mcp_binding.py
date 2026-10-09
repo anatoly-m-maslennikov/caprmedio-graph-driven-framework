@@ -27,12 +27,14 @@ from typing import Any
 import yaml
 
 from framework_package import FrameworkPackageError, VerifiedFrameworkPackage, verify_current_package_selector
+from installation_context import CONTEXT_DIGEST_FIELD, canonical_target_project_context_toml
 
 
 SCHEMA_VERSION = 1
 PACKAGE_NAME = "caprmedio-framework"
 SHA256 = re.compile(r"[0-9a-f]{64}\Z")
 IMAGE_DIGEST = SHA256
+LOCK_GENERATION = re.compile(r"[0-9a-f]{32}\Z")
 
 INSTALL_CURRENT_RELATIVE = PurePosixPath(".caprmedio_install/current.toml")
 INSTALL_RELEASES_RELATIVE = PurePosixPath(".caprmedio_install/releases")
@@ -70,6 +72,7 @@ _CONTEXT_REQUIRED_KEYS = frozenset(
     {
         "schema_version", "mode", "target_project_identity", "control_child_relpath", "settings_sha256",
         "project_structure_sha256", "registry_sha256", "repository_identity", "root_locator",
+        CONTEXT_DIGEST_FIELD,
     }
 )
 _CONTEXT_OPTIONAL_KEYS = frozenset({"relocates_context_sha256"})
@@ -366,15 +369,22 @@ def _context(root: Path, expected_digest: str) -> TargetProjectContext:
     digest = _sha256(expected_digest, code="target-context-invalid", label="target context")
     relative = RUNTIME_CONTEXTS_RELATIVE / f"{digest}.toml"
     path, payload = _regular_file(root, relative, code="target-context-missing", label="target Project context")
-    if hashlib.sha256(payload).hexdigest() != digest:
-        _refuse("target-context-mismatch", "target Project context bytes differ from selector identity")
     document = _parse_toml(payload, code="target-context-invalid", label="target Project context")
     if set(document) - _CONTEXT_OPTIONAL_KEYS != _CONTEXT_REQUIRED_KEYS or document.get("schema_version") != SCHEMA_VERSION:
         _refuse("target-context-invalid", "target Project context schema is not closed")
+    if document.get(CONTEXT_DIGEST_FIELD) != digest:
+        _refuse("target-context-mismatch", "target Project context self-digest differs from selector identity")
     mode = document.get("mode")
     identity = document.get("target_project_identity")
     control = document.get("control_child_relpath")
-    if mode not in {"bootstrap", "adopt"} or not isinstance(identity, str) or not identity:
+    if (
+        mode not in {"bootstrap", "adopt"}
+        or not isinstance(identity, str)
+        or not identity.strip()
+        or "\x00" in identity
+        or "\n" in identity
+        or "\r" in identity
+    ):
         _refuse("target-context-invalid", "target Project context identity is invalid")
     control_path = _safe_relative(control, code="target-context-invalid", label="target control child")
     if len(control_path.parts) != 1 or not control_path.name.startswith(".caprmedio_"):
@@ -382,16 +392,41 @@ def _context(root: Path, expected_digest: str) -> TargetProjectContext:
     for key in ("settings_sha256", "project_structure_sha256", "registry_sha256"):
         _sha256(document.get(key), code="target-context-invalid", label=key)
     repository_identity = document.get("repository_identity")
-    if repository_identity is not False and (not isinstance(repository_identity, str) or not repository_identity):
-        _refuse("target-context-invalid", "target repository identity is invalid")
+    if repository_identity is not False:
+        _sha256(repository_identity, code="target-context-invalid", label="target repository identity")
     locator = document.get("root_locator")
-    if not isinstance(locator, str) or not locator or Path(locator).is_absolute() or ".." in Path(locator).parts:
+    locator_path = Path(locator) if isinstance(locator, str) else Path()
+    if (
+        not isinstance(locator, str)
+        or not locator
+        or Path(locator).is_absolute()
+        or ".." in locator_path.parts
+        or locator_path.as_posix() in {"", "."}
+        or locator_path.as_posix() != locator
+        or "\x00" in locator
+        or "\n" in locator
+        or "\r" in locator
+    ):
         _refuse("target-context-invalid", "target root locator is unsafe")
     relocation = document.get("relocates_context_sha256")
     if relocation is not None:
         _sha256(relocation, code="target-context-invalid", label="relocated context")
         if relocation == digest:
             _refuse("target-context-invalid", "target context cannot relocate itself")
+    canonical = canonical_target_project_context_toml(
+        mode=mode,
+        target_project_identity=identity,
+        control_child_relpath=control_path.as_posix(),
+        settings_sha256=document["settings_sha256"],
+        project_structure_sha256=document["project_structure_sha256"],
+        registry_sha256=document["registry_sha256"],
+        repository_identity=repository_identity,
+        root_locator=locator,
+        relocates_context_sha256=relocation,
+    )
+    persisted = canonical + f'{CONTEXT_DIGEST_FIELD} = "{digest}"\n'.encode("utf-8")
+    if hashlib.sha256(canonical).hexdigest() != digest or payload != persisted:
+        _refuse("target-context-mismatch", "target Project context bytes differ from canonical selector identity")
     control_dir = root.joinpath(*control_path.parts)
     if control_dir.is_symlink() or not control_dir.is_dir():
         _refuse("target-context-mismatch", "target control child is no longer present")
@@ -410,10 +445,12 @@ def _runtime_selector(root: Path, manifest_sha256: str, context: TargetProjectCo
         _refuse("target-context-mismatch", "target runtime selector chooses another target context")
     if selector.get("image_digest") != image_digest:
         _refuse("runtime-selector-mismatch", "target runtime selector image differs from installed package")
-    for field in ("state_generation", "installation_lock_generation"):
-        value = selector.get(field)
-        if isinstance(value, bool) or not isinstance(value, int) or value < 1:
-            _refuse("runtime-selector-invalid", f"target runtime selector {field} is invalid")
+    state_generation = selector.get("state_generation")
+    if isinstance(state_generation, bool) or not isinstance(state_generation, int) or state_generation < 1:
+        _refuse("runtime-selector-invalid", "target runtime selector state_generation is invalid")
+    lock_generation = selector.get("installation_lock_generation")
+    if not isinstance(lock_generation, str) or LOCK_GENERATION.fullmatch(lock_generation) is None:
+        _refuse("runtime-selector-invalid", "target runtime selector installation_lock_generation is invalid")
     return hashlib.sha256(payload).hexdigest()
 
 

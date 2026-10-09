@@ -21,7 +21,13 @@ DOCKER = TOOLS.parent / "203_APPS" / "WORKFLOW_ORCHESTRATOR" / "docker"
 if str(DOCKER) not in sys.path:
     sys.path.insert(0, str(DOCKER))
 
-from framework_package import assemble_framework_package, verify_framework_package  # noqa: E402
+from framework_package import (  # noqa: E402
+    assemble_framework_package,
+    provide_installation_package_evidence,
+    verify_framework_package,
+)
+from installation_context import TargetProjectContext as InstallationTargetProjectContext  # noqa: E402
+from installation_transaction import InstallationPublicationLock  # noqa: E402
 from installed_mcp_binding import MCP_FILES  # noqa: E402
 from installed_mcp_cli import InstalledMcpCliError, run_installed_mcp_cli  # noqa: E402
 from project_mcp_launcher import Launcher  # noqa: E402
@@ -130,7 +136,26 @@ class InstalledMcpCliTests(unittest.TestCase):
             "schema_version = 1\nscope_units = []\n", encoding="utf-8",
         )
         self.package = self._package()
-        self.context = self._write_context()
+        self.context = InstallationTargetProjectContext(
+            mode="bootstrap",
+            target_project_identity="fixture-project",
+            control_child_relpath=".caprmedio_fixture",
+            settings_sha256=SETTINGS,
+            project_structure_sha256=STRUCTURE,
+            registry_sha256=REGISTRY,
+            repository_identity=False,
+            root_locator="fixture-project",
+            package_evidence=provide_installation_package_evidence(self.package.root),
+        )
+        self.context_sha256 = self._write_context()
+        self.lock = InstallationPublicationLock(
+            self.root,
+            target_context_sha256=self.context_sha256,
+            owner_run_id="installed-mcp-cli-fixture",
+            operation="cli-fixture",
+            command_sha256="f" * 64,
+        ).acquire()
+        self.addCleanup(self._release_lock)
         self._write_selectors()
         self.config = self.root / ".caprmedio_runtime/config.toml"
         self.config.write_text(
@@ -143,6 +168,10 @@ class InstalledMcpCliTests(unittest.TestCase):
             encoding="utf-8",
         )
         self.config_bytes = self.config.read_bytes()
+
+    def _release_lock(self) -> None:
+        if self.lock.active:
+            self.lock.release("blocked")
 
     def _package(self):
         source = self.root / "package-source"
@@ -208,19 +237,11 @@ class InstalledMcpCliTests(unittest.TestCase):
         return _digest(json.dumps(rows, sort_keys=True, separators=(",", ":")).encode("utf-8"))
 
     def _write_context(self) -> str:
-        payload = (
-            "schema_version = 1\nmode = \"bootstrap\"\n"
-            "target_project_identity = \"fixture-project\"\n"
-            "control_child_relpath = \".caprmedio_fixture\"\n"
-            f"settings_sha256 = \"{SETTINGS}\"\nproject_structure_sha256 = \"{STRUCTURE}\"\n"
-            f"registry_sha256 = \"{REGISTRY}\"\nrepository_identity = false\nroot_locator = \"fixture-project\"\n"
-        ).encode("utf-8")
-        digest = _digest(payload)
-        path = self.root / ".caprmedio_runtime/installation/contexts" / f"{digest}.toml"
+        path = self.root / ".caprmedio_runtime/installation/contexts" / f"{self.context.sha256}.toml"
         path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_bytes(payload)
+        path.write_bytes(self.context.with_digest_toml())
         path.chmod(0o644)
-        return digest
+        return self.context.sha256
 
     def _write_selectors(self) -> None:
         selector = self.root / ".caprmedio_install/current.toml"
@@ -239,8 +260,9 @@ class InstalledMcpCliTests(unittest.TestCase):
         runtime.write_text(
             "schema_version = 1\n"
             f'package_manifest_sha256 = "{self.package.manifest_digest}"\n'
-            f'target_project_context_sha256 = "{self.context}"\n'
-            "state_generation = 1\ninstallation_lock_generation = 1\n"
+            f'target_project_context_sha256 = "{self.context_sha256}"\n'
+            "state_generation = 1\n"
+            f'installation_lock_generation = "{self.lock.lock_generation}"\n'
             f'image_digest = "{IMAGE}"\n',
             encoding="utf-8",
         )

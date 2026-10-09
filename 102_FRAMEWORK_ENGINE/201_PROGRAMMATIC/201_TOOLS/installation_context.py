@@ -23,6 +23,7 @@ REGISTRY_FILENAME = "operators_registry.toml"
 CONTROL_PREFIX = ".caprmedio_"
 RUNTIME_DIRECTORY = Path(".caprmedio_runtime")
 INSTALLATION_DIRECTORY = RUNTIME_DIRECTORY / "installation"
+CONTEXT_DIGEST_FIELD = "target_project_context_sha256"
 _SHA256 = re.compile(r"[0-9a-f]{64}\Z")
 
 
@@ -56,6 +57,46 @@ def _require_relative_locator(value: object) -> str:
     if path.is_absolute() or ".." in path.parts or path.as_posix() in {"", "."} or path.as_posix() != locator:
         raise InstallationContextError("root_locator must be a normalized relative locator")
     return locator
+
+
+def canonical_target_project_context_toml(
+    *,
+    mode: str,
+    target_project_identity: str,
+    control_child_relpath: str,
+    settings_sha256: str,
+    project_structure_sha256: str,
+    registry_sha256: str,
+    repository_identity: str | bool,
+    root_locator: str,
+    relocates_context_sha256: str | None = None,
+) -> bytes:
+    """Render the D600 digest preimage, excluding its self-digest carrier.
+
+    The persisted context adds :data:`CONTEXT_DIGEST_FIELD` after these
+    canonical bytes.  Both the target-context writer and installed-runtime
+    reader use this one renderer so the file name, self-digest and selector
+    always identify the same byte preimage.
+    """
+
+    lines = [
+        "schema_version = 1",
+        f"mode = {_quoted(mode)}",
+        f"target_project_identity = {_quoted(target_project_identity)}",
+        f"control_child_relpath = {_quoted(control_child_relpath)}",
+        f"settings_sha256 = {_quoted(settings_sha256)}",
+        f"project_structure_sha256 = {_quoted(project_structure_sha256)}",
+        f"registry_sha256 = {_quoted(registry_sha256)}",
+        (
+            "repository_identity = false"
+            if repository_identity is False
+            else f"repository_identity = {_quoted(str(repository_identity))}"
+        ),
+        f"root_locator = {_quoted(root_locator)}",
+    ]
+    if relocates_context_sha256 is not None:
+        lines.append(f"relocates_context_sha256 = {_quoted(relocates_context_sha256)}")
+    return ("\n".join(lines) + "\n").encode("utf-8")
 
 
 @dataclass(frozen=True)
@@ -120,24 +161,17 @@ class TargetProjectContext:
 
     def toml_bytes(self) -> bytes:
         """Return canonical CA-D-600 bytes excluding the carrier digest itself."""
-        lines = [
-            "schema_version = 1",
-            f"mode = {_quoted(self.mode)}",
-            f"target_project_identity = {_quoted(self.target_project_identity)}",
-            f"control_child_relpath = {_quoted(self.control_child_relpath)}",
-            f"settings_sha256 = {_quoted(self.settings_sha256)}",
-            f"project_structure_sha256 = {_quoted(self.project_structure_sha256)}",
-            f"registry_sha256 = {_quoted(self.registry_sha256)}",
-            (
-                "repository_identity = false"
-                if self.repository_identity is False
-                else f"repository_identity = {_quoted(str(self.repository_identity))}"
-            ),
-            f"root_locator = {_quoted(self.root_locator)}",
-        ]
-        if self.relocates_context_sha256 is not None:
-            lines.append(f"relocates_context_sha256 = {_quoted(self.relocates_context_sha256)}")
-        return ("\n".join(lines) + "\n").encode("utf-8")
+        return canonical_target_project_context_toml(
+            mode=self.mode,
+            target_project_identity=self.target_project_identity,
+            control_child_relpath=self.control_child_relpath,
+            settings_sha256=self.settings_sha256,
+            project_structure_sha256=self.project_structure_sha256,
+            registry_sha256=self.registry_sha256,
+            repository_identity=self.repository_identity,
+            root_locator=self.root_locator,
+            relocates_context_sha256=self.relocates_context_sha256,
+        )
 
     @property
     def sha256(self) -> str:
@@ -145,7 +179,7 @@ class TargetProjectContext:
 
     def with_digest_toml(self) -> bytes:
         """Render a persisted form whose digest is excluded from ``sha256``."""
-        return self.toml_bytes() + f'target_project_context_sha256 = "{self.sha256}"\n'.encode("utf-8")
+        return self.toml_bytes() + f'{CONTEXT_DIGEST_FIELD} = "{self.sha256}"\n'.encode("utf-8")
 
 
 def _canonical_root(value: Path | str) -> Path:
@@ -349,10 +383,12 @@ def bind_target_project_context(request: TargetProjectRequest) -> TargetProjectC
 
 
 __all__ = [
+    "CONTEXT_DIGEST_FIELD",
     "InstallationContextError",
     "PackageSourcePin",
     "TargetProjectContext",
     "TargetProjectRequest",
     "VerifiedPackageEvidence",
     "bind_target_project_context",
+    "canonical_target_project_context_toml",
 ]

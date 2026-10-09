@@ -162,6 +162,19 @@ class InstallationContextTests(unittest.TestCase):
         self.assertIn('mode = "bootstrap"', carrier)
         self.assertIn(f'target_project_context_sha256 = "{context.sha256}"', context.with_digest_toml().decode("utf-8"))
 
+    def test_persisted_context_keeps_a_self_digest_outside_its_canonical_preimage(self) -> None:
+        root, control = self.project("persisted-context")
+
+        context = bind_target_project_context(self.request(root, control))
+
+        expected = context.toml_bytes()
+        persisted = context.with_digest_toml()
+        self.assertEqual(_sha_bytes(expected), context.sha256)
+        self.assertEqual(
+            expected + f'target_project_context_sha256 = "{context.sha256}"\n'.encode("utf-8"),
+            persisted,
+        )
+
     def test_adopt_preserves_mutable_runtime_config_byte_for_byte(self) -> None:
         root, control = self.project("adopt")
         config = root / ".caprmedio_runtime" / "config.toml"

@@ -27,8 +27,11 @@ from installed_mcp_binding import (  # noqa: E402
 from framework_package import (  # noqa: E402
     VerifiedFrameworkPackage,
     assemble_framework_package,
+    provide_installation_package_evidence,
     verify_framework_package,
 )
+from installation_context import TargetProjectContext as InstallationTargetProjectContext  # noqa: E402
+from installation_transaction import InstallationPublicationLock  # noqa: E402
 from source_admission_fixture import write_source_admission_receipt  # noqa: E402
 
 
@@ -42,20 +45,6 @@ VERSION_PAYLOAD = b'[framework]\nversion = "1.2.3"\n'
 
 def _digest(payload: bytes) -> str:
     return hashlib.sha256(payload).hexdigest()
-
-
-def _context() -> bytes:
-    return (
-        "schema_version = 1\n"
-        'mode = "bootstrap"\n'
-        'target_project_identity = "fixture-project"\n'
-        'control_child_relpath = ".caprmedio_fixture"\n'
-        f'settings_sha256 = "{SETTINGS}"\n'
-        f'project_structure_sha256 = "{STRUCTURE}"\n'
-        f'registry_sha256 = "{REGISTRY}"\n'
-        "repository_identity = false\n"
-        'root_locator = "fixture-project"\n'
-    ).encode("utf-8")
 
 
 def _compose() -> bytes:
@@ -106,8 +95,31 @@ class InstalledMcpBindingTests(unittest.TestCase):
         (self.root / ".caprmedio_fixture").mkdir()
         self.package_number = 0
         self.verified = self._package()
+        self.context = InstallationTargetProjectContext(
+            mode="bootstrap",
+            target_project_identity="fixture-project",
+            control_child_relpath=".caprmedio_fixture",
+            settings_sha256=SETTINGS,
+            project_structure_sha256=STRUCTURE,
+            registry_sha256=REGISTRY,
+            repository_identity=False,
+            root_locator="fixture-project",
+            package_evidence=provide_installation_package_evidence(self.verified.root),
+        )
         self.context_sha256 = self._write_context()
+        self.lock = InstallationPublicationLock(
+            self.root,
+            target_context_sha256=self.context_sha256,
+            owner_run_id="installed-mcp-binding-fixture",
+            operation="binding-fixture",
+            command_sha256="f" * 64,
+        ).acquire()
+        self.addCleanup(self._release_lock)
         self._write_selectors()
+
+    def _release_lock(self) -> None:
+        if self.lock.active:
+            self.lock.release("blocked")
 
     def _package(self, *, compose_payload: bytes | None = None,
                  omit: str | None = None) -> VerifiedFrameworkPackage:
@@ -186,8 +198,8 @@ class InstalledMcpBindingTests(unittest.TestCase):
         return _digest(json.dumps(rows, sort_keys=True, separators=(",", ":")).encode("utf-8"))
 
     def _write_context(self) -> str:
-        payload = _context()
-        digest = _digest(payload)
+        payload = self.context.with_digest_toml()
+        digest = self.context.sha256
         target = self.root / ".caprmedio_runtime/installation/contexts" / f"{digest}.toml"
         target.parent.mkdir(parents=True)
         target.write_bytes(payload)
@@ -196,7 +208,8 @@ class InstalledMcpBindingTests(unittest.TestCase):
 
     def _write_selectors(self, *, catalog_sha256: str | None = None,
                          context_sha256: str | None = None,
-                         release_relpath: str | None = None) -> None:
+                         release_relpath: str | None = None,
+                         lock_generation: str | int | None = None) -> None:
         selector = self.root / ".caprmedio_install/current.toml"
         selector.parent.mkdir(parents=True, exist_ok=True)
         selector.write_text(
@@ -217,7 +230,7 @@ class InstalledMcpBindingTests(unittest.TestCase):
             f'package_manifest_sha256 = "{self.verified.manifest_digest}"\n'
             f'target_project_context_sha256 = "{context_sha256 or self.context_sha256}"\n'
             "state_generation = 1\n"
-            "installation_lock_generation = 1\n"
+            f"installation_lock_generation = {json.dumps(self.lock.lock_generation if lock_generation is None else lock_generation)}\n"
             f'image_digest = "{IMAGE}"\n',
             encoding="utf-8",
         )
@@ -242,6 +255,40 @@ class InstalledMcpBindingTests(unittest.TestCase):
         self.assertEqual((128, "512m", 1), (binding.pids_limit, binding.memory_limit, binding.cpu_limit))
         self.assertEqual(_digest((self.root / ".caprmedio_install/current.toml").read_bytes()), binding.package_selector_sha256)
         self.assertEqual(_digest((self.root / ".caprmedio_runtime/installation/current.toml").read_bytes()), binding.runtime_selector_sha256)
+
+    def test_admits_context_self_digest_and_actual_installation_lock_generation(self) -> None:
+        context_path = self.root / ".caprmedio_runtime/installation/contexts" / f"{self.context_sha256}.toml"
+        runtime_selector = self.root / ".caprmedio_runtime/installation/current.toml"
+
+        self.assertEqual(self.context.with_digest_toml(), context_path.read_bytes())
+        self.assertIn(
+            f'installation_lock_generation = "{self.lock.lock_generation}"',
+            runtime_selector.read_text(encoding="utf-8"),
+        )
+        self.assertTrue(self.lock.active)
+        self._admit()
+
+    def test_refuses_tampered_or_unknown_context_fields_and_non_lock_generation(self) -> None:
+        context_path = self.root / ".caprmedio_runtime/installation/contexts" / f"{self.context_sha256}.toml"
+        original = context_path.read_bytes()
+        context_path.write_bytes(original.replace(
+            f'target_project_context_sha256 = "{self.context_sha256}"'.encode("utf-8"),
+            b'target_project_context_sha256 = "f"',
+        ))
+        with self.assertRaisesRegex(InstalledMcpBindingError, "context") as raised:
+            self._admit()
+        self.assertEqual("target-context-mismatch", raised.exception.code)
+
+        context_path.write_bytes(original + b'unknown = "forged"\n')
+        with self.assertRaisesRegex(InstalledMcpBindingError, "schema is not closed") as raised:
+            self._admit()
+        self.assertEqual("target-context-invalid", raised.exception.code)
+
+        context_path.write_bytes(original)
+        self._write_selectors(lock_generation=1)
+        with self.assertRaisesRegex(InstalledMcpBindingError, "installation_lock_generation") as raised:
+            self._admit()
+        self.assertEqual("runtime-selector-invalid", raised.exception.code)
 
     def test_refuses_checkout_or_other_foreign_package_even_when_its_inventory_is_typed(self) -> None:
         checkout = self.root / "checkout"
