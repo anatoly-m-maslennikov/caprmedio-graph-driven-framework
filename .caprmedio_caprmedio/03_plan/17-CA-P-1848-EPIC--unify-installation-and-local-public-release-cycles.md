@@ -10,8 +10,8 @@ local_tier: Standard
 global_tier: 2
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-09 12:12:13 +0000"
+version: 3
+updated_at: "2026-10-09 12:30:00 +0000"
 subjects:
   governs: "CAPRMEDIO Framework Instance"
   depends_on:
@@ -66,7 +66,7 @@ the caprmedio Project delivers a reusable beta Framework Package **and** an isol
 ### Release cycles and gates
 
 1. local cycle: select the canonical Version carrier **before** compiling a private candidate; export, compile, stage the package **and** stage/admit its matching image **without** live promotion. seal the candidate's Version, source/configuration/catalog/lock, package **and** image bytes, then pass the full current test suite for those exact bytes, including required host/Docker/MCP e2e checks. **only** then explicitly invoke the local Workflow to quiesce/migrate state **before** promotion, promote/install those same verified bytes, install ca, start/reuse the selected Project's container **and** verify its returned MCP endpoint; **no** rebuild is permitted between gate **and** promotion.
-2. public cycle: check/update README, reuse the previously sealed canonical Version **and** prepare a good full PR description; place **only** its concise bullet-point summary **in** `VERSION_HISTORY.md`. **if** a public-preparation change requires a new Version, create a fresh candidate **and** repeat the local gate, promotion **and** verification **before** publishing. **before** publishing, run a fresh full suite for that final snapshot. commit/push **all** safe validated changes to `amm/dev`, then create/update the PR to `main` **with** the full description. merging is **not** requested.
+2. public cycle: check/update README, reuse the previously sealed canonical Version **and** prepare a full PR description **with** complete “What's new” **and** “What's fixed” lists; place **only** its concise bullet-point summary **and** actual PR link **in** `VERSION_HISTORY.md`. discover a matching existing PR URL **before** the public freeze **when** possible. **if** the URL becomes known **after** creating a new PR, finalize the link **and** pass a fresh full suite for changed bytes **before** the follow-up commit/push. **if** a public-preparation change requires a new Version, create a fresh candidate **and** repeat the local gate, promotion **and** verification **before** publishing. **before** publishing, run a fresh full suite for that final snapshot. commit/push **all** safe validated changes to `amm/dev`, then create/update the PR to `main` **with** the full description. merging is **not** requested.
 3. **every** required gate has complete coverage/identity evidence. failed, blocked, skipped **or** incomplete required checks stop the corresponding cycle; no focused/mock/old receipt substitutes for a full pass. `.DS_Store` is ignored, **not** a gate failure.
 4. preserve N while preparing/admitting N+1. new source/package/configuration changes that affect a validated closure require a new candidate **and** renewed acceptance. local runtime mutation **and** cleanup occur **only** **after** the local gate, **not** as a side effect of planning.
 5. local **and** public release are reusable Operations Workflows **with** bound Workflow Steps, Actions **and** Tools, **not** one-off manual Git procedures. Workflow, Step **and** Action Runs, **and** their Tool-call evidence, are recorded **in** the shared Journal **with** parentage, exact input/output/evidence identities **and** honest outcomes; uncertain effects are **not** automatically replayed. inherit confidence/retry/permission controls **from** Framework Instance Settings **and** applicable Operator input rather than invent another policy.
@@ -80,7 +80,7 @@ the caprmedio Project delivers a reusable beta Framework Package **and** an isol
 
 ### Decomposing Plans
 
-preparation: Plans 01–10; local cycle: 11–13; public cycle: 14–17; integrated closure: 18. explicit blocking Relations are authoritative.
+preparation: Plans 01–10; local cycle: 11–13; public cycle: 14–17 **and** 19; integrated closure: 18. explicit blocking Relations are authoritative.
 
 - [01-CA-P-1849-TASK--specify-installation-and-release-boundaries](17-CA-P-1848-EPIC--unify-installation-and-local-public-release-cycles/01-CA-P-1849-TASK--specify-installation-and-release-boundaries.md)
 - [02-CA-P-1850-TASK--protect-existing-state-during-installation-migration](17-CA-P-1848-EPIC--unify-installation-and-local-public-release-cycles/02-CA-P-1850-TASK--protect-existing-state-during-installation-migration.md)
@@ -99,6 +99,7 @@ preparation: Plans 01–10; local cycle: 11–13; public cycle: 14–17; integra
 - [15-CA-P-1863-TASK--pass-the-full-test-suite-before-public-release](17-CA-P-1848-EPIC--unify-installation-and-local-public-release-cycles/15-CA-P-1863-TASK--pass-the-full-test-suite-before-public-release.md)
 - [16-CA-P-1864-TASK--commit-and-push-the-validated-release-to-amm-dev](17-CA-P-1848-EPIC--unify-installation-and-local-public-release-cycles/16-CA-P-1864-TASK--commit-and-push-the-validated-release-to-amm-dev.md)
 - [17-CA-P-1865-TASK--open-the-release-pr-from-amm-dev-to-main](17-CA-P-1848-EPIC--unify-installation-and-local-public-release-cycles/17-CA-P-1865-TASK--open-the-release-pr-from-amm-dev-to-main.md)
+- [19-CA-P-1871-TASK--finalize-version-history-with-the-verified-release-pr-link](17-CA-P-1848-EPIC--unify-installation-and-local-public-release-cycles/19-CA-P-1871-TASK--finalize-version-history-with-the-verified-release-pr-link.md)
 - [18-CA-P-1866-TASK--review-both-release-cycles-against-their-authority](17-CA-P-1848-EPIC--unify-installation-and-local-public-release-cycles/18-CA-P-1866-TASK--review-both-release-cycles-against-their-authority.md)
 
 ### Definition of Done

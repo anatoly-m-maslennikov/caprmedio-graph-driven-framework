@@ -10,8 +10,8 @@ local_tier: Standard
 global_tier: 2
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-09 12:12:13 +0000"
+version: 3
+updated_at: "2026-10-09 12:30:00 +0000"
 subjects:
   governs: "CAPRMEDIO Framework Instance"
   depends_on:
@@ -32,7 +32,7 @@ relations:
   is_decomposition_of:
     - CA-P-1848
   blocks:
-    - CA-P-1866
+    - CA-P-1871
 ---
 # Summary
 
@@ -47,7 +47,7 @@ the AI Agent creates **or** updates the release PR **from** `amm/dev` to `main` 
 - scope: the installation/release contribution of the CAPRMEDIO Framework Instance delivered by the caprmedio Project.
 - input: the verified pushed commit, passing public full-suite evidence, the reusable public-release Workflow/Step/Action/Tool binding **and** the full PR description prepared for these exact changes.
 - execute the reusable public-release Workflow's bound PR discovery/update Action **through** the discovered native binding: verify personal repository identity, base `main`, head `amm/dev` **and** whether a matching PR already exists; update that PR rather than create a duplicate.
-- use the complete description **with** meaningful change groups, install/layout migration, compatibility/rollback, tests **and** remaining limits. the Version History entry stays its concise bullet summary.
+- use the complete description **with** full lists under “What's new” **and** “What's fixed”, install/layout migration, compatibility/rollback, tests **and** remaining limits. the Version History entry retains **only** its concise bullet summary **and** the actual PR link, finalized by Task 19.
 - confirm the PR URL, head commit, base branch **and** rendered description against the actual diff. record Workflow, Step, Action **and** Tool-call parentage/evidence **in** the shared Journal; attach the created/existing PR to this task/chat **through** the supported artifact interface.
 - opening the PR is the public cycle's requested handoff; do **not** merge it, alter CI/branch protection **or** claim that `main` has shipped **without** separate authority/evidence.
 - effort: own work for **=1** AI Agent **must** fit **<=15** minutes. **if** this Plan needs larger own work, decompose it **before** execution **and** preserve its Objective **and** acceptance.

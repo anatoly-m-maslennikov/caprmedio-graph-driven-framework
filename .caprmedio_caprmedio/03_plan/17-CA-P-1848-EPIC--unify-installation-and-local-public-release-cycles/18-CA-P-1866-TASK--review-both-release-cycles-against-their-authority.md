@@ -10,8 +10,8 @@ local_tier: Standard
 global_tier: 2
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-09 12:12:13 +0000"
+version: 3
+updated_at: "2026-10-09 12:30:00 +0000"
 subjects:
   governs: "CAPRMEDIO Framework Instance"
   depends_on:
@@ -49,7 +49,7 @@ the AI Agent independently performs the post-public-closure review of the implem
 - confirm the independent candidate **and** public-snapshot code/RMED/O audits were completed **before** their respective gates, then check the single-source boundaries, beta-package portability, per-Project runtime isolation, active-only export, projection source relations, selected-package execution, full-suite gate ordering, explicit Operator authority **and** honest Journal outcomes.
 - confirm known failures were resolved: destructive legacy installer cleanup, obsolete `301_TOOLS`/standalone-framework paths, stale compiler/delivery copies, source-checkout bypass, uncontrolled duplicate copies **and** incomplete discovery.
 - confirm remaining copies are intentional selected/rollback/artifact snapshots **with** declared retention, **not** competing editable authorities. preserve differing/history/private inputs; list any remaining Concern **with** evidence **and** disposition.
-- review **only** **after** the public PR handoff has closure evidence; close the Epic **only** **after** **all** direct children are Done **and** integrated acceptance is evidenced. a completed Plan folder, worker count, focused suite **or** open PR alone is insufficient; **no** merge is required by this Epic.
+- review **only** **after** the public PR handoff **and** final Version History summary/link have closure evidence, including a renewed public gate **if** link finalization changed the published snapshot; close the Epic **only** **after** **all** direct children are Done **and** integrated acceptance is evidenced. a completed Plan folder, worker count, focused suite **or** open PR alone is insufficient; **no** merge is required by this Epic.
 - effort: own work for **=1** AI Agent **must** fit **<=15** minutes. **if** this Plan needs larger own work, decompose it **before** execution **and** preserve its Objective **and** acceptance.
 - control: use applicable Operator input **and** inherited Framework Instance Settings for permission, confidence **and** retry gates. creation is planned work **only**, **not** permission to execute the local/public cycle immediately.
 

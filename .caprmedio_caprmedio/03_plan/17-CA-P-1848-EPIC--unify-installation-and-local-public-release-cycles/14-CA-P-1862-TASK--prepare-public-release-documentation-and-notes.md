@@ -10,8 +10,8 @@ local_tier: Standard
 global_tier: 2
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-09 12:12:13 +0000"
+version: 3
+updated_at: "2026-10-09 12:30:00 +0000"
 subjects:
   governs: "CAPRMEDIO Framework Instance"
   depends_on:
@@ -47,7 +47,8 @@ the AI Agent prepares accurate public release documentation **and** a full PR de
 - input: the actual source changes, validated local release result, existing README, canonical Version **and** `VERSION_HISTORY.md`.
 - update README install/start/upgrade instructions to the new `methodology`, `.caprmedio_install` beta-package **and** per-Project `.caprmedio_runtime` boundaries, uv-only execution, ca installation **and** password-free loopback MCP. remove stale path/command claims.
 - reuse the canonical Version sealed by the verified local candidate; keep package, local receipt **and** public files consistent. **if** any documentation/note change requires a Version change, explicitly create a new candidate **and** repeat the local full-suite gate, local promotion **and** local verification **before** public preparation continues.
-- write a full PR description **from** actual changes: purpose, delivery/install migration, corrected defects, compatibility/rollback, complete tests/evidence **and** honest limitations. keep **only** its concise bullet-point release summary **in** Version History; retain the bullet structure for 0.4, 0.4.1 **and** subsequent entries.
+- write a full PR description **from** actual changes: full “What's new” **and** “What's fixed” lists, purpose, delivery/install migration, compatibility/rollback, complete tests/evidence **and** honest limitations. keep **only** its concise bullet-point release summary **and** actual PR link **in** Version History; retain the bullet structure for 0.4, 0.4.1 **and** subsequent entries.
+- discover a matching existing PR **before** freezing the public snapshot **when** available. **if** the URL becomes known **only** **after** creating a new PR, Task 19 finalizes its link **and** renews the public gate for changed bytes; an unresolved placeholder is **not** final release documentation.
 - discover **and** invoke the public-release documentation-preparation binding implemented **and** tested **in** Task 08; store the reviewable full PR description **and** its Journal evidence for the later PR Action. documentation preparation **must not** claim a push, PR, merge **or** release that has **not** occurred.
 - effort: own work for **=1** AI Agent **must** fit **<=15** minutes. **if** this Plan needs larger own work, decompose it **before** execution **and** preserve its Objective **and** acceptance.
 - control: use applicable Operator input **and** inherited Framework Instance Settings for permission, confidence **and** retry gates. creation is planned work **only**, **not** permission to execute the local/public cycle immediately.
