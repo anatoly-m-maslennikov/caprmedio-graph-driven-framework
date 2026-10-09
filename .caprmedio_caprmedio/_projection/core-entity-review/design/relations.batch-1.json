@@ -1,0 +1,1467 @@
+{
+  "source_task": "CA-P-1913",
+  "batch_number": 1,
+  "baseline_inventory_sha256": "23394abaf6e9c18a585cf3146aedd0a80df166c9dd82be6e86ed7c3c56780bdc",
+  "source_binding": {
+    "selection_sha256": "f72964ad096a671d0c36cc0cf6649cf2cf131110edb57446fb523dc5feedb840",
+    "source_collection_sha256": "5ebcf48d24841b65ba46ffdd113e964fe10a53da80a40db32cefedc484ae7d3d",
+    "source_frontier_sha256": "7792e842cfe6c66320745660e69cd0df5525ec18bb22b5c060a6ddfff5fc97f7"
+  },
+  "partition_sha256": "8b6a41b831a5c864024972dd34b800fc8f40d8cf4acd78302e11fa7f14c41e11",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "semantic_admission": "not_performed",
+  "cases": [
+    {
+      "case_id": "slash:018dfec1f448f3f1e44e009c01138117e4ed6c0c8d42f69c3314a4c5e74e797b",
+      "old_parent": "Atom",
+      "old_child": "Atom/Scope",
+      "disposition": "not-native",
+      "confidence_percent": 95,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-R-1014",
+          "atom_revision": 18,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1014-CORE_META_MODEL-CORE-REQUIREMENT--resolve-atom-scope-contextually.md",
+          "carrier_sha256": "57013a4e165d493701cb180a4cc32df85c8aa79373b2ec503e3b4e5dd1c4352e",
+          "start_line": 34,
+          "end_line": 34,
+          "quote": "an Atom Scope **must** include its current Scope Unit Scope **or** its Author's registered Operator fallback under CA-D-276-CORE_META_MODEL-DELIVERY--use-economical-yaml-frontmatter, its **`=1`** Atom Governed Subject, **and** **any** explicit Scope constraints **in** its Claim.",
+          "text_sha256": "7627a3fa1cfb27f347f5fa244ab42367242003d3709148ce179a9135488a801c"
+        }
+      ],
+      "checks_performed": [
+        "selected source is a current pinned candidate or direct GOVERNS owner for this exact baseline path",
+        "recomputed selected carrier SHA-256 equals the current input pin",
+        "quoted only the current ## Claim body, not frontmatter or a Summary title",
+        "did not promote source-Atom metadata, Subject incidence, or a qualified display path into a native relation"
+      ],
+      "reason": "The quoted current Claim gives this qualified field a bearer or context reading, but it does not state an immediate native relation between these exact baseline references.",
+      "question": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "canonical_relation": "IS_BORNE_BY",
+        "graph_kind": "entities",
+        "canonical_direction": "dependent_to_bearer",
+        "qualified_parent": "Atom",
+        "qualified_child": "Atom/Scope",
+        "semantic_intent": "display-only bearer/context qualification",
+        "native_admission": "not_performed"
+      }
+    },
+    {
+      "case_id": "slash:0745b72682e38af844c62858956e6d3c7ea5848d3cf99c0a255abda50543bc3d",
+      "old_parent": "Artifact/Revision",
+      "old_child": "Artifact/Revision/Archive Carrier Basename",
+      "disposition": "not-native",
+      "confidence_percent": 96,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-D-289",
+          "atom_revision": 12,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-289-CORE_META_MODEL--serialize-archive-revision-version-suffixes.md",
+          "carrier_sha256": "8489ccfb75f951effff4b61a1abe97e4d52001524c6d1ce87192e290e5cb0efb",
+          "start_line": 28,
+          "end_line": 28,
+          "quote": "**every** Archive Carrier basename for an Artifact Revision **must** append `@<version>` immediately **before** its file extension **when** one exists.",
+          "text_sha256": "27e9355c5eafc3aaf8ba8003ade3c35b56cd0a0295daac03e55aac023c80b198"
+        }
+      ],
+      "checks_performed": [
+        "selected source is a current pinned candidate or direct GOVERNS owner for this exact baseline path",
+        "recomputed selected carrier SHA-256 equals the current input pin",
+        "quoted only the current ## Claim body, not frontmatter or a Summary title",
+        "did not promote source-Atom metadata, Subject incidence, or a qualified display path into a native relation"
+      ],
+      "reason": "The current Claim governs an Archive Carrier basename suffix, so it is a Carrier representation rule rather than a native Artifact Revision-to-basename relation.",
+      "question": null
+    },
+    {
+      "case_id": "slash:098e7d14da8d7f6fa2f42c4cc905316a7056d466131d2869621d7c03db0b11fb",
+      "old_parent": "Atom",
+      "old_child": "Atom/Property",
+      "disposition": "not-native",
+      "confidence_percent": 95,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-R-1193",
+          "atom_revision": 11,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1193-CORE_META_MODEL-CORE-REQUIREMENT--define-property.md",
+          "carrier_sha256": "600bc4f919796701478b51b0bc4abea383c89cc8b9929959aa937c288db7c522",
+          "start_line": 28,
+          "end_line": 28,
+          "quote": "a Property **means** a Dependent Entity that represents one characteristic of its bearer.",
+          "text_sha256": "b746de82419a720018da91425209c1b1ff308c288725bbc2a383c2443ab1dc1b"
+        }
+      ],
+      "checks_performed": [
+        "selected source is a current pinned candidate or direct GOVERNS owner for this exact baseline path",
+        "recomputed selected carrier SHA-256 equals the current input pin",
+        "quoted only the current ## Claim body, not frontmatter or a Summary title",
+        "did not promote source-Atom metadata, Subject incidence, or a qualified display path into a native relation"
+      ],
+      "reason": "The quoted current Claim gives this qualified field a bearer or context reading, but it does not state an immediate native relation between these exact baseline references.",
+      "question": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "canonical_relation": "IS_BORNE_BY",
+        "graph_kind": "entities",
+        "canonical_direction": "dependent_to_bearer",
+        "qualified_parent": "Atom",
+        "qualified_child": "Atom/Property",
+        "semantic_intent": "display-only bearer/context qualification",
+        "native_admission": "not_performed"
+      }
+    },
+    {
+      "case_id": "slash:0a78dceb1cfa1a5b471b6642a454f639784132166b4f256e9aba477283496f3b",
+      "old_parent": "Atom/Revision",
+      "old_child": "Atom/Revision/Author",
+      "disposition": "not-native",
+      "confidence_percent": 96,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-R-1078",
+          "atom_revision": 15,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1078-CORE_META_MODEL-CORE-REQUIREMENT--give-every-atom-revision-one-author.md",
+          "carrier_sha256": "8d39e244c674e496625f8c816533de343f88e7fc62bcd4ad441b0270ceec4cff",
+          "start_line": 31,
+          "end_line": 31,
+          "quote": "**every** Atom Revision **must** have **`=1`** Author.",
+          "text_sha256": "6f989e07ff90f33e40dfdfe0d65118c4803107a25ba7610258601e3b2ed3681a"
+        }
+      ],
+      "checks_performed": [
+        "selected source is a current pinned candidate or direct GOVERNS owner for this exact baseline path",
+        "recomputed selected carrier SHA-256 equals the current input pin",
+        "quoted only the current ## Claim body, not frontmatter or a Summary title",
+        "did not promote source-Atom metadata, Subject incidence, or a qualified display path into a native relation"
+      ],
+      "reason": "The quoted current Claim governs a different scope, a representation, or an authoring/constraint rule and does not state a native relation between these exact baseline references.",
+      "question": null
+    },
+    {
+      "case_id": "slash:1293258cdceb4b3e6a89550ffa665abeed9deedbbca247ed4764ae853f68b7f3",
+      "old_parent": "Atom/Content Role: Requirement/Type: Demand",
+      "old_child": "Atom/Content Role: Requirement/Type: Demand/filename",
+      "disposition": "not-native",
+      "confidence_percent": 96,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-D-287",
+          "atom_revision": 12,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-287-CORE_META_MODEL-DELIVERY--serialize-demand-type-and-producer-scope.md",
+          "carrier_sha256": "37266df833541eb74622e915ab28e73dd2bf4e4651ac207c435727f415411eae",
+          "start_line": 28,
+          "end_line": 28,
+          "quote": "**every** Demand Atom filename **must** serialize its Type **and** Producer Scope as `DEMANDS_FROM-<PRODUCER_SCOPE>`.",
+          "text_sha256": "60bca07fc2f98d323b38267d6d6b2789009ad8b2ea8f8ce7b4f4bf89df3b2703"
+        }
+      ],
+      "checks_performed": [
+        "selected source is a current pinned candidate or direct GOVERNS owner for this exact baseline path",
+        "recomputed selected carrier SHA-256 equals the current input pin",
+        "quoted only the current ## Claim body, not frontmatter or a Summary title",
+        "did not promote source-Atom metadata, Subject incidence, or a qualified display path into a native relation"
+      ],
+      "reason": "The quoted current Claim governs a different scope, a representation, or an authoring/constraint rule and does not state a native relation between these exact baseline references.",
+      "question": null
+    },
+    {
+      "case_id": "slash:1414d7f37858f70e0d7a253d3236f4c9e64131e20d76ed934b836a45dfb332a8",
+      "old_parent": "Atom/Content Role: Plan",
+      "old_child": "Atom/Content Role: Plan/Carrier Placement",
+      "disposition": "not-native",
+      "confidence_percent": 96,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-D-461",
+          "atom_revision": 6,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-461-CORE_META_MODEL-CORE--place-plan-carriers-by-status.md",
+          "carrier_sha256": "e0135ae3093130e3a40f091882d53942f42c83ec5302788a8f4bc718bcf83390",
+          "start_line": 29,
+          "end_line": 39,
+          "quote": "**every** Plan Carrier Bundle **must** represent its carried Status **in** its local Plan container under the following mapping:\n\n- Active: directly **in** that local container.\n- Backlog: **in** its `001_backlog` subdirectory.\n- Done: **in** its `done` subdirectory.\n- Canceled: **in** its `canceled` subdirectory.\n- Archived: **in** its `archived` subdirectory.\n\nthe local container is the matching Directory Carrier of its declared immediate decomposition target **when** that folder is used, **or** the owning Scope Unit's `03_plan`. reserved Status directories are **not** Plan nodes. validate folder nesting under CA-D-481; placement does **not** declare decomposition.\n\nread Status from the Plan's own Markdown file under CA-D-483 **and** check its local placement. moving a Hub **must not** silently change descendant Status; a cascade requires an explicit authorized change for **every** affected Plan.",
+          "text_sha256": "58f67c69928c894fbb28eeb1c48446b5bc673fff8484fd975b903946541c579b"
+        }
+      ],
+      "checks_performed": [
+        "selected source is a current pinned candidate or direct GOVERNS owner for this exact baseline path",
+        "recomputed selected carrier SHA-256 equals the current input pin",
+        "quoted only the current ## Claim body, not frontmatter or a Summary title",
+        "did not promote source-Atom metadata, Subject incidence, or a qualified display path into a native relation"
+      ],
+      "reason": "The current Claim makes carrier placement depend on carried Status and expressly says placement does not declare decomposition; it provides no native relation for this path.",
+      "question": null
+    },
+    {
+      "case_id": "slash:1664161a2ba12a5290ed1022022d3cccfe7be90da0e1c243008f2312603290a9",
+      "old_parent": "Atom/Content Role: Evaluation",
+      "old_child": "Atom/Content Role: Evaluation/authoring",
+      "disposition": "not-native",
+      "confidence_percent": 96,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-M-264",
+          "atom_revision": 8,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/05_method/CA-M-264-CORE_META_MODEL-METHOD--write-evaluations-with-reproducible-falsification.md",
+          "carrier_sha256": "49351d2882bbc07435ca189e3779a60259852306923820dbf99c9f5ce76f1584",
+          "start_line": 32,
+          "end_line": 32,
+          "quote": "**to** write **or** maintain an Evaluation, identify its checked authority **and** Scope, select a suitable test technique, specify recoverable inputs, procedure, **and** observable falsifying conditions, **and** preserve the distinction between Core foundations, independent General evaluation criteria **where** General is admitted, **and** the default Standard tier; keep writing techniques, test frameworks, **and** authoring conventions **in** Method authority rather than treating them as test results.",
+          "text_sha256": "4b9415ecbb63af25de7a66a05468fed458b63162b604413bcc939cfe1ba7247b"
+        }
+      ],
+      "checks_performed": [
+        "selected source is a current pinned candidate or direct GOVERNS owner for this exact baseline path",
+        "recomputed selected carrier SHA-256 equals the current input pin",
+        "quoted only the current ## Claim body, not frontmatter or a Summary title",
+        "did not promote source-Atom metadata, Subject incidence, or a qualified display path into a native relation"
+      ],
+      "reason": "The current Claim is an authoring method for Evaluations, not a fact that authoring is a dependent Entity of the Evaluation Content Role.",
+      "question": null
+    },
+    {
+      "case_id": "slash:16bd0f9e52bc7ba99f5c2c011e9f1d464988663290af4ae8ba6cfb95067ee84e",
+      "old_parent": "Atom/Content Role: Plan",
+      "old_child": "Atom/Content Role: Plan/Current Scope",
+      "disposition": "not-native",
+      "confidence_percent": 96,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-R-1541",
+          "atom_revision": 5,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1541-CORE_META_MODEL-CORE-REQUIREMENT--define-current-plan-scope.md",
+          "carrier_sha256": "506fe99fab2929e67186a962077f3bdfd45d37e48f50edf42580834a8ace9e20",
+          "start_line": 28,
+          "end_line": 28,
+          "quote": "the current Plan Scope **means** the set of Plan Atoms whose current Revision has Status Active.",
+          "text_sha256": "ccc6ee2a572ec20e61d4640cabb47c83993b7f4f7e653964d66a38baf19edf98"
+        }
+      ],
+      "checks_performed": [
+        "selected source is a current pinned candidate or direct GOVERNS owner for this exact baseline path",
+        "recomputed selected carrier SHA-256 equals the current input pin",
+        "quoted only the current ## Claim body, not frontmatter or a Summary title",
+        "did not promote source-Atom metadata, Subject incidence, or a qualified display path into a native relation"
+      ],
+      "reason": "The quoted current Claim governs a different scope, a representation, or an authoring/constraint rule and does not state a native relation between these exact baseline references.",
+      "question": null
+    },
+    {
+      "case_id": "slash:18394d743a7d2e2c76ea01e3673dc854a1c95152b673fe171a7bfd8a9cf3cb50",
+      "old_parent": "Atom/Revision",
+      "old_child": "Atom/Revision/Version",
+      "disposition": "not-native",
+      "confidence_percent": 95,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-R-1415",
+          "atom_revision": 10,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1415-CORE_META_MODEL-GENERAL--give-every-atom-revision-one-version.md",
+          "carrier_sha256": "2c5e7af78d81a3e71def13ef7e24669fa0cf33a8a153b3410b8963934a396cb9",
+          "start_line": 29,
+          "end_line": 29,
+          "quote": "**every** Atom Revision **must** have **`=1`** positive integer Version that increases monotonically across successive Revisions of the same Atom.",
+          "text_sha256": "02422dc67b3e68200bfb555b4a6891ac1ab9b957266747860a83c125102d325c"
+        }
+      ],
+      "checks_performed": [
+        "selected source is a current pinned candidate or direct GOVERNS owner for this exact baseline path",
+        "recomputed selected carrier SHA-256 equals the current input pin",
+        "quoted only the current ## Claim body, not frontmatter or a Summary title",
+        "did not promote source-Atom metadata, Subject incidence, or a qualified display path into a native relation"
+      ],
+      "reason": "The quoted current Claim gives this qualified field a bearer or context reading, but it does not state an immediate native relation between these exact baseline references.",
+      "question": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "canonical_relation": "IS_BORNE_BY",
+        "graph_kind": "entities",
+        "canonical_direction": "dependent_to_bearer",
+        "qualified_parent": "Atom/Revision",
+        "qualified_child": "Atom/Revision/Version",
+        "semantic_intent": "display-only bearer/context qualification",
+        "native_admission": "not_performed"
+      }
+    },
+    {
+      "case_id": "slash:1968167afc84b257ed444761023e472fde3cf509ca1d568fa1af45099d5899e7",
+      "old_parent": "Artifact",
+      "old_child": "Artifact/Currentness",
+      "disposition": "not-native",
+      "confidence_percent": 95,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-R-1501",
+          "atom_revision": 5,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1501-CORE_META_MODEL-CORE-REQUIREMENT--define-artifact-currentness.md",
+          "carrier_sha256": "2913e51627a634ef841141511b7afe962059fdd7a273fb918b6ce66cdf1f0151",
+          "start_line": 30,
+          "end_line": 30,
+          "quote": "Currentness **means** which exact applicable Artifact Revision is presently effective **in** the declared context.",
+          "text_sha256": "d54e5d9452b09bcb70ddf24f3e4bcb03657bb112d825599455dc94d4da0b2eaf"
+        }
+      ],
+      "checks_performed": [
+        "selected source is a current pinned candidate or direct GOVERNS owner for this exact baseline path",
+        "recomputed selected carrier SHA-256 equals the current input pin",
+        "quoted only the current ## Claim body, not frontmatter or a Summary title",
+        "did not promote source-Atom metadata, Subject incidence, or a qualified display path into a native relation"
+      ],
+      "reason": "The quoted current Claim gives this qualified field a bearer or context reading, but it does not state an immediate native relation between these exact baseline references.",
+      "question": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "canonical_relation": "IS_BORNE_BY",
+        "graph_kind": "entities",
+        "canonical_direction": "dependent_to_bearer",
+        "qualified_parent": "Artifact",
+        "qualified_child": "Artifact/Currentness",
+        "semantic_intent": "display-only bearer/context qualification",
+        "native_admission": "not_performed"
+      }
+    },
+    {
+      "case_id": "slash:1acaa11cf7420e9c1ab4e8a8dbc52abe6f63f1314ecd33cd2656673af284cab7",
+      "old_parent": "Atom/Content Role: Operations/Type",
+      "old_child": "Atom/Content Role: Operations/Type/Filename Token",
+      "disposition": "not-native",
+      "confidence_percent": 96,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-D-457",
+          "atom_revision": 6,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-457-CORE_META_MODEL-STANDARD--serialize-operations-atom-type-tokens.md",
+          "carrier_sha256": "7d73a21345f51c21e15bd24b2ca4f6e76291063db2bd2c7fb6362cdd6e89981d",
+          "start_line": 33,
+          "end_line": 40,
+          "quote": "an Operations Atom File Carrier **must** serialize its Type using this filename-token mapping:\n\n| Operations Atom Type | Filename token |\n|---|---|\n| Action | `ACTION` |\n| Workflow | `WORKFLOW` |\n| Step | `STEP` |\n| Actor | `ACTOR` |",
+          "text_sha256": "dd2b8f5450176126d752757326adf0cf22f43be9cd4390f195f63cd5a4b11d86"
+        }
+      ],
+      "checks_performed": [
+        "selected source is a current pinned candidate or direct GOVERNS owner for this exact baseline path",
+        "recomputed selected carrier SHA-256 equals the current input pin",
+        "quoted only the current ## Claim body, not frontmatter or a Summary title",
+        "did not promote source-Atom metadata, Subject incidence, or a qualified display path into a native relation"
+      ],
+      "reason": "The current Claim is a filename-token mapping for Operations Atom File Carriers and explicitly governs representation, not a native Type/Filename Token relation.",
+      "question": null
+    },
+    {
+      "case_id": "slash:1b569ede6598e5e3b722e8948c6e626ccd5125ca78ad948592dec8a77d543e23",
+      "old_parent": "Artifact",
+      "old_child": "Artifact/Revision",
+      "disposition": "not-native",
+      "confidence_percent": 95,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-R-1371",
+          "atom_revision": 10,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1371-CORE_META_MODEL-CORE--define-artifact-revision.md",
+          "carrier_sha256": "5d784abf1c82906ad8cb8d84e216f956fabf295523f15113ca9706032130c992",
+          "start_line": 27,
+          "end_line": 27,
+          "quote": "an Artifact/Revision **means** one immutable recorded state of one Artifact's governed meaning. lifecycle Status **and** Updated At serialize its current lifecycle metadata **and** **may** change **without** creating another semantic Revision.",
+          "text_sha256": "631b83fe4f04c37145cd4489503c9ed9debe1f4f511ce669d8b78d96ec1360af"
+        }
+      ],
+      "checks_performed": [
+        "selected source is a current pinned candidate or direct GOVERNS owner for this exact baseline path",
+        "recomputed selected carrier SHA-256 equals the current input pin",
+        "quoted only the current ## Claim body, not frontmatter or a Summary title",
+        "did not promote source-Atom metadata, Subject incidence, or a qualified display path into a native relation"
+      ],
+      "reason": "The quoted current Claim gives this qualified field a bearer or context reading, but it does not state an immediate native relation between these exact baseline references.",
+      "question": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "canonical_relation": "IS_BORNE_BY",
+        "graph_kind": "entities",
+        "canonical_direction": "dependent_to_bearer",
+        "qualified_parent": "Artifact",
+        "qualified_child": "Artifact/Revision",
+        "semantic_intent": "display-only bearer/context qualification",
+        "native_admission": "not_performed"
+      }
+    },
+    {
+      "case_id": "slash:1b5d7110069f1b334d9290798f933fdb49a4d16a8c270015c83b8d58508e2920",
+      "old_parent": "Atom/Content Role: Plan/Type: Plan",
+      "old_child": "Atom/Content Role: Plan/Type: Plan/Status",
+      "disposition": "not-native",
+      "confidence_percent": 96,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-R-1412",
+          "atom_revision": 9,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1412-CORE_META_MODEL-CORE--give-every-atom-revision-one-status.md",
+          "carrier_sha256": "7a74e9fe6d6ab90f56016c675b2bc566a0981fd4bb04b1462f5e1d429146d0af",
+          "start_line": 28,
+          "end_line": 28,
+          "quote": "**every** Atom Revision **must** have **`=1`** Status.",
+          "text_sha256": "2d9b87484c00fe76054ca8013d152e4777e4673dc35e84d353503fcf683eb169"
+        }
+      ],
+      "checks_performed": [
+        "selected source is a current pinned candidate or direct GOVERNS owner for this exact baseline path",
+        "recomputed selected carrier SHA-256 equals the current input pin",
+        "quoted only the current ## Claim body, not frontmatter or a Summary title",
+        "did not promote source-Atom metadata, Subject incidence, or a qualified display path into a native relation"
+      ],
+      "reason": "The quoted current Claim governs a different scope, a representation, or an authoring/constraint rule and does not state a native relation between these exact baseline references.",
+      "question": null
+    },
+    {
+      "case_id": "slash:1bfb9c667091fc1f1e4f1cfb57145a288a79267ff38dc734b6562670304d23c8",
+      "old_parent": "Scope Unit",
+      "old_child": "Scope Unit/Type",
+      "disposition": "not-native",
+      "confidence_percent": 95,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-R-1758",
+          "atom_revision": 20,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1758-CORE_META_MODEL-CORE--register-ordered-and-unordered-as-type-values-under-scope-unit.md",
+          "carrier_sha256": "518088ad7c56e3d02cee70c0025b3275079802fade1870982f9f1bd85a23bc0b",
+          "start_line": 29,
+          "end_line": 29,
+          "quote": "**every** Scope Unit **must** have **`=1`** Type value **in** (Ordered, Unordered).",
+          "text_sha256": "c63d32d852c20012a157fd14006307502c9b5921fe491346cd8354b61d935617"
+        }
+      ],
+      "checks_performed": [
+        "selected source is a current pinned candidate or direct GOVERNS owner for this exact baseline path",
+        "recomputed selected carrier SHA-256 equals the current input pin",
+        "quoted only the current ## Claim body, not frontmatter or a Summary title",
+        "did not promote source-Atom metadata, Subject incidence, or a qualified display path into a native relation"
+      ],
+      "reason": "The quoted current Claim gives this qualified field a bearer or context reading, but it does not state an immediate native relation between these exact baseline references.",
+      "question": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "canonical_relation": "IS_BORNE_BY",
+        "graph_kind": "entities",
+        "canonical_direction": "dependent_to_bearer",
+        "qualified_parent": "Scope Unit",
+        "qualified_child": "Scope Unit/Type",
+        "semantic_intent": "display-only bearer/context qualification",
+        "native_admission": "not_performed"
+      }
+    },
+    {
+      "case_id": "slash:1f7b435d5bdbc2b85ba2bd55c143bff76c8355675fdc8fda973c960c6b4a30f9",
+      "old_parent": "Atom/Content Role: Requirement/Type: Goal",
+      "old_child": "Atom/Content Role: Requirement/Type: Goal/Filename",
+      "disposition": "not-native",
+      "confidence_percent": 96,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-D-292",
+          "atom_revision": 15,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-292-CORE_META_MODEL--serialize-external-project-goal-filenames.md",
+          "carrier_sha256": "c74244f64debf60de21bcba55d0321f3f8339b13409ad7deb25ecadeebefb8e6",
+          "start_line": 31,
+          "end_line": 33,
+          "quote": "**every** external Project Goal filename **must** match `<OPERATOR_NAMES>-DEFINES_GOAL_FOR-<PROJECT_SCOPE>--<SUMMARY_SLUG>.<EXT>` **without** a Project prefix, Content Role letter, **or** number.\n\nthe `<PROJECT_SCOPE>` component **must** be the exact registered Project Name.",
+          "text_sha256": "7e68c150cb989b3ddff3b39b1570bca665686cc4be72dec7919026ba2a5c9f5c"
+        }
+      ],
+      "checks_performed": [
+        "selected source is a current pinned candidate or direct GOVERNS owner for this exact baseline path",
+        "recomputed selected carrier SHA-256 equals the current input pin",
+        "quoted only the current ## Claim body, not frontmatter or a Summary title",
+        "did not promote source-Atom metadata, Subject incidence, or a qualified display path into a native relation"
+      ],
+      "reason": "The current Claim governs external Project Goal filename syntax only; it cannot establish a native Goal/Filename dependent Entity.",
+      "question": null
+    },
+    {
+      "case_id": "slash:2214bf6361bbef3a2b142eab2dd82665b7e491d617e807164661896dd13ec2a4",
+      "old_parent": "Atom/Claim",
+      "old_child": "Atom/Claim/Carrier",
+      "disposition": "not-native",
+      "confidence_percent": 96,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-D-495",
+          "atom_revision": 1,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-495-CORE_META_MODEL-CORE-DELIVERY--carry-applicability-in-the-registered-body-sections.md",
+          "carrier_sha256": "60bb7faad37efa795acd0a730b8af40c6759fd29cbf435aa4ea1599902088234",
+          "start_line": 32,
+          "end_line": 37,
+          "quote": "a Markdown Atom Carrier **must** carry the Claim's applicability **in** the registered body sections, **not** as a duplicate frontmatter value:\n\n- for RMED, carry applicability **in** Scope, followed by the qualified contribution **in** Claim **and** supporting information **in** Details, using the exact headings registered by CA-D-479.\n- for other Content Roles, retain applicability **in** their registered primary content. this rule does **not** change their body-section layouts.\n- the RMED Scope section **must** contain an applicability description, **not** just a copy of `current_scope_unit` **or** `claim_target_scope_unit`. those fields remain the carried structural references under CA-D-482.\n- carry the applicability restrictions **=1** time. Claim **and** Details are read within Scope; do **not** maintain a second scope declaration **in** either section **or** frontmatter.",
+          "text_sha256": "54536febfa20d7842ba67208799a2ef4631363acae49a18ae5f830e941420da8"
+        }
+      ],
+      "checks_performed": [
+        "selected source is a current pinned candidate or direct GOVERNS owner for this exact baseline path",
+        "recomputed selected carrier SHA-256 equals the current input pin",
+        "quoted only the current ## Claim body, not frontmatter or a Summary title",
+        "did not promote source-Atom metadata, Subject incidence, or a qualified display path into a native relation"
+      ],
+      "reason": "The current Claim locates Claim applicability in registered body sections and rejects duplicate structural declarations; it does not establish a Claim/Carrier native binding.",
+      "question": null
+    },
+    {
+      "case_id": "slash:2351d0844e5345cb64ceb8d31a5fe4fe38450b726d1605a57903e28b190bc5b4",
+      "old_parent": "Atom/Content Role: Plan/Type: Plan",
+      "old_child": "Atom/Content Role: Plan/Type: Plan/Assignee",
+      "disposition": "not-native",
+      "confidence_percent": 95,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-R-1584",
+          "atom_revision": 4,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1584-CORE_META_MODEL-CORE-REQUIREMENT--require-an-effective-assignee-for-plan-work.md",
+          "carrier_sha256": "a5dad13bff8fe49c856ac453c70543b38c7ae2a6a5413e11b073c4a186bee422",
+          "start_line": 30,
+          "end_line": 30,
+          "quote": "**every** Plan Atom with its own work content **must** have **`=1`** effective Assignee; a pure Hub **without** its own work does **not** require an additional Assignee merely because it organizes other Plans.",
+          "text_sha256": "3078b2e4381944a4ec1db32bb0bde1ac2ca1fa4c1ad5f56b115c2769d3ffcbcb"
+        }
+      ],
+      "checks_performed": [
+        "selected source is a current pinned candidate or direct GOVERNS owner for this exact baseline path",
+        "recomputed selected carrier SHA-256 equals the current input pin",
+        "quoted only the current ## Claim body, not frontmatter or a Summary title",
+        "did not promote source-Atom metadata, Subject incidence, or a qualified display path into a native relation"
+      ],
+      "reason": "The quoted current Claim gives this qualified field a bearer or context reading, but it does not state an immediate native relation between these exact baseline references.",
+      "question": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "canonical_relation": "IS_BORNE_BY",
+        "graph_kind": "entities",
+        "canonical_direction": "dependent_to_bearer",
+        "qualified_parent": "Atom/Content Role: Plan/Type: Plan",
+        "qualified_child": "Atom/Content Role: Plan/Type: Plan/Assignee",
+        "semantic_intent": "display-only bearer/context qualification",
+        "native_admission": "not_performed"
+      }
+    },
+    {
+      "case_id": "slash:245fee646576854027b3c7c657ef877ee8801726f1019c4a2d9d781e48d1c402",
+      "old_parent": "Atom/Content Role: Plan/Type: Plan",
+      "old_child": "Atom/Content Role: Plan/Type: Plan/Label",
+      "disposition": "not-native",
+      "confidence_percent": 95,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-R-1576",
+          "atom_revision": 5,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1576-CORE_META_MODEL-CORE-REQUIREMENT--define-plan-labels.md",
+          "carrier_sha256": "4918f02e671d20191dd455d40ccaa4e2e62c9a9988f508a2bfceb841b2744666",
+          "start_line": 30,
+          "end_line": 30,
+          "quote": "`Atom/Content Role: Plan/Type: Plan/Label` **means** the Label Property borne by a Plan Atom under CA-R-1594-CORE_META_MODEL-CORE-REQUIREMENT--define-label, with examples (Version, Objective, Epic, Sub-epic, Mega-epic, Task, Subtask); these examples are navigation Labels, **not** an authoring Subtype registry.",
+          "text_sha256": "19c444178453b1b5acba9e1b235ee616c9fc3852c1eaf2dc34175d837573f78b"
+        }
+      ],
+      "checks_performed": [
+        "selected source is a current pinned candidate or direct GOVERNS owner for this exact baseline path",
+        "recomputed selected carrier SHA-256 equals the current input pin",
+        "quoted only the current ## Claim body, not frontmatter or a Summary title",
+        "did not promote source-Atom metadata, Subject incidence, or a qualified display path into a native relation"
+      ],
+      "reason": "The quoted current Claim gives this qualified field a bearer or context reading, but it does not state an immediate native relation between these exact baseline references.",
+      "question": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "canonical_relation": "IS_BORNE_BY",
+        "graph_kind": "entities",
+        "canonical_direction": "dependent_to_bearer",
+        "qualified_parent": "Atom/Content Role: Plan/Type: Plan",
+        "qualified_child": "Atom/Content Role: Plan/Type: Plan/Label",
+        "semantic_intent": "display-only bearer/context qualification",
+        "native_admission": "not_performed"
+      }
+    },
+    {
+      "case_id": "slash:247cb423bb1944a36ea46d354bb10c209ebfae52287bd4186945729485cc15ca",
+      "old_parent": "Scope Unit",
+      "old_child": "Scope Unit/Carrier",
+      "disposition": "not-native",
+      "confidence_percent": 95,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-D-505",
+          "atom_revision": 1,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-505-CORE_META_MODEL-CORE--define-the-entity-carrier-binding.md",
+          "carrier_sha256": "a8cea8b0ee7e5d0a1030c8871b110164eb6f7cc96425b7d1e2dcd935edef5ab3",
+          "start_line": 34,
+          "end_line": 34,
+          "quote": "the Carrier Property of an Entity **means** its binding **to** the Carrier that stores **or** represents it.",
+          "text_sha256": "f4471d195fb186c5074ea0bf377ee6f245696be91170f61293623e437307ba0b"
+        }
+      ],
+      "checks_performed": [
+        "selected source is a current pinned candidate or direct GOVERNS owner for this exact baseline path",
+        "recomputed selected carrier SHA-256 equals the current input pin",
+        "quoted only the current ## Claim body, not frontmatter or a Summary title",
+        "did not promote source-Atom metadata, Subject incidence, or a qualified display path into a native relation"
+      ],
+      "reason": "The quoted current Claim gives this qualified field a bearer or context reading, but it does not state an immediate native relation between these exact baseline references.",
+      "question": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "canonical_relation": "IS_BORNE_BY",
+        "graph_kind": "entities",
+        "canonical_direction": "dependent_to_bearer",
+        "qualified_parent": "Scope Unit",
+        "qualified_child": "Scope Unit/Carrier",
+        "semantic_intent": "display-only bearer/context qualification",
+        "native_admission": "not_performed"
+      }
+    },
+    {
+      "case_id": "slash:24ea17201b71474601a3bfbf1b06a6272dc75e00502504ca1f58059dd744f693",
+      "old_parent": "Atom/Content Role: Requirement/Type: Demand",
+      "old_child": "Atom/Content Role: Requirement/Type: Demand/Admission",
+      "disposition": "not-native",
+      "confidence_percent": 96,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-R-951",
+          "atom_revision": 17,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-951-CORE_META_MODEL-CORE-REQUIREMENT--require-an-exact-dependency-before-a-demand.md",
+          "carrier_sha256": "6162c2771fd120c086a7ef053f0ade2e1ba313158cf2e2345e88c9a3205cb5d7",
+          "start_line": 30,
+          "end_line": 30,
+          "quote": "a Consumer Scope Unit **must** own a Demand Atom **only** **when** its accepted Goal authorizes an exact dependency on the demanded Producer result.",
+          "text_sha256": "faa2a37d3d6d0c2914112b4d7e263af8c1da7c2068e28f40d1f88744463d8b5c"
+        }
+      ],
+      "checks_performed": [
+        "selected source is a current pinned candidate or direct GOVERNS owner for this exact baseline path",
+        "recomputed selected carrier SHA-256 equals the current input pin",
+        "quoted only the current ## Claim body, not frontmatter or a Summary title",
+        "did not promote source-Atom metadata, Subject incidence, or a qualified display path into a native relation"
+      ],
+      "reason": "The current Claim is a condition under which a Consumer Scope Unit may own a Demand Atom; it does not define Admission as a dependent Entity of the qualified Demand path.",
+      "question": null
+    },
+    {
+      "case_id": "slash:253fa12fc420d47ab55d42e343ef96ebc0e8268d7954900f9944ca6acb082a48",
+      "old_parent": "Term",
+      "old_child": "Term/name",
+      "disposition": "not-native",
+      "confidence_percent": 96,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-R-1324",
+          "atom_revision": 10,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1324-CORE_META_MODEL-REQUIREMENT--reserve-subject-expression-separators.md",
+          "carrier_sha256": "f38d4cc446b04cde6958f1fe011679ff95048bdfe30f360d11a7366a572bc0b1",
+          "start_line": 28,
+          "end_line": 28,
+          "quote": "a Term name **must not** contain `/` **or** `:`.",
+          "text_sha256": "40d5230837f0a8a29a4ad08739deb28a444c7ec7946c74b528e55f390ffc180e"
+        }
+      ],
+      "checks_performed": [
+        "selected source is a current pinned candidate or direct GOVERNS owner for this exact baseline path",
+        "recomputed selected carrier SHA-256 equals the current input pin",
+        "quoted only the current ## Claim body, not frontmatter or a Summary title",
+        "did not promote source-Atom metadata, Subject incidence, or a qualified display path into a native relation"
+      ],
+      "reason": "The current Claim is a lexical restriction on Term names, not a native Term/Name dependent-Entity fact.",
+      "question": null
+    },
+    {
+      "case_id": "slash:254548fef46d50601f1ccbb5960ca1d3885ad97c894852e67b2a529d14bbb7bb",
+      "old_parent": "Atom/Content Role: Plan/Type: Plan/Carrier",
+      "old_child": "Atom/Content Role: Plan/Type: Plan/Carrier/Filename",
+      "disposition": "not-native",
+      "confidence_percent": 96,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-D-469",
+          "atom_revision": 4,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-469-CORE_META_MODEL-STANDARD--serialize-plan-carrier-stems.md",
+          "carrier_sha256": "cdd86ae5e46ead4e36148382c5182dc0f492cf460eab4c6891f9c35eae1221e0",
+          "start_line": 33,
+          "end_line": 38,
+          "quote": "**every** identified Plan Carrier stem **must** use `[<WORK_SEQUENCE_NUMBER>-]<ATOM_ID>[-<LABEL>]--<SUMMARY_SLUG>`, with `.md` **only** on its File Carrier.\n\n- the optional Label is a navigation token, **not** an Atom Type token; normalize it under CA-D-284.\n- render the Summary under CA-D-282.\n- **by default**, direct Plans decomposing the same Hub use unique leading Work Sequence Numbers **before** their Atom IDs, under CA-D-381 **and** CA-R-997.\n- a same-bundle Directory Carrier **and** File Carrier use the same stem; number **or** Label changes preserve Atom identity **and** do **not** declare `BLOCKS`.",
+          "text_sha256": "3ed98ac1c1400514d5789f65647c617dfbe54bff54607be906b871b38f1effa2"
+        }
+      ],
+      "checks_performed": [
+        "selected source is a current pinned candidate or direct GOVERNS owner for this exact baseline path",
+        "recomputed selected carrier SHA-256 equals the current input pin",
+        "quoted only the current ## Claim body, not frontmatter or a Summary title",
+        "did not promote source-Atom metadata, Subject incidence, or a qualified display path into a native relation"
+      ],
+      "reason": "The current Claim governs Plan Carrier stem serialization; it does not turn a filename into a native property or a Carrier endpoint.",
+      "question": null
+    },
+    {
+      "case_id": "slash:264673c042d959a84e2fb12559995a0d5df1915f1e6674588e9f6ba2ac6f558a",
+      "old_parent": "Atom/Carrier/Current Scope Unit",
+      "old_child": "Atom/Carrier/Current Scope Unit/Filename Token",
+      "disposition": "not-native",
+      "confidence_percent": 96,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-D-291",
+          "atom_revision": 15,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-291-CORE_META_MODEL-DELIVERY--serialize-the-current-scope-unit-in-atom-filenames.md",
+          "carrier_sha256": "9a2855535ac2f6c7a35661ad558d97694f53feaadaba91ba890a20a7be04b9bd",
+          "start_line": 29,
+          "end_line": 29,
+          "quote": "**every** Project-owned Atom filename **must** serialize the Scope Unit that **contains** its authoritative Carrier **`=1`** time **and** **must** omit that segment **if** the Carrier is **in** the Project Scope Unit.",
+          "text_sha256": "15b423e85d870a33c3d307266c96857f8050e1f781eb815d5b8856c0e3d95939"
+        }
+      ],
+      "checks_performed": [
+        "selected source is a current pinned candidate or direct GOVERNS owner for this exact baseline path",
+        "recomputed selected carrier SHA-256 equals the current input pin",
+        "quoted only the current ## Claim body, not frontmatter or a Summary title",
+        "did not promote source-Atom metadata, Subject incidence, or a qualified display path into a native relation"
+      ],
+      "reason": "The current Claim serializes a containing Scope Unit into a filename. It is representation context, not a native filename-token relation.",
+      "question": null
+    },
+    {
+      "case_id": "slash:2b232b70a495a8ec496f17029b7c6b15cb00c19aaef0e4d240c0e714edcf9773",
+      "old_parent": "Evaluation",
+      "old_child": "Evaluation/Report",
+      "disposition": "unresolved",
+      "confidence_percent": 0,
+      "proposal": null,
+      "evidence": [],
+      "checks_performed": [
+        "selected source is a current pinned candidate or direct GOVERNS owner for this exact baseline path",
+        "recomputed selected carrier SHA-256 equals the current input pin",
+        "quoted only the current ## Claim body, not frontmatter or a Summary title",
+        "did not promote source-Atom metadata, Subject incidence, or a qualified display path into a native relation"
+      ],
+      "reviewed_candidate_atom_ids": [
+        "CA-O-104",
+        "CA-O-108",
+        "CA-O-109",
+        "CA-O-110"
+      ],
+      "reason": "No current content-source candidate is supplied. The four current direct dependency sources were reviewed: they use reports as workflow evidence or outputs but do not define Evaluation/Report as a native relation or display qualification.",
+      "question": "Which current Core Main Content source defines Evaluation/Report and states whether it is a native relation, a display qualification, or neither?"
+    },
+    {
+      "case_id": "slash:2ba6fe37e553259bc72272c819d03263926cac60877b1aa7a592b91c147fd0dd",
+      "old_parent": "Artifact",
+      "old_child": "Artifact/Authority",
+      "disposition": "not-native",
+      "confidence_percent": 95,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-R-1499",
+          "atom_revision": 5,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1499-CORE_META_MODEL-CORE-REQUIREMENT--define-artifact-authority.md",
+          "carrier_sha256": "a33d6fa638ab1015468269601a852704c5de2985f71241a7912b34a56d8b42e3",
+          "start_line": 28,
+          "end_line": 28,
+          "quote": "Authority **means** an Artifact's governed capacity **to** establish meaning of a declared kind.",
+          "text_sha256": "08b586185bcaa6e719782a1db109c3280e07e8f49cc7a05a80e080f8c4143107"
+        }
+      ],
+      "checks_performed": [
+        "selected source is a current pinned candidate or direct GOVERNS owner for this exact baseline path",
+        "recomputed selected carrier SHA-256 equals the current input pin",
+        "quoted only the current ## Claim body, not frontmatter or a Summary title",
+        "did not promote source-Atom metadata, Subject incidence, or a qualified display path into a native relation"
+      ],
+      "reason": "The quoted current Claim gives this qualified field a bearer or context reading, but it does not state an immediate native relation between these exact baseline references.",
+      "question": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "canonical_relation": "IS_BORNE_BY",
+        "graph_kind": "entities",
+        "canonical_direction": "dependent_to_bearer",
+        "qualified_parent": "Artifact",
+        "qualified_child": "Artifact/Authority",
+        "semantic_intent": "display-only bearer/context qualification",
+        "native_admission": "not_performed"
+      }
+    },
+    {
+      "case_id": "slash:2dc820230586952b30251e16656acb0ecfe187d076f57a255485af10def07ead",
+      "old_parent": "Atom",
+      "old_child": "Atom/Type",
+      "disposition": "not-native",
+      "confidence_percent": 96,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-R-1231",
+          "atom_revision": 14,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1231-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-type-values-for-concern-atoms.md",
+          "carrier_sha256": "bb665befe48a357fab79f17c9d1a604d6e46345ea929a06feeb6a8e825f5930f",
+          "start_line": 29,
+          "end_line": 29,
+          "quote": "the Core contribution **to** allowed values of `Atom/Content Role: Concern/Type` **must** be exactly (Question, Conflict, Problem).",
+          "text_sha256": "562a7691fc0886f7e3a483c97454cba07fbbf10983e5763eb470d9363f89d583"
+        }
+      ],
+      "checks_performed": [
+        "selected source is a current pinned candidate or direct GOVERNS owner for this exact baseline path",
+        "recomputed selected carrier SHA-256 equals the current input pin",
+        "quoted only the current ## Claim body, not frontmatter or a Summary title",
+        "did not promote source-Atom metadata, Subject incidence, or a qualified display path into a native relation"
+      ],
+      "reason": "The current Claim covers allowed Type values of Concern Atoms, not the generic Atom/Type pair; it cannot create a native relation for the broader baseline path.",
+      "question": null
+    },
+    {
+      "case_id": "slash:2e5c343777b2f542b1b2a37bbc8dcf09fbac7942ca5c93982700315c31e9bb96",
+      "old_parent": "Atom/Carrier",
+      "old_child": "Atom/Carrier/Canonical Address",
+      "disposition": "not-native",
+      "confidence_percent": 96,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-D-480",
+          "atom_revision": 4,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-480-CORE_META_MODEL--keep-atom-addresses-consistent-with-carried-properties.md",
+          "carrier_sha256": "b5bb0b3b11a8ac86964c39680b87158380d6c1da1c02173d0876957580ea6698",
+          "start_line": 32,
+          "end_line": 36,
+          "quote": "**every** Atom Property represented by a filename, matching directory name, **or** placement **must** agree with its canonical internal value under the applicable Delivery encoding.\n\n- compare resolved values using the registered encoding; a Summary Slug is checked against its Summary serialization, **not** against identical raw text.\n- a mismatch is invalid **and** **must** be reported; the address **must not** silently override the value carried inside the Atom.\n- agreement checking does **not** authorize rewriting the Atom **or** address. corrections require the applicable authorized change.",
+          "text_sha256": "6592da55ae2967fb64f22bd755c8a1a66bfb677265634361d94103e3a735dca5"
+        }
+      ],
+      "checks_performed": [
+        "selected source is a current pinned candidate or direct GOVERNS owner for this exact baseline path",
+        "recomputed selected carrier SHA-256 equals the current input pin",
+        "quoted only the current ## Claim body, not frontmatter or a Summary title",
+        "did not promote source-Atom metadata, Subject incidence, or a qualified display path into a native relation"
+      ],
+      "reason": "The current Claim requires address representation to agree with internal Property values and forbids the address from overriding them; it is not a native Canonical Address fact.",
+      "question": null
+    },
+    {
+      "case_id": "slash:2fd3fa643c36c2bf4c3a445ac594abe2eba1b90995411a30a133d7fa6e06fede",
+      "old_parent": "Atom",
+      "old_child": "Atom/Identity",
+      "disposition": "not-native",
+      "confidence_percent": 96,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-R-1406",
+          "atom_revision": 9,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1406-CORE_META_MODEL-CORE--keep-entity-identity-independent-of-graph-materialization.md",
+          "carrier_sha256": "9f02a3b4585c3c9debced436702c083bf7b4d626d1c28705783d63cb303b8898",
+          "start_line": 32,
+          "end_line": 32,
+          "quote": "materializing, refreshing, **or** deleting a Graph Projection **must not** establish, change, **or** remove Entity identity.",
+          "text_sha256": "937701ddb6420fa7a63bb1abf740c82cdd3a307e0b93d4daff919ab0cc54c032"
+        }
+      ],
+      "checks_performed": [
+        "selected source is a current pinned candidate or direct GOVERNS owner for this exact baseline path",
+        "recomputed selected carrier SHA-256 equals the current input pin",
+        "quoted only the current ## Claim body, not frontmatter or a Summary title",
+        "did not promote source-Atom metadata, Subject incidence, or a qualified display path into a native relation"
+      ],
+      "reason": "The current Claim prevents graph materialization from changing Entity identity; it does not establish the generic Atom/Identity path as a native relation.",
+      "question": null
+    },
+    {
+      "case_id": "slash:313b67d34f4effce0f67a04525aedc033b09081cc3df81ce42272b9dc43853d8",
+      "old_parent": "Atom/Subjects",
+      "old_child": "Atom/Subjects/Frontmatter",
+      "disposition": "not-native",
+      "confidence_percent": 96,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-D-269",
+          "atom_revision": 12,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-269-CORE_META_MODEL-DELIVERY--serialize-atom-subjects-in-frontmatter.md",
+          "carrier_sha256": "eea15e5b1c2411acdd552c8701da98ac34bab89a107ee05f28760eb1ce8eeac3",
+          "start_line": 33,
+          "end_line": 33,
+          "quote": "**every** new **or** migrated Markdown Atom Carrier **must** serialize its Subjects directly as **`=1`** scalar Subject Path at `subjects.governs` **and** an unordered collection of **`>=0`** unique scalar Subject Paths at `subjects.depends_on`; an absent dependency collection **means** zero dependencies. the `governs` **or** `depends_on` key encodes the Subject Relation Kind; the source Atom is implicit **and** the scalar value encodes its target's Subject Path, **not** the Subject Relation itself. these values resolve their canonical targets under CA-R-1202-CORE_META_MODEL-CORE-REQUIREMENT--resolve-every-direct-subject-target-once **without** an intermediate Subject/Entity **or** Subject/Reference field **or** a repeated target-kind field.",
+          "text_sha256": "931014e550299dcd99de59132e5be16e87ac7c4ca1c59b003e4e5c0037f75340"
+        }
+      ],
+      "checks_performed": [
+        "selected source is a current pinned candidate or direct GOVERNS owner for this exact baseline path",
+        "recomputed selected carrier SHA-256 equals the current input pin",
+        "quoted only the current ## Claim body, not frontmatter or a Summary title",
+        "did not promote source-Atom metadata, Subject incidence, or a qualified display path into a native relation"
+      ],
+      "reason": "The current Claim specifies direct Subjects serialization and explicitly rejects intermediate Subject/Entity fields; frontmatter storage is not a native Subjects/Frontmatter relation.",
+      "question": null
+    },
+    {
+      "case_id": "slash:32ea9394733ecbdff9e52e7195479ae0f59db67e5f957c9f88c708f57841fda8",
+      "old_parent": "Atom",
+      "old_child": "Atom/Summary",
+      "disposition": "not-native",
+      "confidence_percent": 95,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-R-1465",
+          "atom_revision": 8,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1465-CORE_META_MODEL-CORE--define-summary-as-an-atom-property.md",
+          "carrier_sha256": "36b83d020dbfbeccde12bee2f5d83e2c8d42f7469072b5f2e95e3f17b08a260a",
+          "start_line": 32,
+          "end_line": 32,
+          "quote": "a Summary **means** a short, non-authoritative navigation Property of **`=1`** Atom, derived from the finalized primary contribution registered for its Content Role, read within its applicability. it belongs **to** that Atom **without** independent identity, lifecycle, **or** authority.",
+          "text_sha256": "d8373e6acf69fdabf1dabe0d156f516dad8e624d3d337fd755a71f357aa19750"
+        }
+      ],
+      "checks_performed": [
+        "selected source is a current pinned candidate or direct GOVERNS owner for this exact baseline path",
+        "recomputed selected carrier SHA-256 equals the current input pin",
+        "quoted only the current ## Claim body, not frontmatter or a Summary title",
+        "did not promote source-Atom metadata, Subject incidence, or a qualified display path into a native relation"
+      ],
+      "reason": "The quoted current Claim gives this qualified field a bearer or context reading, but it does not state an immediate native relation between these exact baseline references.",
+      "question": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "canonical_relation": "IS_BORNE_BY",
+        "graph_kind": "entities",
+        "canonical_direction": "dependent_to_bearer",
+        "qualified_parent": "Atom",
+        "qualified_child": "Atom/Summary",
+        "semantic_intent": "display-only bearer/context qualification",
+        "native_admission": "not_performed"
+      }
+    },
+    {
+      "case_id": "slash:32fb325703ff953917e582d4cb8d1eab08ab9661c951bee4e5cc99d289e79eec",
+      "old_parent": "Atom/Content Role: Evaluation",
+      "old_child": "Atom/Content Role: Evaluation/Type",
+      "disposition": "not-native",
+      "confidence_percent": 96,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-R-1506",
+          "atom_revision": 4,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1506-CORE_META_MODEL-CORE-REQUIREMENT--separate-check-mechanism-labels-from-evaluation-atom-types.md",
+          "carrier_sha256": "8e30fc8aefaeb60d95efcfd811a82abccfae5b1a6afd2ca235480b735b22591d",
+          "start_line": 30,
+          "end_line": 30,
+          "quote": "the mechanism labels `Test` **and** `Evaluation` **must** describe implementation mechanisms, **not** Type values under `Atom/Content Role: Evaluation/Type`. the governing Evaluation Atom **and** its realization **must not** acquire the same classification merely because their names overlap.",
+          "text_sha256": "4843ed55e58d613e17261e430d829d79300450347be9d11c9ae1abb0cc9e895c"
+        }
+      ],
+      "checks_performed": [
+        "selected source is a current pinned candidate or direct GOVERNS owner for this exact baseline path",
+        "recomputed selected carrier SHA-256 equals the current input pin",
+        "quoted only the current ## Claim body, not frontmatter or a Summary title",
+        "did not promote source-Atom metadata, Subject incidence, or a qualified display path into a native relation"
+      ],
+      "reason": "The current Claim distinguishes mechanism labels from Evaluation Atom Type values and does not formulate a native Content Role/Type edge.",
+      "question": null
+    },
+    {
+      "case_id": "slash:348af6ded51f6e4e23b3f0b4fa1c2eb6b25d24088a76e563a031bddddc52aa15",
+      "old_parent": "Atom/Content Role: Plan",
+      "old_child": "Atom/Content Role: Plan/Direct Work Decomposition",
+      "disposition": "not-native",
+      "confidence_percent": 96,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-R-1338",
+          "atom_revision": 12,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1338-CORE_META_MODEL-CORE-REQUIREMENT--define-plan-content-role.md",
+          "carrier_sha256": "a9d8d9aa6a147c03136a12ac3acb9b3cb9eeb90978f4cf1734bcc8fe955ce975",
+          "start_line": 29,
+          "end_line": 29,
+          "quote": "Plan **means** the Content Role of an Atom Claim that states bounded intended work **or** an intended outcome under the common Plan model; it does **not** define a reusable Workflow **or** an Actor participation/authorization policy.",
+          "text_sha256": "b0c01543dfc2a22614ff9d444ac1af51297062e333c042960a4c2b165939d5c3"
+        }
+      ],
+      "checks_performed": [
+        "selected source is a current pinned candidate or direct GOVERNS owner for this exact baseline path",
+        "recomputed selected carrier SHA-256 equals the current input pin",
+        "quoted only the current ## Claim body, not frontmatter or a Summary title",
+        "did not promote source-Atom metadata, Subject incidence, or a qualified display path into a native relation"
+      ],
+      "reason": "The current Claim defines Plan as a Content Role and explicitly distinguishes it from Workflow and Actor policy; it does not define Direct Work Decomposition as a native dependent.",
+      "question": null
+    },
+    {
+      "case_id": "slash:3584d91926434e45aa5da3bf18ae269d0a169ad5ceb13f3649d667d42efb04de",
+      "old_parent": "Atom/Content Role: Plan/Type: Plan",
+      "old_child": "Atom/Content Role: Plan/Type: Plan/Details",
+      "disposition": "not-native",
+      "confidence_percent": 96,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-R-1586",
+          "atom_revision": 5,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1586-CORE_META_MODEL-CORE-REQUIREMENT--define-plan-details.md",
+          "carrier_sha256": "bb52ec824445518fb7eebdcca7c55c2a99fe46677bb4f615f3c06c6722a1cf5b",
+          "start_line": 30,
+          "end_line": 30,
+          "quote": "Plan Details **means** supporting information within the Plan Objective, its restrictions, **and** target, **without** additional intended work **or** an independent outcome. the Plan's Definition of Done tests that same Objective; its presence inside Details does **not** introduce another Claim.",
+          "text_sha256": "f1f6351d62a229ee221cfc0224bcdb66fbfd228748c6b4906629cc10ed7275d5"
+        }
+      ],
+      "checks_performed": [
+        "selected source is a current pinned candidate or direct GOVERNS owner for this exact baseline path",
+        "recomputed selected carrier SHA-256 equals the current input pin",
+        "quoted only the current ## Claim body, not frontmatter or a Summary title",
+        "did not promote source-Atom metadata, Subject incidence, or a qualified display path into a native relation"
+      ],
+      "reason": "The current Claim places Details within Objective restrictions and excludes another intended work or independent outcome; it does not establish a native Details relation.",
+      "question": null
+    },
+    {
+      "case_id": "slash:3887c2b035f149552ab65760685ef79b714ea131b1a93eebea7faafcff55c877",
+      "old_parent": "Atom/Content Role: Plan/Type: Plan",
+      "old_child": "Atom/Content Role: Plan/Type: Plan/Blocking",
+      "disposition": "not-native",
+      "confidence_percent": 96,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-R-1580",
+          "atom_revision": 4,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1580-CORE_META_MODEL-CORE-REQUIREMENT--define-plan-blocking.md",
+          "carrier_sha256": "38611796a0d9565a222ef4b85c7ae833cf1a92184e377f026097db675f9b7284",
+          "start_line": 33,
+          "end_line": 38,
+          "quote": "**in** the Plan Graph, `A BLOCKS B` **means** that Plan `B` **may** start **only** **after** Plan `A` is Done.\n\n- a Plan **may** block **>=0** other Plans **and** have **>=0** blockers.\n- **all** blockers **must** be Done **before** the blocked work starts.\n- navigation order, a shared Hub, **and** `DECOMPOSES_INTO` do **not** establish `BLOCKS`.\n- an inverse lookup is derived from the same explicit fact, **not** separately authored; Subject DEPENDS_ON remains a different Relation Kind.",
+          "text_sha256": "2a455a4fdf6227e09cf5743019a74ab9073711a4057d5e8c2bf1217c1ac9005b"
+        }
+      ],
+      "checks_performed": [
+        "selected source is a current pinned candidate or direct GOVERNS owner for this exact baseline path",
+        "recomputed selected carrier SHA-256 equals the current input pin",
+        "quoted only the current ## Claim body, not frontmatter or a Summary title",
+        "did not promote source-Atom metadata, Subject incidence, or a qualified display path into a native relation"
+      ],
+      "reason": "The current Claim defines BLOCKS exclusively in the Plan Graph and rejects invented edges. It does not establish an Entity- or Terms-graph relation for the qualified path.",
+      "question": null
+    },
+    {
+      "case_id": "slash:38bbf74f46b937c5df047ab8e55cbd9091e3192141b913f5d9a2f6cd6d8846ef",
+      "old_parent": "Entity",
+      "old_child": "Entity/Carrier",
+      "disposition": "not-native",
+      "confidence_percent": 95,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-D-505",
+          "atom_revision": 1,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-505-CORE_META_MODEL-CORE--define-the-entity-carrier-binding.md",
+          "carrier_sha256": "a8cea8b0ee7e5d0a1030c8871b110164eb6f7cc96425b7d1e2dcd935edef5ab3",
+          "start_line": 34,
+          "end_line": 34,
+          "quote": "the Carrier Property of an Entity **means** its binding **to** the Carrier that stores **or** represents it.",
+          "text_sha256": "f4471d195fb186c5074ea0bf377ee6f245696be91170f61293623e437307ba0b"
+        }
+      ],
+      "checks_performed": [
+        "selected source is a current pinned candidate or direct GOVERNS owner for this exact baseline path",
+        "recomputed selected carrier SHA-256 equals the current input pin",
+        "quoted only the current ## Claim body, not frontmatter or a Summary title",
+        "did not promote source-Atom metadata, Subject incidence, or a qualified display path into a native relation"
+      ],
+      "reason": "The quoted current Claim gives this qualified field a bearer or context reading, but it does not state an immediate native relation between these exact baseline references.",
+      "question": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "canonical_relation": "IS_BORNE_BY",
+        "graph_kind": "entities",
+        "canonical_direction": "dependent_to_bearer",
+        "qualified_parent": "Entity",
+        "qualified_child": "Entity/Carrier",
+        "semantic_intent": "display-only bearer/context qualification",
+        "native_admission": "not_performed"
+      }
+    },
+    {
+      "case_id": "slash:390103524aa6f61ac4edd2e43e8a81b4eefea9df6df175da6c4229b4a861b539",
+      "old_parent": "Atom/Content Role: Analysis",
+      "old_child": "Atom/Content Role: Analysis/Type",
+      "disposition": "not-native",
+      "confidence_percent": 96,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-R-1232",
+          "atom_revision": 14,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1232-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-type-values-for-analysis-atoms.md",
+          "carrier_sha256": "d40415ebf2c7c07fccb5ea4a8b55cf670b6e292c6800eaee97ea308ea4ac9bd5",
+          "start_line": 29,
+          "end_line": 29,
+          "quote": "the Core contribution **to** allowed values of `Atom/Content Role: Analysis/Type` **must** be exactly (Analysis Report, Rationale).",
+          "text_sha256": "135633a3af3aa477a5c75063716a2189d8c7499ea185ffb710196f3ca3d17ec0"
+        }
+      ],
+      "checks_performed": [
+        "selected source is a current pinned candidate or direct GOVERNS owner for this exact baseline path",
+        "recomputed selected carrier SHA-256 equals the current input pin",
+        "quoted only the current ## Claim body, not frontmatter or a Summary title",
+        "did not promote source-Atom metadata, Subject incidence, or a qualified display path into a native relation"
+      ],
+      "reason": "The current Claim registers allowed values for the qualified Analysis Type field; it does not establish a native relation from Analysis Content Role to its Type field.",
+      "question": null
+    },
+    {
+      "case_id": "slash:39aecd2a331ff01c14a8f33f036f9153661589f461e5d1ceabc3ed3d5f17bb9a",
+      "old_parent": "Atom",
+      "old_child": "Atom/Frontmatter",
+      "disposition": "not-native",
+      "confidence_percent": 96,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-D-269",
+          "atom_revision": 12,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-269-CORE_META_MODEL-DELIVERY--serialize-atom-subjects-in-frontmatter.md",
+          "carrier_sha256": "eea15e5b1c2411acdd552c8701da98ac34bab89a107ee05f28760eb1ce8eeac3",
+          "start_line": 33,
+          "end_line": 33,
+          "quote": "**every** new **or** migrated Markdown Atom Carrier **must** serialize its Subjects directly as **`=1`** scalar Subject Path at `subjects.governs` **and** an unordered collection of **`>=0`** unique scalar Subject Paths at `subjects.depends_on`; an absent dependency collection **means** zero dependencies. the `governs` **or** `depends_on` key encodes the Subject Relation Kind; the source Atom is implicit **and** the scalar value encodes its target's Subject Path, **not** the Subject Relation itself. these values resolve their canonical targets under CA-R-1202-CORE_META_MODEL-CORE-REQUIREMENT--resolve-every-direct-subject-target-once **without** an intermediate Subject/Entity **or** Subject/Reference field **or** a repeated target-kind field.",
+          "text_sha256": "931014e550299dcd99de59132e5be16e87ac7c4ca1c59b003e4e5c0037f75340"
+        }
+      ],
+      "checks_performed": [
+        "selected source is a current pinned candidate or direct GOVERNS owner for this exact baseline path",
+        "recomputed selected carrier SHA-256 equals the current input pin",
+        "quoted only the current ## Claim body, not frontmatter or a Summary title",
+        "did not promote source-Atom metadata, Subject incidence, or a qualified display path into a native relation"
+      ],
+      "reason": "The current Claim defines frontmatter serialization of direct Subject Relations and identifies the source Atom as implicit; it does not make Frontmatter a native dependent.",
+      "question": null
+    },
+    {
+      "case_id": "slash:3a392e166c3bf19b6897caab3060687202e97de68e7d5eb064b3564afbb539e7",
+      "old_parent": "Atom/Content Role: Plan/Type: Plan",
+      "old_child": "Atom/Content Role: Plan/Type: Plan/Identifier",
+      "disposition": "not-native",
+      "confidence_percent": 96,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-D-446",
+          "atom_revision": 7,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-446-CORE_META_MODEL-CORE--give-every-non-draft-atom-revision-one-identifier.md",
+          "carrier_sha256": "3391dbfa646ef362dd1c54cd8c9dab590ee7650f2215d51aec5b7f9ef49d4829",
+          "start_line": 33,
+          "end_line": 38,
+          "quote": "**every** non-Draft Atom Revision **must** have **`=1`** Identifier composed from its Atom Identity **and** Version.\n\n- carry the assigned Atom Identity as the top-level String `atom_id` **and** Version as `version`; their pair identifies this Revision **without** another `identifier` field.\n- a Draft Carrier **must not** carry an assigned `atom_id`; a filename, path, **or** temporary locator **must not** silently allocate one.\n- when an identified Atom is changed to Draft, its Draft Carrier remains a Revision of that same Atom: remove `atom_id` from the Draft Carrier's complete frontmatter **and** its assigned filename number under CA-D-288-CORE_META_MODEL-DELIVERY--serialize-draft-atom-filenames-with-an-empty-number; do **not** create another Draft Atom **or** represent the change as a replacement.\n- preserve that Draft Revision's Summary, meaning, Version, **and** identified predecessor history. this rule does **not** allocate **or** reuse an Atom Identity for a later Revision leaving Draft.",
+          "text_sha256": "bfa52173f11865878eafac62923c1cdb95199aa85e5b1b4973cbd154a2a96b00"
+        }
+      ],
+      "checks_performed": [
+        "selected source is a current pinned candidate or direct GOVERNS owner for this exact baseline path",
+        "recomputed selected carrier SHA-256 equals the current input pin",
+        "quoted only the current ## Claim body, not frontmatter or a Summary title",
+        "did not promote source-Atom metadata, Subject incidence, or a qualified display path into a native relation"
+      ],
+      "reason": "The current Claim gives an Identifier to a non-Draft Atom Revision, not to the exact qualified Plan path; no metadata property is transferred as a native Plan relation.",
+      "question": null
+    },
+    {
+      "case_id": "slash:3c944898ed6fadfe724763868623ac8d6c94a7c5d7d7e4e16d18b5c4230ef1a9",
+      "old_parent": "Atom/Revision",
+      "old_child": "Atom/Revision/Frontmatter",
+      "disposition": "not-native",
+      "confidence_percent": 96,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-D-270",
+          "atom_revision": 13,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-270-CORE_META_MODEL-DELIVERY--serialize-atom-revision-metadata-in-frontmatter.md",
+          "carrier_sha256": "8322273a6938108a8889c01b74c7bfc600b01ba39bfaa0bd0c0c01cc7352a6a3",
+          "start_line": 29,
+          "end_line": 29,
+          "quote": "**every** Markdown Atom Revision Carrier **must** serialize its positive integer Version as `version` **and** its Project-time Updated At value as `updated_at` **in** YAML frontmatter.",
+          "text_sha256": "5ab9d994e1f71ffb89db522559639a6908cf97ac9f487ca590852d14086468a6"
+        }
+      ],
+      "checks_performed": [
+        "selected source is a current pinned candidate or direct GOVERNS owner for this exact baseline path",
+        "recomputed selected carrier SHA-256 equals the current input pin",
+        "quoted only the current ## Claim body, not frontmatter or a Summary title",
+        "did not promote source-Atom metadata, Subject incidence, or a qualified display path into a native relation"
+      ],
+      "reason": "The current Claim serializes Version and Updated At in Atom Revision frontmatter; serialization storage is not an Entity-graph relation.",
+      "question": null
+    },
+    {
+      "case_id": "slash:402127587cde4de582e1352c8718c4952eb544afc975bebc7bbb07d623f2f285",
+      "old_parent": "Atom/Claim/Target Scope Unit",
+      "old_child": "Atom/Claim/Target Scope Unit/Carrier",
+      "disposition": "not-native",
+      "confidence_percent": 96,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-D-482",
+          "atom_revision": 7,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-482-CORE_META_MODEL-DELIVERY--carry-the-resolved-claim-target-scope-unit.md",
+          "carrier_sha256": "234720c3b8aafb19a9befc3a934155959b49ec876897370b1ae16adf290e4065",
+          "start_line": 35,
+          "end_line": 42,
+          "quote": "a Markdown Atom Carrier **must** carry its resolved Claim Target Scope Unit **in** frontmatter, including a Current-scope Atom whose target is its own Scope Unit.\n\n- choose the current Scope Unit as the default during authoring, **not** by relying on the file's later location.\n- a carried target equal **to** the current Scope Unit does **not** make the Atom Relational. a different target still requires the applicable Relational Atom admission.\n- Claim Scope restrictions use the body sections under CA-D-495-CORE_META_MODEL-CORE-DELIVERY--carry-applicability-in-the-registered-body-sections; the RMED Scope section does **not** replace **or** duplicate `claim_target_scope_unit`.\n\n- encode this Property as the top-level nonempty YAML string `claim_target_scope_unit`, resolving **to** **=1** registered Scope Unit. null, lists, **and** a duplicated `claim_scope` field are **not** this encoding.\n- an external Project Goal carries its Author fallback under CA-D-276-CORE_META_MODEL-DELIVERY--use-economical-yaml-frontmatter **in** `current_scope_unit` **and** the Project Scope Unit **in** `claim_target_scope_unit`; do **not** register the Author as a Scope Unit **or** infer either value from the filename.",
+          "text_sha256": "e7d50dce19caf96f943685e0f6f815c13954a88c1a453c3a3a1adec9af5d2fa3"
+        }
+      ],
+      "checks_performed": [
+        "selected source is a current pinned candidate or direct GOVERNS owner for this exact baseline path",
+        "recomputed selected carrier SHA-256 equals the current input pin",
+        "quoted only the current ## Claim body, not frontmatter or a Summary title",
+        "did not promote source-Atom metadata, Subject incidence, or a qualified display path into a native relation"
+      ],
+      "reason": "The current Claim carries Claim Target Scope Unit in frontmatter and rejects duplicate scope structure; it does not establish a Target Scope Unit/Carrier binding.",
+      "question": null
+    },
+    {
+      "case_id": "slash:41de85665284c785b4e65c675776265a131b66dcc04231eb0aa72932f92065a5",
+      "old_parent": "Atom/Content Role",
+      "old_child": "Atom/Content Role/Name",
+      "disposition": "not-native",
+      "confidence_percent": 96,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-R-1704",
+          "atom_revision": 19,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1704-CORE_META_MODEL-REQUIREMENT--require-stable-noun-content-role-names.md",
+          "carrier_sha256": "28d8f8caecfc0b2b187de676216f8caeacb70164b1b16fdd2cc4da31751a75a8",
+          "start_line": 30,
+          "end_line": 30,
+          "quote": "**every** canonical Content Role name **must** be a noun that names its primary contribution **and** remains stable across workflow, Actor, Tool, **and** implementation changes.",
+          "text_sha256": "ffe4ab5a090936990ffd6e43d6d6c16a9cfb6eaacded3ff837da047bc5d34406"
+        }
+      ],
+      "checks_performed": [
+        "selected source is a current pinned candidate or direct GOVERNS owner for this exact baseline path",
+        "recomputed selected carrier SHA-256 equals the current input pin",
+        "quoted only the current ## Claim body, not frontmatter or a Summary title",
+        "did not promote source-Atom metadata, Subject incidence, or a qualified display path into a native relation"
+      ],
+      "reason": "The current Claim constrains canonical Content Role names as stable nouns; it does not establish Name as a native dependent Entity.",
+      "question": null
+    },
+    {
+      "case_id": "slash:425537b2e376a2abd5ff8e9d0af846ede906f14a55535d03eb65bddaf9ed7d98",
+      "old_parent": "Atom/Content Role: Plan/Type: Plan",
+      "old_child": "Atom/Content Role: Plan/Type: Plan/Claim",
+      "disposition": "not-native",
+      "confidence_percent": 95,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-R-1574",
+          "atom_revision": 4,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1574-CORE_META_MODEL-CORE-REQUIREMENT--define-the-common-plan-atom.md",
+          "carrier_sha256": "a8350a67846ca08e8e0e7231b2cd01526a10c463cfbddcb8446a8e50d14c824e",
+          "start_line": 32,
+          "end_line": 32,
+          "quote": "a Plan Atom **means** an Atom with Content Role Plan **and** Type Plan whose **`=1`** Claim states bounded intended work **or** an intended outcome; its Label does **not** select a different authoring model.",
+          "text_sha256": "51fa50b42f8015129da7c93662e46560cb3e940c8e81448e086fa12d43b3ed18"
+        }
+      ],
+      "checks_performed": [
+        "selected source is a current pinned candidate or direct GOVERNS owner for this exact baseline path",
+        "recomputed selected carrier SHA-256 equals the current input pin",
+        "quoted only the current ## Claim body, not frontmatter or a Summary title",
+        "did not promote source-Atom metadata, Subject incidence, or a qualified display path into a native relation"
+      ],
+      "reason": "The quoted current Claim gives this qualified field a bearer or context reading, but it does not state an immediate native relation between these exact baseline references.",
+      "question": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "canonical_relation": "IS_BORNE_BY",
+        "graph_kind": "entities",
+        "canonical_direction": "dependent_to_bearer",
+        "qualified_parent": "Atom/Content Role: Plan/Type: Plan",
+        "qualified_child": "Atom/Content Role: Plan/Type: Plan/Claim",
+        "semantic_intent": "display-only bearer/context qualification",
+        "native_admission": "not_performed"
+      }
+    },
+    {
+      "case_id": "slash:435a833498993f64a196cf8674e3d68247332dc11c3310a0f585fd86096b36c2",
+      "old_parent": "Atom/Content Role: Plan/Type: Plan",
+      "old_child": "Atom/Content Role: Plan/Type: Plan/Autonomous Confidence Threshold",
+      "disposition": "not-native",
+      "confidence_percent": 96,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-R-1587",
+          "atom_revision": 4,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1587-CORE_META_MODEL-CORE--require-an-effective-confidence-threshold-for-plan-execution.md",
+          "carrier_sha256": "e2c13e07ba539b05959868169d761d18746b26e583abbccde1d55b1ee64b4523",
+          "start_line": 31,
+          "end_line": 31,
+          "quote": "**every** autonomous Plan execution decision **must** resolve **=1** effective Autonomous Confidence Threshold from its applicable explicit **or** inherited source under CA-M-271.",
+          "text_sha256": "83e72405f03765b37b1cb299be7a9761cab8fe37571cbad80104f75d51c8285b"
+        }
+      ],
+      "checks_performed": [
+        "selected source is a current pinned candidate or direct GOVERNS owner for this exact baseline path",
+        "recomputed selected carrier SHA-256 equals the current input pin",
+        "quoted only the current ## Claim body, not frontmatter or a Summary title",
+        "did not promote source-Atom metadata, Subject incidence, or a qualified display path into a native relation"
+      ],
+      "reason": "The current Claim resolves an effective threshold for autonomous execution decisions from applicable sources; it does not establish a native Plan/Threshold dependent.",
+      "question": null
+    },
+    {
+      "case_id": "slash:4409351bbb68cda52164be317b48d5f743bb5f9a1528657b4d844ee529a5ce4b",
+      "old_parent": "Atom",
+      "old_child": "Atom/Status",
+      "disposition": "not-native",
+      "confidence_percent": 96,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-R-1412",
+          "atom_revision": 9,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1412-CORE_META_MODEL-CORE--give-every-atom-revision-one-status.md",
+          "carrier_sha256": "7a74e9fe6d6ab90f56016c675b2bc566a0981fd4bb04b1462f5e1d429146d0af",
+          "start_line": 28,
+          "end_line": 28,
+          "quote": "**every** Atom Revision **must** have **`=1`** Status.",
+          "text_sha256": "2d9b87484c00fe76054ca8013d152e4777e4673dc35e84d353503fcf683eb169"
+        }
+      ],
+      "checks_performed": [
+        "selected source is a current pinned candidate or direct GOVERNS owner for this exact baseline path",
+        "recomputed selected carrier SHA-256 equals the current input pin",
+        "quoted only the current ## Claim body, not frontmatter or a Summary title",
+        "did not promote source-Atom metadata, Subject incidence, or a qualified display path into a native relation"
+      ],
+      "reason": "The current Claim requires Status for an Atom Revision, not the broader Atom path. Revision metadata is not promoted to Atom/Status as a native relation.",
+      "question": null
+    },
+    {
+      "case_id": "slash:4639ea856631882a70d38658518c98b96cba5aa7ec182677553300180e0881fe",
+      "old_parent": "Atom/Scope",
+      "old_child": "Atom/Scope/Filename Token",
+      "disposition": "not-native",
+      "confidence_percent": 96,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-D-302",
+          "atom_revision": 13,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-302-CORE_META_MODEL-DELIVERY--serialize-scope-unit-references-as-filename-tokens.md",
+          "carrier_sha256": "6dafff118ee74ab5995cb2918584bcc4fa1c843de0bb306f06926f4169ed6bfb",
+          "start_line": 27,
+          "end_line": 27,
+          "quote": "**every** Scope Unit reference serialized **in** an Atom filename **must** use **`=1`** stable uppercase token selected from its Scope Unit Name by Project Configuration.",
+          "text_sha256": "40cd8c1c362279e6ae7b4e26446156e77b46300937b5eb10a434f20a13896d9b"
+        }
+      ],
+      "checks_performed": [
+        "selected source is a current pinned candidate or direct GOVERNS owner for this exact baseline path",
+        "recomputed selected carrier SHA-256 equals the current input pin",
+        "quoted only the current ## Claim body, not frontmatter or a Summary title",
+        "did not promote source-Atom metadata, Subject incidence, or a qualified display path into a native relation"
+      ],
+      "reason": "The current Claim is a filename-token encoding rule for Scope Unit references. It is not a native Atom Scope/Filename Token fact.",
+      "question": null
+    },
+    {
+      "case_id": "slash:487eaee334423c34b553b0bb954b69b197dea96044d70600fc42e0a67f8b2340",
+      "old_parent": "Scope Unit",
+      "old_child": "Scope Unit/Name",
+      "disposition": "not-native",
+      "confidence_percent": 95,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-R-962",
+          "atom_revision": 14,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-962-CORE_META_MODEL-CORE-REQUIREMENT--give-every-scope-unit-one-name.md",
+          "carrier_sha256": "2c1fceec5acedbcb559e49119a2bd6ded3da5fa2eb5d75a466b2dfc3688fa6f0",
+          "start_line": 28,
+          "end_line": 28,
+          "quote": "**every** Scope Unit **must** have **`=1`** authoritative Name.",
+          "text_sha256": "df964767a111b643038c23b09db916388a20483d7ff7c5843be3e7488f49697b"
+        }
+      ],
+      "checks_performed": [
+        "selected source is a current pinned candidate or direct GOVERNS owner for this exact baseline path",
+        "recomputed selected carrier SHA-256 equals the current input pin",
+        "quoted only the current ## Claim body, not frontmatter or a Summary title",
+        "did not promote source-Atom metadata, Subject incidence, or a qualified display path into a native relation"
+      ],
+      "reason": "The quoted current Claim gives this qualified field a bearer or context reading, but it does not state an immediate native relation between these exact baseline references.",
+      "question": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "canonical_relation": "IS_BORNE_BY",
+        "graph_kind": "entities",
+        "canonical_direction": "dependent_to_bearer",
+        "qualified_parent": "Scope Unit",
+        "qualified_child": "Scope Unit/Name",
+        "semantic_intent": "display-only bearer/context qualification",
+        "native_admission": "not_performed"
+      }
+    },
+    {
+      "case_id": "slash:4d77424b0e0e47f9bd05aebe00be5938bf22337dfcee50d5655ce7eda6491ddb",
+      "old_parent": "Atom",
+      "old_child": "Atom/Revision",
+      "disposition": "not-native",
+      "confidence_percent": 96,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-R-1371",
+          "atom_revision": 10,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1371-CORE_META_MODEL-CORE--define-artifact-revision.md",
+          "carrier_sha256": "5d784abf1c82906ad8cb8d84e216f956fabf295523f15113ca9706032130c992",
+          "start_line": 27,
+          "end_line": 27,
+          "quote": "an Artifact/Revision **means** one immutable recorded state of one Artifact's governed meaning. lifecycle Status **and** Updated At serialize its current lifecycle metadata **and** **may** change **without** creating another semantic Revision.",
+          "text_sha256": "631b83fe4f04c37145cd4489503c9ed9debe1f4f511ce669d8b78d96ec1360af"
+        }
+      ],
+      "checks_performed": [
+        "selected source is a current pinned candidate or direct GOVERNS owner for this exact baseline path",
+        "recomputed selected carrier SHA-256 equals the current input pin",
+        "quoted only the current ## Claim body, not frontmatter or a Summary title",
+        "did not promote source-Atom metadata, Subject incidence, or a qualified display path into a native relation"
+      ],
+      "reason": "The current Claim defines Artifact Revision, not a generic Atom/Revision native relation. It cannot transfer Artifact semantics to Atom solely from the old qualified path.",
+      "question": null
+    }
+  ]
+}

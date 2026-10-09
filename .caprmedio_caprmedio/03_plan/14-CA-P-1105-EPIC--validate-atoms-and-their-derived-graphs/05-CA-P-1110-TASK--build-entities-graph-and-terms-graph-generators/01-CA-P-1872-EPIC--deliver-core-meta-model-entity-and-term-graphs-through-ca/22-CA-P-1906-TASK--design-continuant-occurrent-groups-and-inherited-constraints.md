@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Projection
   depends_on: [Entity, Term, Atom, Property, Carrier, Plan]
-version: 4
-updated_at: "2026-10-10 02:10:14 +0400"
+version: 5
+updated_at: "2026-10-10 02:32:12 +0400"
 relations:
   is_decomposition_of: [CA-P-1872]
   blocks: [CA-P-1907]
@@ -57,20 +57,24 @@ Exclusive scope: read baseline and Core definitions; write candidate structure a
 
 | Task | Responsibility | Estimate |
 |---|---|---|
-| [CA-P-1913](22-CA-P-1906-TASK--design-continuant-occurrent-groups-and-inherited-constraints/01-CA-P-1913-TASK--review-first-atom-and-artifact-relation-batch.md) | Review first Atom and Artifact relation batch | 15 min |
-| [CA-P-1914](22-CA-P-1906-TASK--design-continuant-occurrent-groups-and-inherited-constraints/02-CA-P-1914-TASK--review-second-atom-and-artifact-relation-batch.md) | Review second Atom and Artifact relation batch | 15 min |
-| [CA-P-1915](22-CA-P-1906-TASK--design-continuant-occurrent-groups-and-inherited-constraints/03-CA-P-1915-TASK--review-third-atom-and-artifact-relation-batch.md) | Review third Atom and Artifact relation batch | 15 min |
-| [CA-P-1916](22-CA-P-1906-TASK--design-continuant-occurrent-groups-and-inherited-constraints/04-CA-P-1916-TASK--review-projection-carrier-and-journal-relations.md) | Review Projection Carrier and Journal relations | 15 min |
-| [CA-P-1917](22-CA-P-1906-TASK--design-continuant-occurrent-groups-and-inherited-constraints/05-CA-P-1917-TASK--review-first-context-and-operation-relation-batch.md) | Review first context and operation relation batch | 15 min |
+| [CA-P-1913](22-CA-P-1906-TASK--design-continuant-occurrent-groups-and-inherited-constraints/done/01-CA-P-1913-TASK--review-first-atom-and-artifact-relation-batch.md) | Review first Atom and Artifact relation batch | 15 min |
+| [CA-P-1914](22-CA-P-1906-TASK--design-continuant-occurrent-groups-and-inherited-constraints/done/02-CA-P-1914-TASK--review-second-atom-and-artifact-relation-batch.md) | Review second Atom and Artifact relation batch | 15 min |
+| [CA-P-1915](22-CA-P-1906-TASK--design-continuant-occurrent-groups-and-inherited-constraints/done/03-CA-P-1915-TASK--review-third-atom-and-artifact-relation-batch.md) | Review third Atom and Artifact relation batch | 15 min |
+| [CA-P-1916](22-CA-P-1906-TASK--design-continuant-occurrent-groups-and-inherited-constraints/done/04-CA-P-1916-TASK--review-projection-carrier-and-journal-relations.md) | Review Projection Carrier and Journal relations | 15 min |
+| [CA-P-1917](22-CA-P-1906-TASK--design-continuant-occurrent-groups-and-inherited-constraints/done/05-CA-P-1917-TASK--review-first-context-and-operation-relation-batch.md) | Review first context and operation relation batch | 15 min |
 | [CA-P-1918](22-CA-P-1906-TASK--design-continuant-occurrent-groups-and-inherited-constraints/06-CA-P-1918-TASK--review-second-context-and-operation-relation-batch.md) | Review second context and operation relation batch | 15 min |
 | [CA-P-1919](22-CA-P-1906-TASK--design-continuant-occurrent-groups-and-inherited-constraints/07-CA-P-1919-TASK--design-core-temporal-groups-and-inherited-constraints.md) | Design Core temporal groups and inherited constraints | 15 min |
-| [CA-P-1920](22-CA-P-1906-TASK--design-continuant-occurrent-groups-and-inherited-constraints/08-CA-P-1920-TASK--design-parallel-and-entity-centered-rmed-views.md) | Design parallel and Entity centered RMED views | 15 min |
+| [CA-P-1920](22-CA-P-1906-TASK--design-continuant-occurrent-groups-and-inherited-constraints/done/08-CA-P-1920-TASK--design-parallel-and-entity-centered-rmed-views.md) | Design parallel and Entity centered RMED views | 15 min |
 | [CA-P-1921](22-CA-P-1906-TASK--design-continuant-occurrent-groups-and-inherited-constraints/09-CA-P-1921-TASK--integrate-the-source-pinned-core-relation-ledger.md) | Integrate the source pinned Core relation ledger | 15 min |
 | [CA-P-1922](22-CA-P-1906-TASK--design-continuant-occurrent-groups-and-inherited-constraints/10-CA-P-1922-TASK--verify-the-core-grouping-and-relation-design.md) | Verify the Core grouping and relation design | 15 min |
 
 CA-P-1913 through CA-P-1920 may run in parallel after CA-P-1905 is Done. CA-P-1921 starts only after all eight are Done; CA-P-1922 starts only after CA-P-1921 is Done. This explicit BLOCKS model, not navigation or decomposition, controls execution. Temporary batch outputs are preserved in the durable verified handoff before their receipts are recorded. The six sorted case-ID partitions must cover each of the 294 old slash cases exactly once.
 
 Inherit CA-P-1872's explicit 90% confidence threshold and local-without-MCP authorization. Ask the Operator before deciding below that threshold; do not disguise uncertainty as an accepted fact. If the ready workload exceeds 15 minutes, split it into bounded direct child Plans before execution. The children are created before execution; their outputs remain proposed design, not candidate acceptance.
+
+### Current execution checkpoint
+
+CA-P-1913–1917 and CA-P-1920 are Done with durable evidence in `.caprmedio_caprmedio/_projection/core-entity-review/design/`. CA-P-1918's four remaining review children are Done; its complete join is next. CA-P-1919's source-backed structure draft passed independent bounded acceptance, but its six temporal memberships still await the Operator's display-convention decision. CA-P-1921 and CA-P-1922 have not started. This parent remains Active; CA-P-1907 is not ready.
 
 ### Definition of Done
 

@@ -1,0 +1,460 @@
+{
+  "source_task": "CA-P-1925",
+  "batch_number": 6,
+  "baseline_inventory_sha256": "23394abaf6e9c18a585cf3146aedd0a80df166c9dd82be6e86ed7c3c56780bdc",
+  "source_binding": {
+    "selection_sha256": "f72964ad096a671d0c36cc0cf6649cf2cf131110edb57446fb523dc5feedb840",
+    "source_collection_sha256": "5ebcf48d24841b65ba46ffdd113e964fe10a53da80a40db32cefedc484ae7d3d",
+    "source_frontier_sha256": "7792e842cfe6c66320745660e69cd0df5525ec18bb22b5c060a6ddfff5fc97f7"
+  },
+  "partition_sha256": "8581457d521045382e16a063de98a43840f78c4c83f732e6cda6c44954ea68b5",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "semantic_admission": "not_performed",
+  "cases": [
+    {
+      "case_id": "slash:bca1c148dbc29a78ae231dd43efa4a59a52bc430b917f39970317991c88f6b10",
+      "old_parent": "Structural Entity",
+      "old_child": "Structural Entity/Containment",
+      "disposition": "not-native",
+      "confidence_percent": 97,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-D-266",
+          "atom_revision": 13,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-266-CORE_META_MODEL-CORE-DELIVERY--prohibit-persisting-derived-containment.md",
+          "carrier_sha256": "e8786ab9d629bf73b7d5a6679cfecbf72921ed04ab8c888d8f4e4d85b7fe8d36",
+          "start_line": 27,
+          "end_line": 29,
+          "quote": "## Claim\n\n`CONTAINS` **and** `IS_CONTAINED_BY` relations derived from canonical Carrier nesting **must not** be persisted as independent relation declarations.",
+          "text_sha256": "6443a48516b923efafccd5fff935c4632bb556750c6a5fdbf5442f5cf2914725"
+        }
+      ],
+      "checks_performed": [
+        "verified every listed current candidate source pin against current carrier bytes",
+        "quoted an exact current semantic Main Content span outside frontmatter and Subjects",
+        "compared the reviewed meaning with the closed relation vocabulary without manufacturing a new kind",
+        "did not infer semantics from legacy path text, filename, metadata, or source incidence",
+        "preserved qualified references and performed no native admission"
+      ],
+      "reason": "The current Claim explicitly prohibits persisting derived CONTAINS and IS_CONTAINED_BY declarations; the legacy containment path is therefore a derived representation, not a native relation.",
+      "question": null
+    },
+    {
+      "case_id": "slash:c1e12f6512839a2066a33deecc97d6a30e3704c8eb2784a8a447f69dbc8ac55a",
+      "old_parent": "Applicable Methodology/Sources",
+      "old_child": "Applicable Methodology/Sources/Installed Extensions",
+      "disposition": "not-native",
+      "confidence_percent": 95,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-R-1228",
+          "atom_revision": 16,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1228-CORE_META_MODEL-GENERAL-REQUIREMENT--include-all-applicable-methodology-sources.md",
+          "carrier_sha256": "06af68c2f1621383253f78769706a5351bc7a0c6100895ef9d59a95634c07ceb",
+          "start_line": 30,
+          "end_line": 32,
+          "quote": "## Claim\n\nthe Applicable Methodology source set **must** include CORE_META_MODEL, PROJECT_CONFIGURATION, **and** **every** installed Extension Source applicable under the current Framework Instance Settings. **when** **none** is applicable, the Extension contribution **is empty** **without** a rule requiring zero installed Extensions **or** a Carrier for an empty INSTALLED_EXTENSIONS collection.",
+          "text_sha256": "0683ddd9a6106f87e5e92d70ef50fe789c8191a06bba78b8254d04802fc34cbb"
+        }
+      ],
+      "checks_performed": [
+        "verified every listed current candidate source pin against current carrier bytes",
+        "quoted an exact current semantic Main Content span outside frontmatter and Subjects",
+        "compared the reviewed meaning with the closed relation vocabulary without manufacturing a new kind",
+        "did not infer semantics from legacy path text, filename, metadata, or source incidence",
+        "preserved qualified references and performed no native admission"
+      ],
+      "reason": "The current Claim defines Installed Extensions as a contribution within the Applicable Methodology source set, including an explicitly empty contribution. This is a configuration collection qualification, not a native edge.",
+      "question": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Applicable Methodology/Sources",
+        "qualified_child": "Applicable Methodology/Sources/Installed Extensions",
+        "semantic_intent": "configuration_collection_qualification",
+        "native_admission": "not_performed"
+      }
+    },
+    {
+      "case_id": "slash:c2391bc2218272ada08eb17b8bee5fe02fe5d858ac43c9cd8447266ab9443a36",
+      "old_parent": "Framework Instance Settings/interaction",
+      "old_child": "Framework Instance Settings/interaction/reporting mode",
+      "disposition": "not-native",
+      "confidence_percent": 99,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-R-1628",
+          "atom_revision": 25,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1628-CORE_META_MODEL-REQUIREMENT--allow-silent-and-verbose-reporting-modes.md",
+          "carrier_sha256": "380ed6f08059eb3ed09ab72242e85798a550863b107c107dbee0e8bc89ad8a35",
+          "start_line": 26,
+          "end_line": 28,
+          "quote": "## Claim\n\nthe framework-instance interaction reporting setting **must** have **`=1`** value **in** (`silent`, `verbose`).",
+          "text_sha256": "ea946058d532060ff287b7a22de4736fc30fbb82672cb5d8366972e37491d715"
+        }
+      ],
+      "checks_performed": [
+        "verified every listed current candidate source pin against current carrier bytes",
+        "quoted an exact current semantic Main Content span outside frontmatter and Subjects",
+        "compared the reviewed meaning with the closed relation vocabulary without manufacturing a new kind",
+        "did not infer semantics from legacy path text, filename, metadata, or source incidence",
+        "preserved qualified references and performed no native admission"
+      ],
+      "reason": "The current Claim requires exactly one interaction reporting setting with a closed value set. This is a Framework Instance Settings field qualification, not an entity relation.",
+      "question": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Framework Instance Settings/interaction",
+        "qualified_child": "Framework Instance Settings/interaction/reporting mode",
+        "semantic_intent": "configuration_field_qualification",
+        "native_admission": "not_performed"
+      }
+    },
+    {
+      "case_id": "slash:c2664911d92af1cb2d4784cb59c30fd792c1fb84c1b64cd9a237ff32d168abd3",
+      "old_parent": "Materialized Representation",
+      "old_child": "Materialized Representation/Carrier",
+      "disposition": "not-native",
+      "confidence_percent": 96,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-D-309",
+          "atom_revision": 12,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-309-CORE_META_MODEL-CORE--bind-materialized-representations-to-regeneration-sources.md",
+          "carrier_sha256": "08d9a70a3f6edc6ad973af0c23f47639b9fa1e299a258e068a0cf12aa18f59ee",
+          "start_line": 26,
+          "end_line": 28,
+          "quote": "## Claim\n\n**every** admitted materialized representation Carrier **must** have a recoverable binding **to** its exact canonical source Revision **and** **`=1`** deterministic regeneration **or** reconciliation rule.",
+          "text_sha256": "7c3eb88d6f15f4bdb6e90a832ddee71d09ee33d9441450bec4c90f7df6ebb265"
+        }
+      ],
+      "checks_performed": [
+        "verified every listed current candidate source pin against current carrier bytes",
+        "quoted an exact current semantic Main Content span outside frontmatter and Subjects",
+        "compared the reviewed meaning with the closed relation vocabulary without manufacturing a new kind",
+        "did not infer semantics from legacy path text, filename, metadata, or source incidence",
+        "preserved qualified references and performed no native admission"
+      ],
+      "reason": "The current Claim requires each admitted materialized representation Carrier to bind recoverably to its canonical source Revision. That is a representation/carrier qualification; it does not prove an immediate native IS_BORNE_BY identity edge.",
+      "question": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Materialized Representation",
+        "qualified_child": "Materialized Representation/Carrier",
+        "semantic_intent": "general_bearer_qualification",
+        "native_admission": "not_performed"
+      }
+    },
+    {
+      "case_id": "slash:c2f8196944ac8789e276d44862e523fbb4cf4997536a4889fe491482315476ff",
+      "old_parent": "Applicable Methodology/Sources/Installed Extensions",
+      "old_child": "Applicable Methodology/Sources/Installed Extensions/Catalog Entry",
+      "disposition": "not-native",
+      "confidence_percent": 95,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-R-1220",
+          "atom_revision": 11,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1220-CORE_META_MODEL-REQUIREMENT--require-immutable-installed-extension-candidate-provenance.md",
+          "carrier_sha256": "e2d321b77e2249bfebeac59d2bfed861b0937bb695fc48983d231ba4bdacb2bc",
+          "start_line": 27,
+          "end_line": 29,
+          "quote": "## Claim\n\n**every** Installed Extensions Catalog Entry **must** identify **`=1`** immutable Extension Candidate by stable Identity, Version, Author, Source, Source Version, Origin, **and** Content Digest.",
+          "text_sha256": "9973cc60d4ca5f00a0a428109a021708e7f5af2653bdf3d36fd337e68982ce4a"
+        }
+      ],
+      "checks_performed": [
+        "verified every listed current candidate source pin against current carrier bytes",
+        "quoted an exact current semantic Main Content span outside frontmatter and Subjects",
+        "compared the reviewed meaning with the closed relation vocabulary without manufacturing a new kind",
+        "did not infer semantics from legacy path text, filename, metadata, or source incidence",
+        "preserved qualified references and performed no native admission"
+      ],
+      "reason": "The current Claim requires each Installed Extensions Catalog Entry to identify one immutable Extension Candidate by explicit fields. The slash path is a catalog/configuration qualification, not a native relation.",
+      "question": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Applicable Methodology/Sources/Installed Extensions",
+        "qualified_child": "Applicable Methodology/Sources/Installed Extensions/Catalog Entry",
+        "semantic_intent": "configuration_collection_qualification",
+        "native_admission": "not_performed"
+      }
+    },
+    {
+      "case_id": "slash:c51cc2181b75db4939f08c048cc8d59f10d9b51ad8334b92d8a550c0dcd7a0f7",
+      "old_parent": "File Carrier",
+      "old_child": "File Carrier/Extension",
+      "disposition": "unresolved",
+      "confidence_percent": 78,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-D-258",
+          "atom_revision": 11,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-258-CORE_META_MODEL-CORE-DELIVERY--classify-file-carrier.md",
+          "carrier_sha256": "4af326d1c38dafd47020e32f36338f25962ec43177b97c7988932b709aff8e64",
+          "start_line": 26,
+          "end_line": 28,
+          "quote": "## Claim\n\nthe Term File Carrier NARROWER_THAN Carrier.",
+          "text_sha256": "e5327334b25be434ebc7f0e130a92eea20f7255e1e180026aa506d0c257daeb6"
+        },
+        {
+          "atom_id": "CA-R-1217",
+          "atom_revision": 11,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1217-CORE_META_MODEL-CORE-REQUIREMENT--define-extension.md",
+          "carrier_sha256": "df0242fdb57efd78122a09f42335a5e41b0fe5ea5485f7179d9d02581248bfa7",
+          "start_line": 28,
+          "end_line": 30,
+          "quote": "## Claim\n\nan Extension **means** an immutable Methodology Source that adds authority within the Core Meta-Model's permitted expansion boundary under CA-R-1375-CORE_META_MODEL-CORE-REQUIREMENT--restrict-methodology-source-expansion-to-core-permission. specialization is admitted **only** **where** that boundary permits it **and** preserves applicable Core Meta-Model authority; unchanged Core Carrier bytes alone do **not** establish preservation.",
+          "text_sha256": "08f945117d2d81f9170e846597b64af2f07463c29f63be6126c943dc0386f6af"
+        }
+      ],
+      "checks_performed": [
+        "verified every listed current candidate source pin against current carrier bytes",
+        "quoted an exact current semantic Main Content span outside frontmatter and Subjects",
+        "compared the reviewed meaning with the closed relation vocabulary without manufacturing a new kind",
+        "did not infer semantics from legacy path text, filename, metadata, or source incidence",
+        "preserved qualified references and performed no native admission"
+      ],
+      "reason": "The selected Claims define File Carrier as a Carrier term and Extension as a distinct immutable Methodology Source, but they do not establish whether this slash path is a field, a source qualification, or a native relation.",
+      "question": "Should File Carrier/Extension remain a representation or source qualification, or is there an explicitly governed native relation between those distinct terms?"
+    },
+    {
+      "case_id": "slash:c8029aae30e728e4ffa6373a80671350fe29fedff7ad2f8024e463dcdf429056",
+      "old_parent": "Framework Instance Settings/Confidence",
+      "old_child": "Framework Instance Settings/Confidence/Necessary Information Threshold",
+      "disposition": "not-native",
+      "confidence_percent": 99,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-R-1652",
+          "atom_revision": 22,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1652-CORE_META_MODEL-GENERAL--configure-necessary-information-confidence-threshold.md",
+          "carrier_sha256": "b803ff9c8c7843b076bfd4cec278ae20d3fc217b9750958b3e4fa317d7a19225",
+          "start_line": 32,
+          "end_line": 34,
+          "quote": "## Claim\n\nthe necessary-information Confidence Threshold **must** have an Operator-configurable integer-percentage instance default.",
+          "text_sha256": "f7eed5b29df2dacb0ed1e678d8ab0305639a9fe5d826dd1c6534790ff749017a"
+        }
+      ],
+      "checks_performed": [
+        "verified every listed current candidate source pin against current carrier bytes",
+        "quoted an exact current semantic Main Content span outside frontmatter and Subjects",
+        "compared the reviewed meaning with the closed relation vocabulary without manufacturing a new kind",
+        "did not infer semantics from legacy path text, filename, metadata, or source incidence",
+        "preserved qualified references and performed no native admission"
+      ],
+      "reason": "The current Claim defines Necessary Information Threshold as an Operator-configurable integer-percentage setting. This is a configuration field qualification, not a native relation.",
+      "question": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Framework Instance Settings/Confidence",
+        "qualified_child": "Framework Instance Settings/Confidence/Necessary Information Threshold",
+        "semantic_intent": "configuration_field_qualification",
+        "native_admission": "not_performed"
+      }
+    },
+    {
+      "case_id": "slash:cb9a4fc7d85d413809577bd2d5d8dacb3610eaba5c2ef9f729dd85fe45364893",
+      "old_parent": "Framework Instance Settings",
+      "old_child": "Framework Instance Settings/Carrier",
+      "disposition": "unresolved",
+      "confidence_percent": 80,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-R-1402",
+          "atom_revision": 10,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1402-CORE_META_MODEL-CORE--define-framework-instance-settings.md",
+          "carrier_sha256": "55819591535bf60bc5a4ddc8f55dc9c4f46201ce3b4d588f5d6a35b2941fd2f2",
+          "start_line": 28,
+          "end_line": 30,
+          "quote": "## Claim\n\nthe Term Framework Instance Settings **means** the authoritative Artifact containing explicit Operator-selected behavior **and** configuration choices for **`=1`** CAPRMEDIO Framework Instance serving **`=1`** Project.",
+          "text_sha256": "5ed2ac920570dea906d122c2f7b2f1c29ad3894f5cd089a4df02a7b452263725"
+        },
+        {
+          "atom_id": "CA-R-1750",
+          "atom_revision": 21,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL-CORE--partition-operator-settings-between-settings-artifacts.md",
+          "carrier_sha256": "ccc949d6ede0c9a9d436a25d934f3fb3d771afdae4e31a36044273a8474da1ab",
+          "start_line": 34,
+          "end_line": 36,
+          "quote": "## Claim\n\nan Operator-selected setting **must** have **`=1`** authoritative owner: Project Settings for Project initialization inputs, including Project Name **and** Project Atom prefix; Framework Instance Settings for CAPRMEDIO behavior, configuration choices, **and** Authority Mode defaults; **or** Project Structure for an explicit per-Scope-Unit Authority Mode override. Atoms define permitted parameters, constraints, **and** applicability **without** fixing **or** duplicating current selected values **or** Default Settings values. definitions **and** storage rules for Project Name **and** Project Atom prefix belong **to** CORE_META_MODEL.",
+          "text_sha256": "d73be8e458521c3716b501eff6cf3170c4f83d44391d3126ac2d86663d952330"
+        }
+      ],
+      "checks_performed": [
+        "verified every listed current candidate source pin against current carrier bytes",
+        "quoted an exact current semantic Main Content span outside frontmatter and Subjects",
+        "compared the reviewed meaning with the closed relation vocabulary without manufacturing a new kind",
+        "did not infer semantics from legacy path text, filename, metadata, or source incidence",
+        "preserved qualified references and performed no native admission"
+      ],
+      "reason": "The selected Claims establish Framework Instance Settings as an authoritative configuration Artifact and assign ownership to that Artifact, but the reviewed candidates do not provide an exact Framework Instance Settings-to-Carrier binding Claim.",
+      "question": "Which current Main Content Claim, if any, proves the Framework Instance Settings Carrier binding, and is it only a display qualification or a native relation?"
+    },
+    {
+      "case_id": "slash:cc05c646fa00e00f03e1d398dda4f18b756b054b9c0001af1e52ba93453a2865",
+      "old_parent": "Implementation",
+      "old_child": "Implementation/Derivation and Actual-State Authority",
+      "disposition": "not-native",
+      "confidence_percent": 97,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-R-1873",
+          "atom_revision": 1,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1873-CORE_META_MODEL-CORE--derive-implementation-and-use-its-actual-state-as-source.md",
+          "carrier_sha256": "cf857c75b7e791c035eb34ee63801010d72cc4ad8bf39852ea76e933b9fe53a6",
+          "start_line": 25,
+          "end_line": 27,
+          "quote": "## Claim\n\nImplementation production **must** derive I from current applicable RMED using governed Operations: **RMED → using O → I**. native I **may** subsequently act as source truth for its actual realized content, structure, dependencies, **and** behavior. a further view derived from I using O, including a dependency graph, **must** remain a non-authoritative Projection: **I → using O → Projection**.",
+          "text_sha256": "ab7d6c8b7af4d18442d28281a7fa8bda7137b9c0314fb1b0002be8a24aac1f29"
+        }
+      ],
+      "checks_performed": [
+        "verified every listed current candidate source pin against current carrier bytes",
+        "quoted an exact current semantic Main Content span outside frontmatter and Subjects",
+        "compared the reviewed meaning with the closed relation vocabulary without manufacturing a new kind",
+        "did not infer semantics from legacy path text, filename, metadata, or source incidence",
+        "preserved qualified references and performed no native admission"
+      ],
+      "reason": "The current Claim explicitly describes the governed execution derivation RMED → using O → I and preserves native I as actual-state authority. This is an execution-context qualification; no closed native derivation kind is asserted here.",
+      "question": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Implementation",
+        "qualified_child": "Implementation/Derivation and Actual-State Authority",
+        "semantic_intent": "execution_context_qualification",
+        "native_admission": "not_performed"
+      }
+    },
+    {
+      "case_id": "slash:d04191de176e795b40923bc2b62542b630a1735183e8f0b3bd33a0faebec9f01",
+      "old_parent": "Framework Instance Settings",
+      "old_child": "Framework Instance Settings/interaction",
+      "disposition": "not-native",
+      "confidence_percent": 96,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-D-497",
+          "atom_revision": 3,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-497-CORE_META_MODEL--encode-rmed-review-batch-limits.md",
+          "carrier_sha256": "1a689616605c762c43f95dbc5779b3203210c9b9df37d237c1579207e58a080e",
+          "start_line": 29,
+          "end_line": 31,
+          "quote": "## Claim\n\nRMED review batch limits **must** use these TOML parameters:",
+          "text_sha256": "c9de4bb57c969cc578c5ee1b7283c4ad749febde44a25b6f9e8f31ec59baf49d"
+        },
+        {
+          "atom_id": "CA-R-1750",
+          "atom_revision": 21,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL-CORE--partition-operator-settings-between-settings-artifacts.md",
+          "carrier_sha256": "ccc949d6ede0c9a9d436a25d934f3fb3d771afdae4e31a36044273a8474da1ab",
+          "start_line": 34,
+          "end_line": 36,
+          "quote": "## Claim\n\nan Operator-selected setting **must** have **`=1`** authoritative owner: Project Settings for Project initialization inputs, including Project Name **and** Project Atom prefix; Framework Instance Settings for CAPRMEDIO behavior, configuration choices, **and** Authority Mode defaults; **or** Project Structure for an explicit per-Scope-Unit Authority Mode override. Atoms define permitted parameters, constraints, **and** applicability **without** fixing **or** duplicating current selected values **or** Default Settings values. definitions **and** storage rules for Project Name **and** Project Atom prefix belong **to** CORE_META_MODEL.",
+          "text_sha256": "d73be8e458521c3716b501eff6cf3170c4f83d44391d3126ac2d86663d952330"
+        }
+      ],
+      "checks_performed": [
+        "verified every listed current candidate source pin against current carrier bytes",
+        "quoted an exact current semantic Main Content span outside frontmatter and Subjects",
+        "compared the reviewed meaning with the closed relation vocabulary without manufacturing a new kind",
+        "did not infer semantics from legacy path text, filename, metadata, or source incidence",
+        "preserved qualified references and performed no native admission"
+      ],
+      "reason": "The current Claims assign Framework Instance Settings ownership to selected behavior/configuration choices and define TOML setting encodings. The interaction path is a configuration qualification, not a native relation.",
+      "question": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Framework Instance Settings",
+        "qualified_child": "Framework Instance Settings/interaction",
+        "semantic_intent": "configuration_field_qualification",
+        "native_admission": "not_performed"
+      }
+    },
+    {
+      "case_id": "slash:d1596a33061b3d18b32ffc3c3e5997c6a677e3b6cd44bcd76d6fc1aecb9855dd",
+      "old_parent": "Hub",
+      "old_child": "Hub/Carrier",
+      "disposition": "unresolved",
+      "confidence_percent": 82,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-D-309",
+          "atom_revision": 12,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-309-CORE_META_MODEL-CORE--bind-materialized-representations-to-regeneration-sources.md",
+          "carrier_sha256": "08d9a70a3f6edc6ad973af0c23f47639b9fa1e299a258e068a0cf12aa18f59ee",
+          "start_line": 26,
+          "end_line": 28,
+          "quote": "## Claim\n\n**every** admitted materialized representation Carrier **must** have a recoverable binding **to** its exact canonical source Revision **and** **`=1`** deterministic regeneration **or** reconciliation rule.",
+          "text_sha256": "7c3eb88d6f15f4bdb6e90a832ddee71d09ee33d9441450bec4c90f7df6ebb265"
+        },
+        {
+          "atom_id": "CA-E-500",
+          "atom_revision": 4,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/06_evaluation/CA-E-500-CORE_META_MODEL-QA_CASE--validate-workflow-scheme-and-step-carrier-separation.md",
+          "carrier_sha256": "5db4d560b31de1eb2de323baee397f35eb6dbd70e64bc2aca6e2844df6384156",
+          "start_line": 32,
+          "end_line": 34,
+          "quote": "## Claim\n\nthe Workflow representation Evaluation **must** reject a Carrier arrangement that duplicates definition authority **or** derives execution order from storage order.",
+          "text_sha256": "7787c04148e9bd6a245a09b06733694b254f0acfa698060e374ba123cf056879"
+        }
+      ],
+      "checks_performed": [
+        "verified every listed current candidate source pin against current carrier bytes",
+        "quoted an exact current semantic Main Content span outside frontmatter and Subjects",
+        "compared the reviewed meaning with the closed relation vocabulary without manufacturing a new kind",
+        "did not infer semantics from legacy path text, filename, metadata, or source incidence",
+        "preserved qualified references and performed no native admission"
+      ],
+      "reason": "The selected Claims establish recoverable Carrier bindings for materialized representations and preserve Workflow graph meaning across storage, but they do not explicitly identify a Hub-to-Carrier binding for this path.",
+      "question": "Which current Main Content Claim explicitly identifies the Hub Carrier binding, and should it remain display-only rather than become a native relation?"
+    },
+    {
+      "case_id": "slash:d1a1765eea3993ae253c10df3d8c7768d1610d13910d3335ff5691b50be736f8",
+      "old_parent": "Confidence Threshold",
+      "old_child": "Confidence Threshold/source",
+      "disposition": "not-native",
+      "confidence_percent": 96,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-R-1428",
+          "atom_revision": 9,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1428-CORE_META_MODEL-GENERAL--permit-confidence-threshold-defaults-and-overrides.md",
+          "carrier_sha256": "8bf145b5175d143954ac403bb11247fc8d2a74168881ed607260b1fb66c2c075",
+          "start_line": 33,
+          "end_line": 35,
+          "quote": "## Claim\n\na Confidence Threshold **must** take its value from applicable direct Operator input, an explicit Property on the current Plan, the nearest enclosing Hub Plan with an explicit Property, **or** the Framework Instance Settings default; the Hub chain follows `IS_DECOMPOSITION_OF`, **not** Label spelling.",
+          "text_sha256": "f68a2592b3910d03dc59eb5b543fc9c1e838960dee7d054b7b2386af0f3132a2"
+        }
+      ],
+      "checks_performed": [
+        "verified every listed current candidate source pin against current carrier bytes",
+        "quoted an exact current semantic Main Content span outside frontmatter and Subjects",
+        "compared the reviewed meaning with the closed relation vocabulary without manufacturing a new kind",
+        "did not infer semantics from legacy path text, filename, metadata, or source incidence",
+        "preserved qualified references and performed no native admission"
+      ],
+      "reason": "The current Claim defines the effective Confidence Threshold source precedence across Operator input, Plan properties, Hub inheritance, and Framework Instance Settings. This is an execution/configuration-source qualification, not a native relation.",
+      "question": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Confidence Threshold",
+        "qualified_child": "Confidence Threshold/source",
+        "semantic_intent": "execution_context_qualification",
+        "native_admission": "not_performed"
+      }
+    }
+  ]
+}

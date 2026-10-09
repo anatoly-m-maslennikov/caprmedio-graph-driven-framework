@@ -1,0 +1,1088 @@
+{
+  "additional_relations": [
+    {
+      "boundary": "Term same-referent relation, not Property ownership, temporal parentage or a new native Entity relation.",
+      "canonical_direction": "narrower_to_broader",
+      "canonical_relation": "NARROWER_THAN",
+      "confidence_percent": 98,
+      "display_operator": "/",
+      "disposition": "proposed",
+      "evidence_refs": [
+        "CA-R-1266:28-28",
+        "CA-R-1435:28-38"
+      ],
+      "graph_kind": "terms",
+      "native_admission": "not_performed",
+      "provenance_kind": "new_Main_Content_synthesis_not_old_Subject_occurrence",
+      "qualified_child": "Primary Entity",
+      "qualified_parent": "Entity",
+      "relation_id": "1919-01",
+      "support": "direct Main Content requirement"
+    },
+    {
+      "boundary": "Term same-referent relation, not Property ownership, temporal parentage or a new native Entity relation.",
+      "canonical_direction": "narrower_to_broader",
+      "canonical_relation": "NARROWER_THAN",
+      "confidence_percent": 98,
+      "display_operator": "/",
+      "disposition": "proposed",
+      "evidence_refs": [
+        "CA-R-1267:28-28",
+        "CA-R-1435:28-38"
+      ],
+      "graph_kind": "terms",
+      "native_admission": "not_performed",
+      "provenance_kind": "new_Main_Content_synthesis_not_old_Subject_occurrence",
+      "qualified_child": "Dependent Entity",
+      "qualified_parent": "Entity",
+      "relation_id": "1919-02",
+      "support": "direct Main Content requirement"
+    },
+    {
+      "boundary": "Term same-referent relation, not Property ownership, temporal parentage or a new native Entity relation.",
+      "canonical_direction": "narrower_to_broader",
+      "canonical_relation": "NARROWER_THAN",
+      "confidence_percent": 98,
+      "display_operator": "/",
+      "disposition": "proposed",
+      "evidence_refs": [
+        "CA-R-1249:28-28",
+        "CA-R-1435:28-38"
+      ],
+      "graph_kind": "terms",
+      "native_admission": "not_performed",
+      "provenance_kind": "new_Main_Content_synthesis_not_old_Subject_occurrence",
+      "qualified_child": "Artifact",
+      "qualified_parent": "Primary Entity",
+      "relation_id": "1919-03",
+      "support": "direct Main Content requirement"
+    },
+    {
+      "boundary": "Term same-referent relation, not Property ownership, temporal parentage or a new native Entity relation.",
+      "canonical_direction": "narrower_to_broader",
+      "canonical_relation": "NARROWER_THAN",
+      "confidence_percent": 98,
+      "display_operator": "/",
+      "disposition": "proposed",
+      "evidence_refs": [
+        "CA-R-1250:28-28",
+        "CA-R-1435:28-38"
+      ],
+      "graph_kind": "terms",
+      "native_admission": "not_performed",
+      "provenance_kind": "new_Main_Content_synthesis_not_old_Subject_occurrence",
+      "qualified_child": "Actor",
+      "qualified_parent": "Primary Entity",
+      "relation_id": "1919-04",
+      "support": "direct Main Content requirement"
+    },
+    {
+      "boundary": "Term same-referent relation, not Property ownership, temporal parentage or a new native Entity relation.",
+      "canonical_direction": "narrower_to_broader",
+      "canonical_relation": "NARROWER_THAN",
+      "confidence_percent": 98,
+      "display_operator": "/",
+      "disposition": "proposed",
+      "evidence_refs": [
+        "CA-D-414:28-28",
+        "CA-R-1435:28-38"
+      ],
+      "graph_kind": "terms",
+      "native_admission": "not_performed",
+      "provenance_kind": "new_Main_Content_synthesis_not_old_Subject_occurrence",
+      "qualified_child": "Carrier",
+      "qualified_parent": "Primary Entity",
+      "relation_id": "1919-05",
+      "support": "direct Delivery Main Content requirement"
+    },
+    {
+      "boundary": "Term same-referent relation, not Property ownership, temporal parentage or a new native Entity relation.",
+      "canonical_direction": "narrower_to_broader",
+      "canonical_relation": "NARROWER_THAN",
+      "confidence_percent": 98,
+      "display_operator": "/",
+      "disposition": "proposed",
+      "evidence_refs": [
+        "CA-D-258:28-28",
+        "CA-R-1435:28-38"
+      ],
+      "graph_kind": "terms",
+      "native_admission": "not_performed",
+      "provenance_kind": "new_Main_Content_synthesis_not_old_Subject_occurrence",
+      "qualified_child": "File Carrier",
+      "qualified_parent": "Carrier",
+      "relation_id": "1919-06",
+      "support": "direct Delivery Main Content classification"
+    },
+    {
+      "boundary": "Term same-referent relation, not Property ownership, temporal parentage or a new native Entity relation.",
+      "canonical_direction": "narrower_to_broader",
+      "canonical_relation": "NARROWER_THAN",
+      "confidence_percent": 98,
+      "display_operator": "/",
+      "disposition": "proposed",
+      "evidence_refs": [
+        "CA-D-259:28-28",
+        "CA-R-1435:28-38"
+      ],
+      "graph_kind": "terms",
+      "native_admission": "not_performed",
+      "provenance_kind": "new_Main_Content_synthesis_not_old_Subject_occurrence",
+      "qualified_child": "Directory Carrier",
+      "qualified_parent": "Carrier",
+      "relation_id": "1919-07",
+      "support": "direct Delivery Main Content classification"
+    },
+    {
+      "boundary": "Term same-referent relation, not Property ownership, temporal parentage or a new native Entity relation.",
+      "canonical_direction": "narrower_to_broader",
+      "canonical_relation": "NARROWER_THAN",
+      "confidence_percent": 98,
+      "display_operator": "/",
+      "disposition": "proposed",
+      "evidence_refs": [
+        "CA-R-655:26-26",
+        "CA-R-1435:28-38"
+      ],
+      "graph_kind": "terms",
+      "native_admission": "not_performed",
+      "provenance_kind": "new_Main_Content_synthesis_not_old_Subject_occurrence",
+      "qualified_child": "Atom",
+      "qualified_parent": "Artifact",
+      "relation_id": "1919-08",
+      "support": "same-referent implication of the governing definition"
+    },
+    {
+      "boundary": "Term same-referent relation, not Property ownership, temporal parentage or a new native Entity relation.",
+      "canonical_direction": "narrower_to_broader",
+      "canonical_relation": "NARROWER_THAN",
+      "confidence_percent": 98,
+      "display_operator": "/",
+      "disposition": "proposed",
+      "evidence_refs": [
+        "CA-R-1193:28-28",
+        "CA-R-1435:28-38"
+      ],
+      "graph_kind": "terms",
+      "native_admission": "not_performed",
+      "provenance_kind": "new_Main_Content_synthesis_not_old_Subject_occurrence",
+      "qualified_child": "Property",
+      "qualified_parent": "Dependent Entity",
+      "relation_id": "1919-09",
+      "support": "same-referent implication of the governing definition"
+    },
+    {
+      "boundary": "Term same-referent relation, not Property ownership, temporal parentage or a new native Entity relation.",
+      "canonical_direction": "narrower_to_broader",
+      "canonical_relation": "NARROWER_THAN",
+      "confidence_percent": 98,
+      "display_operator": "/",
+      "disposition": "proposed",
+      "evidence_refs": [
+        "CA-R-1422:32-32",
+        "CA-R-1435:28-38"
+      ],
+      "graph_kind": "terms",
+      "native_admission": "not_performed",
+      "provenance_kind": "new_Main_Content_synthesis_not_old_Subject_occurrence",
+      "qualified_child": "Operator",
+      "qualified_parent": "Actor",
+      "relation_id": "1919-10",
+      "support": "same-referent implication of the governing definition"
+    }
+  ],
+  "baseline_file_sha256": "bc5d99e91fb7dd4dcb42e59ff33cc24cff1d0901c5904764394c769aaa0a9430",
+  "baseline_inventory_sha256": "23394abaf6e9c18a585cf3146aedd0a80df166c9dd82be6e86ed7c3c56780bdc",
+  "broad_root_candidates": [
+    {
+      "evidence_refs": [
+        "CA-R-1248:28-28"
+      ],
+      "meaning": "Broad admitted graph-node model, not an ontology root-count conclusion.",
+      "qualified_identity": "Entity"
+    },
+    {
+      "evidence_refs": [
+        "CA-R-1191:28-28",
+        "CA-R-1266:28-28"
+      ],
+      "meaning": "Independent-identity anchor for the directly evidenced Artifact/Actor/Carrier term families.",
+      "qualified_identity": "Primary Entity"
+    },
+    {
+      "evidence_refs": [
+        "CA-R-1192:28-28",
+        "CA-R-1267:28-28",
+        "CA-R-1193:28-28"
+      ],
+      "meaning": "Immediate-bearer identity anchor for the directly evidenced Property family.",
+      "qualified_identity": "Dependent Entity"
+    }
+  ],
+  "checks_performed": {
+    "Core_Subject_Plan_Git_MCP_FPF_runtime_writes": 0,
+    "all_proposed_node_references_in_pinned_baseline": true,
+    "baseline_canonical_inventory_digest": "matched",
+    "baseline_physical_file_digest": "matched",
+    "concrete_carrier_binding_inheritance": 0,
+    "evidence_quotes_and_utf8_digests": "matched exact inclusive Main Content lines",
+    "excluded_source_carrier_pins_verified": 43,
+    "fake_old_Subject_occurrences": 0,
+    "native_temporal_relation_proposals": 0,
+    "selected_source_carrier_pins_verified": 908,
+    "whole_node_disposition_review": "not_performed"
+  },
+  "coverage": {
+    "additional_relation_count": 10,
+    "assessed_node_identities": [
+      "Action",
+      "Action Run",
+      "Actor",
+      "Applicable Methodology",
+      "Artifact",
+      "Atom",
+      "Atom/Content Role: Analysis/Type: Analysis Report",
+      "Atom/Content Role: Analysis/Type: Rationale",
+      "Atom/Content Role: Plan/Type: Plan",
+      "Atom/Content Role: Requirement",
+      "Carrier",
+      "Dependent Entity",
+      "Directory Carrier",
+      "Entity",
+      "File Carrier",
+      "Operator",
+      "Primary Entity",
+      "Projection",
+      "Property",
+      "Scope Unit",
+      "Step",
+      "Step Run",
+      "Workflow",
+      "Workflow Run"
+    ],
+    "assessed_syntactic_root_identities": [
+      "Action",
+      "Action Run",
+      "Actor",
+      "Applicable Methodology",
+      "Artifact",
+      "Atom",
+      "Carrier",
+      "Dependent Entity",
+      "Directory Carrier",
+      "Entity",
+      "File Carrier",
+      "Operator",
+      "Primary Entity",
+      "Projection",
+      "Property",
+      "Scope Unit",
+      "Step",
+      "Step Run",
+      "Workflow",
+      "Workflow Run"
+    ],
+    "baseline_nodes": 706,
+    "baseline_roots": 346,
+    "constraints_are_not_complete_family_reviews": true,
+    "distinct_nodes_assessed_in_this_bounded_design": 24,
+    "inherited_constraint_count": 7,
+    "non_temporal_broad_model_anchor_count": 4,
+    "proposed_temporal_memberships": 14,
+    "unresolved_temporal_memberships": 6,
+    "unreviewed_identity_set": {
+      "inventory_path": ".caprmedio_caprmedio/_projection/core-entity-review/baseline.inventory.json",
+      "inventory_sha256": "23394abaf6e9c18a585cf3146aedd0a80df166c9dd82be6e86ed7c3c56780bdc",
+      "method": "All baseline node identities minus assessed_node_identities.",
+      "sorted_identity_set_sha256": "863d1357fee4864fcfb6eec5755337101c14f818b490940aa7a216ace167486e"
+    },
+    "unreviewed_node_count": 682,
+    "unreviewed_preservation": "Remain visible in an explicit unclassified bucket using exact baseline identities. No default temporal group, parentage, native kind, locus, Carrier or disposition is inferred.",
+    "unreviewed_syntactic_root_count": 326
+  },
+  "display_groups": [
+    {
+      "confidence_percent": 96,
+      "display_group": "Continuant",
+      "disposition": "proposed",
+      "label_is_not_entity_identity": true,
+      "meaning": "Local temporal display lens for persistent/reusable information artifacts; not BFO adoption or a native taxonomy root.",
+      "members": [
+        {
+          "confidence_percent": 99,
+          "display_reason": "The governing identity persists across Artifact Revisions; this is the strongest local continuant display anchor.",
+          "disposition": "proposed",
+          "evidence_refs": [
+            "CA-R-1268:29-29"
+          ],
+          "native_temporal_classification": "not_performed",
+          "qualified_identity": "Artifact"
+        },
+        {
+          "confidence_percent": 96,
+          "display_reason": "A governed information Artifact, not the act of authoring or executing it.",
+          "disposition": "proposed",
+          "evidence_refs": [
+            "CA-R-655:26-26",
+            "CA-R-1268:29-29"
+          ],
+          "native_temporal_classification": "not_performed",
+          "qualified_identity": "Atom"
+        },
+        {
+          "confidence_percent": 96,
+          "display_reason": "Reusable Action definition; not its invocation, Actor, Tool, Task, Journal Record or Carrier.",
+          "disposition": "proposed",
+          "evidence_refs": [
+            "CA-R-1452:37-37",
+            "CA-R-655:26-26",
+            "CA-R-1268:29-29"
+          ],
+          "native_temporal_classification": "not_performed",
+          "qualified_identity": "Action"
+        },
+        {
+          "confidence_percent": 96,
+          "display_reason": "Reusable graph definition; distinct from actual Workflow Runs.",
+          "disposition": "proposed",
+          "evidence_refs": [
+            "CA-R-1508:35-43",
+            "CA-R-655:26-26",
+            "CA-R-1268:29-29"
+          ],
+          "native_temporal_classification": "not_performed",
+          "qualified_identity": "Workflow"
+        },
+        {
+          "confidence_percent": 96,
+          "display_reason": "Reusable Step definition; distinct from Step Runs and its referenced Action.",
+          "disposition": "proposed",
+          "evidence_refs": [
+            "CA-R-1509:34-41",
+            "CA-R-655:26-26",
+            "CA-R-1268:29-29"
+          ],
+          "native_temporal_classification": "not_performed",
+          "qualified_identity": "Step"
+        },
+        {
+          "confidence_percent": 96,
+          "display_reason": "The Plan information Artifact stores intended work; it is not an occurrence of that work.",
+          "disposition": "proposed",
+          "evidence_refs": [
+            "CA-R-1574:32-32",
+            "CA-R-655:26-26",
+            "CA-R-1268:29-29"
+          ],
+          "native_temporal_classification": "not_performed",
+          "qualified_identity": "Atom/Content Role: Plan/Type: Plan"
+        },
+        {
+          "confidence_percent": 96,
+          "display_reason": "A Requirement-role Atom carries a model or required-result Claim; not the modeled Entity or achieved result.",
+          "disposition": "proposed",
+          "evidence_refs": [
+            "CA-R-1339:30-36",
+            "CA-R-655:26-26",
+            "CA-R-1268:29-29"
+          ],
+          "native_temporal_classification": "not_performed",
+          "qualified_identity": "Atom/Content Role: Requirement"
+        },
+        {
+          "confidence_percent": 96,
+          "display_reason": "Analysis information Artifact; not an actual analysis activity or a Run inferred from its name.",
+          "disposition": "proposed",
+          "evidence_refs": [
+            "CA-R-1337:29-29",
+            "CA-R-1232:29-29",
+            "CA-R-655:26-26",
+            "CA-R-1268:29-29"
+          ],
+          "native_temporal_classification": "not_performed",
+          "qualified_identity": "Atom/Content Role: Analysis/Type: Analysis Report"
+        },
+        {
+          "confidence_percent": 96,
+          "display_reason": "A Rationale-type Analysis information Artifact, not normative model authority.",
+          "disposition": "proposed",
+          "evidence_refs": [
+            "CA-R-1337:29-29",
+            "CA-R-1232:29-29",
+            "CA-R-655:26-26",
+            "CA-R-1268:29-29"
+          ],
+          "native_temporal_classification": "not_performed",
+          "qualified_identity": "Atom/Content Role: Analysis/Type: Rationale"
+        },
+        {
+          "confidence_percent": 93,
+          "display_reason": "A non-authoritative generated information view; distinguish the view from its generation occurrence and represented facts.",
+          "disposition": "proposed",
+          "evidence_refs": [
+            "CA-R-1746:32-38"
+          ],
+          "native_temporal_classification": "not_performed",
+          "qualified_identity": "Projection"
+        },
+        {
+          "confidence_percent": 94,
+          "display_reason": "A non-authoritative reconciled source-content projection; not a Scope Unit or the compilation execution.",
+          "disposition": "proposed",
+          "evidence_refs": [
+            "CA-R-1213:36-38"
+          ],
+          "native_temporal_classification": "not_performed",
+          "qualified_identity": "Applicable Methodology"
+        }
+      ],
+      "native_admission": "not_performed"
+    },
+    {
+      "confidence_percent": 98,
+      "display_group": "Occurrent",
+      "disposition": "proposed",
+      "label_is_not_entity_identity": true,
+      "meaning": "Local display lens for actual executions/Runs; not reusable definitions, reports, model Subjects or invented executions.",
+      "members": [
+        {
+          "confidence_percent": 98,
+          "display_reason": "An actual invocation with its own definition/input binding, start/terminal outcome, results/effects and durable evidence; no Run is invented by this grouping.",
+          "disposition": "proposed",
+          "evidence_refs": [
+            "CA-O-128:48-48",
+            "CA-R-1452:37-37"
+          ],
+          "native_temporal_classification": "not_performed",
+          "qualified_identity": "Action Run"
+        },
+        {
+          "confidence_percent": 99,
+          "display_reason": "One actual execution within one Workflow Run; a failure or recorded attempt is not successful completion.",
+          "disposition": "proposed",
+          "evidence_refs": [
+            "CA-R-1511:32-36",
+            "CA-R-1509:34-41"
+          ],
+          "native_temporal_classification": "not_performed",
+          "qualified_identity": "Step Run"
+        },
+        {
+          "confidence_percent": 99,
+          "display_reason": "One actual execution of one reusable Workflow against supplied inputs/parameters.",
+          "disposition": "proposed",
+          "evidence_refs": [
+            "CA-R-1510:30-35",
+            "CA-R-1508:35-43"
+          ],
+          "native_temporal_classification": "not_performed",
+          "qualified_identity": "Workflow Run"
+        }
+      ],
+      "native_admission": "not_performed"
+    }
+  ],
+  "evidence_catalogue": {
+    "CA-D-258:28-28": {
+      "atom_id": "CA-D-258",
+      "atom_revision": 11,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-258-CORE_META_MODEL-CORE-DELIVERY--classify-file-carrier.md",
+      "carrier_sha256": "4af326d1c38dafd47020e32f36338f25962ec43177b97c7988932b709aff8e64",
+      "end_line": 28,
+      "quote": "the Term File Carrier NARROWER_THAN Carrier.",
+      "start_line": 28,
+      "text_sha256": "8840c03dd3c92dad3a4a1c3d8021d6c52f74cc7d2ce968f1f696ee8d33ff782d"
+    },
+    "CA-D-259:28-28": {
+      "atom_id": "CA-D-259",
+      "atom_revision": 11,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-259-CORE_META_MODEL-CORE-DELIVERY--classify-directory-carrier.md",
+      "carrier_sha256": "129e0c585b8df61d8d94b314cec83245d3bff042374f00a3b9b8fc97a6127996",
+      "end_line": 28,
+      "quote": "the Term Directory Carrier NARROWER_THAN Carrier.",
+      "start_line": 28,
+      "text_sha256": "ed2d906841cc37a4100e73cd8b534ca9b3ed37da4669b9eeb89616ede78c1e8d"
+    },
+    "CA-D-414:28-28": {
+      "atom_id": "CA-D-414",
+      "atom_revision": 14,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-414-CORE_META_MODEL-CORE--classify-carrier-as-a-primary-entity.md",
+      "carrier_sha256": "f0d1d76efc3191ec5dd067f692f8fdaed1f66e242951ee4f6f1c15be80346015",
+      "end_line": 28,
+      "quote": "the Term Carrier **must** be **NARROWER_THAN** Primary Entity.",
+      "start_line": 28,
+      "text_sha256": "bff0a77893708813f33268cc8f1e8bf6b4293775cb1bef615cf844e3aba2f5d4"
+    },
+    "CA-D-463:32-34": {
+      "atom_id": "CA-D-463",
+      "atom_revision": 5,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-463-CORE_META_MODEL-CORE--give-every-atom-revision-one-authoritative-carrier-bundle.md",
+      "carrier_sha256": "8b5a10d78d72d18256a9a00bc6350fe472489fe5247d97827b57d0f216b6b48e",
+      "end_line": 34,
+      "quote": "**every** Atom Revision **must** have **`=1`** authoritative Carrier Bundle on the Project filesystem containing **`=1`** Markdown File Carrier **and** **`>=0`** additional Carriers admitted by its applicable Delivery authority.\n\nthe Markdown file carries the Atom's own Properties under CA-D-478 **and** CA-D-479. additional Carriers represent that same Revision **without** replacing the mandatory file **or** independently redefining its Properties.",
+      "start_line": 32,
+      "text_sha256": "066882a15e6fbdae6776e178cca70e18df46547b49a200c863c2967379fa080a"
+    },
+    "CA-D-485:32-36": {
+      "atom_id": "CA-D-485",
+      "atom_revision": 4,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-485-CORE_META_MODEL-DELIVERY--carry-defaulted-atom-values-without-copying-inherited-overrides.md",
+      "carrier_sha256": "a157243342e5e161ea6afb7c36928cff0b892f5a65a449adc8656214668b7718",
+      "end_line": 36,
+      "quote": "a writer **must** preserve the distinction between a defaulted Atom Property **and** an inherited external setting:\n\n- a required Atom value selected by applying a default is still carried at its canonical internal location; equality **to** that default does **not** permit omitting the value.\n- an unselected optional override remains absent; do **not** copy an inherited effective setting into a locally selected override.\n- retain an explicit override even **when** it currently equals the inherited value, because later upstream changes **must not** change that selection.",
+      "start_line": 32,
+      "text_sha256": "91549c55fca0be79243c2e3eb685c75eba4a7d9e3ebcde562356b2a24d931f37"
+    },
+    "CA-D-505:34-40": {
+      "atom_id": "CA-D-505",
+      "atom_revision": 1,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-505-CORE_META_MODEL-CORE--define-the-entity-carrier-binding.md",
+      "carrier_sha256": "a8cea8b0ee7e5d0a1030c8871b110164eb6f7cc96425b7d1e2dcd935edef5ab3",
+      "end_line": 40,
+      "quote": "the Carrier Property of an Entity **means** its binding **to** the Carrier that stores **or** represents it.\n\n## Details\n\n- write this Property as `(Entity)/Carrier`, using the actual Entity path, such as `Atom/Carrier` **or** `Scope Unit/Carrier`.\n- the binding follows IS_CARRIED_BY.\n- the Property refers **to** a Carrier; the referenced Carrier remains a Primary Entity.",
+      "start_line": 34,
+      "text_sha256": "b1ed496b1ba46aa1125105d2c1823b1b3245139ff55953c5611e2e9b8775cdc1"
+    },
+    "CA-D-506:30-34": {
+      "atom_id": "CA-D-506",
+      "atom_revision": 1,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-506-CORE_META_MODEL-CORE--give-every-non-ephemeral-entity-a-carrier.md",
+      "carrier_sha256": "8f1102676b3b04ec408c17a6a6995858030bd9b0df609cf9feb9f96fb829fae9",
+      "end_line": 34,
+      "quote": "**every** non-ephemeral Entity **must** have **`>=1`** Carrier through its Entity/Carrier binding.\n\n## Details\n\na binding **may** use a shared Carrier **or** a location within it. a carried Property does **not** require a separate file merely because it is an Entity.",
+      "start_line": 30,
+      "text_sha256": "661027be99783b69145efee13f7c8bb77dcac7a57cf0a408242e11b63047908c"
+    },
+    "CA-D-507:30-30": {
+      "atom_id": "CA-D-507",
+      "atom_revision": 1,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-507-CORE_META_MODEL-CORE--separate-entity-identity-from-carrier-format.md",
+      "carrier_sha256": "f972031598deeda63106bb92875fde04f7a34c27916d4a717a481286f1fb2a88",
+      "end_line": 30,
+      "quote": "a change **to** Carrier Format **or** File Carrier Extension alone **must not** establish **or** change Entity identity.",
+      "start_line": 30,
+      "text_sha256": "3e866ee18723f5a7dc649f07788b1c980bd3d4591a3f3e76a093699d14339d50"
+    },
+    "CA-O-128:48-48": {
+      "atom_id": "CA-O-128",
+      "atom_revision": 4,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/CA-O-128-CORE_META_MODEL-ACTION--apply-authorized-atom-lifecycle-changes.md",
+      "carrier_sha256": "ea36b940a171676977507d366daca9400825e8685018d9c201c15fc5b97eea1c",
+      "end_line": 48,
+      "quote": "Every actual invocation, including standalone and the referenced O051 execution, retains its distinct Action Run identity, exact definition/input binding, parent Action/Step/Workflow lineage where applicable, start/terminal outcome, results/effects and canonical durable evidence. Failed/canceled/no-op invocations are recorded without secrets or fictitious Artifact changes. A well-formed source definition does not prove that any effect or Run occurred.",
+      "start_line": 48,
+      "text_sha256": "ddb7a7062bb418b0bf304e5659f0d5717c55f9d30f00302ed9976f795d2b96ad"
+    },
+    "CA-R-1191:28-28": {
+      "atom_id": "CA-R-1191",
+      "atom_revision": 13,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1191-CORE_META_MODEL-CORE-REQUIREMENT--define-primary-entity.md",
+      "carrier_sha256": "52b71abb1b3df787ec3e4394bc5f61c367a4f0da58f5d01fd5ce22ba22e9ff31",
+      "end_line": 28,
+      "quote": "a Primary Entity **means** an Entity occurrence whose identity does **not** require another Entity occurrence as its bearer.",
+      "start_line": 28,
+      "text_sha256": "a36ef0d9805103d4e2f7cd70043c5ebcccaff03b0c8d9c70f30fc6c5986638b6"
+    },
+    "CA-R-1192:28-28": {
+      "atom_id": "CA-R-1192",
+      "atom_revision": 12,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1192-CORE_META_MODEL-CORE-REQUIREMENT--define-dependent-entity.md",
+      "carrier_sha256": "80ef872660ac55977945a7a51c08c0623b7da8221ceee39257bc9a4365c72d30",
+      "end_line": 28,
+      "quote": "a Dependent Entity **means** an Entity occurrence whose identity requires **`=1`** immediate bearer Entity occurrence.",
+      "start_line": 28,
+      "text_sha256": "02636277efc9a53d3bdb4d701a7e72ee53da3b68b17494749b7114d83f144cfe"
+    },
+    "CA-R-1193:28-28": {
+      "atom_id": "CA-R-1193",
+      "atom_revision": 11,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1193-CORE_META_MODEL-CORE-REQUIREMENT--define-property.md",
+      "carrier_sha256": "600bc4f919796701478b51b0bc4abea383c89cc8b9929959aa937c288db7c522",
+      "end_line": 28,
+      "quote": "a Property **means** a Dependent Entity that represents one characteristic of its bearer.",
+      "start_line": 28,
+      "text_sha256": "b746de82419a720018da91425209c1b1ff308c288725bbc2a383c2443ab1dc1b"
+    },
+    "CA-R-1213:36-38": {
+      "atom_id": "CA-R-1213",
+      "atom_revision": 17,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1213-CORE_META_MODEL-CORE-REQUIREMENT--define-applicable-methodology-as-a-compiled-projection.md",
+      "carrier_sha256": "6962d60e15445e82bf78866bec337e389b5e1b1cad5a9d830dcf3feb6ec7c7c2",
+      "end_line": 38,
+      "quote": "the Applicable Methodology **must** be a non-authoritative Reconciled Projection compiled by direct, content-preserving derivation from current active Atom Revisions **in** selected Methodology Source Scope Units, preserving the selected source Atoms **and** their final selected Revisions unchanged. Applicable Methodology is **not** a Scope Unit **and** **must not** be the Claim Target Scope Unit of a Goal Atom.\n\ndirect **and** content-preserving describe this derivation, **not** a Carrier persistence strategy; its Reconciled Projection classification does **not** select such a strategy. trace metadata **may** be added **to** projected Carriers **only** as governed by applicable Delivery authority, **without** changing the source Atom Revision **or** its Claim authority.",
+      "start_line": 36,
+      "text_sha256": "ef27680c890d9b30ffa48c05c34cf37fc95f451f0efe25b298a5297f15ea8b11"
+    },
+    "CA-R-1232:29-29": {
+      "atom_id": "CA-R-1232",
+      "atom_revision": 14,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1232-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-type-values-for-analysis-atoms.md",
+      "carrier_sha256": "d40415ebf2c7c07fccb5ea4a8b55cf670b6e292c6800eaee97ea308ea4ac9bd5",
+      "end_line": 29,
+      "quote": "the Core contribution **to** allowed values of `Atom/Content Role: Analysis/Type` **must** be exactly (Analysis Report, Rationale).",
+      "start_line": 29,
+      "text_sha256": "135633a3af3aa477a5c75063716a2189d8c7499ea185ffb710196f3ca3d17ec0"
+    },
+    "CA-R-1248:28-28": {
+      "atom_id": "CA-R-1248",
+      "atom_revision": 12,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1248-CORE_META_MODEL-CORE-REQUIREMENT--define-entity.md",
+      "carrier_sha256": "7dc7c6805b23dc758fdca38e2d50506b86c2035844b90a78612c1690f664aad5",
+      "end_line": 28,
+      "quote": "an Entity **means** one independently identified **or** bearer-qualified object admitted by an authoritative source as a possible node **in** **`>=1`** CAPRMEDIO Graph.",
+      "start_line": 28,
+      "text_sha256": "1f2ffbac562f718835ceded81488dc10898d5a8d3c63d3e5a5ff6aa6fba41bdd"
+    },
+    "CA-R-1249:28-28": {
+      "atom_id": "CA-R-1249",
+      "atom_revision": 12,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1249-CORE_META_MODEL-CORE-REQUIREMENT--classify-artifact-as-a-primary-entity.md",
+      "carrier_sha256": "10aa9ef792dce3b452e4e1957ad5ea6d536f59ce7b6fbf4af1ad9cf753c37e7a",
+      "end_line": 28,
+      "quote": "the Term Artifact **must** be NARROWER_THAN Primary Entity.",
+      "start_line": 28,
+      "text_sha256": "d902009913529c1c84211eb2b59561c78c0556583bb4a7a6ed1409862094bd4e"
+    },
+    "CA-R-1250:28-28": {
+      "atom_id": "CA-R-1250",
+      "atom_revision": 12,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1250-CORE_META_MODEL-CORE-REQUIREMENT--classify-actor-as-a-primary-entity.md",
+      "carrier_sha256": "8ec002929de017298e9210c61590b78278b61f57bd9d9ed73df488b9c849055e",
+      "end_line": 28,
+      "quote": "the Term Actor **must** be NARROWER_THAN Primary Entity.",
+      "start_line": 28,
+      "text_sha256": "690f15b5d3665aa3afac0eb5cedb2fadd34505932696dca33fcfac56eb1d2cd5"
+    },
+    "CA-R-1266:28-28": {
+      "atom_id": "CA-R-1266",
+      "atom_revision": 12,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1266-CORE_META_MODEL-CORE-REQUIREMENT--classify-primary-entity-as-an-entity.md",
+      "carrier_sha256": "c4b7692619465d85e89357989b727282881fc783df167f01c5d5d85023d4108a",
+      "end_line": 28,
+      "quote": "the Term Primary Entity **must** be NARROWER_THAN Entity.",
+      "start_line": 28,
+      "text_sha256": "7b379dd4877e4c1ced66a1fa042fd42ec104683b64125f8d98c9581714931a93"
+    },
+    "CA-R-1267:28-28": {
+      "atom_id": "CA-R-1267",
+      "atom_revision": 11,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1267-CORE_META_MODEL-CORE-REQUIREMENT--classify-dependent-entity-as-an-entity.md",
+      "carrier_sha256": "a968ab53716586ac641820bd970a548e9f4119e36fba9f058e0ad1c0cfb2450e",
+      "end_line": 28,
+      "quote": "the Term Dependent Entity **must** be NARROWER_THAN Entity.",
+      "start_line": 28,
+      "text_sha256": "b6f2d5ab8265bf8ab76c8112e5f43da8deff73b2a7b0332721d2946c1caf327e"
+    },
+    "CA-R-1268:29-29": {
+      "atom_id": "CA-R-1268",
+      "atom_revision": 12,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1268-CORE_META_MODEL-CORE-REQUIREMENT--define-artifact.md",
+      "carrier_sha256": "9cfaecd2519ec038a73a183281030d43266113bcdb037cc9152a8c2039ef88de",
+      "end_line": 29,
+      "quote": "an Artifact **means** a Primary Entity whose governed identity persists across its Artifact Revisions.",
+      "start_line": 29,
+      "text_sha256": "d0ded25a0e82e32e99b42a515b231f091d183c2bf5b6703035239c2836a429ad"
+    },
+    "CA-R-1337:29-29": {
+      "atom_id": "CA-R-1337",
+      "atom_revision": 11,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1337-CORE_META_MODEL-CORE-REQUIREMENT--define-analysis-content-role.md",
+      "carrier_sha256": "4d1a31335812edb8411132162bdd2a8448797fb7326d9fa6b1020d2c4ebf293f",
+      "end_line": 29,
+      "quote": "Analysis **means** the Content Role of an Atom Claim that establishes one finding, explanation, comparison, **or** rationale **without** normative authority.",
+      "start_line": 29,
+      "text_sha256": "7cb72a35fa97610393b950fe434fed972d9c01df079723ed94d8da8f1d480644"
+    },
+    "CA-R-1339:30-36": {
+      "atom_id": "CA-R-1339",
+      "atom_revision": 11,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1339-CORE_META_MODEL-CORE-REQUIREMENT--define-requirement-content-role.md",
+      "carrier_sha256": "8c0b6d76eb5023a58e9b830e744cc85c4d436bac9e1ec0cf8a0a7868ae174b63",
+      "end_line": 36,
+      "quote": "Requirement **means** the Content Role of an Atom Claim that defines an Entity model **or** a required result by its meaning **and** value.\n\n## Details\n\n- model definitions describe what an Entity is **and** the properties that make it the required result.\n- result constraints describe required outcomes **and** observable boundaries.\n- an obligation, permission, **or** prohibition does **not** by itself select this Content Role; classification follows the Claim's primary contribution.",
+      "start_line": 30,
+      "text_sha256": "964f06a4e7d2dce1e3233f423c68fe75ee6a13836d5f21058b198262e924600c"
+    },
+    "CA-R-1422:32-32": {
+      "atom_id": "CA-R-1422",
+      "atom_revision": 8,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1422-CORE_META_MODEL-CORE--define-the-operator-as-the-collective-human-actor.md",
+      "carrier_sha256": "fa310406299664345e8c595d85d228c07a8220d35cb81726e138e01892d17a38",
+      "end_line": 32,
+      "quote": "the Operator **means** the collective Actor formed by **`>=1`** identified human participants for the Project **and** its CAPRMEDIO Framework Instance.",
+      "start_line": 32,
+      "text_sha256": "4f134618adb43d175727bea1c10e99ea43e4a12baa1fe1584a12d2b4748a9112"
+    },
+    "CA-R-1435:28-38": {
+      "atom_id": "CA-R-1435",
+      "atom_revision": 8,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1435-CORE_META_MODEL-CORE--define-narrower-than.md",
+      "carrier_sha256": "15fa6d3511be9f2d4ad76eea38373f13bcbb37522a2f7c5b985e0a4b836f54cb",
+      "end_line": 38,
+      "quote": "the NARROWER_THAN Relation **in** the Terms Graph.\n\n## Claim\n\na NARROWER_THAN Relation from Term A **to** Term B **in** the Terms Graph **means** that, under their governing definitions, **if** Term A applies **to** a referent, **then** Term B applies **to** the same referent; this Relation does **not** express Property ownership **or** allowed-value membership.\n\n## Details\n\n### relation admission\n\n- Status: the NARROWER_THAN Relation Kind is Active.",
+      "start_line": 28,
+      "text_sha256": "73b76bf3af4a354429cd4ec9479c1e231bdc57862a1e265af28f9ce31e2b9c65"
+    },
+    "CA-R-1452:37-37": {
+      "atom_id": "CA-R-1452",
+      "atom_revision": 10,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1452-CORE_META_MODEL-CORE--define-action.md",
+      "carrier_sha256": "d469011478752241340e3dd544f0744bddc7b7129e3ae7e1e249144363e5c007",
+      "end_line": 37,
+      "quote": "an Action **means** an Atom with Content Role Operations **and** Type Action whose Claim specifies one reusable operational building block with an explicit operational contribution **and** a justified boundary at the modeled responsibility **and** granularity **where** further division has no useful independently governed meaning. this atomic boundary is **not** a count of machine instructions **or** Tool calls; an arbitrary large procedure **without** that justified boundary is **not** an Action. the Action is distinct from an Actor, a Tool, a Task, a particular execution, a Journal Record, **and** a Carrier. its execution kind is defined under CA-R-1526; an Agentic Action **may** use Tools **without** making **every** call another Action **or** Step.",
+      "start_line": 37,
+      "text_sha256": "5f87a4ddc3079a5975a53e2c3f73f7567bb28cf8379e63f15262b494acc52d64"
+    },
+    "CA-R-1508:35-43": {
+      "atom_id": "CA-R-1508",
+      "atom_revision": 7,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1508-CORE_META_MODEL-CORE-REQUIREMENT--define-workflow.md",
+      "carrier_sha256": "ed2727d3a4457544c2aea4aea3f4364ca5fbe650e830eeb316fc4a0f41b4b4c5",
+      "end_line": 43,
+      "quote": "a Workflow **means** an Atom with Content Role Operations **and** Type Workflow whose Claim specifies one reusable graph whose nodes are Steps **and** whose edges are typed, directed Relations owned by the Workflow graph kind.\n\n## Details\n\n - **every** graph node references its Step Atom; that Step owns its Action reference **and** parameter/input bindings under CA-R-1509-CORE_META_MODEL-CORE-REQUIREMENT--define-step. the graph owns **only** the scheme under CA-R-1570-CORE_META_MODEL-GENERAL-REQUIREMENT--keep-workflow-graphs-separate-from-step-bindings **without** copying Step **or** Action definitions.\n - the typed Relations define admitted control flow, including conditional branches **and** revisits. result-dependent next-Step edges use CA-R-1513-CORE_META_MODEL-GENERAL-REQUIREMENT--define-workflow-result-transition.\n- the graph preserves its accepted success, retry-budget, **and** escalation conditions; it does **not** itself authorize concurrent execution, arbitrary recursion, **or** unlimited retries.\n - invocation context is selected per Agentic Step under CA-R-1527-CORE_META_MODEL-GENERAL-REQUIREMENT--define-agentic-step-execution-context; a mixed graph needs no separate Integrated **or** Isolated Workflow identity.\n- the reusable graph is distinct from a Workflow Run. doer, finder, checker/test, **and** quality-gate evaluation remain examples of Action responsibilities, **not** a closed Action taxonomy.",
+      "start_line": 35,
+      "text_sha256": "229c375cd50cb300799cb8be33a0d658f4f995bcc229b479961c6e3a5cb89a93"
+    },
+    "CA-R-1509:34-41": {
+      "atom_id": "CA-R-1509",
+      "atom_revision": 6,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1509-CORE_META_MODEL-CORE-REQUIREMENT--define-step.md",
+      "carrier_sha256": "29969fbadae10b18096c356dca721982b60e256dbf186301a065210cfbce3083",
+      "end_line": 41,
+      "quote": "a Step **means** a node **in** a Workflow, defined by **`=1`** Step Atom, that specifies invocation of **`=1`** Action with the parameters **and** inputs for that invocation.\n\n## Details\n\n- the binding identifies the source of **every** required input **or** parameter, including a Workflow input **or** an earlier Step result **when** applicable; it need **not** fix runtime values **in** the definition.\n- different Steps **may** reference the same Action with different bindings **without** copying **or** redefining that Action.\n- an Agentic invocation selects Integrated **or** Isolated context under CA-R-1527; a Programmatic invocation does **not** acquire an Agent context by this rule.\n- the Step definition is distinct from its referenced Action **and** from a Step Run. internal Tool calls remain execution details under CA-R-1528, **not** additional Step definitions.",
+      "start_line": 34,
+      "text_sha256": "98e0b2551e69c40790a7c67b5e86e04d7588eca9e4915c8b2783d24132f6cda4"
+    },
+    "CA-R-1510:30-35": {
+      "atom_id": "CA-R-1510",
+      "atom_revision": 4,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1510-CORE_META_MODEL-CORE-REQUIREMENT--define-workflow-run.md",
+      "carrier_sha256": "df438330aa3b5e466eb347b17b935e2fbf426c258223eba7e6f53610864be562",
+      "end_line": 35,
+      "quote": "a Workflow Run **means** **`=1`** actual execution of **`=1`** Workflow against the inputs **and** parameters supplied for that run.\n\n## Details\n\n- the execution follows the Workflow's typed Relations **and** retains its actual Step Runs, outcomes, **and** applicable retry allowance.\n- the run is distinct from the reusable Workflow **and** from the Journal Records that describe its execution. a reference **to** the definition does **not** prove that a run occurred.",
+      "start_line": 30,
+      "text_sha256": "d265157bd821e2f1988150e7b8ac63b992169fe25592c740172c47b1c4f2571b"
+    },
+    "CA-R-1511:32-36": {
+      "atom_id": "CA-R-1511",
+      "atom_revision": 5,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1511-CORE_META_MODEL-CORE--define-step-run.md",
+      "carrier_sha256": "62a47b27c84cbf9228d0e3419fa6163163ab40aa82a7b568024ad728cad19e49",
+      "end_line": 36,
+      "quote": "a Step Run **means** **`=1`** actual execution of **`=1`** Step within **`=1`** Workflow Run, invoking the Step's **`=1`** referenced Action with the bound parameters **and** inputs for that run.\n\n- separate executions of the same Step are distinct Step Runs; they reuse the Step **and** Action definitions.\n- an Agentic Step Run records its resolved invocation context under CA-R-1527-CORE_META_MODEL-GENERAL-REQUIREMENT--define-agentic-step-execution-context. its internal Tool-call evidence is associated with this Run under CA-R-1528-CORE_META_MODEL-GENERAL-REQUIREMENT--record-tool-calls-within-step-runs; a Tool call **or** repeated delivery of a pending invocation does **not** itself create another Step Run.\n- the Step Run is distinct from its definition **and** from its Journal Records. a recorded attempt **or** failure **must not** be represented as successful completion.",
+      "start_line": 32,
+      "text_sha256": "0bb80fb945bddcc5cc0d00b0b2fdf2d69d360763c977a5d05e82a206987da395"
+    },
+    "CA-R-1539:29-29": {
+      "atom_id": "CA-R-1539",
+      "atom_revision": 4,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1539-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-plan-status-values.md",
+      "carrier_sha256": "ce1395908987e58b681c5f22f2f08cae5c89478d8184aa7ace97ad2a400d75e8",
+      "end_line": 29,
+      "quote": "the Core Plan Status values **must** be exactly (Active, Backlog, Done, Canceled, Archived); Planned **must not** be a distinct Plan Status.",
+      "start_line": 29,
+      "text_sha256": "fd164322f75c65d964489a9944f0ac89cad9464e13728ca389ad946e5caa7a4d"
+    },
+    "CA-R-1574:32-32": {
+      "atom_id": "CA-R-1574",
+      "atom_revision": 4,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1574-CORE_META_MODEL-CORE-REQUIREMENT--define-the-common-plan-atom.md",
+      "carrier_sha256": "a8350a67846ca08e8e0e7231b2cd01526a10c463cfbddcb8446a8e50d14c824e",
+      "end_line": 32,
+      "quote": "a Plan Atom **means** an Atom with Content Role Plan **and** Type Plan whose **`=1`** Claim states bounded intended work **or** an intended outcome; its Label does **not** select a different authoring model.",
+      "start_line": 32,
+      "text_sha256": "51fa50b42f8015129da7c93662e46560cb3e940c8e81448e086fa12d43b3ed18"
+    },
+    "CA-R-1746:32-38": {
+      "atom_id": "CA-R-1746",
+      "atom_revision": 20,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1746-CORE_META_MODEL-CORE--define-projection-artifact-form.md",
+      "carrier_sha256": "cb22c58bd0f84b1e04b0e0fe62ed0a1a0570474e1505aca7529e7d26153a697c",
+      "end_line": 38,
+      "quote": "Projection Artifacts and the authoritative sources represented in their derived views.\n\n## Claim\n\na Projection **means** a non-authoritative generated view derived from its declared selection of authoritative sources **or** other Projections. source authority follows Single Source of Truth under CA-R-1470. **every** represented fact retains traceability through **any** upstream Projections **to** its appropriate authoritative sources. a Projection's source specification governs its required behavior **without** making its derived contents authoritative. multiple Projections of the same source facts, further derived views, **and** the choice of generation mechanism do **not** create another independent authority for those facts.\n\nthe declared selection identifies the sources actually used; it does **not** require **every** Projection **to** consume **every** source kind **or** require generation **to** be byte-deterministic.",
+      "start_line": 32,
+      "text_sha256": "6a6deb067fbb4fb74d159c3648f07b65b4930363eb104fb2cce0f71ff749be53"
+    },
+    "CA-R-1757:29-29": {
+      "atom_id": "CA-R-1757",
+      "atom_revision": 17,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1757-CORE_META_MODEL-CORE--define-scope-unit.md",
+      "carrier_sha256": "8740c1e278847e7787663774088a5ff73442b6dbf81a1a37a4c927653b7681ad",
+      "end_line": 29,
+      "quote": "a Scope Unit **means** a Structural Entity that provides an ownership boundary for Atoms **and** **may** contain child Scope Units.",
+      "start_line": 29,
+      "text_sha256": "70ee1c6b935426e19fc94dd08e484bf4a6738cd6457601619db97e85e627eafc"
+    },
+    "CA-R-1875:28-36": {
+      "atom_id": "CA-R-1875",
+      "atom_revision": 1,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1875-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-analysis-status-values.md",
+      "carrier_sha256": "4e9729d9a86cfde040939429e31efea27f72cc7fe0bf9645d1b993181072905b",
+      "end_line": 36,
+      "quote": "the default Status value domain of Analysis Atoms with Type Analysis Report or Rationale.\n\n## Claim\n\nthe Core allowed values of Analysis Status **must** be exactly (Draft, Done, Archived); that one Content Role Status model applies to Analysis Atoms with Type Analysis Report or Rationale unless an admitted Extension or Project Configuration establishes a more-specific Status domain under that exact Content Role and Type path.\n\n## Details\n\nthis Status is the Artifact Revision Property of the Analysis Atom itself. it does **not** define a Status transition, carrier placement, setting, or a Workflow, Step, or Action Run outcome, receipt, retry state, result, or completion state. CA-R-1727 continues to govern when an admitted Analysis is Draft or Done and the meaning of its archival.",
+      "start_line": 28,
+      "text_sha256": "142f6f27780c6bd5516d0d48ed77fc532e5384de54baa042192bb495c74a55d8"
+    },
+    "CA-R-655:26-26": {
+      "atom_id": "CA-R-655",
+      "atom_revision": 23,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-655-CORE_META_MODEL-CORE--define-atom-artifact-form.md",
+      "carrier_sha256": "28258bfdc5515abe6efa40fe8ab1951cc70a226f58daaa6ced7466036bbca29d",
+      "end_line": 26,
+      "quote": "an Atom **means** the smallest independently governed Artifact.",
+      "start_line": 26,
+      "text_sha256": "0b543d2383ea7516798a1b75834a9ff940c53e7b14c01083da5d2659cb64e3d0"
+    }
+  },
+  "identity_preservation": {
+    "all_node_identities_preserved_by_reference": true,
+    "generated_qualified_identity_count": 0,
+    "inventory_path": ".caprmedio_caprmedio/_projection/core-entity-review/baseline.inventory.json",
+    "inventory_sha256": "23394abaf6e9c18a585cf3146aedd0a80df166c9dd82be6e86ed7c3c56780bdc",
+    "node_count": 706,
+    "rename_drop_or_delete_count": 0
+  },
+  "inherited_constraints": [
+    {
+      "applies_when": "The current governing Entity definition applies.",
+      "concrete_carrier_inheritance": "prohibited",
+      "confidence_percent": 97,
+      "constraint_id": "entity-identity-and-bearer",
+      "disposition": "proposed",
+      "evidence_refs": [
+        "CA-R-1248:28-28",
+        "CA-R-1191:28-28",
+        "CA-R-1192:28-28",
+        "CA-R-1193:28-28"
+      ],
+      "exceptions_and_preservation": "No exhaustive or disjoint Primary/Dependent partition is inferred; retain exact qualified baseline identities.",
+      "native_admission": "not_performed",
+      "rule": "Preserve independently identified versus bearer-qualified Entity identity. A Dependent Entity requires exactly one immediate bearer; a Property represents one characteristic of its bearer. Do not turn this into a universal concrete IS_BORNE_BY fact."
+    },
+    {
+      "applies_when": "An Entity is non-ephemeral under applicable authority.",
+      "concrete_carrier_inheritance": "prohibited",
+      "confidence_percent": 97,
+      "constraint_id": "non-ephemeral-carrier-obligation",
+      "disposition": "proposed",
+      "evidence_refs": [
+        "CA-D-506:30-34",
+        "CA-D-505:34-40"
+      ],
+      "exceptions_and_preservation": "The rule is inherited conditionally, never another Entity's concrete Carrier identity, path, representation or location. Carrier stays a Primary Entity; its referring Property is separate.",
+      "native_admission": "not_performed",
+      "rule": "Require at least one Carrier through that Entity/Carrier binding. A Shared Carrier and a location may satisfy the binding; being an Entity does not require a separate file."
+    },
+    {
+      "applies_when": "The node denotes an Atom Revision, including an admitted Role/Type specialization of Atom.",
+      "concrete_carrier_inheritance": "prohibited",
+      "confidence_percent": 97,
+      "constraint_id": "atom-revision-bundle",
+      "disposition": "proposed",
+      "evidence_refs": [
+        "CA-D-463:32-34",
+        "CA-R-655:26-26",
+        "CA-R-1574:32-32",
+        "CA-R-1339:30-36",
+        "CA-R-1337:29-29",
+        "CA-R-1452:37-37",
+        "CA-R-1508:35-43",
+        "CA-R-1509:34-41"
+      ],
+      "exceptions_and_preservation": "Do not copy a parent Atom's concrete Carrier, fabricate bundles for display groups or replace the required Markdown File Carrier with an extra Carrier.",
+      "native_admission": "not_performed",
+      "rule": "Require exactly one authoritative Carrier Bundle with exactly one Markdown File Carrier and zero or more additional Carriers admitted by Delivery authority."
+    },
+    {
+      "applies_when": "A Carrier Format or File Extension changes.",
+      "concrete_carrier_inheritance": "prohibited",
+      "confidence_percent": 97,
+      "constraint_id": "carrier-format-not-identity",
+      "disposition": "proposed",
+      "evidence_refs": [
+        "CA-D-507:30-30"
+      ],
+      "exceptions_and_preservation": "Preserve distinct File Carrier and Directory Carrier model identities and actual bindings; do not inherit a concrete Carrier from a taxonomy parent.",
+      "native_admission": "not_performed",
+      "rule": "That change alone does not establish or change the Entity Identity."
+    },
+    {
+      "applies_when": "Applicable Delivery rules distinguish defaulted Atom Properties and externally inherited Settings.",
+      "concrete_carrier_inheritance": "prohibited",
+      "confidence_percent": 97,
+      "constraint_id": "defaults-not-inherited-settings",
+      "disposition": "proposed",
+      "evidence_refs": [
+        "CA-D-485:32-36"
+      ],
+      "exceptions_and_preservation": "A shared rule is not copied configuration, Property ownership, another bearer's value or a new qualified identity.",
+      "native_admission": "not_performed",
+      "rule": "Carry required defaulted Property values; keep unselected optional overrides absent rather than copying an inherited effective Setting; preserve an explicitly selected override even if equal to the inherited value."
+    },
+    {
+      "applies_when": "An Analysis or Plan Atom uses its applicable Status model.",
+      "concrete_carrier_inheritance": "prohibited",
+      "confidence_percent": 97,
+      "constraint_id": "qualified-status-domains",
+      "disposition": "proposed",
+      "evidence_refs": [
+        "CA-R-1875:28-36",
+        "CA-R-1539:29-29"
+      ],
+      "exceptions_and_preservation": "Do not merge these into one universal Status list or treat Artifact Status as Run outcome, receipt, retry or completion. Other roles/types remain unreviewed here.",
+      "native_admission": "not_performed",
+      "rule": "Keep the exact Role/Type domain. The default Analysis domain is Draft/Done/Archived and admits only a governed more-specific override under the exact path; the Core Plan domain is Active/Backlog/Done/Canceled/Archived, without Planned."
+    },
+    {
+      "applies_when": "Reusable operational definitions, information views and actual invocations are displayed together.",
+      "concrete_carrier_inheritance": "prohibited",
+      "confidence_percent": 97,
+      "constraint_id": "definition-view-run-separation",
+      "disposition": "proposed",
+      "evidence_refs": [
+        "CA-R-1452:37-37",
+        "CA-R-1508:35-43",
+        "CA-R-1509:34-41",
+        "CA-R-1510:30-35",
+        "CA-R-1511:32-36",
+        "CA-O-128:48-48",
+        "CA-R-1746:32-38",
+        "CA-R-1213:36-38"
+      ],
+      "exceptions_and_preservation": "No new Run, execution, receipt, Journal event, native temporal taxonomy or Core authority is created by the display.",
+      "native_admission": "not_performed",
+      "rule": "Keep Action/Step/Workflow definitions, their actual Runs, generated views and Journal evidence distinct. Reference/reuse of a definition is not proof of an invocation or effect, and recording an attempt/failure is not successful completion."
+    }
+  ],
+  "non_authoritative": true,
+  "non_temporal_broad_model_anchors": {
+    "qualified_identities": [
+      "Entity",
+      "Primary Entity",
+      "Dependent Entity",
+      "Property"
+    ],
+    "reason": "Assessed for identity/bearer and broad-model structure only. These model anchors are not put into either temporal group, and no temporal membership of their instances is inferred.",
+    "temporal_membership": "not_assessed"
+  },
+  "questions": [
+    {
+      "affected_identities": [
+        "Actor",
+        "Operator",
+        "Carrier",
+        "File Carrier",
+        "Directory Carrier",
+        "Scope Unit"
+      ],
+      "asked_through_root": true,
+      "boundary": "A positive answer supplies local display convention only; it does not admit native temporal taxonomy or automatically classify all descendants.",
+      "confidence_percent": 75,
+      "question": "Should Actor, Carrier and Scope Unit appear as Continuant display candidates by deliberate local view convention, or remain outside the two temporal groups until explicit Core temporal evidence is supplied?",
+      "question_id": "temporal-display-convention",
+      "status": "pending_Operator"
+    }
+  ],
+  "rmed_integration_boundary": {
+    "delivery_definitions_preserved": [
+      "Carrier",
+      "File Carrier",
+      "Directory Carrier"
+    ],
+    "inferred_applicability_from_source_role_or_Subject_incidence": false,
+    "model_skeleton": "R model definitions and required results plus source-backed D Carrier definitions; not R-only.",
+    "separate_views": "M construction/authoring conventions, E checks/acceptance and D representation/placement pointer views are owned by CA-P-1920."
+  },
+  "root_counts": {
+    "before": {
+      "branch_roots": 53,
+      "literal_syntactic_roots": 346,
+      "standalone_roots": 293
+    },
+    "candidate": {
+      "explicit_unclassified_display_bucket": 1,
+      "independent_native_ontology_roots": null,
+      "literal_syntactic_roots_after_rendering": null,
+      "proposed_temporal_display_groups": 2
+    },
+    "method": "Before counts are exact pinned literal Subject-prefix syntax counts, not native taxonomy or independent ontology roots. Two proposed display containers change presentation only. No complete accepted relation graph or all-node disposition exists, so neither a reduced syntax-root count nor an independent ontology-root count is claimed."
+  },
+  "semantic_admission": "not_performed",
+  "source_binding": {
+    "selection_sha256": "f72964ad096a671d0c36cc0cf6649cf2cf131110edb57446fb523dc5feedb840",
+    "source_collection_sha256": "5ebcf48d24841b65ba46ffdd113e964fe10a53da80a40db32cefedc484ae7d3d",
+    "source_frontier_sha256": "7792e842cfe6c66320745660e69cd0df5525ec18bb22b5c060a6ddfff5fc97f7"
+  },
+  "source_migration": "not_performed",
+  "source_task": "CA-P-1919",
+  "unresolved_display_memberships": [
+    {
+      "confidence_percent": 75,
+      "disposition": "unresolved",
+      "evidence_refs": [
+        "CA-R-1250:28-28"
+      ],
+      "native_temporal_classification": "not_performed",
+      "qualified_identity": "Actor",
+      "question_ref": "temporal-display-convention",
+      "reason": "Primary-Entity taxonomy alone does not establish temporal persistence."
+    },
+    {
+      "confidence_percent": 75,
+      "disposition": "unresolved",
+      "evidence_refs": [
+        "CA-R-1422:32-32"
+      ],
+      "native_temporal_classification": "not_performed",
+      "qualified_identity": "Operator",
+      "question_ref": "temporal-display-convention",
+      "reason": "Collective human Actor definition establishes Actor meaning, not an explicit continuant criterion."
+    },
+    {
+      "confidence_percent": 75,
+      "disposition": "unresolved",
+      "evidence_refs": [
+        "CA-D-414:28-28",
+        "CA-D-505:34-40"
+      ],
+      "native_temporal_classification": "not_performed",
+      "qualified_identity": "Carrier",
+      "question_ref": "temporal-display-convention",
+      "reason": "Carrier is a Primary Entity, not a bearer-dependent Property; that does not itself admit a temporal class."
+    },
+    {
+      "confidence_percent": 75,
+      "disposition": "unresolved",
+      "evidence_refs": [
+        "CA-D-258:28-28"
+      ],
+      "native_temporal_classification": "not_performed",
+      "qualified_identity": "File Carrier",
+      "question_ref": "temporal-display-convention",
+      "reason": "Concrete File Carrier kind is preserved; its temporal display membership is not established by taxonomy alone."
+    },
+    {
+      "confidence_percent": 75,
+      "disposition": "unresolved",
+      "evidence_refs": [
+        "CA-D-259:28-28"
+      ],
+      "native_temporal_classification": "not_performed",
+      "qualified_identity": "Directory Carrier",
+      "question_ref": "temporal-display-convention",
+      "reason": "Concrete Directory Carrier kind is preserved; its temporal display membership is not established by taxonomy alone."
+    },
+    {
+      "confidence_percent": 75,
+      "disposition": "unresolved",
+      "evidence_refs": [
+        "CA-R-1757:29-29"
+      ],
+      "native_temporal_classification": "not_performed",
+      "qualified_identity": "Scope Unit",
+      "question_ref": "temporal-display-convention",
+      "reason": "Ownership boundary and optional child Scope Units do not independently establish temporal membership."
+    }
+  ],
+  "work_boundary": "Bounded structure design only; not the complete CA-P-1907 node-disposition review, an accepted graph, a migration or an execution Run."
+}

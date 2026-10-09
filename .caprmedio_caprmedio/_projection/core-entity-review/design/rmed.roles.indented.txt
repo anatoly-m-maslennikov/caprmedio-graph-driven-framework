@@ -1,0 +1,5011 @@
+CA-P-1920 RMED role tree — indented labels are literal slash-qualified identities for display only; no native semantics. Exact proof: rmed.views.json.
+
+R — model skeleton and required results
+  GOVERNS
+    - AI Agent (prefix)
+      - AI Agent/authorization
+        - CA-R-1552@4
+        - CA-R-1554@4
+        - CA-R-1555@5
+        - CA-R-1556@5
+        - CA-R-1557@5
+        - CA-R-1558@4
+        - CA-R-1559@5
+        - CA-R-1561@4
+    - AI Agent Delegation
+      - CA-R-852@16
+    - Action
+      - CA-R-1452@10
+      - Action/Execution Kind
+        - CA-R-1526@4
+    - Actor
+      - CA-R-1250@12
+      - CA-R-1551@4
+    - Applicable Methodology
+      - CA-R-1213@17
+      - CA-R-1317@11
+      - Applicable Methodology/Conflict
+        - CA-R-1373@9
+      - Applicable Methodology/Member
+        - CA-R-1314@13
+      - Applicable Methodology/Member Selection
+        - CA-R-1315@16
+      - Applicable Methodology/Sources
+        - CA-R-1228@16
+        - Applicable Methodology/Sources/Installed Extensions (prefix)
+          - Applicable Methodology/Sources/Installed Extensions/Catalog Entry
+            - CA-R-1220@11
+    - Applicable Methodology Compilation (prefix)
+      - Applicable Methodology Compilation/Claim Transformation
+        - CA-R-1316@11
+    - Artifact
+      - CA-R-1249@12
+      - CA-R-1262@11
+      - CA-R-1268@12
+      - CA-R-1502@5
+      - Artifact/Activity
+        - CA-R-1307@12
+        - CA-R-1394@10
+      - Artifact/Activity: Active
+        - CA-R-1395@10
+      - Artifact/Activity: Inactive
+        - CA-R-1396@10
+      - Artifact/Applicability
+        - CA-R-1500@5
+      - Artifact/Authority
+        - CA-R-1499@5
+      - Artifact/Currentness
+        - CA-R-1501@5
+      - Artifact/Local Tier
+        - CA-R-1571@4
+      - Artifact/Revision
+        - CA-R-1371@10
+        - Artifact/Revision/Status
+          - CA-R-1306@12
+          - CA-R-1308@11
+          - CA-R-1311@13
+          - CA-R-1312@14
+          - CA-R-1313@12
+        - Artifact/Revision/Status: Archived
+          - CA-R-1419@9
+      - Artifact/Type
+        - CA-R-1405@11
+        - CA-R-1708@24
+        - CA-R-1765@20
+    - Artifact Classification Resolution
+      - CA-R-1655@25
+    - Atom
+      - CA-R-154@18
+      - CA-R-1598@4
+      - CA-R-655@23
+      - CA-R-771@16
+      - Atom/Claim
+        - CA-R-1203@14
+        - CA-R-1271@13
+        - CA-R-1358@13
+        - CA-R-918@15
+        - Atom/Claim/Canonical Signature
+          - CA-R-1360@9
+        - Atom/Claim/Target Scope Unit
+          - CA-R-1595@4
+          - CA-R-1596@4
+          - CA-R-718@22
+          - CA-R-947@20
+      - Atom/Content Role
+        - CA-R-1283@13
+        - CA-R-1531@4
+        - CA-R-1550@4
+        - CA-R-740@19
+        - Atom/Content Role/Name
+          - CA-R-1704@19
+      - Atom/Content Role: Analysis
+        - CA-R-1337@11
+        - Atom/Content Role: Analysis/Status
+          - CA-R-1875@1
+        - Atom/Content Role: Analysis/Type
+          - CA-R-1232@14
+        - Atom/Content Role: Analysis/Type: Rationale
+          - CA-R-1664@22
+      - Atom/Content Role: Concern
+        - CA-R-1336@10
+        - Atom/Content Role: Concern/Status
+          - CA-R-1608@3
+        - Atom/Content Role: Concern/Type
+          - CA-R-1231@14
+      - Atom/Content Role: Delivery
+        - CA-R-1342@11
+        - Atom/Content Role: Delivery/Status
+          - CA-R-1399@9
+      - Atom/Content Role: Evaluation
+        - CA-R-1341@10
+        - CA-R-1503@4
+        - CA-R-1505@6
+        - Atom/Content Role: Evaluation/Local Tier
+          - CA-R-794@21
+        - Atom/Content Role: Evaluation/Status
+          - CA-R-1398@9
+        - Atom/Content Role: Evaluation/Type
+          - CA-R-1506@4
+      - Atom/Content Role: Implementation
+        - CA-R-1343@11
+      - Atom/Content Role: Method
+        - CA-R-1340@13
+        - CA-R-1767@18
+        - CA-R-1768@16
+        - Atom/Content Role: Method/Status
+          - CA-R-1397@9
+      - Atom/Content Role: Operations
+        - CA-R-1530@6
+        - Atom/Content Role: Operations/Status
+          - CA-R-1874@1
+        - Atom/Content Role: Operations/Type
+          - CA-R-1565@5
+        - Atom/Content Role: Operations/Type: Action
+          - CA-R-1562@5
+        - Atom/Content Role: Operations/Type: Actor
+          - CA-R-1564@4
+        - Atom/Content Role: Operations/Type: Step
+          - CA-R-1569@4
+        - Atom/Content Role: Operations/Type: Workflow
+          - CA-R-1563@6
+      - Atom/Content Role: Plan
+        - CA-R-1338@12
+        - Atom/Content Role: Plan/Backlog
+          - CA-R-1542@5
+        - Atom/Content Role: Plan/Current Scope
+          - CA-R-1541@5
+        - Atom/Content Role: Plan/Identity
+          - CA-R-1534@5
+        - Atom/Content Role: Plan/Status
+          - CA-R-1539@4
+        - Atom/Content Role: Plan/Status: Canceled
+          - CA-R-1545@4
+        - Atom/Content Role: Plan/Type: Plan
+          - CA-R-1574@4
+          - CA-R-1575@4
+          - CA-R-1589@4
+          - CA-R-1590@4
+          - Atom/Content Role: Plan/Type: Plan/Assignee
+            - CA-R-1584@4
+            - CA-R-1585@4
+          - Atom/Content Role: Plan/Type: Plan/Autonomous Confidence Threshold
+            - CA-R-1587@4
+            - CA-R-1591@4
+          - Atom/Content Role: Plan/Type: Plan/Blocking
+            - CA-R-1580@4
+            - CA-R-1592@4
+          - Atom/Content Role: Plan/Type: Plan/Claim (prefix)
+            - Atom/Content Role: Plan/Type: Plan/Claim/Target Scope Unit
+              - CA-R-1588@6
+          - Atom/Content Role: Plan/Type: Plan/Decomposition
+            - CA-R-1536@5
+            - CA-R-1538@5
+            - CA-R-1579@5
+          - Atom/Content Role: Plan/Type: Plan/Definition of Done
+            - CA-R-1581@4
+            - CA-R-1599@4
+          - Atom/Content Role: Plan/Type: Plan/Details
+            - CA-R-1586@5
+          - Atom/Content Role: Plan/Type: Plan/Label
+            - CA-R-1576@5
+          - Atom/Content Role: Plan/Type: Plan/Recursive Decomposition
+            - CA-R-1537@5
+          - Atom/Content Role: Plan/Type: Plan/Status: Done
+            - CA-R-1583@5
+          - Atom/Content Role: Plan/Type: Plan/Subtype
+            - CA-R-1577@4
+          - Atom/Content Role: Plan/Type: Plan/Work Sequence Number
+            - CA-R-991@17
+      - Atom/Content Role: Requirement
+        - CA-R-1339@11
+        - CA-R-1694@21
+        - Atom/Content Role: Requirement/Status
+          - CA-R-1309@12
+        - Atom/Content Role: Requirement/Type: Demand
+          - CA-R-932@21
+          - Atom/Content Role: Requirement/Type: Demand/Admission
+            - CA-R-951@17
+          - Atom/Content Role: Requirement/Type: Demand/Direction
+            - CA-R-1293@12
+            - CA-R-1294@15
+            - CA-R-944@19
+          - Atom/Content Role: Requirement/Type: Demand/Producer Result
+            - CA-R-933@17
+            - CA-R-954@16
+        - Atom/Content Role: Requirement/Type: Goal
+          - CA-R-1392@9
+          - CA-R-1775@16
+          - CA-R-925@20
+          - CA-R-926@18
+      - Atom/Details
+        - CA-R-1624@2
+      - Atom/Global Tier
+        - CA-R-1388@9
+        - CA-R-1389@8
+        - CA-R-1390@10
+        - CA-R-1391@9
+        - CA-R-1413@9
+        - CA-R-1444@9
+        - CA-R-1573@4
+        - CA-R-1777@20
+      - Atom/Governed Subject
+        - CA-R-1363@12
+      - Atom/Local Tier
+        - CA-R-1287@12
+        - CA-R-1393@9
+        - CA-R-1442@10
+        - CA-R-155@30
+        - CA-R-1566@5
+        - CA-R-680@18
+      - Atom/Local Tier: Core
+        - CA-R-1234@12
+        - CA-R-659@19
+      - Atom/Local Tier: General
+        - CA-R-1431@10
+      - Atom/Local Tier: Principle
+        - CA-R-1443@9
+        - CA-R-658@17
+      - Atom/Local Tier: Standard
+        - CA-R-660@15
+      - Atom/Revision (prefix)
+        - Atom/Revision/Author
+          - CA-R-1078@15
+          - CA-R-1080@14
+        - Atom/Revision/Content
+          - CA-R-1417@9
+        - Atom/Revision/Reference
+          - CA-R-366@21
+        - Atom/Revision/Status
+          - CA-R-1412@9
+          - CA-R-1610@4
+        - Atom/Revision/Updated At
+          - CA-R-1416@10
+          - CA-R-1788@1
+        - Atom/Revision/Version
+          - CA-R-1415@10
+          - CA-R-1433@8
+      - Atom/Scope
+        - CA-R-1014@18
+        - CA-R-920@18
+      - Atom/Subjects
+        - CA-R-1198@13
+        - CA-R-1201@12
+        - CA-R-1202@14
+        - CA-R-1276@10
+        - CA-R-1278@10
+        - CA-R-1597@4
+      - Atom/Summary
+        - CA-R-1273@14
+        - CA-R-1274@12
+        - CA-R-1418@12
+        - CA-R-1464@5
+        - CA-R-1465@8
+    - Atom Change Classification
+      - CA-R-1432@9
+    - Atom Collection
+      - CA-R-1265@12
+      - CA-R-1378@9
+      - CA-R-1379@10
+      - Atom Collection/Direct Containment
+        - CA-R-1383@10
+      - Atom Collection/Local Tier
+        - CA-R-1567@5
+      - Atom Collection/Type
+        - CA-R-1546@5
+      - Atom Collection/Type: Ad Hoc
+        - CA-R-1381@10
+    - Autonomous Confidence Threshold
+      - CA-R-1044@15
+      - CA-R-1045@12
+    - BEARS
+      - CA-R-1243@11
+    - CAPRMEDIO Expansion
+      - CA-R-1736@19
+    - CAPRMEDIO Framework Identity
+      - CA-R-1778@14
+    - CAPRMEDIO Framework Instance
+      - CA-R-850@14
+    - CAPRMEDIO Graph
+      - CA-R-1471@5
+      - CAPRMEDIO Graph/Connectivity
+        - CA-R-1410@7
+        - CA-R-1472@5
+    - CAPRMEDIO Metamodel (prefix)
+      - CAPRMEDIO Metamodel/Fractality
+        - CA-R-917@17
+    - Change Content Roles
+      - CA-R-1549@4
+    - Child Composition
+      - CA-R-960@14
+    - Claim
+      - CA-R-1269@11
+      - CA-R-643@17
+    - Claim Value Set
+      - CA-R-1359@9
+    - Compatible Lineage Impact Disposition
+      - CA-R-1033@15
+    - Composite Claim
+      - CA-R-1270@11
+    - Concern About Relation
+      - CA-R-1022@15
+    - Confidence Threshold
+      - CA-R-1427@7
+      - Confidence Threshold/source
+        - CA-R-1428@9
+    - Configuration Selection and Precedence
+      - CA-R-1724@21
+    - Containment Relation Pair
+      - CA-R-1368@10
+    - Core Meta-Model
+      - CA-R-1434@8
+    - Current-scope Atom
+      - CA-R-922@21
+    - DEPENDS_ON
+      - CA-R-1200@16
+      - CA-R-1280@16
+    - DERIVED_FROM
+      - CA-R-1639@20
+    - Default Settings
+      - CA-R-1441@8
+    - Delivery For Relation
+      - CA-R-1019@15
+    - Dependency Relation Pair
+      - CA-R-1026@16
+    - Dependent Entity
+      - CA-R-1192@12
+      - CA-R-1267@11
+    - Dependent Entity Occurrence
+      - CA-R-1247@11
+    - Entity
+      - CA-R-1248@12
+      - CA-R-1259@11
+      - Entity/Identity
+        - CA-R-1406@9
+      - Entity/Type
+        - CA-R-1285@13
+        - CA-R-1349@10
+        - CA-R-1350@9
+    - Entity Taxonomy
+      - CA-R-1261@12
+    - Evaluation For Relation
+      - CA-R-1018@17
+    - Evidence
+      - CA-R-1646@18
+    - Evidence For Relation
+      - CA-R-1021@15
+    - Extension
+      - CA-R-1217@11
+      - CA-R-1466@5
+      - CA-R-1722@19
+      - CA-R-1723@15
+    - Extension Installation
+      - CA-R-1206@12
+    - Feature Realization Relation
+      - CA-R-1654@22
+    - Framework Instance Settings
+      - CA-R-1402@10
+      - CA-R-1404@10
+      - CA-R-1750@21
+      - Framework Instance Settings/Authority Modes
+        - CA-R-1430@8
+      - Framework Instance Settings/Confidence (prefix)
+        - Framework Instance Settings/Confidence/Necessary Information Threshold
+          - CA-R-1652@22
+        - Framework Instance Settings/Confidence/Semantic Resolution Threshold
+          - CA-R-380@24
+      - Framework Instance Settings/interaction (prefix)
+        - Framework Instance Settings/interaction/reporting mode
+          - CA-R-1628@25
+          - Framework Instance Settings/interaction/reporting mode/effects
+            - CA-R-1439@7
+          - Framework Instance Settings/interaction/reporting mode/mandatory information
+            - CA-R-1440@7
+    - GOVERNS
+      - CA-R-1199@13
+      - CA-R-1279@12
+    - General Artifact Graph
+      - CA-R-1409@8
+    - General Term
+      - CA-R-1320@10
+    - Governance Origin
+      - CA-R-1709@24
+    - Governed Term
+      - CA-R-126@17
+      - CA-R-1319@10
+    - Graph of Graphs
+      - CA-R-1408@7
+    - Hub Atom
+      - CA-R-1578@4
+    - IS_ALLOWED_VALUE_OF
+      - CA-R-1346@10
+      - CA-R-1436@8
+    - IS_BORNE_BY
+      - CA-R-1260@13
+      - CA-R-1351@10
+    - Implementation
+      - CA-R-1611@4
+      - Implementation/Derivation and Actual-State Authority
+        - CA-R-1873@1
+    - Implementation Binding
+      - CA-R-1504@5
+      - CA-R-1695@19
+    - Implementation Of Relation
+      - CA-R-1020@15
+    - Implementation Relation Pair
+      - CA-R-1027@15
+    - Implementation Retry Limit
+      - CA-R-1488@6
+      - Implementation Retry Limit/source
+        - CA-R-1489@6
+    - Journal
+      - CA-R-1491@6
+      - CA-R-1720@18
+      - CA-R-1745@17
+      - Journal/Record
+        - CA-R-1644@17
+      - Journal/Revision
+        - CA-R-1372@10
+    - Label
+      - CA-R-1594@4
+    - Lineage Impact Analysis
+      - CA-R-1497@5
+      - CA-R-1633@20
+    - Lineage Impact Analysis Content
+      - CA-R-1037@14
+    - Local Order
+      - CA-R-1763@18
+    - Method For Relation
+      - CA-R-1017@15
+    - Methodology Source
+      - CA-R-1219@16
+      - Methodology Source/Expansion Boundary
+        - CA-R-1375@13
+    - NARROWER_THAN
+      - CA-R-1244@15
+      - CA-R-1345@11
+      - CA-R-1435@8
+    - Navigational Order Number
+      - CA-R-978@17
+      - CA-R-981@14
+    - Normative Authority Relation Pair
+      - CA-R-879@18
+    - Operator
+      - CA-R-1422@8
+    - Optional Projection (prefix)
+      - Optional Projection/Activation
+        - CA-R-1631@20
+    - Owned Atoms
+      - CA-R-1447@8
+    - Plan Graph
+      - CA-R-1593@5
+    - Previous Unit
+      - CA-R-913@13
+    - Primary Entity
+      - CA-R-1191@13
+      - CA-R-1266@12
+    - Priority
+      - CA-R-1629@22
+    - Producer Result (prefix)
+      - Producer Result/Flow Direction
+        - CA-R-945@18
+    - Project
+      - CA-R-1759@21
+      - Project/Principle universe
+        - CA-R-1773@16
+        - CA-R-1774@12
+      - Project/graph dimensions
+        - CA-R-1776@19
+      - Project/minimum model
+        - CA-R-1772@14
+      - Project/normative authority graph
+        - CA-R-833@12
+      - Project/priority model application
+        - CA-R-1487@5
+    - Project Atom ID
+      - CA-R-728@22
+    - Project Boundary Position
+      - CA-R-961@13
+    - Project Configuration
+      - CA-R-1207@14
+      - CA-R-1218@13
+    - Project Scope Unit Graph Projection
+      - CA-R-1739@21
+      - CA-R-1740@21
+      - CA-R-626@23
+    - Project Settings
+      - CA-R-1052@21
+      - CA-R-1401@11
+      - CA-R-1738@21
+    - Project Structure
+      - CA-R-1483@5
+      - CA-R-1485@5
+    - Projection
+      - CA-R-1460@5
+      - CA-R-1463@7
+      - CA-R-1493@5
+      - CA-R-1494@5
+      - CA-R-1507@5
+      - CA-R-1568@6
+      - CA-R-1609@4
+      - CA-R-1746@20
+      - Projection/Revision
+        - CA-R-1495@6
+      - Projection/Type
+        - CA-R-1634@26
+      - Projection/Type: Artifact Change Log
+        - CA-R-1467@5
+      - Projection/Type: Atom Subjects Graph
+        - CA-R-1281@12
+      - Projection/Type: Catalog
+        - CA-R-1325@8
+        - CA-R-1455@7
+      - Projection/Type: Entities Graph
+        - CA-R-1438@8
+        - CA-R-1456@8
+      - Projection/Type: Extended Entities Graph
+        - CA-R-1459@5
+      - Projection/Type: Implementation Overview
+        - CA-R-1638@27
+        - CA-R-1703@18
+      - Projection/Type: Process Log
+        - CA-R-1468@6
+      - Projection/Type: Reconciled Projection
+        - CA-R-1461@5
+      - Projection/Type: Terms Graph
+        - CA-R-1335@13
+        - CA-R-1454@7
+    - Projection Rebuild
+      - CA-R-1649@19
+    - Property
+      - CA-R-1193@11
+      - CA-R-1251@11
+    - Rationale For Relation
+      - CA-R-1016@15
+    - Recurrence Protection
+      - CA-R-1741@15
+    - Related To Relation
+      - CA-R-1653@18
+    - Relation (prefix)
+      - Relation/authority
+        - CA-R-1437@6
+    - Relation Kind
+      - CA-R-1246@11
+      - Relation Kind/Metadata
+        - CA-R-806@21
+    - Relational Atom
+      - CA-R-1256@11
+      - CA-R-923@22
+      - Relational Atom/Qualified Type
+        - CA-R-924@20
+    - Replacement-Required Lineage Impact Disposition
+      - CA-R-1035@13
+    - Root Term
+      - CA-R-1347@11
+      - CA-R-1353@10
+    - Scope Expression
+      - CA-R-999@14
+      - Scope Expression/Canonical Scope Signature
+        - CA-R-1361@13
+    - Scope Unit
+      - CA-R-1257@12
+      - CA-R-1264@11
+      - CA-R-1292@13
+      - CA-R-1484@5
+      - CA-R-1730@19
+      - CA-R-1748@16
+      - CA-R-1757@17
+      - CA-R-1762@19
+      - CA-R-862@16
+      - CA-R-927@22
+      - Scope Unit/Label
+        - CA-R-1382@9
+        - CA-R-972@18
+        - CA-R-980@15
+        - CA-R-982@15
+      - Scope Unit/Name
+        - CA-R-1297@11
+        - CA-R-962@14
+        - CA-R-970@17
+        - CA-R-971@15
+      - Scope Unit/Navigational Order Number
+        - CA-R-983@14
+      - Scope Unit/Type
+        - CA-R-1758@20
+        - CA-R-979@16
+      - Scope Unit/Type: Ordered
+        - CA-R-1760@20
+      - Scope Unit/Type: Unordered
+        - CA-R-1761@20
+    - Session-State Envelope
+      - CA-R-1650@19
+    - Single Source of Truth
+      - CA-R-1470@7
+    - Spec Content Roles
+      - CA-R-1548@5
+    - Step
+      - CA-R-1509@6
+      - Step/Agentic Execution Context
+        - CA-R-1527@4
+    - Step Run
+      - CA-R-1511@5
+      - Step Run/Invocation
+        - CA-R-1789@1
+        - CA-R-1790@1
+        - CA-R-1791@1
+        - CA-R-1792@1
+        - CA-R-1793@1
+      - Step Run/Tool Call
+        - CA-R-1528@5
+    - Structural Coordinate
+      - CAPRMEDIO-R-791@15
+    - Structural Entity
+      - CA-R-1376@12
+      - Structural Entity/Recursive Containment
+        - CA-R-1498@4
+    - Structural Level
+      - CA-R-1731@17
+      - CA-R-1737@16
+      - CA-R-1751@21
+    - Structural Parent Relation
+      - CA-R-1660@17
+    - Structural Path
+      - CA-R-1661@17
+      - CA-R-1764@18
+    - Subject
+      - CA-R-1275@14
+    - Subject Expression
+      - CA-R-1245@13
+      - CA-R-1321@12
+    - Subject Path
+      - CA-R-1194@14
+      - CA-R-1204@14
+    - Subtree-owned Atoms
+      - CA-R-942@17
+    - Subtree-targeting Atoms
+      - CA-R-1449@7
+    - Targeting Atoms
+      - CA-R-1448@9
+    - Term
+      - CA-R-1318@11
+      - Term/name
+        - CA-R-1324@10
+    - Type
+      - CA-R-1284@11
+      - CA-R-1286@12
+      - CA-R-1348@9
+      - CA-R-1352@10
+    - Uncertain Lineage Impact Disposition
+      - CA-R-1036@13
+    - Unit
+      - CA-R-964@14
+    - Update-Required Lineage Impact Disposition
+      - CA-R-1034@13
+    - Work Journal (prefix)
+      - Work Journal/Event (prefix)
+        - Work Journal/Event/Type
+          - CA-R-1643@22
+    - Work Sequence Number
+      - CA-R-992@17
+      - CA-R-997@17
+    - Workflow
+      - CA-R-1508@7
+      - CA-R-1519@5
+      - CA-R-1521@4
+      - CA-R-1570@4
+      - Workflow/Relation Kind: On Result
+        - CA-R-1513@4
+    - Workflow Run
+      - CA-R-1510@4
+      - CA-R-1520@5
+      - CA-R-1525@6
+    - applicability
+      - CA-R-1669@18
+      - CA-R-1670@18
+    - artifact-model
+      - CA-R-151@20
+      - CA-R-1700@21
+      - CA-R-1705@18
+      - CA-R-1717@17
+      - CA-R-1747@17
+      - CA-R-1766@18
+      - CA-R-829@19
+    - authority
+      - CA-R-1681@22
+      - CA-R-1682@23
+      - CA-R-1683@24
+      - CA-R-1689@23
+      - CA-R-1710@18
+      - CA-R-1713@15
+      - CA-R-1744@18
+    - classification
+      - CA-R-1701@20
+    - continuous-improvement
+      - CA-R-1734@15
+      - CA-R-1735@15
+      - CA-R-1742@15
+      - CA-R-1743@16
+    - development-flow
+      - CA-R-1685@19
+      - CA-R-1691@21
+      - CA-R-1714@16
+      - CA-R-1715@16
+      - CA-R-1716@17
+    - evaluation
+      - CA-R-1647@18
+      - CA-R-1679@17
+      - CA-R-1684@18
+      - CA-R-1687@19
+    - extension-model
+      - CA-R-1733@17
+      - CA-R-1752@19
+      - CA-R-1753@19
+      - CA-R-1754@20
+      - CA-R-1755@16
+    - external-boundary
+      - CA-R-1627@18
+      - CA-R-1648@20
+    - framework-boundary
+      - CA-R-1680@19
+    - interaction
+      - CA-R-853@14
+    - language
+      - CA-R-940@15
+      - CA-R-941@15
+    - lifecycle
+      - CA-R-1630@26
+    - lifecycle-traceability
+      - CA-R-1051@21
+      - CA-R-1697@21
+      - CA-R-1698@19
+      - CA-R-1699@22
+      - CA-R-1706@19
+      - CA-R-1726@16
+      - CA-R-1727@16
+      - CA-R-1728@16
+      - CA-R-1729@16
+    - principles
+      - CA-R-1696@24
+    - project-containment graph
+      - CA-R-834@18
+      - CA-R-836@16
+    - relation-model
+      - CA-R-1023@13
+      - CA-R-1024@14
+      - CA-R-1025@14
+      - CA-R-1029@13
+      - CA-R-1030@13
+      - CA-R-1032@13
+      - CA-R-1038@14
+      - CA-R-1039@14
+      - CA-R-1040@16
+      - CA-R-117@17
+      - CA-R-118@20
+      - CA-R-121@17
+      - CA-R-1632@20
+      - CA-R-1657@18
+      - CA-R-1659@17
+      - CA-R-1676@20
+      - CA-R-796@18
+      - CA-R-807@19
+      - CA-R-808@18
+      - CA-R-915@17
+      - CA-R-916@19
+      - CA-R-934@15
+      - CA-R-935@18
+      - CA-R-976@16
+    - requirement-topology
+      - CA-R-1671@16
+      - CA-R-1672@16
+    - scope-topology
+      - CA-R-1656@17
+      - CA-R-1658@17
+      - CA-R-1677@20
+      - CA-R-1678@18
+      - CA-R-1686@23
+      - CA-R-1688@24
+      - CA-R-1690@22
+      - CA-R-1719@21
+      - CA-R-1721@20
+      - CA-R-1732@15
+      - CA-R-1749@16
+      - CA-R-1756@22
+      - CA-R-1771@15
+      - CA-R-837@19
+      - CA-R-886@22
+    - semantics
+      - CA-R-1702@26
+      - CA-R-1707@18
+      - CA-R-1712@16
+      - CA-R-1718@23
+      - CA-R-1725@16
+    - settings specification
+      - CA-R-1429@10
+    - subject
+      - CA-R-1770@16
+  DEPENDS_ON
+    - AI Agent
+      - CA-R-1526@4
+      - CA-R-1527@4
+      - CA-R-1551@4
+      - CA-R-1552@4
+      - CA-R-1554@4
+      - CA-R-1555@5
+      - CA-R-1556@5
+      - CA-R-1557@5
+      - CA-R-1558@4
+      - CA-R-1559@5
+      - CA-R-1561@4
+      - CA-R-1585@4
+      - CA-R-1589@4
+      - CA-R-1591@4
+      - CA-R-852@16
+      - AI Agent/Confidence
+        - CA-R-1044@15
+        - CA-R-1559@5
+        - CA-R-1561@4
+    - AI Agent Delegation
+      - CA-R-1551@4
+      - CA-R-1552@4
+      - CA-R-1555@5
+      - CA-R-1561@4
+    - Action
+      - CA-R-1312@14
+      - CA-R-1340@13
+      - CA-R-1463@7
+      - CA-R-1468@6
+      - CA-R-1508@7
+      - CA-R-1509@6
+      - CA-R-1511@5
+      - CA-R-1519@5
+      - CA-R-1520@5
+      - CA-R-1525@6
+      - CA-R-1526@4
+      - CA-R-1528@5
+      - CA-R-1530@6
+      - CA-R-1562@5
+      - CA-R-1569@4
+      - CA-R-1570@4
+      - CA-R-1683@24
+      - CA-R-1702@26
+      - CA-R-1720@18
+      - CA-R-1789@1
+      - CA-R-1790@1
+      - CA-R-1791@1
+      - CA-R-1792@1
+      - CA-R-1793@1
+      - Action/Execution Kind
+        - CA-R-1452@10
+        - CA-R-1509@6
+        - CA-R-1527@4
+        - CA-R-1789@1
+        - CA-R-1790@1
+        - CA-R-1791@1
+        - CA-R-1792@1
+        - CA-R-1793@1
+    - Actor
+      - CA-R-1078@15
+      - CA-R-1422@8
+      - CA-R-1452@10
+      - CA-R-1455@7
+      - CA-R-1530@6
+      - CA-R-1564@4
+      - CA-R-1584@4
+      - CA-R-1644@17
+      - CA-R-1683@24
+      - CA-R-1702@26
+      - CA-R-850@14
+    - Analysis
+      - CA-R-1611@4
+    - Applicable Methodology
+      - CA-R-1219@16
+      - CA-R-1246@11
+      - CA-R-1373@9
+      - CA-R-1434@8
+      - CA-R-1491@6
+      - CA-R-1577@4
+      - CA-R-1655@25
+      - Applicable Methodology/Conflict
+        - CA-R-1317@11
+      - Applicable Methodology/Source Frontier Digest
+        - CA-R-1317@11
+      - Applicable Methodology/Sources
+        - CA-R-1434@8
+        - Applicable Methodology/Sources/CORE_META_MODEL
+          - CA-R-1234@12
+    - Applicable Methodology Revision
+      - CA-R-1284@11
+    - Artifact
+      - CA-R-1026@16
+      - CA-R-1307@12
+      - CA-R-1394@10
+      - CA-R-1402@10
+      - CA-R-1405@11
+      - CA-R-1409@8
+      - CA-R-1410@7
+      - CA-R-1439@7
+      - CA-R-1441@8
+      - CA-R-1463@7
+      - CA-R-1467@5
+      - CA-R-1483@5
+      - CA-R-1499@5
+      - CA-R-1500@5
+      - CA-R-1501@5
+      - CA-R-1521@4
+      - CA-R-1558@4
+      - CA-R-1568@6
+      - CA-R-1571@4
+      - CA-R-1609@4
+      - CA-R-1655@25
+      - CA-R-1708@24
+      - CA-R-1720@18
+      - CA-R-1738@21
+      - CA-R-1745@17
+      - CA-R-1746@20
+      - CA-R-1765@20
+      - CA-R-1773@16
+      - CA-R-655@23
+      - CA-R-834@18
+      - CA-R-836@16
+      - Artifact/Activity
+        - CA-R-1395@10
+        - CA-R-1396@10
+        - CA-R-1419@9
+      - Artifact/Activity: Active
+        - CA-R-1394@10
+      - Artifact/Activity: Inactive
+        - CA-R-1394@10
+      - Artifact/Applicability
+        - CA-R-1501@5
+        - CA-R-1502@5
+      - Artifact/Authority
+        - CA-R-1500@5
+        - CA-R-1502@5
+      - Artifact/Carrier
+        - CA-R-1361@13
+        - CA-R-1491@6
+        - CA-R-1644@17
+        - CA-R-1788@1
+      - Artifact/Carrier Placement
+        - CA-R-1788@1
+      - Artifact/Currentness
+        - CA-R-1502@5
+      - Artifact/Identity
+        - CA-R-728@22
+      - Artifact/Revision
+        - CA-R-1220@11
+        - CA-R-1268@12
+        - CA-R-1281@12
+        - CA-R-1306@12
+        - CA-R-1419@9
+        - CA-R-1432@9
+        - CA-R-1433@8
+        - CA-R-1454@7
+        - CA-R-1455@7
+        - CA-R-1456@8
+        - CA-R-1459@5
+        - CA-R-1461@5
+        - CA-R-1493@5
+        - CA-R-1494@5
+        - CA-R-1501@5
+        - CA-R-1502@5
+        - CA-R-1519@5
+        - CA-R-1520@5
+        - CA-R-1525@6
+        - CA-R-1633@20
+        - CA-R-1638@27
+        - CA-R-1639@20
+        - CA-R-1644@17
+        - CA-R-1646@18
+        - CA-R-1703@18
+        - CA-R-1740@21
+        - CA-R-1746@20
+        - CA-R-1789@1
+        - CA-R-1790@1
+        - CA-R-1791@1
+        - CA-R-1792@1
+        - CA-R-1793@1
+        - Artifact/Revision/Status
+          - CA-R-1307@12
+          - CA-R-1394@10
+          - CA-R-1395@10
+          - CA-R-1396@10
+          - CA-R-1539@4
+          - CA-R-1545@4
+          - CA-R-1608@3
+          - CA-R-1874@1
+          - CA-R-1875@1
+      - Artifact/Type
+        - CA-R-1306@12
+        - CA-R-1308@11
+        - CA-R-1701@20
+    - Atom
+      - CA-R-1198@13
+      - CA-R-1199@13
+      - CA-R-1200@16
+      - CA-R-1256@11
+      - CA-R-1264@11
+      - CA-R-1265@12
+      - CA-R-1269@11
+      - CA-R-1275@14
+      - CA-R-1281@12
+      - CA-R-1287@12
+      - CA-R-1321@12
+      - CA-R-1361@13
+      - CA-R-1378@9
+      - CA-R-1401@11
+      - CA-R-1404@10
+      - CA-R-1409@8
+      - CA-R-1413@9
+      - CA-R-1415@10
+      - CA-R-1430@8
+      - CA-R-1432@9
+      - CA-R-1433@8
+      - CA-R-1447@8
+      - CA-R-1448@9
+      - CA-R-1452@10
+      - CA-R-1459@5
+      - CA-R-1464@5
+      - CA-R-1465@8
+      - CA-R-1470@7
+      - CA-R-1471@5
+      - CA-R-1472@5
+      - CA-R-1491@6
+      - CA-R-1507@5
+      - CA-R-1508@7
+      - CA-R-1521@4
+      - CA-R-1531@4
+      - CA-R-1559@5
+      - CA-R-155@30
+      - CA-R-1561@4
+      - CA-R-1566@5
+      - CA-R-1568@6
+      - CA-R-1571@4
+      - CA-R-1573@4
+      - CA-R-1574@4
+      - CA-R-1578@4
+      - CA-R-1624@2
+      - CA-R-1633@20
+      - CA-R-1638@27
+      - CA-R-1655@25
+      - CA-R-1703@18
+      - CA-R-1738@21
+      - CA-R-1740@21
+      - CA-R-1746@20
+      - CA-R-1750@21
+      - CA-R-1757@17
+      - CA-R-1772@14
+      - CA-R-1775@16
+      - CA-R-1777@20
+      - CA-R-643@17
+      - CA-R-796@18
+      - CA-R-806@21
+      - CA-R-918@15
+      - CA-R-920@18
+      - CA-R-922@21
+      - CA-R-923@22
+      - Atom/Carrier
+        - CA-R-1586@5
+        - CA-R-1590@4
+        - CA-R-1598@4
+      - Atom/Claim
+        - CA-R-1014@18
+        - CA-R-1199@13
+        - CA-R-1200@16
+        - CA-R-1213@17
+        - CA-R-1273@14
+        - CA-R-1274@12
+        - CA-R-1279@12
+        - CA-R-1280@16
+        - CA-R-1287@12
+        - CA-R-1292@13
+        - CA-R-1316@11
+        - CA-R-1339@11
+        - CA-R-1340@13
+        - CA-R-1342@11
+        - CA-R-1358@13
+        - CA-R-1359@9
+        - CA-R-1360@9
+        - CA-R-1363@12
+        - CA-R-1375@13
+        - CA-R-1417@9
+        - CA-R-1418@12
+        - CA-R-1431@10
+        - CA-R-1432@9
+        - CA-R-1437@6
+        - CA-R-1452@10
+        - CA-R-1454@7
+        - CA-R-1455@7
+        - CA-R-1456@8
+        - CA-R-1460@5
+        - CA-R-1461@5
+        - CA-R-1464@5
+        - CA-R-1465@8
+        - CA-R-1470@7
+        - CA-R-1471@5
+        - CA-R-1502@5
+        - CA-R-1503@4
+        - CA-R-1504@5
+        - CA-R-1508@7
+        - CA-R-1530@6
+        - CA-R-1531@4
+        - CA-R-154@18
+        - CA-R-1550@4
+        - CA-R-1556@5
+        - CA-R-1558@4
+        - CA-R-1562@5
+        - CA-R-1563@6
+        - CA-R-1564@4
+        - CA-R-1569@4
+        - CA-R-1574@4
+        - CA-R-1575@4
+        - CA-R-1578@4
+        - CA-R-1579@5
+        - CA-R-1581@4
+        - CA-R-1586@5
+        - CA-R-1590@4
+        - CA-R-1595@4
+        - CA-R-1596@4
+        - CA-R-1598@4
+        - CA-R-1610@4
+        - CA-R-1611@4
+        - CA-R-1624@2
+        - CA-R-1634@26
+        - CA-R-1694@21
+        - CA-R-1745@17
+        - CA-R-1746@20
+        - CA-R-1748@16
+        - CA-R-659@19
+        - CA-R-718@22
+        - CA-R-926@18
+        - CA-R-940@15
+        - Atom/Claim/Target Scope Unit
+          - CA-R-1271@13
+          - CA-R-1294@15
+          - CA-R-1448@9
+          - CA-R-1588@6
+          - CA-R-1597@4
+          - CA-R-916@19
+          - CA-R-922@21
+          - CA-R-923@22
+          - CA-R-927@22
+          - CA-R-932@21
+          - CA-R-935@18
+          - CA-R-944@19
+          - CA-R-945@18
+          - CA-R-992@17
+      - Atom/Content Role
+        - CA-R-1306@12
+        - CA-R-1308@11
+        - CA-R-1315@16
+        - CA-R-1336@10
+        - CA-R-1337@11
+        - CA-R-1338@12
+        - CA-R-1339@11
+        - CA-R-1340@13
+        - CA-R-1341@10
+        - CA-R-1342@11
+        - CA-R-1343@11
+        - CA-R-1431@10
+        - CA-R-1434@8
+        - CA-R-1465@8
+        - CA-R-1521@4
+        - CA-R-1530@6
+        - CA-R-1561@4
+        - CA-R-1573@4
+        - CA-R-1655@25
+        - CA-R-1694@21
+        - CA-R-1701@20
+        - CA-R-1702@26
+        - CA-R-1703@18
+        - CA-R-1704@19
+        - CA-R-1773@16
+        - CA-R-659@19
+      - Atom/Content Role: Analysis
+        - CA-R-1232@14
+        - CA-R-1497@5
+        - CA-R-1549@4
+        - CA-R-1875@1
+        - Atom/Content Role: Analysis/Type
+          - CA-R-1875@1
+        - Atom/Content Role: Analysis/Type: Analysis Report
+          - CA-R-1556@5
+      - Atom/Content Role: Concern
+        - CA-R-1231@14
+        - CA-R-1549@4
+        - CA-R-1557@5
+        - CA-R-1561@4
+        - CA-R-1608@3
+        - CA-R-1629@22
+      - Atom/Content Role: Delivery
+        - CA-R-1018@17
+        - CA-R-1213@17
+        - CA-R-1399@9
+        - CA-R-1502@5
+        - CA-R-1548@5
+        - CA-R-1559@5
+        - CA-R-1694@21
+        - CA-R-1720@18
+        - CA-R-1777@20
+        - CA-R-862@16
+      - Atom/Content Role: Evaluation
+        - CA-R-1018@17
+        - CA-R-1398@9
+        - CA-R-1488@6
+        - CA-R-1491@6
+        - CA-R-1502@5
+        - CA-R-1504@5
+        - CA-R-1506@4
+        - CA-R-1548@5
+        - CA-R-1559@5
+        - CA-R-1777@20
+        - CA-R-794@21
+      - Atom/Content Role: Implementation
+        - CA-R-1502@5
+        - CA-R-1503@4
+        - CA-R-1504@5
+        - CA-R-1505@6
+        - CA-R-1506@4
+        - CA-R-1550@4
+        - CA-R-1566@5
+        - CA-R-1646@18
+        - CA-R-1694@21
+        - CA-R-1772@14
+        - CA-R-954@16
+      - Atom/Content Role: Method
+        - CA-R-1018@17
+        - CA-R-1397@9
+        - CA-R-1502@5
+        - CA-R-1548@5
+        - CA-R-1559@5
+        - CA-R-1694@21
+        - CA-R-1777@20
+      - Atom/Content Role: Operations
+        - CA-R-1018@17
+        - CA-R-1502@5
+        - CA-R-1505@6
+        - CA-R-1549@4
+        - CA-R-1562@5
+        - CA-R-1563@6
+        - CA-R-1564@4
+        - CA-R-1565@5
+        - CA-R-1569@4
+        - CA-R-1694@21
+        - CA-R-1777@20
+        - CA-R-1874@1
+        - Atom/Content Role: Operations/Type
+          - CA-R-1874@1
+        - Atom/Content Role: Operations/Type: Action
+          - CA-R-1452@10
+          - CA-R-1565@5
+        - Atom/Content Role: Operations/Type: Actor
+          - CA-R-1565@5
+        - Atom/Content Role: Operations/Type: Step
+          - CA-R-1509@6
+          - CA-R-1563@6
+          - CA-R-1565@5
+          - CA-R-1570@4
+        - Atom/Content Role: Operations/Type: Workflow
+          - CA-R-1508@7
+          - CA-R-1565@5
+          - CA-R-1570@4
+      - Atom/Content Role: Plan
+        - CA-R-1539@4
+        - CA-R-1545@4
+        - CA-R-1549@4
+        - CA-R-1574@4
+        - CA-R-1777@20
+        - Atom/Content Role: Plan/Direct Work Decomposition
+          - CA-R-1537@5
+        - Atom/Content Role: Plan/Status: Active
+          - CA-R-1541@5
+        - Atom/Content Role: Plan/Status: Backlog
+          - CA-R-1542@5
+        - Atom/Content Role: Plan/Type: Plan
+          - CA-R-1044@15
+          - CA-R-1200@16
+          - CA-R-1428@9
+          - CA-R-1452@10
+          - CA-R-1489@6
+          - CA-R-1536@5
+          - CA-R-1542@5
+          - CA-R-1559@5
+          - CA-R-1567@5
+          - CA-R-1575@4
+          - CA-R-1576@5
+          - CA-R-1577@4
+          - CA-R-1579@5
+          - CA-R-1580@4
+          - CA-R-1581@4
+          - CA-R-1583@5
+          - CA-R-1584@4
+          - CA-R-1585@4
+          - CA-R-1586@5
+          - CA-R-1587@4
+          - CA-R-1588@6
+          - CA-R-1589@4
+          - CA-R-1591@4
+          - CA-R-1592@4
+          - CA-R-1593@5
+          - CA-R-1599@4
+          - CA-R-924@20
+          - CA-R-991@17
+          - CA-R-992@17
+          - CA-R-997@17
+          - Atom/Content Role: Plan/Type: Plan/Autonomous Confidence Threshold
+            - CA-R-1559@5
+          - Atom/Content Role: Plan/Type: Plan/Blocking
+            - CA-R-992@17
+          - Atom/Content Role: Plan/Type: Plan/Decomposition
+            - CA-R-1534@5
+            - CA-R-1575@4
+            - CA-R-1578@4
+            - CA-R-1580@4
+            - CA-R-1583@5
+            - CA-R-1589@4
+            - CA-R-1592@4
+            - CA-R-992@17
+          - Atom/Content Role: Plan/Type: Plan/Definition of Done
+            - CA-R-1583@5
+          - Atom/Content Role: Plan/Type: Plan/Label
+            - CA-R-1546@5
+            - CA-R-1574@4
+            - CA-R-1577@4
+            - CA-R-1579@5
+            - CA-R-1588@6
+            - CA-R-1589@4
+          - Atom/Content Role: Plan/Type: Plan/Recursive Decomposition
+            - CA-R-1538@5
+          - Atom/Content Role: Plan/Type: Plan/Status
+            - CA-R-1579@5
+          - Atom/Content Role: Plan/Type: Plan/Status: Done
+            - CA-R-1580@4
+            - CA-R-1592@4
+          - Atom/Content Role: Plan/Type: Plan/Subtype
+            - CA-R-1576@5
+            - CA-R-1578@4
+            - CA-R-1594@4
+            - CA-R-992@17
+          - Atom/Content Role: Plan/Type: Plan/Work Sequence Number
+            - CA-R-992@17
+            - CA-R-997@17
+      - Atom/Content Role: Requirement
+        - CA-R-1018@17
+        - CA-R-1309@12
+        - CA-R-1502@5
+        - CA-R-1548@5
+        - CA-R-1559@5
+        - CA-R-1772@14
+        - CA-R-1777@20
+        - Atom/Content Role: Requirement/Type: Demand
+          - CA-R-924@20
+        - Atom/Content Role: Requirement/Type: Goal
+          - CA-R-1213@17
+          - CA-R-1292@13
+          - CA-R-1388@9
+          - CA-R-1393@9
+          - CA-R-1484@5
+          - CA-R-155@30
+          - CA-R-1739@21
+          - CA-R-626@23
+          - CA-R-924@20
+          - CA-R-927@22
+          - CA-R-947@20
+      - Atom/Global Tier
+        - CA-R-1431@10
+        - CA-R-1578@4
+        - CA-R-659@19
+      - Atom/Governed Subject
+        - CA-R-1014@18
+      - Atom/Identifier
+        - CA-R-1361@13
+        - CA-R-1464@5
+        - Atom/Identifier/Project Prefix
+          - CA-R-1738@21
+          - CA-R-1750@21
+      - Atom/Identity
+        - CA-R-366@21
+      - Atom/Local Tier
+        - CA-R-1018@17
+        - CA-R-1389@8
+        - CA-R-1429@10
+        - CA-R-1431@10
+        - CA-R-1444@9
+        - CA-R-1748@16
+        - CA-R-658@17
+        - CA-R-659@19
+        - CA-R-660@15
+        - CA-R-794@21
+        - CA-R-796@18
+      - Atom/Local Tier: Core
+        - CA-R-1390@10
+        - CA-R-1431@10
+        - CA-R-155@30
+      - Atom/Local Tier: General
+        - CA-R-1391@9
+        - CA-R-155@30
+        - CA-R-659@19
+      - Atom/Local Tier: Principle
+        - CA-R-1551@4
+        - CA-R-155@30
+        - CA-R-1773@16
+        - CA-R-1774@12
+      - Atom/Local Tier: Standard
+        - CA-R-1391@9
+        - CA-R-1392@9
+        - CA-R-1431@10
+        - CA-R-155@30
+        - CA-R-1566@5
+        - CA-R-1567@5
+        - CA-R-1571@4
+        - CA-R-659@19
+      - Atom/Property
+        - CA-R-1598@4
+      - Atom/Revision
+        - CA-R-1078@15
+        - CA-R-1213@17
+        - CA-R-1314@13
+        - CA-R-1412@9
+        - CA-R-1415@10
+        - CA-R-1416@10
+        - CA-R-1417@9
+        - CA-R-1464@5
+        - CA-R-1598@4
+        - CA-R-1695@19
+        - CA-R-1788@1
+        - Atom/Revision/Author
+          - CA-R-1014@18
+          - CA-R-1559@5
+          - CA-R-837@19
+          - CA-R-927@22
+        - Atom/Revision/Status
+          - CA-R-1788@1
+        - Atom/Revision/Updated At
+          - CA-R-366@21
+        - Atom/Revision/Version
+          - CA-R-366@21
+      - Atom/Scope
+        - CA-R-1287@12
+        - CA-R-1294@15
+        - CA-R-1358@13
+        - CA-R-1443@9
+        - CA-R-1444@9
+        - CA-R-794@21
+        - CA-R-796@18
+        - CA-R-886@22
+        - CA-R-916@19
+        - CA-R-927@22
+        - CA-R-932@21
+        - CA-R-935@18
+        - CA-R-944@19
+        - CA-R-945@18
+        - CA-R-947@20
+        - CA-R-992@17
+      - Atom/Subjects
+        - CA-R-1280@16
+        - CA-R-1281@12
+        - CA-R-1363@12
+        - CA-R-1455@7
+        - CA-R-1456@8
+        - CA-R-1459@5
+        - CA-R-1550@4
+      - Atom/Summary
+        - CA-R-1280@16
+        - CA-R-1432@9
+        - CA-R-1575@4
+    - Atom Change Classification
+      - CA-R-1633@20
+    - Atom Collection
+      - CA-R-1381@10
+      - CA-R-1383@10
+      - CA-R-1409@8
+      - CA-R-1447@8
+      - CA-R-1521@4
+      - CA-R-1567@5
+      - Atom Collection/Type
+        - CA-R-1546@5
+      - Atom Collection/Type: Ad Hoc
+        - CA-R-1546@5
+    - Authority
+      - CA-R-971@15
+    - Authority Mode
+      - CA-R-1430@8
+      - CA-R-1655@25
+    - Autonomous Confidence Threshold
+      - CA-R-1551@4
+      - CA-R-1561@4
+      - CA-R-1587@4
+      - CA-R-1591@4
+    - BEARS
+      - CA-R-1456@8
+    - CAPRMEDIO Framework Instance
+      - CA-R-1422@8
+      - CA-R-1487@5
+      - CA-R-1772@14
+      - CA-R-1773@16
+      - CA-R-1776@19
+      - CA-R-1777@20
+    - CAPRMEDIO Graph
+      - CA-R-1246@11
+      - CA-R-1248@12
+      - CA-R-1281@12
+      - CA-R-1335@13
+      - CA-R-1406@9
+      - CA-R-1408@7
+      - CA-R-1409@8
+      - CA-R-1437@6
+      - CA-R-1438@8
+      - CA-R-1472@5
+      - CA-R-806@21
+    - CCE
+      - CA-R-941@15
+    - CCE Operator
+      - CA-R-1297@11
+      - CA-R-1360@9
+      - CA-R-1361@13
+    - Carrier
+      - CA-R-1213@17
+      - CA-R-1342@11
+      - CA-R-1409@8
+      - CA-R-1452@10
+      - CA-R-1456@8
+      - CA-R-1460@5
+      - CA-R-1461@5
+      - CA-R-1485@5
+      - CA-R-1521@4
+      - CA-R-1556@5
+      - CA-R-1593@5
+      - CA-R-1646@18
+      - CA-R-1720@18
+      - CA-R-1873@1
+      - CA-R-862@16
+    - Carrier-Only Recoding
+      - CA-R-1432@9
+      - CA-R-1433@8
+      - CA-R-1633@20
+    - Change Content Roles
+      - CA-R-1548@5
+      - CA-R-1550@4
+      - CA-R-1566@5
+      - CA-R-1567@5
+      - CA-R-1682@23
+      - CA-R-1683@24
+    - Child Composition
+      - CA-R-1762@19
+    - Claim
+      - CA-R-1270@11
+      - CA-R-1336@10
+      - CA-R-1337@11
+      - CA-R-1338@12
+      - CA-R-1341@10
+      - CA-R-1343@11
+      - CA-R-771@16
+    - Claim Value Set
+      - CA-R-1358@13
+    - Condition Expression
+      - CA-R-1581@4
+    - Confidence Threshold
+      - CA-R-1044@15
+      - CA-R-1428@9
+      - CA-R-1555@5
+      - CA-R-1652@22
+      - CA-R-380@24
+    - Consumer
+      - CA-R-932@21
+      - CA-R-945@18
+      - Consumer/Goal
+        - CA-R-933@17
+        - CA-R-951@17
+    - Core Meta-Model
+      - CA-R-1217@11
+      - CA-R-1228@16
+      - CA-R-1261@12
+      - CA-R-1375@13
+      - CA-R-1466@5
+      - CA-R-1722@19
+      - CA-R-1748@16
+    - DEPENDS_ON
+      - CA-R-1198@13
+      - CA-R-1202@14
+      - CA-R-1275@14
+      - CA-R-1276@10
+      - CA-R-1278@10
+      - CA-R-1281@12
+      - CA-R-1459@5
+    - DERIVED_FROM
+      - CA-R-1314@13
+    - Default Settings
+      - CA-R-1405@11
+      - CA-R-1429@10
+      - CA-R-1630@26
+      - CA-R-1750@21
+    - Definition Atom
+      - CA-R-126@17
+      - CA-R-1279@12
+      - CA-R-1319@10
+      - CA-R-1435@8
+      - CA-R-1454@7
+      - CA-R-1455@7
+    - Dependent Entity
+      - CA-R-1193@11
+      - CA-R-1204@14
+      - CA-R-1251@11
+      - CA-R-1260@13
+    - Entities Graph
+      - CA-R-1243@11
+      - CA-R-1260@13
+      - CA-R-1436@8
+    - Entity
+      - CA-R-1191@13
+      - CA-R-1192@12
+      - CA-R-1194@14
+      - CA-R-1198@13
+      - CA-R-1199@13
+      - CA-R-1200@16
+      - CA-R-1202@14
+      - CA-R-1203@14
+      - CA-R-1204@14
+      - CA-R-1260@13
+      - CA-R-1262@11
+      - CA-R-1266@12
+      - CA-R-1267@11
+      - CA-R-1275@14
+      - CA-R-1280@16
+      - CA-R-1281@12
+      - CA-R-1285@13
+      - CA-R-1321@12
+      - CA-R-1339@11
+      - CA-R-1342@11
+      - CA-R-1363@12
+      - CA-R-1376@12
+      - CA-R-1406@9
+      - CA-R-1431@10
+      - CA-R-1438@8
+      - CA-R-1456@8
+      - CA-R-1459@5
+      - CA-R-1521@4
+      - CA-R-1548@5
+      - CA-R-1594@4
+      - CA-R-1597@4
+      - CA-R-1609@4
+      - CA-R-1682@23
+      - CA-R-1683@24
+      - CA-R-1788@1
+      - CA-R-659@19
+      - Entity/Carrier
+        - CA-R-1342@11
+      - Entity/Type (prefix)
+        - Entity/Type/Status
+          - CA-R-1315@16
+    - Evaluation
+      - CA-R-1611@4
+    - Evidence
+      - CA-R-1497@5
+      - CA-R-1505@6
+      - CA-R-1611@4
+    - Exploration Mode
+      - CA-R-1557@5
+      - CA-R-1558@4
+    - Extension
+      - CA-R-1206@12
+      - CA-R-1207@14
+      - CA-R-1218@13
+      - CA-R-1220@11
+      - CA-R-1228@16
+      - CA-R-1286@12
+      - CA-R-1313@12
+      - CA-R-1375@13
+      - CA-R-1434@8
+      - CA-R-1724@21
+      - CA-R-1748@16
+      - CA-R-1773@16
+      - CA-R-1874@1
+      - CA-R-1875@1
+    - File Carrier
+      - CA-R-1583@5
+    - Framework Instance Settings
+      - CA-R-1052@21
+      - CA-R-1207@14
+      - CA-R-1218@13
+      - CA-R-1228@16
+      - CA-R-1375@13
+      - CA-R-1428@9
+      - CA-R-1429@10
+      - CA-R-1430@8
+      - CA-R-1441@8
+      - CA-R-1489@6
+      - CA-R-1587@4
+      - CA-R-1628@25
+      - CA-R-1629@22
+      - CA-R-1630@26
+      - CA-R-1631@20
+      - CA-R-1652@22
+      - CA-R-1724@21
+      - CA-R-1733@17
+      - CA-R-1739@21
+      - CA-R-1740@21
+      - CA-R-380@24
+      - CA-R-626@23
+      - Framework Instance Settings/interaction (prefix)
+        - Framework Instance Settings/interaction/reporting mode
+          - CA-R-1439@7
+          - CA-R-1440@7
+    - GOVERNS
+      - CA-R-1198@13
+      - CA-R-1201@12
+      - CA-R-1202@14
+      - CA-R-1203@14
+      - CA-R-1275@14
+      - CA-R-1276@10
+      - CA-R-1281@12
+      - CA-R-1363@12
+      - CA-R-1459@5
+    - General Artifact Graph
+      - CA-R-1410@7
+    - General Term
+      - CA-R-1455@7
+    - Governance Origin
+      - CA-R-1701@20
+    - Governed Entity
+      - CA-R-999@14
+    - Governed Term
+      - CA-R-1454@7
+      - CA-R-1455@7
+    - Hub Atom
+      - CA-R-1428@9
+      - CA-R-1580@4
+      - CA-R-1583@5
+      - CA-R-1584@4
+      - CA-R-1588@6
+      - CA-R-1592@4
+      - CA-R-1599@4
+      - CA-R-991@17
+      - CA-R-997@17
+    - IS_ALLOWED_VALUE_OF
+      - CA-R-1245@13
+      - CA-R-1358@13
+      - CA-R-1359@9
+      - CA-R-1405@11
+      - CA-R-1456@8
+    - IS_BORNE_BY
+      - CA-R-1204@14
+      - CA-R-1243@11
+      - CA-R-1456@8
+    - Implementation
+      - CA-R-1340@13
+      - CA-R-1548@5
+      - CA-R-1549@4
+      - CA-R-1567@5
+      - CA-R-1568@6
+      - CA-R-1571@4
+      - CA-R-1610@4
+      - CA-R-1638@27
+      - CA-R-1682@23
+      - CA-R-1683@24
+      - CA-R-1695@19
+      - CA-R-1702@26
+      - CA-R-1703@18
+      - CA-R-1720@18
+      - CA-R-1738@21
+      - CA-R-1873@1
+    - Implementation Binding
+      - CA-R-1505@6
+      - CA-R-1638@27
+      - CA-R-1703@18
+    - Implementation Folder
+      - CA-R-862@16
+    - Implementation Retry Control
+      - CA-R-1488@6
+    - Implementation Retry Limit
+      - CA-R-1489@6
+    - Implementation Workflow
+      - CA-R-1488@6
+      - CA-R-1559@5
+    - Journal
+      - CA-R-1311@13
+      - CA-R-1372@10
+      - CA-R-1409@8
+      - CA-R-1437@6
+      - CA-R-1456@8
+      - CA-R-1463@7
+      - CA-R-1466@5
+      - CA-R-1467@5
+      - CA-R-1468@6
+      - CA-R-1470@7
+      - CA-R-1471@5
+      - CA-R-1472@5
+      - CA-R-1520@5
+      - CA-R-1525@6
+      - CA-R-1528@5
+      - CA-R-1638@27
+      - CA-R-1644@17
+      - CA-R-1655@25
+      - CA-R-1703@18
+      - CA-R-1740@21
+      - CA-R-1746@20
+      - CA-R-1789@1
+      - CA-R-1790@1
+      - CA-R-1791@1
+      - CA-R-1792@1
+      - CA-R-1793@1
+      - CA-R-1873@1
+      - Journal/Record
+        - CA-R-1317@11
+        - CA-R-1452@10
+        - CA-R-1463@7
+        - CA-R-1467@5
+        - CA-R-1468@6
+        - CA-R-1491@6
+        - CA-R-1497@5
+        - CA-R-1505@6
+        - CA-R-1510@4
+        - CA-R-1511@5
+        - CA-R-1528@5
+        - CA-R-1649@19
+        - CA-R-1682@23
+        - CA-R-1683@24
+        - CA-R-1702@26
+        - CA-R-1745@17
+    - Label
+      - CA-R-1576@5
+      - CA-R-972@18
+    - Lineage Impact Analysis
+      - CA-R-1432@9
+    - Local Order
+      - CA-R-1293@12
+      - CA-R-1760@20
+      - CA-R-1761@20
+    - Markdown Atom Carrier (prefix)
+      - Markdown Atom Carrier/Main Content
+        - CA-R-1465@8
+        - CA-R-1624@2
+        - CA-R-718@22
+    - Methodology
+      - CA-R-1519@5
+    - Methodology Source
+      - CA-R-1213@17
+      - CA-R-1217@11
+      - CA-R-1218@13
+      - CA-R-1228@16
+      - CA-R-1284@11
+      - CA-R-1722@19
+      - CA-R-1748@16
+      - Methodology Source/Expansion Boundary
+        - CA-R-1217@11
+        - CA-R-1317@11
+        - CA-R-1434@8
+    - NARROWER_THAN
+      - CA-R-1347@11
+      - CA-R-1765@20
+    - Navigational Order Number
+      - CA-R-1485@5
+    - Operator
+      - CA-R-1014@18
+      - CA-R-1080@14
+      - CA-R-1317@11
+      - CA-R-1402@10
+      - CA-R-1428@9
+      - CA-R-1440@7
+      - CA-R-1441@8
+      - CA-R-1461@5
+      - CA-R-1487@5
+      - CA-R-1489@6
+      - CA-R-1519@5
+      - CA-R-1520@5
+      - CA-R-1525@6
+      - CA-R-1526@4
+      - CA-R-1527@4
+      - CA-R-1551@4
+      - CA-R-1552@4
+      - CA-R-1555@5
+      - CA-R-1556@5
+      - CA-R-1557@5
+      - CA-R-1558@4
+      - CA-R-1559@5
+      - CA-R-1561@4
+      - CA-R-1587@4
+      - CA-R-1589@4
+      - CA-R-1591@4
+      - CA-R-1594@4
+      - CA-R-1629@22
+      - CA-R-1652@22
+      - CA-R-1730@19
+      - CA-R-1738@21
+      - CA-R-1750@21
+      - CA-R-1789@1
+      - CA-R-1790@1
+      - CA-R-1791@1
+      - CA-R-1792@1
+      - CA-R-1793@1
+      - CA-R-380@24
+      - CA-R-852@16
+      - CA-R-927@22
+      - CA-R-972@18
+      - CA-R-978@17
+      - CA-R-982@15
+      - CA-R-983@14
+    - Owned Atoms
+      - CA-R-1775@16
+      - CA-R-942@17
+    - Plan Graph
+      - CA-R-1579@5
+      - CA-R-1580@4
+    - Primary Entity
+      - CA-R-1249@12
+      - CA-R-1250@12
+      - CA-R-1268@12
+      - CA-R-1351@10
+      - CA-R-1376@12
+      - CA-R-834@18
+      - CA-R-836@16
+    - Producer
+      - CA-R-932@21
+      - CA-R-945@18
+      - Producer/Result
+        - CA-R-933@17
+        - CA-R-951@17
+    - Project
+      - CA-R-1207@14
+      - CA-R-1218@13
+      - CA-R-1318@11
+      - CA-R-1319@10
+      - CA-R-1320@10
+      - CA-R-1388@9
+      - CA-R-1389@8
+      - CA-R-1393@9
+      - CA-R-1402@10
+      - CA-R-1422@8
+      - CA-R-1430@8
+      - CA-R-1434@8
+      - CA-R-1441@8
+      - CA-R-1442@10
+      - CA-R-1443@9
+      - CA-R-1463@7
+      - CA-R-1483@5
+      - CA-R-1484@5
+      - CA-R-1487@5
+      - CA-R-1491@6
+      - CA-R-1551@4
+      - CA-R-1559@5
+      - CA-R-155@30
+      - CA-R-1720@18
+      - CA-R-1738@21
+      - CA-R-1772@14
+      - CA-R-1773@16
+      - CA-R-1774@12
+      - CA-R-1776@19
+      - CA-R-658@17
+      - CA-R-680@18
+      - CA-R-833@12
+      - CA-R-927@22
+      - CA-R-947@20
+      - CA-R-970@17
+    - Project Boundary Position
+      - CA-R-1762@19
+    - Project Configuration
+      - CA-R-1206@12
+      - CA-R-1228@16
+      - CA-R-1286@12
+      - CA-R-1313@12
+      - CA-R-1375@13
+      - CA-R-1434@8
+      - CA-R-1466@5
+      - CA-R-1655@25
+      - CA-R-1722@19
+      - CA-R-1748@16
+      - CA-R-1773@16
+      - CA-R-1874@1
+      - CA-R-1875@1
+    - Project Name
+      - CA-R-1738@21
+      - CA-R-1750@21
+    - Project Scope Unit Graph Projection
+      - CA-R-1052@21
+    - Project Settings
+      - CA-R-1218@13
+      - CA-R-1429@10
+      - CA-R-1484@5
+      - CA-R-1750@21
+    - Project Structure
+      - CA-R-1052@21
+      - CA-R-1430@8
+      - CA-R-1470@7
+      - CA-R-1484@5
+      - CA-R-1655@25
+      - CA-R-1660@17
+      - CA-R-1661@17
+      - CA-R-1730@19
+      - CA-R-1739@21
+      - CA-R-1740@21
+      - CA-R-1746@20
+      - CA-R-1750@21
+      - CA-R-626@23
+      - CA-R-718@22
+      - CA-R-862@16
+      - CA-R-926@18
+      - CA-R-947@20
+    - Projection
+      - CA-R-1052@21
+      - CA-R-1213@17
+      - CA-R-1246@11
+      - CA-R-1281@12
+      - CA-R-1335@13
+      - CA-R-1406@9
+      - CA-R-1408@7
+      - CA-R-1409@8
+      - CA-R-1437@6
+      - CA-R-1438@8
+      - CA-R-1454@7
+      - CA-R-1455@7
+      - CA-R-1456@8
+      - CA-R-1459@5
+      - CA-R-1461@5
+      - CA-R-1466@5
+      - CA-R-1467@5
+      - CA-R-1468@6
+      - CA-R-1470@7
+      - CA-R-1471@5
+      - CA-R-1472@5
+      - CA-R-1495@6
+      - CA-R-1502@5
+      - CA-R-1571@4
+      - CA-R-1593@5
+      - CA-R-1610@4
+      - CA-R-1611@4
+      - CA-R-1631@20
+      - CA-R-1634@26
+      - CA-R-1638@27
+      - CA-R-1646@18
+      - CA-R-1649@19
+      - CA-R-1655@25
+      - CA-R-1695@19
+      - CA-R-1703@18
+      - CA-R-1720@18
+      - CA-R-1738@21
+      - CA-R-1739@21
+      - CA-R-1873@1
+      - CA-R-626@23
+      - CA-R-806@21
+      - Projection/Authority
+        - CA-R-1568@6
+      - Projection/Type: Artifact Change Log
+        - CA-R-1463@7
+      - Projection/Type: Catalog
+        - CA-R-1634@26
+      - Projection/Type: Entities Graph
+        - CA-R-1459@5
+      - Projection/Type: Hub
+        - CA-R-1634@26
+      - Projection/Type: Map
+        - CA-R-1634@26
+      - Projection/Type: Process Log
+        - CA-R-1463@7
+      - Projection/Type: Reconciled Projection
+        - CA-R-1213@17
+      - Projection/Type: Terms Graph
+        - CA-R-1455@7
+    - Property
+      - CA-R-1198@13
+      - CA-R-1245@13
+      - CA-R-1259@11
+      - CA-R-1284@11
+      - CA-R-1287@12
+      - CA-R-1306@12
+      - CA-R-1321@12
+      - CA-R-1346@10
+      - CA-R-1352@10
+      - CA-R-1358@13
+      - CA-R-1359@9
+      - CA-R-1394@10
+      - CA-R-1428@9
+      - CA-R-1435@8
+      - CA-R-1436@8
+      - CA-R-1465@8
+      - CA-R-1489@6
+      - CA-R-1502@5
+      - CA-R-1531@4
+      - CA-R-1594@4
+    - Provenance
+      - CA-R-1502@5
+    - Relation
+      - CA-R-1194@14
+      - CA-R-1260@13
+      - CA-R-1275@14
+      - CA-R-1281@12
+      - CA-R-1335@13
+      - CA-R-1408@7
+      - CA-R-1435@8
+      - CA-R-1436@8
+      - CA-R-1437@6
+      - CA-R-1438@8
+      - CA-R-1454@7
+      - CA-R-1455@7
+      - CA-R-1456@8
+      - CA-R-1459@5
+      - CA-R-1471@5
+      - CA-R-1472@5
+      - CA-R-1598@4
+      - CA-R-1702@26
+      - CA-R-1737@16
+      - CA-R-1763@18
+      - CA-R-796@18
+    - Relation Kind
+      - CA-R-1199@13
+      - CA-R-1200@16
+      - CA-R-1243@11
+      - CA-R-1276@10
+      - CA-R-1281@12
+      - CA-R-1335@13
+      - CA-R-1363@12
+      - CA-R-1408@7
+      - CA-R-1437@6
+      - CA-R-1438@8
+      - CA-R-1454@7
+      - CA-R-1455@7
+      - CA-R-1456@8
+      - CA-R-1459@5
+      - CA-R-1472@5
+      - CA-R-1513@4
+      - CA-R-1579@5
+      - CA-R-1593@5
+      - CA-R-806@21
+      - Relation Kind/Metadata
+        - CA-R-1246@11
+        - CA-R-1472@5
+    - Relational Atom
+      - CA-R-925@20
+      - CA-R-932@21
+    - Scope
+      - CA-R-1487@5
+    - Scope Expression
+      - CA-R-1271@13
+      - CA-R-1361@13
+    - Scope Unit
+      - CA-R-1213@17
+      - CA-R-1219@16
+      - CA-R-1287@12
+      - CA-R-1378@9
+      - CA-R-1390@10
+      - CA-R-1391@9
+      - CA-R-1409@8
+      - CA-R-1429@10
+      - CA-R-1430@8
+      - CA-R-1431@10
+      - CA-R-1442@10
+      - CA-R-1447@8
+      - CA-R-1448@9
+      - CA-R-1449@7
+      - CA-R-1455@7
+      - CA-R-1456@8
+      - CA-R-1483@5
+      - CA-R-1485@5
+      - CA-R-1521@4
+      - CA-R-1573@4
+      - CA-R-1579@5
+      - CA-R-1588@6
+      - CA-R-1595@4
+      - CA-R-1596@4
+      - CA-R-1597@4
+      - CA-R-1609@4
+      - CA-R-1629@22
+      - CA-R-1660@17
+      - CA-R-1661@17
+      - CA-R-1695@19
+      - CA-R-1731@17
+      - CA-R-1737@16
+      - CA-R-1739@21
+      - CA-R-1740@21
+      - CA-R-1746@20
+      - CA-R-1758@20
+      - CA-R-1759@21
+      - CA-R-1761@20
+      - CA-R-1763@18
+      - CA-R-1764@18
+      - CA-R-1775@16
+      - CA-R-626@23
+      - CA-R-659@19
+      - CA-R-660@15
+      - CA-R-718@22
+      - CA-R-794@21
+      - CA-R-917@17
+      - CA-R-922@21
+      - CA-R-923@22
+      - CA-R-925@20
+      - CA-R-926@18
+      - CA-R-942@17
+      - CA-R-947@20
+      - CA-R-962@14
+      - CA-R-972@18
+      - CA-R-978@17
+      - CA-R-981@14
+      - Scope Unit/Label
+        - CA-R-1730@19
+      - Scope Unit/Scope
+        - CA-R-1014@18
+      - Scope Unit/Type
+        - CA-R-1759@21
+        - CA-R-1762@19
+        - CA-R-1763@18
+        - CA-R-972@18
+        - CA-R-982@15
+      - Scope Unit/Type: Ordered
+        - CA-R-1293@12
+        - CA-R-1382@9
+      - Scope Unit/Type: Unordered
+        - CA-R-980@15
+    - Scope Unit Graph
+      - CA-R-1655@25
+    - Scripted Migration
+      - CA-R-1554@4
+    - Single Source of Truth
+      - CA-R-1408@7
+      - CA-R-1437@6
+      - CA-R-1471@5
+      - CA-R-1483@5
+      - CA-R-1598@4
+      - CA-R-1609@4
+      - CA-R-1610@4
+      - CA-R-1746@20
+    - Spec
+      - CA-R-1340@13
+      - CA-R-1549@4
+      - CA-R-1556@5
+      - CA-R-1559@5
+    - Spec Content Roles
+      - CA-R-1431@10
+      - CA-R-1550@4
+      - CA-R-1568@6
+      - CA-R-1610@4
+      - CA-R-1682@23
+      - CA-R-1683@24
+      - CA-R-659@19
+    - Status
+      - CA-R-1520@5
+      - CA-R-1521@4
+    - Step
+      - CA-R-1312@14
+      - CA-R-1452@10
+      - CA-R-1508@7
+      - CA-R-1511@5
+      - CA-R-1513@4
+      - CA-R-1519@5
+      - CA-R-1520@5
+      - CA-R-1525@6
+      - CA-R-1527@4
+      - CA-R-1528@5
+      - CA-R-1530@6
+      - CA-R-1554@4
+      - CA-R-1563@6
+      - CA-R-1569@4
+      - CA-R-1570@4
+      - CA-R-1789@1
+      - CA-R-1790@1
+      - CA-R-1791@1
+      - CA-R-1792@1
+      - CA-R-1793@1
+      - Step/Agentic Execution Context
+        - CA-R-1508@7
+        - CA-R-1509@6
+        - CA-R-1511@5
+        - CA-R-1789@1
+        - CA-R-1790@1
+        - CA-R-1791@1
+        - CA-R-1792@1
+        - CA-R-1793@1
+    - Step Run
+      - CA-R-1468@6
+      - CA-R-1509@6
+      - CA-R-1510@4
+      - CA-R-1513@4
+      - CA-R-1519@5
+      - CA-R-1525@6
+      - CA-R-1527@4
+      - CA-R-1528@5
+      - CA-R-1720@18
+      - CA-R-1789@1
+      - CA-R-1790@1
+      - CA-R-1791@1
+      - CA-R-1792@1
+      - CA-R-1793@1
+      - Step Run/Tool Call
+        - CA-R-1511@5
+    - Structural Entity
+      - CA-R-1257@12
+      - CA-R-1368@10
+      - CA-R-1378@9
+      - CA-R-1379@10
+      - CA-R-1409@8
+      - CA-R-1410@7
+      - CA-R-1437@6
+      - CA-R-1470@7
+      - CA-R-1471@5
+      - CA-R-1472@5
+      - CA-R-1521@4
+      - CA-R-1660@17
+      - CA-R-1746@20
+      - CA-R-1757@17
+      - CA-R-834@18
+      - CA-R-836@16
+      - Structural Entity/Direct Containment
+        - CA-R-1376@12
+        - CA-R-1383@10
+        - CA-R-1409@8
+        - CA-R-1498@4
+    - Structural Level
+      - CA-R-1444@9
+      - CA-R-1485@5
+      - CA-R-1730@19
+      - CA-R-1772@14
+      - CA-R-1773@16
+    - Structural Parent Relation
+      - CA-R-1390@10
+      - CA-R-1392@9
+      - CA-R-1484@5
+      - CA-R-1485@5
+      - CA-R-1661@17
+      - CA-R-1730@19
+      - CA-R-1731@17
+      - CA-R-1737@16
+      - CA-R-1763@18
+      - CA-R-1764@18
+      - CA-R-926@18
+    - Subject
+      - CA-R-1194@14
+      - CA-R-1198@13
+      - CA-R-1199@13
+      - CA-R-1200@16
+      - CA-R-1203@14
+      - CA-R-1279@12
+      - CA-R-1280@16
+      - CA-R-1281@12
+      - CA-R-1321@12
+      - CA-R-1351@10
+      - CA-R-1363@12
+      - CA-R-1597@4
+      - CA-R-1776@19
+    - Subject Expression
+      - CA-R-1194@14
+      - CA-R-1324@10
+      - CA-R-1325@8
+      - CA-R-1348@9
+      - CA-R-1349@10
+      - CA-R-1350@9
+    - Subject Path
+      - CA-R-1247@11
+      - CA-R-1275@14
+      - CA-R-1279@12
+      - CA-R-1281@12
+      - CA-R-1360@9
+      - CA-R-1455@7
+      - CA-R-1456@8
+      - CA-R-1459@5
+      - CA-R-1597@4
+    - Subject Relation Kind: DEPENDS_ON
+      - CA-R-1580@4
+    - Target Set
+      - CA-R-1554@4
+    - Targeting Atoms
+      - CA-R-1449@7
+      - CA-R-1775@16
+    - Term
+      - CA-R-1194@14
+      - CA-R-1244@15
+      - CA-R-1275@14
+      - CA-R-1279@12
+      - CA-R-1281@12
+      - CA-R-1319@10
+      - CA-R-1321@12
+      - CA-R-1325@8
+      - CA-R-1335@13
+      - CA-R-1346@10
+      - CA-R-1347@11
+      - CA-R-1348@9
+      - CA-R-1353@10
+      - CA-R-1435@8
+      - CA-R-1454@7
+      - CA-R-1455@7
+      - CA-R-1456@8
+    - Terms Graph
+      - CA-R-1244@15
+      - CA-R-1345@11
+      - CA-R-1347@11
+      - CA-R-1435@8
+    - Tool
+      - CA-R-1432@9
+      - CA-R-1452@10
+      - CA-R-1509@6
+      - CA-R-1511@5
+      - CA-R-1526@4
+      - CA-R-1528@5
+      - CA-R-1724@21
+    - Translation
+      - CA-R-1274@12
+    - Type
+      - CA-R-1231@14
+      - CA-R-1232@14
+      - CA-R-1285@13
+      - CA-R-1308@11
+      - CA-R-1349@10
+      - CA-R-1350@9
+      - CA-R-1405@11
+      - CA-R-1460@5
+      - CA-R-1461@5
+      - CA-R-1506@4
+      - CA-R-1521@4
+      - CA-R-1562@5
+      - CA-R-1563@6
+      - CA-R-1564@4
+      - CA-R-1569@4
+      - CA-R-1574@4
+      - CA-R-1578@4
+      - CA-R-1594@4
+      - CA-R-1634@26
+      - CA-R-1655@25
+      - CA-R-1708@24
+      - CA-R-1758@20
+      - CA-R-1765@20
+    - Verification
+      - CA-R-1505@6
+      - CA-R-1633@20
+      - CA-R-1638@27
+      - CA-R-1683@24
+      - CA-R-1695@19
+      - CA-R-1703@18
+    - Work Journal
+      - CA-R-1695@19
+      - Work Journal/Action
+        - CA-R-1649@19
+      - Work Journal/Event
+        - CA-R-1463@7
+        - CA-R-1467@5
+        - CA-R-1643@22
+        - CA-R-1720@18
+    - Workflow
+      - CA-R-1200@16
+      - CA-R-1312@14
+      - CA-R-1340@13
+      - CA-R-1463@7
+      - CA-R-1468@6
+      - CA-R-1509@6
+      - CA-R-1510@4
+      - CA-R-1513@4
+      - CA-R-1520@5
+      - CA-R-1525@6
+      - CA-R-1527@4
+      - CA-R-1530@6
+      - CA-R-1563@6
+      - CA-R-1567@5
+      - CA-R-1683@24
+      - CA-R-1702@26
+      - CA-R-1720@18
+      - Workflow/Relation Kind: On Result
+        - CA-R-1508@7
+        - CA-R-1519@5
+        - CA-R-1570@4
+    - Workflow Run
+      - CA-R-1468@6
+      - CA-R-1488@6
+      - CA-R-1508@7
+      - CA-R-1511@5
+      - CA-R-1513@4
+      - CA-R-1519@5
+      - CA-R-1528@5
+      - CA-R-1720@18
+      - CA-R-1789@1
+      - CA-R-1790@1
+      - CA-R-1791@1
+      - CA-R-1792@1
+      - CA-R-1793@1
+    - artifact-catalog
+      - CA-R-1664@22
+    - artifact-model
+      - CA-R-118@20
+      - CA-R-1756@22
+      - CA-R-728@22
+      - CA-R-941@15
+    - atom-boundary
+      - CA-R-1016@15
+      - CA-R-1017@15
+      - CA-R-1019@15
+      - CA-R-1020@15
+      - CA-R-1021@15
+      - CA-R-1022@15
+      - CA-R-1023@13
+      - CA-R-1024@14
+      - CA-R-1025@14
+      - CA-R-1026@16
+      - CA-R-1027@15
+      - CA-R-1029@13
+      - CA-R-1030@13
+      - CA-R-1032@13
+      - CA-R-1033@15
+      - CA-R-1034@13
+      - CA-R-1035@13
+      - CA-R-1036@13
+      - CA-R-1037@14
+      - CA-R-1038@14
+      - CA-R-1039@14
+      - CA-R-1040@16
+      - CA-R-117@17
+      - CA-R-118@20
+      - CA-R-121@17
+      - CA-R-151@20
+      - CA-R-1632@20
+      - CA-R-1653@18
+      - CA-R-1654@22
+      - CA-R-1657@18
+      - CA-R-1659@17
+      - CA-R-1676@20
+      - CA-R-807@19
+      - CA-R-808@18
+      - CA-R-879@18
+      - CA-R-915@17
+      - CA-R-934@15
+      - CA-R-960@14
+      - CA-R-976@16
+    - authority
+      - CA-R-1656@17
+      - CA-R-1658@17
+      - CA-R-1756@22
+      - CA-R-829@19
+      - CA-R-934@15
+    - continuous-improvement
+      - CA-R-1741@15
+    - lifecycle-traceability
+      - CA-R-1032@13
+    - relation-model
+      - CA-R-1016@15
+      - CA-R-1017@15
+      - CA-R-1019@15
+      - CA-R-1020@15
+      - CA-R-1021@15
+      - CA-R-1022@15
+      - CA-R-1026@16
+      - CA-R-1027@15
+      - CA-R-1033@15
+      - CA-R-1034@13
+      - CA-R-1035@13
+      - CA-R-1036@13
+      - CA-R-1037@14
+      - CA-R-1653@18
+      - CA-R-1654@22
+      - CA-R-879@18
+      - CA-R-960@14
+    - runtime
+      - CA-R-1650@19
+    - scope-topology
+      - CA-R-1751@21
+      - CA-R-913@13
+      - CA-R-935@18
+      - CA-R-960@14
+      - CA-R-961@13
+      - CA-R-964@14
+      - CA-R-976@16
+      - CAPRMEDIO-R-791@15
+    - semantics
+      - CA-R-117@17
+      - CA-R-121@17
+      - CA-R-1709@24
+      - CA-R-1736@19
+      - CA-R-964@14
+
+M — construction and authoring conventions; excludes Operations-specific actions and workflows
+  GOVERNS
+    - Applicable Methodology Retrieval
+      - CA-M-225@15
+    - Atom (prefix)
+      - Atom/Claim
+        - CA-M-301@6
+      - Atom/Content Role: Evaluation (prefix)
+        - Atom/Content Role: Evaluation/authoring
+          - CA-M-264@8
+        - Atom/Content Role: Evaluation/grouping
+          - CA-M-265@9
+      - Atom/Content Role: Plan (prefix)
+        - Atom/Content Role: Plan/Type: Plan
+          - CA-M-306@7
+      - Atom/Identity (prefix)
+        - Atom/Identity/collision repair
+          - CA-M-276@9
+      - Atom/Local Tier (prefix)
+        - Atom/Local Tier/classification
+          - CA-M-272@12
+    - Atom Claim Authoring
+      - CA-M-111@25
+    - Atom Claim Boundary Authoring
+      - CA-M-115@23
+    - Atom Claim Projection
+      - CA-M-116@14
+    - Atom selection
+      - CA-M-273@13
+    - CCE (prefix)
+      - CCE/Role Profile
+        - CA-M-307@4
+        - CCE/Role Profile/resolution
+          - CA-M-308@4
+        - CCE/Role Profile/validation
+          - CA-M-315@4
+      - CCE/Role Profile: Delivery
+        - CA-M-313@5
+      - CCE/Role Profile: Evaluation
+        - CA-M-312@5
+      - CCE/Role Profile: Method
+        - CA-M-311@5
+      - CCE/Role Profile: Operations
+        - CA-M-314@4
+      - CCE/Role Profile: Plan
+        - CA-M-309@4
+      - CCE/Role Profile: Requirement
+        - CA-M-310@5
+    - CCE Condition Expression Evaluation
+      - CA-M-122@16
+    - CCE Operator
+      - CA-M-230@12
+    - CCE Operator Expression Normalization
+      - CA-M-236@12
+    - CCE Operator Registry
+      - CA-M-234@12
+    - Canonical Scope Signature Derivation
+      - CA-M-241@9
+    - Canonical Signature Derivation
+      - CA-M-240@9
+    - Cardinality Constraint Authoring
+      - CA-M-235@11
+    - Claim Value Set Authoring
+      - CA-M-237@10
+    - Confidence Threshold (prefix)
+      - Confidence Threshold/resolution
+        - CA-M-271@8
+    - Content Role Naming
+      - CA-M-287@10
+    - Dependency Order Derivation
+      - CA-M-239@11
+    - Framework Instance Settings (prefix)
+      - Framework Instance Settings/interaction (prefix)
+        - Framework Instance Settings/interaction/reporting mode: silent
+          - CA-M-277@11
+        - Framework Instance Settings/interaction/reporting mode: verbose
+          - CA-M-278@9
+      - Framework Instance Settings/parameter resolution
+        - CA-M-279@8
+    - Governed Term Rendering
+      - CA-M-229@12
+    - Implementation Retry Limit (prefix)
+      - Implementation Retry Limit/resolution
+        - CA-M-295@9
+    - Methodology Source (prefix)
+      - Methodology Source/expansion mapping
+        - CA-M-298@5
+    - Navigation Projection Derivation
+      - CA-M-231@18
+    - Normative Atom Prose Authoring
+      - CA-M-233@12
+    - Project (prefix)
+      - Project/lexicographic selection
+        - CA-M-297@4
+    - Project Structure
+      - CA-M-291@5
+    - Relation Kind (prefix)
+      - Relation Kind/registry compilation
+        - CA-M-120@14
+    - Scope Expression Evaluation
+      - CA-M-121@17
+    - Scope Unit (prefix)
+      - Scope Unit/Name
+        - CA-M-275@7
+        - CA-M-299@4
+    - Set-valued Property Membership Evaluation
+      - CA-M-127@15
+    - Step Run (prefix)
+      - Step Run/Invocation
+        - CA-M-304@4
+    - Subject Assignment
+      - CA-M-125@25
+    - Subject Expression Writing
+      - CA-M-228@14
+    - Subject Projection Derivation
+      - CA-M-232@12
+    - Subtree-targeting Atoms
+      - CA-M-288@7
+    - Terminology Projection Derivation
+      - CA-M-114@20
+    - Workflow
+      - CA-M-303@4
+      - CA-M-305@4
+    - language
+      - CA-M-112@14
+      - CA-M-113@17
+      - CA-M-294@4
+    - provenance
+      - CA-M-135@18
+    - semantics
+      - CA-M-123@17
+  DEPENDS_ON
+    - AI Agent
+      - CA-M-271@8
+      - CA-M-276@9
+    - Action
+      - CA-M-114@20
+      - CA-M-301@6
+      - CA-M-303@4
+      - CA-M-304@4
+      - CA-M-305@4
+      - Action/Execution Kind: Agentic
+        - CA-M-304@4
+    - Applicable Methodology
+      - CA-M-120@14
+      - CA-M-225@15
+    - Artifact
+      - CA-M-239@11
+      - CA-M-277@11
+      - CA-M-278@9
+      - Artifact/Revision
+        - CA-M-239@11
+        - CA-M-273@13
+        - CA-M-276@9
+        - CA-M-303@4
+    - Assess Atom Update Identity
+      - CA-M-303@4
+    - Atom
+      - CA-M-115@23
+      - CA-M-232@12
+      - CA-M-233@12
+      - CA-M-301@6
+      - CA-M-303@4
+      - Atom/Author
+        - CA-M-306@7
+      - Atom/Carrier
+        - CA-M-241@9
+      - Atom/Claim
+        - CA-M-111@25
+        - CA-M-113@17
+        - CA-M-114@20
+        - CA-M-115@23
+        - CA-M-116@14
+        - CA-M-125@25
+        - CA-M-231@18
+        - CA-M-233@12
+        - CA-M-237@10
+        - CA-M-240@9
+        - CA-M-272@12
+        - CA-M-276@9
+        - CA-M-294@4
+        - CA-M-306@7
+        - CA-M-307@4
+        - CA-M-308@4
+        - CA-M-310@5
+        - CA-M-311@5
+        - CA-M-313@5
+        - CA-M-315@4
+        - Atom/Claim/Canonical Signature
+          - CA-M-240@9
+        - Atom/Claim/Target Scope Unit
+          - CA-M-115@23
+          - CA-M-273@13
+      - Atom/Content Role
+        - CA-M-265@9
+        - CA-M-272@12
+        - CA-M-273@13
+        - CA-M-276@9
+        - CA-M-288@7
+        - CA-M-307@4
+        - CA-M-308@4
+        - CA-M-315@4
+        - Atom/Content Role/Name
+          - CA-M-287@10
+      - Atom/Content Role: Delivery
+        - CA-M-313@5
+      - Atom/Content Role: Evaluation
+        - CA-M-125@25
+        - CA-M-264@8
+        - CA-M-312@5
+      - Atom/Content Role: Method
+        - CA-M-264@8
+        - CA-M-297@4
+        - CA-M-311@5
+      - Atom/Content Role: Operations
+        - CA-M-314@4
+        - Atom/Content Role: Operations/Type: Action
+          - CA-M-314@4
+        - Atom/Content Role: Operations/Type: Actor
+          - CA-M-314@4
+        - Atom/Content Role: Operations/Type: Step
+          - CA-M-305@4
+          - CA-M-314@4
+        - Atom/Content Role: Operations/Type: Workflow
+          - CA-M-314@4
+      - Atom/Content Role: Plan
+        - CA-M-309@4
+        - Atom/Content Role: Plan/Type: Plan
+          - CA-M-239@11
+          - CA-M-271@8
+          - CA-M-295@9
+          - CA-M-306@7
+          - CA-M-309@4
+          - Atom/Content Role: Plan/Type: Plan/Assignee
+            - CA-M-306@7
+          - Atom/Content Role: Plan/Type: Plan/Blocking
+            - CA-M-306@7
+          - Atom/Content Role: Plan/Type: Plan/Carrier
+            - CA-M-295@9
+          - Atom/Content Role: Plan/Type: Plan/Decomposition
+            - CA-M-295@9
+            - CA-M-306@7
+          - Atom/Content Role: Plan/Type: Plan/Definition of Done
+            - CA-M-306@7
+            - CA-M-309@4
+          - Atom/Content Role: Plan/Type: Plan/Label
+            - CA-M-306@7
+          - Atom/Content Role: Plan/Type: Plan/Subtype
+            - CA-M-306@7
+      - Atom/Content Role: Requirement
+        - CA-M-120@14
+        - CA-M-310@5
+      - Atom/Direct Relation Serialization
+        - CA-M-239@11
+      - Atom/Global Tier
+        - CA-M-272@12
+      - Atom/Identity
+        - CA-M-276@9
+      - Atom/Local Tier
+        - CA-M-264@8
+        - CA-M-272@12
+      - Atom/Revision (prefix)
+        - Atom/Revision/Author
+          - CA-M-273@13
+      - Atom/Scope
+        - CA-M-264@8
+        - CA-M-272@12
+        - CA-M-276@9
+      - Atom/Status
+        - CA-M-273@13
+        - CA-M-288@7
+      - Atom/Subjects
+        - CA-M-125@25
+        - CA-M-225@15
+        - CA-M-232@12
+        - CA-M-313@5
+      - Atom/Summary
+        - CA-M-111@25
+        - CA-M-116@14
+        - CA-M-125@25
+        - CA-M-231@18
+        - CA-M-294@4
+        - CA-M-303@4
+        - CA-M-306@7
+    - Atom Collection
+      - CA-M-273@13
+    - Author
+      - CA-M-113@17
+      - CA-M-115@23
+      - CA-M-125@25
+      - CA-M-229@12
+      - CA-M-237@10
+      - CA-M-287@10
+      - CA-M-288@7
+      - CA-M-294@4
+      - CA-M-301@6
+      - CA-M-303@4
+    - Autonomous Confidence Threshold
+      - CA-M-272@12
+      - CA-M-306@7
+    - CAPRMEDIO Graph
+      - CA-M-120@14
+    - CCE
+      - CA-M-111@25
+      - CA-M-112@14
+      - CA-M-113@17
+      - CA-M-115@23
+      - CA-M-123@17
+      - CA-M-233@12
+      - CA-M-294@4
+      - CA-M-299@4
+      - CA-M-301@6
+      - CA-M-307@4
+      - CCE/Role Profile
+        - CA-M-308@4
+        - CA-M-315@4
+    - CCE Condition Expression
+      - CA-M-122@16
+    - CCE Condition Expression Evaluation
+      - CA-M-127@15
+    - CCE Method
+      - CA-M-230@12
+      - CA-M-234@12
+    - CCE Operator
+      - CA-M-122@16
+      - CA-M-229@12
+      - CA-M-234@12
+      - CA-M-240@9
+      - CA-M-294@4
+      - CA-M-307@4
+      - CA-M-309@4
+      - CA-M-310@5
+      - CA-M-311@5
+      - CA-M-312@5
+      - CA-M-313@5
+      - CA-M-314@4
+      - CA-M-315@4
+    - CCE Operator Expression
+      - CA-M-236@12
+    - CCE Operator Registry
+      - CA-M-235@11
+      - CA-M-236@12
+    - Cardinality Constraint
+      - CA-M-235@11
+    - Carrier
+      - CA-M-291@5
+      - CA-M-313@5
+      - Carrier/Canonical Address
+        - CA-M-276@9
+    - Claim
+      - CA-M-115@23
+    - Claim Value Set
+      - CA-M-237@10
+    - Condition Expression
+      - CA-M-312@5
+    - Confidence Threshold
+      - CA-M-271@8
+      - CA-M-276@9
+    - Core Meta-Model
+      - CA-M-298@5
+    - DEPENDS_ON
+      - CA-M-228@14
+      - CA-M-232@12
+      - CA-M-239@11
+    - DERIVED_FROM
+      - CA-M-239@11
+    - Default Settings
+      - CA-M-279@8
+      - CA-M-295@9
+    - Definition Atom
+      - CA-M-114@20
+    - Dependent Entity
+      - CA-M-125@25
+    - Directory Carrier
+      - CA-M-273@13
+    - Entity
+      - CA-M-114@20
+      - CA-M-125@25
+      - CA-M-228@14
+      - Entity/Carrier
+        - CA-M-313@5
+    - Evaluation For Relation
+      - CA-M-125@25
+      - CA-M-264@8
+      - CA-M-265@9
+    - Extension
+      - CA-M-298@5
+    - File Carrier
+      - CA-M-306@7
+    - Framework Instance Settings
+      - CA-M-271@8
+      - CA-M-279@8
+      - CA-M-291@5
+      - CA-M-295@9
+      - Framework Instance Settings/interaction (prefix)
+        - Framework Instance Settings/interaction/reporting mode
+          - CA-M-277@11
+          - CA-M-278@9
+          - Framework Instance Settings/interaction/reporting mode/effects
+            - CA-M-277@11
+            - CA-M-278@9
+          - Framework Instance Settings/interaction/reporting mode/mandatory information
+            - CA-M-277@11
+            - CA-M-278@9
+    - GOVERNS
+      - CA-M-228@14
+      - CA-M-232@12
+    - General Term
+      - CA-M-229@12
+    - Generator
+      - CA-M-114@20
+      - CA-M-120@14
+    - Goal
+      - CA-M-291@5
+    - Governed Term
+      - CA-M-114@20
+      - CA-M-229@12
+      - CA-M-294@4
+    - Hub Atom
+      - CA-M-271@8
+      - CA-M-295@9
+    - IS_ALLOWED_VALUE_OF
+      - CA-M-237@10
+    - Implementation Retry Limit
+      - CA-M-295@9
+      - CA-M-306@7
+    - Markdown Atom Carrier (prefix)
+      - Markdown Atom Carrier/Main Content (prefix)
+        - Markdown Atom Carrier/Main Content/CCE Operator
+          - CA-M-229@12
+    - Methodology Source
+      - CA-M-272@12
+      - CA-M-298@5
+    - Nonnegative Integer Literal
+      - CA-M-235@11
+    - Operator
+      - CA-M-271@8
+      - CA-M-276@9
+      - CA-M-279@8
+      - CA-M-295@9
+      - CA-M-297@4
+      - CA-M-304@4
+    - Owned Atoms
+      - CA-M-273@13
+    - Project
+      - CA-M-114@20
+      - CA-M-276@9
+      - CA-M-277@11
+      - CA-M-279@8
+      - Project/priority model application
+        - CA-M-297@4
+    - Project Configuration
+      - CA-M-298@5
+    - Projection
+      - CA-M-120@14
+      - Projection/Type: Atom Subjects Graph
+        - CA-M-232@12
+      - Projection/Type: Catalog
+        - CA-M-114@20
+    - Property
+      - CA-M-237@10
+      - CA-M-271@8
+    - Relation
+      - CA-M-120@14
+      - CA-M-228@14
+      - Relation/authority
+        - CA-M-120@14
+    - Relation Kind
+      - CA-M-120@14
+      - Relation Kind/Metadata
+        - CA-M-120@14
+    - Relation Type
+      - CA-M-313@5
+    - Relational Atom
+      - CA-M-115@23
+    - Scope Expression
+      - CA-M-121@17
+      - CA-M-241@9
+      - Scope Expression/Canonical Scope Signature
+        - CA-M-241@9
+    - Scope Unit
+      - CA-M-115@23
+      - CA-M-272@12
+      - CA-M-273@13
+      - CA-M-275@7
+      - CA-M-291@5
+      - CA-M-299@4
+      - CA-M-306@7
+      - Scope Unit/Label
+        - CA-M-291@5
+      - Scope Unit/Local Order
+        - CA-M-291@5
+      - Scope Unit/Name
+        - CA-M-229@12
+        - CA-M-291@5
+      - Scope Unit/Navigational Order Number
+        - CA-M-291@5
+      - Scope Unit/Type
+        - CA-M-291@5
+    - Set-valued Property
+      - CA-M-127@15
+    - Single Source of Truth
+      - CA-M-120@14
+    - Skill
+      - CA-M-277@11
+      - CA-M-278@9
+    - Status
+      - CA-M-287@10
+    - Step
+      - CA-M-301@6
+      - CA-M-303@4
+      - CA-M-304@4
+      - CA-M-305@4
+    - Step Run (prefix)
+      - Step Run/Tool Call
+        - CA-M-304@4
+    - Subject
+      - CA-M-114@20
+      - CA-M-125@25
+      - CA-M-228@14
+      - CA-M-232@12
+    - Subject Expression
+      - CA-M-237@10
+    - Subject Path
+      - CA-M-114@20
+      - CA-M-125@25
+      - CA-M-228@14
+      - CA-M-232@12
+    - Subtree-owned Atoms
+      - CA-M-273@13
+    - Subtree-targeting Atoms
+      - CA-M-273@13
+    - Targeting Atoms
+      - CA-M-273@13
+    - Term
+      - CA-M-114@20
+      - CA-M-125@25
+      - CA-M-228@14
+      - CA-M-301@6
+    - Tool
+      - CA-M-304@4
+    - Translation
+      - CA-M-116@14
+    - Type
+      - CA-M-272@12
+      - CA-M-307@4
+      - CA-M-308@4
+      - CA-M-315@4
+    - Work Journal
+      - CA-M-276@9
+    - Workflow
+      - CA-M-114@20
+      - CA-M-301@6
+      - CA-M-304@4
+      - Workflow/Relation Kind: On Result
+        - CA-M-301@6
+        - CA-M-305@4
+    - Workflow Run
+      - CA-M-303@4
+    - artifact-model
+      - CA-M-113@17
+
+E — checks and acceptance evidence
+  GOVERNS
+    - AI Agent (prefix)
+      - AI Agent/authorization
+        - CA-E-440@14
+    - Applicable Methodology Compilation
+      - CA-E-379@21
+    - Atom
+      - CA-E-520@5
+      - Atom/Carrier (prefix)
+        - Atom/Carrier/Validation
+          - CA-E-506@7
+      - Atom/Claim
+        - CA-E-384@19
+        - CA-E-461@9
+        - Atom/Claim/Target Scope Unit
+          - CA-E-511@5
+      - Atom/Content Role
+        - CA-E-482@11
+        - CA-E-498@5
+      - Atom/Content Role: Plan (prefix)
+        - Atom/Content Role: Plan/Type: Plan
+          - CA-E-501@7
+          - Atom/Content Role: Plan/Type: Plan/Blocking
+            - CA-E-504@5
+          - Atom/Content Role: Plan/Type: Plan/Carrier
+            - CA-E-502@5
+          - Atom/Content Role: Plan/Type: Plan/Decomposition
+            - CA-E-507@4
+      - Atom/Content Role: Requirement (prefix)
+        - Atom/Content Role: Requirement/Type: Demand
+          - CA-E-243@22
+      - Atom/Identity (prefix)
+        - Atom/Identity/collision repair
+          - CA-E-448@9
+      - Atom/Local Tier
+        - CA-E-499@7
+      - Atom/Revision (prefix)
+        - Atom/Revision/Updated At
+          - CA-E-521@1
+      - Atom/Subjects
+        - CA-E-246@25
+      - Atom/Summary
+        - CA-E-463@6
+    - Atom Carrier Validation
+      - CA-E-513@4
+    - Atom Tier Validation
+      - CA-E-456@15
+      - Atom Tier Validation/concrete cases
+        - CA-E-447@17
+    - Atom selection
+      - CA-E-460@12
+    - CAPRMEDIO Graph
+      - CA-E-466@7
+    - CCE Claim and Projection Validation
+      - CA-E-241@22
+    - Canonical Scope Signature Derivation Validation
+      - CA-E-407@10
+    - Canonical Signature Derivation Validation
+      - CA-E-405@10
+    - Carrier
+      - CA-E-522@1
+      - CA-E-523@1
+    - Claim Value Set Consolidation Candidate Evaluation
+      - CA-E-403@12
+    - Claim Value Set Validation
+      - CA-E-402@10
+    - Confidence Threshold (prefix)
+      - Confidence Threshold/resolution validation
+        - CA-E-443@10
+    - Dependency Order Derivation Evaluation
+      - CA-E-404@12
+    - Entity (prefix)
+      - Entity/Type
+        - CA-E-387@13
+    - Framework Instance Settings
+      - CAPRMEDIO-GOV-EVAL-002@21
+      - Framework Instance Settings/parameter resolution validation
+        - CA-E-450@8
+    - Framework Instance Settings Validation
+      - CA-E-458@16
+    - Generated-Only Provenance Validation
+      - CAPRMEDIO-GOV-EVAL-010@17
+    - Governed Term Rendering
+      - CA-E-512@3
+    - Implementation Retry Control
+      - CA-E-441@13
+    - Implementation Retry Limit
+      - CA-E-473@10
+    - Implementation Workflow
+      - CA-E-519@6
+    - Journal
+      - CA-E-464@7
+      - CA-E-476@5
+      - Journal/Record
+        - CA-E-462@12
+    - Label
+      - CA-E-505@4
+    - Markdown Atom Carrier Validation
+      - CA-E-457@15
+    - Methodology Source (prefix)
+      - Methodology Source/expansion mapping
+        - CA-E-249@12
+    - Project (prefix)
+      - Project/normative authority graph
+        - CA-E-481@5
+      - Project/priority model application
+        - CA-E-207@13
+    - Project Settings Validation
+      - CA-E-459@16
+    - Project Structure
+      - CA-E-446@12
+      - CA-E-469@8
+      - CA-E-470@6
+    - Project Structure Maintenance
+      - CA-E-471@7
+    - Projection (prefix)
+      - Projection/Type: Catalog
+        - CA-E-444@12
+      - Projection/Type: Entities Graph
+        - CA-E-449@12
+      - Projection/Type: Terms Graph
+        - CA-E-382@21
+    - RMEDO Conflict Resolution
+      - CA-E-477@5
+    - Reconcile Navigation Numbers
+      - CA-E-510@3
+    - Relational Atom Classification Validation
+      - CA-E-425@14
+    - Scope Reference Validation
+      - CA-E-240@30
+    - Step (prefix)
+      - Step/Agentic Execution Context
+        - CA-E-495@4
+    - Step Run (prefix)
+      - Step Run/Invocation
+        - CA-E-497@4
+      - Step Run/Tool Call
+        - CA-E-496@4
+    - Subject Expression Evaluation
+      - CA-E-383@13
+    - Type-Qualified Status Validation
+      - CA-E-386@19
+    - Workflow
+      - CA-E-486@4
+      - CA-E-489@5
+      - CA-E-490@4
+      - CA-E-491@5
+      - Workflow/Carrier
+        - CA-E-500@4
+    - Workflow Run
+      - CA-E-494@5
+    - evaluation
+      - CAPRMEDIO-GOV-EVAL-001@20
+      - CAPRMEDIO-GOV-EVAL-009@19
+    - language
+      - CA-E-472@7
+    - relation validation
+      - CAPRMEDIO-GOV-EVAL-005@23
+  DEPENDS_ON
+    - AI Agent
+      - CA-E-440@14
+      - CA-E-519@6
+      - AI Agent/Confidence
+        - CA-E-440@14
+    - Action
+      - CA-E-246@25
+      - CA-E-382@21
+      - CA-E-449@12
+      - CA-E-482@11
+      - CA-E-486@4
+      - CA-E-489@5
+      - CA-E-491@5
+      - CA-E-494@5
+      - CA-E-495@4
+      - CA-E-496@4
+      - CA-E-497@4
+      - CA-E-498@5
+      - CA-E-500@4
+      - CA-E-510@3
+      - CA-E-513@4
+      - CA-E-519@6
+      - Action/Execution Kind
+        - CA-E-495@4
+    - Actor
+      - CA-E-444@12
+      - CA-E-482@11
+    - Applicable Methodology
+      - CA-E-379@21
+      - CA-E-446@12
+      - CA-E-462@12
+      - CA-E-476@5
+      - CAPRMEDIO-GOV-EVAL-005@23
+      - Applicable Methodology/Sources
+        - CA-E-379@21
+    - Artifact
+      - CA-E-404@12
+      - CA-E-522@1
+      - CA-E-523@1
+      - Artifact/Activity
+        - CA-E-386@19
+      - Artifact/Carrier
+        - CA-E-462@12
+        - CA-E-476@5
+        - CA-E-482@11
+        - CA-E-521@1
+      - Artifact/Revision
+        - CA-E-382@21
+        - CA-E-444@12
+        - CA-E-448@9
+        - CA-E-449@12
+        - CA-E-463@6
+        - CA-E-489@5
+        - CA-E-491@5
+        - CA-E-494@5
+        - CA-E-497@4
+        - CA-E-512@3
+        - Artifact/Revision/Status
+          - CA-E-386@19
+    - Assess Atom Update Identity
+      - CA-E-491@5
+    - Atom
+      - CA-E-246@25
+      - CA-E-382@21
+      - CA-E-384@19
+      - CA-E-440@14
+      - CA-E-444@12
+      - CA-E-449@12
+      - CA-E-461@9
+      - CA-E-462@12
+      - CA-E-463@6
+      - CA-E-466@7
+      - CA-E-476@5
+      - CA-E-477@5
+      - CA-E-490@4
+      - CA-E-491@5
+      - CA-E-506@7
+      - CA-E-510@3
+      - CA-E-522@1
+      - CA-E-523@1
+      - CAPRMEDIO-GOV-EVAL-005@23
+      - Atom/Author
+        - CA-E-501@7
+      - Atom/Carrier
+        - CA-E-407@10
+      - Atom/Claim
+        - CA-E-240@30
+        - CA-E-241@22
+        - CA-E-246@25
+        - CA-E-379@21
+        - CA-E-382@21
+        - CA-E-402@10
+        - CA-E-403@12
+        - CA-E-405@10
+        - CA-E-444@12
+        - CA-E-448@9
+        - CA-E-449@12
+        - CA-E-460@12
+        - CA-E-463@6
+        - CA-E-466@7
+        - CA-E-472@7
+        - CA-E-477@5
+        - CA-E-482@11
+        - CA-E-498@5
+        - CA-E-501@7
+        - CA-E-506@7
+        - CA-E-511@5
+        - CA-E-512@3
+        - CA-E-520@5
+        - Atom/Claim/Canonical Signature
+          - CA-E-405@10
+        - Atom/Claim/Target Scope Unit
+          - CA-E-240@30
+          - CA-E-246@25
+          - CA-E-384@19
+          - CA-E-447@17
+          - CA-E-460@12
+          - CA-E-461@9
+          - CA-E-520@5
+      - Atom/Content Role
+        - CA-E-386@19
+        - CA-E-447@17
+        - CA-E-448@9
+        - CA-E-460@12
+        - CA-E-490@4
+        - CA-E-499@7
+        - CA-E-520@5
+        - CA-E-522@1
+        - CA-E-523@1
+        - CAPRMEDIO-GOV-EVAL-005@23
+      - Atom/Content Role: Delivery
+        - CA-E-440@14
+        - CA-E-482@11
+      - Atom/Content Role: Evaluation
+        - CA-E-246@25
+        - CA-E-384@19
+        - CA-E-440@14
+        - CA-E-441@13
+        - CA-E-449@12
+        - CA-E-450@8
+        - CA-E-461@9
+        - CA-E-471@7
+        - CA-E-482@11
+        - CA-E-519@6
+      - Atom/Content Role: Implementation
+        - CA-E-441@13
+        - CA-E-482@11
+        - CA-E-519@6
+      - Atom/Content Role: Method
+        - CA-E-440@14
+        - CA-E-482@11
+        - CA-E-519@6
+      - Atom/Content Role: Operations
+        - CA-E-462@12
+        - CA-E-482@11
+      - Atom/Content Role: Plan
+        - CA-E-482@11
+        - Atom/Content Role: Plan/Type: Plan
+          - CA-E-241@22
+          - CA-E-425@14
+          - CA-E-440@14
+          - CA-E-443@10
+          - CA-E-473@10
+          - CA-E-482@11
+          - CA-E-501@7
+          - CA-E-502@5
+          - CA-E-504@5
+          - CA-E-507@4
+          - CA-E-519@6
+          - Atom/Content Role: Plan/Type: Plan/Assignee
+            - CA-E-501@7
+          - Atom/Content Role: Plan/Type: Plan/Autonomous Confidence Threshold
+            - CA-E-440@14
+            - CA-E-441@13
+          - Atom/Content Role: Plan/Type: Plan/Blocking
+            - CA-E-505@4
+          - Atom/Content Role: Plan/Type: Plan/Decomposition
+            - CA-E-501@7
+            - CA-E-504@5
+            - CA-E-505@4
+          - Atom/Content Role: Plan/Type: Plan/Definition of Done
+            - CA-E-501@7
+            - CA-E-502@5
+          - Atom/Content Role: Plan/Type: Plan/Details
+            - CA-E-501@7
+          - Atom/Content Role: Plan/Type: Plan/Label
+            - CA-E-501@7
+            - CA-E-502@5
+            - CA-E-505@4
+          - Atom/Content Role: Plan/Type: Plan/Status
+            - CA-E-386@19
+            - CA-E-501@7
+            - CA-E-502@5
+          - Atom/Content Role: Plan/Type: Plan/Status: Done
+            - CA-E-504@5
+          - Atom/Content Role: Plan/Type: Plan/Subtype
+            - CA-E-501@7
+            - CA-E-505@4
+          - Atom/Content Role: Plan/Type: Plan/Work Sequence Number
+            - CA-E-502@5
+            - CA-E-504@5
+      - Atom/Content Role: Requirement
+        - CA-E-440@14
+        - CA-E-482@11
+        - Atom/Content Role: Requirement/Type: Demand
+          - CA-E-425@14
+        - Atom/Content Role: Requirement/Type: Goal
+          - CA-E-425@14
+          - CA-E-471@7
+      - Atom/Details
+        - CA-E-520@5
+      - Atom/Direct Relation Serialization
+        - CA-E-404@12
+      - Atom/Global Tier
+        - CA-E-447@17
+        - CA-E-456@15
+        - CA-E-477@5
+        - CA-E-499@7
+      - Atom/Governed Subject
+        - CA-E-403@12
+      - Atom/Identifier
+        - CA-E-462@12
+        - CA-E-463@6
+        - CA-E-507@4
+        - CA-E-521@1
+        - Atom/Identifier/Project Prefix
+          - CA-E-459@16
+      - Atom/Identity
+        - CA-E-448@9
+        - CA-E-502@5
+      - Atom/Local Tier
+        - CA-E-447@17
+        - CA-E-456@15
+      - Atom/Local Tier: Principle
+        - CA-E-477@5
+        - CA-E-482@11
+        - CA-E-520@5
+      - Atom/Local Tier: Standard
+        - CA-E-499@7
+      - Atom/Property
+        - CA-E-506@7
+      - Atom/Revision
+        - CA-E-379@21
+        - CA-E-457@15
+        - CA-E-462@12
+        - CA-E-463@6
+        - CA-E-477@5
+        - CA-E-510@3
+        - CA-E-521@1
+        - Atom/Revision/Author
+          - CA-E-240@30
+          - CA-E-440@14
+          - CA-E-506@7
+          - CA-E-511@5
+        - Atom/Revision/Authoritative Carrier Bundle
+          - CA-E-502@5
+        - Atom/Revision/Status
+          - CA-E-506@7
+          - CA-E-521@1
+        - Atom/Revision/Updated At
+          - CA-E-477@5
+        - Atom/Revision/Version
+          - CA-E-521@1
+      - Atom/Scope
+        - CA-E-240@30
+        - CA-E-246@25
+        - CA-E-403@12
+        - CA-E-448@9
+        - CA-E-456@15
+        - CA-E-511@5
+      - Atom/Status
+        - CA-E-447@17
+        - CA-E-460@12
+        - CAPRMEDIO-GOV-EVAL-005@23
+      - Atom/Subjects
+        - CA-E-240@30
+        - CA-E-449@12
+        - CA-E-499@7
+        - CA-E-511@5
+        - CA-E-520@5
+      - Atom/Summary
+        - CA-E-241@22
+        - CA-E-246@25
+        - CA-E-384@19
+        - CA-E-472@7
+        - CA-E-491@5
+        - CA-E-502@5
+        - CA-E-506@7
+        - CA-E-520@5
+        - CA-E-521@1
+    - Atom Change Classification
+      - CA-E-491@5
+    - Atom Collection
+      - CA-E-460@12
+      - CA-E-490@4
+      - CA-E-499@7
+      - CA-E-500@4
+    - Author
+      - CA-E-472@7
+    - Authority Mode
+      - CAPRMEDIO-GOV-EVAL-002@21
+    - Autonomous Confidence Threshold
+      - CA-E-443@10
+      - CA-E-471@7
+      - CA-E-477@5
+      - CA-E-501@7
+      - CA-E-519@6
+    - BEARS
+      - CA-E-449@12
+    - CAPRMEDIO Framework Instance
+      - CA-E-207@13
+      - CA-E-520@5
+    - CAPRMEDIO Graph
+      - CA-E-382@21
+      - CAPRMEDIO-GOV-EVAL-005@23
+    - CCE
+      - CA-E-512@3
+      - CA-E-520@5
+    - CCE Operator
+      - CA-E-383@13
+      - CA-E-405@10
+      - CA-E-472@7
+      - CA-E-512@3
+    - CCE Operator Registry
+      - CA-E-512@3
+    - CORE_META_MODEL
+      - CA-E-459@16
+    - Carrier
+      - CA-E-443@10
+      - CA-E-446@12
+      - CA-E-449@12
+      - CA-E-450@8
+      - CA-E-462@12
+      - CA-E-469@8
+      - CA-E-470@6
+      - CA-E-471@7
+      - CA-E-490@4
+      - CA-E-498@5
+      - CA-E-510@3
+      - Carrier/Canonical Address
+        - CA-E-448@9
+    - Change Content Roles
+      - CA-E-498@5
+      - CA-E-499@7
+    - Claim Value Set
+      - CA-E-402@10
+      - CA-E-403@12
+    - Concern
+      - CA-E-246@25
+      - CA-E-443@10
+      - CA-E-444@12
+      - CA-E-510@3
+      - CA-E-512@3
+    - Confidence Threshold
+      - CA-E-241@22
+      - CA-E-443@10
+      - CA-E-448@9
+    - Core Meta-Model
+      - CA-E-249@12
+      - CA-E-464@7
+    - Current-scope Atom
+      - CA-E-511@5
+    - DEPENDS_ON
+      - CA-E-246@25
+      - CA-E-404@12
+    - DERIVED_FROM
+      - CA-E-404@12
+    - Default Settings
+      - CA-E-450@8
+      - CA-E-458@16
+      - CA-E-473@10
+    - Definition Atom
+      - CA-E-382@21
+      - CA-E-444@12
+    - Dependency Order Derivation
+      - CA-E-404@12
+    - Dependent Entity
+      - CA-E-246@25
+      - CA-E-383@13
+    - Directory Carrier
+      - CA-E-500@4
+      - CA-E-502@5
+      - CA-E-507@4
+      - Directory Carrier/Numeric Prefix
+        - CA-E-510@3
+    - Entity
+      - CA-E-246@25
+      - CA-E-249@12
+      - CA-E-382@21
+      - CA-E-387@13
+      - CA-E-444@12
+      - CA-E-449@12
+      - CA-E-490@4
+      - CA-E-505@4
+      - CA-E-520@5
+      - CA-E-521@1
+    - Evaluation
+      - CA-E-510@3
+      - CA-E-513@4
+      - CA-E-521@1
+    - Evaluation For Relation
+      - CA-E-246@25
+      - CA-E-447@17
+    - Extension
+      - CA-E-249@12
+      - CA-E-379@21
+      - CA-E-464@7
+    - File Carrier
+      - CA-E-502@5
+      - CA-E-507@4
+    - Framework Instance Settings
+      - CA-E-241@22
+      - CA-E-379@21
+      - CA-E-443@10
+      - CA-E-446@12
+      - CA-E-447@17
+      - CA-E-450@8
+      - CA-E-458@16
+      - CA-E-459@16
+      - CA-E-469@8
+      - CA-E-473@10
+      - Framework Instance Settings/Authoritative Carrier
+        - CA-E-458@16
+      - Framework Instance Settings/Revision Binding
+        - CA-E-458@16
+    - GOVERNS
+      - CA-E-246@25
+    - General Term
+      - CA-E-383@13
+      - CA-E-444@12
+      - CA-E-512@3
+    - Goal
+      - CA-E-446@12
+      - CA-E-470@6
+    - Governed Term
+      - CA-E-382@21
+      - CA-E-383@13
+      - CA-E-472@7
+      - CA-E-512@3
+    - Hub Atom
+      - CA-E-240@30
+      - CA-E-241@22
+      - CA-E-443@10
+      - CA-E-460@12
+      - CA-E-501@7
+      - CA-E-504@5
+      - CA-E-511@5
+    - IS_ALLOWED_VALUE_OF
+      - CA-E-383@13
+      - CA-E-402@10
+      - CA-E-403@12
+      - CA-E-449@12
+    - IS_BORNE_BY
+      - CA-E-383@13
+      - CA-E-449@12
+    - Implementation
+      - CA-E-498@5
+      - CA-E-499@7
+    - Implementation Folder
+      - CA-E-510@3
+    - Implementation Relation
+      - CAPRMEDIO-GOV-EVAL-010@17
+    - Implementation Retry Control
+      - CA-E-473@10
+    - Implementation Retry Limit
+      - CA-E-441@13
+      - CA-E-519@6
+    - Implementation Workflow
+      - CA-E-473@10
+    - Journal
+      - CA-E-449@12
+      - CA-E-462@12
+      - CA-E-466@7
+      - CA-E-494@5
+      - CA-E-496@4
+      - CA-E-522@1
+      - CA-E-523@1
+      - CAPRMEDIO-GOV-EVAL-005@23
+      - Journal/Record
+        - CA-E-379@21
+        - CA-E-476@5
+        - CA-E-477@5
+        - CA-E-486@4
+        - CA-E-522@1
+        - CA-E-523@1
+        - CAPRMEDIO-GOV-EVAL-010@17
+    - Local Order
+      - CA-E-243@22
+    - Markdown Atom Carrier
+      - CA-E-457@15
+      - CA-E-506@7
+      - Markdown Atom Carrier/Main Content (prefix)
+        - Markdown Atom Carrier/Main Content/CCE Operator
+          - CA-E-512@3
+    - Methodology Source
+      - CA-E-249@12
+      - Methodology Source/Expansion Boundary
+        - CA-E-379@21
+        - CA-E-447@17
+    - NARROWER_THAN
+      - CA-E-382@21
+    - Normative Authority Relation Pair
+      - CA-E-481@5
+    - Operator
+      - CA-E-207@13
+      - CA-E-240@30
+      - CA-E-241@22
+      - CA-E-249@12
+      - CA-E-379@21
+      - CA-E-440@14
+      - CA-E-441@13
+      - CA-E-443@10
+      - CA-E-448@9
+      - CA-E-471@7
+      - CA-E-473@10
+      - CA-E-477@5
+      - CA-E-489@5
+      - CA-E-491@5
+      - CA-E-494@5
+      - CA-E-495@4
+      - CA-E-497@4
+      - CA-E-505@4
+      - CA-E-510@3
+      - CA-E-511@5
+      - CA-E-519@6
+      - CA-E-520@5
+      - CA-E-522@1
+      - CA-E-523@1
+      - CAPRMEDIO-GOV-EVAL-002@21
+    - Owned Atoms
+      - CA-E-460@12
+    - Plan Graph
+      - CA-E-507@4
+    - Primary Entity
+      - CA-E-246@25
+    - Project
+      - CA-E-207@13
+      - CA-E-440@14
+      - CA-E-441@13
+      - CA-E-444@12
+      - CA-E-446@12
+      - CA-E-448@9
+      - CA-E-450@8
+      - CA-E-456@15
+      - CA-E-457@15
+      - CA-E-462@12
+      - CA-E-471@7
+      - CA-E-476@5
+      - CA-E-481@5
+      - Project/lexicographic selection
+        - CA-E-207@13
+    - Project Configuration
+      - CA-E-249@12
+      - CA-E-379@21
+    - Project Name
+      - CA-E-459@16
+    - Project Scope Unit Graph Projection
+      - CA-E-470@6
+    - Project Settings
+      - CA-E-446@12
+      - CA-E-459@16
+      - CA-E-469@8
+      - CAPRMEDIO-GOV-EVAL-002@21
+      - Project Settings/Authoritative Carrier
+        - CA-E-459@16
+      - Project Settings/Revision Binding
+        - CA-E-459@16
+    - Project Structure
+      - CA-E-240@30
+      - CA-E-471@7
+      - CA-E-510@3
+      - CAPRMEDIO-GOV-EVAL-002@21
+    - Projection
+      - CA-E-382@21
+      - CA-E-444@12
+      - CA-E-449@12
+      - CA-E-466@7
+      - CA-E-471@7
+      - CA-E-496@4
+      - CA-E-499@7
+      - CA-E-519@6
+      - CA-E-522@1
+      - CA-E-523@1
+      - CAPRMEDIO-GOV-EVAL-005@23
+      - CAPRMEDIO-GOV-EVAL-010@17
+      - Projection/Type: Artifact Change Log
+        - CA-E-464@7
+      - Projection/Type: Atom Subjects Graph
+        - CA-E-246@25
+      - Projection/Type: Process Log
+        - CA-E-464@7
+      - Projection/Type: Terms Graph
+        - CA-E-444@12
+    - Property
+      - CA-E-246@25
+      - CA-E-383@13
+      - CA-E-402@10
+      - CA-E-403@12
+      - CA-E-443@10
+      - CA-E-449@12
+      - CA-E-505@4
+      - CA-E-520@5
+    - Relation
+      - CA-E-382@21
+      - CA-E-444@12
+      - CA-E-449@12
+      - CA-E-466@7
+      - CA-E-477@5
+      - CA-E-481@5
+      - CA-E-506@7
+      - Relation/authority
+        - CAPRMEDIO-GOV-EVAL-005@23
+    - Relation Kind
+      - CA-E-382@21
+      - CA-E-444@12
+      - CA-E-449@12
+      - CA-E-466@7
+      - CAPRMEDIO-GOV-EVAL-005@23
+      - Relation Kind/Metadata
+        - CAPRMEDIO-GOV-EVAL-005@23
+    - Relational Atom
+      - CA-E-511@5
+      - Relational Atom/Qualified Type
+        - CA-E-425@14
+    - Resolve Operator Priorities
+      - CA-E-207@13
+    - Root Term
+      - CA-E-382@21
+    - Runtime State
+      - CA-E-522@1
+      - CA-E-523@1
+    - Scope
+      - CA-E-207@13
+    - Scope Expression
+      - CA-E-384@19
+      - CA-E-407@10
+      - Scope Expression/Canonical Scope Signature
+        - CA-E-407@10
+    - Scope Unit
+      - CA-E-240@30
+      - CA-E-246@25
+      - CA-E-384@19
+      - CA-E-444@12
+      - CA-E-446@12
+      - CA-E-447@17
+      - CA-E-449@12
+      - CA-E-456@15
+      - CA-E-460@12
+      - CA-E-461@9
+      - CA-E-469@8
+      - CA-E-470@6
+      - CA-E-490@4
+      - CA-E-499@7
+      - CA-E-501@7
+      - CA-E-510@3
+      - CA-E-511@5
+      - CA-E-522@1
+      - CA-E-523@1
+      - Scope Unit/Label
+        - CA-E-505@4
+        - CA-E-510@3
+      - Scope Unit/Local Order
+        - CA-E-510@3
+      - Scope Unit/Name
+        - CA-E-383@13
+        - CA-E-512@3
+      - Scope Unit/Navigational Order Number
+        - CA-E-510@3
+      - Scope Unit/Structural Level
+        - CA-E-510@3
+      - Scope Unit/Type
+        - CA-E-505@4
+        - CA-E-510@3
+    - Select Priority-Governed Alternative
+      - CA-E-207@13
+    - Single Source of Truth
+      - CA-E-466@7
+      - CAPRMEDIO-GOV-EVAL-005@23
+    - Spec
+      - CA-E-440@14
+    - Spec Content Roles
+      - CA-E-498@5
+      - CA-E-499@7
+    - Status
+      - CA-E-490@4
+    - Step
+      - CA-E-486@4
+      - CA-E-489@5
+      - CA-E-491@5
+      - CA-E-494@5
+      - CA-E-495@4
+      - CA-E-496@4
+      - CA-E-497@4
+      - CA-E-498@5
+      - CA-E-500@4
+      - CA-E-513@4
+      - CA-E-519@6
+    - Step Run
+      - CA-E-486@4
+      - CA-E-494@5
+      - CA-E-495@4
+      - CA-E-496@4
+      - CA-E-497@4
+    - Structural Entity
+      - CA-E-466@7
+    - Subject
+      - CA-E-246@25
+      - CA-E-383@13
+      - CA-E-444@12
+    - Subject Expression
+      - CA-E-383@13
+      - CA-E-387@13
+      - CA-E-402@10
+    - Subject Path
+      - CA-E-246@25
+      - CA-E-383@13
+      - CA-E-444@12
+      - CA-E-449@12
+    - Subtree-owned Atoms
+      - CA-E-460@12
+    - Subtree-targeting Atoms
+      - CA-E-447@17
+      - CA-E-460@12
+    - Targeting Atoms
+      - CA-E-460@12
+    - Term
+      - CA-E-246@25
+      - CA-E-382@21
+      - CA-E-383@13
+      - CA-E-444@12
+      - CA-E-449@12
+    - Tool
+      - CA-E-496@4
+    - Translation
+      - CA-E-241@22
+    - Type
+      - CA-E-386@19
+      - CA-E-387@13
+      - CA-E-490@4
+    - Work Journal
+      - CA-E-448@9
+      - Work Journal/Event
+        - CA-E-462@12
+        - CA-E-522@1
+        - CA-E-523@1
+    - Workflow
+      - CA-E-246@25
+      - CA-E-382@21
+      - CA-E-449@12
+      - CA-E-482@11
+      - CA-E-494@5
+      - CA-E-495@4
+      - CA-E-498@5
+      - CA-E-500@4
+      - CA-E-513@4
+      - CA-E-519@6
+      - CA-E-520@5
+      - CA-E-522@1
+      - CA-E-523@1
+      - Workflow/Relation Kind: On Result
+        - CA-E-486@4
+        - CA-E-489@5
+        - CA-E-500@4
+        - CA-E-513@4
+    - Workflow Run
+      - CA-E-486@4
+      - CA-E-489@5
+      - CA-E-491@5
+      - CA-E-496@4
+      - CA-E-497@4
+
+D — Carrier model, formats, and placement or storage; a direct Delivery definition can also be a model-skeleton input
+  GOVERNS
+    - Active Atom Carrier Discovery
+      - CA-D-336@12
+    - Applicable Methodology (prefix)
+      - Applicable Methodology/Carrier
+        - CA-D-253@12
+      - Applicable Methodology/Carrier Set
+        - CA-D-306@11
+      - Applicable Methodology/Projected Atom Carrier
+        - CA-D-305@10
+      - Applicable Methodology/Subject Index Carrier
+        - CA-D-307@11
+    - Artifact (prefix)
+      - Artifact/Activity: Active (prefix)
+        - Artifact/Activity: Active/Carrier Basename
+          - CA-D-290@11
+      - Artifact/Carrier Placement
+        - CA-D-296@13
+        - CA-D-466@4
+        - Artifact/Carrier Placement/Status Subdirectory
+          - CA-D-352@10
+      - Artifact/Revision (prefix)
+        - Artifact/Revision/Archive Carrier Basename
+          - CA-D-289@12
+    - Atom (prefix)
+      - Atom/Carrier
+        - CA-D-386@8
+        - Atom/Carrier/Canonical Address
+          - CA-D-480@4
+        - Atom/Carrier/Current Scope Unit (prefix)
+          - Atom/Carrier/Current Scope Unit/Filename Token
+            - CA-D-291@15
+      - Atom/Claim (prefix)
+        - Atom/Claim/Canonical Signature (prefix)
+          - Atom/Claim/Canonical Signature/Projection
+            - CA-D-346@12
+        - Atom/Claim/Carrier
+          - CA-D-495@1
+        - Atom/Claim/Target Scope Unit (prefix)
+          - Atom/Claim/Target Scope Unit/Carrier
+            - CA-D-482@7
+      - Atom/Content Role: Analysis (prefix)
+        - Atom/Content Role: Analysis/Type
+          - CA-D-389@8
+      - Atom/Content Role: Operations (prefix)
+        - Atom/Content Role: Operations/Type (prefix)
+          - Atom/Content Role: Operations/Type/Filename Token
+            - CA-D-457@6
+      - Atom/Content Role: Plan (prefix)
+        - Atom/Content Role: Plan/Authoritative Carrier Bundle
+          - CA-D-460@6
+        - Atom/Content Role: Plan/Carrier Placement
+          - CA-D-461@6
+        - Atom/Content Role: Plan/Type: Plan (prefix)
+          - Atom/Content Role: Plan/Type: Plan/Assignee (prefix)
+            - Atom/Content Role: Plan/Type: Plan/Assignee/Carrier
+              - CA-D-473@4
+          - Atom/Content Role: Plan/Type: Plan/Autonomous Confidence Threshold (prefix)
+            - Atom/Content Role: Plan/Type: Plan/Autonomous Confidence Threshold/Carrier
+              - CA-D-472@5
+          - Atom/Content Role: Plan/Type: Plan/Backlog (prefix)
+            - Atom/Content Role: Plan/Type: Plan/Backlog/Carrier
+              - CA-D-475@4
+          - Atom/Content Role: Plan/Type: Plan/Blocking (prefix)
+            - Atom/Content Role: Plan/Type: Plan/Blocking/Carrier
+              - CA-D-471@5
+          - Atom/Content Role: Plan/Type: Plan/Carrier (prefix)
+            - Atom/Content Role: Plan/Type: Plan/Carrier/Content
+              - CA-D-470@7
+            - Atom/Content Role: Plan/Type: Plan/Carrier/Filename
+              - CA-D-469@4
+          - Atom/Content Role: Plan/Type: Plan/Decomposition (prefix)
+            - Atom/Content Role: Plan/Type: Plan/Decomposition/Carrier
+              - CA-D-481@4
+      - Atom/Content Role: Requirement (prefix)
+        - Atom/Content Role: Requirement/Type: Demand (prefix)
+          - Atom/Content Role: Requirement/Type: Demand/filename
+            - CA-D-287@12
+        - Atom/Content Role: Requirement/Type: Goal (prefix)
+          - Atom/Content Role: Requirement/Type: Goal/Filename
+            - CA-D-292@15
+          - Atom/Content Role: Requirement/Type: Goal/Filename Token
+            - CA-D-286@14
+          - Atom/Content Role: Requirement/Type: Goal/Reference
+            - CA-D-342@15
+      - Atom/Direct Relation Serialization
+        - CA-D-268@12
+      - Atom/Identifier
+        - CA-D-378@10
+        - CA-D-508@1
+      - Atom/Local Tier (prefix)
+        - Atom/Local Tier/Filename Token
+          - CA-D-285@13
+      - Atom/Property (prefix)
+        - Atom/Property/Carrier
+          - CA-D-478@5
+      - Atom/Revision (prefix)
+        - Atom/Revision/Author (prefix)
+          - Atom/Revision/Author/Frontmatter
+            - CA-D-274@17
+        - Atom/Revision/Authoritative Carrier Bundle
+          - CA-D-463@5
+        - Atom/Revision/Frontmatter
+          - CA-D-270@13
+        - Atom/Revision/Identifier
+          - CA-D-446@7
+        - Atom/Revision/Status (prefix)
+          - Atom/Revision/Status/Carrier
+            - CA-D-483@5
+        - Atom/Revision/Status: Draft (prefix)
+          - Atom/Revision/Status: Draft/Filename
+            - CA-D-288@12
+          - Atom/Revision/Status: Draft/Identity Continuity Evidence
+            - CA-D-568@5
+          - Atom/Revision/Status: Draft/Revision Lineage
+            - CA-D-570@4
+      - Atom/Scope (prefix)
+        - Atom/Scope/Filename Token
+          - CA-D-302@13
+      - Atom/Subjects (prefix)
+        - Atom/Subjects/Frontmatter
+          - CA-D-269@12
+    - Atom Carrier (prefix)
+      - Atom Carrier/Filename (prefix)
+        - Atom Carrier/Filename/Local Tier
+          - CA-D-484@4
+        - Atom Carrier/Filename/Summary Slug
+          - CA-D-282@11
+        - Atom Carrier/Filename/Token Case
+          - CA-D-284@11
+    - Atom Carrier Replacement
+      - CA-D-303@11
+    - CAPRMEDIO Framework Instance (prefix)
+      - CAPRMEDIO Framework Instance/Carrier Root
+        - CA-D-317@12
+    - CARRIES
+      - CA-D-256@14
+    - Carrier
+      - CA-D-312@12
+      - CA-D-394@7
+      - CA-D-414@14
+      - CA-D-434@8
+      - Carrier/Canonical Address
+        - CA-D-267@12
+        - Carrier/Canonical Address/Segment
+          - CA-D-301@15
+      - Carrier/Ownership Class
+        - CA-D-316@11
+      - Carrier/Representation
+        - CA-D-311@11
+        - CA-D-395@7
+      - Carrier/Storage Boundary
+        - CA-D-341@11
+    - Carrier-Only Recoding
+      - CA-D-304@12
+    - Default Settings (prefix)
+      - Default Settings/Carrier
+        - CA-D-407@7
+        - Default Settings/Carrier/Content
+          - CA-D-408@7
+    - Directory Carrier
+      - CA-D-259@11
+      - CA-D-451@4
+      - CA-D-464@4
+      - Directory Carrier/Name
+        - CA-D-297@11
+        - CA-D-298@11
+        - CA-D-299@11
+      - Directory Carrier/Numeric Prefix
+        - CA-D-300@14
+    - Entity (prefix)
+      - Entity/Carrier
+        - CA-D-505@1
+        - CA-D-506@1
+        - CA-D-507@1
+    - File Carrier
+      - CA-D-258@11
+      - CA-D-452@4
+      - File Carrier/Format
+        - CA-D-262@12
+      - File Carrier/GitHub Preview
+        - CA-D-330@11
+    - Framework Instance Settings
+      - CA-D-374@7
+      - CA-D-497@3
+      - Framework Instance Settings/Artifact Timestamp Timezone
+        - CA-D-390@8
+      - Framework Instance Settings/Authoritative Carrier
+        - CA-D-359@10
+        - Framework Instance Settings/Authoritative Carrier/Content
+          - CA-D-361@10
+          - CA-D-383@11
+          - CA-D-387@9
+      - Framework Instance Settings/Carrier (prefix)
+        - Framework Instance Settings/Carrier/Atom metadata exclusion
+          - CA-D-377@7
+      - Framework Instance Settings/Confidence (prefix)
+        - Framework Instance Settings/Confidence/Necessary Information Threshold (prefix)
+          - Framework Instance Settings/Confidence/Necessary Information Threshold/Carrier
+            - CA-D-368@9
+        - Framework Instance Settings/Confidence/Semantic Resolution Threshold (prefix)
+          - Framework Instance Settings/Confidence/Semantic Resolution Threshold/Carrier
+            - CA-D-369@8
+      - Framework Instance Settings/Extension selections
+        - CA-D-373@7
+      - Framework Instance Settings/Identifier
+        - CA-D-358@10
+      - Framework Instance Settings/Revision Binding
+        - CA-D-360@12
+      - Framework Instance Settings/Tool selections
+        - CA-D-372@7
+      - Framework Instance Settings/code-root locators
+        - CA-D-371@7
+      - Framework Instance Settings/framework control-root locator
+        - CA-D-370@8
+    - Hub (prefix)
+      - Hub/Carrier (prefix)
+        - Hub/Carrier/Navigation Entry
+          - CA-D-331@11
+    - IS_CARRIED_BY
+      - CA-D-257@13
+    - Implementation Retry Limit (prefix)
+      - Implementation Retry Limit/Carrier
+        - CA-D-447@8
+    - Journal (prefix)
+      - Journal/Carrier
+        - CA-D-308@11
+      - Journal/Carrier Root
+        - CA-D-549@2
+    - Markdown Atom Carrier
+      - CA-D-416@11
+      - Markdown Atom Carrier/Main Content
+        - CA-D-357@9
+        - CA-D-479@6
+        - Markdown Atom Carrier/Main Content/CCE Operator
+          - CA-D-280@12
+        - Markdown Atom Carrier/Main Content/Paragraph
+          - CA-D-279@12
+      - Markdown Atom Carrier/Structure
+        - CA-D-356@9
+      - Markdown Atom Carrier/YAML Frontmatter
+        - CA-D-276@15
+        - Markdown Atom Carrier/YAML Frontmatter/Default
+          - CA-D-485@4
+        - Markdown Atom Carrier/YAML Frontmatter/Scalar
+          - CA-D-277@12
+    - Materialized Representation (prefix)
+      - Materialized Representation/Carrier
+        - CA-D-309@12
+    - Navigational Order Number
+      - CA-D-380@6
+    - New Archived Revision Markdown Carrier Binding
+      - CA-D-565@1
+    - Project (prefix)
+      - Project/Operator Registry (prefix)
+        - Project/Operator Registry/Carrier
+          - CA-D-494@2
+    - Project Scope Unit Graph Projection
+      - CA-D-333@12
+      - CA-D-391@6
+      - CA-D-392@8
+    - Project Settings (prefix)
+      - Project Settings/Atom Prefix (prefix)
+        - Project Settings/Atom Prefix/Carrier
+          - CA-D-376@8
+      - Project Settings/Authoritative Carrier
+        - CA-D-364@9
+        - Project Settings/Authoritative Carrier/Content
+          - CA-D-366@8
+        - Project Settings/Authoritative Carrier/Filename
+          - CA-D-363@10
+      - Project Settings/Identifier
+        - CA-D-362@10
+      - Project Settings/Project identity (prefix)
+        - Project Settings/Project identity/Carrier
+          - CA-D-375@9
+      - Project Settings/Revision Binding
+        - CA-D-365@11
+    - Project Structure
+      - CA-D-440@5
+      - CA-D-441@5
+      - CA-D-442@6
+      - CA-D-443@5
+      - CA-D-444@6
+    - Project-Owned Carrier Root
+      - CA-D-318@11
+    - Project-Owned Markdown Atom Carrier (prefix)
+      - Project-Owned Markdown Atom Carrier/Filename
+        - CA-D-283@13
+    - Projection (prefix)
+      - Projection/Carrier (prefix)
+        - Projection/Carrier/Updated At
+          - CA-D-310@11
+      - Projection/Carrier Root
+        - CA-D-550@3
+    - Proof Carrier (prefix)
+      - Proof Carrier/Dependency Frontier
+        - CA-D-329@12
+    - Runtime Journal (prefix)
+      - Runtime Journal/Carrier
+        - CA-D-559@1
+    - Scope Expression (prefix)
+      - Scope Expression/Canonical Scope Signature (prefix)
+        - Scope Expression/Canonical Scope Signature/Projection
+          - CA-D-347@12
+    - Scope Unit
+      - CA-D-445@5
+    - Structural Entity (prefix)
+      - Structural Entity/Authoritative Carrier
+        - CA-D-465@4
+      - Structural Entity/Containment
+        - CA-D-266@13
+      - Structural Entity/Direct Containment
+        - CA-D-264@14
+    - Type
+      - CA-D-393@8
+    - Work Journal (prefix)
+      - Work Journal/Event (prefix)
+        - Work Journal/Event/Carrier Serialization
+          - CA-D-340@11
+      - Work Journal/Projection Rebuild (prefix)
+        - Work Journal/Projection Rebuild/Completed Event
+          - CA-D-338@11
+    - Work Sequence Number
+      - CA-D-381@7
+    - Workflow (prefix)
+      - Workflow/Carrier
+        - CA-D-467@4
+    - Workflow Run
+      - CA-D-496@7
+  DEPENDS_ON
+    - Actor
+      - CA-D-276@15
+    - Applicable Methodology
+      - CA-D-253@12
+      - CA-D-340@11
+      - CA-D-550@3
+      - Applicable Methodology/Member
+        - CA-D-305@10
+        - CA-D-306@11
+      - Applicable Methodology/Sources
+        - CA-D-253@12
+    - Artifact
+      - CA-D-296@13
+      - CA-D-464@4
+      - Artifact/Activity
+        - CA-D-466@4
+      - Artifact/Carrier
+        - CA-D-285@13
+        - CA-D-340@11
+        - CA-D-457@6
+        - CA-D-467@4
+      - Artifact/Carrier Placement
+        - CA-D-451@4
+        - CA-D-483@5
+        - CA-D-565@1
+      - Artifact/Property
+        - CA-D-267@12
+        - Artifact/Property/Default
+          - CA-D-485@4
+      - Artifact/Revision
+        - CA-D-256@14
+        - CA-D-309@12
+        - CA-D-311@11
+        - CA-D-360@12
+        - CA-D-365@11
+        - CA-D-377@7
+        - CA-D-390@8
+        - CA-D-443@5
+        - Artifact/Revision/Archive Carrier
+          - CA-D-565@1
+        - Artifact/Revision/Status
+          - CA-D-466@4
+          - CA-D-565@1
+        - Artifact/Revision/Version
+          - CA-D-289@12
+    - Atom
+      - CA-D-285@13
+      - CA-D-340@11
+      - CA-D-375@9
+      - CA-D-376@8
+      - CA-D-377@7
+      - CA-D-496@7
+      - CA-D-497@3
+      - CA-D-508@1
+      - CA-D-550@3
+      - Atom/Carrier
+        - CA-D-346@12
+        - CA-D-495@1
+        - CA-D-505@1
+      - Atom/Claim
+        - CA-D-304@12
+        - CA-D-346@12
+        - CA-D-470@7
+        - CA-D-478@5
+        - CA-D-479@6
+        - CA-D-495@1
+        - Atom/Claim/Canonical Signature
+          - CA-D-346@12
+        - Atom/Claim/Target Scope Unit
+          - CA-D-482@7
+          - CA-D-495@1
+      - Atom/Content Role
+        - CA-D-296@13
+        - CA-D-378@10
+        - CA-D-386@8
+        - CA-D-393@8
+        - CA-D-451@4
+        - CA-D-479@6
+        - CA-D-483@5
+        - CA-D-495@1
+        - CA-D-508@1
+        - CA-D-570@4
+      - Atom/Content Role: Delivery
+        - CA-D-466@4
+      - Atom/Content Role: Operations
+        - CA-D-434@8
+        - Atom/Content Role: Operations/Type
+          - CA-D-457@6
+        - Atom/Content Role: Operations/Type: Action
+          - CA-D-457@6
+        - Atom/Content Role: Operations/Type: Actor
+          - CA-D-457@6
+        - Atom/Content Role: Operations/Type: Step
+          - CA-D-457@6
+          - CA-D-467@4
+        - Atom/Content Role: Operations/Type: Workflow
+          - CA-D-457@6
+          - CA-D-467@4
+      - Atom/Content Role: Plan (prefix)
+        - Atom/Content Role: Plan/Authoritative Carrier Bundle
+          - CA-D-461@6
+        - Atom/Content Role: Plan/Status
+          - CA-D-461@6
+        - Atom/Content Role: Plan/Type: Plan
+          - CA-D-386@8
+          - CA-D-447@8
+          - CA-D-469@4
+          - CA-D-470@7
+          - CA-D-471@5
+          - CA-D-472@5
+          - CA-D-473@4
+          - CA-D-475@4
+          - CA-D-481@4
+          - Atom/Content Role: Plan/Type: Plan/Assignee
+            - CA-D-473@4
+          - Atom/Content Role: Plan/Type: Plan/Blocking
+            - CA-D-471@5
+          - Atom/Content Role: Plan/Type: Plan/Carrier (prefix)
+            - Atom/Content Role: Plan/Type: Plan/Carrier/Stem
+              - CA-D-460@6
+          - Atom/Content Role: Plan/Type: Plan/Decomposition
+            - CA-D-471@5
+            - CA-D-481@4
+          - Atom/Content Role: Plan/Type: Plan/Definition of Done
+            - CA-D-470@7
+            - CA-D-472@5
+          - Atom/Content Role: Plan/Type: Plan/Details
+            - CA-D-470@7
+          - Atom/Content Role: Plan/Type: Plan/Identifier
+            - CA-D-378@10
+          - Atom/Content Role: Plan/Type: Plan/Label
+            - CA-D-469@4
+            - CA-D-475@4
+          - Atom/Content Role: Plan/Type: Plan/Status
+            - CA-D-475@4
+          - Atom/Content Role: Plan/Type: Plan/Work Sequence Number
+            - CA-D-469@4
+      - Atom/Content Role: Requirement (prefix)
+        - Atom/Content Role: Requirement/Type: Goal
+          - CA-D-482@7
+          - Atom/Content Role: Requirement/Type: Goal/Filename
+            - CA-D-342@15
+      - Atom/Details
+        - CA-D-479@6
+      - Atom/Direct Relation
+        - CA-D-304@12
+      - Atom/Frontmatter
+        - CA-D-267@12
+        - CA-D-478@5
+      - Atom/Identifier
+        - CA-D-283@13
+        - CA-D-288@12
+        - CA-D-471@5
+        - CA-D-480@4
+        - CA-D-481@4
+        - CA-D-568@5
+        - Atom/Identifier/Project Prefix
+          - CA-D-366@8
+      - Atom/Identity
+        - CA-D-304@12
+        - CA-D-336@12
+        - CA-D-346@12
+        - CA-D-446@7
+        - CA-D-469@4
+        - CA-D-568@5
+        - CA-D-570@4
+      - Atom/Local Tier
+        - CA-D-285@13
+      - Atom/Local Tier: Standard
+        - CA-D-285@13
+        - CA-D-484@4
+      - Atom/Property
+        - CA-D-463@5
+        - CA-D-478@5
+        - CA-D-480@4
+        - CA-D-485@4
+      - Atom/Relation Owner
+        - CA-D-268@12
+      - Atom/Revision
+        - CA-D-283@13
+        - CA-D-303@11
+        - CA-D-305@10
+        - CA-D-346@12
+        - CA-D-463@5
+        - CA-D-464@4
+        - CA-D-496@7
+        - Atom/Revision/Author
+          - CA-D-276@15
+          - CA-D-482@7
+          - CA-D-494@2
+        - Atom/Revision/History
+          - CA-D-568@5
+          - CA-D-570@4
+        - Atom/Revision/Identifier
+          - CA-D-568@5
+          - CA-D-570@4
+        - Atom/Revision/Status
+          - CA-D-480@4
+          - CA-D-483@5
+        - Atom/Revision/Status: Draft
+          - CA-D-446@7
+          - CA-D-568@5
+          - CA-D-570@4
+        - Atom/Revision/Updated At
+          - CA-D-270@13
+        - Atom/Revision/Version
+          - CA-D-270@13
+          - CA-D-446@7
+          - CA-D-568@5
+          - CA-D-570@4
+      - Atom/Scope
+        - CA-D-283@13
+        - CA-D-291@15
+        - CA-D-304@12
+        - CA-D-482@7
+      - Atom/Subjects
+        - CA-D-269@12
+        - CA-D-471@5
+      - Atom/Summary
+        - CA-D-282@11
+        - CA-D-283@13
+        - CA-D-469@4
+        - CA-D-470@7
+        - CA-D-478@5
+        - CA-D-479@6
+        - CA-D-480@4
+      - Atom/Type
+        - CA-D-483@5
+    - Atom Collection
+      - CA-D-467@4
+      - CA-D-475@4
+    - Authority Mode
+      - CA-D-374@7
+      - CA-D-391@6
+    - Autonomous Confidence Threshold
+      - CA-D-472@5
+      - CA-D-485@4
+    - CARRIES
+      - CA-D-257@13
+    - CCE
+      - CA-D-346@12
+    - CCE Operator
+      - CA-D-280@12
+    - Carrier
+      - CA-D-256@14
+      - CA-D-257@13
+      - CA-D-258@11
+      - CA-D-259@11
+      - CA-D-333@12
+      - CA-D-346@12
+      - CA-D-347@12
+      - CA-D-368@9
+      - CA-D-380@6
+      - CA-D-381@7
+      - CA-D-389@8
+      - CA-D-390@8
+      - CA-D-393@8
+      - CA-D-408@7
+      - CA-D-440@5
+      - CA-D-441@5
+      - CA-D-442@6
+      - CA-D-443@5
+      - CA-D-444@6
+      - CA-D-445@5
+      - CA-D-447@8
+      - CA-D-463@5
+      - CA-D-469@4
+      - CA-D-505@1
+      - CA-D-506@1
+      - CA-D-549@2
+      - CA-D-550@3
+      - CA-D-559@1
+      - Carrier/Canonical Address
+        - CA-D-336@12
+      - Carrier/Format
+        - CA-D-507@1
+    - Change Content Roles
+      - CA-D-285@13
+      - CA-D-484@4
+    - Confidence Threshold
+      - CA-D-368@9
+      - CA-D-369@8
+    - Containment Relation Pair
+      - CA-D-264@14
+      - CA-D-266@13
+    - Current-scope Atom
+      - CA-D-482@7
+    - DEPENDS_ON
+      - CA-D-269@12
+      - CA-D-307@11
+    - Default Settings
+      - CA-D-361@10
+      - CA-D-407@7
+      - CA-D-408@7
+      - CA-D-447@8
+      - CA-D-497@3
+    - Delivery
+      - CA-D-312@12
+    - Directory Carrier
+      - CA-D-296@13
+      - CA-D-352@10
+      - CA-D-370@8
+      - CA-D-460@6
+      - CA-D-465@4
+      - CA-D-467@4
+      - CA-D-481@4
+      - Directory Carrier/Nesting
+        - CA-D-264@14
+        - CA-D-266@13
+    - Entity
+      - CA-D-256@14
+      - CA-D-257@13
+      - CA-D-505@1
+      - CA-D-506@1
+      - Entity/Carrier
+        - CA-D-256@14
+        - CA-D-257@13
+      - Entity/Identity
+        - CA-D-507@1
+    - Evaluation
+      - CA-D-496@7
+    - Extension
+      - CA-D-262@12
+      - CA-D-361@10
+      - CA-D-373@7
+    - File Carrier
+      - CA-D-359@10
+      - CA-D-363@10
+      - CA-D-407@7
+      - CA-D-416@11
+      - CA-D-460@6
+      - CA-D-470@7
+      - CA-D-472@5
+      - CA-D-473@4
+      - CA-D-496@7
+      - File Carrier/Extension
+        - CA-D-507@1
+      - File Carrier/Format
+        - CA-D-359@10
+        - CA-D-363@10
+    - Framework Instance Settings
+      - CA-D-333@12
+      - CA-D-358@10
+      - CA-D-361@10
+      - CA-D-366@8
+      - CA-D-368@9
+      - CA-D-369@8
+      - CA-D-370@8
+      - CA-D-371@7
+      - CA-D-372@7
+      - CA-D-373@7
+      - CA-D-377@7
+      - CA-D-383@11
+      - CA-D-387@9
+      - CA-D-390@8
+      - CA-D-391@6
+      - CA-D-408@7
+      - CA-D-442@6
+      - CA-D-447@8
+      - Framework Instance Settings/interaction (prefix)
+        - Framework Instance Settings/interaction/reporting mode
+          - CA-D-383@11
+    - Framework-Owned Carrier
+      - CA-D-341@11
+    - GOVERNS
+      - CA-D-269@12
+      - CA-D-307@11
+    - Hub Atom
+      - CA-D-470@7
+      - CA-D-472@5
+    - IS_CARRIED_BY
+      - CA-D-505@1
+    - Implementation
+      - CA-D-285@13
+      - CA-D-375@9
+      - CA-D-484@4
+      - CA-D-559@1
+    - Implementation Folder
+      - CA-D-445@5
+    - Implementation Retry Limit
+      - CA-D-447@8
+      - CA-D-485@4
+    - Journal
+      - CA-D-340@11
+      - CA-D-443@5
+      - CA-D-549@2
+      - CA-D-550@3
+      - CA-D-559@1
+      - Journal/Record
+        - CA-D-308@11
+        - CA-D-340@11
+    - Local Order
+      - CA-D-297@11
+      - CA-D-298@11
+      - CA-D-299@11
+    - Markdown
+      - CA-D-330@11
+    - Markdown Atom Carrier
+      - CA-D-463@5
+      - CA-D-478@5
+      - CA-D-480@4
+      - Markdown Atom Carrier/Main Content
+        - CA-D-277@12
+        - CA-D-356@9
+        - CA-D-495@1
+      - Markdown Atom Carrier/Structure
+        - CA-D-479@6
+      - Markdown Atom Carrier/YAML Frontmatter
+        - CA-D-356@9
+        - CA-D-357@9
+    - Methodology Source
+      - CA-D-394@7
+      - CA-D-407@7
+      - CA-D-550@3
+      - Methodology Source/Carrier
+        - CA-D-305@10
+    - NARROWER_THAN
+      - CA-D-416@11
+    - Navigational Order Number
+      - CA-D-297@11
+      - CA-D-299@11
+      - CA-D-300@14
+      - CA-D-442@6
+    - Obsolete Project Name
+      - CA-D-392@8
+    - Operator
+      - CA-D-274@17
+      - CA-D-276@15
+      - CA-D-292@15
+      - CA-D-375@9
+      - CA-D-376@8
+      - CA-D-383@11
+      - CA-D-444@6
+      - CA-D-494@2
+      - CA-D-497@3
+    - Primary Entity
+      - CA-D-414@14
+      - CA-D-505@1
+    - Priority
+      - CA-D-386@8
+    - Producer (prefix)
+      - Producer/Scope Unit
+        - CA-D-287@12
+    - Project
+      - CA-D-292@15
+      - CA-D-340@11
+      - CA-D-366@8
+      - CA-D-370@8
+      - CA-D-374@7
+      - CA-D-375@9
+      - CA-D-378@10
+      - CA-D-394@7
+      - CA-D-395@7
+      - CA-D-441@5
+      - CA-D-452@4
+      - CA-D-463@5
+      - CA-D-482@7
+      - CA-D-494@2
+      - CA-D-508@1
+      - CA-D-549@2
+      - CA-D-550@3
+      - Project/Operator Registry
+        - CA-D-274@17
+      - Project/Scope Unit
+        - CA-D-292@15
+    - Project Configuration
+      - CA-D-262@12
+      - CA-D-302@13
+    - Project Name
+      - CA-D-292@15
+      - CA-D-375@9
+      - CA-D-392@8
+    - Project Settings
+      - CA-D-333@12
+      - CA-D-362@10
+      - CA-D-375@9
+      - CA-D-376@8
+      - CA-D-392@8
+      - CA-D-440@5
+      - CA-D-441@5
+      - CA-D-550@3
+      - Project Settings/Authoritative Carrier (prefix)
+        - Project Settings/Authoritative Carrier/Filename
+          - CA-D-364@9
+    - Project Structure
+      - CA-D-333@12
+      - CA-D-374@7
+      - CA-D-380@6
+      - CA-D-391@6
+      - CA-D-445@5
+      - CA-D-465@4
+      - CA-D-550@3
+    - Project Structure Maintenance
+      - CA-D-444@6
+    - Project-Owned Carrier
+      - CA-D-341@11
+    - Project-Owned Carrier Root
+      - CA-D-452@4
+    - Projection
+      - CA-D-366@8
+      - CA-D-484@4
+      - CA-D-496@7
+      - CA-D-549@2
+      - CA-D-550@3
+      - CA-D-559@1
+    - Property
+      - CA-D-479@6
+      - CA-D-485@4
+      - CA-D-505@1
+      - CA-D-506@1
+    - Relation
+      - CA-D-256@14
+      - CA-D-471@5
+      - CA-D-478@5
+    - Relation Kind
+      - CA-D-269@12
+    - Relational Atom
+      - CA-D-482@7
+    - Runtime State Carrier
+      - CA-D-341@11
+    - Scope Expression (prefix)
+      - Scope Expression/Canonical Scope Signature
+        - CA-D-347@12
+    - Scope Unit
+      - CA-D-276@15
+      - CA-D-291@15
+      - CA-D-296@13
+      - CA-D-300@14
+      - CA-D-312@12
+      - CA-D-374@7
+      - CA-D-380@6
+      - CA-D-395@7
+      - CA-D-407@7
+      - CA-D-434@8
+      - CA-D-440@5
+      - CA-D-441@5
+      - CA-D-442@6
+      - CA-D-465@4
+      - CA-D-482@7
+      - Scope Unit/Carrier
+        - CA-D-505@1
+      - Scope Unit/Label
+        - CA-D-297@11
+        - CA-D-298@11
+        - CA-D-299@11
+        - CA-D-442@6
+      - Scope Unit/Local Order
+        - CA-D-442@6
+      - Scope Unit/Name
+        - CA-D-297@11
+        - CA-D-299@11
+        - CA-D-302@13
+        - CA-D-442@6
+      - Scope Unit/Type
+        - CA-D-442@6
+      - Scope Unit/Type: Ordered
+        - CA-D-298@11
+      - Scope Unit/Type: Unordered
+        - CA-D-298@11
+    - Structural Entity
+      - CA-D-451@4
+      - CA-D-464@4
+      - CA-D-465@4
+    - Structural Level
+      - CA-D-297@11
+      - CA-D-299@11
+      - CA-D-300@14
+    - Subject
+      - CA-D-269@12
+    - Subject Path
+      - CA-D-269@12
+    - TOML
+      - CA-D-330@11
+    - Term
+      - CA-D-416@11
+    - Tool
+      - CA-D-361@10
+      - CA-D-372@7
+      - Tool/Workflow Operations (prefix)
+        - Tool/Workflow Operations/Atom Lifecycle (prefix)
+          - Tool/Workflow Operations/Atom Lifecycle/Request Parameters
+            - CA-D-568@5
+    - Work Journal (prefix)
+      - Work Journal/Event (prefix)
+        - Work Journal/Event/Type
+          - CA-D-340@11
+      - Work Journal/Record
+        - CA-D-360@12
+        - CA-D-365@11
+    - Workflow
+      - CA-D-549@2
+    - Workflow Run
+      - CA-D-497@3
+    - YAML
+      - CA-D-330@11
+

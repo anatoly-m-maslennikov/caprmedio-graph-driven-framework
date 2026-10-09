@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Projection
   depends_on: [Entity, Term, Atom, Property, Carrier, Plan]
-version: 2
-updated_at: "2026-10-10 02:24:11 +0400"
+version: 3
+updated_at: "2026-10-10 02:32:12 +0400"
 relations:
   is_decomposition_of: [CA-P-1906]
   blocks: [CA-P-1921]
@@ -40,10 +40,10 @@ For every assigned case, record its case ID, original parent and child, disposit
 Preserved checkpoint: `relations.batch-6.json` (16 reviewed display-only cases; 49 unreviewed rows). It is not the completed review. CA-P-1923–1926 review disjoint remaining partitions; they explicitly BLOCK CA-P-1927, which joins the final 65-case output in `relations.batch-6.final.json`. Each original case occurs exactly once; no case outside this partition is changed.
 
 Direct child Tasks:
-- [CA-P-1923](06-CA-P-1918-TASK--review-second-context-and-operation-relation-batch/01-CA-P-1923-TASK--review-first-remaining-context-relation-batch.md): Review first remaining context relation batch.
-- [CA-P-1924](06-CA-P-1918-TASK--review-second-context-and-operation-relation-batch/02-CA-P-1924-TASK--review-second-remaining-context-relation-batch.md): Review second remaining context relation batch.
-- [CA-P-1925](06-CA-P-1918-TASK--review-second-context-and-operation-relation-batch/03-CA-P-1925-TASK--review-third-remaining-context-relation-batch.md): Review third remaining context relation batch.
-- [CA-P-1926](06-CA-P-1918-TASK--review-second-context-and-operation-relation-batch/04-CA-P-1926-TASK--review-fourth-remaining-context-relation-batch.md): Review fourth remaining context relation batch.
+- [CA-P-1923](06-CA-P-1918-TASK--review-second-context-and-operation-relation-batch/done/01-CA-P-1923-TASK--review-first-remaining-context-relation-batch.md): Review first remaining context relation batch.
+- [CA-P-1924](06-CA-P-1918-TASK--review-second-context-and-operation-relation-batch/done/02-CA-P-1924-TASK--review-second-remaining-context-relation-batch.md): Review second remaining context relation batch.
+- [CA-P-1925](06-CA-P-1918-TASK--review-second-context-and-operation-relation-batch/done/03-CA-P-1925-TASK--review-third-remaining-context-relation-batch.md): Review third remaining context relation batch.
+- [CA-P-1926](06-CA-P-1918-TASK--review-second-context-and-operation-relation-batch/done/04-CA-P-1926-TASK--review-fourth-remaining-context-relation-batch.md): Review fourth remaining context relation batch.
 - [CA-P-1927](06-CA-P-1918-TASK--review-second-context-and-operation-relation-batch/05-CA-P-1927-TASK--join-the-reviewed-second-context-relation-batch.md): Join the reviewed second context relation batch.
 
 Read current Core Main Content and verify exact source pins before proposing meaning. Earlier classification caches are preparation only. Below 90% confidence, leave a proposal unresolved, state the missing evidence and put the question to the Operator before deciding. A diagnostic or proposed view is not native admission. Preserve all qualified identities and do not infer Entity facts from source Atom metadata or Subject incidence. Work locally without MCP or FPF; do not change Core Atoms, Subjects, history, baseline outputs, implementation, runtime or unrelated work.

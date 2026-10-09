@@ -1,0 +1,307 @@
+{
+  "baseline_inventory_sha256": "23394abaf6e9c18a585cf3146aedd0a80df166c9dd82be6e86ed7c3c56780bdc",
+  "checkpoint_sha256": "7495ec552c2e0b4f56babc7e04c6b3f2724a906980efef08237616dfe7b241b9",
+  "design_complete": false,
+  "files": [
+    {
+      "bytes": 92463,
+      "checkpoint_only": false,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/relations.batch-1.json",
+      "sha256": "6038646bf9aad5fa7d2254978f90bfae5b62dda23ee8a36d855af3d8e2c6c631",
+      "source_path": ".caprmedio_tmp/planning/core-entity-review/design/relations.batch-1.json"
+    },
+    {
+      "bytes": 97546,
+      "checkpoint_only": false,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/relations.batch-2.json",
+      "sha256": "f1bcafd79233fea0ced091fc7df91d1f7fda47edaf1d5b52d130cf2b45c08729",
+      "source_path": ".caprmedio_tmp/planning/core-entity-review/design/relations.batch-2.json"
+    },
+    {
+      "bytes": 102935,
+      "checkpoint_only": false,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/relations.batch-3.json",
+      "sha256": "9bc2309603eaa8283fbda2ff9f99df543c594102457db7824e7a583a7621bafe",
+      "source_path": ".caprmedio_tmp/planning/core-entity-review/design/relations.batch-3.json"
+    },
+    {
+      "bytes": 31896,
+      "checkpoint_only": false,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/relations.batch-4.json",
+      "sha256": "3ad64852b98716443257e0d726346b0a6d6105f4f96ed9d90953dcabc4d3da44",
+      "source_path": ".caprmedio_tmp/planning/core-entity-review/design/relations.batch-4.json"
+    },
+    {
+      "bytes": 143541,
+      "checkpoint_only": false,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/relations.batch-5.json",
+      "sha256": "108005779ebd301ada886e8a9ae2f57cda2f6576805325ba65f679faf29d6697",
+      "source_path": ".caprmedio_tmp/planning/core-entity-review/design/relations.batch-5.json"
+    },
+    {
+      "bytes": 20079,
+      "checkpoint_only": false,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/relations.batch-6.remaining-1.json",
+      "sha256": "9eaef859a8369790ea1ed9f703f33f201490b183f1a12ad84831d0ecf0c8af03",
+      "source_path": ".caprmedio_tmp/planning/core-entity-review/design/relations.batch-6.remaining-1.json"
+    },
+    {
+      "bytes": 21865,
+      "checkpoint_only": false,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/relations.batch-6.remaining-2.json",
+      "sha256": "79dd8c4a72c45d2396970aed5142733cad754038550d5b98b44a1bb1d8f5e0a6",
+      "source_path": ".caprmedio_tmp/planning/core-entity-review/design/relations.batch-6.remaining-2.json"
+    },
+    {
+      "bytes": 30994,
+      "checkpoint_only": false,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/relations.batch-6.remaining-3.json",
+      "sha256": "f8df626c8fdab9bde270f8d56f32d9407579a7e55a9d1827bbf27803418153c4",
+      "source_path": ".caprmedio_tmp/planning/core-entity-review/design/relations.batch-6.remaining-3.json"
+    },
+    {
+      "bytes": 27746,
+      "checkpoint_only": false,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/relations.batch-6.remaining-4.json",
+      "sha256": "55b0e1058f13a00ab4b38ac8ac6f97bc6bb784260a926f2285580f8445fae1d5",
+      "source_path": ".caprmedio_tmp/planning/core-entity-review/design/relations.batch-6.remaining-4.json"
+    },
+    {
+      "bytes": 35559,
+      "checkpoint_only": false,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/batch-6.reviewed.checkpoint.json",
+      "sha256": "5a96e8a3e05a6dc5c32defe8abe951f3e030cffa0a55c8e11e4ef849ea55db61",
+      "source_path": ".caprmedio_tmp/planning/core-entity-review/design/batch-6.reviewed.checkpoint.json"
+    },
+    {
+      "bytes": 6882626,
+      "checkpoint_only": false,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/rmed.views.json",
+      "sha256": "d7fd113a408c3bb70e17ab55cc86fd6746c3d5c74ff27a9a864632ec6de999aa",
+      "source_path": ".caprmedio_tmp/planning/core-entity-review/design/rmed.views.json"
+    },
+    {
+      "bytes": 4553,
+      "checkpoint_only": false,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/rmed.views.md",
+      "sha256": "7365beeec9e62620fab5ee78855497fb37180f77c7235a14c545b5c3f24afc7f",
+      "source_path": ".caprmedio_tmp/planning/core-entity-review/design/rmed.views.md"
+    },
+    {
+      "bytes": 122084,
+      "checkpoint_only": false,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/rmed.roles.indented.txt",
+      "sha256": "191b54635829256aebb9b4fcb8489cddfd1c80ee22e406de43cfea68fd2844d7",
+      "source_path": ".caprmedio_tmp/planning/core-entity-review/design/rmed.roles.indented.txt"
+    },
+    {
+      "bytes": 158884,
+      "checkpoint_only": false,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/rmed.entities.indented.txt",
+      "sha256": "17a4d3661cb73702dded836cc3fad968e63faf57e29ba0eed8ffd8fe8eec9172",
+      "source_path": ".caprmedio_tmp/planning/core-entity-review/design/rmed.entities.indented.txt"
+    },
+    {
+      "bytes": 62125,
+      "checkpoint_only": true,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/structure.design.json",
+      "sha256": "04eb36800cd295d239a03779fd4438fde75ecb155b9915e8e0ebfcd5996c23ec",
+      "source_path": ".caprmedio_tmp/planning/core-entity-review/design/structure.design.json"
+    },
+    {
+      "bytes": 608137,
+      "checkpoint_only": false,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/inputs/batch-1.input.json",
+      "sha256": "6fbf585cdb482b1c52eeddbe856d39a606cce04b6da59acfd5b5588121a68a73",
+      "source_path": ".caprmedio_tmp/planning/core-entity-review/design/batch-1.input.json"
+    },
+    {
+      "bytes": 1085174,
+      "checkpoint_only": false,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/inputs/batch-2.input.json",
+      "sha256": "03db6c3893fd19ab44dd37a8774e1abbbc7eaf4153bc13417a5fca4d63f3fa9c",
+      "source_path": ".caprmedio_tmp/planning/core-entity-review/design/batch-2.input.json"
+    },
+    {
+      "bytes": 538737,
+      "checkpoint_only": false,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/inputs/batch-3.input.json",
+      "sha256": "4a76c9667920b68d9c5d66a734eb3a02c06e2d3166fe76e98c8fbe26a42c2969",
+      "source_path": ".caprmedio_tmp/planning/core-entity-review/design/batch-3.input.json"
+    },
+    {
+      "bytes": 223509,
+      "checkpoint_only": false,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/inputs/batch-4.input.json",
+      "sha256": "f95c0b5e6b97744839ad242818eb0246c798616782758dc3151d747a62f9f41b",
+      "source_path": ".caprmedio_tmp/planning/core-entity-review/design/batch-4.input.json"
+    },
+    {
+      "bytes": 290324,
+      "checkpoint_only": false,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/inputs/batch-5.input.json",
+      "sha256": "4f292437c5357fe54b31be2114e4bb026fbe11e158dff254c281e6e7a1a75b5d",
+      "source_path": ".caprmedio_tmp/planning/core-entity-review/design/batch-5.input.json"
+    },
+    {
+      "bytes": 325416,
+      "checkpoint_only": false,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/inputs/batch-6.input.json",
+      "sha256": "3640c8fa4c65b26fee0c2e98896bda37954266b34b874a1ea6434659991d6898",
+      "source_path": ".caprmedio_tmp/planning/core-entity-review/design/batch-6.input.json"
+    },
+    {
+      "bytes": 157301,
+      "checkpoint_only": false,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/inputs/remaining-1.input.json",
+      "sha256": "e92415939021171aa7f5b5d7f812a503b2270ab581ca1a22bf1784d8e92b1e62",
+      "source_path": ".caprmedio_tmp/planning/core-entity-review/design/remaining-1.input.json"
+    },
+    {
+      "bytes": 184735,
+      "checkpoint_only": false,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/inputs/remaining-2.input.json",
+      "sha256": "0748d92deb2d3432cfb1ce3f5d476cffc3d636d5e064b867af0618ea37cae826",
+      "source_path": ".caprmedio_tmp/planning/core-entity-review/design/remaining-2.input.json"
+    },
+    {
+      "bytes": 164795,
+      "checkpoint_only": false,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/inputs/remaining-3.input.json",
+      "sha256": "2cf8dd8d75cf54f6fcb8051dbb5c703e198456186dffa5631f4ec6209f9e68d8",
+      "source_path": ".caprmedio_tmp/planning/core-entity-review/design/remaining-3.input.json"
+    },
+    {
+      "bytes": 147770,
+      "checkpoint_only": false,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/inputs/remaining-4.input.json",
+      "sha256": "dfa889bcf214b86133572c727d58c4b375d5fb6cb151f7a35717feda255a1daf",
+      "source_path": ".caprmedio_tmp/planning/core-entity-review/design/remaining-4.input.json"
+    },
+    {
+      "bytes": 26981,
+      "checkpoint_only": false,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/inputs/partition.manifest.json",
+      "sha256": "13e5ba6af5f2334125e4695bcae450f40515870f89c0e774ad15f0d34539b64d",
+      "source_path": ".caprmedio_tmp/planning/core-entity-review/design/partition.manifest.json"
+    },
+    {
+      "bytes": 1713,
+      "checkpoint_only": false,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/inputs/remaining.manifest.json",
+      "sha256": "78e76e419281605ed2f0ecc1e6c47f4e77ddc0946e396bbb0c8f9557ce152132",
+      "source_path": ".caprmedio_tmp/planning/core-entity-review/design/remaining.manifest.json"
+    },
+    {
+      "bytes": 4918,
+      "checkpoint_only": false,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/inputs/contract.md",
+      "sha256": "c1a2de7ab79ac42d193d80fd75108bce97703b261c506e9cf4095608652187e2",
+      "source_path": ".caprmedio_tmp/planning/core-entity-review/design/contract.md"
+    },
+    {
+      "bytes": 12202,
+      "checkpoint_only": false,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/support/build_relations_batch_2.py",
+      "sha256": "7a3bf0479fe56eb4be8ceba756e5fcf324b291201016cacea52586eaaaf2c72e",
+      "source_path": ".caprmedio_tmp/planning/core-entity-review/design/build_relations_batch_2.py"
+    },
+    {
+      "bytes": 7793,
+      "checkpoint_only": false,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/support/build_relations_batch_3.py",
+      "sha256": "f4df3381a90ab143e9168cf2874e2c3277ddd31df493704490833a90d691f258",
+      "source_path": ".caprmedio_tmp/planning/core-entity-review/design/build_relations_batch_3.py"
+    },
+    {
+      "bytes": 7629,
+      "checkpoint_only": false,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/support/build_relations_batch_5.py",
+      "sha256": "1a560912d1d65740216b75321275a24742966983b8cd8da96e1799637c5e7749",
+      "source_path": ".caprmedio_tmp/planning/core-entity-review/design/build_relations_batch_5.py"
+    },
+    {
+      "bytes": 5954,
+      "checkpoint_only": false,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/support/build_relations_batch_6.py",
+      "sha256": "be53347a72ef25854f617dd6d229cd41911c7a2e456be181de12ea6489fd3b2f",
+      "source_path": ".caprmedio_tmp/planning/core-entity-review/design/build_relations_batch_6.py"
+    },
+    {
+      "bytes": 5839,
+      "checkpoint_only": false,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/support/build_relations_batch_6_remaining_2.py",
+      "sha256": "7efa4614f4864c62c11892ef9951eca6f4f3fa2bf509ee1cee343d78f572606c",
+      "source_path": ".caprmedio_tmp/planning/core-entity-review/design/build_relations_batch_6_remaining_2.py"
+    },
+    {
+      "bytes": 12325,
+      "checkpoint_only": false,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/support/build_relations_batch_6_remaining_3.py",
+      "sha256": "53a80729aa952d21768f3ff406c661a43a52c1e7f8e1cd8f8cca909583a93c75",
+      "source_path": ".caprmedio_tmp/planning/core-entity-review/design/build_relations_batch_6_remaining_3.py"
+    },
+    {
+      "bytes": 8796,
+      "checkpoint_only": false,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/support/build_relations_batch_6_remaining_4.py",
+      "sha256": "bb1787870ef89d8d519f543146e9815e9946bc207d19471364d4b8c8ad9cae78",
+      "source_path": ".caprmedio_tmp/planning/core-entity-review/design/build_relations_batch_6_remaining_4.py"
+    },
+    {
+      "bytes": 21220,
+      "checkpoint_only": false,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/support/build_rmed_views_ca_p_1920.py",
+      "sha256": "74303105bc40f5128ba9121ce3e6912d7ad898033995003d6e17a710f18b4458",
+      "source_path": ".caprmedio_tmp/planning/core-entity-review/design/build_rmed_views_ca_p_1920.py"
+    },
+    {
+      "bytes": 22887,
+      "checkpoint_only": false,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/support/build_structure_design_ca_p_1919.py",
+      "sha256": "53df65a2a46895bd51c136ad2978ac408252cf97c857a5047c5902414cc18d46",
+      "source_path": ".caprmedio_tmp/planning/core-entity-review/design/build_structure_design_ca_p_1919.py"
+    },
+    {
+      "bytes": 5828,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/support/verify_design_batches.py",
+      "sha256": "f0695942ae61f6ddf2c966460f2d6305090382e3b2ef464114c602bac05565dc",
+      "source_path": ".caprmedio_tmp/planning/core-entity-review/verify_design_batches.py"
+    },
+    {
+      "bytes": 2780,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/support/test_design_boundary.py",
+      "sha256": "55eee3175b9f063df16710669485066d04840d7c0e9467c15f45405f7443d906",
+      "source_path": ".caprmedio_tmp/planning/core-entity-review/test_design_boundary.py"
+    },
+    {
+      "bytes": 4751,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/support/prepare_design_batches.py",
+      "sha256": "99586e4bc97a956f16893dc012cad7063e9f97efbf3958ba03d7ec5619c0a340",
+      "source_path": ".caprmedio_tmp/planning/core-entity-review/prepare_design_batches.py"
+    },
+    {
+      "bytes": 2840,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/support/prepare_remaining_cases.py",
+      "sha256": "8be3dc0ab7d984fcbd715cd4fe8c09ae920f06de656d6c797d8d4def9ab187b1",
+      "source_path": ".caprmedio_tmp/planning/core-entity-review/prepare_remaining_cases.py"
+    },
+    {
+      "bytes": 2855,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/support/publish_review_checkpoint.py",
+      "sha256": "70d18da86a8b91499bf6e64245b0bc49c0369d318b8f1d2b768b419555cd4f04",
+      "source_path": ".caprmedio_tmp/planning/core-entity-review/publish_review_checkpoint.py"
+    }
+  ],
+  "non_authoritative": true,
+  "pending": "Temporal display convention, batch join and complete design integration/verification.",
+  "projection_kind": "caprmedio.core_graph_design.verified_review_checkpoint",
+  "semantic_admission": "not_performed",
+  "source_binding": {
+    "selection_sha256": "f72964ad096a671d0c36cc0cf6649cf2cf131110edb57446fb523dc5feedb840",
+    "source_collection_sha256": "5ebcf48d24841b65ba46ffdd113e964fe10a53da80a40db32cefedc484ae7d3d",
+    "source_frontier_sha256": "7792e842cfe6c66320745660e69cd0df5525ec18bb22b5c060a6ddfff5fc97f7"
+  },
+  "source_migration": "not_performed",
+  "source_task": "CA-P-1906"
+}

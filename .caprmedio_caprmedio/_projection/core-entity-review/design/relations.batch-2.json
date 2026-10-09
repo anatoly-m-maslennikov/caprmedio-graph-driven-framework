@@ -1,0 +1,1528 @@
+{
+  "source_task": "CA-P-1914",
+  "batch_number": 2,
+  "baseline_inventory_sha256": "23394abaf6e9c18a585cf3146aedd0a80df166c9dd82be6e86ed7c3c56780bdc",
+  "source_binding": {
+    "selection_sha256": "f72964ad096a671d0c36cc0cf6649cf2cf131110edb57446fb523dc5feedb840",
+    "source_collection_sha256": "5ebcf48d24841b65ba46ffdd113e964fe10a53da80a40db32cefedc484ae7d3d",
+    "source_frontier_sha256": "7792e842cfe6c66320745660e69cd0df5525ec18bb22b5c060a6ddfff5fc97f7"
+  },
+  "partition_sha256": "b82e5dadd692b53f571ec2a2935000230cbfc91e897d81099b13a0dc3ed0f353",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "semantic_admission": "not_performed",
+  "cases": [
+    {
+      "case_id": "slash:4f4478c20058a64cd99812c6b40682b4da53748f56ce4d81581cb97c3b6688a3",
+      "old_parent": "Atom/Carrier",
+      "old_child": "Atom/Carrier/Validation",
+      "disposition": "not-native",
+      "confidence_percent": 94,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-E-506",
+          "atom_revision": 7,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/06_evaluation/CA-E-506-CORE_META_MODEL-QA_CASE--validate-self-sufficient-atom-carriers.md",
+          "carrier_sha256": "0aed2ded8b6ea6704021d6cb0dd464d2dda3af84ab0c5f76875fb81916b03709",
+          "start_line": 34,
+          "end_line": 36,
+          "quote": "## Claim\n\nthe Evaluation **must** accept **only** Atom Carriers that preserve self-sufficiency, **`=1`** internal value source, **and** consistent outward representations.",
+          "text_sha256": "c3ba883ff65d34f9c21f2ec510b4a3b3167c92b1ab7c8dfef665cb3412e2242a"
+        }
+      ],
+      "checks_performed": [
+        "verified every listed current candidate source pin against current carrier bytes",
+        "quoted exact current ## Claim span outside frontmatter and Subjects",
+        "compared the Claim with the closed registry kinds IS_BORNE_BY, IS_ALLOWED_VALUE_OF, and NARROWER_THAN",
+        "did not infer semantics from legacy path text, filename, metadata, or source incidence",
+        "preserved qualified references and performed no native admission"
+      ],
+      "reason": "The current Claim constrains serialization, placement, identity, provenance, navigation, or carrier content. It does not assert a closed native relation kind for this legacy qualified path.",
+      "question": null
+    },
+    {
+      "case_id": "slash:50954c61a34104adad2e22201ea012e39a7665af37acc44cbaca074706cdbaec",
+      "old_parent": "Atom",
+      "old_child": "Atom/Content Role",
+      "disposition": "not-native",
+      "confidence_percent": 94,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-R-1531",
+          "atom_revision": 4,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1531-CORE_META_MODEL-CORE-REQUIREMENT--define-the-content-role-property.md",
+          "carrier_sha256": "ef8baa4a9672760802aede786ee838d13219566f680a2f01e71a1022ca500114",
+          "start_line": 28,
+          "end_line": 30,
+          "quote": "## Claim\n\nContent Role **means** the Atom Property that classifies the primary contribution of its Claim.",
+          "text_sha256": "05b6200384837ab3f43f9d2c5cfa534319dfc4e2239dd875386684b7ebc77b11"
+        }
+      ],
+      "checks_performed": [
+        "verified every listed current candidate source pin against current carrier bytes",
+        "quoted exact current ## Claim span outside frontmatter and Subjects",
+        "compared the Claim with the closed registry kinds IS_BORNE_BY, IS_ALLOWED_VALUE_OF, and NARROWER_THAN",
+        "did not infer semantics from legacy path text, filename, metadata, or source incidence",
+        "preserved qualified references and performed no native admission"
+      ],
+      "reason": "The current Claim explicitly describes the child as a Property, value, coordinate, or derived classification of the parent. That supports only the approved non-authoritative dot display; the closed registry has no property-ownership relation fact for this path.",
+      "question": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Atom",
+        "qualified_child": "Atom/Content Role",
+        "semantic_intent": "general_bearer_qualification",
+        "native_admission": "not_performed"
+      }
+    },
+    {
+      "case_id": "slash:552dd2c9ac18188572ef8b8dd6c0e109579f02f989aa982597c8e261249664ab",
+      "old_parent": "Atom/Local Tier",
+      "old_child": "Atom/Local Tier/classification",
+      "disposition": "not-native",
+      "confidence_percent": 94,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-R-1287",
+          "atom_revision": 12,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1287-CORE_META_MODEL-CORE-REQUIREMENT--define-local-tier-as-an-atom-property.md",
+          "carrier_sha256": "56ecd1da85e96be7d61ffcdfa6b8044e3ae86fae568603aa30385293e741e762",
+          "start_line": 30,
+          "end_line": 32,
+          "quote": "## Claim\n\nthe Atom Property Local Tier **means** the semantic abstraction coordinate of **`=1`** complete independently replaceable Atom Claim within its governing authority context, distinct from the breadth of its Claim Scope, its Content Role **and** Type, **and** the ownership of its Methodology Source; admitted combinations of Content Role **and** Local Tier remain subject **to** the applicable role-tier rules, including CA-R-1566-CORE_META_MODEL-GENERAL-REQUIREMENT--keep-change-and-implementation-content-at-standard.",
+          "text_sha256": "a0894ec844c774282bbd71d89e4bfa0883bab4ef71a9f5c027cd02d072903aa3"
+        }
+      ],
+      "checks_performed": [
+        "verified every listed current candidate source pin against current carrier bytes",
+        "quoted exact current ## Claim span outside frontmatter and Subjects",
+        "compared the Claim with the closed registry kinds IS_BORNE_BY, IS_ALLOWED_VALUE_OF, and NARROWER_THAN",
+        "did not infer semantics from legacy path text, filename, metadata, or source incidence",
+        "preserved qualified references and performed no native admission"
+      ],
+      "reason": "The current Claim explicitly describes the child as a Property, value, coordinate, or derived classification of the parent. That supports only the approved non-authoritative dot display; the closed registry has no property-ownership relation fact for this path.",
+      "question": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Atom/Local Tier",
+        "qualified_child": "Atom/Local Tier/classification",
+        "semantic_intent": "general_bearer_qualification",
+        "native_admission": "not_performed"
+      }
+    },
+    {
+      "case_id": "slash:56ccf54abdd900008347afff8234a1984805bc15b53d7f1e7895c9f03cd060a2",
+      "old_parent": "Atom/Claim",
+      "old_child": "Atom/Claim/Target Scope Unit",
+      "disposition": "unresolved",
+      "confidence_percent": 72,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-R-1595",
+          "atom_revision": 4,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1595-CORE_META_MODEL-CORE-REQUIREMENT--define-claim-target-scope-unit.md",
+          "carrier_sha256": "85febc638f738e105bcb440514f3446afcb1d2c651bf8b18eb841f4581a75666",
+          "start_line": 27,
+          "end_line": 29,
+          "quote": "## Claim\n\na Claim Target Scope Unit **means** the Scope Unit addressed by an Atom's Claim.",
+          "text_sha256": "d9dfafe89f1f884f3574acaecf3552a26f83437a5f34885458e4cfcc388136ae"
+        }
+      ],
+      "checks_performed": [
+        "verified every listed current candidate source pin against current carrier bytes",
+        "quoted exact current ## Claim span outside frontmatter and Subjects",
+        "compared the Claim with the closed registry kinds IS_BORNE_BY, IS_ALLOWED_VALUE_OF, and NARROWER_THAN",
+        "did not infer semantics from legacy path text, filename, metadata, or source incidence",
+        "preserved qualified references and performed no native admission"
+      ],
+      "reason": "The current Claim explicitly addresses a Claim Target Scope Unit, but the closed registry has no approved relation kind for that target context; it cannot be equated with IS_BORNE_BY or NARROWER_THAN.",
+      "question": "Which reviewed native relation kind, if any, should represent an Atom Claim's target Scope Unit without changing Scope Unit ownership?"
+    },
+    {
+      "case_id": "slash:5748222f3fb64fa6acbec61b2b70138cc36b32746274f5c27ef370e89eb9a5e6",
+      "old_parent": "Atom/Content Role: Plan/Type: Plan",
+      "old_child": "Atom/Content Role: Plan/Type: Plan/Work Sequence Number",
+      "disposition": "not-native",
+      "confidence_percent": 94,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-R-991",
+          "atom_revision": 17,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-991-CORE_META_MODEL-CORE-REQUIREMENT--define-work-sequence-number.md",
+          "carrier_sha256": "42669320fd794a333d707b349797f5d596df95b67c0e027be2e6a8084908e39a",
+          "start_line": 27,
+          "end_line": 29,
+          "quote": "## Claim\n\na Work Sequence Number **means** a mutable ordinal navigation value for a Plan among Plans decomposing the same Hub **or** sharing a top-level Plan container; it does **not** establish execution order.",
+          "text_sha256": "ddd2f62359171e673349d407b9b40bb957e3d6a3a767ecacc4c9f49720c7044f"
+        }
+      ],
+      "checks_performed": [
+        "verified every listed current candidate source pin against current carrier bytes",
+        "quoted exact current ## Claim span outside frontmatter and Subjects",
+        "compared the Claim with the closed registry kinds IS_BORNE_BY, IS_ALLOWED_VALUE_OF, and NARROWER_THAN",
+        "did not infer semantics from legacy path text, filename, metadata, or source incidence",
+        "preserved qualified references and performed no native admission"
+      ],
+      "reason": "The current Claim constrains serialization, placement, identity, provenance, navigation, or carrier content. It does not assert a closed native relation kind for this legacy qualified path.",
+      "question": null
+    },
+    {
+      "case_id": "slash:5d0b8ca49b5227a87cadece1fb7e6d0718495fbf2c487e64a1afe8531b781f4d",
+      "old_parent": "Artifact/Activity: Active",
+      "old_child": "Artifact/Activity: Active/Carrier Basename",
+      "disposition": "not-native",
+      "confidence_percent": 94,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-D-290",
+          "atom_revision": 11,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-290-CORE_META_MODEL-DELIVERY--omit-version-suffixes-from-active-carriers.md",
+          "carrier_sha256": "ccac89b8e0ef3018e7122c6d87093376ae794ad2b9aa660b292befb52ae76980",
+          "start_line": 25,
+          "end_line": 27,
+          "quote": "## Claim\n\nan Artifact Carrier basename **must not** contain an `@<version>` suffix **if** its Artifact Activity is Active.",
+          "text_sha256": "9430a0a08b27ec1a8d2a98351e03d6cb6ea18e21b309225fc71d6653b48c46fc"
+        }
+      ],
+      "checks_performed": [
+        "verified every listed current candidate source pin against current carrier bytes",
+        "quoted exact current ## Claim span outside frontmatter and Subjects",
+        "compared the Claim with the closed registry kinds IS_BORNE_BY, IS_ALLOWED_VALUE_OF, and NARROWER_THAN",
+        "did not infer semantics from legacy path text, filename, metadata, or source incidence",
+        "preserved qualified references and performed no native admission"
+      ],
+      "reason": "The current Claim constrains serialization, placement, identity, provenance, navigation, or carrier content. It does not assert a closed native relation kind for this legacy qualified path.",
+      "question": null
+    },
+    {
+      "case_id": "slash:5de60baca4649f507d04c47c719b56c4278544fae43795644856502a995d9015",
+      "old_parent": "Atom/Revision",
+      "old_child": "Atom/Revision/Authoritative Carrier Bundle",
+      "disposition": "not-native",
+      "confidence_percent": 94,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-D-463",
+          "atom_revision": 5,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-463-CORE_META_MODEL-CORE--give-every-atom-revision-one-authoritative-carrier-bundle.md",
+          "carrier_sha256": "8b5a10d78d72d18256a9a00bc6350fe472489fe5247d97827b57d0f216b6b48e",
+          "start_line": 30,
+          "end_line": 32,
+          "quote": "## Claim\n\n**every** Atom Revision **must** have **`=1`** authoritative Carrier Bundle on the Project filesystem containing **`=1`** Markdown File Carrier **and** **`>=0`** additional Carriers admitted by its applicable Delivery authority.",
+          "text_sha256": "cc27a5212dab0ff425e02284aaa078c5a9b4082cf57073626153c00c1e70e0bf"
+        }
+      ],
+      "checks_performed": [
+        "verified every listed current candidate source pin against current carrier bytes",
+        "quoted exact current ## Claim span outside frontmatter and Subjects",
+        "compared the Claim with the closed registry kinds IS_BORNE_BY, IS_ALLOWED_VALUE_OF, and NARROWER_THAN",
+        "did not infer semantics from legacy path text, filename, metadata, or source incidence",
+        "preserved qualified references and performed no native admission"
+      ],
+      "reason": "The current Claim supports an Entity/Carrier or authoritative carrier binding, but it does not prove this exact legacy qualified path as an immediate IS_BORNE_BY identity edge; the dot display candidate remains non-authoritative.",
+      "question": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Atom/Revision",
+        "qualified_child": "Atom/Revision/Authoritative Carrier Bundle",
+        "semantic_intent": "general_bearer_qualification",
+        "native_admission": "not_performed"
+      }
+    },
+    {
+      "case_id": "slash:5e2c091dd518649a8424c1e47b137a83851a9f4c1ed19188dd80fd106ea4243b",
+      "old_parent": "Artifact",
+      "old_child": "Artifact/Type",
+      "disposition": "not-native",
+      "confidence_percent": 94,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-R-1708",
+          "atom_revision": 24,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1708-CORE_META_MODEL-CORE-REQUIREMENT--classify-artifacts-through-the-extensible-type-registry.md",
+          "carrier_sha256": "f588c8bd8c3ba37bbcc14c4bec37d6fd617267690337812ae5967f4899de7a6a",
+          "start_line": 30,
+          "end_line": 32,
+          "quote": "## Claim\n\nan Artifact **must** have **`=1`** Type admitted by applicable authority; the Core values are specified by CA-R-1405 **and** remain open **to** permitted expansion.",
+          "text_sha256": "71c91b70afcdd56e07453394c766caf360ee0d3fad7c987db663c32bd6821c53"
+        }
+      ],
+      "checks_performed": [
+        "verified every listed current candidate source pin against current carrier bytes",
+        "quoted exact current ## Claim span outside frontmatter and Subjects",
+        "compared the Claim with the closed registry kinds IS_BORNE_BY, IS_ALLOWED_VALUE_OF, and NARROWER_THAN",
+        "did not infer semantics from legacy path text, filename, metadata, or source incidence",
+        "preserved qualified references and performed no native admission"
+      ],
+      "reason": "The current Claim explicitly describes the child as a Property, value, coordinate, or derived classification of the parent. That supports only the approved non-authoritative dot display; the closed registry has no property-ownership relation fact for this path.",
+      "question": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Artifact",
+        "qualified_child": "Artifact/Type",
+        "semantic_intent": "general_bearer_qualification",
+        "native_admission": "not_performed"
+      }
+    },
+    {
+      "case_id": "slash:5ed0b230664d44576ee975a832c979691292c33612b33fbb249e6b02e45ccd8f",
+      "old_parent": "Atom/Identifier",
+      "old_child": "Atom/Identifier/Project Prefix",
+      "disposition": "not-native",
+      "confidence_percent": 94,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-D-378",
+          "atom_revision": 10,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-378-CORE_META_MODEL--serialize-assigned-atom-identities.md",
+          "carrier_sha256": "9435f3abb5a56f46c37c43c3e758afa1e288a0af259f39a34237495d8fcf255f",
+          "start_line": 28,
+          "end_line": 30,
+          "quote": "## Claim\n\n**every** assigned Atom ID **must** begin with the registered uppercase Project identity prefix. the Project-owned Atom ID encoding **must** match `<PROJECT_PREFIX>-<CONTENT_ROLE_LETTER>-<GLOBAL_NUMBER_WITHIN_CONTENT_ROLE>`. the Atom Content Role Identity Letter **must** be **in** (Concern: C, Analysis: A, Plan: P, Requirement: R, Method: M, Evaluation: E, Delivery: D, Implementation: I, Operations: O). a `<PROJECT_PREFIX>-P` Identifier **must** identify a Plan Atom, including one labeled Epic, **and** **must not** identify a separate non-Atom collection.",
+          "text_sha256": "d909469c73cdaadaf017c00d1bcb415b17d9747a515fedc51dd1d567b911abdc"
+        }
+      ],
+      "checks_performed": [
+        "verified every listed current candidate source pin against current carrier bytes",
+        "quoted exact current ## Claim span outside frontmatter and Subjects",
+        "compared the Claim with the closed registry kinds IS_BORNE_BY, IS_ALLOWED_VALUE_OF, and NARROWER_THAN",
+        "did not infer semantics from legacy path text, filename, metadata, or source incidence",
+        "preserved qualified references and performed no native admission"
+      ],
+      "reason": "The current Claim constrains serialization, placement, identity, provenance, navigation, or carrier content. It does not assert a closed native relation kind for this legacy qualified path.",
+      "question": null
+    },
+    {
+      "case_id": "slash:60a5574b7be64f18d19dcd92c664eab09a39b41aa92f0b50efe90e7da3424dab",
+      "old_parent": "Atom/Content Role: Concern",
+      "old_child": "Atom/Content Role: Concern/Status",
+      "disposition": "not-native",
+      "confidence_percent": 94,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-R-1608",
+          "atom_revision": 3,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1608-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-concern-status-values.md",
+          "carrier_sha256": "5bf01a8f1d27c69cddcc939e74f3b11325b376565281fdcb2054b77bd18ae672",
+          "start_line": 31,
+          "end_line": 33,
+          "quote": "## Claim\n\nthe Core allowed values of `Atom/Content Role: Concern/Status` **must** be exactly (`draft`, `active`, `resolved`, `canceled`).",
+          "text_sha256": "5ca2f8fffc5847111910186c6a1b89e9ba76dec31eaee346caa82002f12087c6"
+        }
+      ],
+      "checks_performed": [
+        "verified every listed current candidate source pin against current carrier bytes",
+        "quoted exact current ## Claim span outside frontmatter and Subjects",
+        "compared the Claim with the closed registry kinds IS_BORNE_BY, IS_ALLOWED_VALUE_OF, and NARROWER_THAN",
+        "did not infer semantics from legacy path text, filename, metadata, or source incidence",
+        "preserved qualified references and performed no native admission"
+      ],
+      "reason": "The current Claim explicitly describes the child as a Property, value, coordinate, or derived classification of the parent. That supports only the approved non-authoritative dot display; the closed registry has no property-ownership relation fact for this path.",
+      "question": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Atom/Content Role: Concern",
+        "qualified_child": "Atom/Content Role: Concern/Status",
+        "semantic_intent": "general_bearer_qualification",
+        "native_admission": "not_performed"
+      }
+    },
+    {
+      "case_id": "slash:60ddbbc896d836e1da438c8595d80505ad2fdc36c587691b2ef4f8fb4f0276d7",
+      "old_parent": "Atom",
+      "old_child": "Atom/Subjects",
+      "disposition": "not-native",
+      "confidence_percent": 94,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-R-1198",
+          "atom_revision": 13,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1198-CORE_META_MODEL-CORE-REQUIREMENT--define-atom-subjects.md",
+          "carrier_sha256": "6eb2f68642b09eb05e1c6ece6b2dd92d309b92445fcea3e0b37f4b485576365b",
+          "start_line": 31,
+          "end_line": 33,
+          "quote": "## Claim\n\nthe Atom Subjects Property **means** the Atom Property that records its direct Subject Relations: GOVERNS **and** DEPENDS_ON links from that Atom **to** canonical targets. it preserves the target identities **without** storing copies of the targets **or** introducing a separately identified Subject object **or** a nested Entity **or** Reference Property for **every** link.",
+          "text_sha256": "40ed26c5975e2673d362b74da2d47187ef137c76377ed8a4458d7f9c7aaf41cc"
+        }
+      ],
+      "checks_performed": [
+        "verified every listed current candidate source pin against current carrier bytes",
+        "quoted exact current ## Claim span outside frontmatter and Subjects",
+        "compared the Claim with the closed registry kinds IS_BORNE_BY, IS_ALLOWED_VALUE_OF, and NARROWER_THAN",
+        "did not infer semantics from legacy path text, filename, metadata, or source incidence",
+        "preserved qualified references and performed no native admission"
+      ],
+      "reason": "The current Claim defines Atom Subjects as a property that serializes owned direct relations; the nested serialization path is not itself a native relation fact.",
+      "question": null
+    },
+    {
+      "case_id": "slash:62699af7de8544c79639a1366e0552094423be99417eedc6d4fc6bcacacf7fc0",
+      "old_parent": "Atom/Revision",
+      "old_child": "Atom/Revision/Reference",
+      "disposition": "not-native",
+      "confidence_percent": 94,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-R-366",
+          "atom_revision": 21,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-366-CORE_META_MODEL--reference-exact-atom-revisions-by-version-and-time.md",
+          "carrier_sha256": "4752a46e9e07cb57bcf6dcd505587af204cdb557189f9f572f2776566f097949",
+          "start_line": 28,
+          "end_line": 30,
+          "quote": "## Claim\n\n**every** exact Atom Revision reference **must** identify Atom identity, Version, **and** Updated At.",
+          "text_sha256": "5c9d12de70ec98e5eb476cfc5fff6f1656898d96eb71e21d5c253e7942359625"
+        }
+      ],
+      "checks_performed": [
+        "verified every listed current candidate source pin against current carrier bytes",
+        "quoted exact current ## Claim span outside frontmatter and Subjects",
+        "compared the Claim with the closed registry kinds IS_BORNE_BY, IS_ALLOWED_VALUE_OF, and NARROWER_THAN",
+        "did not infer semantics from legacy path text, filename, metadata, or source incidence",
+        "preserved qualified references and performed no native admission"
+      ],
+      "reason": "The current Claim constrains serialization, placement, identity, provenance, navigation, or carrier content. It does not assert a closed native relation kind for this legacy qualified path.",
+      "question": null
+    },
+    {
+      "case_id": "slash:636a9783ca0502c109d76402dc58811eab25b1d73b0e1c804f394433b892cc76",
+      "old_parent": "Atom/Content Role: Requirement/Type: Goal",
+      "old_child": "Atom/Content Role: Requirement/Type: Goal/Filename Token",
+      "disposition": "not-native",
+      "confidence_percent": 94,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-D-285",
+          "atom_revision": 13,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-285-CORE_META_MODEL--serialize-local-tier-filename-tokens.md",
+          "carrier_sha256": "4434a46931e802ff2c4e0a722f2be39a907314480e8e057c7ac31a99f1b94856",
+          "start_line": 31,
+          "end_line": 33,
+          "quote": "## Claim\n\nan ordinary Atom filename **must** serialize Principle as `PRINCIPLE`, Core as `CORE`, General as `GENERAL`, **and** the default Standard Local Tier by omitting the Local Tier segment at the registered descriptor position **after** its identity **and** current Scope owner. `PRINCIPLE` is admitted **only** for a Project-scoped Atom; `STD`, `STANDARD`, `DETAIL`, **and** combined tier segments **must not** be serialized. the external Project Goal's registered tierless grammar **must** be recognized **before** applying the ordinary omitted-Standard default; a tier token **must not** replace **or** alter the registered identity, owner, target, **or** sequence grammar of a Goal **or** Plan.",
+          "text_sha256": "2fb2e91c1837c8d5dc01d35393135291183567197e7f8f10bf16eac3219299de"
+        }
+      ],
+      "checks_performed": [
+        "verified every listed current candidate source pin against current carrier bytes",
+        "quoted exact current ## Claim span outside frontmatter and Subjects",
+        "compared the Claim with the closed registry kinds IS_BORNE_BY, IS_ALLOWED_VALUE_OF, and NARROWER_THAN",
+        "did not infer semantics from legacy path text, filename, metadata, or source incidence",
+        "preserved qualified references and performed no native admission"
+      ],
+      "reason": "The current Claim constrains serialization, placement, identity, provenance, navigation, or carrier content. It does not assert a closed native relation kind for this legacy qualified path.",
+      "question": null
+    },
+    {
+      "case_id": "slash:65a6dc4f31f8c0b03ad3e843019b6460f13e6a778a57c7f8c5701ff3d15f5b12",
+      "old_parent": "Artifact",
+      "old_child": "Artifact/Carrier Placement",
+      "disposition": "not-native",
+      "confidence_percent": 94,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-D-296",
+          "atom_revision": 13,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-296-CORE_META_MODEL--materialize-content-role-directories-on-first-artifact.md",
+          "carrier_sha256": "7c4f2e99149fb2d2f0e04207ce06be0b5ce2a056fab7520f19b860d0e13f93da",
+          "start_line": 29,
+          "end_line": 31,
+          "quote": "## Claim\n\na Scope Unit's administrative Content Role directory **must** be materialized for canonical Artifact placement **only** **when** the first current Artifact requires that placement.",
+          "text_sha256": "f422377f9713b4f1faf87cffb95a8b9f67d911e36b81327237b27b6817da060a"
+        }
+      ],
+      "checks_performed": [
+        "verified every listed current candidate source pin against current carrier bytes",
+        "quoted exact current ## Claim span outside frontmatter and Subjects",
+        "compared the Claim with the closed registry kinds IS_BORNE_BY, IS_ALLOWED_VALUE_OF, and NARROWER_THAN",
+        "did not infer semantics from legacy path text, filename, metadata, or source incidence",
+        "preserved qualified references and performed no native admission"
+      ],
+      "reason": "The current Claim constrains serialization, placement, identity, provenance, navigation, or carrier content. It does not assert a closed native relation kind for this legacy qualified path.",
+      "question": null
+    },
+    {
+      "case_id": "slash:6ac2ae406ca3dd363f0e59c16772496d6d735539c83dc2da7552d313f8eff8ce",
+      "old_parent": "Atom",
+      "old_child": "Atom/Global Tier",
+      "disposition": "not-native",
+      "confidence_percent": 94,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-R-1444",
+          "atom_revision": 9,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1444-CORE_META_MODEL-CORE--define-global-tier.md",
+          "carrier_sha256": "645fc3a90398166225a844baf0956038800a9dfdd13cfdb9229347b6c7460cbf",
+          "start_line": 28,
+          "end_line": 30,
+          "quote": "## Claim\n\nthe Atom Property Global Tier **means** the integer authority coordinate derived from an Atom's Scope **and**, **when** present, its Local Tier.",
+          "text_sha256": "792ae596d5ec0150d7e4dd063f49cb87d1191ce3d2ae078a846cbe23a50283b9"
+        }
+      ],
+      "checks_performed": [
+        "verified every listed current candidate source pin against current carrier bytes",
+        "quoted exact current ## Claim span outside frontmatter and Subjects",
+        "compared the Claim with the closed registry kinds IS_BORNE_BY, IS_ALLOWED_VALUE_OF, and NARROWER_THAN",
+        "did not infer semantics from legacy path text, filename, metadata, or source incidence",
+        "preserved qualified references and performed no native admission"
+      ],
+      "reason": "The current Claim explicitly describes the child as a Property, value, coordinate, or derived classification of the parent. That supports only the approved non-authoritative dot display; the closed registry has no property-ownership relation fact for this path.",
+      "question": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Atom",
+        "qualified_child": "Atom/Global Tier",
+        "semantic_intent": "general_bearer_qualification",
+        "native_admission": "not_performed"
+      }
+    },
+    {
+      "case_id": "slash:6b6805aeb23acbb45ae4fe60d4721d9ba40f1206fa6dcf904eabfea0b9ad0c1c",
+      "old_parent": "Atom/Content Role: Operations",
+      "old_child": "Atom/Content Role: Operations/Type",
+      "disposition": "not-native",
+      "confidence_percent": 94,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-R-1565",
+          "atom_revision": 5,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1565-CORE_META_MODEL-CORE-REQUIREMENT--admit-the-operations-atom-types.md",
+          "carrier_sha256": "ec302438794099e2a70d5bccf49b6489b92516b38bccb204e1266a55b2696f0e",
+          "start_line": 30,
+          "end_line": 32,
+          "quote": "## Claim\n\nthe admitted internal values of `Atom/Content Role: Operations/Type` **must** include (Action, Workflow, Step, Actor).",
+          "text_sha256": "92e12ee335660e95815e5ae8063353c6c31f4cf8ac0370259c402c3b5a007342"
+        }
+      ],
+      "checks_performed": [
+        "verified every listed current candidate source pin against current carrier bytes",
+        "quoted exact current ## Claim span outside frontmatter and Subjects",
+        "compared the Claim with the closed registry kinds IS_BORNE_BY, IS_ALLOWED_VALUE_OF, and NARROWER_THAN",
+        "did not infer semantics from legacy path text, filename, metadata, or source incidence",
+        "preserved qualified references and performed no native admission"
+      ],
+      "reason": "The current Claim explicitly describes the child as a Property, value, coordinate, or derived classification of the parent. That supports only the approved non-authoritative dot display; the closed registry has no property-ownership relation fact for this path.",
+      "question": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Atom/Content Role: Operations",
+        "qualified_child": "Atom/Content Role: Operations/Type",
+        "semantic_intent": "general_bearer_qualification",
+        "native_admission": "not_performed"
+      }
+    },
+    {
+      "case_id": "slash:6de772708c09b2b23977f64de3444d04005ca47d97051526c0c0171025eefa67",
+      "old_parent": "Atom/Content Role: Plan",
+      "old_child": "Atom/Content Role: Plan/Type",
+      "disposition": "not-native",
+      "confidence_percent": 94,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-R-1284",
+          "atom_revision": 11,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1284-CORE_META_MODEL-CORE--define-type.md",
+          "carrier_sha256": "f6a19da96c46a42a8245d219e8eb89e1ad36698e5da698d14a4a6419e7a16036",
+          "start_line": 28,
+          "end_line": 30,
+          "quote": "## Claim\n\na Type **means** a single-valued Property whose applicable allowed-value set is finite at one Applicable Methodology Revision **and** expandable through governed Methodology Sources.",
+          "text_sha256": "788c915c38c00c3bdb4b086ad150789074754b46dd2af92451180035fb940625"
+        }
+      ],
+      "checks_performed": [
+        "verified every listed current candidate source pin against current carrier bytes",
+        "quoted exact current ## Claim span outside frontmatter and Subjects",
+        "compared the Claim with the closed registry kinds IS_BORNE_BY, IS_ALLOWED_VALUE_OF, and NARROWER_THAN",
+        "did not infer semantics from legacy path text, filename, metadata, or source incidence",
+        "preserved qualified references and performed no native admission"
+      ],
+      "reason": "The current Claim explicitly describes the child as a Property, value, coordinate, or derived classification of the parent. That supports only the approved non-authoritative dot display; the closed registry has no property-ownership relation fact for this path.",
+      "question": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Atom/Content Role: Plan",
+        "qualified_child": "Atom/Content Role: Plan/Type",
+        "semantic_intent": "general_bearer_qualification",
+        "native_admission": "not_performed"
+      }
+    },
+    {
+      "case_id": "slash:7e7d1801e49da54cb993143e5a7a3a33350ff402e1f071253e2875e216f33357",
+      "old_parent": "Atom/Content Role: Plan/Type: Plan/Assignee",
+      "old_child": "Atom/Content Role: Plan/Type: Plan/Assignee/Carrier",
+      "disposition": "unresolved",
+      "confidence_percent": 70,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-E-502",
+          "atom_revision": 5,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/06_evaluation/CA-E-502-CORE_META_MODEL-QA_CASE--validate-plan-carrier-identity-and-placement.md",
+          "carrier_sha256": "0da834a92da258996ea4f261c4b13710c31d59c263b187940646635ba25e9fad",
+          "start_line": 34,
+          "end_line": 35,
+          "quote": "## Claim\nthe Plan Carrier Evaluation **must** reject Carrier facts that create duplicate identity **or** contradict the shared Plan model.",
+          "text_sha256": "2be6ef349471215636543ce4bb345b0bea8d74ac617048b379c7f4f4938956b7"
+        }
+      ],
+      "checks_performed": [
+        "verified every listed current candidate source pin against current carrier bytes",
+        "quoted exact current ## Claim span outside frontmatter and Subjects",
+        "compared the Claim with the closed registry kinds IS_BORNE_BY, IS_ALLOWED_VALUE_OF, and NARROWER_THAN",
+        "did not infer semantics from legacy path text, filename, metadata, or source incidence",
+        "preserved qualified references and performed no native admission"
+      ],
+      "reason": "The current Plan Carrier Evaluation describes carrier identity and placement, but it does not establish an Assignee-to-Carrier identity relation for this qualified path.",
+      "question": "Is Plan/Type: Plan/Assignee/Carrier intended as an explicit native relation, or is it only a carrier/assignment representation?"
+    },
+    {
+      "case_id": "slash:7fd38c04c53be1d3bbedc9bc69bb1d550ae2b3981b14f31b7a12705605ddc6e2",
+      "old_parent": "Atom/Content Role: Evaluation",
+      "old_child": "Atom/Content Role: Evaluation/Status",
+      "disposition": "not-native",
+      "confidence_percent": 94,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-R-1398",
+          "atom_revision": 9,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1398-CORE_META_MODEL-GENERAL--register-core-evaluation-status-values.md",
+          "carrier_sha256": "f7b33130be9d98abc56a2b0cdd15ea064e32ffa40fff12449fe6ec97b0ab3bf2",
+          "start_line": 26,
+          "end_line": 28,
+          "quote": "## Claim\n\nthe Core allowed values of Evaluation Status **must** be exactly (Draft, Active, Archived).",
+          "text_sha256": "227c122c32d047cc7bbb651833adce88f86953506b793e881e2997afc8ea1a5f"
+        }
+      ],
+      "checks_performed": [
+        "verified every listed current candidate source pin against current carrier bytes",
+        "quoted exact current ## Claim span outside frontmatter and Subjects",
+        "compared the Claim with the closed registry kinds IS_BORNE_BY, IS_ALLOWED_VALUE_OF, and NARROWER_THAN",
+        "did not infer semantics from legacy path text, filename, metadata, or source incidence",
+        "preserved qualified references and performed no native admission"
+      ],
+      "reason": "The current Claim explicitly describes the child as a Property, value, coordinate, or derived classification of the parent. That supports only the approved non-authoritative dot display; the closed registry has no property-ownership relation fact for this path.",
+      "question": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Atom/Content Role: Evaluation",
+        "qualified_child": "Atom/Content Role: Evaluation/Status",
+        "semantic_intent": "general_bearer_qualification",
+        "native_admission": "not_performed"
+      }
+    },
+    {
+      "case_id": "slash:813139ac6ac7a8da5a48e9d2adfd4a41bdbce75958a86fd9c066ed2af94e286e",
+      "old_parent": "Scope Unit",
+      "old_child": "Scope Unit/Structural Level",
+      "disposition": "not-native",
+      "confidence_percent": 94,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-R-1730",
+          "atom_revision": 19,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1730-CORE_META_MODEL-CORE--separate-structural-levels-from-scope-labels.md",
+          "carrier_sha256": "6c4009bc43c8046065bd5a87cae55a3ed0ccb17af98c27a0d3371689a9f8cc3a",
+          "start_line": 33,
+          "end_line": 35,
+          "quote": "## Claim\n\nStructural Level **must** follow declared Scope Unit parentage; a retained level number **must not** independently override that parentage under CA-R-1485.",
+          "text_sha256": "03f6a38e9fa7fe868e2350dea239b78ee046f761f61a78aadff4c22eb12cc86e"
+        }
+      ],
+      "checks_performed": [
+        "verified every listed current candidate source pin against current carrier bytes",
+        "quoted exact current ## Claim span outside frontmatter and Subjects",
+        "compared the Claim with the closed registry kinds IS_BORNE_BY, IS_ALLOWED_VALUE_OF, and NARROWER_THAN",
+        "did not infer semantics from legacy path text, filename, metadata, or source incidence",
+        "preserved qualified references and performed no native admission"
+      ],
+      "reason": "The current Claim constrains serialization, placement, identity, provenance, navigation, or carrier content. It does not assert a closed native relation kind for this legacy qualified path.",
+      "question": null
+    },
+    {
+      "case_id": "slash:85160f04ee0f101eb7b7a7ecb3a23edf1626cc3841b47e2573b8cd588a57738b",
+      "old_parent": "Atom/Carrier",
+      "old_child": "Atom/Carrier/Current Scope Unit",
+      "disposition": "unresolved",
+      "confidence_percent": 55,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-D-386",
+          "atom_revision": 8,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-386-CORE_META_MODEL-DELIVERY--serialize-concern-priority.md",
+          "carrier_sha256": "fe423e168cf55a7451cad44871f1826b1138bd24324c54c651b61f8c177db0ce",
+          "start_line": 28,
+          "end_line": 30,
+          "quote": "## Claim\n\na Concern Atom Carrier **must** serialize **`=1`** selected Priority as `priority` with the lowercase value `high`, `medium`, **or** `low`. **every** non-Concern Content Role Atom Carrier **must** omit `priority`; virtual `highest` **must not** be stored.",
+          "text_sha256": "5e5bb0b8c7aa4599ec725fea7735bfb331dd107d15a3a0b7402be93b3712b531"
+        }
+      ],
+      "checks_performed": [
+        "verified every listed current candidate source pin against current carrier bytes",
+        "quoted exact current ## Claim span outside frontmatter and Subjects",
+        "compared the Claim with the closed registry kinds IS_BORNE_BY, IS_ALLOWED_VALUE_OF, and NARROWER_THAN",
+        "did not infer semantics from legacy path text, filename, metadata, or source incidence",
+        "preserved qualified references and performed no native admission"
+      ],
+      "reason": "The selected current candidate Claim concerns Atom Carrier priority and does not establish a Current Scope Unit binding for an Atom Carrier; no sufficient native relation evidence is available in this partition.",
+      "question": "Which current Main Content Claim explicitly proves the Atom Carrier to Current Scope Unit binding, and which closed relation kind should own it?"
+    },
+    {
+      "case_id": "slash:85f9743191ab96e26d53dbb1589c3a774139ffa118f1fbee224e4e8f9758a94b",
+      "old_parent": "Artifact",
+      "old_child": "Artifact/Identity",
+      "disposition": "not-native",
+      "confidence_percent": 94,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-R-1406",
+          "atom_revision": 9,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1406-CORE_META_MODEL-CORE--keep-entity-identity-independent-of-graph-materialization.md",
+          "carrier_sha256": "9f02a3b4585c3c9debced436702c083bf7b4d626d1c28705783d63cb303b8898",
+          "start_line": 30,
+          "end_line": 32,
+          "quote": "## Claim\n\nmaterializing, refreshing, **or** deleting a Graph Projection **must not** establish, change, **or** remove Entity identity.",
+          "text_sha256": "1bd80927c270f23648404668fe66d9a01304a725294cf7cbd53cba7b9bcea256"
+        }
+      ],
+      "checks_performed": [
+        "verified every listed current candidate source pin against current carrier bytes",
+        "quoted exact current ## Claim span outside frontmatter and Subjects",
+        "compared the Claim with the closed registry kinds IS_BORNE_BY, IS_ALLOWED_VALUE_OF, and NARROWER_THAN",
+        "did not infer semantics from legacy path text, filename, metadata, or source incidence",
+        "preserved qualified references and performed no native admission"
+      ],
+      "reason": "The current Claim constrains serialization, placement, identity, provenance, navigation, or carrier content. It does not assert a closed native relation kind for this legacy qualified path.",
+      "question": null
+    },
+    {
+      "case_id": "slash:881cbd7fc9df69ae87360f8266e20b8d6216200a7f2b9d57daa239dbb303aa5e",
+      "old_parent": "Atom/Content Role: Plan",
+      "old_child": "Atom/Content Role: Plan/Identity",
+      "disposition": "not-native",
+      "confidence_percent": 94,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-R-1534",
+          "atom_revision": 5,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1534-CORE_META_MODEL-CORE-REQUIREMENT--keep-plan-atom-identity-independent-from-decomposition.md",
+          "carrier_sha256": "7890baac4c6f692b7fb7fcec9ca37de399455182bff017c9e40d5b8576b7afb7",
+          "start_line": 26,
+          "end_line": 28,
+          "quote": "## Claim\n\nadding, removing, reordering, **or** changing a decomposed Plan Atom **must not** establish **or** replace the Hub Atom's identity; **every** related Atom retains its independent Claim **and** lifecycle.",
+          "text_sha256": "6be41c8fb304d58504f8a27acd566f1945ff67f663b4e1e6649020c36f563292"
+        }
+      ],
+      "checks_performed": [
+        "verified every listed current candidate source pin against current carrier bytes",
+        "quoted exact current ## Claim span outside frontmatter and Subjects",
+        "compared the Claim with the closed registry kinds IS_BORNE_BY, IS_ALLOWED_VALUE_OF, and NARROWER_THAN",
+        "did not infer semantics from legacy path text, filename, metadata, or source incidence",
+        "preserved qualified references and performed no native admission"
+      ],
+      "reason": "The current Claim constrains serialization, placement, identity, provenance, navigation, or carrier content. It does not assert a closed native relation kind for this legacy qualified path.",
+      "question": null
+    },
+    {
+      "case_id": "slash:8a34a01ac84aedc28d2567cc005726cb900165c3b7f787fb8198bfee06fca5db",
+      "old_parent": "Artifact",
+      "old_child": "Artifact/Local Tier",
+      "disposition": "not-native",
+      "confidence_percent": 94,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-R-1571",
+          "atom_revision": 4,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1571-CORE_META_MODEL-GENERAL-REQUIREMENT--keep-non-atom-implementation-outputs-at-standard.md",
+          "carrier_sha256": "ccaf94fd0aa849e497e8205a51d7febc25373148d7b0a66fa11d315cb4e37f15",
+          "start_line": 30,
+          "end_line": 32,
+          "quote": "## Claim\n\na non-Atom Implementation Artifact **must** resolve **to** Local Tier Standard, including a delivered Projection.",
+          "text_sha256": "290b28a743987dd592f38abfcd7a190d10f75146e4f48570dbe0bb64f9b5934d"
+        }
+      ],
+      "checks_performed": [
+        "verified every listed current candidate source pin against current carrier bytes",
+        "quoted exact current ## Claim span outside frontmatter and Subjects",
+        "compared the Claim with the closed registry kinds IS_BORNE_BY, IS_ALLOWED_VALUE_OF, and NARROWER_THAN",
+        "did not infer semantics from legacy path text, filename, metadata, or source incidence",
+        "preserved qualified references and performed no native admission"
+      ],
+      "reason": "The current Claim explicitly describes the child as a Property, value, coordinate, or derived classification of the parent. That supports only the approved non-authoritative dot display; the closed registry has no property-ownership relation fact for this path.",
+      "question": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Artifact",
+        "qualified_child": "Artifact/Local Tier",
+        "semantic_intent": "general_bearer_qualification",
+        "native_admission": "not_performed"
+      }
+    },
+    {
+      "case_id": "slash:8d347969b3d72d20e32959767a6d0c687278c05bb5ddee31a3440dd4e3d3a4f7",
+      "old_parent": "Atom/Content Role: Plan/Type: Plan/Carrier",
+      "old_child": "Atom/Content Role: Plan/Type: Plan/Carrier/Content",
+      "disposition": "not-native",
+      "confidence_percent": 94,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-D-470",
+          "atom_revision": 7,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-470-CORE_META_MODEL-STANDARD--serialize-plan-file-sections.md",
+          "carrier_sha256": "7e91dbd7f5bd26889e0a2f3b9efeb3bbbafd680856b6e404736f7dcbc0c9b06c",
+          "start_line": 32,
+          "end_line": 34,
+          "quote": "## Claim\n\n**every** Plan Markdown File Carrier **must** contain YAML Frontmatter followed by the Plan layout registered **in** CA-D-479-CORE_META_MODEL-DELIVERY--use-stable-headings-for-atom-body-properties:",
+          "text_sha256": "61718206f3b6bd1d166eb9ab573d4c004d987654fae78a8d0383c0fdf1047a44"
+        }
+      ],
+      "checks_performed": [
+        "verified every listed current candidate source pin against current carrier bytes",
+        "quoted exact current ## Claim span outside frontmatter and Subjects",
+        "compared the Claim with the closed registry kinds IS_BORNE_BY, IS_ALLOWED_VALUE_OF, and NARROWER_THAN",
+        "did not infer semantics from legacy path text, filename, metadata, or source incidence",
+        "preserved qualified references and performed no native admission"
+      ],
+      "reason": "The current Claim constrains serialization, placement, identity, provenance, navigation, or carrier content. It does not assert a closed native relation kind for this legacy qualified path.",
+      "question": null
+    },
+    {
+      "case_id": "slash:8eb53c4726f28de95072e4b6ffde67fb8443857a0a6267735e624de9d0d6cf31",
+      "old_parent": "Atom/Revision/Author",
+      "old_child": "Atom/Revision/Author/Frontmatter",
+      "disposition": "not-native",
+      "confidence_percent": 94,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-D-274",
+          "atom_revision": 17,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-274-CORE_META_MODEL-DELIVERY--serialize-explicit-atom-revision-author.md",
+          "carrier_sha256": "db4a0f0b1952dfd28ddabce2cfb3db1f3c53618fbc1d1b33ddfc5259a32d7d54",
+          "start_line": 27,
+          "end_line": 29,
+          "quote": "## Claim\n\na Markdown Atom Carrier **must** serialize **`=1`** resolved Author as the top-level frontmatter Property `author`; apply the applicable Author default during authoring rather than leaving the accepted Revision dependent on an omitted Author.",
+          "text_sha256": "a639abb6d58685f42a3c62355a40c195471f5a4a640322881cb632bcaadf2ede"
+        }
+      ],
+      "checks_performed": [
+        "verified every listed current candidate source pin against current carrier bytes",
+        "quoted exact current ## Claim span outside frontmatter and Subjects",
+        "compared the Claim with the closed registry kinds IS_BORNE_BY, IS_ALLOWED_VALUE_OF, and NARROWER_THAN",
+        "did not infer semantics from legacy path text, filename, metadata, or source incidence",
+        "preserved qualified references and performed no native admission"
+      ],
+      "reason": "The current Claim constrains serialization, placement, identity, provenance, navigation, or carrier content. It does not assert a closed native relation kind for this legacy qualified path.",
+      "question": null
+    },
+    {
+      "case_id": "slash:8ef45995301624ffb0ca37df367aad351ee08214222115e0121ac50079506aef",
+      "old_parent": "Atom/Content Role: Plan/Type: Plan/Claim",
+      "old_child": "Atom/Content Role: Plan/Type: Plan/Claim/Target Scope Unit",
+      "disposition": "unresolved",
+      "confidence_percent": 75,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-R-1588",
+          "atom_revision": 6,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1588-CORE_META_MODEL-CORE-REQUIREMENT--default-plan-target-to-the-enclosing-scope-unit.md",
+          "carrier_sha256": "b621eba0c817ab1f581675b0f6b07fbd610f2c7133abcbb484855e425f85e248",
+          "start_line": 30,
+          "end_line": 32,
+          "quote": "## Claim\n\nduring authoring, a Plan with no separately selected Claim Target Scope Unit **must** select its owning Scope Unit as the target, independently of decomposition **or** Label; a Hub does **not** become that default target. carry the resolved target under CA-D-482.",
+          "text_sha256": "4e545d513bd65e5e37180b55840624c4ea1ccb689b03d165dfb7c9357bb3613a"
+        }
+      ],
+      "checks_performed": [
+        "verified every listed current candidate source pin against current carrier bytes",
+        "quoted exact current ## Claim span outside frontmatter and Subjects",
+        "compared the Claim with the closed registry kinds IS_BORNE_BY, IS_ALLOWED_VALUE_OF, and NARROWER_THAN",
+        "did not infer semantics from legacy path text, filename, metadata, or source incidence",
+        "preserved qualified references and performed no native admission"
+      ],
+      "reason": "The current Plan Claim Target rule establishes a target Scope Unit context, but no closed registry relation kind represents that context edge and the path is not a bearer identity.",
+      "question": "Should the Plan Claim Target Scope Unit remain a property/context reference, or is a separately governed native relation required?"
+    },
+    {
+      "case_id": "slash:909213407d0808723a2b90cd450b156ff806cfb1f23030992e44d648db9dc1d7",
+      "old_parent": "Atom/Revision",
+      "old_child": "Atom/Revision/Updated At",
+      "disposition": "not-native",
+      "confidence_percent": 94,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-R-1416",
+          "atom_revision": 10,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1416-CORE_META_MODEL-GENERAL--give-every-atom-revision-one-updated-at.md",
+          "carrier_sha256": "c8b2402e3f6bc0eb567ab845e8c197de994cd328507c0322bf2c955a62c1ffc9",
+          "start_line": 26,
+          "end_line": 28,
+          "quote": "## Claim\n\n**every** Atom Revision **must** have **`=1`** unambiguous Updated At date-time.",
+          "text_sha256": "e577a6cf7aae52ad7e8cfc979793ba5e0f38beb4314fe9f76cec15d59a5ddfb5"
+        }
+      ],
+      "checks_performed": [
+        "verified every listed current candidate source pin against current carrier bytes",
+        "quoted exact current ## Claim span outside frontmatter and Subjects",
+        "compared the Claim with the closed registry kinds IS_BORNE_BY, IS_ALLOWED_VALUE_OF, and NARROWER_THAN",
+        "did not infer semantics from legacy path text, filename, metadata, or source incidence",
+        "preserved qualified references and performed no native admission"
+      ],
+      "reason": "The current Claim explicitly describes the child as a Property, value, coordinate, or derived classification of the parent. That supports only the approved non-authoritative dot display; the closed registry has no property-ownership relation fact for this path.",
+      "question": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Atom/Revision",
+        "qualified_child": "Atom/Revision/Updated At",
+        "semantic_intent": "general_bearer_qualification",
+        "native_admission": "not_performed"
+      }
+    },
+    {
+      "case_id": "slash:9365e8a2464aa1c92284239611c5f2005462ef37fb2a2a81397f27f82a6e49eb",
+      "old_parent": "Atom",
+      "old_child": "Atom/Direct Relation Serialization",
+      "disposition": "not-native",
+      "confidence_percent": 94,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-D-268",
+          "atom_revision": 12,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-268-CORE_META_MODEL-DELIVERY--serialize-authored-direct-relations-on-their-owning-atoms.md",
+          "carrier_sha256": "2afc204f59d90286345c9f4b5f74f8fcf2b8b40b992ab5aca734b0ad53e46335",
+          "start_line": 26,
+          "end_line": 28,
+          "quote": "## Claim\n\n**every** authored direct semantic relation **must** be serialized once under `relations.<RELATION_KIND>` on the Atom that owns its declared direction as a nonempty unordered collection of unique canonical target references **in** deterministic canonical order; target position **must not** add, remove, **or** alter a direct relation **or** dependency.",
+          "text_sha256": "f36305b1a36c746c8e19b8bca73360b6a0d6ec4aa2636ab415fcc3c18a484c39"
+        }
+      ],
+      "checks_performed": [
+        "verified every listed current candidate source pin against current carrier bytes",
+        "quoted exact current ## Claim span outside frontmatter and Subjects",
+        "compared the Claim with the closed registry kinds IS_BORNE_BY, IS_ALLOWED_VALUE_OF, and NARROWER_THAN",
+        "did not infer semantics from legacy path text, filename, metadata, or source incidence",
+        "preserved qualified references and performed no native admission"
+      ],
+      "reason": "The current Claim constrains serialization, placement, identity, provenance, navigation, or carrier content. It does not assert a closed native relation kind for this legacy qualified path.",
+      "question": null
+    },
+    {
+      "case_id": "slash:94613ce23a549dbfd8b911089ef06fbf329f899361badc6fa645a15cf904063e",
+      "old_parent": "Artifact",
+      "old_child": "Artifact/Carrier",
+      "disposition": "not-native",
+      "confidence_percent": 94,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-D-506",
+          "atom_revision": 1,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-506-CORE_META_MODEL-CORE--give-every-non-ephemeral-entity-a-carrier.md",
+          "carrier_sha256": "8f1102676b3b04ec408c17a6a6995858030bd9b0df609cf9feb9f96fb829fae9",
+          "start_line": 28,
+          "end_line": 30,
+          "quote": "## Claim\n\n**every** non-ephemeral Entity **must** have **`>=1`** Carrier through its Entity/Carrier binding.",
+          "text_sha256": "e947eb78a8b6b1930ad069610fdd09afcf4f3bd8df3df4b0cd3b05cf9b5ff61d"
+        },
+        {
+          "atom_id": "CA-R-1268",
+          "atom_revision": 12,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1268-CORE_META_MODEL-CORE-REQUIREMENT--define-artifact.md",
+          "carrier_sha256": "9cfaecd2519ec038a73a183281030d43266113bcdb037cc9152a8c2039ef88de",
+          "start_line": 27,
+          "end_line": 29,
+          "quote": "## Claim\n\nan Artifact **means** a Primary Entity whose governed identity persists across its Artifact Revisions.",
+          "text_sha256": "b14c456488e9098e0d9694cda0ebf730cb8425a811d78e8045fbc2e77317b86e"
+        }
+      ],
+      "checks_performed": [
+        "verified every listed current candidate source pin against current carrier bytes",
+        "quoted exact current ## Claim span outside frontmatter and Subjects",
+        "compared the Claim with the closed registry kinds IS_BORNE_BY, IS_ALLOWED_VALUE_OF, and NARROWER_THAN",
+        "did not infer semantics from legacy path text, filename, metadata, or source incidence",
+        "preserved qualified references and performed no native admission"
+      ],
+      "reason": "The current Claim supports an Entity/Carrier or authoritative carrier binding, but it does not prove this exact legacy qualified path as an immediate IS_BORNE_BY identity edge; the dot display candidate remains non-authoritative.",
+      "question": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Artifact",
+        "qualified_child": "Artifact/Carrier",
+        "semantic_intent": "general_bearer_qualification",
+        "native_admission": "not_performed"
+      }
+    },
+    {
+      "case_id": "slash:964f2a13008027ec2d90dc9998dcf9df46f140910b89cd1eb2e5d039a6e2e7a6",
+      "old_parent": "Atom/Revision",
+      "old_child": "Atom/Revision/Status",
+      "disposition": "not-native",
+      "confidence_percent": 94,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-R-1412",
+          "atom_revision": 9,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1412-CORE_META_MODEL-CORE--give-every-atom-revision-one-status.md",
+          "carrier_sha256": "7a74e9fe6d6ab90f56016c675b2bc566a0981fd4bb04b1462f5e1d429146d0af",
+          "start_line": 26,
+          "end_line": 28,
+          "quote": "## Claim\n\n**every** Atom Revision **must** have **`=1`** Status.",
+          "text_sha256": "0a5896e3d078a6b1361efe03bc58077ece65085fa6cfebd69d1e9eb6da527085"
+        }
+      ],
+      "checks_performed": [
+        "verified every listed current candidate source pin against current carrier bytes",
+        "quoted exact current ## Claim span outside frontmatter and Subjects",
+        "compared the Claim with the closed registry kinds IS_BORNE_BY, IS_ALLOWED_VALUE_OF, and NARROWER_THAN",
+        "did not infer semantics from legacy path text, filename, metadata, or source incidence",
+        "preserved qualified references and performed no native admission"
+      ],
+      "reason": "The current Claim explicitly describes the child as a Property, value, coordinate, or derived classification of the parent. That supports only the approved non-authoritative dot display; the closed registry has no property-ownership relation fact for this path.",
+      "question": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Atom/Revision",
+        "qualified_child": "Atom/Revision/Status",
+        "semantic_intent": "general_bearer_qualification",
+        "native_admission": "not_performed"
+      }
+    },
+    {
+      "case_id": "slash:986c680f32253946e6c81dd2513809c37efb7b0db7a5786cb0c0f35985dbdf24",
+      "old_parent": "Artifact/Carrier Placement",
+      "old_child": "Artifact/Carrier Placement/Status Subdirectory",
+      "disposition": "not-native",
+      "confidence_percent": 94,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-D-352",
+          "atom_revision": 10,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-352-CORE_META_MODEL-CORE--keep-status-subdirectories-outside-the-directory-carrier-type.md",
+          "carrier_sha256": "7ed53b09f12c8b16705ceaa24917e74fdf9705c60c78dcd764cf5c43a2b71f81",
+          "start_line": 26,
+          "end_line": 28,
+          "quote": "## Claim\n\na Status subdirectory used for Artifact Carrier placement **must not** be a Directory Carrier.",
+          "text_sha256": "07ecd75dbf4fab16b2442e9ff286b8703d6e92d44a7f617d65fd5e8a3cbce565"
+        }
+      ],
+      "checks_performed": [
+        "verified every listed current candidate source pin against current carrier bytes",
+        "quoted exact current ## Claim span outside frontmatter and Subjects",
+        "compared the Claim with the closed registry kinds IS_BORNE_BY, IS_ALLOWED_VALUE_OF, and NARROWER_THAN",
+        "did not infer semantics from legacy path text, filename, metadata, or source incidence",
+        "preserved qualified references and performed no native admission"
+      ],
+      "reason": "The current Claim constrains serialization, placement, identity, provenance, navigation, or carrier content. It does not assert a closed native relation kind for this legacy qualified path.",
+      "question": null
+    },
+    {
+      "case_id": "slash:9a6b8557dd2fb84927940b6235c76b32b6ee79441720e0a3f22ad1f3fced7339",
+      "old_parent": "Artifact/Revision",
+      "old_child": "Artifact/Revision/Archive Carrier",
+      "disposition": "not-native",
+      "confidence_percent": 94,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-R-1371",
+          "atom_revision": 10,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1371-CORE_META_MODEL-CORE--define-artifact-revision.md",
+          "carrier_sha256": "5d784abf1c82906ad8cb8d84e216f956fabf295523f15113ca9706032130c992",
+          "start_line": 25,
+          "end_line": 27,
+          "quote": "## Claim\n\nan Artifact/Revision **means** one immutable recorded state of one Artifact's governed meaning. lifecycle Status **and** Updated At serialize its current lifecycle metadata **and** **may** change **without** creating another semantic Revision.",
+          "text_sha256": "98fcb87b01e9561d7c88f38334ce6a4d99c6c93940f7874d903b764d8bf527f5"
+        }
+      ],
+      "checks_performed": [
+        "verified every listed current candidate source pin against current carrier bytes",
+        "quoted exact current ## Claim span outside frontmatter and Subjects",
+        "compared the Claim with the closed registry kinds IS_BORNE_BY, IS_ALLOWED_VALUE_OF, and NARROWER_THAN",
+        "did not infer semantics from legacy path text, filename, metadata, or source incidence",
+        "preserved qualified references and performed no native admission"
+      ],
+      "reason": "The current Claim constrains serialization, placement, identity, provenance, navigation, or carrier content. It does not assert a closed native relation kind for this legacy qualified path.",
+      "question": null
+    },
+    {
+      "case_id": "slash:9b8a453e5f58e9bd9ce4973ca0f3eace14f5b378640ebd980d95115681e85267",
+      "old_parent": "Scope Unit",
+      "old_child": "Scope Unit/Scope",
+      "disposition": "unresolved",
+      "confidence_percent": 76,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-R-1757",
+          "atom_revision": 17,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1757-CORE_META_MODEL-CORE--define-scope-unit.md",
+          "carrier_sha256": "8740c1e278847e7787663774088a5ff73442b6dbf81a1a37a4c927653b7681ad",
+          "start_line": 27,
+          "end_line": 29,
+          "quote": "## Claim\n\na Scope Unit **means** a Structural Entity that provides an ownership boundary for Atoms **and** **may** contain child Scope Units.",
+          "text_sha256": "618fe0dd8bb0025d1d583230779b16c5cdd5b0429b715ad6b525cbd89e8d91df"
+        }
+      ],
+      "checks_performed": [
+        "verified every listed current candidate source pin against current carrier bytes",
+        "quoted exact current ## Claim span outside frontmatter and Subjects",
+        "compared the Claim with the closed registry kinds IS_BORNE_BY, IS_ALLOWED_VALUE_OF, and NARROWER_THAN",
+        "did not infer semantics from legacy path text, filename, metadata, or source incidence",
+        "preserved qualified references and performed no native admission"
+      ],
+      "reason": "The current Scope Unit definition establishes an ownership boundary, but does not prove a distinct nested Scope property relation that belongs to the closed relation registry.",
+      "question": "Does Scope Unit/Scope denote a separately modelled entity relation, or only the Scope Unit's own ownership-boundary meaning?"
+    },
+    {
+      "case_id": "slash:9bdd231da418997fc526db1b44728438d701f5d23e9286234c53c06f8f1ec463",
+      "old_parent": "Atom/Content Role: Plan/Type: Plan/Carrier",
+      "old_child": "Atom/Content Role: Plan/Type: Plan/Carrier/Stem",
+      "disposition": "not-native",
+      "confidence_percent": 94,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-E-502",
+          "atom_revision": 5,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/06_evaluation/CA-E-502-CORE_META_MODEL-QA_CASE--validate-plan-carrier-identity-and-placement.md",
+          "carrier_sha256": "0da834a92da258996ea4f261c4b13710c31d59c263b187940646635ba25e9fad",
+          "start_line": 34,
+          "end_line": 35,
+          "quote": "## Claim\nthe Plan Carrier Evaluation **must** reject Carrier facts that create duplicate identity **or** contradict the shared Plan model.",
+          "text_sha256": "2be6ef349471215636543ce4bb345b0bea8d74ac617048b379c7f4f4938956b7"
+        }
+      ],
+      "checks_performed": [
+        "verified every listed current candidate source pin against current carrier bytes",
+        "quoted exact current ## Claim span outside frontmatter and Subjects",
+        "compared the Claim with the closed registry kinds IS_BORNE_BY, IS_ALLOWED_VALUE_OF, and NARROWER_THAN",
+        "did not infer semantics from legacy path text, filename, metadata, or source incidence",
+        "preserved qualified references and performed no native admission"
+      ],
+      "reason": "The current Claim constrains serialization, placement, identity, provenance, navigation, or carrier content. It does not assert a closed native relation kind for this legacy qualified path.",
+      "question": null
+    },
+    {
+      "case_id": "slash:9d2f8fa177e68ad58c79ce42a7c66b86a5cd7fe0847d7e52456a7ad42daadb79",
+      "old_parent": "Atom",
+      "old_child": "Atom/Local Tier",
+      "disposition": "not-native",
+      "confidence_percent": 94,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-R-1287",
+          "atom_revision": 12,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1287-CORE_META_MODEL-CORE-REQUIREMENT--define-local-tier-as-an-atom-property.md",
+          "carrier_sha256": "56ecd1da85e96be7d61ffcdfa6b8044e3ae86fae568603aa30385293e741e762",
+          "start_line": 30,
+          "end_line": 32,
+          "quote": "## Claim\n\nthe Atom Property Local Tier **means** the semantic abstraction coordinate of **`=1`** complete independently replaceable Atom Claim within its governing authority context, distinct from the breadth of its Claim Scope, its Content Role **and** Type, **and** the ownership of its Methodology Source; admitted combinations of Content Role **and** Local Tier remain subject **to** the applicable role-tier rules, including CA-R-1566-CORE_META_MODEL-GENERAL-REQUIREMENT--keep-change-and-implementation-content-at-standard.",
+          "text_sha256": "a0894ec844c774282bbd71d89e4bfa0883bab4ef71a9f5c027cd02d072903aa3"
+        }
+      ],
+      "checks_performed": [
+        "verified every listed current candidate source pin against current carrier bytes",
+        "quoted exact current ## Claim span outside frontmatter and Subjects",
+        "compared the Claim with the closed registry kinds IS_BORNE_BY, IS_ALLOWED_VALUE_OF, and NARROWER_THAN",
+        "did not infer semantics from legacy path text, filename, metadata, or source incidence",
+        "preserved qualified references and performed no native admission"
+      ],
+      "reason": "The current Claim explicitly describes the child as a Property, value, coordinate, or derived classification of the parent. That supports only the approved non-authoritative dot display; the closed registry has no property-ownership relation fact for this path.",
+      "question": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Atom",
+        "qualified_child": "Atom/Local Tier",
+        "semantic_intent": "general_bearer_qualification",
+        "native_admission": "not_performed"
+      }
+    },
+    {
+      "case_id": "slash:9d63092dc05487dc455a9e2b0576140132a34cfc4180fd397723c84aee6a765a",
+      "old_parent": "Atom/Content Role: Plan/Type: Plan",
+      "old_child": "Atom/Content Role: Plan/Type: Plan/Carrier",
+      "disposition": "not-native",
+      "confidence_percent": 94,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-E-502",
+          "atom_revision": 5,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/06_evaluation/CA-E-502-CORE_META_MODEL-QA_CASE--validate-plan-carrier-identity-and-placement.md",
+          "carrier_sha256": "0da834a92da258996ea4f261c4b13710c31d59c263b187940646635ba25e9fad",
+          "start_line": 34,
+          "end_line": 35,
+          "quote": "## Claim\nthe Plan Carrier Evaluation **must** reject Carrier facts that create duplicate identity **or** contradict the shared Plan model.",
+          "text_sha256": "2be6ef349471215636543ce4bb345b0bea8d74ac617048b379c7f4f4938956b7"
+        }
+      ],
+      "checks_performed": [
+        "verified every listed current candidate source pin against current carrier bytes",
+        "quoted exact current ## Claim span outside frontmatter and Subjects",
+        "compared the Claim with the closed registry kinds IS_BORNE_BY, IS_ALLOWED_VALUE_OF, and NARROWER_THAN",
+        "did not infer semantics from legacy path text, filename, metadata, or source incidence",
+        "preserved qualified references and performed no native admission"
+      ],
+      "reason": "The current Claim constrains serialization, placement, identity, provenance, navigation, or carrier content. It does not assert a closed native relation kind for this legacy qualified path.",
+      "question": null
+    },
+    {
+      "case_id": "slash:9dbacd76c3cdb427dd7fd6d6f9c1b8d129c67781fc90d679bda43136c7da3f40",
+      "old_parent": "Atom/Content Role: Plan/Type: Plan/Autonomous Confidence Threshold",
+      "old_child": "Atom/Content Role: Plan/Type: Plan/Autonomous Confidence Threshold/Carrier",
+      "disposition": "not-native",
+      "confidence_percent": 94,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-R-1587",
+          "atom_revision": 4,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1587-CORE_META_MODEL-CORE--require-an-effective-confidence-threshold-for-plan-execution.md",
+          "carrier_sha256": "e2c13e07ba539b05959868169d761d18746b26e583abbccde1d55b1ee64b4523",
+          "start_line": 29,
+          "end_line": 31,
+          "quote": "## Claim\n\n**every** autonomous Plan execution decision **must** resolve **=1** effective Autonomous Confidence Threshold from its applicable explicit **or** inherited source under CA-M-271.",
+          "text_sha256": "df5e35a533a1b9dfdbc7062d804a1d08bb6a945ebd2697875967a9b3537bf186"
+        }
+      ],
+      "checks_performed": [
+        "verified every listed current candidate source pin against current carrier bytes",
+        "quoted exact current ## Claim span outside frontmatter and Subjects",
+        "compared the Claim with the closed registry kinds IS_BORNE_BY, IS_ALLOWED_VALUE_OF, and NARROWER_THAN",
+        "did not infer semantics from legacy path text, filename, metadata, or source incidence",
+        "preserved qualified references and performed no native admission"
+      ],
+      "reason": "The current Claim constrains serialization, placement, identity, provenance, navigation, or carrier content. It does not assert a closed native relation kind for this legacy qualified path.",
+      "question": null
+    },
+    {
+      "case_id": "slash:a16d3f643392b22bb5c0e8c403970f653088f3f8c84479dbb6302f1c419882d3",
+      "old_parent": "Atom/Local Tier",
+      "old_child": "Atom/Local Tier/Filename Token",
+      "disposition": "not-native",
+      "confidence_percent": 94,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-D-285",
+          "atom_revision": 13,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-285-CORE_META_MODEL--serialize-local-tier-filename-tokens.md",
+          "carrier_sha256": "4434a46931e802ff2c4e0a722f2be39a907314480e8e057c7ac31a99f1b94856",
+          "start_line": 31,
+          "end_line": 33,
+          "quote": "## Claim\n\nan ordinary Atom filename **must** serialize Principle as `PRINCIPLE`, Core as `CORE`, General as `GENERAL`, **and** the default Standard Local Tier by omitting the Local Tier segment at the registered descriptor position **after** its identity **and** current Scope owner. `PRINCIPLE` is admitted **only** for a Project-scoped Atom; `STD`, `STANDARD`, `DETAIL`, **and** combined tier segments **must not** be serialized. the external Project Goal's registered tierless grammar **must** be recognized **before** applying the ordinary omitted-Standard default; a tier token **must not** replace **or** alter the registered identity, owner, target, **or** sequence grammar of a Goal **or** Plan.",
+          "text_sha256": "2fb2e91c1837c8d5dc01d35393135291183567197e7f8f10bf16eac3219299de"
+        }
+      ],
+      "checks_performed": [
+        "verified every listed current candidate source pin against current carrier bytes",
+        "quoted exact current ## Claim span outside frontmatter and Subjects",
+        "compared the Claim with the closed registry kinds IS_BORNE_BY, IS_ALLOWED_VALUE_OF, and NARROWER_THAN",
+        "did not infer semantics from legacy path text, filename, metadata, or source incidence",
+        "preserved qualified references and performed no native admission"
+      ],
+      "reason": "The current Claim constrains serialization, placement, identity, provenance, navigation, or carrier content. It does not assert a closed native relation kind for this legacy qualified path.",
+      "question": null
+    },
+    {
+      "case_id": "slash:a5020b1e634b89177a19c80d1ccbbd8d97d51470ae30f34271bc87f0eff6376d",
+      "old_parent": "Artifact",
+      "old_child": "Artifact/Activity",
+      "disposition": "not-native",
+      "confidence_percent": 94,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-R-1394",
+          "atom_revision": 10,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1394-CORE_META_MODEL-CORE--define-artifact-activity.md",
+          "carrier_sha256": "528cdcbdcdfbb450b6b263b2c7cf3f7debfd56d225a553cb9553223c7569253b",
+          "start_line": 28,
+          "end_line": 30,
+          "quote": "## Claim\n\nthe Artifact Property Activity **means** the derived Property that classifies an Artifact as Active **or** Inactive from its current Revision Status within the applicability defined by CA-R-1307-CORE_META_MODEL-CORE-REQUIREMENT--limit-artifact-activity-to-explicit-status-models. absence of an applicable Status model **means** absence of Activity, **not** Activity Inactive.",
+          "text_sha256": "93d76ffd6183ea90e7ba737f5d99c195b237f62ed9585cde5d9895dfb84c457a"
+        }
+      ],
+      "checks_performed": [
+        "verified every listed current candidate source pin against current carrier bytes",
+        "quoted exact current ## Claim span outside frontmatter and Subjects",
+        "compared the Claim with the closed registry kinds IS_BORNE_BY, IS_ALLOWED_VALUE_OF, and NARROWER_THAN",
+        "did not infer semantics from legacy path text, filename, metadata, or source incidence",
+        "preserved qualified references and performed no native admission"
+      ],
+      "reason": "The current Claim explicitly describes the child as a Property, value, coordinate, or derived classification of the parent. That supports only the approved non-authoritative dot display; the closed registry has no property-ownership relation fact for this path.",
+      "question": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Artifact",
+        "qualified_child": "Artifact/Activity",
+        "semantic_intent": "general_bearer_qualification",
+        "native_admission": "not_performed"
+      }
+    },
+    {
+      "case_id": "slash:a5a450ac0557acc0332094dc214e1a60f38c5936a2438424633b38b93ce95b8b",
+      "old_parent": "Atom/Revision",
+      "old_child": "Atom/Revision/Content",
+      "disposition": "not-native",
+      "confidence_percent": 94,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-R-1417",
+          "atom_revision": 9,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1417-CORE_META_MODEL-CORE-REQUIREMENT--give-every-atom-revision-one-content.md",
+          "carrier_sha256": "19192b48227e151e5fd3b092447fd95a3a59e964e7fea20769c7a928cbf91ee0",
+          "start_line": 27,
+          "end_line": 29,
+          "quote": "## Claim\n\n**every** Atom Revision **must** have **`=1`** Content.",
+          "text_sha256": "8cf8a951c715717b7da23a2b5e1145120e62b7243ca47438c7b336efaad2d9fa"
+        }
+      ],
+      "checks_performed": [
+        "verified every listed current candidate source pin against current carrier bytes",
+        "quoted exact current ## Claim span outside frontmatter and Subjects",
+        "compared the Claim with the closed registry kinds IS_BORNE_BY, IS_ALLOWED_VALUE_OF, and NARROWER_THAN",
+        "did not infer semantics from legacy path text, filename, metadata, or source incidence",
+        "preserved qualified references and performed no native admission"
+      ],
+      "reason": "The current Claim constrains serialization, placement, identity, provenance, navigation, or carrier content. It does not assert a closed native relation kind for this legacy qualified path.",
+      "question": null
+    },
+    {
+      "case_id": "slash:a63bd419c3ee535580f02223a402785074b20e0499368816c76926c94cf87fd2",
+      "old_parent": "Atom/Revision/Status: Draft",
+      "old_child": "Atom/Revision/Status: Draft/Identity Continuity Evidence",
+      "disposition": "not-native",
+      "confidence_percent": 94,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-D-568",
+          "atom_revision": 5,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-568-CORE_META_MODEL-DELIVERY--bind-draft-identity-continuity-evidence.md",
+          "carrier_sha256": "64d2e60303d9dceeaee694263ebd888daf4bd217a794830896b1c5837517559d",
+          "start_line": 40,
+          "end_line": 42,
+          "quote": "## Claim\n\nan operation that identifies a Draft Atom **must** read and validate **`=1`** `revision_lineage.history_entry_ref` from the actual target Draft Carrier under CA-D-570 before assigning an Atom ID. That pre-addressable reference resolves only through the exclusive admitted lifecycle writer's append-only retained Atom-history entry; the entry must bind this exact current Draft locator and digest, origin, direct parent lineage, and any identified direct predecessor. It must also be the unique live Draft-head leaf for that canonical Draft locator: every declared parent resolves, no later child or branch names it, and no competing entry binds that locator/digest. Caller parameters may report the resulting reference but **must not** provide, select, alter, or override the identity basis.",
+          "text_sha256": "b0ce472feeb6ba52fbcd4e11b321756e81d04fb116e1c7351dfede01fc43ce1f"
+        }
+      ],
+      "checks_performed": [
+        "verified every listed current candidate source pin against current carrier bytes",
+        "quoted exact current ## Claim span outside frontmatter and Subjects",
+        "compared the Claim with the closed registry kinds IS_BORNE_BY, IS_ALLOWED_VALUE_OF, and NARROWER_THAN",
+        "did not infer semantics from legacy path text, filename, metadata, or source incidence",
+        "preserved qualified references and performed no native admission"
+      ],
+      "reason": "The current Claim constrains serialization, placement, identity, provenance, navigation, or carrier content. It does not assert a closed native relation kind for this legacy qualified path.",
+      "question": null
+    },
+    {
+      "case_id": "slash:a64a9b1a51f536e7a38c89d31fab6bb1437f996f3a2c094dfc3267e7f8e75570",
+      "old_parent": "Scope Unit",
+      "old_child": "Scope Unit/Local Order",
+      "disposition": "not-native",
+      "confidence_percent": 94,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-R-1763",
+          "atom_revision": 18,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1763-CORE_META_MODEL-CORE--define-local-order.md",
+          "carrier_sha256": "5885c31a872f1a9feca8531e125ae40a8ab4e7a5a852c110e5d9ed800e1a7141",
+          "start_line": 29,
+          "end_line": 31,
+          "quote": "## Claim\n\nLocal Order **means** the position of an Ordered Scope Unit among Ordered Scope Units with the same direct parent. applicable Atom Relation constraints **may** use this position; the position alone **must not** establish **or** alter a dependency under CA-R-915.",
+          "text_sha256": "9dea7fa85c456dec57905735a9fcc408d69834ef0966e86d76bde34ff78e3b83"
+        }
+      ],
+      "checks_performed": [
+        "verified every listed current candidate source pin against current carrier bytes",
+        "quoted exact current ## Claim span outside frontmatter and Subjects",
+        "compared the Claim with the closed registry kinds IS_BORNE_BY, IS_ALLOWED_VALUE_OF, and NARROWER_THAN",
+        "did not infer semantics from legacy path text, filename, metadata, or source incidence",
+        "preserved qualified references and performed no native admission"
+      ],
+      "reason": "The current Claim constrains serialization, placement, identity, provenance, navigation, or carrier content. It does not assert a closed native relation kind for this legacy qualified path.",
+      "question": null
+    },
+    {
+      "case_id": "slash:a64c452cf1f56a0b243a504e8928cfb272a339dbc5acb7b04f826a316e887e9e",
+      "old_parent": "Artifact",
+      "old_child": "Artifact/Applicability",
+      "disposition": "not-native",
+      "confidence_percent": 94,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-R-1500",
+          "atom_revision": 5,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1500-CORE_META_MODEL-CORE-REQUIREMENT--define-artifact-applicability.md",
+          "carrier_sha256": "ba61863a7424725490ff041fcc41f899534d0af9e53df9d4b44eb925967ba34e",
+          "start_line": 27,
+          "end_line": 29,
+          "quote": "## Claim\n\nApplicability **means** whether an Artifact's governed meaning applies **in** a particular declared context, including structural scope, selected capability, environment, version, **or** time boundary.",
+          "text_sha256": "587b042270641d7c44a2911786b7a70ce28af42de4dca26fa6997a531e22f3b8"
+        }
+      ],
+      "checks_performed": [
+        "verified every listed current candidate source pin against current carrier bytes",
+        "quoted exact current ## Claim span outside frontmatter and Subjects",
+        "compared the Claim with the closed registry kinds IS_BORNE_BY, IS_ALLOWED_VALUE_OF, and NARROWER_THAN",
+        "did not infer semantics from legacy path text, filename, metadata, or source incidence",
+        "preserved qualified references and performed no native admission"
+      ],
+      "reason": "The current Claim explicitly describes the child as a Property, value, coordinate, or derived classification of the parent. That supports only the approved non-authoritative dot display; the closed registry has no property-ownership relation fact for this path.",
+      "question": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Artifact",
+        "qualified_child": "Artifact/Applicability",
+        "semantic_intent": "general_bearer_qualification",
+        "native_admission": "not_performed"
+      }
+    },
+    {
+      "case_id": "slash:a725c7a6a251b1eef01c63056407304f42eaa53955f2b1db2544b1f54edcdf13",
+      "old_parent": "Atom/Content Role: Plan/Type: Plan/Backlog",
+      "old_child": "Atom/Content Role: Plan/Type: Plan/Backlog/Carrier",
+      "disposition": "not-native",
+      "confidence_percent": 94,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-D-475",
+          "atom_revision": 4,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-475-CORE_META_MODEL-STANDARD--serialize-the-plan-backlog-directory.md",
+          "carrier_sha256": "ca52f96efabd9dada8b13bb3e7a7ef52f21be88988d95d1b216069854122417e",
+          "start_line": 29,
+          "end_line": 31,
+          "quote": "## Claim\n\nthe Plan Backlog Directory **must** be `03_plan/001_backlog`; it is a Status container, **not** a Plan Atom. a Version-labeled Plan uses the ordinary Plan Carrier grammar under CA-D-469-CORE_META_MODEL-DELIVERY--serialize-plan-carrier-stems rather than an independently identified Version Plan Collection **or** special `version-<VERSION>` container.",
+          "text_sha256": "599a1fdc7a623ddd8ee1082dc58a395e9ec00f4fbc5cd4a2116a08729b4b12fc"
+        }
+      ],
+      "checks_performed": [
+        "verified every listed current candidate source pin against current carrier bytes",
+        "quoted exact current ## Claim span outside frontmatter and Subjects",
+        "compared the Claim with the closed registry kinds IS_BORNE_BY, IS_ALLOWED_VALUE_OF, and NARROWER_THAN",
+        "did not infer semantics from legacy path text, filename, metadata, or source incidence",
+        "preserved qualified references and performed no native admission"
+      ],
+      "reason": "The current Claim constrains serialization, placement, identity, provenance, navigation, or carrier content. It does not assert a closed native relation kind for this legacy qualified path.",
+      "question": null
+    },
+    {
+      "case_id": "slash:a8a53796d88d896c9d19644ffecbf54dea78da2d4ea3d137bcdc1f646dcabee1",
+      "old_parent": "Atom/Content Role: Requirement/Type: Demand",
+      "old_child": "Atom/Content Role: Requirement/Type: Demand/Producer Result",
+      "disposition": "unresolved",
+      "confidence_percent": 78,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-R-933",
+          "atom_revision": 17,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-933-CORE_META_MODEL-CORE-REQUIREMENT--restrict-demand-to-one-depended-on-result.md",
+          "carrier_sha256": "b8ff8d839c71d80663b115bfee0521c969aa106846668f8de2cf83839d1c644f",
+          "start_line": 28,
+          "end_line": 30,
+          "quote": "## Claim\n\n**every** Demand Atom **must** constrain **`=1`** Producer result on which its Consumer's accepted Goal depends.",
+          "text_sha256": "da684d652ae437a3775cbf40d0417454e1a675e06b8e65093e323d0495ee5b9c"
+        },
+        {
+          "atom_id": "CA-R-954",
+          "atom_revision": 16,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-954-CORE_META_MODEL-CORE-REQUIREMENT--target-one-implementation-result-with-each-demand.md",
+          "carrier_sha256": "97a867d7d3a9383fb1b4209f38edc5ffbec3a30acd021d1bc0bd37b11afc8a28",
+          "start_line": 27,
+          "end_line": 29,
+          "quote": "## Claim\n\n**every** Demand Atom **must** constrain **`=1`** Implementation result produced by its Claim Scope.",
+          "text_sha256": "147022d3864bc1a596f96a018491b1d44099c628b529c841a6b00201ae861bcf"
+        }
+      ],
+      "checks_performed": [
+        "verified every listed current candidate source pin against current carrier bytes",
+        "quoted exact current ## Claim span outside frontmatter and Subjects",
+        "compared the Claim with the closed registry kinds IS_BORNE_BY, IS_ALLOWED_VALUE_OF, and NARROWER_THAN",
+        "did not infer semantics from legacy path text, filename, metadata, or source incidence",
+        "preserved qualified references and performed no native admission"
+      ],
+      "reason": "The current Demand rules explicitly constrain a Producer or Implementation result, but that flow is not one of the closed relation kinds and must not mint a new relation here.",
+      "question": "Which approved native relation kind, if any, should represent Demand to Producer Result while preserving the existing Demand constraints?"
+    },
+    {
+      "case_id": "slash:aa4023207560b1619c719b19a2d2cf1c56d61734f695dcb227a75d9b6af82b73",
+      "old_parent": "Atom",
+      "old_child": "Atom/Carrier",
+      "disposition": "not-native",
+      "confidence_percent": 94,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-D-506",
+          "atom_revision": 1,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-506-CORE_META_MODEL-CORE--give-every-non-ephemeral-entity-a-carrier.md",
+          "carrier_sha256": "8f1102676b3b04ec408c17a6a6995858030bd9b0df609cf9feb9f96fb829fae9",
+          "start_line": 28,
+          "end_line": 30,
+          "quote": "## Claim\n\n**every** non-ephemeral Entity **must** have **`>=1`** Carrier through its Entity/Carrier binding.",
+          "text_sha256": "e947eb78a8b6b1930ad069610fdd09afcf4f3bd8df3df4b0cd3b05cf9b5ff61d"
+        },
+        {
+          "atom_id": "CA-R-655",
+          "atom_revision": 23,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-655-CORE_META_MODEL-CORE--define-atom-artifact-form.md",
+          "carrier_sha256": "28258bfdc5515abe6efa40fe8ab1951cc70a226f58daaa6ced7466036bbca29d",
+          "start_line": 24,
+          "end_line": 26,
+          "quote": "## Claim\n\nan Atom **means** the smallest independently governed Artifact.",
+          "text_sha256": "7e0bc04cbd68252ebc99d463679484f7c132d3acd198e8e8a45afb04f198069b"
+        }
+      ],
+      "checks_performed": [
+        "verified every listed current candidate source pin against current carrier bytes",
+        "quoted exact current ## Claim span outside frontmatter and Subjects",
+        "compared the Claim with the closed registry kinds IS_BORNE_BY, IS_ALLOWED_VALUE_OF, and NARROWER_THAN",
+        "did not infer semantics from legacy path text, filename, metadata, or source incidence",
+        "preserved qualified references and performed no native admission"
+      ],
+      "reason": "The current Claim supports an Entity/Carrier or authoritative carrier binding, but it does not prove this exact legacy qualified path as an immediate IS_BORNE_BY identity edge; the dot display candidate remains non-authoritative.",
+      "question": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Atom",
+        "qualified_child": "Atom/Carrier",
+        "semantic_intent": "general_bearer_qualification",
+        "native_admission": "not_performed"
+      }
+    }
+  ]
+}

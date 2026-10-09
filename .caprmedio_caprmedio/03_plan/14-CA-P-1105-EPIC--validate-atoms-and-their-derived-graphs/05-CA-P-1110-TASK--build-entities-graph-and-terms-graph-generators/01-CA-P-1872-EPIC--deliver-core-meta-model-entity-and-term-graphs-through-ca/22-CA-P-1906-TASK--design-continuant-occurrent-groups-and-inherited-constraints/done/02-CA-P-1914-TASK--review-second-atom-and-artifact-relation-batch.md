@@ -10,12 +10,12 @@ local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
-status: Active
+status: Done
 subjects:
   governs: Projection
   depends_on: [Entity, Term, Atom, Property, Carrier, Plan]
-version: 1
-updated_at: "2026-10-10 02:10:14 +0400"
+version: 2
+updated_at: "2026-10-10 02:32:12 +0400"
 relations:
   is_decomposition_of: [CA-P-1906]
   blocks: [CA-P-1921]
@@ -41,6 +41,14 @@ For every assigned case, record its case ID, original parent and child, disposit
 Exclusive output: `relations.batch-2.json` in that design directory. Each assigned case occurs exactly once; no case outside this partition is changed.
 
 Read current Core Main Content and verify exact source pins before proposing meaning. Earlier classification caches are preparation only. Below 90% confidence, leave a proposal unresolved, state the missing evidence and put the question to the Operator before deciding. A diagnostic or proposed view is not native admission. Preserve all qualified identities and do not infer Entity facts from source Atom metadata or Subject incidence. Work locally without MCP or FPF; do not change Core Atoms, Subjects, history, baseline outputs, implementation, runtime or unrelated work.
+
+### Local execution receipt
+
+Own work completed on 2026-10-10 02:32:12 +0400. Complete assigned current-content batch reviewed; no native proposal or admission. Unresolved semantic questions are retained in questions.md and put to the Operator.
+
+- `.caprmedio_caprmedio/_projection/core-entity-review/design/relations.batch-2.json`, SHA-256 `f1bcafd79233fea0ced091fc7df91d1f7fda47edaf1d5b52d130cf2b45c08729`.
+
+Baseline inventory fingerprint: `23394abaf6e9c18a585cf3146aedd0a80df166c9dd82be6e86ed7c3c56780bdc`. Current source pins, exact positive evidence spans and complete assigned case/pointer coverage passed. No Core, Subject, history, Step 1, runtime, Run or Journal change is claimed. This receipt completes only the bounded review output, not the parent design, candidate acceptance or migration.
 
 ### Definition of Done
 

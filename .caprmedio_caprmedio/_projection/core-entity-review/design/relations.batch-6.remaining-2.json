@@ -1,0 +1,412 @@
+{
+  "source_task": "CA-P-1924",
+  "batch_number": 6,
+  "baseline_inventory_sha256": "23394abaf6e9c18a585cf3146aedd0a80df166c9dd82be6e86ed7c3c56780bdc",
+  "source_binding": {
+    "selection_sha256": "f72964ad096a671d0c36cc0cf6649cf2cf131110edb57446fb523dc5feedb840",
+    "source_collection_sha256": "5ebcf48d24841b65ba46ffdd113e964fe10a53da80a40db32cefedc484ae7d3d",
+    "source_frontier_sha256": "7792e842cfe6c66320745660e69cd0df5525ec18bb22b5c060a6ddfff5fc97f7"
+  },
+  "partition_sha256": "8d2041323e55638a209916a846bab2c97146d11e466f17e5a7fe11eda120f976",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "semantic_admission": "not_performed",
+  "cases": [
+    {
+      "case_id": "slash:9c37a05731df6580ba6d78347fdfac8f4077725d02fe3808229eea5bd0433c64",
+      "old_parent": "File Carrier",
+      "old_child": "File Carrier/Format",
+      "disposition": "not-native",
+      "confidence_percent": 90,
+      "proposal": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "File Carrier",
+        "qualified_child": "File Carrier/Format",
+        "semantic_intent": "authored contextual qualification only; native admission not asserted"
+      },
+      "evidence": [
+        {
+          "atom_id": "CA-D-262",
+          "atom_revision": 12,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-262-CORE_META_MODEL-DELIVERY--register-current-file-carrier-formats.md",
+          "carrier_sha256": "5d420859be25a05194d5f62fe00504dd4ac5a8bb83fde0ac4cac8249c22b07fe",
+          "start_line": 27,
+          "end_line": 27,
+          "quote": "the Core Meta-Model **must** permit registered File Carrier Formats including Markdown, TOML, YAML, **and** JSON while Extensions **and** Project Configuration **may** register additional Carrier Formats.",
+          "text_sha256": "9ef9ae31ad2a99e0b0436d07fb46a1c080a30e9a9ef028c10c618af0e95a397d"
+        }
+      ],
+      "checks_performed": [
+        "verified every defining candidate or fallback occurrence source against its current selected carrier SHA-256",
+        "reviewed only authored Claim, Operation, Procedure, and Condition sections; ignored Summary, frontmatter, Subjects, and source incidence",
+        "required explicit native kind, direction, and immediate identity before any native assertion"
+      ],
+      "reason": "The exact current authored span supports the qualified display context, but it does not state an owning native relation kind, direction, and immediate identity.",
+      "question": null,
+      "reviewed_candidate_atom_ids": [
+        "CA-D-258",
+        "CA-D-262",
+        "CA-D-452"
+      ]
+    },
+    {
+      "case_id": "slash:a117e753b1cd59017219294975ad9acda21f93a6c41eec87f93ffaf4cd194560",
+      "old_parent": "Project",
+      "old_child": "Project/minimum model",
+      "disposition": "unresolved",
+      "confidence_percent": 0,
+      "proposal": null,
+      "display_candidate": null,
+      "evidence": [],
+      "checks_performed": [
+        "verified every defining candidate or fallback occurrence source against its current selected carrier SHA-256",
+        "reviewed only authored Claim, Operation, Procedure, and Condition sections; ignored Summary, frontmatter, Subjects, and source incidence",
+        "required explicit native kind, direction, and immediate identity before any native assertion"
+      ],
+      "reason": "All current pinned defining/occurrence sources were checked in substantive authored sections, but none supplied an exact span naming both endpoints.",
+      "question": "Which current Claim, Operation, Procedure, or Condition supplies an explicit relation-kind and direction for Project to Project/minimum model, rather than only contextual qualification?",
+      "reviewed_candidate_atom_ids": [
+        "CA-R-1759",
+        "CA-R-1772"
+      ]
+    },
+    {
+      "case_id": "slash:a219973284328568bff077b970e377d4332c5e195b460b05504d3c1bd719200b",
+      "old_parent": "Step",
+      "old_child": "Step/Agentic Execution Context",
+      "disposition": "unresolved",
+      "confidence_percent": 0,
+      "proposal": null,
+      "display_candidate": null,
+      "evidence": [],
+      "checks_performed": [
+        "verified every defining candidate or fallback occurrence source against its current selected carrier SHA-256",
+        "reviewed only authored Claim, Operation, Procedure, and Condition sections; ignored Summary, frontmatter, Subjects, and source incidence",
+        "required explicit native kind, direction, and immediate identity before any native assertion"
+      ],
+      "reason": "All current pinned defining/occurrence sources were checked in substantive authored sections, but none supplied an exact span naming both endpoints.",
+      "question": "Which current Claim, Operation, Procedure, or Condition supplies an explicit relation-kind and direction for Step to Step/Agentic Execution Context, rather than only contextual qualification?",
+      "reviewed_candidate_atom_ids": [
+        "CA-E-495",
+        "CA-O-129",
+        "CA-O-145",
+        "CA-R-1509",
+        "CA-R-1527"
+      ]
+    },
+    {
+      "case_id": "slash:a47cdd0720efa3261354a23984ac1b7389712760033dcd8e3d5e9aae8ac15180",
+      "old_parent": "Project",
+      "old_child": "Project/Scope Unit",
+      "disposition": "not-native",
+      "confidence_percent": 90,
+      "proposal": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Project",
+        "qualified_child": "Project/Scope Unit",
+        "semantic_intent": "authored contextual qualification only; native admission not asserted"
+      },
+      "evidence": [
+        {
+          "atom_id": "CA-D-445",
+          "atom_revision": 5,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-445-CORE_META_MODEL-GENERAL--admit-explicit-scope-unit-carrier-bindings.md",
+          "carrier_sha256": "2e5463aa7889e20e6ef7bfe77eb2d596bc7cc41e740b6fa05e3e82ce19e2b253",
+          "start_line": 36,
+          "end_line": 36,
+          "quote": "an explicit Scope Unit authority **or** Implementation Folder binding **in** Project Structure **may** select a native directory layout instead of the default Scope Unit directory convention. the binding **must** remain unambiguous, inside authorized path boundaries, distinct from another unit's exact authority binding, **and** explicit about its owning unit. a selected native layout **must not** change declared parentage, Structural Level, Type, Local Order, **or** Name merely because its path has different nesting **or** numeric tokens. ordinary physical containment remains observable **without** becoming a second declaration of structural parentage.",
+          "text_sha256": "468392488f13e0c69dd88eb2329d0e857bf04ada7a273bc50fa936bfcbe0ab05"
+        }
+      ],
+      "checks_performed": [
+        "verified every defining candidate or fallback occurrence source against its current selected carrier SHA-256",
+        "reviewed only authored Claim, Operation, Procedure, and Condition sections; ignored Summary, frontmatter, Subjects, and source incidence",
+        "required explicit native kind, direction, and immediate identity before any native assertion"
+      ],
+      "reason": "The exact current authored span supports the qualified display context, but it does not state an owning native relation kind, direction, and immediate identity.",
+      "question": null,
+      "reviewed_candidate_atom_ids": [
+        "CA-D-445",
+        "CA-R-1257",
+        "CA-R-1264",
+        "CA-R-1292",
+        "CA-R-1484",
+        "CA-R-1730",
+        "CA-R-1748",
+        "CA-R-1757",
+        "CA-R-1759",
+        "CA-R-1762",
+        "CA-R-862",
+        "CA-R-927"
+      ]
+    },
+    {
+      "case_id": "slash:a8d2aa80e70afc83c7d2a742c62711562796469a380455aa95ae61cb0a06fc43",
+      "old_parent": "Applicable Methodology",
+      "old_child": "Applicable Methodology/Carrier",
+      "disposition": "not-native",
+      "confidence_percent": 90,
+      "proposal": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Applicable Methodology",
+        "qualified_child": "Applicable Methodology/Carrier",
+        "semantic_intent": "authored contextual qualification only; native admission not asserted"
+      },
+      "evidence": [
+        {
+          "atom_id": "CA-D-253",
+          "atom_revision": 12,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-253-CORE_META_MODEL-CORE-DELIVERY--place-applicable-methodology-and-its-sources.md",
+          "carrier_sha256": "6c7aa690c203c38d7443fa1385f3d2e600651060e6ff083d8e5c9a33bef1e5f6",
+          "start_line": 29,
+          "end_line": 29,
+          "quote": "the Applicable Methodology Carrier topology **must** separate authoritative Methodology Source Carriers from non-authoritative projected member Carriers.",
+          "text_sha256": "a33dfe353e11d4d16e3814bc112f9f21df67a2683410b105032ea073aa664c73"
+        }
+      ],
+      "checks_performed": [
+        "verified every defining candidate or fallback occurrence source against its current selected carrier SHA-256",
+        "reviewed only authored Claim, Operation, Procedure, and Condition sections; ignored Summary, frontmatter, Subjects, and source incidence",
+        "required explicit native kind, direction, and immediate identity before any native assertion"
+      ],
+      "reason": "The exact current authored span supports the qualified display context, but it does not state an owning native relation kind, direction, and immediate identity.",
+      "question": null,
+      "reviewed_candidate_atom_ids": [
+        "CA-D-253",
+        "CA-D-308",
+        "CA-D-309",
+        "CA-D-312",
+        "CA-D-368",
+        "CA-D-369",
+        "CA-D-375",
+        "CA-D-376",
+        "CA-D-386",
+        "CA-D-394",
+        "CA-D-407",
+        "CA-D-414",
+        "CA-D-434",
+        "CA-D-447",
+        "CA-D-467",
+        "CA-D-471",
+        "CA-D-472",
+        "CA-D-473",
+        "CA-D-475",
+        "CA-D-478",
+        "CA-D-481",
+        "CA-D-482",
+        "CA-D-483",
+        "CA-D-494",
+        "CA-D-495",
+        "CA-D-505",
+        "CA-D-506",
+        "CA-D-507",
+        "CA-D-559",
+        "CA-E-500",
+        "CA-E-502",
+        "CA-E-522",
+        "CA-E-523",
+        "CA-R-1213",
+        "CA-R-1317"
+      ]
+    },
+    {
+      "case_id": "slash:abb01a24fc41074203cd28377c7838eb35ef363f3ee351736d723149aeabacee",
+      "old_parent": "CCE/Role Profile",
+      "old_child": "CCE/Role Profile/resolution",
+      "disposition": "unresolved",
+      "confidence_percent": 0,
+      "proposal": null,
+      "display_candidate": null,
+      "evidence": [],
+      "checks_performed": [
+        "verified every defining candidate or fallback occurrence source against its current selected carrier SHA-256",
+        "reviewed only authored Claim, Operation, Procedure, and Condition sections; ignored Summary, frontmatter, Subjects, and source incidence",
+        "required explicit native kind, direction, and immediate identity before any native assertion"
+      ],
+      "reason": "All current pinned defining/occurrence sources were checked in substantive authored sections, but none supplied an exact span naming both endpoints.",
+      "question": "Which current Claim, Operation, Procedure, or Condition supplies an explicit relation-kind and direction for CCE/Role Profile to CCE/Role Profile/resolution, rather than only contextual qualification?",
+      "reviewed_candidate_atom_ids": [
+        "CA-M-271",
+        "CA-M-295",
+        "CA-M-307",
+        "CA-M-308"
+      ]
+    },
+    {
+      "case_id": "slash:aed5839ab415338505e7c911f5754f06a9c19c27320a60bccc6c9336eb1c0392",
+      "old_parent": "Tool/Workflow Operations/Atom Lifecycle",
+      "old_child": "Tool/Workflow Operations/Atom Lifecycle/Request Parameters",
+      "disposition": "unresolved",
+      "confidence_percent": 0,
+      "proposal": null,
+      "display_candidate": null,
+      "evidence": [],
+      "checks_performed": [
+        "verified every defining candidate or fallback occurrence source against its current selected carrier SHA-256",
+        "reviewed only authored Claim, Operation, Procedure, and Condition sections; ignored Summary, frontmatter, Subjects, and source incidence",
+        "required explicit native kind, direction, and immediate identity before any native assertion"
+      ],
+      "reason": "All current pinned defining/occurrence sources were checked in substantive authored sections, but none supplied an exact span naming both endpoints.",
+      "question": "Which current Claim, Operation, Procedure, or Condition supplies an explicit relation-kind and direction for Tool/Workflow Operations/Atom Lifecycle to Tool/Workflow Operations/Atom Lifecycle/Request Parameters, rather than only contextual qualification?",
+      "reviewed_candidate_atom_ids": [
+        "CA-D-568"
+      ]
+    },
+    {
+      "case_id": "slash:b381f7654c13d5853ae6c5e1061cbc6b6405ae622661b65138712ef63a1422db",
+      "old_parent": "Framework Instance Settings",
+      "old_child": "Framework Instance Settings/Authoritative Carrier",
+      "disposition": "unresolved",
+      "confidence_percent": 0,
+      "proposal": null,
+      "display_candidate": null,
+      "evidence": [],
+      "checks_performed": [
+        "verified every defining candidate or fallback occurrence source against its current selected carrier SHA-256",
+        "reviewed only authored Claim, Operation, Procedure, and Condition sections; ignored Summary, frontmatter, Subjects, and source incidence",
+        "required explicit native kind, direction, and immediate identity before any native assertion"
+      ],
+      "reason": "All current pinned defining/occurrence sources were checked in substantive authored sections, but none supplied an exact span naming both endpoints.",
+      "question": "Which current Claim, Operation, Procedure, or Condition supplies an explicit relation-kind and direction for Framework Instance Settings to Framework Instance Settings/Authoritative Carrier, rather than only contextual qualification?",
+      "reviewed_candidate_atom_ids": [
+        "CA-D-359",
+        "CA-D-364",
+        "CA-D-374",
+        "CA-D-465",
+        "CA-D-497",
+        "CA-R-1402",
+        "CA-R-1404",
+        "CA-R-1750",
+        "CAPRMEDIO-GOV-EVAL-002"
+      ]
+    },
+    {
+      "case_id": "slash:b47d9995357836e64677b54629744cb579510ebb8a8c5a4fd5ae5a28746bb97b",
+      "old_parent": "Tool/Workflow Operations",
+      "old_child": "Tool/Workflow Operations/Atom Lifecycle",
+      "disposition": "unresolved",
+      "confidence_percent": 0,
+      "proposal": null,
+      "display_candidate": null,
+      "evidence": [],
+      "checks_performed": [
+        "verified every defining candidate or fallback occurrence source against its current selected carrier SHA-256",
+        "reviewed only authored Claim, Operation, Procedure, and Condition sections; ignored Summary, frontmatter, Subjects, and source incidence",
+        "required explicit native kind, direction, and immediate identity before any native assertion"
+      ],
+      "reason": "All current pinned defining/occurrence sources were checked in substantive authored sections, but none supplied an exact span naming both endpoints.",
+      "question": "Which current Claim, Operation, Procedure, or Condition supplies an explicit relation-kind and direction for Tool/Workflow Operations to Tool/Workflow Operations/Atom Lifecycle, rather than only contextual qualification?",
+      "reviewed_candidate_atom_ids": [
+        "CA-D-568"
+      ]
+    },
+    {
+      "case_id": "slash:b4e63205cfb965c7bbb023fd976889b208fdd872f74cf6ea2c575b7f0dc844cc",
+      "old_parent": "Project-Owned Markdown Atom Carrier",
+      "old_child": "Project-Owned Markdown Atom Carrier/Filename",
+      "disposition": "unresolved",
+      "confidence_percent": 0,
+      "proposal": null,
+      "display_candidate": null,
+      "evidence": [],
+      "checks_performed": [
+        "verified every defining candidate or fallback occurrence source against its current selected carrier SHA-256",
+        "reviewed only authored Claim, Operation, Procedure, and Condition sections; ignored Summary, frontmatter, Subjects, and source incidence",
+        "required explicit native kind, direction, and immediate identity before any native assertion"
+      ],
+      "reason": "All current pinned defining/occurrence sources were checked in substantive authored sections, but none supplied an exact span naming both endpoints.",
+      "question": "Which current Claim, Operation, Procedure, or Condition supplies an explicit relation-kind and direction for Project-Owned Markdown Atom Carrier to Project-Owned Markdown Atom Carrier/Filename, rather than only contextual qualification?",
+      "reviewed_candidate_atom_ids": [
+        "CA-D-283",
+        "CA-D-288",
+        "CA-D-292",
+        "CA-D-363",
+        "CA-D-469"
+      ]
+    },
+    {
+      "case_id": "slash:b81ffee76e67bd57ea3d27137fa233322cefb877fb4a4729920f6e45cc7cf582",
+      "old_parent": "Step Run",
+      "old_child": "Step Run/Invocation",
+      "disposition": "not-native",
+      "confidence_percent": 90,
+      "proposal": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Step Run",
+        "qualified_child": "Step Run/Invocation",
+        "semantic_intent": "authored contextual qualification only; native admission not asserted"
+      },
+      "evidence": [
+        {
+          "atom_id": "CA-R-1511",
+          "atom_revision": 5,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1511-CORE_META_MODEL-CORE--define-step-run.md",
+          "carrier_sha256": "62a47b27c84cbf9228d0e3419fa6163163ab40aa82a7b568024ad728cad19e49",
+          "start_line": 35,
+          "end_line": 35,
+          "quote": "- an Agentic Step Run records its resolved invocation context under CA-R-1527-CORE_META_MODEL-GENERAL-REQUIREMENT--define-agentic-step-execution-context. its internal Tool-call evidence is associated with this Run under CA-R-1528-CORE_META_MODEL-GENERAL-REQUIREMENT--record-tool-calls-within-step-runs; a Tool call **or** repeated delivery of a pending invocation does **not** itself create another Step Run.",
+          "text_sha256": "7892f8104d21821cd15949f6399b6780bf6bc58b5aad4f5cdd754f2a750287c4"
+        }
+      ],
+      "checks_performed": [
+        "verified every defining candidate or fallback occurrence source against its current selected carrier SHA-256",
+        "reviewed only authored Claim, Operation, Procedure, and Condition sections; ignored Summary, frontmatter, Subjects, and source incidence",
+        "required explicit native kind, direction, and immediate identity before any native assertion"
+      ],
+      "reason": "The exact current authored span supports the qualified display context, but it does not state an owning native relation kind, direction, and immediate identity.",
+      "question": null,
+      "reviewed_candidate_atom_ids": [
+        "CA-E-497",
+        "CA-M-304",
+        "CA-R-1511",
+        "CA-R-1789",
+        "CA-R-1790",
+        "CA-R-1791",
+        "CA-R-1792",
+        "CA-R-1793"
+      ]
+    },
+    {
+      "case_id": "slash:bc1f7c12aca1fa510aa4bb261edbaa58520ed9a746dd8fb2387dec9ca83f8a20",
+      "old_parent": "Step Run",
+      "old_child": "Step Run/Tool Call",
+      "disposition": "not-native",
+      "confidence_percent": 90,
+      "proposal": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Step Run",
+        "qualified_child": "Step Run/Tool Call",
+        "semantic_intent": "authored contextual qualification only; native admission not asserted"
+      },
+      "evidence": [
+        {
+          "atom_id": "CA-R-1511",
+          "atom_revision": 5,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1511-CORE_META_MODEL-CORE--define-step-run.md",
+          "carrier_sha256": "62a47b27c84cbf9228d0e3419fa6163163ab40aa82a7b568024ad728cad19e49",
+          "start_line": 35,
+          "end_line": 35,
+          "quote": "- an Agentic Step Run records its resolved invocation context under CA-R-1527-CORE_META_MODEL-GENERAL-REQUIREMENT--define-agentic-step-execution-context. its internal Tool-call evidence is associated with this Run under CA-R-1528-CORE_META_MODEL-GENERAL-REQUIREMENT--record-tool-calls-within-step-runs; a Tool call **or** repeated delivery of a pending invocation does **not** itself create another Step Run.",
+          "text_sha256": "7892f8104d21821cd15949f6399b6780bf6bc58b5aad4f5cdd754f2a750287c4"
+        }
+      ],
+      "checks_performed": [
+        "verified every defining candidate or fallback occurrence source against its current selected carrier SHA-256",
+        "reviewed only authored Claim, Operation, Procedure, and Condition sections; ignored Summary, frontmatter, Subjects, and source incidence",
+        "required explicit native kind, direction, and immediate identity before any native assertion"
+      ],
+      "reason": "The exact current authored span supports the qualified display context, but it does not state an owning native relation kind, direction, and immediate identity.",
+      "question": null,
+      "reviewed_candidate_atom_ids": [
+        "CA-E-496",
+        "CA-R-1511",
+        "CA-R-1528"
+      ]
+    }
+  ]
+}
