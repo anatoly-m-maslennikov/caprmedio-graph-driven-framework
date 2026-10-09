@@ -4,10 +4,10 @@ content_role: Delivery
 current_scope_unit: TOOLS
 local_tier: Standard
 global_tier: 11
-status: Active
+status: Archived
 author: Anatoly Maslennikov
-version: 4
-updated_at: "2026-10-10 00:32:55 +0400"
+version: 3
+updated_at: "2026-10-09 22:34:21 +0400"
 subjects:
   governs: "Framework Installation contribution/Sealed candidate and promotion proof"
   depends_on: [Tool, Framework Package, Manifest, Test Suite, Docker Image, Journal]
@@ -41,13 +41,5 @@ After live source revalidation and complete package-inventory equality, an expli
 The sidecar is canonical UTF-8 JSON with sorted keys, compact separators, no trailing newline and no self-checksum member. Its exact fields are `schema_version = 1`, `package_schema = "portable-1"`, `candidate_snapshot_manifest_sha256`, `package_manifest_sha256`, `source_catalog_sha256`, `candidate_run_id`, `input_manifest_sha256`, `framework_version`, `version_toml_sha256`, `member_inventory`, `test_bindings` and `phase_map_sha256`. `member_inventory` is path-ordered and each member contains exactly `path`, `sha256`, `mode` and `role`. Source-path-ordered `test_bindings` contain exactly `source_path`, `package_path`, `sha256` and `phase`; they preserve the observed candidate-to-package test mapping and exact Unit/Candidate E2E phase partition. Only the separately typed Skill projection is excluded from duplicate test membership.
 
 A retained reader reopens the actual schema-1 package and sidecar, verifies their exact byte identities, complete inventory, Version/catalog bindings and packaged test projection, and reconstructs the phase map without current checkout, selector or caller-provided compilation authority. Missing, extra, altered or aliased members fail. Image, Candidate E2E and Full Gate receipts bind the sidecar digest and its Project-relative carrier; later installation copies the unchanged sidecar and verifies it against the selected package. This is an original-artifact reader, not live source admission, a test pass, promotion authority or permission to launch a Workflow.
-
-### Retained candidate descriptor
-
-For detached Full Gate evidence, retain the complete existing candidate snapshot manifest as `candidate-snapshot.json` beside the package evidence. Its bytes use the same canonical JSON encoding as the sidecar, including the manifest's `sha256` member; no authority, intent, current selector or execution permission is added to this descriptor.
-
-The descriptor reader checks the existing closed candidate-manifest schema, canonical bytes and self-excluding candidate checksum. It requires the candidate checksum, Framework Version and Version carrier digest to match the separately reopened package sidecar. The checksum of the complete descriptor bytes is a different identity from the candidate's self-excluding checksum; consumers retain both explicitly and never substitute one for the other. Duplicate JSON members, unknown fields, altered image-input inventory or mismatched identities fail.
-
-The descriptor may travel unchanged with retained evidence. Its reader returns retained candidate identity only, not a live validated candidate or source-admission capability. Original-artifact verification and current-source authorization remain separate responsibilities.
 
 Promotion copies or atomically moves only the sealed package tree to the digest-named release directory, then reopens its exact `manifest.toml` and records source and destination tree digests in `promotion.toml`. A changed byte, mode, source catalog, image input or gate receipt refuses promotion and retains the candidate evidence.
