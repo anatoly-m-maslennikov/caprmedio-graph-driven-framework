@@ -111,6 +111,14 @@ class ReleaseFixture:
         ):
             self.rows.append({"resource": resource, "source_path": path.relative_to(root).as_posix(), "source_sha256": digest(path.read_bytes()), "source_mode": path.stat().st_mode & 0o777, "destination_path": destination})
         self.selection = self.write(".caprmedio_runtime/framework/current.toml", b"release = 'N'\n")
+        self.version_toml = self.write("version.toml", b'[framework]\nversion = "N+1"\n')
+        self.rows.append({
+            "resource": "PACKAGE_CONTROL",
+            "source_path": "version.toml",
+            "source_sha256": digest(self.version_toml.read_bytes()),
+            "source_mode": self.version_toml.stat().st_mode & 0o777,
+            "destination_path": "version.toml",
+        })
         self.write(".agents/skills/ca/SKILL.md", b"# prior N skill\n")
         self.write(".caprmedio_runtime/journal/evidence.jsonl", b'{"prior":"N"}\n')
         self.frontier = observed_tree_digest(root / CANONICAL_SOURCE)
@@ -121,6 +129,8 @@ class ReleaseFixture:
             "schema": "caprmedio.release_version.candidate.v2",
             "executing_release": "N",
             "candidate_release": "N+1",
+            "framework_version": "N+1",
+            "version_toml_sha256": digest(self.version_toml.read_bytes()),
             "canonical_source_snapshot_ref": CANONICAL_SOURCE,
             "canonical_source_snapshot_digest": self.source_digest,
             "project_structure_digest": digest(self.structure.read_bytes()),

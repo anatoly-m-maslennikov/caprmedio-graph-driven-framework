@@ -64,6 +64,7 @@ class ReleaseDeliveryTests(unittest.TestCase):
         release_root = self.root / retained["release_root"]
         retained_before = records(release_root)
         self.fixture.core.write_bytes(compilation_test.carrier("CA-R-001", version=2))
+        self.fixture.set_version("N+2")
         next_preflight, next_candidate = build_preflight_validated_candidate(
             self.root, candidate_release="N+2",
             full_suite_environment={"runner": "fixture", "command": ["python", "-m", "unittest"], "working_directory": "."},
@@ -116,6 +117,7 @@ class ReleaseDeliveryTests(unittest.TestCase):
         self.assertNotEqual(source_context, bootstrap_release)
         prior = records(self.target)
         self.fixture.core.write_bytes(compilation_test.carrier("CA-R-001", version=2))
+        self.fixture.set_version("N+2")
         next_preflight, next_candidate = build_preflight_validated_candidate(
             self.root, candidate_release="N+2",
             full_suite_environment={"runner": "fixture", "command": ["python", "-m", "unittest"], "working_directory": "."},
@@ -338,6 +340,7 @@ class ReleaseDeliveryTests(unittest.TestCase):
             ))
 
         self.fixture.core.write_bytes(compilation_test.carrier("CA-R-001", version=3))
+        self.fixture.set_version("N+3")
         fresh_preflight, fresh_candidate = build_preflight_validated_candidate(
             self.root, candidate_release="N+3",
             full_suite_environment={"runner": "fixture", "command": ["python", "-m", "unittest"], "working_directory": "."},

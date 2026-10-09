@@ -265,6 +265,8 @@ def _preflight_value(value: ReleaseCompilationPreflight) -> dict[str, Any]:
         raise _error("release-checkpoint-invalid", "preflight output files are not typed bytes")
     return {
         "candidate_release": value.candidate_release,
+        "framework_version": value.framework_version,
+        "version_toml_sha256": value.version_toml_sha256,
         "expected_derived_source_copy_sha256": value.expected_derived_source_copy_sha256,
         "expected_compiled_output_sha256": value.expected_compiled_output_sha256,
         "compiler_entrypoint": _dump_model(value.compiler_entrypoint, CompilerEntrypoint, "preflight.compiler_entrypoint"),
@@ -281,7 +283,8 @@ def _preflight_value(value: ReleaseCompilationPreflight) -> dict[str, Any]:
 
 def _load_preflight(value: Any, candidate: ValidatedCandidate) -> ReleaseCompilationPreflight:
     payload = _mapping(value, {
-        "candidate_release", "expected_derived_source_copy_sha256", "expected_compiled_output_sha256",
+        "candidate_release", "framework_version", "version_toml_sha256",
+        "expected_derived_source_copy_sha256", "expected_compiled_output_sha256",
         "compiler_entrypoint", "canonical_source_snapshot_digest", "compiler_frontier_digest",
         "nested_source_recursive_sha256_before", "output_files", "child_manifest_bytes",
     }, "preflight")
@@ -299,6 +302,8 @@ def _load_preflight(value: Any, candidate: ValidatedCandidate) -> ReleaseCompila
     try:
         preflight = ReleaseCompilationPreflight(
             candidate_release=_text(payload["candidate_release"], "preflight.candidate_release"),
+            framework_version=_text(payload["framework_version"], "preflight.framework_version"),
+            version_toml_sha256=_sha256(payload["version_toml_sha256"], "preflight.version_toml_sha256"),
             expected_derived_source_copy_sha256=_sha256(payload["expected_derived_source_copy_sha256"], "preflight.expected_derived_source_copy_sha256"),
             expected_compiled_output_sha256=_sha256(payload["expected_compiled_output_sha256"], "preflight.expected_compiled_output_sha256"),
             compiler_entrypoint=_load_model(payload["compiler_entrypoint"], CompilerEntrypoint, "preflight.compiler_entrypoint"),
@@ -313,6 +318,8 @@ def _load_preflight(value: Any, candidate: ValidatedCandidate) -> ReleaseCompila
     manifest = candidate.manifest
     if (
         preflight.candidate_release != manifest.candidate_release
+        or preflight.framework_version != manifest.framework_version
+        or preflight.version_toml_sha256 != manifest.version_toml_sha256
         or preflight.expected_derived_source_copy_sha256 != manifest.expected_derived_source_copy_sha256
         or preflight.expected_compiled_output_sha256 != manifest.expected_compiled_output_sha256
         or preflight.canonical_source_snapshot_digest != manifest.canonical_source_snapshot_digest
@@ -407,7 +414,10 @@ def _load_tag(value: Any, candidate: ValidatedCandidate | None, root: str) -> tu
         return name, source_copy
     if name == "compilation":
         restored = _load_model(tagged["value"], SealedCandidateCompilation, "compilation")
-        if restored.candidate_snapshot_manifest_sha256 != candidate.manifest.sha256 or restored.authority != candidate.authority:
+        if (restored.candidate_snapshot_manifest_sha256 != candidate.manifest.sha256
+                or restored.authority != candidate.authority
+                or restored.framework_version != candidate.manifest.framework_version
+                or restored.version_toml_sha256 != candidate.manifest.version_toml_sha256):
             raise _error("release-checkpoint-binding-mismatch", "compilation is not exactly candidate-bound")
         return name, restored
     if name == "package":

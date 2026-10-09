@@ -60,6 +60,7 @@ class ReleaseCompilationTests(unittest.TestCase):
         self.write(f"{CANONICAL_SOURCE_RELATIVE}/001_CORE_META_MODEL/caprmedio_framework_default_settings.toml", b"")
         self.write(f"{CANONICAL_SOURCE_RELATIVE}/003_PROJECT_CONFIGURATION/caprmedio_framework_settings.toml", b"")
         self.write(".caprmedio_runtime/framework/current.toml", b'release = "N"\n')
+        self.write("version.toml", b'[framework]\nversion = "N+1"\n')
         self.write("102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/tool.py", b"tool\n", 0o755)
         self.write("102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/app.py", b"app\n")
         self.write("102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/server.py", b"mcp\n")
@@ -85,6 +86,9 @@ class ReleaseCompilationTests(unittest.TestCase):
         path.write_bytes(data)
         path.chmod(mode)
         return path
+
+    def set_version(self, version: str) -> None:
+        self.write("version.toml", f'[framework]\nversion = "{version}"\n'.encode())
 
     def copy_source(self) -> Path:
         target = self.root / "101_LAYER_1_FRAMEWORK_METHODOLOGY/sources"

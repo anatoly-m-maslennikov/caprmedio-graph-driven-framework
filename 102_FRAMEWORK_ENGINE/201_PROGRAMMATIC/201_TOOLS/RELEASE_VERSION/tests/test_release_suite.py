@@ -417,12 +417,13 @@ class ReleaseSuiteTests(unittest.TestCase):
         """
 
         package = self.root / ".caprmedio_runtime/framework/releases/N"
-        for row in compilation.package_rows:
+        legacy_rows = [row for row in compilation.package_rows if row.resource != "PACKAGE_CONTROL"]
+        for row in legacy_rows:
             target = package / row.destination_path
             target.parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(self.root / row.source_path, target)
             target.chmod(row.mode)
-        (package / "manifest.toml").write_text(_render_manifest("N", compilation.package_rows), encoding="utf-8")
+        (package / "manifest.toml").write_text(_render_manifest("N", legacy_rows), encoding="utf-8")
         active_skill = self.root / ".agents/skills/ca"
         if active_skill.exists():
             shutil.rmtree(active_skill)
@@ -456,7 +457,11 @@ class ReleaseSuiteTests(unittest.TestCase):
         # O175 can stage these exact already-tested candidate bytes later.
         staged = stage_framework_package(self.root, compilation)
         package = self.root / staged["release_root"]
-        self.assertEqual((package / "manifest.toml").read_text(), _render_manifest(candidate.manifest.sha256, compilation.package_rows))
+        self.assertEqual((package / "manifest.toml").read_text(), _render_manifest(
+            candidate.manifest.sha256, compilation.package_rows,
+            framework_version=compilation.framework_version,
+            version_toml_sha256=compilation.version_toml_sha256,
+        ))
         for row in compilation.package_rows:
             target = package / row.destination_path
             self.assertEqual(target.read_bytes(), (self.root / row.source_path).read_bytes())

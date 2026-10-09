@@ -8,6 +8,7 @@ write a checkpoint carrier.
 from __future__ import annotations
 
 import copy
+import hashlib
 import json
 import sys
 import unittest
@@ -57,6 +58,10 @@ def _digest(letter: str) -> str:
     return letter * 64
 
 
+def _version_toml_sha256() -> str:
+    return hashlib.sha256(b'[framework]\nversion = "N+1"\n').hexdigest()
+
+
 def _candidate() -> ValidatedCandidate:
     rows = [
         {"resource": "FRAMEWORK_ENGINE", "source_path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/release.py", "source_sha256": _digest("a"), "source_mode": 0o644, "destination_path": "FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/release.py"},
@@ -67,6 +72,7 @@ def _candidate() -> ValidatedCandidate:
         {"resource": "SKILL", "source_path": "102_FRAMEWORK_ENGINE/202_AGENTIC/205_SKILLS/ca/SKILL.md", "source_sha256": _digest("f"), "source_mode": 0o644, "destination_path": "SKILLS/ca/SKILL.md"},
         {"resource": "SKILL", "source_path": "102_FRAMEWORK_ENGINE/202_AGENTIC/205_SKILLS/ca/agents/openai.yaml", "source_sha256": _digest("0"), "source_mode": 0o644, "destination_path": "SKILLS/ca/agents/openai.yaml"},
         {"resource": "IMAGE_INPUT", "source_path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/Dockerfile", "source_sha256": _digest("1"), "source_mode": 0o644, "destination_path": "IMAGE_INPUT/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/Dockerfile"},
+        {"resource": "PACKAGE_CONTROL", "source_path": "version.toml", "source_sha256": _version_toml_sha256(), "source_mode": 0o644, "destination_path": "version.toml"},
     ]
     intent = CandidateBuildRequest(
         candidate_release="N+1",
@@ -79,6 +85,8 @@ def _candidate() -> ValidatedCandidate:
         {
             "executing_release": "N",
             "candidate_release": intent.candidate_release,
+            "framework_version": intent.candidate_release,
+            "version_toml_sha256": _version_toml_sha256(),
             "canonical_source_snapshot_ref": "METHODOLOGY/sources",
             "canonical_source_snapshot_digest": _digest("4"),
             "project_structure_digest": _digest("5"),
@@ -100,6 +108,8 @@ def _candidate() -> ValidatedCandidate:
     authority = SealedAuthority(
         executing_release="N",
         candidate_release="N+1",
+        framework_version="N+1",
+        version_toml_sha256=_version_toml_sha256(),
         canonical_source_snapshot_digest=manifest.canonical_source_snapshot_digest,
         project_structure_digest=manifest.project_structure_digest,
         framework_settings_digest=manifest.framework_settings_digest,
@@ -129,6 +139,8 @@ def _request(candidate: ValidatedCandidate) -> ReleaseVersionRequest:
 def _preflight(candidate: ValidatedCandidate) -> ReleaseCompilationPreflight:
     return ReleaseCompilationPreflight(
         candidate_release=candidate.manifest.candidate_release,
+        framework_version=candidate.manifest.framework_version,
+        version_toml_sha256=candidate.manifest.version_toml_sha256,
         expected_derived_source_copy_sha256=candidate.manifest.expected_derived_source_copy_sha256,
         expected_compiled_output_sha256=candidate.manifest.expected_compiled_output_sha256,
         compiler_entrypoint=CompilerEntrypoint(path="102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/compile.py", sha256=_digest("8")),
@@ -147,10 +159,13 @@ def _compilation(candidate: ValidatedCandidate) -> SealedCandidateCompilation:
         PackageRow(resource="METHODOLOGY", source_path=".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/_release_materialized/x/claim.md", destination_path="METHODOLOGY/compiled/claim.md", sha256=_digest("9"), mode=0o644),
         PackageRow(resource="SKILL", source_path="102_FRAMEWORK_ENGINE/202_AGENTIC/205_SKILLS/ca/SKILL.md", destination_path="SKILLS/ca/SKILL.md", sha256=_digest("f"), mode=0o644),
         PackageRow(resource="SKILL", source_path="102_FRAMEWORK_ENGINE/202_AGENTIC/205_SKILLS/ca/agents/openai.yaml", destination_path="SKILLS/ca/agents/openai.yaml", sha256=_digest("0"), mode=0o644),
+        PackageRow(resource="PACKAGE_CONTROL", source_path="version.toml", destination_path="version.toml", sha256=_version_toml_sha256(), mode=0o644),
     ]
     return SealedCandidateCompilation(
         candidate_snapshot_manifest_sha256=candidate.manifest.sha256,
         authority=candidate.authority,
+        framework_version=candidate.manifest.framework_version,
+        version_toml_sha256=candidate.manifest.version_toml_sha256,
         source_copy_root="101_LAYER_1_FRAMEWORK_METHODOLOGY/sources",
         expected_derived_source_copy_sha256=candidate.manifest.expected_derived_source_copy_sha256,
         actual_derived_source_copy_sha256=candidate.manifest.expected_derived_source_copy_sha256,
@@ -164,6 +179,23 @@ def _compilation(candidate: ValidatedCandidate) -> SealedCandidateCompilation:
 
 
 class ReleaseCheckpointTests(unittest.TestCase):
+    def test_preflight_codec_retains_and_checks_exact_version_binding(self) -> None:
+        from release_checkpoint import _load_preflight, _preflight_value
+
+        candidate = _candidate()
+        preflight = _preflight(candidate)
+        payload = _preflight_value(preflight)
+        self.assertEqual(_load_preflight(payload, candidate), preflight)
+        for field, value in (("framework_version", "N+2"), ("version_toml_sha256", _digest("a"))):
+            forged = dict(payload, **{field: value})
+            with self.subTest(field=field), self.assertRaises(ReleaseContractError) as caught:
+                _load_preflight(forged, candidate)
+            self.assertEqual(caught.exception.code, "release-checkpoint-binding-mismatch")
+        unbound = dict(payload)
+        del unbound["version_toml_sha256"]
+        with self.assertRaises(ReleaseContractError):
+            _load_preflight(unbound, candidate)
+
     def setUp(self) -> None:
         self.candidate = _candidate()
         self.request = _request(self.candidate)
