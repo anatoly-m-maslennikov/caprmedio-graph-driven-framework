@@ -1,0 +1,4773 @@
+{
+  "baseline_inventory_sha256": "23394abaf6e9c18a585cf3146aedd0a80df166c9dd82be6e86ed7c3c56780bdc",
+  "batch": 1,
+  "evidence_catalogue": [
+    {
+      "atom_id": "CA-R-1452",
+      "atom_revision": 10,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1452-CORE_META_MODEL-CORE--define-action.md",
+      "carrier_sha256": "d469011478752241340e3dd544f0744bddc7b7129e3ae7e1e249144363e5c007",
+      "end_line": 37,
+      "evidence_ref": "e1",
+      "quote": "an Action **means** an Atom with Content Role Operations **and** Type Action whose Claim specifies one reusable operational building block with an explicit operational contribution **and** a justified boundary at the modeled responsibility **and** granularity **where** further division has no useful independently governed meaning. this atomic boundary is **not** a count of machine instructions **or** Tool calls; an arbitrary large procedure **without** that justified boundary is **not** an Action. the Action is distinct from an Actor, a Tool, a Task, a particular execution, a Journal Record, **and** a Carrier. its execution kind is defined under CA-R-1526; an Agentic Action **may** use Tools **without** making **every** call another Action **or** Step.",
+      "start_line": 37,
+      "text_sha256": "5f87a4ddc3079a5975a53e2c3f73f7567bb28cf8379e63f15262b494acc52d64"
+    },
+    {
+      "atom_id": "CA-R-1526",
+      "atom_revision": 4,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1526-CORE_META_MODEL-GENERAL-REQUIREMENT--define-action-execution-kind.md",
+      "carrier_sha256": "2e3f06da63e0309d9f33a92630139ab5420678aa8ba42344f53976d4671b92e6",
+      "end_line": 31,
+      "evidence_ref": "e2",
+      "quote": "Action Execution Kind **means** the distinction between execution by code **and** execution requiring AI Agent judgment for an Action's declared responsibility.",
+      "start_line": 31,
+      "text_sha256": "9df2839667cfdc89060ca0f15d06975ea83208857ec83ab9edaad106144e7899"
+    },
+    {
+      "atom_id": "CA-O-054",
+      "atom_revision": 5,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/CA-O-054-CORE_META_MODEL-ACTION--admit-methodology-expansion-mappings.md",
+      "carrier_sha256": "025012a315e6a26b0ce3ed49567c216e8c0774d07a92618faebf2192c3bae977",
+      "end_line": 31,
+      "evidence_ref": "e3",
+      "quote": "Admit Methodology Expansion Mapping **means** the reusable Action that returns an admission decision for **`=1`** explicitly described expansion mapping **before** its activation **or** use. its boundary is the mapping's conformance decision, **not** choosing an Extension **or** changing activation Settings.",
+      "start_line": 31,
+      "text_sha256": "53da2184160e5362544d1e4c33a0a1c6b610ee3ef62789a29e8740d3df0a3ac6"
+    },
+    {
+      "atom_id": "CA-O-008",
+      "atom_revision": 11,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/CA-O-008-CORE_META_MODEL-ACTION--apply-approved-source-corrections.md",
+      "carrier_sha256": "7dba215459417f680301c03e853579dde655cbd9854d5d270df560e6a31a2a96",
+      "end_line": 36,
+      "evidence_ref": "e4",
+      "quote": "Apply Approved Source Corrections **means** the reusable Action that applies **only** the exact upstream corrections authorized for the current proposal, conflict, **and** source frontier.",
+      "start_line": 36,
+      "text_sha256": "ec77b1ddf04d12e87c3c0dd6091a3a8093f275c83090c3c049b7498acde2ce66"
+    },
+    {
+      "atom_id": "CA-O-014",
+      "atom_revision": 5,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/CA-O-014-CORE_META_MODEL-ACTION--apply-structural-change.md",
+      "carrier_sha256": "e93407e53b5d5a436d8b6589b044b32bfa25b6166adcb79d3343dc7663713d7d",
+      "end_line": 30,
+      "evidence_ref": "e5",
+      "quote": "Apply Structural Change **means** the Action that rechecks the authorized proposal against the unchanged selected source state **and** applies its accepted declarations, reference repairs, **and** explicitly included Carrier changes through one recoverable cutover. **if** the source state differs, required validation fails, **or** permission no longer covers the effects, it **must** stop **before** mutation. **if** a partial failure occurs, it **must** report the actual effects **and** use **only** the authorized recovery boundary; it **must not** delete unapproved contents, overwrite concurrent edits, reset the retry budget, **or** claim a completed migration. event evidence follows the applicable Journal model, **not** a second structural authority.",
+      "start_line": 30,
+      "text_sha256": "b11063607b60a94678e6ce2f97f48fb4e9ddc230d6b0b7d2ddd82fa7748188d3"
+    },
+    {
+      "atom_id": "CA-O-131",
+      "atom_revision": 2,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/CA-O-131-CORE_META_MODEL-ACTION--apply-an-approved-reversal.md",
+      "carrier_sha256": "633188d8c9f59c040ffeb4063066b3f547f624e8e1e45ff7a8fe04e4112ac2ce",
+      "end_line": 25,
+      "evidence_ref": "e6",
+      "quote": "Approved Change Reversal **means** the reusable Programmatic Action that applies **only** an exact Operator-approved reversal of selected previously accepted effects, preserving required history **and** references. it is **not** internal failure rollback, a version-control reset **or** deletion of historical evidence.",
+      "start_line": 25,
+      "text_sha256": "a95c11b54a5cd9e6e8d39e87f037c834d363a8585ecfad913cddf7969f8d2974"
+    },
+    {
+      "atom_id": "CA-O-132",
+      "atom_revision": 1,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/CA-O-132-CORE_META_MODEL-STEP--apply-the-approved-change-reversal.md",
+      "carrier_sha256": "b37744bcb2f191e04344485d440242e8f879321e66a55f01f89fb9bef7a6bfd5",
+      "end_line": 25,
+      "evidence_ref": "e7",
+      "quote": "Approved Change Reversal Step **means** the Workflow node invoking **=1** Action, CA-O-131, as a Programmatic invocation.",
+      "start_line": 25,
+      "text_sha256": "77bbc58c2113b2c040128c25b011cd476abb874dcdf5056aa94def258a91be73"
+    },
+    {
+      "atom_id": "CA-R-1268",
+      "atom_revision": 12,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1268-CORE_META_MODEL-CORE-REQUIREMENT--define-artifact.md",
+      "carrier_sha256": "9cfaecd2519ec038a73a183281030d43266113bcdb037cc9152a8c2039ef88de",
+      "end_line": 29,
+      "evidence_ref": "e8",
+      "quote": "an Artifact **means** a Primary Entity whose governed identity persists across its Artifact Revisions.",
+      "start_line": 29,
+      "text_sha256": "d0ded25a0e82e32e99b42a515b231f091d183c2bf5b6703035239c2836a429ad"
+    },
+    {
+      "atom_id": "CA-R-1394",
+      "atom_revision": 10,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1394-CORE_META_MODEL-CORE--define-artifact-activity.md",
+      "carrier_sha256": "528cdcbdcdfbb450b6b263b2c7cf3f7debfd56d225a553cb9553223c7569253b",
+      "end_line": 30,
+      "evidence_ref": "e9",
+      "quote": "the Artifact Property Activity **means** the derived Property that classifies an Artifact as Active **or** Inactive from its current Revision Status within the applicability defined by CA-R-1307-CORE_META_MODEL-CORE-REQUIREMENT--limit-artifact-activity-to-explicit-status-models. absence of an applicable Status model **means** absence of Activity, **not** Activity Inactive.",
+      "start_line": 30,
+      "text_sha256": "f2f1ef6fce7d985e2fa7740aaec341f40dfb9d20efb8d39aef621fae36a0a473"
+    },
+    {
+      "atom_id": "CA-O-067",
+      "atom_revision": 6,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/CA-O-067-CORE_META_MODEL-ACTION--assess-atom-update-identity.md",
+      "carrier_sha256": "4e121c05c1749b3af447632798c3f4c939bf42302f5a3420a4e27ccc9ad71be6",
+      "end_line": 33,
+      "evidence_ref": "e10",
+      "quote": "Assess Atom Update Identity **means** the reusable read-only Action that compares an existing Atom with its proposed result **and** returns whether the requested update preserves its identity under CA-R-1432 **and** CA-R-1464.",
+      "start_line": 33,
+      "text_sha256": "02562d746c504fdb28745cb9ced72e43044bdb242eb8c6d88577a09a7ce05f62"
+    },
+    {
+      "atom_id": "CA-O-058",
+      "atom_revision": 6,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/CA-O-058-CORE_META_MODEL-ACTION--assess-revision-impact-through-lineage.md",
+      "carrier_sha256": "9a8d53c9f6d16a8a17675de50828fee6bf2e4bff15efc749cbecd0ed6857d22f",
+      "end_line": 31,
+      "evidence_ref": "e11",
+      "quote": "Assess Lineage Impact **means** the reusable Action that assesses **every** reachable descendant lineage branch of **`=1`** changed Atom **until** **every** branch has an explicit impact disposition.",
+      "start_line": 31,
+      "text_sha256": "acd71779e6e060fb602cfae26440a8c72f69f77523653303b61d80053679fea8"
+    },
+    {
+      "atom_id": "CA-O-126",
+      "atom_revision": 1,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/CA-O-126-CORE_META_MODEL-ACTION--assess-prepared-result-conformance.md",
+      "carrier_sha256": "1eeed6cea1959038258602755e72e5060acf3bf94fda95fa1c2233e0b80ab0a6",
+      "end_line": 25,
+      "evidence_ref": "e12",
+      "quote": "Assess Prepared Result Conformance **means** the optional read-only Action that independently compares one exact caller-selected prepared Artifact set with its complete bound governing intents **and** criteria, then returns source-specific semantic-conformance evidence **without** approving, adopting, releasing, **or** changing the result.",
+      "start_line": 25,
+      "text_sha256": "6f028a73e3976e50c307d1ec0044ef4295c354bd787ee108576196685a2cec0b"
+    },
+    {
+      "atom_id": "CA-O-005",
+      "atom_revision": 8,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/CA-O-005-CORE_META_MODEL-ACTION--assess-source-conflicts.md",
+      "carrier_sha256": "99f3aba94cc96ca3be174c140d818b2cb72bce348338c52ffbe56945e387510c",
+      "end_line": 31,
+      "evidence_ref": "e13",
+      "quote": "Assess Source Conflicts **means** the reusable Action that assesses one exact selected source frontier against its applicable authority **and** returns the conflict assessment **without** changing sources.",
+      "start_line": 31,
+      "text_sha256": "56299f7d759b7a2ae7cb98634c0de31e0572e993a9da6f4ff72c8df939e4909c"
+    },
+    {
+      "atom_id": "CA-R-655",
+      "atom_revision": 23,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-655-CORE_META_MODEL-CORE--define-atom-artifact-form.md",
+      "carrier_sha256": "28258bfdc5515abe6efa40fe8ab1951cc70a226f58daaa6ced7466036bbca29d",
+      "end_line": 26,
+      "evidence_ref": "e14",
+      "quote": "an Atom **means** the smallest independently governed Artifact.",
+      "start_line": 26,
+      "text_sha256": "0b543d2383ea7516798a1b75834a9ff940c53e7b14c01083da5d2659cb64e3d0"
+    },
+    {
+      "atom_id": "CA-O-080",
+      "atom_revision": 4,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/ATOM_CARRIER_VALIDATION/CA-O-080-CORE_META_MODEL-WORKFLOW--validate-atom-carriers.md",
+      "carrier_sha256": "73f287cd0b7f0788e44970ff24b785193861c59bbab010bb57056b4d9d8f5974",
+      "end_line": 33,
+      "evidence_ref": "e15",
+      "quote": "Atom Carrier Validation **means** the reusable Workflow with the following graph; the referenced Step owns its invocation binding.",
+      "start_line": 33,
+      "text_sha256": "de50b77687f9d8c27bbe943a83c8cec0c6db72438238bbb6022c073c1ce48005"
+    },
+    {
+      "atom_id": "CA-R-1378",
+      "atom_revision": 9,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1378-CORE_META_MODEL-CORE--define-atom-collection.md",
+      "carrier_sha256": "ab4bf5d9cac8953bbab46acd9f5f9ddfed5ba3f870b25ba7d5105a454ee4f5b2",
+      "end_line": 30,
+      "evidence_ref": "e16",
+      "quote": "an Atom Collection **means** a Structural Entity that groups **`>=0`** Atoms **without** becoming their owning Scope Unit.",
+      "start_line": 30,
+      "text_sha256": "c7b1f4cef7de9636b10bbcba3de43b2a7b318e16d1baafd0a5a23c8509fc64f4"
+    },
+    {
+      "atom_id": "CA-O-103",
+      "atom_revision": 2,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/CA-O-103-CORE_META_MODEL-ACTION--author-atom-content-before-summary.md",
+      "carrier_sha256": "d76750e7aae02fff73f089cc142514f3dc000396df81b97100c6017a33b1ddb8",
+      "end_line": 31,
+      "evidence_ref": "e17",
+      "quote": "Atom Content Authoring **means** the Action that takes an authorized authoring request, the Atom's Content Role, applicable authority, **and** **any** existing Revision, then prepares a coherent candidate through this flow:",
+      "start_line": 31,
+      "text_sha256": "6bb87f289c8a01eb4ef2b2351020faebeed553c25760acb01c2537588986e08c"
+    }
+  ],
+  "input_file_sha256": "a27fb1b439ad791fd7d404f385e41166c6a3c143d8cf3b8fea720db4650f398a",
+  "nodes": [
+    {
+      "checked_source_atom_ids": [
+        "CA-E-440",
+        "CA-E-519",
+        "CA-M-271",
+        "CA-M-276",
+        "CA-O-007",
+        "CA-O-008",
+        "CA-O-010",
+        "CA-O-013",
+        "CA-O-017",
+        "CA-O-021",
+        "CA-O-028",
+        "CA-O-053",
+        "CA-O-058",
+        "CA-O-089",
+        "CA-O-090",
+        "CA-O-091",
+        "CA-O-092",
+        "CA-O-093",
+        "CA-O-094",
+        "CA-O-095",
+        "CA-O-096",
+        "CA-O-098",
+        "CA-O-099",
+        "CA-O-100",
+        "CA-O-101",
+        "CA-O-124",
+        "CA-O-125",
+        "CA-O-126",
+        "CA-R-1044",
+        "CA-R-1526",
+        "CA-R-1527",
+        "CA-R-1551",
+        "CA-R-1552",
+        "CA-R-1554",
+        "CA-R-1555",
+        "CA-R-1556",
+        "CA-R-1557",
+        "CA-R-1558",
+        "CA-R-1559",
+        "CA-R-1561",
+        "CA-R-1585",
+        "CA-R-1589",
+        "CA-R-1591",
+        "CA-R-852"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names AI Agent."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in checked sources."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names AI Agent."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis exists."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No redundancy proof in checked sources."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "AI Agent",
+      "proposal": null,
+      "question": "Which current defining Core Main Content statement establishes the distinct meaning of AI Agent?",
+      "reason": "No positive Main Content basis was found in the assigned captured source set; absence is not evidence to drop or consolidate."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-R-1551",
+        "CA-R-1552",
+        "CA-R-1555",
+        "CA-R-1561",
+        "CA-R-852"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names AI Agent Delegation."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in checked sources."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names AI Agent Delegation."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis exists."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No redundancy proof in checked sources."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "AI Agent Delegation",
+      "proposal": null,
+      "question": "Which current defining Core Main Content statement establishes the distinct meaning of AI Agent Delegation?",
+      "reason": "No positive Main Content basis was found in the assigned captured source set; absence is not evidence to drop or consolidate."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-E-440",
+        "CA-R-1044",
+        "CA-R-1559",
+        "CA-R-1561"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names AI Agent/Confidence."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in checked sources."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names AI Agent/Confidence."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis exists."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No redundancy proof in checked sources."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "AI Agent/Confidence",
+      "proposal": null,
+      "question": "Which current defining Core Main Content statement establishes the distinct meaning of AI Agent/Confidence?",
+      "reason": "No positive Main Content basis was found in the assigned captured source set; absence is not evidence to drop or consolidate."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-E-440",
+        "CA-R-1552",
+        "CA-R-1554",
+        "CA-R-1555",
+        "CA-R-1556",
+        "CA-R-1557",
+        "CA-R-1558",
+        "CA-R-1559",
+        "CA-R-1561"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names AI Agent/authorization."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in checked sources."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names AI Agent/authorization."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis exists."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No redundancy proof in checked sources."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "AI Agent/authorization",
+      "proposal": null,
+      "question": "Which current defining Core Main Content statement establishes the distinct meaning of AI Agent/authorization?",
+      "reason": "No positive Main Content basis was found in the assigned captured source set; absence is not evidence to drop or consolidate."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-E-246",
+        "CA-E-382",
+        "CA-E-449",
+        "CA-E-482",
+        "CA-E-486",
+        "CA-E-489",
+        "CA-E-491",
+        "CA-E-494",
+        "CA-E-495",
+        "CA-E-496",
+        "CA-E-497",
+        "CA-E-498",
+        "CA-E-500",
+        "CA-E-510",
+        "CA-E-513",
+        "CA-E-519",
+        "CA-M-114",
+        "CA-M-301",
+        "CA-M-303",
+        "CA-M-304",
+        "CA-M-305",
+        "CA-O-004",
+        "CA-O-005",
+        "CA-O-006",
+        "CA-O-007",
+        "CA-O-008",
+        "CA-O-009",
+        "CA-O-010",
+        "CA-O-011",
+        "CA-O-012",
+        "CA-O-013",
+        "CA-O-014",
+        "CA-O-015",
+        "CA-O-017",
+        "CA-O-018",
+        "CA-O-019",
+        "CA-O-020",
+        "CA-O-021",
+        "CA-O-022",
+        "CA-O-023",
+        "CA-O-024",
+        "CA-O-028",
+        "CA-O-051",
+        "CA-O-052",
+        "CA-O-053",
+        "CA-O-054",
+        "CA-O-058",
+        "CA-O-065",
+        "CA-O-067",
+        "CA-O-078",
+        "CA-O-079",
+        "CA-O-087",
+        "CA-O-088",
+        "CA-O-089",
+        "CA-O-090",
+        "CA-O-091",
+        "CA-O-092",
+        "CA-O-093",
+        "CA-O-094",
+        "CA-O-095",
+        "CA-O-096",
+        "CA-O-098",
+        "CA-O-099",
+        "CA-O-100",
+        "CA-O-101",
+        "CA-O-103",
+        "CA-O-104",
+        "CA-O-105",
+        "CA-O-106",
+        "CA-O-108",
+        "CA-O-109",
+        "CA-O-110",
+        "CA-O-111",
+        "CA-O-118",
+        "CA-O-119",
+        "CA-O-120",
+        "CA-O-121",
+        "CA-O-122",
+        "CA-O-123",
+        "CA-O-124",
+        "CA-O-125",
+        "CA-O-126",
+        "CA-O-128",
+        "CA-O-129",
+        "CA-O-131",
+        "CA-O-132",
+        "CA-O-134",
+        "CA-O-135",
+        "CA-O-137",
+        "CA-O-138",
+        "CA-O-139",
+        "CA-O-140",
+        "CA-O-141",
+        "CA-O-142",
+        "CA-O-143",
+        "CA-O-144",
+        "CA-O-146",
+        "CA-O-147",
+        "CA-O-148",
+        "CA-O-149",
+        "CA-O-150",
+        "CA-O-151",
+        "CA-O-152",
+        "CA-O-153",
+        "CA-O-154",
+        "CA-O-155",
+        "CA-O-156",
+        "CA-O-157",
+        "CA-O-158",
+        "CA-O-159",
+        "CA-O-160",
+        "CA-O-161",
+        "CA-O-163",
+        "CA-R-1312",
+        "CA-R-1340",
+        "CA-R-1452",
+        "CA-R-1463",
+        "CA-R-1468",
+        "CA-R-1508",
+        "CA-R-1509",
+        "CA-R-1511",
+        "CA-R-1519",
+        "CA-R-1520",
+        "CA-R-1525",
+        "CA-R-1526",
+        "CA-R-1527",
+        "CA-R-1528",
+        "CA-R-1530",
+        "CA-R-1562",
+        "CA-R-1569",
+        "CA-R-1570",
+        "CA-R-1683",
+        "CA-R-1702",
+        "CA-R-1720",
+        "CA-R-1789",
+        "CA-R-1790",
+        "CA-R-1791",
+        "CA-R-1792",
+        "CA-R-1793"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "e1"
+          ],
+          "finding": "current_meaning_evidenced",
+          "reason": "A current pinned substantive span names this exact preserved identity; no duplicate/consolidation proof was found in this bounded review."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "e1"
+          ],
+          "finding": "no_proven_duplicate",
+          "reason": "A current pinned substantive span names this exact preserved identity; no duplicate/consolidation proof was found in this bounded review."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "e1"
+          ],
+          "finding": "not_empty_by_default",
+          "reason": "A named substantive occurrence prevents treating missing dedicated definition as empty."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "e1"
+          ],
+          "finding": "not_proposed",
+          "reason": "No replacement/generalization is asserted without loss analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "e1"
+          ],
+          "finding": "not_proven_redundant",
+          "reason": "Qualified-field repetition is not redundancy proof."
+        }
+      },
+      "confidence_percent": 90,
+      "disposition": "retain",
+      "evidence_refs": [
+        "e1"
+      ],
+      "identity": "Action",
+      "proposal": null,
+      "question": null,
+      "reason": "Current pinned Main Content provides an exact meaningful identity occurrence; retain this preserved identity pending integration."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-O-161",
+        "CA-O-162",
+        "CA-O-163"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Action Run."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in checked sources."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Action Run."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis exists."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No redundancy proof in checked sources."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Action Run",
+      "proposal": null,
+      "question": "Which current defining Core Main Content statement establishes the distinct meaning of Action Run?",
+      "reason": "No positive Main Content basis was found in the assigned captured source set; absence is not evidence to drop or consolidate."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-E-495",
+        "CA-M-304",
+        "CA-R-1452",
+        "CA-R-1509",
+        "CA-R-1526",
+        "CA-R-1527",
+        "CA-R-1789",
+        "CA-R-1790",
+        "CA-R-1791",
+        "CA-R-1792",
+        "CA-R-1793"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "e2"
+          ],
+          "finding": "current_meaning_evidenced",
+          "reason": "A current pinned substantive span names this exact preserved identity; no duplicate/consolidation proof was found in this bounded review."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "e2"
+          ],
+          "finding": "no_proven_duplicate",
+          "reason": "A current pinned substantive span names this exact preserved identity; no duplicate/consolidation proof was found in this bounded review."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "e2"
+          ],
+          "finding": "not_empty_by_default",
+          "reason": "A named substantive occurrence prevents treating missing dedicated definition as empty."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "e2"
+          ],
+          "finding": "not_proposed",
+          "reason": "No replacement/generalization is asserted without loss analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "e2"
+          ],
+          "finding": "not_proven_redundant",
+          "reason": "Qualified-field repetition is not redundancy proof."
+        }
+      },
+      "confidence_percent": 90,
+      "disposition": "retain",
+      "evidence_refs": [
+        "e2"
+      ],
+      "identity": "Action/Execution Kind",
+      "proposal": null,
+      "question": null,
+      "reason": "Current pinned Main Content provides an exact meaningful identity occurrence; retain this preserved identity pending integration."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-M-304"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Action/Execution Kind: Agentic."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in checked sources."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Action/Execution Kind: Agentic."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis exists."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No redundancy proof in checked sources."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Action/Execution Kind: Agentic",
+      "proposal": null,
+      "question": "Which current defining Core Main Content statement establishes the distinct meaning of Action/Execution Kind: Agentic?",
+      "reason": "No positive Main Content basis was found in the assigned captured source set; absence is not evidence to drop or consolidate."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-336"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Active Atom Carrier Discovery."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in checked sources."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Active Atom Carrier Discovery."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis exists."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No redundancy proof in checked sources."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Active Atom Carrier Discovery",
+      "proposal": null,
+      "question": "Which current defining Core Main Content statement establishes the distinct meaning of Active Atom Carrier Discovery?",
+      "reason": "No positive Main Content basis was found in the assigned captured source set; absence is not evidence to drop or consolidate."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-276",
+        "CA-E-444",
+        "CA-E-482",
+        "CA-R-1078",
+        "CA-R-1250",
+        "CA-R-1422",
+        "CA-R-1452",
+        "CA-R-1455",
+        "CA-R-1530",
+        "CA-R-1551",
+        "CA-R-1564",
+        "CA-R-1584",
+        "CA-R-1644",
+        "CA-R-1683",
+        "CA-R-1702",
+        "CA-R-850"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Actor."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in checked sources."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Actor."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis exists."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No redundancy proof in checked sources."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Actor",
+      "proposal": null,
+      "question": "Which current defining Core Main Content statement establishes the distinct meaning of Actor?",
+      "reason": "No positive Main Content basis was found in the assigned captured source set; absence is not evidence to drop or consolidate."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-O-054"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "e3"
+          ],
+          "finding": "current_meaning_evidenced",
+          "reason": "A current pinned substantive span names this exact preserved identity; no duplicate/consolidation proof was found in this bounded review."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "e3"
+          ],
+          "finding": "no_proven_duplicate",
+          "reason": "A current pinned substantive span names this exact preserved identity; no duplicate/consolidation proof was found in this bounded review."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "e3"
+          ],
+          "finding": "not_empty_by_default",
+          "reason": "A named substantive occurrence prevents treating missing dedicated definition as empty."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "e3"
+          ],
+          "finding": "not_proposed",
+          "reason": "No replacement/generalization is asserted without loss analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "e3"
+          ],
+          "finding": "not_proven_redundant",
+          "reason": "Qualified-field repetition is not redundancy proof."
+        }
+      },
+      "confidence_percent": 90,
+      "disposition": "retain",
+      "evidence_refs": [
+        "e3"
+      ],
+      "identity": "Admit Methodology Expansion Mapping",
+      "proposal": null,
+      "question": null,
+      "reason": "Current pinned Main Content provides an exact meaningful identity occurrence; retain this preserved identity pending integration."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-R-1611"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Analysis."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in checked sources."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Analysis."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis exists."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No redundancy proof in checked sources."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Analysis",
+      "proposal": null,
+      "question": "Which current defining Core Main Content statement establishes the distinct meaning of Analysis?",
+      "reason": "No positive Main Content basis was found in the assigned captured source set; absence is not evidence to drop or consolidate."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-O-008",
+        "CA-O-010",
+        "CA-O-028",
+        "CA-O-156"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "e4"
+          ],
+          "finding": "current_meaning_evidenced",
+          "reason": "A current pinned substantive span names this exact preserved identity; no duplicate/consolidation proof was found in this bounded review."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "e4"
+          ],
+          "finding": "no_proven_duplicate",
+          "reason": "A current pinned substantive span names this exact preserved identity; no duplicate/consolidation proof was found in this bounded review."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "e4"
+          ],
+          "finding": "not_empty_by_default",
+          "reason": "A named substantive occurrence prevents treating missing dedicated definition as empty."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "e4"
+          ],
+          "finding": "not_proposed",
+          "reason": "No replacement/generalization is asserted without loss analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "e4"
+          ],
+          "finding": "not_proven_redundant",
+          "reason": "Qualified-field repetition is not redundancy proof."
+        }
+      },
+      "confidence_percent": 90,
+      "disposition": "retain",
+      "evidence_refs": [
+        "e4"
+      ],
+      "identity": "Apply Approved Source Corrections",
+      "proposal": null,
+      "question": null,
+      "reason": "Current pinned Main Content provides an exact meaningful identity occurrence; retain this preserved identity pending integration."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-O-014",
+        "CA-O-015"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "e5"
+          ],
+          "finding": "current_meaning_evidenced",
+          "reason": "A current pinned substantive span names this exact preserved identity; no duplicate/consolidation proof was found in this bounded review."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "e5"
+          ],
+          "finding": "no_proven_duplicate",
+          "reason": "A current pinned substantive span names this exact preserved identity; no duplicate/consolidation proof was found in this bounded review."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "e5"
+          ],
+          "finding": "not_empty_by_default",
+          "reason": "A named substantive occurrence prevents treating missing dedicated definition as empty."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "e5"
+          ],
+          "finding": "not_proposed",
+          "reason": "No replacement/generalization is asserted without loss analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "e5"
+          ],
+          "finding": "not_proven_redundant",
+          "reason": "Qualified-field repetition is not redundancy proof."
+        }
+      },
+      "confidence_percent": 90,
+      "disposition": "retain",
+      "evidence_refs": [
+        "e5"
+      ],
+      "identity": "Apply Structural Change",
+      "proposal": null,
+      "question": null,
+      "reason": "Current pinned Main Content provides an exact meaningful identity occurrence; retain this preserved identity pending integration."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-O-131"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "e6"
+          ],
+          "finding": "current_meaning_evidenced",
+          "reason": "A current pinned substantive span names this exact preserved identity; no duplicate/consolidation proof was found in this bounded review."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "e6"
+          ],
+          "finding": "no_proven_duplicate",
+          "reason": "A current pinned substantive span names this exact preserved identity; no duplicate/consolidation proof was found in this bounded review."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "e6"
+          ],
+          "finding": "not_empty_by_default",
+          "reason": "A named substantive occurrence prevents treating missing dedicated definition as empty."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "e6"
+          ],
+          "finding": "not_proposed",
+          "reason": "No replacement/generalization is asserted without loss analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "e6"
+          ],
+          "finding": "not_proven_redundant",
+          "reason": "Qualified-field repetition is not redundancy proof."
+        }
+      },
+      "confidence_percent": 90,
+      "disposition": "retain",
+      "evidence_refs": [
+        "e6"
+      ],
+      "identity": "Approved Change Reversal",
+      "proposal": null,
+      "question": null,
+      "reason": "Current pinned Main Content provides an exact meaningful identity occurrence; retain this preserved identity pending integration."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-O-132"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "e7"
+          ],
+          "finding": "current_meaning_evidenced",
+          "reason": "A current pinned substantive span names this exact preserved identity; no duplicate/consolidation proof was found in this bounded review."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "e7"
+          ],
+          "finding": "no_proven_duplicate",
+          "reason": "A current pinned substantive span names this exact preserved identity; no duplicate/consolidation proof was found in this bounded review."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "e7"
+          ],
+          "finding": "not_empty_by_default",
+          "reason": "A named substantive occurrence prevents treating missing dedicated definition as empty."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "e7"
+          ],
+          "finding": "not_proposed",
+          "reason": "No replacement/generalization is asserted without loss analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "e7"
+          ],
+          "finding": "not_proven_redundant",
+          "reason": "Qualified-field repetition is not redundancy proof."
+        }
+      },
+      "confidence_percent": 90,
+      "disposition": "retain",
+      "evidence_refs": [
+        "e7"
+      ],
+      "identity": "Approved Change Reversal Step",
+      "proposal": null,
+      "question": null,
+      "reason": "Current pinned Main Content provides an exact meaningful identity occurrence; retain this preserved identity pending integration."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-256",
+        "CA-D-267",
+        "CA-D-285",
+        "CA-D-289",
+        "CA-D-290",
+        "CA-D-296",
+        "CA-D-309",
+        "CA-D-311",
+        "CA-D-340",
+        "CA-D-352",
+        "CA-D-360",
+        "CA-D-365",
+        "CA-D-377",
+        "CA-D-390",
+        "CA-D-443",
+        "CA-D-451",
+        "CA-D-457",
+        "CA-D-464",
+        "CA-D-466",
+        "CA-D-467",
+        "CA-D-483",
+        "CA-D-485",
+        "CA-D-565",
+        "CA-E-382",
+        "CA-E-386",
+        "CA-E-404",
+        "CA-E-444",
+        "CA-E-448",
+        "CA-E-449",
+        "CA-E-462",
+        "CA-E-463",
+        "CA-E-476",
+        "CA-E-482",
+        "CA-E-489",
+        "CA-E-491",
+        "CA-E-494",
+        "CA-E-497",
+        "CA-E-512",
+        "CA-E-521",
+        "CA-E-522",
+        "CA-E-523",
+        "CA-M-239",
+        "CA-M-273",
+        "CA-M-276",
+        "CA-M-277",
+        "CA-M-278",
+        "CA-M-303",
+        "CA-O-004",
+        "CA-O-005",
+        "CA-O-006",
+        "CA-O-007",
+        "CA-O-008",
+        "CA-O-009",
+        "CA-O-012",
+        "CA-O-020",
+        "CA-O-051",
+        "CA-O-052",
+        "CA-O-058",
+        "CA-O-067",
+        "CA-O-123",
+        "CA-O-124",
+        "CA-O-125",
+        "CA-O-126",
+        "CA-O-128",
+        "CA-O-131",
+        "CA-O-134",
+        "CA-O-137",
+        "CA-O-158",
+        "CA-O-159",
+        "CA-O-160",
+        "CA-R-1026",
+        "CA-R-1220",
+        "CA-R-1249",
+        "CA-R-1262",
+        "CA-R-1268",
+        "CA-R-1281",
+        "CA-R-1306",
+        "CA-R-1307",
+        "CA-R-1308",
+        "CA-R-1311",
+        "CA-R-1312",
+        "CA-R-1313",
+        "CA-R-1361",
+        "CA-R-1371",
+        "CA-R-1394",
+        "CA-R-1395",
+        "CA-R-1396",
+        "CA-R-1402",
+        "CA-R-1405",
+        "CA-R-1409",
+        "CA-R-1410",
+        "CA-R-1419",
+        "CA-R-1432",
+        "CA-R-1433",
+        "CA-R-1439",
+        "CA-R-1441",
+        "CA-R-1454",
+        "CA-R-1455",
+        "CA-R-1456",
+        "CA-R-1459",
+        "CA-R-1461",
+        "CA-R-1463",
+        "CA-R-1467",
+        "CA-R-1483",
+        "CA-R-1491",
+        "CA-R-1493",
+        "CA-R-1494",
+        "CA-R-1499",
+        "CA-R-1500",
+        "CA-R-1501",
+        "CA-R-1502",
+        "CA-R-1519",
+        "CA-R-1520",
+        "CA-R-1521",
+        "CA-R-1525",
+        "CA-R-1539",
+        "CA-R-1545",
+        "CA-R-1558",
+        "CA-R-1568",
+        "CA-R-1571",
+        "CA-R-1608",
+        "CA-R-1609",
+        "CA-R-1633",
+        "CA-R-1638",
+        "CA-R-1639",
+        "CA-R-1644",
+        "CA-R-1646",
+        "CA-R-1655",
+        "CA-R-1701",
+        "CA-R-1703",
+        "CA-R-1708",
+        "CA-R-1720",
+        "CA-R-1738",
+        "CA-R-1740",
+        "CA-R-1745",
+        "CA-R-1746",
+        "CA-R-1765",
+        "CA-R-1773",
+        "CA-R-1788",
+        "CA-R-1789",
+        "CA-R-1790",
+        "CA-R-1791",
+        "CA-R-1792",
+        "CA-R-1793",
+        "CA-R-1874",
+        "CA-R-1875",
+        "CA-R-655",
+        "CA-R-728",
+        "CA-R-834",
+        "CA-R-836"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "e8"
+          ],
+          "finding": "current_meaning_evidenced",
+          "reason": "A current pinned substantive span names this exact preserved identity; no duplicate/consolidation proof was found in this bounded review."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "e8"
+          ],
+          "finding": "no_proven_duplicate",
+          "reason": "A current pinned substantive span names this exact preserved identity; no duplicate/consolidation proof was found in this bounded review."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "e8"
+          ],
+          "finding": "not_empty_by_default",
+          "reason": "A named substantive occurrence prevents treating missing dedicated definition as empty."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "e8"
+          ],
+          "finding": "not_proposed",
+          "reason": "No replacement/generalization is asserted without loss analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "e8"
+          ],
+          "finding": "not_proven_redundant",
+          "reason": "Qualified-field repetition is not redundancy proof."
+        }
+      },
+      "confidence_percent": 90,
+      "disposition": "retain",
+      "evidence_refs": [
+        "e8"
+      ],
+      "identity": "Artifact",
+      "proposal": null,
+      "question": null,
+      "reason": "Current pinned Main Content provides an exact meaningful identity occurrence; retain this preserved identity pending integration."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-R-1655"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Artifact Classification Resolution."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in checked sources."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Artifact Classification Resolution."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis exists."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No redundancy proof in checked sources."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Artifact Classification Resolution",
+      "proposal": null,
+      "question": "Which current defining Core Main Content statement establishes the distinct meaning of Artifact Classification Resolution?",
+      "reason": "No positive Main Content basis was found in the assigned captured source set; absence is not evidence to drop or consolidate."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-O-160"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Artifact query and fetch execution."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in checked sources."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Artifact query and fetch execution."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis exists."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No redundancy proof in checked sources."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Artifact query and fetch execution",
+      "proposal": null,
+      "question": "Which current defining Core Main Content statement establishes the distinct meaning of Artifact query and fetch execution?",
+      "reason": "No positive Main Content basis was found in the assigned captured source set; absence is not evidence to drop or consolidate."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-O-159"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Artifact query and selected fetch."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in checked sources."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Artifact query and selected fetch."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis exists."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No redundancy proof in checked sources."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Artifact query and selected fetch",
+      "proposal": null,
+      "question": "Which current defining Core Main Content statement establishes the distinct meaning of Artifact query and selected fetch?",
+      "reason": "No positive Main Content basis was found in the assigned captured source set; absence is not evidence to drop or consolidate."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-290",
+        "CA-D-466",
+        "CA-E-386",
+        "CA-R-1307",
+        "CA-R-1394",
+        "CA-R-1395",
+        "CA-R-1396",
+        "CA-R-1419"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "e9"
+          ],
+          "finding": "current_meaning_evidenced",
+          "reason": "A current pinned substantive span names this exact preserved identity; no duplicate/consolidation proof was found in this bounded review."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "e9"
+          ],
+          "finding": "no_proven_duplicate",
+          "reason": "A current pinned substantive span names this exact preserved identity; no duplicate/consolidation proof was found in this bounded review."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "e9"
+          ],
+          "finding": "not_empty_by_default",
+          "reason": "A named substantive occurrence prevents treating missing dedicated definition as empty."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "e9"
+          ],
+          "finding": "not_proposed",
+          "reason": "No replacement/generalization is asserted without loss analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "e9"
+          ],
+          "finding": "not_proven_redundant",
+          "reason": "Qualified-field repetition is not redundancy proof."
+        }
+      },
+      "confidence_percent": 90,
+      "disposition": "retain",
+      "evidence_refs": [
+        "e9"
+      ],
+      "identity": "Artifact/Activity",
+      "proposal": null,
+      "question": null,
+      "reason": "Current pinned Main Content provides an exact meaningful identity occurrence; retain this preserved identity pending integration."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-290",
+        "CA-R-1394",
+        "CA-R-1395"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Artifact/Activity: Active."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in checked sources."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Artifact/Activity: Active."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis exists."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No redundancy proof in checked sources."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Artifact/Activity: Active",
+      "proposal": null,
+      "question": "Which current defining Core Main Content statement establishes the distinct meaning of Artifact/Activity: Active?",
+      "reason": "No positive Main Content basis was found in the assigned captured source set; absence is not evidence to drop or consolidate."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-290"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Artifact/Activity: Active/Carrier Basename."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in checked sources."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Artifact/Activity: Active/Carrier Basename."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis exists."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No redundancy proof in checked sources."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Artifact/Activity: Active/Carrier Basename",
+      "proposal": null,
+      "question": "Which current defining Core Main Content statement establishes the distinct meaning of Artifact/Activity: Active/Carrier Basename?",
+      "reason": "No positive Main Content basis was found in the assigned captured source set; absence is not evidence to drop or consolidate."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-R-1394",
+        "CA-R-1396"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Artifact/Activity: Inactive."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in checked sources."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Artifact/Activity: Inactive."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis exists."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No redundancy proof in checked sources."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Artifact/Activity: Inactive",
+      "proposal": null,
+      "question": "Which current defining Core Main Content statement establishes the distinct meaning of Artifact/Activity: Inactive?",
+      "reason": "No positive Main Content basis was found in the assigned captured source set; absence is not evidence to drop or consolidate."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-R-1500",
+        "CA-R-1501",
+        "CA-R-1502"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Artifact/Applicability."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in checked sources."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Artifact/Applicability."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis exists."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No redundancy proof in checked sources."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Artifact/Applicability",
+      "proposal": null,
+      "question": "Which current defining Core Main Content statement establishes the distinct meaning of Artifact/Applicability?",
+      "reason": "No positive Main Content basis was found in the assigned captured source set; absence is not evidence to drop or consolidate."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-R-1499",
+        "CA-R-1500",
+        "CA-R-1502"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Artifact/Authority."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in checked sources."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Artifact/Authority."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis exists."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No redundancy proof in checked sources."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Artifact/Authority",
+      "proposal": null,
+      "question": "Which current defining Core Main Content statement establishes the distinct meaning of Artifact/Authority?",
+      "reason": "No positive Main Content basis was found in the assigned captured source set; absence is not evidence to drop or consolidate."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-285",
+        "CA-D-340",
+        "CA-D-457",
+        "CA-D-467",
+        "CA-E-462",
+        "CA-E-476",
+        "CA-E-482",
+        "CA-E-521",
+        "CA-O-052",
+        "CA-R-1361",
+        "CA-R-1491",
+        "CA-R-1644",
+        "CA-R-1788"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Artifact/Carrier."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in checked sources."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Artifact/Carrier."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis exists."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No redundancy proof in checked sources."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Artifact/Carrier",
+      "proposal": null,
+      "question": "Which current defining Core Main Content statement establishes the distinct meaning of Artifact/Carrier?",
+      "reason": "No positive Main Content basis was found in the assigned captured source set; absence is not evidence to drop or consolidate."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-296",
+        "CA-D-352",
+        "CA-D-451",
+        "CA-D-466",
+        "CA-D-483",
+        "CA-D-565",
+        "CA-R-1788"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Artifact/Carrier Placement."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in checked sources."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Artifact/Carrier Placement."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis exists."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No redundancy proof in checked sources."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Artifact/Carrier Placement",
+      "proposal": null,
+      "question": "Which current defining Core Main Content statement establishes the distinct meaning of Artifact/Carrier Placement?",
+      "reason": "No positive Main Content basis was found in the assigned captured source set; absence is not evidence to drop or consolidate."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-352"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Artifact/Carrier Placement/Status Subdirectory."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in checked sources."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Artifact/Carrier Placement/Status Subdirectory."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis exists."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No redundancy proof in checked sources."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Artifact/Carrier Placement/Status Subdirectory",
+      "proposal": null,
+      "question": "Which current defining Core Main Content statement establishes the distinct meaning of Artifact/Carrier Placement/Status Subdirectory?",
+      "reason": "No positive Main Content basis was found in the assigned captured source set; absence is not evidence to drop or consolidate."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-R-1501",
+        "CA-R-1502"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Artifact/Currentness."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in checked sources."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Artifact/Currentness."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis exists."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No redundancy proof in checked sources."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Artifact/Currentness",
+      "proposal": null,
+      "question": "Which current defining Core Main Content statement establishes the distinct meaning of Artifact/Currentness?",
+      "reason": "No positive Main Content basis was found in the assigned captured source set; absence is not evidence to drop or consolidate."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-R-728"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Artifact/Identity."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in checked sources."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Artifact/Identity."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis exists."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No redundancy proof in checked sources."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Artifact/Identity",
+      "proposal": null,
+      "question": "Which current defining Core Main Content statement establishes the distinct meaning of Artifact/Identity?",
+      "reason": "No positive Main Content basis was found in the assigned captured source set; absence is not evidence to drop or consolidate."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-R-1571"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Artifact/Local Tier."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in checked sources."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Artifact/Local Tier."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis exists."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No redundancy proof in checked sources."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Artifact/Local Tier",
+      "proposal": null,
+      "question": "Which current defining Core Main Content statement establishes the distinct meaning of Artifact/Local Tier?",
+      "reason": "No positive Main Content basis was found in the assigned captured source set; absence is not evidence to drop or consolidate."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-267",
+        "CA-D-485"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Artifact/Property."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in checked sources."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Artifact/Property."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis exists."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No redundancy proof in checked sources."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Artifact/Property",
+      "proposal": null,
+      "question": "Which current defining Core Main Content statement establishes the distinct meaning of Artifact/Property?",
+      "reason": "No positive Main Content basis was found in the assigned captured source set; absence is not evidence to drop or consolidate."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-485"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Artifact/Property/Default."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in checked sources."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Artifact/Property/Default."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis exists."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No redundancy proof in checked sources."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Artifact/Property/Default",
+      "proposal": null,
+      "question": "Which current defining Core Main Content statement establishes the distinct meaning of Artifact/Property/Default?",
+      "reason": "No positive Main Content basis was found in the assigned captured source set; absence is not evidence to drop or consolidate."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-R-1306",
+        "CA-R-1308",
+        "CA-R-1405",
+        "CA-R-1701",
+        "CA-R-1708",
+        "CA-R-1765"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Artifact/Type."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in checked sources."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Artifact/Type."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis exists."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No redundancy proof in checked sources."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Artifact/Type",
+      "proposal": null,
+      "question": "Which current defining Core Main Content statement establishes the distinct meaning of Artifact/Type?",
+      "reason": "No positive Main Content basis was found in the assigned captured source set; absence is not evidence to drop or consolidate."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-E-491",
+        "CA-M-303",
+        "CA-O-067",
+        "CA-O-145"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "e10"
+          ],
+          "finding": "current_meaning_evidenced",
+          "reason": "A current pinned substantive span names this exact preserved identity; no duplicate/consolidation proof was found in this bounded review."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "e10"
+          ],
+          "finding": "no_proven_duplicate",
+          "reason": "A current pinned substantive span names this exact preserved identity; no duplicate/consolidation proof was found in this bounded review."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "e10"
+          ],
+          "finding": "not_empty_by_default",
+          "reason": "A named substantive occurrence prevents treating missing dedicated definition as empty."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "e10"
+          ],
+          "finding": "not_proposed",
+          "reason": "No replacement/generalization is asserted without loss analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "e10"
+          ],
+          "finding": "not_proven_redundant",
+          "reason": "Qualified-field repetition is not redundancy proof."
+        }
+      },
+      "confidence_percent": 90,
+      "disposition": "retain",
+      "evidence_refs": [
+        "e10"
+      ],
+      "identity": "Assess Atom Update Identity",
+      "proposal": null,
+      "question": null,
+      "reason": "Current pinned Main Content provides an exact meaningful identity occurrence; retain this preserved identity pending integration."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-O-058"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "e11"
+          ],
+          "finding": "current_meaning_evidenced",
+          "reason": "A current pinned substantive span names this exact preserved identity; no duplicate/consolidation proof was found in this bounded review."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "e11"
+          ],
+          "finding": "no_proven_duplicate",
+          "reason": "A current pinned substantive span names this exact preserved identity; no duplicate/consolidation proof was found in this bounded review."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "e11"
+          ],
+          "finding": "not_empty_by_default",
+          "reason": "A named substantive occurrence prevents treating missing dedicated definition as empty."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "e11"
+          ],
+          "finding": "not_proposed",
+          "reason": "No replacement/generalization is asserted without loss analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "e11"
+          ],
+          "finding": "not_proven_redundant",
+          "reason": "Qualified-field repetition is not redundancy proof."
+        }
+      },
+      "confidence_percent": 90,
+      "disposition": "retain",
+      "evidence_refs": [
+        "e11"
+      ],
+      "identity": "Assess Lineage Impact",
+      "proposal": null,
+      "question": null,
+      "reason": "Current pinned Main Content provides an exact meaningful identity occurrence; retain this preserved identity pending integration."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-O-126"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "e12"
+          ],
+          "finding": "current_meaning_evidenced",
+          "reason": "A current pinned substantive span names this exact preserved identity; no duplicate/consolidation proof was found in this bounded review."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "e12"
+          ],
+          "finding": "no_proven_duplicate",
+          "reason": "A current pinned substantive span names this exact preserved identity; no duplicate/consolidation proof was found in this bounded review."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "e12"
+          ],
+          "finding": "not_empty_by_default",
+          "reason": "A named substantive occurrence prevents treating missing dedicated definition as empty."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "e12"
+          ],
+          "finding": "not_proposed",
+          "reason": "No replacement/generalization is asserted without loss analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "e12"
+          ],
+          "finding": "not_proven_redundant",
+          "reason": "Qualified-field repetition is not redundancy proof."
+        }
+      },
+      "confidence_percent": 90,
+      "disposition": "retain",
+      "evidence_refs": [
+        "e12"
+      ],
+      "identity": "Assess Prepared Result Conformance",
+      "proposal": null,
+      "question": null,
+      "reason": "Current pinned Main Content provides an exact meaningful identity occurrence; retain this preserved identity pending integration."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-O-005",
+        "CA-O-010",
+        "CA-O-015",
+        "CA-O-028",
+        "CA-O-153"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "e13"
+          ],
+          "finding": "current_meaning_evidenced",
+          "reason": "A current pinned substantive span names this exact preserved identity; no duplicate/consolidation proof was found in this bounded review."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "e13"
+          ],
+          "finding": "no_proven_duplicate",
+          "reason": "A current pinned substantive span names this exact preserved identity; no duplicate/consolidation proof was found in this bounded review."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "e13"
+          ],
+          "finding": "not_empty_by_default",
+          "reason": "A named substantive occurrence prevents treating missing dedicated definition as empty."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "e13"
+          ],
+          "finding": "not_proposed",
+          "reason": "No replacement/generalization is asserted without loss analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "e13"
+          ],
+          "finding": "not_proven_redundant",
+          "reason": "Qualified-field repetition is not redundancy proof."
+        }
+      },
+      "confidence_percent": 90,
+      "disposition": "retain",
+      "evidence_refs": [
+        "e13"
+      ],
+      "identity": "Assess Source Conflicts",
+      "proposal": null,
+      "question": null,
+      "reason": "Current pinned Main Content provides an exact meaningful identity occurrence; retain this preserved identity pending integration."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-267",
+        "CA-D-268",
+        "CA-D-269",
+        "CA-D-270",
+        "CA-D-274",
+        "CA-D-276",
+        "CA-D-282",
+        "CA-D-283",
+        "CA-D-285",
+        "CA-D-286",
+        "CA-D-287",
+        "CA-D-288",
+        "CA-D-291",
+        "CA-D-292",
+        "CA-D-296",
+        "CA-D-302",
+        "CA-D-303",
+        "CA-D-304",
+        "CA-D-305",
+        "CA-D-336",
+        "CA-D-340",
+        "CA-D-342",
+        "CA-D-346",
+        "CA-D-366",
+        "CA-D-375",
+        "CA-D-376",
+        "CA-D-377",
+        "CA-D-378",
+        "CA-D-386",
+        "CA-D-389",
+        "CA-D-393",
+        "CA-D-434",
+        "CA-D-446",
+        "CA-D-447",
+        "CA-D-451",
+        "CA-D-457",
+        "CA-D-460",
+        "CA-D-461",
+        "CA-D-463",
+        "CA-D-464",
+        "CA-D-466",
+        "CA-D-467",
+        "CA-D-469",
+        "CA-D-470",
+        "CA-D-471",
+        "CA-D-472",
+        "CA-D-473",
+        "CA-D-475",
+        "CA-D-478",
+        "CA-D-479",
+        "CA-D-480",
+        "CA-D-481",
+        "CA-D-482",
+        "CA-D-483",
+        "CA-D-484",
+        "CA-D-485",
+        "CA-D-494",
+        "CA-D-495",
+        "CA-D-496",
+        "CA-D-497",
+        "CA-D-505",
+        "CA-D-508",
+        "CA-D-550",
+        "CA-D-568",
+        "CA-D-570",
+        "CA-E-240",
+        "CA-E-241",
+        "CA-E-243",
+        "CA-E-246",
+        "CA-E-379",
+        "CA-E-382",
+        "CA-E-384",
+        "CA-E-386",
+        "CA-E-402",
+        "CA-E-403",
+        "CA-E-404",
+        "CA-E-405",
+        "CA-E-407",
+        "CA-E-425",
+        "CA-E-440",
+        "CA-E-441",
+        "CA-E-443",
+        "CA-E-444",
+        "CA-E-447",
+        "CA-E-448",
+        "CA-E-449",
+        "CA-E-450",
+        "CA-E-456",
+        "CA-E-457",
+        "CA-E-459",
+        "CA-E-460",
+        "CA-E-461",
+        "CA-E-462",
+        "CA-E-463",
+        "CA-E-466",
+        "CA-E-471",
+        "CA-E-472",
+        "CA-E-473",
+        "CA-E-476",
+        "CA-E-477",
+        "CA-E-482",
+        "CA-E-490",
+        "CA-E-491",
+        "CA-E-498",
+        "CA-E-499",
+        "CA-E-501",
+        "CA-E-502",
+        "CA-E-504",
+        "CA-E-505",
+        "CA-E-506",
+        "CA-E-507",
+        "CA-E-510",
+        "CA-E-511",
+        "CA-E-512",
+        "CA-E-519",
+        "CA-E-520",
+        "CA-E-521",
+        "CA-E-522",
+        "CA-E-523",
+        "CA-M-111",
+        "CA-M-113",
+        "CA-M-114",
+        "CA-M-115",
+        "CA-M-116",
+        "CA-M-120",
+        "CA-M-125",
+        "CA-M-225",
+        "CA-M-231",
+        "CA-M-232",
+        "CA-M-233",
+        "CA-M-237",
+        "CA-M-239",
+        "CA-M-240",
+        "CA-M-241",
+        "CA-M-264",
+        "CA-M-265",
+        "CA-M-271",
+        "CA-M-272",
+        "CA-M-273",
+        "CA-M-276",
+        "CA-M-287",
+        "CA-M-288",
+        "CA-M-294",
+        "CA-M-295",
+        "CA-M-297",
+        "CA-M-301",
+        "CA-M-303",
+        "CA-M-305",
+        "CA-M-306",
+        "CA-M-307",
+        "CA-M-308",
+        "CA-M-309",
+        "CA-M-310",
+        "CA-M-311",
+        "CA-M-312",
+        "CA-M-313",
+        "CA-M-314",
+        "CA-M-315",
+        "CA-O-004",
+        "CA-O-005",
+        "CA-O-006",
+        "CA-O-007",
+        "CA-O-008",
+        "CA-O-009",
+        "CA-O-011",
+        "CA-O-016",
+        "CA-O-017",
+        "CA-O-018",
+        "CA-O-019",
+        "CA-O-020",
+        "CA-O-021",
+        "CA-O-024",
+        "CA-O-028",
+        "CA-O-051",
+        "CA-O-053",
+        "CA-O-058",
+        "CA-O-067",
+        "CA-O-077",
+        "CA-O-078",
+        "CA-O-079",
+        "CA-O-087",
+        "CA-O-089",
+        "CA-O-090",
+        "CA-O-091",
+        "CA-O-092",
+        "CA-O-093",
+        "CA-O-094",
+        "CA-O-095",
+        "CA-O-096",
+        "CA-O-098",
+        "CA-O-099",
+        "CA-O-100",
+        "CA-O-102",
+        "CA-O-103",
+        "CA-O-104",
+        "CA-O-105",
+        "CA-O-106",
+        "CA-O-111",
+        "CA-O-118",
+        "CA-O-119",
+        "CA-O-120",
+        "CA-O-121",
+        "CA-O-122",
+        "CA-O-123",
+        "CA-O-124",
+        "CA-O-125",
+        "CA-O-126",
+        "CA-O-128",
+        "CA-O-131",
+        "CA-O-152",
+        "CA-O-153",
+        "CA-O-154",
+        "CA-O-156",
+        "CA-O-157",
+        "CA-R-1014",
+        "CA-R-1018",
+        "CA-R-1044",
+        "CA-R-1078",
+        "CA-R-1080",
+        "CA-R-1198",
+        "CA-R-1199",
+        "CA-R-1200",
+        "CA-R-1201",
+        "CA-R-1202",
+        "CA-R-1203",
+        "CA-R-1213",
+        "CA-R-1231",
+        "CA-R-1232",
+        "CA-R-1234",
+        "CA-R-1256",
+        "CA-R-1264",
+        "CA-R-1265",
+        "CA-R-1269",
+        "CA-R-1271",
+        "CA-R-1273",
+        "CA-R-1274",
+        "CA-R-1275",
+        "CA-R-1276",
+        "CA-R-1278",
+        "CA-R-1279",
+        "CA-R-1280",
+        "CA-R-1281",
+        "CA-R-1283",
+        "CA-R-1287",
+        "CA-R-1292",
+        "CA-R-1293",
+        "CA-R-1294",
+        "CA-R-1306",
+        "CA-R-1308",
+        "CA-R-1309",
+        "CA-R-1314",
+        "CA-R-1315",
+        "CA-R-1316",
+        "CA-R-1321",
+        "CA-R-1336",
+        "CA-R-1337",
+        "CA-R-1338",
+        "CA-R-1339",
+        "CA-R-1340",
+        "CA-R-1341",
+        "CA-R-1342",
+        "CA-R-1343",
+        "CA-R-1358",
+        "CA-R-1359",
+        "CA-R-1360",
+        "CA-R-1361",
+        "CA-R-1363",
+        "CA-R-1375",
+        "CA-R-1378",
+        "CA-R-1388",
+        "CA-R-1389",
+        "CA-R-1390",
+        "CA-R-1391",
+        "CA-R-1392",
+        "CA-R-1393",
+        "CA-R-1397",
+        "CA-R-1398",
+        "CA-R-1399",
+        "CA-R-1401",
+        "CA-R-1404",
+        "CA-R-1409",
+        "CA-R-1412",
+        "CA-R-1413",
+        "CA-R-1415",
+        "CA-R-1416",
+        "CA-R-1417",
+        "CA-R-1418",
+        "CA-R-1428",
+        "CA-R-1429",
+        "CA-R-1430",
+        "CA-R-1431",
+        "CA-R-1432",
+        "CA-R-1433",
+        "CA-R-1434",
+        "CA-R-1437",
+        "CA-R-1442",
+        "CA-R-1443",
+        "CA-R-1444",
+        "CA-R-1447",
+        "CA-R-1448",
+        "CA-R-1452",
+        "CA-R-1454",
+        "CA-R-1455",
+        "CA-R-1456",
+        "CA-R-1459",
+        "CA-R-1460",
+        "CA-R-1461",
+        "CA-R-1464",
+        "CA-R-1465",
+        "CA-R-1470",
+        "CA-R-1471",
+        "CA-R-1472",
+        "CA-R-1484",
+        "CA-R-1488",
+        "CA-R-1489",
+        "CA-R-1491",
+        "CA-R-1497",
+        "CA-R-1502",
+        "CA-R-1503",
+        "CA-R-1504",
+        "CA-R-1505",
+        "CA-R-1506",
+        "CA-R-1507",
+        "CA-R-1508",
+        "CA-R-1509",
+        "CA-R-1521",
+        "CA-R-1530",
+        "CA-R-1531",
+        "CA-R-1534",
+        "CA-R-1536",
+        "CA-R-1537",
+        "CA-R-1538",
+        "CA-R-1539",
+        "CA-R-154",
+        "CA-R-1541",
+        "CA-R-1542",
+        "CA-R-1545",
+        "CA-R-1546",
+        "CA-R-1548",
+        "CA-R-1549",
+        "CA-R-155",
+        "CA-R-1550",
+        "CA-R-1551",
+        "CA-R-1556",
+        "CA-R-1557",
+        "CA-R-1558",
+        "CA-R-1559",
+        "CA-R-1561",
+        "CA-R-1562",
+        "CA-R-1563",
+        "CA-R-1564",
+        "CA-R-1565",
+        "CA-R-1566",
+        "CA-R-1567",
+        "CA-R-1568",
+        "CA-R-1569",
+        "CA-R-1570",
+        "CA-R-1571",
+        "CA-R-1573",
+        "CA-R-1574",
+        "CA-R-1575",
+        "CA-R-1576",
+        "CA-R-1577",
+        "CA-R-1578",
+        "CA-R-1579",
+        "CA-R-1580",
+        "CA-R-1581",
+        "CA-R-1583",
+        "CA-R-1584",
+        "CA-R-1585",
+        "CA-R-1586",
+        "CA-R-1587",
+        "CA-R-1588",
+        "CA-R-1589",
+        "CA-R-1590",
+        "CA-R-1591",
+        "CA-R-1592",
+        "CA-R-1593",
+        "CA-R-1594",
+        "CA-R-1595",
+        "CA-R-1596",
+        "CA-R-1597",
+        "CA-R-1598",
+        "CA-R-1599",
+        "CA-R-1608",
+        "CA-R-1610",
+        "CA-R-1611",
+        "CA-R-1624",
+        "CA-R-1629",
+        "CA-R-1633",
+        "CA-R-1634",
+        "CA-R-1638",
+        "CA-R-1646",
+        "CA-R-1655",
+        "CA-R-1664",
+        "CA-R-1694",
+        "CA-R-1695",
+        "CA-R-1701",
+        "CA-R-1702",
+        "CA-R-1703",
+        "CA-R-1704",
+        "CA-R-1720",
+        "CA-R-1738",
+        "CA-R-1739",
+        "CA-R-1740",
+        "CA-R-1745",
+        "CA-R-1746",
+        "CA-R-1748",
+        "CA-R-1750",
+        "CA-R-1757",
+        "CA-R-1767",
+        "CA-R-1768",
+        "CA-R-1772",
+        "CA-R-1773",
+        "CA-R-1774",
+        "CA-R-1775",
+        "CA-R-1777",
+        "CA-R-1788",
+        "CA-R-1874",
+        "CA-R-1875",
+        "CA-R-366",
+        "CA-R-626",
+        "CA-R-643",
+        "CA-R-655",
+        "CA-R-658",
+        "CA-R-659",
+        "CA-R-660",
+        "CA-R-680",
+        "CA-R-718",
+        "CA-R-740",
+        "CA-R-771",
+        "CA-R-794",
+        "CA-R-796",
+        "CA-R-806",
+        "CA-R-837",
+        "CA-R-862",
+        "CA-R-886",
+        "CA-R-916",
+        "CA-R-918",
+        "CA-R-920",
+        "CA-R-922",
+        "CA-R-923",
+        "CA-R-924",
+        "CA-R-925",
+        "CA-R-926",
+        "CA-R-927",
+        "CA-R-932",
+        "CA-R-933",
+        "CA-R-935",
+        "CA-R-940",
+        "CA-R-944",
+        "CA-R-945",
+        "CA-R-947",
+        "CA-R-951",
+        "CA-R-954",
+        "CA-R-991",
+        "CA-R-992",
+        "CA-R-997",
+        "CAPRMEDIO-GOV-EVAL-005"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "e14"
+          ],
+          "finding": "current_meaning_evidenced",
+          "reason": "A current pinned substantive span names this exact preserved identity; no duplicate/consolidation proof was found in this bounded review."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "e14"
+          ],
+          "finding": "no_proven_duplicate",
+          "reason": "A current pinned substantive span names this exact preserved identity; no duplicate/consolidation proof was found in this bounded review."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "e14"
+          ],
+          "finding": "not_empty_by_default",
+          "reason": "A named substantive occurrence prevents treating missing dedicated definition as empty."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "e14"
+          ],
+          "finding": "not_proposed",
+          "reason": "No replacement/generalization is asserted without loss analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "e14"
+          ],
+          "finding": "not_proven_redundant",
+          "reason": "Qualified-field repetition is not redundancy proof."
+        }
+      },
+      "confidence_percent": 90,
+      "disposition": "retain",
+      "evidence_refs": [
+        "e14"
+      ],
+      "identity": "Atom",
+      "proposal": null,
+      "question": null,
+      "reason": "Current pinned Main Content provides an exact meaningful identity occurrence; retain this preserved identity pending integration."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-282",
+        "CA-D-284",
+        "CA-D-484"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom Carrier."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in checked sources."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom Carrier."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis exists."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No redundancy proof in checked sources."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Atom Carrier",
+      "proposal": null,
+      "question": "Which current defining Core Main Content statement establishes the distinct meaning of Atom Carrier?",
+      "reason": "No positive Main Content basis was found in the assigned captured source set; absence is not evidence to drop or consolidate."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-303"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom Carrier Replacement."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in checked sources."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom Carrier Replacement."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis exists."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No redundancy proof in checked sources."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Atom Carrier Replacement",
+      "proposal": null,
+      "question": "Which current defining Core Main Content statement establishes the distinct meaning of Atom Carrier Replacement?",
+      "reason": "No positive Main Content basis was found in the assigned captured source set; absence is not evidence to drop or consolidate."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-E-513",
+        "CA-O-080"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "e15"
+          ],
+          "finding": "current_meaning_evidenced",
+          "reason": "A current pinned substantive span names this exact preserved identity; no duplicate/consolidation proof was found in this bounded review."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "e15"
+          ],
+          "finding": "no_proven_duplicate",
+          "reason": "A current pinned substantive span names this exact preserved identity; no duplicate/consolidation proof was found in this bounded review."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "e15"
+          ],
+          "finding": "not_empty_by_default",
+          "reason": "A named substantive occurrence prevents treating missing dedicated definition as empty."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "e15"
+          ],
+          "finding": "not_proposed",
+          "reason": "No replacement/generalization is asserted without loss analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "e15"
+          ],
+          "finding": "not_proven_redundant",
+          "reason": "Qualified-field repetition is not redundancy proof."
+        }
+      },
+      "confidence_percent": 90,
+      "disposition": "retain",
+      "evidence_refs": [
+        "e15"
+      ],
+      "identity": "Atom Carrier Validation",
+      "proposal": null,
+      "question": null,
+      "reason": "Current pinned Main Content provides an exact meaningful identity occurrence; retain this preserved identity pending integration."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-282",
+        "CA-D-284",
+        "CA-D-484"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom Carrier/Filename."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in checked sources."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom Carrier/Filename."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis exists."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No redundancy proof in checked sources."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Atom Carrier/Filename",
+      "proposal": null,
+      "question": "Which current defining Core Main Content statement establishes the distinct meaning of Atom Carrier/Filename?",
+      "reason": "No positive Main Content basis was found in the assigned captured source set; absence is not evidence to drop or consolidate."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-484"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom Carrier/Filename/Local Tier."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in checked sources."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom Carrier/Filename/Local Tier."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis exists."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No redundancy proof in checked sources."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Atom Carrier/Filename/Local Tier",
+      "proposal": null,
+      "question": "Which current defining Core Main Content statement establishes the distinct meaning of Atom Carrier/Filename/Local Tier?",
+      "reason": "No positive Main Content basis was found in the assigned captured source set; absence is not evidence to drop or consolidate."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-282"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom Carrier/Filename/Summary Slug."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in checked sources."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom Carrier/Filename/Summary Slug."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis exists."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No redundancy proof in checked sources."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Atom Carrier/Filename/Summary Slug",
+      "proposal": null,
+      "question": "Which current defining Core Main Content statement establishes the distinct meaning of Atom Carrier/Filename/Summary Slug?",
+      "reason": "No positive Main Content basis was found in the assigned captured source set; absence is not evidence to drop or consolidate."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-284"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom Carrier/Filename/Token Case."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in checked sources."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom Carrier/Filename/Token Case."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis exists."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No redundancy proof in checked sources."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Atom Carrier/Filename/Token Case",
+      "proposal": null,
+      "question": "Which current defining Core Main Content statement establishes the distinct meaning of Atom Carrier/Filename/Token Case?",
+      "reason": "No positive Main Content basis was found in the assigned captured source set; absence is not evidence to drop or consolidate."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-E-491",
+        "CA-O-067",
+        "CA-R-1432",
+        "CA-R-1633"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom Change Classification."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in checked sources."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom Change Classification."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis exists."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No redundancy proof in checked sources."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Atom Change Classification",
+      "proposal": null,
+      "question": "Which current defining Core Main Content statement establishes the distinct meaning of Atom Change Classification?",
+      "reason": "No positive Main Content basis was found in the assigned captured source set; absence is not evidence to drop or consolidate."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-M-111"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom Claim Authoring."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in checked sources."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom Claim Authoring."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis exists."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No redundancy proof in checked sources."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Atom Claim Authoring",
+      "proposal": null,
+      "question": "Which current defining Core Main Content statement establishes the distinct meaning of Atom Claim Authoring?",
+      "reason": "No positive Main Content basis was found in the assigned captured source set; absence is not evidence to drop or consolidate."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-M-115"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom Claim Boundary Authoring."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in checked sources."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom Claim Boundary Authoring."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis exists."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No redundancy proof in checked sources."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Atom Claim Boundary Authoring",
+      "proposal": null,
+      "question": "Which current defining Core Main Content statement establishes the distinct meaning of Atom Claim Boundary Authoring?",
+      "reason": "No positive Main Content basis was found in the assigned captured source set; absence is not evidence to drop or consolidate."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-M-116"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom Claim Projection."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in checked sources."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom Claim Projection."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis exists."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No redundancy proof in checked sources."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Atom Claim Projection",
+      "proposal": null,
+      "question": "Which current defining Core Main Content statement establishes the distinct meaning of Atom Claim Projection?",
+      "reason": "No positive Main Content basis was found in the assigned captured source set; absence is not evidence to drop or consolidate."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-467",
+        "CA-D-475",
+        "CA-E-460",
+        "CA-E-490",
+        "CA-E-499",
+        "CA-E-500",
+        "CA-M-273",
+        "CA-R-1265",
+        "CA-R-1378",
+        "CA-R-1379",
+        "CA-R-1381",
+        "CA-R-1383",
+        "CA-R-1409",
+        "CA-R-1447",
+        "CA-R-1521",
+        "CA-R-1546",
+        "CA-R-1567"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "e16"
+          ],
+          "finding": "current_meaning_evidenced",
+          "reason": "A current pinned substantive span names this exact preserved identity; no duplicate/consolidation proof was found in this bounded review."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "e16"
+          ],
+          "finding": "no_proven_duplicate",
+          "reason": "A current pinned substantive span names this exact preserved identity; no duplicate/consolidation proof was found in this bounded review."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "e16"
+          ],
+          "finding": "not_empty_by_default",
+          "reason": "A named substantive occurrence prevents treating missing dedicated definition as empty."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "e16"
+          ],
+          "finding": "not_proposed",
+          "reason": "No replacement/generalization is asserted without loss analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "e16"
+          ],
+          "finding": "not_proven_redundant",
+          "reason": "Qualified-field repetition is not redundancy proof."
+        }
+      },
+      "confidence_percent": 90,
+      "disposition": "retain",
+      "evidence_refs": [
+        "e16"
+      ],
+      "identity": "Atom Collection",
+      "proposal": null,
+      "question": null,
+      "reason": "Current pinned Main Content provides an exact meaningful identity occurrence; retain this preserved identity pending integration."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-R-1383"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom Collection/Direct Containment."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in checked sources."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom Collection/Direct Containment."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis exists."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No redundancy proof in checked sources."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Atom Collection/Direct Containment",
+      "proposal": null,
+      "question": "Which current defining Core Main Content statement establishes the distinct meaning of Atom Collection/Direct Containment?",
+      "reason": "No positive Main Content basis was found in the assigned captured source set; absence is not evidence to drop or consolidate."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-R-1567"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom Collection/Local Tier."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in checked sources."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom Collection/Local Tier."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis exists."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No redundancy proof in checked sources."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Atom Collection/Local Tier",
+      "proposal": null,
+      "question": "Which current defining Core Main Content statement establishes the distinct meaning of Atom Collection/Local Tier?",
+      "reason": "No positive Main Content basis was found in the assigned captured source set; absence is not evidence to drop or consolidate."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-R-1381",
+        "CA-R-1546"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom Collection/Type."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in checked sources."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom Collection/Type."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis exists."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No redundancy proof in checked sources."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Atom Collection/Type",
+      "proposal": null,
+      "question": "Which current defining Core Main Content statement establishes the distinct meaning of Atom Collection/Type?",
+      "reason": "No positive Main Content basis was found in the assigned captured source set; absence is not evidence to drop or consolidate."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-R-1381",
+        "CA-R-1546"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom Collection/Type: Ad Hoc."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in checked sources."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom Collection/Type: Ad Hoc."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis exists."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No redundancy proof in checked sources."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Atom Collection/Type: Ad Hoc",
+      "proposal": null,
+      "question": "Which current defining Core Main Content statement establishes the distinct meaning of Atom Collection/Type: Ad Hoc?",
+      "reason": "No positive Main Content basis was found in the assigned captured source set; absence is not evidence to drop or consolidate."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-O-103"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "e17"
+          ],
+          "finding": "current_meaning_evidenced",
+          "reason": "A current pinned substantive span names this exact preserved identity; no duplicate/consolidation proof was found in this bounded review."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "e17"
+          ],
+          "finding": "no_proven_duplicate",
+          "reason": "A current pinned substantive span names this exact preserved identity; no duplicate/consolidation proof was found in this bounded review."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "e17"
+          ],
+          "finding": "not_empty_by_default",
+          "reason": "A named substantive occurrence prevents treating missing dedicated definition as empty."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "e17"
+          ],
+          "finding": "not_proposed",
+          "reason": "No replacement/generalization is asserted without loss analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "e17"
+          ],
+          "finding": "not_proven_redundant",
+          "reason": "Qualified-field repetition is not redundancy proof."
+        }
+      },
+      "confidence_percent": 90,
+      "disposition": "retain",
+      "evidence_refs": [
+        "e17"
+      ],
+      "identity": "Atom Content Authoring",
+      "proposal": null,
+      "question": null,
+      "reason": "Current pinned Main Content provides an exact meaningful identity occurrence; retain this preserved identity pending integration."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-E-447",
+        "CA-E-456"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom Tier Validation."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in checked sources."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom Tier Validation."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis exists."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No redundancy proof in checked sources."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Atom Tier Validation",
+      "proposal": null,
+      "question": "Which current defining Core Main Content statement establishes the distinct meaning of Atom Tier Validation?",
+      "reason": "No positive Main Content basis was found in the assigned captured source set; absence is not evidence to drop or consolidate."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-E-447"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom Tier Validation/concrete cases."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in checked sources."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom Tier Validation/concrete cases."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis exists."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No redundancy proof in checked sources."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Atom Tier Validation/concrete cases",
+      "proposal": null,
+      "question": "Which current defining Core Main Content statement establishes the distinct meaning of Atom Tier Validation/concrete cases?",
+      "reason": "No positive Main Content basis was found in the assigned captured source set; absence is not evidence to drop or consolidate."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-E-460",
+        "CA-M-273"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom selection."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in checked sources."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom selection."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis exists."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No redundancy proof in checked sources."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Atom selection",
+      "proposal": null,
+      "question": "Which current defining Core Main Content statement establishes the distinct meaning of Atom selection?",
+      "reason": "No positive Main Content basis was found in the assigned captured source set; absence is not evidence to drop or consolidate."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-E-501",
+        "CA-M-306"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom/Author."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in checked sources."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom/Author."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis exists."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No redundancy proof in checked sources."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Atom/Author",
+      "proposal": null,
+      "question": "Which current defining Core Main Content statement establishes the distinct meaning of Atom/Author?",
+      "reason": "No positive Main Content basis was found in the assigned captured source set; absence is not evidence to drop or consolidate."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-291",
+        "CA-D-346",
+        "CA-D-386",
+        "CA-D-480",
+        "CA-D-495",
+        "CA-D-505",
+        "CA-E-407",
+        "CA-E-506",
+        "CA-M-241",
+        "CA-O-051",
+        "CA-O-077",
+        "CA-R-1586",
+        "CA-R-1590",
+        "CA-R-1598"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom/Carrier."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in checked sources."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom/Carrier."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis exists."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No redundancy proof in checked sources."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Atom/Carrier",
+      "proposal": null,
+      "question": "Which current defining Core Main Content statement establishes the distinct meaning of Atom/Carrier?",
+      "reason": "No positive Main Content basis was found in the assigned captured source set; absence is not evidence to drop or consolidate."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-480"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom/Carrier/Canonical Address."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in checked sources."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom/Carrier/Canonical Address."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis exists."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No redundancy proof in checked sources."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Atom/Carrier/Canonical Address",
+      "proposal": null,
+      "question": "Which current defining Core Main Content statement establishes the distinct meaning of Atom/Carrier/Canonical Address?",
+      "reason": "No positive Main Content basis was found in the assigned captured source set; absence is not evidence to drop or consolidate."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-291"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom/Carrier/Current Scope Unit."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in checked sources."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom/Carrier/Current Scope Unit."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis exists."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No redundancy proof in checked sources."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Atom/Carrier/Current Scope Unit",
+      "proposal": null,
+      "question": "Which current defining Core Main Content statement establishes the distinct meaning of Atom/Carrier/Current Scope Unit?",
+      "reason": "No positive Main Content basis was found in the assigned captured source set; absence is not evidence to drop or consolidate."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-291"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom/Carrier/Current Scope Unit/Filename Token."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in checked sources."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom/Carrier/Current Scope Unit/Filename Token."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis exists."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No redundancy proof in checked sources."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Atom/Carrier/Current Scope Unit/Filename Token",
+      "proposal": null,
+      "question": "Which current defining Core Main Content statement establishes the distinct meaning of Atom/Carrier/Current Scope Unit/Filename Token?",
+      "reason": "No positive Main Content basis was found in the assigned captured source set; absence is not evidence to drop or consolidate."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-O-077"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom/Carrier/Reconciliation."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in checked sources."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom/Carrier/Reconciliation."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis exists."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No redundancy proof in checked sources."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Atom/Carrier/Reconciliation",
+      "proposal": null,
+      "question": "Which current defining Core Main Content statement establishes the distinct meaning of Atom/Carrier/Reconciliation?",
+      "reason": "No positive Main Content basis was found in the assigned captured source set; absence is not evidence to drop or consolidate."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-E-506"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom/Carrier/Validation."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in checked sources."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom/Carrier/Validation."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis exists."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No redundancy proof in checked sources."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Atom/Carrier/Validation",
+      "proposal": null,
+      "question": "Which current defining Core Main Content statement establishes the distinct meaning of Atom/Carrier/Validation?",
+      "reason": "No positive Main Content basis was found in the assigned captured source set; absence is not evidence to drop or consolidate."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-286",
+        "CA-D-287",
+        "CA-D-292",
+        "CA-D-296",
+        "CA-D-342",
+        "CA-D-378",
+        "CA-D-386",
+        "CA-D-389",
+        "CA-D-393",
+        "CA-D-434",
+        "CA-D-447",
+        "CA-D-451",
+        "CA-D-457",
+        "CA-D-460",
+        "CA-D-461",
+        "CA-D-466",
+        "CA-D-467",
+        "CA-D-469",
+        "CA-D-470",
+        "CA-D-471",
+        "CA-D-472",
+        "CA-D-473",
+        "CA-D-475",
+        "CA-D-479",
+        "CA-D-481",
+        "CA-D-482",
+        "CA-D-483",
+        "CA-D-495",
+        "CA-D-508",
+        "CA-D-570",
+        "CA-E-241",
+        "CA-E-243",
+        "CA-E-246",
+        "CA-E-384",
+        "CA-E-386",
+        "CA-E-425",
+        "CA-E-440",
+        "CA-E-441",
+        "CA-E-443",
+        "CA-E-447",
+        "CA-E-448",
+        "CA-E-449",
+        "CA-E-450",
+        "CA-E-460",
+        "CA-E-461",
+        "CA-E-462",
+        "CA-E-471",
+        "CA-E-473",
+        "CA-E-482",
+        "CA-E-490",
+        "CA-E-498",
+        "CA-E-499",
+        "CA-E-501",
+        "CA-E-502",
+        "CA-E-504",
+        "CA-E-505",
+        "CA-E-507",
+        "CA-E-519",
+        "CA-E-520",
+        "CA-E-522",
+        "CA-E-523",
+        "CA-M-120",
+        "CA-M-125",
+        "CA-M-239",
+        "CA-M-264",
+        "CA-M-265",
+        "CA-M-271",
+        "CA-M-272",
+        "CA-M-273",
+        "CA-M-276",
+        "CA-M-287",
+        "CA-M-288",
+        "CA-M-295",
+        "CA-M-297",
+        "CA-M-305",
+        "CA-M-306",
+        "CA-M-307",
+        "CA-M-308",
+        "CA-M-309",
+        "CA-M-310",
+        "CA-M-311",
+        "CA-M-312",
+        "CA-M-313",
+        "CA-M-314",
+        "CA-M-315",
+        "CA-O-006",
+        "CA-O-008",
+        "CA-O-009",
+        "CA-O-016",
+        "CA-O-017",
+        "CA-O-018",
+        "CA-O-019",
+        "CA-O-020",
+        "CA-O-021",
+        "CA-O-024",
+        "CA-O-079",
+        "CA-O-089",
+        "CA-O-090",
+        "CA-O-091",
+        "CA-O-092",
+        "CA-O-093",
+        "CA-O-094",
+        "CA-O-095",
+        "CA-O-096",
+        "CA-O-098",
+        "CA-O-099",
+        "CA-O-100",
+        "CA-O-102",
+        "CA-O-103",
+        "CA-O-122",
+        "CA-R-1018",
+        "CA-R-1044",
+        "CA-R-1200",
+        "CA-R-1213",
+        "CA-R-1231",
+        "CA-R-1232",
+        "CA-R-1283",
+        "CA-R-1292",
+        "CA-R-1293",
+        "CA-R-1294",
+        "CA-R-1306",
+        "CA-R-1308",
+        "CA-R-1309",
+        "CA-R-1315",
+        "CA-R-1336",
+        "CA-R-1337",
+        "CA-R-1338",
+        "CA-R-1339",
+        "CA-R-1340",
+        "CA-R-1341",
+        "CA-R-1342",
+        "CA-R-1343",
+        "CA-R-1388",
+        "CA-R-1392",
+        "CA-R-1393",
+        "CA-R-1397",
+        "CA-R-1398",
+        "CA-R-1399",
+        "CA-R-1428",
+        "CA-R-1431",
+        "CA-R-1434",
+        "CA-R-1452",
+        "CA-R-1465",
+        "CA-R-1484",
+        "CA-R-1488",
+        "CA-R-1489",
+        "CA-R-1491",
+        "CA-R-1497",
+        "CA-R-1502",
+        "CA-R-1503",
+        "CA-R-1504",
+        "CA-R-1505",
+        "CA-R-1506",
+        "CA-R-1508",
+        "CA-R-1509",
+        "CA-R-1521",
+        "CA-R-1530",
+        "CA-R-1531",
+        "CA-R-1534",
+        "CA-R-1536",
+        "CA-R-1537",
+        "CA-R-1538",
+        "CA-R-1539",
+        "CA-R-1541",
+        "CA-R-1542",
+        "CA-R-1545",
+        "CA-R-1546",
+        "CA-R-1548",
+        "CA-R-1549",
+        "CA-R-155",
+        "CA-R-1550",
+        "CA-R-1556",
+        "CA-R-1557",
+        "CA-R-1559",
+        "CA-R-1561",
+        "CA-R-1562",
+        "CA-R-1563",
+        "CA-R-1564",
+        "CA-R-1565",
+        "CA-R-1566",
+        "CA-R-1567",
+        "CA-R-1569",
+        "CA-R-1570",
+        "CA-R-1573",
+        "CA-R-1574",
+        "CA-R-1575",
+        "CA-R-1576",
+        "CA-R-1577",
+        "CA-R-1578",
+        "CA-R-1579",
+        "CA-R-1580",
+        "CA-R-1581",
+        "CA-R-1583",
+        "CA-R-1584",
+        "CA-R-1585",
+        "CA-R-1586",
+        "CA-R-1587",
+        "CA-R-1588",
+        "CA-R-1589",
+        "CA-R-1590",
+        "CA-R-1591",
+        "CA-R-1592",
+        "CA-R-1593",
+        "CA-R-1594",
+        "CA-R-1599",
+        "CA-R-1608",
+        "CA-R-1629",
+        "CA-R-1646",
+        "CA-R-1655",
+        "CA-R-1664",
+        "CA-R-1694",
+        "CA-R-1701",
+        "CA-R-1702",
+        "CA-R-1703",
+        "CA-R-1704",
+        "CA-R-1720",
+        "CA-R-1739",
+        "CA-R-1767",
+        "CA-R-1768",
+        "CA-R-1772",
+        "CA-R-1773",
+        "CA-R-1775",
+        "CA-R-1777",
+        "CA-R-1874",
+        "CA-R-1875",
+        "CA-R-626",
+        "CA-R-659",
+        "CA-R-740",
+        "CA-R-794",
+        "CA-R-862",
+        "CA-R-924",
+        "CA-R-925",
+        "CA-R-926",
+        "CA-R-927",
+        "CA-R-932",
+        "CA-R-933",
+        "CA-R-944",
+        "CA-R-947",
+        "CA-R-951",
+        "CA-R-954",
+        "CA-R-991",
+        "CA-R-992",
+        "CA-R-997",
+        "CAPRMEDIO-GOV-EVAL-005"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom/Content Role."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in checked sources."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom/Content Role."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis exists."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No redundancy proof in checked sources."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Atom/Content Role",
+      "proposal": null,
+      "question": "Which current defining Core Main Content statement establishes the distinct meaning of Atom/Content Role?",
+      "reason": "No positive Main Content basis was found in the assigned captured source set; absence is not evidence to drop or consolidate."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-M-287",
+        "CA-R-1704"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom/Content Role/Name."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in checked sources."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom/Content Role/Name."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis exists."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No redundancy proof in checked sources."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Atom/Content Role/Name",
+      "proposal": null,
+      "question": "Which current defining Core Main Content statement establishes the distinct meaning of Atom/Content Role/Name?",
+      "reason": "No positive Main Content basis was found in the assigned captured source set; absence is not evidence to drop or consolidate."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-389",
+        "CA-R-1232",
+        "CA-R-1337",
+        "CA-R-1497",
+        "CA-R-1549",
+        "CA-R-1556",
+        "CA-R-1664",
+        "CA-R-1875"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom/Content Role: Analysis."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in checked sources."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom/Content Role: Analysis."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis exists."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No redundancy proof in checked sources."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Atom/Content Role: Analysis",
+      "proposal": null,
+      "question": "Which current defining Core Main Content statement establishes the distinct meaning of Atom/Content Role: Analysis?",
+      "reason": "No positive Main Content basis was found in the assigned captured source set; absence is not evidence to drop or consolidate."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-R-1875"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom/Content Role: Analysis/Status."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in checked sources."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom/Content Role: Analysis/Status."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis exists."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No redundancy proof in checked sources."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Atom/Content Role: Analysis/Status",
+      "proposal": null,
+      "question": "Which current defining Core Main Content statement establishes the distinct meaning of Atom/Content Role: Analysis/Status?",
+      "reason": "No positive Main Content basis was found in the assigned captured source set; absence is not evidence to drop or consolidate."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-389",
+        "CA-R-1232",
+        "CA-R-1556",
+        "CA-R-1664",
+        "CA-R-1875"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom/Content Role: Analysis/Type."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in checked sources."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom/Content Role: Analysis/Type."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis exists."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No redundancy proof in checked sources."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Atom/Content Role: Analysis/Type",
+      "proposal": null,
+      "question": "Which current defining Core Main Content statement establishes the distinct meaning of Atom/Content Role: Analysis/Type?",
+      "reason": "No positive Main Content basis was found in the assigned captured source set; absence is not evidence to drop or consolidate."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-R-1556"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom/Content Role: Analysis/Type: Analysis Report."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in checked sources."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom/Content Role: Analysis/Type: Analysis Report."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis exists."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No redundancy proof in checked sources."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Atom/Content Role: Analysis/Type: Analysis Report",
+      "proposal": null,
+      "question": "Which current defining Core Main Content statement establishes the distinct meaning of Atom/Content Role: Analysis/Type: Analysis Report?",
+      "reason": "No positive Main Content basis was found in the assigned captured source set; absence is not evidence to drop or consolidate."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-R-1664"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom/Content Role: Analysis/Type: Rationale."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in checked sources."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom/Content Role: Analysis/Type: Rationale."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis exists."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No redundancy proof in checked sources."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Atom/Content Role: Analysis/Type: Rationale",
+      "proposal": null,
+      "question": "Which current defining Core Main Content statement establishes the distinct meaning of Atom/Content Role: Analysis/Type: Rationale?",
+      "reason": "No positive Main Content basis was found in the assigned captured source set; absence is not evidence to drop or consolidate."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-R-1231",
+        "CA-R-1336",
+        "CA-R-1549",
+        "CA-R-1557",
+        "CA-R-1561",
+        "CA-R-1608",
+        "CA-R-1629"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom/Content Role: Concern."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in checked sources."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom/Content Role: Concern."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis exists."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No redundancy proof in checked sources."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Atom/Content Role: Concern",
+      "proposal": null,
+      "question": "Which current defining Core Main Content statement establishes the distinct meaning of Atom/Content Role: Concern?",
+      "reason": "No positive Main Content basis was found in the assigned captured source set; absence is not evidence to drop or consolidate."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-R-1608"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom/Content Role: Concern/Status."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in checked sources."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom/Content Role: Concern/Status."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis exists."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No redundancy proof in checked sources."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Atom/Content Role: Concern/Status",
+      "proposal": null,
+      "question": "Which current defining Core Main Content statement establishes the distinct meaning of Atom/Content Role: Concern/Status?",
+      "reason": "No positive Main Content basis was found in the assigned captured source set; absence is not evidence to drop or consolidate."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-R-1231"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom/Content Role: Concern/Type."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in checked sources."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom/Content Role: Concern/Type."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis exists."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No redundancy proof in checked sources."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Atom/Content Role: Concern/Type",
+      "proposal": null,
+      "question": "Which current defining Core Main Content statement establishes the distinct meaning of Atom/Content Role: Concern/Type?",
+      "reason": "No positive Main Content basis was found in the assigned captured source set; absence is not evidence to drop or consolidate."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-466",
+        "CA-E-440",
+        "CA-E-482",
+        "CA-M-313",
+        "CA-O-009",
+        "CA-O-017",
+        "CA-O-018",
+        "CA-O-019",
+        "CA-R-1018",
+        "CA-R-1213",
+        "CA-R-1342",
+        "CA-R-1399",
+        "CA-R-1502",
+        "CA-R-1548",
+        "CA-R-1559",
+        "CA-R-1694",
+        "CA-R-1720",
+        "CA-R-1777",
+        "CA-R-862"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom/Content Role: Delivery."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in checked sources."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom/Content Role: Delivery."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis exists."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No redundancy proof in checked sources."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Atom/Content Role: Delivery",
+      "proposal": null,
+      "question": "Which current defining Core Main Content statement establishes the distinct meaning of Atom/Content Role: Delivery?",
+      "reason": "No positive Main Content basis was found in the assigned captured source set; absence is not evidence to drop or consolidate."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-R-1399"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom/Content Role: Delivery/Status."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in checked sources."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom/Content Role: Delivery/Status."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis exists."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No redundancy proof in checked sources."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Atom/Content Role: Delivery/Status",
+      "proposal": null,
+      "question": "Which current defining Core Main Content statement establishes the distinct meaning of Atom/Content Role: Delivery/Status?",
+      "reason": "No positive Main Content basis was found in the assigned captured source set; absence is not evidence to drop or consolidate."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-E-246",
+        "CA-E-384",
+        "CA-E-440",
+        "CA-E-441",
+        "CA-E-449",
+        "CA-E-450",
+        "CA-E-461",
+        "CA-E-471",
+        "CA-E-482",
+        "CA-E-519",
+        "CA-M-125",
+        "CA-M-264",
+        "CA-M-265",
+        "CA-M-312",
+        "CA-O-006",
+        "CA-O-008",
+        "CA-O-017",
+        "CA-O-018",
+        "CA-O-019",
+        "CA-O-020",
+        "CA-O-021",
+        "CA-O-024",
+        "CA-O-089",
+        "CA-O-090",
+        "CA-O-100",
+        "CA-R-1018",
+        "CA-R-1341",
+        "CA-R-1398",
+        "CA-R-1488",
+        "CA-R-1491",
+        "CA-R-1502",
+        "CA-R-1503",
+        "CA-R-1504",
+        "CA-R-1505",
+        "CA-R-1506",
+        "CA-R-1548",
+        "CA-R-1559",
+        "CA-R-1777",
+        "CA-R-794"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom/Content Role: Evaluation."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in checked sources."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No captured Claim/Operation/Procedure/Condition/Definition/Evaluation span in the assigned source set names Atom/Content Role: Evaluation."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis exists."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No redundancy proof in checked sources."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Atom/Content Role: Evaluation",
+      "proposal": null,
+      "question": "Which current defining Core Main Content statement establishes the distinct meaning of Atom/Content Role: Evaluation?",
+      "reason": "No positive Main Content basis was found in the assigned captured source set; absence is not evidence to drop or consolidate."
+    }
+  ],
+  "non_authoritative": true,
+  "operator_decision": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/operator.decisions.md",
+    "sha256": "53eeb7a3fdaa002cd05170fe185cfb5baeea72814a1f32567d8eea6f56ac65cb"
+  },
+  "partition_sha256": "a1bc2fddc6465776ed629918e4862a9329624a865adaa7c89387764ad22f40c3",
+  "review_context": {
+    "current_core_claimed": false,
+    "git_commit": "a971d0e00c33c779f485fc8cad63194894d440fb",
+    "kind": "captured_snapshot"
+  },
+  "semantic_admission": "not_performed",
+  "source_migration": "not_performed",
+  "source_task": "CA-P-1929"
+}

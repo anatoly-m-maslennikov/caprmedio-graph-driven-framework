@@ -1,0 +1,4206 @@
+{
+  "baseline_inventory_sha256": "23394abaf6e9c18a585cf3146aedd0a80df166c9dd82be6e86ed7c3c56780bdc",
+  "batch": 4,
+  "evidence_catalogue": [
+    {
+      "atom_id": "CA-R-1368",
+      "atom_revision": 10,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1368-CORE_META_MODEL-CORE--define-containment-relation-pair.md",
+      "carrier_sha256": "ed02fa6f13ef49e3a3ee1ed8969fa545081f241b599e38e04927bbd62361ef76",
+      "end_line": 28,
+      "evidence_ref": "e1",
+      "quote": "the Containment Relation Pair **means** direct relation `CONTAINS` **and** its inverse-derived relation `IS_CONTAINED_BY` **in** the Structural Entity containment domain.",
+      "start_line": 28,
+      "text_sha256": "d5254f238f6960832d5ffc581decbb2253de66e2194126227d97fa057adc07d8"
+    },
+    {
+      "atom_id": "CA-O-090",
+      "atom_revision": 4,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/CA-O-090-CORE_META_MODEL-ACTION--activate-corrective-methods-after-verified-fixes.md",
+      "carrier_sha256": "2597f1ee55db765569b57cde7c88d6a28abc462c0f3353b37b296a71d5a4ebdc",
+      "end_line": 43,
+      "evidence_ref": "e2",
+      "quote": "Corrective Method Acceptance **means** the Agentic Action that promotes a verified corrective Method Draft **only** after the repaired candidate **and** its regression evidence justify that Method.",
+      "start_line": 43,
+      "text_sha256": "bba63396c3a5abddc8aa73e2eb28f94257cc1918f2cfa11aa15b6edc73e8c607"
+    },
+    {
+      "atom_id": "CA-O-098",
+      "atom_revision": 4,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/IMPLEMENTATION_WORKFLOW/CA-O-098-CORE_META_MODEL-STEP--verify-and-activate-corrective-method-drafts.md",
+      "carrier_sha256": "84e6ff7d80bba36a66916c778ba008a93e2ac125059127629a36076860e5ceb0",
+      "end_line": 35,
+      "evidence_ref": "e3",
+      "quote": "Corrective Method Acceptance Step **means** the Workflow node invoking **=1** Action, CA-O-090, **in** Integrated context under CA-R-1527.",
+      "start_line": 35,
+      "text_sha256": "27a144f65c54014f1ae519dad2c32bacdb5af5e54234084aa99d3d7da5842946"
+    },
+    {
+      "atom_id": "CA-R-922",
+      "atom_revision": 21,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-922-CORE_META_MODEL-CORE--define-current-scope-atom.md",
+      "carrier_sha256": "f4b298ff2f426bbb3344695f0c813e01b268572c2a7dfa99e6d286e5384bd086",
+      "end_line": 30,
+      "evidence_ref": "e4",
+      "quote": "a Current-scope Atom **means** an Atom whose resolved Claim Target Scope Unit **`=`** its current Scope Unit.",
+      "start_line": 30,
+      "text_sha256": "497575be79e7acb8488a1774fcf62afd7b0fa62447d2840a0693c0aba47994b8"
+    },
+    {
+      "atom_id": "CA-R-1200",
+      "atom_revision": 16,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1200-CORE_META_MODEL-CORE-REQUIREMENT--define-depends-on-subject-relation-kind.md",
+      "carrier_sha256": "baa339768dcb5ef82ea6ce07c2020b934f787e552fc3e08a37dbc85c0021aa1f",
+      "end_line": 34,
+      "evidence_ref": "e5",
+      "quote": "DEPENDS_ON **means** the direct Subject Relation Kind from an Atom **to** a canonical Entity mentioned **in** its Markdown Main Content other than its GOVERNS target. this reference does **not** make the Claim authoritative about that Entity.",
+      "start_line": 34,
+      "text_sha256": "ab8fe67912adb2fc52bd5da7fdd0a5653c4fee92bb65677eb10711986d863b44"
+    },
+    {
+      "atom_id": "CA-R-1639",
+      "atom_revision": 20,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1639-CORE_META_MODEL-CORE-REQUIREMENT--register-derived-from-relation.md",
+      "carrier_sha256": "a22c2bf49acb072295d3eab10999e0f0ff9ca3258bc035f42d08142e9252ab0a",
+      "end_line": 28,
+      "evidence_ref": "e6",
+      "quote": "a DERIVED_FROM relation **means** a direct relation from one derived Artifact Revision **to** one exact source Artifact Revision used **to** derive it.",
+      "start_line": 28,
+      "text_sha256": "55ed7883f1fe99439cc6272b2e993aca969c027e31c24350c9a5462be4806c22"
+    },
+    {
+      "atom_id": "CA-R-1441",
+      "atom_revision": 8,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1441-CORE_META_MODEL-CORE--define-default-settings.md",
+      "carrier_sha256": "8d1e66cd103c269aa291cb57ae101c80536df27bdcddbb58f058c4db20c84928",
+      "end_line": 34,
+      "evidence_ref": "e7",
+      "quote": "the Term Default Settings **means** the authoritative Artifact containing reusable baseline values for registered CAPRMEDIO Framework Instance Settings parameters, **not** Project initialization inputs **or** a Project's explicit Operator selections.",
+      "start_line": 34,
+      "text_sha256": "df295fa585ba7b2d0365b9c935e0c1b930cfa5fee69a22be04089368c459088f"
+    },
+    {
+      "atom_id": "CA-R-1192",
+      "atom_revision": 12,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1192-CORE_META_MODEL-CORE-REQUIREMENT--define-dependent-entity.md",
+      "carrier_sha256": "80ef872660ac55977945a7a51c08c0623b7da8221ceee39257bc9a4365c72d30",
+      "end_line": 28,
+      "evidence_ref": "e8",
+      "quote": "a Dependent Entity **means** an Entity occurrence whose identity requires **`=1`** immediate bearer Entity occurrence.",
+      "start_line": 28,
+      "text_sha256": "02636277efc9a53d3bdb4d701a7e72ee53da3b68b17494749b7114d83f144cfe"
+    },
+    {
+      "atom_id": "CA-D-259",
+      "atom_revision": 11,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-259-CORE_META_MODEL-CORE-DELIVERY--classify-directory-carrier.md",
+      "carrier_sha256": "129e0c585b8df61d8d94b314cec83245d3bff042374f00a3b9b8fc97a6127996",
+      "end_line": 28,
+      "evidence_ref": "e9",
+      "quote": "the Term Directory Carrier NARROWER_THAN Carrier.",
+      "start_line": 28,
+      "text_sha256": "ed2d906841cc37a4100e73cd8b534ca9b3ed37da4669b9eeb89616ede78c1e8d"
+    },
+    {
+      "atom_id": "CA-O-135",
+      "atom_revision": 1,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/CA-O-135-CORE_META_MODEL-STEP--construct-the-requested-entities-graph.md",
+      "carrier_sha256": "f4040e234326114694b42dc4a96d494b12a024912342658a87d3ff28fae13805",
+      "end_line": 25,
+      "evidence_ref": "e10",
+      "quote": "Entities Graph Construction Step **means** the node of CA-O-133 invoking **=1** Action, CA-O-134, with graph kind fixed **to** Entities Graph.",
+      "start_line": 25,
+      "text_sha256": "5c6f3cf8060a01203eb2e5a46eefb917d4d25986612fea37685c97bbc481815b"
+    },
+    {
+      "atom_id": "CA-R-1248",
+      "atom_revision": 12,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1248-CORE_META_MODEL-CORE-REQUIREMENT--define-entity.md",
+      "carrier_sha256": "7dc7c6805b23dc758fdca38e2d50506b86c2035844b90a78612c1690f664aad5",
+      "end_line": 28,
+      "evidence_ref": "e11",
+      "quote": "an Entity **means** one independently identified **or** bearer-qualified object admitted by an authoritative source as a possible node **in** **`>=1`** CAPRMEDIO Graph.",
+      "start_line": 28,
+      "text_sha256": "1f2ffbac562f718835ceded81488dc10898d5a8d3c63d3e5a5ff6aa6fba41bdd"
+    },
+    {
+      "atom_id": "CA-O-106",
+      "atom_revision": 8,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/CA-O-106-CORE_META_MODEL-ACTION--evaluate-rmed-atoms-one-by-one.md",
+      "carrier_sha256": "28a8db9853d189bd07a2f65e5b8aa68171366e0b6dcb552151eda55302ba25c0",
+      "end_line": 28,
+      "evidence_ref": "e12",
+      "quote": "Evaluate RMED Review Batch **means** the read-only Action that reviews **every** selected Atom under the local CA-E-520 checklist.",
+      "start_line": 28,
+      "text_sha256": "327bb9228295d8a4ddce4a64f19ebbcb760d46031b6e079a34d3f6853f049d88"
+    },
+    {
+      "atom_id": "CA-O-018",
+      "atom_revision": 6,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/CA-O-018-CORE_META_MODEL-ACTION--implement-evaluations.md",
+      "carrier_sha256": "ee6a141167ae2a8d9b387f3a92633a02d64b91c7539b901b876a8391e2555f6c",
+      "end_line": 34,
+      "evidence_ref": "e13",
+      "quote": "Evaluation Implementation **means** the Agentic Action that prepares **or** reuses the tests for selected implementation work **before** its required behavior is implemented.",
+      "start_line": 34,
+      "text_sha256": "f8e950340b7e30dee435fbc84faf069e6a9336cddb53311ed1b470031706dd03"
+    },
+    {
+      "atom_id": "CA-O-092",
+      "atom_revision": 3,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/IMPLEMENTATION_WORKFLOW/CA-O-092-CORE_META_MODEL-STEP--prepare-tests-in-the-implementation-subagent.md",
+      "carrier_sha256": "ffc2b9a0fcdb2f0d97c4e881ebf586a8d4eb2eb4594469cd62bc5f75b11bb2ef",
+      "end_line": 35,
+      "evidence_ref": "e14",
+      "quote": "Evaluation Implementation Step **means** the Workflow node invoking **=1** Action, CA-O-018, **in** Isolated context under CA-R-1527.",
+      "start_line": 35,
+      "text_sha256": "6774d8b85525143514c9db0e2ae26e6181a7da56b118dbe58b79dd91d6b2df79"
+    },
+    {
+      "atom_id": "CA-O-123",
+      "atom_revision": 1,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/CA-O-123-CORE_META_MODEL-ACTION--calibrate-evaluator-evidence.md",
+      "carrier_sha256": "2f9d49699c4ca1a700caa594fccec0eeb63825eb8096b05b178e65a54f6190e8",
+      "end_line": 25,
+      "evidence_ref": "e15",
+      "quote": "Evaluator Evidence Calibration **means** the optional Agentic Action that, for an admitted calibration request, compares fresh, independently produced evaluator judgments with independently reviewed expected judgments on an exact frozen case universe **and** returns the bounded comparison evidence.",
+      "start_line": 25,
+      "text_sha256": "9674107d17186d3a93df7aa6686c02bb886cc9f0112da71502c068f35c0e6f2d"
+    },
+    {
+      "atom_id": "CA-R-1217",
+      "atom_revision": 11,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1217-CORE_META_MODEL-CORE-REQUIREMENT--define-extension.md",
+      "carrier_sha256": "df0242fdb57efd78122a09f42335a5e41b0fe5ea5485f7179d9d02581248bfa7",
+      "end_line": 30,
+      "evidence_ref": "e16",
+      "quote": "an Extension **means** an immutable Methodology Source that adds authority within the Core Meta-Model's permitted expansion boundary under CA-R-1375-CORE_META_MODEL-CORE-REQUIREMENT--restrict-methodology-source-expansion-to-core-permission. specialization is admitted **only** **where** that boundary permits it **and** preserves applicable Core Meta-Model authority; unchanged Core Carrier bytes alone do **not** establish preservation.",
+      "start_line": 30,
+      "text_sha256": "070bfc8500ea3d5e278242b5c5b563dae46beb66724327b27f5930130b1ceff7"
+    },
+    {
+      "atom_id": "CA-D-258",
+      "atom_revision": 11,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-258-CORE_META_MODEL-CORE-DELIVERY--classify-file-carrier.md",
+      "carrier_sha256": "4af326d1c38dafd47020e32f36338f25962ec43177b97c7988932b709aff8e64",
+      "end_line": 28,
+      "evidence_ref": "e17",
+      "quote": "the Term File Carrier NARROWER_THAN Carrier.",
+      "start_line": 28,
+      "text_sha256": "8840c03dd3c92dad3a4a1c3d8021d6c52f74cc7d2ce968f1f696ee8d33ff782d"
+    },
+    {
+      "atom_id": "CA-R-1402",
+      "atom_revision": 10,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1402-CORE_META_MODEL-CORE--define-framework-instance-settings.md",
+      "carrier_sha256": "55819591535bf60bc5a4ddc8f55dc9c4f46201ce3b4d588f5d6a35b2941fd2f2",
+      "end_line": 30,
+      "evidence_ref": "e18",
+      "quote": "the Term Framework Instance Settings **means** the authoritative Artifact containing explicit Operator-selected behavior **and** configuration choices for **`=1`** CAPRMEDIO Framework Instance serving **`=1`** Project.",
+      "start_line": 30,
+      "text_sha256": "5dcb319faa6a3c4693a6a5ac1e8ac557724becac7793e97fde47b7e2277aded8"
+    },
+    {
+      "atom_id": "CA-R-1199",
+      "atom_revision": 13,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1199-CORE_META_MODEL-CORE-REQUIREMENT--define-governs-subject-relation-kind.md",
+      "carrier_sha256": "1eb27ffbeb24d9ba35e39bfb6e6207214260867b6fb0687b1952ba70a7defd30",
+      "end_line": 32,
+      "evidence_ref": "e19",
+      "quote": "GOVERNS **means** the direct Subject Relation Kind from an Atom **to** the canonical Entity about which its Claim is authoritative.",
+      "start_line": 32,
+      "text_sha256": "76ade1af6f4e3f094efdac1f71723748d7f8ddcead6d243a60f90e8aee0345cd"
+    }
+  ],
+  "input_file_sha256": "3ecb4f409fe5f3ebffdd503bb94739541a30f3dd0b2fc75b62f7a2185fc59546",
+  "nodes": [
+    {
+      "checked_source_atom_ids": [
+        "CA-D-264",
+        "CA-D-266",
+        "CA-R-1368"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "e1"
+          ],
+          "finding": "current_meaning_evidenced",
+          "reason": "The cited captured Main Content gives Containment Relation Pair an explicit distinct meaning."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "e1"
+          ],
+          "finding": "no_proven_duplicate",
+          "reason": "captured Main Content defines Containment Relation Pair; no same-meaning replacement is evidenced."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "e1"
+          ],
+          "finding": "definition_evidenced",
+          "reason": "The cited captured Main Content directly defines Containment Relation Pair."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "e1"
+          ],
+          "finding": "not_proposed",
+          "reason": "No broader replacement for Containment Relation Pair is proposed without loss analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "e1"
+          ],
+          "finding": "not_proven_redundant",
+          "reason": "No checked source makes Containment Relation Pair redundant; qualified-label repetition is not duplicate proof."
+        }
+      },
+      "confidence_percent": 95,
+      "disposition": "retain",
+      "evidence_refs": [
+        "e1"
+      ],
+      "identity": "Containment Relation Pair",
+      "proposal": {
+        "constraints_impact": "no constraint change proposed",
+        "historical_references_impact": "preserved at the original baseline identity",
+        "kind": "retain_preserved_baseline_identity_only",
+        "lost_distinctions": [],
+        "native_admission": "not_performed",
+        "preserved_distinctions": [
+          "Containment Relation Pair"
+        ],
+        "queries_impact": "identity-based queries preserve the original baseline identity",
+        "relations_impact": "no relation creation, removal, or rewrite proposed",
+        "replacement_identity": null
+      },
+      "question": null,
+      "reason": "Current pinned Main Content directly defines this preserved identity; retain it without admitting a new native Property, allowed-value assignment, root kind, or relation."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-M-287"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked captured Main Content line directly defines Content Role Naming; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves a same-meaning duplicate of Content Role Naming."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved_absence_not_empty",
+          "reason": "No checked captured Main Content line directly defines Content Role Naming; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No generalization for Content Role Naming is proposed without preserved/lost distinction analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves Content Role Naming redundant or supplies a replacement."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Content Role Naming",
+      "proposal": null,
+      "question": "Which captured Core Main Content assertion defines the distinct meaning of Content Role Naming and, if applicable, its property, allowed-value, root-kind, or ownership status?",
+      "reason": "Current checked Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-E-249",
+        "CA-E-464",
+        "CA-M-298",
+        "CA-O-054",
+        "CA-O-153",
+        "CA-O-154",
+        "CA-R-1217",
+        "CA-R-1228",
+        "CA-R-1261",
+        "CA-R-1375",
+        "CA-R-1434",
+        "CA-R-1466",
+        "CA-R-1722",
+        "CA-R-1748"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked captured Main Content line directly defines Core Meta-Model; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves a same-meaning duplicate of Core Meta-Model."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved_absence_not_empty",
+          "reason": "No checked captured Main Content line directly defines Core Meta-Model; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No generalization for Core Meta-Model is proposed without preserved/lost distinction analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves Core Meta-Model redundant or supplies a replacement."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Core Meta-Model",
+      "proposal": null,
+      "question": "Which captured Core Main Content assertion defines the distinct meaning of Core Meta-Model and, if applicable, its property, allowed-value, root-kind, or ownership status?",
+      "reason": "Current checked Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-O-090"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "e2"
+          ],
+          "finding": "current_meaning_evidenced",
+          "reason": "The cited captured Main Content gives Corrective Method Acceptance an explicit distinct meaning."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "e2"
+          ],
+          "finding": "no_proven_duplicate",
+          "reason": "captured Main Content defines Corrective Method Acceptance; no same-meaning replacement is evidenced."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "e2"
+          ],
+          "finding": "definition_evidenced",
+          "reason": "The cited captured Main Content directly defines Corrective Method Acceptance."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "e2"
+          ],
+          "finding": "not_proposed",
+          "reason": "No broader replacement for Corrective Method Acceptance is proposed without loss analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "e2"
+          ],
+          "finding": "not_proven_redundant",
+          "reason": "No checked source makes Corrective Method Acceptance redundant; qualified-label repetition is not duplicate proof."
+        }
+      },
+      "confidence_percent": 95,
+      "disposition": "retain",
+      "evidence_refs": [
+        "e2"
+      ],
+      "identity": "Corrective Method Acceptance",
+      "proposal": {
+        "constraints_impact": "no constraint change proposed",
+        "historical_references_impact": "preserved at the original baseline identity",
+        "kind": "retain_preserved_baseline_identity_only",
+        "lost_distinctions": [],
+        "native_admission": "not_performed",
+        "preserved_distinctions": [
+          "Corrective Method Acceptance"
+        ],
+        "queries_impact": "identity-based queries preserve the original baseline identity",
+        "relations_impact": "no relation creation, removal, or rewrite proposed",
+        "replacement_identity": null
+      },
+      "question": null,
+      "reason": "Current pinned Main Content directly defines this preserved identity; retain it without admitting a new native Property, allowed-value assignment, root kind, or relation."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-O-098"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "e3"
+          ],
+          "finding": "current_meaning_evidenced",
+          "reason": "The cited captured Main Content gives Corrective Method Acceptance Step an explicit distinct meaning."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "e3"
+          ],
+          "finding": "no_proven_duplicate",
+          "reason": "captured Main Content defines Corrective Method Acceptance Step; no same-meaning replacement is evidenced."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "e3"
+          ],
+          "finding": "definition_evidenced",
+          "reason": "The cited captured Main Content directly defines Corrective Method Acceptance Step."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "e3"
+          ],
+          "finding": "not_proposed",
+          "reason": "No broader replacement for Corrective Method Acceptance Step is proposed without loss analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "e3"
+          ],
+          "finding": "not_proven_redundant",
+          "reason": "No checked source makes Corrective Method Acceptance Step redundant; qualified-label repetition is not duplicate proof."
+        }
+      },
+      "confidence_percent": 95,
+      "disposition": "retain",
+      "evidence_refs": [
+        "e3"
+      ],
+      "identity": "Corrective Method Acceptance Step",
+      "proposal": {
+        "constraints_impact": "no constraint change proposed",
+        "historical_references_impact": "preserved at the original baseline identity",
+        "kind": "retain_preserved_baseline_identity_only",
+        "lost_distinctions": [],
+        "native_admission": "not_performed",
+        "preserved_distinctions": [
+          "Corrective Method Acceptance Step"
+        ],
+        "queries_impact": "identity-based queries preserve the original baseline identity",
+        "relations_impact": "no relation creation, removal, or rewrite proposed",
+        "replacement_identity": null
+      },
+      "question": null,
+      "reason": "Current pinned Main Content directly defines this preserved identity; retain it without admitting a new native Property, allowed-value assignment, root kind, or relation."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-482",
+        "CA-E-511",
+        "CA-R-922"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "e4"
+          ],
+          "finding": "current_meaning_evidenced",
+          "reason": "The cited captured Main Content gives Current-scope Atom an explicit distinct meaning."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "e4"
+          ],
+          "finding": "no_proven_duplicate",
+          "reason": "captured Main Content defines Current-scope Atom; no same-meaning replacement is evidenced."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "e4"
+          ],
+          "finding": "definition_evidenced",
+          "reason": "The cited captured Main Content directly defines Current-scope Atom."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "e4"
+          ],
+          "finding": "not_proposed",
+          "reason": "No broader replacement for Current-scope Atom is proposed without loss analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "e4"
+          ],
+          "finding": "not_proven_redundant",
+          "reason": "No checked source makes Current-scope Atom redundant; qualified-label repetition is not duplicate proof."
+        }
+      },
+      "confidence_percent": 95,
+      "disposition": "retain",
+      "evidence_refs": [
+        "e4"
+      ],
+      "identity": "Current-scope Atom",
+      "proposal": {
+        "constraints_impact": "no constraint change proposed",
+        "historical_references_impact": "preserved at the original baseline identity",
+        "kind": "retain_preserved_baseline_identity_only",
+        "lost_distinctions": [],
+        "native_admission": "not_performed",
+        "preserved_distinctions": [
+          "Current-scope Atom"
+        ],
+        "queries_impact": "identity-based queries preserve the original baseline identity",
+        "relations_impact": "no relation creation, removal, or rewrite proposed",
+        "replacement_identity": null
+      },
+      "question": null,
+      "reason": "Current pinned Main Content directly defines this preserved identity; retain it without admitting a new native Property, allowed-value assignment, root kind, or relation."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-269",
+        "CA-D-307",
+        "CA-E-246",
+        "CA-E-404",
+        "CA-M-228",
+        "CA-M-232",
+        "CA-M-239",
+        "CA-R-1198",
+        "CA-R-1200",
+        "CA-R-1202",
+        "CA-R-1275",
+        "CA-R-1276",
+        "CA-R-1278",
+        "CA-R-1280",
+        "CA-R-1281",
+        "CA-R-1459"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "e5"
+          ],
+          "finding": "current_meaning_evidenced",
+          "reason": "The cited captured Main Content gives DEPENDS_ON an explicit distinct meaning."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "e5"
+          ],
+          "finding": "no_proven_duplicate",
+          "reason": "captured Main Content defines DEPENDS_ON; no same-meaning replacement is evidenced."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "e5"
+          ],
+          "finding": "definition_evidenced",
+          "reason": "The cited captured Main Content directly defines DEPENDS_ON."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "e5"
+          ],
+          "finding": "not_proposed",
+          "reason": "No broader replacement for DEPENDS_ON is proposed without loss analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "e5"
+          ],
+          "finding": "not_proven_redundant",
+          "reason": "No checked source makes DEPENDS_ON redundant; qualified-label repetition is not duplicate proof."
+        }
+      },
+      "confidence_percent": 95,
+      "disposition": "retain",
+      "evidence_refs": [
+        "e5"
+      ],
+      "identity": "DEPENDS_ON",
+      "proposal": {
+        "constraints_impact": "no constraint change proposed",
+        "historical_references_impact": "preserved at the original baseline identity",
+        "kind": "retain_preserved_baseline_identity_only",
+        "lost_distinctions": [],
+        "native_admission": "not_performed",
+        "preserved_distinctions": [
+          "DEPENDS_ON"
+        ],
+        "queries_impact": "identity-based queries preserve the original baseline identity",
+        "relations_impact": "no relation creation, removal, or rewrite proposed",
+        "replacement_identity": null
+      },
+      "question": null,
+      "reason": "Current pinned Main Content directly defines this preserved identity; retain it without admitting a new native Property, allowed-value assignment, root kind, or relation."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-E-404",
+        "CA-M-239",
+        "CA-R-1314",
+        "CA-R-1639"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "e6"
+          ],
+          "finding": "current_meaning_evidenced",
+          "reason": "The cited captured Main Content gives DERIVED_FROM an explicit distinct meaning."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "e6"
+          ],
+          "finding": "no_proven_duplicate",
+          "reason": "captured Main Content defines DERIVED_FROM; no same-meaning replacement is evidenced."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "e6"
+          ],
+          "finding": "definition_evidenced",
+          "reason": "The cited captured Main Content directly defines DERIVED_FROM."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "e6"
+          ],
+          "finding": "not_proposed",
+          "reason": "No broader replacement for DERIVED_FROM is proposed without loss analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "e6"
+          ],
+          "finding": "not_proven_redundant",
+          "reason": "No checked source makes DERIVED_FROM redundant; qualified-label repetition is not duplicate proof."
+        }
+      },
+      "confidence_percent": 95,
+      "disposition": "retain",
+      "evidence_refs": [
+        "e6"
+      ],
+      "identity": "DERIVED_FROM",
+      "proposal": {
+        "constraints_impact": "no constraint change proposed",
+        "historical_references_impact": "preserved at the original baseline identity",
+        "kind": "retain_preserved_baseline_identity_only",
+        "lost_distinctions": [],
+        "native_admission": "not_performed",
+        "preserved_distinctions": [
+          "DERIVED_FROM"
+        ],
+        "queries_impact": "identity-based queries preserve the original baseline identity",
+        "relations_impact": "no relation creation, removal, or rewrite proposed",
+        "replacement_identity": null
+      },
+      "question": null,
+      "reason": "Current pinned Main Content directly defines this preserved identity; retain it without admitting a new native Property, allowed-value assignment, root kind, or relation."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-361",
+        "CA-D-407",
+        "CA-D-408",
+        "CA-D-447",
+        "CA-D-497",
+        "CA-E-450",
+        "CA-E-458",
+        "CA-E-473",
+        "CA-M-279",
+        "CA-M-295",
+        "CA-O-052",
+        "CA-R-1405",
+        "CA-R-1429",
+        "CA-R-1441",
+        "CA-R-1630",
+        "CA-R-1750"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "e7"
+          ],
+          "finding": "current_meaning_evidenced",
+          "reason": "The cited captured Main Content gives Default Settings an explicit distinct meaning."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "e7"
+          ],
+          "finding": "no_proven_duplicate",
+          "reason": "captured Main Content defines Default Settings; no same-meaning replacement is evidenced."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "e7"
+          ],
+          "finding": "definition_evidenced",
+          "reason": "The cited captured Main Content directly defines Default Settings."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "e7"
+          ],
+          "finding": "not_proposed",
+          "reason": "No broader replacement for Default Settings is proposed without loss analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "e7"
+          ],
+          "finding": "not_proven_redundant",
+          "reason": "No checked source makes Default Settings redundant; qualified-label repetition is not duplicate proof."
+        }
+      },
+      "confidence_percent": 95,
+      "disposition": "retain",
+      "evidence_refs": [
+        "e7"
+      ],
+      "identity": "Default Settings",
+      "proposal": {
+        "constraints_impact": "no constraint change proposed",
+        "historical_references_impact": "preserved at the original baseline identity",
+        "kind": "retain_preserved_baseline_identity_only",
+        "lost_distinctions": [],
+        "native_admission": "not_performed",
+        "preserved_distinctions": [
+          "Default Settings"
+        ],
+        "queries_impact": "identity-based queries preserve the original baseline identity",
+        "relations_impact": "no relation creation, removal, or rewrite proposed",
+        "replacement_identity": null
+      },
+      "question": null,
+      "reason": "Current pinned Main Content directly defines this preserved identity; retain it without admitting a new native Property, allowed-value assignment, root kind, or relation."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-407",
+        "CA-D-408"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked captured Main Content line directly defines Default Settings/Carrier; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves a same-meaning duplicate of Default Settings/Carrier."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved_absence_not_empty",
+          "reason": "No checked captured Main Content line directly defines Default Settings/Carrier; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No generalization for Default Settings/Carrier is proposed without preserved/lost distinction analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves Default Settings/Carrier redundant or supplies a replacement."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Default Settings/Carrier",
+      "proposal": null,
+      "question": "Which captured Core Main Content assertion defines the distinct meaning of Default Settings/Carrier and, if applicable, its property, allowed-value, root-kind, or ownership status?",
+      "reason": "Current checked Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-408"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked captured Main Content line directly defines Default Settings/Carrier/Content; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves a same-meaning duplicate of Default Settings/Carrier/Content."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved_absence_not_empty",
+          "reason": "No checked captured Main Content line directly defines Default Settings/Carrier/Content; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No generalization for Default Settings/Carrier/Content is proposed without preserved/lost distinction analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves Default Settings/Carrier/Content redundant or supplies a replacement."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Default Settings/Carrier/Content",
+      "proposal": null,
+      "question": "Which captured Core Main Content assertion defines the distinct meaning of Default Settings/Carrier/Content and, if applicable, its property, allowed-value, root-kind, or ownership status?",
+      "reason": "Current checked Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-E-382",
+        "CA-E-444",
+        "CA-M-114",
+        "CA-O-137",
+        "CA-R-126",
+        "CA-R-1279",
+        "CA-R-1319",
+        "CA-R-1435",
+        "CA-R-1454",
+        "CA-R-1455"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked captured Main Content line directly defines Definition Atom; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves a same-meaning duplicate of Definition Atom."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved_absence_not_empty",
+          "reason": "No checked captured Main Content line directly defines Definition Atom; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No generalization for Definition Atom is proposed without preserved/lost distinction analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves Definition Atom redundant or supplies a replacement."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Definition Atom",
+      "proposal": null,
+      "question": "Which captured Core Main Content assertion defines the distinct meaning of Definition Atom and, if applicable, its property, allowed-value, root-kind, or ownership status?",
+      "reason": "Current checked Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-312"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked captured Main Content line directly defines Delivery; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves a same-meaning duplicate of Delivery."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved_absence_not_empty",
+          "reason": "No checked captured Main Content line directly defines Delivery; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No generalization for Delivery is proposed without preserved/lost distinction analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves Delivery redundant or supplies a replacement."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Delivery",
+      "proposal": null,
+      "question": "Which captured Core Main Content assertion defines the distinct meaning of Delivery and, if applicable, its property, allowed-value, root-kind, or ownership status?",
+      "reason": "Current checked Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-R-1019"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked captured Main Content line directly defines Delivery For Relation; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves a same-meaning duplicate of Delivery For Relation."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved_absence_not_empty",
+          "reason": "No checked captured Main Content line directly defines Delivery For Relation; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No generalization for Delivery For Relation is proposed without preserved/lost distinction analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves Delivery For Relation redundant or supplies a replacement."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Delivery For Relation",
+      "proposal": null,
+      "question": "Which captured Core Main Content assertion defines the distinct meaning of Delivery For Relation and, if applicable, its property, allowed-value, root-kind, or ownership status?",
+      "reason": "Current checked Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-E-404",
+        "CA-M-239",
+        "CA-O-017"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked captured Main Content line directly defines Dependency Order Derivation; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves a same-meaning duplicate of Dependency Order Derivation."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved_absence_not_empty",
+          "reason": "No checked captured Main Content line directly defines Dependency Order Derivation; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No generalization for Dependency Order Derivation is proposed without preserved/lost distinction analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves Dependency Order Derivation redundant or supplies a replacement."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Dependency Order Derivation",
+      "proposal": null,
+      "question": "Which captured Core Main Content assertion defines the distinct meaning of Dependency Order Derivation and, if applicable, its property, allowed-value, root-kind, or ownership status?",
+      "reason": "Current checked Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-E-404"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked captured Main Content line directly defines Dependency Order Derivation Evaluation; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves a same-meaning duplicate of Dependency Order Derivation Evaluation."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved_absence_not_empty",
+          "reason": "No checked captured Main Content line directly defines Dependency Order Derivation Evaluation; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No generalization for Dependency Order Derivation Evaluation is proposed without preserved/lost distinction analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves Dependency Order Derivation Evaluation redundant or supplies a replacement."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Dependency Order Derivation Evaluation",
+      "proposal": null,
+      "question": "Which captured Core Main Content assertion defines the distinct meaning of Dependency Order Derivation Evaluation and, if applicable, its property, allowed-value, root-kind, or ownership status?",
+      "reason": "Current checked Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-R-1026"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked captured Main Content line directly defines Dependency Relation Pair; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves a same-meaning duplicate of Dependency Relation Pair."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved_absence_not_empty",
+          "reason": "No checked captured Main Content line directly defines Dependency Relation Pair; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No generalization for Dependency Relation Pair is proposed without preserved/lost distinction analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves Dependency Relation Pair redundant or supplies a replacement."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Dependency Relation Pair",
+      "proposal": null,
+      "question": "Which captured Core Main Content assertion defines the distinct meaning of Dependency Relation Pair and, if applicable, its property, allowed-value, root-kind, or ownership status?",
+      "reason": "Current checked Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-E-246",
+        "CA-E-383",
+        "CA-M-125",
+        "CA-R-1192",
+        "CA-R-1193",
+        "CA-R-1204",
+        "CA-R-1251",
+        "CA-R-1260",
+        "CA-R-1267"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "e8"
+          ],
+          "finding": "current_meaning_evidenced",
+          "reason": "The cited captured Main Content gives Dependent Entity an explicit distinct meaning."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "e8"
+          ],
+          "finding": "no_proven_duplicate",
+          "reason": "captured Main Content defines Dependent Entity; no same-meaning replacement is evidenced."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "e8"
+          ],
+          "finding": "definition_evidenced",
+          "reason": "The cited captured Main Content directly defines Dependent Entity."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "e8"
+          ],
+          "finding": "not_proposed",
+          "reason": "No broader replacement for Dependent Entity is proposed without loss analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "e8"
+          ],
+          "finding": "not_proven_redundant",
+          "reason": "No checked source makes Dependent Entity redundant; qualified-label repetition is not duplicate proof."
+        }
+      },
+      "confidence_percent": 95,
+      "disposition": "retain",
+      "evidence_refs": [
+        "e8"
+      ],
+      "identity": "Dependent Entity",
+      "proposal": {
+        "constraints_impact": "no constraint change proposed",
+        "historical_references_impact": "preserved at the original baseline identity",
+        "kind": "retain_preserved_baseline_identity_only",
+        "lost_distinctions": [],
+        "native_admission": "not_performed",
+        "preserved_distinctions": [
+          "Dependent Entity"
+        ],
+        "queries_impact": "identity-based queries preserve the original baseline identity",
+        "relations_impact": "no relation creation, removal, or rewrite proposed",
+        "replacement_identity": null
+      },
+      "question": null,
+      "reason": "Current pinned Main Content directly defines this preserved identity; retain it without admitting a new native Property, allowed-value assignment, root kind, or relation."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-R-1247"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked captured Main Content line directly defines Dependent Entity Occurrence; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves a same-meaning duplicate of Dependent Entity Occurrence."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved_absence_not_empty",
+          "reason": "No checked captured Main Content line directly defines Dependent Entity Occurrence; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No generalization for Dependent Entity Occurrence is proposed without preserved/lost distinction analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves Dependent Entity Occurrence redundant or supplies a replacement."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Dependent Entity Occurrence",
+      "proposal": null,
+      "question": "Which captured Core Main Content assertion defines the distinct meaning of Dependent Entity Occurrence and, if applicable, its property, allowed-value, root-kind, or ownership status?",
+      "reason": "Current checked Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-259",
+        "CA-D-264",
+        "CA-D-266",
+        "CA-D-296",
+        "CA-D-297",
+        "CA-D-298",
+        "CA-D-299",
+        "CA-D-300",
+        "CA-D-352",
+        "CA-D-370",
+        "CA-D-451",
+        "CA-D-460",
+        "CA-D-464",
+        "CA-D-465",
+        "CA-D-467",
+        "CA-D-481",
+        "CA-E-500",
+        "CA-E-502",
+        "CA-E-507",
+        "CA-E-510",
+        "CA-M-273",
+        "CA-O-078"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "e9"
+          ],
+          "finding": "current_meaning_evidenced",
+          "reason": "The cited captured Main Content gives Directory Carrier an explicit distinct meaning."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "e9"
+          ],
+          "finding": "no_proven_duplicate",
+          "reason": "captured Main Content defines Directory Carrier; no same-meaning replacement is evidenced."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "e9"
+          ],
+          "finding": "definition_evidenced",
+          "reason": "The cited captured Main Content directly defines Directory Carrier."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "e9"
+          ],
+          "finding": "not_proposed",
+          "reason": "No broader replacement for Directory Carrier is proposed without loss analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "e9"
+          ],
+          "finding": "not_proven_redundant",
+          "reason": "No checked source makes Directory Carrier redundant; qualified-label repetition is not duplicate proof."
+        }
+      },
+      "confidence_percent": 95,
+      "disposition": "retain",
+      "evidence_refs": [
+        "e9"
+      ],
+      "identity": "Directory Carrier",
+      "proposal": {
+        "constraints_impact": "no constraint change proposed",
+        "historical_references_impact": "preserved at the original baseline identity",
+        "kind": "retain_preserved_baseline_identity_only",
+        "lost_distinctions": [],
+        "native_admission": "not_performed",
+        "preserved_distinctions": [
+          "Directory Carrier"
+        ],
+        "queries_impact": "identity-based queries preserve the original baseline identity",
+        "relations_impact": "no relation creation, removal, or rewrite proposed",
+        "replacement_identity": null
+      },
+      "question": null,
+      "reason": "Current pinned Main Content directly defines this preserved identity; retain it without admitting a new native Property, allowed-value assignment, root kind, or relation."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-297",
+        "CA-D-298",
+        "CA-D-299"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked captured Main Content line directly defines Directory Carrier/Name; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves a same-meaning duplicate of Directory Carrier/Name."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved_absence_not_empty",
+          "reason": "No checked captured Main Content line directly defines Directory Carrier/Name; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No generalization for Directory Carrier/Name is proposed without preserved/lost distinction analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves Directory Carrier/Name redundant or supplies a replacement."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Directory Carrier/Name",
+      "proposal": null,
+      "question": "Which captured Core Main Content assertion defines the distinct meaning of Directory Carrier/Name and, if applicable, its property, allowed-value, root-kind, or ownership status?",
+      "reason": "Current checked Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-264",
+        "CA-D-266"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked captured Main Content line directly defines Directory Carrier/Nesting; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves a same-meaning duplicate of Directory Carrier/Nesting."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved_absence_not_empty",
+          "reason": "No checked captured Main Content line directly defines Directory Carrier/Nesting; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No generalization for Directory Carrier/Nesting is proposed without preserved/lost distinction analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves Directory Carrier/Nesting redundant or supplies a replacement."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Directory Carrier/Nesting",
+      "proposal": null,
+      "question": "Which captured Core Main Content assertion defines the distinct meaning of Directory Carrier/Nesting and, if applicable, its property, allowed-value, root-kind, or ownership status?",
+      "reason": "Current checked Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-300",
+        "CA-E-510",
+        "CA-O-078"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked captured Main Content line directly defines Directory Carrier/Numeric Prefix; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves a same-meaning duplicate of Directory Carrier/Numeric Prefix."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved_absence_not_empty",
+          "reason": "No checked captured Main Content line directly defines Directory Carrier/Numeric Prefix; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No generalization for Directory Carrier/Numeric Prefix is proposed without preserved/lost distinction analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves Directory Carrier/Numeric Prefix redundant or supplies a replacement."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Directory Carrier/Numeric Prefix",
+      "proposal": null,
+      "question": "Which captured Core Main Content assertion defines the distinct meaning of Directory Carrier/Numeric Prefix and, if applicable, its property, allowed-value, root-kind, or ownership status?",
+      "reason": "Current checked Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-R-1243",
+        "CA-R-1260",
+        "CA-R-1436"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked captured Main Content line directly defines Entities Graph; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves a same-meaning duplicate of Entities Graph."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved_absence_not_empty",
+          "reason": "No checked captured Main Content line directly defines Entities Graph; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No generalization for Entities Graph is proposed without preserved/lost distinction analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves Entities Graph redundant or supplies a replacement."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Entities Graph",
+      "proposal": null,
+      "question": "Which captured Core Main Content assertion defines the distinct meaning of Entities Graph and, if applicable, its property, allowed-value, root-kind, or ownership status?",
+      "reason": "Current checked Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-O-135"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "e10"
+          ],
+          "finding": "current_meaning_evidenced",
+          "reason": "The cited captured Main Content gives Entities Graph Construction Step an explicit distinct meaning."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "e10"
+          ],
+          "finding": "no_proven_duplicate",
+          "reason": "captured Main Content defines Entities Graph Construction Step; no same-meaning replacement is evidenced."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "e10"
+          ],
+          "finding": "definition_evidenced",
+          "reason": "The cited captured Main Content directly defines Entities Graph Construction Step."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "e10"
+          ],
+          "finding": "not_proposed",
+          "reason": "No broader replacement for Entities Graph Construction Step is proposed without loss analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "e10"
+          ],
+          "finding": "not_proven_redundant",
+          "reason": "No checked source makes Entities Graph Construction Step redundant; qualified-label repetition is not duplicate proof."
+        }
+      },
+      "confidence_percent": 95,
+      "disposition": "retain",
+      "evidence_refs": [
+        "e10"
+      ],
+      "identity": "Entities Graph Construction Step",
+      "proposal": {
+        "constraints_impact": "no constraint change proposed",
+        "historical_references_impact": "preserved at the original baseline identity",
+        "kind": "retain_preserved_baseline_identity_only",
+        "lost_distinctions": [],
+        "native_admission": "not_performed",
+        "preserved_distinctions": [
+          "Entities Graph Construction Step"
+        ],
+        "queries_impact": "identity-based queries preserve the original baseline identity",
+        "relations_impact": "no relation creation, removal, or rewrite proposed",
+        "replacement_identity": null
+      },
+      "question": null,
+      "reason": "Current pinned Main Content directly defines this preserved identity; retain it without admitting a new native Property, allowed-value assignment, root kind, or relation."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-256",
+        "CA-D-257",
+        "CA-D-505",
+        "CA-D-506",
+        "CA-D-507",
+        "CA-E-246",
+        "CA-E-249",
+        "CA-E-382",
+        "CA-E-387",
+        "CA-E-444",
+        "CA-E-449",
+        "CA-E-490",
+        "CA-E-505",
+        "CA-E-520",
+        "CA-E-521",
+        "CA-M-114",
+        "CA-M-125",
+        "CA-M-228",
+        "CA-M-313",
+        "CA-O-134",
+        "CA-R-1191",
+        "CA-R-1192",
+        "CA-R-1194",
+        "CA-R-1198",
+        "CA-R-1199",
+        "CA-R-1200",
+        "CA-R-1202",
+        "CA-R-1203",
+        "CA-R-1204",
+        "CA-R-1248",
+        "CA-R-1259",
+        "CA-R-1260",
+        "CA-R-1262",
+        "CA-R-1266",
+        "CA-R-1267",
+        "CA-R-1275",
+        "CA-R-1280",
+        "CA-R-1281",
+        "CA-R-1285",
+        "CA-R-1315",
+        "CA-R-1321",
+        "CA-R-1339",
+        "CA-R-1342",
+        "CA-R-1349",
+        "CA-R-1350",
+        "CA-R-1363",
+        "CA-R-1376",
+        "CA-R-1406",
+        "CA-R-1431",
+        "CA-R-1438",
+        "CA-R-1456",
+        "CA-R-1459",
+        "CA-R-1521",
+        "CA-R-1548",
+        "CA-R-1594",
+        "CA-R-1597",
+        "CA-R-1609",
+        "CA-R-1682",
+        "CA-R-1683",
+        "CA-R-1788",
+        "CA-R-659"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "e11"
+          ],
+          "finding": "current_meaning_evidenced",
+          "reason": "The cited captured Main Content gives Entity an explicit distinct meaning."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "e11"
+          ],
+          "finding": "no_proven_duplicate",
+          "reason": "captured Main Content defines Entity; no same-meaning replacement is evidenced."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "e11"
+          ],
+          "finding": "definition_evidenced",
+          "reason": "The cited captured Main Content directly defines Entity."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "e11"
+          ],
+          "finding": "not_proposed",
+          "reason": "No broader replacement for Entity is proposed without loss analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "e11"
+          ],
+          "finding": "not_proven_redundant",
+          "reason": "No checked source makes Entity redundant; qualified-label repetition is not duplicate proof."
+        }
+      },
+      "confidence_percent": 95,
+      "disposition": "retain",
+      "evidence_refs": [
+        "e11"
+      ],
+      "identity": "Entity",
+      "proposal": {
+        "constraints_impact": "no constraint change proposed",
+        "historical_references_impact": "preserved at the original baseline identity",
+        "kind": "retain_preserved_baseline_identity_only",
+        "lost_distinctions": [],
+        "native_admission": "not_performed",
+        "preserved_distinctions": [
+          "Entity"
+        ],
+        "queries_impact": "identity-based queries preserve the original baseline identity",
+        "relations_impact": "no relation creation, removal, or rewrite proposed",
+        "replacement_identity": null
+      },
+      "question": null,
+      "reason": "Current pinned Main Content directly defines this preserved identity; retain it without admitting a new native Property, allowed-value assignment, root kind, or relation."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-R-1261"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked captured Main Content line directly defines Entity Taxonomy; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves a same-meaning duplicate of Entity Taxonomy."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved_absence_not_empty",
+          "reason": "No checked captured Main Content line directly defines Entity Taxonomy; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No generalization for Entity Taxonomy is proposed without preserved/lost distinction analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves Entity Taxonomy redundant or supplies a replacement."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Entity Taxonomy",
+      "proposal": null,
+      "question": "Which captured Core Main Content assertion defines the distinct meaning of Entity Taxonomy and, if applicable, its property, allowed-value, root-kind, or ownership status?",
+      "reason": "Current checked Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-256",
+        "CA-D-257",
+        "CA-D-505",
+        "CA-D-506",
+        "CA-D-507",
+        "CA-M-313",
+        "CA-R-1342"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked captured Main Content line directly defines Entity/Carrier; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves a same-meaning duplicate of Entity/Carrier."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved_absence_not_empty",
+          "reason": "No checked captured Main Content line directly defines Entity/Carrier; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No generalization for Entity/Carrier is proposed without preserved/lost distinction analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves Entity/Carrier redundant or supplies a replacement."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Entity/Carrier",
+      "proposal": null,
+      "question": "Which captured Core Main Content assertion defines the distinct meaning of Entity/Carrier and, if applicable, its property, allowed-value, root-kind, or ownership status?",
+      "reason": "Current checked Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-507",
+        "CA-R-1406"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked captured Main Content line directly defines Entity/Identity; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves a same-meaning duplicate of Entity/Identity."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved_absence_not_empty",
+          "reason": "No checked captured Main Content line directly defines Entity/Identity; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No generalization for Entity/Identity is proposed without preserved/lost distinction analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves Entity/Identity redundant or supplies a replacement."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Entity/Identity",
+      "proposal": null,
+      "question": "Which captured Core Main Content assertion defines the distinct meaning of Entity/Identity and, if applicable, its property, allowed-value, root-kind, or ownership status?",
+      "reason": "Current checked Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-E-387",
+        "CA-R-1285",
+        "CA-R-1315",
+        "CA-R-1349",
+        "CA-R-1350"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked captured Main Content line directly defines Entity/Type; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves a same-meaning duplicate of Entity/Type."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved_absence_not_empty",
+          "reason": "No checked captured Main Content line directly defines Entity/Type; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No generalization for Entity/Type is proposed without preserved/lost distinction analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves Entity/Type redundant or supplies a replacement."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Entity/Type",
+      "proposal": null,
+      "question": "Which captured Core Main Content assertion defines the distinct meaning of Entity/Type and, if applicable, its property, allowed-value, root-kind, or ownership status?",
+      "reason": "Current checked Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-R-1315"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked captured Main Content line directly defines Entity/Type/Status; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves a same-meaning duplicate of Entity/Type/Status."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved_absence_not_empty",
+          "reason": "No checked captured Main Content line directly defines Entity/Type/Status; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No generalization for Entity/Type/Status is proposed without preserved/lost distinction analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves Entity/Type/Status redundant or supplies a replacement."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Entity/Type/Status",
+      "proposal": null,
+      "question": "Which captured Core Main Content assertion defines the distinct meaning of Entity/Type/Status and, if applicable, its property, allowed-value, root-kind, or ownership status?",
+      "reason": "Current checked Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-O-106"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "e12"
+          ],
+          "finding": "current_meaning_evidenced",
+          "reason": "The cited captured Main Content gives Evaluate RMED Review Batch an explicit distinct meaning."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "e12"
+          ],
+          "finding": "no_proven_duplicate",
+          "reason": "captured Main Content defines Evaluate RMED Review Batch; no same-meaning replacement is evidenced."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "e12"
+          ],
+          "finding": "definition_evidenced",
+          "reason": "The cited captured Main Content directly defines Evaluate RMED Review Batch."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "e12"
+          ],
+          "finding": "not_proposed",
+          "reason": "No broader replacement for Evaluate RMED Review Batch is proposed without loss analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "e12"
+          ],
+          "finding": "not_proven_redundant",
+          "reason": "No checked source makes Evaluate RMED Review Batch redundant; qualified-label repetition is not duplicate proof."
+        }
+      },
+      "confidence_percent": 95,
+      "disposition": "retain",
+      "evidence_refs": [
+        "e12"
+      ],
+      "identity": "Evaluate RMED Review Batch",
+      "proposal": {
+        "constraints_impact": "no constraint change proposed",
+        "historical_references_impact": "preserved at the original baseline identity",
+        "kind": "retain_preserved_baseline_identity_only",
+        "lost_distinctions": [],
+        "native_admission": "not_performed",
+        "preserved_distinctions": [
+          "Evaluate RMED Review Batch"
+        ],
+        "queries_impact": "identity-based queries preserve the original baseline identity",
+        "relations_impact": "no relation creation, removal, or rewrite proposed",
+        "replacement_identity": null
+      },
+      "question": null,
+      "reason": "Current pinned Main Content directly defines this preserved identity; retain it without admitting a new native Property, allowed-value assignment, root kind, or relation."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-496",
+        "CA-E-510",
+        "CA-E-513",
+        "CA-E-521",
+        "CA-O-087",
+        "CA-O-104",
+        "CA-O-105",
+        "CA-O-106",
+        "CA-O-108",
+        "CA-O-109",
+        "CA-O-110",
+        "CA-O-123",
+        "CA-O-124",
+        "CA-O-126",
+        "CA-R-1611"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked captured Main Content line directly defines Evaluation; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves a same-meaning duplicate of Evaluation."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved_absence_not_empty",
+          "reason": "No checked captured Main Content line directly defines Evaluation; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No generalization for Evaluation is proposed without preserved/lost distinction analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves Evaluation redundant or supplies a replacement."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Evaluation",
+      "proposal": null,
+      "question": "Which captured Core Main Content assertion defines the distinct meaning of Evaluation and, if applicable, its property, allowed-value, root-kind, or ownership status?",
+      "reason": "Current checked Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-E-246",
+        "CA-E-447",
+        "CA-M-125",
+        "CA-M-264",
+        "CA-M-265",
+        "CA-R-1018"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked captured Main Content line directly defines Evaluation For Relation; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves a same-meaning duplicate of Evaluation For Relation."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved_absence_not_empty",
+          "reason": "No checked captured Main Content line directly defines Evaluation For Relation; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No generalization for Evaluation For Relation is proposed without preserved/lost distinction analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves Evaluation For Relation redundant or supplies a replacement."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Evaluation For Relation",
+      "proposal": null,
+      "question": "Which captured Core Main Content assertion defines the distinct meaning of Evaluation For Relation and, if applicable, its property, allowed-value, root-kind, or ownership status?",
+      "reason": "Current checked Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-O-018"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "e13"
+          ],
+          "finding": "current_meaning_evidenced",
+          "reason": "The cited captured Main Content gives Evaluation Implementation an explicit distinct meaning."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "e13"
+          ],
+          "finding": "no_proven_duplicate",
+          "reason": "captured Main Content defines Evaluation Implementation; no same-meaning replacement is evidenced."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "e13"
+          ],
+          "finding": "definition_evidenced",
+          "reason": "The cited captured Main Content directly defines Evaluation Implementation."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "e13"
+          ],
+          "finding": "not_proposed",
+          "reason": "No broader replacement for Evaluation Implementation is proposed without loss analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "e13"
+          ],
+          "finding": "not_proven_redundant",
+          "reason": "No checked source makes Evaluation Implementation redundant; qualified-label repetition is not duplicate proof."
+        }
+      },
+      "confidence_percent": 95,
+      "disposition": "retain",
+      "evidence_refs": [
+        "e13"
+      ],
+      "identity": "Evaluation Implementation",
+      "proposal": {
+        "constraints_impact": "no constraint change proposed",
+        "historical_references_impact": "preserved at the original baseline identity",
+        "kind": "retain_preserved_baseline_identity_only",
+        "lost_distinctions": [],
+        "native_admission": "not_performed",
+        "preserved_distinctions": [
+          "Evaluation Implementation"
+        ],
+        "queries_impact": "identity-based queries preserve the original baseline identity",
+        "relations_impact": "no relation creation, removal, or rewrite proposed",
+        "replacement_identity": null
+      },
+      "question": null,
+      "reason": "Current pinned Main Content directly defines this preserved identity; retain it without admitting a new native Property, allowed-value assignment, root kind, or relation."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-O-092"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "e14"
+          ],
+          "finding": "current_meaning_evidenced",
+          "reason": "The cited captured Main Content gives Evaluation Implementation Step an explicit distinct meaning."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "e14"
+          ],
+          "finding": "no_proven_duplicate",
+          "reason": "captured Main Content defines Evaluation Implementation Step; no same-meaning replacement is evidenced."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "e14"
+          ],
+          "finding": "definition_evidenced",
+          "reason": "The cited captured Main Content directly defines Evaluation Implementation Step."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "e14"
+          ],
+          "finding": "not_proposed",
+          "reason": "No broader replacement for Evaluation Implementation Step is proposed without loss analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "e14"
+          ],
+          "finding": "not_proven_redundant",
+          "reason": "No checked source makes Evaluation Implementation Step redundant; qualified-label repetition is not duplicate proof."
+        }
+      },
+      "confidence_percent": 95,
+      "disposition": "retain",
+      "evidence_refs": [
+        "e14"
+      ],
+      "identity": "Evaluation Implementation Step",
+      "proposal": {
+        "constraints_impact": "no constraint change proposed",
+        "historical_references_impact": "preserved at the original baseline identity",
+        "kind": "retain_preserved_baseline_identity_only",
+        "lost_distinctions": [],
+        "native_admission": "not_performed",
+        "preserved_distinctions": [
+          "Evaluation Implementation Step"
+        ],
+        "queries_impact": "identity-based queries preserve the original baseline identity",
+        "relations_impact": "no relation creation, removal, or rewrite proposed",
+        "replacement_identity": null
+      },
+      "question": null,
+      "reason": "Current pinned Main Content directly defines this preserved identity; retain it without admitting a new native Property, allowed-value assignment, root kind, or relation."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-O-104",
+        "CA-O-108",
+        "CA-O-109",
+        "CA-O-110"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked captured Main Content line directly defines Evaluation/Report; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves a same-meaning duplicate of Evaluation/Report."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved_absence_not_empty",
+          "reason": "No checked captured Main Content line directly defines Evaluation/Report; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No generalization for Evaluation/Report is proposed without preserved/lost distinction analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves Evaluation/Report redundant or supplies a replacement."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Evaluation/Report",
+      "proposal": null,
+      "question": "Which captured Core Main Content assertion defines the distinct meaning of Evaluation/Report and, if applicable, its property, allowed-value, root-kind, or ownership status?",
+      "reason": "Current checked Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-O-123"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "e15"
+          ],
+          "finding": "current_meaning_evidenced",
+          "reason": "The cited captured Main Content gives Evaluator Evidence Calibration an explicit distinct meaning."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "e15"
+          ],
+          "finding": "no_proven_duplicate",
+          "reason": "captured Main Content defines Evaluator Evidence Calibration; no same-meaning replacement is evidenced."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "e15"
+          ],
+          "finding": "definition_evidenced",
+          "reason": "The cited captured Main Content directly defines Evaluator Evidence Calibration."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "e15"
+          ],
+          "finding": "not_proposed",
+          "reason": "No broader replacement for Evaluator Evidence Calibration is proposed without loss analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "e15"
+          ],
+          "finding": "not_proven_redundant",
+          "reason": "No checked source makes Evaluator Evidence Calibration redundant; qualified-label repetition is not duplicate proof."
+        }
+      },
+      "confidence_percent": 95,
+      "disposition": "retain",
+      "evidence_refs": [
+        "e15"
+      ],
+      "identity": "Evaluator Evidence Calibration",
+      "proposal": {
+        "constraints_impact": "no constraint change proposed",
+        "historical_references_impact": "preserved at the original baseline identity",
+        "kind": "retain_preserved_baseline_identity_only",
+        "lost_distinctions": [],
+        "native_admission": "not_performed",
+        "preserved_distinctions": [
+          "Evaluator Evidence Calibration"
+        ],
+        "queries_impact": "identity-based queries preserve the original baseline identity",
+        "relations_impact": "no relation creation, removal, or rewrite proposed",
+        "replacement_identity": null
+      },
+      "question": null,
+      "reason": "Current pinned Main Content directly defines this preserved identity; retain it without admitting a new native Property, allowed-value assignment, root kind, or relation."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-O-162",
+        "CA-O-163"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked captured Main Content line directly defines Event; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves a same-meaning duplicate of Event."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved_absence_not_empty",
+          "reason": "No checked captured Main Content line directly defines Event; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No generalization for Event is proposed without preserved/lost distinction analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves Event redundant or supplies a replacement."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Event",
+      "proposal": null,
+      "question": "Which captured Core Main Content assertion defines the distinct meaning of Event and, if applicable, its property, allowed-value, root-kind, or ownership status?",
+      "reason": "Current checked Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-R-1497",
+        "CA-R-1505",
+        "CA-R-1611",
+        "CA-R-1646"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked captured Main Content line directly defines Evidence; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves a same-meaning duplicate of Evidence."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved_absence_not_empty",
+          "reason": "No checked captured Main Content line directly defines Evidence; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No generalization for Evidence is proposed without preserved/lost distinction analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves Evidence redundant or supplies a replacement."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Evidence",
+      "proposal": null,
+      "question": "Which captured Core Main Content assertion defines the distinct meaning of Evidence and, if applicable, its property, allowed-value, root-kind, or ownership status?",
+      "reason": "Current checked Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-R-1021"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked captured Main Content line directly defines Evidence For Relation; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves a same-meaning duplicate of Evidence For Relation."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved_absence_not_empty",
+          "reason": "No checked captured Main Content line directly defines Evidence For Relation; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No generalization for Evidence For Relation is proposed without preserved/lost distinction analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves Evidence For Relation redundant or supplies a replacement."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Evidence For Relation",
+      "proposal": null,
+      "question": "Which captured Core Main Content assertion defines the distinct meaning of Evidence For Relation and, if applicable, its property, allowed-value, root-kind, or ownership status?",
+      "reason": "Current checked Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-R-1557",
+        "CA-R-1558"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked captured Main Content line directly defines Exploration Mode; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves a same-meaning duplicate of Exploration Mode."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved_absence_not_empty",
+          "reason": "No checked captured Main Content line directly defines Exploration Mode; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No generalization for Exploration Mode is proposed without preserved/lost distinction analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves Exploration Mode redundant or supplies a replacement."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Exploration Mode",
+      "proposal": null,
+      "question": "Which captured Core Main Content assertion defines the distinct meaning of Exploration Mode and, if applicable, its property, allowed-value, root-kind, or ownership status?",
+      "reason": "Current checked Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-262",
+        "CA-D-361",
+        "CA-D-373",
+        "CA-E-249",
+        "CA-E-379",
+        "CA-E-464",
+        "CA-M-298",
+        "CA-O-011",
+        "CA-O-054",
+        "CA-O-152",
+        "CA-O-154",
+        "CA-R-1206",
+        "CA-R-1207",
+        "CA-R-1217",
+        "CA-R-1218",
+        "CA-R-1220",
+        "CA-R-1228",
+        "CA-R-1286",
+        "CA-R-1313",
+        "CA-R-1375",
+        "CA-R-1434",
+        "CA-R-1466",
+        "CA-R-1722",
+        "CA-R-1723",
+        "CA-R-1724",
+        "CA-R-1748",
+        "CA-R-1773",
+        "CA-R-1874",
+        "CA-R-1875"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "e16"
+          ],
+          "finding": "current_meaning_evidenced",
+          "reason": "The cited captured Main Content gives Extension an explicit distinct meaning."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "e16"
+          ],
+          "finding": "no_proven_duplicate",
+          "reason": "captured Main Content defines Extension; no same-meaning replacement is evidenced."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "e16"
+          ],
+          "finding": "definition_evidenced",
+          "reason": "The cited captured Main Content directly defines Extension."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "e16"
+          ],
+          "finding": "not_proposed",
+          "reason": "No broader replacement for Extension is proposed without loss analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "e16"
+          ],
+          "finding": "not_proven_redundant",
+          "reason": "No checked source makes Extension redundant; qualified-label repetition is not duplicate proof."
+        }
+      },
+      "confidence_percent": 95,
+      "disposition": "retain",
+      "evidence_refs": [
+        "e16"
+      ],
+      "identity": "Extension",
+      "proposal": {
+        "constraints_impact": "no constraint change proposed",
+        "historical_references_impact": "preserved at the original baseline identity",
+        "kind": "retain_preserved_baseline_identity_only",
+        "lost_distinctions": [],
+        "native_admission": "not_performed",
+        "preserved_distinctions": [
+          "Extension"
+        ],
+        "queries_impact": "identity-based queries preserve the original baseline identity",
+        "relations_impact": "no relation creation, removal, or rewrite proposed",
+        "replacement_identity": null
+      },
+      "question": null,
+      "reason": "Current pinned Main Content directly defines this preserved identity; retain it without admitting a new native Property, allowed-value assignment, root kind, or relation."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-R-1206"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked captured Main Content line directly defines Extension Installation; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves a same-meaning duplicate of Extension Installation."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved_absence_not_empty",
+          "reason": "No checked captured Main Content line directly defines Extension Installation; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No generalization for Extension Installation is proposed without preserved/lost distinction analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves Extension Installation redundant or supplies a replacement."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Extension Installation",
+      "proposal": null,
+      "question": "Which captured Core Main Content assertion defines the distinct meaning of Extension Installation and, if applicable, its property, allowed-value, root-kind, or ownership status?",
+      "reason": "Current checked Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-R-1654"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked captured Main Content line directly defines Feature Realization Relation; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves a same-meaning duplicate of Feature Realization Relation."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved_absence_not_empty",
+          "reason": "No checked captured Main Content line directly defines Feature Realization Relation; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No generalization for Feature Realization Relation is proposed without preserved/lost distinction analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves Feature Realization Relation redundant or supplies a replacement."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Feature Realization Relation",
+      "proposal": null,
+      "question": "Which captured Core Main Content assertion defines the distinct meaning of Feature Realization Relation and, if applicable, its property, allowed-value, root-kind, or ownership status?",
+      "reason": "Current checked Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-258",
+        "CA-D-262",
+        "CA-D-330",
+        "CA-D-359",
+        "CA-D-363",
+        "CA-D-407",
+        "CA-D-416",
+        "CA-D-452",
+        "CA-D-460",
+        "CA-D-470",
+        "CA-D-472",
+        "CA-D-473",
+        "CA-D-496",
+        "CA-D-507",
+        "CA-E-502",
+        "CA-E-507",
+        "CA-M-306",
+        "CA-R-1583"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "e17"
+          ],
+          "finding": "current_meaning_evidenced",
+          "reason": "The cited captured Main Content gives File Carrier an explicit distinct meaning."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "e17"
+          ],
+          "finding": "no_proven_duplicate",
+          "reason": "captured Main Content defines File Carrier; no same-meaning replacement is evidenced."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "e17"
+          ],
+          "finding": "definition_evidenced",
+          "reason": "The cited captured Main Content directly defines File Carrier."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "e17"
+          ],
+          "finding": "not_proposed",
+          "reason": "No broader replacement for File Carrier is proposed without loss analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "e17"
+          ],
+          "finding": "not_proven_redundant",
+          "reason": "No checked source makes File Carrier redundant; qualified-label repetition is not duplicate proof."
+        }
+      },
+      "confidence_percent": 95,
+      "disposition": "retain",
+      "evidence_refs": [
+        "e17"
+      ],
+      "identity": "File Carrier",
+      "proposal": {
+        "constraints_impact": "no constraint change proposed",
+        "historical_references_impact": "preserved at the original baseline identity",
+        "kind": "retain_preserved_baseline_identity_only",
+        "lost_distinctions": [],
+        "native_admission": "not_performed",
+        "preserved_distinctions": [
+          "File Carrier"
+        ],
+        "queries_impact": "identity-based queries preserve the original baseline identity",
+        "relations_impact": "no relation creation, removal, or rewrite proposed",
+        "replacement_identity": null
+      },
+      "question": null,
+      "reason": "Current pinned Main Content directly defines this preserved identity; retain it without admitting a new native Property, allowed-value assignment, root kind, or relation."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-507"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked captured Main Content line directly defines File Carrier/Extension; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves a same-meaning duplicate of File Carrier/Extension."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved_absence_not_empty",
+          "reason": "No checked captured Main Content line directly defines File Carrier/Extension; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No generalization for File Carrier/Extension is proposed without preserved/lost distinction analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves File Carrier/Extension redundant or supplies a replacement."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "File Carrier/Extension",
+      "proposal": null,
+      "question": "Which captured Core Main Content assertion defines the distinct meaning of File Carrier/Extension and, if applicable, its property, allowed-value, root-kind, or ownership status?",
+      "reason": "Current checked Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-262",
+        "CA-D-359",
+        "CA-D-363"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked captured Main Content line directly defines File Carrier/Format; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves a same-meaning duplicate of File Carrier/Format."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved_absence_not_empty",
+          "reason": "No checked captured Main Content line directly defines File Carrier/Format; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No generalization for File Carrier/Format is proposed without preserved/lost distinction analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves File Carrier/Format redundant or supplies a replacement."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "File Carrier/Format",
+      "proposal": null,
+      "question": "Which captured Core Main Content assertion defines the distinct meaning of File Carrier/Format and, if applicable, its property, allowed-value, root-kind, or ownership status?",
+      "reason": "Current checked Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-330"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked captured Main Content line directly defines File Carrier/GitHub Preview; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves a same-meaning duplicate of File Carrier/GitHub Preview."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved_absence_not_empty",
+          "reason": "No checked captured Main Content line directly defines File Carrier/GitHub Preview; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No generalization for File Carrier/GitHub Preview is proposed without preserved/lost distinction analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves File Carrier/GitHub Preview redundant or supplies a replacement."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "File Carrier/GitHub Preview",
+      "proposal": null,
+      "question": "Which captured Core Main Content assertion defines the distinct meaning of File Carrier/GitHub Preview and, if applicable, its property, allowed-value, root-kind, or ownership status?",
+      "reason": "Current checked Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-O-158"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked captured Main Content line directly defines Find and Fetch Artifacts; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves a same-meaning duplicate of Find and Fetch Artifacts."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved_absence_not_empty",
+          "reason": "No checked captured Main Content line directly defines Find and Fetch Artifacts; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No generalization for Find and Fetch Artifacts is proposed without preserved/lost distinction analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves Find and Fetch Artifacts redundant or supplies a replacement."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Find and Fetch Artifacts",
+      "proposal": null,
+      "question": "Which captured Core Main Content assertion defines the distinct meaning of Find and Fetch Artifacts and, if applicable, its property, allowed-value, root-kind, or ownership status?",
+      "reason": "Current checked Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-O-161",
+        "CA-O-163"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked captured Main Content line directly defines Find and Fetch Journal Events; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves a same-meaning duplicate of Find and Fetch Journal Events."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved_absence_not_empty",
+          "reason": "No checked captured Main Content line directly defines Find and Fetch Journal Events; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No generalization for Find and Fetch Journal Events is proposed without preserved/lost distinction analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves Find and Fetch Journal Events redundant or supplies a replacement."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Find and Fetch Journal Events",
+      "proposal": null,
+      "question": "Which captured Core Main Content assertion defines the distinct meaning of Find and Fetch Journal Events and, if applicable, its property, allowed-value, root-kind, or ownership status?",
+      "reason": "Current checked Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-O-163"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked captured Main Content line directly defines Find and Fetch Journal Events/Step; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves a same-meaning duplicate of Find and Fetch Journal Events/Step."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved_absence_not_empty",
+          "reason": "No checked captured Main Content line directly defines Find and Fetch Journal Events/Step; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No generalization for Find and Fetch Journal Events/Step is proposed without preserved/lost distinction analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves Find and Fetch Journal Events/Step redundant or supplies a replacement."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Find and Fetch Journal Events/Step",
+      "proposal": null,
+      "question": "Which captured Core Main Content assertion defines the distinct meaning of Find and Fetch Journal Events/Step and, if applicable, its property, allowed-value, root-kind, or ownership status?",
+      "reason": "Current checked Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-O-163"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked captured Main Content line directly defines Find and Fetch Journal Events/Step: query; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves a same-meaning duplicate of Find and Fetch Journal Events/Step: query."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved_absence_not_empty",
+          "reason": "No checked captured Main Content line directly defines Find and Fetch Journal Events/Step: query; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No generalization for Find and Fetch Journal Events/Step: query is proposed without preserved/lost distinction analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves Find and Fetch Journal Events/Step: query redundant or supplies a replacement."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Find and Fetch Journal Events/Step: query",
+      "proposal": null,
+      "question": "Which captured Core Main Content assertion defines the distinct meaning of Find and Fetch Journal Events/Step: query and, if applicable, its property, allowed-value, root-kind, or ownership status?",
+      "reason": "Current checked Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-333",
+        "CA-D-358",
+        "CA-D-359",
+        "CA-D-360",
+        "CA-D-361",
+        "CA-D-366",
+        "CA-D-368",
+        "CA-D-369",
+        "CA-D-370",
+        "CA-D-371",
+        "CA-D-372",
+        "CA-D-373",
+        "CA-D-374",
+        "CA-D-377",
+        "CA-D-383",
+        "CA-D-387",
+        "CA-D-390",
+        "CA-D-391",
+        "CA-D-408",
+        "CA-D-442",
+        "CA-D-447",
+        "CA-D-497",
+        "CA-E-241",
+        "CA-E-379",
+        "CA-E-443",
+        "CA-E-446",
+        "CA-E-447",
+        "CA-E-450",
+        "CA-E-458",
+        "CA-E-459",
+        "CA-E-469",
+        "CA-E-473",
+        "CA-M-271",
+        "CA-M-277",
+        "CA-M-278",
+        "CA-M-279",
+        "CA-M-291",
+        "CA-M-295",
+        "CA-O-008",
+        "CA-O-011",
+        "CA-O-052",
+        "CA-O-105",
+        "CA-O-152",
+        "CA-R-1052",
+        "CA-R-1207",
+        "CA-R-1218",
+        "CA-R-1228",
+        "CA-R-1375",
+        "CA-R-1402",
+        "CA-R-1404",
+        "CA-R-1428",
+        "CA-R-1429",
+        "CA-R-1430",
+        "CA-R-1439",
+        "CA-R-1440",
+        "CA-R-1441",
+        "CA-R-1489",
+        "CA-R-1587",
+        "CA-R-1628",
+        "CA-R-1629",
+        "CA-R-1630",
+        "CA-R-1631",
+        "CA-R-1652",
+        "CA-R-1724",
+        "CA-R-1733",
+        "CA-R-1739",
+        "CA-R-1740",
+        "CA-R-1750",
+        "CA-R-380",
+        "CA-R-626",
+        "CAPRMEDIO-GOV-EVAL-002"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "e18"
+          ],
+          "finding": "current_meaning_evidenced",
+          "reason": "The cited captured Main Content gives Framework Instance Settings an explicit distinct meaning."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "e18"
+          ],
+          "finding": "no_proven_duplicate",
+          "reason": "captured Main Content defines Framework Instance Settings; no same-meaning replacement is evidenced."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "e18"
+          ],
+          "finding": "definition_evidenced",
+          "reason": "The cited captured Main Content directly defines Framework Instance Settings."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "e18"
+          ],
+          "finding": "not_proposed",
+          "reason": "No broader replacement for Framework Instance Settings is proposed without loss analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "e18"
+          ],
+          "finding": "not_proven_redundant",
+          "reason": "No checked source makes Framework Instance Settings redundant; qualified-label repetition is not duplicate proof."
+        }
+      },
+      "confidence_percent": 95,
+      "disposition": "retain",
+      "evidence_refs": [
+        "e18"
+      ],
+      "identity": "Framework Instance Settings",
+      "proposal": {
+        "constraints_impact": "no constraint change proposed",
+        "historical_references_impact": "preserved at the original baseline identity",
+        "kind": "retain_preserved_baseline_identity_only",
+        "lost_distinctions": [],
+        "native_admission": "not_performed",
+        "preserved_distinctions": [
+          "Framework Instance Settings"
+        ],
+        "queries_impact": "identity-based queries preserve the original baseline identity",
+        "relations_impact": "no relation creation, removal, or rewrite proposed",
+        "replacement_identity": null
+      },
+      "question": null,
+      "reason": "Current pinned Main Content directly defines this preserved identity; retain it without admitting a new native Property, allowed-value assignment, root kind, or relation."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-E-458"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked captured Main Content line directly defines Framework Instance Settings Validation; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves a same-meaning duplicate of Framework Instance Settings Validation."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved_absence_not_empty",
+          "reason": "No checked captured Main Content line directly defines Framework Instance Settings Validation; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No generalization for Framework Instance Settings Validation is proposed without preserved/lost distinction analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves Framework Instance Settings Validation redundant or supplies a replacement."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Framework Instance Settings Validation",
+      "proposal": null,
+      "question": "Which captured Core Main Content assertion defines the distinct meaning of Framework Instance Settings Validation and, if applicable, its property, allowed-value, root-kind, or ownership status?",
+      "reason": "Current checked Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-390"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked captured Main Content line directly defines Framework Instance Settings/Artifact Timestamp Timezone; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves a same-meaning duplicate of Framework Instance Settings/Artifact Timestamp Timezone."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved_absence_not_empty",
+          "reason": "No checked captured Main Content line directly defines Framework Instance Settings/Artifact Timestamp Timezone; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No generalization for Framework Instance Settings/Artifact Timestamp Timezone is proposed without preserved/lost distinction analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves Framework Instance Settings/Artifact Timestamp Timezone redundant or supplies a replacement."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Framework Instance Settings/Artifact Timestamp Timezone",
+      "proposal": null,
+      "question": "Which captured Core Main Content assertion defines the distinct meaning of Framework Instance Settings/Artifact Timestamp Timezone and, if applicable, its property, allowed-value, root-kind, or ownership status?",
+      "reason": "Current checked Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-359",
+        "CA-D-361",
+        "CA-D-383",
+        "CA-D-387",
+        "CA-E-458"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked captured Main Content line directly defines Framework Instance Settings/Authoritative Carrier; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves a same-meaning duplicate of Framework Instance Settings/Authoritative Carrier."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved_absence_not_empty",
+          "reason": "No checked captured Main Content line directly defines Framework Instance Settings/Authoritative Carrier; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No generalization for Framework Instance Settings/Authoritative Carrier is proposed without preserved/lost distinction analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves Framework Instance Settings/Authoritative Carrier redundant or supplies a replacement."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Framework Instance Settings/Authoritative Carrier",
+      "proposal": null,
+      "question": "Which captured Core Main Content assertion defines the distinct meaning of Framework Instance Settings/Authoritative Carrier and, if applicable, its property, allowed-value, root-kind, or ownership status?",
+      "reason": "Current checked Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-361",
+        "CA-D-383",
+        "CA-D-387"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked captured Main Content line directly defines Framework Instance Settings/Authoritative Carrier/Content; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves a same-meaning duplicate of Framework Instance Settings/Authoritative Carrier/Content."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved_absence_not_empty",
+          "reason": "No checked captured Main Content line directly defines Framework Instance Settings/Authoritative Carrier/Content; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No generalization for Framework Instance Settings/Authoritative Carrier/Content is proposed without preserved/lost distinction analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves Framework Instance Settings/Authoritative Carrier/Content redundant or supplies a replacement."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Framework Instance Settings/Authoritative Carrier/Content",
+      "proposal": null,
+      "question": "Which captured Core Main Content assertion defines the distinct meaning of Framework Instance Settings/Authoritative Carrier/Content and, if applicable, its property, allowed-value, root-kind, or ownership status?",
+      "reason": "Current checked Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-R-1430"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked captured Main Content line directly defines Framework Instance Settings/Authority Modes; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves a same-meaning duplicate of Framework Instance Settings/Authority Modes."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved_absence_not_empty",
+          "reason": "No checked captured Main Content line directly defines Framework Instance Settings/Authority Modes; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No generalization for Framework Instance Settings/Authority Modes is proposed without preserved/lost distinction analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves Framework Instance Settings/Authority Modes redundant or supplies a replacement."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Framework Instance Settings/Authority Modes",
+      "proposal": null,
+      "question": "Which captured Core Main Content assertion defines the distinct meaning of Framework Instance Settings/Authority Modes and, if applicable, its property, allowed-value, root-kind, or ownership status?",
+      "reason": "Current checked Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-377"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked captured Main Content line directly defines Framework Instance Settings/Carrier; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves a same-meaning duplicate of Framework Instance Settings/Carrier."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved_absence_not_empty",
+          "reason": "No checked captured Main Content line directly defines Framework Instance Settings/Carrier; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No generalization for Framework Instance Settings/Carrier is proposed without preserved/lost distinction analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves Framework Instance Settings/Carrier redundant or supplies a replacement."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Framework Instance Settings/Carrier",
+      "proposal": null,
+      "question": "Which captured Core Main Content assertion defines the distinct meaning of Framework Instance Settings/Carrier and, if applicable, its property, allowed-value, root-kind, or ownership status?",
+      "reason": "Current checked Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-377"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked captured Main Content line directly defines Framework Instance Settings/Carrier/Atom metadata exclusion; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves a same-meaning duplicate of Framework Instance Settings/Carrier/Atom metadata exclusion."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved_absence_not_empty",
+          "reason": "No checked captured Main Content line directly defines Framework Instance Settings/Carrier/Atom metadata exclusion; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No generalization for Framework Instance Settings/Carrier/Atom metadata exclusion is proposed without preserved/lost distinction analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves Framework Instance Settings/Carrier/Atom metadata exclusion redundant or supplies a replacement."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Framework Instance Settings/Carrier/Atom metadata exclusion",
+      "proposal": null,
+      "question": "Which captured Core Main Content assertion defines the distinct meaning of Framework Instance Settings/Carrier/Atom metadata exclusion and, if applicable, its property, allowed-value, root-kind, or ownership status?",
+      "reason": "Current checked Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-368",
+        "CA-D-369",
+        "CA-R-1652",
+        "CA-R-380"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked captured Main Content line directly defines Framework Instance Settings/Confidence; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves a same-meaning duplicate of Framework Instance Settings/Confidence."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved_absence_not_empty",
+          "reason": "No checked captured Main Content line directly defines Framework Instance Settings/Confidence; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No generalization for Framework Instance Settings/Confidence is proposed without preserved/lost distinction analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves Framework Instance Settings/Confidence redundant or supplies a replacement."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Framework Instance Settings/Confidence",
+      "proposal": null,
+      "question": "Which captured Core Main Content assertion defines the distinct meaning of Framework Instance Settings/Confidence and, if applicable, its property, allowed-value, root-kind, or ownership status?",
+      "reason": "Current checked Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-368",
+        "CA-R-1652"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked captured Main Content line directly defines Framework Instance Settings/Confidence/Necessary Information Threshold; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves a same-meaning duplicate of Framework Instance Settings/Confidence/Necessary Information Threshold."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved_absence_not_empty",
+          "reason": "No checked captured Main Content line directly defines Framework Instance Settings/Confidence/Necessary Information Threshold; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No generalization for Framework Instance Settings/Confidence/Necessary Information Threshold is proposed without preserved/lost distinction analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves Framework Instance Settings/Confidence/Necessary Information Threshold redundant or supplies a replacement."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Framework Instance Settings/Confidence/Necessary Information Threshold",
+      "proposal": null,
+      "question": "Which captured Core Main Content assertion defines the distinct meaning of Framework Instance Settings/Confidence/Necessary Information Threshold and, if applicable, its property, allowed-value, root-kind, or ownership status?",
+      "reason": "Current checked Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-368"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked captured Main Content line directly defines Framework Instance Settings/Confidence/Necessary Information Threshold/Carrier; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves a same-meaning duplicate of Framework Instance Settings/Confidence/Necessary Information Threshold/Carrier."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved_absence_not_empty",
+          "reason": "No checked captured Main Content line directly defines Framework Instance Settings/Confidence/Necessary Information Threshold/Carrier; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No generalization for Framework Instance Settings/Confidence/Necessary Information Threshold/Carrier is proposed without preserved/lost distinction analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves Framework Instance Settings/Confidence/Necessary Information Threshold/Carrier redundant or supplies a replacement."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Framework Instance Settings/Confidence/Necessary Information Threshold/Carrier",
+      "proposal": null,
+      "question": "Which captured Core Main Content assertion defines the distinct meaning of Framework Instance Settings/Confidence/Necessary Information Threshold/Carrier and, if applicable, its property, allowed-value, root-kind, or ownership status?",
+      "reason": "Current checked Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-369",
+        "CA-R-380"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked captured Main Content line directly defines Framework Instance Settings/Confidence/Semantic Resolution Threshold; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves a same-meaning duplicate of Framework Instance Settings/Confidence/Semantic Resolution Threshold."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved_absence_not_empty",
+          "reason": "No checked captured Main Content line directly defines Framework Instance Settings/Confidence/Semantic Resolution Threshold; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No generalization for Framework Instance Settings/Confidence/Semantic Resolution Threshold is proposed without preserved/lost distinction analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves Framework Instance Settings/Confidence/Semantic Resolution Threshold redundant or supplies a replacement."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Framework Instance Settings/Confidence/Semantic Resolution Threshold",
+      "proposal": null,
+      "question": "Which captured Core Main Content assertion defines the distinct meaning of Framework Instance Settings/Confidence/Semantic Resolution Threshold and, if applicable, its property, allowed-value, root-kind, or ownership status?",
+      "reason": "Current checked Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-369"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked captured Main Content line directly defines Framework Instance Settings/Confidence/Semantic Resolution Threshold/Carrier; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves a same-meaning duplicate of Framework Instance Settings/Confidence/Semantic Resolution Threshold/Carrier."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved_absence_not_empty",
+          "reason": "No checked captured Main Content line directly defines Framework Instance Settings/Confidence/Semantic Resolution Threshold/Carrier; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No generalization for Framework Instance Settings/Confidence/Semantic Resolution Threshold/Carrier is proposed without preserved/lost distinction analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves Framework Instance Settings/Confidence/Semantic Resolution Threshold/Carrier redundant or supplies a replacement."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Framework Instance Settings/Confidence/Semantic Resolution Threshold/Carrier",
+      "proposal": null,
+      "question": "Which captured Core Main Content assertion defines the distinct meaning of Framework Instance Settings/Confidence/Semantic Resolution Threshold/Carrier and, if applicable, its property, allowed-value, root-kind, or ownership status?",
+      "reason": "Current checked Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-373"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked captured Main Content line directly defines Framework Instance Settings/Extension selections; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves a same-meaning duplicate of Framework Instance Settings/Extension selections."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved_absence_not_empty",
+          "reason": "No checked captured Main Content line directly defines Framework Instance Settings/Extension selections; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No generalization for Framework Instance Settings/Extension selections is proposed without preserved/lost distinction analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves Framework Instance Settings/Extension selections redundant or supplies a replacement."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Framework Instance Settings/Extension selections",
+      "proposal": null,
+      "question": "Which captured Core Main Content assertion defines the distinct meaning of Framework Instance Settings/Extension selections and, if applicable, its property, allowed-value, root-kind, or ownership status?",
+      "reason": "Current checked Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-358"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked captured Main Content line directly defines Framework Instance Settings/Identifier; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves a same-meaning duplicate of Framework Instance Settings/Identifier."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved_absence_not_empty",
+          "reason": "No checked captured Main Content line directly defines Framework Instance Settings/Identifier; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No generalization for Framework Instance Settings/Identifier is proposed without preserved/lost distinction analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves Framework Instance Settings/Identifier redundant or supplies a replacement."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Framework Instance Settings/Identifier",
+      "proposal": null,
+      "question": "Which captured Core Main Content assertion defines the distinct meaning of Framework Instance Settings/Identifier and, if applicable, its property, allowed-value, root-kind, or ownership status?",
+      "reason": "Current checked Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-372"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked captured Main Content line directly defines Framework Instance Settings/Tool selections; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves a same-meaning duplicate of Framework Instance Settings/Tool selections."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved_absence_not_empty",
+          "reason": "No checked captured Main Content line directly defines Framework Instance Settings/Tool selections; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No generalization for Framework Instance Settings/Tool selections is proposed without preserved/lost distinction analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves Framework Instance Settings/Tool selections redundant or supplies a replacement."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Framework Instance Settings/Tool selections",
+      "proposal": null,
+      "question": "Which captured Core Main Content assertion defines the distinct meaning of Framework Instance Settings/Tool selections and, if applicable, its property, allowed-value, root-kind, or ownership status?",
+      "reason": "Current checked Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-371"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked captured Main Content line directly defines Framework Instance Settings/code-root locators; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves a same-meaning duplicate of Framework Instance Settings/code-root locators."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved_absence_not_empty",
+          "reason": "No checked captured Main Content line directly defines Framework Instance Settings/code-root locators; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No generalization for Framework Instance Settings/code-root locators is proposed without preserved/lost distinction analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves Framework Instance Settings/code-root locators redundant or supplies a replacement."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Framework Instance Settings/code-root locators",
+      "proposal": null,
+      "question": "Which captured Core Main Content assertion defines the distinct meaning of Framework Instance Settings/code-root locators and, if applicable, its property, allowed-value, root-kind, or ownership status?",
+      "reason": "Current checked Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-370"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked captured Main Content line directly defines Framework Instance Settings/framework control-root locator; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves a same-meaning duplicate of Framework Instance Settings/framework control-root locator."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved_absence_not_empty",
+          "reason": "No checked captured Main Content line directly defines Framework Instance Settings/framework control-root locator; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No generalization for Framework Instance Settings/framework control-root locator is proposed without preserved/lost distinction analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves Framework Instance Settings/framework control-root locator redundant or supplies a replacement."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Framework Instance Settings/framework control-root locator",
+      "proposal": null,
+      "question": "Which captured Core Main Content assertion defines the distinct meaning of Framework Instance Settings/framework control-root locator and, if applicable, its property, allowed-value, root-kind, or ownership status?",
+      "reason": "Current checked Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-383",
+        "CA-M-277",
+        "CA-M-278",
+        "CA-R-1439",
+        "CA-R-1440",
+        "CA-R-1628"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked captured Main Content line directly defines Framework Instance Settings/interaction; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves a same-meaning duplicate of Framework Instance Settings/interaction."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved_absence_not_empty",
+          "reason": "No checked captured Main Content line directly defines Framework Instance Settings/interaction; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No generalization for Framework Instance Settings/interaction is proposed without preserved/lost distinction analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves Framework Instance Settings/interaction redundant or supplies a replacement."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Framework Instance Settings/interaction",
+      "proposal": null,
+      "question": "Which captured Core Main Content assertion defines the distinct meaning of Framework Instance Settings/interaction and, if applicable, its property, allowed-value, root-kind, or ownership status?",
+      "reason": "Current checked Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-383",
+        "CA-M-277",
+        "CA-M-278",
+        "CA-R-1439",
+        "CA-R-1440",
+        "CA-R-1628"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked captured Main Content line directly defines Framework Instance Settings/interaction/reporting mode; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves a same-meaning duplicate of Framework Instance Settings/interaction/reporting mode."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved_absence_not_empty",
+          "reason": "No checked captured Main Content line directly defines Framework Instance Settings/interaction/reporting mode; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No generalization for Framework Instance Settings/interaction/reporting mode is proposed without preserved/lost distinction analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves Framework Instance Settings/interaction/reporting mode redundant or supplies a replacement."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Framework Instance Settings/interaction/reporting mode",
+      "proposal": null,
+      "question": "Which captured Core Main Content assertion defines the distinct meaning of Framework Instance Settings/interaction/reporting mode and, if applicable, its property, allowed-value, root-kind, or ownership status?",
+      "reason": "Current checked Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-M-277",
+        "CA-M-278",
+        "CA-R-1439"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked captured Main Content line directly defines Framework Instance Settings/interaction/reporting mode/effects; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves a same-meaning duplicate of Framework Instance Settings/interaction/reporting mode/effects."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved_absence_not_empty",
+          "reason": "No checked captured Main Content line directly defines Framework Instance Settings/interaction/reporting mode/effects; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No generalization for Framework Instance Settings/interaction/reporting mode/effects is proposed without preserved/lost distinction analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves Framework Instance Settings/interaction/reporting mode/effects redundant or supplies a replacement."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Framework Instance Settings/interaction/reporting mode/effects",
+      "proposal": null,
+      "question": "Which captured Core Main Content assertion defines the distinct meaning of Framework Instance Settings/interaction/reporting mode/effects and, if applicable, its property, allowed-value, root-kind, or ownership status?",
+      "reason": "Current checked Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-M-277",
+        "CA-M-278",
+        "CA-R-1440"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked captured Main Content line directly defines Framework Instance Settings/interaction/reporting mode/mandatory information; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves a same-meaning duplicate of Framework Instance Settings/interaction/reporting mode/mandatory information."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved_absence_not_empty",
+          "reason": "No checked captured Main Content line directly defines Framework Instance Settings/interaction/reporting mode/mandatory information; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No generalization for Framework Instance Settings/interaction/reporting mode/mandatory information is proposed without preserved/lost distinction analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves Framework Instance Settings/interaction/reporting mode/mandatory information redundant or supplies a replacement."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Framework Instance Settings/interaction/reporting mode/mandatory information",
+      "proposal": null,
+      "question": "Which captured Core Main Content assertion defines the distinct meaning of Framework Instance Settings/interaction/reporting mode/mandatory information and, if applicable, its property, allowed-value, root-kind, or ownership status?",
+      "reason": "Current checked Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-M-277"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked captured Main Content line directly defines Framework Instance Settings/interaction/reporting mode: silent; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves a same-meaning duplicate of Framework Instance Settings/interaction/reporting mode: silent."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved_absence_not_empty",
+          "reason": "No checked captured Main Content line directly defines Framework Instance Settings/interaction/reporting mode: silent; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No generalization for Framework Instance Settings/interaction/reporting mode: silent is proposed without preserved/lost distinction analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves Framework Instance Settings/interaction/reporting mode: silent redundant or supplies a replacement."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Framework Instance Settings/interaction/reporting mode: silent",
+      "proposal": null,
+      "question": "Which captured Core Main Content assertion defines the distinct meaning of Framework Instance Settings/interaction/reporting mode: silent and, if applicable, its property, allowed-value, root-kind, or ownership status?",
+      "reason": "Current checked Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-M-278"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked captured Main Content line directly defines Framework Instance Settings/interaction/reporting mode: verbose; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves a same-meaning duplicate of Framework Instance Settings/interaction/reporting mode: verbose."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved_absence_not_empty",
+          "reason": "No checked captured Main Content line directly defines Framework Instance Settings/interaction/reporting mode: verbose; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No generalization for Framework Instance Settings/interaction/reporting mode: verbose is proposed without preserved/lost distinction analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves Framework Instance Settings/interaction/reporting mode: verbose redundant or supplies a replacement."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Framework Instance Settings/interaction/reporting mode: verbose",
+      "proposal": null,
+      "question": "Which captured Core Main Content assertion defines the distinct meaning of Framework Instance Settings/interaction/reporting mode: verbose and, if applicable, its property, allowed-value, root-kind, or ownership status?",
+      "reason": "Current checked Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-M-279"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked captured Main Content line directly defines Framework Instance Settings/parameter resolution; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves a same-meaning duplicate of Framework Instance Settings/parameter resolution."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved_absence_not_empty",
+          "reason": "No checked captured Main Content line directly defines Framework Instance Settings/parameter resolution; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No generalization for Framework Instance Settings/parameter resolution is proposed without preserved/lost distinction analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves Framework Instance Settings/parameter resolution redundant or supplies a replacement."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Framework Instance Settings/parameter resolution",
+      "proposal": null,
+      "question": "Which captured Core Main Content assertion defines the distinct meaning of Framework Instance Settings/parameter resolution and, if applicable, its property, allowed-value, root-kind, or ownership status?",
+      "reason": "Current checked Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-E-450"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked captured Main Content line directly defines Framework Instance Settings/parameter resolution validation; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves a same-meaning duplicate of Framework Instance Settings/parameter resolution validation."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved_absence_not_empty",
+          "reason": "No checked captured Main Content line directly defines Framework Instance Settings/parameter resolution validation; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No generalization for Framework Instance Settings/parameter resolution validation is proposed without preserved/lost distinction analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves Framework Instance Settings/parameter resolution validation redundant or supplies a replacement."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Framework Instance Settings/parameter resolution validation",
+      "proposal": null,
+      "question": "Which captured Core Main Content assertion defines the distinct meaning of Framework Instance Settings/parameter resolution validation and, if applicable, its property, allowed-value, root-kind, or ownership status?",
+      "reason": "Current checked Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-341"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked captured Main Content line directly defines Framework-Owned Carrier; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves a same-meaning duplicate of Framework-Owned Carrier."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "unresolved_absence_not_empty",
+          "reason": "No checked captured Main Content line directly defines Framework-Owned Carrier; this absence is not treated as emptiness, duplication, or a deletion permission."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "not_proposed",
+          "reason": "No generalization for Framework-Owned Carrier is proposed without preserved/lost distinction analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No checked source proves Framework-Owned Carrier redundant or supplies a replacement."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Framework-Owned Carrier",
+      "proposal": null,
+      "question": "Which captured Core Main Content assertion defines the distinct meaning of Framework-Owned Carrier and, if applicable, its property, allowed-value, root-kind, or ownership status?",
+      "reason": "Current checked Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-269",
+        "CA-D-307",
+        "CA-E-246",
+        "CA-M-228",
+        "CA-M-232",
+        "CA-R-1198",
+        "CA-R-1199",
+        "CA-R-1201",
+        "CA-R-1202",
+        "CA-R-1203",
+        "CA-R-1275",
+        "CA-R-1276",
+        "CA-R-1279",
+        "CA-R-1281",
+        "CA-R-1363",
+        "CA-R-1459"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "e19"
+          ],
+          "finding": "current_meaning_evidenced",
+          "reason": "The cited captured Main Content gives GOVERNS an explicit distinct meaning."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "e19"
+          ],
+          "finding": "no_proven_duplicate",
+          "reason": "captured Main Content defines GOVERNS; no same-meaning replacement is evidenced."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "e19"
+          ],
+          "finding": "definition_evidenced",
+          "reason": "The cited captured Main Content directly defines GOVERNS."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "e19"
+          ],
+          "finding": "not_proposed",
+          "reason": "No broader replacement for GOVERNS is proposed without loss analysis."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "e19"
+          ],
+          "finding": "not_proven_redundant",
+          "reason": "No checked source makes GOVERNS redundant; qualified-label repetition is not duplicate proof."
+        }
+      },
+      "confidence_percent": 95,
+      "disposition": "retain",
+      "evidence_refs": [
+        "e19"
+      ],
+      "identity": "GOVERNS",
+      "proposal": {
+        "constraints_impact": "no constraint change proposed",
+        "historical_references_impact": "preserved at the original baseline identity",
+        "kind": "retain_preserved_baseline_identity_only",
+        "lost_distinctions": [],
+        "native_admission": "not_performed",
+        "preserved_distinctions": [
+          "GOVERNS"
+        ],
+        "queries_impact": "identity-based queries preserve the original baseline identity",
+        "relations_impact": "no relation creation, removal, or rewrite proposed",
+        "replacement_identity": null
+      },
+      "question": null,
+      "reason": "Current pinned Main Content directly defines this preserved identity; retain it without admitting a new native Property, allowed-value assignment, root kind, or relation."
+    }
+  ],
+  "non_authoritative": true,
+  "operator_decision": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/operator.decisions.md",
+    "sha256": "53eeb7a3fdaa002cd05170fe185cfb5baeea72814a1f32567d8eea6f56ac65cb"
+  },
+  "partition_sha256": "774e19e46397d584cbfcfb711cd9e0a52b0ba66348d9e138e35801f2c04bc1ce",
+  "review_context": {
+    "current_core_claimed": false,
+    "git_commit": "a971d0e00c33c779f485fc8cad63194894d440fb",
+    "kind": "captured_snapshot"
+  },
+  "scope_omission_decision": {
+    "applied_to_batch": false,
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/nodes/scope.omission.decision.md",
+    "sha256": "d4ea636d540b0558c1a0fbb8263760947e1f0768840c43b3ed1d05c96b497453"
+  },
+  "semantic_admission": "not_performed",
+  "source_migration": "not_performed",
+  "source_task": "CA-P-1932"
+}
