@@ -31,7 +31,7 @@ from pathlib import Path
 from typing import Literal, Protocol
 
 from release_contract import (
-    PROJECT_SKILL_TARGET, REQUIRED_ENGINE_SOURCE_PREFIXES, ReleaseContractError,
+    PROJECT_SKILL_TARGET, REQUIRED_ENGINE_SOURCE_PREFIXES, VERSION_TOML_RELATIVE, ReleaseContractError,
     ValidatedCandidate, canonical_json,
 )
 from release_handoff import (
@@ -274,7 +274,17 @@ def _validate_bound_inputs(candidate: ValidatedCandidate, compilation: SealedCan
         if package.is_symlink() or (package.exists() and not package.is_dir()):
             raise ReleaseContractError("release-suite-path-unsafe", "optional retained package has an unsafe parent or root")
     if package.exists():
-        _verify_release(package, _render_manifest(identity, rows), rows)
+        _verify_release(
+            package,
+            _render_manifest(
+                identity, rows,
+                framework_version=sealed.framework_version,
+                version_toml_sha256=sealed.version_toml_sha256,
+            ),
+            rows,
+            framework_version=sealed.framework_version,
+            version_toml_sha256=sealed.version_toml_sha256,
+        )
     return root
 
 
@@ -332,8 +342,11 @@ def _active_n_state(root: Path, candidate: ValidatedCandidate) -> tuple[str, str
                 selector_payload, manifest_bytes, candidate.authority.executing_release
             )
         )
+        base_manifest_fields = {"schema_version", "candidate_snapshot_manifest_sha256", "package", "files"}
+        version_manifest_fields = base_manifest_fields | {"framework_version", "version_toml_sha256"}
+        versioned_package = set(manifest) == version_manifest_fields
         if (
-            set(manifest) != {"schema_version", "candidate_snapshot_manifest_sha256", "package", "files"}
+            set(manifest) not in (base_manifest_fields, version_manifest_fields)
             or manifest["schema_version"] != 2
             or manifest["package"] != "caprmedio-framework"
             or (manifest["candidate_snapshot_manifest_sha256"] != candidate.authority.executing_release
@@ -361,8 +374,9 @@ def _active_n_state(root: Path, candidate: ValidatedCandidate) -> tuple[str, str
             _refuse_secret_relative(Path(package_relative) / row.destination_path)
         resources = {row.resource for row in rows}
         destinations = {row.destination_path for row in rows}
+        control_rows = [row for row in rows if row.resource == "PACKAGE_CONTROL"]
         if (
-            resources != {"FRAMEWORK_ENGINE", "METHODOLOGY", "SKILL"}
+            resources not in ({"FRAMEWORK_ENGINE", "METHODOLOGY", "SKILL"}, {"FRAMEWORK_ENGINE", "METHODOLOGY", "SKILL", "PACKAGE_CONTROL"})
             or not any(row.destination_path.startswith("METHODOLOGY/sources/") for row in rows)
             or not any(row.destination_path.startswith("METHODOLOGY/compiled/") for row in rows)
             or not REQUIRED_SKILL_FILES <= destinations
@@ -372,10 +386,33 @@ def _active_n_state(root: Path, candidate: ValidatedCandidate) -> tuple[str, str
             )
         ):
             raise ValueError("retained N package is incomplete")
+        if versioned_package:
+            if len(control_rows) != 1 or (
+                control_rows[0].source_path != VERSION_TOML_RELATIVE
+                or control_rows[0].destination_path != VERSION_TOML_RELATIVE
+                or control_rows[0].sha256 != manifest["version_toml_sha256"]
+            ):
+                raise ValueError("retained N package has no exact version.toml control row")
+            version_bytes = (package / VERSION_TOML_RELATIVE).read_bytes()
+            version_document = tomllib.loads(version_bytes.decode("utf-8"))
+            if (
+                not isinstance(version_document.get("framework"), dict)
+                or version_document["framework"].get("version") != manifest["framework_version"]
+                or _digest(version_bytes) != manifest["version_toml_sha256"]
+            ):
+                raise ValueError("retained N version.toml does not match its manifest")
+        elif control_rows:
+            raise ValueError("legacy retained N package has an undeclared version control row")
         _verify_release(
             package,
-            manifest_text if bootstrap else _render_manifest(candidate.authority.executing_release, rows),
+            manifest_text if bootstrap else _render_manifest(
+                candidate.authority.executing_release, rows,
+                framework_version=manifest.get("framework_version") if versioned_package else None,
+                version_toml_sha256=manifest.get("version_toml_sha256") if versioned_package else None,
+            ),
             rows,
+            framework_version=manifest.get("framework_version") if versioned_package else None,
+            version_toml_sha256=manifest.get("version_toml_sha256") if versioned_package else None,
         )
     except (KeyError, OSError, TypeError, ValueError, ReleasePackagingError) as error:
         raise ReleaseContractError("release-active-n-invalid", "executing N package is not a complete retained Framework release") from error

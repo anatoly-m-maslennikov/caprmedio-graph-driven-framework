@@ -22,6 +22,7 @@ CANDIDATE_SCHEMA = "caprmedio.release_version.candidate.v2"
 SHA256 = re.compile(r"^[0-9a-f]{64}$")
 RELEASE = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._+\-]{0,127}$")
 PROJECT_SKILL_TARGET = ".agents/skills/ca"
+VERSION_TOML_RELATIVE = "version.toml"
 IMAGE_DOCKERFILE = "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/Dockerfile"
 REQUIRED_ENGINE_SOURCE_PREFIXES = (
     "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/",
@@ -92,7 +93,7 @@ class CandidateImageReference(StrictModel):
 class SourceInventoryRow(StrictModel):
     """One locally observed source file, not a caller-selected package row."""
 
-    resource: Literal["FRAMEWORK_ENGINE", "METHODOLOGY", "SKILL", "IMAGE_INPUT"]
+    resource: Literal["FRAMEWORK_ENGINE", "METHODOLOGY", "SKILL", "IMAGE_INPUT", "PACKAGE_CONTROL"]
     source_path: str
     source_sha256: str = Field(pattern=SHA256.pattern)
     source_mode: int = Field(ge=0, le=0o777)
@@ -115,6 +116,7 @@ class SourceInventoryRow(StrictModel):
             "METHODOLOGY": "METHODOLOGY/sources/",
             "SKILL": "SKILLS/ca/",
             "IMAGE_INPUT": "IMAGE_INPUT/",
+            "PACKAGE_CONTROL": "version.toml",
         }
         if not self.destination_path.startswith(prefixes[self.resource]):
             raise ValueError(f"{self.resource} destination_path is outside its required package root")
@@ -158,6 +160,8 @@ class CandidateSnapshotManifest(StrictModel):
     sha256: str = Field(pattern=SHA256.pattern)
     executing_release: str
     candidate_release: str
+    framework_version: str
+    version_toml_sha256: str = Field(pattern=SHA256.pattern)
     canonical_source_snapshot_ref: str
     canonical_source_snapshot_digest: str = Field(pattern=SHA256.pattern)
     project_structure_digest: str = Field(pattern=SHA256.pattern)
@@ -189,7 +193,7 @@ class CandidateSnapshotManifest(StrictModel):
             )
         return normalized
 
-    @field_validator("executing_release", "candidate_release")
+    @field_validator("executing_release", "candidate_release", "framework_version")
     @classmethod
     def stable_release(cls, value: str) -> str:
         if not isinstance(value, str) or not RELEASE.fullmatch(value):
@@ -205,6 +209,8 @@ class CandidateSnapshotManifest(StrictModel):
     def validate_complete_locally_observable_inventory(self) -> "CandidateSnapshotManifest":
         if self.executing_release == self.candidate_release:
             raise ValueError("candidate_release must differ from executing_release")
+        if self.framework_version != self.candidate_release:
+            raise ValueError("framework_version must equal candidate_release")
         destinations = [row.destination_path for row in self.source_inventory_rows]
         sources = [row.source_path for row in self.source_inventory_rows]
         if len(destinations) != len(set(destinations)):
@@ -212,8 +218,15 @@ class CandidateSnapshotManifest(StrictModel):
         if len(sources) != len(set(sources)):
             raise ValueError("candidate manifest repeats an exact source path")
         resources = {row.resource for row in self.source_inventory_rows}
-        if resources != {"FRAMEWORK_ENGINE", "METHODOLOGY", "SKILL", "IMAGE_INPUT"}:
-            raise ValueError("candidate manifest must include Framework, Methodology, Skill, and image input rows")
+        if resources != {"FRAMEWORK_ENGINE", "METHODOLOGY", "SKILL", "IMAGE_INPUT", "PACKAGE_CONTROL"}:
+            raise ValueError("candidate manifest must include Framework, Methodology, Skill, image input, and package control rows")
+        control_rows = [row for row in self.source_inventory_rows if row.resource == "PACKAGE_CONTROL"]
+        if len(control_rows) != 1 or (
+            control_rows[0].source_path != VERSION_TOML_RELATIVE
+            or control_rows[0].destination_path != VERSION_TOML_RELATIVE
+            or control_rows[0].source_sha256 != self.version_toml_sha256
+        ):
+            raise ValueError("candidate manifest must include the exact root version.toml package control row")
         engine_sources = {row.source_path for row in self.source_inventory_rows if row.resource == "FRAMEWORK_ENGINE"}
         if any(not any(path.startswith(prefix) for path in engine_sources) for prefix in REQUIRED_ENGINE_SOURCE_PREFIXES):
             raise ValueError("candidate manifest is Engine-Tools-only or lacks required Framework Engine components")
@@ -230,6 +243,8 @@ class SealedAuthority(StrictModel):
 
     executing_release: str
     candidate_release: str
+    framework_version: str
+    version_toml_sha256: str = Field(pattern=SHA256.pattern)
     canonical_source_snapshot_digest: str = Field(pattern=SHA256.pattern)
     project_structure_digest: str = Field(pattern=SHA256.pattern)
     framework_settings_digest: str = Field(pattern=SHA256.pattern)
@@ -237,7 +252,7 @@ class SealedAuthority(StrictModel):
     nested_source_recursive_sha256_before: str = Field(pattern=SHA256.pattern)
     expected_candidate_snapshot_manifest_sha256: str = Field(pattern=SHA256.pattern)
 
-    @field_validator("executing_release", "candidate_release")
+    @field_validator("executing_release", "candidate_release", "framework_version")
     @classmethod
     def stable_release(cls, value: str) -> str:
         if not isinstance(value, str) or not RELEASE.fullmatch(value):
@@ -248,6 +263,8 @@ class SealedAuthority(StrictModel):
     def distinct_releases(self) -> "SealedAuthority":
         if self.executing_release == self.candidate_release:
             raise ValueError("sealed candidate_release must differ from executing_release")
+        if self.framework_version != self.candidate_release:
+            raise ValueError("sealed framework_version must equal candidate_release")
         return self
 
 
@@ -297,6 +314,7 @@ __all__ = [
     "CANDIDATE_SCHEMA",
     "IMAGE_DOCKERFILE",
     "PROJECT_SKILL_TARGET",
+    "VERSION_TOML_RELATIVE",
     "REQUIRED_ENGINE_SOURCE_PREFIXES",
     "CandidateBuildRequest",
     "CandidateImageReference",

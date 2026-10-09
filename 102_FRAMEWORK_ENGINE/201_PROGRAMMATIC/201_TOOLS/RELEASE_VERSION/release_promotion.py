@@ -17,7 +17,7 @@ from dataclasses import asdict, dataclass, replace
 from pathlib import Path
 from typing import Literal
 
-from release_contract import PROJECT_SKILL_TARGET, REQUIRED_ENGINE_SOURCE_PREFIXES, ReleaseContractError, ValidatedCandidate, canonical_json
+from release_contract import PROJECT_SKILL_TARGET, REQUIRED_ENGINE_SOURCE_PREFIXES, VERSION_TOML_RELATIVE, ReleaseContractError, ValidatedCandidate, canonical_json
 from release_handoff import (
     CANONICAL_SOURCE_RELATIVE, CURRENT_SELECTOR_RELATIVE, PackageRow, SealedCandidateCompilation,
     _file, build_validated_candidate, tree_sha256,
@@ -58,6 +58,8 @@ class PromotionEvidence:
     retained_prior_selector_ref: str
     retained_prior_skill_ref: str | None
     receipt_sha256: str | None = None
+    framework_version: str = ""
+    version_toml_sha256: str = ""
 
 
 def _digest(payload: bytes) -> str:
@@ -129,6 +131,8 @@ def _selector(candidate, image: str, context_sha256: str) -> bytes:
     package = f"{RUNTIME_ROOT.as_posix()}/releases/{candidate.manifest.sha256}"
     members = {"candidate_snapshot_manifest_sha256": candidate.manifest.sha256,
                "release": candidate.manifest.sha256, "candidate_release": candidate.manifest.candidate_release,
+               "framework_version": candidate.manifest.framework_version,
+               "version_toml_sha256": candidate.manifest.version_toml_sha256,
                "selected_release_root": package, "framework_engine_root": package + "/FRAMEWORK_ENGINE",
                "methodology_root": package + "/METHODOLOGY", "candidate_image_digest": image,
                "candidate_image_context_sha256": context_sha256}
@@ -157,7 +161,10 @@ def _prove_prior_skill(root: Path, candidate: ValidatedCandidate, prior_selector
         bootstrap_prior = _bootstrap_prior_manifest_is_exact(
             parsed, manifest_bytes, candidate.authority.executing_release
         )
-        if (set(data) != {"schema_version", "candidate_snapshot_manifest_sha256", "package", "files"}
+        base_manifest_fields = {"schema_version", "candidate_snapshot_manifest_sha256", "package", "files"}
+        version_manifest_fields = base_manifest_fields | {"framework_version", "version_toml_sha256"}
+        versioned_package = set(data) == version_manifest_fields
+        if (set(data) not in (base_manifest_fields, version_manifest_fields)
                 or data["schema_version"] != 2 or data["package"] != "caprmedio-framework"
                 or (data["candidate_snapshot_manifest_sha256"] != candidate.authority.executing_release
                     and not (bootstrap_prior and _bootstrap_source_context_is_valid(
@@ -166,17 +173,41 @@ def _prove_prior_skill(root: Path, candidate: ValidatedCandidate, prior_selector
             raise ValueError("retained prior manifest is not selected N")
         rows = [PackageRow.model_validate({"resource": row["resource"], "source_path": row["source_path"],
                 "destination_path": row["destination"], "sha256": row["sha256"], "mode": row["mode"]}) for row in data["files"]]
-        if ({row.resource for row in rows} != {"FRAMEWORK_ENGINE", "METHODOLOGY", "SKILL"}
+        control_rows = [row for row in rows if row.resource == "PACKAGE_CONTROL"]
+        if ({row.resource for row in rows} not in ({"FRAMEWORK_ENGINE", "METHODOLOGY", "SKILL"}, {"FRAMEWORK_ENGINE", "METHODOLOGY", "SKILL", "PACKAGE_CONTROL"})
                 or not any(row.destination_path.startswith("METHODOLOGY/compiled/") for row in rows)
                 or not any(row.destination_path.startswith("METHODOLOGY/sources/") for row in rows)
                 or not {"SKILLS/ca/SKILL.md", "SKILLS/ca/agents/openai.yaml"} <= {row.destination_path for row in rows}
                 or any(not any(row.source_path.startswith(prefix) for row in rows if row.resource == "FRAMEWORK_ENGINE")
                        for prefix in REQUIRED_ENGINE_SOURCE_PREFIXES)):
             raise ValueError("retained prior package is incomplete")
+        if versioned_package:
+            if len(control_rows) != 1 or (
+                control_rows[0].source_path != VERSION_TOML_RELATIVE
+                or control_rows[0].destination_path != VERSION_TOML_RELATIVE
+                or control_rows[0].sha256 != data["version_toml_sha256"]
+            ):
+                raise ValueError("retained prior package has no exact version.toml control row")
+            version_bytes = _file(root, f"{expected_root}/{VERSION_TOML_RELATIVE}").read_bytes()
+            version_document = tomllib.loads(version_bytes.decode("utf-8"))
+            if (
+                not isinstance(version_document.get("framework"), dict)
+                or version_document["framework"].get("version") != data["framework_version"]
+                or _digest(version_bytes) != data["version_toml_sha256"]
+            ):
+                raise ValueError("retained prior package root version.toml is not exact")
+        elif control_rows:
+            raise ValueError("legacy retained prior package has an undeclared version control row")
         _verify_release(
             package,
-            manifest if bootstrap_prior else _render_manifest(candidate.authority.executing_release, rows),
+            manifest if bootstrap_prior else _render_manifest(
+                candidate.authority.executing_release, rows,
+                framework_version=data.get("framework_version") if versioned_package else None,
+                version_toml_sha256=data.get("version_toml_sha256") if versioned_package else None,
+            ),
             rows,
+            framework_version=data.get("framework_version") if versioned_package else None,
+            version_toml_sha256=data.get("version_toml_sha256") if versioned_package else None,
         )
         expected = _skill_records(root, package / "SKILLS/ca")
         if actual != expected:
@@ -213,13 +244,30 @@ def _resume_currentness(root, candidate, compilation, suite, build, verification
         current.pop(key)
     if previous != current or compilation.authority != candidate.authority:
         raise ReleaseContractError("release-promotion-currentness-stale", "candidate source or compilation binding changed after admission")
+    if (
+        compilation.framework_version != candidate.manifest.framework_version
+        or compilation.version_toml_sha256 != candidate.manifest.version_toml_sha256
+        or full_gate.framework_version != candidate.manifest.framework_version
+        or full_gate.version_toml_sha256 != candidate.manifest.version_toml_sha256
+    ):
+        raise ReleaseContractError("release-promotion-currentness-stale", "candidate version.toml binding changed after admission")
     if (tree_sha256(root, compilation.source_copy_root) != compilation.actual_derived_source_copy_sha256
             or tree_sha256(root, compilation.child_materialization_root) != compilation.actual_compiled_output_sha256):
         raise ReleaseContractError("release-promotion-currentness-stale", "source copy or compiled materialization changed")
     for row in compilation.package_rows:
         _read_row(root, row)
     package = _safe_path(root, intent["selected_release_root"])
-    _verify_release(package, _render_manifest(candidate.manifest.sha256, compilation.package_rows), compilation.package_rows)
+    _verify_release(
+        package,
+        _render_manifest(
+            candidate.manifest.sha256, compilation.package_rows,
+            framework_version=candidate.manifest.framework_version,
+            version_toml_sha256=candidate.manifest.version_toml_sha256,
+        ),
+        compilation.package_rows,
+        framework_version=candidate.manifest.framework_version,
+        version_toml_sha256=candidate.manifest.version_toml_sha256,
+    )
     verify_bound_full_gate_evidence(candidate, compilation, suite, build, verification, e2e, full_gate)
     if _gate_artifacts(root, suite, build, verification, e2e, full_gate) != intent["gate_artifacts"]:
         raise ReleaseContractError("release-promotion-gates-stale", "original admitted suite or image artifacts changed")
@@ -284,6 +332,8 @@ def _promote_bound_release_locked(candidate: ValidatedCandidate, compilation: Se
         planned = _skill_records(root, package / "SKILLS/ca")
         intent = {"schema": INTENT_SCHEMA, "inputs_sha256": input_sha,
                   "candidate_snapshot_manifest_sha256": candidate.manifest.sha256,
+                  "framework_version": candidate.manifest.framework_version,
+                  "version_toml_sha256": candidate.manifest.version_toml_sha256,
                   "prior_release": candidate.authority.executing_release, "prior_selector_sha256": _digest(prior),
                   "candidate_selector_sha256": _digest(_selector(
                       candidate, verification.candidate_image_digest, build.context_sha256
@@ -366,7 +416,9 @@ def _promote_bound_release_locked(candidate: ValidatedCandidate, compilation: Se
                intent["prior_image_digest"], intent["prior_release"], intent["selected_release_root"],
                intent["selected_release_root"] + "/FRAMEWORK_ENGINE", intent["selected_release_root"] + "/METHODOLOGY",
                PROJECT_SKILL_TARGET, checksum, f"{relative}/observations/recording-unavailable", f"{relative}/prior-selector.toml",
-               f"{relative}/prior-skill" if (directory / "prior-skill").exists() else None)
+               f"{relative}/prior-skill" if (directory / "prior-skill").exists() else None,
+               framework_version=candidate.manifest.framework_version,
+               version_toml_sha256=candidate.manifest.version_toml_sha256)
     try:
         observations = _safe_path(root, f"{relative}/observations", create=True)
         attempt = Path(tempfile.mkdtemp(prefix="attempt-", dir=observations))
@@ -397,6 +449,10 @@ def verify_bound_promotion_evidence(candidate, compilation, suite, build, verifi
             or evidence.intent_sha256 != checksum or evidence.prior_image_digest != intent["prior_image_digest"]
             or evidence.candidate_image_digest != intent["candidate_image_digest"]
             or evidence.candidate_snapshot_manifest_sha256 != candidate.manifest.sha256
+            or evidence.framework_version != candidate.manifest.framework_version
+            or evidence.version_toml_sha256 != candidate.manifest.version_toml_sha256
+            or intent.get("framework_version") != candidate.manifest.framework_version
+            or intent.get("version_toml_sha256") != candidate.manifest.version_toml_sha256
             or evidence.prior_release != intent["prior_release"]
             or evidence.selected_release_root != intent["selected_release_root"]
             or evidence.framework_engine_root != intent["selected_release_root"] + "/FRAMEWORK_ENGINE"

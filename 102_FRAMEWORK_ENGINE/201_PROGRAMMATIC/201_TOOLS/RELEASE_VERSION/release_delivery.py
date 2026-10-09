@@ -6,6 +6,7 @@ An owned predecessor is retained beside the delivery for repair or rollback.
 
 from __future__ import annotations
 
+import hashlib
 import os
 import stat
 import tempfile
@@ -14,7 +15,7 @@ from dataclasses import dataclass
 from pathlib import Path
 
 from bootstrap_image import BootstrapImageError, _retained_initial_package
-from release_contract import ReleaseContractError, ValidatedCandidate
+from release_contract import VERSION_TOML_RELATIVE, ReleaseContractError, ValidatedCandidate
 from release_handoff import (
     CANONICAL_SOURCE_RELATIVE,
     CURRENT_SELECTOR_RELATIVE,
@@ -250,7 +251,10 @@ def _prove_predecessor(root: Path, candidate: ValidatedCandidate, destination: P
             retained, bootstrap_rows, _manifest, identity = _retained_initial_package(root, executing)
             rows = list(bootstrap_rows)
         else:
-            if set(manifest) != {"schema_version", "candidate_snapshot_manifest_sha256", "package", "files"}:
+            base_manifest_fields = {"schema_version", "candidate_snapshot_manifest_sha256", "package", "files"}
+            version_manifest_fields = base_manifest_fields | {"framework_version", "version_toml_sha256"}
+            versioned_package = set(manifest) == version_manifest_fields
+            if set(manifest) not in (base_manifest_fields, version_manifest_fields):
                 raise ValueError("retained package manifest has unexpected members")
             identity = _candidate_sha256(manifest["candidate_snapshot_manifest_sha256"])
             if manifest["schema_version"] != 2 or manifest["package"] != "caprmedio-framework" or identity != executing:
@@ -263,13 +267,42 @@ def _prove_predecessor(root: Path, candidate: ValidatedCandidate, destination: P
                                                       "destination_path": row["destination"]}))
         if len({row.destination_path for row in rows}) != len(rows):
             raise ValueError("retained package destinations collide")
-        if not {"FRAMEWORK_ENGINE", "METHODOLOGY", "SKILL"} <= {row.resource for row in rows}:
+        resources = {row.resource for row in rows}
+        control_rows = [row for row in rows if row.resource == "PACKAGE_CONTROL"]
+        if not {"FRAMEWORK_ENGINE", "METHODOLOGY", "SKILL"} <= resources:
             raise ValueError("retained executing package is incomplete")
         if not {"SKILLS/ca/SKILL.md", "SKILLS/ca/agents/openai.yaml"} <= {row.destination_path for row in rows}:
             raise ValueError("retained executing package lacks required Skill files")
         if rows != sorted(rows, key=lambda row: (row.destination_path, row.source_path, row.sha256)):
             raise ValueError("retained package rows are not ordered")
-        _verify_release(retained, text if bootstrap else _render_manifest(identity, rows), rows)
+        if not bootstrap and versioned_package:
+            if len(control_rows) != 1 or (
+                control_rows[0].source_path != VERSION_TOML_RELATIVE
+                or control_rows[0].destination_path != VERSION_TOML_RELATIVE
+                or control_rows[0].sha256 != manifest["version_toml_sha256"]
+            ):
+                raise ValueError("retained package has no exact version.toml control row")
+            version_bytes = (retained / VERSION_TOML_RELATIVE).read_bytes()
+            version_document = tomllib.loads(version_bytes.decode("utf-8"))
+            if (
+                not isinstance(version_document.get("framework"), dict)
+                or version_document["framework"].get("version") != manifest["framework_version"]
+                or hashlib.sha256(version_bytes).hexdigest() != manifest["version_toml_sha256"]
+            ):
+                raise ValueError("retained package root version.toml is not exact")
+        elif not bootstrap and control_rows:
+            raise ValueError("legacy retained package has an undeclared version control row")
+        _verify_release(
+            retained,
+            text if bootstrap else _render_manifest(
+                identity, rows,
+                framework_version=manifest.get("framework_version") if not bootstrap and versioned_package else None,
+                version_toml_sha256=manifest.get("version_toml_sha256") if not bootstrap and versioned_package else None,
+            ),
+            rows,
+            framework_version=manifest.get("framework_version") if not bootstrap and versioned_package else None,
+            version_toml_sha256=manifest.get("version_toml_sha256") if not bootstrap and versioned_package else None,
+        )
         source_rows = [row for row in rows if row.destination_path.startswith("METHODOLOGY/sources/")]
         if not source_rows:
             raise ValueError("retained package lacks Methodology sources")

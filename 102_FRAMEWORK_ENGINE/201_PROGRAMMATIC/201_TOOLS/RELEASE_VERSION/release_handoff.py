@@ -18,6 +18,8 @@ from pydantic import Field, field_validator, model_validator
 from release_contract import (
     IMAGE_DOCKERFILE,
     PROJECT_SKILL_TARGET,
+    RELEASE,
+    VERSION_TOML_RELATIVE,
     CandidateBuildRequest,
     CandidateImageReference,
     CandidateSnapshotManifest,
@@ -178,6 +180,23 @@ def _inventory_row(root: Path, path: Path, resource: str, destination: str) -> S
     )
 
 
+def read_framework_version_toml(root: Path | str) -> tuple[str, str]:
+    """Read the one sealed root version carrier and its exact byte digest."""
+
+    project = _root(root)
+    version_toml = _file(project, VERSION_TOML_RELATIVE, code="release-version-missing")
+    payload = version_toml.read_bytes()
+    try:
+        document = tomllib.loads(payload.decode("utf-8"))
+    except (UnicodeDecodeError, tomllib.TOMLDecodeError) as error:
+        raise _error("release-version-invalid", "root version.toml is not valid UTF-8 TOML") from error
+    framework = document.get("framework")
+    version = framework.get("version") if isinstance(framework, dict) else None
+    if not isinstance(version, str) or not RELEASE.fullmatch(version):
+        raise _error("release-version-invalid", "root version.toml must declare [framework].version as a stable release identifier")
+    return version, _sha256_bytes(payload)
+
+
 def _image_input_paths(root: Path, dockerfile: Path) -> list[Path]:
     """Observe the fixed dependency inputs declared by the pinned Dockerfile.
 
@@ -223,6 +242,7 @@ def _observed_inventory(root: Path) -> tuple[list[SourceInventoryRow], Candidate
     engine_root = _directory(root, ENGINE_ROOT_RELATIVE)
     skill_root = _directory(root, SKILL_ROOT_RELATIVE)
     dockerfile = _file(root, IMAGE_DOCKERFILE)
+    version_toml = _file(root, VERSION_TOML_RELATIVE, code="release-version-missing")
     rows: list[SourceInventoryRow] = []
     for path in _regular_files(root, source_root):
         rows.append(_inventory_row(root, path, "METHODOLOGY", f"METHODOLOGY/sources/{path.relative_to(source_root).as_posix()}"))
@@ -238,6 +258,7 @@ def _observed_inventory(root: Path) -> tuple[list[SourceInventoryRow], Candidate
         else:
             destination = f"IMAGE_INPUT/{image_input.relative_to(root).as_posix()}"
         rows.append(_inventory_row(root, image_input, "IMAGE_INPUT", destination))
+    rows.append(_inventory_row(root, version_toml, "PACKAGE_CONTROL", VERSION_TOML_RELATIVE))
     if not any(row.resource == "FRAMEWORK_ENGINE" for row in rows):
         raise _error("release-inventory-incomplete", "Framework Engine inventory is empty")
     image = CandidateImageReference(
@@ -264,6 +285,9 @@ def build_validated_candidate(
     executing_release = _selector_release(root)
     if executing_release == intent.candidate_release:
         raise _error("release-currentness-invalid", "candidate release is already the locally selected release")
+    framework_version, version_toml_sha256 = read_framework_version_toml(root)
+    if framework_version != intent.candidate_release:
+        raise _error("release-version-mismatch", "root version.toml [framework].version must equal the candidate release")
     rows, image = _observed_inventory(root)
     image = image.model_copy(update={"candidate_image_reference": intent.candidate_image_reference})
     snapshot_digest = tree_sha256(root, source_root)
@@ -272,6 +296,8 @@ def build_validated_candidate(
         {
             "executing_release": executing_release,
             "candidate_release": intent.candidate_release,
+            "framework_version": framework_version,
+            "version_toml_sha256": version_toml_sha256,
             "canonical_source_snapshot_ref": CANONICAL_SOURCE_RELATIVE,
             "canonical_source_snapshot_digest": snapshot_digest,
             "project_structure_digest": _sha256_bytes(structure.read_bytes()),
@@ -289,6 +315,8 @@ def build_validated_candidate(
     authority = SealedAuthority(
         executing_release=executing_release,
         candidate_release=intent.candidate_release,
+        framework_version=framework_version,
+        version_toml_sha256=version_toml_sha256,
         canonical_source_snapshot_digest=snapshot_digest,
         project_structure_digest=_sha256_bytes(structure.read_bytes()),
         framework_settings_digest=_sha256_bytes(settings.read_bytes()),
@@ -372,7 +400,7 @@ class CompilerSuccessEvidence(StrictModel):
 
 
 class PackageRow(StrictModel):
-    resource: Literal["FRAMEWORK_ENGINE", "METHODOLOGY", "SKILL"]
+    resource: Literal["FRAMEWORK_ENGINE", "METHODOLOGY", "SKILL", "PACKAGE_CONTROL"]
     source_path: str
     destination_path: str
     sha256: str = Field(pattern="^[0-9a-f]{64}$")
@@ -389,6 +417,7 @@ class PackageRow(StrictModel):
             "FRAMEWORK_ENGINE": "FRAMEWORK_ENGINE/",
             "METHODOLOGY": "METHODOLOGY/",
             "SKILL": "SKILLS/ca/",
+            "PACKAGE_CONTROL": VERSION_TOML_RELATIVE,
         }
         if not self.destination_path.startswith(prefixes[self.resource]):
             raise ValueError("package destination is outside its resource root")
@@ -398,6 +427,8 @@ class PackageRow(StrictModel):
 class SealedCandidateCompilation(StrictModel):
     candidate_snapshot_manifest_sha256: str = Field(pattern="^[0-9a-f]{64}$")
     authority: SealedAuthority
+    framework_version: str
+    version_toml_sha256: str = Field(pattern="^[0-9a-f]{64}$")
     source_copy_root: str
     expected_derived_source_copy_sha256: str = Field(pattern="^[0-9a-f]{64}$")
     actual_derived_source_copy_sha256: str = Field(pattern="^[0-9a-f]{64}$")
@@ -415,12 +446,24 @@ class SealedCandidateCompilation(StrictModel):
 
     @model_validator(mode="after")
     def complete_package_rows(self) -> "SealedCandidateCompilation":
+        if (
+            self.framework_version != self.authority.framework_version
+            or self.version_toml_sha256 != self.authority.version_toml_sha256
+        ):
+            raise ValueError("sealed compilation version binding differs from authority")
         destinations = [row.destination_path for row in self.package_rows]
         if len(destinations) != len(set(destinations)):
             raise ValueError("package handoff has destination collisions")
         resources = {row.resource for row in self.package_rows}
-        if not {"FRAMEWORK_ENGINE", "METHODOLOGY", "SKILL"} <= resources:
+        if not {"FRAMEWORK_ENGINE", "METHODOLOGY", "SKILL", "PACKAGE_CONTROL"} <= resources:
             raise ValueError("package handoff is not a complete Framework package")
+        controls = [row for row in self.package_rows if row.resource == "PACKAGE_CONTROL"]
+        if len(controls) != 1 or (
+            controls[0].source_path != VERSION_TOML_RELATIVE
+            or controls[0].destination_path != VERSION_TOML_RELATIVE
+            or controls[0].sha256 != self.version_toml_sha256
+        ):
+            raise ValueError("package handoff must retain the exact root version.toml control row")
         if not {"SKILLS/ca/SKILL.md", "SKILLS/ca/agents/openai.yaml"} <= set(destinations):
             raise ValueError("package handoff lacks required ca Skill files")
         return self
@@ -495,6 +538,8 @@ def seal_candidate_compilation(
     return SealedCandidateCompilation(
         candidate_snapshot_manifest_sha256=candidate.manifest.sha256,
         authority=candidate.authority,
+        framework_version=candidate.manifest.framework_version,
+        version_toml_sha256=candidate.manifest.version_toml_sha256,
         source_copy_root=source_copy.source_copy_root,
         expected_derived_source_copy_sha256=candidate.manifest.expected_derived_source_copy_sha256,
         actual_derived_source_copy_sha256=actual_copy,
@@ -513,12 +558,14 @@ __all__ = [
     "CURRENT_SELECTOR_RELATIVE",
     "DERIVED_SOURCE_COPY_RELATIVE",
     "MATERIALIZED_RELATIVE",
+    "VERSION_TOML_RELATIVE",
     "CompilerEntrypoint",
     "CompilerSuccessEvidence",
     "PackageRow",
     "SealedCandidateCompilation",
     "SealedSourceCopy",
     "build_validated_candidate",
+    "read_framework_version_toml",
     "seal_candidate_compilation",
     "tree_sha256",
     "validate_source_copy",

@@ -45,6 +45,8 @@ class FullGateEvidence:
     evidence_root: str
     receipt_sha256: str | None
     executed_tests: int
+    framework_version: str = ""
+    version_toml_sha256: str = ""
 
     @property
     def passed(self) -> bool:
@@ -269,6 +271,11 @@ def aggregate_bound_release_gates(
     """Retain a read-only aggregate only after all bound gates and reports agree."""
 
     root = _reopen_constituents(candidate, compilation, suite, build, verification, e2e)
+    if (
+        compilation.framework_version != candidate.manifest.framework_version
+        or compilation.version_toml_sha256 != candidate.manifest.version_toml_sha256
+    ):
+        raise _error("release-full-gate-binding-mismatch", "compiled package does not bind the candidate root version.toml")
     phase_map = _phase_map(candidate, compilation)
     suite_receipt, build_receipt, image_receipt, e2e_receipt = _constituent_receipts(
         candidate, suite, build, verification, e2e,
@@ -288,6 +295,7 @@ def aggregate_bound_release_gates(
         candidate.manifest.sha256, verification.candidate_image_digest, phase_map.sha256,
         suite_receipt, build_receipt, image_receipt, e2e_receipt,
         outcome, reason, evidence_root, None, executed_tests,
+        candidate.manifest.framework_version, candidate.manifest.version_toml_sha256,
     )
     try:
         receipt = canonical_json(asdict(evidence))
@@ -326,6 +334,10 @@ def verify_bound_full_gate_evidence(
     )
     prefix = f"{EVIDENCE_ROOT}/{candidate.manifest.sha256}/"
     if (evidence.candidate_snapshot_manifest_sha256 != candidate.manifest.sha256
+            or evidence.framework_version != candidate.manifest.framework_version
+            or evidence.version_toml_sha256 != candidate.manifest.version_toml_sha256
+            or compilation.framework_version != candidate.manifest.framework_version
+            or compilation.version_toml_sha256 != candidate.manifest.version_toml_sha256
             or evidence.candidate_image_digest != verification.candidate_image_digest
             or evidence.phase_map_sha256 != phase_map.sha256
             or (evidence.suite_receipt_sha256, evidence.build_receipt_sha256,

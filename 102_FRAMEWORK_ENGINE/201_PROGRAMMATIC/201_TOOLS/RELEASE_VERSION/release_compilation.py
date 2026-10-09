@@ -22,6 +22,7 @@ from release_handoff import (
     CompilerSuccessEvidence,
     SealedCandidateCompilation,
     build_validated_candidate,
+    read_framework_version_toml,
     seal_candidate_compilation,
     tree_sha256,
     validate_source_copy,
@@ -103,7 +104,8 @@ def _child_tree_digest(files: Mapping[str, bytes]) -> str:
 
 
 def _child_manifest_bytes(
-    *, candidate_release: str, compiler: CompilerEntrypoint, canonical_source_digest: str,
+    *, candidate_release: str, framework_version: str, version_toml_sha256: str,
+    compiler: CompilerEntrypoint, canonical_source_digest: str,
     frontier_digest: str, derived_copy_digest: str, nested_digest: str,
     output_files: Mapping[str, bytes],
 ) -> bytes:
@@ -112,6 +114,8 @@ def _child_manifest_bytes(
         {
             "schema": CHILD_MANIFEST_SCHEMA,
             "candidate_release": candidate_release,
+            "framework_version": framework_version,
+            "version_toml_sha256": version_toml_sha256,
             "compiler_entrypoint_path": compiler.path,
             "compiler_entrypoint_sha256": compiler.sha256,
             "canonical_source_snapshot_digest": canonical_source_digest,
@@ -178,6 +182,8 @@ def _canonical_frontier_from_copied_candidates(candidates: list[Any]) -> str:
 @dataclass(frozen=True)
 class ReleaseCompilationPreflight:
     candidate_release: str
+    framework_version: str
+    version_toml_sha256: str
     expected_derived_source_copy_sha256: str
     expected_compiled_output_sha256: str
     compiler_entrypoint: CompilerEntrypoint
@@ -192,6 +198,9 @@ def preflight_release_compilation(project_root: Path | str, *, candidate_release
     """Predict complete child bytes before D566 sealing, without writes."""
 
     root = _root(project_root)
+    framework_version, version_toml_sha256 = read_framework_version_toml(root)
+    if framework_version != candidate_release:
+        raise _error("release-version-mismatch", "root version.toml [framework].version must equal the candidate release")
     source_root = root / CANONICAL_SOURCE_RELATIVE
     if source_root.is_symlink() or not source_root.is_dir():
         raise _error("release-source-missing", "canonical Methodology source root is missing")
@@ -212,6 +221,8 @@ def preflight_release_compilation(project_root: Path | str, *, candidate_release
     compiler = _compiler_entrypoint(root)
     manifest = _child_manifest_bytes(
         candidate_release=candidate_release,
+        framework_version=framework_version,
+        version_toml_sha256=version_toml_sha256,
         compiler=compiler,
         canonical_source_digest=source_digest,
         frontier_digest=str(report["source_frontier_digest"]),
@@ -222,6 +233,8 @@ def preflight_release_compilation(project_root: Path | str, *, candidate_release
     full_tree = {**output_files, CHILD_MANIFEST_NAME: manifest}
     return ReleaseCompilationPreflight(
         candidate_release=candidate_release,
+        framework_version=framework_version,
+        version_toml_sha256=version_toml_sha256,
         expected_derived_source_copy_sha256=source_digest,
         expected_compiled_output_sha256=_child_tree_digest(full_tree),
         compiler_entrypoint=compiler,
@@ -256,6 +269,11 @@ def build_preflight_validated_candidate(
     )
     if candidate.manifest.canonical_source_snapshot_digest != preflight.canonical_source_snapshot_digest:
         raise _error("release-currentness-stale", "preflight source snapshot changed before candidate sealing")
+    if (
+        candidate.manifest.framework_version != preflight.framework_version
+        or candidate.manifest.version_toml_sha256 != preflight.version_toml_sha256
+    ):
+        raise _error("release-currentness-stale", "preflight root version.toml changed before candidate sealing")
     return preflight, candidate
 
 
@@ -270,6 +288,11 @@ def render_release_candidate(
         raise _error("release-preflight-mismatch", "preflight and candidate release differ")
     if candidate.manifest.expected_compiled_output_sha256 != preflight.expected_compiled_output_sha256:
         raise _error("release-preflight-mismatch", "candidate output expectation differs from preflight")
+    if (
+        candidate.manifest.framework_version != preflight.framework_version
+        or candidate.manifest.version_toml_sha256 != preflight.version_toml_sha256
+    ):
+        raise _error("release-preflight-mismatch", "candidate version.toml binding differs from preflight")
     current_preflight = preflight_release_compilation(candidate.project_root, candidate_release=candidate.intent.candidate_release)
     if current_preflight != preflight:
         raise _error("release-currentness-stale", "canonical compiler report or predicted child output changed")
@@ -290,6 +313,8 @@ def render_release_candidate(
         raise _error("release-render-mismatch", "copied-source render differs from preflight projection bytes")
     manifest = _child_manifest_bytes(
         candidate_release=candidate.manifest.candidate_release,
+        framework_version=candidate.manifest.framework_version,
+        version_toml_sha256=candidate.manifest.version_toml_sha256,
         compiler=preflight.compiler_entrypoint,
         canonical_source_digest=candidate.manifest.canonical_source_snapshot_digest,
         frontier_digest=preflight.compiler_frontier_digest,

@@ -295,8 +295,16 @@ def _known_canary(payload: bytes) -> bool:
 def _context(root, candidate, compilation, attempt):
     identity, rows, _selector = _complete_rows(root, compilation)
     package = _safe_path(root, (RUNTIME_ROOT / "releases" / identity).as_posix())
-    manifest = _render_manifest(identity, rows)
-    _verify_release(package, manifest, rows)
+    manifest = _render_manifest(
+        identity, rows,
+        framework_version=compilation.framework_version,
+        version_toml_sha256=compilation.version_toml_sha256,
+    )
+    _verify_release(
+        package, manifest, rows,
+        framework_version=compilation.framework_version,
+        version_toml_sha256=compilation.version_toml_sha256,
+    )
     inputs = {row.source_path: row for row in candidate.manifest.source_inventory_rows if row.resource == "IMAGE_INPUT"}
     if not {IMAGE_DOCKERFILE, "pyproject.toml", "uv.lock"} <= inputs.keys():
         raise ReleaseContractError("release-image-input-incomplete", "Dockerfile, pyproject.toml and uv.lock must all be sealed image inputs")
@@ -430,10 +438,18 @@ def _verify_build_artifacts(root, candidate, compilation, suite, build):
     if not valid_inspect:
         raise ReleaseContractError("release-image-build-untrusted", "retained build inspection differs from the exact immutable image")
     identity, rows = compilation.candidate_snapshot_manifest_sha256, list(compilation.package_rows)
-    manifest = _render_manifest(identity, rows)
+    manifest = _render_manifest(
+        identity, rows,
+        framework_version=compilation.framework_version,
+        version_toml_sha256=compilation.version_toml_sha256,
+    )
     if build.package_manifest_sha256 != _digest(manifest.encode()):
         raise ReleaseContractError("release-image-build-untrusted", "build package identity differs from the complete current package")
-    _verify_release(context / "PACKAGE", manifest, rows)
+    _verify_release(
+        context / "PACKAGE", manifest, rows,
+        framework_version=compilation.framework_version,
+        version_toml_sha256=compilation.version_toml_sha256,
+    )
     expected_paths = {"PACKAGE/manifest.toml", "Dockerfile", "canary.py", "canary.json"}
     engine_rows = []
     for row in rows:
