@@ -1,6 +1,6 @@
 {
   "baseline_inventory_sha256": "23394abaf6e9c18a585cf3146aedd0a80df166c9dd82be6e86ed7c3c56780bdc",
-  "checkpoint_sha256": "7495ec552c2e0b4f56babc7e04c6b3f2724a906980efef08237616dfe7b241b9",
+  "checkpoint_sha256": "5d6bd5ff3e91dbea923ab819d9ed79aca6084773ce63f00c5f6fb8107125fa2a",
   "design_complete": false,
   "files": [
     {
@@ -88,10 +88,10 @@
       "source_path": ".caprmedio_tmp/planning/core-entity-review/design/rmed.views.md"
     },
     {
-      "bytes": 122084,
+      "bytes": 122083,
       "checkpoint_only": false,
       "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/rmed.roles.indented.txt",
-      "sha256": "191b54635829256aebb9b4fcb8489cddfd1c80ee22e406de43cfea68fd2844d7",
+      "sha256": "69ff7f3155327fba146ef2974bcde12530520ea07ee2c55f19a6200b300a42be",
       "source_path": ".caprmedio_tmp/planning/core-entity-review/design/rmed.roles.indented.txt"
     },
     {
@@ -249,10 +249,10 @@
       "source_path": ".caprmedio_tmp/planning/core-entity-review/design/build_relations_batch_6_remaining_4.py"
     },
     {
-      "bytes": 21220,
+      "bytes": 21233,
       "checkpoint_only": false,
       "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/support/build_rmed_views_ca_p_1920.py",
-      "sha256": "74303105bc40f5128ba9121ce3e6912d7ad898033995003d6e17a710f18b4458",
+      "sha256": "8d3f12653075ccfe6710d983dd206c8ff6ddf22920f3dcb0fdd2e4af33fbc75f",
       "source_path": ".caprmedio_tmp/planning/core-entity-review/design/build_rmed_views_ca_p_1920.py"
     },
     {
@@ -291,8 +291,23 @@
       "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/support/publish_review_checkpoint.py",
       "sha256": "70d18da86a8b91499bf6e64245b0bc49c0369d318b8f1d2b768b419555cd4f04",
       "source_path": ".caprmedio_tmp/planning/core-entity-review/publish_review_checkpoint.py"
+    },
+    {
+      "authored_handoff": true,
+      "bytes": 2086,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/README.md",
+      "sha256": "33d5f2669129bde87e78cdb8be31d34d810716344fdda413d951fa624c1c8905",
+      "source_path": ".caprmedio_caprmedio/_projection/core-entity-review/design/README.md"
+    },
+    {
+      "authored_handoff": true,
+      "bytes": 9671,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/questions.md",
+      "sha256": "7d2cc9d846e365cd0187399378d0e8213d66a95b4ff1e240496653ebee0b4058",
+      "source_path": ".caprmedio_caprmedio/_projection/core-entity-review/design/questions.md"
     }
   ],
+  "format_cleanup": "Removed one trailing empty line from the overview tree; semantics and all pointer data are unchanged.",
   "non_authoritative": true,
   "pending": "Temporal display convention, batch join and complete design integration/verification.",
   "projection_kind": "caprmedio.core_graph_design.verified_review_checkpoint",

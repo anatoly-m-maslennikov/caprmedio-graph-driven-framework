@@ -168,7 +168,7 @@ def write_indented_trees(
             ),
         )
         role_lines.append("")
-    (design_dir / "rmed.roles.indented.txt").write_text("\n".join(role_lines) + "\n", encoding="utf-8")
+    (design_dir / "rmed.roles.indented.txt").write_text("\n".join(role_lines).rstrip("\n") + "\n", encoding="utf-8")
 
     entity_lines = [
         "CA-P-1920 RMED Entity tree — indented labels are literal slash-qualified identities for display only; no native semantics. M/E/D are associated pointers, not proven applicability. Exact proof: rmed.views.json.",

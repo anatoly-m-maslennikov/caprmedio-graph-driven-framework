@@ -46,7 +46,7 @@ Own work completed on 2026-10-10 02:32:12 +0400. Independent read-only acceptanc
 
 - `.caprmedio_caprmedio/_projection/core-entity-review/design/rmed.views.json`, SHA-256 `d7fd113a408c3bb70e17ab55cc86fd6746c3d5c74ff27a9a864632ec6de999aa`.
 - `.caprmedio_caprmedio/_projection/core-entity-review/design/rmed.views.md`, SHA-256 `7365beeec9e62620fab5ee78855497fb37180f77c7235a14c545b5c3f24afc7f`.
-- `.caprmedio_caprmedio/_projection/core-entity-review/design/rmed.roles.indented.txt`, SHA-256 `191b54635829256aebb9b4fcb8489cddfd1c80ee22e406de43cfea68fd2844d7`.
+- `.caprmedio_caprmedio/_projection/core-entity-review/design/rmed.roles.indented.txt`, SHA-256 `69ff7f3155327fba146ef2974bcde12530520ea07ee2c55f19a6200b300a42be`.
 - `.caprmedio_caprmedio/_projection/core-entity-review/design/rmed.entities.indented.txt`, SHA-256 `17a4d3661cb73702dded836cc3fad968e63faf57e29ba0eed8ffd8fe8eec9172`.
 
 Baseline inventory fingerprint: `23394abaf6e9c18a585cf3146aedd0a80df166c9dd82be6e86ed7c3c56780bdc`. Current source pins, exact positive evidence spans and complete assigned case/pointer coverage passed. No Core, Subject, history, Step 1, runtime, Run or Journal change is claimed. This receipt completes only the bounded review output, not the parent design, candidate acceptance or migration.
