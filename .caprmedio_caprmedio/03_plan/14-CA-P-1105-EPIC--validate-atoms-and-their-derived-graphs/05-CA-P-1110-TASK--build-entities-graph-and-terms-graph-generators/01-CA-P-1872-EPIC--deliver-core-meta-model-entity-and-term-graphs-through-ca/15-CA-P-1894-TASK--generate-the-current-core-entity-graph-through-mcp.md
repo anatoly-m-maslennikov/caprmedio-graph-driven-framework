@@ -1,0 +1,66 @@
+---
+atom_id: CA-P-1894
+content_role: Plan
+type: Plan
+label: Task
+work_sequence_number: 15
+current_scope_unit: caprmedio
+claim_target_scope_unit: caprmedio
+local_tier: Standard
+global_tier: 2
+author: Anatoly Maslennikov
+assignee: AI Agent
+status: Active
+cce_version: cce_1
+cce_form: obligation
+subjects:
+  governs: Projection
+  depends_on:
+    - Entity
+    - Term
+    - Atom
+    - Property
+    - Scope Unit
+    - Tool
+    - MCP
+    - Workflow
+    - Action
+    - Journal
+    - Plan
+version: 1
+updated_at: "2026-10-09 17:13:17 +0400"
+relations:
+  is_decomposition_of:
+    - CA-P-1872
+  blocks:
+    - CA-P-1896
+---
+# Summary
+
+Generate the current Core entity graph through MCP
+
+## Objective
+
+Generate the current Core entity graph through MCP.
+
+## Details
+
+Assignee: AI Agent, as carried above. Estimated own work: 10 minutes.
+
+Inputs: CA-P-1893; sealed current Core selection.
+
+Required Plan prerequisites: [CA-P-1893](14-CA-P-1893-TASK--verify-selected-live-graph-runtime-readiness.md).
+
+Output: Generate the current Core entity graph through MCP with source-backed evidence retained in this Task's work record.
+
+Acceptance check: Actual entity output and required Workflow/Action/Journal receipts; honest outcome.
+
+Exclusive edit/effect scope: The admitted entity graph route and its separate configured JSON destination for the sealed Core selection; required actual receipts only.
+
+Use the sealed current owned-Core selection. Retain actual entity output, implementation identity and required Workflow/Action/Journal receipts. Preserve an honest incomplete/conflicting/stale/blocked/failed or recording-pending result.
+
+Inherit the main Epic's boundaries and CA-P-1110's 99% confidence threshold/retry rules. If the current work will exceed 15 minutes, split it into bounded admitted children before execution. Shared graph/fixture edits must be serialized or held by one integration owner. New required defects need separately bounded fix Tasks, not an unbounded review-and-fix loop.
+
+### Definition of Done
+
+the Plan is **not** Done **if** ((the source-backed output for "Generate the current Core entity graph through MCP" **or** required evidence is missing) **or** (the stated acceptance check is failed, blocked, stale, conflicting **or** incomplete) **or** (work exceeds the admitted boundary **or** required source/runtime admission is unavailable) **or** (a required effect **or** execution receipt remains uncertain **or** recording-pending) **or** (any direct decomposing Plan is **not** Done)).
