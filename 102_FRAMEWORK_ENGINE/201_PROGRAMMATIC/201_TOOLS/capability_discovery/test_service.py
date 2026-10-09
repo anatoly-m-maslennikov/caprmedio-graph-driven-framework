@@ -221,7 +221,7 @@ class ServiceTests(unittest.TestCase):
         with patch('selected_routes.load_selected_manifest', return_value=manifest):
             self.assertEqual([], self.service.discover(Query(query='release_version'))['matches'])
 
-    def test_generic_selected_route_is_not_synthesized_when_unexposed_or_stale(self):
+    def test_source_operation_is_not_executable_when_selected_manifest_admission_fails(self):
         manifest = {
             'manifest_ref': '.caprmedio_caprmedio/_projection/selected_workflow_bindings.json',
             'canonical_manifest_sha256': 'a' * 64,
@@ -231,9 +231,45 @@ class ServiceTests(unittest.TestCase):
         }
         with patch('selected_routes.load_selected_manifest', return_value=manifest):
             self.assertEqual([], self.service.discover(Query(query='create_atom'))['matches'])
+        control = self.root / '.caprmedio_caprmedio'
+        (control / 'workflow.md').write_text(
+            '---\natom_id: CA-O-127\nstatus: Active\ncontent_role: Operations\ntype: Workflow\n---\n'
+            '# Summary\nSource workflow\n'
+        )
         self.service.exposed.add('create_atom')
-        with patch('selected_routes.load_selected_manifest', side_effect=ValueError('source pin is stale')):
-            self.assertEqual([], self.service.discover(Query(query='create_atom'))['matches'])
+        secret = '.env/secret'
+        with patch('selected_routes.load_selected_manifest', side_effect=ValueError(f'source pin is stale: {secret}')):
+            tools = self.service.discover(Query(query='create_atom'))
+            operations = self.service.discover(Query(query='CA-O-127'), operations=True)
+
+        self.assertEqual([], tools['matches'])
+        self.assertEqual('unresolved', operations['matches'][0]['availability'])
+        self.assertEqual([], operations['matches'][0]['tools'])
+        self.assertEqual(['binding evidence stale: refresh source bindings, then re-preview selected routes'],
+                         tools['coverage_issues'])
+        self.assertNotIn(secret, json.dumps(tools['coverage_issues']))
+
+    def test_selected_manifest_missing_evidence_reports_sanitized_recovery(self):
+        self.service.exposed.add('create_atom')
+
+        with patch('selected_routes.load_selected_manifest', side_effect=OSError('/private/missing-secret')):
+            result = self.service.discover(Query(query='create_atom'))
+
+        self.assertEqual([], result['matches'])
+        self.assertEqual(['binding evidence unavailable: restore or regenerate binding evidence, then re-preview selected routes'],
+                         result['coverage_issues'])
+        self.assertNotIn('missing-secret', json.dumps(result['coverage_issues']))
+
+    def test_selected_manifest_malformed_evidence_reports_sanitized_recovery(self):
+        self.service.exposed.add('create_atom')
+
+        with patch('selected_routes.load_selected_manifest', side_effect=ValueError('malformed /private/secret')):
+            result = self.service.discover(Query(query='create_atom'))
+
+        self.assertEqual([], result['matches'])
+        self.assertEqual(['binding evidence invalid: correct bindings, then re-preview selected routes'],
+                         result['coverage_issues'])
+        self.assertNotIn('secret', json.dumps(result['coverage_issues']))
 
     def test_source_only_action_is_not_upgraded_to_an_admitted_selected_route(self):
         control = self.root / '.caprmedio_caprmedio'
@@ -259,6 +295,23 @@ class ServiceTests(unittest.TestCase):
         self.service.exposed.add('release_version')
         with patch('selected_routes.load_selected_manifest', side_effect=ValueError('source pin is stale')):
             self.assertEqual([], self.service.discover(Query(query='release_version'))['matches'])
+
+    def test_selected_source_registry_pin_stale_reports_sanitized_recovery(self):
+        self.service.exposed.add('create_atom')
+        secret = '/private/selected-source-registry-secret'
+
+        with patch(
+            'selected_routes.load_selected_manifest',
+            side_effect=ValueError(f'selected source registry pin is stale: {secret}'),
+        ):
+            result = self.service.discover(Query(query='create_atom'))
+
+        self.assertEqual([], result['matches'])
+        self.assertEqual(
+            ['binding evidence stale: refresh source bindings, then re-preview selected routes'],
+            result['coverage_issues'],
+        )
+        self.assertNotIn(secret, json.dumps(result['coverage_issues']))
 
     def test_admitted_release_route_is_not_advertised_when_unexposed(self):
         manifest = {

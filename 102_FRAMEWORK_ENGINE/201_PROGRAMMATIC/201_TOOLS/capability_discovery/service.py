@@ -100,7 +100,7 @@ class Service:
             raise ValueError('Invalid Project control root')
         return resolved
 
-    def _admitted_selected_route_tools(self):
+    def _admitted_selected_route_tools(self, issues):
         """Return synthetic discovery rows for source-admitted selected routes only.
 
         Selected routes intentionally have no Atom ``tool_binding``: their public
@@ -114,7 +114,19 @@ class Service:
         try:
             from selected_routes import load_selected_manifest
             manifest = load_selected_manifest(self.root)
-        except (ImportError, OSError, ValueError):
+        except (ImportError, OSError):
+            # The catalog is public discovery output: do not expose exception
+            # details, paths, or evidence content while reporting recovery.
+            issues.append('binding evidence unavailable: restore or regenerate binding evidence, then re-preview selected routes')
+            return []
+        except ValueError as error:
+            if str(error).casefold().startswith((
+                'source pin is stale',
+                'selected source registry pin is stale',
+            )):
+                issues.append('binding evidence stale: refresh source bindings, then re-preview selected routes')
+            else:
+                issues.append('binding evidence invalid: correct bindings, then re-preview selected routes')
             return []
 
         rows = []
@@ -244,7 +256,7 @@ class Service:
         for tool in tools:
             counts[tool['name']] = counts.get(tool['name'], 0) + 1
         tools = [tool for tool in tools if tool['source_atom'] in valid and counts[tool['name']] == 1]
-        tools.extend(self._admitted_selected_route_tools())
+        tools.extend(self._admitted_selected_route_tools(issues))
         return valid, tools, issues
 
     def discover(self, request, operations=False):
