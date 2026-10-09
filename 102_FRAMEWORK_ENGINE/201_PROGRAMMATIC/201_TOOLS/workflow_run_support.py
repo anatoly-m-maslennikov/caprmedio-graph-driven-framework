@@ -9,8 +9,11 @@ from __future__ import annotations
 
 import datetime as dt
 import hashlib
+import os
+import stat
 import uuid
 from collections.abc import Callable, Iterable, Mapping
+from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
@@ -66,6 +69,21 @@ class SelectedRunError(ValueError):
     def __init__(self, code: str, message: str) -> None:
         self.code = code
         super().__init__(f"{code}: {message}")
+
+
+@dataclass(frozen=True)
+class RecordedActionStartProvenance:
+    """Read-only facts from one sealed, already-recorded Action start.
+
+    This carrier intentionally exposes the author and actual Run lineage, not
+    an assigned Action identifier, caller identity, authorization, outcome, or
+    any admission decision.
+    """
+
+    author: str
+    event_id: str
+    action_run_id: str
+    parent_lineage: tuple[str, ...]
 
 
 def _require_string(value: Mapping[str, Any], key: str) -> str:
@@ -521,6 +539,7 @@ class RunExecutionSession:
         self.interrupted: dict[str, dict[str, Any]] = {}
         self.observed_effects: dict[str, dict[str, Any]] = {}
         self.receipts: list[dict[str, Any]] = []
+        self._started_receipts: dict[str, dict[str, Any]] = {}
         self.pending: list[str] = []
 
     @classmethod
@@ -656,6 +675,7 @@ class RunExecutionSession:
             if event["definition_bindings"] != expected_bindings:
                 raise SelectedRunError("recovery-definition-mismatch", "Journal start has mismatched definition bindings")
             session.actual[requested_id] = run
+            session._started_receipts[requested_id] = dict(receipt)
 
         # Preserve Journal order.  Separating interruptions from finals first
         # would make a later ``interrupted`` fact appear to precede an earlier
@@ -794,11 +814,13 @@ class RunExecutionSession:
             record["predecessor_run_id"] = predecessor["run_id"]
         event = self.tracker._lazy_journal_event(self.request, record, "started", None, None, [], None, self._bindings_for(record))
         try:
-            self.receipts.append(self.tracker._append_one(event, None, []))
+            receipt = self.tracker._append_one(event, None, [])
         except OSError as error:
             self.pending.append(str(event["event_id"]))
             raise SelectedRunError("recording-pending", f"Run start evidence could not be durably recorded: {error}") from error
         self.actual[requested_run_id] = record
+        self._started_receipts[requested_run_id] = dict(receipt)
+        self.receipts.append(receipt)
         return dict(record)
 
     def finish_run(
@@ -951,6 +973,167 @@ class RunExecutionSession:
         for effect_ref in effect_refs:
             _safe_ref(effect_ref, "effect_ref")
         self.observed_effects[requested_id] = {"result_ref": result_ref, "effect_refs": list(effect_refs)}
+
+    def read_recorded_action_start(self, action_run_id: str) -> RecordedActionStartProvenance:
+        """Reopen this Session's exact, already-recorded Action start.
+
+        The lookup is receipt-addressed and read-only.  It validates the
+        canonical Journal line again instead of trusting caller-supplied
+        identity, the request's assigned Action ID, or a reconstructed event.
+        """
+
+        requested_id, record = self._actual_by_id(action_run_id)
+        if record.get("kind") != "action":
+            raise SelectedRunError("action-start-run-invalid", "recorded Action provenance requires an actual Action Run")
+        receipt = self._started_receipts.get(requested_id)
+        if receipt is None:
+            raise SelectedRunError("action-start-evidence-missing", "actual Action Run has no retained start receipt")
+        event = self._reopen_started_event(receipt)
+        if (
+            event.get("schema_version") != 5
+            or event.get("kind") != "workflow_execution"
+            or event.get("event") != "started"
+            or event.get("run") != record
+        ):
+            raise SelectedRunError("action-start-evidence-mismatch", "reopened Journal event differs from this actual Action Run")
+        lineage = self._parent_lineage(record)
+        return RecordedActionStartProvenance(
+            author=event["author"],
+            event_id=event["event_id"],
+            action_run_id=action_run_id,
+            parent_lineage=lineage,
+        )
+
+    def _reopen_started_event(self, receipt: Mapping[str, Any]) -> dict[str, Any]:
+        """Read one canonical receipt-addressed Journal event without effects."""
+
+        carrier, line = self._validated_started_receipt(receipt)
+        root = Path(self.tracker.root).resolve()
+        self._assert_regular_journal_control(root)
+        try:
+            journal_root = root / work_journal.configured_journal_root(root)
+        except (OSError, RuntimeError) as error:
+            raise SelectedRunError("action-start-evidence-missing", "canonical Work Journal is unavailable") from error
+        path = root / carrier
+        try:
+            path.relative_to(journal_root)
+        except ValueError as error:
+            raise SelectedRunError("action-start-evidence-invalid", "retained start receipt escapes the canonical Journal") from error
+        self._assert_regular_receipt_carrier(root, journal_root, path)
+        return self._read_receipted_event(root, path, line, receipt)
+
+    @staticmethod
+    def _assert_regular_journal_control(root: Path) -> None:
+        """Reject aliases before Project Settings can redirect the Journal read."""
+
+        control = root / ".caprmedio_caprmedio"
+        settings = control / "caprmedio_project_settings.toml"
+        for path, expected_mode in ((control, stat.S_ISDIR), (settings, stat.S_ISREG)):
+            try:
+                metadata = os.lstat(path)
+            except OSError as error:
+                raise SelectedRunError("action-start-evidence-missing", "canonical Work Journal control carrier is unavailable") from error
+            if stat.S_ISLNK(metadata.st_mode) or not expected_mode(metadata.st_mode):
+                raise SelectedRunError("action-start-evidence-invalid", "canonical Work Journal control carrier is aliased")
+
+    @staticmethod
+    def _assert_regular_receipt_carrier(root: Path, journal_root: Path, path: Path) -> None:
+        """Refuse alias hops and physical escapes before reopening carrier bytes."""
+
+        try:
+            journal_relative = journal_root.relative_to(root)
+            carrier_relative = path.relative_to(journal_root)
+        except ValueError as error:  # pragma: no cover - caller checks both lexical relations.
+            raise SelectedRunError("action-start-evidence-invalid", "receipt-addressed carrier escapes the canonical Journal") from error
+        current = root
+        for component in (*journal_relative.parts, *carrier_relative.parts[:-1]):
+            current = current / component
+            try:
+                metadata = os.lstat(current)
+            except OSError as error:
+                raise SelectedRunError("action-start-evidence-missing", "receipt-addressed Journal directory is unavailable") from error
+            if stat.S_ISLNK(metadata.st_mode) or not stat.S_ISDIR(metadata.st_mode):
+                raise SelectedRunError("action-start-evidence-invalid", "receipt-addressed Journal directory is aliased")
+        try:
+            metadata = os.lstat(path)
+        except OSError as error:
+            raise SelectedRunError("action-start-evidence-missing", "receipt-addressed Journal carrier is unavailable") from error
+        if stat.S_ISLNK(metadata.st_mode) or not stat.S_ISREG(metadata.st_mode):
+            raise SelectedRunError("action-start-evidence-invalid", "receipt-addressed Journal carrier is aliased")
+        try:
+            path.resolve(strict=True).relative_to(journal_root.resolve(strict=True))
+        except (OSError, ValueError) as error:
+            raise SelectedRunError("action-start-evidence-invalid", "receipt-addressed Journal carrier physically escapes its root") from error
+
+    @staticmethod
+    def _validated_started_receipt(receipt: Mapping[str, Any]) -> tuple[str, int]:
+        expected = {
+            "event_id", "action_id", "event_digest", "carrier", "line",
+            "previous_carrier_digest", "appended_carrier_digest",
+        }
+        if not isinstance(receipt, Mapping) or set(receipt) != expected:
+            raise SelectedRunError("action-start-evidence-invalid", "retained start receipt has an invalid closed shape")
+        carrier = receipt.get("carrier")
+        line = receipt.get("line")
+        if (
+            not isinstance(carrier, str)
+            or not carrier
+            or Path(carrier).is_absolute()
+            or ".." in Path(carrier).parts
+            or type(line) is not int
+            or line < 1
+            or any(not isinstance(receipt[key], str) or len(receipt[key]) != 64 for key in (
+                "event_digest", "previous_carrier_digest", "appended_carrier_digest",
+            ))
+        ):
+            raise SelectedRunError("action-start-evidence-invalid", "retained start receipt is malformed")
+        return carrier, line
+
+    @staticmethod
+    def _read_receipted_event(
+        root: Path,
+        path: Path,
+        line: int,
+        receipt: Mapping[str, Any],
+    ) -> dict[str, Any]:
+        try:
+            data, records = work_journal._carrier_records(path)
+        except (OSError, work_journal.WorkJournalError) as error:
+            raise SelectedRunError("action-start-evidence-invalid", "receipt-addressed Journal carrier is unreadable") from error
+        if line > len(records):
+            raise SelectedRunError("action-start-evidence-missing", "receipt-addressed Journal line is unavailable")
+        try:
+            event = work_journal.validate_sealed_event(records[line - 1])
+        except work_journal.WorkJournalError as error:
+            raise SelectedRunError("action-start-evidence-invalid", "receipt-addressed Journal event is not sealed") from error
+        if event.get("event_id") != receipt["event_id"] or event.get("event_digest") != receipt["event_digest"]:
+            raise SelectedRunError("action-start-evidence-mismatch", "receipt does not bind the reopened Journal event")
+        try:
+            observed_receipt = work_journal._receipt(root, path, data, line, event)
+        except work_journal.WorkJournalError as error:
+            raise SelectedRunError("action-start-evidence-invalid", "Journal receipt cannot be reconstructed") from error
+        if observed_receipt != dict(receipt):
+            raise SelectedRunError("action-start-evidence-mismatch", "reopened Journal bytes differ from the retained receipt")
+        return event
+
+    def _parent_lineage(self, record: Mapping[str, Any]) -> tuple[str, ...]:
+        """Return the actual parent chain, refusing gaps, aliases, and loops."""
+
+        by_actual_id = {item.get("run_id"): item for item in self.actual.values()}
+        lineage: list[str] = []
+        seen = {record.get("run_id")}
+        current = record
+        while "parent_run_id" in current:
+            parent_id = current["parent_run_id"]
+            if not isinstance(parent_id, str) or not parent_id or parent_id in seen:
+                raise SelectedRunError("action-start-lineage-invalid", "actual Action parent lineage is invalid")
+            parent = by_actual_id.get(parent_id)
+            if not isinstance(parent, Mapping):
+                raise SelectedRunError("action-start-lineage-invalid", "actual Action parent lineage is incomplete")
+            lineage.append(parent_id)
+            seen.add(parent_id)
+            current = parent
+        return tuple(lineage)
 
     # Small aliases make the lifecycle injection concise for queue and adapter callers.
     start = start_run
