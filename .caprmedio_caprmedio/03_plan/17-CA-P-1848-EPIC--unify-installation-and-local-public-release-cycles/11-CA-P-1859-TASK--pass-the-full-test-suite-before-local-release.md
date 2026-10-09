@@ -10,8 +10,8 @@ local_tier: Standard
 global_tier: 2
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-09 15:41:25 +0400"
+version: 2
+updated_at: "2026-10-09 12:12:13 +0000"
 subjects:
   governs: "CAPRMEDIO Framework Instance"
   depends_on:
@@ -43,14 +43,14 @@ the AI Agent obtains a complete passing full-suite gate for the exact inputs sel
 ## Details
 
 - scope: the installation/release contribution of the CAPRMEDIO Framework Instance delivered by the caprmedio Project.
-- input: the final source Methodology, Engine, package/installer changes, dependency lock, defaults, selected Project configuration **and** complete current test inventory.
-- freeze input identities **and** the selected Version **before** testing. run the full current suite, including golden/unit/integration **and** required host/Docker/MCP e2e gates, through uv-managed environments.
-- record every expected suite/module, executed cases, failures, skipped/incomplete coverage, exit status **and** source/package identities. focused tests, mocked evidence, queued work **or** an old green receipt are **not** this gate.
+- input: the private staged candidate **with** final source Methodology, Engine, package/installer changes, dependency lock, defaults, selected Project configuration, matching staged image **and** complete current test inventory.
+- select the canonical Version **from** the `version.toml` carrier **before** candidate compilation; freeze its sealed input identities **and** candidate package/image bytes **before** testing. run the full current suite, including golden/unit/integration **and** required host/Docker/MCP e2e gates, **through** uv-managed environments.
+- obtain an independent code/RMED/O review of the exact sealed candidate **before** the gate; record its reviewer, compared definitions, candidate identities, findings **and** dispositions. unresolved essential findings block the gate **and** promotion. record **every** expected suite/module, executed cases, failures, skipped/incomplete coverage, exit status **and** source/configuration/catalog/lock/package/image identities. focused tests, mocked evidence, queued work **or** an old green receipt are **not** this gate.
 - failed, unavailable **or** incomplete required tests block local release. handle retry/escalation under the applicable settings; do **not** bypass the gate because a dependency, cleanup **or** host permission is inconvenient.
-- source/configuration changes that affect the validated closure invalidate this gate. this Task records acceptance **only**; it does **not** perform live package/runtime/source promotion.
+- source/configuration changes that affect the validated closure invalidate this gate **and** require a newly compiled candidate; this Task records acceptance **only** **and** does **not** perform live package/runtime/source promotion.
 - effort: own work for **=1** AI Agent **must** fit **<=15** minutes. **if** this Plan needs larger own work, decompose it **before** execution **and** preserve its Objective **and** acceptance.
 - control: use applicable Operator input **and** inherited Framework Instance Settings for permission, confidence **and** retry gates. creation is planned work **only**, **not** permission to execute the local/public cycle immediately.
 
 ### Definition of Done
 
-the Plan is **not** Done **if** any required suite has failed, skipped **or** incomplete coverage, the frozen inputs changed, **or** an exit/status/report cannot prove the complete local gate passed.
+the Plan is **not** Done **if** the independent candidate review is absent **or** has an unresolved essential finding, any required suite has failed, skipped **or** incomplete coverage, the frozen inputs changed, **or** an exit/status/report cannot prove the complete local gate passed.

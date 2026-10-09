@@ -10,8 +10,8 @@ local_tier: Standard
 global_tier: 2
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-09 15:41:25 +0400"
+version: 2
+updated_at: "2026-10-09 12:12:13 +0000"
 subjects:
   governs: "CAPRMEDIO Framework Instance"
   depends_on:
@@ -44,10 +44,10 @@ the AI Agent implements a portable beta Framework Package under `.caprmedio_inst
 ## Details
 
 - scope: the installation/release contribution of the CAPRMEDIO Framework Instance delivered by the caprmedio Project.
-- input: root `102_FRAMEWORK_ENGINE`, delivered `methodology/`, ca Skill sources, locked dependencies **and** the admitted package contract.
-- output: **=1** reusable package scheme **with** explicit manifest, source/version identity, integrity checks, selected release **and** declared Engine, Methodology, Skill/default-settings payload. consolidate the current standalone Tool **and** full-Engine package schemes.
+- input: root `102_FRAMEWORK_ENGINE`, delivered `methodology/`, this target Project's selected extensions/configuration **from** an admitted pinned available catalog, ca Skill sources, locked dependencies **and** the admitted package contract.
+- output: **=1** reusable package scheme **with** explicit manifest, sealed source/version/configuration/catalog/lock identity, integrity checks, selected release **and** declared Engine, Methodology, Skill/default-settings payload. consolidate the current standalone Tool **and** full-Engine package schemes.
 - the package is independent of a development checkout, personal absolute paths, Git repository discovery, caprmedio-specific Project settings, databases, Run records, machine caches **and** credentials. another Project supplies its own settings, configuration **and** Operator registry.
-- preserve the N package needed for rollback while producing N+1. use isolated staging **and** atomic admitted promotion; a failed package attempt cannot replace a working selection.
+- preserve the N package needed for rollback while producing N+1. select the canonical Version **before** producing a private candidate; use isolated staging **and** atomic admitted promotion, **and** seal candidate package bytes for the later full-suite gate. a failed package attempt cannot replace a working selection.
 - test deterministic payloads, complete active/support closure, relocation, tampering, missing inputs, mismatched selectors, failed promotion **and** reinstall. `.DS_Store` **and** generated runtime state are excluded; package publication is deferred to the gated local release.
 - effort: own work for **=1** AI Agent **must** fit **<=15** minutes. **if** this Plan needs larger own work, decompose it **before** execution **and** preserve its Objective **and** acceptance.
 - control: use applicable Operator input **and** inherited Framework Instance Settings for permission, confidence **and** retry gates. creation is planned work **only**, **not** permission to execute the local/public cycle immediately.

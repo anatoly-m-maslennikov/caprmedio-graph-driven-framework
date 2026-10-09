@@ -10,8 +10,8 @@ local_tier: Standard
 global_tier: 2
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-09 15:41:25 +0400"
+version: 2
+updated_at: "2026-10-09 12:12:13 +0000"
 subjects:
   governs: "CAPRMEDIO Framework Instance"
   depends_on:
@@ -56,7 +56,7 @@ the caprmedio Project delivers a reusable beta Framework Package **and** an isol
 ### Approved boundaries
 
 - **=1** source authority: editable Methodology Atoms belong to declared Project Methodology Scope Units; editable Engine implementation belongs to root `102_FRAMEWORK_ENGINE`.
-- Methodology local flow: selected active source Atoms **and** declared support artifacts **from** `.caprmedio_caprmedio` → root `methodology/` → compiled/traceable installation under `.caprmedio_caprmedio/000_CAPRMEDIO_framework`. compilation applies this Project's selected extensions/configuration; installed projections retain their relation to original source Atoms.
+- Methodology local flow: selected active source Atoms **and** declared support artifacts **from** `.caprmedio_caprmedio` → root `methodology/` → compiled/traceable installation under `.caprmedio_caprmedio/000_CAPRMEDIO_framework`. compilation applies this Project's explicitly selected extensions/configuration **from** an admitted pinned available catalog; installed projections retain their relation to original source Atoms. a missing selected revision fails **before** effects.
 - Engine/package local flow: root `102_FRAMEWORK_ENGINE` **plus** delivered Methodology, ca Skill/defaults **and** locked dependencies → reusable beta package under `.caprmedio_install` → runtime execution/state/environments for this Project under `.caprmedio_runtime`. an installed runtime executes its selected package, **not** an implicit development checkout.
 - the package can install into another Project, including a non-Git Project **or** another root **in** the same repository. Project settings, configuration, runtime records **and** endpoints remain isolated. reuse the same package schema instead of independent Tool-only/full-Engine layouts.
 - current `.caprmedio_install` contains operational state; preserve **and** migrate that state **before** package promotion. repair the installer that deletes the whole folder as legacy. protected/private contents **and** unrelated Project resources are outside blanket cleanup.
@@ -65,17 +65,17 @@ the caprmedio Project delivers a reusable beta Framework Package **and** an isol
 
 ### Release cycles and gates
 
-1. local cycle: **before** real publication/cutover, freeze the inputs/Version **and** pass the full current test suite, including required host/Docker/MCP e2e checks. then explicitly invoke the local Workflow to export, compile, package, migrate/install, install ca, build/admit the image, start/reuse the selected Project's container **and** verify its returned MCP endpoint.
-2. public cycle: check/update README, synchronize the canonical Version **and** prepare a good full PR description; place **only** its concise bullet-point summary **in** `VERSION_HISTORY.md`. **before** publishing, run a fresh full suite for that final snapshot. commit/push **all** safe validated changes to `amm/dev`, then create/update the PR to `main` **with** the full description. merging is **not** requested.
+1. local cycle: select the canonical Version carrier **before** compiling a private candidate; export, compile, stage the package **and** stage/admit its matching image **without** live promotion. seal the candidate's Version, source/configuration/catalog/lock, package **and** image bytes, then pass the full current test suite for those exact bytes, including required host/Docker/MCP e2e checks. **only** then explicitly invoke the local Workflow to quiesce/migrate state **before** promotion, promote/install those same verified bytes, install ca, start/reuse the selected Project's container **and** verify its returned MCP endpoint; **no** rebuild is permitted between gate **and** promotion.
+2. public cycle: check/update README, reuse the previously sealed canonical Version **and** prepare a good full PR description; place **only** its concise bullet-point summary **in** `VERSION_HISTORY.md`. **if** a public-preparation change requires a new Version, create a fresh candidate **and** repeat the local gate, promotion **and** verification **before** publishing. **before** publishing, run a fresh full suite for that final snapshot. commit/push **all** safe validated changes to `amm/dev`, then create/update the PR to `main` **with** the full description. merging is **not** requested.
 3. **every** required gate has complete coverage/identity evidence. failed, blocked, skipped **or** incomplete required checks stop the corresponding cycle; no focused/mock/old receipt substitutes for a full pass. `.DS_Store` is ignored, **not** a gate failure.
-4. preserve N while preparing/admitting N+1. new source/package/configuration changes that affect a validated closure require renewed acceptance. local runtime mutation **and** cleanup occur **only** **after** the local gate, **not** as a side effect of planning.
-5. Workflow **and** Action Runs are recorded **in** the shared Journal **with** honest outcomes; uncertain effects are **not** automatically replayed. inherit confidence/retry/permission controls **from** Framework Instance Settings **and** applicable Operator input rather than invent another policy.
+4. preserve N while preparing/admitting N+1. new source/package/configuration changes that affect a validated closure require a new candidate **and** renewed acceptance. local runtime mutation **and** cleanup occur **only** **after** the local gate, **not** as a side effect of planning.
+5. local **and** public release are reusable Operations Workflows **with** bound Workflow Steps, Actions **and** Tools, **not** one-off manual Git procedures. Workflow, Step **and** Action Runs, **and** their Tool-call evidence, are recorded **in** the shared Journal **with** parentage, exact input/output/evidence identities **and** honest outcomes; uncertain effects are **not** automatically replayed. inherit confidence/retry/permission controls **from** Framework Instance Settings **and** applicable Operator input rather than invent another policy.
 
 ### Work organization
 
 - this file **and** its matching folder are Carriers of **=1** Epic Plan. children explicitly store `is_decomposition_of`; prerequisite Plans store `blocks`. navigation numbers/listing order are **not** a separate execution schedule.
 - own work for **=1** AI Agent **must** fit **<=15** minutes. larger Plans **must** be decomposed **before** execution. independent ready work may run **in** parallel; source/Git/shared-state integration remains under **=1** owner.
-- reuse the existing release/compiler/installer/startup Tools where their contracts remain valid. update RMED **and** O definitions first, then tests **and** implementation; independent review checks code against those definitions.
+- reuse the existing release/compiler/installer/startup Tools where their contracts remain valid. update RMED **and** O definitions first, then tests **and** implementation; an independent code/RMED/O review **must** pass **before** either full-suite gate **and** therefore **before** public push.
 - creating this Epic **only** creates planned work. no implementation, migration, deletion, dependency installation, release, push, PR, image/container start **or** merge is executed now.
 
 ### Decomposing Plans
@@ -103,4 +103,4 @@ preparation: Plans 01–10; local cycle: 11–13; public cycle: 14–17; integra
 
 ### Definition of Done
 
-the Plan is **not** Done **if** ((**any** direct decomposing Plan is **not** Done) **or** (a required full-suite gate lacks a complete current pass) **or** (the beta package cannot install/run **without** the development checkout) **or** (Methodology source/projection/package/runtime boundaries conflict) **or** (state/history/another Project is lost **or** leaked) **or** (the local installation/MCP handoff is unverified) **or** (`amm/dev` **and** its PR to `main` are unconfirmed) **or** (an essential RMED/Operations/principle finding remains)).
+the Plan is **not** Done **if** ((**any** direct decomposing Plan is **not** Done) **or** (a required full-suite gate lacks a complete current pass for sealed bytes) **or** (the beta package cannot install/run **without** the development checkout) **or** (Methodology source/projection/package/runtime boundaries conflict) **or** (state/history/another Project is lost **or** leaked) **or** (the local installation/MCP handoff is unverified) **or** (`amm/dev` **and** its PR to `main` are unconfirmed) **or** (an essential RMED/Operations/principle finding remains)).
