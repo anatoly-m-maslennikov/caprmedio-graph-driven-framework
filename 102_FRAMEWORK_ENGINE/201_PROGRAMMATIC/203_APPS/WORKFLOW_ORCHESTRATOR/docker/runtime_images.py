@@ -314,7 +314,7 @@ class ImageManager:
         if explicit_id is not None:
             image = self._inspect(explicit_id, identity)
         else:
-            raw = self._run(("docker", "image", "ls", "--quiet", "--no-trunc",
+            raw = self._run(("docker", "image", "ls", "--all", "--quiet", "--no-trunc",
                              "--filter", f"label={SCHEMA_LABEL}={SCHEMA}",
                              "--filter", f"label={FINGERPRINT_LABEL}={identity.fingerprint}"))
             ids = {line.strip() for line in raw.splitlines() if line.strip()}

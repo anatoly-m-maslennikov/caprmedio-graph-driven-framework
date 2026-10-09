@@ -115,6 +115,30 @@ class ImageGoldenTests(unittest.TestCase):
         )
         self.assertNotIn(" build ", f" {flattened} ")
 
+    def test_untagged_matching_image_is_reused_without_building(self) -> None:
+        source = self.source_fixture()
+        identity = self.manager(source, lambda *_a, **_k: None).identity()
+        calls = []
+
+        def executor(argv, **_kwargs):
+            calls.append(tuple(argv))
+            if "ls" in argv:
+                # Docker's default listing omits intermediate untagged images.
+                output = IMAGE_ID + "\n" if "--all" in argv else ""
+                return subprocess.CompletedProcess(argv, 0, output, "")
+            self.assertIn("inspect", argv)
+            inspection = json.dumps([{
+                "Id": IMAGE_ID, "RepoTags": [], "Os": "linux", "Architecture": "amd64",
+                "Config": {"Labels": {
+                    "org.caprmedio.runtime.schema": "1",
+                    "org.caprmedio.runtime.fingerprint": identity.fingerprint,
+                }},
+            }])
+            return subprocess.CompletedProcess(argv, 0, inspection, "")
+
+        self.assertEqual(IMAGE_ID, self.manager(source, executor).resolve(build_if_missing=False))
+        self.assertFalse(any("build" in call for call in calls))
+
     def test_mutable_or_stale_explicit_images_refuse_without_docker_build(self) -> None:
         calls = []
 
