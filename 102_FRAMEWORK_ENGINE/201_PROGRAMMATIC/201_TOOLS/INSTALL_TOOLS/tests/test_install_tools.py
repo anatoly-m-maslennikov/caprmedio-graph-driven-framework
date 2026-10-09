@@ -185,8 +185,26 @@ class InstallToolsTests(unittest.TestCase):
         self.assertEqual(result["release"], release)
         self.assertEqual(sorted(row["path"] for row in rows), [row["path"] for row in rows])
         release_root = self.repository / ".caprmedio_runtime/tools/releases" / release
-        for relative in ("204_MCP/release_source_admission.py", "204_MCP/selected_routes.py"):
-            source = self.canonical.parent / relative
+        private_closure = (
+            ("204_MCP/release_source_admission.py", "204_MCP/release_source_admission.py"),
+            ("204_MCP/selected_routes.py", "204_MCP/selected_routes.py"),
+            ("201_TOOLS/project_selection.py", "204_MCP/project_selection.py"),
+            (
+                "201_TOOLS/VALIDATE_ATOMS/validate_atoms_workers/__init__.py",
+                "204_MCP/VALIDATE_ATOMS/validate_atoms_workers/__init__.py",
+            ),
+            (
+                "201_TOOLS/VALIDATE_ATOMS/validate_atoms_workers/read_io.py",
+                "204_MCP/VALIDATE_ATOMS/validate_atoms_workers/read_io.py",
+            ),
+            (
+                "201_TOOLS/VALIDATE_ATOMS/validate_atoms_workers/settings.py",
+                "204_MCP/VALIDATE_ATOMS/validate_atoms_workers/settings.py",
+            ),
+        )
+        for source_relative, installed_relative in private_closure:
+            source = self.canonical.parent / source_relative
+            relative = installed_relative
             installed = release_root / relative
             self.assertEqual(source.read_bytes(), installed.read_bytes())
             self.assertEqual(source.stat().st_mode & 0o777, installed.stat().st_mode & 0o777)
@@ -199,6 +217,30 @@ class InstallToolsTests(unittest.TestCase):
         dependency.unlink()
         dependency.symlink_to("release_source_admission.py")
         with self.assertRaisesRegex(install_tools.InstallationError, "canonical private reader source is missing"):
+            install_tools.source_inventory(self.repository)
+
+    def test_release_private_reader_mapped_dependencies_refuse_missing_files_and_aliases(self) -> None:
+        dependency = self.canonical / "project_selection.py"
+        dependency.unlink()
+        with self.assertRaisesRegex(install_tools.InstallationError, "canonical private reader source is missing"):
+            install_tools.source_inventory(self.repository)
+
+        shutil.copy2(TOOLS_SOURCE / "project_selection.py", dependency)
+        dependency.unlink()
+        dependency.symlink_to("background_services.toml")
+        with self.assertRaisesRegex(install_tools.InstallationError, "canonical private reader source is missing"):
+            install_tools.source_inventory(self.repository)
+
+        dependency.unlink()
+        shutil.copy2(TOOLS_SOURCE / "project_selection.py", dependency)
+        workers = self.canonical / "VALIDATE_ATOMS/validate_atoms_workers"
+        original_is_symlink = Path.is_symlink
+        with patch.object(
+            Path,
+            "is_symlink",
+            autospec=True,
+            side_effect=lambda path: path == workers or original_is_symlink(path),
+        ), self.assertRaisesRegex(install_tools.InstallationError, "canonical private reader source is missing"):
             install_tools.source_inventory(self.repository)
 
     def test_apply_without_hooks_installs_tools_and_preserves_host_hook_state(self) -> None:
@@ -298,6 +340,11 @@ class InstallToolsTests(unittest.TestCase):
                 "cwd": str(self.repository),
             }
         )
+        dispatcher_environment = {
+            **os.environ,
+            "CODEX_HOME": str(self.codex_home),
+            "GIT_CEILING_DIRECTORIES": self.temporary.name,
+        }
         delegated = subprocess.run(
             command,
             cwd=self.repository,
@@ -306,7 +353,7 @@ class InstallToolsTests(unittest.TestCase):
             check=True,
             capture_output=True,
             text=True,
-            env={**os.environ, "CODEX_HOME": str(self.codex_home)},
+            env=dispatcher_environment,
         )
         self.assertEqual("snapshot", json.loads(delegated.stdout)["result"]["effect"])
 
@@ -318,13 +365,31 @@ class InstallToolsTests(unittest.TestCase):
         sentinel = uninstalled / "unexpected-dispatch"
         fake.write_text(f"#!/bin/sh\ntouch {sentinel}\n", encoding="utf-8")
         fake.chmod(0o755)
-        skipped = subprocess.run(command, cwd=uninstalled, input=payload, shell=True, check=True, capture_output=True, text=True)
+        skipped = subprocess.run(
+            command,
+            cwd=uninstalled,
+            input=payload,
+            shell=True,
+            check=True,
+            capture_output=True,
+            text=True,
+            env=dispatcher_environment,
+        )
         self.assertEqual("", skipped.stdout)
         self.assertFalse(sentinel.exists())
 
         outside = Path(self.temporary.name) / "outside"
         outside.mkdir()
-        skipped_outside = subprocess.run(command, cwd=outside, input=payload, shell=True, check=True, capture_output=True, text=True)
+        skipped_outside = subprocess.run(
+            command,
+            cwd=outside,
+            input=payload,
+            shell=True,
+            check=True,
+            capture_output=True,
+            text=True,
+            env=dispatcher_environment,
+        )
         self.assertEqual("", skipped_outside.stdout)
 
     def test_unavailable_user_hook_carrier_fails_with_current_selection_unchanged(self) -> None:

@@ -60,9 +60,22 @@ TRIGGER_ENTRYPOINT = "TOOLS/COMMIT_TRIGGER/commit_trigger.py"
 SERVICE_ENTRYPOINT = "TOOLS/START_BACKGROUND_SERVICES/start_background_services.py"
 RELEASE_REFERENCE_CONTEXT = "RELEASE_VERSION/release_suite_reference_context.py"
 PRIVATE_READER_DIRECTORY = "204_MCP"
-PRIVATE_READER_FILES = (
-    "release_source_admission.py",
-    "selected_routes.py",
+PRIVATE_RELEASE_MCP_FILES = (
+    (Path("204_MCP/release_source_admission.py"), Path("204_MCP/release_source_admission.py")),
+    (Path("204_MCP/selected_routes.py"), Path("204_MCP/selected_routes.py")),
+    (Path("201_TOOLS/project_selection.py"), Path("204_MCP/project_selection.py")),
+    (
+        Path("201_TOOLS/VALIDATE_ATOMS/validate_atoms_workers/__init__.py"),
+        Path("204_MCP/VALIDATE_ATOMS/validate_atoms_workers/__init__.py"),
+    ),
+    (
+        Path("201_TOOLS/VALIDATE_ATOMS/validate_atoms_workers/read_io.py"),
+        Path("204_MCP/VALIDATE_ATOMS/validate_atoms_workers/read_io.py"),
+    ),
+    (
+        Path("201_TOOLS/VALIDATE_ATOMS/validate_atoms_workers/settings.py"),
+        Path("204_MCP/VALIDATE_ATOMS/validate_atoms_workers/settings.py"),
+    ),
 )
 REQUIRED_FILES = (
     "framework_installation.py",
@@ -163,6 +176,21 @@ def _source_files(source_root: Path) -> list[Path]:
     return sorted(paths, key=lambda item: item.relative_to(source_root).as_posix())
 
 
+def _private_release_source(canonical: Path, source_relative: Path) -> Path:
+    """Resolve one retained private reader without following source aliases."""
+
+    source_root = canonical.parent
+    ancestor = source_root
+    for component in source_relative.parts[:-1]:
+        ancestor = ancestor / component
+        if not ancestor.is_dir() or ancestor.is_symlink():
+            raise InstallationError(
+                "canonical-source-incomplete",
+                f"canonical private reader source is missing: {source_relative.as_posix()}",
+            )
+    return source_root / source_relative
+
+
 def source_inventory(repository: Path | str, *, source_root: Path | None = None) -> tuple[list[dict[str, Any]], str]:
     root = resolve_repository(repository)
     canonical = (source_root or (root / SOURCE_DIRECTORY)).resolve()
@@ -182,16 +210,16 @@ def source_inventory(repository: Path | str, *, source_root: Path | None = None)
             }
         )
     if RELEASE_REFERENCE_CONTEXT in available:
-        private_root = canonical.parent / PRIVATE_READER_DIRECTORY
-        if not private_root.is_dir() or private_root.is_symlink():
-            raise InstallationError("canonical-source-incomplete", "canonical private reader source is missing")
-        for name in PRIVATE_READER_FILES:
-            path = private_root / name
+        for source_relative, release_relative in PRIVATE_RELEASE_MCP_FILES:
+            path = _private_release_source(canonical, source_relative)
             if not path.is_file() or path.is_symlink():
-                raise InstallationError("canonical-source-incomplete", f"canonical private reader source is missing: {name}")
+                raise InstallationError(
+                    "canonical-source-incomplete",
+                    f"canonical private reader source is missing: {source_relative.as_posix()}",
+                )
             rows.append(
                 {
-                    "path": f"{PRIVATE_READER_DIRECTORY}/{name}",
+                    "path": release_relative.as_posix(),
                     "sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
                     "mode": path.stat().st_mode & 0o777,
                 }
@@ -205,8 +233,9 @@ def _inventory_source(canonical: Path, relative: Path) -> Path:
     """Map one verified inventory row back to its canonical source carrier."""
     if relative.parts[:1] == (TOOLS_DIRECTORY,):
         return canonical / relative.relative_to(TOOLS_DIRECTORY)
-    if relative.parts[:1] == (PRIVATE_READER_DIRECTORY,) and relative.name in PRIVATE_READER_FILES and len(relative.parts) == 2:
-        return canonical.parent / relative
+    for source_relative, release_relative in PRIVATE_RELEASE_MCP_FILES:
+        if relative == release_relative:
+            return _private_release_source(canonical, source_relative)
     raise InstallationError("install-manifest-invalid", f"release inventory path is unsupported: {relative.as_posix()}")
 
 
