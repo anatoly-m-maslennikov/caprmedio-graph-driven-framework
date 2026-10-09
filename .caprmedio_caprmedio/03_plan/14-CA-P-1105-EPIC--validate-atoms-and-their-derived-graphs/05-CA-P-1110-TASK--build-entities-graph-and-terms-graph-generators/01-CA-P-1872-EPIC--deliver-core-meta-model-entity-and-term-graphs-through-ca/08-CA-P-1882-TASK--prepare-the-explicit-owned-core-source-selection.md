@@ -27,8 +27,8 @@ subjects:
     - Action
     - Journal
     - Plan
-version: 1
-updated_at: "2026-10-09 17:13:17 +0400"
+version: 2
+updated_at: "2026-10-09 18:10:33 +0400"
 relations:
   is_decomposition_of:
     - CA-P-1872
@@ -60,7 +60,7 @@ Exclusive edit/effect scope: 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/GEN
 
 Use current Active Atoms with current_scope_unit == CORE_META_MODEL. Keep claim_target_scope_unit separate. Bind current Project Structure and explicit Properties; record admitted support sources/external references separately. Do not infer membership from folders or add recursion/query grammar without authority.
 
-Inherit the main Epic's boundaries and CA-P-1110's 99% confidence threshold/retry rules. If the current work will exceed 15 minutes, split it into bounded admitted children before execution. Shared graph/fixture edits must be serialized or held by one integration owner. New required defects need separately bounded fix Tasks, not an unbounded review-and-fix loop.
+Inherit the main Epic's boundaries and the Operator's explicit 90% confidence threshold/retry rules. If the current work will exceed 15 minutes, split it into bounded admitted children before execution. Shared graph/fixture edits must be serialized or held by one integration owner. New required defects need separately bounded fix Tasks, not an unbounded review-and-fix loop.
 
 ### Definition of Done
 

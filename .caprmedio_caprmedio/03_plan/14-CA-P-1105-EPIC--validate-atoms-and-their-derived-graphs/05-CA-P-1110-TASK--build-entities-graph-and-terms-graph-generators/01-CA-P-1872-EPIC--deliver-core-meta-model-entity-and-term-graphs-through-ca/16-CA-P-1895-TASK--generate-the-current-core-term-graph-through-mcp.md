@@ -27,8 +27,8 @@ subjects:
     - Action
     - Journal
     - Plan
-version: 1
-updated_at: "2026-10-09 17:13:17 +0400"
+version: 2
+updated_at: "2026-10-09 18:10:33 +0400"
 relations:
   is_decomposition_of:
     - CA-P-1872
@@ -59,7 +59,7 @@ Exclusive edit/effect scope: The admitted term graph route and its separate conf
 
 Use exactly the same sealed source snapshot as the entity graph. Retain actual term output, implementation identity and required Workflow/Action/Journal receipts. Do not confuse a file/queue/reload with completion.
 
-Inherit the main Epic's boundaries and CA-P-1110's 99% confidence threshold/retry rules. If the current work will exceed 15 minutes, split it into bounded admitted children before execution. Shared graph/fixture edits must be serialized or held by one integration owner. New required defects need separately bounded fix Tasks, not an unbounded review-and-fix loop.
+Inherit the main Epic's boundaries and the Operator's explicit 90% confidence threshold/retry rules. If the current work will exceed 15 minutes, split it into bounded admitted children before execution. Shared graph/fixture edits must be serialized or held by one integration owner. New required defects need separately bounded fix Tasks, not an unbounded review-and-fix loop.
 
 ### Definition of Done
 

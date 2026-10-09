@@ -26,8 +26,8 @@ subjects:
     - Action
     - Journal
     - Plan
-version: 1
-updated_at: "2026-10-09 17:13:17 +0400"
+version: 2
+updated_at: "2026-10-09 18:10:33 +0400"
 relations:
   is_decomposition_of:
     - CA-P-1872
@@ -54,7 +54,7 @@ Direct children:
 
 Any required relation gap gets a separately admitted bounded direct child before implementation and blocks the golden fidelity Task. This group cannot finish while a required gap remains.
 
-Inherited safeguards: the main Epic's current source authority, graph separation, Property ownership, owned-Core selection, runtime identity and truthful evidence apply. Keep CA-P-1110's inherited 99% confidence threshold.
+Inherited safeguards: the main Epic's current source authority, graph separation, Property ownership, owned-Core selection, runtime identity and truthful evidence apply. Keep the Operator's explicit 90% confidence threshold.
 
 ### Definition of Done
 

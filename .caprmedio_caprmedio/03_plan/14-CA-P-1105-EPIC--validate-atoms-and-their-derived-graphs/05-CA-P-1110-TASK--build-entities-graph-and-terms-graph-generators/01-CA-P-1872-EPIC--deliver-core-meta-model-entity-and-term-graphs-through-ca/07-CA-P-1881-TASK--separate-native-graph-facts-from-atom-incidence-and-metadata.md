@@ -27,8 +27,8 @@ subjects:
     - Action
     - Journal
     - Plan
-version: 1
-updated_at: "2026-10-09 17:13:17 +0400"
+version: 2
+updated_at: "2026-10-09 18:10:33 +0400"
 relations:
   is_decomposition_of:
     - CA-P-1872
@@ -61,7 +61,7 @@ Exclusive edit/effect scope: 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/GEN
 
 Source Atom author/content_role and other Carrier metadata stay on that source owner. Governing an Entity does not make this metadata the Entity's Properties. Native Property facts need admitted owner/value/source evidence. Do not invent native Term edges from spelling joins or Subject dependencies.
 
-Inherit the main Epic's boundaries and CA-P-1110's 99% confidence threshold/retry rules. If the current work will exceed 15 minutes, split it into bounded admitted children before execution. Shared graph/fixture edits must be serialized or held by one integration owner. New required defects need separately bounded fix Tasks, not an unbounded review-and-fix loop.
+Inherit the main Epic's boundaries and the Operator's explicit 90% confidence threshold/retry rules. If the current work will exceed 15 minutes, split it into bounded admitted children before execution. Shared graph/fixture edits must be serialized or held by one integration owner. New required defects need separately bounded fix Tasks, not an unbounded review-and-fix loop.
 
 ### Definition of Done
 

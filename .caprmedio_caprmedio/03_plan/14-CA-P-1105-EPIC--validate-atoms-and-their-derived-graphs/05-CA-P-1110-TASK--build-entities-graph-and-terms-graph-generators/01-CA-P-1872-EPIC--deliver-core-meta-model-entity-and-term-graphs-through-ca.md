@@ -9,6 +9,7 @@ claim_target_scope_unit: caprmedio
 local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
+autonomous_confidence_threshold: 90
 status: Active
 cce_version: cce_1
 cce_form: obligation
@@ -26,8 +27,8 @@ subjects:
     - Action
     - Journal
     - Plan
-version: 1
-updated_at: "2026-10-09 17:13:17 +0400"
+version: 2
+updated_at: "2026-10-09 18:10:33 +0400"
 relations:
   is_decomposition_of:
     - CA-P-1110
@@ -42,12 +43,23 @@ Make the existing entity and term graph builders usable through the Project MCP 
 
 ## Details
 
+### RMED and Operations review gate
+
+The Operator added this prerequisite on 2026-10-09: review and fix entity and term graph RMED+O first, then continue implementation.
+
+- CA-P-1897 independently reviews the current packet and its exact source pins.
+- CA-P-1898 repairs confirmed, bounded RMED+O defects; uncertain semantic choices below 90% require an Operator question.
+- CA-P-1899 independently verifies the repaired packet and reconciles preliminary local edits before implementation resumes.
+- CA-P-1899 blocks CA-P-1873. Existing execution dependencies then govern the remaining work. Navigation numbers do not imply execution order.
+- Preliminary local code/tests remain unaccepted work until this gate passes. A source-pinned independent review is required by CA-D-540; preparation reviews alone do not satisfy that gate.
+- The current Operator authorization permits local implementation and graph RMED+O repair without MCP. It does not bypass the MCP admission gate, authorize unrelated source changes, or claim live graph delivery.
+
 ### Creation and execution state
 
 - These Active Plan carriers are created directly in the project at the Operator's request, without MCP.
 - The Epic directly decomposes CA-P-1110. Child identities and dependency relations are explicit.
 - No MCP creation Run or Journal receipt is claimed. Plan creation is not implementation, runtime activation, admission repair or graph publication.
-- Source/runtime admission remains an execution prerequisite. Recheck the current state before work; an earlier investigation snapshot is not a live admission receipt.
+- Live source/runtime admission remains a graph execution prerequisite; local code work follows the repaired RMED+O gate and the Operator's without-MCP authorization. Recheck the current state before work; an earlier investigation snapshot is not a live admission receipt.
 - The effective Author is Anatoly Maslennikov. Each own-work leaf has one Assignee, AI Agent. Groups have child work only.
 
 ### Reuse and existing work
@@ -83,7 +95,7 @@ The investigation snapshot contained 951 active Core carriers. This count is bac
 
 ### Execution prerequisites
 
-Before implementation:
+Before live graph execution:
 
 1. Recheck current Release admission. If it is still stale, its source owner resolves it through the governing source/review path. Record the exact current discrepancy and accepted repair; do not rewrite a manifest hash as a substitute. This externally owned repair is not this Epic's executable child work.
 2. Confirm the CA-P-1110 decomposition and ownership disposition above, including its current prerequisite Plans. Reuse existing evidence only where it proves the exact current work.
@@ -93,10 +105,13 @@ Read-only preparation may continue while execution admission is blocked. It is n
 
 ### Work decomposition
 
-Each leaf has one AI Agent Assignee and <=15 minutes of hands-on work. Composite groups have no separately executable own work. Split a leaf before execution if its current inputs, output and check cannot fit that bound. Inherit CA-P-1110's 99% confidence threshold and current retry rules; this Epic does not weaken them.
+Each leaf has one AI Agent Assignee and <=15 minutes of hands-on work. Composite groups have no separately executable own work. Split a leaf before execution if its current inputs, output and check cannot fit that bound. Use the Operator's explicit 90% confidence threshold and current retry rules. This latest direction replaces the older inherited 99% threshold for this Epic.
 
 | Plan | Work | Estimate |
 |---|---|---|
+| [CA-P-1897](01-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/18-CA-P-1897-TASK--review-entity-and-term-graph-rmed-and-operations.md) | Review entity and term graph RMED and Operations | 15 min |
+| [CA-P-1898](01-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/19-CA-P-1898-TASK--fix-reviewed-entity-and-term-graph-rmed-and-operations-gaps.md) | Fix reviewed entity and term graph RMED and Operations gaps | 15 min |
+| [CA-P-1899](01-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/20-CA-P-1899-TASK--verify-repaired-graph-rmed-and-operations-before-implementation.md) | Verify repaired graph RMED and Operations before implementation | 15 min |
 | [CA-P-1873](01-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/01-CA-P-1873-TASK--verify-graph-admission-and-local-plan-integrity.md) | Verify graph admission and local Plan integrity | 5 min |
 | [CA-P-1874](01-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/02-CA-P-1874-TASK--expose-selected-route-admission-failures-in-discovery.md) | Expose selected-route admission failures in discovery | 15 min |
 | [CA-P-1875](01-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/03-CA-P-1875-TASK--record-the-current-definition-extraction-contract.md) | Record the current definition extraction contract | 15 min |

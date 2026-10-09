@@ -27,8 +27,8 @@ subjects:
     - Action
     - Journal
     - Plan
-version: 1
-updated_at: "2026-10-09 17:13:17 +0400"
+version: 2
+updated_at: "2026-10-09 18:10:33 +0400"
 relations:
   is_decomposition_of:
     - CA-P-1872
@@ -61,7 +61,7 @@ Exclusive edit/effect scope: This Task's source-pinned relation/Property contrac
 
 Record exact graph-qualified Relation kinds, direction, roots, constraints and external-reference rules. Keep Entity native facts, Term native edges, Atom incidence and Carrier metadata separate. NARROWER_THAN is current; SUBKIND_OF is not an alias without governed authority.
 
-Inherit the main Epic's boundaries and CA-P-1110's 99% confidence threshold/retry rules. If the current work will exceed 15 minutes, split it into bounded admitted children before execution. Shared graph/fixture edits must be serialized or held by one integration owner. New required defects need separately bounded fix Tasks, not an unbounded review-and-fix loop.
+Inherit the main Epic's boundaries and the Operator's explicit 90% confidence threshold/retry rules. If the current work will exceed 15 minutes, split it into bounded admitted children before execution. Shared graph/fixture edits must be serialized or held by one integration owner. New required defects need separately bounded fix Tasks, not an unbounded review-and-fix loop.
 
 ### Definition of Done
 

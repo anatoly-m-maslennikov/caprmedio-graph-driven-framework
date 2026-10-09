@@ -26,8 +26,8 @@ subjects:
     - Action
     - Journal
     - Plan
-version: 1
-updated_at: "2026-10-09 17:13:17 +0400"
+version: 2
+updated_at: "2026-10-09 18:10:33 +0400"
 relations:
   is_decomposition_of:
     - CA-P-1872
@@ -52,7 +52,7 @@ Direct children:
 - [CA-P-1887](11-CA-P-1885-EPIC--complete-graph-determinism-failure-and-recovery-verification/02-CA-P-1887-TASK--verify-conflicting-incomplete-and-invalid-graph-inputs.md) — Verify conflicting incomplete and invalid graph inputs.
 - [CA-P-1888](11-CA-P-1885-EPIC--complete-graph-determinism-failure-and-recovery-verification/03-CA-P-1888-TASK--verify-graph-publication-failure-and-recording-recovery.md) — Verify graph publication failure and recording recovery.
 
-Inherited safeguards: the main Epic's current source authority, graph separation, Property ownership, owned-Core selection, runtime identity and truthful evidence apply. Keep CA-P-1110's inherited 99% confidence threshold.
+Inherited safeguards: the main Epic's current source authority, graph separation, Property ownership, owned-Core selection, runtime identity and truthful evidence apply. Keep the Operator's explicit 90% confidence threshold.
 
 ### Definition of Done
 
