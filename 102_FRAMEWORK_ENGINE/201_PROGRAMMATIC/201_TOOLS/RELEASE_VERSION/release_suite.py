@@ -28,7 +28,7 @@ import tomllib
 import xml.etree.ElementTree as ET
 from dataclasses import asdict, dataclass, replace
 from pathlib import Path
-from typing import Literal, Protocol
+from typing import Any, Literal, Protocol
 
 from release_contract import (
     PROJECT_SKILL_TARGET, REQUIRED_ENGINE_SOURCE_PREFIXES, VERSION_TOML_RELATIVE, ReleaseContractError,
@@ -39,6 +39,7 @@ from release_handoff import (
     tree_sha256,
 )
 from release_inventory import ReleaseInventoryError, refuse_secret_path
+from release_portable_contract import SealedPortableCandidateCompilation
 from release_packaging import (
     REQUIRED_SKILL_FILES, RUNTIME_ROOT, ReleasePackagingError, _complete_rows,
     _render_manifest, _verify_release,
@@ -48,6 +49,7 @@ from release_suite_reference_context import (
     capture_context, copy_verified_bytes, revalidate_context, validate_schema2_context,
 )
 from release_suite_limits import MAX_UNIT_TIMEOUT_SECONDS, resolve_unit_deadline
+from release_suite_inputs import PortableSuiteInputs, collect_portable_suite_inputs
 from release_test_phases import ReleaseTestPhaseMap, derive_test_phase_map_from_rows
 
 
@@ -147,6 +149,59 @@ class SuiteGateEvidence:
         return self.outcome == "passed" and self.receipt_sha256 is not None
 
 
+@dataclass(frozen=True)
+class PortableSuiteGateEvidence:
+    """Native schema-1 portable Unit evidence, before package preparation."""
+
+    input_schema: Literal["portable-1"]
+    candidate_snapshot_manifest_sha256: str
+    candidate_run_id: str
+    input_manifest_sha256: str
+    source_catalog_sha256: str
+    framework_version: str
+    version_toml_sha256: str
+    outcome: Literal["passed", "failed", "timed_out", "incomplete", "stale", "recording_uncertain"]
+    reason: str
+    runner: str
+    command: tuple[str, ...]
+    working_directory: str
+    exit_code: int | None
+    executed_tests: int
+    coverage: tuple[str, ...]
+    evidence_root: str
+    stdout_sha256: str | None
+    stderr_sha256: str | None
+    report_sha256: str | None
+    executing_selector_sha256: str
+    executing_release_package_sha256: str
+    executing_skill_sha256: str
+    receipt_sha256: str | None
+    elapsed_seconds: float
+    control_context_digest: str | None = None
+    phase_map_sha256: str | None = None
+
+    @property
+    def passed(self) -> bool:
+        return self.outcome == "passed" and self.receipt_sha256 is not None
+
+
+@dataclass(frozen=True)
+class _SuiteInputs:
+    """Shared runner inputs without converting portable evidence to legacy."""
+
+    input_schema: Literal["legacy-2", "portable-1"]
+    root: Path
+    candidate: ValidatedCandidate
+    # ``rows`` are the sealed binding/receipt rows.  Legacy workspace copying
+    # historically also included the complete candidate inventory; portable
+    # inputs deliberately use one native set for both roles.
+    rows: tuple[Any, ...]
+    workspace_rows: tuple[Any, ...]
+    compiled_root: str
+    phase_map: ReleaseTestPhaseMap
+    portable: PortableSuiteInputs | None = None
+
+
 def _digest(payload: bytes) -> str:
     return hashlib.sha256(payload).hexdigest()
 
@@ -217,10 +272,32 @@ def require_declared_suite_command(environment: object) -> None:
         raise ReleaseContractError("release-suite-command-untrusted", "suite invocation is not the declared Release driver command")
 
 
+def _compiled_root_relative(value: object) -> str:
+    """Read a compiled-root value without making portable inputs legacy ones.
+
+    The compatibility branches below keep long-standing private helper calls
+    from legacy package/image tests working.  The native runner itself passes
+    a string from ``_SuiteInputs``.
+    """
+
+    relative = getattr(value, "child_materialization_root", None)
+    if relative is None:
+        relative = getattr(value, "compiled_root", value)
+    if not isinstance(relative, str) or not relative:
+        raise ReleaseContractError("release-suite-bindings-invalid", "compiled candidate root is invalid")
+    return relative
+
+
+def _reference_context_like(value: object) -> bool:
+    """Accept the immutable context model and historical fixture duck types."""
+
+    return hasattr(value, "reference_rows") and hasattr(value, "control_context_digest")
+
+
 def _suite_process_environment(
     root: Path,
     report_path: Path,
-    compilation: SealedCandidateCompilation,
+    compiled_root: object,
     candidate: ValidatedCandidate,
     *,
     source_bindings_sha256: str,
@@ -245,7 +322,7 @@ def _suite_process_environment(
         "PATH": executable_path,
         PROJECT_ROOT_ENVIRONMENT_VARIABLE: str(root),
         REPORT_ENVIRONMENT_VARIABLE: str(report_path),
-        COMPILED_ROOT_ENVIRONMENT_VARIABLE: compilation.child_materialization_root,
+        COMPILED_ROOT_ENVIRONMENT_VARIABLE: _compiled_root_relative(compiled_root),
         CANDIDATE_MANIFEST_ENVIRONMENT_VARIABLE: candidate.manifest.sha256,
         SOURCE_BINDINGS_ENVIRONMENT_VARIABLE: str(SANDBOX_WORKSPACE_PATH / SOURCE_BINDINGS_RELATIVE),
         SOURCE_BINDINGS_SHA256_ENVIRONMENT_VARIABLE: source_bindings_sha256,
@@ -286,6 +363,129 @@ def _validate_bound_inputs(candidate: ValidatedCandidate, compilation: SealedCan
             version_toml_sha256=sealed.version_toml_sha256,
         )
     return root
+
+
+def _bound_suite_inputs(
+    candidate: ValidatedCandidate,
+    compilation: SealedCandidateCompilation | SealedPortableCandidateCompilation,
+) -> _SuiteInputs:
+    """Reopen one native sealed input shape for the common Unit runner."""
+
+    if isinstance(compilation, SealedCandidateCompilation) or (
+        hasattr(compilation, "package_rows") and hasattr(compilation, "child_materialization_root")
+    ):
+        # The concrete validator remains the production trust boundary.  The
+        # duck-typed branch only preserves existing private timing seams whose
+        # patched validator deliberately models an already admitted legacy
+        # compilation.
+        root = _validate_bound_inputs(candidate, compilation)
+        phase_map = _unit_phase_map(compilation.package_rows)
+        workspace_rows = tuple(
+            list(getattr(candidate.manifest, "source_inventory_rows", ())) + list(compilation.package_rows)
+        )
+        return _SuiteInputs(
+            "legacy-2",
+            root,
+            candidate,
+            tuple(compilation.package_rows),
+            workspace_rows,
+            compilation.child_materialization_root,
+            phase_map,
+        )
+    if isinstance(compilation, SealedPortableCandidateCompilation):
+        portable = collect_portable_suite_inputs(candidate, compilation)
+        return _SuiteInputs(
+            "portable-1",
+            Path(portable.candidate.project_root),
+            portable.candidate,
+            portable.source_paths,
+            portable.source_paths,
+            portable.compiled_root,
+            portable.phase_map,
+            portable,
+        )
+    raise ReleaseContractError("release-suite-handoff-untrusted", "suite requires one typed sealed compilation")
+
+
+def _suite_evidence(
+    inputs: _SuiteInputs,
+    *,
+    outcome: str,
+    reason: str,
+    runner: str,
+    command: tuple[str, ...],
+    working_directory: str,
+    exit_code: int | None,
+    executed_tests: int,
+    coverage: tuple[str, ...],
+    evidence_root: str,
+    stdout_sha256: str | None,
+    stderr_sha256: str | None,
+    report_sha256: str | None,
+    active_n: tuple[str, str, str],
+    receipt_sha256: str | None,
+    elapsed_seconds: float,
+    control_context_digest: str | None,
+) -> SuiteGateEvidence | PortableSuiteGateEvidence:
+    common = dict(
+        candidate_snapshot_manifest_sha256=inputs.candidate.manifest.sha256,
+        outcome=outcome,
+        reason=reason,
+        runner=runner,
+        command=command,
+        working_directory=working_directory,
+        exit_code=exit_code,
+        executed_tests=executed_tests,
+        coverage=coverage,
+        evidence_root=evidence_root,
+        stdout_sha256=stdout_sha256,
+        stderr_sha256=stderr_sha256,
+        report_sha256=report_sha256,
+        executing_selector_sha256=active_n[0],
+        executing_release_package_sha256=active_n[1],
+        executing_skill_sha256=active_n[2],
+        receipt_sha256=receipt_sha256,
+        elapsed_seconds=elapsed_seconds,
+        control_context_digest=control_context_digest,
+        phase_map_sha256=inputs.phase_map.sha256,
+    )
+    if inputs.input_schema == "portable-1":
+        portable = inputs.portable
+        if portable is None:  # pragma: no cover - construction invariant
+            raise ReleaseContractError("release-suite-portable-binding-invalid", "portable suite input is absent")
+        return PortableSuiteGateEvidence(
+            input_schema="portable-1",
+            candidate_run_id=portable.candidate_run_id,
+            input_manifest_sha256=portable.input_manifest_sha256,
+            source_catalog_sha256=portable.source_catalog_sha256,
+            framework_version=portable.framework_version,
+            version_toml_sha256=portable.version_toml_sha256,
+            **common,
+        )
+    return SuiteGateEvidence(**common)
+
+
+def _validate_evidence_shape(
+    inputs: _SuiteInputs,
+    evidence: object,
+) -> SuiteGateEvidence | PortableSuiteGateEvidence:
+    if inputs.input_schema == "portable-1":
+        portable = inputs.portable
+        if not isinstance(evidence, PortableSuiteGateEvidence) or portable is None:
+            raise ReleaseContractError("release-suite-evidence-untrusted", "portable Unit requires native typed suite evidence")
+        if (
+            evidence.input_schema != "portable-1"
+            or evidence.candidate_run_id != portable.candidate_run_id
+            or evidence.input_manifest_sha256 != portable.input_manifest_sha256
+            or evidence.source_catalog_sha256 != portable.source_catalog_sha256
+            or evidence.framework_version != portable.framework_version
+            or evidence.version_toml_sha256 != portable.version_toml_sha256
+        ):
+            raise ReleaseContractError("release-suite-evidence-mismatch", "portable suite evidence binds different sealed inputs")
+        return evidence
+    if not isinstance(evidence, SuiteGateEvidence):
+        raise ReleaseContractError("release-suite-evidence-untrusted", "legacy Unit requires historical typed suite evidence")
+    return evidence
 
 
 def _active_skill_records(root: Path, relative: str) -> tuple[dict[str, tuple[str, int]], set[str]]:
@@ -449,7 +649,7 @@ def _coverage_group(destination: str) -> str | None:
     return next((group for prefix, group in prefixes.items() if destination.startswith(prefix)), None)
 
 
-def _unit_phase_map(rows: list[PackageRow]) -> ReleaseTestPhaseMap:
+def _unit_phase_map(rows: tuple[Any, ...] | list[PackageRow]) -> ReleaseTestPhaseMap:
     """Derive the Unit partition from complete sealed package rows only."""
 
     phase_map = derive_test_phase_map_from_rows(rows)
@@ -462,10 +662,25 @@ def _observe_report(
     path: Path,
     root: Path,
     candidate: ValidatedCandidate,
-    compilation: SealedCandidateCompilation,
-    context: ReleaseSuiteReferenceContext,
+    rows: tuple[Any, ...] | SealedCandidateCompilation,
+    compiled_root: str | ReleaseSuiteReferenceContext,
+    phase_map: ReleaseTestPhaseMap | None = None,
+    context: ReleaseSuiteReferenceContext | None = None,
 ) -> tuple[int, tuple[str, ...], str]:
     """Extract actual execution counts and admit only sealed per-case probes."""
+    if context is None:
+        # Historical callers supplied ``(compilation, context)``.  Preserve
+        # that private helper shape so saved legacy artifact readers remain
+        # exact while the portable path supplies its native source rows.
+        if not isinstance(rows, SealedCandidateCompilation) or not _reference_context_like(compiled_root):
+            raise ReleaseContractError("release-suite-bindings-invalid", "suite report has no typed source bindings")
+        context = compiled_root
+        compiled_root = rows.child_materialization_root
+        phase_map = _unit_phase_map(rows.package_rows)
+        rows = tuple(rows.package_rows)
+    if phase_map is None or not _reference_context_like(context):
+        raise ReleaseContractError("release-suite-bindings-invalid", "suite report has incomplete typed source bindings")
+    compiled_root = _compiled_root_relative(compiled_root)
     if path.is_symlink() or not path.is_file() or path.stat().st_size > MAX_REPORT_BYTES:
         return 0, (), "coverage report missing, unsafe or too large"
     payload = path.read_bytes()
@@ -477,10 +692,6 @@ def _observe_report(
         return 0, (), "unsupported coverage report format"
     if report.tag not in {"testsuite", "testsuites"}:
         return 0, (), "unsupported coverage report format"
-    try:
-        phase_map = _unit_phase_map(compilation.package_rows)
-    except ReleaseContractError:
-        return 0, (), "sealed Unit phase map is unavailable or invalid"
     if (report.get("caprmedio.phase") != "unit"
             or report.get("caprmedio.phase_map_sha256") != phase_map.sha256):
         return 0, (), "coverage report Unit phase binding is missing or mismatched"
@@ -491,15 +702,15 @@ def _observe_report(
         return 0, (), "coverage report has no executed testcases"
     try:
         envelope_sha256 = _digest(_source_bindings_bytes(
-            root, candidate.manifest.sha256, compilation.package_rows, compilation.child_materialization_root, context,
+            root, candidate.manifest.sha256, rows, compiled_root, phase_map, context,
         ))
         _rules_row, explicit_probes = _validate_module_rules(
-            root, compilation.package_rows, compilation.child_materialization_root,
+            root, rows, compiled_root, phase_map,
         )
     except (OSError, ReleaseContractError):
         return len(cases), (), "source bindings are unavailable or changed"
-    rows = {row.source_path: row for row in compilation.package_rows}
-    compiled_prefix = f"{compilation.child_materialization_root}/"
+    rows_by_source = {row.source_path: row for row in rows}
+    compiled_prefix = f"{compiled_root}/"
     covered: set[str] = set()
     compiled_covered = False
     probed_sources: set[str] = set()
@@ -518,21 +729,21 @@ def _observe_report(
             return len(cases), tuple(sorted(covered)), "testcase test ID is missing, mismatched or duplicated"
         test_ids.add(test_id[0])
         module_path = case.get("classname")
-        if not isinstance(module_path, str) or module_path not in set(_test_module_source_paths(compilation.package_rows)):
+        if not isinstance(module_path, str) or module_path not in set(_test_module_source_paths(phase_map)):
             return len(cases), tuple(sorted(covered)), "testcase module is not a sealed test carrier"
         binding_values = values.get("caprmedio.source_bindings_sha256")
         if binding_values != [envelope_sha256]:
             return len(cases), tuple(sorted(covered)), "testcase source-bindings digest is missing or mismatched"
         expected_paths = (module_path, *explicit_probes.get(module_path, ()))
         expected_probes = [
-            canonical_json({"source_path": source_path, "sha256": rows[source_path].sha256}).decode("utf-8")
+            canonical_json({"source_path": source_path, "sha256": rows_by_source[source_path].sha256}).decode("utf-8")
             for source_path in expected_paths
         ]
         if values.get("caprmedio.source_probe") != expected_probes:
             return len(cases), tuple(sorted(covered)), "testcase source probes do not match sealed module bindings"
         for source_path in expected_paths:
             probed_sources.add(source_path)
-            group = _coverage_group(rows[source_path].destination_path)
+            group = _coverage_group(rows_by_source[source_path].destination_path)
             if group is not None:
                 covered.add(group)
             compiled_covered = compiled_covered or source_path.startswith(compiled_prefix)
@@ -548,7 +759,7 @@ def _observe_report(
     if covered != REQUIRED_COVERAGE:
         return len(cases), tuple(sorted(covered)), "full suite coverage is incomplete"
     skill_controls = {
-        row.source_path for row in compilation.package_rows
+        row.source_path for row in rows
         if row.destination_path in {"SKILLS/ca/SKILL.md", "SKILLS/ca/agents/openai.yaml"}
     }
     if len(skill_controls) != 2 or not skill_controls <= probed_sources:
@@ -591,7 +802,7 @@ def _sealed_file(root: Path, relative: str) -> Path:
     return cursor
 
 
-def _envelope_package_rows(rows: list[PackageRow]) -> list[dict[str, object]]:
+def _envelope_package_rows(rows: tuple[Any, ...] | list[PackageRow]) -> list[dict[str, object]]:
     """Render the complete typed handoff rows without sorting or projection."""
 
     return [
@@ -606,15 +817,16 @@ def _envelope_package_rows(rows: list[PackageRow]) -> list[dict[str, object]]:
     ]
 
 
-def _test_module_source_paths(rows: list[PackageRow]) -> tuple[str, ...]:
+def _test_module_source_paths(phase_map: ReleaseTestPhaseMap) -> tuple[str, ...]:
     """Return only Unit modules from the complete sealed phase assignment."""
 
-    return _unit_phase_map(rows).unit_paths
+    return phase_map.unit_paths
 
 
 def _validate_module_rules(
-    root: Path, rows: list[PackageRow], compiled_root: str,
-) -> tuple[PackageRow, dict[str, tuple[str, ...]]]:
+    root: Path, rows: tuple[Any, ...] | list[PackageRow], compiled_root: str,
+    phase_map: ReleaseTestPhaseMap,
+) -> tuple[Any, dict[str, tuple[str, ...]]]:
     """Prove the sealed explicit-probe mapping references only typed rows."""
 
     matching = [row for row in rows if row.source_path == MODULE_RULES_RELATIVE]
@@ -639,7 +851,7 @@ def _validate_module_rules(
     rows_by_source = {row.source_path: row for row in rows}
     if len(rows_by_source) != len(rows):
         raise ReleaseContractError("release-suite-bindings-invalid", "sealed package rows have duplicate source paths")
-    test_modules = set(_test_module_source_paths(rows))
+    test_modules = set(_test_module_source_paths(phase_map))
     compiled_prefix = compiled_root + "/"
     compiled_rows = sorted(
         row.source_path for row in rows
@@ -681,14 +893,29 @@ def _validate_module_rules(
     return rules_row, bindings
 
 
-def _source_bindings_bytes(root: Path, candidate_snapshot_manifest_sha256: str,
-                           rows: list[PackageRow], compiled_root: str,
-                           context: ReleaseSuiteReferenceContext) -> bytes:
+def _source_bindings_bytes(
+    root: Path,
+    candidate_snapshot_manifest_sha256: str,
+    rows: tuple[Any, ...] | list[PackageRow],
+    compiled_root: object,
+    phase_map: ReleaseTestPhaseMap | ReleaseSuiteReferenceContext,
+    context: ReleaseSuiteReferenceContext | None = None,
+) -> bytes:
     """Build the D579 canonical envelope from complete sealed package rows."""
 
+    if context is None:
+        # Keep the original private helper call shape for immutable legacy
+        # receipts: ``(..., compiled_root, context)``.
+        if not _reference_context_like(phase_map):
+            raise ReleaseContractError("release-suite-bindings-invalid", "suite bindings have no reference context")
+        context = phase_map
+        phase_map = _unit_phase_map(rows)
+    if not isinstance(phase_map, ReleaseTestPhaseMap):
+        raise ReleaseContractError("release-suite-bindings-invalid", "suite bindings have no Unit phase map")
+    compiled_root = _compiled_root_relative(compiled_root)
     if _SOURCE_CONTEXT.fullmatch(candidate_snapshot_manifest_sha256) is None:
         raise ReleaseContractError("release-suite-bindings-invalid", "candidate snapshot digest is invalid")
-    rules_row, _bindings = _validate_module_rules(root, rows, compiled_root)
+    rules_row, _bindings = _validate_module_rules(root, rows, compiled_root, phase_map)
     envelope = {
         "schema_version": 2,
         "candidate_snapshot_manifest_sha256": candidate_snapshot_manifest_sha256,
@@ -701,10 +928,10 @@ def _source_bindings_bytes(root: Path, candidate_snapshot_manifest_sha256: str,
 
 
 def _capture_reference_context(
-    root: Path, candidate: ValidatedCandidate, compilation: SealedCandidateCompilation,
+    root: Path, candidate: ValidatedCandidate, compiled_root: str,
     executor: SuiteSandboxExecutor, selected_n_identity: str,
 ) -> ReleaseSuiteReferenceContext:
-    bindings = _trusted_context_bindings(candidate, compilation, executor, selected_n_identity)
+    bindings = _trusted_context_bindings(candidate, compiled_root, executor, selected_n_identity)
     try:
         return capture_context(root, bindings)
     except ReleaseSuiteReferenceContextError as error:
@@ -712,7 +939,7 @@ def _capture_reference_context(
 
 
 def _trusted_context_bindings(
-    candidate: ValidatedCandidate, compilation: SealedCandidateCompilation,
+    candidate: ValidatedCandidate, compiled_root: object,
     executor: SuiteSandboxExecutor, selected_n_identity: str,
 ) -> dict[str, str]:
     image_context = getattr(executor, "source_context_sha256", None)
@@ -720,7 +947,7 @@ def _trusted_context_bindings(
         raise ReleaseContractError("release-suite-reference-context-untrusted", "suite executor has no trusted selected-N image context")
     return {
         "candidate_snapshot_manifest_sha256": candidate.manifest.sha256,
-        "compiled_candidate_root": compilation.child_materialization_root,
+        "compiled_candidate_root": _compiled_root_relative(compiled_root),
         "selected_n_identity": selected_n_identity,
         "selected_n_image_context": image_context,
     }
@@ -754,7 +981,10 @@ def _materialize_suite_workspace(
     root: Path,
     workspace: Path,
     candidate: ValidatedCandidate,
-    compilation: SealedCandidateCompilation,
+    workspace_rows: tuple[Any, ...],
+    binding_rows: tuple[Any, ...],
+    compiled_root: str,
+    phase_map: ReleaseTestPhaseMap,
     working_directory: str,
     context: ReleaseSuiteReferenceContext,
 ) -> str:
@@ -767,28 +997,30 @@ def _materialize_suite_workspace(
     directly; the default executor intentionally provides no host fallback.
     """
 
-    rows: dict[str, tuple[str, int]] = {}
-    for row in candidate.manifest.source_inventory_rows:
-        rows[row.source_path] = (row.source_sha256, row.source_mode)
-    for row in compilation.package_rows:
-        observed = rows.setdefault(row.source_path, (row.sha256, row.mode))
-        if observed != (row.sha256, row.mode):
+    sealed_rows: dict[str, tuple[str, int]] = {}
+    for row in workspace_rows:
+        sha256 = getattr(row, "sha256", getattr(row, "source_sha256", None))
+        mode = getattr(row, "mode", getattr(row, "source_mode", None))
+        if not isinstance(sha256, str) or type(mode) is not int:
+            raise ReleaseContractError("release-suite-binding-mismatch", "suite workspace row has invalid sealed evidence")
+        observed = sealed_rows.setdefault(row.source_path, (sha256, mode))
+        if observed != (sha256, mode):
             raise ReleaseContractError("release-suite-binding-mismatch", "suite input has conflicting sealed digests")
     reference_rows = {row.source_path: (row.sha256, row.mode) for row in context.reference_rows}
     for relative, expected in reference_rows.items():
-        if relative in rows and rows[relative] != expected:
+        if relative in sealed_rows and sealed_rows[relative] != expected:
             raise ReleaseContractError("release-suite-reference-context-invalid", "reference context conflicts with a sealed package row")
     try:
         copy_verified_bytes(context, workspace)
     except ReleaseSuiteReferenceContextError as error:
         raise ReleaseContractError("release-suite-reference-context-invalid", str(error)) from error
-    for relative, (sha256, mode) in sorted(rows.items()):
+    for relative, (sha256, mode) in sorted(sealed_rows.items()):
         if relative in reference_rows:
             continue
         _copy_workspace_file(root, workspace, relative, sha256, mode)
 
     bindings = _source_bindings_bytes(
-        root, candidate.manifest.sha256, compilation.package_rows, compilation.child_materialization_root, context,
+        root, candidate.manifest.sha256, binding_rows, compiled_root, phase_map, context,
     )
     try:
         validate_schema2_context(json.loads(bindings), context)
@@ -839,11 +1071,11 @@ def _verify_unit_deadline(path: Path, deadline: object) -> None:
 
 def execute_bound_release_suite(
     candidate: ValidatedCandidate,
-    compilation: SealedCandidateCompilation,
+    compilation: SealedCandidateCompilation | SealedPortableCandidateCompilation,
     *,
     timeout_seconds: float | None = None,
     executor: SuiteSandboxExecutor | None = None,
-) -> SuiteGateEvidence:
+) -> SuiteGateEvidence | PortableSuiteGateEvidence:
     """Run exact sealed argv once through an isolated executor.
 
     Invalid admission raises before execution. Once execution is attempted all
@@ -856,8 +1088,10 @@ def execute_bound_release_suite(
             and (not isinstance(timeout_seconds, (int, float)) or isinstance(timeout_seconds, bool)
                  or not 0 < timeout_seconds <= MAX_UNIT_TIMEOUT_SECONDS)):
         raise ReleaseContractError("release-suite-timeout-invalid", "fixture timeout must be within the governed Unit maximum")
-    root = _validate_bound_inputs(candidate, compilation)
-    phase_map = _unit_phase_map(compilation.package_rows)
+    inputs = _bound_suite_inputs(candidate, compilation)
+    root = inputs.root
+    candidate = inputs.candidate
+    phase_map = inputs.phase_map
     environment = candidate.manifest.full_suite_environment
     require_declared_suite_command(environment)
     if os.name != "posix":
@@ -880,7 +1114,7 @@ def execute_bound_release_suite(
     stdout_sha = stderr_sha = report_sha = receipt_sha = None
     context: ReleaseSuiteReferenceContext | None = None
     deadline: object | None = None
-    evidence: SuiteGateEvidence | None = None
+    evidence: SuiteGateEvidence | PortableSuiteGateEvidence | None = None
     selected_executor: SuiteSandboxExecutor | None = None
     try:
         selected_executor = executor if executor is not None else _DEFAULT_EXECUTOR
@@ -890,20 +1124,21 @@ def execute_bound_release_suite(
             outcome, reason = "incomplete", "approved isolated suite executor is not configured"
         else:
             context = _capture_reference_context(
-                root, candidate, compilation, selected_executor, candidate.authority.executing_release,
+                root, candidate, inputs.compiled_root, selected_executor, candidate.authority.executing_release,
             )
             _durable_bytes(attempt / "context.json", _context_receipt(context))
             deadline = resolve_unit_deadline(context, fixture_timeout_seconds=timeout_seconds)
             _write_unit_deadline(attempt / "unit-deadline.json", deadline)
             source_bindings_sha256 = _materialize_suite_workspace(
-                root, workspace, candidate, compilation, environment.working_directory, context,
+                root, workspace, candidate, inputs.workspace_rows, inputs.rows, inputs.compiled_root, phase_map,
+                environment.working_directory, context,
             )
             # The context bytes were captured before workspace assembly.  Do
             # not issue the sandbox command if a live control carrier changed
             # while those sealed copies were being prepared.
             revalidate_context(
                 root, context,
-                _trusted_context_bindings(candidate, compilation, selected_executor, candidate.authority.executing_release),
+                _trusted_context_bindings(candidate, inputs.compiled_root, selected_executor, candidate.authority.executing_release),
             )
             # The process contract names only sandbox-internal paths.  The
             # executor receives host paths separately for its mounts; source
@@ -912,7 +1147,7 @@ def execute_bound_release_suite(
             process_environment = _suite_process_environment(
                 SANDBOX_WORKSPACE_PATH,
                 SANDBOX_OUTPUT_PATH / "coverage.xml",
-                compilation,
+                inputs.compiled_root,
                 candidate,
                 source_bindings_sha256=source_bindings_sha256,
                 executable_path=admitted_path,
@@ -958,11 +1193,18 @@ def execute_bound_release_suite(
         if context is None:
             coverage_reason = "source reference context was not captured"
         else:
-            tests, coverage, coverage_reason = _observe_report(durable_report_path, root, candidate, compilation, context)
+            tests, coverage, coverage_reason = _observe_report(
+                durable_report_path, root, candidate, inputs.rows, inputs.compiled_root, phase_map, context,
+            )
         if exit_code == 0 and reason != "suite left running descendant processes":
             outcome, reason = ("incomplete", coverage_reason) if coverage_reason else ("passed", "complete bound suite execution")
         try:
-            _validate_bound_inputs(candidate, compilation)
+            # A portable input is not a legacy conversion: reopen the same
+            # sealed portable object after the attempt, including its actual
+            # candidate, export, catalog, version, run and input bindings.
+            # The legacy path receives the same currentness comparison.
+            if _bound_suite_inputs(candidate, compilation) != inputs:
+                raise ReleaseContractError("release-currentness-stale", "sealed suite inputs changed during execution")
             if (root / CURRENT_SELECTOR_RELATIVE).read_bytes() != selector_before:
                 raise ReleaseContractError("release-currentness-stale", "executing N selector bytes changed during suite")
             if _active_n_state(root, candidate) != active_n_before:
@@ -978,20 +1220,32 @@ def execute_bound_release_suite(
                     raise ReleaseContractError("release-suite-reference-context-invalid", "reference context is absent")
                 revalidate_context(
                     root, context,
-                    _trusted_context_bindings(candidate, compilation, selected_executor, candidate.authority.executing_release),
+                    _trusted_context_bindings(candidate, inputs.compiled_root, selected_executor, candidate.authority.executing_release),
                 )
                 if deadline is None:
                     raise ReleaseContractError("release-suite-deadline-invalid", "derived Unit deadline is absent")
                 _verify_unit_deadline(attempt / "unit-deadline.json", deadline)
         except (ReleaseContractError, ReleasePackagingError, OSError, ValueError) as error:
             outcome, reason = "stale", f"post-suite bindings no longer validate: {getattr(error, 'code', type(error).__name__)}"
-        evidence = SuiteGateEvidence(candidate.manifest.sha256, outcome, reason, environment.runner,
-                                     tuple(environment.command), environment.working_directory, exit_code,
-                                     tests, coverage, relative, stdout_sha, stderr_sha, report_sha,
-                                     *active_n_before, None,
-                                     time.monotonic() - started,
-                                     control_context_digest=context.control_context_digest if context is not None else None,
-                                     phase_map_sha256=phase_map.sha256)
+        evidence = _suite_evidence(
+            inputs,
+            outcome=outcome,
+            reason=reason,
+            runner=environment.runner,
+            command=tuple(environment.command),
+            working_directory=environment.working_directory,
+            exit_code=exit_code,
+            executed_tests=tests,
+            coverage=coverage,
+            evidence_root=relative,
+            stdout_sha256=stdout_sha,
+            stderr_sha256=stderr_sha,
+            report_sha256=report_sha,
+            active_n=active_n_before,
+            receipt_sha256=None,
+            elapsed_seconds=time.monotonic() - started,
+            control_context_digest=context.control_context_digest if context is not None else None,
+        )
         receipt = canonical_json(asdict(evidence))
         _durable_bytes(attempt / "receipt.json", receipt)
         directory_descriptor = os.open(attempt, os.O_RDONLY)
@@ -1007,27 +1261,44 @@ def execute_bound_release_suite(
         outcome, reason = "recording_uncertain", f"suite evidence could not be durably recorded: {detail}"
     if evidence is not None:
         return replace(evidence, outcome=outcome, reason=reason, receipt_sha256=receipt_sha)
-    return SuiteGateEvidence(candidate.manifest.sha256, outcome, reason, environment.runner,
-                             tuple(environment.command), environment.working_directory, exit_code,
-                             tests, coverage, relative, stdout_sha, stderr_sha, report_sha,
-                             *active_n_before, receipt_sha,
-                             time.monotonic() - started,
-                             control_context_digest=context.control_context_digest if context is not None else None,
-                             phase_map_sha256=phase_map.sha256)
+    return _suite_evidence(
+        inputs,
+        outcome=outcome,
+        reason=reason,
+        runner=environment.runner,
+        command=tuple(environment.command),
+        working_directory=environment.working_directory,
+        exit_code=exit_code,
+        executed_tests=tests,
+        coverage=coverage,
+        evidence_root=relative,
+        stdout_sha256=stdout_sha,
+        stderr_sha256=stderr_sha,
+        report_sha256=report_sha,
+        active_n=active_n_before,
+        receipt_sha256=receipt_sha,
+        elapsed_seconds=time.monotonic() - started,
+        control_context_digest=context.control_context_digest if context is not None else None,
+    )
 
 
 def verify_bound_suite_evidence(
-    candidate: ValidatedCandidate, compilation: SealedCandidateCompilation, evidence: SuiteGateEvidence,
+    candidate: ValidatedCandidate,
+    compilation: SealedCandidateCompilation | SealedPortableCandidateCompilation,
+    evidence: object,
 ) -> Path:
     """Reopen durable suite evidence; this never establishes installation.
 
     Source/compiled bindings suffice here. Existing retained packages remain
     strict, while later package/image/promotion consumers own their package gates.
     """
-    root = _validate_bound_inputs(candidate, compilation)
-    if not isinstance(evidence, SuiteGateEvidence) or not evidence.passed:
+    inputs = _bound_suite_inputs(candidate, compilation)
+    root = inputs.root
+    candidate = inputs.candidate
+    evidence = _validate_evidence_shape(inputs, evidence)
+    if not evidence.passed:
         raise ReleaseContractError("release-suite-evidence-untrusted", "later admission requires actual successful typed suite evidence")
-    phase_map = _unit_phase_map(compilation.package_rows)
+    phase_map = inputs.phase_map
     if evidence.phase_map_sha256 != phase_map.sha256:
         raise ReleaseContractError("release-suite-evidence-mismatch", "suite evidence binds a different Unit phase map")
     environment = candidate.manifest.full_suite_environment
@@ -1068,7 +1339,9 @@ def verify_bound_suite_evidence(
                 or context.control_context_digest != evidence.control_context_digest):
             raise ValueError("reference context no longer matches the retained receipt")
         _verify_unit_deadline(attempt / "unit-deadline.json", resolve_unit_deadline(context))
-        tests, coverage, reason = _observe_report(attempt / "coverage.xml", root, candidate, compilation, context)
+        tests, coverage, reason = _observe_report(
+            attempt / "coverage.xml", root, candidate, inputs.rows, inputs.compiled_root, phase_map, context,
+        )
         if reason or tests != evidence.executed_tests or coverage != evidence.coverage:
             raise ValueError("actual suite report no longer establishes complete successful coverage")
         if _active_n_state(root, candidate) != (
@@ -1085,6 +1358,7 @@ def verify_bound_suite_evidence(
 __all__ = [
     "SuiteExecutionResult",
     "SuiteGateEvidence",
+    "PortableSuiteGateEvidence",
     "SuiteSandboxExecutor",
     "execute_bound_release_suite",
     "verify_bound_suite_evidence",
