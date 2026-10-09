@@ -23,7 +23,7 @@ import uuid
 from collections.abc import Callable, Mapping, Sequence
 from dataclasses import dataclass
 from pathlib import Path
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 from framework_package import (
     CurrentPackageSelector,
@@ -40,20 +40,13 @@ from installation_context import (
 )
 from project_mcp_configuration import DEFAULT_MEMBER, parse_project_mcp_settings
 from project_runtime import RUNTIME_DIRECTORY, TEMPORARY_DIRECTORY, atomic_tempfile
+from retained_full_gate_packet import RetainedNativeFullGatePacket
 from runtime_configuration import (
     RuntimeConfigurationError,
     RuntimeConfigurationResult,
     read_admitted_runtime_default,
     read_runtime_configuration,
 )
-
-if TYPE_CHECKING:
-    from release_e2e_gate import PortableCandidateE2EGateEvidence
-    from release_full_gate import NativeFullGateEvidence
-    from release_image import PortableImageBuildEvidence, PortableImageVerificationEvidence
-    from release_retained_candidate import RetainedCandidateIdentity
-    from release_suite import PortableSuiteGateEvidence
-
 
 SCHEMA_VERSION = 1
 PACKAGE = "caprmedio-framework-engine-tools"
@@ -574,17 +567,9 @@ _PACKAGE_CURRENT_RELATIVE = Path(".caprmedio_install/current.toml")
 _PROTECTED_RECEIPT_COMPONENTS = frozenset({"secrets", "credentials", "private_settings"})
 
 
-@dataclass(frozen=True)
-class PortableFullGatePacket:
-    """Explicit immutable carriers for one detached native Full Gate proof."""
-
-    artifact_root: Path
-    retained_candidate: "RetainedCandidateIdentity"
-    suite: "PortableSuiteGateEvidence"
-    build: "PortableImageBuildEvidence"
-    verification: "PortableImageVerificationEvidence"
-    e2e: "PortableCandidateE2EGateEvidence"
-    evidence: "NativeFullGateEvidence"
+# Keep the facade's public name while sharing the same packet with other
+# retained-evidence consumers. The alias is not another verification path.
+PortableFullGatePacket = RetainedNativeFullGatePacket
 
 
 @dataclass(frozen=True)
