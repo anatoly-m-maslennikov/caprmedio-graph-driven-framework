@@ -1,6 +1,7 @@
 """Mock evidence tests; no real Workflow execution."""
 import asyncio
 import json
+import os
 from pathlib import Path
 import sys
 import tempfile
@@ -48,18 +49,43 @@ class ServiceTests(unittest.TestCase):
 
         self.assertEqual(['CA-O-visible'], [row['id'] for row in result['matches']])
 
-    def test_derived_copies_do_not_consume_source_candidate_budget(self):
+    def test_catalog_prunes_excluded_trees_before_descending(self):
         control = (self.root / '.caprmedio_caprmedio').resolve()
         methodology = control / '000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY'
         canonical = methodology / '000_APPLICABLE_MTHD_sources/active.md'
         canonical.parent.mkdir(parents=True)
         canonical.write_text('---\natom_id: CA-O-999\nstatus: Active\ncontent_role: Operations\n---\n# Summary\nCanonical\n')
-        derived = [methodology / '_release_materialized' / f'snapshot-{index}' / 'copy.md'
-                   for index in range(10001)]
-        with patch.object(Path, 'rglob', return_value=iter([*derived, canonical])):
+        excluded = [control / name for name in ('archive', 'ARCHIVED', 'draft', 'done',
+                    'resolved', 'canceled', 'cancelled', '_journal', '_projection', control.name)]
+        excluded.append(methodology / '_release_materialized')
+        for directory in excluded:
+            directory.mkdir(parents=True)
+            (directory / 'copy.md').write_text(canonical.read_text())
+        scandir = os.scandir
+        def guarded_scandir(path):
+            self.assertNotIn(Path(path), excluded, 'Excluded tree was traversed')
+            return scandir(path)
+        with patch('os.scandir', side_effect=guarded_scandir):
             atoms, _tools, issues = self.service.catalog()
         self.assertEqual(['CA-O-999'], list(atoms))
         self.assertNotIn('incomplete: catalog limit reached', issues)
+        self.assertNotIn('ambiguous Atom ID: CA-O-999', issues)
+
+    def test_catalog_does_not_descend_into_symlink_directories(self):
+        control = self.root / '.caprmedio_caprmedio'
+        target = self.root / 'outside-control'
+        target.mkdir()
+        (target / 'active.md').write_text(
+            '---\natom_id: CA-O-hidden\nstatus: Active\ncontent_role: Operations\n---\n# Summary\nHidden\n')
+        link = control / 'linked-sources'
+        link.symlink_to(target, target_is_directory=True)
+        scandir = os.scandir
+        def guarded_scandir(path):
+            self.assertNotEqual(Path(path), link, 'Symlink directory was traversed')
+            return scandir(path)
+        with patch('os.scandir', side_effect=guarded_scandir):
+            atoms, _tools, _issues = self.service.catalog()
+        self.assertEqual({}, atoms)
 
     def test_nested_control_copy_is_omitted_without_hiding_canonical_source(self):
         control = self.root / '.caprmedio_caprmedio'

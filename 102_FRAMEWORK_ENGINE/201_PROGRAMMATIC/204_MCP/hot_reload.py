@@ -59,6 +59,9 @@ def result(value, error=False):
 
 
 GENERATION_READY_TIMEOUT_SECONDS = 20
+# Read-only catalog scans have their own sixty-second bound and watch calls may
+# wait thirty seconds.  The child's startup budget must not truncate either.
+IMPLEMENTATION_CALL_TIMEOUT_SECONDS = 90
 _STARTUP_TELEMETRY_ENV = 'CAPRMEDIO_STARTUP_TELEMETRY'
 _STARTUP_PHASES = frozenset({
     'initial_fingerprint', 'reload_fingerprint', 'fingerprint_verify',
@@ -302,7 +305,8 @@ class Gateway:
         try:
             if params.name not in {t.name for t in generation.tools}:
                 return result({'outcome': 'rejected', 'diagnostics': ['Unknown Tool']}, True)
-            return await generation.client.call_tool(params.name, params.arguments)
+            return await generation.client.call_tool(params.name, params.arguments,
+                read_timeout_seconds=IMPLEMENTATION_CALL_TIMEOUT_SECONDS)
         except Exception:
             return result({'outcome': 'uncertain', 'generation': generation.fingerprint,
                            'diagnostics': ['Implementation call failed; no automatic replay']}, True)

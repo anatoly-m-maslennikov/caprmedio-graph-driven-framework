@@ -15,7 +15,8 @@ from mcp import Client, StdioServerParameters
 APP = Path(__file__).resolve().parents[1]
 ROOT = APP.parents[2]
 sys.path.insert(0, str(APP))
-from hot_reload import Gateway, Generation, GENERATION_READY_TIMEOUT_SECONDS  # noqa: E402
+from hot_reload import (Gateway, Generation, GENERATION_READY_TIMEOUT_SECONDS,
+                        IMPLEMENTATION_CALL_TIMEOUT_SECONDS)  # noqa: E402
 
 
 class HotReload(unittest.IsolatedAsyncioTestCase):
@@ -254,6 +255,29 @@ class HotReload(unittest.IsolatedAsyncioTestCase):
             'params': 'local-child', 'cache': None, 'mode': 'legacy',
             'read_timeout_seconds': GENERATION_READY_TIMEOUT_SECONDS,
         })
+
+    async def test_forwarded_call_has_a_separate_bounded_deadline(self):
+        observed = []
+        response = object()
+
+        class ImplementationClient:
+            async def call_tool(self, name, arguments, *, read_timeout_seconds):
+                observed.append((name, arguments, read_timeout_seconds))
+                return response
+
+        gateway = Gateway(self.root, self.source)
+        generation = SimpleNamespace(client=ImplementationClient(), fingerprint='test',
+                                     tools=[SimpleNamespace(name='discover_tools')], in_flight=0)
+        gateway.active = generation
+        arguments = {'request': {'limit': 1}}
+        actual = await gateway.call(None, SimpleNamespace(name='discover_tools',
+                                                         arguments=arguments))
+
+        self.assertIs(actual, response)
+        self.assertEqual(observed, [('discover_tools', arguments, 90)])
+        self.assertEqual(IMPLEMENTATION_CALL_TIMEOUT_SECONDS, 90)
+        self.assertEqual(GENERATION_READY_TIMEOUT_SECONDS, 20)
+        self.assertEqual(generation.in_flight, 0)
 
     async def test_generation_retains_only_explicit_runtime_namespace(self):
         self.source.write_text(

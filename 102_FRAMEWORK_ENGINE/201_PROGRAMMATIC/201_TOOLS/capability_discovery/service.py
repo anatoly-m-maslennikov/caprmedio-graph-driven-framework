@@ -173,18 +173,33 @@ class Service:
         control = self._control_root()
         atoms, tools, issues = {}, [], []
         started, total = time.monotonic(), 0
+        excluded = {'archive', 'archived', 'draft', 'done', 'resolved', 'canceled',
+                    'cancelled', '_journal', '_projection'}
+        def excluded_component(part):
+            return (part == control.name or part == '_release_materialized'
+                    or part.lower() in excluded or part.startswith('.env')
+                    or part.endswith('.env'))
         def current_source(path):
             relative = path.relative_to(control).parts
-            if control.name in relative or '_release_materialized' in relative:
-                return False
-            if any(part.lower() in ('archive', 'archived', 'draft', 'done', 'resolved', 'canceled', 'cancelled', '_journal', '_projection')
-                   for part in relative):
+            if any(excluded_component(part) for part in relative):
                 return False
             return ('00_APPLICABLE_METHODOLOGY' not in relative
                     or '000_APPLICABLE_MTHD_sources' in relative)
+        def source_candidates():
+            # Prune before descending: delivered copies and saved evidence can
+            # dwarf the current source frontier.  File admission still applies
+            # below, including canonical methodology and duplicate checks.
+            for directory, directories, files in control.walk():
+                directories[:] = [name for name in directories
+                                  if not excluded_component(name)
+                                  and not (directory / name).is_symlink()]
+                for name in files:
+                    path = directory / name
+                    if name.endswith('.md') and current_source(path):
+                        yield path
         # M318/D520 omit delivered copies before counting source candidates;
         # canonical methodology sources still participate in duplicate checks.
-        candidates = (path for path in control.rglob('*.md') if current_source(path))
+        candidates = source_candidates()
         for number, path in enumerate(candidates):
             if number >= 10000 or time.monotonic() - started > 60:
                 issues.append('incomplete: catalog limit reached')
