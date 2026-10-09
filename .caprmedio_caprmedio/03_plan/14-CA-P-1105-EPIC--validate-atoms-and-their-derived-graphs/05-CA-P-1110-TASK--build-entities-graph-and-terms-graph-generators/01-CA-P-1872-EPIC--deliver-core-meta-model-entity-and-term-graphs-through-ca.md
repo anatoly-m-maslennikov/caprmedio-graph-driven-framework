@@ -25,8 +25,8 @@ subjects:
     - Action
     - Journal
     - Plan
-version: 4
-updated_at: "2026-10-09 23:02:15 +0400"
+version: 5
+updated_at: "2026-10-09 23:11:24 +0400"
 relations:
   is_decomposition_of:
     - CA-P-1110
@@ -50,9 +50,19 @@ The Operator replaced the immediate execution plan on 2026-10-09. Do these steps
 3. **Update the graph.** Apply the reviewed decisions to the derived graph first. Use `NARROWER_THAN`, `IS_BORNE_BY` and `IS_ALLOWED_VALUE_OF` with their correct directions and qualified identities. Preserve the step-1 graph for comparison. Do not change Atom Subjects yet.
 4. **Update Atom Subjects.** After graph review, write the confirmed `/`, `.` and `:` notation into the authoritative Subjects. Reconcile affected grammar contracts, revisions and source references. Rebuild only to verify that the updated Subjects reproduce the reviewed graph.
 
-Current step: **1**. Steps 2–4 have not started under this sequence. Earlier classification drafts and migration code are preparation only, not accepted decisions or source updates. The approved future notation remains `/` for broader-to-narrower, `.` for bearer qualification and `:` for allowed values; step 1 does not apply it to old `/` occurrences.
+Step **1 is complete**; step **2 is next and has not started** under this sequence. Steps 3–4 remain pending. Earlier classification drafts and migration code are preparation only, not accepted decisions or source updates. The approved future notation remains `/` for broader-to-narrower, `.` for bearer qualification and `:` for allowed values; step 1 does not apply it to old `/` occurrences.
 
 This sequence governs the immediate local work without MCP. A mechanical projection is not native semantic admission, a live MCP Run or completion of the whole Epic. The existing MCP delivery work remains separate and pending.
+
+#### Step 1 acceptance receipt
+
+- Builder: `102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/GENERATE_ENTITY_GRAPH/mechanical_subject_graph.py`, reusing the existing pinned Subjects reader and snapshot support. Its default is read-only; `--persist` creates three fixed files without overwrite.
+- Outputs: `.caprmedio_caprmedio/_projection/core-subject-notation/step1.graph.json`, `step1.entities.graph.dot` and `step1.terms.graph.dot` in the same directory. The earlier `before.graph` files remain unchanged.
+- Selection: 908 exact-Active owned-Core sources out of 951 captured source files; 43 excluded sources retain their pins. Extraction is complete: 4,534 Subject occurrences, no unresolved selected sources.
+- Graph: 706 full-path/prefix nodes, 294 unclassified `/` links, 66 allowed-value `:` links and 534 literal Term components. The Terms view has no inferred taxonomy links.
+- Graph fingerprint: `0ea18486fd43ccd546a5d09888e98bc42f56d42d392e5669fecee19fa25f93d1`. JSON file SHA-256: `57cba13073aa0de34876a734c784a43d124f09ff03584de03252b9d12a89ac0b`.
+- Checks: 197 graph/acceptance tests plus 10 builder tests passed. Matching before/after pin-set fingerprints verify all 951 Core source files unchanged. Publication file hashes match their receipt.
+- No Main Content classification, dot interpretation, Atom Subject rewrite, native semantic admission, MCP execution or Run/Journal recording was performed.
 
 ### RMED and Operations review gate
 
