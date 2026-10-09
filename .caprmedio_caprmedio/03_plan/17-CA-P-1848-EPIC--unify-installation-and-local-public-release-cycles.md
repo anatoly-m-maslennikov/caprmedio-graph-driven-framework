@@ -10,8 +10,8 @@ local_tier: Standard
 global_tier: 2
 status: Active
 author: Anatoly Maslennikov
-version: 3
-updated_at: "2026-10-09 12:30:00 +0000"
+version: 4
+updated_at: "2026-10-09 17:00:24 +0400"
 subjects:
   governs: "CAPRMEDIO Framework Instance"
   depends_on:
@@ -58,6 +58,7 @@ the caprmedio Project delivers a reusable beta Framework Package **and** an isol
 - **=1** source authority: editable Methodology Atoms belong to declared Project Methodology Scope Units; editable Engine implementation belongs to root `102_FRAMEWORK_ENGINE`.
 - Methodology local flow: selected active source Atoms **and** declared support artifacts **from** `.caprmedio_caprmedio` → root `methodology/` → compiled/traceable installation under `.caprmedio_caprmedio/000_CAPRMEDIO_framework`. compilation applies this Project's explicitly selected extensions/configuration **from** an admitted pinned available catalog; installed projections retain their relation to original source Atoms. a missing selected revision fails **before** effects.
 - Engine/package local flow: root `102_FRAMEWORK_ENGINE` **plus** delivered Methodology, ca Skill/defaults **and** locked dependencies → reusable beta package under `.caprmedio_install` → runtime execution/state/environments for this Project under `.caprmedio_runtime`. an installed runtime executes its selected package, **not** an implicit development checkout.
+- **all** mutable runtime settings belong **in** this Project's `.caprmedio_runtime/config.toml`, outside versioned package bytes. first installation creates admitted defaults **only if** the file is absent; reinstall, upgrade **and** rollback preserve an existing file byte-for-byte. an incompatible configuration requires an explicit migration **or** an identified blocked result, **not** silent replacement. this runtime configuration does **not** duplicate Project Settings, Framework Instance Settings, generated selectors **or** Journal records.
 - the package can install into another Project, including a non-Git Project **or** another root **in** the same repository. Project settings, configuration, runtime records **and** endpoints remain isolated. reuse the same package schema instead of independent Tool-only/full-Engine layouts.
 - current `.caprmedio_install` contains operational state; preserve **and** migrate that state **before** package promotion. repair the installer that deletes the whole folder as legacy. protected/private contents **and** unrelated Project resources are outside blanket cleanup.
 - root `101_LAYER_1_FRAMEWORK_METHODOLOGY` is currently a derived delivery copy. migrate its delivery role/consumers into `methodology/`, account for its distinct data **and** retire its redundant role; do **not** delete authoring source **or** referenced rollback evidence.
@@ -104,4 +105,4 @@ preparation: Plans 01–10; local cycle: 11–13; public cycle: 14–17 **and** 
 
 ### Definition of Done
 
-the Plan is **not** Done **if** ((**any** direct decomposing Plan is **not** Done) **or** (a required full-suite gate lacks a complete current pass for sealed bytes) **or** (the beta package cannot install/run **without** the development checkout) **or** (Methodology source/projection/package/runtime boundaries conflict) **or** (state/history/another Project is lost **or** leaked) **or** (the local installation/MCP handoff is unverified) **or** (`amm/dev` **and** its PR to `main` are unconfirmed) **or** (an essential RMED/Operations/principle finding remains)).
+the Plan is **not** Done **if** ((**any** direct decomposing Plan is **not** Done) **or** (a required full-suite gate lacks a complete current pass for sealed bytes) **or** (the beta package cannot install/run **without** the development checkout) **or** (Methodology source/projection/package/runtime boundaries conflict) **or** (installation replaces existing runtime configuration) **or** (state/history/another Project is lost **or** leaked) **or** (the local installation/MCP handoff is unverified) **or** (`amm/dev` **and** its PR to `main` are unconfirmed) **or** (an essential RMED/Operations/principle finding remains)).

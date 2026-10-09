@@ -10,8 +10,8 @@ local_tier: Standard
 global_tier: 2
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-09 12:12:13 +0000"
+version: 3
+updated_at: "2026-10-09 17:00:24 +0400"
 subjects:
   governs: "CAPRMEDIO Framework Instance"
   depends_on:
@@ -54,6 +54,7 @@ the AI Agent executes the approved local release Workflow to install the validat
   3. promote the already sealed selected active-source export to root `methodology/`, then install its admitted source copy **and** the sealed compiled Methodology projection under `.caprmedio_caprmedio/000_CAPRMEDIO_framework`; do **not** re-export **or** recompile **after** the gate.
   4. promote the same sealed reusable beta package bytes into `.caprmedio_install`, then install/bind this Project's `.caprmedio_runtime`; do **not** rebuild package **or** image **after** the gate. live package promotion may **not** precede state migration.
 - install ca for the Project, admit the matching already sealed Docker image, start/reuse this Project's container on an available loopback port, **and** return its MCP URL **with** the installation-lock **and** running-generation proof.
+- verify this Project's existing `.caprmedio_runtime/config.toml` remains byte-identical across installation. create admitted defaults **only if** absent; require explicit configuration migration **or** stop **if** the new runtime cannot use the existing configuration.
 - the executing N handles promotion/admission of N+1; preserve the previous selection **and** recovery path **until** N+1 passes live verification. record the reusable Workflow, each bound Step **and** Action Run **in** the shared Journal **with** parentage, exact input/output/evidence identities **and** terminal outcomes.
 - refuse stale gate/pins **before** effects. failures preserve evidence **and** do **not** automatically replay uncertain mutations **or** publish partial success; invoke the documented recovery path under existing authorization.
 - effort: own work for **=1** AI Agent **must** fit **<=15** minutes. **if** this Plan needs larger own work, decompose it **before** execution **and** preserve its Objective **and** acceptance.

@@ -10,8 +10,8 @@ local_tier: Standard
 global_tier: 2
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-09 12:12:13 +0000"
+version: 3
+updated_at: "2026-10-09 17:00:24 +0400"
 subjects:
   governs: "CAPRMEDIO Framework Instance"
   depends_on:
@@ -46,6 +46,7 @@ the AI Agent implements installation of the selected beta Framework Package into
 - input: an explicit package root/release **and** explicit Operator-supplied target Project settings, Project Structure **and** registry Carrier bytes containing its directly nested `.caprmedio_<project>` settings/control folder.
 - output: this Project's `.caprmedio_runtime`, selected package execution binding, uv-managed isolated environment, configured Methodology installation, installed ca Skill **and** attributable initialization result; bootstrap/adoption never fabricates a Project identity, metadata, settings, structure **or** registry.
 - support relocation, Git **and** non-Git Projects, separate repositories **and** multiple Project root folders **in** one repository. package inputs can be reusable; runtime databases, locks, Runs, dependency environments **and** endpoint selection remain per-Project.
+- store **all** runtime settings **in** `.caprmedio_runtime/config.toml`, separate **from** immutable package contents **and** generated installation selectors. create admitted defaults **only if** absent; preserve an existing file byte-for-byte during reinstall, upgrade **and** rollback. configuration compatibility checks **must** precede activation; an incompatible file requires explicit migration **or** blocks activation, **not** replacement. keep Project/Framework Instance Settings authoritative **in** their own existing carriers.
 - bootstrap dependencies **through** uv **and** the lockfile. installed execution **must not** silently fall back to system Python, system libraries, another Project **or** the development checkout. distinguish an explicit development mode **from** normal installed execution.
 - integrate the reviewed legacy-state migration **without** deleting historical evidence. persist **=1** per-Project installation lock that binds package/version, selected extensions/configuration/catalog revisions, package manifest **and** runtime state; **every** selector, wrapper **and** service reads the same lock. test first install **from** fixture Project inputs, same-version reinstall, upgrade, missing uv/input, missing selected revision, interruption, recovery **and** rollback; real cutover occurs **only** **after** the local full-suite gate.
 - effort: own work for **=1** AI Agent **must** fit **<=15** minutes. **if** this Plan needs larger own work, decompose it **before** execution **and** preserve its Objective **and** acceptance.
@@ -53,4 +54,4 @@ the AI Agent implements installation of the selected beta Framework Package into
 
 ### Definition of Done
 
-the Plan is **not** Done **if** a fresh Project cannot install **without** the checkout, a runtime uses another Project's state/configuration, dependencies escape uv isolation, **or** installation cannot recover **without** losing evidence.
+the Plan is **not** Done **if** a fresh Project cannot install **without** the checkout, a runtime uses another Project's state/configuration, installation replaces an existing runtime configuration, dependencies escape uv isolation, **or** installation cannot recover **without** losing evidence.

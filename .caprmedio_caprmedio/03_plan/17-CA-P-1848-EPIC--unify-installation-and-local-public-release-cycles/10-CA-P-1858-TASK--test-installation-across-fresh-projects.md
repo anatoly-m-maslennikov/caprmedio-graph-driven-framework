@@ -10,8 +10,8 @@ local_tier: Standard
 global_tier: 2
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-09 12:12:13 +0000"
+version: 3
+updated_at: "2026-10-09 17:00:24 +0400"
 subjects:
   governs: "CAPRMEDIO Framework Instance"
   depends_on:
@@ -49,6 +49,7 @@ the AI Agent provides golden **and** end-to-end evidence that the new installati
 - write golden/e2e tests first **and** retain fixtures under the owning Tool's `tests` directory. cover active-only Methodology, original-source relations, complete support closure, renamed paths **and** `.DS_Store` handling.
 - exercise at least two explicit fixture Project-input roots **in** one repository, separate repositories, a non-Git Project, a relocated package, **and** execution **without** the development checkout. assert no cross-Project state, settings, endpoint, image-selection **or** mutable authority leakage; fixtures provide their own settings, structure **and** registry bytes **and** never receive fabricated adoption metadata.
 - cover installation/release failure, stale/tampered pins, interrupted migration, idempotent reinstall, rollback, pending terminal recording **and** preserved history. no fixture result may stand **in** for a missing real-Docker proof.
+- verify `.caprmedio_runtime/config.toml` receives defaults **only if** absent. customized values, comments **and** bytes remain unchanged during same-version reinstall, upgrade, rollback **and** failed installation; incompatible settings produce an explicit migration requirement **or** blocked activation. test two Projects **with** different runtime configurations **and** no leakage.
 - perform an independent code/RMED/O review **before** the local gate: trace each implemented package/install/release/discovery path to its current definition, record divergences **and** resolve **or** explicitly block them. record coverage/results **and** correct implementation against RMED/Operations. inherited confidence/retry/permission gates apply; test execution cannot justify suppressing a failure.
 - effort: own work for **=1** AI Agent **must** fit **<=15** minutes. **if** this Plan needs larger own work, decompose it **before** execution **and** preserve its Objective **and** acceptance.
 - control: use applicable Operator input **and** inherited Framework Instance Settings for permission, confidence **and** retry gates. creation is planned work **only**, **not** permission to execute the local/public cycle immediately.
