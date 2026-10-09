@@ -411,19 +411,17 @@ def revalidate_portable_source_snapshot(value: SealedPortableSourceSnapshot) -> 
     return observed
 
 
-def build_sealed_portable_compilation(
-    candidate: ValidatedCandidate,
-    private_compilation: SealedPrivateMethodologyCompilation,
-    *,
-    candidate_run_id: str,
+def seal_portable_source_snapshot(
+    snapshot: SealedPortableSourceSnapshot,
 ) -> SealedPortableCandidateCompilation:
-    """Finalize a source snapshot with actual catalog/admission evidence."""
+    """Finalize one physically revalidated pre-catalog source snapshot.
 
-    source_snapshot = collect_portable_source_snapshot(
-        candidate,
-        private_compilation,
-        candidate_run_id=candidate_run_id,
-    )
+    This boundary only reads and binds existing catalog/admission evidence.  It
+    deliberately re-observes the exact supplied snapshot before opening the
+    catalog, so a caller cannot seal a stale pre-admission observation.
+    """
+
+    source_snapshot = revalidate_portable_source_snapshot(snapshot)
     root = _root(source_snapshot.candidate.project_root)
     catalog_file = _regular_file(root, CATALOG, code="portable-contract-catalog-missing")
     catalog_bytes = catalog_file.read_bytes()
@@ -446,6 +444,23 @@ def build_sealed_portable_compilation(
             source_snapshot.private_compilation,
             catalog_digest,
             sealed_rows,
+        ),
+    )
+
+
+def build_sealed_portable_compilation(
+    candidate: ValidatedCandidate,
+    private_compilation: SealedPrivateMethodologyCompilation,
+    *,
+    candidate_run_id: str,
+) -> SealedPortableCandidateCompilation:
+    """Compatibility wrapper that collects then seals a fresh source snapshot."""
+
+    return seal_portable_source_snapshot(
+        collect_portable_source_snapshot(
+            candidate,
+            private_compilation,
+            candidate_run_id=candidate_run_id,
         ),
     )
 
@@ -474,4 +489,5 @@ __all__ = [
     "collect_portable_source_snapshot",
     "revalidate_portable_source_snapshot",
     "revalidate_sealed_portable_compilation",
+    "seal_portable_source_snapshot",
 ]

@@ -26,6 +26,7 @@ from release_portable_contract import (  # noqa: E402
     collect_portable_source_snapshot,
     revalidate_portable_source_snapshot,
     revalidate_sealed_portable_compilation,
+    seal_portable_source_snapshot,
 )
 from source_catalog_admission import build_source_admission_receipt, read_source_admission_receipt  # noqa: E402
 
@@ -263,6 +264,64 @@ class PortableContractTests(unittest.TestCase):
         with self.assertRaises(ReleaseContractError) as stale:
             revalidate_portable_source_snapshot(snapshot)
         self.assertEqual(stale.exception.code, "portable-source-snapshot-stale")
+
+    def test_seals_the_exact_admitted_pre_catalog_snapshot(self) -> None:
+        candidate, private = self.sealed()
+        snapshot = collect_portable_source_snapshot(candidate, private, candidate_run_id="portable-001")
+
+        sealed = seal_portable_source_snapshot(snapshot)
+        compatibility = build_sealed_portable_compilation(candidate, private, candidate_run_id="portable-001")
+
+        self.assertEqual(sealed, compatibility)
+        self.assertEqual(sealed.candidate_run_id, snapshot.candidate_run_id)
+        self.assertEqual(sealed.candidate, snapshot.candidate)
+        self.assertEqual(sealed.private_compilation, snapshot.private_compilation)
+        self.assertEqual(revalidate_sealed_portable_compilation(sealed), sealed)
+
+    def test_seal_refuses_bool_or_raw_snapshot_without_output_effects(self) -> None:
+        candidate, private = self.sealed()
+        before = {
+            path.relative_to(self.root).as_posix(): (path.read_bytes(), path.stat().st_mode & 0o777)
+            for path in self.root.rglob("*")
+            if path.is_file()
+        }
+
+        for value in (False, {"candidate": candidate, "private": private}):
+            with self.subTest(value=type(value).__name__):
+                with self.assertRaises(ReleaseContractError) as invalid:
+                    seal_portable_source_snapshot(value)  # type: ignore[arg-type]
+                self.assertEqual(invalid.exception.code, "portable-source-snapshot-untrusted")
+
+        after = {
+            path.relative_to(self.root).as_posix(): (path.read_bytes(), path.stat().st_mode & 0o777)
+            for path in self.root.rglob("*")
+            if path.is_file()
+        }
+        self.assertEqual(after, before)
+
+    def test_seal_refuses_source_drift_before_reading_catalog_or_writing(self) -> None:
+        candidate, private = self.sealed()
+        snapshot = collect_portable_source_snapshot(candidate, private, candidate_run_id="portable-001")
+        defaults = self.root / "defaults/runtime.toml"
+        defaults.write_bytes(defaults.read_bytes() + b"changed = true\n")
+        catalog = self.root / "catalog.toml"
+        catalog.write_bytes(b"not valid TOML either")
+        before = {
+            path.relative_to(self.root).as_posix(): (path.read_bytes(), path.stat().st_mode & 0o777)
+            for path in self.root.rglob("*")
+            if path.is_file()
+        }
+
+        with self.assertRaises(ReleaseContractError) as stale:
+            seal_portable_source_snapshot(snapshot)
+        self.assertEqual(stale.exception.code, "portable-source-snapshot-stale")
+
+        after = {
+            path.relative_to(self.root).as_posix(): (path.read_bytes(), path.stat().st_mode & 0o777)
+            for path in self.root.rglob("*")
+            if path.is_file()
+        }
+        self.assertEqual(after, before)
 
     def test_defaults_or_catalog_drift_refuse_reopen(self) -> None:
         candidate, private = self.sealed()
