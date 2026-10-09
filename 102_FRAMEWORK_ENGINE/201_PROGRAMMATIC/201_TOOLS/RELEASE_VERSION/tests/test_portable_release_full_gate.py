@@ -58,6 +58,7 @@ from release_image import (  # noqa: E402
 from release_packaging import RUNTIME_ROOT, _render_manifest  # noqa: E402
 from release_portable_package import prepare_portable_release_package  # noqa: E402
 from release_retained_package import retain_native_package_evidence  # noqa: E402
+from release_retained_candidate import retain_retained_candidate_identity  # noqa: E402
 from release_suite import (  # noqa: E402
     COMPILED_PROBE_TEST_MODULE,
     MODULE_RULES_RELATIVE,
@@ -688,7 +689,7 @@ class PortableReleaseFullGateBoundaryTests(unittest.TestCase):
         with _fixture_authority(fixture._fixture_authority_pin):
             self._run_mock_native_retained_happy_path(fixture)
 
-    def _run_mock_native_retained_happy_path(self, fixture: _NativeHappyPathFixture) -> None:
+    def _run_mock_native_retained_happy_path(self, fixture: _NativeHappyPathFixture):
         _install_active_n(fixture)
         suite = execute_bound_release_suite(
             fixture.candidate,
@@ -698,6 +699,7 @@ class PortableReleaseFullGateBoundaryTests(unittest.TestCase):
         self.assertTrue(suite.passed, suite.reason)
         prepared = prepare_portable_release_package(fixture.root, fixture.sealed)
         retained = retain_native_package_evidence(fixture.candidate, fixture.sealed, prepared)
+        retained_candidate = retain_retained_candidate_identity(fixture.candidate, fixture.sealed, prepared)
         image_id = "sha256:" + "a" * 64
         image_labels: dict[str, str] = {}
         canary_spec: dict[str, object] = {}
@@ -819,6 +821,7 @@ class PortableReleaseFullGateBoundaryTests(unittest.TestCase):
                 retained_package=retained,
             ),
         )
+        return suite, build, verification, e2e, full, retained_candidate
 
 
 if __name__ == "__main__":  # pragma: no cover

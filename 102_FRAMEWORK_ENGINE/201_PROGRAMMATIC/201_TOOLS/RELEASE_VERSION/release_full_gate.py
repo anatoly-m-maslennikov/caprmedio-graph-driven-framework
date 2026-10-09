@@ -18,6 +18,7 @@ from typing import TYPE_CHECKING, Literal
 
 from release_contract import ReleaseContractError, ValidatedCandidate, canonical_json
 from release_handoff import SealedCandidateCompilation
+from release_inventory import ReleaseInventoryError, refuse_secret_path
 from release_package_evidence import PackageEvidenceView, bind_package_evidence, verify_bound_package_evidence
 from release_portable_contract import SealedPortableCandidateCompilation
 from release_portable_package import PreparedPortableReleasePackage
@@ -26,6 +27,7 @@ from release_retained_package import (
     read_retained_native_package_evidence,
     retain_native_package_evidence,
 )
+from release_retained_candidate import RetainedCandidateIdentity, reopen_retained_candidate_identity
 from release_suite import PortableSuiteGateEvidence, SuiteGateEvidence, verify_bound_suite_evidence
 from release_test_phases import ReleaseTestPhaseMap, derive_test_phase_map, derive_test_phase_map_from_rows
 
@@ -233,6 +235,18 @@ def _native_predecessor_bindings(
     e2e: object,
 ) -> None:
     """Compare every schema-1 predecessor with one retained package sidecar."""
+    _native_predecessor_bindings_at_root(_root(candidate), retained, suite, build, verification, e2e)
+
+
+def _native_predecessor_bindings_at_root(
+    root: Path,
+    retained: RetainedNativePackageEvidence,
+    suite: object,
+    build: object,
+    verification: object,
+    e2e: object,
+) -> None:
+    """Compare predecessors with a retained sidecar below an explicit root."""
 
     from release_e2e_gate import PortableCandidateE2EGateEvidence
     from release_image import PortableImageBuildEvidence, PortableImageVerificationEvidence
@@ -246,7 +260,6 @@ def _native_predecessor_bindings(
     if not isinstance(e2e, PortableCandidateE2EGateEvidence):
         raise _error("release-full-gate-native-predecessor-untrusted", "native Full Gate requires typed portable candidate-E2E evidence")
 
-    root = _root(candidate)
     try:
         sidecar_relpath = retained.receipt_path.relative_to(root).as_posix()
     except ValueError as error:  # pragma: no cover - retainer construction invariant
@@ -773,6 +786,181 @@ def _verify_retained_native_full_gate(
     return root
 
 
+def _detached_artifact_root(value: Path) -> Path:
+    """Open the explicit retained-artifact root without source authority."""
+
+    if not isinstance(value, Path) or not value.is_absolute() or any(part == ".." for part in value.parts):
+        raise _error("release-full-gate-artifact-root-invalid", "detached native verification needs an absolute artifact root")
+    try:
+        refuse_secret_path(value)
+    except ReleaseInventoryError as error:
+        raise _error(error.code, str(error)) from error
+    try:
+        observed = value.lstat()
+        root = value.resolve(strict=True)
+    except OSError as error:
+        raise _error("release-full-gate-artifact-root-invalid", "detached artifact root is unavailable") from error
+    if value.is_symlink() or not root.is_dir() or not os.path.samestat(observed, root.stat()):
+        raise _error("release-full-gate-artifact-root-invalid", "detached artifact root is unsafe")
+    return root
+
+
+def _require_detached_candidate_under_root(root: Path, retained: RetainedCandidateIdentity) -> None:
+    """Reject untrusted external carrier paths before any retained reopen."""
+
+    if not isinstance(retained, RetainedCandidateIdentity):
+        raise _error("release-full-gate-detached-candidate-untrusted", "detached native verification requires a retained candidate identity")
+    package = retained.package_evidence
+    if not isinstance(package, RetainedNativePackageEvidence) or not isinstance(package.view, PackageEvidenceView):
+        raise _error("release-full-gate-detached-candidate-untrusted", "detached native verification requires typed package evidence")
+    for label, path in (
+        ("descriptor", retained.descriptor_path),
+        ("package evidence", package.receipt_path),
+        ("package", package.view.package_root),
+    ):
+        if not isinstance(path, Path) or not path.is_absolute() or any(part == ".." for part in path.parts):
+            raise _error("release-full-gate-detached-candidate-untrusted", f"detached {label} path is unsafe")
+        try:
+            path.relative_to(root)
+        except ValueError as error:
+            raise _error(
+                "release-full-gate-detached-candidate-untrusted",
+                f"detached {label} path is outside the supplied artifact root",
+            ) from error
+
+
+def _reopen_detached_native_package_evidence(
+    root: Path,
+    evidence: NativeFullGateEvidence,
+    retained_candidate: RetainedCandidateIdentity,
+) -> RetainedNativePackageEvidence:
+    """Bind one aggregate to a freshly reopened D597 descriptor/package pair."""
+
+    if not isinstance(evidence, NativeFullGateEvidence):
+        raise _error("release-full-gate-evidence-untrusted", "detached native verification requires typed schema-1 evidence")
+    retained = reopen_retained_candidate_identity(retained_candidate)
+    package = retained.package_evidence
+    if evidence.package_schema != "portable-1" or not evidence.passed:
+        raise _error("release-full-gate-evidence-untrusted", "detached native verification requires passed schema-1 evidence")
+    if (
+        not _is_sha256(evidence.package_manifest_sha256)
+        or not _is_sha256(evidence.package_evidence_sha256)
+        or not isinstance(evidence.candidate_run_id, str)
+        or not evidence.candidate_run_id
+        or PurePosixPath(evidence.candidate_run_id).name != evidence.candidate_run_id
+        or not isinstance(evidence.package_evidence_relpath, str)
+    ):
+        raise _error("release-full-gate-evidence-mismatch", "native aggregate sidecar path is invalid")
+    expected_sidecar = _path(root, evidence.package_evidence_relpath, label="retained package evidence")
+    if (
+        expected_sidecar != package.receipt_path
+        or expected_sidecar.parent.name != "package_evidence"
+        or expected_sidecar.name != f"{evidence.package_evidence_sha256}.json"
+        or package.view.package_root != root / ".caprmedio_tmp" / "release_candidates" / evidence.candidate_run_id
+        / "package" / evidence.package_manifest_sha256
+    ):
+        raise _error("release-full-gate-retained-package-mismatch", "native aggregate does not name the reopened retained package")
+    view = package.view
+    bindings = {
+        "candidate_snapshot_manifest_sha256": retained.candidate_snapshot_manifest_sha256,
+        "actual_package_manifest_sha256": evidence.package_manifest_sha256,
+        "source_catalog_sha256": evidence.source_catalog_sha256,
+        "candidate_run_id": evidence.candidate_run_id,
+        "input_manifest_sha256": evidence.input_manifest_sha256,
+        "framework_version": retained.framework_version,
+        "version_toml_sha256": retained.version_toml_sha256,
+    }
+    if (
+        any(getattr(view, field, None) != value for field, value in bindings.items())
+        or evidence.candidate_snapshot_manifest_sha256 != retained.candidate_snapshot_manifest_sha256
+        or evidence.framework_version != retained.framework_version
+        or evidence.version_toml_sha256 != retained.version_toml_sha256
+        or evidence.package_evidence_sha256 != package.receipt_sha256
+        or evidence.phase_map_sha256 != view.phase_map.sha256
+    ):
+        raise _error("release-full-gate-retained-package-mismatch", "native aggregate does not bind the reopened candidate/package")
+    return retained.package_evidence
+
+
+def _detached_constituent_receipts(
+    candidate_snapshot_manifest_sha256: str,
+    build: object,
+    verification: object,
+    e2e: object,
+) -> tuple[str, str, str, str]:
+    values = (
+        getattr(build, "receipt_sha256", None),
+        getattr(verification, "receipt_sha256", None),
+        getattr(e2e, "receipt_sha256", None),
+    )
+    if (
+        not all(_is_sha256(value) for value in values)
+        or getattr(build, "candidate_snapshot_manifest_sha256", None) != candidate_snapshot_manifest_sha256
+        or getattr(verification, "candidate_snapshot_manifest_sha256", None) != candidate_snapshot_manifest_sha256
+        or getattr(e2e, "candidate_snapshot_manifest_sha256", None) != candidate_snapshot_manifest_sha256
+        or getattr(build, "candidate_image_digest", None) != getattr(verification, "candidate_image_digest", None)
+        or getattr(verification, "candidate_image_digest", None) != getattr(e2e, "candidate_image_digest", None)
+    ):
+        raise _error("release-full-gate-binding-mismatch", "detached constituents do not share one candidate and immutable image")
+    return ("", values[0], values[1], values[2])  # Unit is added by its retained reader.
+
+
+def verify_detached_native_full_gate_evidence(
+    artifact_root: Path,
+    retained_candidate: RetainedCandidateIdentity,
+    suite: object,
+    build: object,
+    verification: object,
+    e2e: object,
+    evidence: NativeFullGateEvidence,
+) -> RetainedNativePackageEvidence:
+    """Reopen a D597 Full Gate packet without live candidate or checkout state."""
+
+    root = _detached_artifact_root(artifact_root)
+    _require_detached_candidate_under_root(root, retained_candidate)
+    retained = reopen_retained_candidate_identity(retained_candidate)
+    package = _reopen_detached_native_package_evidence(root, evidence, retained)
+    view = package.view
+    _native_predecessor_bindings_at_root(root, package, suite, build, verification, e2e)
+    native_suite = _reopen_retained_native_suite(root, suite, view)
+    from release_image import read_detached_image_execution_artifacts
+    from release_e2e_gate import read_detached_candidate_e2e_execution_artifacts
+
+    image_attempt = read_detached_image_execution_artifacts(root, retained, native_suite, build, verification)
+    e2e_root = read_detached_candidate_e2e_execution_artifacts(
+        root, retained, native_suite, verification, e2e, image_build=build,
+    )
+    if image_attempt != _path(root, getattr(verification, "evidence_root", ""), label="retained native image attempt") or e2e_root != root:
+        raise _error("release-full-gate-root-mismatch", "a detached native predecessor does not belong to the artifact root")
+    _unit, build_receipt, image_receipt, e2e_receipt = _detached_constituent_receipts(
+        retained.candidate_snapshot_manifest_sha256, build, verification, e2e,
+    )
+    suite_receipt = getattr(native_suite, "receipt_sha256", None)
+    prefix = f"{EVIDENCE_ROOT}/{retained.candidate_snapshot_manifest_sha256}/"
+    if (
+        evidence.candidate_image_digest != getattr(verification, "candidate_image_digest", None)
+        or (evidence.suite_receipt_sha256, evidence.build_receipt_sha256,
+            evidence.image_receipt_sha256, evidence.e2e_receipt_sha256)
+        != (suite_receipt, build_receipt, image_receipt, e2e_receipt)
+        or not _is_sha256(evidence.receipt_sha256)
+        or not isinstance(evidence.evidence_root, str)
+        or not evidence.evidence_root.startswith(prefix)
+        or not evidence.evidence_root.removeprefix(prefix).startswith("attempt-")
+        or "/" in evidence.evidence_root.removeprefix(prefix)
+    ):
+        raise _error("release-full-gate-evidence-mismatch", "native aggregate does not belong to the exact detached predecessors")
+    receipt = _path(root, f"{evidence.evidence_root}/receipt.json", label="detached native full-gate receipt")
+    payload = receipt.read_bytes()
+    if (
+        _digest(payload) != evidence.receipt_sha256
+        or payload != canonical_json(asdict(replace(evidence, receipt_sha256=None)))
+    ):
+        raise _error("release-full-gate-evidence-untrusted", "detached native aggregate receipt changed or is caller-forged")
+    if _observe_partition(root, native_suite, e2e, view.phase_map) != evidence.executed_tests:
+        raise _error("release-full-gate-evidence-untrusted", "detached native aggregate executed testcase count changed")
+    return package
+
+
 def verify_bound_full_gate_evidence(
     candidate: ValidatedCandidate,
     compilation: SealedCandidateCompilation | SealedPortableCandidateCompilation,
@@ -837,5 +1025,6 @@ __all__ = [
     "FullGateEvidence",
     "NativeFullGateEvidence",
     "aggregate_bound_release_gates",
+    "verify_detached_native_full_gate_evidence",
     "verify_bound_full_gate_evidence",
 ]

@@ -4,10 +4,10 @@ content_role: Delivery
 current_scope_unit: TOOLS
 local_tier: Standard
 global_tier: 11
-status: Active
+status: Archived
 author: Anatoly Maslennikov
-version: 33
-updated_at: "2026-10-10 02:25:11 +0400"
+version: 32
+updated_at: "2026-10-10 01:19:00 +0400"
 subjects:
   governs: "Tool/RELEASE_VERSION/Additive selected-route source admission"
   depends_on: [Tool, Workflow, Action, Manifest, Operator, Run, Journal]
@@ -155,11 +155,11 @@ This separate private control-authority block governs only the explicitly approv
   },
   {
     "source_path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/RELEASE_VERSION/release_e2e_gate.py",
-    "sha256": "8ef837ba516d543d01f787db253399569736e5dfbe4a3f767aa4960901a635b6"
+    "sha256": "0686b3b1a237d47e3a8110bc8990ce40af93c7eb83df3f9bdafa003811371a98"
   },
   {
     "source_path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/RELEASE_VERSION/release_full_gate.py",
-    "sha256": "bd5cb8cdfbd683fbb0a37260ec726ec97d814ffca62f4b3d9609a33501a6b2cd"
+    "sha256": "9541c647019b310e4d56e7893a5f8543dfa76f63c43d35d3d1b30fed0e9e7883"
   },
   {
     "source_path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/RELEASE_VERSION/release_predecessor.py",
