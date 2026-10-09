@@ -1019,20 +1019,13 @@ class SelectedExecution:
             import generate_entity_graph
             for action_id, handler in generate_entity_graph.queue_action_handlers(self.root).items():
                 def graph_projection(context: dict[str, Any], handler: Any = handler) -> dict[str, Any]:
+                    from graph_completion import construction_outcome
                     result = handler(context)
                     if not isinstance(result, Mapping) or not isinstance(result.get("result"), str):
                         raise SelectedExecutionError("graph projection Action returned an invalid queue envelope")
-                    label = result["result"]
                     native_result = result.get("graph_result", result)
                     output = {**result, "native_result": native_result}
-                    if label == "built":
-                        output["terminal_outcome"] = "completed"
-                    elif label == "no_op":
-                        output["terminal_outcome"] = "no_op"
-                    elif label == "failed":
-                        output["terminal_outcome"] = "failed"
-                    elif label in {"blocked", "pending_recording", "stale", "incomplete", "conflicting"}:
-                        output["terminal_outcome"] = "interrupted_pending"
+                    output["terminal_outcome"] = construction_outcome(native_result)
                     return output
                 available[action_id] = graph_projection
         except ImportError:
@@ -1244,9 +1237,17 @@ class SelectedExecution:
             import generate_entity_graph
         except ImportError:
             return parameters
+        session_request = getattr(session, "request", None)
+        execution_authorization = (
+            session_request.get("operator_authorization")
+            if isinstance(session_request, Mapping) else None
+        )
+        if not isinstance(execution_authorization, Mapping):
+            execution_authorization = None
         try:
             recording = generate_entity_graph.actual_run_recording_context(
-                workflow_run_id, step_run_id, action_run_id, receipts[-1]
+                workflow_run_id, step_run_id, action_run_id, receipts[-1],
+                execution_authorization=execution_authorization,
             )
         except generate_entity_graph.EntityGraphError:
             # Leave the caller shape intact.  The graph Tool then reports its
@@ -2548,14 +2549,28 @@ class SelectedExecution:
                             "effect_refs": effect_refs,
                             "native_result": output.get("native_result"),
                             "compiler_publication_recording": output.get("compiler_publication_recording")}
+                graph_observation = None
+                if graph.get("route") in {"build_entities_graph", "build_terms_graph"}:
+                    from graph_completion import construction_outcome
+                    graph_observation = output.get("native_result")
+                    output["terminal_outcome"] = construction_outcome(graph_observation)
+                    if output.get("action_terminal_recorded") is True:
+                        raise SelectedExecutionError("graph Action cannot supply its own terminal recording")
+                    progress["graph_construction_observation"] = graph_observation
+                    progress["graph_construction_digest"] = hashlib.sha256(canonical_json(graph_observation)).hexdigest()
                 if output.get("lifecycle_prior") is not None:
                     progress["lifecycle_prior"] = output["lifecycle_prior"]
                 if output.get("lifecycle_recording") is not None:
                     progress["lifecycle_recording"] = output["lifecycle_recording"]
                 if output.get("shared_action_recording") is not None:
                     progress["shared_action_recording"] = output["shared_action_recording"]
+                if graph_observation is not None and effect_refs:
+                    session.note_effects(action_run_id,
+                                        result_ref=progress_path.relative_to(self.root).as_posix(),
+                                        effect_refs=effect_refs)
                 self._write(progress_path, progress)
                 terminal_receipt: Mapping[str, Any] | None = None
+                pending_before = list(session.pending) if graph_observation is not None else []
                 if output.get("action_terminal_recorded") is not True:
                     action_outcome = output.get("terminal_outcome", "completed")
                     if action_outcome not in {"completed", "no_op", "failed", "cancelled", "partial", "interrupted_pending"}:
@@ -2574,6 +2589,21 @@ class SelectedExecution:
                     isinstance(terminal_receipt, Mapping)
                     and terminal_receipt.get("disposition") == "recording_pending"
                 )
+                if graph_observation is not None:
+                    from graph_completion import finalize_graph_result
+                    new_pending = [identity for identity in session.pending if identity not in pending_before]
+                    finalized = finalize_graph_result(
+                        graph_observation, terminal_receipt, action_run_id=action_run_id,
+                        result_ref=progress_path.relative_to(self.root).as_posix(),
+                        effect_refs=effect_refs, receipts=session.receipts,
+                        pending_event_id=new_pending[0] if len(new_pending) == 1 else None,
+                    )
+                    output["native_result"] = finalized
+                    final_result = ("recording_pending" if terminal_recording_pending
+                                    else result_map.get(finalized["outcome"], finalized["outcome"]))
+                    progress["native_result"] = finalized
+                    progress["result"] = final_result
+                    self._write(progress_path, progress)
                 recording = output.get("compiler_publication_recording")
                 if recording is not None:
                     if not isinstance(recording, Mapping):
@@ -2709,15 +2739,33 @@ class SelectedExecution:
                 if terminal not in {"completed", "no_op", "failed", "cancelled", "partial", "interrupted_pending"}:
                     raise SelectedExecutionError("selected terminal result is not a truthful Run outcome")
                 result_path = self.run_directory(run_id) / "graph_result.json"
-                output = {"outcome": terminal, "workflow_run_id": workflow_run_id,
+                is_graph_projection = graph.get("route") in {"build_entities_graph", "build_terms_graph"}
+                output = {"outcome": "interrupted_pending" if is_graph_projection else terminal,
+                          "workflow_run_id": workflow_run_id,
                           "workflow_definition_id": graph["workflow"]["atom_id"], "step_results": results}
                 self._write(result_path, output)
                 result_ref = result_path.relative_to(self.root).as_posix()
                 effect_refs = sorted({reference for row in results for reference in row["effect_refs"]})
-                self._finish_selected_run(session, requested_step_id, step_run_id, recovery=recovery,
-                                          outcome=terminal, result_ref=result_ref, effect_refs=step_effect_refs)
-                self._finish_selected_run(session, run_id, workflow_run_id, recovery=recovery,
-                                          outcome=terminal, result_ref=result_ref, effect_refs=effect_refs)
+                step_terminal = self._finish_selected_run(
+                    session, requested_step_id, step_run_id, recovery=recovery,
+                    outcome=terminal, result_ref=result_ref, effect_refs=step_effect_refs)
+                workflow_outcome = terminal
+                if is_graph_projection and not self._confirmed_graph_terminal(
+                    step_terminal, step_run_id, terminal, result_ref, step_effect_refs, session.receipts
+                ):
+                    workflow_outcome = "interrupted_pending"
+                workflow_terminal = self._finish_selected_run(
+                    session, run_id, workflow_run_id, recovery=recovery,
+                    outcome=workflow_outcome, result_ref=result_ref, effect_refs=effect_refs)
+                if is_graph_projection:
+                    if all(self._confirmed_graph_terminal(
+                        receipt, actual_id, terminal, result_ref, actual_effects, session.receipts
+                    ) for receipt, actual_id, actual_effects in (
+                        (step_terminal, step_run_id, step_effect_refs),
+                        (workflow_terminal, workflow_run_id, effect_refs),
+                    )):
+                        output["outcome"] = terminal
+                    self._write(result_path, output)
                 return {**output, "result_ref": result_ref, "effect_refs": effect_refs}
             step_result_path = self.run_directory(run_id) / f"{requested_step_id}.json"
             self._write(step_result_path, {"result": final_result, "step_run_id": step_run_id,
@@ -2790,6 +2838,149 @@ class SelectedExecution:
 
     def _shared_dispatch(self, frozen: Mapping[str, Any]) -> dict[str, Any]:
         return self._shared_tracker(frozen).run_selected_operation(dict(frozen["request"]["execution"]))
+
+    @staticmethod
+    def _confirmed_graph_terminal(terminal: object, run_id: str, outcome: str,
+                                  result_ref: str, effect_refs: list[str], receipts: list[Any]) -> bool:
+        from graph_completion import _receipt_valid
+        if not isinstance(terminal, Mapping):
+            return False
+        receipt = terminal.get("event_receipt")
+        return (terminal.get("disposition") == "terminal" and terminal.get("run_id") == run_id
+                and terminal.get("outcome") == outcome and terminal.get("result_ref") == result_ref
+                and terminal.get("effect_refs") == effect_refs and isinstance(receipt, Mapping)
+                and _receipt_valid(receipt) and receipt.get("event_id") == terminal.get("event_id")
+                and receipt in receipts)
+
+    def reconcile_graph_recording(self, frozen: Mapping[str, Any], *, persist: bool = True) -> dict[str, Any]:
+        """Reconcile saved graph evidence after original Journal recording recovery.
+
+        This method never invokes an Action, provider, publisher, or recorder.
+        Existing ``recover_recording`` must first recover any pending original
+        event bytes.  Interrupted parents remain interrupted: the Release-only
+        recovered-Run capability is neither reused nor widened here.
+        ``persist=False`` is the read-only status observation: it changes no
+        progress, aggregate, accepted result, output, or Journal carrier.
+        """
+        from graph_completion import construction_outcome, finalize_graph_result
+        from selected_run_recovery import read_selected_run_evidence, validate_selected_run_events
+        from workflow_run_support import RunExecutionSession, _proposal, _validate_common
+        import work_journal
+
+        request = frozen.get("request") if isinstance(frozen, Mapping) else None
+        if not isinstance(request, Mapping) or not isinstance(request.get("run_id"), str):
+            raise SelectedExecutionError("saved graph request is invalid")
+        run_id = request["run_id"]
+        if canonical_json(self.load(run_id)) != canonical_json(frozen):
+            raise SelectedExecutionError("graph recording observation differs from its saved frozen request")
+        graph = self._revalidate(frozen)
+        if graph.get("route") not in {"build_entities_graph", "build_terms_graph"}:
+            raise SelectedExecutionError("graph reconciliation is outside its selected routes")
+        steps = graph.get("steps")
+        if not isinstance(steps, list) or len(steps) != 1 or len(steps[0].get("actions", [])) != 1:
+            raise SelectedExecutionError("graph reconciliation requires its exact single Action frontier")
+        execution = _validate_common(request["execution"])
+        tracker = self._shared_tracker(frozen)
+        evidence = read_selected_run_evidence(self.root, execution)
+        session = RunExecutionSession.restore(tracker, execution, evidence["events"])
+        requested_step = self._requested_step_id(run_id, 1, 1)
+        requested_action = f"{requested_step}:action:1"
+        if any(identity not in session.actual for identity in (run_id, requested_step, requested_action)):
+            raise SelectedExecutionError("graph reconciliation lacks its actual construction Run frontier")
+        folder = self.run_directory(run_id)
+        progress_path = folder / f"{requested_action}.json"
+        progress_ref = progress_path.relative_to(self.root).as_posix()
+        progress = self._read(self._safe_path(progress_ref))
+        observation = progress.get("graph_construction_observation")
+        if (progress.get("graph_construction_digest") != hashlib.sha256(canonical_json(observation)).hexdigest()
+                or progress.get("action_run_id") != session.actual[requested_action]["run_id"]):
+            raise SelectedExecutionError("saved graph construction evidence differs from its retained binding")
+        expected_outcome = construction_outcome(observation)
+        effect_refs = progress.get("effect_refs")
+        if effect_refs != observation["output_effects"]["paths"]:
+            raise SelectedExecutionError("saved graph effects differ from construction observation")
+        aggregate_path = folder / "graph_result.json"
+        aggregate_ref = aggregate_path.relative_to(self.root).as_posix()
+        aggregate = self._read(self._safe_path(aggregate_ref))
+        rows = aggregate.get("step_results")
+        if (aggregate.get("workflow_run_id") != session.actual[run_id]["run_id"]
+                or aggregate.get("workflow_definition_id") != graph["workflow"]["atom_id"]
+                or not isinstance(rows, list) or len(rows) != 1
+                or rows[0].get("action_run_id") != session.actual[requested_action]["run_id"]
+                or rows[0].get("step_run_id") != session.actual[requested_step]["run_id"]
+                or rows[0].get("action_definition_id") != steps[0]["actions"][0]["atom_id"]
+                or rows[0].get("step_definition_id") != steps[0]["atom_id"]
+                or rows[0].get("effect_refs") != effect_refs):
+            raise SelectedExecutionError("saved graph aggregate does not bind its actual Action frontier")
+        accepted_path = folder / "accepted.json"
+        previous = self._read(accepted_path).get("result") if accepted_path.exists() else {}
+        if not isinstance(previous, Mapping):
+            raise SelectedExecutionError("saved graph dispatch result is invalid")
+        pending_ids = previous.get("pending_event_ids", [])
+        if not isinstance(pending_ids, list) or any(not isinstance(ref, str) or not ref for ref in pending_ids):
+            raise SelectedExecutionError("saved graph pending identities are invalid")
+        retained_native = progress.get("native_result")
+        if not isinstance(retained_native, Mapping) or not isinstance(retained_native.get("completion"), Mapping):
+            raise SelectedExecutionError("saved graph completion evidence is invalid")
+        completion = retained_native["completion"]
+        if completion.get("state") == "recording_pending":
+            pending_ids = [*pending_ids, completion.get("pending_receipt_ref")]
+        canonical_ids = {item["event"]["event_id"] for item in evidence["events"]}
+        pending_events = []
+        action_pending_id = None
+        for event_id in dict.fromkeys(pending_ids):
+            if not isinstance(event_id, str) or not event_id:
+                raise SelectedExecutionError("saved graph pending reference is invalid")
+            if event_id in canonical_ids:
+                continue
+            retained, event, _context, _path = work_journal._read_pending_event(self.root, event_id)
+            actual = event.get("run", {})
+            matching = [identity for identity, record in session.actual.items() if record == actual]
+            if len(matching) != 1 or matching[0] not in {run_id, requested_step, requested_action}:
+                raise SelectedExecutionError("pending graph recording belongs to a different actual Run")
+            is_action = matching[0] == requested_action
+            expected_ref = progress_ref if is_action else aggregate_ref
+            if (event.get("result_ref") != expected_ref or event.get("effect_refs") != effect_refs
+                    or retained["result_ref"] != expected_ref or retained["effect_refs"] != effect_refs
+                    or is_action and event.get("outcome") != expected_outcome):
+                raise SelectedExecutionError("pending graph recording differs from its saved observation")
+            if is_action:
+                if action_pending_id is not None:
+                    raise SelectedExecutionError("graph Action has ambiguous pending terminal identities")
+                action_pending_id = event_id
+            pending_events.append(event)
+            session.pending.append(event_id)
+        validate_selected_run_events(execution, [item["event"] for item in evidence["events"]] + pending_events)
+        terminal = session.terminal.get(requested_action) or session.interrupted.get(requested_action)
+        if terminal is None and action_pending_id is not None:
+            terminal = {"disposition": "recording_pending", "run_id": progress["action_run_id"],
+                        "outcome": expected_outcome, "result_ref": progress_ref, "effect_refs": effect_refs}
+        finalized = finalize_graph_result(
+            observation, terminal, action_run_id=progress["action_run_id"], result_ref=progress_ref,
+            effect_refs=effect_refs, receipts=session.receipts, pending_event_id=action_pending_id,
+        )
+        result_map = steps[0]["actions"][0].get("result_map", {})
+        result_label = "recording_pending" if action_pending_id else result_map.get(finalized["outcome"], finalized["outcome"])
+        updated_progress = {**progress, "result": result_label, "native_result": finalized}
+        updated_aggregate = {**aggregate, "outcome": "interrupted_pending",
+                             "step_results": [{**rows[0], "result": result_label}]}
+        if all(self._confirmed_graph_terminal(
+            session.terminal.get(identity), session.actual[identity]["run_id"], expected_outcome,
+            aggregate_ref, effect_refs, session.receipts,
+        ) for identity in (requested_step, run_id)) and not session.pending:
+            updated_aggregate["outcome"] = expected_outcome
+        if persist and canonical_json(updated_progress) != canonical_json(progress):
+            self._write(progress_path, updated_progress)
+        if persist and canonical_json(updated_aggregate) != canonical_json(aggregate):
+            self._write(aggregate_path, updated_aggregate)
+        proposal = _proposal(execution, tracker._observe(execution))
+        result = tracker._session_result(execution, proposal, session)
+        if (run_id not in session.terminal and result["disposition"] == "terminal"):
+            result["disposition"] = "started"
+            result["retry_disposition"] = "inspect-or-recover-only"
+        if persist and accepted_path.exists() and canonical_json(previous) != canonical_json(result):
+            self._write(accepted_path, {"result": result})
+        return result
 
     def recover_release(self, frozen: Mapping[str, Any]) -> dict[str, Any]:
         """Explicitly reconcile one accepted Release; never redispatch intent.
@@ -3022,7 +3213,18 @@ class SelectedExecution:
         folder = self.run_directory(run_id)
         accepted = folder / "accepted.json"
         if accepted.exists():
-            return self._read(accepted)["result"]
+            retained_result = self._read(accepted)["result"]
+            if (isinstance(retained_result, Mapping)
+                    and retained_result.get("disposition") in {"recording_pending", "started"}
+                    and isinstance(frozen.get("graph"), Mapping)
+                    and frozen["graph"].get("route") in {"build_entities_graph", "build_terms_graph"}):
+                # An accepted Run can only reconcile its original recording;
+                # neither a changed request nor a cached pending result grants
+                # authority to dispatch graph construction again.
+                if canonical_json(self.load(run_id)) != canonical_json(frozen):
+                    raise SelectedExecutionError("accepted graph inspection differs from its frozen request")
+                return self.reconcile_graph_recording(frozen)
+            return retained_result
         intent = folder / "dispatch-intent.json"
         if intent.exists():
             return {"disposition": "recording_pending", "outcome": "interrupted_pending",

@@ -24,7 +24,7 @@ subjects:
     - Term
     - Plan
 version: 1
-updated_at: "2026-10-09 21:02:24 +0400"
+updated_at: "2026-10-09 21:35:28 +0400"
 relations:
   is_decomposition_of:
     - CA-P-1872
@@ -120,6 +120,22 @@ owned_scope_selection.py 174254059d5695c32b2beeff72fcc949b9f81a04baffc472bbcb905
 ```
 
 Native Core profiles and shared terminal reconciliation are separately owned in-progress changes and are not accepted by this foundation receipt. No MCP, runtime or source-manifest activation was performed.
+
+### Shared recording integration
+
+Independent bounded review: ACCEPT. Twenty-six fixtures passed: twelve graph completion/recovery cases, eight actual executor-authorization cases, and six existing public-status compatibility cases. Construction remains incomplete until a matching actual Action terminal receipt proves its recorded boundary. Pending recording retains the actual pending identity and observed output effects. Reconciliation uses saved construction/dispatch/Journal evidence and does not invoke a provider, reconstruct a graph, publish output or append a Journal event.
+
+The existing status consumer uses read-only reconciliation even when the scheduler cached SUCCESS. That path does not write progress or dispatch work. Missing evidence retains a safe explicit blocker. Same-Run dispatch retries reconcile the exact frozen request only; changed requests cannot redispatch an accepted graph Run.
+
+Reviewed implementation pins:
+
+```text
+graph_completion.py 62ff77386892030bd2a3bb3b0f0562135be0b5a7cb5a09161b560451648866bd
+selected_execution.py 043223f350e9ff21ccc67603594101d6dcba473b90684e462c128fea59923e88
+backend.py 9f54448addcd7a2e6f36ae9c72f45ac82e7cc3303e4bcad57982016ca8ec6745
+```
+
+This is fixture/code acceptance, not an actual Journal or live MCP receipt. A parent Step/Workflow already recorded as interrupted remains incomplete; the Release-only recovered-Run capability was not widened. The broader selected-execution receipt remains 18 of 20, with two current graph-manifest positive cases blocked by stale repaired Action bindings. Frozen bindings were not rewritten to conceal that gate.
 
 ### Definition of Done
 

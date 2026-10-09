@@ -524,10 +524,24 @@ def status(root, request):
         uncertain = selected_directory / 'dispatch_uncertain.json'
         if accepted.is_file():
             result = selected._read(accepted)['result']
+            reconciliation_reason = None
+            if (frozen['graph'].get('route') in {'build_entities_graph', 'build_terms_graph'}
+                    and isinstance(result, dict)
+                    and result.get('disposition') in {'recording_pending', 'started'}):
+                try:
+                    if canonical_json(selected.load(request.run_id)) != canonical_json(frozen):
+                        raise RuntimeError('graph status differs from its saved frozen request')
+                    result = selected.reconcile_graph_recording(frozen, persist=False)
+                except (ValueError, RuntimeError, OSError):
+                    # Observation cannot authorize repair, construction replay,
+                    # or admission bypass.  Retain the original pending state.
+                    reconciliation_reason = 'graph-recording-reconciliation-unavailable: saved evidence or current admission gate is unresolved'
             outcome, disposition, terminal_reason = _selected_public_outcome(frozen, result, request.run_id)
             response.update({'selected_result': result, 'outcome': outcome,
                              'disposition': disposition})
-            if terminal_reason is not None:
+            if reconciliation_reason is not None:
+                response['reason'] = reconciliation_reason
+            elif terminal_reason is not None:
                 response['reason'] = terminal_reason
         elif uncertain.is_file():
             response.update({'outcome': 'interrupted_pending', 'disposition': 'recording_pending',
