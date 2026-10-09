@@ -227,16 +227,38 @@ class ProjectMcpBackend:
                 raise BackendError("RUNTIME_MISMATCH") from error
         return rows
 
-    def start(self, selection, image_id, fingerprint, timeout, port=None):
+    @staticmethod
+    def _compose_file(value: Path | str) -> Path:
+        """Admit one regular, absolute Compose carrier before invoking Docker."""
+        try:
+            compose = Path(value)
+            if not compose.is_absolute() or compose.is_symlink() or not compose.is_file():
+                raise BackendError()
+            return compose
+        except BackendError:
+            raise
+        except (OSError, TypeError, ValueError) as error:
+            raise BackendError() from error
+
+    def _start(self, selection, image_id, fingerprint, compose_file: Path | str, timeout, port=None):
         if not isinstance(timeout, (int, float)) or isinstance(timeout, bool) or timeout <= 0:
             raise BackendError()
+        compose = self._compose_file(compose_file)
         command = [
             "docker", "compose", "--env-file", "/dev/null", "--project-name",
-            self._compose_project(selection), "-f", str(_COMPOSE), "up", "-d", "--wait",
+            self._compose_project(selection), "-f", str(compose), "up", "-d", "--wait",
             "--wait-timeout", str(max(1, int(timeout))), "--no-recreate", "--no-deps", "mcp-http",
         ]
         _bounded_run(command, timeout=float(timeout),
                      env=self._environment(selection, image_id, fingerprint, port))
+
+    def start(self, selection, image_id, fingerprint, timeout, port=None):
+        """Start development mode from its checked-in Compose carrier."""
+        self._start(selection, image_id, fingerprint, _COMPOSE, timeout, port)
+
+    def start_installed(self, selection, image_id, fingerprint, compose_file, timeout, port=None):
+        """Start an admitted installation with its selected package Compose file."""
+        self._start(selection, image_id, fingerprint, compose_file, timeout, port)
 
     @staticmethod
     async def _initialize(url: str, timeout: float) -> None:

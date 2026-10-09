@@ -24,4 +24,4 @@ RUN mkdir -p /home/caprmedio/.codex /workspace/.caprmedio_install \
     && chown -R ${RUNTIME_UID}:${RUNTIME_GID} /home/caprmedio
 ENV PATH=/opt/venv/bin:/usr/local/bin:/usr/bin:/bin PYTHONDONTWRITEBYTECODE=1
 USER caprmedio
-ENTRYPOINT ["python", "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/entrypoint.py"]
+ENTRYPOINT ["uv", "run", "--locked", "--no-sync", "--no-env-file", "python", "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/entrypoint.py"]

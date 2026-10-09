@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from contextlib import contextmanager
+from contextlib import contextmanager, nullcontext
 import fcntl
 import json
 import os
@@ -16,6 +16,7 @@ _TOOLS = Path(__file__).resolve().parents[3] / "201_TOOLS"
 if str(_TOOLS) not in sys.path:
     sys.path.insert(0, str(_TOOLS))
 
+from installed_mcp_binding import InstalledMcpBinding, MCP_FILES
 from project_selection import ProjectSelectionError, resolve_project
 
 from runtime_images import ImageError
@@ -59,6 +60,23 @@ class LaunchError(RuntimeError):
     def __init__(self, code: str = "DOCKER_START_FAILED") -> None:
         self.code = code if code in _CONDITIONS else "DOCKER_START_FAILED"
         super().__init__(self.code)
+
+
+class _InstalledSelection:
+    """Retain a selected Project while relocating only installed MCP state.
+
+    ``ProjectSelection`` deliberately keeps its legacy ``.caprmedio_install``
+    compatibility properties.  An installed package activation must instead
+    use the post-migration runtime namespace without mutating that read-only
+    selection or either Project configuration carrier.
+    """
+
+    def __init__(self, selection: object, state: Path) -> None:
+        self._selection = selection
+        self.launcher_state = state
+
+    def __getattr__(self, name: str):
+        return getattr(self._selection, name)
 
 
 def _selection_root(selection: object) -> Path:
@@ -401,6 +419,117 @@ class Launcher:
         code = getattr(error, "code", None)
         return code if isinstance(code, str) and code in _CONDITIONS else fallback
 
+    @staticmethod
+    def _installed_runtime(selection: object, binding: object) -> tuple[object, str, str, Path]:
+        """Validate one typed admission handoff without reopening a checkout.
+
+        The installed binding has already verified package, selectors, context,
+        image, and compose bytes.  This seam only checks that it still names
+        the selected Project and derives the runtime-local state namespace.
+        In particular it never asks ``ImageManager`` to resolve or build an
+        image and never substitutes a source-root compose file.
+        """
+
+        if not isinstance(binding, InstalledMcpBinding):
+            raise LaunchError("IMAGE_REFUSED")
+        root = _selection_root(selection)
+        context = binding.target_context
+        control = getattr(selection, "control_relative", None)
+        settings = getattr(selection, "settings", None)
+        project = settings.get("project") if isinstance(settings, Mapping) else None
+        if (
+            not isinstance(control, Path)
+            or control.is_absolute()
+            or context.control_child_relpath != control.as_posix()
+            or not isinstance(project, Mapping)
+            or context.target_project_identity != project.get("name")
+        ):
+            raise LaunchError("PROJECT_SELECTION_REFUSED")
+        expected_context = (
+            root / ".caprmedio_runtime" / "installation" / "contexts" / f"{context.sha256}.toml"
+        )
+        if context.path != expected_context:
+            raise LaunchError("PROJECT_SELECTION_REFUSED")
+        image_digest = binding.image_digest
+        fingerprint = binding.runtime_selector_sha256
+        if (not isinstance(image_digest, str) or _FINGERPRINT.fullmatch(image_digest) is None
+                or not isinstance(fingerprint, str) or _FINGERPRINT.fullmatch(fingerprint) is None):
+            raise LaunchError("IMAGE_REFUSED")
+        try:
+            compose = Path(binding.compose_file)
+            expected_compose = binding.package_root / MCP_FILES[-1]
+        except (TypeError, ValueError):
+            raise LaunchError("IMAGE_REFUSED") from None
+        if not compose.is_absolute() or compose != expected_compose:
+            raise LaunchError("IMAGE_REFUSED")
+        instance = getattr(selection, "instance_id", None)
+        if not isinstance(instance, str) or _FINGERPRINT.fullmatch(instance) is None:
+            raise LaunchError("PROJECT_SELECTION_REFUSED")
+        state = root / ".caprmedio_runtime" / "runtime" / "project_mcp" / instance
+        return _InstalledSelection(selection, state), "sha256:" + image_digest, fingerprint, compose
+
+    def _launch_runtime(self, selection: object, backend: object, image_id: str, fingerprint: str,
+                        startup_timeout: float, requested_port: int | None,
+                        compose_file: Path | None = None, *, lock_held: bool = False) -> dict[str, Any]:
+        """Inspect, start once, and health-check one already identified runtime."""
+
+        lock = nullcontext() if lock_held else _project_lock(selection, startup_timeout)
+        with lock:
+            def complete(result: dict[str, Any]) -> dict[str, Any]:
+                _record_safe_metadata(selection, result)
+                return result
+
+            try:
+                candidate = _admit_runtime(backend.inspect(selection), selection, image_id,
+                                           fingerprint, requested_port)
+            except Exception as error:
+                return complete(self._failure(self._failure_code(
+                    error, "DOCKER_PUBLICATION_FAILED"), selection, image_id, fingerprint))
+            deadline = time.monotonic() + startup_timeout
+            if candidate == "absent":
+                try:
+                    remaining = deadline - time.monotonic()
+                    if remaining <= 0:
+                        return complete(self._failure("DOCKER_START_FAILED", selection,
+                                                      image_id, fingerprint))
+                    if compose_file is None:
+                        backend.start(selection, image_id, fingerprint, remaining, requested_port)
+                    else:
+                        backend.start_installed(selection, image_id, fingerprint, compose_file,
+                                              remaining, requested_port)
+                except LaunchError as error:
+                    return complete(self._failure(error.code, selection, image_id, fingerprint))
+                except Exception as error:
+                    return complete(self._failure(self._failure_code(
+                        error, "DOCKER_START_FAILED"), selection, image_id, fingerprint))
+                try:
+                    candidate = _admit_runtime(backend.inspect(selection), selection, image_id,
+                                               fingerprint, requested_port)
+                except Exception as error:
+                    return complete(self._failure(self._failure_code(
+                        error, "DOCKER_PUBLICATION_FAILED"), selection, image_id, fingerprint))
+                if isinstance(candidate, str):
+                    # The service was absent before one bounded start attempt.
+                    # If Docker leaves no selected runtime afterwards (for
+                    # example, an occupied explicitly requested host port),
+                    # that attempt failed to start.  A present runtime with
+                    # malformed publication still retains its distinct
+                    # DOCKER_PUBLICATION_FAILED classification.
+                    return complete(self._failure(candidate if candidate != "absent"
+                                                  else "DOCKER_START_FAILED", selection,
+                                                  image_id, fingerprint))
+                if not self._ready(backend, candidate, deadline):
+                    return complete(self._failure("READINESS_FAILED", selection,
+                                                  image_id, fingerprint))
+                return complete(self._result("started", "READY_STARTED", selection, image_id,
+                                             fingerprint, candidate))
+            if isinstance(candidate, str):
+                return complete(self._failure(candidate, selection, image_id, fingerprint))
+            if not self._ready(backend, candidate, deadline):
+                return complete(self._failure("READINESS_FAILED", selection, image_id, fingerprint))
+            return complete(self._result("reused", "READY_REUSED", selection, image_id,
+                                         fingerprint, candidate))
+
     def launch(self, project_root, token=None, control_root=None, image=None, source_root=None,
                timeout=60, *, port=None, build_if_missing=True, build_timeout=600):
         """Return one safe result; never stop, replace, or retry a live runtime."""
@@ -410,9 +539,9 @@ class Launcher:
             return self._failure(error.code)
         try:
             selection = resolve_project(project_root, control_root)
-        except ProjectSelectionError:
-            return self._failure("PROJECT_SELECTION_REFUSED")
         except Exception:
+            return self._failure("PROJECT_SELECTION_REFUSED")
+        except ProjectSelectionError:
             return self._failure("PROJECT_SELECTION_REFUSED")
         try:
             startup_timeout = _positive_timeout(timeout, ceiling=_DEFAULT_STARTUP_TIMEOUT,
@@ -427,63 +556,76 @@ class Launcher:
             backend = self._backend(self.backend, build_if_missing=build_if_missing,
                                     build_timeout=bounded_build_timeout)
             with _project_lock(selection, startup_timeout):
-                def complete(result: dict[str, Any]) -> dict[str, Any]:
-                    _record_safe_metadata(selection, result)
-                    return result
-
                 try:
                     image_id, fingerprint = self._image(backend, source, image)
                 except LaunchError as error:
-                    return complete(self._failure(error.code, selection))
-                try:
-                    candidate = _admit_runtime(backend.inspect(selection), selection,
-                                               image_id, fingerprint, requested_port)
-                except Exception as error:
-                    return complete(self._failure(self._failure_code(
-                        error, "DOCKER_PUBLICATION_FAILED"), selection, image_id, fingerprint))
-                deadline = time.monotonic() + startup_timeout
-                if candidate == "absent":
-                    try:
-                        remaining = deadline - time.monotonic()
-                        if remaining <= 0:
-                            return complete(self._failure("DOCKER_START_FAILED", selection,
-                                                          image_id, fingerprint))
-                        backend.start(selection, image_id, fingerprint, remaining, requested_port)
-                    except LaunchError as error:
-                        return complete(self._failure(error.code, selection, image_id, fingerprint))
-                    except Exception as error:
-                        return complete(self._failure(self._failure_code(
-                            error, "DOCKER_START_FAILED"), selection, image_id, fingerprint))
-                    try:
-                        candidate = _admit_runtime(backend.inspect(selection), selection,
-                                                   image_id, fingerprint, requested_port)
-                    except Exception as error:
-                        return complete(self._failure(self._failure_code(
-                            error, "DOCKER_PUBLICATION_FAILED"), selection, image_id, fingerprint))
-                    if isinstance(candidate, str):
-                        # The service was absent before one bounded start attempt.
-                        # If Docker leaves no selected runtime afterwards (for
-                        # example, an occupied explicitly requested host port),
-                        # that attempt failed to start.  A present runtime with
-                        # malformed publication still retains its distinct
-                        # DOCKER_PUBLICATION_FAILED classification.
-                        return complete(self._failure(candidate if candidate != "absent"
-                                                      else "DOCKER_START_FAILED", selection,
-                                                      image_id, fingerprint))
-                    if not self._ready(backend, candidate, deadline):
-                        return complete(self._failure("READINESS_FAILED", selection,
-                                                      image_id, fingerprint))
-                    return complete(self._result("started", "READY_STARTED", selection, image_id,
-                                                 fingerprint, candidate))
-                if isinstance(candidate, str):
-                    return complete(self._failure(candidate, selection, image_id, fingerprint))
-                if not self._ready(backend, candidate, deadline):
-                    return complete(self._failure("READINESS_FAILED", selection,
-                                                  image_id, fingerprint))
-                return complete(self._result("reused", "READY_REUSED", selection, image_id,
-                                              fingerprint, candidate))
+                    result = self._failure(error.code, selection)
+                    _record_safe_metadata(selection, result)
+                    return result
+                return self._launch_runtime(selection, backend, image_id, fingerprint, startup_timeout,
+                                            requested_port, lock_held=True)
         except LaunchError as error:
             return self._failure(error.code, selection)
+
+    def launch_installed(self, project_root, binding, token=None, control_root=None, timeout=60, *, port=None):
+        """Launch only the immutable image and Compose file in an admitted binding.
+
+        This intentionally has no ``source_root``, image, or build arguments:
+        installed activation cannot fall back to checkout bytes or construct a
+        replacement image.  ``token`` is retained only for the common public
+        call shape; loopback HTTP MCP remains anonymous.
+        """
+
+        del token
+        try:
+            requested_port = _requested_port(port)
+        except LaunchError as error:
+            return self._failure(error.code)
+        try:
+            selection = resolve_project(project_root, control_root)
+        except Exception:
+            return self._failure("PROJECT_SELECTION_REFUSED")
+        try:
+            startup_timeout = _positive_timeout(timeout, ceiling=_DEFAULT_STARTUP_TIMEOUT,
+                                                default=_DEFAULT_STARTUP_TIMEOUT)
+            selected, image_id, fingerprint, compose_file = self._installed_runtime(selection, binding)
+            backend = self._backend(self.backend, build_if_missing=False,
+                                    build_timeout=_DEFAULT_BUILD_TIMEOUT)
+            return self._launch_runtime(selected, backend, image_id, fingerprint, startup_timeout,
+                                        requested_port, compose_file)
+        except LaunchError as error:
+            return self._failure(error.code, selection)
+
+    def launch_admitted(self, *, project_root, control_root, binding, image, port=None):
+        """Run the installed HTTP handoff with its target-owned settings.
+
+        ``installed_mcp_runtime`` has just reopened the binding.  The image
+        value it supplies is therefore an assertion of the selected immutable
+        digest, not an override.  This method reads ``config.toml`` only; an
+        absent or migration-blocked carrier is refused rather than created or
+        repaired during service activation.
+        """
+
+        try:
+            from project_mcp_configuration import load_project_mcp_settings
+
+            settings = load_project_mcp_settings(project_root)
+        except Exception:
+            return self._failure("PROJECT_SELECTION_REFUSED")
+        if not isinstance(binding, InstalledMcpBinding):
+            return self._failure("IMAGE_REFUSED")
+        if not isinstance(binding.image_digest, str) or _FINGERPRINT.fullmatch(binding.image_digest) is None:
+            return self._failure("IMAGE_REFUSED")
+        expected_image = "sha256:" + binding.image_digest
+        if image != expected_image:
+            return self._failure("IMAGE_REFUSED")
+        return self.launch_installed(
+            project_root,
+            binding,
+            control_root=control_root,
+            timeout=settings.startup_timeout_seconds,
+            port=settings.port if port is None else port,
+        )
 
 
 __all__ = ["ImageError", "LaunchError", "Launcher", "ProjectSelectionError"]
