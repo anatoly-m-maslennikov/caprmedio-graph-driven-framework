@@ -21,6 +21,7 @@ from runtime_configuration import (  # noqa: E402
     RUNTIME_CONFIGURATION_RELATIVE,
     RuntimeConfigurationError,
     ensure_runtime_configuration,
+    read_admitted_runtime_default,
     read_runtime_configuration,
 )
 import runtime_configuration as configuration_library  # noqa: E402
@@ -106,6 +107,12 @@ class RuntimeConfigurationTests(unittest.TestCase):
         self.assertEqual(self.config_path.read_bytes(), self.default_bytes)
         self.assertEqual(result.configuration.payload, self.default_bytes)
         self.assertEqual(self.config_path.stat().st_mode & 0o777, 0o600)
+
+    def test_shared_admitted_default_reader_is_read_only(self) -> None:
+        result = read_admitted_runtime_default(self.package, default_member=self.default_member)
+        self.assertEqual(result.payload, self.default_bytes)
+        self.assertEqual(result.sha256, hashlib.sha256(self.default_bytes).hexdigest())
+        self.assertFalse(self.config_path.parent.exists())
 
     def test_existing_bytes_and_comments_are_preserved_without_a_creation_lock(self) -> None:
         original = b"# target-owned comment\n[transport]\nendpoint = 'target'\n"

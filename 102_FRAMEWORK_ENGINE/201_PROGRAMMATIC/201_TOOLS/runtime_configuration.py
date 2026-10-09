@@ -389,6 +389,18 @@ def _publish_if_absent(root: _ProjectRoot, payload: bytes, lock: InstallationPub
         os.close(runtime_fd)
 
 
+def read_admitted_runtime_default(
+    package: VerifiedFrameworkPackage,
+    *,
+    default_member: str,
+    validator: ConfigurationValidator | None = None,
+) -> RuntimeConfiguration:
+    """Read exact admitted default bytes through the shared anchored boundary."""
+    verified = _reopen_package(package)
+    payload = _admitted_default(verified, default_member, validator)
+    return _configuration_from_payload(verified.root / _safe_default_member(default_member), payload, validator)
+
+
 def ensure_runtime_configuration(
     project_root: Path | str,
     package: VerifiedFrameworkPackage,
@@ -440,5 +452,6 @@ __all__ = [
     "RuntimeConfigurationError",
     "RuntimeConfigurationResult",
     "ensure_runtime_configuration",
+    "read_admitted_runtime_default",
     "read_runtime_configuration",
 ]

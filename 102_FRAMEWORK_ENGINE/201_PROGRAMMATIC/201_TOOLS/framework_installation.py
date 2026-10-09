@@ -14,15 +14,37 @@ import json
 import os
 import re
 import shutil
+import stat
 import subprocess
 import tempfile
 import tomllib
 import uuid
 from collections.abc import Mapping, Sequence
+from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
+from framework_package import (
+    CurrentPackageSelector,
+    FrameworkPackageError,
+    VerifiedFrameworkPackage,
+    verify_current_package_selector,
+    verify_framework_package,
+)
+from installation_context import (
+    InstallationContextError,
+    TargetProjectContext,
+    TargetProjectRequest,
+    bind_target_project_context,
+)
+from project_mcp_configuration import DEFAULT_MEMBER, parse_project_mcp_settings
 from project_runtime import RUNTIME_DIRECTORY, TEMPORARY_DIRECTORY, atomic_tempfile
+from runtime_configuration import (
+    RuntimeConfigurationError,
+    RuntimeConfigurationResult,
+    read_admitted_runtime_default,
+    read_runtime_configuration,
+)
 
 
 SCHEMA_VERSION = 1
@@ -405,6 +427,249 @@ def install_release(
     return installation_status(root)
 
 
+_PACKAGE_CURRENT_RELATIVE = Path(".caprmedio_install/current.toml")
+_PROTECTED_RECEIPT_COMPONENTS = frozenset({"secrets", "credentials", "private_settings"})
+
+
+@dataclass(frozen=True)
+class PortableInstallationRequest:
+    """Explicit portable-package inputs, deliberately without activation intent.
+
+    ``retained_gate_receipt_path`` is an opaque retained receipt carrier.  Its
+    exact bytes must match the digest already bound by the real current-package
+    selector; this facade never accepts a caller boolean or renders a gate.
+    """
+
+    target: TargetProjectRequest
+    retained_gate_receipt_path: Path | str
+    runtime_default_member: str = DEFAULT_MEMBER
+
+
+@dataclass(frozen=True)
+class PortableInstallationPreparation:
+    """Read-only result for a future, gate-aware publication adapter."""
+
+    target_context: TargetProjectContext
+    package: VerifiedFrameworkPackage
+    selector: CurrentPackageSelector
+    gate_receipt_sha256: str
+    runtime_default_sha256: str
+    configuration: RuntimeConfigurationResult
+    status: str
+    blocker: str
+
+
+@dataclass(frozen=True)
+class _PortableTargetRoot:
+    """Selected Project root retained as an inode-checked read anchor."""
+
+    path: Path
+    device: int
+    inode: int
+
+
+def _portable_root(request: PortableInstallationRequest) -> _PortableTargetRoot:
+    if not isinstance(request.target, TargetProjectRequest):
+        raise InstallationError("portable-target-invalid", "portable installation requires a typed target request")
+    try:
+        supplied = Path(request.target.target_root).expanduser()
+        if not supplied.is_absolute() or ".." in supplied.parts:
+            raise InstallationError("portable-target-invalid", "target Project root must be an explicit absolute path")
+        root = Path(os.path.abspath(supplied))
+        if any(candidate.is_symlink() for candidate in (root, *root.parents)):
+            raise InstallationError("portable-target-invalid", "target Project root has a symlink ancestor")
+        observed = root.lstat()
+    except InstallationError:
+        raise
+    except (OSError, TypeError, ValueError) as error:
+        raise InstallationError("portable-target-invalid", "target Project root is unavailable") from error
+    if stat.S_ISLNK(observed.st_mode) or not stat.S_ISDIR(observed.st_mode):
+        raise InstallationError("portable-target-invalid", "target Project root is unsafe")
+    return _PortableTargetRoot(path=root, device=observed.st_dev, inode=observed.st_ino)
+
+
+def _open_target_root(root: _PortableTargetRoot) -> int:
+    """Open the validated Project path one no-follow component at a time."""
+
+    flags = os.O_RDONLY | os.O_CLOEXEC | os.O_NOFOLLOW | os.O_DIRECTORY
+    try:
+        descriptor = os.open(root.path.anchor, flags)
+    except OSError as error:
+        raise InstallationError("portable-target-invalid", "target Project root cannot be safely opened") from error
+    try:
+        for component in root.path.parts[1:]:
+            try:
+                next_descriptor = os.open(component, flags, dir_fd=descriptor)
+            except OSError as error:
+                raise InstallationError("portable-target-invalid", "target Project root changed while reopening") from error
+            os.close(descriptor)
+            descriptor = next_descriptor
+        observed = os.fstat(descriptor)
+        if (observed.st_dev, observed.st_ino) != (root.device, root.inode) or not stat.S_ISDIR(observed.st_mode):
+            raise InstallationError("portable-target-invalid", "target Project root changed while reopening")
+        return descriptor
+    except BaseException:
+        os.close(descriptor)
+        raise
+
+
+def _read_target_regular_carrier(root: _PortableTargetRoot, relative: Path, *, label: str) -> bytes:
+    """Read one Project-contained regular carrier with no pathname following."""
+
+    if relative.is_absolute() or not relative.parts or any(part in {"", ".", ".."} for part in relative.parts):
+        raise InstallationError("portable-carrier-invalid", f"{label} must be a Project-contained carrier")
+    directory_flags = os.O_RDONLY | os.O_CLOEXEC | os.O_NOFOLLOW | os.O_DIRECTORY
+    file_flags = os.O_RDONLY | os.O_CLOEXEC | os.O_NOFOLLOW
+    directory_fd = _open_target_root(root)
+    try:
+        for component in relative.parts[:-1]:
+            try:
+                next_fd = os.open(component, directory_flags, dir_fd=directory_fd)
+            except OSError as error:
+                raise InstallationError("portable-carrier-invalid", f"{label} has an unsafe Project ancestor") from error
+            os.close(directory_fd)
+            directory_fd = next_fd
+        try:
+            descriptor = os.open(relative.name, file_flags, dir_fd=directory_fd)
+        except FileNotFoundError as error:
+            raise InstallationError("portable-carrier-missing", f"{label} is missing") from error
+        except OSError as error:
+            raise InstallationError("portable-carrier-invalid", f"{label} cannot be safely opened") from error
+        try:
+            observed = os.fstat(descriptor)
+            if not stat.S_ISREG(observed.st_mode) or observed.st_nlink != 1:
+                raise InstallationError("portable-carrier-invalid", f"{label} must be an unaliased regular file")
+            chunks: list[bytes] = []
+            while chunk := os.read(descriptor, 65536):
+                chunks.append(chunk)
+            return b"".join(chunks)
+        finally:
+            os.close(descriptor)
+    finally:
+        os.close(directory_fd)
+
+
+def _retained_gate_receipt(root: _PortableTargetRoot, value: Path | str, selector: CurrentPackageSelector) -> str:
+    try:
+        receipt = Path(value)
+        if not receipt.is_absolute() or not receipt.is_relative_to(root.path):
+            raise InstallationError("portable-gate-invalid", "retained gate receipt must be an explicit Project-contained carrier")
+        relative = receipt.relative_to(root.path)
+        if any(
+            component.lower() in _PROTECTED_RECEIPT_COMPONENTS
+            or component.lower().startswith(".env")
+            or component.lower().endswith(".env")
+            for component in relative.parts
+        ):
+            raise InstallationError("portable-gate-invalid", "retained gate receipt path is protected")
+    except InstallationError:
+        raise
+    except (TypeError, ValueError) as error:
+        raise InstallationError("portable-gate-invalid", "retained gate receipt path is invalid") from error
+    payload = _read_target_regular_carrier(root, relative, label="retained full gate receipt")
+    actual = hashlib.sha256(payload).hexdigest()
+    if actual != selector.full_gate_receipt_sha256:
+        raise InstallationError("portable-gate-mismatch", "retained full gate receipt differs from the selected package gate")
+    return actual
+
+
+def _admitted_runtime_default(package: VerifiedFrameworkPackage, member: str) -> str:
+    try:
+        runtime_default = read_admitted_runtime_default(
+            package,
+            default_member=member,
+            validator=parse_project_mcp_settings,
+        )
+    except RuntimeConfigurationError as error:
+        message = (
+            "runtime default is not an admitted package default"
+            if error.code == "runtime-config-default-not-admitted"
+            else "admitted runtime default cannot be reopened as compatible Project-MCP configuration"
+        )
+        raise InstallationError(
+            "portable-default-invalid",
+            message,
+        ) from error
+    return runtime_default.sha256
+
+
+def prepare_portable_installation(request: PortableInstallationRequest) -> PortableInstallationPreparation:
+    """Reopen the complete portable-install inputs without publishing anything.
+
+    The legacy Tool-only installer above remains unchanged.  This new boundary
+    intentionally stops before configuration creation, selector replacement,
+    wrapper generation, Skill publication, or runtime activation because the
+    package selector's receipt digest is not itself a Full Gate verifier.
+    """
+    if not isinstance(request, PortableInstallationRequest):
+        raise InstallationError("portable-request-invalid", "portable installation requires a typed request")
+    root = _portable_root(request)
+    try:
+        context = bind_target_project_context(request.target)
+    except InstallationContextError as error:
+        raise InstallationError("portable-context-invalid", "target context could not be reopened") from error
+    try:
+        package = verify_framework_package(request.target.package_root)
+    except FrameworkPackageError as error:
+        raise InstallationError("portable-package-invalid", "physical Framework package could not be reopened") from error
+    if (
+        package.manifest_digest != context.package_evidence.package_manifest_sha256
+        or package.source_catalog_sha256 != context.package_evidence.catalog_sha256
+    ):
+        raise InstallationError("portable-package-mismatch", "target context no longer binds the reopened Framework package")
+    selector_payload = _read_target_regular_carrier(root, _PACKAGE_CURRENT_RELATIVE, label="current package selector")
+    try:
+        selector = verify_current_package_selector(selector_payload, package)
+    except FrameworkPackageError as error:
+        raise InstallationError("portable-selector-invalid", "current package selector is not admitted for the reopened package") from error
+    receipt_sha256 = _retained_gate_receipt(root, request.retained_gate_receipt_path, selector)
+    default_sha256 = _admitted_runtime_default(package, request.runtime_default_member)
+    try:
+        configuration = read_runtime_configuration(root.path, validator=parse_project_mcp_settings)
+    except RuntimeConfigurationError as error:
+        raise InstallationError("portable-configuration-invalid", "target runtime configuration cannot be reopened") from error
+    blocker = (
+        "runtime-configuration-migration-needed"
+        if configuration.state == "blocked"
+        else "full-gate-verifier-unavailable"
+    )
+    return PortableInstallationPreparation(
+        target_context=context,
+        package=package,
+        selector=selector,
+        gate_receipt_sha256=receipt_sha256,
+        runtime_default_sha256=default_sha256,
+        configuration=configuration,
+        status="blocked",
+        blocker=blocker,
+    )
+
+
+def initialize_portable_runtime_configuration(
+    request: PortableInstallationRequest,
+    *,
+    owner_run_id: str,
+    command_sha256: str,
+) -> PortableInstallationPreparation:
+    """Refuse mutable configuration publication until a Full Gate adapter exists.
+
+    Arguments for a future per-Project publication lock are retained in this
+    narrow API, but deliberately not used to create a lock or write config: a
+    selector digest cannot stand in for the Full Gate receipt verifier.
+    """
+    if not isinstance(owner_run_id, str) or not owner_run_id:
+        raise InstallationError("portable-owner-invalid", "configuration initialization needs an owner run ID")
+    if not isinstance(command_sha256, str) or SHA256.fullmatch(command_sha256) is None:
+        raise InstallationError("portable-command-invalid", "configuration initialization needs a command digest")
+    preparation = prepare_portable_installation(request)
+    if preparation.blocker == "runtime-configuration-migration-needed":
+        raise InstallationError("portable-configuration-blocked", "target runtime configuration requires migration")
+    raise InstallationError(
+        "portable-full-gate-verifier-unavailable",
+        "cannot initialize target configuration until a retained full gate verifier is available",
+    )
+
+
 __all__ = [
     "InstallationError",
     "PACKAGE",
@@ -417,8 +682,12 @@ __all__ = [
     "TRIGGER_ENTRYPOINT",
     "canonical_json",
     "digest",
+    "PortableInstallationPreparation",
+    "PortableInstallationRequest",
+    "initialize_portable_runtime_configuration",
     "install_release",
     "installation_status",
+    "prepare_portable_installation",
     "resolve_repository",
     "source_inventory",
 ]
