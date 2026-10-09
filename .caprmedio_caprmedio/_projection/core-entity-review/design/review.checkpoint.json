@@ -1,8 +1,8 @@
 {
   "baseline_inventory_sha256": "23394abaf6e9c18a585cf3146aedd0a80df166c9dd82be6e86ed7c3c56780bdc",
-  "checkpoint_sha256": "c998e615a603536a38c69925e641daba43b82a1d43f647265e1775c0340cf750",
+  "checkpoint_sha256": "646edaa5acbb6addbb3854a6e9947d9fdad10ca26224fa976c25a31339de3321",
   "complete_second_context_batch": true,
-  "design_complete": false,
+  "design_complete": true,
   "files": [
     {
       "bytes": 92463,
@@ -295,9 +295,9 @@
     },
     {
       "authored_handoff": true,
-      "bytes": 2595,
+      "bytes": 3544,
       "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/README.md",
-      "sha256": "28b77e82efd190077e4ab6156eadfa73a360f7c6ff5c1a0f9f7cd013a623b37d",
+      "sha256": "0a8c6f46b32b7eebd975f7e5edc8bd9858a3d6bf689e8a91e9369d9ca4cc8912",
       "source_path": ".caprmedio_caprmedio/_projection/core-entity-review/design/README.md"
     },
     {
@@ -320,11 +320,51 @@
       "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/support/join_reviewed_batch6.py",
       "sha256": "5a34f1b7868f760eb29008a958514baa875280d2ba6fb3e55a282c37439fc491",
       "source_path": ".caprmedio_tmp/planning/core-entity-review/join_reviewed_batch6.py"
+    },
+    {
+      "authored_handoff": false,
+      "bytes": 11256032,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/relations.ledger.json",
+      "sha256": "6ec53f14e64280815e5f57f8d00598913bc26b342102ca3acce5a7f4221d10bd",
+      "source_path": ".caprmedio_tmp/planning/core-entity-review/design/relations.ledger.json"
+    },
+    {
+      "authored_handoff": false,
+      "bytes": 2674415,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/candidate.structure.json",
+      "sha256": "eda055c887706454cfd2d52bee7196a818e8eb0b8e1710d587fcfc4ffa8d9071",
+      "source_path": ".caprmedio_tmp/planning/core-entity-review/design/candidate.structure.json"
+    },
+    {
+      "authored_handoff": false,
+      "bytes": 23050,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/support/build_relation_ledger_ca_p_1921.py",
+      "sha256": "e61da9e7889a19fc384ceb7af411ed35784127c86a92a5648b89bc41f9273b0c",
+      "source_path": ".caprmedio_tmp/planning/core-entity-review/design/build_relation_ledger_ca_p_1921.py"
+    },
+    {
+      "authored_handoff": true,
+      "bytes": 7393,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/design.acceptance.md",
+      "sha256": "0f4be552ae859ce959360525b55366af04c31ca88bcc44c551f54befe599df11",
+      "source_path": ".caprmedio_caprmedio/_projection/core-entity-review/design/design.acceptance.md"
+    },
+    {
+      "authored_handoff": true,
+      "bytes": 2872,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/operator.decisions.md",
+      "sha256": "53eeb7a3fdaa002cd05170fe185cfb5baeea72814a1f32567d8eea6f56ac65cb",
+      "source_path": ".caprmedio_caprmedio/_projection/core-entity-review/design/operator.decisions.md"
     }
   ],
   "format_cleanup": "Removed one trailing empty line from the overview tree; semantics and all pointer data are unchanged.",
+  "independent_acceptance": {
+    "outcome": "PASS",
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/design.acceptance.md",
+    "sha256": "0f4be552ae859ce959360525b55366af04c31ca88bcc44c551f54befe599df11"
+  },
   "non_authoritative": true,
-  "pending": "Complete design integration/verification; separate Journal-storage interpretation remains unadopted.",
+  "pending": "Whole-node review, candidate presentation/adoption and separately authorized migration; Journal-only storage rule is not adopted.",
   "projection_kind": "caprmedio.core_graph_design.verified_review_checkpoint",
   "semantic_admission": "not_performed",
   "source_binding": {

@@ -9,15 +9,15 @@ claim_target_scope_unit: caprmedio
 local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
-status: Active
+status: Done
 subjects:
   governs: Projection
   depends_on: [Entity, Term, Atom, Property, Carrier, Plan]
-version: 6
-updated_at: "2026-10-10 02:49:20 +0400"
+version: 9
+updated_at: "2026-10-10 03:23:33 +0400"
 relations:
   is_decomposition_of: [CA-P-1872]
-  blocks: [CA-P-1907]
+  blocks: [CA-P-1907, CA-P-1928, CA-P-1929, CA-P-1930, CA-P-1931, CA-P-1932, CA-P-1933, CA-P-1934, CA-P-1935, CA-P-1936]
 ---
 # Summary
 
@@ -65,16 +65,26 @@ Exclusive scope: read baseline and Core definitions; write candidate structure a
 | [CA-P-1918](22-CA-P-1906-TASK--design-continuant-occurrent-groups-and-inherited-constraints/done/06-CA-P-1918-TASK--review-second-context-and-operation-relation-batch.md) | Review second context and operation relation batch | 15 min |
 | [CA-P-1919](22-CA-P-1906-TASK--design-continuant-occurrent-groups-and-inherited-constraints/done/07-CA-P-1919-TASK--design-core-temporal-groups-and-inherited-constraints.md) | Design Core temporal groups and inherited constraints | 15 min |
 | [CA-P-1920](22-CA-P-1906-TASK--design-continuant-occurrent-groups-and-inherited-constraints/done/08-CA-P-1920-TASK--design-parallel-and-entity-centered-rmed-views.md) | Design parallel and Entity centered RMED views | 15 min |
-| [CA-P-1921](22-CA-P-1906-TASK--design-continuant-occurrent-groups-and-inherited-constraints/09-CA-P-1921-TASK--integrate-the-source-pinned-core-relation-ledger.md) | Integrate the source pinned Core relation ledger | 15 min |
-| [CA-P-1922](22-CA-P-1906-TASK--design-continuant-occurrent-groups-and-inherited-constraints/10-CA-P-1922-TASK--verify-the-core-grouping-and-relation-design.md) | Verify the Core grouping and relation design | 15 min |
+| [CA-P-1921](22-CA-P-1906-TASK--design-continuant-occurrent-groups-and-inherited-constraints/done/09-CA-P-1921-TASK--integrate-the-source-pinned-core-relation-ledger.md) | Integrate the source pinned Core relation ledger | 15 min |
+| [CA-P-1922](22-CA-P-1906-TASK--design-continuant-occurrent-groups-and-inherited-constraints/done/10-CA-P-1922-TASK--verify-the-core-grouping-and-relation-design.md) | Verify the Core grouping and relation design | 15 min |
 
 CA-P-1913 through CA-P-1920 may run in parallel after CA-P-1905 is Done. CA-P-1921 starts only after all eight are Done; CA-P-1922 starts only after CA-P-1921 is Done. This explicit BLOCKS model, not navigation or decomposition, controls execution. Temporary batch outputs are preserved in the durable verified handoff before their receipts are recorded. The six sorted case-ID partitions must cover each of the 294 old slash cases exactly once.
 
 Inherit CA-P-1872's explicit 90% confidence threshold and local-without-MCP authorization. Ask the Operator before deciding below that threshold; do not disguise uncertainty as an accepted fact. If the ready workload exceeds 15 minutes, split it into bounded direct child Plans before execution. The children are created before execution; their outputs remain proposed design, not candidate acceptance.
 
-### Current execution checkpoint
+### Verified execution receipt
 
-CA-P-1913–1920 are Done with durable evidence in `.caprmedio_caprmedio/_projection/core-entity-review/design/`. The complete 65-case second context join is independently verified. The Operator confirmed Actor, Carrier and Scope Unit as Continuant by display convention; the updated structure independently reproduces with 17 Continuant and three Occurrent memberships. Session remains an unassessed example, and no ephemerality or Journal-only storage rule is adopted. CA-P-1921 is ready for complete ledger integration; CA-P-1922 has not started. This parent remains Active; CA-P-1907 is not ready.
+All ten direct Tasks CA-P-1913–1922 are Done. The full independently verified design is saved under `.caprmedio_caprmedio/_projection/core-entity-review/design/`: `relations.ledger.json`, `candidate.structure.json`, both RMED views, bounded structure, every batch review and `design.acceptance.md`.
+
+- Coverage: 706 unchanged baseline identities, 4534 source occurrences and 3093 original relation segments.
+- Reviews: 294 slash cases; 247 not-native and 47 unresolved; zero native slash proposals.
+- Display: 236 evidenced complete-chain rebases, 123 blocked chains retaining original identities and 347 unchanged paths; no aliases or collisions.
+- Structure: 17 Continuant and three Occurrent memberships; ten separate Term-taxonomy proposals and seven conditional common constraints. Whole-node disposition remains CA-P-1907 work, not an implied result of this receipt.
+- Verification: all 951 source pins and current frontier/profile match; 317 Main Content evidence checks and exact output/view reproduction pass independently.
+
+This Plan's File Carrier and matching Directory Carrier move together to the Epic's local `done/` container; descendant Status is unchanged. Stable Atom-ID/hash prerequisite locators continue to reproduce the design after that move. The older archived-helper entrypoint caveat remains explicit. No Core, Subjects, baseline, history, native admission or runtime changes occurred. Candidate adoption and sealed migration approval are still required.
+
+CA-P-1907 and its nine review children are now ready. The newer Operator-selected Substance and default Scope-omission rule are candidate directions for that phase, not retroactive Core proof or changes to this frozen design.
 
 ### Definition of Done
 

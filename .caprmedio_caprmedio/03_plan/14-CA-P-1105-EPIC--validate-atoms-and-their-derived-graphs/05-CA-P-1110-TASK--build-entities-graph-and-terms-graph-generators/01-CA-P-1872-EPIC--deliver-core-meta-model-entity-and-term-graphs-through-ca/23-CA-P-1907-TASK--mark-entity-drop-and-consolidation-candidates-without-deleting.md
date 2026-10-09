@@ -9,13 +9,12 @@ claim_target_scope_unit: caprmedio
 local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
-assignee: AI Agent
 status: Active
 subjects:
   governs: Projection
   depends_on: [Entity, Term, Atom, Property, Carrier, Plan]
-version: 3
-updated_at: "2026-10-10 01:17:19 +0400"
+version: 4
+updated_at: "2026-10-10 03:21:47 +0400"
 relations:
   is_decomposition_of: [CA-P-1872]
   blocks: [CA-P-1908]
@@ -30,7 +29,7 @@ Review every Entity in the proposed graph for dropping, consolidation or general
 
 ## Details
 
-Estimated own work: 15 minutes. Assignee: AI Agent.
+Child work only; no separately executable own work. Nine source-pinned review batches precede integration and independent verification.
 
 Required start prerequisite: CA-P-1906. Inputs: CA-P-1905's pinned inventory and CA-P-1906's proposed structure, inheritance map and complete relation-occurrence ledger.
 
@@ -51,6 +50,24 @@ Output: a complete node-disposition ledger, updated complete relation-occurrence
 Exclusive scope: candidate annotations and review evidence only. No source, Subject, schema, implementation or historical-artifact deletions or migrations.
 
 Inherit CA-P-1872's explicit 90% confidence threshold and local-without-MCP authorization. Ask the Operator before deciding below that threshold; do not disguise uncertainty as an accepted fact. If the ready workload exceeds 15 minutes, split it into bounded direct child Plans before execution. These Tasks are created now; their work has not started.
+
+### Bounded direct Tasks
+
+The 62 explicit Substance/Revision/Projection identities are reviewed separately; the other 644 identities form eight disjoint sorted partitions. Each original identity appears exactly once. All nine reviews start only after CA-P-1906 is Done. They explicitly BLOCK CA-P-1937; integration BLOCKS independent verification CA-P-1938. This parent remains Active until every child is Done and its own Definition of Done is satisfied.
+
+- [CA-P-1928](23-CA-P-1907-TASK--mark-entity-drop-and-consolidation-candidates-without-deleting/01-CA-P-1928-TASK--review-substance-revision-and-compiled-projection-candidates.md): Review Substance Revision and compiled Projection candidates (62 nodes); 15 minutes.
+- [CA-P-1929](23-CA-P-1907-TASK--mark-entity-drop-and-consolidation-candidates-without-deleting/02-CA-P-1929-TASK--review-first-core-node-disposition-batch.md): Review first Core node disposition batch (80 nodes); 15 minutes.
+- [CA-P-1930](23-CA-P-1907-TASK--mark-entity-drop-and-consolidation-candidates-without-deleting/03-CA-P-1930-TASK--review-second-core-node-disposition-batch.md): Review second Core node disposition batch (81 nodes); 15 minutes.
+- [CA-P-1931](23-CA-P-1907-TASK--mark-entity-drop-and-consolidation-candidates-without-deleting/04-CA-P-1931-TASK--review-third-core-node-disposition-batch.md): Review third Core node disposition batch (80 nodes); 15 minutes.
+- [CA-P-1932](23-CA-P-1907-TASK--mark-entity-drop-and-consolidation-candidates-without-deleting/05-CA-P-1932-TASK--review-fourth-core-node-disposition-batch.md): Review fourth Core node disposition batch (81 nodes); 15 minutes.
+- [CA-P-1933](23-CA-P-1907-TASK--mark-entity-drop-and-consolidation-candidates-without-deleting/06-CA-P-1933-TASK--review-fifth-core-node-disposition-batch.md): Review fifth Core node disposition batch (80 nodes); 15 minutes.
+- [CA-P-1934](23-CA-P-1907-TASK--mark-entity-drop-and-consolidation-candidates-without-deleting/07-CA-P-1934-TASK--review-sixth-core-node-disposition-batch.md): Review sixth Core node disposition batch (81 nodes); 15 minutes.
+- [CA-P-1935](23-CA-P-1907-TASK--mark-entity-drop-and-consolidation-candidates-without-deleting/08-CA-P-1935-TASK--review-seventh-core-node-disposition-batch.md): Review seventh Core node disposition batch (80 nodes); 15 minutes.
+- [CA-P-1936](23-CA-P-1907-TASK--mark-entity-drop-and-consolidation-candidates-without-deleting/09-CA-P-1936-TASK--review-eighth-core-node-disposition-batch.md): Review eighth Core node disposition batch (81 nodes); 15 minutes.
+- [CA-P-1937](23-CA-P-1907-TASK--mark-entity-drop-and-consolidation-candidates-without-deleting/10-CA-P-1937-TASK--integrate-the-complete-core-node-disposition-review.md): Integrate the complete Core node disposition review; 15 minutes.
+- [CA-P-1938](23-CA-P-1907-TASK--mark-entity-drop-and-consolidation-candidates-without-deleting/11-CA-P-1938-TASK--verify-the-complete-core-node-disposition-review.md): Verify the complete Core node disposition review; 15 minutes.
+
+Latest content direction: use Substance as the shared primary-content name, with Substance Scope describing applicability and optional general Details. Explicit Substance Scope may be omitted only for the whole governed Subject AND the whole owning Scope Unit; omission resolves that default. Preserve ownership metadata, role-specific labels and type-required content. Review this in the candidate only; do not rewrite Core or treat the new direction as old source evidence.
 
 ### Definition of Done
 

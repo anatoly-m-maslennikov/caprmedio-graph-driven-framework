@@ -25,8 +25,8 @@ subjects:
     - Action
     - Journal
     - Plan
-version: 13
-updated_at: "2026-10-10 02:49:20 +0400"
+version: 15
+updated_at: "2026-10-10 03:23:33 +0400"
 relations:
   is_decomposition_of:
     - CA-P-1110
@@ -50,7 +50,7 @@ The Operator replaced the immediate execution plan on 2026-10-09. Do these steps
 3. **Give the Operator the new graph candidate.** Present the grouped, inherited and visibly marked candidate in compact notation using `/`, `.`, `:` and `@`. Use NARROWER_THAN, IS_BORNE_BY, IS_ALLOWED_VALUE_OF and IS_CARRIED_BY with correct directions and qualified identities. Hand off its complete relation ledger, node dispositions, exact source pins and candidate hash. Preserve the baseline. Candidate delivery is not acceptance. Only after an explicit Operator decision tied to that candidate may CA-P-1909 apply accepted decisions to a separate derived graph and verify it.
 4. **Update Atom Subjects.** Only after explicit Operator acceptance and verification of the separate accepted graph may CA-P-1910 prepare the exact migration preview. CA-P-1911 may write the confirmed `/`, `.` and `:` notation and required grammar/revision changes only after separate Operator authorization of that sealed preview. CA-P-1912 then rebuilds and verifies reproduction of the accepted graph with its source-backed relation evidence. The display operator `@` is not automatically added to Subject grammar.
 
-Step **1 is complete**. Step **2 is in progress**: CA-P-1905's current baseline review is Done; CA-P-1906 candidate design is in progress; the slash reviews and both RMED pointer views are saved, while complete design integration remains pending. Steps 3–4 remain pending. Earlier classification drafts and migration code are preparation only, not accepted decisions or source updates. The approved compact graph notation is `/` for broader-to-narrower, `.` for bearer qualification, `:` for allowed values and `@` for IS_CARRIED_BY; step 1 does not apply it to old `/` occurrences. Exact `@` bindings identify the carried state and Carrier rather than assigning a Property value.
+Step **1 is complete**. Step **2 is in progress**: CA-P-1905's current baseline review is Done; CA-P-1906 candidate design is Done with complete independently verified ledger and both RMED views; whole-node disposition review CA-P-1907 is ready. Steps 3–4 remain pending. Earlier classification drafts and migration code are preparation only, not accepted decisions or source updates. The approved compact graph notation is `/` for broader-to-narrower, `.` for bearer qualification, `:` for allowed values and `@` for IS_CARRIED_BY; step 1 does not apply it to old `/` occurrences. Exact `@` bindings identify the carried state and Carrier rather than assigning a Property value.
 
 This sequence governs the immediate local work without MCP. A mechanical projection is not native semantic admission, a live MCP Run or completion of the whole Epic. The existing MCP delivery work remains separate and pending.
 
@@ -102,7 +102,7 @@ CA-P-1905–1908 refine steps 2–3 above. Their outputs remain proposals for Op
 
 ### Bounded candidate-design decomposition
 
-CA-P-1906 is now a composite with no separately executable own work. Eight ready review children cover six disjoint slash-case batches, grouping/inheritance and both RMED views. They require CA-P-1905 Done and explicitly BLOCK CA-P-1921. Integration then BLOCKS independent verification CA-P-1922. CA-P-1906 remains Active until every child is Done and its Definition of Done is satisfied; CA-P-1907 cannot start earlier. The existing candidate acceptance and sealed migration gates are unchanged.
+CA-P-1906 is now a composite with no separately executable own work. Eight ready review children cover six disjoint slash-case batches, grouping/inheritance and both RMED views. They require CA-P-1905 Done and explicitly BLOCK CA-P-1921. Integration then BLOCKS independent verification CA-P-1922. CA-P-1906 is now Done after every child and its Definition of Done were verified; CA-P-1907 and its bounded review children are ready. The existing candidate acceptance and sealed migration gates are unchanged.
 
 CA-P-1918's first bounded pass retained 16 reviewed display-only interpretations and 49 unreviewed checkpoint rows. Its remaining review was split into CA-P-1923–1926 (13/12/12/12 cases), followed by CA-P-1927's complete 65-case join. All five children and CA-P-1918 are now Done after independent verification. The complete original baseline and previous checkpoint remain preserved.
 
@@ -110,9 +110,17 @@ CA-P-1918's first bounded pass retained 16 reviewed display-only interpretations
 
 Both requested compact views are saved under `.caprmedio_caprmedio/_projection/core-entity-review/design/`: `rmed.roles.indented.txt` and `rmed.entities.indented.txt`. Independent read-only acceptance verified their complete pointer accounting, exact source contribution locators and reproduction. They are associated pointer views, not proof of semantic applicability.
 
-All 294 old slash cases now have bounded current-content reviews: 247 do not assert a native relation; 47 remain explicit unresolved questions; 189 have evidenced display-only qualification candidates. No old slash was admitted as a native relation. These complete case reviews are not yet the required 3093-segment joined design ledger.
+All 294 old slash cases now have bounded current-content reviews: 247 do not assert a native relation; 47 remain explicit unresolved questions; 189 have evidenced display-only qualification candidates. No old slash was admitted as a native relation. The joined design ledger now preserves every one of the 3093 original segments and is independently verified.
 
-The second context batch is separately joined and verified. The ten new Term-taxonomy proposals and seven conditional shared constraints remain candidate design. The Operator confirmed Actor, Carrier and Scope Unit under Continuant as a display convention. CA-P-1919 is Done: 17 Continuant and three Occurrent memberships, 24 assessed identities and 682 outside this bounded review. Session is a proposed Occurrent example, not a newly admitted baseline identity. No ephemerality or Journal-only storage rule is adopted. CA-P-1906, full design integration and whole-node disposition remain incomplete. Core, Subjects and the Step 1 baseline are unchanged. Candidate acceptance and separate sealed migration authorization are still required.
+The second context batch is separately joined and verified. The ten new Term-taxonomy proposals and seven conditional shared constraints remain candidate design. The Operator confirmed Actor, Carrier and Scope Unit under Continuant as a display convention. CA-P-1919 is Done: 17 Continuant and three Occurrent memberships, 24 assessed identities and 682 outside this bounded review. Session is a proposed Occurrent example, not a newly admitted baseline identity. No ephemerality or Journal-only storage rule is adopted. CA-P-1906 and full design integration are Done; whole-node disposition remains incomplete. Core, Subjects and the Step 1 baseline are unchanged. Candidate acceptance and separate sealed migration authorization are still required.
+
+### Latest Operator content direction: Substance
+
+The Operator clarified that the content consists of the primary content, its applicability Scope and optional Details, then chose Substance as the umbrella name. Review the candidate content pattern as Substance, Substance Scope and Details. This is about the content, not Atom ownership. Keep Summary, Status and owning Scope Unit metadata separate.
+
+Use role-specific presentation labels: Claim for RMED, Objective for Plan, Question for Analysis, Issue for Concern and Operation for Operations. Do not create independent model roots solely for those labels. Review generalizing the current generic Claim and its qualified paths to Substance while preserving every old identity and source pin. Explicit Substance Scope may be omitted only when it covers the whole governed Subject AND the whole owning Scope Unit. Omission retains that resolved default; either restriction requires explicit Scope. Current mandatory role/type content, such as Plan Definition of Done and Analysis results, needs explicit reconciliation; optional general Details does not silently erase it.
+
+The derived decision record is `.caprmedio_caprmedio/_projection/core-entity-review/design/operator.decisions.md`. It records current Operator direction separately from Core evidence. No Core, Subject, YAML-key or native relation change is adopted here.
 
 ### Current local execution evidence
 
@@ -230,7 +238,7 @@ Each leaf has one AI Agent Assignee and <=15 minutes of hands-on work. Composite
 | [CA-P-1895](01-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/16-CA-P-1895-TASK--generate-the-current-core-term-graph-through-mcp.md) | Generate the current Core term graph through MCP | 10 min |
 | [CA-P-1896](01-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/17-CA-P-1896-TASK--verify-and-hand-off-both-core-graph-outputs.md) | Verify and hand off both Core graph outputs | 5 min |
 | [CA-P-1905](01-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/done/21-CA-P-1905-TASK--review-current-entities-graph-from-active-core-meta-model.md) | Review current Entities Graph from Active Core Meta-model | Done |
-| [CA-P-1906](01-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/22-CA-P-1906-TASK--design-continuant-occurrent-groups-and-inherited-constraints.md) | Design Continuant Occurrent groups and inherited constraints | Child work only |
+| [CA-P-1906](01-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/done/22-CA-P-1906-TASK--design-continuant-occurrent-groups-and-inherited-constraints.md) | Design Continuant Occurrent groups and inherited constraints | Child work only |
 | [CA-P-1907](01-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/23-CA-P-1907-TASK--mark-entity-drop-and-consolidation-candidates-without-deleting.md) | Mark Entity drop and consolidation candidates without deleting | 15 min |
 | [CA-P-1908](01-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/24-CA-P-1908-TASK--present-compact-entities-graph-candidate-for-operator-review.md) | Present compact Entities Graph candidate for Operator review | 15 min |
 | [CA-P-1909](01-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/25-CA-P-1909-TASK--build-and-verify-the-accepted-core-entities-graph.md) | Build and verify the accepted Core Entities Graph | 15 min |
