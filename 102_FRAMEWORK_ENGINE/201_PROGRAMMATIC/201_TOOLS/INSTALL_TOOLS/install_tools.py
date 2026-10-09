@@ -8,7 +8,6 @@ import importlib.util
 import json
 import os
 import shlex
-import shutil
 import subprocess
 import sys
 from collections.abc import Mapping, Sequence
@@ -232,17 +231,13 @@ def _legacy_codex_link(root: Path) -> tuple[bool, str | None]:
 
 
 def _remove_legacy_installation(root: Path) -> list[str]:
-    removed: list[str] = []
-    for relative in (
-        Path(".caprmedio_install"),
-        Path(".caprmedio_runtime/installed"),
-        Path(".caprmedio_runtime/hooks"),
-    ):
-        target = root / relative
-        if target.is_dir() and not target.is_symlink():
-            shutil.rmtree(target)
-            removed.append(relative.as_posix())
-    return removed
+    """Keep legacy carriers; installation is not cleanup authorization.
+
+    The shared installation root can contain current packages, process state,
+    and historical receipts. Its retirement requires a separate, exact-target
+    cleanup operation after verified migration, never a recursive install step.
+    """
+    return []
 
 
 def _restore_text_carrier(path: Path, previous: bytes | None) -> None:
