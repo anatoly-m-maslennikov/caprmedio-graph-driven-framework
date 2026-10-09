@@ -10,8 +10,8 @@ local_tier: Standard
 global_tier: 2
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-09 12:12:13 +0000"
+version: 3
+updated_at: "2026-10-10 01:12:42 +0400"
 subjects:
   governs: "CAPRMEDIO Framework Instance"
   depends_on:
@@ -46,9 +46,9 @@ the AI Agent verifies the installed local release **and** completes **only** its
 ## Details
 
 - scope: the installation/release contribution of the CAPRMEDIO Framework Instance delivered by the caprmedio Project.
-- input: the local release Run, installed package/runtime selectors, Methodology projection, Docker container/image identity, ca Skill **and** prior-selection recovery evidence.
+- input: the local release Run, installed package/runtime selectors, Methodology projection, Docker container/image identity, ca Skill and migration/transaction evidence.
 - verify package-bound execution **without** the checkout, installed Methodology completeness/provenance, uv isolation, ca installation, MCP initialization, parallel Tool/Operation discovery, installed read-only Tool execution **and** healthy idempotent reuse. prove that the per-Project installation lock agrees **with** **every** selector/wrapper, the running service generation, image **and** local release evidence.
-- verify migration recovery **and** retained N rollback **through** the declared tests/receipts. inspect saved Action/Workflow terminal records; an initialized process **or** queued Run is **not** completion.
+- verify migration recovery and the honest unavailable outcome after a destructive-phase failure through the declared tests/receipts. Inspect saved Action/Workflow terminal records; an initialized process or queued Run is not completion.
 - **after** these checks pass, apply **only** the pre-reviewed consolidation/retention plan. retire obsolete root `101_LAYER_1_FRAMEWORK_METHODOLOGY` delivery bindings/copies **and** unreferenced duplicate staging/images; preserve active/rollback images, other Projects, protected data **and** referenced Journal history.
 - save the honest local release result, full-suite/gate references, source/package/Methodology/image identities, endpoint **and** remaining findings. unresolved essential findings block the public cycle.
 - effort: own work for **=1** AI Agent **must** fit **<=15** minutes. **if** this Plan needs larger own work, decompose it **before** execution **and** preserve its Objective **and** acceptance.
@@ -56,4 +56,4 @@ the AI Agent verifies the installed local release **and** completes **only** its
 
 ### Definition of Done
 
-the Plan is **not** Done **if** live installed execution/discovery fails, required state/rollback evidence is absent, cleanup exceeds the reviewed targets, **or** an essential local release finding remains unresolved.
+the Plan is **not** Done **if** live installed execution/discovery fails, required configuration/Project-owned transaction evidence is absent, cleanup exceeds the reviewed targets, or an essential local release finding remains unresolved.

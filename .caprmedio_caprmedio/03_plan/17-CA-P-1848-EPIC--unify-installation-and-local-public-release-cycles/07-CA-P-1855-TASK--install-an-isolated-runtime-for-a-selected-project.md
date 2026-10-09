@@ -10,8 +10,8 @@ local_tier: Standard
 global_tier: 2
 status: Active
 author: Anatoly Maslennikov
-version: 3
-updated_at: "2026-10-09 17:00:24 +0400"
+version: 4
+updated_at: "2026-10-10 01:12:42 +0400"
 subjects:
   governs: "CAPRMEDIO Framework Instance"
   depends_on:
@@ -48,7 +48,7 @@ the AI Agent implements installation of the selected beta Framework Package into
 - support relocation, Git **and** non-Git Projects, separate repositories **and** multiple Project root folders **in** one repository. package inputs can be reusable; runtime databases, locks, Runs, dependency environments **and** endpoint selection remain per-Project.
 - store **all** runtime settings **in** `.caprmedio_runtime/config.toml`, separate **from** immutable package contents **and** generated installation selectors. create admitted defaults **only if** absent; preserve an existing file byte-for-byte during reinstall, upgrade **and** rollback. configuration compatibility checks **must** precede activation; an incompatible file requires explicit migration **or** blocks activation, **not** replacement. keep Project/Framework Instance Settings authoritative **in** their own existing carriers.
 - bootstrap dependencies **through** uv **and** the lockfile. installed execution **must not** silently fall back to system Python, system libraries, another Project **or** the development checkout. distinguish an explicit development mode **from** normal installed execution.
-- integrate the reviewed legacy-state migration **without** deleting historical evidence. persist **=1** per-Project installation lock that binds package/version, selected extensions/configuration/catalog revisions, package manifest **and** runtime state; **every** selector, wrapper **and** service reads the same lock. test first install **from** fixture Project inputs, same-version reinstall, upgrade, missing uv/input, missing selected revision, interruption, recovery **and** rollback; real cutover occurs **only** **after** the local full-suite gate.
+- integrate the reviewed legacy-state migration without deleting historical evidence. Persist =1 per-Project installation lock that binds package/version, selected extensions/configuration/catalog revisions, package manifest and runtime state; every selector, wrapper and service reads the same lock. After staged validation and explicit quiescence, remove only the selected installed package, install the verified replacement and publish selectors last. Test first install from fixture Project inputs, same-version reinstall, replacement, missing uv/input, missing selected revision, interruption and recovery; a post-removal failure is unavailable with configuration and Project-owned evidence intact, not rollback to a removed package. Real cutover occurs only after the local full-suite gate.
 - effort: own work for **=1** AI Agent **must** fit **<=15** minutes. **if** this Plan needs larger own work, decompose it **before** execution **and** preserve its Objective **and** acceptance.
 - control: use applicable Operator input **and** inherited Framework Instance Settings for permission, confidence **and** retry gates. creation is planned work **only**, **not** permission to execute the local/public cycle immediately.
 
