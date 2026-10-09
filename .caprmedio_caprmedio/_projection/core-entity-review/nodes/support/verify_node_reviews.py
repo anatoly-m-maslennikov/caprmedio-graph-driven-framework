@@ -1,16 +1,17 @@
 """Mechanical evidence and coverage checks; never semantic adoption."""
 import argparse,collections,hashlib,json,pathlib
+from snapshot_sources import read_source, COMMIT
 ROOT=pathlib.Path.cwd();D=ROOT/".caprmedio_caprmedio/_projection/core-entity-review/nodes"
 def sha(b):return hashlib.sha256(b).hexdigest()
 def canon(x):return json.dumps(x,ensure_ascii=False,sort_keys=True,separators=(",",":")).encode()
 CHECKS={"duplicates","redundancy","empty_definition","distinct_meaning","generalization"}
 DISPOSITIONS={"retain","move","inherit","consolidate","generalize","drop_candidate","question"}
-def verify(batch):
- p=D/f"inputs/nodes.batch-{batch}.input.json";inp=json.loads(p.read_bytes())
+def verify(batch,input_path=None,output_path=None):
+ p=pathlib.Path(input_path) if input_path else D/f"inputs/nodes.batch-{batch}.input.json";inp=json.loads(p.read_bytes())
  assert sha(canon({k:v for k,v in inp.items() if k!="partition_sha256"}))==inp["partition_sha256"]
  bpath=ROOT/inp["baseline"]["path"];assert sha(bpath.read_bytes())==inp["baseline"]["sha256"]
  b=json.loads(bpath.read_bytes());pins={s["atom_id"]:s for s in b["source_atoms"]}
- out=D/f"nodes.batch-{batch}.review.json";raw=out.read_bytes();review=json.loads(raw)
+ out=pathlib.Path(output_path) if output_path else D/f"nodes.batch-{batch}.review.json";raw=out.read_bytes();review=json.loads(raw)
  assert review["source_task"]==inp["source_task"] and review["batch"]==batch
  assert review["input_file_sha256"]==sha(p.read_bytes())
  assert review["partition_sha256"]==inp["partition_sha256"]
@@ -23,7 +24,7 @@ def verify(batch):
  cache={}
  def source(aid):
   if aid not in cache:
-   s=pins[aid];raw=(ROOT/s["carrier_path"]).read_bytes();assert sha(raw)==s["carrier_sha256"],aid
+   s=pins[aid];raw=read_source(aid);assert sha(raw)==s["carrier_sha256"],aid
    cache[aid]=(s,raw.decode().splitlines())
   return cache[aid]
  catalogue=review["evidence_catalogue"]
@@ -41,7 +42,12 @@ def verify(batch):
   q="\n".join(lines[start-1:end]);assert e["quote"] in (q,q+"\n"),key
   assert e["text_sha256"]==sha(e["quote"].encode())
   heads=[l for l in lines[:start] if l.startswith(("# ","## ","### "))]
-  assert heads and any(l.startswith(("## Claim","## Scope","## Details","## Operation","## Procedure","## Condition","## Evaluation","## Definition")) for l in heads),key
+  standard_content=any(l.startswith(("## Claim","## Scope","## Details","## Operation","## Procedure","## Condition","## Evaluation","## Definition")) for l in heads)
+  # Captured legacy Actions have a descriptive H1 and body, not a Summary section.
+  # Accept their body evidence without treating the title itself as meaning evidence.
+  legacy_body=(any(l.startswith("# ") and l!="# Summary" for l in heads)
+               and "# Summary" not in lines and not lines[start-1].startswith("#"))
+  assert heads and (standard_content or legacy_body),key
   assert not heads[-1].startswith("# Summary"),key
  for r in rows:
   ident=r["identity"];assert r["disposition"] in DISPOSITIONS,ident
@@ -60,7 +66,7 @@ def verify(batch):
   if r["disposition"] in {"consolidate","generalize","drop_candidate"} and r["confidence_percent"]>=90:
    proposal=r.get("proposal");assert isinstance(proposal,dict) and proposal,ident
    assert r["evidence_refs"],ident
- return {"batch":batch,"identities":len(rows),"dispositions":dict(collections.Counter(r["disposition"] for r in rows)),"evidence_spans":len(catalogue),"current_sources_checked":len(cache),"file_sha256":sha(raw),"mechanical_checks":"pass","semantic_adoption":"not_performed"}
+ return {"batch":batch,"identities":len(rows),"dispositions":dict(collections.Counter(r["disposition"] for r in rows)),"evidence_spans":len(catalogue),"captured_sources_checked":len(cache),"source_context":"captured_snapshot","git_commit":COMMIT,"file_sha256":sha(raw),"mechanical_checks":"pass","semantic_adoption":"not_performed"}
 if __name__=="__main__":
  ap=argparse.ArgumentParser();ap.add_argument("batches",nargs="+",type=int);a=ap.parse_args()
  print(json.dumps([verify(n) for n in a.batches],sort_keys=True))

@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Projection
   depends_on: [Entity, Term, Atom, Property, Carrier, Plan]
-version: 1
-updated_at: "2026-10-10 03:21:47 +0400"
+version: 2
+updated_at: "2026-10-10 03:47:57 +0400"
 relations:
   is_decomposition_of: [CA-P-1907]
 ---
@@ -29,11 +29,13 @@ Independently verify the complete marked node and relation review before candida
 
 ## Details
 
+Review context: the Operator chose **Finish against the captured snapshot only**. Use the original CA-P-1905 source pins and immutable Git commit `a971d0e00c33c779f485fc8cad63194894d440fb`; read `nodes/snapshot.context.md` and `nodes/support/snapshot_sources.py`. CA-D-494 revision 2 remains the review input; live revision 3 is outside this snapshot. Preserve originals and label receipts as captured-snapshot checks, not current-Core checks. Any currentness or source-pin requirement below means exact validity against this selected captured snapshot. Do not silently rebind or overwrite live Core.
+
 Estimated own work: 15 minutes. Assignee: AI Agent.
 
 Required start prerequisite: CA-P-1937. Each required prerequisite explicitly BLOCKS this Task.
 
-Independently verify all nine partitions, 706 node dispositions, five checks per node, actual Main Content pins/spans, every proposed replacement and its documented constraints/history/query effects, and exact preservation of all 3093 original relation segments and 4534 occurrences. Check positive marks are evidenced, missing definitions are not false emptiness proof, and unresolved rows have no invented semantic proposal. Verify exact output reproduction, current Core frontier, both RMED views and all no-source-change boundaries. Record PASS or precise failures in `nodes.acceptance.md`; stale or incomplete checks are not acceptance.
+Independently verify all nine partitions, 706 node dispositions, five checks per node, captured Main Content pins/spans, every proposed replacement and its documented constraints/history/query effects, and exact preservation of all 3093 original relation segments and 4534 occurrences. Check positive marks are evidenced, missing definitions are not false emptiness proof, and unresolved rows have no invented semantic proposal. Verify exact output reproduction, the captured Core frontier, both RMED views and all no-source-change boundaries. Record PASS or precise failures in `nodes.acceptance.md`; stale or incomplete snapshot checks are not acceptance.
 
 Inputs are under `.caprmedio_caprmedio/_projection/core-entity-review/nodes/`; the complete baseline and design remain under its parent review directory. The Scope-omission decision SHA-256 is `d4ea636d540b0558c1a0fbb8263760947e1f0768840c43b3ed1d05c96b497453`. Scope may be omitted only for full Subject AND full owning Scope Unit; omission retains that resolved default. New names and rules are Operator-backed candidate direction, not retroactive Core evidence or migration approval.
 

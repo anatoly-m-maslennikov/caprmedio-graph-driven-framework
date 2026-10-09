@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Projection
   depends_on: [Entity, Term, Atom, Property, Carrier, Plan]
-version: 1
-updated_at: "2026-10-10 03:21:47 +0400"
+version: 2
+updated_at: "2026-10-10 03:47:57 +0400"
 relations:
   is_decomposition_of: [CA-P-1907]
   blocks: [CA-P-1937]
@@ -29,6 +29,8 @@ Review fifth Core node disposition batch
 Review the assigned candidate nodes for duplication, redundancy, emptiness, distinct meaning and generalization without adopting or deleting them.
 
 ## Details
+
+Review context: the Operator chose **Finish against the captured snapshot only**. Use the original CA-P-1905 source pins and immutable Git commit `a971d0e00c33c779f485fc8cad63194894d440fb`; read `nodes/snapshot.context.md` and `nodes/support/snapshot_sources.py`. CA-D-494 revision 2 remains the review input; live revision 3 is outside this snapshot. Preserve originals and label receipts as captured-snapshot checks, not current-Core checks. Any currentness or source-pin requirement below means exact validity against this selected captured snapshot. Do not silently rebind or overwrite live Core.
 
 Estimated own work: 15 minutes. Assignee: AI Agent.
 
