@@ -6,10 +6,10 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 3
-updated_at: "2026-10-07 22:43:16 +0000"
+version: 6
+updated_at: "2026-10-09 16:57:27 +0400"
 subjects:
-  governs: "Tool/FRAMEWORK_INITIALIZATION/Runtime and Skill carriers"
+  governs: "Tool/INSTALL_TOOLS/First-initialization runtime and Skill carriers"
   depends_on: [Tool, Framework Package, Runtime, Skill, Manifest, Docker Image, Journal]
 relations:
   delivery_for: [CA-R-1881, CA-M-338]
@@ -20,13 +20,17 @@ Bind initial Framework runtime and project Skill carriers
 
 ## Scope
 
-The first content-addressed Framework package, active selector, and project-local Skill carriers.
+The reusable content-addressed Framework package, package selector, isolated target-Project selector and project-local Skill carriers.
 
 ## Claim
 
-The first Framework package **must** occupy `.caprmedio_runtime/framework/releases/<manifest_sha256>/` with `manifest.toml`, `FRAMEWORK_ENGINE/`, compiler-current `METHODOLOGY/`, and `SKILLS/ca/`; `.agents/skills/ca/` **must** contain the same complete hook-free Skill payload before `.caprmedio_runtime/framework/current.toml` selects that package. A retained private bootstrap-image evidence carrier **must** prove a fixed isolated build context contains that exact package, its Docker build produced the selected immutable image ID, and its fixed complete-package/MCP canary executed against that ID. The evidence's inspected image has `org.caprmedio.framework.package_manifest_sha256` equal to that package manifest SHA-256 and `org.caprmedio.framework.source_context_sha256` equal to the manifest's sealed source-context SHA-256.
+the INSTALL_TOOLS first-initialization variant **must** use a reusable Framework package at `.caprmedio_install/releases/<package_manifest_sha256>/` with `manifest.toml`, the complete `102_FRAMEWORK_ENGINE/`, sealed `pyproject.toml`, `uv.lock` and `version.toml`, admitted defaults, `METHODOLOGY/`, `SKILLS/ca/`, active source catalog and declared support; `.caprmedio_install/current.toml` **must** select only a reopened verified package. A target Project's `.caprmedio_runtime/installation/current.toml` **must** bind that package, target-Project context and state generation only after the complete hook-free `.agents/skills/ca/` payload is published. Retained image proof **must** prove a fixed isolated context contains those exact package bytes and that its immutable image and canary bind the exact manifest and source-context digests.
 
 ## Details
+
+### Package, selector and runtime carriers
+
+The package manifest schema is declared only by `102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/07_delivery/CA-D-596-TOOLS-DELIVERY--encode-the-reusable-framework-package.md`; the sole package-selector schema is declared only by `102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/07_delivery/CA-D-598-TOOLS-DELIVERY--encode-current-reusable-package-selector.md`; and the sole target-runtime-selector schema is declared only by `102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/07_delivery/CA-D-599-TOOLS-DELIVERY--encode-target-runtime-installation-selector.md`. This Delivery **must not** add, omit or restate any field from those closed schemas. Package-owned wrapper and environment carriers execute only the package command boundary from CA-D-601; they never contain a checkout root.
 
 ### Compiler-currentness proof
 
@@ -44,8 +48,8 @@ Its context contains only the sealed package, the existing fixed `IMAGE_DOCKERFI
 
 The initializer internally reopens the derived retained proof and re-inspects the image before an installation effect; it does not rerun producer effects. Finder metadata is excluded under CA-R-1898. An existing empty public Skill directory retains the ordinary atomic replacement path. For a verified metadata-only directory, retain its exact directory and metadata bytes at the internally derived private sibling `.agents/skills/.ca-retained-metadata-<private suffix>/ca` before the same whole-Skill atomic publication; a changed target containing real Skill state refuses displacement. No member-by-member public Skill publication is admitted. A failed replacement retains the sealed staging and any retained-metadata sibling as actual effect references, exposes no partial Skill as completed, and does not select the package. These private recovery carriers are not another authority or Journal.
 
-The selector identifies the manifest digest, selected release root, Framework Engine root, Methodology root, and immutable image ID. The canonical started-Run input remains `requested_run_id`, package-manifest SHA-256, sealed source-context SHA-256, and immutable image digest. A `requested_run_id` cannot start a changed intent: a changed binding permits only existing-Run inspection or recovery and creates neither another started evidence entry nor a second source ledger. The manifest's sealed source-context SHA-256 is the SHA-256 of canonical UTF-8 rows `(source_path, sha256, mode)`, ordered by `source_path`, for every inventoried package source. It is the sole activation carrier and is written only after a complete Skill publication; separate-directory writes are not treated as one atomic transaction. Package and Skill contents are regular, project-contained carriers with their manifest digests; no secret-shaped carrier, hook, global configuration, permanent bootstrap setting, source mutation, second registry, caller-selected build input, or image tag is delivered. The Action writes its actual installation started and terminal evidence only through the canonical Work Journal; runtime carriers and private image evidence do not become a second Journal.
+The initializer reopens the manifest and selectors only through the CA-D-596, CA-D-598 and CA-D-599 schemas. A canonical started-Run input remains `requested_run_id`, package-manifest SHA-256, sealed source-context SHA-256 and immutable image digest. A `requested_run_id` cannot start a changed intent: a changed binding permits only existing-Run inspection or recovery and creates neither another started evidence entry nor a second source ledger. The target selector defined by CA-D-599 is the sole activation carrier and is written only after a complete Skill publication; separate-directory writes are not treated as one atomic transaction. For first initialization, the target runtime boundary remains empty until that publication; adopting Project metadata does not create an upgrade or idempotency path. Package and Skill contents are regular, project-contained carriers with their manifest digests; no secret-shaped carrier, hook, global configuration, permanent bootstrap setting, source mutation, second registry, caller-selected build input, image tag or checkout reference is delivered. The Action writes its actual installation started and terminal evidence only through the canonical Work Journal; runtime carriers and private image evidence do not become a second Journal.
 
 ### Bootstrap-to-N+1 compatibility
 
-The subsequent Release Version reader keeps its regular N proof: a retained package manifest's `candidate_snapshot_manifest_sha256` equals selected N. The one first-install exception is not a success flag: it is proved only by the actual retained bytes. Its selector is closed to the first-install fields: integer `schema_version = 1`; `manifest_sha256` and `release` equal N; `selected_release_root`, `framework_engine_root`, and `methodology_root` are the exact N package and child paths; and `image_digest` is an immutable digest. The SHA-256 of that package's exact `manifest.toml` bytes equals N. In that exact shape only, the package manifest's `candidate_snapshot_manifest_sha256` is a lowercase 64-hex bootstrap sealed source-context SHA-256 and supplies N for the next N-to-N+1 workflow. Any absent, additional, inconsistent, or changed selector/package byte rejects prior ownership.
+The subsequent Release Version reader retains its own N proof and schemas. This first-install Delivery supplies no alternate `candidate_snapshot_manifest_sha256`, `manifest_sha256`, `release`, `selected_release_root`, `framework_engine_root` or `methodology_root` field and does not define an N-to-N+1 compatibility exception. It proves first initialization only through the actual retained package, package selector, target selector, Skill and canonical Journal evidence reopened through CA-D-596, CA-D-598 and CA-D-599.

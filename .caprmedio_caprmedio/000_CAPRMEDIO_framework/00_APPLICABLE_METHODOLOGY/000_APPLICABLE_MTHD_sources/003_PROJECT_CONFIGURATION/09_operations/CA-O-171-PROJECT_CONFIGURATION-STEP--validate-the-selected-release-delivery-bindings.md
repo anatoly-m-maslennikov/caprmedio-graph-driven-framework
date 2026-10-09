@@ -10,8 +10,8 @@ author: Anatoly Maslennikov
 subjects:
   governs: "Release Version/Step: validate"
   depends_on: [Workflow, Step, Action, Delivery, Compiler, Framework Package, Skill, Test, Docker Image, Journal]
-version: 1
-updated_at: 2026-10-05 06:13:05 +0400
+version: 3
+updated_at: 2026-10-09 16:39:30 +0400
 relations:
   part_of: [CA-O-164]
   invokes: [CA-O-165]
@@ -26,4 +26,4 @@ This Step invokes CA-O-165 once with phase `validate`, binding the frozen result
 
 ## Details
 
-The `101_LAYER_1_FRAMEWORK_METHODOLOGY/sources` target requires the selected reviewed reconciliation with current Project Structure delivery authority. Missing or ambiguous reconciliation, output layout, target, permission or Journal admission returns blocked unchanged. This Step performs no release effect or retry and retains its exact Action/Step Run lineage.
+The sealed candidate export's logical root `methodology/` mapping and post-gate selected Project installed control target require the selected reviewed reconciliation with current Project Structure delivery authority. Missing or ambiguous reconciliation, output layout, target, permission or Journal admission returns blocked unchanged. This Step performs no release effect or retry and retains its exact Action/Step Run lineage.

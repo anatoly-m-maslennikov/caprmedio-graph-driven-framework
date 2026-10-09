@@ -10,8 +10,8 @@ author: Anatoly Maslennikov
 subjects:
   governs: "Install candidate Framework package and project Skill"
   depends_on: [Action, Framework Package, Methodology, Skill, Artifact/Revision, Delivery, Journal]
-version: 1
-updated_at: 2026-10-05 06:13:05 +0400
+version: 3
+updated_at: 2026-10-09 16:39:30 +0400
 relations:
   relates_to: [CA-O-164, CA-O-175, CA-D-563, CA-R-1525, CA-R-1720]
 ---
@@ -25,7 +25,7 @@ Stage candidate runtime package and Skill **means** the Action that performs the
 
 ## Scope
 
-`stage_candidate` prepares the complete declared candidate Framework package at its reviewed non-active `.caprmedio_runtime` candidate package target, including the matching runtime Methodology delivery derived from the canonical candidate Projection and declared package members rather than Engine binaries alone. It also stages CA-D-563's complete hook-free `ca` directory payload for eventual project-local target `.agents/skills/ca`, without replacing N's active project-local Skill.
+`stage_candidate` prepares the complete declared candidate Framework package only under `.caprmedio_tmp/release_candidates/<run_id>/package/`, including its manifest, sealed Engine, sealed private candidate Methodology export with logical `methodology/` delivery mapping, complete `ca` Skill/default payload, dependency-lock identity and matching image context. It also stages CA-D-563's complete hook-free `ca` directory payload for eventual project-local target `.agents/skills/ca`, without replacing N's active project-local Skill or writing live root `methodology/`, `.caprmedio_install`, `.caprmedio_runtime` or an installed control tree.
 
 ## Details
 

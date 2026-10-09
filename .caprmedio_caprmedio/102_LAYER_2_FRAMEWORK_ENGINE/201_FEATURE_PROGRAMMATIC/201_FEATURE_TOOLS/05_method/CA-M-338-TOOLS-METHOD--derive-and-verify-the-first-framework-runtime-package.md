@@ -6,10 +6,10 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-06 00:04:31 +0400"
+version: 5
+updated_at: "2026-10-09 16:57:27 +0400"
 subjects:
-  governs: "Tool/FRAMEWORK_INITIALIZATION/Package derivation"
+  governs: "Tool/INSTALL_TOOLS/First-initialization package derivation"
   depends_on: [Tool, Framework Package, Runtime, Methodology, Skill, Docker Image, Journal]
 relations:
   method_for: [CA-R-1881]
@@ -20,20 +20,21 @@ Derive and verify the first Framework runtime package
 
 ## Scope
 
-The bounded construction and admission of one first active Framework package.
+The bounded construction, verification and selection of one reusable Framework package and one isolated target-Project installation.
 
 ## Claim
 
-FRAMEWORK_INITIALIZATION **must** first read-verify a current canonical compiled Methodology and a complete privately produced bootstrap-image evidence carrier, then reopen the exact source and canonical started-Run proof, validate the empty state, construct and verify one sealed package, verify that carrier's immutable image binding, publish the complete `ca` Skill, atomically select the verified package as the final activation point, and finally append the terminal Action evidence through the sole canonical Journal writer.
+the INSTALL_TOOLS first-initialization variant **must** seal a reusable package **before** any first target-Project runtime state is made active, **must** prove the Full Gate and image against those exact bytes, and **must** publish the target selector under its declared lock **only after** all admission records reopen successfully.
 
 ## Details
 
-1. Before planning, read-verify preexisting canonical Methodology input and compiled-output evidence against the current canonical Methodology source root. Require `source_snapshot_is_current` before and after the read; reopen canonical `compile_report` and `output_plan`, require zero conflicts and a complete selected frontier, and reconstruct every expected compiled output from its exact `projection_bytes` at the `role_directory`/`basename` and source-relative path prescribed by that plan. Require the complete compiled-tree path set, payload hashes, generated-tree digest, source hashes, and metadata to match that reconstruction, the compiler entrypoint identity, canonical compiled root, and current input frontier. Refuse a missing, stale, partial, symlinked, obsolete, unresolved, conflict-dependent, colliding, or changed-snapshot selection. This proves a current mechanical projection without asserting a compiler Run occurred. Planning neither runs the compiler nor publishes a runtime, Skill, selector, or image.
-2. Inventory the current Framework Engine, read-only-currentness-proven Methodology source and compiled carriers, and complete `ca` Skill without secrets or ephemeral tooling state. Seal their ordered bytes and modes into one manifest-addressed package plan and source-context SHA-256.
-3. The private bootstrap-image producer builds only a local immutable image ID from a fixed isolated context containing that sealed package, the existing fixed `IMAGE_DOCKERFILE`, and the exact sealed `pyproject.toml` and `uv.lock` rows required by that producer, plus required fixed canary carriers. Every context member is an enumerated sealed row; no other host file is readable by the build or canary. It reuses the existing Release fixed canary and bounded pure build, command-record, and image-inspection primitives only where compatible with the bootstrap labels; package-driven adapters must not invoke selected-N, candidate-suite, promotion, or retirement preconditions. It uses no caller path, tag, label, Dockerfile, command, network, or package override; it neither tags, pushes, selects, nor deletes an image. It retains immutable canonical command records for the actual build, immutable-ID inspection, and fixed complete-package/MCP canary: exact argv, exit status, start and finish times, and stdout/stderr SHA-256 values bound to retained immutable stdout and stderr byte carriers at fixed relative paths under the derived proof root. The canary must prove the exact immutable ID and package manifest and source-context binding; it must not merely echo labels.
-4. Derive `bootstrap_proof_key` from the exact package-manifest SHA-256 and immutable image digest, and retain the proof and fixed context only at their canonical private location keyed by that value. Admit a canonical started Run only after internally reopening that exact retained proof and re-inspecting the image; neither proof nor context location is a caller input. Its existing `requested_run_id`, package-manifest SHA-256, sealed source-context SHA-256, and immutable image digest form one exact intent. Reusing a `requested_run_id` with any changed intent member permits only existing-Run inspection or recovery; it does not create another started evidence entry or source ledger. The producer is not implicit in planning, startup, or this Action and does not change CA-O-180's explicit image input.
-5. Reject a missing, ambiguous, stale, symlinked, non-directory, or already populated initialization boundary before an installation effect. Reopen the package bytes and manifest, verify the complete hook-free Skill payload, and verify the retained image evidence plus its inspected immutable digest and exact `org.caprmedio.framework.package_manifest_sha256` and `org.caprmedio.framework.source_context_sha256` labels against the started intent and actual plan.
-6. Publish the verified project-local Skill first. Atomically publish the selector last, only after the Skill is complete; the selector is the single activation point.
-7. Record observed package, Skill, selector, and terminal installation result effects through the canonical Work Journal as CA-O-180 requires. A failed Skill publication, selector publication, or Journal append reports its actual state and does not replay an uncertain effect. The separate producer retains its own actual build/inspect/canary evidence and never publishes or removes a runtime, Skill, selector, or image.
+1. Read-verify the current canonical compiled Methodology and its conflict-free source frontier, then require the closed Unit Gate evidence for that compiled candidate. A catalog entry without an admitted pinned revision, a changed source snapshot, a missing support carrier or an unresolved compiled output refuses before effects.
+2. Copy the complete `102_FRAMEWORK_ENGINE/`, exact sealed `pyproject.toml`, `uv.lock` and `version.toml`, admitted defaults, `ca` payload, active Methodology source catalog and declared support into `.caprmedio_tmp/release_candidates/<run_id>/package/`. Seal ordered path, digest and mode rows into `manifest.toml`; reopen every row and freeze the candidate manifest digest.
+3. Build, immutable-ID inspect and complete-package/MCP canary the exact sealed package bytes; retain the observed image and command evidence without rebuilding the candidate.
+4. Run the exact three host-capable Candidate E2E harnesses against that immutable image, then aggregate their evidence with the prior Unit Gate, image build and canary into the existing Full Gate. A result JSON, mutable tag, package copy, source checkout, partial suite or post-gate rebuild is not gate admission.
+5. Reopen the preexisting admitted package selector at `.caprmedio_install/current.toml`; a later package-producing contribution, not this first-runtime Action, may publish it. Candidate evidence remains private and retained.
+6. Resolve an explicit target Project root and its control child from bootstrap or adopt input; validate the target settings, Project Structure and registry without inventing an Operator, then require that the target runtime boundary is empty. A non-git root, two target Projects in one repository, relocation and adoption are distinct supported paths, each with its own bound context.
+7. Under the same target-Project installation lock used by wrappers, Skill, projection and state, stage all package-derived runtime state and environment, publish the complete Skill, then atomically write `.caprmedio_runtime/installation/current.toml` as the final activation point. Its generation is monotonic and command/process evidence binds generation, command, package and target context, never a PID alone.
+8. For legacy migration, quiesce only positively identified owned processes, copy the three owned subtrees, verify bytes and ownership, switch the selector, retain old state and N/history, and stop on unsafe quiescence. Cleanup needs a later exact approved cleanup input.
 
-This Method does not select a Release Version candidate, require an existing N, promote or retire a Release Version image, change settings or authoring sources, register MCP, install hooks, create a selected-workflow route, or infer a source or image from mutable labels.
+This Method **must not** select a Release Version candidate, require an existing N, promote or retire a Release Version image, change authoring sources, register MCP, install hooks, create a selected-workflow route, or infer a source or image from mutable labels.
