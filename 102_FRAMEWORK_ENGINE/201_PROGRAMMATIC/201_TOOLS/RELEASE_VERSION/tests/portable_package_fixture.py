@@ -10,15 +10,23 @@ from pathlib import Path
 
 
 RELEASE_ROOT = Path(__file__).resolve().parents[1]
+TOOLS_ROOT = RELEASE_ROOT.parents[1]
 EXPORT_ROOT = RELEASE_ROOT.parent / "COMPILE_APPLICABLE_METHODOLOGY"
-for _path in (RELEASE_ROOT, EXPORT_ROOT):
+for _path in (TOOLS_ROOT, RELEASE_ROOT, EXPORT_ROOT):
     if str(_path) not in sys.path:
         sys.path.insert(0, str(_path))
 
 import methodology_export as exporter  # noqa: E402
 from release_compilation import build_preflight_validated_candidate, compile_sealed_methodology_export  # noqa: E402
 from release_handoff import CANONICAL_SOURCE_RELATIVE, bind_sealed_methodology_export  # noqa: E402
-from release_portable_contract import build_sealed_portable_compilation  # noqa: E402
+from release_portable_contract import (  # noqa: E402
+    build_sealed_portable_compilation,
+    collect_portable_source_snapshot,
+)
+from source_catalog_admission import (  # noqa: E402
+    TrustedSourceAdmissionInvocation,
+    admit_package_sources,
+)
 
 
 def digest(payload: bytes) -> str:
@@ -54,7 +62,7 @@ def logical_tree_digest(root: Path) -> str:
 class PortablePackageFixture:
     """A retained real candidate/export/private-compilation input chain."""
 
-    def __init__(self) -> None:
+    def __init__(self, *, extra_engine_members: dict[str, bytes] | None = None, admit: bool = True) -> None:
         # Keep this physical proof tree.  Managed macOS hosts can reject
         # recursive cleanup after compiler reads, and TemporaryDirectory's
         # finalizer can then stall process shutdown.
@@ -64,16 +72,22 @@ class PortablePackageFixture:
             for role in ("04_requirement", "05_method", "06_evaluation", "07_delivery", "09_operations"):
                 (self.source / layer / role).mkdir(parents=True, exist_ok=True)
         (self.source / "002_INSTALLED_EXTENSIONS").mkdir()
-        self._seed_project()
+        self._seed_project(extra_engine_members or {})
         self.run_id = "portable-fixture-run"
         self.candidate_root = self.root / ".caprmedio_tmp/release_candidates" / self.run_id
-        self._write_catalog()
         self.candidate = self._candidate()
         self._export()
         self.export = bind_sealed_methodology_export(self.candidate, self.candidate_root)
         self.private_compilation = compile_sealed_methodology_export(self.export)
-        self.sealed = build_sealed_portable_compilation(
+        self.source_snapshot = collect_portable_source_snapshot(
             self.candidate, self.private_compilation, candidate_run_id=self.run_id,
+        )
+        self.admission = self.admit_sources() if admit else None
+        self.sealed = (
+            build_sealed_portable_compilation(
+                self.candidate, self.private_compilation, candidate_run_id=self.run_id,
+            )
+            if admit else None
         )
 
     def cleanup(self) -> None:
@@ -86,7 +100,7 @@ class PortablePackageFixture:
         target.chmod(mode)
         return target
 
-    def _seed_project(self) -> None:
+    def _seed_project(self, extra_engine_members: dict[str, bytes]) -> None:
         self.write(".caprmedio_caprmedio/project_structure.toml", (
             "[[scope_units]]\n"
             'scope_unit_name = "METHODOLOGY_SOURCES"\n'
@@ -114,6 +128,10 @@ class PortablePackageFixture:
             "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py",
             (EXPORT_ROOT / "compile_applicable_methodology.py").read_bytes(), 0o755,
         )
+        for relative, payload in extra_engine_members.items():
+            if not relative.startswith("102_FRAMEWORK_ENGINE/") or not isinstance(payload, bytes):
+                raise ValueError("extra_engine_members must map Framework Engine paths to bytes")
+            self.write(relative, payload)
 
     def _candidate(self):
         return build_preflight_validated_candidate(
@@ -132,6 +150,20 @@ class PortablePackageFixture:
         frozen = self.write("freeze/manifest.json", exporter.frozen_manifest_bytes(manifest))
         exporter.export_selected_methodology(
             source_root=self.source, frozen_manifest_path=frozen, release_candidate_root=self.candidate_root,
+        )
+
+    def admit_sources(self, *, admitter=None):
+        def fixture_admitter(request):
+            return TrustedSourceAdmissionInvocation(
+                request.snapshot_sha256,
+                "fixture-operator",
+                "fixture-command:admit-package-sources",
+                "fixture-action-run-001",
+            )
+
+        return admit_package_sources(
+            self.root, self.source_snapshot,
+            invocation_admitter=fixture_admitter if admitter is None else admitter,
         )
 
     def _catalog_row(self, identity: str, kind: str, value: str, path: str) -> list[str]:

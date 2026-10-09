@@ -14,7 +14,9 @@ from unittest.mock import patch
 TOOLS = Path(__file__).resolve().parents[1]
 TEST_TEMP_ROOT = Path.cwd() / ".caprmedio_tmp" / "tests" / Path(__file__).stem
 TEST_TEMP_ROOT.mkdir(parents=True, exist_ok=True)
-sys.path.insert(0, str(TOOLS))
+for path in (str(TOOLS), str(Path(__file__).resolve().parent)):
+    if path not in sys.path:
+        sys.path.insert(0, path)
 
 import framework_installation  # noqa: E402
 from framework_installation import (  # noqa: E402
@@ -25,6 +27,7 @@ from framework_installation import (  # noqa: E402
 )
 from framework_package import CurrentPackageSelector, assemble_framework_package, provide_installation_package_evidence  # noqa: E402
 from installation_context import TargetProjectRequest  # noqa: E402
+from source_admission_fixture import write_source_admission_receipt  # noqa: E402
 
 
 def _sha256(payload: bytes) -> str:
@@ -78,23 +81,36 @@ class PortableInstallationTests(unittest.TestCase):
         self._write(source, "pyproject.toml", b"[project]\nname = 'fixture'\nversion = '0.1.0'\n")
         self._write(source, "uv.lock", b"version = 1\n")
         self._write(source, "version.toml", b"[framework]\nversion = '0.1.0'\n")
-        rows = (
+        source_rows = (
             ("core", "core", "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/tool.py"),
             ("methodology", "methodology", "methodology/active/CA-R-001--fixture.md"),
             ("support", "support", "methodology/support/CA-D-001--fixture.md"),
         )
+        descriptors = tuple(
+            {
+                "identity": identity,
+                "kind": kind,
+                "revision": _sha256((source / relative).read_bytes()),
+                "sha256": _sha256((source / relative).read_bytes()),
+                "visibility": "public",
+                "selection_default": False,
+                "path": relative,
+            }
+            for identity, kind, relative in source_rows
+        )
+        receipt = write_source_admission_receipt(source, descriptors)
         lines = ["schema_version = 1", ""]
-        for identity, kind, relative in rows:
+        for descriptor in descriptors:
             lines.extend(
                 [
-                    f"[source.{identity}]",
-                    f'kind = "{kind}"',
-                    f'revision = "{"a" * 40}"',
-                    f'sha256 = "{_sha256((source / relative).read_bytes())}"',
-                    f'admission_receipt_sha256 = "{"b" * 64}"',
-                    'visibility = "public"',
+                    f"[source.{descriptor['identity']}]",
+                    f'kind = "{descriptor["kind"]}"',
+                    f'revision = "{descriptor["revision"]}"',
+                    f'sha256 = "{descriptor["sha256"]}"',
+                    f'admission_receipt_sha256 = "{receipt.sha256}"',
+                    f'visibility = "{descriptor["visibility"]}"',
                     "selection_default = false",
-                    f'path = "{relative}"',
+                    f'path = "{descriptor["path"]}"',
                     "",
                 ]
             )

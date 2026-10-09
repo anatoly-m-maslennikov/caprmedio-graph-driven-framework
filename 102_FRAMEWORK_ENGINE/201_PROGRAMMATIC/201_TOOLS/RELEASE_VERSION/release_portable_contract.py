@@ -24,6 +24,7 @@ from release_compilation import SealedPrivateMethodologyCompilation, read_sealed
 from release_contract import ReleaseContractError, ValidatedCandidate, canonical_json
 from release_handoff import _exporter_module, _revalidate
 from release_inventory import ReleaseInventoryError, persistent_regular_files, refuse_secret_path
+from source_catalog_admission import SourceCatalogAdmissionError, read_source_admission_receipt
 
 
 SCHEMA = "caprmedio.release_version.sealed_portable_candidate_compilation.v1"
@@ -148,6 +149,21 @@ class SealedPortableCandidateCompilation:
         return self.candidate.authority
 
 
+@dataclass(frozen=True)
+class SealedPortableSourceSnapshot:
+    """Read-only physical package inputs before catalog/admission finalization.
+
+    The snapshot deliberately carries no root catalog or admission-proof row:
+    collecting it observes source bytes only and cannot imply that those bytes
+    were admitted for portable package publication.
+    """
+
+    candidate_run_id: str
+    candidate: ValidatedCandidate
+    private_compilation: SealedPrivateMethodologyCompilation
+    portable_package_rows: tuple[PortablePackageRow, ...]
+
+
 def _candidate_run_id(value: object, private: SealedPrivateMethodologyCompilation) -> str:
     if not isinstance(value, str) or not value or "\\" in value or Path(value).name != value or value in {".", ".."}:
         raise _error("portable-contract-run-invalid", "candidate run id must be one safe path component")
@@ -191,6 +207,26 @@ def _private_rows(root: Path, private: SealedPrivateMethodologyCompilation) -> l
     return rows
 
 
+def _validate_source_rows(rows: list[PortablePackageRow]) -> tuple[PortablePackageRow, ...]:
+    """Close the pre-catalog source shape without interpreting admission."""
+
+    ordered = tuple(sorted(rows, key=lambda row: (row.destination_path, row.source_path, row.sha256)))
+    if len({row.destination_path for row in ordered}) != len(ordered):
+        raise _error("portable-contract-row-collision", "portable package rows have duplicate destinations")
+    required_resources = {
+        "FRAMEWORK_ENGINE",
+        "SKILL",
+        "DEPENDENCY",
+        "PACKAGE_CONTROL",
+        "DEFAULT",
+        "METHODOLOGY",
+        "METHODOLOGY_SUPPORT",
+    }
+    if {row.resource for row in ordered} != required_resources:
+        raise _error("portable-contract-incomplete", "portable source rows are incomplete")
+    return ordered
+
+
 def _logical_digest(rows: tuple[PortablePackageRow, ...], relative: Path) -> str:
     exact = [row for row in rows if Path(row.destination_path).is_relative_to(relative)]
     if not exact:
@@ -222,6 +258,54 @@ def _catalog_records(catalog: bytes, rows: tuple[PortablePackageRow, ...]) -> tu
     return records
 
 
+def _admission_rows(
+    root: Path,
+    records: tuple[tuple[str, Mapping[str, Any]], ...],
+) -> list[PortablePackageRow]:
+    """Reopen each catalog-referenced proof once and match every descriptor.
+
+    Catalog metadata never substitutes for the retained canonical receipt.  A
+    receipt can cover multiple catalog descriptors, but only one byte-identical
+    ``SOURCE_ADMISSION`` row is sealed for that shared proof carrier.
+    """
+
+    receipts: dict[str, Any] = {}
+    rows: list[PortablePackageRow] = []
+    for identity, record in records:
+        digest = record["admission_receipt_sha256"]
+        if not isinstance(digest, str):  # The shared catalog reader normally catches this first.
+            raise _error("catalog-invalid", f"catalog admission receipt is invalid: {identity}")
+        receipt = receipts.get(digest)
+        if receipt is None:
+            relative = Path("admissions") / f"{digest}.json"
+            receipt_file = _regular_file(root, relative, code="portable-contract-admission-missing")
+            try:
+                receipt = read_source_admission_receipt(receipt_file.read_bytes(), expected_sha256=digest)
+            except SourceCatalogAdmissionError as error:
+                raise _error(error.code, str(error)) from error
+            receipts[digest] = receipt
+            rows.append(_row("SOURCE_ADMISSION", root, receipt_file, relative, expected_sha256=digest))
+        matches = [descriptor for descriptor in receipt.sources if descriptor.identity == identity]
+        expected = (
+            record["kind"],
+            record["revision"],
+            record["sha256"],
+            record["visibility"],
+            record["selection_default"],
+            record["path"],
+        )
+        if len(matches) != 1 or (
+            matches[0].kind,
+            matches[0].revision,
+            matches[0].sha256,
+            matches[0].visibility,
+            matches[0].selection_default,
+            matches[0].path,
+        ) != expected:
+            raise _error("portable-contract-admission-mismatch", f"admission receipt differs from catalog source: {identity}")
+    return rows
+
+
 def _covered(destination: Path, kind: str, records: tuple[tuple[str, Mapping[str, Any]], ...]) -> bool:
     for _identity, record in records:
         if record["kind"] == kind and (destination == Path(record["path"]) or destination.is_relative_to(Path(record["path"]))):
@@ -233,7 +317,17 @@ def _validate_rows(rows: list[PortablePackageRow], records: tuple[tuple[str, Map
     ordered = tuple(sorted(rows, key=lambda row: (row.destination_path, row.source_path, row.sha256)))
     if len({row.destination_path for row in ordered}) != len(ordered):
         raise _error("portable-contract-row-collision", "portable package rows have duplicate destinations")
-    expected_resources = {"FRAMEWORK_ENGINE", "SKILL", "DEPENDENCY", "PACKAGE_CONTROL", "CATALOG", "DEFAULT", "METHODOLOGY", "METHODOLOGY_SUPPORT"}
+    expected_resources = {
+        "FRAMEWORK_ENGINE",
+        "SKILL",
+        "DEPENDENCY",
+        "PACKAGE_CONTROL",
+        "CATALOG",
+        "SOURCE_ADMISSION",
+        "DEFAULT",
+        "METHODOLOGY",
+        "METHODOLOGY_SUPPORT",
+    }
     if {row.resource for row in ordered} != expected_resources:
         raise _error("portable-contract-incomplete", "portable package rows are incomplete")
     for row in ordered:
@@ -261,13 +355,17 @@ def _manifest_sha256(run_id: str, candidate: ValidatedCandidate, private: Sealed
     }))
 
 
-def build_sealed_portable_compilation(
+def collect_portable_source_snapshot(
     candidate: ValidatedCandidate,
     private_compilation: SealedPrivateMethodologyCompilation,
     *,
     candidate_run_id: str,
-) -> SealedPortableCandidateCompilation:
-    """Observe and seal the exact portable package inputs without assembling them."""
+) -> SealedPortableSourceSnapshot:
+    """Collect revalidatable package inputs before catalog/admission finalization.
+
+    This read-only operation opens neither ``catalog.toml`` nor any admission
+    proof.  A later boundary supplies and validates those final carriers.
+    """
 
     current = _revalidate(candidate)
     if not isinstance(private_compilation, SealedPrivateMethodologyCompilation):
@@ -287,23 +385,68 @@ def build_sealed_portable_compilation(
     for dependency in DEPENDENCIES:
         rows.append(_row("DEPENDENCY", root, root / dependency, dependency))
     rows.append(_row("PACKAGE_CONTROL", root, root / VERSION, VERSION, expected_sha256=current.manifest.version_toml_sha256))
-    catalog_file = _regular_file(root, CATALOG, code="portable-contract-catalog-missing")
-    catalog_bytes = catalog_file.read_bytes()
-    catalog_digest = _digest(catalog_bytes)
-    rows.append(_row("CATALOG", root, catalog_file, CATALOG, expected_sha256=catalog_digest))
     for file in _regular_tree(root, DEFAULTS_ROOT, code="portable-contract-defaults-missing"):
         rows.append(_row("DEFAULT", root, file, file.relative_to(root)))
     rows.extend(_private_rows(root, observed_private))
-    provisional = tuple(sorted(rows, key=lambda row: (row.destination_path, row.source_path, row.sha256)))
-    records = _catalog_records(catalog_bytes, provisional)
-    sealed_rows = _validate_rows(rows, records)
-    return SealedPortableCandidateCompilation(
+    return SealedPortableSourceSnapshot(
         candidate_run_id=run_id,
         candidate=current,
         private_compilation=observed_private,
+        portable_package_rows=_validate_source_rows(rows),
+    )
+
+
+def revalidate_portable_source_snapshot(value: SealedPortableSourceSnapshot) -> SealedPortableSourceSnapshot:
+    """Re-open the pre-catalog source inputs and refuse changed evidence."""
+
+    if not isinstance(value, SealedPortableSourceSnapshot):
+        raise _error("portable-source-snapshot-untrusted", "portable source snapshot must be typed sealed evidence")
+    observed = collect_portable_source_snapshot(
+        value.candidate,
+        value.private_compilation,
+        candidate_run_id=value.candidate_run_id,
+    )
+    if observed != value:
+        raise _error("portable-source-snapshot-stale", "portable source inputs changed after observation")
+    return observed
+
+
+def build_sealed_portable_compilation(
+    candidate: ValidatedCandidate,
+    private_compilation: SealedPrivateMethodologyCompilation,
+    *,
+    candidate_run_id: str,
+) -> SealedPortableCandidateCompilation:
+    """Finalize a source snapshot with actual catalog/admission evidence."""
+
+    source_snapshot = collect_portable_source_snapshot(
+        candidate,
+        private_compilation,
+        candidate_run_id=candidate_run_id,
+    )
+    root = _root(source_snapshot.candidate.project_root)
+    catalog_file = _regular_file(root, CATALOG, code="portable-contract-catalog-missing")
+    catalog_bytes = catalog_file.read_bytes()
+    catalog_digest = _digest(catalog_bytes)
+    catalog_row = _row("CATALOG", root, catalog_file, CATALOG, expected_sha256=catalog_digest)
+    rows = [*source_snapshot.portable_package_rows, catalog_row]
+    provisional = tuple(sorted(rows, key=lambda row: (row.destination_path, row.source_path, row.sha256)))
+    records = _catalog_records(catalog_bytes, provisional)
+    rows.extend(_admission_rows(root, records))
+    sealed_rows = _validate_rows(rows, records)
+    return SealedPortableCandidateCompilation(
+        candidate_run_id=source_snapshot.candidate_run_id,
+        candidate=source_snapshot.candidate,
+        private_compilation=source_snapshot.private_compilation,
         portable_package_rows=sealed_rows,
         source_catalog_sha256=catalog_digest,
-        input_manifest_sha256=_manifest_sha256(run_id, current, observed_private, catalog_digest, sealed_rows),
+        input_manifest_sha256=_manifest_sha256(
+            source_snapshot.candidate_run_id,
+            source_snapshot.candidate,
+            source_snapshot.private_compilation,
+            catalog_digest,
+            sealed_rows,
+        ),
     )
 
 
@@ -326,6 +469,9 @@ __all__ = [
     "PortablePackageRow",
     "SCHEMA",
     "SealedPortableCandidateCompilation",
+    "SealedPortableSourceSnapshot",
     "build_sealed_portable_compilation",
+    "collect_portable_source_snapshot",
+    "revalidate_portable_source_snapshot",
     "revalidate_sealed_portable_compilation",
 ]

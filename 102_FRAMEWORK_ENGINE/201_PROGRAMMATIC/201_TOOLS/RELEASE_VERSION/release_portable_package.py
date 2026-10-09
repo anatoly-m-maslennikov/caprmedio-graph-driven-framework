@@ -199,6 +199,15 @@ def _require_destination(resource: str, source: Path, destination: Path) -> None
         if source != Path("catalog.toml") or destination != source:
             raise PortableReleasePackageError("portable-package-input-invalid", "catalog row must retain root catalog.toml")
         return
+    if resource == "SOURCE_ADMISSION":
+        if (
+            source != destination
+            or source.parent != Path("admissions")
+            or source.suffix != ".json"
+            or not _is_sha256(source.stem)
+        ):
+            raise PortableReleasePackageError("portable-package-input-invalid", "admission row must retain its exact receipt path")
+        return
     if resource == "DEFAULT":
         if not source.is_relative_to(DEFAULTS_ROOT) or destination != source:
             raise PortableReleasePackageError("portable-package-input-invalid", "default row must retain its defaults path")
@@ -270,6 +279,11 @@ def _validate_complete_rows(root: Path, rows: Iterable[object]) -> tuple[tuple[o
         raise PortableReleasePackageError("portable-package-input-incomplete", "portable rows lack exact version carrier")
     if [item[1].as_posix() for item in by_resource.get("CATALOG", [])] != ["catalog.toml"]:
         raise PortableReleasePackageError("portable-package-input-incomplete", "portable rows lack exact catalog carrier")
+    if not by_resource.get("SOURCE_ADMISSION"):
+        raise PortableReleasePackageError("portable-package-input-incomplete", "portable rows lack source-admission proof")
+    for _resource, source, _destination, digest, _mode in by_resource["SOURCE_ADMISSION"]:
+        if source.stem != digest:
+            raise PortableReleasePackageError("portable-package-input-invalid", "admission filename must equal its sealed byte digest")
     catalog_rows = {item[1].as_posix(): item for item in by_resource.get("CATALOG", [])}
     return records, catalog_rows
 

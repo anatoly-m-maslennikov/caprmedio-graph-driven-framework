@@ -8,6 +8,7 @@ assertion or discard its evidence.
 from __future__ import annotations
 
 import hashlib
+import json
 import shutil
 import sys
 import tempfile
@@ -19,6 +20,9 @@ from unittest.mock import MagicMock, patch
 TOOLS_ROOT = Path(__file__).resolve().parents[1]
 if str(TOOLS_ROOT) not in sys.path:
     sys.path.insert(0, str(TOOLS_ROOT))
+TESTS_ROOT = Path(__file__).resolve().parent
+if str(TESTS_ROOT) not in sys.path:
+    sys.path.insert(0, str(TESTS_ROOT))
 
 from framework_package import (  # noqa: E402
     FrameworkPackageError,
@@ -29,6 +33,7 @@ from framework_package import (  # noqa: E402
     verify_framework_package,
 )
 import framework_package as package_library  # noqa: E402
+from source_admission_fixture import write_source_admission_receipt  # noqa: E402
 
 
 def _sha256(payload: bytes) -> str:
@@ -63,23 +68,60 @@ class FrameworkPackageTests(unittest.TestCase):
             ("methodology", "methodology", "methodology/active/CA-R-001--fixture.md"),
             ("support", "support", "methodology/support/CA-D-001--fixture.md"),
         )
+        descriptor_rows = tuple(
+            {
+                "identity": identity,
+                "kind": kind,
+                "revision": _sha256((self.source / relative).read_bytes()),
+                "sha256": _sha256((self.source / relative).read_bytes()),
+                "visibility": "public",
+                "selection_default": False,
+                "path": relative,
+            }
+            for identity, kind, relative in source_rows
+        )
+        admissions = self.source / "admissions"
+        if admissions.exists():
+            for receipt in admissions.iterdir():
+                receipt.unlink()
+        receipt = write_source_admission_receipt(self.source, descriptor_rows)
         lines = ["schema_version = 1", ""]
-        for identity, kind, relative in source_rows:
-            digest = _sha256((self.source / relative).read_bytes())
+        for descriptor in descriptor_rows:
+            catalog_revision = revision or descriptor["revision"]
             lines.extend(
                 [
-                    f"[source.{identity}]",
-                    f'kind = "{kind}"',
-                    f'revision = "{revision or "a" * 40}"',
-                    f'sha256 = "{digest}"',
-                    f'admission_receipt_sha256 = "{"b" * 64}"',
-                    'visibility = "public"',
+                    f"[source.{descriptor['identity']}]",
+                    f'kind = "{descriptor["kind"]}"',
+                    f'revision = "{catalog_revision}"',
+                    f'sha256 = "{descriptor["sha256"]}"',
+                    f'admission_receipt_sha256 = "{receipt.sha256}"',
+                    f'visibility = "{descriptor["visibility"]}"',
                     "selection_default = false",
-                    f'path = "{relative}"',
+                    f'path = "{descriptor["path"]}"',
                     "",
                 ]
             )
         self._write("catalog.toml", ("\n".join(lines) + "\n").encode("utf-8"))
+
+    def _catalog_records(self) -> tuple[tuple[str, object], ...]:
+        return read_source_catalog_records((self.source / "catalog.toml").read_bytes())
+
+    def _receipt_sources(self) -> tuple[dict[str, object], ...]:
+        return tuple(
+            {
+                "identity": identity,
+                "kind": record["kind"],
+                "revision": record["revision"],
+                "sha256": record["sha256"],
+                "visibility": record["visibility"],
+                "selection_default": record["selection_default"],
+                "path": record["path"],
+            }
+            for identity, record in self._catalog_records()
+        )
+
+    def _receipt_digest(self) -> str:
+        return self._catalog_records()[0][1]["admission_receipt_sha256"]
 
     def test_assembles_and_reopens_a_complete_content_addressed_package(self) -> None:
         package = assemble_framework_package(self.source, self.releases)
@@ -93,6 +135,10 @@ class FrameworkPackageTests(unittest.TestCase):
         self.assertEqual(
             [(row.path, row.role) for row in package.inventory],
             sorted((row.path, row.role) for row in package.inventory),
+        )
+        self.assertEqual(
+            [(row.path, row.role) for row in package.inventory if row.role == "source-admission"],
+            [(f"admissions/{self._receipt_digest()}.json", "source-admission")],
         )
         self.assertEqual(verify_framework_package(package.root), package)
         evidence = provide_installation_package_evidence(package.root)
@@ -136,6 +182,105 @@ class FrameworkPackageTests(unittest.TestCase):
                 with self.assertRaises(FrameworkPackageError) as raised:
                     assemble_framework_package(self.source, self.releases)
                 self.assertEqual(raised.exception.code, "catalog-revision-invalid")
+
+    def test_refuses_missing_catalog_admission_receipt(self) -> None:
+        (self.source / "admissions" / f"{self._receipt_digest()}.json").unlink()
+
+        with self.assertRaises(FrameworkPackageError) as raised:
+            assemble_framework_package(self.source, self.releases)
+
+        self.assertEqual(raised.exception.code, "catalog-admission-missing")
+
+    def test_refuses_hash_only_catalog_admission_substitute(self) -> None:
+        catalog = self.source / "catalog.toml"
+        catalog.write_bytes(catalog.read_bytes().replace(self._receipt_digest().encode("ascii"), b"b" * 64))
+
+        with self.assertRaises(FrameworkPackageError) as raised:
+            assemble_framework_package(self.source, self.releases)
+
+        self.assertEqual(raised.exception.code, "catalog-admission-missing")
+
+    def test_refuses_admission_receipt_with_a_wrong_content_hash(self) -> None:
+        receipt = self.source / "admissions" / f"{self._receipt_digest()}.json"
+        receipt.write_bytes(receipt.read_bytes() + b" ")
+
+        with self.assertRaises(FrameworkPackageError) as raised:
+            assemble_framework_package(self.source, self.releases)
+
+        self.assertEqual(raised.exception.code, "source-admission-receipt-digest-mismatch")
+
+    def test_refuses_symlinked_catalog_admission_receipt(self) -> None:
+        receipt = self.source / "admissions" / f"{self._receipt_digest()}.json"
+        target = self.root / "outside-receipt.json"
+        target.write_bytes(receipt.read_bytes())
+        receipt.unlink()
+        try:
+            receipt.symlink_to(target)
+        except OSError as error:  # pragma: no cover - host capability guard
+            self.skipTest(f"symlinks unavailable in this synthetic fixture: {error}")
+
+        with self.assertRaises(FrameworkPackageError) as raised:
+            assemble_framework_package(self.source, self.releases)
+
+        self.assertEqual(raised.exception.code, "package-symlink")
+
+    def test_refuses_receipt_that_does_not_admit_its_catalog_source(self) -> None:
+        sources = list(self._receipt_sources())
+        sources[0]["path"] = "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/other.py"
+        wrong_receipt = write_source_admission_receipt(self.source, tuple(sources))
+        original = self._receipt_digest().encode("ascii")
+        catalog = self.source / "catalog.toml"
+        catalog.write_bytes(catalog.read_bytes().replace(original, wrong_receipt.sha256.encode("ascii"), 1))
+
+        with self.assertRaises(FrameworkPackageError) as raised:
+            assemble_framework_package(self.source, self.releases)
+
+        self.assertEqual(raised.exception.code, "catalog-admission-source-mismatch")
+
+    def test_refuses_receipt_with_a_foreign_source_descriptor(self) -> None:
+        sources = list(self._receipt_sources())
+        sources.append(
+            {
+                "identity": "unselected-extension",
+                "kind": "extension",
+                "revision": "c" * 64,
+                "sha256": "c" * 64,
+                "visibility": "public",
+                "selection_default": False,
+                "path": "extensions/unselected",
+            }
+        )
+        foreign_receipt = write_source_admission_receipt(self.source, tuple(sources))
+        catalog = self.source / "catalog.toml"
+        catalog.write_bytes(
+            catalog.read_bytes().replace(self._receipt_digest().encode("ascii"), foreign_receipt.sha256.encode("ascii"))
+        )
+
+        with self.assertRaises(FrameworkPackageError) as raised:
+            assemble_framework_package(self.source, self.releases)
+
+        self.assertEqual(raised.exception.code, "catalog-admission-source-mismatch")
+
+    def test_refuses_receipt_with_a_bad_source_snapshot_checksum(self) -> None:
+        original = self.source / "admissions" / f"{self._receipt_digest()}.json"
+        receipt = json.loads(original.read_text(encoding="utf-8"))
+        receipt["snapshot_sha256"] = "0" * 64
+        tampered_bytes = json.dumps(
+            receipt,
+            sort_keys=True,
+            separators=(",", ":"),
+            ensure_ascii=False,
+            allow_nan=False,
+        ).encode("utf-8")
+        tampered_digest = _sha256(tampered_bytes)
+        self._write(f"admissions/{tampered_digest}.json", tampered_bytes)
+        catalog = self.source / "catalog.toml"
+        catalog.write_bytes(catalog.read_bytes().replace(self._receipt_digest().encode("ascii"), tampered_digest.encode("ascii")))
+
+        with self.assertRaises(FrameworkPackageError) as raised:
+            assemble_framework_package(self.source, self.releases)
+
+        self.assertEqual(raised.exception.code, "source-admission-receipt-snapshot-mismatch")
 
     def test_shared_catalog_reader_refuses_non_scalar_kind_and_visibility(self) -> None:
         """TOML arrays must not bypass closed scalar descriptor checks."""

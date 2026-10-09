@@ -14,6 +14,9 @@ from unittest.mock import patch
 TOOLS_ROOT = Path(__file__).resolve().parents[1]
 if str(TOOLS_ROOT) not in sys.path:
     sys.path.insert(0, str(TOOLS_ROOT))
+TESTS_ROOT = Path(__file__).resolve().parent
+if str(TESTS_ROOT) not in sys.path:
+    sys.path.insert(0, str(TESTS_ROOT))
 
 from framework_package import assemble_framework_package  # noqa: E402
 from installation_transaction import installation_publication_lock  # noqa: E402
@@ -25,6 +28,7 @@ from runtime_configuration import (  # noqa: E402
     read_runtime_configuration,
 )
 import runtime_configuration as configuration_library  # noqa: E402
+from source_admission_fixture import write_source_admission_receipt  # noqa: E402
 
 
 def _sha256(value: str) -> str:
@@ -60,23 +64,36 @@ class RuntimeConfigurationTests(unittest.TestCase):
         return target
 
     def _write_catalog(self) -> None:
-        rows = (
+        source_rows = (
             ("core", "core", "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/tool.py"),
             ("methodology", "methodology", "methodology/active/CA-R-001--fixture.md"),
             ("support", "support", "methodology/support/CA-D-001--fixture.md"),
         )
+        descriptors = tuple(
+            {
+                "identity": identity,
+                "kind": kind,
+                "revision": hashlib.sha256((self.source / relative).read_bytes()).hexdigest(),
+                "sha256": hashlib.sha256((self.source / relative).read_bytes()).hexdigest(),
+                "visibility": "public",
+                "selection_default": False,
+                "path": relative,
+            }
+            for identity, kind, relative in source_rows
+        )
+        receipt = write_source_admission_receipt(self.source, descriptors)
         lines = ["schema_version = 1", ""]
-        for identity, kind, relative in rows:
+        for descriptor in descriptors:
             lines.extend(
                 [
-                    f"[source.{identity}]",
-                    f'kind = "{kind}"',
-                    f'revision = "{"a" * 40}"',
-                    f'sha256 = "{hashlib.sha256((self.source / relative).read_bytes()).hexdigest()}"',
-                    f'admission_receipt_sha256 = "{"b" * 64}"',
-                    'visibility = "public"',
+                    f"[source.{descriptor['identity']}]",
+                    f'kind = "{descriptor["kind"]}"',
+                    f'revision = "{descriptor["revision"]}"',
+                    f'sha256 = "{descriptor["sha256"]}"',
+                    f'admission_receipt_sha256 = "{receipt.sha256}"',
+                    f'visibility = "{descriptor["visibility"]}"',
                     "selection_default = false",
-                    f'path = "{relative}"',
+                    f'path = "{descriptor["path"]}"',
                     "",
                 ]
             )

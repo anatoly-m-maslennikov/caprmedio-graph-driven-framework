@@ -23,8 +23,11 @@ from release_contract import ReleaseContractError  # noqa: E402
 from release_handoff import CANONICAL_SOURCE_RELATIVE, bind_sealed_methodology_export  # noqa: E402
 from release_portable_contract import (  # noqa: E402
     build_sealed_portable_compilation,
+    collect_portable_source_snapshot,
+    revalidate_portable_source_snapshot,
     revalidate_sealed_portable_compilation,
 )
+from source_catalog_admission import build_source_admission_receipt, read_source_admission_receipt  # noqa: E402
 
 
 def _sha256(payload: bytes) -> str:
@@ -111,13 +114,13 @@ class PortableContractTests(unittest.TestCase):
         path.chmod(mode)
         return path
 
-    def _catalog_record(self, identity: str, kind: str, digest: str, path: str) -> list[str]:
+    def _catalog_record(self, identity: str, kind: str, digest: str, path: str, receipt_sha256: str) -> list[str]:
         return [
             f"[source.{identity}]",
             f'kind = "{kind}"',
-            f'revision = "{"a" * 40}"',
+            f'revision = "{digest}"',
             f'sha256 = "{digest}"',
-            f'admission_receipt_sha256 = "{"b" * 64}"',
+            f'admission_receipt_sha256 = "{receipt_sha256}"',
             'visibility = "public"',
             "selection_default = false",
             f'path = "{path}"',
@@ -142,10 +145,47 @@ class PortableContractTests(unittest.TestCase):
         copied.write_bytes(self.support.read_bytes())
         copied.chmod(self.support.stat().st_mode & 0o777)
         support = _tree_digest(support_root)
+        descriptors = (
+            {
+                "identity": "active",
+                "kind": "methodology",
+                "revision": active,
+                "sha256": active,
+                "visibility": "public",
+                "selection_default": False,
+                "path": "methodology/active",
+            },
+            {
+                "identity": "core",
+                "kind": "core",
+                "revision": engine,
+                "sha256": engine,
+                "visibility": "public",
+                "selection_default": False,
+                "path": "102_FRAMEWORK_ENGINE",
+            },
+            {
+                "identity": "support",
+                "kind": "support",
+                "revision": support,
+                "sha256": support,
+                "visibility": "public",
+                "selection_default": False,
+                "path": "methodology/support",
+            },
+        )
+        receipt_bytes = build_source_admission_receipt(
+            operator="fixture-operator",
+            command_ref="fixture-command",
+            action_run_id="fixture-action-run",
+            sources=descriptors,
+        )
+        receipt = read_source_admission_receipt(receipt_bytes)
+        self.write(f"admissions/{receipt.sha256}.json", receipt_bytes)
         lines = ["schema_version = 1", ""]
-        lines.extend(self._catalog_record("core", "core", engine, "102_FRAMEWORK_ENGINE"))
-        lines.extend(self._catalog_record("active", "methodology", active, "methodology/active"))
-        lines.extend(self._catalog_record("support", "support", support, "methodology/support"))
+        lines.extend(self._catalog_record("core", "core", engine, "102_FRAMEWORK_ENGINE", receipt.sha256))
+        lines.extend(self._catalog_record("active", "methodology", active, "methodology/active", receipt.sha256))
+        lines.extend(self._catalog_record("support", "support", support, "methodology/support", receipt.sha256))
         self.write("catalog.toml", ("\n".join(lines) + "\n").encode())
 
     def sealed(self):
@@ -185,7 +225,44 @@ class PortableContractTests(unittest.TestCase):
         self.assertIn("SKILLS/ca/SKILL.md", rows)
         self.assertIn("methodology/active/001_CORE_META_MODEL/04_requirement/CA-R-001--core.md", rows)
         self.assertIn("methodology/support/003_PROJECT_CONFIGURATION/support.txt", rows)
+        admissions = [row for row in rows.values() if row.resource == "SOURCE_ADMISSION"]
+        self.assertEqual(len(admissions), 1)
+        self.assertEqual(admissions[0].destination_path, admissions[0].source_path)
+        self.assertEqual(admissions[0].destination_path, f"admissions/{admissions[0].sha256}.json")
         self.assertEqual(revalidate_sealed_portable_compilation(sealed), sealed)
+
+    def test_collects_pre_catalog_source_snapshot_without_writing_or_reading_catalog(self) -> None:
+        candidate, private = self.sealed()
+        catalog = self.root / "catalog.toml"
+        catalog.unlink()
+        before = {
+            path.relative_to(self.root).as_posix(): (path.read_bytes(), path.stat().st_mode & 0o777)
+            for path in self.root.rglob("*")
+            if path.is_file()
+        }
+
+        snapshot = collect_portable_source_snapshot(candidate, private, candidate_run_id="portable-001")
+
+        after = {
+            path.relative_to(self.root).as_posix(): (path.read_bytes(), path.stat().st_mode & 0o777)
+            for path in self.root.rglob("*")
+            if path.is_file()
+        }
+        self.assertEqual(after, before)
+        self.assertNotIn("CATALOG", {row.resource for row in snapshot.portable_package_rows})
+        self.assertNotIn("SOURCE_ADMISSION", {row.resource for row in snapshot.portable_package_rows})
+        self.assertNotIn("catalog.toml", {row.destination_path for row in snapshot.portable_package_rows})
+        self.assertEqual(revalidate_portable_source_snapshot(snapshot), snapshot)
+
+    def test_pre_catalog_source_snapshot_refuses_physical_drift(self) -> None:
+        candidate, private = self.sealed()
+        snapshot = collect_portable_source_snapshot(candidate, private, candidate_run_id="portable-001")
+        defaults = self.root / "defaults/runtime.toml"
+        defaults.write_bytes(defaults.read_bytes() + b"changed = true\n")
+
+        with self.assertRaises(ReleaseContractError) as stale:
+            revalidate_portable_source_snapshot(snapshot)
+        self.assertEqual(stale.exception.code, "portable-source-snapshot-stale")
 
     def test_defaults_or_catalog_drift_refuse_reopen(self) -> None:
         candidate, private = self.sealed()
@@ -215,6 +292,23 @@ class PortableContractTests(unittest.TestCase):
                     build_sealed_portable_compilation(candidate, private, candidate_run_id="portable-001")
                 self.assertEqual(raised.exception.code, "catalog-invalid")
                 catalog.write_bytes(original)
+
+    def test_requires_physical_receipt_and_exact_catalog_descriptor_match(self) -> None:
+        candidate, private = self.sealed()
+        catalog = self.root / "catalog.toml"
+        original = catalog.read_bytes()
+        receipt = next((self.root / "admissions").glob("*.json"))
+        receipt_bytes = receipt.read_bytes()
+        receipt.unlink()
+        with self.assertRaises(ReleaseContractError) as missing:
+            build_sealed_portable_compilation(candidate, private, candidate_run_id="portable-001")
+        self.assertEqual(missing.exception.code, "portable-contract-admission-missing")
+
+        receipt.write_bytes(receipt_bytes)
+        catalog.write_bytes(original.replace(b'visibility = "public"', b'visibility = "private"', 1))
+        with self.assertRaises(ReleaseContractError) as mismatch:
+            build_sealed_portable_compilation(candidate, private, candidate_run_id="portable-001")
+        self.assertEqual(mismatch.exception.code, "portable-contract-admission-mismatch")
 
 
 if __name__ == "__main__":

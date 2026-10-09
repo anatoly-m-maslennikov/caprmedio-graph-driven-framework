@@ -40,6 +40,17 @@ class PortableReleasePackageTests(unittest.TestCase):
         self.assertEqual(prepared.package.framework_version, "N+1")
         self.assertEqual(prepared.package.version_toml_sha256, self.fixture.sealed.version_toml_sha256)
         self.assertEqual(prepared.package.source_catalog_sha256, self.fixture.sealed.source_catalog_sha256)
+        proof_rows = [row for row in self.fixture.sealed.portable_package_rows if row.resource == "SOURCE_ADMISSION"]
+        self.assertEqual(1, len(proof_rows))
+        proof = proof_rows[0]
+        self.assertEqual(
+            (prepared.private_package_root / proof.destination_path).read_bytes(),
+            (self.fixture.root / proof.source_path).read_bytes(),
+        )
+        self.assertEqual(
+            ("source-admission", proof.sha256, proof.mode),
+            next((row.role, row.sha256, row.mode) for row in prepared.package.inventory if row.path == proof.destination_path),
+        )
         self.assertEqual(
             (prepared.private_package_root / "defaults/runtime.toml").read_bytes(),
             (self.fixture.root / "defaults/runtime.toml").read_bytes(),

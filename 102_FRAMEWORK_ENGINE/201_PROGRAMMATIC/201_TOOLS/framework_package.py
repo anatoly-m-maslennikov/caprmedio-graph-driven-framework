@@ -27,6 +27,7 @@ ENGINE_ROOT = Path("102_FRAMEWORK_ENGINE")
 SKILL_ROOT = Path("SKILLS/ca")
 DEFAULTS_ROOT = Path("defaults")
 METHODOLOGY_ROOT = Path("methodology")
+ADMISSIONS_ROOT = Path("admissions")
 REQUIRED_TOP_LEVEL_FILES = ("pyproject.toml", "uv.lock", "version.toml", CATALOG_NAME)
 SHA256_LENGTH = 64
 _SHA256_CHARACTERS = frozenset("0123456789abcdef")
@@ -42,6 +43,7 @@ _ROLES = frozenset(
         "skill",
         "methodology",
         "methodology-support",
+        "source-admission",
     }
 )
 _SELECTOR_KEYS = frozenset(
@@ -240,6 +242,10 @@ def _role_for(relative: Path) -> str:
         return "skill"
     if relative.is_relative_to(DEFAULTS_ROOT):
         return "default"
+    if relative.is_relative_to(ADMISSIONS_ROOT):
+        if relative.parent == ADMISSIONS_ROOT and relative.suffix == ".json" and _is_sha256(relative.stem):
+            return "source-admission"
+        raise FrameworkPackageError("package-extra-member", f"unadmitted source admission member: {relative.as_posix()}")
     if relative.is_relative_to(METHODOLOGY_ROOT / "support"):
         return "methodology-support"
     if relative.is_relative_to(METHODOLOGY_ROOT):
@@ -325,7 +331,11 @@ def read_source_catalog_records(payload: bytes) -> tuple[tuple[str, Mapping[str,
             raise FrameworkPackageError("catalog-invalid", f"private catalog source cannot be a default: {identity}")
         relative = _safe_relative(raw.get("path"), f"source.{identity}.path", code="catalog-invalid")
         _check_visible_path(relative)
-        if relative == Path(CATALOG_NAME) or relative.is_relative_to(Path(".caprmedio_install")):
+        if (
+            relative == Path(CATALOG_NAME)
+            or relative.is_relative_to(Path(".caprmedio_install"))
+            or relative.is_relative_to(ADMISSIONS_ROOT)
+        ):
             raise FrameworkPackageError("catalog-invalid", f"catalog source targets package control state: {identity}")
         saw_core |= kind == "core"
         saw_methodology |= kind == "methodology"
@@ -336,14 +346,104 @@ def read_source_catalog_records(payload: bytes) -> tuple[tuple[str, Mapping[str,
     return tuple(records)
 
 
+def _admission_member_path(receipt_sha256: str) -> Path:
+    """Return the one package member designated by a catalog receipt digest."""
+
+    if not _is_sha256(receipt_sha256):
+        raise FrameworkPackageError("catalog-invalid", "catalog admission receipt digest is invalid")
+    return ADMISSIONS_ROOT / f"{receipt_sha256}.json"
+
+
+def _read_admission_member(root: Path, receipt_sha256: str) -> bytes:
+    """Reopen a designated receipt without following an alias or special node."""
+
+    relative = _admission_member_path(receipt_sha256)
+    cursor = root
+    for part in relative.parts:
+        cursor = cursor / part
+        if cursor.is_symlink():
+            raise FrameworkPackageError(
+                "catalog-admission-member-invalid",
+                f"admission receipt is a symlink: {relative.as_posix()}",
+            )
+    if not cursor.is_file():
+        raise FrameworkPackageError(
+            "catalog-admission-missing",
+            f"catalog admission receipt is absent: {relative.as_posix()}",
+        )
+    try:
+        return cursor.read_bytes()
+    except OSError as error:
+        raise FrameworkPackageError(
+            "catalog-admission-unreadable",
+            f"catalog admission receipt cannot be read: {relative.as_posix()}",
+        ) from error
+
+
+def _read_catalog_admission_receipt(payload: bytes, receipt_sha256: str) -> Any:
+    """Use the shared D602 codec without introducing a package/codec import cycle."""
+
+    try:
+        from source_catalog_admission import SourceCatalogAdmissionError, read_source_admission_receipt
+    except ImportError as error:  # pragma: no cover - installed package composition guard
+        raise FrameworkPackageError(
+            "catalog-admission-reader-unavailable",
+            "the source-admission receipt reader is unavailable",
+        ) from error
+    try:
+        return read_source_admission_receipt(payload, expected_sha256=receipt_sha256)
+    except SourceCatalogAdmissionError as error:
+        raise FrameworkPackageError(error.code, str(error)) from error
+
+
+def _catalog_receipt_descriptor(identity: str, record: Mapping[str, Any]) -> dict[str, object]:
+    """Normalize the catalog half of a D602 descriptor for exact comparison."""
+
+    return {
+        "identity": identity,
+        "kind": record["kind"],
+        "revision": record["revision"],
+        "sha256": record["sha256"],
+        "visibility": record["visibility"],
+        "selection_default": record["selection_default"],
+        "path": _safe_relative(record["path"], f"source.{identity}.path", code="catalog-invalid").as_posix(),
+    }
+
+
 def _validate_catalog(root: Path, payload: bytes) -> tuple[tuple[str, Mapping[str, Any]], ...]:
-    """Validate closed catalog descriptors against actual package source bytes."""
+    """Validate descriptors, their physical sources, and retained D602 proofs."""
 
     records = read_source_catalog_records(payload)
+    receipts: dict[str, Any] = {}
+    expected_sources: dict[str, list[dict[str, object]]] = {}
     for identity, record in records:
         relative = _safe_relative(record["path"], f"source.{identity}.path", code="catalog-invalid")
         if _path_digest(root, relative, code="catalog-source-missing") != record["sha256"]:
             raise FrameworkPackageError("catalog-source-digest-mismatch", f"catalog source digest differs: {identity}")
+        receipt_sha256 = record["admission_receipt_sha256"]
+        receipt = receipts.get(receipt_sha256)
+        if receipt is None:
+            receipt = _read_catalog_admission_receipt(
+                _read_admission_member(root, receipt_sha256),
+                receipt_sha256,
+            )
+            receipts[receipt_sha256] = receipt
+        expected = _catalog_receipt_descriptor(identity, record)
+        matches = [source for source in receipt.sources if source.record() == expected]
+        if len(matches) != 1:
+            raise FrameworkPackageError(
+                "catalog-admission-source-mismatch",
+                f"catalog source is not admitted by its receipt: {identity}",
+            )
+        expected_sources.setdefault(receipt_sha256, []).append(expected)
+    for receipt_sha256, expected in expected_sources.items():
+        receipt = receipts[receipt_sha256]
+        actual = tuple(source.record() for source in receipt.sources)
+        if actual != tuple(sorted(expected, key=lambda source: str(source["identity"]))):
+            raise FrameworkPackageError(
+                "catalog-admission-source-mismatch",
+                "admission receipt includes a source not named by its catalog references",
+            )
     return records
 
 
@@ -377,6 +477,19 @@ def _validate_complete_layout(
     ):
         if not by_role[role]:
             raise FrameworkPackageError("package-incomplete", f"{label} is missing")
+    expected_admissions = {
+        _admission_member_path(str(record["admission_receipt_sha256"])).as_posix()
+        for _, record in catalog_records
+    }
+    actual_admissions = {
+        path
+        for path in paths
+        if Path(path).is_relative_to(ADMISSIONS_ROOT)
+    }
+    if actual_admissions != expected_admissions:
+        if expected_admissions - actual_admissions:
+            raise FrameworkPackageError("catalog-admission-missing", "catalog admission receipt is missing from package inventory")
+        raise FrameworkPackageError("package-extra-member", "package has unreferenced admission receipt")
     for row in rows:
         relative = Path(row.path)
         if _role_for(relative) != row.role:
