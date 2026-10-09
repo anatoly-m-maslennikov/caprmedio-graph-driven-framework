@@ -25,8 +25,8 @@ subjects:
     - Action
     - Journal
     - Plan
-version: 3
-updated_at: "2026-10-09 21:55:59 +0400"
+version: 4
+updated_at: "2026-10-09 23:02:15 +0400"
 relations:
   is_decomposition_of:
     - CA-P-1110
@@ -41,6 +41,19 @@ Make the existing entity and term graph builders usable through the Project MCP 
 
 ## Details
 
+### Latest Operator sequence: Subjects first
+
+The Operator replaced the immediate execution plan on 2026-10-09. Do these steps one by one. Finish and verify one step before starting the next. The source is the Core Meta-model by itself, not Project Configuration or Extensions.
+
+1. **Build mechanically from existing Atoms.** Read their current Subjects, using only the existing `/` and `:` syntax. Preserve complete Subject paths, supporting prefixes and exact source references. Keep `/` steps unclassified. `:` links an allowed value to its qualified Property; it is not an assignment. Do not infer relations from Main Content, rewrite Subjects, normalize to the proposed new notation or create source-Atom nodes as model objects. Output a derived graph and the literal Term components. Verify deterministic output and unchanged Core source bytes.
+2. **Determine what each `/` means.** Use Atom content to distinguish narrower-than (`/`) from general bearer qualification (`.`). Properties, Revisions and Invocations can all use general bearer qualification. Keep exact source evidence for each decision; ask the Operator when confidence is below 90%. Do not change the graph or Atom Subjects in this step.
+3. **Update the graph.** Apply the reviewed decisions to the derived graph first. Use `NARROWER_THAN`, `IS_BORNE_BY` and `IS_ALLOWED_VALUE_OF` with their correct directions and qualified identities. Preserve the step-1 graph for comparison. Do not change Atom Subjects yet.
+4. **Update Atom Subjects.** After graph review, write the confirmed `/`, `.` and `:` notation into the authoritative Subjects. Reconcile affected grammar contracts, revisions and source references. Rebuild only to verify that the updated Subjects reproduce the reviewed graph.
+
+Current step: **1**. Steps 2–4 have not started under this sequence. Earlier classification drafts and migration code are preparation only, not accepted decisions or source updates. The approved future notation remains `/` for broader-to-narrower, `.` for bearer qualification and `:` for allowed values; step 1 does not apply it to old `/` occurrences.
+
+This sequence governs the immediate local work without MCP. A mechanical projection is not native semantic admission, a live MCP Run or completion of the whole Epic. The existing MCP delivery work remains separate and pending.
+
 ### RMED and Operations review gate
 
 The Operator added this prerequisite on 2026-10-09: review and fix entity and term graph RMED+O first, then continue implementation.
@@ -54,7 +67,7 @@ The Operator added this prerequisite on 2026-10-09: review and fix entity and te
 
 The independent review rejected the pre-repair packet. CA-P-1898 now decomposes into five bounded repair/inventory children. The Operator approved a derived, source-pinned fact-context design; no new source authority or admission proof is implied.
 
-Latest bounded implementation evidence is recorded in CA-P-1899. The Operator chose Core Meta-model by itself, not Core as applied through Project Configuration and Extensions. The local portfolio passed 170 graph tests and admitted 32 source-backed Term definitions; Entity and native relation coverage remain incomplete. The question about ontology concepts versus declared Entity instances is still open. These are partial implementation receipts, not completed graph delivery. The Epic remains Active.
+Latest bounded implementation evidence is recorded in CA-P-1899. The Operator chose Core Meta-model by itself, not Core as applied through Project Configuration and Extensions. The local portfolio passed 170 graph tests and admitted 32 source-backed Term definitions; Entity and native relation coverage remain incomplete. The Operator then selected model objects addressed by Subjects, not source Atom records, and the Subjects-first sequence above. These are partial implementation receipts, not completed graph delivery. The Epic remains Active.
 
 ### Creation and execution state
 
