@@ -4,10 +4,10 @@ content_role: Method
 current_scope_unit: MCP
 local_tier: Standard
 global_tier: 11
-status: Active
+status: Archived
 author: Anatoly Maslennikov
 version: 1
-updated_at: "2026-10-05 17:12:15 +0000"
+updated_at: "2026-10-09 00:42:28 +0000"
 subjects:
   governs: "MCP/HTTP endpoint/Access implementation"
   depends_on: [MCP, HTTP, Credential, Request, Operator, Permission, Session]
@@ -32,3 +32,7 @@ the HTTP access implementation **must** validate the bearer Token and loopback H
 2. enable the MCP SDK's DNS-rebinding protection explicitly; a container bind address of `0.0.0.0` does not disable Host/Origin validation.
 3. a fixed local Token does not require an OAuth issuer. Obtain its value from the admitted runtime environment and expose no secret in failures.
 4. health checks use the same authenticated endpoint and report readiness without running a Workflow or printing a Token.
+
+## Lineage
+
+replaced by CA-M-357, which defines the password-free localhost HTTP boundary.

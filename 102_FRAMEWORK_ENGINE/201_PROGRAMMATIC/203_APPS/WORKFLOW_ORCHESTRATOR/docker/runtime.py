@@ -159,8 +159,6 @@ class Runtime:
             raise ValueError("Set CAPRMEDIO_MCP_HTTP_PORT to an integer in 1..65535") from error
         if not 1 <= port <= 65535:
             raise ValueError("Set CAPRMEDIO_MCP_HTTP_PORT to an integer in 1..65535")
-        if not os.environ.get("CAPRMEDIO_MCP_HTTP_SECRET_TOKEN"):
-            raise ValueError("Set CAPRMEDIO_MCP_HTTP_SECRET_TOKEN explicitly")
         return port
 
     @staticmethod
@@ -244,11 +242,7 @@ def main():
     args = parser.parse_args()
     if args.operation == "project-mcp":
         from project_mcp_launcher import Launcher
-        token = os.environ.get("CAPRMEDIO_MCP_HTTP_SECRET_TOKEN")
-        # Codex-agent seeds/mock worker modes cannot establish HTTP MCP credentials.
-        if args.mock or args.auth_file is not None:
-            token = None
-        result = Launcher().launch(args.project_root, token, control_root=args.control_root,
+        result = Launcher().launch(args.project_root, None, control_root=args.control_root,
             image=args.image, source_root=args.source_root, timeout=args.startup_timeout,
             port=args.port, build_if_missing=not args.no_build, build_timeout=args.build_timeout)
         ready = result.get("disposition") in ("started", "reused") and result.get("readiness") is True

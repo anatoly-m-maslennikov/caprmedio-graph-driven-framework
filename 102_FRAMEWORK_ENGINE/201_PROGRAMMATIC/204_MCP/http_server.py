@@ -1,11 +1,8 @@
-"""Authenticated localhost-only Streamable HTTP transport for the MCP gateway."""
+"""Loopback-only Streamable HTTP transport for the MCP gateway."""
 import argparse
 import asyncio
 from contextlib import asynccontextmanager
 from contextlib import nullcontext
-import hashlib
-import hmac
-import os
 from pathlib import Path
 import re
 
@@ -18,7 +15,6 @@ from mcp.server.transport_security import TransportSecuritySettings
 
 PATH = "/mcp"
 PORT = 8092
-TOKEN_ENV = "CAPRMEDIO_MCP_HTTP_SECRET_TOKEN"
 SECURITY = TransportSecuritySettings(
     enable_dns_rebinding_protection=True,
     allowed_hosts=["127.0.0.1:*", "localhost:*", "[::1]:*"],
@@ -26,22 +22,11 @@ SECURITY = TransportSecuritySettings(
 )
 
 
-def _require_token(token):
-    if not isinstance(token, str) or not token:
-        raise ValueError("HTTP MCP token is not configured")
-    return token
-
-
-def token_from_environment():
-    return _require_token(os.environ.get(TOKEN_ENV))
-
-
-class BearerGuard:
-    """Apply transport authentication before the MCP ASGI application."""
-    def __init__(self, app, token, selection=None):
+class LoopbackGuard:
+    """Apply loopback Host and Origin admission before the MCP ASGI application."""
+    def __init__(self, app, selection=None):
         self.app = app
         self.selection = selection
-        self.token_digest = hashlib.sha256(_require_token(token).encode()).digest()
 
     async def __call__(self, scope, receive, send):
         with bind_selection(self.selection) if self.selection is not None else nullcontext():
@@ -52,14 +37,6 @@ class BearerGuard:
             await self.app(scope, receive, send)
             return
         request = Request(scope, receive)
-        authorization = request.headers.get("authorization", "")
-        prefix = "Bearer "
-        supplied = authorization[len(prefix):] if authorization.startswith(prefix) else ""
-        supplied_digest = hashlib.sha256(supplied.encode()).digest()
-        authenticated = hmac.compare_digest(supplied_digest, self.token_digest)
-        if not authenticated:
-            await Response(status_code=401, headers={"WWW-Authenticate": "Bearer"})(scope, receive, send)
-            return
         host = request.headers.get("host", "")
         origin = request.headers.get("origin")
         valid_host = re.fullmatch(r"(?:127\.0\.0\.1|localhost|\[::1\])(?::\d+)?", host)
@@ -81,9 +58,7 @@ async def health(request, gateway):
     return JSONResponse({"ready": True})
 
 
-def create_app(root, token=None, implementation=None, *, selection=None):
-    token = token if token is not None else token_from_environment()
-    token = _require_token(token)
+def create_app(root, implementation=None, *, selection=None):
     gateway = Gateway(root, implementation=implementation, selection=selection)
     server = gateway.build_server()
     async def readiness(request):
@@ -107,7 +82,7 @@ def create_app(root, token=None, implementation=None, *, selection=None):
                 await gateway.close()
 
     app.router.lifespan_context = lifespan
-    guarded = BearerGuard(app, token, selection)
+    guarded = LoopbackGuard(app, selection)
     guarded.gateway = gateway
     guarded.starlette_app = app
     return guarded

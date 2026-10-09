@@ -25,7 +25,7 @@ _IMAGE = re.compile(r"sha256:[0-9a-f]{64}\Z")
 _FINGERPRINT = re.compile(r"[0-9a-f]{64}\Z")
 _CONDITIONS = frozenset({
     "READY_STARTED", "READY_REUSED", "PROJECT_SELECTION_REFUSED",
-    "CREDENTIAL_SOURCE_REFUSED", "IMAGE_INPUT_UNAVAILABLE", "IMAGE_REFUSED",
+    "IMAGE_INPUT_UNAVAILABLE", "IMAGE_REFUSED",
     "PROJECT_LOCK_BUSY", "RUNTIME_MISMATCH", "RUNTIME_UNHEALTHY",
     "BUILD_FAILED", "DOCKER_START_FAILED", "DOCKER_PUBLICATION_FAILED",
     "READINESS_FAILED",
@@ -34,7 +34,6 @@ _DISPOSITIONS = {
     "READY_STARTED": "started",
     "READY_REUSED": "reused",
     "PROJECT_SELECTION_REFUSED": "refused",
-    "CREDENTIAL_SOURCE_REFUSED": "refused",
     "IMAGE_INPUT_UNAVAILABLE": "failed",
     "IMAGE_REFUSED": "refused",
     "PROJECT_LOCK_BUSY": "busy",
@@ -48,7 +47,6 @@ _DISPOSITIONS = {
 _LOCK_RETRY_SECONDS = 0.01
 _DEFAULT_STARTUP_TIMEOUT = 60.0
 _DEFAULT_BUILD_TIMEOUT = 600.0
-_MAX_TOKEN_BYTES = 16 * 1024
 _SAFE_RESULT_KEYS = (
     "disposition", "condition", "project_root", "control_root", "project_id",
     "image_id", "fingerprint", "container_id", "service", "port", "readiness",
@@ -294,17 +292,6 @@ def _record_safe_metadata(selection: object, result: Mapping[str, Any]) -> None:
         pass
 
 
-def _valid_token(token: object) -> bool:
-    return (
-        isinstance(token, str)
-        and bool(token)
-        and "\r" not in token
-        and "\n" not in token
-        and "\0" not in token
-        and len(token.encode("utf-8")) <= _MAX_TOKEN_BYTES
-    )
-
-
 def _admit_runtime(rows: object, selection: object, image_id: str, fingerprint: str,
                    requested_port: int | None = None):
     """Return absent, a ready candidate, or its terminal safe condition."""
@@ -383,12 +370,12 @@ class Launcher:
         return image_id, fingerprint
 
     @staticmethod
-    def _ready(backend, candidate: Mapping[str, Any], token: str, deadline: float) -> bool:
+    def _ready(backend, candidate: Mapping[str, Any], deadline: float) -> bool:
         remaining = deadline - time.monotonic()
         if remaining <= 0:
             return False
         try:
-            return backend.health(candidate["url"], token, remaining) is True
+            return backend.health(candidate["url"], remaining) is True
         except Exception:
             return False
 
@@ -414,7 +401,7 @@ class Launcher:
         code = getattr(error, "code", None)
         return code if isinstance(code, str) and code in _CONDITIONS else fallback
 
-    def launch(self, project_root, token, control_root=None, image=None, source_root=None,
+    def launch(self, project_root, token=None, control_root=None, image=None, source_root=None,
                timeout=60, *, port=None, build_if_missing=True, build_timeout=600):
         """Return one safe result; never stop, replace, or retry a live runtime."""
         try:
@@ -427,8 +414,6 @@ class Launcher:
             return self._failure("PROJECT_SELECTION_REFUSED")
         except Exception:
             return self._failure("PROJECT_SELECTION_REFUSED")
-        if not _valid_token(token):
-            return self._failure("CREDENTIAL_SOURCE_REFUSED", selection)
         try:
             startup_timeout = _positive_timeout(timeout, ceiling=_DEFAULT_STARTUP_TIMEOUT,
                                                 default=_DEFAULT_STARTUP_TIMEOUT)
@@ -463,8 +448,7 @@ class Launcher:
                         if remaining <= 0:
                             return complete(self._failure("DOCKER_START_FAILED", selection,
                                                           image_id, fingerprint))
-                        backend.start(selection, image_id, fingerprint, token, remaining,
-                                      requested_port)
+                        backend.start(selection, image_id, fingerprint, remaining, requested_port)
                     except LaunchError as error:
                         return complete(self._failure(error.code, selection, image_id, fingerprint))
                     except Exception as error:
@@ -486,14 +470,14 @@ class Launcher:
                         return complete(self._failure(candidate if candidate != "absent"
                                                       else "DOCKER_START_FAILED", selection,
                                                       image_id, fingerprint))
-                    if not self._ready(backend, candidate, token, deadline):
+                    if not self._ready(backend, candidate, deadline):
                         return complete(self._failure("READINESS_FAILED", selection,
                                                       image_id, fingerprint))
                     return complete(self._result("started", "READY_STARTED", selection, image_id,
                                                  fingerprint, candidate))
                 if isinstance(candidate, str):
                     return complete(self._failure(candidate, selection, image_id, fingerprint))
-                if not self._ready(backend, candidate, token, deadline):
+                if not self._ready(backend, candidate, deadline):
                     return complete(self._failure("READINESS_FAILED", selection,
                                                   image_id, fingerprint))
                 return complete(self._result("reused", "READY_REUSED", selection, image_id,

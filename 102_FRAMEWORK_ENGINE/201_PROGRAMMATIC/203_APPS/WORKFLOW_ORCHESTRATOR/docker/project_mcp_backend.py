@@ -1,4 +1,4 @@
-"""Docker and authenticated-MCP backend for the bounded Project MCP launcher."""
+"""Docker and loopback-MCP backend for the bounded Project MCP launcher."""
 
 from __future__ import annotations
 
@@ -142,14 +142,12 @@ class ProjectMcpBackend:
         return value
 
     @staticmethod
-    def _environment(selection: object, image_id: str, fingerprint: str, token: str,
+    def _environment(selection: object, image_id: str, fingerprint: str,
                      port: int | None = None) -> dict[str, str]:
         root = ProjectMcpBackend._root(selection)
         if not isinstance(image_id, str) or not re.fullmatch(r"sha256:[0-9a-f]{64}", image_id):
             raise BackendError()
         if not isinstance(fingerprint, str) or not re.fullmatch(r"[0-9a-f]{64}", fingerprint):
-            raise BackendError()
-        if not isinstance(token, str) or not token:
             raise BackendError()
         if (port is not None and (isinstance(port, bool) or not isinstance(port, int)
                                   or not 1 <= port <= 65535)):
@@ -161,7 +159,6 @@ class ProjectMcpBackend:
             "CAPRMEDIO_CONTROL_ROOT": ProjectMcpBackend._control(selection),
             "CAPRMEDIO_PROJECT_INSTANCE_ID": ProjectMcpBackend._safe_instance(selection),
             "CAPRMEDIO_RUNTIME_FINGERPRINT": fingerprint,
-            "CAPRMEDIO_MCP_HTTP_SECRET_TOKEN": token,
             # An empty segment preserves Compose's Docker-owned dynamic
             # `127.0.0.1::8092` publication; a decimal segment is exact.
             "CAPRMEDIO_MCP_HTTP_PORT": "" if port is None else str(port),
@@ -230,7 +227,7 @@ class ProjectMcpBackend:
                 raise BackendError("RUNTIME_MISMATCH") from error
         return rows
 
-    def start(self, selection, image_id, fingerprint, token, timeout, port=None):
+    def start(self, selection, image_id, fingerprint, timeout, port=None):
         if not isinstance(timeout, (int, float)) or isinstance(timeout, bool) or timeout <= 0:
             raise BackendError()
         command = [
@@ -239,24 +236,21 @@ class ProjectMcpBackend:
             "--wait-timeout", str(max(1, int(timeout))), "--no-recreate", "--no-deps", "mcp-http",
         ]
         _bounded_run(command, timeout=float(timeout),
-                     env=self._environment(selection, image_id, fingerprint, token, port))
+                     env=self._environment(selection, image_id, fingerprint, port))
 
     @staticmethod
-    async def _initialize(url: str, token: str, timeout: float) -> None:
+    async def _initialize(url: str, timeout: float) -> None:
         import httpx2
         from mcp.client.session import ClientSession
         from mcp.client.streamable_http import streamable_http_client
 
-        async with httpx2.AsyncClient(
-            headers={"Authorization": "Bearer " + token}, trust_env=False,
-            follow_redirects=False, timeout=timeout,
-        ) as client:
+        async with httpx2.AsyncClient(trust_env=False, follow_redirects=False, timeout=timeout) as client:
             transport = streamable_http_client(url, http_client=client)
             async with transport as streams:
                 async with ClientSession(*streams) as session:
                     await session.initialize()
 
-    def health(self, full_mcp_url, token, timeout):
+    def health(self, full_mcp_url, timeout):
         try:
             address = urlsplit(full_mcp_url)
             valid = (address.scheme == 'http' and address.hostname == '127.0.0.1'
@@ -266,12 +260,11 @@ class ProjectMcpBackend:
                      and address.netloc == f'127.0.0.1:{address.port}')
         except (TypeError, ValueError):
             valid = False
-        if (not valid
-                or not isinstance(token, str) or not token
-                or isinstance(timeout, bool) or not isinstance(timeout, (int, float)) or timeout <= 0):
+        if (not valid or isinstance(timeout, bool)
+                or not isinstance(timeout, (int, float)) or timeout <= 0):
             return False
         try:
-            asyncio.run(asyncio.wait_for(self._initialize(full_mcp_url, token, float(timeout)),
+            asyncio.run(asyncio.wait_for(self._initialize(full_mcp_url, float(timeout)),
                                          timeout=float(timeout)))
         except Exception:
             return False

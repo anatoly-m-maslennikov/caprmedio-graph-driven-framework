@@ -61,7 +61,7 @@ class Backend:
         self.inspect_envs.append(environment)
         return list(self.rows)
 
-    def start(self, selection, image_id, fingerprint, token, timeout, port=None):
+    def start(self, selection, image_id, fingerprint, timeout, port=None):
         self.start_calls += 1
         self.start_ports.append(port)
         self.start_entered.set()
@@ -72,8 +72,8 @@ class Backend:
         if self.publish_after_start:
             self.rows = [healthy_row(host_port=str(port) if port is not None else "8099")]
 
-    def health(self, url, token, timeout):
-        self.health_calls.append((url, token, timeout))
+    def health(self, url, timeout):
+        self.health_calls.append((url, timeout))
         return self.health_result
 
 
@@ -119,7 +119,7 @@ class LauncherStartupContractTests(unittest.TestCase):
         self.backend = Backend()
         self.launcher = Launcher(backend=self.backend)
 
-    def launch(self, *, token="secret-token", **kwargs):
+    def launch(self, *, token=None, **kwargs):
         kwargs.setdefault("source_root", APP.parents[3])
         with patch("project_mcp_launcher.resolve_project", return_value=self.selection):
             return self.launcher.launch(self.project_root, token, **kwargs)
@@ -128,21 +128,20 @@ class LauncherStartupContractTests(unittest.TestCase):
         self.assertEqual(disposition, result["disposition"])
         self.assertEqual(condition, result["condition"])
         self.assertNotIn("url", result)
-        self.assertNotIn("secret-token", json.dumps(result))
 
     def test_golden_corpus_is_complete_and_unique(self):
         cases = json.loads(GOLDENS.read_text(encoding="utf-8"))
-        self.assertEqual(13, len(cases))
-        self.assertEqual(13, len({case["condition"] for case in cases}))
+        self.assertEqual(12, len(cases))
+        self.assertEqual(12, len({case["condition"] for case in cases}))
         self.assertEqual({
             "READY_STARTED", "READY_REUSED", "PROJECT_SELECTION_REFUSED",
-            "CREDENTIAL_SOURCE_REFUSED", "IMAGE_INPUT_UNAVAILABLE", "IMAGE_REFUSED",
+            "IMAGE_INPUT_UNAVAILABLE", "IMAGE_REFUSED",
             "PROJECT_LOCK_BUSY", "RUNTIME_MISMATCH", "RUNTIME_UNHEALTHY",
             "BUILD_FAILED", "DOCKER_START_FAILED", "DOCKER_PUBLICATION_FAILED",
             "READINESS_FAILED",
         }, {case["condition"] for case in cases})
 
-    def test_started_result_is_authenticated_and_contains_only_ready_url(self):
+    def test_started_result_is_passwordless_and_contains_only_ready_url(self):
         result = self.launch(source_root=APP.parents[3], timeout=7)
         self.assertEqual("started", result["disposition"])
         self.assertEqual("READY_STARTED", result["condition"])
@@ -157,12 +156,10 @@ class LauncherStartupContractTests(unittest.TestCase):
         self.assertTrue(result["readiness"])
         self.assertEqual("http://127.0.0.1:8099/mcp", result["url"])
         self.assertEqual(1, len(self.backend.health_calls))
-        url, token, remaining_timeout = self.backend.health_calls[0]
+        url, remaining_timeout = self.backend.health_calls[0]
         self.assertEqual("http://127.0.0.1:8099/mcp", url)
-        self.assertEqual("secret-token", token)
         self.assertGreater(remaining_timeout, 0)
         self.assertLessEqual(remaining_timeout, 7)
-        self.assertNotIn("secret-token", json.dumps(result))
 
     def test_omitted_port_leaves_dynamic_localhost_publication_to_the_backend(self):
         result = self.launch()
@@ -209,24 +206,27 @@ class LauncherStartupContractTests(unittest.TestCase):
         self.assertEqual(8123, result["port"])
         self.assertEqual("http://127.0.0.1:8123/mcp", result["url"])
 
-    def test_selection_and_credential_refusals_precede_runtime_effects(self):
+    def test_selection_refusal_precedes_runtime_effects_and_passwordless_launches(self):
         with patch("project_mcp_launcher.resolve_project", side_effect=ProjectSelectionError("PROJECT_SELECTION_REFUSED")):
             result = self.launcher.launch(self.project_root, "secret-token")
         self.assert_public_failure(result, "refused", "PROJECT_SELECTION_REFUSED")
-        self.assert_public_failure(self.launch(token=""), "refused", "CREDENTIAL_SOURCE_REFUSED")
         self.assertEqual(0, self.backend.resolve_image_calls)
         self.assertEqual(0, self.backend.start_calls)
+        result = self.launch(token="")
+        self.assertEqual("started", result["disposition"])
+        self.assertEqual(1, self.backend.resolve_image_calls)
+        self.assertEqual(1, self.backend.start_calls)
 
     def test_omitted_source_root_is_truthful_image_input_refusal(self):
         with patch("project_mcp_launcher.resolve_project", return_value=self.selection):
-            result = self.launcher.launch(self.project_root, "secret-token")
+            result = self.launcher.launch(self.project_root, None)
         self.assert_public_failure(result, "failed", "IMAGE_INPUT_UNAVAILABLE")
         self.assertEqual(0, self.backend.resolve_image_calls)
         self.assertEqual(0, self.backend.start_calls)
         self.assertEqual([], self.backend.inspect_envs)
 
-    def test_runtime_inspection_environment_contains_no_http_secret(self):
-        with patch.dict(os.environ, {"CAPRMEDIO_MCP_HTTP_SECRET_TOKEN": "secret-token"}):
+    def test_runtime_inspection_environment_contains_no_http_password(self):
+        with patch.dict(os.environ, {"CAPRMEDIO_MCP_HTTP_SECRET_TOKEN": "legacy-secret"}):
             self.backend.rows = [healthy_row()]
             result = self.launch(source_root=APP.parents[3])
         self.assertEqual("reused", result["disposition"])

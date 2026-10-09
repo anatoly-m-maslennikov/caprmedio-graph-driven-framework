@@ -14,7 +14,6 @@ services:
     command: [mcp-http]
     environment:
       CAPRMEDIO_RUNTIME_NAMESPACE: docker
-      CAPRMEDIO_MCP_HTTP_SECRET_TOKEN: ${CAPRMEDIO_MCP_HTTP_SECRET_TOKEN:?Set an explicit HTTP MCP token}
     volumes:
       - type: bind
         source: ${CAPRMEDIO_PROJECT_ROOT}
@@ -29,7 +28,7 @@ services:
     ports:
       - "127.0.0.1:${CAPRMEDIO_MCP_HTTP_PORT:?Set an explicit HTTP MCP port}:8092"
     healthcheck:
-      test: [CMD-SHELL, 'test -n "$$CAPRMEDIO_MCP_HTTP_SECRET_TOKEN" && python -c "from urllib.request import Request, urlopen; import os; urlopen(Request(\"http://127.0.0.1:8092/health\", headers={\"Authorization\": \"Bearer \" + os.environ[\"CAPRMEDIO_MCP_HTTP_SECRET_TOKEN\"]}), timeout=3)"']
+      test: [CMD-SHELL, 'python -c "from urllib.request import urlopen; urlopen(\"http://127.0.0.1:8092/health\", timeout=3)"']
       interval: 2s
       timeout: 5s
       retries: 20

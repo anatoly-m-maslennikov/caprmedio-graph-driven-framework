@@ -5,16 +5,16 @@ current_scope_unit: MCP
 claim_target_scope_unit: MCP
 local_tier: Standard
 global_tier: 11
-status: Active
+status: Archived
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-09 04:37:30 +0400"
+version: 1
+updated_at: "2026-10-09 00:42:28 +0000"
 subjects:
   governs: "MCP/Project launcher/selection method"
   depends_on: [Project, Project Settings, Project Structure, Gateway, Registry, Query Source, Carrier]
 relations:
   method_for: [CA-R-1900]
-  relates_to: [CA-M-341, CA-M-357]
+  relates_to: [CA-M-341, CA-M-342]
 ---
 # Summary
 

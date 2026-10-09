@@ -21,7 +21,7 @@ The default transport is local **stdio**; the MCP host owns that process lifetim
 This does not register the server with Codex or any other host. The current
 file-lock implementation supports macOS and Linux. The server is bound to one
 Project root at startup, not a client-supplied root on each request. Project
-Settings must register the shared Journal. An explicitly started, authenticated
+Settings must register the shared Journal. An explicitly started, password-free
 localhost HTTP transport is available only through the isolated Docker runtime;
 it is documented in the [Docker runtime README](../203_APPS/WORKFLOW_ORCHESTRATOR/docker/README.md).
 

@@ -19,10 +19,9 @@ class ProjectMcpCommandTests(unittest.TestCase):
                                       'project-mcp', *options]), \
              patch('project_mcp_launcher.Launcher.launch', return_value=result) as launch, \
              patch.object(runtime, 'Runtime', side_effect=AssertionError('legacy worker must not start')), \
-             patch.dict(runtime.os.environ, {'CAPRMEDIO_MCP_HTTP_SECRET_TOKEN': 'synthetic-cli-token'}), \
+             patch.dict(runtime.os.environ, {}, clear=True), \
              redirect_stdout(output):
             code = runtime.main()
-        self.assertNotIn('synthetic-cli-token', output.getvalue())
         return code, output.getvalue(), launch
 
     def test_json_ready_and_url_ready_outputs(self):
@@ -32,6 +31,7 @@ class ProjectMcpCommandTests(unittest.TestCase):
         self.assertEqual(0, code)
         self.assertEqual(result, json.loads(output))
         self.assertEqual(Path('/project'), launch.call_args.args[0])
+        self.assertIsNone(launch.call_args.args[1])
         code, output, _ = self.invoke(result, '--output', 'url')
         self.assertEqual(0, code)
         self.assertEqual(result['url'], output.strip())
@@ -70,13 +70,12 @@ class ProjectMcpCommandTests(unittest.TestCase):
                  patch.object(sys, 'argv', ['runtime.py', '--project-root', '/project',
                                             'project-mcp', '--port', value]), \
                  patch('project_mcp_launcher.Launcher.launch') as launch, \
-                 patch.dict(runtime.os.environ, {'CAPRMEDIO_MCP_HTTP_SECRET_TOKEN': 'synthetic-cli-token'}), \
+                 patch.dict(runtime.os.environ, {}, clear=True), \
                  redirect_stdout(io.StringIO()), redirect_stderr(io.StringIO()) as errors:
                 with self.assertRaises(SystemExit) as exit_code:
                     runtime.main()
             self.assertEqual(2, exit_code.exception.code)
             launch.assert_not_called()
-            self.assertNotIn('synthetic-cli-token', errors.getvalue())
 
 
 if __name__ == '__main__':

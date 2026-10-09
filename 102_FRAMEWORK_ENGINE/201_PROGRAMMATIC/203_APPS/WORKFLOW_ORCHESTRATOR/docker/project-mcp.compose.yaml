@@ -17,7 +17,6 @@ services:
       CAPRMEDIO_CONTROL_ROOT: ${CAPRMEDIO_CONTROL_ROOT:?Selected control root is required}
       CAPRMEDIO_PROJECT_INSTANCE_ID: ${CAPRMEDIO_PROJECT_INSTANCE_ID:?Selected identity is required}
       CAPRMEDIO_HOST_PROJECT_ROOT: ${CAPRMEDIO_PROJECT_ROOT:?Selected Project root is required}
-      CAPRMEDIO_MCP_HTTP_SECRET_TOKEN: ${CAPRMEDIO_MCP_HTTP_SECRET_TOKEN:?Configure an explicit token}
     labels:
       org.caprmedio.project: ${CAPRMEDIO_PROJECT_INSTANCE_ID}
       org.caprmedio.runtime.fingerprint: ${CAPRMEDIO_RUNTIME_FINGERPRINT:?Image fingerprint is required}
@@ -30,7 +29,7 @@ services:
         target: /project
     ports: ["127.0.0.1:${CAPRMEDIO_MCP_HTTP_PORT:-}:8092"]
     healthcheck:
-      test: [CMD, python, -c, "import json,os,urllib.request; r=urllib.request.Request('http://127.0.0.1:8092/health',headers={'Authorization':'Bearer '+os.environ['CAPRMEDIO_MCP_HTTP_SECRET_TOKEN']}); assert json.load(urllib.request.urlopen(r,timeout=3))['ready'] is True"]
+      test: [CMD, python, -c, "import json,urllib.request; assert json.load(urllib.request.urlopen('http://127.0.0.1:8092/health',timeout=3))['ready'] is True"]
       interval: 2s
       timeout: 5s
       retries: 25

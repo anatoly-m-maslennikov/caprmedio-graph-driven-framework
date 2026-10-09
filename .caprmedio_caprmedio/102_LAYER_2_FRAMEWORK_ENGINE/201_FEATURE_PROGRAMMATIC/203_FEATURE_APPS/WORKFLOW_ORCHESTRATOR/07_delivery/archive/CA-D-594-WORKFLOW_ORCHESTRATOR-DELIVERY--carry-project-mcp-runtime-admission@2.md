@@ -4,13 +4,13 @@ content_role: Delivery
 current_scope_unit: WORKFLOW_ORCHESTRATOR
 local_tier: Standard
 global_tier: 14
-status: Active
+status: Archived
 author: Anatoly Maslennikov
-version: 3
-updated_at: "2026-10-09 04:37:30 +0400"
+version: 2
+updated_at: "2026-10-09 00:42:28 +0000"
 subjects:
   governs: "Workflow Orchestrator/Project MCP runtime admission Carrier"
-  depends_on: [Project, MCP, Docker Runtime, Image, Gateway, Carrier]
+  depends_on: [Project, MCP, Docker Runtime, Image, Gateway, Credential, Carrier]
 relations:
   delivery_for: [CA-R-1901, CA-M-356]
   relates_to: [CA-D-525, CA-D-526, CA-D-578]
@@ -33,5 +33,5 @@ the delivered launcher boundary **must** carry exact image and selected-Project 
 - carry the exact ordered build-input manifest from separately explicit readable `--source-root`, its SHA-256 source fingerprint, image label schema, and resolved immutable image digest. The source root is only image/build closure and does not widen or replace Project selection. Compatibility checks use these values, not a mutable tag or a Project-derived image name. Missing packaged Engine/Docker/dependency inputs carry `IMAGE_INPUT_UNAVAILABLE` and a safe `--source-root` remediation.
 - carry the selected Project identity as the Compose/resource label and namespace key, with one lock and safe runtime metadata per identity. The metadata records only resolved digest/fingerprint, service state, loopback publication, and readiness disposition; it excludes tokens and other credentials.
 - carry a direct `mcp-http` Compose invocation with selected Project context and no proxy sidecar, Docker socket, worker, Agent, or queue service start. Dynamic allocation uses Docker's empty-host-port loopback publication; its inspected mapping, rather than a requested free port, is the connection-port source.
-- the readiness probe carries no password, bearer, Authorization value, or credential configuration. No Carrier places an HTTP credential in a URL, argument vector, image, committed configuration, normal log, launch result, or persistent metadata.
+- accepted readiness credentials are injected from the declared environment source only. No Carrier places them in a URL, argument vector, image, committed configuration, normal log, launch result, or persistent metadata.
 - this Delivery supplements the existing Docker runtime and HTTP Gateway Carriers. It is not a full-Release delivery, does not repurpose Release actions, does not replace package/runtime N, and never permits live-service replacement.

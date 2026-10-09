@@ -14,7 +14,6 @@ import hashlib
 import json
 import os
 from pathlib import Path
-import secrets
 import socket
 import subprocess
 import sys
@@ -124,11 +123,10 @@ def _launch(fixture, token, source_root, image, *, deadline, port=None, command_
     command.append("project-mcp")
     if command_receipt is not None:
         command_receipt["argv"] = command.copy()
-    environment = dict(os.environ, CAPRMEDIO_MCP_HTTP_SECRET_TOKEN=token)
+    environment = dict(os.environ)
     command_timeout = min(90 if image is not None else 690, remaining - 5)
     response = subprocess.run(command, env=environment, capture_output=True, text=True,
                               timeout=command_timeout, check=False)
-    assert token not in response.stdout and token not in response.stderr, "CLI rendered a bearer token"
     result = json.loads(response.stdout)
     assert isinstance(result, dict), "CLI did not return a structured result"
     assert response.returncode == (0 if result.get("readiness") is True else 1), result
@@ -168,7 +166,7 @@ def _cleanup(fixtures, tokens, records):
                 assert identifiers == [record["container_id"]], "cleanup container identity changed"
             labels = rows[0]["Config"]["Labels"]
             environment = backend._environment(selection, rows[0]["Image"],
-                                               labels["org.caprmedio.runtime.fingerprint"], token)
+                                               labels["org.caprmedio.runtime.fingerprint"])
             command = ["docker", "compose", "--env-file", "/dev/null", "--project-name",
                        selection.compose_project, "-f", str(DOCKER / "project-mcp.compose.yaml"),
                        "down", "--timeout", "10"]
@@ -202,11 +200,10 @@ def _compose_services(selection, token, row):
     from project_mcp_backend import ProjectMcpBackend
     backend = ProjectMcpBackend(build_if_missing=False)
     labels = row["Config"]["Labels"]
-    environment = backend._environment(selection, row["Image"], labels["org.caprmedio.runtime.fingerprint"], token)
+    environment = backend._environment(selection, row["Image"], labels["org.caprmedio.runtime.fingerprint"])
     command = ["docker", "compose", "--env-file", "/dev/null", "--project-name", selection.compose_project,
                "-f", str(DOCKER / "project-mcp.compose.yaml"), "ps", "--all", "--format", "json"]
     response = subprocess.run(command, env=environment, capture_output=True, text=True, timeout=45, check=False)
-    assert token not in response.stdout and token not in response.stderr, "compose status rendered a bearer token"
     assert response.returncode == 0, "compose status failed"
     rows = [json.loads(line) for line in response.stdout.splitlines() if line.strip()]
     services = {item.get("Service") for item in rows if isinstance(item, dict)}
@@ -266,7 +263,7 @@ def _assert_collision_refusal(result, expected):
 async def _prove_group(parent, group, source_root, image, deadline, evidence):
     from project_mcp_backend import ProjectMcpBackend
     fixtures = _fixtures(parent, group)
-    tokens = [secrets.token_urlsafe(32), secrets.token_urlsafe(32)]
+    tokens = [None, None]
     baseline = [fixture.snapshot() for fixture in fixtures]
     records = evidence["launches"] = []
     backend = ProjectMcpBackend(build_if_missing=False)
@@ -332,14 +329,14 @@ async def _prove_group(parent, group, source_root, image, deadline, evidence):
         assert mismatch["condition"] == "RUNTIME_MISMATCH", mismatch
         evidence.update(repeated=repeat, concurrent=concurrent)
         async with AsyncExitStack() as stack:
-            sessions = [await stack.enter_async_context(harness._http_session(row["url"], token))
+            sessions = [await stack.enter_async_context(harness._http_session(row["url"], None))
                         for row, token in zip(launches, tokens, strict=True)]
             reads, security = [], []
             for index, ((session, metadata), fixture, row, token) in enumerate(zip(
                     sessions, fixtures, launches, tokens, strict=True)):
                 names = {tool.name for tool in (await session.list_tools()).tools}
-                security.append(await asyncio.to_thread(probe_first_cut_http_security, row["url"], token,
-                    list_tools=lambda _url, _token: names, continuation_session_id=metadata.session_id,
+                security.append(await asyncio.to_thread(probe_first_cut_http_security, row["url"], None,
+                    list_tools=lambda _url, _token: names,
                     recording_boundary=lambda: [item.snapshot() for item in fixtures]))
                 read = _structured_tool_result(await session.call_tool("get_execution_context", {"request": {"id": fixture.atom_id}}))
                 definition = read["definition"]
@@ -349,9 +346,6 @@ async def _prove_group(parent, group, source_root, image, deadline, evidence):
                     "request": {"id": fixtures[1 - index].atom_id}})
                 assert foreign.is_error, foreign
                 reads.append(read)
-                from first_cut_http_security import _urllib_status
-                assert await asyncio.to_thread(_urllib_status, row["url"].replace("/mcp", "/health"),
-                    {"Authorization": "Bearer " + tokens[1 - index]}) == 401
                 refused = _structured_tool_result(await session.call_tool("create_atom", {"request": {"operation_route": "create_atom", "request_id": "unconfigured"}}))
                 assert refused.get("disposition") in {"blocked", "rejected"}, refused
             request_id = str(uuid.uuid4())

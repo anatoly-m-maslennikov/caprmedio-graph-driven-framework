@@ -88,9 +88,6 @@ connection. MCP shutdown does not stop the worker or its queue.
 
 ## Launch a selected Project MCP endpoint
 
-Set `CAPRMEDIO_MCP_HTTP_SECRET_TOKEN` in the launching process's environment
-through your credential configuration before running this command:
-
 ```sh
 python3 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/runtime.py \
   --project-root /ABSOLUTE/PROJECT --source-root /ABSOLUTE/FRAMEWORK-SOURCE project-mcp
@@ -152,34 +149,32 @@ Docker client commands preserve configured HTTP/HTTPS/SOCKS proxy routing,
 including uppercase and lowercase proxy variables. These host routing values
 are not emitted in launcher results or supplied as image build arguments.
 
-Configure your Streamable HTTP MCP client with the returned URL and a separate
-`Authorization: Bearer <configured-secret>` header using the same token. The
-token is absent from the URL and results, is not a command-line argument, and
-is not loaded from an `.env` file. Each endpoint uses one container limited to
-512 MiB and one CPU. Readiness confirms authenticated host access to MCP; this
-command does not start a worker, Agent, queue, or Workflow, or grant execution
-authority.
+Configure your Streamable HTTP MCP client with the returned loopback URL. The
+listener has no password or authorization-header requirement; it remains limited
+to localhost and rejects non-local Host or Origin values. Each endpoint uses one
+container limited to 512 MiB and one CPU. Readiness confirms host access to MCP;
+this command does not start a worker, Agent, queue, or Workflow, or grant
+execution authority.
 
 ## Explicit-port localhost HTTP MCP
 
 The Docker runtime can additionally expose Streamable HTTP MCP at a caller-chosen
-loopback port. Supply both values explicitly in the invoking environment; neither
-is read from an `.env` file:
+loopback port. Supply the port explicitly in the invoking environment; it is not
+read from an `.env` file:
 
 ```sh
 CAPRMEDIO_MCP_HTTP_PORT=18092 \
-CAPRMEDIO_MCP_HTTP_SECRET_TOKEN='set-a-secret-outside-the-repository' \
 python3 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/runtime.py \
   --project-root "$PWD" mcp-http-start
 ```
 
-On success the command returns `http://127.0.0.1:<port>/mcp`. Clients must send
-the configured Bearer token. The listener rejects invalid credentials and
-non-local Host or Origin values. Startup fails closed unless Compose reports one
-healthy `mcp-http` service with the requested loopback TCP publication. Inspect
-or stop that endpoint explicitly with `mcp-http-status` or `mcp-http-stop` using
-the same environment. This HTTP service is independent of the stdio connection;
-starting it neither starts a Workflow nor grants execution authority.
+On success the command returns `http://127.0.0.1:<port>/mcp`. The listener
+rejects non-local Host or Origin values. Startup fails closed unless Compose
+reports one healthy `mcp-http` service with the requested loopback TCP
+publication. Inspect or stop that endpoint explicitly with `mcp-http-status` or
+`mcp-http-stop` using the same environment. This HTTP service is independent of
+the stdio connection; starting it neither starts a Workflow nor grants execution
+authority.
 
 Alternatively, existing native MCP `workflow_orchestrator` calls route to the
 Docker worker after a successful explicit `start` publishes `transport.json`.

@@ -114,14 +114,13 @@ class ImageOutputSafetyTests(unittest.TestCase):
         caller = dict(PROXY_ROUTING, PATH="/synthetic-bin",
                       CAPRMEDIO_MCP_HTTP_SECRET_TOKEN=PRIVATE_MARKER,
                       AWS_SECRET_ACCESS_KEY=PRIVATE_MARKER, GITHUB_TOKEN=PRIVATE_MARKER)
-        explicit_token = "synthetic-explicit-service-token"
         with patch.dict(os.environ, caller, clear=True):
             client = ProjectMcpBackend._docker_client_environment()
-            service = ProjectMcpBackend._environment(selection, IMAGE_ID, "b" * 64, explicit_token)
+            service = ProjectMcpBackend._environment(selection, IMAGE_ID, "b" * 64)
         self.assertEqual(dict(PROXY_ROUTING, PATH="/synthetic-bin"), client)
         for name, value in PROXY_ROUTING.items():
             self.assertEqual(value, service[name])
-        self.assertEqual(explicit_token, service["CAPRMEDIO_MCP_HTTP_SECRET_TOKEN"])
+        self.assertNotIn("CAPRMEDIO_MCP_HTTP_SECRET_TOKEN", service)
         self.assertNotIn(PRIVATE_MARKER, client.values())
         self.assertNotIn(PRIVATE_MARKER, service.values())
         self.assertNotIn("AWS_SECRET_ACCESS_KEY", service)
