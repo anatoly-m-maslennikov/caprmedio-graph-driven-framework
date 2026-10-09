@@ -385,10 +385,12 @@ async def _prove_group(parent, group, source_root, image, deadline, evidence):
                                   "occupied_refusal": occupied, "historical_beta_container_id": historical_beta_id,
                                   "pre_occupied_cleanup": beta_cleanup,
                                   "failed_resource_cleanup": failed_cleanup}
-        refused = await asyncio.to_thread(_launch, fixtures[0], tokens[1], source_root, image, deadline=deadline)
-        assert refused["condition"] == "READINESS_FAILED" and "url" not in refused, refused
+        anonymous_reuse = await asyncio.to_thread(_launch, fixtures[0], None, source_root, image,
+                                                  deadline=deadline)
+        assert anonymous_reuse["condition"] == "READY_REUSED" and anonymous_reuse["readiness"] is True, anonymous_reuse
+        assert all(anonymous_reuse[key] == alpha[key] for key in ("url", "container_id", "port", "project_id")), anonymous_reuse
         assert [item.snapshot() for item in fixtures] == baseline, "read/security/reload changed authority or Journal"
-        evidence["readiness_refusal"] = refused
+        evidence["anonymous_readiness_reuse"] = anonymous_reuse
     except BaseException as error:
         failure = error
         raise
