@@ -25,8 +25,8 @@ subjects:
     - Action
     - Journal
     - Plan
-version: 8
-updated_at: "2026-10-10 01:17:19 +0400"
+version: 9
+updated_at: "2026-10-10 01:39:46 +0400"
 relations:
   is_decomposition_of:
     - CA-P-1110
@@ -50,7 +50,7 @@ The Operator replaced the immediate execution plan on 2026-10-09. Do these steps
 3. **Give the Operator the new graph candidate.** Present the grouped, inherited and visibly marked candidate in compact notation using `/`, `.`, `:` and `@`. Use NARROWER_THAN, IS_BORNE_BY, IS_ALLOWED_VALUE_OF and IS_CARRIED_BY with correct directions and qualified identities. Hand off its complete relation ledger, node dispositions, exact source pins and candidate hash. Preserve the baseline. Candidate delivery is not acceptance. Only after an explicit Operator decision tied to that candidate may CA-P-1909 apply accepted decisions to a separate derived graph and verify it.
 4. **Update Atom Subjects.** Only after explicit Operator acceptance and verification of the separate accepted graph may CA-P-1910 prepare the exact migration preview. CA-P-1911 may write the confirmed `/`, `.` and `:` notation and required grammar/revision changes only after separate Operator authorization of that sealed preview. CA-P-1912 then rebuilds and verifies reproduction of the accepted graph with its source-backed relation evidence. The display operator `@` is not automatically added to Subject grammar.
 
-Step **1 is complete**; step **2 is next and has not started** under this sequence. Steps 3–4 remain pending. Earlier classification drafts and migration code are preparation only, not accepted decisions or source updates. The approved compact graph notation is `/` for broader-to-narrower, `.` for bearer qualification, `:` for allowed values and `@` for IS_CARRIED_BY; step 1 does not apply it to old `/` occurrences. Exact `@` bindings identify the carried state and Carrier rather than assigning a Property value.
+Step **1 is complete**. Step **2 is in progress**: CA-P-1905's current baseline review is Done; CA-P-1906 candidate design is next. Steps 3–4 remain pending. Earlier classification drafts and migration code are preparation only, not accepted decisions or source updates. The approved compact graph notation is `/` for broader-to-narrower, `.` for bearer qualification, `:` for allowed values and `@` for IS_CARRIED_BY; step 1 does not apply it to old `/` occurrences. Exact `@` bindings identify the carried state and Carrier rather than assigning a Property value.
 
 This sequence governs the immediate local work without MCP. A mechanical projection is not native semantic admission, a live MCP Run or completion of the whole Epic. The existing MCP delivery work remains separate and pending.
 
@@ -84,6 +84,13 @@ The Operator added this work and broadened Task 3 on 2026-10-10. Task creation i
 - Every original relation occurrence needs a row with the source Atom/revision/hash, Subject field/index/path/segment, old qualified endpoints, graph kind and disposition. An evidenced proposal records its operator/relation/direction/endpoints and Main Content evidence. An unresolved or not-native row has no asserted native relation proposal; record the missing-evidence or inapplicability reason, what was checked and any required Operator question. Preserve these reasons through candidate changes and handoff; do not invent native edges from syntax or Atom incidence. Additional candidate relations need their own source evidence, not fabricated old occurrences. CA-P-1907 must keep this ledger complete when marking generalizations or consolidations.
 
 CA-P-1905–1908 refine steps 2–3 above. Their outputs remain proposals for Operator review; they do not accept a new ontology, update the step-1 graph or Core Subjects, rename YAML keys, implement a runtime, or complete the Epic. `@` is approved compact graph notation, not an automatically admitted Subject-path serialization operator.
+
+### Current local execution evidence
+
+- CA-P-1905 is Done and placed in this Epic's local `done` container. Its fresh review and complete inventory are under `.caprmedio_caprmedio/_projection/core-entity-review/`.
+- The current Step 1 graph and all source/profile pins reproduce exactly. Independent inventory acceptance covers all 706 nodes, 360 edges, 4,534 occurrences and 3,093 source-level relation segments.
+- There are 346 syntactic qualification roots (53 branching and 293 standalone) and 74 repeated leaf-label groups. These are diagnostic counts, not independent ontology roots or accepted duplicates.
+- No candidate classification, source migration, native graph admission or MCP Run has been completed. The Epic remains Active.
 
 ### Candidate acceptance and migration gates
 
@@ -193,7 +200,7 @@ Each leaf has one AI Agent Assignee and <=15 minutes of hands-on work. Composite
 | [CA-P-1894](01-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/15-CA-P-1894-TASK--generate-the-current-core-entity-graph-through-mcp.md) | Generate the current Core entity graph through MCP | 10 min |
 | [CA-P-1895](01-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/16-CA-P-1895-TASK--generate-the-current-core-term-graph-through-mcp.md) | Generate the current Core term graph through MCP | 10 min |
 | [CA-P-1896](01-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/17-CA-P-1896-TASK--verify-and-hand-off-both-core-graph-outputs.md) | Verify and hand off both Core graph outputs | 5 min |
-| [CA-P-1905](01-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/21-CA-P-1905-TASK--review-current-entities-graph-from-active-core-meta-model.md) | Review current Entities Graph from Active Core Meta-model | 15 min |
+| [CA-P-1905](01-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/done/21-CA-P-1905-TASK--review-current-entities-graph-from-active-core-meta-model.md) | Review current Entities Graph from Active Core Meta-model | Done |
 | [CA-P-1906](01-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/22-CA-P-1906-TASK--design-continuant-occurrent-groups-and-inherited-constraints.md) | Design Continuant Occurrent groups and inherited constraints | 15 min |
 | [CA-P-1907](01-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/23-CA-P-1907-TASK--mark-entity-drop-and-consolidation-candidates-without-deleting.md) | Mark Entity drop and consolidation candidates without deleting | 15 min |
 | [CA-P-1908](01-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/24-CA-P-1908-TASK--present-compact-entities-graph-candidate-for-operator-review.md) | Present compact Entities Graph candidate for Operator review | 15 min |
