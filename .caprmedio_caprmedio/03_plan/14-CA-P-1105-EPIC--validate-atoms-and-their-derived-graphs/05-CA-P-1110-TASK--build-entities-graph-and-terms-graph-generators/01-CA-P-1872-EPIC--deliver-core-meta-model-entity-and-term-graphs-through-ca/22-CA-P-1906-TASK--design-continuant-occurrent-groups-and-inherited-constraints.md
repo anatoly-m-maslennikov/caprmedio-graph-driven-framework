@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Projection
   depends_on: [Entity, Term, Atom, Property, Carrier, Plan]
-version: 2
-updated_at: "2026-10-10 01:17:19 +0400"
+version: 3
+updated_at: "2026-10-10 01:56:46 +0400"
 relations:
   is_decomposition_of: [CA-P-1872]
   blocks: [CA-P-1907]
@@ -42,7 +42,11 @@ Use as few genuine root entities as the evidence permits. Do not invent relation
 
 Keep Carrier separate from the carried Entity and its binding metadata. Reuse CARRIES/IS_CARRIED_BY rather than invent another equivalent primitive. Carrier-specific fields such as Basename apply only where the relevant Carrier kind supports them.
 
-Output: a proposed grouped structure, inherited-constraint map, old-to-candidate identity mapping, complete occurrence-to-proposed-relation ledger and explicit questions. This is candidate design, not BFO adoption or Core authority.
+Compare the latest Operator's two view options: separate R/M/E/D trees, and an Entity-centered view with applicable M/E/D links. R shows the Entity-model skeleton and required results; M shows construction or Implementation conventions; E shows checks and acceptance criteria; D shows Carrier, representation, format, storage and placement constraints. The two views may share the same source-backed identities and Claims. Do not require an M, E or D Atom for every Entity unless applicable authority requires it.
+
+Treat `/`, `.` and `:` as Entity-model notation, not as automatic Method/Evaluation links. Shared M/E/D Claims may apply to several Entities and need not be copied. A visual M/E/D grouping is not Property ownership, narrower-than inheritance or a newly admitted native Relation. Keep exact applicability and inherited constraints evidenced; unresolved cross-links remain questions. Do not exclude current Carrier definitions merely because their governing source role is Delivery, and do not filter the complete baseline to R-only sources.
+
+Output: a proposed grouped structure, inherited-constraint map, old-to-candidate identity mapping, complete occurrence-to-proposed-relation ledger, comparison of the two RMED view options and explicit questions. This is candidate design, not BFO adoption or Core authority.
 
 The relation ledger must retain **every** old source Subject relation segment, including every `/` occurrence, each supporting qualified prefix and unchanged `:` row. It is not a deduplicated graph-edge list or a ledger only for affected nodes. Each row must record the source Atom ID, Revision and Carrier hash; Subjects field index, complete path and exact segment; original qualified endpoints and graph kind; and disposition with confidence. For an evidenced proposal, record the proposed display operator, canonical Relation and direction, proposed qualified endpoints and evidence span. For an `unresolved` or `not-native` row, leave the asserted native proposal, direction and new endpoints explicitly absent; record the missing-evidence or inapplicability reason, what was checked and any required Operator question. Do not invent a proposal or positive evidence to complete a row.
 
@@ -54,4 +58,4 @@ Inherit CA-P-1872's explicit 90% confidence threshold and local-without-MCP auth
 
 ### Definition of Done
 
-the Plan is **not** Done **if** ((the stated output, complete source traceability, complete occurrence-to-proposed-relation ledger **or** required handoff is missing) **or** (any old relation segment lacks its source coordinates, original qualified endpoints, graph kind **or** disposition) **or** (a proposed relation lacks its proposal fields **or** evidence span) **or** (an unresolved **or** not-native row asserts an invented native proposal **or** lacks its reason, checks performed **or** required Operator question) **or** (a required start prerequisite is **not** Done) **or** (the stated acceptance conditions are failed, stale **or** unverified) **or** (uncertainty below the inherited confidence threshold is silently resolved **or** not put to the Operator) **or** (work exceeds the admitted boundary **or** any source, Subject, history **or** marked Entity was changed **or** deleted without separate authorization) **or** (any direct decomposing Plan is **not** Done)).
+the Plan is **not** Done **if** ((the stated output, complete source traceability, complete occurrence-to-proposed-relation ledger, comparison of the two RMED view options **or** required handoff is missing) **or** (any old relation segment lacks its source coordinates, original qualified endpoints, graph kind **or** disposition) **or** (a proposed relation lacks its proposal fields **or** evidence span) **or** (an unresolved **or** not-native row asserts an invented native proposal **or** lacks its reason, checks performed **or** required Operator question) **or** (a required start prerequisite is **not** Done) **or** (the stated acceptance conditions are failed, stale **or** unverified) **or** (uncertainty below the inherited confidence threshold is silently resolved **or** not put to the Operator) **or** (work exceeds the admitted boundary **or** any source, Subject, history **or** marked Entity was changed **or** deleted without separate authorization) **or** (any direct decomposing Plan is **not** Done)).

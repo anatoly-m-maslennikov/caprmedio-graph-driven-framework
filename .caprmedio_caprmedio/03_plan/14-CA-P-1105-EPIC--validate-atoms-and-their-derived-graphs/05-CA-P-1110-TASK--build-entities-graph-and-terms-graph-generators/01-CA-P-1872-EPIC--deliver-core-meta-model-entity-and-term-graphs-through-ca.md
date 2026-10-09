@@ -25,8 +25,8 @@ subjects:
     - Action
     - Journal
     - Plan
-version: 9
-updated_at: "2026-10-10 01:39:46 +0400"
+version: 10
+updated_at: "2026-10-10 01:56:46 +0400"
 relations:
   is_decomposition_of:
     - CA-P-1110
@@ -53,6 +53,21 @@ The Operator replaced the immediate execution plan on 2026-10-09. Do these steps
 Step **1 is complete**. Step **2 is in progress**: CA-P-1905's current baseline review is Done; CA-P-1906 candidate design is next. Steps 3–4 remain pending. Earlier classification drafts and migration code are preparation only, not accepted decisions or source updates. The approved compact graph notation is `/` for broader-to-narrower, `.` for bearer qualification, `:` for allowed values and `@` for IS_CARRIED_BY; step 1 does not apply it to old `/` occurrences. Exact `@` bindings identify the carried state and Carrier rather than assigning a Property value.
 
 This sequence governs the immediate local work without MCP. A mechanical projection is not native semantic admission, a live MCP Run or completion of the whole Epic. The existing MCP delivery work remains separate and pending.
+
+### Latest Operator design direction: parallel RMED views
+
+The Operator clarified the view design on 2026-10-10:
+
+- R: the Entity-model skeleton and required results.
+- M: how we construct or implement them.
+- E: how we check them.
+- D: how we carry, represent and store them, including formats and folders.
+- The earlier `/`, `.` and `:` discussion concerns Entity-model relations. It does not define new relations for Method or Evaluation Claims.
+- Compare two presentation options: separate R/M/E/D trees, and an Entity-centered view with its applicable M/E/D links. They may coexist as projections of the same sources. An Entity need not have all three links; shared Claims must not be duplicated merely for display.
+
+CA-P-1906 must evaluate these views before the candidate handoff. Keep shared qualified identities and traceability. Do not turn M/E/D links into asserted Entity Properties or narrower-than relations just because they appear beneath an Entity in a view. Internal/External/Relational remains a separate classification question, not automatically four new Entity types.
+
+This direction is not a request to filter the reviewed baseline to Requirement-role source files only: current Core Delivery Claims also define the Carrier model. Preserve all baseline identities and occurrences, and distinguish the model view from the Content Role of the governing Atom. The options are recorded for design; neither a new native graph kind nor the combined presentation has been adopted. Core Atoms, Subjects and the Step 1 baseline remain unchanged.
 
 #### Step 1 acceptance receipt
 
