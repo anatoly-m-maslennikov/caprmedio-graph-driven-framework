@@ -45,6 +45,7 @@ from selected_routes import (  # noqa: E402
     SELECTED_ROUTE_NAMES,
     SelectedRouteError,
     canonical_digest,
+    _validate_route,
     load_release_manifest_refresh_base,
     load_selected_manifest,
     selected_manifest_ref,
@@ -70,6 +71,14 @@ class ReleaseManifestRefreshTest(unittest.TestCase):
             "CA-O-128-CORE_META_MODEL-ACTION--apply-authorized-atom-lifecycle-changes.md"
         )
         archive = old_action.parent / "archive" / (old_action.stem + "@3.md")
+        mutable_selected_pins = {
+            Path(".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/"
+                 "000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/"
+                 "CA-O-134-CORE_META_MODEL-ACTION--construct-entities-graph-projection.md"),
+            Path(".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/"
+                 "000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/"
+                 "CA-O-137-CORE_META_MODEL-ACTION--construct-terms-graph-projection.md"),
+        }
 
         def copy_historical_pin(relative: Path, expected_digest: object) -> None:
             if relative == old_action and expected_digest == "b5d052e97bae6ada98849380199e5c67cbf090900beb33ca202f7872d56301e8":
@@ -78,10 +87,38 @@ class ReleaseManifestRefreshTest(unittest.TestCase):
                 target.parent.mkdir(parents=True, exist_ok=True)
                 shutil.copy2(source, target)
                 return
+            if relative in mutable_selected_pins:
+                target = self.root / relative
+                target.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copy2(REPOSITORY / relative, target)
+                return
             original_copy_pinned(relative, expected_digest)
 
         project._copy_pinned = copy_historical_pin
         project._copy_reviewed_manifest()
+        selected_manifest = self.root / selected_manifest_ref(self.root)
+        manifest = json.loads(selected_manifest.read_text(encoding="utf-8"))
+
+        def refresh_fixture_pin(value: object) -> None:
+            if isinstance(value, dict):
+                if Path(value.get("source_path", "")) in mutable_selected_pins:
+                    source = REPOSITORY / value["source_path"]
+                    raw = source.read_bytes()
+                    version = re.search(r"(?m)^version:\s*(\d+)\s*$", raw.decode("utf-8"))
+                    self.assertIsNotNone(version)
+                    value["version"] = int(version.group(1))
+                    value["digest"] = hashlib.sha256(raw).hexdigest()
+                for nested in value.values():
+                    refresh_fixture_pin(nested)
+            elif isinstance(value, list):
+                for nested in value:
+                    refresh_fixture_pin(nested)
+
+        refresh_fixture_pin(manifest["routes"])
+        manifest["source_freshness"]["selected_binding_digest"] = canonical_digest(manifest["routes"])
+        unsigned = {key: value for key, value in manifest.items() if key != "canonical_manifest_sha256"}
+        manifest["canonical_manifest_sha256"] = canonical_digest(unsigned)
+        selected_manifest.write_text(json.dumps(manifest, separators=(",", ":")), encoding="utf-8")
         for relative in (
             Path(".caprmedio_caprmedio/operators_registry.toml"),
             Path(".caprmedio_caprmedio/caprmedio_project_settings.toml"),
@@ -149,10 +186,9 @@ class ReleaseManifestRefreshTest(unittest.TestCase):
 
     @contextmanager
     def advanced_admission(self):
-        """Advance one legal RMED pin and its D572 trust anchor in this fixture only."""
+        """Advance one Release workflow pin and its D572 trust anchor in this fixture only."""
         old_admission = self.initial["release_source_admissions"][0]
-        private_paths = {row["source_path"] for row in self.fixture.private_carriers}
-        pin = next(pin for pin in old_admission["rmed_frontier"] if pin["source_path"] not in private_paths)
+        pin = old_admission["workflow"]
         source = self.root / pin["source_path"]
         authority = self.root / source_goldens.AUTHORITY_REF
         source_before, authority_before = source.read_bytes(), authority.read_bytes()
@@ -199,7 +235,7 @@ class ReleaseManifestRefreshTest(unittest.TestCase):
             loaded = load_selected_manifest(self.root)
             self.assertEqual("published", result["disposition"], result)
             self.assertEqual("refresh", result["publication_operation"])
-            self.assertEqual(self.initial["routes"], loaded["routes"])
+            self.assertEqual(self.initial["routes"][:-1], loaded["routes"][:-1])
             self.assertEqual(self.initial["query_source_admissions"], loaded["query_source_admissions"])
             for field in ("selected_source_registry_ref", "selected_source_registry_version", "selected_source_registry_digest"):
                 self.assertEqual(self.initial["source_freshness"][field], loaded["source_freshness"][field])
@@ -207,12 +243,65 @@ class ReleaseManifestRefreshTest(unittest.TestCase):
             self.assertEqual([current_admission], loaded["release_source_admissions"])
             self.assertNotEqual(self.initial["release_source_admissions"], loaded["release_source_admissions"])
 
+    def test_stale_nonrelease_pins_refuse_before_refresh_or_effects(self) -> None:
+        """The stale-pin exception is exclusively for the D572 release route."""
+        for atom_id in ("CA-O-134", "CA-O-137"):
+            with self.subTest(atom_id=atom_id):
+                manifest = json.loads(self.initial_bytes)
+                pin = next(
+                    item
+                    for route in manifest["routes"][:-1]
+                    for item in route["ordered_actions"]
+                    if item["atom_id"] == atom_id
+                )
+                pin["digest"] = "f" * 64
+                self.path.write_bytes(self._resign(manifest))
+                before = self.path.read_bytes()
+                with self.assertRaisesRegex(SelectedRouteError, "source pin is stale"):
+                    load_release_manifest_refresh_base(self.root)
+                self.assertEqual(before, self.path.read_bytes())
+                self.assertEqual([], self._pending_ids())
+                self.path.write_bytes(self.initial_bytes)
+
+    def test_stale_release_route_graph_drift_refuses_before_effects(self) -> None:
+        with self.advanced_admission():
+            manifest = json.loads(self.initial_bytes)
+            manifest["routes"][-1]["entry_step"] = manifest["routes"][-1]["ordered_steps"][1]["step"]["atom_id"]
+            self.path.write_bytes(self._resign(manifest))
+            before = self.path.read_bytes()
+            with self.assertRaisesRegex(SelectedRouteError, "route graph or metadata differs"):
+                load_release_manifest_refresh_base(self.root)
+            self.assertEqual(before, self.path.read_bytes())
+            self.assertEqual([], self._pending_ids())
+
+    def test_stale_release_route_requires_strict_pin_and_metadata_types(self) -> None:
+        with self.advanced_admission():
+            for field, value, message in (
+                ("workflow.version", True, "Release refresh pin version"),
+                ("mutation_capable", 0, "route binding has no ordered step graph"),
+            ):
+                with self.subTest(field=field):
+                    manifest = json.loads(self.initial_bytes)
+                    route = manifest["routes"][-1]
+                    if field == "workflow.version":
+                        route["workflow"]["version"] = value
+                    else:
+                        route["mutation_capable"] = value
+                    self.path.write_bytes(self._resign(manifest))
+                    before = self.path.read_bytes()
+                    with self.assertRaisesRegex(SelectedRouteError, message):
+                        load_release_manifest_refresh_base(self.root)
+                    self.assertEqual(before, self.path.read_bytes())
+                    self.assertEqual([], self._pending_ids())
+
     def test_closed_registered_source_successor_uses_the_same_trusted_refresh_lifecycle(self) -> None:
         """D588 falls through the existing refresh boundary; it adds no lifecycle."""
-        with self.advanced_admission() as (_, current_admission):
+        with self.advanced_admission() as (current_route, current_admission):
             candidate = copy.deepcopy(self.initial)
             candidate.pop("manifest_ref")
+            candidate["routes"][-1] = copy.deepcopy(current_route)
             candidate["release_source_admissions"] = [copy.deepcopy(current_admission)]
+            candidate["source_freshness"]["selected_binding_digest"] = canonical_digest(candidate["routes"])
             candidate.pop("canonical_manifest_sha256")
             candidate["canonical_manifest_sha256"] = canonical_digest(candidate)
             payload = json.dumps(candidate, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode("utf-8") + b"\n"
@@ -471,6 +560,10 @@ class ReleaseRoutePinRefreshUnitTest(unittest.TestCase):
                 refresh_release_manifest(self.root, execute=True, authorization={})
 
         self.assertEqual(b"unchanged input\n", self.path.read_bytes())
+
+    def test_stale_pin_reader_cannot_bypass_a_normal_route(self) -> None:
+        with self.assertRaisesRegex(SelectedRouteError, "limited to release_version"):
+            _validate_route(self.root, self.old_route, verify_source_pins=False)
 
 
 if __name__ == "__main__":

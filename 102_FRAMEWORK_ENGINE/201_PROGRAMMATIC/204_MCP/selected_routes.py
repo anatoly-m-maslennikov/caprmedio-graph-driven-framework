@@ -258,6 +258,18 @@ def _validate_pin(root: Path, pin: Any) -> dict[str, Any]:
     return dict(pin)
 
 
+def _validate_pin_shape(root: Path, pin: Any) -> dict[str, Any]:
+    """Accept one stale Release pin only as a safe, closed comparison input.
+
+    Its source identity is compared to the freshly derived D572 route before
+    the publisher may replace it.  This intentionally does not reopen stale
+    bytes or metadata: the first fifteen routes still use ``_validate_pin``.
+    """
+    shaped = _refresh_pin_shape(pin)
+    _safe_path(root, shaped["source_path"])
+    return shaped
+
+
 def _manifest_path(root: Path) -> Path:
     return _safe_path(root, selected_manifest_ref(root))
 
@@ -268,7 +280,10 @@ def _definition_sequence(route: Mapping[str, Any]) -> list[dict[str, Any]]:
 
 def _validate_route(
     root: Path, entry: Any, *, allowed_routes: tuple[str, ...] = SELECTED_ROUTE_NAMES,
+    verify_source_pins: bool = True,
 ) -> dict[str, Any]:
+    if not verify_source_pins and allowed_routes != (_OPTIONAL_RELEASE_ROUTE_NAME,):
+        raise SelectedRouteError("stale source pin validation is limited to release_version")
     required = {"route", "workflow", "ordered_steps", "ordered_actions", "native_action_calls",
                 "entry_step", "on_result", "mutation_capable"}
     if not isinstance(entry, Mapping) or set(entry) != required:
@@ -279,17 +294,18 @@ def _validate_route(
         raise SelectedRouteError("route binding has no ordered step graph")
     if not isinstance(entry["ordered_actions"], list) or not isinstance(entry["native_action_calls"], list):
         raise SelectedRouteError("route binding has an invalid ordered Action list")
+    pin_validator = _validate_pin if verify_source_pins else _validate_pin_shape
     result = dict(entry)
-    result["workflow"] = _validate_pin(root, entry["workflow"])
+    result["workflow"] = pin_validator(root, entry["workflow"])
     steps: list[dict[str, Any]] = []
     for item in entry["ordered_steps"]:
         if not isinstance(item, Mapping) or set(item) != {"step", "action"}:
             raise SelectedRouteError("ordered step binding must have one Step and one Action")
-        steps.append({"step": _validate_pin(root, item["step"]), "action": _validate_pin(root, item["action"])})
+        steps.append({"step": pin_validator(root, item["step"]), "action": pin_validator(root, item["action"])})
     step_ids = {item["step"]["atom_id"] for item in steps}
     if entry["entry_step"] not in step_ids:
         raise SelectedRouteError("route entry step is not in its ordered Step list")
-    actions = [_validate_pin(root, item) for item in entry["ordered_actions"]]
+    actions = [pin_validator(root, item) for item in entry["ordered_actions"]]
     if [item["action"]["atom_id"] for item in steps] != [item["atom_id"] for item in actions]:
         raise SelectedRouteError("ordered Action list differs from Step Action bindings")
     if not isinstance(entry["on_result"], list):
@@ -303,7 +319,7 @@ def _validate_route(
         if edge["to"] != "complete" and edge["to"] not in step_ids:
             raise SelectedRouteError("route on_result target is not in its ordered Step list or complete")
     result.update(ordered_steps=steps, ordered_actions=actions,
-                  native_action_calls=[_validate_pin(root, item) for item in entry["native_action_calls"]])
+                  native_action_calls=[pin_validator(root, item) for item in entry["native_action_calls"]])
     return result
 
 
@@ -460,6 +476,29 @@ def _compare_refresh_admission(old: Mapping[str, Any], current: Mapping[str, Any
         raise SelectedRouteError("Release manifest has no admission drift to refresh")
 
 
+def _compare_refresh_route(old: Mapping[str, Any], current: Mapping[str, Any]) -> None:
+    """Require the stale Release route to differ only at its source pins."""
+    if set(old) != set(current):
+        raise SelectedRouteError("Release route schema differs from the current D572-derived route")
+    for field in ("route", "entry_step", "on_result", "mutation_capable"):
+        if old[field] != current[field]:
+            raise SelectedRouteError("Release route graph or metadata differs from the current D572-derived route")
+    _compare_refresh_pin(old["workflow"], current["workflow"], "workflow")
+    if len(old["ordered_steps"]) != len(current["ordered_steps"]):
+        raise SelectedRouteError("Release route Step occurrence count differs from the current D572-derived route")
+    for ordinal, (old_item, current_item) in enumerate(zip(old["ordered_steps"], current["ordered_steps"], strict=True), 1):
+        _compare_refresh_pin(old_item["step"], current_item["step"], f"ordered_steps[{ordinal}].step")
+        _compare_refresh_pin(old_item["action"], current_item["action"], f"ordered_steps[{ordinal}].action")
+    if len(old["ordered_actions"]) != len(current["ordered_actions"]):
+        raise SelectedRouteError("Release route Action occurrence count differs from the current D572-derived route")
+    for ordinal, (old_pin, current_pin) in enumerate(zip(old["ordered_actions"], current["ordered_actions"], strict=True), 1):
+        _compare_refresh_pin(old_pin, current_pin, f"ordered_actions[{ordinal}]")
+    if len(old["native_action_calls"]) != len(current["native_action_calls"]):
+        raise SelectedRouteError("Release route native Action occurrence count differs from the current D572-derived route")
+    for ordinal, (old_pin, current_pin) in enumerate(zip(old["native_action_calls"], current["native_action_calls"], strict=True), 1):
+        _compare_refresh_pin(old_pin, current_pin, f"native_action_calls[{ordinal}]")
+
+
 def load_release_manifest_refresh_base(root: str | Path) -> dict[str, Any]:
     """Validate one stale, schema-valid sixteen-route manifest for refresh.
 
@@ -521,7 +560,15 @@ def load_release_manifest_refresh_base(root: str | Path) -> dict[str, Any]:
     expected_names = (*SELECTED_ROUTE_NAMES, _OPTIONAL_RELEASE_ROUTE_NAME)
     if not isinstance(routes, list) or len(routes) != len(expected_names):
         raise SelectedRouteError("Release refresh requires exactly sixteen routes")
-    validated = [_validate_route(project_root, entry, allowed_routes=expected_names) for entry in routes]
+    validated = [
+        *[_validate_route(project_root, entry) for entry in routes[:-1]],
+        _validate_route(
+            project_root,
+            routes[-1],
+            allowed_routes=(_OPTIONAL_RELEASE_ROUTE_NAME,),
+            verify_source_pins=False,
+        ),
+    ]
     if (tuple(entry["route"] for entry in validated) != expected_names
             or len({entry["route"] for entry in validated}) != len(expected_names)):
         raise SelectedRouteError("Release refresh route registry is incomplete, duplicate, or out of order")
@@ -534,8 +581,7 @@ def load_release_manifest_refresh_base(root: str | Path) -> dict[str, Any]:
         current_route, current_admission = derive_release_graph_admission(project_root)
     except (OSError, TypeError, ValueError) as error:
         raise SelectedRouteError(f"current Release source admission is unavailable: {error}") from error
-    if validated[-1] != current_route:
-        raise SelectedRouteError("Release route differs from the current D572-derived route")
+    _compare_refresh_route(validated[-1], current_route)
     if not isinstance(manifest["release_source_admissions"], list) or len(manifest["release_source_admissions"]) != 1:
         raise SelectedRouteError("Release refresh requires exactly one source admission")
     stale_admission = _refresh_admission_shape(manifest["release_source_admissions"][0])
