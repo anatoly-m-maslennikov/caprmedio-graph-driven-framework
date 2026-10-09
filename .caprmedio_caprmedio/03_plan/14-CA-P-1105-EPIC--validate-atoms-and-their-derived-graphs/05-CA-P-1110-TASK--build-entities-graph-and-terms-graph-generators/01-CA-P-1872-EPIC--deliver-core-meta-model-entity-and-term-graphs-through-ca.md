@@ -25,8 +25,8 @@ subjects:
     - Action
     - Journal
     - Plan
-version: 6
-updated_at: "2026-10-10 00:36:36 +0400"
+version: 7
+updated_at: "2026-10-10 01:05:46 +0400"
 relations:
   is_decomposition_of:
     - CA-P-1110
@@ -46,7 +46,7 @@ Make the existing entity and term graph builders usable through the Project MCP 
 The Operator replaced the immediate execution plan on 2026-10-09. Do these steps one by one. Finish and verify one step before starting the next. The source is the Core Meta-model by itself, not Project Configuration or Extensions.
 
 1. **Build mechanically from existing Atoms.** Read their current Subjects, using only the existing `/` and `:` syntax. Preserve complete Subject paths, supporting prefixes and exact source references. Keep `/` steps unclassified. `:` links an allowed value to its qualified Property; it is not an assignment. Do not infer relations from Main Content, rewrite Subjects, normalize to the proposed new notation or create source-Atom nodes as model objects. Output a derived graph and the literal Term components. Verify deterministic output and unchanged Core source bytes.
-2. **Review the current graph and design its structure.** Use current Active Core Atom content to interpret old slash paths, group Continuant/Occurrent, inherit common constraints and mark excessive entities for dropping or consolidation. Keep source evidence and every old identity traceable. Ask the Operator below 90% confidence. Do not change the step-1 graph or Atom Subjects.
+2. **Review the current graph and design its structure.** Use current Active Core Atom content to interpret old slash paths, group Continuant/Occurrent and inherit common constraints. Review every Entity for duplication, redundancy, emptiness, lack of meaning or possible generalization. Mark proposed drops, consolidations and generalizations; do not apply them. Keep source evidence and every old identity traceable. Ask the Operator below 90% confidence. Do not change the step-1 graph or Atom Subjects.
 3. **Give the Operator the new graph candidate.** Present the grouped, inherited and visibly marked candidate in compact notation using `/`, `.`, `:` and `@`. Use NARROWER_THAN, IS_BORNE_BY, IS_ALLOWED_VALUE_OF and IS_CARRIED_BY with correct directions and qualified identities. Preserve the baseline. Candidate delivery is not acceptance; apply accepted decisions to a separate derived graph before any source migration.
 4. **Update Atom Subjects.** After graph review, write the confirmed `/`, `.` and `:` notation into the authoritative Subjects. Reconcile affected grammar contracts, revisions and source references. Rebuild only to verify that the updated Subjects reproduce the reviewed graph.
 
@@ -66,7 +66,7 @@ This sequence governs the immediate local work without MCP. A mechanical project
 
 ### Current graph review and candidate Tasks
 
-The Operator added this work on 2026-10-10. Task creation is not execution. Run the new Tasks one by one, with their explicit BLOCKS chain:
+The Operator added this work and broadened Task 3 on 2026-10-10. Task creation is not execution. Run the new Tasks one by one, with their explicit BLOCKS chain:
 
 `CA-P-1905 → CA-P-1906 → CA-P-1907 → CA-P-1908`
 
@@ -74,10 +74,11 @@ The Operator added this work on 2026-10-10. Task creation is not execution. Run 
 - Give the Operator a new graph candidate grouped by Continuant and Occurrent, separating definitions from actual executions.
 - Inherit common constraints through justified narrower-than specializations. Declare shared Carrier obligations and other common rules once; show only subtype additions or differences. Do not inherit another Entity's concrete Carrier.
 - Use as few genuine root entities as possible without losing distinctions or inventing relations. Explain retained roots and distinguish display groups from independent model roots.
-- Check excessive and redundant entities. Mark each proposed drop or consolidation visibly; do not delete nodes, governing Atoms, source Subjects or history. Revision is an explicit drop/consolidation candidate in favor of Version Number and Updated At, with exact historical references preserved.
+- Check every Entity for duplicates, redundancy, an empty definition, no distinct meaning or possible generalization. Mark each proposed drop, consolidation or generalization visibly; do not delete nodes, governing Atoms, source Subjects or history. Revision is an explicit drop/consolidation candidate in favor of Version Number and Updated At, with exact historical references preserved.
+- Check Applicable Methodology as a generalization candidate under Projection: the same pattern as compiling all applicable Method Atoms for a Scope Unit into one prompt document. Evaluate Applicable Methodology as one compiled document, not a set of source Atoms. Keep the source set and derived document distinct; identify any applicability, authority or other constraints that the general Projection model must preserve. This is a candidate to review, not an accepted Core change.
 - Use `/`, `.`, `:` and `@` in the compact candidate display: narrower-than, bearer qualification, allowed value and IS_CARRIED_BY. Reuse CARRIES as the inverse direction of the Carrier binding; do not add an equivalent primitive.
 - Use concept names such as `Version Number`, `Updated At` and `Status`, not YAML keys. Present the candidate with plain two-space indentation and compact cross-link statements. Preserve qualified identities and graph ownership.
-- Every baseline identity needs a traceable retain/move/inherit/consolidate/drop-candidate/question disposition. Give root counts before and after, count marked candidates separately, and expose uncertainty instead of forcing a smaller graph.
+- Every baseline identity needs a traceable retain/move/inherit/consolidate/generalize/drop-candidate/question disposition. Give root counts before and after, count marked candidates separately, and expose uncertainty instead of forcing a smaller graph.
 
 These Tasks refine steps 2–3 above. Their outputs remain proposals for Operator review; they do not accept a new ontology, update the step-1 graph or Core Subjects, rename YAML keys, implement a runtime, or complete the Epic. `@` is approved compact graph notation, not an automatically admitted Subject-path serialization operator.
 

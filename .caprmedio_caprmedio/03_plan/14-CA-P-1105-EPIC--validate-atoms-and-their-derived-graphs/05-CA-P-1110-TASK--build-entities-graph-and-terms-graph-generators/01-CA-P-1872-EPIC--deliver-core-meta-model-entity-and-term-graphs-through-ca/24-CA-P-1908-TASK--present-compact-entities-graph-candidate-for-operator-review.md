@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Projection
   depends_on: [Entity, Term, Atom, Property, Carrier, Plan]
-version: 1
-updated_at: "2026-10-10 00:36:36 +0400"
+version: 2
+updated_at: "2026-10-10 01:05:46 +0400"
 relations:
   is_decomposition_of: [CA-P-1872]
 ---
@@ -41,7 +41,7 @@ Use these operators in the candidate display:
 
 Use graph concept names such as Version Number, Updated At and Status, not YAML keys such as version_number, updated_at and status. Preserve qualified identities, distinguish generic type constraints from actual instance bindings, and keep Entity/Term graph ownership explicit even in a combined compact display.
 
-Present a plain two-space-indented view without tree connector glyphs, plus compact relation statements where a tree cannot show a cross-link. Show Continuant/Occurrent grouping, inherited shared rules, subtype differences, justified independent roots and visible DROP CANDIDATE marks. Marking is not deletion.
+Present a plain two-space-indented view without tree connector glyphs, plus compact relation statements where a tree cannot show a cross-link. Show Continuant/Occurrent grouping, inherited shared rules, subtype differences, justified independent roots and visible DROP, CONSOLIDATE and GENERALIZE CANDIDATE marks. Include the Revision and Applicable Methodology proposals from CA-P-1907 with reasons and retained constraints. Marking is not deletion or acceptance of the proposal.
 
 Give a before/candidate comparison, root counts, traceable dispositions and unresolved questions. Preserve the step-1 baseline. A candidate is a proposal, not admitted native facts, Operator acceptance, a source migration or a completed MCP Run.
 
