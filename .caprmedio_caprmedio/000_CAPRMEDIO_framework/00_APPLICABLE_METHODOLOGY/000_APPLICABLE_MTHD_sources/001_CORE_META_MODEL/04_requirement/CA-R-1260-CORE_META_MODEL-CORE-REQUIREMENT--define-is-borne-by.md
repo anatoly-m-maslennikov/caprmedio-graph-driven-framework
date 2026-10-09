@@ -6,8 +6,8 @@ subjects:
     - "Dependent Entity"
     - "Entities Graph"
     - "Relation"
-version: 12
-updated_at: "2026-10-02 21:45:33 +0400"
+version: 13
+updated_at: "2026-10-09 19:47:28 +0400"
 relations: {}
 atom_id: "CA-R-1260"
 content_role: "Requirement"
@@ -31,3 +31,7 @@ an IS_BORNE_BY Relation from Entity A **to** Entity B **in** the Entities Graph.
 an IS_BORNE_BY Relation from Entity A **to** Entity B **in** the Entities Graph **means** that A is a Dependent Entity whose identity requires B as its immediate bearer.
 
 ## Details
+
+### relation admission
+
+- Status: the IS_BORNE_BY Relation Kind is Active.

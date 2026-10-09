@@ -11,8 +11,8 @@ status: Active
 subjects:
   governs: "Construct Entities Graph Projection"
   depends_on: ["Action", "Entity", "Property", "Projection/Type: Entities Graph", "Project Structure", "Relation Kind", "Artifact/Revision", "Journal"]
-version: 2
-updated_at: "2026-10-04 16:51:32 +0000"
+version: 3
+updated_at: "2026-10-09 19:23:34 +0400"
 relations:
   relates_to: [CA-R-1438, CA-R-1456, CA-R-1746, CA-R-1471, CA-R-1246, CA-R-806, CA-R-1472, CA-R-1437, CA-R-1483, CA-D-440, CA-E-449, CA-R-1720, CA-R-1728]
 ---
@@ -30,12 +30,16 @@ require an admitted request, explicit source selection **and** any narrower disp
 
 ### Behavior
 
+any consumed derived fact context binds the exact selected source contributions, governing authority **and** actual admission checks. recognized candidates **or** matching digests alone do **not** admit native facts. missing source forms, unsupported semantic checks **or** unknown coverage remain unresolved, **not** evidenced empty data. caller-authored admission flags **or** receipts cannot replace actual admission **or** recording evidence.
+
 1. resolve the actual request, source/display boundaries, admitted execution kind **and** capabilities **before** effects. retain source identities, Revisions **and** exact source locations **without** silently substituting current files for the admitted frontier. do **not** infer Scope Units from folders **or** convert native declarations into invented Atoms.
-2. construct all **and** only selected native Entity identities, their selected authoritative Property facts **and** admitted Relations under CA-R-1438/CA-R-1456 **and** the actual governing source declarations. declared Project Structure facts retain their non-Atom source identity/Revision; observed materialization remains separately traced, never declaration authority. preserve existing canonical/bearer-qualified identities; multiple views **or** governing Claims do **not** create duplicate identities.
+2. construct all **and** only selected native Entity identities, their selected authoritative Property facts **and** admitted Relations under CA-R-1438/CA-R-1456 **and** the actual governing source declarations. retain actual Property bearers, occurrences, values **and** source contribution evidence; generic Atom/Carrier metadata does **not** transfer to its GOVERNS target. Subject GOVERNS/DEPENDS_ON incidence is **not** a native Entity Relation. declared Project Structure facts retain their non-Atom source identity/Revision; observed materialization remains separately traced, never declaration authority. preserve existing canonical/bearer-qualified identities; multiple views **or** governing Claims do **not** create duplicate identities.
 3. resolve each Relation's graph-qualified metadata under CA-R-1246/CA-R-806. preserve admitted direction, qualified endpoints, context **and** cardinality; use CA-R-1472 for external references, keeping them distinguishable from native members. source **and** admitted derived Relation traceability follows CA-R-1437. no foreign-kind edge, fabricated Property value **or** inferred identity fills a gap.
 4. retain exact source Claim/Artifact Revision evidence for admission **and** represented facts under CA-R-1746/CA-R-1471, including any upstream chain. apply the applicable CA-E-449 checks to the requested scope **and** preserve separate fidelity, graph-validity **and** coverage outcomes. missing, conflicting, inaccessible, unsupported **or** stale regions remain explicitly identified; an unperformed **or** unresolved check is **not** a pass.
 5. confirm source/definition/permission currentness **before** publishing. publish **only** to the authorized derived-output destination. return no_op **only** **when** an existing Projection demonstrably matches the exact current selection/configuration **and** satisfies all required checks; a missing capability **or** stale prior output is **not** no_op. an explicitly authorized limited diagnostic output retains its actual incomplete/invalid state; do **not** replace an accepted complete target with an unapproved partial result.
 6. retain actual output effects **and** start/terminal Action evidence, plus parent Workflow/Step references **when** applicable, in the one Journal under CA-R-1720/CA-R-1728. missing recording evidence remains a recording blocker, **not** journaled completion; recover recording separately **without** blind construction replay. do **not** expose secrets **or** invent a no-op Artifact change.
+
+the pure builder does **not** write Journal events; the shared executor appends actual start/terminal events **without** changing prior Journal history. a start context **or** published output alone is **not** terminal completion. missing terminal recording preserves actual output/effects **and** the pending event reference, **not** a completed Run; recovery reconciles that same event **without** construction replay. publish **only** to an explicit authorized **or** current unambiguous registered derived destination; a root folder **or** conventional name is **not** registration. non-persisting Tool description is **not** a completed graph Action with a missing required target.
 
 ### Results and effects
 

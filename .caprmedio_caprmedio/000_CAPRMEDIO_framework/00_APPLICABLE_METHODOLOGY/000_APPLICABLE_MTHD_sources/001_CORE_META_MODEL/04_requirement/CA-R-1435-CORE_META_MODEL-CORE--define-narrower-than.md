@@ -7,8 +7,8 @@ subjects:
     - "Relation"
     - "Property"
     - "Definition Atom"
-version: 7
-updated_at: "2026-10-02 22:59:46 +0400"
+version: 8
+updated_at: "2026-10-09 19:47:28 +0400"
 relations: {}
 atom_id: "CA-R-1435"
 content_role: "Requirement"
@@ -32,3 +32,7 @@ the NARROWER_THAN Relation **in** the Terms Graph.
 a NARROWER_THAN Relation from Term A **to** Term B **in** the Terms Graph **means** that, under their governing definitions, **if** Term A applies **to** a referent, **then** Term B applies **to** the same referent; this Relation does **not** express Property ownership **or** allowed-value membership.
 
 ## Details
+
+### relation admission
+
+- Status: the NARROWER_THAN Relation Kind is Active.

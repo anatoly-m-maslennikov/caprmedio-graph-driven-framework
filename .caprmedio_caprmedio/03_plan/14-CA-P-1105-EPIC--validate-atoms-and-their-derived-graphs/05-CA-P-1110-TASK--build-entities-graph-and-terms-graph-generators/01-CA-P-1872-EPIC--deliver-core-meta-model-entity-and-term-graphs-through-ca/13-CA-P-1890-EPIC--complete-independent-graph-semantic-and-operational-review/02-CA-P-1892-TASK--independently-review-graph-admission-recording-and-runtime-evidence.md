@@ -11,8 +11,6 @@ global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Active
-cce_version: cce_1
-cce_form: obligation
 subjects:
   governs: Projection
   depends_on:
@@ -28,7 +26,7 @@ subjects:
     - Journal
     - Plan
 version: 2
-updated_at: "2026-10-09 18:10:33 +0400"
+updated_at: "2026-10-09 19:23:34 +0400"
 relations:
   is_decomposition_of:
     - CA-P-1890

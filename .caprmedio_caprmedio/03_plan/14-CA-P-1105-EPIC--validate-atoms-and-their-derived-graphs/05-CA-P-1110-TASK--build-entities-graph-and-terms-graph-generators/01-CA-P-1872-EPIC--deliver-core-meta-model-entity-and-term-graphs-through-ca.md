@@ -11,8 +11,6 @@ global_tier: 2
 author: Anatoly Maslennikov
 autonomous_confidence_threshold: 90
 status: Active
-cce_version: cce_1
-cce_form: obligation
 subjects:
   governs: Projection
   depends_on:
@@ -27,8 +25,8 @@ subjects:
     - Action
     - Journal
     - Plan
-version: 2
-updated_at: "2026-10-09 18:10:33 +0400"
+version: 3
+updated_at: "2026-10-09 19:23:34 +0400"
 relations:
   is_decomposition_of:
     - CA-P-1110
@@ -53,6 +51,8 @@ The Operator added this prerequisite on 2026-10-09: review and fix entity and te
 - CA-P-1899 blocks CA-P-1873. Existing execution dependencies then govern the remaining work. Navigation numbers do not imply execution order.
 - Preliminary local code/tests remain unaccepted work until this gate passes. A source-pinned independent review is required by CA-D-540; preparation reviews alone do not satisfy that gate.
 - The current Operator authorization permits local implementation and graph RMED+O repair without MCP. It does not bypass the MCP admission gate, authorize unrelated source changes, or claim live graph delivery.
+
+The independent review rejected the pre-repair packet. CA-P-1898 now decomposes into five bounded repair/inventory children. The Operator approved a derived, source-pinned fact-context design; no new source authority or admission proof is implied.
 
 ### Creation and execution state
 
@@ -110,7 +110,7 @@ Each leaf has one AI Agent Assignee and <=15 minutes of hands-on work. Composite
 | Plan | Work | Estimate |
 |---|---|---|
 | [CA-P-1897](01-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/18-CA-P-1897-TASK--review-entity-and-term-graph-rmed-and-operations.md) | Review entity and term graph RMED and Operations | 15 min |
-| [CA-P-1898](01-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/19-CA-P-1898-TASK--fix-reviewed-entity-and-term-graph-rmed-and-operations-gaps.md) | Fix reviewed entity and term graph RMED and Operations gaps | 15 min |
+| [CA-P-1898](01-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/19-CA-P-1898-EPIC--fix-reviewed-entity-and-term-graph-rmed-and-operations-gaps.md) | Fix reviewed entity and term graph RMED and Operations gaps | Child work only |
 | [CA-P-1899](01-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/20-CA-P-1899-TASK--verify-repaired-graph-rmed-and-operations-before-implementation.md) | Verify repaired graph RMED and Operations before implementation | 15 min |
 | [CA-P-1873](01-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/01-CA-P-1873-TASK--verify-graph-admission-and-local-plan-integrity.md) | Verify graph admission and local Plan integrity | 5 min |
 | [CA-P-1874](01-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/02-CA-P-1874-TASK--expose-selected-route-admission-failures-in-discovery.md) | Expose selected-route admission failures in discovery | 15 min |

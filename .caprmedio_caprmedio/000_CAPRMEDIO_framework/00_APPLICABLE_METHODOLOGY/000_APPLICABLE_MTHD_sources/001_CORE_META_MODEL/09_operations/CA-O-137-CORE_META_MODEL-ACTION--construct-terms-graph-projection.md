@@ -11,8 +11,8 @@ status: Active
 subjects:
   governs: "Construct Terms Graph Projection"
   depends_on: ["Action", "Term", "Governed Term", "Definition Atom", "Projection/Type: Terms Graph", "Relation Kind", "Artifact/Revision", "Journal"]
-version: 2
-updated_at: "2026-10-04 16:51:32 +0000"
+version: 3
+updated_at: "2026-10-09 19:23:34 +0400"
 relations:
   relates_to: [CA-R-1335, CA-R-1454, CA-R-1318, CA-R-1279, CA-M-114, CA-R-1746, CA-R-1471, CA-R-1246, CA-R-806, CA-R-1472, CA-R-1437, CA-E-382, CA-R-1720, CA-R-1728]
 ---
@@ -30,12 +30,16 @@ require an admitted request, explicit source selection **and** any narrower/gove
 
 ### Behavior
 
+any consumed derived fact context binds the exact selected source contributions, governing authority **and** actual admission checks. recognized candidates **or** matching digests alone do **not** admit native facts. missing source forms, unsupported semantic checks **or** unknown coverage remain unresolved, **not** evidenced empty data. caller-authored admission flags **or** receipts cannot replace actual admission **or** recording evidence.
+
 1. resolve the actual request, source/view boundaries, admitted execution kind **and** capabilities **before** effects. retain the admitted source identities/Revisions/locations; do **not** silently substitute a different frontier **or** infer definitions from spelling, capitalization, a filename **or** shared Subject use.
 2. construct all **and** only selected native Terms admitted by governing authority under CA-R-1335. for a governed-only selection, reuse CA-R-1454's complete node/internal-Relation selection **and** defining-source evidence; use CA-R-1279/CA-M-114 **only** within their actual definition/derivation domains. full Subject Paths **or** referenced path components are **not** additional definitions supplied by the referring Atom. missing **or** conflicting defining authority remains an affected limitation, never an invented Term meaning.
-3. resolve each Relation's graph-qualified metadata under CA-R-1246/CA-R-806 **and** its source/derivation evidence under CA-R-1437. preserve its admitted direction, endpoint classes/context **and** cardinality. external references under CA-R-1472 remain distinguishable from native Terms; an Entity edge **or** compatible endpoint does **not** become a native Terms edge. do **not** infer an internal Relation merely from labels **or** operational classification.
+3. resolve each Relation's graph-qualified metadata under CA-R-1246/CA-R-806 **and** its source/derivation evidence under CA-R-1437. preserve its admitted direction, endpoint classes/context **and** cardinality. external references under CA-R-1472 remain distinguishable from native Terms; an Entity edge **or** compatible endpoint does **not** become a native Terms edge. Subject GOVERNS/DEPENDS_ON rows remain Atom incidence/provenance. do **not** infer an internal Relation merely from labels **or** operational classification; SUBKIND_OF is **not** an alias for NARROWER_THAN, which requires its explicit source declaration **and** governing-definition implication. qualified Entity paths can reuse one Term name **without** creating additional qualified Terms.
 4. retain exact source Claim/Artifact Revision traceability through any upstream Projection chain under CA-R-1746/CA-R-1471. apply the applicable CA-E-382 checks, including declared hierarchy/Root Term authority where relevant, **without** inventing another hierarchy **or** silently importing outside-selection parents. preserve separate fidelity, graph-validity **and** coverage outcomes; a faithful representation of a source conflict is **not** a valid graph. missing, conflicting, inaccessible, unsupported **or** stale regions/checks remain visible.
 5. confirm source/definition/permission currentness **before** publishing **only** to the authorized derived-output destination. return no_op **only** **when** the existing Projection demonstrably matches the exact current selection/configuration **and** satisfies required checks. missing capability **or** stale prior output is **not** no_op. an explicitly authorized limited diagnostic output retains its incomplete/invalid state; do **not** replace an accepted complete target with an unapproved partial result.
 6. retain actual output effects **and** start/terminal Action evidence, plus parent Workflow/Step references **when** applicable, in the one Journal under CA-R-1720/CA-R-1728. missing recording evidence remains a recording blocker, **not** journaled completion; recover recording separately **without** blind construction replay. no secrets **or** fictitious no-op Artifact change are recorded.
+
+the pure builder does **not** write Journal events; the shared executor appends actual start/terminal events **without** changing prior Journal history. a start context **or** published output alone is **not** terminal completion. missing terminal recording preserves actual output/effects **and** the pending event reference, **not** a completed Run; recovery reconciles that same event **without** construction replay. publish **only** to an explicit authorized **or** current unambiguous registered derived destination; a root folder **or** conventional name is **not** registration. non-persisting Tool description is **not** a completed graph Action with a missing required target.
 
 ### Results and effects
 
