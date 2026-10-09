@@ -308,6 +308,49 @@ def read_retained_candidate_identity(
     return RetainedCandidateIdentity(manifest, descriptor_sha256, descriptor, package)
 
 
+def reopen_retained_candidate_identity(identity: RetainedCandidateIdentity) -> RetainedCandidateIdentity:
+    """Physically reopen one caller-supplied detached candidate identity.
+
+    A typed identity is only a transport carrier.  Detached consumers must
+    reopen both the canonical descriptor and the content-addressed package
+    sidecar before treating any of its fields as evidence.
+    """
+
+    if not isinstance(identity, RetainedCandidateIdentity):
+        raise _error(
+            "retained-candidate-identity-untrusted",
+            "detached reopening requires a typed retained candidate identity",
+        )
+    if not isinstance(identity.package_evidence, RetainedNativePackageEvidence):
+        raise _error(
+            "retained-candidate-identity-untrusted",
+            "detached reopening requires typed retained package evidence",
+        )
+    package = identity.package_evidence
+    if (
+        not isinstance(package.receipt_path, Path)
+        or not isinstance(package.receipt_sha256, str)
+        or not isinstance(getattr(package.view, "package_root", None), Path)
+    ):
+        raise _error(
+            "retained-candidate-identity-untrusted",
+            "detached reopening requires complete retained package evidence",
+        )
+    reopened = read_retained_candidate_identity(
+        identity.descriptor_path,
+        expected_sha256=identity.descriptor_sha256,
+        package_root=package.view.package_root,
+        sidecar_path=package.receipt_path,
+        expected_sidecar_sha256=package.receipt_sha256,
+    )
+    if reopened != identity:
+        raise _error(
+            "retained-candidate-identity-mismatch",
+            "caller-provided retained candidate identity differs from physical evidence",
+        )
+    return reopened
+
+
 def _read_existing_descriptor(path: Path, *, code: str) -> bytes | None:
     return _read_bounded_regular_file(
         path,
@@ -385,5 +428,6 @@ __all__ = [
     "RetainedCandidateIdentity",
     "encode_retained_candidate_descriptor",
     "read_retained_candidate_identity",
+    "reopen_retained_candidate_identity",
     "retain_retained_candidate_identity",
 ]

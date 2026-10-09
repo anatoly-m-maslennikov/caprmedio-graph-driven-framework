@@ -9,6 +9,7 @@ import shutil
 import sys
 import tempfile
 import unittest
+from dataclasses import replace
 from pathlib import Path
 from unittest import mock
 
@@ -27,6 +28,7 @@ from release_retained_candidate import (  # noqa: E402
     RetainedCandidateError,
     encode_retained_candidate_descriptor,
     read_retained_candidate_identity,
+    reopen_retained_candidate_identity,
     retain_retained_candidate_identity,
 )
 from release_retained_package import (  # noqa: E402
@@ -93,6 +95,19 @@ class RetainedCandidateDescriptorTests(unittest.TestCase):
         self.assertNotEqual(identity.descriptor_sha256, identity.candidate_snapshot_manifest_sha256)
         self.assertEqual(identity.framework_version, self.retained.view.framework_version)
         self.assertEqual(identity.version_toml_sha256, self.retained.view.version_toml_sha256)
+
+    def test_reopen_identity_rejects_forged_transport_fields(self) -> None:
+        descriptor, package, sidecar, _reopened = self._detached()
+        identity = self._read(descriptor, package, sidecar)
+
+        self.assertEqual(identity, reopen_retained_candidate_identity(identity))
+        with self.assertRaises(RetainedCandidateError) as digest:
+            reopen_retained_candidate_identity(replace(identity, descriptor_sha256="0" * 64))
+        self.assertEqual("retained-candidate-descriptor-digest-mismatch", digest.exception.code)
+
+        with self.assertRaises(RetainedCandidateError) as nested:
+            reopen_retained_candidate_identity(replace(identity, package_evidence=object()))
+        self.assertEqual("retained-candidate-identity-untrusted", nested.exception.code)
 
     def test_reader_refuses_duplicate_unknown_noncanonical_malformed_and_image_input_drift(self) -> None:
         descriptor, package, sidecar, _reopened = self._detached()

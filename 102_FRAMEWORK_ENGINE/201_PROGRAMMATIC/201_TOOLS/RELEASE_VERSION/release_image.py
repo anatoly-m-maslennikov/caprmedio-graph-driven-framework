@@ -37,6 +37,7 @@ from release_retained_package import (
     read_retained_native_package_evidence,
     retain_native_package_evidence,
 )
+from release_retained_candidate import RetainedCandidateIdentity, reopen_retained_candidate_identity
 
 if TYPE_CHECKING:
     from release_e2e_gate import CandidateE2EGateEvidence
@@ -825,23 +826,86 @@ def _verify_build_artifacts(root, candidate, compilation, suite, build):
     return attempt
 
 
-def _verify_portable_build_artifacts(
+def _portable_build_command_matches(
+    commands: object,
+    *,
+    attempt: Path,
+    context: Path,
+    manifest: CandidateSnapshotManifest,
+    build: PortableImageBuildEvidence,
+    allow_relocated_paths: bool,
+) -> bool:
+    """Validate a build command record without treating its work paths as identity.
+
+    A detached copy preserves the original executor's absolute work paths in
+    ``commands.json``.  Those paths cannot be rebuilt from a relocated archive,
+    but their fixed argv shape, label bindings, and package context are still
+    independently sealed below.  Live readers retain full path equality.
+    """
+
+    expected = [
+        "docker", "build", "--iidfile", str(attempt / "image.id"),
+        "--label", f"{CANDIDATE_LABEL}={manifest.sha256}",
+        "--label", f"{CONTEXT_LABEL}={build.context_sha256}",
+        "--file", str(context / "Dockerfile"), str(context),
+    ]
+    if not isinstance(commands, list) or len(commands) != 2:
+        return False
+    first, second = commands
+    if not isinstance(first, dict) or not isinstance(second, dict):
+        return False
+    argv = first.get("argv")
+    if not isinstance(argv, list):
+        return False
+    if allow_relocated_paths:
+        if (
+            len(argv) != len(expected)
+            or argv[:3] != expected[:3]
+            or argv[4:9] != expected[4:9]
+            or not all(isinstance(value, str) for value in (argv[3], argv[9], argv[10]))
+        ):
+            return False
+        recorded_attempt = Path(argv[3])
+        recorded_dockerfile = Path(argv[9])
+        recorded_context = Path(argv[10])
+        if (
+            not recorded_attempt.is_absolute()
+            or not recorded_dockerfile.is_absolute()
+            or not recorded_context.is_absolute()
+            or recorded_attempt.name != "image.id"
+            or recorded_dockerfile != recorded_context / "Dockerfile"
+        ):
+            return False
+    elif argv != expected:
+        return False
+    return (
+        second.get("argv") == ["docker", "image", "inspect", build.candidate_image_digest]
+        and all(
+            type(command.get("exit_code")) is int
+            and command["exit_code"] == 0
+            and command.get("timed_out") is False
+            for command in commands
+        )
+    )
+
+
+def _verify_portable_build_artifacts_for_view(
     root: Path,
-    candidate: ValidatedCandidate,
+    manifest: CandidateSnapshotManifest,
+    view: PackageEvidenceView,
     suite: SuiteGateEvidence | PortableSuiteGateEvidence,
     build: PortableImageBuildEvidence,
+    *,
+    allow_relocated_paths: bool,
 ) -> Path:
-    """Reopen a native build through its immutable package sidecar."""
-
-    retained = _read_portable_context_evidence(root, build)
-    view = retained.view
+    """Validate one retained native build against a physical package view."""
 
     if (
         not isinstance(build, PortableImageBuildEvidence)
         or build.outcome != "built"
         or not build.receipt_sha256
         or not IMAGE_ID.fullmatch(build.candidate_image_digest or "")
-        or build.candidate_snapshot_manifest_sha256 != candidate.manifest.sha256
+        or build.candidate_snapshot_manifest_sha256 != manifest.sha256
         or build.suite_receipt_sha256 != suite.receipt_sha256
         or build.package_schema != view.package_schema
         or build.package_manifest_sha256 != view.actual_package_manifest_sha256
@@ -852,7 +916,7 @@ def _verify_portable_build_artifacts(
         or build.version_toml_sha256 != view.version_toml_sha256
     ):
         raise ReleaseContractError("release-image-build-untrusted", "native build does not bind the reopened package evidence")
-    prefix = f"{IMAGE_ROOT}/{candidate.manifest.sha256}/build/"
+    prefix = f"{IMAGE_ROOT}/{manifest.sha256}/build/"
     if (
         not build.evidence_root.startswith(prefix)
         or not build.evidence_root.removeprefix(prefix).startswith("attempt-")
@@ -868,29 +932,21 @@ def _verify_portable_build_artifacts(
     if _digest(commands) != build.commands_sha256:
         raise ReleaseContractError("release-image-build-untrusted", "native build command evidence changed")
     context = _safe_path(root, build.context_root)
-    expected = [
-        "docker", "build", "--iidfile", str(attempt / "image.id"),
-        "--label", f"{CANDIDATE_LABEL}={candidate.manifest.sha256}",
-        "--label", f"{CONTEXT_LABEL}={build.context_sha256}",
-        "--file", str(context / "Dockerfile"), str(context),
-    ]
     try:
         parsed = json.loads(commands)
         if (
-            not isinstance(parsed, list)
-            or len(parsed) != 2
-            or parsed[0].get("argv") != expected
-            or parsed[1].get("argv") != ["docker", "image", "inspect", build.candidate_image_digest]
-            or any(
-                type(command.get("exit_code")) is not int
-                or command["exit_code"] != 0
-                or command.get("timed_out") is not False
-                for command in parsed
+            not _portable_build_command_matches(
+                parsed,
+                attempt=attempt,
+                context=context,
+                manifest=manifest,
+                build=build,
+                allow_relocated_paths=allow_relocated_paths,
             )
         ):
             raise ValueError("build commands differ")
         labels = json.loads(_file(root, f"{build.evidence_root}/command-1.stdout").read_bytes())[0]["Config"]["Labels"]
-        if labels.get(CANDIDATE_LABEL) != candidate.manifest.sha256 or labels.get(CONTEXT_LABEL) != build.context_sha256:
+        if labels.get(CANDIDATE_LABEL) != manifest.sha256 or labels.get(CONTEXT_LABEL) != build.context_sha256:
             raise ValueError("inspect labels differ")
     except (KeyError, TypeError, ValueError, IndexError, json.JSONDecodeError) as error:
         raise ReleaseContractError("release-image-build-untrusted", "native build evidence is malformed") from error
@@ -920,7 +976,7 @@ def _verify_portable_build_artifacts(
     expected_paths.update(member.path for member in view.member_inventory if member.role == "engine")
     expected_paths.update(
         row.source_path
-        for row in candidate.manifest.source_inventory_rows
+        for row in manifest.source_inventory_rows
         if row.resource == "IMAGE_INPUT"
     )
     if (
@@ -939,6 +995,25 @@ def _verify_portable_build_artifacts(
         if path.is_symlink() or not path.is_file() or _digest(path.read_bytes()) != member.sha256 or path.stat().st_mode & 0o777 != member.mode:
             raise ReleaseContractError("release-image-context-stale", "native package copy differs from reopened inventory")
     return attempt
+
+
+def _verify_portable_build_artifacts(
+    root: Path,
+    candidate: ValidatedCandidate,
+    suite: SuiteGateEvidence | PortableSuiteGateEvidence,
+    build: PortableImageBuildEvidence,
+) -> Path:
+    """Reopen a native build through its immutable package sidecar."""
+
+    retained = _read_portable_context_evidence(root, build)
+    return _verify_portable_build_artifacts_for_view(
+        root,
+        candidate.manifest,
+        retained.view,
+        suite,
+        build,
+        allow_relocated_paths=False,
+    )
 
 
 def _verify_build(root, candidate, compilation, suite, build, *, prepared_package=None):
@@ -1203,38 +1278,22 @@ def verify_bound_image_evidence(
     )
 
 
-def _read_portable_image_execution_artifacts(
-    candidate: ValidatedCandidate,
-    compilation: SealedPortableCandidateCompilation,
-    suite: SuiteGateEvidence | PortableSuiteGateEvidence,
+def _verify_portable_verification_artifacts(
+    root: Path,
+    manifest: CandidateSnapshotManifest,
+    view: PackageEvidenceView,
     build: PortableImageBuildEvidence,
     evidence: PortableImageVerificationEvidence,
-    prepared_package: PreparedPortableReleasePackage | None,
 ) -> Path:
-    """Read native Docker proof without current selector/package revalidation."""
+    """Read immutable native canary bytes after the build receipt is bound."""
 
-    if not isinstance(candidate, ValidatedCandidate) or not isinstance(compilation, SealedPortableCandidateCompilation):
-        raise ReleaseContractError("release-image-handoff-untrusted", "native artifact reader requires typed original inputs")
-    if not isinstance(build, PortableImageBuildEvidence) or not isinstance(evidence, PortableImageVerificationEvidence):
-        raise ReleaseContractError("release-image-evidence-untrusted", "native artifact reader requires native image receipts")
-    try:
-        root = Path(candidate.project_root).resolve(strict=True)
-    except OSError as error:
-        raise ReleaseContractError("release-image-project-missing", "native artifact Project root is unavailable") from error
-    if root.is_symlink() or not root.is_dir():
-        raise ReleaseContractError("release-image-project-missing", "native artifact Project root is invalid")
-    # A prepared receipt would invoke the current live binder.  Original image
-    # artifacts deliberately ignore it and reopen only retained bytes.
-    del prepared_package
-    _verify_portable_build_artifacts(root, candidate, suite, build)
-    view = _read_portable_context_evidence(root, build).view
     if (
         not isinstance(evidence, PortableImageVerificationEvidence)
         or evidence.outcome != "verified"
         or evidence.execution_kind != "docker-subprocess"
         or build.execution_kind != "docker-subprocess"
         or not evidence.receipt_sha256
-        or evidence.candidate_snapshot_manifest_sha256 != candidate.manifest.sha256
+        or evidence.candidate_snapshot_manifest_sha256 != manifest.sha256
         or evidence.build_receipt_sha256 != build.receipt_sha256
         or evidence.candidate_image_digest != build.candidate_image_digest
         or evidence.package_schema != view.package_schema
@@ -1248,7 +1307,7 @@ def _read_portable_image_execution_artifacts(
         or evidence.package_evidence_relpath != build.package_evidence_relpath
     ):
         raise ReleaseContractError("release-image-evidence-untrusted", "native verification does not bind the reopened package")
-    prefix = f"{IMAGE_ROOT}/{candidate.manifest.sha256}/verify/"
+    prefix = f"{IMAGE_ROOT}/{manifest.sha256}/verify/"
     if (
         not evidence.evidence_root.startswith(prefix)
         or not evidence.evidence_root.removeprefix(prefix).startswith("attempt-")
@@ -1287,7 +1346,7 @@ def _read_portable_image_execution_artifacts(
         report = json.loads(_file(root, f"{evidence.evidence_root}/command-1.stdout").read_bytes())
         expected_report = {
             "schema": "caprmedio.release_version.portable_image_canary.v1",
-            "candidate_snapshot_manifest_sha256": candidate.manifest.sha256,
+            "candidate_snapshot_manifest_sha256": manifest.sha256,
             "package_schema": view.package_schema,
             "package_manifest_sha256": view.actual_package_manifest_sha256,
             "source_catalog_sha256": view.source_catalog_sha256,
@@ -1299,7 +1358,7 @@ def _read_portable_image_execution_artifacts(
         }
         tools = report.pop("mcp_tools")
         if (
-            labels.get(CANDIDATE_LABEL) != candidate.manifest.sha256
+            labels.get(CANDIDATE_LABEL) != manifest.sha256
             or labels.get(CONTEXT_LABEL) != build.context_sha256
             or report != expected_report
             or not isinstance(tools, list)
@@ -1312,6 +1371,179 @@ def _read_portable_image_execution_artifacts(
     except (KeyError, TypeError, ValueError, IndexError, json.JSONDecodeError) as error:
         raise ReleaseContractError("release-image-evidence-untrusted", "native image inspection or canary is incomplete") from error
     return attempt
+
+
+def _read_portable_image_execution_artifacts(
+    candidate: ValidatedCandidate,
+    compilation: SealedPortableCandidateCompilation,
+    suite: SuiteGateEvidence | PortableSuiteGateEvidence,
+    build: PortableImageBuildEvidence,
+    evidence: PortableImageVerificationEvidence,
+    prepared_package: PreparedPortableReleasePackage | None,
+) -> Path:
+    """Read native Docker proof without current selector/package revalidation."""
+
+    if not isinstance(candidate, ValidatedCandidate) or not isinstance(compilation, SealedPortableCandidateCompilation):
+        raise ReleaseContractError("release-image-handoff-untrusted", "native artifact reader requires typed original inputs")
+    if not isinstance(build, PortableImageBuildEvidence) or not isinstance(evidence, PortableImageVerificationEvidence):
+        raise ReleaseContractError("release-image-evidence-untrusted", "native artifact reader requires native image receipts")
+    try:
+        root = Path(candidate.project_root).resolve(strict=True)
+    except OSError as error:
+        raise ReleaseContractError("release-image-project-missing", "native artifact Project root is unavailable") from error
+    if root.is_symlink() or not root.is_dir():
+        raise ReleaseContractError("release-image-project-missing", "native artifact Project root is invalid")
+    # A prepared receipt would invoke the current live binder.  Original image
+    # artifacts deliberately ignore it and reopen only retained bytes.
+    del prepared_package
+    _verify_portable_build_artifacts(root, candidate, suite, build)
+    view = _read_portable_context_evidence(root, build).view
+    return _verify_portable_verification_artifacts(root, candidate.manifest, view, build, evidence)
+
+
+def _detached_artifact_root(artifact_root: Path) -> Path:
+    """Return the explicit archive root; detached reads never derive a Project root."""
+
+    if not isinstance(artifact_root, Path) or not artifact_root.is_absolute():
+        raise ReleaseContractError("release-image-detached-root-invalid", "detached image artifacts require an absolute archive root")
+    try:
+        if artifact_root.is_symlink() or not artifact_root.is_dir():
+            raise ValueError("unsafe archive root")
+        return artifact_root.resolve(strict=True)
+    except (OSError, ValueError) as error:
+        raise ReleaseContractError("release-image-detached-root-invalid", "detached image archive root is unavailable") from error
+
+
+def _require_detached_candidate_under_root(root: Path, retained: RetainedCandidateIdentity) -> None:
+    """Keep every caller-provided retained reference inside the supplied archive."""
+
+    if not isinstance(retained, RetainedCandidateIdentity):
+        raise ReleaseContractError("release-image-detached-candidate-untrusted", "detached image reader requires a retained candidate identity")
+    if (
+        not isinstance(retained.package_evidence, RetainedNativePackageEvidence)
+        or not isinstance(retained.package_evidence.view, PackageEvidenceView)
+    ):
+        raise ReleaseContractError("release-image-detached-candidate-untrusted", "detached package evidence is not a typed retained carrier")
+    for label, path in (
+        ("descriptor", retained.descriptor_path),
+        ("package evidence", retained.package_evidence.receipt_path),
+        ("package", retained.package_evidence.view.package_root),
+    ):
+        if not isinstance(path, Path) or not path.is_absolute() or path.is_symlink():
+            raise ReleaseContractError("release-image-detached-candidate-untrusted", f"detached {label} reference is unsafe")
+        try:
+            path.relative_to(root)
+        except ValueError as error:
+            raise ReleaseContractError(
+                "release-image-detached-candidate-untrusted",
+                f"detached {label} reference is outside the supplied archive",
+            ) from error
+
+
+def _read_detached_portable_suite(
+    root: Path,
+    manifest: CandidateSnapshotManifest,
+    view: PackageEvidenceView,
+    suite: PortableSuiteGateEvidence,
+) -> Path:
+    """Reopen the durable native Unit receipt without a current checkout.
+
+    This is deliberately narrower than ``verify_bound_suite_evidence``: the
+    latter correctly revalidates current source and selected-N control state,
+    neither of which exists at the retained-original-artifact boundary.
+    """
+
+    environment = manifest.full_suite_environment
+    if (
+        not isinstance(suite, PortableSuiteGateEvidence)
+        or not suite.passed
+        or suite.input_schema != "portable-1"
+        or suite.candidate_snapshot_manifest_sha256 != manifest.sha256
+        or suite.candidate_run_id != view.candidate_run_id
+        or suite.input_manifest_sha256 != view.input_manifest_sha256
+        or suite.source_catalog_sha256 != view.source_catalog_sha256
+        or suite.framework_version != view.framework_version
+        or suite.version_toml_sha256 != view.version_toml_sha256
+        or suite.phase_map_sha256 != view.phase_map.sha256
+        or suite.runner != environment.runner
+        or suite.command != tuple(environment.command)
+        or suite.working_directory != environment.working_directory
+        or suite.exit_code != 0
+        or not suite.receipt_sha256
+    ):
+        raise ReleaseContractError("release-image-detached-suite-untrusted", "native Unit receipt does not bind the reopened retained package")
+    prefix = f"{SUITE_ROOT}/{manifest.sha256}/"
+    if (
+        not suite.evidence_root.startswith(prefix)
+        or not suite.evidence_root.removeprefix(prefix).startswith("attempt-")
+        or "/" in suite.evidence_root.removeprefix(prefix)
+    ):
+        raise ReleaseContractError("release-image-detached-suite-path-invalid", "native Unit receipt is outside the fixed attempt root")
+    attempt = _safe_path(root, suite.evidence_root)
+    try:
+        files = {}
+        for name in ("receipt.json", "stdout.bin", "stderr.bin", "coverage.xml"):
+            path = attempt / name
+            if path.is_symlink() or not path.is_file():
+                raise ValueError("native Unit artifact is missing or unsafe")
+            files[name] = path.read_bytes()
+        if (
+            _digest(files["receipt.json"]) != suite.receipt_sha256
+            or files["receipt.json"] != canonical_json(asdict(replace(suite, receipt_sha256=None)))
+            or _digest(files["stdout.bin"]) != suite.stdout_sha256
+            or _digest(files["stderr.bin"]) != suite.stderr_sha256
+            or _digest(files["coverage.xml"]) != suite.report_sha256
+        ):
+            raise ValueError("native Unit bytes differ from its receipt")
+    except (OSError, ValueError) as error:
+        raise ReleaseContractError("release-image-detached-suite-untrusted", "native Unit receipt changed or is incomplete") from error
+    return attempt
+
+
+def read_detached_image_execution_artifacts(
+    artifact_root: Path,
+    retained_candidate: RetainedCandidateIdentity,
+    suite: PortableSuiteGateEvidence,
+    build: PortableImageBuildEvidence,
+    verification: PortableImageVerificationEvidence,
+) -> Path:
+    """Read retained native Image artifacts from an explicitly anchored archive.
+
+    The archive may have moved after the source checkout was removed or
+    changed.  This reader therefore has no live candidate, compilation,
+    selector, package binder, admission, execution, or promotion input.  It
+    only reopens the retained descriptor and sidecar, then validates original
+    Unit/Image receipts and copied bytes.
+    """
+
+    root = _detached_artifact_root(artifact_root)
+    _require_detached_candidate_under_root(root, retained_candidate)
+    try:
+        retained = reopen_retained_candidate_identity(retained_candidate)
+    except ReleaseContractError as error:
+        raise ReleaseContractError("release-image-detached-candidate-untrusted", "retained candidate cannot be physically reopened") from error
+    _require_detached_candidate_under_root(root, retained)
+    if not isinstance(build, PortableImageBuildEvidence) or not isinstance(verification, PortableImageVerificationEvidence):
+        raise ReleaseContractError("release-image-detached-evidence-untrusted", "detached image reader requires native image receipts")
+    sidecar = _read_portable_context_evidence(root, build)
+    if sidecar != retained.package_evidence:
+        raise ReleaseContractError("release-image-detached-candidate-untrusted", "image build binds a different retained package sidecar")
+    _read_detached_portable_suite(root, retained.descriptor, retained.package_evidence.view, suite)
+    _verify_portable_build_artifacts_for_view(
+        root,
+        retained.descriptor,
+        retained.package_evidence.view,
+        suite,
+        build,
+        allow_relocated_paths=True,
+    )
+    return _verify_portable_verification_artifacts(
+        root,
+        retained.descriptor,
+        retained.package_evidence.view,
+        build,
+        verification,
+    )
 
 
 def read_image_execution_artifacts(
@@ -1672,4 +1904,4 @@ def retire_prior_image(candidate: ValidatedCandidate, compilation: SealedCandida
 __all__ = ["DockerCommandResult", "DockerExecutor", "DockerSubprocessExecutor", "ImageBuildEvidence",
            "PortableImageBuildEvidence", "ImageVerificationEvidence", "PortableImageVerificationEvidence",
            "ImageRetirementEvidence", "build_candidate_image", "verify_candidate_image", "verify_bound_image_evidence",
-           "read_image_execution_artifacts", "retire_prior_image"]
+           "read_image_execution_artifacts", "read_detached_image_execution_artifacts", "retire_prior_image"]
