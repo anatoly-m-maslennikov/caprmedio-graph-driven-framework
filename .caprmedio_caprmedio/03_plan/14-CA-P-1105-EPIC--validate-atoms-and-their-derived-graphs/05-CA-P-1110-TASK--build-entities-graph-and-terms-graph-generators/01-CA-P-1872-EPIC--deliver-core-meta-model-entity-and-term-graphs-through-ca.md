@@ -25,8 +25,8 @@ subjects:
     - Action
     - Journal
     - Plan
-version: 5
-updated_at: "2026-10-09 23:11:24 +0400"
+version: 6
+updated_at: "2026-10-10 00:36:36 +0400"
 relations:
   is_decomposition_of:
     - CA-P-1110
@@ -46,11 +46,11 @@ Make the existing entity and term graph builders usable through the Project MCP 
 The Operator replaced the immediate execution plan on 2026-10-09. Do these steps one by one. Finish and verify one step before starting the next. The source is the Core Meta-model by itself, not Project Configuration or Extensions.
 
 1. **Build mechanically from existing Atoms.** Read their current Subjects, using only the existing `/` and `:` syntax. Preserve complete Subject paths, supporting prefixes and exact source references. Keep `/` steps unclassified. `:` links an allowed value to its qualified Property; it is not an assignment. Do not infer relations from Main Content, rewrite Subjects, normalize to the proposed new notation or create source-Atom nodes as model objects. Output a derived graph and the literal Term components. Verify deterministic output and unchanged Core source bytes.
-2. **Determine what each `/` means.** Use Atom content to distinguish narrower-than (`/`) from general bearer qualification (`.`). Properties, Revisions and Invocations can all use general bearer qualification. Keep exact source evidence for each decision; ask the Operator when confidence is below 90%. Do not change the graph or Atom Subjects in this step.
-3. **Update the graph.** Apply the reviewed decisions to the derived graph first. Use `NARROWER_THAN`, `IS_BORNE_BY` and `IS_ALLOWED_VALUE_OF` with their correct directions and qualified identities. Preserve the step-1 graph for comparison. Do not change Atom Subjects yet.
+2. **Review the current graph and design its structure.** Use current Active Core Atom content to interpret old slash paths, group Continuant/Occurrent, inherit common constraints and mark excessive entities for dropping or consolidation. Keep source evidence and every old identity traceable. Ask the Operator below 90% confidence. Do not change the step-1 graph or Atom Subjects.
+3. **Give the Operator the new graph candidate.** Present the grouped, inherited and visibly marked candidate in compact notation using `/`, `.`, `:` and `@`. Use NARROWER_THAN, IS_BORNE_BY, IS_ALLOWED_VALUE_OF and IS_CARRIED_BY with correct directions and qualified identities. Preserve the baseline. Candidate delivery is not acceptance; apply accepted decisions to a separate derived graph before any source migration.
 4. **Update Atom Subjects.** After graph review, write the confirmed `/`, `.` and `:` notation into the authoritative Subjects. Reconcile affected grammar contracts, revisions and source references. Rebuild only to verify that the updated Subjects reproduce the reviewed graph.
 
-Step **1 is complete**; step **2 is next and has not started** under this sequence. Steps 3–4 remain pending. Earlier classification drafts and migration code are preparation only, not accepted decisions or source updates. The approved future notation remains `/` for broader-to-narrower, `.` for bearer qualification and `:` for allowed values; step 1 does not apply it to old `/` occurrences.
+Step **1 is complete**; step **2 is next and has not started** under this sequence. Steps 3–4 remain pending. Earlier classification drafts and migration code are preparation only, not accepted decisions or source updates. The approved compact graph notation is `/` for broader-to-narrower, `.` for bearer qualification, `:` for allowed values and `@` for IS_CARRIED_BY; step 1 does not apply it to old `/` occurrences. Exact `@` bindings identify the carried state and Carrier rather than assigning a Property value.
 
 This sequence governs the immediate local work without MCP. A mechanical projection is not native semantic admission, a live MCP Run or completion of the whole Epic. The existing MCP delivery work remains separate and pending.
 
@@ -63,6 +63,23 @@ This sequence governs the immediate local work without MCP. A mechanical project
 - Graph fingerprint: `0ea18486fd43ccd546a5d09888e98bc42f56d42d392e5669fecee19fa25f93d1`. JSON file SHA-256: `57cba13073aa0de34876a734c784a43d124f09ff03584de03252b9d12a89ac0b`.
 - Checks: 197 graph/acceptance tests plus 10 builder tests passed. Matching before/after pin-set fingerprints verify all 951 Core source files unchanged. Publication file hashes match their receipt.
 - No Main Content classification, dot interpretation, Atom Subject rewrite, native semantic admission, MCP execution or Run/Journal recording was performed.
+
+### Current graph review and candidate Tasks
+
+The Operator added this work on 2026-10-10. Task creation is not execution. Run the new Tasks one by one, with their explicit BLOCKS chain:
+
+`CA-P-1905 → CA-P-1906 → CA-P-1907 → CA-P-1908`
+
+- Review the current Entities Graph derived from exact-Active Core-owned Atoms. Recheck current pins instead of treating the saved step-1 counts as permanent.
+- Give the Operator a new graph candidate grouped by Continuant and Occurrent, separating definitions from actual executions.
+- Inherit common constraints through justified narrower-than specializations. Declare shared Carrier obligations and other common rules once; show only subtype additions or differences. Do not inherit another Entity's concrete Carrier.
+- Use as few genuine root entities as possible without losing distinctions or inventing relations. Explain retained roots and distinguish display groups from independent model roots.
+- Check excessive and redundant entities. Mark each proposed drop or consolidation visibly; do not delete nodes, governing Atoms, source Subjects or history. Revision is an explicit drop/consolidation candidate in favor of Version Number and Updated At, with exact historical references preserved.
+- Use `/`, `.`, `:` and `@` in the compact candidate display: narrower-than, bearer qualification, allowed value and IS_CARRIED_BY. Reuse CARRIES as the inverse direction of the Carrier binding; do not add an equivalent primitive.
+- Use concept names such as `Version Number`, `Updated At` and `Status`, not YAML keys. Present the candidate with plain two-space indentation and compact cross-link statements. Preserve qualified identities and graph ownership.
+- Every baseline identity needs a traceable retain/move/inherit/consolidate/drop-candidate/question disposition. Give root counts before and after, count marked candidates separately, and expose uncertainty instead of forcing a smaller graph.
+
+These Tasks refine steps 2–3 above. Their outputs remain proposals for Operator review; they do not accept a new ontology, update the step-1 graph or Core Subjects, rename YAML keys, implement a runtime, or complete the Epic. `@` is approved compact graph notation, not an automatically admitted Subject-path serialization operator.
 
 ### RMED and Operations review gate
 
@@ -161,6 +178,10 @@ Each leaf has one AI Agent Assignee and <=15 minutes of hands-on work. Composite
 | [CA-P-1894](01-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/15-CA-P-1894-TASK--generate-the-current-core-entity-graph-through-mcp.md) | Generate the current Core entity graph through MCP | 10 min |
 | [CA-P-1895](01-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/16-CA-P-1895-TASK--generate-the-current-core-term-graph-through-mcp.md) | Generate the current Core term graph through MCP | 10 min |
 | [CA-P-1896](01-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/17-CA-P-1896-TASK--verify-and-hand-off-both-core-graph-outputs.md) | Verify and hand off both Core graph outputs | 5 min |
+| [CA-P-1905](01-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/21-CA-P-1905-TASK--review-current-entities-graph-from-active-core-meta-model.md) | Review current Entities Graph from Active Core Meta-model | 15 min |
+| [CA-P-1906](01-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/22-CA-P-1906-TASK--design-continuant-occurrent-groups-and-inherited-constraints.md) | Design Continuant Occurrent groups and inherited constraints | 15 min |
+| [CA-P-1907](01-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/23-CA-P-1907-TASK--mark-entity-drop-and-consolidation-candidates-without-deleting.md) | Mark Entity drop and consolidation candidates without deleting | 15 min |
+| [CA-P-1908](01-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/24-CA-P-1908-TASK--present-compact-entities-graph-candidate-for-operator-review.md) | Present compact Entities Graph candidate for Operator review | 15 min |
 
 Each child owns its immediate is_decomposition_of relation. A prerequisite owns blocks; folder order is navigation, not dependency authority.
 
