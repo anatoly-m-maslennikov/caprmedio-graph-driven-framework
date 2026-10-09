@@ -2,7 +2,7 @@
 
 These 47 case meanings remain unresolved. Each original qualified identity and source reference is preserved in its reviewed batch. No native relation is asserted for these cases. These questions are handed to the Operator; they are not permission to change Core, Subjects or history.
 
-The separate temporal display question is also pending: may Actor, Carrier and Scope Unit appear under Continuant as a display convention only, without adding native taxonomy?
+The temporal display question is answered: Actor, Carrier and Scope Unit appear under Continuant by Operator-confirmed display convention, without adding native taxonomy. Sessions and Workflow, Step and Action Runs were proposed as Occurrent examples; Session remains outside the baseline. The separate storage question is pending: does the Journal preserve history alongside live/resumable state, or must it be the only stored representation? Neither interpretation is adopted yet.
 
 1. `Evaluation/Report`: Which current Core Main Content source defines Evaluation/Report and states whether it is a native relation, a display qualification, or neither?
 

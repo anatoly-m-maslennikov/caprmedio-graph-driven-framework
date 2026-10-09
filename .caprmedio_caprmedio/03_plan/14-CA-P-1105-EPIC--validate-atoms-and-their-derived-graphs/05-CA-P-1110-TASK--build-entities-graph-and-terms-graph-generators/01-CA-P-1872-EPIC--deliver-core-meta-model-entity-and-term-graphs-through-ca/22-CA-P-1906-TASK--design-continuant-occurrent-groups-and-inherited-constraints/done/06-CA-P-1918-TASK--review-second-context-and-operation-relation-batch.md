@@ -9,12 +9,12 @@ claim_target_scope_unit: caprmedio
 local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
-status: Active
+status: Done
 subjects:
   governs: Projection
   depends_on: [Entity, Term, Atom, Property, Carrier, Plan]
-version: 3
-updated_at: "2026-10-10 02:32:12 +0400"
+version: 4
+updated_at: "2026-10-10 02:46:20 +0400"
 relations:
   is_decomposition_of: [CA-P-1906]
   blocks: [CA-P-1921]
@@ -44,9 +44,13 @@ Direct child Tasks:
 - [CA-P-1924](06-CA-P-1918-TASK--review-second-context-and-operation-relation-batch/done/02-CA-P-1924-TASK--review-second-remaining-context-relation-batch.md): Review second remaining context relation batch.
 - [CA-P-1925](06-CA-P-1918-TASK--review-second-context-and-operation-relation-batch/done/03-CA-P-1925-TASK--review-third-remaining-context-relation-batch.md): Review third remaining context relation batch.
 - [CA-P-1926](06-CA-P-1918-TASK--review-second-context-and-operation-relation-batch/done/04-CA-P-1926-TASK--review-fourth-remaining-context-relation-batch.md): Review fourth remaining context relation batch.
-- [CA-P-1927](06-CA-P-1918-TASK--review-second-context-and-operation-relation-batch/05-CA-P-1927-TASK--join-the-reviewed-second-context-relation-batch.md): Join the reviewed second context relation batch.
+- [CA-P-1927](06-CA-P-1918-TASK--review-second-context-and-operation-relation-batch/done/05-CA-P-1927-TASK--join-the-reviewed-second-context-relation-batch.md): Join the reviewed second context relation batch.
 
 Read current Core Main Content and verify exact source pins before proposing meaning. Earlier classification caches are preparation only. Below 90% confidence, leave a proposal unresolved, state the missing evidence and put the question to the Operator before deciding. A diagnostic or proposed view is not native admission. Preserve all qualified identities and do not infer Entity facts from source Atom metadata or Subject incidence. Work locally without MCP or FPF; do not change Core Atoms, Subjects, history, baseline outputs, implementation, runtime or unrelated work.
+
+### Verified execution receipt
+
+All five direct children are Done. The final 65-case join is independently verified and retained in the durable design handoff: 49 not-native interpretations and 16 explicit unresolved questions; zero native admission. Exact original case coverage, all reviewed fields and current Main Content evidence are preserved. The complete batch now unblocks CA-P-1921 when its other prerequisites are Done. This Plan's File Carrier and matching Directory Carrier move together to the parent's local `done/` container; child Status is unchanged.
 
 ### Definition of Done
 

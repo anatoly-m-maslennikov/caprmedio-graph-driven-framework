@@ -109,21 +109,32 @@ def main():
         member('Step Run', [E['step_run'], E['step']], 'One actual execution within one Workflow Run; a failure or recorded attempt is not successful completion.', 99),
         member('Workflow Run', [E['workflow_run'], E['workflow']], 'One actual execution of one reusable Workflow against supplied inputs/parameters.', 99),
     ]
-    unresolved = [
-        {'qualified_identity': identity, 'disposition': 'unresolved', 'confidence_percent': 75,
-         'evidence_refs': refs, 'reason': reason, 'question_ref': 'temporal-display-convention',
-         'native_temporal_classification': 'not_performed'}
-        for identity, refs, reason in [
-            ('Actor', [E['actor_primary']], 'Primary-Entity taxonomy alone does not establish temporal persistence.'),
-            ('Operator', [E['operator']], 'Collective human Actor definition establishes Actor meaning, not an explicit continuant criterion.'),
-            ('Carrier', [E['carrier_primary'], E['carrier_binding']], 'Carrier is a Primary Entity, not a bearer-dependent Property; that does not itself admit a temporal class.'),
-            ('File Carrier', [E['file_carrier']], 'Concrete File Carrier kind is preserved; its temporal display membership is not established by taxonomy alone.'),
-            ('Directory Carrier', [E['directory_carrier']], 'Concrete Directory Carrier kind is preserved; its temporal display membership is not established by taxonomy alone.'),
-            ('Scope Unit', [E['scope_unit']], 'Ownership boundary and optional child Scope Units do not independently establish temporal membership.'),
-        ]
-    ]
-    for row in unresolved:
-        assert row['qualified_identity'] in nodes
+    operator_decision = {
+        'decision_id': 'temporal-display-convention-2026-10-10',
+        'quote': 'yes, they are Continuant.',
+        'received_at': '2026-10-10 02:40:09 +0400',
+        'time_basis': 'Current local receipt time; not an asserted source-Atom revision or Run timestamp.',
+        'provenance': 'Current Operator reply relayed in the root assignment; not a fabricated source Atom.',
+        'direct_display_memberships': ['Actor', 'Carrier', 'Scope Unit'],
+        'scope': 'Local Continuant display convention only; no Core change, BFO adoption or native temporal taxonomy admission.',
+        'descendant_boundary': 'Only the three explicitly listed, independently evidenced subtype links are followed; no blanket descendant classification.',
+    }
+    confirmed = []
+    for identity, refs, parent, meaning in [
+        ('Actor', [E['actor_primary']], None, 'Operator-confirmed local Continuant convention for Actor; Primary-Entity classification remains distinct.'),
+        ('Carrier', [E['carrier_primary'], E['carrier_binding']], None, 'Operator-confirmed local Continuant convention for Carrier; Carrier remains a Primary Entity rather than its referring Property.'),
+        ('Scope Unit', [E['scope_unit']], None, 'Operator-confirmed local Continuant convention for the Scope Unit ownership boundary.'),
+        ('Operator', [E['operator'], E['narrower']], 'Actor', 'Follows the confirmed Actor display convention through the governing same-referent collective Actor definition only.'),
+        ('File Carrier', [E['file_carrier'], E['narrower']], 'Carrier', 'Follows the confirmed Carrier display convention through the independently evidenced File Carrier NARROWER_THAN Carrier link only.'),
+        ('Directory Carrier', [E['directory_carrier'], E['narrower']], 'Carrier', 'Follows the confirmed Carrier display convention through the independently evidenced Directory Carrier NARROWER_THAN Carrier link only.'),
+    ]:
+        row = member(identity, refs, meaning, 99)
+        row.update(disposition='confirmed_display', decision_ref=operator_decision['decision_id'],
+                   membership_basis='Operator_display_decision' if parent is None else 'specific_evidenced_subtype_display_derivation',
+                   derived_from_display_parent=parent, blanket_descendant_classification=False)
+        confirmed.append(row)
+    continuants.extend(confirmed)
+    unresolved = []
 
     additional = []
     for child, parent, proof, support in [
@@ -191,7 +202,7 @@ def main():
     groups = [
         {'display_group': 'Continuant', 'label_is_not_entity_identity': True,
          'disposition': 'proposed', 'confidence_percent': 96, 'native_admission': 'not_performed',
-         'meaning': 'Local temporal display lens for persistent/reusable information artifacts; not BFO adoption or a native taxonomy root.',
+         'meaning': 'Local temporal display lens for persistent/reusable information artifacts and the Operator-confirmed Actor, Carrier and Scope Unit convention; not BFO adoption or a native taxonomy root.',
          'members': continuants},
         {'display_group': 'Occurrent', 'label_is_not_entity_identity': True,
          'disposition': 'proposed', 'confidence_percent': 98, 'native_admission': 'not_performed',
@@ -203,10 +214,20 @@ def main():
         'baseline_file_sha256': EXPECTED_FILE, 'source_binding': baseline['source_binding'],
         'non_authoritative': True, 'source_migration': 'not_performed', 'semantic_admission': 'not_performed',
         'work_boundary': 'Bounded structure design only; not the complete CA-P-1907 node-disposition review, an accepted graph, a migration or an execution Run.',
+        'occurrence_record_and_persistence_boundary': {
+            'actual_Run_members_preserved': ['Action Run', 'Step Run', 'Workflow Run'],
+            'distinction': 'An actual occurrence, its reusable definition, and its durable Journal records remain distinct. Temporary or ephemeral state alone does not establish Occurrent membership; a temporary file can still be a Carrier.',
+            'Journal_only_storage_constraint': 'not_adopted',
+            'live_or_resumable_Run_state_excluded': False,
+            'sessions_example': {'provenance': 'Operator-proposed example relayed by root; no exact new source-Atom fact is asserted.',
+                                 'disposition': 'mentioned_only_not_assessed', 'baseline_identity_asserted': False,
+                                 'native_admission': 'not_performed'},
+        },
         'identity_preservation': {'inventory_path': BASELINE.as_posix(), 'inventory_sha256': EXPECTED_INVENTORY,
                                   'all_node_identities_preserved_by_reference': True, 'node_count': len(nodes),
                                   'rename_drop_or_delete_count': 0, 'generated_qualified_identity_count': 0},
         'display_groups': groups, 'unresolved_display_memberships': unresolved,
+        'operator_display_decisions': [operator_decision],
         'non_temporal_broad_model_anchors': {
             'qualified_identities': ['Entity', 'Primary Entity', 'Dependent Entity', 'Property'],
             'reason': 'Assessed for identity/bearer and broad-model structure only. These model anchors are not put into either temporal group, and no temporal membership of their instances is inferred.',
@@ -234,7 +255,9 @@ def main():
         'coverage': {
             'baseline_nodes': len(nodes), 'baseline_roots': len(roots),
             'distinct_nodes_assessed_in_this_bounded_design': len(reviewed),
-            'proposed_temporal_memberships': len(continuants) + len(occurrents),
+            'proposed_temporal_memberships': sum(row['disposition'] == 'proposed' for row in continuants + occurrents),
+            'confirmed_temporal_memberships': len(confirmed),
+            'total_temporal_memberships': len(continuants) + len(occurrents),
             'unresolved_temporal_memberships': len(unresolved),
             'additional_relation_count': len(additional), 'inherited_constraint_count': len(constraints),
             'non_temporal_broad_model_anchor_count': 4,
@@ -246,11 +269,12 @@ def main():
             'unreviewed_preservation': 'Remain visible in an explicit unclassified bucket using exact baseline identities. No default temporal group, parentage, native kind, locus, Carrier or disposition is inferred.',
             'constraints_are_not_complete_family_reviews': True,
         },
-        'questions': [{'question_id': 'temporal-display-convention', 'status': 'pending_Operator',
-                       'confidence_percent': 75,
+        'questions': [{'question_id': 'temporal-display-convention', 'status': 'answered',
+                       'confidence_percent': 99,
                        'question': 'Should Actor, Carrier and Scope Unit appear as Continuant display candidates by deliberate local view convention, or remain outside the two temporal groups until explicit Core temporal evidence is supplied?',
                        'boundary': 'A positive answer supplies local display convention only; it does not admit native temporal taxonomy or automatically classify all descendants.',
-                       'affected_identities': [row['qualified_identity'] for row in unresolved],
+                       'affected_identities': [row['qualified_identity'] for row in confirmed],
+                       'answer': operator_decision['quote'], 'decision_ref': operator_decision['decision_id'],
                        'asked_through_root': True}],
         'evidence_catalogue': evidence,
         'checks_performed': {

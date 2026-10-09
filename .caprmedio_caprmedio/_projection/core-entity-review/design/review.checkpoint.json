@@ -1,6 +1,7 @@
 {
   "baseline_inventory_sha256": "23394abaf6e9c18a585cf3146aedd0a80df166c9dd82be6e86ed7c3c56780bdc",
-  "checkpoint_sha256": "5d6bd5ff3e91dbea923ab819d9ed79aca6084773ce63f00c5f6fb8107125fa2a",
+  "checkpoint_sha256": "c998e615a603536a38c69925e641daba43b82a1d43f647265e1775c0340cf750",
+  "complete_second_context_batch": true,
   "design_complete": false,
   "files": [
     {
@@ -102,10 +103,10 @@
       "source_path": ".caprmedio_tmp/planning/core-entity-review/design/rmed.entities.indented.txt"
     },
     {
-      "bytes": 62125,
+      "bytes": 65606,
       "checkpoint_only": true,
       "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/structure.design.json",
-      "sha256": "04eb36800cd295d239a03779fd4438fde75ecb155b9915e8e0ebfcd5996c23ec",
+      "sha256": "10733c9f1b6b8d5946acdc469e7cfe3ee710ed515f1de77eed765c2252652b9e",
       "source_path": ".caprmedio_tmp/planning/core-entity-review/design/structure.design.json"
     },
     {
@@ -256,10 +257,10 @@
       "source_path": ".caprmedio_tmp/planning/core-entity-review/design/build_rmed_views_ca_p_1920.py"
     },
     {
-      "bytes": 22887,
+      "bytes": 25212,
       "checkpoint_only": false,
       "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/support/build_structure_design_ca_p_1919.py",
-      "sha256": "53df65a2a46895bd51c136ad2978ac408252cf97c857a5047c5902414cc18d46",
+      "sha256": "24e13bcc4101db4d9fd0bf7a2236fd8ff036f736dcd5a60d77abd49743e494d6",
       "source_path": ".caprmedio_tmp/planning/core-entity-review/design/build_structure_design_ca_p_1919.py"
     },
     {
@@ -294,22 +295,36 @@
     },
     {
       "authored_handoff": true,
-      "bytes": 2086,
+      "bytes": 2595,
       "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/README.md",
-      "sha256": "33d5f2669129bde87e78cdb8be31d34d810716344fdda413d951fa624c1c8905",
+      "sha256": "28b77e82efd190077e4ab6156eadfa73a360f7c6ff5c1a0f9f7cd013a623b37d",
       "source_path": ".caprmedio_caprmedio/_projection/core-entity-review/design/README.md"
     },
     {
       "authored_handoff": true,
-      "bytes": 9671,
+      "bytes": 9978,
       "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/questions.md",
-      "sha256": "7d2cc9d846e365cd0187399378d0e8213d66a95b4ff1e240496653ebee0b4058",
+      "sha256": "f06676b92a488ea3ffd0ab32736c5d67e4806c18cd7c02a20d5ffd90fe05ac4c",
       "source_path": ".caprmedio_caprmedio/_projection/core-entity-review/design/questions.md"
+    },
+    {
+      "bytes": 134810,
+      "checkpoint_only": false,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/relations.batch-6.final.json",
+      "sha256": "5bef9b0c040b4ffad63df24c2c9290e3e539aa1b434792c7f6b27d6151130812",
+      "source_path": ".caprmedio_tmp/planning/core-entity-review/design/relations.batch-6.final.json"
+    },
+    {
+      "bytes": 2988,
+      "checkpoint_only": false,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/support/join_reviewed_batch6.py",
+      "sha256": "5a34f1b7868f760eb29008a958514baa875280d2ba6fb3e55a282c37439fc491",
+      "source_path": ".caprmedio_tmp/planning/core-entity-review/join_reviewed_batch6.py"
     }
   ],
   "format_cleanup": "Removed one trailing empty line from the overview tree; semantics and all pointer data are unchanged.",
   "non_authoritative": true,
-  "pending": "Temporal display convention, batch join and complete design integration/verification.",
+  "pending": "Complete design integration/verification; separate Journal-storage interpretation remains unadopted.",
   "projection_kind": "caprmedio.core_graph_design.verified_review_checkpoint",
   "semantic_admission": "not_performed",
   "source_binding": {
@@ -318,5 +333,6 @@
     "source_frontier_sha256": "7792e842cfe6c66320745660e69cd0df5525ec18bb22b5c060a6ddfff5fc97f7"
   },
   "source_migration": "not_performed",
-  "source_task": "CA-P-1906"
+  "source_task": "CA-P-1906",
+  "temporal_display_convention": "Operator-confirmed for Actor, Carrier and Scope Unit; specific evidenced subtype derivations only; no native admission."
 }

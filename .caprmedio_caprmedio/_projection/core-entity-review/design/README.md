@@ -13,11 +13,13 @@ All 294 old slash cases have a bounded current-content review: 247 are not asser
 
 The original baseline remains unchanged: 706 nodes, 4,534 Subject occurrences and 3,093 original relation segments. This checkpoint has not yet joined the full occurrence ledger or performed CA-P-1922 acceptance.
 
-[The bounded structure design](structure.design.json) reviews 24 identities: 14 proposed temporal display memberships, six pending memberships and four non-temporal anchors. It includes ten separately evidenced Term-taxonomy proposals and seven conditional common constraints. The remaining 682 nodes are explicitly unreviewed for whole-node disposition; CA-P-1907 owns that later work. No entity was deleted, generalized or adopted.
+[The bounded structure design](structure.design.json) reviews 24 identities: 17 Continuant and three Occurrent display memberships, plus four non-temporal anchors. Six memberships follow the confirmed Operator display convention. It includes ten separately evidenced Term-taxonomy proposals and seven conditional common constraints. The remaining 682 nodes are explicitly unreviewed for whole-node disposition; CA-P-1907 owns that later work. No entity was deleted, generalized or adopted.
 
-## Decision needed
+## Operator decisions and open distinction
 
-May Actor, Carrier and Scope Unit go under Continuant as a display convention only? Core does not explicitly provide that temporal classification. Until the Operator answers, they remain outside both display groups. No native taxonomy change is proposed by this choice.
+The Operator confirmed Actor, Carrier and Scope Unit under Continuant as a display convention. Operator, File Carrier and Directory Carrier follow only their separately evidenced subtype links. This does not add native temporal taxonomy.
+
+The Operator also named sessions and Workflow, Step and Action Runs as Occurrent examples. Actual activity, its reusable definition and its saved records are distinct. Session is outside the reviewed baseline and remains an unassessed example, not a new Core identity. Whether the Journal alone must store their representations, or preserves history alongside live/resumable state, is still a question. No ephemerality or Journal-only storage rule is adopted.
 
 ## Boundary
 

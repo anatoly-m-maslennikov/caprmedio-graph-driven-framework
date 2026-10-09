@@ -284,12 +284,14 @@
     ],
     "baseline_nodes": 706,
     "baseline_roots": 346,
+    "confirmed_temporal_memberships": 6,
     "constraints_are_not_complete_family_reviews": true,
     "distinct_nodes_assessed_in_this_bounded_design": 24,
     "inherited_constraint_count": 7,
     "non_temporal_broad_model_anchor_count": 4,
     "proposed_temporal_memberships": 14,
-    "unresolved_temporal_memberships": 6,
+    "total_temporal_memberships": 20,
+    "unresolved_temporal_memberships": 0,
     "unreviewed_identity_set": {
       "inventory_path": ".caprmedio_caprmedio/_projection/core-entity-review/baseline.inventory.json",
       "inventory_sha256": "23394abaf6e9c18a585cf3146aedd0a80df166c9dd82be6e86ed7c3c56780bdc",
@@ -306,7 +308,7 @@
       "display_group": "Continuant",
       "disposition": "proposed",
       "label_is_not_entity_identity": true,
-      "meaning": "Local temporal display lens for persistent/reusable information artifacts; not BFO adoption or a native taxonomy root.",
+      "meaning": "Local temporal display lens for persistent/reusable information artifacts and the Operator-confirmed Actor, Carrier and Scope Unit convention; not BFO adoption or a native taxonomy root.",
       "members": [
         {
           "confidence_percent": 99,
@@ -434,6 +436,94 @@
           ],
           "native_temporal_classification": "not_performed",
           "qualified_identity": "Applicable Methodology"
+        },
+        {
+          "blanket_descendant_classification": false,
+          "confidence_percent": 99,
+          "decision_ref": "temporal-display-convention-2026-10-10",
+          "derived_from_display_parent": null,
+          "display_reason": "Operator-confirmed local Continuant convention for Actor; Primary-Entity classification remains distinct.",
+          "disposition": "confirmed_display",
+          "evidence_refs": [
+            "CA-R-1250:28-28"
+          ],
+          "membership_basis": "Operator_display_decision",
+          "native_temporal_classification": "not_performed",
+          "qualified_identity": "Actor"
+        },
+        {
+          "blanket_descendant_classification": false,
+          "confidence_percent": 99,
+          "decision_ref": "temporal-display-convention-2026-10-10",
+          "derived_from_display_parent": null,
+          "display_reason": "Operator-confirmed local Continuant convention for Carrier; Carrier remains a Primary Entity rather than its referring Property.",
+          "disposition": "confirmed_display",
+          "evidence_refs": [
+            "CA-D-414:28-28",
+            "CA-D-505:34-40"
+          ],
+          "membership_basis": "Operator_display_decision",
+          "native_temporal_classification": "not_performed",
+          "qualified_identity": "Carrier"
+        },
+        {
+          "blanket_descendant_classification": false,
+          "confidence_percent": 99,
+          "decision_ref": "temporal-display-convention-2026-10-10",
+          "derived_from_display_parent": null,
+          "display_reason": "Operator-confirmed local Continuant convention for the Scope Unit ownership boundary.",
+          "disposition": "confirmed_display",
+          "evidence_refs": [
+            "CA-R-1757:29-29"
+          ],
+          "membership_basis": "Operator_display_decision",
+          "native_temporal_classification": "not_performed",
+          "qualified_identity": "Scope Unit"
+        },
+        {
+          "blanket_descendant_classification": false,
+          "confidence_percent": 99,
+          "decision_ref": "temporal-display-convention-2026-10-10",
+          "derived_from_display_parent": "Actor",
+          "display_reason": "Follows the confirmed Actor display convention through the governing same-referent collective Actor definition only.",
+          "disposition": "confirmed_display",
+          "evidence_refs": [
+            "CA-R-1422:32-32",
+            "CA-R-1435:28-38"
+          ],
+          "membership_basis": "specific_evidenced_subtype_display_derivation",
+          "native_temporal_classification": "not_performed",
+          "qualified_identity": "Operator"
+        },
+        {
+          "blanket_descendant_classification": false,
+          "confidence_percent": 99,
+          "decision_ref": "temporal-display-convention-2026-10-10",
+          "derived_from_display_parent": "Carrier",
+          "display_reason": "Follows the confirmed Carrier display convention through the independently evidenced File Carrier NARROWER_THAN Carrier link only.",
+          "disposition": "confirmed_display",
+          "evidence_refs": [
+            "CA-D-258:28-28",
+            "CA-R-1435:28-38"
+          ],
+          "membership_basis": "specific_evidenced_subtype_display_derivation",
+          "native_temporal_classification": "not_performed",
+          "qualified_identity": "File Carrier"
+        },
+        {
+          "blanket_descendant_classification": false,
+          "confidence_percent": 99,
+          "decision_ref": "temporal-display-convention-2026-10-10",
+          "derived_from_display_parent": "Carrier",
+          "display_reason": "Follows the confirmed Carrier display convention through the independently evidenced Directory Carrier NARROWER_THAN Carrier link only.",
+          "disposition": "confirmed_display",
+          "evidence_refs": [
+            "CA-D-259:28-28",
+            "CA-R-1435:28-38"
+          ],
+          "membership_basis": "specific_evidenced_subtype_display_derivation",
+          "native_temporal_classification": "not_performed",
+          "qualified_identity": "Directory Carrier"
         }
       ],
       "native_admission": "not_performed"
@@ -965,22 +1055,56 @@
     "reason": "Assessed for identity/bearer and broad-model structure only. These model anchors are not put into either temporal group, and no temporal membership of their instances is inferred.",
     "temporal_membership": "not_assessed"
   },
+  "occurrence_record_and_persistence_boundary": {
+    "Journal_only_storage_constraint": "not_adopted",
+    "actual_Run_members_preserved": [
+      "Action Run",
+      "Step Run",
+      "Workflow Run"
+    ],
+    "distinction": "An actual occurrence, its reusable definition, and its durable Journal records remain distinct. Temporary or ephemeral state alone does not establish Occurrent membership; a temporary file can still be a Carrier.",
+    "live_or_resumable_Run_state_excluded": false,
+    "sessions_example": {
+      "baseline_identity_asserted": false,
+      "disposition": "mentioned_only_not_assessed",
+      "native_admission": "not_performed",
+      "provenance": "Operator-proposed example relayed by root; no exact new source-Atom fact is asserted."
+    }
+  },
+  "operator_display_decisions": [
+    {
+      "decision_id": "temporal-display-convention-2026-10-10",
+      "descendant_boundary": "Only the three explicitly listed, independently evidenced subtype links are followed; no blanket descendant classification.",
+      "direct_display_memberships": [
+        "Actor",
+        "Carrier",
+        "Scope Unit"
+      ],
+      "provenance": "Current Operator reply relayed in the root assignment; not a fabricated source Atom.",
+      "quote": "yes, they are Continuant.",
+      "received_at": "2026-10-10 02:40:09 +0400",
+      "scope": "Local Continuant display convention only; no Core change, BFO adoption or native temporal taxonomy admission.",
+      "time_basis": "Current local receipt time; not an asserted source-Atom revision or Run timestamp."
+    }
+  ],
   "questions": [
     {
       "affected_identities": [
         "Actor",
-        "Operator",
         "Carrier",
+        "Scope Unit",
+        "Operator",
         "File Carrier",
-        "Directory Carrier",
-        "Scope Unit"
+        "Directory Carrier"
       ],
+      "answer": "yes, they are Continuant.",
       "asked_through_root": true,
       "boundary": "A positive answer supplies local display convention only; it does not admit native temporal taxonomy or automatically classify all descendants.",
-      "confidence_percent": 75,
+      "confidence_percent": 99,
+      "decision_ref": "temporal-display-convention-2026-10-10",
       "question": "Should Actor, Carrier and Scope Unit appear as Continuant display candidates by deliberate local view convention, or remain outside the two temporal groups until explicit Core temporal evidence is supplied?",
       "question_id": "temporal-display-convention",
-      "status": "pending_Operator"
+      "status": "answered"
     }
   ],
   "rmed_integration_boundary": {
@@ -1015,74 +1139,6 @@
   },
   "source_migration": "not_performed",
   "source_task": "CA-P-1919",
-  "unresolved_display_memberships": [
-    {
-      "confidence_percent": 75,
-      "disposition": "unresolved",
-      "evidence_refs": [
-        "CA-R-1250:28-28"
-      ],
-      "native_temporal_classification": "not_performed",
-      "qualified_identity": "Actor",
-      "question_ref": "temporal-display-convention",
-      "reason": "Primary-Entity taxonomy alone does not establish temporal persistence."
-    },
-    {
-      "confidence_percent": 75,
-      "disposition": "unresolved",
-      "evidence_refs": [
-        "CA-R-1422:32-32"
-      ],
-      "native_temporal_classification": "not_performed",
-      "qualified_identity": "Operator",
-      "question_ref": "temporal-display-convention",
-      "reason": "Collective human Actor definition establishes Actor meaning, not an explicit continuant criterion."
-    },
-    {
-      "confidence_percent": 75,
-      "disposition": "unresolved",
-      "evidence_refs": [
-        "CA-D-414:28-28",
-        "CA-D-505:34-40"
-      ],
-      "native_temporal_classification": "not_performed",
-      "qualified_identity": "Carrier",
-      "question_ref": "temporal-display-convention",
-      "reason": "Carrier is a Primary Entity, not a bearer-dependent Property; that does not itself admit a temporal class."
-    },
-    {
-      "confidence_percent": 75,
-      "disposition": "unresolved",
-      "evidence_refs": [
-        "CA-D-258:28-28"
-      ],
-      "native_temporal_classification": "not_performed",
-      "qualified_identity": "File Carrier",
-      "question_ref": "temporal-display-convention",
-      "reason": "Concrete File Carrier kind is preserved; its temporal display membership is not established by taxonomy alone."
-    },
-    {
-      "confidence_percent": 75,
-      "disposition": "unresolved",
-      "evidence_refs": [
-        "CA-D-259:28-28"
-      ],
-      "native_temporal_classification": "not_performed",
-      "qualified_identity": "Directory Carrier",
-      "question_ref": "temporal-display-convention",
-      "reason": "Concrete Directory Carrier kind is preserved; its temporal display membership is not established by taxonomy alone."
-    },
-    {
-      "confidence_percent": 75,
-      "disposition": "unresolved",
-      "evidence_refs": [
-        "CA-R-1757:29-29"
-      ],
-      "native_temporal_classification": "not_performed",
-      "qualified_identity": "Scope Unit",
-      "question_ref": "temporal-display-convention",
-      "reason": "Ownership boundary and optional child Scope Units do not independently establish temporal membership."
-    }
-  ],
+  "unresolved_display_memberships": [],
   "work_boundary": "Bounded structure design only; not the complete CA-P-1907 node-disposition review, an accepted graph, a migration or an execution Run."
 }
