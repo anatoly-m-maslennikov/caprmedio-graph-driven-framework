@@ -10,8 +10,8 @@ author: Anatoly Maslennikov
 subjects:
   governs: "Release selected Framework Version"
   depends_on: [Workflow, Step, Action, Operator, Version, Methodology, Implementation, Skill, Test, Docker Image, Journal]
-version: 8
-updated_at: "2026-10-09 16:36:54 +0400"
+version: 9
+updated_at: "2026-10-09 21:50:26 +0400"
 relations:
   relates_to: [CA-O-011, CA-O-025, CA-O-165, CA-O-166, CA-O-167, CA-O-168, CA-O-169, CA-O-181, CA-O-183, CA-R-1525, CA-R-1720]
 ---
@@ -63,5 +63,7 @@ The selected boundary binds one current N, one distinct candidate N+1, their exa
 | any missing, stale, unauthorized, failed, partial, recording-blocked, unsafe, or unmatched result | stop with its actual evidence; do not promote, retire, retry, or recurse implicitly |
 
 ## Details
+
+This Workflow starts only on the Operator's command for the selected local-release Run. Source admission also requires an explicit Operator command; one command may explicitly select both admission and release. An available admission receipt is a prerequisite, not a trigger. Completing admission or this local release does not start a public-release Workflow. Internal Steps follow the graph only within the commanded Run.
 
 CA-O-164 uses only its listed Step Atoms; it does not invoke another Workflow as a Step or invoke itself to prove a candidate. CA-O-011 remains the canonical Applicable Methodology compilation authority for declared Methodology Sources. The separately pinned candidate snapshot is sealed before compilation; its definitions, source/configuration/catalog/lock identity and byte identities **must not** change mid-Run. It may materialize only the sealed private candidate export and compilation; root `methodology/` and the installed Project control tree remain unchanged until the complete gate. After that gate, CA-O-169 promotes those same sealed source-export, source-copy, compiled, package and image bytes; it does not rebuild, re-export or recompile them. Neither delivery is a replacement authoring authority. CA-O-025 remains release readiness and is not substituted for this boundary. The final completion label is `exact prior N-image disposition`. Under a sealed `retain_prior` condition, it is complete only with an actual Docker-subprocess, SHA-256-valid retention receipt bound to the exact sealed condition reference and settings digest, that observes the exact required prior image, has `retaining_container_refs == ()`, and has no removal fields; retained is not labeled retired. A used, unavailable, unverified, mismatched or non-exact prior image remains partial with its actual evidence. Actual retirement remains pending until its separate exact removal effect has a canonical Journal record. The schema-V5 Journal retains only Workflow, Step and Action Runs with their exact definition revisions, inputs, parent lineage, start/terminal outcome, results and effects; Tool-call evidence attaches by evidence references and parentage and **must not** create a Tool Run type. Preview, rejection and a missing recording receipt never manufacture a Run or release success. This is a local-release Workflow: it grants no Git, public-release, publication, source mutation, arbitrary-worker termination, credential or retry authority.

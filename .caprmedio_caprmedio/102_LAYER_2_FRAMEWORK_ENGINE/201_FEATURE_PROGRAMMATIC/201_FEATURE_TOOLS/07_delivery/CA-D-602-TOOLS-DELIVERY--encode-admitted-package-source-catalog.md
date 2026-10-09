@@ -6,8 +6,8 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-09 16:24:06 +0400"
+version: 2
+updated_at: "2026-10-09 21:50:26 +0400"
 subjects:
   governs: "Framework Installation contribution/Admitted source catalog"
   depends_on: [Tool, Framework Package, Methodology, Extension, Configuration]
@@ -29,5 +29,7 @@ the INSTALL_TOOLS facade **must** include an admitted `catalog.toml` with a pinn
 ## Details
 
 Each ordered `[source.<identity>]` record contains `kind`, `revision`, `sha256`, `admission_receipt_sha256`, `visibility`, `selection_default` and package-relative `path`. Core is required; optional extensions and configuration may be catalogued as available. `selection_default = false` and `visibility = private` never cause target autoloading; target selection is an explicit validated target-context choice.
+
+For the explicitly admitted local Core, selected active Methodology and declared support snapshots, `revision` may equal their exact lowercase 64-hex content digest. `admission_receipt_sha256` hashes the actual retained admission record, which binds the Operator command, selected source identity and exact snapshot digest. It is not the source digest repeated as a substitute for an admission record.
 
 The catalog SHA-256 is carried by the package manifest, candidate seal, package-current selector and target installation result. Empty, symbolic, mutable-tag, unresolved, duplicate or content-mismatched revisions are not pins. No caller-provided catalog replaces the sealed catalog.

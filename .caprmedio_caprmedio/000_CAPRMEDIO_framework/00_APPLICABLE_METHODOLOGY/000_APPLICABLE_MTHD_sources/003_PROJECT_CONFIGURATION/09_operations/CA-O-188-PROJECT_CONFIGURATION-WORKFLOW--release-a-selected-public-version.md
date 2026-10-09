@@ -11,8 +11,8 @@ author: "Anatoly Maslennikov"
 subjects:
   governs: "Release a selected public Version"
   depends_on: [Operator, Version, README, Pull Request, Version History, Full Gate, Journal, Tool]
-version: 1
-updated_at: "2026-10-09 12:45:00 +0000"
+version: 2
+updated_at: "2026-10-09 21:50:26 +0400"
 relations:
   relates_to: [CA-R-1920, CA-R-1924, CA-R-1925, CA-R-1926, CA-R-1927, CA-R-1928, CA-R-1929]
   invokes: [CA-O-189, CA-O-191, CA-O-193, CA-O-195, CA-O-197]
@@ -51,5 +51,7 @@ One selected Version, one personal remote identity, `amm/dev`, `main`, the selec
 | missing, stale, duplicate, unauthorized, unsafe, failed, partial, or uncertain result | stop with actual evidence; do not merge or replay remote effects |
 
 ## Details
+
+This Workflow starts only on the Operator's command for the selected public-release Run. Source admission and local-release completion do not start it. One Operator command may explicitly select admission and release together; only those selected operations are authorized. Internal Steps follow the graph within the commanded Run, and the required gates still apply.
 
 Every invoked Workflow, Step, and Action Run carries actual definition revisions, parent lineage, input/result/effect/report references, and truthful started or terminal Journal evidence under CA-R-1928. Tool calls are evidence attached to their parent Step and Action; they are not a fourth Tool Run kind. This Workflow invokes native bindings only after their registry admission. It grants no current GitHub write, merge, secret, credential, source-authority replacement, or implicit retry authority.
