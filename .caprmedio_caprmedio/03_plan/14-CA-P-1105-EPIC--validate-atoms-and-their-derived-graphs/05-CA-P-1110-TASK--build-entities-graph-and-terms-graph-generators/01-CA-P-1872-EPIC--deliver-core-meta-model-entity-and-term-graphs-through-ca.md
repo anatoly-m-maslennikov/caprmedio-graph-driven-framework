@@ -25,8 +25,8 @@ subjects:
     - Action
     - Journal
     - Plan
-version: 11
-updated_at: "2026-10-10 02:10:14 +0400"
+version: 12
+updated_at: "2026-10-10 02:24:11 +0400"
 relations:
   is_decomposition_of:
     - CA-P-1110
@@ -103,6 +103,8 @@ CA-P-1905–1908 refine steps 2–3 above. Their outputs remain proposals for Op
 ### Bounded candidate-design decomposition
 
 CA-P-1906 is now a composite with no separately executable own work. Eight ready review children cover six disjoint slash-case batches, grouping/inheritance and both RMED views. They require CA-P-1905 Done and explicitly BLOCK CA-P-1921. Integration then BLOCKS independent verification CA-P-1922. CA-P-1906 remains Active until every child is Done and its Definition of Done is satisfied; CA-P-1907 cannot start earlier. The existing candidate acceptance and sealed migration gates are unchanged.
+
+CA-P-1918's first bounded pass produced 16 reviewed display-only interpretations and 49 unreviewed checkpoint rows. It is not Done. Its remaining review is now split into CA-P-1923–1926 (13/12/12/12 cases), followed by CA-P-1927's complete 65-case join. These children are created before further semantic execution. The complete original baseline and previous checkpoint remain preserved.
 
 ### Current local execution evidence
 

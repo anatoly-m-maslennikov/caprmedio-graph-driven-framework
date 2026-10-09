@@ -14,11 +14,11 @@ status: Done
 subjects:
   governs: Projection
   depends_on: [Entity, Term, Atom, Property, Carrier, Plan]
-version: 3
-updated_at: "2026-10-10 02:10:14 +0400"
+version: 4
+updated_at: "2026-10-10 02:24:11 +0400"
 relations:
   is_decomposition_of: [CA-P-1872]
-  blocks: [CA-P-1906, CA-P-1913, CA-P-1914, CA-P-1915, CA-P-1916, CA-P-1917, CA-P-1918, CA-P-1919, CA-P-1920, CA-P-1921]
+  blocks: [CA-P-1906, CA-P-1913, CA-P-1914, CA-P-1915, CA-P-1916, CA-P-1917, CA-P-1918, CA-P-1919, CA-P-1920, CA-P-1921, CA-P-1923, CA-P-1924, CA-P-1925, CA-P-1926]
 ---
 # Summary
 

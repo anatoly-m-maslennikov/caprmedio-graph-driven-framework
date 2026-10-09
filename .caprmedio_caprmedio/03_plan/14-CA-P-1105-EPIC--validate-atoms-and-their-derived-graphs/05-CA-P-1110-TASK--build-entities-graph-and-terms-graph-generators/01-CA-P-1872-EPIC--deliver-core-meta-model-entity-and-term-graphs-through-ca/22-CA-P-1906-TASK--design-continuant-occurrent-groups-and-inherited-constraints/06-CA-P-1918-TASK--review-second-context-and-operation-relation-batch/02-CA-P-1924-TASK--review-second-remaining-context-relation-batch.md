@@ -1,0 +1,47 @@
+---
+atom_id: CA-P-1924
+content_role: Plan
+type: Plan
+label: Task
+work_sequence_number: 2
+current_scope_unit: caprmedio
+claim_target_scope_unit: caprmedio
+local_tier: Standard
+global_tier: 2
+author: Anatoly Maslennikov
+assignee: AI Agent
+status: Active
+subjects:
+  governs: Projection
+  depends_on: [Entity, Term, Atom, Property, Carrier, Plan]
+version: 1
+updated_at: "2026-10-10 02:24:11 +0400"
+relations:
+  is_decomposition_of: [CA-P-1918]
+  blocks: [CA-P-1927]
+---
+# Summary
+
+Review second remaining context relation batch
+
+## Objective
+
+Perform the assigned bounded current-Main-Content review and deliver evidenced candidate interpretations or genuine unresolved cases.
+
+## Details
+
+Estimated own work: 15 minutes. Assignee: AI Agent.
+
+Required start prerequisite: CA-P-1905.
+
+Input: `remaining-2.input.json` in `.caprmedio_tmp/planning/core-entity-review/design/`. Review all 12 assigned cases using current, exact-pinned Main Content. Legacy generic unresolved rows are unreviewed checkpoints, not proof of ambiguity.
+
+For each case, interpret the actual Claim, Operation, Procedure or Condition. A clear setting, representation, field or execution-context qualification may propose display-only `.` at >=90% confidence without asserting native IS_BORNE_BY. A native proposal separately needs the exact owning kind, direction and immediate dependent identity or same-referent proof. Containment and Carrier bindings are not taxonomy just because a path uses slash. Never classify from a name whitelist or incidence.
+
+Use the shared batch JSON contract, with this child source_task and batch_number 6; preserve all input case IDs and original endpoints. Output only `relations.batch-6.remaining-2.json` and an optional uniquely named helper in the design directory. Use exact authored evidence and a specific content-grounded reason. If evidence genuinely remains insufficient, retain null proposal and a precise family question; do not fabricate positive proof or default every row to a generic 0% template.
+
+Exclusive scope: this assigned derived review output only. You are not alone; preserve other work. No Core, Subjects, baseline, history, Plan, implementation, MCP, FPF, runtime or Git changes by the executor. Root owns validation and receipts. Below 90% confidence, ask the Operator before deciding; genuine open questions are part of the handoff, not invented facts.
+
+### Definition of Done
+
+the Plan is **not** Done **if** ((any assigned case is unreviewed, omitted or duplicated) **or** (a display or native proposal lacks exact current Main Content evidence) **or** (an unresolved case lacks its checked sources, specific missing-evidence reason or required question) **or** (a required start prerequisite is **not** Done) **or** (current pin or independent checks fail) **or** (the output or complete handoff is missing) **or** (confidence below 90% is silently resolved) **or** (the exclusive scope is exceeded) **or** (any direct decomposing Plan is **not** Done)).
