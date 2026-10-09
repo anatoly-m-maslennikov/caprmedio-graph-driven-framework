@@ -17,7 +17,7 @@ import re
 import sys
 import tomllib
 from dataclasses import dataclass
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 from typing import Any, Callable, Mapping, Protocol
 from urllib.parse import urlparse
 
@@ -27,6 +27,7 @@ if str(TOOLS_ROOT) not in sys.path:
     sys.path.insert(0, str(TOOLS_ROOT))
 
 from workflow_run_support import RunTracker, SelectedRunError  # noqa: E402
+from retained_full_gate_packet import RetainedNativeFullGatePacket  # noqa: E402
 
 
 TOOL_ID = "PUBLIC_RELEASE"
@@ -121,9 +122,16 @@ class FullGateBinding:
 
 
 @dataclass(frozen=True)
+class DetachedNativeFullGateBinding:
+    """One original portable Full Gate packet reopened without live selection."""
+
+    packet: RetainedNativeFullGatePacket
+
+
+@dataclass(frozen=True)
 class GateResult:
     call: ToolCallEvidence
-    binding: FullGateBinding
+    binding: FullGateBinding | DetachedNativeFullGateBinding
 
 
 @dataclass(frozen=True)
@@ -155,6 +163,22 @@ class FinalizationResult:
     call: ToolCallEvidence
     source: SourceProof
     changed: bool
+
+
+@dataclass(frozen=True)
+class _FullGateInterface:
+    """Late-bound concrete RELEASE_VERSION reader types and functions."""
+
+    legacy_evidence_type: type
+    native_evidence_type: type
+    retained_candidate_type: type
+    portable_suite_type: type
+    portable_build_type: type
+    portable_verification_type: type
+    portable_e2e_type: type
+    verify_bound: Callable[..., Path]
+    verify_detached_native: Callable[..., object]
+    verify_promotion: Callable[..., Path]
 
 
 class PublicReleaseBindings(Protocol):
@@ -316,28 +340,114 @@ def _pr(value: object, label: str, *, release: Mapping[str, Any]) -> PullRequest
     return value
 
 
-def _full_gate_interface() -> tuple[type, Callable[..., Path], Callable[..., Path]]:
+def _full_gate_interface() -> _FullGateInterface:
     release_root = TOOLS_ROOT / "RELEASE_VERSION"
     if str(release_root) not in sys.path:
         sys.path.insert(0, str(release_root))
     try:
-        from release_full_gate import FullGateEvidence, verify_bound_full_gate_evidence
+        from release_e2e_gate import PortableCandidateE2EGateEvidence
+        from release_full_gate import (FullGateEvidence, NativeFullGateEvidence,
+                                       verify_bound_full_gate_evidence,
+                                       verify_detached_native_full_gate_evidence)
+        from release_image import PortableImageBuildEvidence, PortableImageVerificationEvidence
         from release_promotion import verify_bound_promotion_evidence
+        from release_retained_candidate import RetainedCandidateIdentity
+        from release_suite import PortableSuiteGateEvidence
     except ImportError as error:  # pragma: no cover - protected installation boundary
         raise PublicReleaseError("full-gate-interface-unavailable", "current RELEASE_VERSION full-gate interface is unavailable") from error
-    return FullGateEvidence, verify_bound_full_gate_evidence, verify_bound_promotion_evidence
+    return _FullGateInterface(
+        legacy_evidence_type=FullGateEvidence,
+        native_evidence_type=NativeFullGateEvidence,
+        retained_candidate_type=RetainedCandidateIdentity,
+        portable_suite_type=PortableSuiteGateEvidence,
+        portable_build_type=PortableImageBuildEvidence,
+        portable_verification_type=PortableImageVerificationEvidence,
+        portable_e2e_type=PortableCandidateE2EGateEvidence,
+        verify_bound=verify_bound_full_gate_evidence,
+        verify_detached_native=verify_detached_native_full_gate_evidence,
+        verify_promotion=verify_bound_promotion_evidence,
+    )
 
 
 def _reopen_full_gate_binding(binding: FullGateBinding) -> Path:
-    _evidence_type, verify_gate, verify_promotion = _full_gate_interface()
-    root = verify_gate(binding.candidate, binding.compilation, binding.suite, binding.build,
-                       binding.verification, binding.e2e, binding.evidence)
-    promotion_root = verify_promotion(binding.candidate, binding.compilation, binding.suite,
-                                      binding.build, binding.verification, binding.promotion,
-                                      e2e=binding.e2e, full_gate=binding.evidence)
+    interface = _full_gate_interface()
+    root = interface.verify_bound(binding.candidate, binding.compilation, binding.suite, binding.build,
+                                  binding.verification, binding.e2e, binding.evidence)
+    promotion_root = interface.verify_promotion(binding.candidate, binding.compilation, binding.suite,
+                                                binding.build, binding.verification, binding.promotion,
+                                                e2e=binding.e2e, full_gate=binding.evidence)
     if root != promotion_root:
         raise PublicReleaseError("full-gate-unproven", "retained gate and promotion proofs do not reopen one Project")
     return root
+
+
+def _native_packet_receipt_ref(packet: RetainedNativeFullGatePacket) -> str:
+    """Return the verified aggregate receipt as an artifact-root-relative ref."""
+
+    root = packet.artifact_root
+    evidence_root = getattr(packet.evidence, "evidence_root", None)
+    if not isinstance(root, Path) or not root.is_absolute() or not isinstance(evidence_root, str):
+        raise PublicReleaseError("invalid-full-gate", "detached native Full Gate packet has no safe artifact-root receipt")
+    relative = PurePosixPath(evidence_root)
+    if (not evidence_root or "\\" in evidence_root or relative.is_absolute()
+            or relative.as_posix() != evidence_root or any(part in {"", ".", ".."} for part in relative.parts)):
+        raise PublicReleaseError("invalid-full-gate", "detached native Full Gate receipt root is unsafe")
+    receipt = root.joinpath(*relative.parts, "receipt.json")
+    try:
+        receipt.relative_to(root)
+    except ValueError as error:  # pragma: no cover - lexical construction above is exhaustive
+        raise PublicReleaseError("invalid-full-gate", "detached native Full Gate receipt escapes its artifact root") from error
+    ref = receipt.relative_to(root).as_posix()
+    _safe_ref(ref, "detached native Full Gate receipt")
+    return ref
+
+
+def _reopen_detached_native_full_gate(binding: DetachedNativeFullGateBinding) -> tuple[object, str]:
+    """Read one retained-native aggregate without reconstructing live candidate state."""
+
+    packet = binding.packet
+    interface = _full_gate_interface()
+    if not isinstance(packet, RetainedNativeFullGatePacket):
+        raise PublicReleaseError("invalid-full-gate", "detached native Full Gate binding needs a typed retained packet")
+    if not (
+        isinstance(packet.retained_candidate, interface.retained_candidate_type)
+        and isinstance(packet.suite, interface.portable_suite_type)
+        and isinstance(packet.build, interface.portable_build_type)
+        and isinstance(packet.verification, interface.portable_verification_type)
+        and isinstance(packet.e2e, interface.portable_e2e_type)
+        and isinstance(packet.evidence, interface.native_evidence_type)
+    ):
+        raise PublicReleaseError("invalid-full-gate", "detached native Full Gate packet has untrusted typed carriers")
+    try:
+        interface.verify_detached_native(
+            packet.artifact_root,
+            packet.retained_candidate,
+            packet.suite,
+            packet.build,
+            packet.verification,
+            packet.e2e,
+            packet.evidence,
+        )
+    except PublicReleaseError:
+        raise
+    except Exception as error:
+        raise PublicReleaseError("full-gate-unproven", "detached native Full Gate packet cannot be reopened") from error
+    return packet.evidence, _native_packet_receipt_ref(packet)
+
+
+def _full_gate_receipt_ref(binding: FullGateBinding | DetachedNativeFullGateBinding) -> str:
+    """Obtain the aggregate receipt ref only after its binding has been reopened."""
+
+    if isinstance(binding, DetachedNativeFullGateBinding):
+        return _native_packet_receipt_ref(binding.packet)
+    if isinstance(binding, FullGateBinding):
+        evidence_root = getattr(binding.evidence, "evidence_root", None)
+        if not isinstance(evidence_root, str):
+            raise PublicReleaseError("invalid-full-gate", "Full Gate evidence has no receipt root")
+        ref = f"{evidence_root}/receipt.json"
+        _safe_ref(ref, "Full Gate receipt")
+        return ref
+    raise PublicReleaseError("invalid-full-gate", "Full Gate binding has no exact receipt")
 
 
 def _gate(value: object, label: str, source: SourceProof, *, project_root: Path,
@@ -345,11 +455,25 @@ def _gate(value: object, label: str, source: SourceProof, *, project_root: Path,
     if not isinstance(value, GateResult):
         raise PublicReleaseError("invalid-full-gate", f"{label} must return GateResult")
     _call(value.call, f"{label}.call")
+    if isinstance(value.binding, DetachedNativeFullGateBinding):
+        evidence, _receipt_ref = _reopen_detached_native_full_gate(value.binding)
+        if not getattr(evidence, "passed", False):
+            raise PublicReleaseError("full-gate-unproven", f"{label} requires a passed retained native Full Gate")
+        if evidence.candidate_snapshot_manifest_sha256 != source.candidate_snapshot_manifest_sha256:
+            raise PublicReleaseError("stale-full-gate", f"{label} does not bind the exact public source snapshot")
+        if (not isinstance(evidence.receipt_sha256, str) or _SHA256.fullmatch(evidence.receipt_sha256) is None
+                or evidence.framework_version != selected_version
+                or _SHA256.fullmatch(evidence.version_toml_sha256 or "") is None
+                or evidence.framework_version != source.framework_version
+                or evidence.version_toml_sha256 != source.version_toml_sha256):
+            raise PublicReleaseError("new-local-cycle-required", f"{label} version or version.toml binding changed; a fresh local release cycle is required")
+        return value
+
     if not isinstance(value.binding, FullGateBinding):
-        raise PublicReleaseError("invalid-full-gate", f"{label} must return an exact local FullGateBinding")
-    evidence_type, _verify_gate, _verify_promotion = _full_gate_interface()
+        raise PublicReleaseError("invalid-full-gate", f"{label} must return an exact local or retained-native Full Gate binding")
+    interface = _full_gate_interface()
     evidence = value.binding.evidence
-    if not isinstance(evidence, evidence_type) or not evidence.passed:
+    if not isinstance(evidence, interface.legacy_evidence_type) or not evidence.passed:
         raise PublicReleaseError("full-gate-unproven", f"{label} requires current typed passed FullGateEvidence")
     manifest = getattr(value.binding.candidate, "manifest", None)
     candidate_sha = getattr(manifest, "sha256", None)
@@ -571,7 +695,7 @@ def run(project_root: Path, request: Mapping[str, Any], *, bindings: PublicRelea
                     result = _gate(bindings.run_full_gate(parsed_parameters, source, "initial"), name, source,
                                    project_root=Path(project_root), selected_version=parsed_parameters["release"]["selected_version"].removeprefix("v"))
                     _append_call(trace, operation=name, call=result.call, step_run_id=step["run_id"], action_run_id=action["run_id"])
-                    action_reports.extend((*result.call.report_refs, result.binding.evidence.evidence_root + "/receipt.json"))
+                    action_reports.extend((*result.call.report_refs, _full_gate_receipt_ref(result.binding)))
                 elif name == "push_and_upsert_pr":
                     if source is None:
                         raise PublicReleaseError("missing-source-proof", "public materials must be prepared before push")
@@ -615,7 +739,7 @@ def run(project_root: Path, request: Mapping[str, Any], *, bindings: PublicRelea
                         renewed = _gate(bindings.run_full_gate(parsed_parameters, final_source, "history_link_final"), "renewed full gate", final_source,
                                         project_root=Path(project_root), selected_version=parsed_parameters["release"]["selected_version"].removeprefix("v"))
                         _append_call(trace, operation="renewed_full_gate", call=renewed.call, step_run_id=step["run_id"], action_run_id=action["run_id"])
-                        action_reports.extend((*renewed.call.report_refs, renewed.binding.evidence.evidence_root + "/receipt.json"))
+                        action_reports.extend((*renewed.call.report_refs, _full_gate_receipt_ref(renewed.binding)))
                         pushed = _push(bindings.commit_and_push(parsed_parameters, final_source, "history_link_final"), "final push",
                                        release=parsed_parameters["release"])
                         push_call = pushed.call
