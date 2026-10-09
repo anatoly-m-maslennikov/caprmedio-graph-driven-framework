@@ -41,6 +41,11 @@ class SubjectTreeTests(unittest.TestCase):
         data["entities_graph"]["edges"].reverse()
         self.assertEqual(expected, subject_tree.entity_tree(data))
 
+    def test_indentation_only_preserves_values_and_context(self):
+        expected = "Atom\n  Revision\n    Version\n  Status\n    : Active\n\nIsolated\n\nWorkflow\n  Status\n    : Active\n"
+        self.assertEqual(expected, subject_tree.entity_tree(fixture(), indented=True))
+        self.assertEqual("Atom/Revision\n  Version\n", subject_tree.entity_tree(fixture(), "Atom/Revision", indented=True))
+
     def test_missing_endpoint_and_non_prefix_edge_fail(self):
         for parent, child in (("Missing", "Atom/Status"), ("Atom/Revision", "Atom")):
             data = fixture()

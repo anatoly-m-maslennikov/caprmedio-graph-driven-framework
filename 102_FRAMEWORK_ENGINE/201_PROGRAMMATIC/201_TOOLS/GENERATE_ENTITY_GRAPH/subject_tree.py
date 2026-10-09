@@ -13,7 +13,7 @@ import mechanical_subject_graph as mechanical
 PROJECTION_DIRECTORY = ".caprmedio_caprmedio/_projection/core-subject-notation"
 
 
-def entity_tree(data: dict, root: str | None = None) -> str:
+def entity_tree(data: dict, root: str | None = None, *, indented: bool = False) -> str:
     """Display literal prefixes, reversing value links for tree navigation only."""
     model = data["entities_graph"]
     identities = [node["identity"] for node in model["nodes"]]
@@ -45,9 +45,15 @@ def entity_tree(data: dict, root: str | None = None) -> str:
         ordered = sorted(children[parent])
         for index, child in enumerate(ordered):
             last = index == len(ordered) - 1
-            # Keep the literal separator visible; indentation is not taxonomy.
-            lines.append(indent + ("└── " if last else "├── ") + child[len(parent):])
-            walk(child, indent + ("    " if last else "│   "))
+            suffix = child[len(parent):]
+            if indented:
+                # Indentation stands for the existing slash; retain value ':' labels.
+                lines.append(indent + "  " + (suffix[1:] if suffix.startswith("/") else suffix))
+                walk(child, indent + "  ")
+            else:
+                # Keep the literal separator visible; indentation is not taxonomy.
+                lines.append(indent + ("└── " if last else "├── ") + suffix)
+                walk(child, indent + ("    " if last else "│   "))
 
     for index, name in enumerate(roots):
         if index:
@@ -61,6 +67,7 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, default=Path.cwd())
     parser.add_argument("--root", help="Print one existing branch instead of the full forest")
+    parser.add_argument("--indented", action="store_true", help="Use two-space indentation without tree connectors")
     parser.add_argument("--persist", action="store_true", help="Create the fixed full tree file; never overwrite")
     args = parser.parse_args(argv)
     if args.persist and args.root is not None:
@@ -71,12 +78,13 @@ def main(argv: list[str] | None = None) -> int:
     current = mechanical.build_mechanical_subject_graph(repository)
     if saved != current:
         raise ValueError("tree-source-graph-stale")
-    tree = entity_tree(current, args.root)
+    tree = entity_tree(current, args.root, indented=args.indented)
     if args.persist:
-        destination = facts._safe_path(repository, PROJECTION_DIRECTORY + "/step1.entities.tree.txt")
+        filename = "step1.entities.indented.txt" if args.indented else "step1.entities.tree.txt"
+        destination = facts._safe_path(repository, PROJECTION_DIRECTORY + "/" + filename)
         header = ("Core Subjects — step 1, derived tree view\n"
                   "Source graph SHA-256: " + current["graph_sha256"] + "\n"
-                  "Indentation follows literal prefixes. / remains unclassified; : marks allowed values.\n"
+                  "Indentation follows existing slash prefixes, not taxonomy. : marks allowed values.\n"
                   "Separate roots are not connected by invented relations.\n\n")
         with destination.open("x", encoding="utf-8", newline="\n") as handle:
             handle.write(header + tree)
