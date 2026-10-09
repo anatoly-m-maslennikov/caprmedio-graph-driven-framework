@@ -20,7 +20,7 @@ AUTHORITY_REF = (
     ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/"
     "201_FEATURE_TOOLS/07_delivery/CA-D-572-TOOLS-DELIVERY--serialize-additive-release-route-source-admission.md"
 )
-AUTHORITY_SHA = "3558f87c9f68875786979d57cc41e299ad763dee7713a09b2f1381597fcb31fa"
+AUTHORITY_SHA = "4facdc8292a50811018af00eeda69e3e8c042116c18eba610518d80b577f3b00"
 sys.path.insert(0, str(MCP))
 
 import release_source_admission as admission_module  # noqa: E402
@@ -85,7 +85,7 @@ class ReleaseSourceAdmissionTest(unittest.TestCase):
         authority = REPOSITORY / AUTHORITY_REF
         actual = authority.read_bytes()
         if hashlib.sha256(actual).hexdigest() != AUTHORITY_SHA:
-            raise AssertionError("current D572@29 is not the accepted source pin")
+            raise AssertionError("current D572@31 is not the accepted source pin")
         cls.expected = reference_record(actual.decode("utf-8"))
         cls.private_carriers = json.loads(re.search(
             r"^## Private implementation carriers\n+```json\n(.*?)\n```$",
@@ -167,7 +167,7 @@ class ReleaseSourceAdmissionTest(unittest.TestCase):
         self.assertEqual(self.expected, record)
         self.assertEqual(55, len({pin["source_path"] for pin in all_pins(record)}))
         self.assertEqual(12, len(record["ordered_steps"]))
-        self.assertEqual(6, record["workflow"]["version"])
+        self.assertEqual(9, record["workflow"]["version"])
         self.assertEqual(4, record["acceptance_frontier"]["version"])
         self.assertEqual(["CA-O-170", "CA-O-171", "CA-O-172", "CA-O-173", "CA-O-185", "CA-O-175",
                           "CA-O-176", "CA-O-186", "CA-O-182", "CA-O-184", "CA-O-178", "CA-O-179"],

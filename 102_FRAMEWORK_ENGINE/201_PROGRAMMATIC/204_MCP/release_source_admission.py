@@ -19,8 +19,8 @@ AUTHORITY_REF = (
     "201_FEATURE_TOOLS/07_delivery/CA-D-572-TOOLS-DELIVERY--serialize-additive-release-route-source-admission.md"
 )
 AUTHORITY_PIN = {
-    "atom_id": "CA-D-572", "version": 30, "source_path": AUTHORITY_REF,
-    "digest": "3558f87c9f68875786979d57cc41e299ad763dee7713a09b2f1381597fcb31fa",
+    "atom_id": "CA-D-572", "version": 31, "source_path": AUTHORITY_REF,
+    "digest": "4facdc8292a50811018af00eeda69e3e8c042116c18eba610518d80b577f3b00",
 }
 _PIN_FIELDS = frozenset({"atom_id", "version", "source_path", "digest"})
 _ADMISSION_FIELDS = frozenset({"route", "acceptance_frontier", "workflow", "ordered_steps",
@@ -33,7 +33,7 @@ _RELEASE_STOP_RESULT = "any missing, stale, unauthorized, failed, partial, recor
 _RELEASE_STOP_OUTCOME = "stop with its actual evidence; do not promote, retire, retry, or recurse implicitly"
 _GENERIC_STOP_CONTRACT = (
     "The record serializes no catch-all transition, outcome, or execution policy: "
-    "CA-O-164@6 and the generic executor retain the existing catch-all stop behavior."
+    "CA-O-164@9 and the generic executor retain the existing catch-all stop behavior."
 )
 
 
