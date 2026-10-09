@@ -42,7 +42,7 @@ class ReleaseInventoryError(RuntimeError):
 
 
 def _is_secret_name(name: str) -> bool:
-    return name == ".env" or name.startswith(".env.") or name.endswith(".env")
+    return name.startswith(".env") or name.endswith(".env")
 
 
 def refuse_secret_path(path: str | Path) -> None:

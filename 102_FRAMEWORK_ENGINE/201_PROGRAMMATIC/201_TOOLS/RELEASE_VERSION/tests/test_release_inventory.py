@@ -84,7 +84,10 @@ class ReleaseInventoryTests(unittest.TestCase):
         self.assertEqual(delivered.stat().st_mode & 0o777, 0o600)
 
     def test_secret_shaped_names_refuse_before_any_byte_read(self) -> None:
-        sentinel_names = (".env", ".env.release-sentinel", "release-sentinel.env")
+        sentinel_names = (
+            ".env", ".env.release-sentinel", ".envrc", ".environment",
+            ".envrc/nested-carrier", "release-sentinel.env",
+        )
         with patch.object(Path, "read_bytes", side_effect=AssertionError("secret bytes must not be read")) as read_bytes:
             for sentinel in sentinel_names:
                 with self.subTest(sentinel=sentinel):
