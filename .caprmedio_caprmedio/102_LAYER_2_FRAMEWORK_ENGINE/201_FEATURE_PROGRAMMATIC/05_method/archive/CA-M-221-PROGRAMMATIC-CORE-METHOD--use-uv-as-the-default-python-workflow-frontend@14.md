@@ -1,4 +1,5 @@
 ---
+status: Archived
 cce_version: "cce_1"
 cce_form: "method"
 subjects:
@@ -7,7 +8,7 @@ subjects:
     - "Journal/Record"
     - "Atom/Content Role: Operations"
     - "programmatic software"
-version: 15
+version: 14
 updated_at: "2026-10-09 10:00:26 +0000"
 relations:
   derived_from:
@@ -26,8 +27,8 @@ Implementation materialize it, Delivery governs its carriers, Operations defines
 
 ## Applicable when
 
-apply **when** developing, evaluating, building, packaging, **or** executing
-PROGRAMMATIC Python source, including installed Project Tools **and** host launchers.
+apply **when** developing, evaluating, building, **or** packaging PROGRAMMATIC Python
+source. installed CAPRMEDIO runtime execution remains outside this Method.
 
 ## Procedure
 
@@ -44,16 +45,17 @@ PROGRAMMATIC Python source, including installed Project Tools **and** host launc
    unpinned ephemeral execution cannot supply acceptance evidence.
 5. use `uv build` **or** `uv publish` **only** **when** an accepted Delivery authorizes a
    package **or** publication target.
-6. do **not** mix pip, venv, virtualenv, pipx, Poetry, Conda, a naked/system
-   Python interpreter, system-installed libraries, **or** another overlapping
-   Python workflow manager into the governed Project-Python path. A capability
-   gap or external boundary does not authorize a non-uv fallback for Project Python.
-7. stop rather than record a non-uv fallback exception for Project Python.
-8. apply CA-M-358's uv-managed environment boundary to installed Tools **and**
-   host launchers as well as development commands. Packaged runtimes retain
-   their selected isolated environment **and** locked dependencies; child
-   processes reuse **only** that environment's interpreter. Route uv cache,
-   build, **and** staging state into `.caprmedio_tmp/`.
+6. do **not** mix pip, venv, virtualenv, pipx, Poetry, Conda, **or** another overlapping
+   Python workflow manager into the same governed path **unless** uv lacks a
+   required capability **or** an external boundary requires the alternative.
+7. record an exception with its capability, bounded carriers, exact commands,
+   added operational cost, cleanup **or** recovery procedure, **and** Operator
+   acceptance.
+8. keep uv outside the installed CAPRMEDIO runtime contract. installed Tools
+   remain self-contained under `.caprmedio_runtime/tools` **and** execute **without** uv, a
+   project virtual environment, **or** another dependency outside that selected
+   runtime release. route uv cache, build, **and** staging state into
+   `.caprmedio_tmp/`.
 
 ## Outcome
 
@@ -65,8 +67,7 @@ source.
 
 stop **when** the supported interpreter cannot be resolved, the lockfile is stale,
 a command would update the environment implicitly during evidence collection,
-or a Project-Python command would use a non-uv, naked/system, or system-library
-fallback.
+**or** an exception lacks its accepted boundary.
 
 ## Sources
 

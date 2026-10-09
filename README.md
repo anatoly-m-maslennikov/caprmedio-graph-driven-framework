@@ -283,7 +283,7 @@ canonical Workflow terminal evidence rather than a scheduler or child-Action
 outcome.
 
 The MCP remains available over local stdio. The Docker runtime additionally
-offers `project-mcp` to start or reuse a bearer-authenticated Streamable HTTP
+offers `project-mcp` to start or reuse a password-free, loopback-only Streamable HTTP
 endpoint for an explicitly selected Project folder, including nested Projects
 in one repository, with an explicit independent Framework source path.
 Docker allocates its `127.0.0.1` port; see the

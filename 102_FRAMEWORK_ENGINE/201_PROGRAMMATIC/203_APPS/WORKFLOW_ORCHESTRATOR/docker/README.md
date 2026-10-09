@@ -20,13 +20,28 @@ non-root user with a read-only image and dropped capabilities.
 
 ## Build and test without credentials
 
-From the repository root:
+From the repository root, host-side commands use only the project-local uv
+environment: `UV_PROJECT_ENVIRONMENT="$PWD/.caprmedio_runtime/launcher-venv"`.
+They pin the checked-in lock and use uv-managed Python 3.14; they do not depend
+on a system Python or an `.env` file.
 
 ```sh
-python3 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/runtime.py build
-python3 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/runtime.py --mock start
-python3 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/runtime.py --mock status
-python3 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/runtime.py --mock stop
+UV_PROJECT_ENVIRONMENT="$PWD/.caprmedio_runtime/launcher-venv" \
+uv run --project "$PWD" --locked --python 3.14 --managed-python --no-env-file \
+  --group workflow-orchestrator python \
+  102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/runtime.py build
+UV_PROJECT_ENVIRONMENT="$PWD/.caprmedio_runtime/launcher-venv" \
+uv run --project "$PWD" --locked --python 3.14 --managed-python --no-env-file \
+  --group workflow-orchestrator python \
+  102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/runtime.py --mock start
+UV_PROJECT_ENVIRONMENT="$PWD/.caprmedio_runtime/launcher-venv" \
+uv run --project "$PWD" --locked --python 3.14 --managed-python --no-env-file \
+  --group workflow-orchestrator python \
+  102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/runtime.py --mock status
+UV_PROJECT_ENVIRONMENT="$PWD/.caprmedio_runtime/launcher-venv" \
+uv run --project "$PWD" --locked --python 3.14 --managed-python --no-env-file \
+  --group workflow-orchestrator python \
+  102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/runtime.py --mock stop
 ```
 
 Docker Desktop/Engine and Compose must already be available. The image pins
@@ -44,7 +59,10 @@ It is only for tests: do not enqueue real Atom selections against the mock Agent
 The two real-container end-to-end tests require a successful image build:
 
 ```sh
-CAPRMEDIO_DOCKER_E2E=1 uv run --group workflow-orchestrator --group rmed-workflow-mcp python -m unittest discover -s 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/tests -p test_docker_e2e.py -v
+CAPRMEDIO_DOCKER_E2E=1 \
+UV_PROJECT_ENVIRONMENT="$PWD/.caprmedio_runtime/launcher-venv" \
+uv run --project "$PWD" --locked --python 3.14 --managed-python --no-env-file \
+  --group workflow-orchestrator --group rmed-workflow-mcp python -m unittest discover -s 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/tests -p test_docker_e2e.py -v
 ```
 
 These use disposable mock Projects. They check MCP admission/disconnection,
@@ -56,7 +74,10 @@ and uncertain dispatch without replay. They do not verify model judgment.
 Pass the exact existing Codex `auth.json` path explicitly; it is never guessed:
 
 ```sh
-python3 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/runtime.py --auth-file /ABSOLUTE/PATH/TO/auth.json start
+UV_PROJECT_ENVIRONMENT="$PWD/.caprmedio_runtime/launcher-venv" \
+uv run --project "$PWD" --locked --python 3.14 --managed-python --no-env-file \
+  --group workflow-orchestrator python \
+  102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/runtime.py --auth-file /ABSOLUTE/PATH/TO/auth.json start
 ```
 
 Only the Agent receives this runtime-only secret. On its first start it seeds a
@@ -74,9 +95,22 @@ or an adversarial isolation guarantee; the Agent can access its own credentials.
 
 ## Connect MCP and run explicitly
 
-Configure MCP's command as `python3` and its arguments as:
+Set the MCP process environment to
+`UV_PROJECT_ENVIRONMENT=/ABSOLUTE/REPOSITORY/.caprmedio_runtime/launcher-venv`.
+Configure MCP's command as `uv` and its arguments as:
 
 ```text
+run
+--project
+/ABSOLUTE/REPOSITORY
+--locked
+--python
+3.14
+--managed-python
+--no-env-file
+--group
+workflow-orchestrator
+python
 /ABSOLUTE/REPOSITORY/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/runtime.py
 --project-root
 /ABSOLUTE/REPOSITORY
@@ -88,8 +122,25 @@ connection. MCP shutdown does not stop the worker or its queue.
 
 ## Launch a selected Project MCP endpoint
 
+For the normal local launcher, run the standard-library bootstrap through its
+isolated uv shebang environment. It pins the child launcher to the selected
+Framework source's `.caprmedio_runtime/launcher-venv` and does not use a host
+Python environment:
+
 ```sh
-python3 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/runtime.py \
+uv run --no-project --isolated --managed-python --python 3.14 --no-env-file python -I \
+  .caprmedio_runtime/start_mcp.py \
+  --project-root /ABSOLUTE/PROJECT --source-root "$PWD"
+```
+
+The bootstrap prints the endpoint URL on success. To invoke the underlying
+launcher directly, use the following equivalent locked project command:
+
+```sh
+UV_PROJECT_ENVIRONMENT="$PWD/.caprmedio_runtime/launcher-venv" \
+uv run --project "$PWD" --locked --python 3.14 --managed-python --no-env-file \
+  --group rmed-workflow-mcp python \
+  102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/runtime.py \
   --project-root /ABSOLUTE/PROJECT --source-root /ABSOLUTE/FRAMEWORK-SOURCE project-mcp
 ```
 
@@ -117,7 +168,10 @@ To request one particular loopback port, pass `--port` with an integer from
 `1` through `65535`:
 
 ```sh
-python3 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/runtime.py \
+UV_PROJECT_ENVIRONMENT="$PWD/.caprmedio_runtime/launcher-venv" \
+uv run --project "$PWD" --locked --python 3.14 --managed-python --no-env-file \
+  --group rmed-workflow-mcp python \
+  102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/runtime.py \
   --project-root /ABSOLUTE/PROJECT --source-root /ABSOLUTE/FRAMEWORK-SOURCE \
   --port 18092 project-mcp
 ```
@@ -134,7 +188,10 @@ is inferred. A retained Framework package lacks the Dockerfile and dependency
 inputs, so supply the separate source checkout when using its launcher:
 
 ```sh
-python3 /ABSOLUTE/FRAMEWORK-PACKAGE/FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/runtime.py \
+UV_PROJECT_ENVIRONMENT="/ABSOLUTE/FRAMEWORK-SOURCE/.caprmedio_runtime/launcher-venv" \
+uv run --project /ABSOLUTE/FRAMEWORK-SOURCE --locked --python 3.14 --managed-python --no-env-file \
+  --group rmed-workflow-mcp python \
+  /ABSOLUTE/FRAMEWORK-PACKAGE/FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/runtime.py \
   --project-root /ABSOLUTE/PROJECT --source-root /ABSOLUTE/FRAMEWORK-SOURCE \
   --output url project-mcp
 ```
@@ -164,7 +221,10 @@ read from an `.env` file:
 
 ```sh
 CAPRMEDIO_MCP_HTTP_PORT=18092 \
-python3 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/runtime.py \
+UV_PROJECT_ENVIRONMENT="$PWD/.caprmedio_runtime/launcher-venv" \
+uv run --project "$PWD" --locked --python 3.14 --managed-python --no-env-file \
+  --group workflow-orchestrator python \
+  102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/runtime.py \
   --project-root "$PWD" mcp-http-start
 ```
 

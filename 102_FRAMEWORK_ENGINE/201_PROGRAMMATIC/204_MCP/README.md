@@ -11,10 +11,14 @@ It uses the official [MCP Python SDK](https://github.com/modelcontextprotocol/py
 
 ## Run
 
-From the repository root, using Python 3.14:
+From the repository root, use only the project-local uv environment; no system
+Python or `.env` file is required:
 
 ```sh
-uv run --group rmed-workflow-mcp python 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/server.py --project-root "$PWD"
+UV_PROJECT_ENVIRONMENT="$PWD/.caprmedio_runtime/launcher-venv" \
+uv run --project "$PWD" --locked --python 3.14 --managed-python --no-env-file \
+  --group rmed-workflow-mcp python \
+  102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/server.py --project-root "$PWD"
 ```
 
 The default transport is local **stdio**; the MCP host owns that process lifetime.
@@ -25,8 +29,8 @@ Settings must register the shared Journal. An explicitly started, password-free
 localhost HTTP transport is available only through the isolated Docker runtime;
 it is documented in the [Docker runtime README](../203_APPS/WORKFLOW_ORCHESTRATOR/docker/README.md).
 
-For independent execution, also include `--group workflow-orchestrator` in the
-runtime invocation. Start the worker explicitly using its
+For independent execution, also include `--group workflow-orchestrator` before
+`python` in the runtime invocation. Start the worker explicitly using its
 [README](../203_APPS/WORKFLOW_ORCHESTRATOR/README.md). The worker's lifetime is
 independent of this stdio adapter. The MCP does not start it implicitly.
 
@@ -132,7 +136,9 @@ while an admitted fix is in progress.
 ## Tests
 
 ```sh
-uv run --group rmed-workflow-mcp python -m unittest discover -s 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/tests
+UV_PROJECT_ENVIRONMENT="$PWD/.caprmedio_runtime/launcher-venv" \
+uv run --project "$PWD" --locked --python 3.14 --managed-python --no-env-file \
+  --group rmed-workflow-mcp python -m unittest discover -s 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/tests
 ```
 
 The test client uses the real stdio MCP protocol and a temporary mock Project.
