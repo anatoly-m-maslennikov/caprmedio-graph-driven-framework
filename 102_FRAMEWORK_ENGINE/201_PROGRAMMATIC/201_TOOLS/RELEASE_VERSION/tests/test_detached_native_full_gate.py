@@ -26,8 +26,8 @@ import test_portable_release_full_gate as packet_fixtures  # noqa: E402
 
 
 class DetachedNativeFullGateTests(unittest.TestCase):
-    def _packet(self):
-        fixture = packet_fixtures._NativeHappyPathFixture()
+    def _packet(self, fixture: packet_fixtures._NativeHappyPathFixture | None = None):
+        fixture = packet_fixtures._NativeHappyPathFixture() if fixture is None else fixture
         helper = packet_fixtures.PortableReleaseFullGateBoundaryTests()
         with packet_fixtures._fixture_authority(fixture._fixture_authority_pin):
             suite, build, verification, e2e, full, identity = helper._run_mock_native_retained_happy_path(fixture)

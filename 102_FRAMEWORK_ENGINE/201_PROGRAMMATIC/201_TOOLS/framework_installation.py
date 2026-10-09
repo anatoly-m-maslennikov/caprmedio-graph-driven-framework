@@ -16,13 +16,14 @@ import os
 import re
 import shutil
 import stat
+import sys
 import tempfile
 import tomllib
 import uuid
 from collections.abc import Callable, Mapping, Sequence
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any
+from typing import TYPE_CHECKING, Any
 
 from framework_package import (
     CurrentPackageSelector,
@@ -45,6 +46,13 @@ from runtime_configuration import (
     read_admitted_runtime_default,
     read_runtime_configuration,
 )
+
+if TYPE_CHECKING:
+    from release_e2e_gate import PortableCandidateE2EGateEvidence
+    from release_full_gate import NativeFullGateEvidence
+    from release_image import PortableImageBuildEvidence, PortableImageVerificationEvidence
+    from release_retained_candidate import RetainedCandidateIdentity
+    from release_suite import PortableSuiteGateEvidence
 
 
 SCHEMA_VERSION = 1
@@ -567,6 +575,19 @@ _PROTECTED_RECEIPT_COMPONENTS = frozenset({"secrets", "credentials", "private_se
 
 
 @dataclass(frozen=True)
+class PortableFullGatePacket:
+    """Explicit immutable carriers for one detached native Full Gate proof."""
+
+    artifact_root: Path
+    retained_candidate: "RetainedCandidateIdentity"
+    suite: "PortableSuiteGateEvidence"
+    build: "PortableImageBuildEvidence"
+    verification: "PortableImageVerificationEvidence"
+    e2e: "PortableCandidateE2EGateEvidence"
+    evidence: "NativeFullGateEvidence"
+
+
+@dataclass(frozen=True)
 class PortableInstallationRequest:
     """Explicit portable-package inputs, deliberately without activation intent.
 
@@ -578,6 +599,7 @@ class PortableInstallationRequest:
     target: TargetProjectRequest
     retained_gate_receipt_path: Path | str
     runtime_default_member: str = DEFAULT_MEMBER
+    full_gate_packet: PortableFullGatePacket | None = None
 
 
 @dataclass(frozen=True)
@@ -591,7 +613,7 @@ class PortableInstallationPreparation:
     runtime_default_sha256: str
     configuration: RuntimeConfigurationResult
     status: str
-    blocker: str
+    blocker: str | None
 
 
 @dataclass(frozen=True)
@@ -708,6 +730,148 @@ def _retained_gate_receipt(root: _PortableTargetRoot, value: Path | str, selecto
     return actual
 
 
+def _release_version_root() -> Path:
+    """Return the fixed host-owned Release verifier location, never caller code."""
+
+    release_root = Path(__file__).resolve().parent / "RELEASE_VERSION"
+    if release_root.is_symlink() or not release_root.is_dir():
+        raise InstallationError("portable-full-gate-unavailable", "package-owned retained Full Gate verifier is unavailable")
+    return release_root
+
+
+def _target_packet_path(root: _PortableTargetRoot, value: object, *, label: str) -> Path:
+    if not isinstance(value, Path) or not value.is_absolute() or not value.is_relative_to(root.path):
+        raise InstallationError("portable-full-gate-root-mismatch", f"{label} must be target-contained")
+    relative = value.relative_to(root.path)
+    if not relative.parts or any(part in {"", ".", ".."} for part in relative.parts):
+        raise InstallationError("portable-full-gate-root-mismatch", f"{label} must be target-contained")
+    return value
+
+
+def _target_packet_root(root: _PortableTargetRoot, value: object) -> Path:
+    """Accept the selected Project root or one lexically contained proof root."""
+
+    if value == root.path:
+        return root.path
+    return _target_packet_path(root, value, label="retained Full Gate artifact root")
+
+
+def _verified_full_gate_packet(
+    root: _PortableTargetRoot,
+    request: PortableInstallationRequest,
+    package: VerifiedFrameworkPackage,
+    context: TargetProjectContext,
+    selector: CurrentPackageSelector,
+) -> str:
+    """Reopen one retained native Full Gate before treating its receipt as ready."""
+
+    packet = request.full_gate_packet
+    if not isinstance(packet, PortableFullGatePacket):
+        raise InstallationError("portable-full-gate-invalid", "portable Full Gate packet must be typed")
+    artifact_root = _target_packet_root(root, packet.artifact_root)
+    release_root = _release_version_root()
+    release_path = release_root.as_posix()
+    added_release_path = release_path not in sys.path
+    if added_release_path:
+        sys.path.insert(0, release_path)
+    try:
+        try:
+            from release_contract import ReleaseContractError
+            from release_e2e_gate import PortableCandidateE2EGateEvidence
+            from release_full_gate import NativeFullGateEvidence, verify_detached_native_full_gate_evidence
+            from release_image import PortableImageBuildEvidence, PortableImageVerificationEvidence
+            from release_retained_candidate import RetainedCandidateIdentity
+            from release_suite import PortableSuiteGateEvidence
+        except ImportError as error:
+            raise InstallationError("portable-full-gate-unavailable", "package-owned retained Full Gate verifier cannot be imported") from error
+        if not (
+            isinstance(packet.retained_candidate, RetainedCandidateIdentity)
+            and isinstance(packet.suite, PortableSuiteGateEvidence)
+            and isinstance(packet.build, PortableImageBuildEvidence)
+            and isinstance(packet.verification, PortableImageVerificationEvidence)
+            and isinstance(packet.e2e, PortableCandidateE2EGateEvidence)
+            and isinstance(packet.evidence, NativeFullGateEvidence)
+        ):
+            raise InstallationError("portable-full-gate-invalid", "portable Full Gate packet has untrusted retained evidence types")
+        retained_package = getattr(packet.retained_candidate, "package_evidence", None)
+        retained_view = getattr(retained_package, "view", None)
+        _target_packet_path(root, getattr(packet.retained_candidate, "descriptor_path", None), label="retained candidate descriptor")
+        _target_packet_path(root, getattr(retained_package, "receipt_path", None), label="retained package sidecar")
+        _target_packet_path(root, getattr(retained_view, "package_root", None), label="retained package root")
+        try:
+            evidence_root = Path(packet.evidence.evidence_root)
+            if (
+                not packet.evidence.evidence_root
+                or evidence_root.is_absolute()
+                or evidence_root.as_posix() != packet.evidence.evidence_root
+                or any(part in {"", ".", ".."} for part in evidence_root.parts)
+            ):
+                raise ValueError("unsafe receipt root")
+            expected_receipt = _target_packet_path(
+                root,
+                artifact_root / evidence_root / "receipt.json",
+                label="retained native Full Gate receipt",
+            )
+            supplied_receipt = _target_packet_path(
+                root,
+                Path(request.retained_gate_receipt_path),
+                label="retained gate receipt",
+            )
+        except (TypeError, ValueError) as error:
+            raise InstallationError("portable-full-gate-invalid", "retained native Full Gate receipt path is invalid") from error
+        if supplied_receipt != expected_receipt:
+            raise InstallationError(
+                "portable-full-gate-receipt-mismatch",
+                "retained gate receipt path does not name the reopened Full Gate receipt",
+            )
+        try:
+            retained = verify_detached_native_full_gate_evidence(
+                artifact_root,
+                packet.retained_candidate,
+                packet.suite,
+                packet.build,
+                packet.verification,
+                packet.e2e,
+                packet.evidence,
+            )
+        except ReleaseContractError as error:
+            raise InstallationError("portable-full-gate-invalid", "retained native Full Gate evidence could not be reopened") from error
+    finally:
+        if added_release_path:
+            try:
+                sys.path.remove(release_path)
+            except ValueError:
+                pass
+    candidate_image_digest = getattr(packet.evidence, "candidate_image_digest", None)
+    if not isinstance(candidate_image_digest, str) or not candidate_image_digest.startswith("sha256:"):
+        raise InstallationError("portable-full-gate-invalid", "retained native Full Gate candidate image digest is invalid")
+    if selector.image_digest != candidate_image_digest.removeprefix("sha256:"):
+        raise InstallationError(
+            "portable-full-gate-image-mismatch",
+            "retained native Full Gate image differs from the selected package image",
+        )
+    receipt_sha256 = _retained_gate_receipt(root, supplied_receipt, selector)
+    if getattr(packet.evidence, "receipt_sha256", None) != receipt_sha256:
+        raise InstallationError(
+            "portable-full-gate-receipt-mismatch",
+            "retained native Full Gate receipt differs from the selected package gate",
+        )
+    view = retained.view
+    if (
+        view.actual_package_manifest_sha256 != package.manifest_digest
+        or view.actual_package_manifest_sha256 != context.package_evidence.package_manifest_sha256
+        or view.source_catalog_sha256 != package.source_catalog_sha256
+        or view.source_catalog_sha256 != context.package_evidence.catalog_sha256
+        or view.framework_version != package.framework_version
+        or view.version_toml_sha256 != package.version_toml_sha256
+    ):
+        raise InstallationError(
+            "portable-full-gate-package-mismatch",
+            "retained native Full Gate package does not bind the reopened target package/context",
+        )
+    return receipt_sha256
+
+
 def _admitted_runtime_default(package: VerifiedFrameworkPackage, member: str) -> str:
     try:
         runtime_default = read_admitted_runtime_default(
@@ -733,8 +897,10 @@ def prepare_portable_installation(request: PortableInstallationRequest) -> Porta
 
     The legacy Tool-only installer above remains unchanged.  This new boundary
     intentionally stops before configuration creation, selector replacement,
-    wrapper generation, Skill publication, or runtime activation because the
-    package selector's receipt digest is not itself a Full Gate verifier.
+    wrapper generation, Skill publication, or runtime activation.  A selector
+    receipt digest alone remains blocked because it is not Full Gate proof;
+    an optional retained packet can establish read-only verified readiness.
+    Publication and mutable configuration activation remain unavailable here.
     """
     if not isinstance(request, PortableInstallationRequest):
         raise InstallationError("portable-request-invalid", "portable installation requires a typed request")
@@ -757,17 +923,20 @@ def prepare_portable_installation(request: PortableInstallationRequest) -> Porta
         selector = verify_current_package_selector(selector_payload, package)
     except FrameworkPackageError as error:
         raise InstallationError("portable-selector-invalid", "current package selector is not admitted for the reopened package") from error
-    receipt_sha256 = _retained_gate_receipt(root, request.retained_gate_receipt_path, selector)
+    if request.full_gate_packet is None:
+        receipt_sha256 = _retained_gate_receipt(root, request.retained_gate_receipt_path, selector)
+        full_gate_verified = False
+    else:
+        receipt_sha256 = _verified_full_gate_packet(root, request, package, context, selector)
+        full_gate_verified = True
     default_sha256 = _admitted_runtime_default(package, request.runtime_default_member)
     try:
         configuration = read_runtime_configuration(root.path, validator=parse_project_mcp_settings)
     except RuntimeConfigurationError as error:
         raise InstallationError("portable-configuration-invalid", "target runtime configuration cannot be reopened") from error
-    blocker = (
-        "runtime-configuration-migration-needed"
-        if configuration.state == "blocked"
-        else "full-gate-verifier-unavailable"
-    )
+    blocker = "runtime-configuration-migration-needed" if configuration.state == "blocked" else None
+    if blocker is None and not full_gate_verified:
+        blocker = "full-gate-verifier-unavailable"
     return PortableInstallationPreparation(
         target_context=context,
         package=package,
@@ -775,7 +944,7 @@ def prepare_portable_installation(request: PortableInstallationRequest) -> Porta
         gate_receipt_sha256=receipt_sha256,
         runtime_default_sha256=default_sha256,
         configuration=configuration,
-        status="blocked",
+        status="ready" if blocker is None else "blocked",
         blocker=blocker,
     )
 
@@ -799,6 +968,11 @@ def initialize_portable_runtime_configuration(
     preparation = prepare_portable_installation(request)
     if preparation.blocker == "runtime-configuration-migration-needed":
         raise InstallationError("portable-configuration-blocked", "target runtime configuration requires migration")
+    if preparation.status == "ready":
+        raise InstallationError(
+            "portable-publication-unavailable",
+            "retained Full Gate is verified but a portable publication adapter is unavailable",
+        )
     raise InstallationError(
         "portable-full-gate-verifier-unavailable",
         "cannot initialize target configuration until a retained full gate verifier is available",
@@ -817,6 +991,7 @@ __all__ = [
     "TRIGGER_ENTRYPOINT",
     "canonical_json",
     "digest",
+    "PortableFullGatePacket",
     "PortableInstallationPreparation",
     "PortableInstallationRequest",
     "initialize_portable_runtime_configuration",
