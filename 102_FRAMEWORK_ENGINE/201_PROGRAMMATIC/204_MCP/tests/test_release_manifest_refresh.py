@@ -9,6 +9,7 @@ from pathlib import Path
 import re
 import shutil
 import sys
+import tempfile
 import types
 import unittest
 from unittest.mock import patch
@@ -32,6 +33,7 @@ from release_manifest_authorization import (  # noqa: E402
 from release_manifest_lifecycle import ReleaseManifestLifecycle  # noqa: E402
 from release_manifest_publisher import (  # noqa: E402
     ReleaseManifestPublishError,
+    _refresh_candidate,
     plan_release_manifest_refresh,
     plan_release_manifest_publish,
     publish_release_manifest,
@@ -40,6 +42,7 @@ from release_manifest_publisher import (  # noqa: E402
 )
 from release_source_admission import derive_release_graph_admission  # noqa: E402
 from selected_routes import (  # noqa: E402
+    SELECTED_ROUTE_NAMES,
     SelectedRouteError,
     canonical_digest,
     load_release_manifest_refresh_base,
@@ -323,6 +326,151 @@ class ReleaseManifestRefreshTest(unittest.TestCase):
             self.path.symlink_to(copy_path)
             with self.assertRaises(SelectedRouteError):
                 load_release_manifest_refresh_base(self.root)
+
+
+class ReleaseRoutePinRefreshUnitTest(unittest.TestCase):
+    """Pure D572 refresh shape tests, independent of the current source closure.
+
+    These disposable-root cases exercise only the publisher's bounded
+    replacement rule.  They neither refresh D572 pins nor invoke trusted
+    source admission, lifecycle, Git, or selected-manifest writes.
+    """
+
+    def setUp(self) -> None:
+        temporary = REPOSITORY / ".caprmedio_tmp/tests/release-route-pin-refresh"
+        temporary.mkdir(parents=True, exist_ok=True)
+        self.temporary = tempfile.TemporaryDirectory(dir=temporary, ignore_cleanup_errors=True)
+        self.addCleanup(self.temporary.cleanup)
+        self.root = Path(self.temporary.name)
+        self.path = self.root / "selected-manifest.json"
+        self.path.write_bytes(b"unchanged input\n")
+        self.old_route, self.old_admission = self._release_pair()
+        self.current = {
+            "routes": [*({"route": name} for name in SELECTED_ROUTE_NAMES), copy.deepcopy(self.old_route)],
+            "release_source_admissions": [copy.deepcopy(self.old_admission)],
+            "source_freshness": {"selected_binding_digest": "0" * 64},
+        }
+
+    @staticmethod
+    def _pin(atom_id: str, version: int, path: str, digest: str) -> dict[str, object]:
+        return {"atom_id": atom_id, "version": version, "source_path": path, "digest": digest}
+
+    def _release_pair(self) -> tuple[dict[str, object], dict[str, object]]:
+        workflow = self._pin("CA-O-164", 1, "workflow.md", "1" * 64)
+        step = self._pin("CA-O-201", 1, "step.md", "2" * 64)
+        action = self._pin("CA-O-301", 1, "action.md", "3" * 64)
+        route = {
+            "route": "release_version",
+            "workflow": copy.deepcopy(workflow),
+            "ordered_steps": [{"step": copy.deepcopy(step), "action": copy.deepcopy(action)}],
+            "ordered_actions": [copy.deepcopy(action)],
+            "entry_step": "CA-O-201",
+            "on_result": [{"from": "CA-O-201", "condition": "success", "to": "complete"}],
+            "mutation_capable": True,
+            "native_action_calls": [],
+        }
+        admission = {
+            "route": "release_version",
+            "acceptance_frontier": self._pin("CA-P-1622", 1, "acceptance.md", "4" * 64),
+            "workflow": copy.deepcopy(workflow),
+            "ordered_steps": copy.deepcopy(route["ordered_steps"]),
+            "ordered_actions": copy.deepcopy(route["ordered_actions"]),
+            "rmed_frontier": [self._pin("CA-D-572", 1, "authority.md", "5" * 64)],
+            "mutation_capable": True,
+            "native_action_calls": [],
+        }
+        return route, admission
+
+    @contextmanager
+    def _derived(self, route: dict[str, object], admission: dict[str, object], *, current: dict[str, object] | None = None):
+        with patch(
+            "selected_routes.load_release_manifest_refresh_base",
+            return_value=copy.deepcopy(self.current if current is None else current),
+        ), patch(
+            "release_manifest_publisher._derive",
+            return_value=(copy.deepcopy(route), copy.deepcopy(admission)),
+        ), patch("release_manifest_publisher.selected_manifest_ref", return_value=Path("selected-manifest.json")):
+            yield
+
+    def _advanced_pair(self) -> tuple[dict[str, object], dict[str, object]]:
+        route, admission = copy.deepcopy(self.old_route), copy.deepcopy(self.old_admission)
+        for pin in (
+            route["workflow"],
+            admission["workflow"],
+        ):
+            pin["version"] = 2
+            pin["digest"] = "a" * 64
+        for pin in (
+            route["ordered_steps"][0]["step"],
+            admission["ordered_steps"][0]["step"],
+        ):
+            pin["version"] = 2
+            pin["digest"] = "b" * 64
+        for pin in (
+            route["ordered_steps"][0]["action"],
+            admission["ordered_steps"][0]["action"],
+        ):
+            pin["version"] = 2
+            pin["digest"] = "c" * 64
+        route["ordered_actions"][0] = copy.deepcopy(route["ordered_steps"][0]["action"])
+        admission["ordered_actions"][0] = copy.deepcopy(admission["ordered_steps"][0]["action"])
+        return route, admission
+
+    def test_refresh_replaces_only_source_derived_pin_revisions(self) -> None:
+        route, admission = self._advanced_pair()
+
+        with self._derived(route, admission):
+            plan = plan_release_manifest_refresh(self.root)
+            current, candidate, payload, path, refreshed_admission = _refresh_candidate(self.root)
+
+        self.assertEqual("plan", plan["mode"])
+        self.assertEqual(self.current, current)
+        self.assertEqual(self.current["routes"][:-1], candidate["routes"][:-1])
+        self.assertEqual(route, candidate["routes"][-1])
+        self.assertEqual([admission], candidate["release_source_admissions"])
+        self.assertEqual(admission, refreshed_admission)
+        self.assertEqual(self.path, path)
+        self.assertEqual(b"unchanged input\n", self.path.read_bytes())
+        self.assertEqual(payload, json.dumps(candidate, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode() + b"\n")
+
+    def test_structural_route_drift_is_refused_without_replacement(self) -> None:
+        route, admission = self._advanced_pair()
+        route["on_result"][0]["to"] = "another-step"
+
+        with self._derived(route, admission):
+            with self.assertRaisesRegex(ReleaseManifestPublishError, "route identities or structure"):
+                _refresh_candidate(self.root)
+
+        self.assertEqual(b"unchanged input\n", self.path.read_bytes())
+
+    def test_missing_release_route_is_refused_without_replacement(self) -> None:
+        route, admission = self._advanced_pair()
+        missing = copy.deepcopy(self.current)
+        missing["routes"].pop()
+
+        with self._derived(route, admission, current=missing):
+            with self.assertRaisesRegex(ReleaseManifestPublishError, "exact admitted sixteen-route"):
+                _refresh_candidate(self.root)
+
+        self.assertEqual(b"unchanged input\n", self.path.read_bytes())
+
+    def test_stale_authority_and_raw_authorization_are_refused_without_effects(self) -> None:
+        route, admission = self._advanced_pair()
+        with patch(
+            "selected_routes.load_release_manifest_refresh_base",
+            return_value=copy.deepcopy(self.current),
+        ), patch(
+            "release_manifest_publisher._derive",
+            side_effect=ReleaseManifestPublishError("stale D572 authority"),
+        ), patch("release_manifest_publisher.selected_manifest_ref", return_value=Path("selected-manifest.json")):
+            with self.assertRaisesRegex(ReleaseManifestPublishError, "stale D572 authority"):
+                _refresh_candidate(self.root)
+
+        with self._derived(route, admission):
+            with self.assertRaisesRegex(ReleaseManifestPublishError, "trusted host-created refresh context"):
+                refresh_release_manifest(self.root, execute=True, authorization={})
+
+        self.assertEqual(b"unchanged input\n", self.path.read_bytes())
 
 
 if __name__ == "__main__":

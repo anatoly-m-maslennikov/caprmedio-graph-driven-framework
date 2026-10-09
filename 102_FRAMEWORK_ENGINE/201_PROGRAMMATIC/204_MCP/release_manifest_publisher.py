@@ -156,14 +156,19 @@ def _refresh_candidate(
     release_route = routes[-1]
     old_admission = admissions[0]
     route, admission = _derive(project_root)
-    if release_route != route:
-        raise ReleaseManifestPublishError("refresh cannot replace the current Release route")
+    # D572 rederives the complete route with the same pin-bearing Workflow,
+    # Step and Action carriers as its admission.  A stale pin may advance only
+    # its Version and digest; route identity, occurrence order, parsed graph
+    # and typed metadata remain closed.
+    if not _refresh_admission_structure_matches(release_route, route):
+        raise ReleaseManifestPublishError("refresh Release route identities or structure differ from current D572")
     if not _refresh_admission_structure_matches(old_admission, admission):
         raise ReleaseManifestPublishError("refresh Release admission identities or structure differ from current D572")
     if require_drift and old_admission == admission:
         raise ReleaseManifestPublishError("refresh requires stale Release admission input")
     candidate = copy.deepcopy(current)
     candidate.pop("manifest_ref", None)
+    candidate["routes"][-1] = copy.deepcopy(route)
     candidate["release_source_admissions"] = [copy.deepcopy(admission)]
     candidate["source_freshness"]["selected_binding_digest"] = canonical_digest(candidate["routes"])
     candidate.pop("canonical_manifest_sha256", None)

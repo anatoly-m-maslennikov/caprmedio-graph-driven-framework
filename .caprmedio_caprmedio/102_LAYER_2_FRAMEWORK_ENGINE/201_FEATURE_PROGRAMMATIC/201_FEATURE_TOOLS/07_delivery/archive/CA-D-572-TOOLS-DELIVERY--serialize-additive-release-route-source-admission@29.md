@@ -4,10 +4,10 @@ content_role: Delivery
 current_scope_unit: TOOLS
 local_tier: Standard
 global_tier: 11
-status: Active
+status: Archived
 author: Anatoly Maslennikov
-version: 30
-updated_at: "2026-10-09 23:26:52 +0400"
+version: 29
+updated_at: "2026-10-08 17:31:41 +0000"
 subjects:
   governs: "Tool/RELEASE_VERSION/Additive selected-route source admission"
   depends_on: [Tool, Workflow, Action, Manifest, Operator, Run, Journal]
@@ -27,8 +27,6 @@ The one Release Version source-admission record which a successor canonical sele
 A successor of `.caprmedio_caprmedio/_projection/selected_workflow_bindings.json` **must** admit `release_version` only through the one closed `release_source_admissions` serialization below. It carries CA-P-1622@4 at `.caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/10-CA-P-1620-TASK--deliver-release-version-workflow/done/02-CA-P-1622-TASK--review-release-version-source-and-admission.md`, SHA-256 `7cd6a839a190add10108bdd5e58700aeae7a89316aa721b2b5340bda865a2739`, the exact current O164–O186 twelve-phase pins, and the full accepted Release RMED frontier including CA-D-573@2 and CA-D-574@1.
 
 ## Details
-
-An already-admitted sixteen-route manifest may be refreshed only on a separately verified Operator command. The refresh physically derives the successor from the current D572 frontier. It may change only `version` and `digest` in pin objects whose exact fields are `atom_id`, `version`, `source_path`, and `digest`; it replaces the Release route and its matching admission together. Route identities, source paths, ordered Step and Action occurrences, entry Step, result edges, and all typed metadata remain unchanged. Structural changes require separate authority and cannot use this pin refresh. Existing preview, authorization, source-currentness, write-readback, and Journal-recording checks remain required. Refreshing the Projection creates no Release Workflow execution.
 
 `release_source_admissions` is an optional top-level array in the loaded canonical `.caprmedio_caprmedio/_projection/selected_workflow_bindings.json` manifest file. It is never a member of D527's request `definition_manifest`, which remains exactly the existing two fields `manifest_ref` and `manifest_digest`. The fifteen-route predecessor omits this array. A successor which contains `release_version` **must** contain it with cardinality exactly one; a manifest without that route **must not** carry a Release admission. No unknown member of that admission array or its record is accepted. Its one record has exactly `route`, `acceptance_frontier`, `workflow`, `ordered_steps`, `ordered_actions`, `rmed_frontier`, `mutation_capable`, and `native_action_calls`; `route` is exactly `release_version`.
 
