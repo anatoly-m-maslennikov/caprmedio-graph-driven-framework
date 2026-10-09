@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Projection
   depends_on: [Entity, Term, Atom, Property, Carrier, Plan]
-version: 4
-updated_at: "2026-10-10 01:56:46 +0400"
+version: 5
+updated_at: "2026-10-10 02:10:14 +0400"
 relations:
   is_decomposition_of: [CA-P-1872]
   blocks: [CA-P-1909]
@@ -44,7 +44,7 @@ Use graph concept names such as Version Number, Updated At and Status, not YAML 
 
 Present a plain two-space-indented view without tree connector glyphs, plus compact relation statements where a tree cannot show a cross-link. Show Continuant/Occurrent grouping, inherited shared rules, subtype differences, justified independent roots and visible DROP, CONSOLIDATE and GENERALIZE CANDIDATE marks. Include the Revision and Applicable Methodology proposals from CA-P-1907 with reasons and retained constraints. Marking is not deletion or acceptance of the proposal.
 
-Present CA-P-1906's comparison of separate R/M/E/D trees and an Entity-centered view with optional applicable M/E/D links. Distinguish presentation nesting from native Entity relations. Reuse shared source identities and Claims; do not fabricate mandatory M/E/D slots or copy a shared Claim into new authority. Keep R Entity-model notation separate from proposed Method/Evaluation links and D Carrier constraints. No new native graph kind is admitted by displaying these views.
+Present both CA-P-1906 views: separate R/M/E/D trees and an Entity-centered view with optional applicable M/E/D links. Distinguish presentation nesting from native Entity relations. Reuse shared source identities and Claims; do not fabricate mandatory M/E/D slots or copy a shared Claim into new authority. Keep R Entity-model notation separate from proposed Method/Evaluation links and D Carrier constraints. No new native graph kind is admitted by displaying these views.
 
 Give a before/candidate comparison, root counts, traceable dispositions and unresolved questions. Preserve the step-1 baseline. A candidate is a proposal, not admitted native facts, Operator acceptance, a source migration or a completed MCP Run.
 

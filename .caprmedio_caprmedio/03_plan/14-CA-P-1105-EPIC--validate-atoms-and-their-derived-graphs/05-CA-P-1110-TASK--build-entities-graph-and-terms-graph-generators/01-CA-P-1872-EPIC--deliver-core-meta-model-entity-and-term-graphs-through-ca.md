@@ -25,8 +25,8 @@ subjects:
     - Action
     - Journal
     - Plan
-version: 10
-updated_at: "2026-10-10 01:56:46 +0400"
+version: 11
+updated_at: "2026-10-10 02:10:14 +0400"
 relations:
   is_decomposition_of:
     - CA-P-1110
@@ -65,9 +65,9 @@ The Operator clarified the view design on 2026-10-10:
 - The earlier `/`, `.` and `:` discussion concerns Entity-model relations. It does not define new relations for Method or Evaluation Claims.
 - Compare two presentation options: separate R/M/E/D trees, and an Entity-centered view with its applicable M/E/D links. They may coexist as projections of the same sources. An Entity need not have all three links; shared Claims must not be duplicated merely for display.
 
-CA-P-1906 must evaluate these views before the candidate handoff. Keep shared qualified identities and traceability. Do not turn M/E/D links into asserted Entity Properties or narrower-than relations just because they appear beneath an Entity in a view. Internal/External/Relational remains a separate classification question, not automatically four new Entity types.
+CA-P-1906 must design and deliver both views before the candidate handoff. Keep shared qualified identities and traceability. Do not turn M/E/D links into asserted Entity Properties or narrower-than relations just because they appear beneath an Entity in a view. Internal/External/Relational remains a separate classification question, not automatically four new Entity types.
 
-This direction is not a request to filter the reviewed baseline to Requirement-role source files only: current Core Delivery Claims also define the Carrier model. Preserve all baseline identities and occurrences, and distinguish the model view from the Content Role of the governing Atom. The options are recorded for design; neither a new native graph kind nor the combined presentation has been adopted. Core Atoms, Subjects and the Step 1 baseline remain unchanged.
+This direction is not a request to filter the reviewed baseline to Requirement-role source files only: current Core Delivery Claims also define the Carrier model. Preserve all baseline identities and occurrences, and distinguish the model view from the Content Role of the governing Atom. Both derived presentations are now required by the Operator's continuation. No new native graph kind, entity meaning or source migration is adopted. Core Atoms, Subjects and the Step 1 baseline remain unchanged.
 
 #### Step 1 acceptance receipt
 
@@ -99,6 +99,10 @@ The Operator added this work and broadened Task 3 on 2026-10-10. Task creation i
 - Every original relation occurrence needs a row with the source Atom/revision/hash, Subject field/index/path/segment, old qualified endpoints, graph kind and disposition. An evidenced proposal records its operator/relation/direction/endpoints and Main Content evidence. An unresolved or not-native row has no asserted native relation proposal; record the missing-evidence or inapplicability reason, what was checked and any required Operator question. Preserve these reasons through candidate changes and handoff; do not invent native edges from syntax or Atom incidence. Additional candidate relations need their own source evidence, not fabricated old occurrences. CA-P-1907 must keep this ledger complete when marking generalizations or consolidations.
 
 CA-P-1905–1908 refine steps 2–3 above. Their outputs remain proposals for Operator review; they do not accept a new ontology, update the step-1 graph or Core Subjects, rename YAML keys, implement a runtime, or complete the Epic. `@` is approved compact graph notation, not an automatically admitted Subject-path serialization operator.
+
+### Bounded candidate-design decomposition
+
+CA-P-1906 is now a composite with no separately executable own work. Eight ready review children cover six disjoint slash-case batches, grouping/inheritance and both RMED views. They require CA-P-1905 Done and explicitly BLOCK CA-P-1921. Integration then BLOCKS independent verification CA-P-1922. CA-P-1906 remains Active until every child is Done and its Definition of Done is satisfied; CA-P-1907 cannot start earlier. The existing candidate acceptance and sealed migration gates are unchanged.
 
 ### Current local execution evidence
 
@@ -216,7 +220,7 @@ Each leaf has one AI Agent Assignee and <=15 minutes of hands-on work. Composite
 | [CA-P-1895](01-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/16-CA-P-1895-TASK--generate-the-current-core-term-graph-through-mcp.md) | Generate the current Core term graph through MCP | 10 min |
 | [CA-P-1896](01-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/17-CA-P-1896-TASK--verify-and-hand-off-both-core-graph-outputs.md) | Verify and hand off both Core graph outputs | 5 min |
 | [CA-P-1905](01-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/done/21-CA-P-1905-TASK--review-current-entities-graph-from-active-core-meta-model.md) | Review current Entities Graph from Active Core Meta-model | Done |
-| [CA-P-1906](01-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/22-CA-P-1906-TASK--design-continuant-occurrent-groups-and-inherited-constraints.md) | Design Continuant Occurrent groups and inherited constraints | 15 min |
+| [CA-P-1906](01-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/22-CA-P-1906-TASK--design-continuant-occurrent-groups-and-inherited-constraints.md) | Design Continuant Occurrent groups and inherited constraints | Child work only |
 | [CA-P-1907](01-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/23-CA-P-1907-TASK--mark-entity-drop-and-consolidation-candidates-without-deleting.md) | Mark Entity drop and consolidation candidates without deleting | 15 min |
 | [CA-P-1908](01-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/24-CA-P-1908-TASK--present-compact-entities-graph-candidate-for-operator-review.md) | Present compact Entities Graph candidate for Operator review | 15 min |
 | [CA-P-1909](01-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/25-CA-P-1909-TASK--build-and-verify-the-accepted-core-entities-graph.md) | Build and verify the accepted Core Entities Graph | 15 min |
