@@ -10,12 +10,12 @@ local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
-status: Active
+status: Done
 subjects:
   governs: Projection
   depends_on: [Entity, Atom, Carrier, Plan]
-version: 1
-updated_at: "2026-10-10 04:26:00 +0400"
+version: 2
+updated_at: "2026-10-10 04:42:00 +0400"
 relations:
   is_decomposition_of: [CA-P-1907]
   blocks: [CA-P-1937]
@@ -41,6 +41,12 @@ Known false-gap examples: Markdown Atom Carrier/Main Content (CA-D-357@9), its P
 Own only `nodes/nodes.batch-5.review.json` and a temporary helper under `.caprmedio_tmp/planning/core-entity-review/nodes/`. Preserve all 80 identities, original input pins, correct positive rows, raw quotations and genuine unresolved questions. Add exact captured Main Content spans, substantive target-specific reasons for all five checks in each corrected row, and truthful checked/unassessed source coverage. Record CA-P-1955 repair provenance and the prior review SHA; Git retains the original review.
 
 Root owns Plans, Git and integration. You are not alone; preserve other edits. No Core, Subject, baseline, runtime, implementation, MCP or FPF changes, deletion, adoption or native admission. Use uv only and apply_patch for authored edits. Below 90% confidence, preserve a specific question. Return a checkpoint for further decomposition if this cannot finish within 15 minutes.
+
+### Completion receipt
+
+Final review: nodes/nodes.batch-5.review.json; SHA-256: c16d965dd0f98664573b47307be55ebaffe480728ef110194e6b6513f31ab9b1.
+
+Captured-only repair verified: 80 preserved identities, 80 bounded retain decisions, 140 exact nonempty spans and 96 captured source pins checked. Independent read-only meaning audit by graph_builder passed for all 40 corrected rows; the 40 earlier positive rows remain unchanged. Source-Carrier attribution and the Governed Entity/retry-source wording were narrowed to their actual captured evidence. No native facts, replacements, source migration or live-Core claim were introduced. Original Done review remains historical.
 
 ### Definition of Done
 
