@@ -576,6 +576,23 @@ class SelectedNativePacketCodecPhysicalTests(unittest.TestCase):
             payload["sha256"] = release_action_checkpoint_sha256(payload)
 
         cases.append(("other-publication-action", other_publication_action))
+
+        def changed_document(payload, section, field, value):
+            payload[section][0][section[:-1]][field] = value
+            payload["sha256"] = release_action_checkpoint_sha256(payload)
+
+        cases.extend([
+            ("current-workflow", lambda payload: changed_document(payload, "contexts", "workflow_version", 11)),
+            ("wrong-step", lambda payload: changed_document(payload, "contexts", "step_atom_id", "CA-O-177")),
+            ("wrong-phase", lambda payload: changed_document(payload, "results", "phase", "retire")),
+            ("wrong-output", lambda payload: changed_document(payload, "results", "output", "retirement")),
+        ])
+
+        def unknown_index(payload):
+            payload["contexts"][0]["index"] = 12
+            payload["sha256"] = release_action_checkpoint_sha256(payload)
+
+        cases.append(("unknown-index", unknown_index))
         cases.append(("result", lambda payload: self._historical_progress_path.write_bytes(canonical_json({
             "result": "promoted", "action_run_id": "other-action", "effect_refs": [],
             "native_result": {}, "compiler_publication_recording": None,

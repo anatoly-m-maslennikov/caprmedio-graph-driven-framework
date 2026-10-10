@@ -596,7 +596,14 @@ def _reopen_selected_native_promotion_completion(
     from release_handoff import _file
     from FIND_AND_FETCH_JOURNAL_EVENTS.find_and_fetch_journal_events import JournalQueryError, capture_snapshot, query
 
+    # O164@9 had twelve phases, with O178/O169 promotion at index ten.
+    # This documentary reader must not bind retained records to today's graph.
     promote_index = 10
+
+    def historical_index(value: Any, label: str) -> int:
+        if type(value) is not int or not 0 <= value < 12:
+            raise _error("release-checkpoint-invalid", f"{label} is outside the retained O164@9 phase graph")
+        return value
     context_rows = source.get("contexts")
     result_rows = source.get("results")
     recording_rows = source.get("shared_recordings")
@@ -608,25 +615,49 @@ def _reopen_selected_native_promotion_completion(
         matches = []
         for raw in rows:
             row = _mapping(raw, {"index", *fields}, f"historical native {label} record")
-            if _index(row["index"], f"historical native {label} index") == promote_index:
+            if historical_index(row["index"], f"historical native {label} index") == promote_index:
                 matches.append(row)
         if len(matches) != 1:
             raise _error("release-checkpoint-phase-mismatch", f"historical native publication lacks one promote {label}")
         return matches[0]
 
-    context = _load_context(
-        row_at(context_rows, label="context", fields={"context"})["context"], promote_index,
-        root=root, workflow_run_id=workflow_run_id, fingerprint=fingerprint,
+    context = _load_dataclass(
+        row_at(context_rows, label="context", fields={"context"})["context"],
+        SelectedReleaseActionContext, "historical native promotion context",
     )
-    if context.workflow_version != 9:
-        raise _error("release-checkpoint-binding-mismatch", "historical native publication is not O164@9")
+    if (
+        context.project_root != root or context.workflow_run_id != workflow_run_id
+        or context.parent_workflow_run_id != workflow_run_id
+        or context.parent_step_run_id != context.step_run_id
+        or context.frozen_parameters_sha256 != fingerprint
+        or context.workflow_atom_id != "CA-O-164"
+        or type(context.workflow_version) is not int or context.workflow_version != 9
+    ):
+        raise _error("release-checkpoint-binding-mismatch", "historical native publication is not its frozen O164@9 Run")
+    for name in ("step_run_id", "action_run_id"):
+        _text(getattr(context, name), f"historical native context.{name}")
+    if (context.step_atom_id, context.action_atom_id) != ("CA-O-178", "CA-O-169"):
+        raise _error("release-checkpoint-phase-mismatch", "historical native publication is outside retained O178/O169 promotion")
     if context.action_run_id != publication.action_run_id:
         raise _error("release-checkpoint-binding-mismatch", "historical native publication names another selected O169 Action")
-    result = _load_native_result(
-        row_at(result_rows, label="result", fields={"result"})["result"], promote_index, context, candidate,
-        {"promotion": publication},
+    result_payload = _mapping(
+        row_at(result_rows, label="result", fields={"result"})["result"],
+        {item.name for item in fields(ReleasePhaseResult)}, "historical native promotion result",
     )
-    if result.outcome != "completed" or result.output != publication:
+    if result_payload["output"] != "promotion" or result_payload["shared_action_recording"] is not None:
+        raise _error("release-checkpoint-phase-mismatch", "historical native promotion has another observation type")
+    result = _load_dataclass(
+        {**result_payload, "output": publication}, ReleasePhaseResult, "historical native promotion result",
+        tuple_fields=frozenset({"attempted_effects", "effect_evidence_refs", "declared_run_receipt_refs"}),
+    )
+    if (
+        result.workflow_run_id != context.workflow_run_id or result.step_run_id != context.step_run_id
+        or result.action_run_id != context.action_run_id or result.step_atom_id != "CA-O-178"
+        or result.action_atom_id != "CA-O-169" or result.phase != "promote"
+        or result.candidate_snapshot_manifest_sha256 != candidate.manifest.sha256
+        or result.recording_state != "shared_session_provider_pending"
+        or result.outcome != "completed" or result.output != publication
+    ):
         raise _error("release-checkpoint-phase-mismatch", "historical native publication lacks its completed O169 observation")
     recording = row_at(recording_rows, label="shared recording", fields={"terminal_outcome", "receipt_refs"})
     if recording["terminal_outcome"] != "completed":
@@ -637,7 +668,7 @@ def _reopen_selected_native_promotion_completion(
     terminal_event_id = _text(refs[0], "historical native promotion terminal receipt")
     for raw in pending_rows:
         pending = _mapping(raw, {"index", "event_id", "event_outcome"}, "historical native pending recording")
-        if _index(pending["index"], "historical native pending index") == promote_index:
+        if historical_index(pending["index"], "historical native pending index") == promote_index:
             raise _error("release-checkpoint-phase-mismatch", "historical native publication has pending terminal evidence")
 
     expected_requested_action = f"{workflow_run_id}:step:{promote_index + 1}:action:1"
