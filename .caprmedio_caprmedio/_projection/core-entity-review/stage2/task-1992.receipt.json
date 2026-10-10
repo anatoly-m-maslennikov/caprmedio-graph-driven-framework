@@ -1,0 +1,28 @@
+{
+  "task": "CA-P-1992",
+  "recorded_at": "2026-10-11 01:57:33 +0400",
+  "result": "PASS: complete candidate review; unresolved mapping research retained",
+  "output": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-001.review.json",
+    "sha256": "3f9ce621083500a677830c0ad3aec058e630f6daa82142c8bcd661a76249b916"
+  },
+  "input_batch": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-001.json",
+    "sha256": "84355ad3a75e6f070b2580993580070f4ef7a43d49eb18f2b657a16baa6ee194"
+  },
+  "checks": {
+    "independent_structural_verifier": "PASS",
+    "sources": 20,
+    "occurrences": 63,
+    "proposed": 1,
+    "unchanged": 1,
+    "unresolved": 61,
+    "meaning_review": "Root checked both decided rows against the exact owning source Main Content. The Governed Subject field retains its Atom bearer; Artifact remains the exact admitted root. Unsupported root-colon shortcuts, topic aliases and Claim-domain mappings are now null.",
+    "all_executable_false": true
+  },
+  "unresolved_work": "61 explicit occurrence-level research rows remain in this pinned report and required CA-P-2045 integration; CA-P-1966 remains Active.",
+  "limits": [
+    "No original Atom, captured candidate, grammar, native or runtime change",
+    "Review completion is not migration approval"
+  ]
+}

@@ -1,0 +1,2548 @@
+{
+  "schema_version": 1,
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "task_id": "CA-P-1992",
+  "batch_id": "current-subjects.batch-001",
+  "input_batch_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-001.json",
+  "input_batch_sha256": "84355ad3a75e6f070b2580993580070f4ef7a43d49eb18f2b657a16baa6ee194",
+  "input_inventory_sha256": "e284dbe4943568bc75b7f9ba63ebf583372a60813e62eee3d43b5b75b270220a",
+  "evidence_pins": [
+    {
+      "kind": "frozen_candidate",
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/presentation/operator.entity-graph.candidate.json",
+      "sha256": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b"
+    },
+    {
+      "kind": "consolidated_review",
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/consolidated/nodes.review.json",
+      "sha256": "e4cb9c76b441c13115e87e141890a9dab58634a7a62fb1b3bc32168dbac261f6",
+      "captured_git_commit": "a971d0e00c33c779f485fc8cad63194894d440fb"
+    },
+    {
+      "kind": "current_subjects_contract",
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.contract.md",
+      "sha256": "5eb0d90022b68a7d1d2cd27cf60a147deaf4161cb9b2e1c8bdf6c4ef8f2a10bf"
+    },
+    {
+      "kind": "review_contract",
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.review.contract.md",
+      "sha256": "b7c9c065f997d5bae1409f5c09b4223d08327a523decab6d26c2e4425fd2c28b"
+    }
+  ],
+  "source_reviews": [
+    {
+      "atom_id": "CA-R-1014",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "57013a4e165d493701cb180a4cc32df85c8aa79373b2ec503e3b4e5dd1c4352e",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1014-CORE_META_MODEL-CORE-REQUIREMENT--resolve-atom-scope-contextually.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-02 21:09:50 +0400",
+      "updated_at_type": "str",
+      "version": 18,
+      "main_content_read": {
+        "read": true,
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1014-CORE_META_MODEL-CORE-REQUIREMENT--resolve-atom-scope-contextually.md",
+        "sha256": "57013a4e165d493701cb180a4cc32df85c8aa79373b2ec503e3b4e5dd1c4352e",
+        "start_line": 24,
+        "end_line": 36,
+        "span_sha256": "f003adc896e74bb23f53d801f32e0c9216a03867e0ce7ec32f8802e64e7de90e"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-1016",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "c868694504380f16322a07a3b7568b16b6d519010e8a19459208f6196d90164f",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1016-CORE_META_MODEL-CORE-REQUIREMENT--register-rationale-for-relation.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-02 21:09:50 +0400",
+      "updated_at_type": "str",
+      "version": 15,
+      "main_content_read": {
+        "read": true,
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1016-CORE_META_MODEL-CORE-REQUIREMENT--register-rationale-for-relation.md",
+        "sha256": "c868694504380f16322a07a3b7568b16b6d519010e8a19459208f6196d90164f",
+        "start_line": 19,
+        "end_line": 31,
+        "span_sha256": "17d7fb0dd186984491d850a936ea8d2e41ea21e11a16c98f3104f208bb7663be"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-1017",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "47ed84b2bf2d5f09dee59e284c018bc96ac6c2e581768079931020841ee02742",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1017-CORE_META_MODEL-CORE-REQUIREMENT--register-method-for-relation.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-02 21:09:50 +0400",
+      "updated_at_type": "str",
+      "version": 15,
+      "main_content_read": {
+        "read": true,
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1017-CORE_META_MODEL-CORE-REQUIREMENT--register-method-for-relation.md",
+        "sha256": "47ed84b2bf2d5f09dee59e284c018bc96ac6c2e581768079931020841ee02742",
+        "start_line": 19,
+        "end_line": 31,
+        "span_sha256": "d8cde810de695f7c74f7c0f23bc0fbd0383813775ab6371b0bba67f870c24d11"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-1018",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "82d35b5486d370f1db60aea0b8eb8a417685f08a210ddd9db4ad2916634f4756",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1018-CORE_META_MODEL-CORE--register-evaluation-targets.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-02 21:16:45 +0400",
+      "updated_at_type": "str",
+      "version": 17,
+      "main_content_read": {
+        "read": true,
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1018-CORE_META_MODEL-CORE--register-evaluation-targets.md",
+        "sha256": "82d35b5486d370f1db60aea0b8eb8a417685f08a210ddd9db4ad2916634f4756",
+        "start_line": 23,
+        "end_line": 40,
+        "span_sha256": "29d612199411ad8bee57ca3fc652830d21c7c45a5ea82ad15429902fa4bd712d"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-1019",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "cfbd19f8872f5934a80d1ee8c8d754de19c847ed6a89923c886dc437957ea468",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1019-CORE_META_MODEL-CORE--register-delivery-for-relation.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-02 21:16:45 +0400",
+      "updated_at_type": "str",
+      "version": 15,
+      "main_content_read": {
+        "read": true,
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1019-CORE_META_MODEL-CORE--register-delivery-for-relation.md",
+        "sha256": "cfbd19f8872f5934a80d1ee8c8d754de19c847ed6a89923c886dc437957ea468",
+        "start_line": 19,
+        "end_line": 31,
+        "span_sha256": "0fa6a86aea1c686da9351b698dcd028dd234a1c121f8ba33cbd85bf51a6162f2"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-1020",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "4829c83f1e2f7a2dea0859141d472ad1dc0f4aa235e2f507ed0ad57359421b09",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1020-CORE_META_MODEL-CORE--register-implementation-of-relation.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-01 21:41:08 +0400",
+      "updated_at_type": "str",
+      "version": 15,
+      "main_content_read": {
+        "read": true,
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1020-CORE_META_MODEL-CORE--register-implementation-of-relation.md",
+        "sha256": "4829c83f1e2f7a2dea0859141d472ad1dc0f4aa235e2f507ed0ad57359421b09",
+        "start_line": 19,
+        "end_line": 31,
+        "span_sha256": "2d8f2fea4e0d6c97692ffc30b0527f0fb04577147d60455d24c4ecd8536ac5cf"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-1021",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "7159e2c54e62e08714e5d07a84558c67ab19bd9f4f1ad2deccc598e31e69ecac",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1021-CORE_META_MODEL-CORE--register-evidence-for-relation.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-02 21:16:45 +0400",
+      "updated_at_type": "str",
+      "version": 15,
+      "main_content_read": {
+        "read": true,
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1021-CORE_META_MODEL-CORE--register-evidence-for-relation.md",
+        "sha256": "7159e2c54e62e08714e5d07a84558c67ab19bd9f4f1ad2deccc598e31e69ecac",
+        "start_line": 19,
+        "end_line": 31,
+        "span_sha256": "956f14a3d2bd9c42a7b9c5600bef656fe2e43ced0ba724b797a896eae02ea38c"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-1022",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "6c2e6e85899db0e6f35f609ff57a7e47977b7d126f29f130b1e123170b0bee5e",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1022-CORE_META_MODEL-CORE--register-concern-about-relation.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-02 21:16:45 +0400",
+      "updated_at_type": "str",
+      "version": 15,
+      "main_content_read": {
+        "read": true,
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1022-CORE_META_MODEL-CORE--register-concern-about-relation.md",
+        "sha256": "6c2e6e85899db0e6f35f609ff57a7e47977b7d126f29f130b1e123170b0bee5e",
+        "start_line": 19,
+        "end_line": 31,
+        "span_sha256": "191f32681121f0dd196e0bfd586079d0ca4edb65f7e98e23c9f0da09b3de27d2"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-1023",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "a9f9934990aa102a99c0820fe8d652ea4643a101bdbe96cf72f2d0a2c9c3271c",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1023-CORE_META_MODEL-CORE--permit-distinct-direct-relations-on-one-atom.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-02 21:16:45 +0400",
+      "updated_at_type": "str",
+      "version": 13,
+      "main_content_read": {
+        "read": true,
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1023-CORE_META_MODEL-CORE--permit-distinct-direct-relations-on-one-atom.md",
+        "sha256": "a9f9934990aa102a99c0820fe8d652ea4643a101bdbe96cf72f2d0a2c9c3271c",
+        "start_line": 18,
+        "end_line": 30,
+        "span_sha256": "26a22a2f7cbde4022ac57379a1a334130aa9f5513338f5e19d93f8d96350e658"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-1024",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "391223e51330adad48b6bc532b7e07606a2f744e66063eaec56427e2beb24306",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1024-CORE_META_MODEL-CORE--prohibit-transitive-meaning-for-direct-relations.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-02 21:16:45 +0400",
+      "updated_at_type": "str",
+      "version": 14,
+      "main_content_read": {
+        "read": true,
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1024-CORE_META_MODEL-CORE--prohibit-transitive-meaning-for-direct-relations.md",
+        "sha256": "391223e51330adad48b6bc532b7e07606a2f744e66063eaec56427e2beb24306",
+        "start_line": 18,
+        "end_line": 30,
+        "span_sha256": "0a7e2d1c2813dfd65c7967cc9361625b120a53bce78aa19c430ab0a430e401e9"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-1025",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "2a307c741ee02f711520182f3aee106627554fd089827aad2e3f7541aab8bc24",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1025-CORE_META_MODEL-CORE--require-authority-for-new-relation-meanings.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-02 21:16:45 +0400",
+      "updated_at_type": "str",
+      "version": 14,
+      "main_content_read": {
+        "read": true,
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1025-CORE_META_MODEL-CORE--require-authority-for-new-relation-meanings.md",
+        "sha256": "2a307c741ee02f711520182f3aee106627554fd089827aad2e3f7541aab8bc24",
+        "start_line": 18,
+        "end_line": 30,
+        "span_sha256": "b672b01e419fdec42d89b1be6cd317cd6652edec1b419da2abb02f9a8b8061a5"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-1026",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "e2e76fb76c3e5d47d8e9df3e56e48c6ca3381d006c1b70233b3ee5f0bdfd1cd7",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1026-CORE_META_MODEL-CORE--register-depends-on-and-required-by-relation-pair.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-02 21:16:45 +0400",
+      "updated_at_type": "str",
+      "version": 16,
+      "main_content_read": {
+        "read": true,
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1026-CORE_META_MODEL-CORE--register-depends-on-and-required-by-relation-pair.md",
+        "sha256": "e2e76fb76c3e5d47d8e9df3e56e48c6ca3381d006c1b70233b3ee5f0bdfd1cd7",
+        "start_line": 20,
+        "end_line": 32,
+        "span_sha256": "599394c8148fdaa4671c1a4f8768793342547efd53eeaaa14a6423cf129ae664"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-1027",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "da81db4a8fcf73c03994d815f3861a34fdbcc806b3db07d909ffbd98c372a20a",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1027-CORE_META_MODEL-CORE--register-implementation-of-and-implemented-by-relation-pair.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-02 21:16:45 +0400",
+      "updated_at_type": "str",
+      "version": 15,
+      "main_content_read": {
+        "read": true,
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1027-CORE_META_MODEL-CORE--register-implementation-of-and-implemented-by-relation-pair.md",
+        "sha256": "da81db4a8fcf73c03994d815f3861a34fdbcc806b3db07d909ffbd98c372a20a",
+        "start_line": 19,
+        "end_line": 31,
+        "span_sha256": "0bbb719ebd0f233b30ca1c0eac7003a61c293dc8d2e32e2eb92fb5a67849dfee"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-1029",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "236b0f9be3e676c2e26140c171741088c8bc9540729379f2985f88ebdc7d3f8b",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1029-CORE_META_MODEL-CORE--record-lineage-impact-disposition-context.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-02 21:16:45 +0400",
+      "updated_at_type": "str",
+      "version": 13,
+      "main_content_read": {
+        "read": true,
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1029-CORE_META_MODEL-CORE--record-lineage-impact-disposition-context.md",
+        "sha256": "236b0f9be3e676c2e26140c171741088c8bc9540729379f2985f88ebdc7d3f8b",
+        "start_line": 18,
+        "end_line": 30,
+        "span_sha256": "a2ba931a8f7cdaf32e2b8ec0f0d5419bd647e5399b277402a7e2d4b8770d933b"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-1030",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "88e0127240b136211a576f0bffcc357fc07da14ba225157570b8c5f58076d1b6",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1030-CORE_META_MODEL-GENERAL--prohibit-silent-non-compatible-impact-dispositions.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-02 21:16:45 +0400",
+      "updated_at_type": "str",
+      "version": 13,
+      "main_content_read": {
+        "read": true,
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1030-CORE_META_MODEL-GENERAL--prohibit-silent-non-compatible-impact-dispositions.md",
+        "sha256": "88e0127240b136211a576f0bffcc357fc07da14ba225157570b8c5f58076d1b6",
+        "start_line": 18,
+        "end_line": 28,
+        "span_sha256": "d11b6052b63b00542b28db5b9a0a74d1de9992cae3ed7396496e851f29293e7b"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-1032",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "8742999580bb9848be893a931be36c86ee72676567989fba1c9630dee4a8211f",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1032-CORE_META_MODEL-GENERAL--block-dependent-gates-until-lineage-impact-reaches-a-fixed-point.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-02 21:16:45 +0400",
+      "updated_at_type": "str",
+      "version": 13,
+      "main_content_read": {
+        "read": true,
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1032-CORE_META_MODEL-GENERAL--block-dependent-gates-until-lineage-impact-reaches-a-fixed-point.md",
+        "sha256": "8742999580bb9848be893a931be36c86ee72676567989fba1c9630dee4a8211f",
+        "start_line": 19,
+        "end_line": 31,
+        "span_sha256": "1cb334cd77d00da626db6c4e213214e27b5729ad7d9c60efe941f4fcb8499c86"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-1033",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "434d199f97e943b1841e95d441397aa3352433b7ceb6b7ae88c4b1b4fec3a738",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1033-CORE_META_MODEL-GENERAL--define-compatible-lineage-impact-disposition.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-02 21:16:45 +0400",
+      "updated_at_type": "str",
+      "version": 15,
+      "main_content_read": {
+        "read": true,
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1033-CORE_META_MODEL-GENERAL--define-compatible-lineage-impact-disposition.md",
+        "sha256": "434d199f97e943b1841e95d441397aa3352433b7ceb6b7ae88c4b1b4fec3a738",
+        "start_line": 19,
+        "end_line": 31,
+        "span_sha256": "5feb5e3bf5d8f7d7b3d21fab344f461967971890dd58f956354e5884b8fe6e89"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-1034",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "09171e0521b5f71e42b76644e5f208789d24b43502706f084a664934acd957fa",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1034-CORE_META_MODEL-GENERAL--define-update-required-lineage-impact-disposition.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-02 21:16:45 +0400",
+      "updated_at_type": "str",
+      "version": 13,
+      "main_content_read": {
+        "read": true,
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1034-CORE_META_MODEL-GENERAL--define-update-required-lineage-impact-disposition.md",
+        "sha256": "09171e0521b5f71e42b76644e5f208789d24b43502706f084a664934acd957fa",
+        "start_line": 19,
+        "end_line": 31,
+        "span_sha256": "a41898f598ddedefacbf65a9a07804e64a5f02db0185d710ed785626305881db"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-1035",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "c4a55cd9099152602dbc789c909fa74e5341f9b37862e4e87f75b5f51f8a01b7",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1035-CORE_META_MODEL-GENERAL--define-replacement-required-lineage-impact-disposition.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-02 21:16:45 +0400",
+      "updated_at_type": "str",
+      "version": 13,
+      "main_content_read": {
+        "read": true,
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1035-CORE_META_MODEL-GENERAL--define-replacement-required-lineage-impact-disposition.md",
+        "sha256": "c4a55cd9099152602dbc789c909fa74e5341f9b37862e4e87f75b5f51f8a01b7",
+        "start_line": 19,
+        "end_line": 31,
+        "span_sha256": "d5ff11e33ec297c26584fcd08d05383149a43c661dcbcee683ee50d4363fb1e7"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-1036",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "940e73ebf82a65a10e1bbf25c2dedfd2bd966d9cab33cd7f130315ecedee427b",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1036-CORE_META_MODEL-GENERAL--define-uncertain-lineage-impact-disposition.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-02 21:16:45 +0400",
+      "updated_at_type": "str",
+      "version": 13,
+      "main_content_read": {
+        "read": true,
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1036-CORE_META_MODEL-GENERAL--define-uncertain-lineage-impact-disposition.md",
+        "sha256": "940e73ebf82a65a10e1bbf25c2dedfd2bd966d9cab33cd7f130315ecedee427b",
+        "start_line": 19,
+        "end_line": 31,
+        "span_sha256": "1bee897e3a6fe7e0de74a6da34f1d6816dd02e443c07dc418334a88c05cbc6fc"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    }
+  ],
+  "occurrences": [
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1014-CORE_META_MODEL-CORE-REQUIREMENT--resolve-atom-scope-contextually.md#subjects.depends_on[0]",
+      "old_value": "Atom/Revision/Author",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1014",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1014-CORE_META_MODEL-CORE-REQUIREMENT--resolve-atom-scope-contextually.md",
+      "source_sha256": "57013a4e165d493701cb180a4cc32df85c8aa79373b2ec503e3b4e5dd1c4352e",
+      "source_version": 18,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.45,
+      "reason": "CA-R-1014's current Claim names an Author's registered Operator fallback, but does not establish a Revision-qualified Author identity. The frozen candidate explicitly excludes Atom/Revision as a canonical path, so no replacement can be supported without conflating author, Actor, and history semantics.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The legacy Author reference is retained for research rather than discarded.",
+        "Author/Operator fallback semantics remain distinct from Revision history.",
+        "No Atom/Revision slash-to-dot conversion is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1014-CORE_META_MODEL-CORE-REQUIREMENT--resolve-atom-scope-contextually.md",
+          "sha256": "57013a4e165d493701cb180a4cc32df85c8aa79373b2ec503e3b4e5dd1c4352e",
+          "start_line": 24,
+          "end_line": 36,
+          "span_sha256": "f003adc896e74bb23f53d801f32e0c9216a03867e0ce7ec32f8802e64e7de90e",
+          "reason": "Full current Main Content (Summary, Scope, Claim, and Details heading) was read for CA-R-1014; it is the current meaning evidence for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1014-CORE_META_MODEL-CORE-REQUIREMENT--resolve-atom-scope-contextually.md#subjects.depends_on[1]",
+      "old_value": "Scope Unit/Scope",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1014",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1014-CORE_META_MODEL-CORE-REQUIREMENT--resolve-atom-scope-contextually.md",
+      "source_sha256": "57013a4e165d493701cb180a4cc32df85c8aa79373b2ec503e3b4e5dd1c4352e",
+      "source_version": 18,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "CA-R-1014's current Claim requires the current Scope Unit Scope, but the candidate confirms Scope Unit only as a root ownership boundary and does not establish a Scope dependent-field identity or extent. Scope Unit.Scope would therefore be an unsupported dot binding.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Scope Unit Scope remains distinct from Atom Scope and Substance Scope applicability.",
+        "No slash-to-dot conversion is inferred from the display notation."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1014-CORE_META_MODEL-CORE-REQUIREMENT--resolve-atom-scope-contextually.md",
+          "sha256": "57013a4e165d493701cb180a4cc32df85c8aa79373b2ec503e3b4e5dd1c4352e",
+          "start_line": 24,
+          "end_line": 36,
+          "span_sha256": "f003adc896e74bb23f53d801f32e0c9216a03867e0ce7ec32f8802e64e7de90e",
+          "reason": "Full current Main Content (Summary, Scope, Claim, and Details heading) was read for CA-R-1014; it is the current meaning evidence for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1014-CORE_META_MODEL-CORE-REQUIREMENT--resolve-atom-scope-contextually.md#subjects.depends_on[2]",
+      "old_value": "Operator",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1014",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1014-CORE_META_MODEL-CORE-REQUIREMENT--resolve-atom-scope-contextually.md",
+      "source_sha256": "57013a4e165d493701cb180a4cc32df85c8aa79373b2ec503e3b4e5dd1c4352e",
+      "source_version": 18,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "CA-R-1014 uses Operator as an Author-registered fallback role. The candidate lists Operator as an Actor Type example, but establishes no Actor property or admitted allowed-value domain for a candidate Subject; 'Actor: Operator' would therefore apply a value directly to a root.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact original Subject text is retained.",
+        "No grammar, ownership, allowed-value, carrier, or native-admission change is made."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1014-CORE_META_MODEL-CORE-REQUIREMENT--resolve-atom-scope-contextually.md",
+          "sha256": "57013a4e165d493701cb180a4cc32df85c8aa79373b2ec503e3b4e5dd1c4352e",
+          "start_line": 24,
+          "end_line": 36,
+          "span_sha256": "f003adc896e74bb23f53d801f32e0c9216a03867e0ce7ec32f8802e64e7de90e",
+          "reason": "Full current Main Content (Summary, Scope, Claim, and Details heading) was read for CA-R-1014; it is the current meaning evidence for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 3,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1014-CORE_META_MODEL-CORE-REQUIREMENT--resolve-atom-scope-contextually.md#subjects.depends_on[3]",
+      "old_value": "Atom/Governed Subject",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1014",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1014-CORE_META_MODEL-CORE-REQUIREMENT--resolve-atom-scope-contextually.md",
+      "source_sha256": "57013a4e165d493701cb180a4cc32df85c8aa79373b2ec503e3b4e5dd1c4352e",
+      "source_version": 18,
+      "decision": "proposed",
+      "proposed_value": "Atom.Governed Subject",
+      "confidence": 0.9,
+      "reason": "CA-R-1014's current Claim requires exactly one Atom Governed Subject. The candidate's dependent-entity identity is an owner selector plus dependent field, and its Scope rule explicitly retains the whole governed Subject, supporting this qualified Atom field.",
+      "candidate_basis": [
+        {
+          "pointer": "/entity_identity_model/dependent_entity/identity",
+          "reason": "A dependent Entity identity is owner selector plus dependent field."
+        },
+        {
+          "pointer": "/entity_identity_model/dependent_entity/meaning",
+          "reason": "The candidate describes selecting an Atom then its dependent field."
+        },
+        {
+          "pointer": "/content_direction/scope_omission",
+          "reason": "The confirmed Scope rule retains the whole governed Subject."
+        }
+      ],
+      "preserved_distinctions": [
+        "The required cardinality of one governed Subject is retained.",
+        "Governed Subject remains distinct from Scope Unit Scope and Claim restrictions."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1014-CORE_META_MODEL-CORE-REQUIREMENT--resolve-atom-scope-contextually.md",
+          "sha256": "57013a4e165d493701cb180a4cc32df85c8aa79373b2ec503e3b4e5dd1c4352e",
+          "start_line": 24,
+          "end_line": 36,
+          "span_sha256": "f003adc896e74bb23f53d801f32e0c9216a03867e0ce7ec32f8802e64e7de90e",
+          "reason": "Full current Main Content (Summary, Scope, Claim, and Details heading) was read for CA-R-1014; it is the current meaning evidence for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 4,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1014-CORE_META_MODEL-CORE-REQUIREMENT--resolve-atom-scope-contextually.md#subjects.depends_on[4]",
+      "old_value": "Atom/Claim",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1014",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1014-CORE_META_MODEL-CORE-REQUIREMENT--resolve-atom-scope-contextually.md",
+      "source_sha256": "57013a4e165d493701cb180a4cc32df85c8aa79373b2ec503e3b4e5dd1c4352e",
+      "source_version": 18,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "CA-R-1014 treats explicit Claim constraints as one contribution to the composite Atom Scope. The candidate names Substance as an umbrella and Claim as a role label, but does not establish Claim as an admitted Atom.Substance value or prove that this legacy field is that property; the proposed colon binding would invent both.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Claim constraints remain distinct from Scope and from the Atom's governing Subject.",
+        "No Substance-path or body-key rename is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1014-CORE_META_MODEL-CORE-REQUIREMENT--resolve-atom-scope-contextually.md",
+          "sha256": "57013a4e165d493701cb180a4cc32df85c8aa79373b2ec503e3b4e5dd1c4352e",
+          "start_line": 24,
+          "end_line": 36,
+          "span_sha256": "f003adc896e74bb23f53d801f32e0c9216a03867e0ce7ec32f8802e64e7de90e",
+          "reason": "Full current Main Content (Summary, Scope, Claim, and Details heading) was read for CA-R-1014; it is the current meaning evidence for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1014-CORE_META_MODEL-CORE-REQUIREMENT--resolve-atom-scope-contextually.md#subjects.governs",
+      "old_value": "Atom/Scope",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1014",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1014-CORE_META_MODEL-CORE-REQUIREMENT--resolve-atom-scope-contextually.md",
+      "source_sha256": "57013a4e165d493701cb180a4cc32df85c8aa79373b2ec503e3b4e5dd1c4352e",
+      "source_version": 18,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "CA-R-1014 defines Atom Scope as a composite of Scope Unit Scope or Operator fallback, one governed Subject, and explicit Claim constraints. The candidate separates ownership Scope Unit from Substance Scope applicability but does not supply one field that preserves this composite meaning.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Atom Scope retains its Scope Unit, governed Subject, and explicit Claim contributions.",
+        "Substance Scope applicability is not substituted for ownership or scope."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1014-CORE_META_MODEL-CORE-REQUIREMENT--resolve-atom-scope-contextually.md",
+          "sha256": "57013a4e165d493701cb180a4cc32df85c8aa79373b2ec503e3b4e5dd1c4352e",
+          "start_line": 24,
+          "end_line": 36,
+          "span_sha256": "f003adc896e74bb23f53d801f32e0c9216a03867e0ce7ec32f8802e64e7de90e",
+          "reason": "Full current Main Content (Summary, Scope, Claim, and Details heading) was read for CA-R-1014; it is the current meaning evidence for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1016-CORE_META_MODEL-CORE-REQUIREMENT--register-rationale-for-relation.md#subjects.depends_on[0]",
+      "old_value": "atom-boundary",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1016",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1016-CORE_META_MODEL-CORE-REQUIREMENT--register-rationale-for-relation.md",
+      "source_sha256": "c868694504380f16322a07a3b7568b16b6d519010e8a19459208f6196d90164f",
+      "source_version": 15,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "CA-R-1016's current Main Content can use an Atom as a relation endpoint, but it does not identify the legacy topic label 'atom-boundary' as the Artifact/Atom Entity identity. The candidate's compact Artifact/Atom example cannot prove that alias or preserve the boundary/topic qualification.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The legacy atom-boundary reference remains exact and pathless.",
+        "No Artifact/Atom display path or new native identity is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1016-CORE_META_MODEL-CORE-REQUIREMENT--register-rationale-for-relation.md",
+          "sha256": "c868694504380f16322a07a3b7568b16b6d519010e8a19459208f6196d90164f",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "17d7fb0dd186984491d850a936ea8d2e41ea21e11a16c98f3104f208bb7663be",
+          "reason": "Full current Main Content (Summary, Scope, Claim, and Details heading) was read for CA-R-1016; it is the current meaning evidence for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1016-CORE_META_MODEL-CORE-REQUIREMENT--register-rationale-for-relation.md#subjects.depends_on[1]",
+      "old_value": "relation-model",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1016",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1016-CORE_META_MODEL-CORE-REQUIREMENT--register-rationale-for-relation.md",
+      "source_sha256": "c868694504380f16322a07a3b7568b16b6d519010e8a19459208f6196d90164f",
+      "source_version": 15,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "CA-R-1016's current Main Content can define a relation rule, but it does not establish that the broad legacy topic 'relation-model' is the candidate Relation identity. The root list and generic typed-relation model do not prove an alias.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The broad relation-model reference remains exact and pathless.",
+        "Typed-relation endpoints and ownership are not collapsed into a root label."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1016-CORE_META_MODEL-CORE-REQUIREMENT--register-rationale-for-relation.md",
+          "sha256": "c868694504380f16322a07a3b7568b16b6d519010e8a19459208f6196d90164f",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "17d7fb0dd186984491d850a936ea8d2e41ea21e11a16c98f3104f208bb7663be",
+          "reason": "Full current Main Content (Summary, Scope, Claim, and Details heading) was read for CA-R-1016; it is the current meaning evidence for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1016-CORE_META_MODEL-CORE-REQUIREMENT--register-rationale-for-relation.md#subjects.governs",
+      "old_value": "Rationale For Relation",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1016",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1016-CORE_META_MODEL-CORE-REQUIREMENT--register-rationale-for-relation.md",
+      "source_sha256": "c868694504380f16322a07a3b7568b16b6d519010e8a19459208f6196d90164f",
+      "source_version": 15,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "CA-R-1016's current Main Content names 'Rationale For Relation' as a distinct direct relation meaning, but the candidate does not establish a Relation property that owns this relation-kind domain or admit this value there. 'Relation: \u2026' would apply an allowed value to a root and invent that missing binding.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The named direct-relation meaning remains distinct from other relation kinds.",
+        "Owner, direction, target cardinality, and inverse-derived status are retained where stated."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1016-CORE_META_MODEL-CORE-REQUIREMENT--register-rationale-for-relation.md",
+          "sha256": "c868694504380f16322a07a3b7568b16b6d519010e8a19459208f6196d90164f",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "17d7fb0dd186984491d850a936ea8d2e41ea21e11a16c98f3104f208bb7663be",
+          "reason": "Full current Main Content (Summary, Scope, Claim, and Details heading) was read for CA-R-1016; it is the current meaning evidence for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1017-CORE_META_MODEL-CORE-REQUIREMENT--register-method-for-relation.md#subjects.depends_on[0]",
+      "old_value": "atom-boundary",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1017",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1017-CORE_META_MODEL-CORE-REQUIREMENT--register-method-for-relation.md",
+      "source_sha256": "47ed84b2bf2d5f09dee59e284c018bc96ac6c2e581768079931020841ee02742",
+      "source_version": 15,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "CA-R-1017's current Main Content can use an Atom as a relation endpoint, but it does not identify the legacy topic label 'atom-boundary' as the Artifact/Atom Entity identity. The candidate's compact Artifact/Atom example cannot prove that alias or preserve the boundary/topic qualification.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The legacy atom-boundary reference remains exact and pathless.",
+        "No Artifact/Atom display path or new native identity is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1017-CORE_META_MODEL-CORE-REQUIREMENT--register-method-for-relation.md",
+          "sha256": "47ed84b2bf2d5f09dee59e284c018bc96ac6c2e581768079931020841ee02742",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "d8cde810de695f7c74f7c0f23bc0fbd0383813775ab6371b0bba67f870c24d11",
+          "reason": "Full current Main Content (Summary, Scope, Claim, and Details heading) was read for CA-R-1017; it is the current meaning evidence for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1017-CORE_META_MODEL-CORE-REQUIREMENT--register-method-for-relation.md#subjects.depends_on[1]",
+      "old_value": "relation-model",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1017",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1017-CORE_META_MODEL-CORE-REQUIREMENT--register-method-for-relation.md",
+      "source_sha256": "47ed84b2bf2d5f09dee59e284c018bc96ac6c2e581768079931020841ee02742",
+      "source_version": 15,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "CA-R-1017's current Main Content can define a relation rule, but it does not establish that the broad legacy topic 'relation-model' is the candidate Relation identity. The root list and generic typed-relation model do not prove an alias.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The broad relation-model reference remains exact and pathless.",
+        "Typed-relation endpoints and ownership are not collapsed into a root label."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1017-CORE_META_MODEL-CORE-REQUIREMENT--register-method-for-relation.md",
+          "sha256": "47ed84b2bf2d5f09dee59e284c018bc96ac6c2e581768079931020841ee02742",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "d8cde810de695f7c74f7c0f23bc0fbd0383813775ab6371b0bba67f870c24d11",
+          "reason": "Full current Main Content (Summary, Scope, Claim, and Details heading) was read for CA-R-1017; it is the current meaning evidence for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1017-CORE_META_MODEL-CORE-REQUIREMENT--register-method-for-relation.md#subjects.governs",
+      "old_value": "Method For Relation",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1017",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1017-CORE_META_MODEL-CORE-REQUIREMENT--register-method-for-relation.md",
+      "source_sha256": "47ed84b2bf2d5f09dee59e284c018bc96ac6c2e581768079931020841ee02742",
+      "source_version": 15,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "CA-R-1017's current Main Content names 'Method For Relation' as a distinct direct relation meaning, but the candidate does not establish a Relation property that owns this relation-kind domain or admit this value there. 'Relation: \u2026' would apply an allowed value to a root and invent that missing binding.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The named direct-relation meaning remains distinct from other relation kinds.",
+        "Owner, direction, target cardinality, and inverse-derived status are retained where stated."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1017-CORE_META_MODEL-CORE-REQUIREMENT--register-method-for-relation.md",
+          "sha256": "47ed84b2bf2d5f09dee59e284c018bc96ac6c2e581768079931020841ee02742",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "d8cde810de695f7c74f7c0f23bc0fbd0383813775ab6371b0bba67f870c24d11",
+          "reason": "Full current Main Content (Summary, Scope, Claim, and Details heading) was read for CA-R-1017; it is the current meaning evidence for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1018-CORE_META_MODEL-CORE--register-evaluation-targets.md#subjects.depends_on[0]",
+      "old_value": "Atom/Content Role: Evaluation",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1018",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1018-CORE_META_MODEL-CORE--register-evaluation-targets.md",
+      "source_sha256": "82d35b5486d370f1db60aea0b8eb8a417685f08a210ddd9db4ad2916634f4756",
+      "source_version": 17,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "CA-R-1018 defines a qualified Content Role domain of Evaluation, Requirement, Method, Delivery, and Operations for evaluation targets. The candidate confirms M/E views and Substance direction but does not establish a Content Role field or this complete allowed-value domain; a Substance-role replacement would collapse it.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Content Role allowed value 'Evaluation' remains qualified rather than collapsed.",
+        "Evaluation target authority and Local Tier distinctions remain separate."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1018-CORE_META_MODEL-CORE--register-evaluation-targets.md",
+          "sha256": "82d35b5486d370f1db60aea0b8eb8a417685f08a210ddd9db4ad2916634f4756",
+          "start_line": 23,
+          "end_line": 40,
+          "span_sha256": "29d612199411ad8bee57ca3fc652830d21c7c45a5ea82ad15429902fa4bd712d",
+          "reason": "Full current Main Content (Summary, Scope, Claim, and Details heading) was read for CA-R-1018; it is the current meaning evidence for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1018-CORE_META_MODEL-CORE--register-evaluation-targets.md#subjects.depends_on[1]",
+      "old_value": "Atom/Content Role: Requirement",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1018",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1018-CORE_META_MODEL-CORE--register-evaluation-targets.md",
+      "source_sha256": "82d35b5486d370f1db60aea0b8eb8a417685f08a210ddd9db4ad2916634f4756",
+      "source_version": 17,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "CA-R-1018 defines a qualified Content Role domain of Evaluation, Requirement, Method, Delivery, and Operations for evaluation targets. The candidate confirms M/E views and Substance direction but does not establish a Content Role field or this complete allowed-value domain; a Substance-role replacement would collapse it.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Content Role allowed value 'Requirement' remains qualified rather than collapsed.",
+        "Evaluation target authority and Local Tier distinctions remain separate."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1018-CORE_META_MODEL-CORE--register-evaluation-targets.md",
+          "sha256": "82d35b5486d370f1db60aea0b8eb8a417685f08a210ddd9db4ad2916634f4756",
+          "start_line": 23,
+          "end_line": 40,
+          "span_sha256": "29d612199411ad8bee57ca3fc652830d21c7c45a5ea82ad15429902fa4bd712d",
+          "reason": "Full current Main Content (Summary, Scope, Claim, and Details heading) was read for CA-R-1018; it is the current meaning evidence for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1018-CORE_META_MODEL-CORE--register-evaluation-targets.md#subjects.depends_on[2]",
+      "old_value": "Atom/Content Role: Method",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1018",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1018-CORE_META_MODEL-CORE--register-evaluation-targets.md",
+      "source_sha256": "82d35b5486d370f1db60aea0b8eb8a417685f08a210ddd9db4ad2916634f4756",
+      "source_version": 17,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "CA-R-1018 defines a qualified Content Role domain of Evaluation, Requirement, Method, Delivery, and Operations for evaluation targets. The candidate confirms M/E views and Substance direction but does not establish a Content Role field or this complete allowed-value domain; a Substance-role replacement would collapse it.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Content Role allowed value 'Method' remains qualified rather than collapsed.",
+        "Evaluation target authority and Local Tier distinctions remain separate."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1018-CORE_META_MODEL-CORE--register-evaluation-targets.md",
+          "sha256": "82d35b5486d370f1db60aea0b8eb8a417685f08a210ddd9db4ad2916634f4756",
+          "start_line": 23,
+          "end_line": 40,
+          "span_sha256": "29d612199411ad8bee57ca3fc652830d21c7c45a5ea82ad15429902fa4bd712d",
+          "reason": "Full current Main Content (Summary, Scope, Claim, and Details heading) was read for CA-R-1018; it is the current meaning evidence for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 3,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1018-CORE_META_MODEL-CORE--register-evaluation-targets.md#subjects.depends_on[3]",
+      "old_value": "Atom/Content Role: Delivery",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1018",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1018-CORE_META_MODEL-CORE--register-evaluation-targets.md",
+      "source_sha256": "82d35b5486d370f1db60aea0b8eb8a417685f08a210ddd9db4ad2916634f4756",
+      "source_version": 17,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "CA-R-1018 defines a qualified Content Role domain of Evaluation, Requirement, Method, Delivery, and Operations for evaluation targets. The candidate confirms M/E views and Substance direction but does not establish a Content Role field or this complete allowed-value domain; a Substance-role replacement would collapse it.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Content Role allowed value 'Delivery' remains qualified rather than collapsed.",
+        "Evaluation target authority and Local Tier distinctions remain separate."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1018-CORE_META_MODEL-CORE--register-evaluation-targets.md",
+          "sha256": "82d35b5486d370f1db60aea0b8eb8a417685f08a210ddd9db4ad2916634f4756",
+          "start_line": 23,
+          "end_line": 40,
+          "span_sha256": "29d612199411ad8bee57ca3fc652830d21c7c45a5ea82ad15429902fa4bd712d",
+          "reason": "Full current Main Content (Summary, Scope, Claim, and Details heading) was read for CA-R-1018; it is the current meaning evidence for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 4,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1018-CORE_META_MODEL-CORE--register-evaluation-targets.md#subjects.depends_on[4]",
+      "old_value": "Atom/Content Role: Operations",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1018",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1018-CORE_META_MODEL-CORE--register-evaluation-targets.md",
+      "source_sha256": "82d35b5486d370f1db60aea0b8eb8a417685f08a210ddd9db4ad2916634f4756",
+      "source_version": 17,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "CA-R-1018 defines a qualified Content Role domain of Evaluation, Requirement, Method, Delivery, and Operations for evaluation targets. The candidate confirms M/E views and Substance direction but does not establish a Content Role field or this complete allowed-value domain; a Substance-role replacement would collapse it.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Content Role allowed value 'Operations' remains qualified rather than collapsed.",
+        "Evaluation target authority and Local Tier distinctions remain separate."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1018-CORE_META_MODEL-CORE--register-evaluation-targets.md",
+          "sha256": "82d35b5486d370f1db60aea0b8eb8a417685f08a210ddd9db4ad2916634f4756",
+          "start_line": 23,
+          "end_line": 40,
+          "span_sha256": "29d612199411ad8bee57ca3fc652830d21c7c45a5ea82ad15429902fa4bd712d",
+          "reason": "Full current Main Content (Summary, Scope, Claim, and Details heading) was read for CA-R-1018; it is the current meaning evidence for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 5,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1018-CORE_META_MODEL-CORE--register-evaluation-targets.md#subjects.depends_on[5]",
+      "old_value": "Atom/Local Tier",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1018",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1018-CORE_META_MODEL-CORE--register-evaluation-targets.md",
+      "source_sha256": "82d35b5486d370f1db60aea0b8eb8a417685f08a210ddd9db4ad2916634f4756",
+      "source_version": 17,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "CA-R-1018 distinguishes Standard Evaluation target obligations from Core/General representation-independent policy. The candidate does not establish a Local Tier dependent-field identity, so Atom.Local Tier would be an unsupported dot binding.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Local Tier remains distinct from Content Role and relation target qualification.",
+        "Standard versus Core/General behavior is retained without a storage-key rename."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1018-CORE_META_MODEL-CORE--register-evaluation-targets.md",
+          "sha256": "82d35b5486d370f1db60aea0b8eb8a417685f08a210ddd9db4ad2916634f4756",
+          "start_line": 23,
+          "end_line": 40,
+          "span_sha256": "29d612199411ad8bee57ca3fc652830d21c7c45a5ea82ad15429902fa4bd712d",
+          "reason": "Full current Main Content (Summary, Scope, Claim, and Details heading) was read for CA-R-1018; it is the current meaning evidence for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1018-CORE_META_MODEL-CORE--register-evaluation-targets.md#subjects.governs",
+      "old_value": "Evaluation For Relation",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1018",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1018-CORE_META_MODEL-CORE--register-evaluation-targets.md",
+      "source_sha256": "82d35b5486d370f1db60aea0b8eb8a417685f08a210ddd9db4ad2916634f4756",
+      "source_version": 17,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "CA-R-1018's current Main Content names 'Evaluation For Relation' as a distinct direct relation meaning, but the candidate does not establish a Relation property that owns this relation-kind domain or admit this value there. 'Relation: \u2026' would apply an allowed value to a root and invent that missing binding.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The named direct-relation meaning remains distinct from other relation kinds.",
+        "Owner, direction, target cardinality, and inverse-derived status are retained where stated."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1018-CORE_META_MODEL-CORE--register-evaluation-targets.md",
+          "sha256": "82d35b5486d370f1db60aea0b8eb8a417685f08a210ddd9db4ad2916634f4756",
+          "start_line": 23,
+          "end_line": 40,
+          "span_sha256": "29d612199411ad8bee57ca3fc652830d21c7c45a5ea82ad15429902fa4bd712d",
+          "reason": "Full current Main Content (Summary, Scope, Claim, and Details heading) was read for CA-R-1018; it is the current meaning evidence for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1019-CORE_META_MODEL-CORE--register-delivery-for-relation.md#subjects.depends_on[0]",
+      "old_value": "atom-boundary",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1019",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1019-CORE_META_MODEL-CORE--register-delivery-for-relation.md",
+      "source_sha256": "cfbd19f8872f5934a80d1ee8c8d754de19c847ed6a89923c886dc437957ea468",
+      "source_version": 15,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "CA-R-1019's current Main Content can use an Atom as a relation endpoint, but it does not identify the legacy topic label 'atom-boundary' as the Artifact/Atom Entity identity. The candidate's compact Artifact/Atom example cannot prove that alias or preserve the boundary/topic qualification.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The legacy atom-boundary reference remains exact and pathless.",
+        "No Artifact/Atom display path or new native identity is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1019-CORE_META_MODEL-CORE--register-delivery-for-relation.md",
+          "sha256": "cfbd19f8872f5934a80d1ee8c8d754de19c847ed6a89923c886dc437957ea468",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "0fa6a86aea1c686da9351b698dcd028dd234a1c121f8ba33cbd85bf51a6162f2",
+          "reason": "Full current Main Content (Summary, Scope, Claim, and Details heading) was read for CA-R-1019; it is the current meaning evidence for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1019-CORE_META_MODEL-CORE--register-delivery-for-relation.md#subjects.depends_on[1]",
+      "old_value": "relation-model",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1019",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1019-CORE_META_MODEL-CORE--register-delivery-for-relation.md",
+      "source_sha256": "cfbd19f8872f5934a80d1ee8c8d754de19c847ed6a89923c886dc437957ea468",
+      "source_version": 15,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "CA-R-1019's current Main Content can define a relation rule, but it does not establish that the broad legacy topic 'relation-model' is the candidate Relation identity. The root list and generic typed-relation model do not prove an alias.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The broad relation-model reference remains exact and pathless.",
+        "Typed-relation endpoints and ownership are not collapsed into a root label."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1019-CORE_META_MODEL-CORE--register-delivery-for-relation.md",
+          "sha256": "cfbd19f8872f5934a80d1ee8c8d754de19c847ed6a89923c886dc437957ea468",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "0fa6a86aea1c686da9351b698dcd028dd234a1c121f8ba33cbd85bf51a6162f2",
+          "reason": "Full current Main Content (Summary, Scope, Claim, and Details heading) was read for CA-R-1019; it is the current meaning evidence for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1019-CORE_META_MODEL-CORE--register-delivery-for-relation.md#subjects.governs",
+      "old_value": "Delivery For Relation",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1019",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1019-CORE_META_MODEL-CORE--register-delivery-for-relation.md",
+      "source_sha256": "cfbd19f8872f5934a80d1ee8c8d754de19c847ed6a89923c886dc437957ea468",
+      "source_version": 15,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "CA-R-1019's current Main Content names 'Delivery For Relation' as a distinct direct relation meaning, but the candidate does not establish a Relation property that owns this relation-kind domain or admit this value there. 'Relation: \u2026' would apply an allowed value to a root and invent that missing binding.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The named direct-relation meaning remains distinct from other relation kinds.",
+        "Owner, direction, target cardinality, and inverse-derived status are retained where stated."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1019-CORE_META_MODEL-CORE--register-delivery-for-relation.md",
+          "sha256": "cfbd19f8872f5934a80d1ee8c8d754de19c847ed6a89923c886dc437957ea468",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "0fa6a86aea1c686da9351b698dcd028dd234a1c121f8ba33cbd85bf51a6162f2",
+          "reason": "Full current Main Content (Summary, Scope, Claim, and Details heading) was read for CA-R-1019; it is the current meaning evidence for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1020-CORE_META_MODEL-CORE--register-implementation-of-relation.md#subjects.depends_on[0]",
+      "old_value": "atom-boundary",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1020",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1020-CORE_META_MODEL-CORE--register-implementation-of-relation.md",
+      "source_sha256": "4829c83f1e2f7a2dea0859141d472ad1dc0f4aa235e2f507ed0ad57359421b09",
+      "source_version": 15,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "CA-R-1020's current Main Content can use an Atom as a relation endpoint, but it does not identify the legacy topic label 'atom-boundary' as the Artifact/Atom Entity identity. The candidate's compact Artifact/Atom example cannot prove that alias or preserve the boundary/topic qualification.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The legacy atom-boundary reference remains exact and pathless.",
+        "No Artifact/Atom display path or new native identity is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1020-CORE_META_MODEL-CORE--register-implementation-of-relation.md",
+          "sha256": "4829c83f1e2f7a2dea0859141d472ad1dc0f4aa235e2f507ed0ad57359421b09",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "2d8f2fea4e0d6c97692ffc30b0527f0fb04577147d60455d24c4ecd8536ac5cf",
+          "reason": "Full current Main Content (Summary, Scope, Claim, and Details heading) was read for CA-R-1020; it is the current meaning evidence for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1020-CORE_META_MODEL-CORE--register-implementation-of-relation.md#subjects.depends_on[1]",
+      "old_value": "relation-model",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1020",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1020-CORE_META_MODEL-CORE--register-implementation-of-relation.md",
+      "source_sha256": "4829c83f1e2f7a2dea0859141d472ad1dc0f4aa235e2f507ed0ad57359421b09",
+      "source_version": 15,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "CA-R-1020's current Main Content can define a relation rule, but it does not establish that the broad legacy topic 'relation-model' is the candidate Relation identity. The root list and generic typed-relation model do not prove an alias.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The broad relation-model reference remains exact and pathless.",
+        "Typed-relation endpoints and ownership are not collapsed into a root label."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1020-CORE_META_MODEL-CORE--register-implementation-of-relation.md",
+          "sha256": "4829c83f1e2f7a2dea0859141d472ad1dc0f4aa235e2f507ed0ad57359421b09",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "2d8f2fea4e0d6c97692ffc30b0527f0fb04577147d60455d24c4ecd8536ac5cf",
+          "reason": "Full current Main Content (Summary, Scope, Claim, and Details heading) was read for CA-R-1020; it is the current meaning evidence for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1020-CORE_META_MODEL-CORE--register-implementation-of-relation.md#subjects.governs",
+      "old_value": "Implementation Of Relation",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1020",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1020-CORE_META_MODEL-CORE--register-implementation-of-relation.md",
+      "source_sha256": "4829c83f1e2f7a2dea0859141d472ad1dc0f4aa235e2f507ed0ad57359421b09",
+      "source_version": 15,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "CA-R-1020's current Main Content names 'Implementation Of Relation' as a distinct direct relation meaning, but the candidate does not establish a Relation property that owns this relation-kind domain or admit this value there. 'Relation: \u2026' would apply an allowed value to a root and invent that missing binding.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The named direct-relation meaning remains distinct from other relation kinds.",
+        "Owner, direction, target cardinality, and inverse-derived status are retained where stated."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1020-CORE_META_MODEL-CORE--register-implementation-of-relation.md",
+          "sha256": "4829c83f1e2f7a2dea0859141d472ad1dc0f4aa235e2f507ed0ad57359421b09",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "2d8f2fea4e0d6c97692ffc30b0527f0fb04577147d60455d24c4ecd8536ac5cf",
+          "reason": "Full current Main Content (Summary, Scope, Claim, and Details heading) was read for CA-R-1020; it is the current meaning evidence for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1021-CORE_META_MODEL-CORE--register-evidence-for-relation.md#subjects.depends_on[0]",
+      "old_value": "atom-boundary",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1021",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1021-CORE_META_MODEL-CORE--register-evidence-for-relation.md",
+      "source_sha256": "7159e2c54e62e08714e5d07a84558c67ab19bd9f4f1ad2deccc598e31e69ecac",
+      "source_version": 15,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "CA-R-1021's current Main Content can use an Atom as a relation endpoint, but it does not identify the legacy topic label 'atom-boundary' as the Artifact/Atom Entity identity. The candidate's compact Artifact/Atom example cannot prove that alias or preserve the boundary/topic qualification.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The legacy atom-boundary reference remains exact and pathless.",
+        "No Artifact/Atom display path or new native identity is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1021-CORE_META_MODEL-CORE--register-evidence-for-relation.md",
+          "sha256": "7159e2c54e62e08714e5d07a84558c67ab19bd9f4f1ad2deccc598e31e69ecac",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "956f14a3d2bd9c42a7b9c5600bef656fe2e43ced0ba724b797a896eae02ea38c",
+          "reason": "Full current Main Content (Summary, Scope, Claim, and Details heading) was read for CA-R-1021; it is the current meaning evidence for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1021-CORE_META_MODEL-CORE--register-evidence-for-relation.md#subjects.depends_on[1]",
+      "old_value": "relation-model",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1021",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1021-CORE_META_MODEL-CORE--register-evidence-for-relation.md",
+      "source_sha256": "7159e2c54e62e08714e5d07a84558c67ab19bd9f4f1ad2deccc598e31e69ecac",
+      "source_version": 15,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "CA-R-1021's current Main Content can define a relation rule, but it does not establish that the broad legacy topic 'relation-model' is the candidate Relation identity. The root list and generic typed-relation model do not prove an alias.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The broad relation-model reference remains exact and pathless.",
+        "Typed-relation endpoints and ownership are not collapsed into a root label."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1021-CORE_META_MODEL-CORE--register-evidence-for-relation.md",
+          "sha256": "7159e2c54e62e08714e5d07a84558c67ab19bd9f4f1ad2deccc598e31e69ecac",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "956f14a3d2bd9c42a7b9c5600bef656fe2e43ced0ba724b797a896eae02ea38c",
+          "reason": "Full current Main Content (Summary, Scope, Claim, and Details heading) was read for CA-R-1021; it is the current meaning evidence for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1021-CORE_META_MODEL-CORE--register-evidence-for-relation.md#subjects.governs",
+      "old_value": "Evidence For Relation",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1021",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1021-CORE_META_MODEL-CORE--register-evidence-for-relation.md",
+      "source_sha256": "7159e2c54e62e08714e5d07a84558c67ab19bd9f4f1ad2deccc598e31e69ecac",
+      "source_version": 15,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "CA-R-1021's current Main Content names 'Evidence For Relation' as a distinct direct relation meaning, but the candidate does not establish a Relation property that owns this relation-kind domain or admit this value there. 'Relation: \u2026' would apply an allowed value to a root and invent that missing binding.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The named direct-relation meaning remains distinct from other relation kinds.",
+        "Owner, direction, target cardinality, and inverse-derived status are retained where stated."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1021-CORE_META_MODEL-CORE--register-evidence-for-relation.md",
+          "sha256": "7159e2c54e62e08714e5d07a84558c67ab19bd9f4f1ad2deccc598e31e69ecac",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "956f14a3d2bd9c42a7b9c5600bef656fe2e43ced0ba724b797a896eae02ea38c",
+          "reason": "Full current Main Content (Summary, Scope, Claim, and Details heading) was read for CA-R-1021; it is the current meaning evidence for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1022-CORE_META_MODEL-CORE--register-concern-about-relation.md#subjects.depends_on[0]",
+      "old_value": "atom-boundary",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1022",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1022-CORE_META_MODEL-CORE--register-concern-about-relation.md",
+      "source_sha256": "6c2e6e85899db0e6f35f609ff57a7e47977b7d126f29f130b1e123170b0bee5e",
+      "source_version": 15,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "CA-R-1022's current Main Content can use an Atom as a relation endpoint, but it does not identify the legacy topic label 'atom-boundary' as the Artifact/Atom Entity identity. The candidate's compact Artifact/Atom example cannot prove that alias or preserve the boundary/topic qualification.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The legacy atom-boundary reference remains exact and pathless.",
+        "No Artifact/Atom display path or new native identity is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1022-CORE_META_MODEL-CORE--register-concern-about-relation.md",
+          "sha256": "6c2e6e85899db0e6f35f609ff57a7e47977b7d126f29f130b1e123170b0bee5e",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "191f32681121f0dd196e0bfd586079d0ca4edb65f7e98e23c9f0da09b3de27d2",
+          "reason": "Full current Main Content (Summary, Scope, Claim, and Details heading) was read for CA-R-1022; it is the current meaning evidence for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1022-CORE_META_MODEL-CORE--register-concern-about-relation.md#subjects.depends_on[1]",
+      "old_value": "relation-model",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1022",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1022-CORE_META_MODEL-CORE--register-concern-about-relation.md",
+      "source_sha256": "6c2e6e85899db0e6f35f609ff57a7e47977b7d126f29f130b1e123170b0bee5e",
+      "source_version": 15,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "CA-R-1022's current Main Content can define a relation rule, but it does not establish that the broad legacy topic 'relation-model' is the candidate Relation identity. The root list and generic typed-relation model do not prove an alias.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The broad relation-model reference remains exact and pathless.",
+        "Typed-relation endpoints and ownership are not collapsed into a root label."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1022-CORE_META_MODEL-CORE--register-concern-about-relation.md",
+          "sha256": "6c2e6e85899db0e6f35f609ff57a7e47977b7d126f29f130b1e123170b0bee5e",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "191f32681121f0dd196e0bfd586079d0ca4edb65f7e98e23c9f0da09b3de27d2",
+          "reason": "Full current Main Content (Summary, Scope, Claim, and Details heading) was read for CA-R-1022; it is the current meaning evidence for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1022-CORE_META_MODEL-CORE--register-concern-about-relation.md#subjects.governs",
+      "old_value": "Concern About Relation",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1022",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1022-CORE_META_MODEL-CORE--register-concern-about-relation.md",
+      "source_sha256": "6c2e6e85899db0e6f35f609ff57a7e47977b7d126f29f130b1e123170b0bee5e",
+      "source_version": 15,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "CA-R-1022's current Main Content names 'Concern About Relation' as a distinct direct relation meaning, but the candidate does not establish a Relation property that owns this relation-kind domain or admit this value there. 'Relation: \u2026' would apply an allowed value to a root and invent that missing binding.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The named direct-relation meaning remains distinct from other relation kinds.",
+        "Owner, direction, target cardinality, and inverse-derived status are retained where stated."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1022-CORE_META_MODEL-CORE--register-concern-about-relation.md",
+          "sha256": "6c2e6e85899db0e6f35f609ff57a7e47977b7d126f29f130b1e123170b0bee5e",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "191f32681121f0dd196e0bfd586079d0ca4edb65f7e98e23c9f0da09b3de27d2",
+          "reason": "Full current Main Content (Summary, Scope, Claim, and Details heading) was read for CA-R-1022; it is the current meaning evidence for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1023-CORE_META_MODEL-CORE--permit-distinct-direct-relations-on-one-atom.md#subjects.depends_on[0]",
+      "old_value": "atom-boundary",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1023",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1023-CORE_META_MODEL-CORE--permit-distinct-direct-relations-on-one-atom.md",
+      "source_sha256": "a9f9934990aa102a99c0820fe8d652ea4643a101bdbe96cf72f2d0a2c9c3271c",
+      "source_version": 13,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "CA-R-1023's current Main Content can use an Atom as a relation endpoint, but it does not identify the legacy topic label 'atom-boundary' as the Artifact/Atom Entity identity. The candidate's compact Artifact/Atom example cannot prove that alias or preserve the boundary/topic qualification.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The legacy atom-boundary reference remains exact and pathless.",
+        "No Artifact/Atom display path or new native identity is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1023-CORE_META_MODEL-CORE--permit-distinct-direct-relations-on-one-atom.md",
+          "sha256": "a9f9934990aa102a99c0820fe8d652ea4643a101bdbe96cf72f2d0a2c9c3271c",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "26a22a2f7cbde4022ac57379a1a334130aa9f5513338f5e19d93f8d96350e658",
+          "reason": "Full current Main Content (Summary, Scope, Claim, and Details heading) was read for CA-R-1023; it is the current meaning evidence for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1023-CORE_META_MODEL-CORE--permit-distinct-direct-relations-on-one-atom.md#subjects.governs",
+      "old_value": "relation-model",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1023",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1023-CORE_META_MODEL-CORE--permit-distinct-direct-relations-on-one-atom.md",
+      "source_sha256": "a9f9934990aa102a99c0820fe8d652ea4643a101bdbe96cf72f2d0a2c9c3271c",
+      "source_version": 13,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "CA-R-1023's current Main Content can define a relation rule, but it does not establish that the broad legacy topic 'relation-model' is the candidate Relation identity. The root list and generic typed-relation model do not prove an alias.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The broad relation-model reference remains exact and pathless.",
+        "Typed-relation endpoints and ownership are not collapsed into a root label."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1023-CORE_META_MODEL-CORE--permit-distinct-direct-relations-on-one-atom.md",
+          "sha256": "a9f9934990aa102a99c0820fe8d652ea4643a101bdbe96cf72f2d0a2c9c3271c",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "26a22a2f7cbde4022ac57379a1a334130aa9f5513338f5e19d93f8d96350e658",
+          "reason": "Full current Main Content (Summary, Scope, Claim, and Details heading) was read for CA-R-1023; it is the current meaning evidence for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1024-CORE_META_MODEL-CORE--prohibit-transitive-meaning-for-direct-relations.md#subjects.depends_on[0]",
+      "old_value": "atom-boundary",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1024",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1024-CORE_META_MODEL-CORE--prohibit-transitive-meaning-for-direct-relations.md",
+      "source_sha256": "391223e51330adad48b6bc532b7e07606a2f744e66063eaec56427e2beb24306",
+      "source_version": 14,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "CA-R-1024's current Main Content can use an Atom as a relation endpoint, but it does not identify the legacy topic label 'atom-boundary' as the Artifact/Atom Entity identity. The candidate's compact Artifact/Atom example cannot prove that alias or preserve the boundary/topic qualification.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The legacy atom-boundary reference remains exact and pathless.",
+        "No Artifact/Atom display path or new native identity is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1024-CORE_META_MODEL-CORE--prohibit-transitive-meaning-for-direct-relations.md",
+          "sha256": "391223e51330adad48b6bc532b7e07606a2f744e66063eaec56427e2beb24306",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "0a7e2d1c2813dfd65c7967cc9361625b120a53bce78aa19c430ab0a430e401e9",
+          "reason": "Full current Main Content (Summary, Scope, Claim, and Details heading) was read for CA-R-1024; it is the current meaning evidence for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1024-CORE_META_MODEL-CORE--prohibit-transitive-meaning-for-direct-relations.md#subjects.governs",
+      "old_value": "relation-model",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1024",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1024-CORE_META_MODEL-CORE--prohibit-transitive-meaning-for-direct-relations.md",
+      "source_sha256": "391223e51330adad48b6bc532b7e07606a2f744e66063eaec56427e2beb24306",
+      "source_version": 14,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "CA-R-1024's current Main Content can define a relation rule, but it does not establish that the broad legacy topic 'relation-model' is the candidate Relation identity. The root list and generic typed-relation model do not prove an alias.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The broad relation-model reference remains exact and pathless.",
+        "Typed-relation endpoints and ownership are not collapsed into a root label."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1024-CORE_META_MODEL-CORE--prohibit-transitive-meaning-for-direct-relations.md",
+          "sha256": "391223e51330adad48b6bc532b7e07606a2f744e66063eaec56427e2beb24306",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "0a7e2d1c2813dfd65c7967cc9361625b120a53bce78aa19c430ab0a430e401e9",
+          "reason": "Full current Main Content (Summary, Scope, Claim, and Details heading) was read for CA-R-1024; it is the current meaning evidence for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1025-CORE_META_MODEL-CORE--require-authority-for-new-relation-meanings.md#subjects.depends_on[0]",
+      "old_value": "atom-boundary",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1025",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1025-CORE_META_MODEL-CORE--require-authority-for-new-relation-meanings.md",
+      "source_sha256": "2a307c741ee02f711520182f3aee106627554fd089827aad2e3f7541aab8bc24",
+      "source_version": 14,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "CA-R-1025's current Main Content can use an Atom as a relation endpoint, but it does not identify the legacy topic label 'atom-boundary' as the Artifact/Atom Entity identity. The candidate's compact Artifact/Atom example cannot prove that alias or preserve the boundary/topic qualification.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The legacy atom-boundary reference remains exact and pathless.",
+        "No Artifact/Atom display path or new native identity is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1025-CORE_META_MODEL-CORE--require-authority-for-new-relation-meanings.md",
+          "sha256": "2a307c741ee02f711520182f3aee106627554fd089827aad2e3f7541aab8bc24",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "b672b01e419fdec42d89b1be6cd317cd6652edec1b419da2abb02f9a8b8061a5",
+          "reason": "Full current Main Content (Summary, Scope, Claim, and Details heading) was read for CA-R-1025; it is the current meaning evidence for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1025-CORE_META_MODEL-CORE--require-authority-for-new-relation-meanings.md#subjects.governs",
+      "old_value": "relation-model",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1025",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1025-CORE_META_MODEL-CORE--require-authority-for-new-relation-meanings.md",
+      "source_sha256": "2a307c741ee02f711520182f3aee106627554fd089827aad2e3f7541aab8bc24",
+      "source_version": 14,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "CA-R-1025's current Main Content can define a relation rule, but it does not establish that the broad legacy topic 'relation-model' is the candidate Relation identity. The root list and generic typed-relation model do not prove an alias.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The broad relation-model reference remains exact and pathless.",
+        "Typed-relation endpoints and ownership are not collapsed into a root label."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1025-CORE_META_MODEL-CORE--require-authority-for-new-relation-meanings.md",
+          "sha256": "2a307c741ee02f711520182f3aee106627554fd089827aad2e3f7541aab8bc24",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "b672b01e419fdec42d89b1be6cd317cd6652edec1b419da2abb02f9a8b8061a5",
+          "reason": "Full current Main Content (Summary, Scope, Claim, and Details heading) was read for CA-R-1025; it is the current meaning evidence for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1026-CORE_META_MODEL-CORE--register-depends-on-and-required-by-relation-pair.md#subjects.depends_on[0]",
+      "old_value": "atom-boundary",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1026",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1026-CORE_META_MODEL-CORE--register-depends-on-and-required-by-relation-pair.md",
+      "source_sha256": "e2e76fb76c3e5d47d8e9df3e56e48c6ca3381d006c1b70233b3ee5f0bdfd1cd7",
+      "source_version": 16,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "CA-R-1026's current Main Content can use an Atom as a relation endpoint, but it does not identify the legacy topic label 'atom-boundary' as the Artifact/Atom Entity identity. The candidate's compact Artifact/Atom example cannot prove that alias or preserve the boundary/topic qualification.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The legacy atom-boundary reference remains exact and pathless.",
+        "No Artifact/Atom display path or new native identity is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1026-CORE_META_MODEL-CORE--register-depends-on-and-required-by-relation-pair.md",
+          "sha256": "e2e76fb76c3e5d47d8e9df3e56e48c6ca3381d006c1b70233b3ee5f0bdfd1cd7",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "599394c8148fdaa4671c1a4f8768793342547efd53eeaaa14a6423cf129ae664",
+          "reason": "Full current Main Content (Summary, Scope, Claim, and Details heading) was read for CA-R-1026; it is the current meaning evidence for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1026-CORE_META_MODEL-CORE--register-depends-on-and-required-by-relation-pair.md#subjects.depends_on[1]",
+      "old_value": "relation-model",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1026",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1026-CORE_META_MODEL-CORE--register-depends-on-and-required-by-relation-pair.md",
+      "source_sha256": "e2e76fb76c3e5d47d8e9df3e56e48c6ca3381d006c1b70233b3ee5f0bdfd1cd7",
+      "source_version": 16,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "CA-R-1026's current Main Content can define a relation rule, but it does not establish that the broad legacy topic 'relation-model' is the candidate Relation identity. The root list and generic typed-relation model do not prove an alias.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The broad relation-model reference remains exact and pathless.",
+        "Typed-relation endpoints and ownership are not collapsed into a root label."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1026-CORE_META_MODEL-CORE--register-depends-on-and-required-by-relation-pair.md",
+          "sha256": "e2e76fb76c3e5d47d8e9df3e56e48c6ca3381d006c1b70233b3ee5f0bdfd1cd7",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "599394c8148fdaa4671c1a4f8768793342547efd53eeaaa14a6423cf129ae664",
+          "reason": "Full current Main Content (Summary, Scope, Claim, and Details heading) was read for CA-R-1026; it is the current meaning evidence for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1026-CORE_META_MODEL-CORE--register-depends-on-and-required-by-relation-pair.md#subjects.depends_on[2]",
+      "old_value": "Artifact",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1026",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1026-CORE_META_MODEL-CORE--register-depends-on-and-required-by-relation-pair.md",
+      "source_sha256": "e2e76fb76c3e5d47d8e9df3e56e48c6ca3381d006c1b70233b3ee5f0bdfd1cd7",
+      "source_version": 16,
+      "decision": "unchanged",
+      "proposed_value": "Artifact",
+      "confidence": 1.0,
+      "reason": "CA-R-1026's current Claim explicitly relates a dependent Artifact to a prerequisite Artifact, and Artifact is the candidate's exact root name.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The dependent-to-prerequisite direction is retained.",
+        "required_by remains the inverse-derived view, not a second primitive relation."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1026-CORE_META_MODEL-CORE--register-depends-on-and-required-by-relation-pair.md",
+          "sha256": "e2e76fb76c3e5d47d8e9df3e56e48c6ca3381d006c1b70233b3ee5f0bdfd1cd7",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "599394c8148fdaa4671c1a4f8768793342547efd53eeaaa14a6423cf129ae664",
+          "reason": "Full current Main Content (Summary, Scope, Claim, and Details heading) was read for CA-R-1026; it is the current meaning evidence for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1026-CORE_META_MODEL-CORE--register-depends-on-and-required-by-relation-pair.md#subjects.governs",
+      "old_value": "Dependency Relation Pair",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1026",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1026-CORE_META_MODEL-CORE--register-depends-on-and-required-by-relation-pair.md",
+      "source_sha256": "e2e76fb76c3e5d47d8e9df3e56e48c6ca3381d006c1b70233b3ee5f0bdfd1cd7",
+      "source_version": 16,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "CA-R-1026 defines depends_on together with required_by as its inverse-derived view. The candidate confirms constrained Relation Types but supplies no pair identity or serialization that retains both the declared direction and inverse-derived status.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The named direct-relation meaning remains distinct from other relation kinds.",
+        "Owner, direction, target cardinality, and inverse-derived status are retained where stated."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1026-CORE_META_MODEL-CORE--register-depends-on-and-required-by-relation-pair.md",
+          "sha256": "e2e76fb76c3e5d47d8e9df3e56e48c6ca3381d006c1b70233b3ee5f0bdfd1cd7",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "599394c8148fdaa4671c1a4f8768793342547efd53eeaaa14a6423cf129ae664",
+          "reason": "Full current Main Content (Summary, Scope, Claim, and Details heading) was read for CA-R-1026; it is the current meaning evidence for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1027-CORE_META_MODEL-CORE--register-implementation-of-and-implemented-by-relation-pair.md#subjects.depends_on[0]",
+      "old_value": "atom-boundary",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1027",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1027-CORE_META_MODEL-CORE--register-implementation-of-and-implemented-by-relation-pair.md",
+      "source_sha256": "da81db4a8fcf73c03994d815f3861a34fdbcc806b3db07d909ffbd98c372a20a",
+      "source_version": 15,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "CA-R-1027's current Main Content can use an Atom as a relation endpoint, but it does not identify the legacy topic label 'atom-boundary' as the Artifact/Atom Entity identity. The candidate's compact Artifact/Atom example cannot prove that alias or preserve the boundary/topic qualification.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The legacy atom-boundary reference remains exact and pathless.",
+        "No Artifact/Atom display path or new native identity is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1027-CORE_META_MODEL-CORE--register-implementation-of-and-implemented-by-relation-pair.md",
+          "sha256": "da81db4a8fcf73c03994d815f3861a34fdbcc806b3db07d909ffbd98c372a20a",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "0bbb719ebd0f233b30ca1c0eac7003a61c293dc8d2e32e2eb92fb5a67849dfee",
+          "reason": "Full current Main Content (Summary, Scope, Claim, and Details heading) was read for CA-R-1027; it is the current meaning evidence for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1027-CORE_META_MODEL-CORE--register-implementation-of-and-implemented-by-relation-pair.md#subjects.depends_on[1]",
+      "old_value": "relation-model",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1027",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1027-CORE_META_MODEL-CORE--register-implementation-of-and-implemented-by-relation-pair.md",
+      "source_sha256": "da81db4a8fcf73c03994d815f3861a34fdbcc806b3db07d909ffbd98c372a20a",
+      "source_version": 15,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "CA-R-1027's current Main Content can define a relation rule, but it does not establish that the broad legacy topic 'relation-model' is the candidate Relation identity. The root list and generic typed-relation model do not prove an alias.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The broad relation-model reference remains exact and pathless.",
+        "Typed-relation endpoints and ownership are not collapsed into a root label."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1027-CORE_META_MODEL-CORE--register-implementation-of-and-implemented-by-relation-pair.md",
+          "sha256": "da81db4a8fcf73c03994d815f3861a34fdbcc806b3db07d909ffbd98c372a20a",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "0bbb719ebd0f233b30ca1c0eac7003a61c293dc8d2e32e2eb92fb5a67849dfee",
+          "reason": "Full current Main Content (Summary, Scope, Claim, and Details heading) was read for CA-R-1027; it is the current meaning evidence for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1027-CORE_META_MODEL-CORE--register-implementation-of-and-implemented-by-relation-pair.md#subjects.governs",
+      "old_value": "Implementation Relation Pair",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1027",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1027-CORE_META_MODEL-CORE--register-implementation-of-and-implemented-by-relation-pair.md",
+      "source_sha256": "da81db4a8fcf73c03994d815f3861a34fdbcc806b3db07d909ffbd98c372a20a",
+      "source_version": 15,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "CA-R-1027 defines implementation_of together with the inverse-derived implemented_by in the realization ordering domain. The candidate supplies no relation-pair target; mapping only the upstream kind would drop the inverse qualification.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The named direct-relation meaning remains distinct from other relation kinds.",
+        "Owner, direction, target cardinality, and inverse-derived status are retained where stated."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1027-CORE_META_MODEL-CORE--register-implementation-of-and-implemented-by-relation-pair.md",
+          "sha256": "da81db4a8fcf73c03994d815f3861a34fdbcc806b3db07d909ffbd98c372a20a",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "0bbb719ebd0f233b30ca1c0eac7003a61c293dc8d2e32e2eb92fb5a67849dfee",
+          "reason": "Full current Main Content (Summary, Scope, Claim, and Details heading) was read for CA-R-1027; it is the current meaning evidence for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1029-CORE_META_MODEL-CORE--record-lineage-impact-disposition-context.md#subjects.depends_on[0]",
+      "old_value": "atom-boundary",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1029",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1029-CORE_META_MODEL-CORE--record-lineage-impact-disposition-context.md",
+      "source_sha256": "236b0f9be3e676c2e26140c171741088c8bc9540729379f2985f88ebdc7d3f8b",
+      "source_version": 13,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "CA-R-1029's current Main Content can use an Atom as a relation endpoint, but it does not identify the legacy topic label 'atom-boundary' as the Artifact/Atom Entity identity. The candidate's compact Artifact/Atom example cannot prove that alias or preserve the boundary/topic qualification.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The legacy atom-boundary reference remains exact and pathless.",
+        "No Artifact/Atom display path or new native identity is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1029-CORE_META_MODEL-CORE--record-lineage-impact-disposition-context.md",
+          "sha256": "236b0f9be3e676c2e26140c171741088c8bc9540729379f2985f88ebdc7d3f8b",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "a2ba931a8f7cdaf32e2b8ec0f0d5419bd647e5399b277402a7e2d4b8770d933b",
+          "reason": "Full current Main Content (Summary, Scope, Claim, and Details heading) was read for CA-R-1029; it is the current meaning evidence for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1029-CORE_META_MODEL-CORE--record-lineage-impact-disposition-context.md#subjects.governs",
+      "old_value": "relation-model",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1029",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1029-CORE_META_MODEL-CORE--record-lineage-impact-disposition-context.md",
+      "source_sha256": "236b0f9be3e676c2e26140c171741088c8bc9540729379f2985f88ebdc7d3f8b",
+      "source_version": 13,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "CA-R-1029's current Main Content can define a relation rule, but it does not establish that the broad legacy topic 'relation-model' is the candidate Relation identity. The root list and generic typed-relation model do not prove an alias.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The broad relation-model reference remains exact and pathless.",
+        "Typed-relation endpoints and ownership are not collapsed into a root label."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1029-CORE_META_MODEL-CORE--record-lineage-impact-disposition-context.md",
+          "sha256": "236b0f9be3e676c2e26140c171741088c8bc9540729379f2985f88ebdc7d3f8b",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "a2ba931a8f7cdaf32e2b8ec0f0d5419bd647e5399b277402a7e2d4b8770d933b",
+          "reason": "Full current Main Content (Summary, Scope, Claim, and Details heading) was read for CA-R-1029; it is the current meaning evidence for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1030-CORE_META_MODEL-GENERAL--prohibit-silent-non-compatible-impact-dispositions.md#subjects.depends_on[0]",
+      "old_value": "atom-boundary",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1030",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1030-CORE_META_MODEL-GENERAL--prohibit-silent-non-compatible-impact-dispositions.md",
+      "source_sha256": "88e0127240b136211a576f0bffcc357fc07da14ba225157570b8c5f58076d1b6",
+      "source_version": 13,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "CA-R-1030's current Main Content can use an Atom as a relation endpoint, but it does not identify the legacy topic label 'atom-boundary' as the Artifact/Atom Entity identity. The candidate's compact Artifact/Atom example cannot prove that alias or preserve the boundary/topic qualification.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The legacy atom-boundary reference remains exact and pathless.",
+        "No Artifact/Atom display path or new native identity is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1030-CORE_META_MODEL-GENERAL--prohibit-silent-non-compatible-impact-dispositions.md",
+          "sha256": "88e0127240b136211a576f0bffcc357fc07da14ba225157570b8c5f58076d1b6",
+          "start_line": 18,
+          "end_line": 28,
+          "span_sha256": "d11b6052b63b00542b28db5b9a0a74d1de9992cae3ed7396496e851f29293e7b",
+          "reason": "Full current Main Content (Summary, Scope, Claim, and Details heading) was read for CA-R-1030; it is the current meaning evidence for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1030-CORE_META_MODEL-GENERAL--prohibit-silent-non-compatible-impact-dispositions.md#subjects.governs",
+      "old_value": "relation-model",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1030",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1030-CORE_META_MODEL-GENERAL--prohibit-silent-non-compatible-impact-dispositions.md",
+      "source_sha256": "88e0127240b136211a576f0bffcc357fc07da14ba225157570b8c5f58076d1b6",
+      "source_version": 13,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "CA-R-1030's current Main Content can define a relation rule, but it does not establish that the broad legacy topic 'relation-model' is the candidate Relation identity. The root list and generic typed-relation model do not prove an alias.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The broad relation-model reference remains exact and pathless.",
+        "Typed-relation endpoints and ownership are not collapsed into a root label."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1030-CORE_META_MODEL-GENERAL--prohibit-silent-non-compatible-impact-dispositions.md",
+          "sha256": "88e0127240b136211a576f0bffcc357fc07da14ba225157570b8c5f58076d1b6",
+          "start_line": 18,
+          "end_line": 28,
+          "span_sha256": "d11b6052b63b00542b28db5b9a0a74d1de9992cae3ed7396496e851f29293e7b",
+          "reason": "Full current Main Content (Summary, Scope, Claim, and Details heading) was read for CA-R-1030; it is the current meaning evidence for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1032-CORE_META_MODEL-GENERAL--block-dependent-gates-until-lineage-impact-reaches-a-fixed-point.md#subjects.depends_on[0]",
+      "old_value": "atom-boundary",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1032",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1032-CORE_META_MODEL-GENERAL--block-dependent-gates-until-lineage-impact-reaches-a-fixed-point.md",
+      "source_sha256": "8742999580bb9848be893a931be36c86ee72676567989fba1c9630dee4a8211f",
+      "source_version": 13,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "CA-R-1032's current Main Content can use an Atom as a relation endpoint, but it does not identify the legacy topic label 'atom-boundary' as the Artifact/Atom Entity identity. The candidate's compact Artifact/Atom example cannot prove that alias or preserve the boundary/topic qualification.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The legacy atom-boundary reference remains exact and pathless.",
+        "No Artifact/Atom display path or new native identity is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1032-CORE_META_MODEL-GENERAL--block-dependent-gates-until-lineage-impact-reaches-a-fixed-point.md",
+          "sha256": "8742999580bb9848be893a931be36c86ee72676567989fba1c9630dee4a8211f",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "1cb334cd77d00da626db6c4e213214e27b5729ad7d9c60efe941f4fcb8499c86",
+          "reason": "Full current Main Content (Summary, Scope, Claim, and Details heading) was read for CA-R-1032; it is the current meaning evidence for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1032-CORE_META_MODEL-GENERAL--block-dependent-gates-until-lineage-impact-reaches-a-fixed-point.md#subjects.depends_on[1]",
+      "old_value": "lifecycle-traceability",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1032",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1032-CORE_META_MODEL-GENERAL--block-dependent-gates-until-lineage-impact-reaches-a-fixed-point.md",
+      "source_sha256": "8742999580bb9848be893a931be36c86ee72676567989fba1c9630dee4a8211f",
+      "source_version": 13,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "CA-R-1032 requires a Lineage Impact fixed point before release or downstream gates. The candidate separates Revision history, Journal records, and Execution but does not establish a Lineage Impact traceability field or relation identity.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The lifecycle-traceability reference remains exact and pathless.",
+        "Active/current, archived history, Journal, and Projection distinctions remain separate."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1032-CORE_META_MODEL-GENERAL--block-dependent-gates-until-lineage-impact-reaches-a-fixed-point.md",
+          "sha256": "8742999580bb9848be893a931be36c86ee72676567989fba1c9630dee4a8211f",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "1cb334cd77d00da626db6c4e213214e27b5729ad7d9c60efe941f4fcb8499c86",
+          "reason": "Full current Main Content (Summary, Scope, Claim, and Details heading) was read for CA-R-1032; it is the current meaning evidence for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1032-CORE_META_MODEL-GENERAL--block-dependent-gates-until-lineage-impact-reaches-a-fixed-point.md#subjects.governs",
+      "old_value": "relation-model",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1032",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1032-CORE_META_MODEL-GENERAL--block-dependent-gates-until-lineage-impact-reaches-a-fixed-point.md",
+      "source_sha256": "8742999580bb9848be893a931be36c86ee72676567989fba1c9630dee4a8211f",
+      "source_version": 13,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "CA-R-1032's current Main Content can define a relation rule, but it does not establish that the broad legacy topic 'relation-model' is the candidate Relation identity. The root list and generic typed-relation model do not prove an alias.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The broad relation-model reference remains exact and pathless.",
+        "Typed-relation endpoints and ownership are not collapsed into a root label."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1032-CORE_META_MODEL-GENERAL--block-dependent-gates-until-lineage-impact-reaches-a-fixed-point.md",
+          "sha256": "8742999580bb9848be893a931be36c86ee72676567989fba1c9630dee4a8211f",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "1cb334cd77d00da626db6c4e213214e27b5729ad7d9c60efe941f4fcb8499c86",
+          "reason": "Full current Main Content (Summary, Scope, Claim, and Details heading) was read for CA-R-1032; it is the current meaning evidence for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1033-CORE_META_MODEL-GENERAL--define-compatible-lineage-impact-disposition.md#subjects.depends_on[0]",
+      "old_value": "atom-boundary",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1033",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1033-CORE_META_MODEL-GENERAL--define-compatible-lineage-impact-disposition.md",
+      "source_sha256": "434d199f97e943b1841e95d441397aa3352433b7ceb6b7ae88c4b1b4fec3a738",
+      "source_version": 15,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "CA-R-1033's current Main Content can use an Atom as a relation endpoint, but it does not identify the legacy topic label 'atom-boundary' as the Artifact/Atom Entity identity. The candidate's compact Artifact/Atom example cannot prove that alias or preserve the boundary/topic qualification.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The legacy atom-boundary reference remains exact and pathless.",
+        "No Artifact/Atom display path or new native identity is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1033-CORE_META_MODEL-GENERAL--define-compatible-lineage-impact-disposition.md",
+          "sha256": "434d199f97e943b1841e95d441397aa3352433b7ceb6b7ae88c4b1b4fec3a738",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "5feb5e3bf5d8f7d7b3d21fab344f461967971890dd58f956354e5884b8fe6e89",
+          "reason": "Full current Main Content (Summary, Scope, Claim, and Details heading) was read for CA-R-1033; it is the current meaning evidence for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1033-CORE_META_MODEL-GENERAL--define-compatible-lineage-impact-disposition.md#subjects.depends_on[1]",
+      "old_value": "relation-model",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1033",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1033-CORE_META_MODEL-GENERAL--define-compatible-lineage-impact-disposition.md",
+      "source_sha256": "434d199f97e943b1841e95d441397aa3352433b7ceb6b7ae88c4b1b4fec3a738",
+      "source_version": 15,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "CA-R-1033's current Main Content can define a relation rule, but it does not establish that the broad legacy topic 'relation-model' is the candidate Relation identity. The root list and generic typed-relation model do not prove an alias.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The broad relation-model reference remains exact and pathless.",
+        "Typed-relation endpoints and ownership are not collapsed into a root label."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1033-CORE_META_MODEL-GENERAL--define-compatible-lineage-impact-disposition.md",
+          "sha256": "434d199f97e943b1841e95d441397aa3352433b7ceb6b7ae88c4b1b4fec3a738",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "5feb5e3bf5d8f7d7b3d21fab344f461967971890dd58f956354e5884b8fe6e89",
+          "reason": "Full current Main Content (Summary, Scope, Claim, and Details heading) was read for CA-R-1033; it is the current meaning evidence for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1033-CORE_META_MODEL-GENERAL--define-compatible-lineage-impact-disposition.md#subjects.governs",
+      "old_value": "Compatible Lineage Impact Disposition",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1033",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1033-CORE_META_MODEL-GENERAL--define-compatible-lineage-impact-disposition.md",
+      "source_sha256": "434d199f97e943b1841e95d441397aa3352433b7ceb6b7ae88c4b1b4fec3a738",
+      "source_version": 15,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "CA-R-1033's current Claim defines 'Compatible Lineage Impact Disposition' with distinct Revision and traversal consequences. The candidate confirms Revision as a history root but does not establish a Lineage Impact disposition field or complete allowed-value domain, so a Claim or Operation path would be speculative.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The named Lineage Impact disposition remains distinct from other dispositions.",
+        "Its Revision and traversal constraints are retained without a new root identity."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1033-CORE_META_MODEL-GENERAL--define-compatible-lineage-impact-disposition.md",
+          "sha256": "434d199f97e943b1841e95d441397aa3352433b7ceb6b7ae88c4b1b4fec3a738",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "5feb5e3bf5d8f7d7b3d21fab344f461967971890dd58f956354e5884b8fe6e89",
+          "reason": "Full current Main Content (Summary, Scope, Claim, and Details heading) was read for CA-R-1033; it is the current meaning evidence for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1034-CORE_META_MODEL-GENERAL--define-update-required-lineage-impact-disposition.md#subjects.depends_on[0]",
+      "old_value": "atom-boundary",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1034",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1034-CORE_META_MODEL-GENERAL--define-update-required-lineage-impact-disposition.md",
+      "source_sha256": "09171e0521b5f71e42b76644e5f208789d24b43502706f084a664934acd957fa",
+      "source_version": 13,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "CA-R-1034's current Main Content can use an Atom as a relation endpoint, but it does not identify the legacy topic label 'atom-boundary' as the Artifact/Atom Entity identity. The candidate's compact Artifact/Atom example cannot prove that alias or preserve the boundary/topic qualification.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The legacy atom-boundary reference remains exact and pathless.",
+        "No Artifact/Atom display path or new native identity is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1034-CORE_META_MODEL-GENERAL--define-update-required-lineage-impact-disposition.md",
+          "sha256": "09171e0521b5f71e42b76644e5f208789d24b43502706f084a664934acd957fa",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "a41898f598ddedefacbf65a9a07804e64a5f02db0185d710ed785626305881db",
+          "reason": "Full current Main Content (Summary, Scope, Claim, and Details heading) was read for CA-R-1034; it is the current meaning evidence for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1034-CORE_META_MODEL-GENERAL--define-update-required-lineage-impact-disposition.md#subjects.depends_on[1]",
+      "old_value": "relation-model",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1034",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1034-CORE_META_MODEL-GENERAL--define-update-required-lineage-impact-disposition.md",
+      "source_sha256": "09171e0521b5f71e42b76644e5f208789d24b43502706f084a664934acd957fa",
+      "source_version": 13,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "CA-R-1034's current Main Content can define a relation rule, but it does not establish that the broad legacy topic 'relation-model' is the candidate Relation identity. The root list and generic typed-relation model do not prove an alias.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The broad relation-model reference remains exact and pathless.",
+        "Typed-relation endpoints and ownership are not collapsed into a root label."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1034-CORE_META_MODEL-GENERAL--define-update-required-lineage-impact-disposition.md",
+          "sha256": "09171e0521b5f71e42b76644e5f208789d24b43502706f084a664934acd957fa",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "a41898f598ddedefacbf65a9a07804e64a5f02db0185d710ed785626305881db",
+          "reason": "Full current Main Content (Summary, Scope, Claim, and Details heading) was read for CA-R-1034; it is the current meaning evidence for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1034-CORE_META_MODEL-GENERAL--define-update-required-lineage-impact-disposition.md#subjects.governs",
+      "old_value": "Update-Required Lineage Impact Disposition",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1034",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1034-CORE_META_MODEL-GENERAL--define-update-required-lineage-impact-disposition.md",
+      "source_sha256": "09171e0521b5f71e42b76644e5f208789d24b43502706f084a664934acd957fa",
+      "source_version": 13,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "CA-R-1034's current Claim defines 'Update-Required Lineage Impact Disposition' with distinct Revision and traversal consequences. The candidate confirms Revision as a history root but does not establish a Lineage Impact disposition field or complete allowed-value domain, so a Claim or Operation path would be speculative.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The named Lineage Impact disposition remains distinct from other dispositions.",
+        "Its Revision and traversal constraints are retained without a new root identity."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1034-CORE_META_MODEL-GENERAL--define-update-required-lineage-impact-disposition.md",
+          "sha256": "09171e0521b5f71e42b76644e5f208789d24b43502706f084a664934acd957fa",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "a41898f598ddedefacbf65a9a07804e64a5f02db0185d710ed785626305881db",
+          "reason": "Full current Main Content (Summary, Scope, Claim, and Details heading) was read for CA-R-1034; it is the current meaning evidence for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1035-CORE_META_MODEL-GENERAL--define-replacement-required-lineage-impact-disposition.md#subjects.depends_on[0]",
+      "old_value": "atom-boundary",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1035",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1035-CORE_META_MODEL-GENERAL--define-replacement-required-lineage-impact-disposition.md",
+      "source_sha256": "c4a55cd9099152602dbc789c909fa74e5341f9b37862e4e87f75b5f51f8a01b7",
+      "source_version": 13,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "CA-R-1035's current Main Content can use an Atom as a relation endpoint, but it does not identify the legacy topic label 'atom-boundary' as the Artifact/Atom Entity identity. The candidate's compact Artifact/Atom example cannot prove that alias or preserve the boundary/topic qualification.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The legacy atom-boundary reference remains exact and pathless.",
+        "No Artifact/Atom display path or new native identity is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1035-CORE_META_MODEL-GENERAL--define-replacement-required-lineage-impact-disposition.md",
+          "sha256": "c4a55cd9099152602dbc789c909fa74e5341f9b37862e4e87f75b5f51f8a01b7",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "d5ff11e33ec297c26584fcd08d05383149a43c661dcbcee683ee50d4363fb1e7",
+          "reason": "Full current Main Content (Summary, Scope, Claim, and Details heading) was read for CA-R-1035; it is the current meaning evidence for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1035-CORE_META_MODEL-GENERAL--define-replacement-required-lineage-impact-disposition.md#subjects.depends_on[1]",
+      "old_value": "relation-model",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1035",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1035-CORE_META_MODEL-GENERAL--define-replacement-required-lineage-impact-disposition.md",
+      "source_sha256": "c4a55cd9099152602dbc789c909fa74e5341f9b37862e4e87f75b5f51f8a01b7",
+      "source_version": 13,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "CA-R-1035's current Main Content can define a relation rule, but it does not establish that the broad legacy topic 'relation-model' is the candidate Relation identity. The root list and generic typed-relation model do not prove an alias.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The broad relation-model reference remains exact and pathless.",
+        "Typed-relation endpoints and ownership are not collapsed into a root label."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1035-CORE_META_MODEL-GENERAL--define-replacement-required-lineage-impact-disposition.md",
+          "sha256": "c4a55cd9099152602dbc789c909fa74e5341f9b37862e4e87f75b5f51f8a01b7",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "d5ff11e33ec297c26584fcd08d05383149a43c661dcbcee683ee50d4363fb1e7",
+          "reason": "Full current Main Content (Summary, Scope, Claim, and Details heading) was read for CA-R-1035; it is the current meaning evidence for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1035-CORE_META_MODEL-GENERAL--define-replacement-required-lineage-impact-disposition.md#subjects.governs",
+      "old_value": "Replacement-Required Lineage Impact Disposition",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1035",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1035-CORE_META_MODEL-GENERAL--define-replacement-required-lineage-impact-disposition.md",
+      "source_sha256": "c4a55cd9099152602dbc789c909fa74e5341f9b37862e4e87f75b5f51f8a01b7",
+      "source_version": 13,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "CA-R-1035's current Claim defines 'Replacement-Required Lineage Impact Disposition' with distinct Revision and traversal consequences. The candidate confirms Revision as a history root but does not establish a Lineage Impact disposition field or complete allowed-value domain, so a Claim or Operation path would be speculative.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The named Lineage Impact disposition remains distinct from other dispositions.",
+        "Its Revision and traversal constraints are retained without a new root identity."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1035-CORE_META_MODEL-GENERAL--define-replacement-required-lineage-impact-disposition.md",
+          "sha256": "c4a55cd9099152602dbc789c909fa74e5341f9b37862e4e87f75b5f51f8a01b7",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "d5ff11e33ec297c26584fcd08d05383149a43c661dcbcee683ee50d4363fb1e7",
+          "reason": "Full current Main Content (Summary, Scope, Claim, and Details heading) was read for CA-R-1035; it is the current meaning evidence for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1036-CORE_META_MODEL-GENERAL--define-uncertain-lineage-impact-disposition.md#subjects.depends_on[0]",
+      "old_value": "atom-boundary",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1036",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1036-CORE_META_MODEL-GENERAL--define-uncertain-lineage-impact-disposition.md",
+      "source_sha256": "940e73ebf82a65a10e1bbf25c2dedfd2bd966d9cab33cd7f130315ecedee427b",
+      "source_version": 13,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "CA-R-1036's current Main Content can use an Atom as a relation endpoint, but it does not identify the legacy topic label 'atom-boundary' as the Artifact/Atom Entity identity. The candidate's compact Artifact/Atom example cannot prove that alias or preserve the boundary/topic qualification.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The legacy atom-boundary reference remains exact and pathless.",
+        "No Artifact/Atom display path or new native identity is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1036-CORE_META_MODEL-GENERAL--define-uncertain-lineage-impact-disposition.md",
+          "sha256": "940e73ebf82a65a10e1bbf25c2dedfd2bd966d9cab33cd7f130315ecedee427b",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "1bee897e3a6fe7e0de74a6da34f1d6816dd02e443c07dc418334a88c05cbc6fc",
+          "reason": "Full current Main Content (Summary, Scope, Claim, and Details heading) was read for CA-R-1036; it is the current meaning evidence for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1036-CORE_META_MODEL-GENERAL--define-uncertain-lineage-impact-disposition.md#subjects.depends_on[1]",
+      "old_value": "relation-model",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1036",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1036-CORE_META_MODEL-GENERAL--define-uncertain-lineage-impact-disposition.md",
+      "source_sha256": "940e73ebf82a65a10e1bbf25c2dedfd2bd966d9cab33cd7f130315ecedee427b",
+      "source_version": 13,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "CA-R-1036's current Main Content can define a relation rule, but it does not establish that the broad legacy topic 'relation-model' is the candidate Relation identity. The root list and generic typed-relation model do not prove an alias.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The broad relation-model reference remains exact and pathless.",
+        "Typed-relation endpoints and ownership are not collapsed into a root label."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1036-CORE_META_MODEL-GENERAL--define-uncertain-lineage-impact-disposition.md",
+          "sha256": "940e73ebf82a65a10e1bbf25c2dedfd2bd966d9cab33cd7f130315ecedee427b",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "1bee897e3a6fe7e0de74a6da34f1d6816dd02e443c07dc418334a88c05cbc6fc",
+          "reason": "Full current Main Content (Summary, Scope, Claim, and Details heading) was read for CA-R-1036; it is the current meaning evidence for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1036-CORE_META_MODEL-GENERAL--define-uncertain-lineage-impact-disposition.md#subjects.governs",
+      "old_value": "Uncertain Lineage Impact Disposition",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1036",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1036-CORE_META_MODEL-GENERAL--define-uncertain-lineage-impact-disposition.md",
+      "source_sha256": "940e73ebf82a65a10e1bbf25c2dedfd2bd966d9cab33cd7f130315ecedee427b",
+      "source_version": 13,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "CA-R-1036's current Claim defines 'Uncertain Lineage Impact Disposition' with distinct Revision and traversal consequences. The candidate confirms Revision as a history root but does not establish a Lineage Impact disposition field or complete allowed-value domain, so a Claim or Operation path would be speculative.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The named Lineage Impact disposition remains distinct from other dispositions.",
+        "Its Revision and traversal constraints are retained without a new root identity."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1036-CORE_META_MODEL-GENERAL--define-uncertain-lineage-impact-disposition.md",
+          "sha256": "940e73ebf82a65a10e1bbf25c2dedfd2bd966d9cab33cd7f130315ecedee427b",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "1bee897e3a6fe7e0de74a6da34f1d6816dd02e443c07dc418334a88c05cbc6fc",
+          "reason": "Full current Main Content (Summary, Scope, Claim, and Details heading) was read for CA-R-1036; it is the current meaning evidence for this occurrence."
+        }
+      ],
+      "executable": false
+    }
+  ]
+}
