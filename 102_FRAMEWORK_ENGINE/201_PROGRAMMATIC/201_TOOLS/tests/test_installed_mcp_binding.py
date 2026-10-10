@@ -21,7 +21,9 @@ if str(TESTS) not in sys.path:
 from installed_mcp_binding import (  # noqa: E402
     MCP_FILES,
     InstalledMcpBindingError,
+    _package_ca_skill,
     _compose_contract,
+    admit_candidate_mcp_binding,
     admit_installed_mcp_binding,
 )
 from framework_package import (  # noqa: E402
@@ -30,16 +32,14 @@ from framework_package import (  # noqa: E402
     provide_installation_package_evidence,
     verify_framework_package,
 )
-from installation_context import TargetProjectContext as InstallationTargetProjectContext  # noqa: E402
+from installation_context import TargetProjectRequest, bind_target_project_context  # noqa: E402
 from installation_transaction import InstallationPublicationLock  # noqa: E402
 from source_admission_fixture import write_source_admission_receipt  # noqa: E402
+from target_methodology_selection import FRAMEWORK_INSTANCE_SETTINGS_RELATIVE  # noqa: E402
 
 
 IMAGE = "a" * 64
 GATE = "b" * 64
-SETTINGS = "c" * 64
-STRUCTURE = "d" * 64
-REGISTRY = "e" * 64
 VERSION_PAYLOAD = b'[framework]\nversion = "1.2.3"\n'
 
 
@@ -92,21 +92,12 @@ class InstalledMcpBindingTests(unittest.TestCase):
         self.temporary = tempfile.TemporaryDirectory(dir="/private/tmp", ignore_cleanup_errors=True)
         self.addCleanup(self.temporary.cleanup)
         self.root = Path(self.temporary.name).resolve()
-        (self.root / ".caprmedio_fixture").mkdir()
+        self.control = self.root / ".caprmedio_fixture"
+        self.control.mkdir()
         self.package_number = 0
         self.verified = self._package()
-        self.context = InstallationTargetProjectContext(
-            mode="bootstrap",
-            target_project_identity="fixture-project",
-            control_child_relpath=".caprmedio_fixture",
-            settings_sha256=SETTINGS,
-            project_structure_sha256=STRUCTURE,
-            registry_sha256=REGISTRY,
-            repository_identity=False,
-            root_locator="fixture-project",
-            package_evidence=provide_installation_package_evidence(self.verified.root),
-        )
-        self.context_sha256 = self._write_context()
+        self._write_target_controls()
+        self._bind_context(mode="bootstrap")
         self.lock = InstallationPublicationLock(
             self.root,
             target_context_sha256=self.context_sha256,
@@ -122,7 +113,8 @@ class InstalledMcpBindingTests(unittest.TestCase):
             self.lock.release("blocked")
 
     def _package(self, *, compose_payload: bytes | None = None,
-                 omit: str | None = None) -> VerifiedFrameworkPackage:
+                 omit: str | None = None,
+                 extra_payloads: dict[str, bytes] | None = None) -> VerifiedFrameworkPackage:
         self.package_number += 1
         source = self.root / ".package_sources" / str(self.package_number)
         payloads: dict[str, bytes] = {
@@ -130,7 +122,7 @@ class InstalledMcpBindingTests(unittest.TestCase):
             "uv.lock": b"version = 1\n",
             "version.toml": VERSION_PAYLOAD,
             "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/tool.py": b"# package core\n",
-            "methodology/active/CA-R-001--fixture.md": b"# active methodology\n",
+            "methodology/active/001_CORE_META_MODEL/04_requirement/CA-R-001--fixture.md": b"# active methodology\n",
             "methodology/support/CA-D-001--fixture.md": b"# declared support\n",
             "SKILLS/ca/SKILL.md": b"# ca\n",
             "defaults/framework.toml": b"[defaults]\nname = 'fixture'\n",
@@ -138,6 +130,8 @@ class InstalledMcpBindingTests(unittest.TestCase):
         for relative in MCP_FILES:
             payloads[relative] = b"# exact package-owned carrier\n"
         payloads[MCP_FILES[-1]] = _compose() if compose_payload is None else compose_payload
+        if extra_payloads is not None:
+            payloads.update(extra_payloads)
         if omit is not None:
             payloads.pop(omit)
         for relative, payload in payloads.items():
@@ -152,7 +146,7 @@ class InstalledMcpBindingTests(unittest.TestCase):
     def _write_catalog(self, source: Path) -> None:
         records = (
             ("core", "core", "102_FRAMEWORK_ENGINE"),
-            ("methodology", "methodology", "methodology/active"),
+            ("methodology", "methodology", "methodology/active/001_CORE_META_MODEL"),
             ("support", "support", "methodology/support"),
         )
         descriptors = tuple(
@@ -201,10 +195,45 @@ class InstalledMcpBindingTests(unittest.TestCase):
         payload = self.context.with_digest_toml()
         digest = self.context.sha256
         target = self.root / ".caprmedio_runtime/installation/contexts" / f"{digest}.toml"
-        target.parent.mkdir(parents=True)
+        target.parent.mkdir(parents=True, exist_ok=True)
         target.write_bytes(payload)
         target.chmod(0o644)
         return digest
+
+    def _write_target_controls(self) -> None:
+        (self.control / "caprmedio_project_settings.toml").write_text(
+            "[project]\n"
+            'name = "fixture-project"\n\n'
+            "[paths]\n"
+            'control_root = ".caprmedio_fixture"\n',
+            encoding="utf-8",
+        )
+        (self.control / "project_structure.toml").write_text(
+            "schema_version = 1\nscope_units = []\n", encoding="utf-8"
+        )
+        (self.control / "operators_registry.toml").write_text("operators = []\n", encoding="utf-8")
+        framework_settings = self.control.joinpath(*FRAMEWORK_INSTANCE_SETTINGS_RELATIVE.parts)
+        framework_settings.parent.mkdir(parents=True, exist_ok=True)
+        framework_settings.write_text("# canonical fixture Framework Instance Settings\n", encoding="utf-8")
+
+    def _bind_context(self, *, mode: str) -> None:
+        evidence = provide_installation_package_evidence(self.verified.root)
+        self.context = bind_target_project_context(
+            TargetProjectRequest(
+                target_root=self.root,
+                control_child=self.control.name,
+                mode=mode,
+                target_project_identity="fixture-project",
+                settings_path=self.control / "caprmedio_project_settings.toml",
+                project_structure_path=self.control / "project_structure.toml",
+                operators_registry_path=self.control / "operators_registry.toml",
+                repository_identity=False,
+                root_locator="fixture-project",
+                package_root=self.verified.root,
+                package_evidence=evidence,
+            )
+        )
+        self.context_sha256 = self._write_context()
 
     def _write_selectors(self, *, catalog_sha256: str | None = None,
                          context_sha256: str | None = None,
@@ -248,6 +277,10 @@ class InstalledMcpBindingTests(unittest.TestCase):
         self.assertEqual(".caprmedio_fixture", binding.target_context.control_child_relpath)
         self.assertEqual(self.verified.root / MCP_FILES[0], binding.mcp_http_server)
         self.assertEqual(self.verified.root / MCP_FILES[-1], binding.compose_file)
+        self.assertEqual(
+            (("SKILLS/ca/SKILL.md", _digest(b"# ca\n"), 0o644),),
+            tuple((member.path, member.sha256, member.mode) for member in binding.package_ca_skill),
+        )
         self.assertEqual("127.0.0.1", binding.loopback_host)
         self.assertEqual("/mcp", binding.loopback_path)
         self.assertTrue(binding.anonymous)
@@ -255,6 +288,41 @@ class InstalledMcpBindingTests(unittest.TestCase):
         self.assertEqual((128, "512m", 1), (binding.pids_limit, binding.memory_limit, binding.cpu_limit))
         self.assertEqual(_digest((self.root / ".caprmedio_install/current.toml").read_bytes()), binding.package_selector_sha256)
         self.assertEqual(_digest((self.root / ".caprmedio_runtime/installation/current.toml").read_bytes()), binding.runtime_selector_sha256)
+
+    def test_refuses_missing_canonical_ca_skill_even_when_another_skill_member_exists(self) -> None:
+        self.verified = self._package(
+            omit="SKILLS/ca/SKILL.md",
+            extra_payloads={"SKILLS/ca/other.md": b"# not the canonical entrypoint\n"},
+        )
+        self._write_selectors()
+
+        with self.assertRaises(InstalledMcpBindingError) as raised:
+            self._admit()
+        self.assertEqual("package-ca-skill-missing", raised.exception.code)
+
+    def test_refuses_non_skill_row_and_keeps_only_ca_subtree(self) -> None:
+        with self.assertRaises(InstalledMcpBindingError) as raised:
+            _package_ca_skill({
+                "SKILLS/ca/SKILL.md": {"role": "engine", "sha256": "a" * 64, "mode": 0o644},
+            })
+        self.assertEqual("package-ca-skill-invalid", raised.exception.code)
+
+    def test_admits_exact_prospective_selectors_without_live_selector_publication(self) -> None:
+        package_selector = (self.root / ".caprmedio_install/current.toml").read_bytes()
+        runtime_selector = (self.root / ".caprmedio_runtime/installation/current.toml").read_bytes()
+        (self.root / ".caprmedio_install/current.toml").unlink()
+        (self.root / ".caprmedio_runtime/installation/current.toml").unlink()
+
+        binding = admit_candidate_mcp_binding(
+            self.root, self.verified, target_context_sha256=self.context_sha256,
+            prospective_package_selector=package_selector,
+            prospective_runtime_selector=runtime_selector,
+        )
+
+        self.assertEqual(_digest(package_selector), binding.package_selector_sha256)
+        self.assertEqual(_digest(runtime_selector), binding.runtime_selector_sha256)
+        self.assertEqual(self.verified.manifest_digest, binding.package_manifest_sha256)
+        self.assertFalse((self.root / ".caprmedio_install/current.toml").exists())
 
     def test_admits_context_self_digest_and_actual_installation_lock_generation(self) -> None:
         context_path = self.root / ".caprmedio_runtime/installation/contexts" / f"{self.context_sha256}.toml"
@@ -352,6 +420,7 @@ class InstalledMcpBindingTests(unittest.TestCase):
             b'"127.0.0.1:${CAPRMEDIO_MCP_HTTP_PORT:-}:8092"', b'"0.0.0.0:8092:8092"'
         )
         self.verified = self._package(compose_payload=payload)
+        self._bind_context(mode="adopt")
         self._write_selectors()
         with self.assertRaisesRegex(InstalledMcpBindingError, "transport is not the anonymous loopback route") as raised:
             self._admit()

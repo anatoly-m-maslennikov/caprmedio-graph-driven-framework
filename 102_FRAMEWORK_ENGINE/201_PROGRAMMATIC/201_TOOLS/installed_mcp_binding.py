@@ -31,6 +31,7 @@ from installation_context import CONTEXT_DIGEST_FIELD, canonical_target_project_
 
 
 SCHEMA_VERSION = 1
+CONTEXT_SCHEMA_VERSION = 2
 PACKAGE_NAME = "caprmedio-framework"
 SHA256 = re.compile(r"[0-9a-f]{64}\Z")
 IMAGE_DIGEST = SHA256
@@ -42,6 +43,8 @@ RUNTIME_CURRENT_RELATIVE = PurePosixPath(".caprmedio_runtime/installation/curren
 RUNTIME_CONTEXTS_RELATIVE = PurePosixPath(".caprmedio_runtime/installation/contexts")
 
 MCP_ROUTE = "mcp-http"
+CA_SKILL_ROOT = PurePosixPath("SKILLS/ca")
+CA_SKILL_ENTRYPOINT = CA_SKILL_ROOT / "SKILL.md"
 MCP_FILES = (
     "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/http_server.py",
     "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/server.py",
@@ -72,6 +75,7 @@ _CONTEXT_REQUIRED_KEYS = frozenset(
     {
         "schema_version", "mode", "target_project_identity", "control_child_relpath", "settings_sha256",
         "project_structure_sha256", "registry_sha256", "repository_identity", "root_locator",
+        "framework_instance_settings_sha256", "source_catalog_sha256", "methodology_source_identities",
         CONTEXT_DIGEST_FIELD,
     }
 )
@@ -125,6 +129,15 @@ class TargetProjectContext:
 
 
 @dataclass(frozen=True)
+class PackageCaSkillMember:
+    """One verified package member for the canonical public ``ca`` Skill."""
+
+    path: str
+    sha256: str
+    mode: int
+
+
+@dataclass(frozen=True)
 class InstalledMcpBinding:
     """The only package-relative MCP routes admitted for later activation."""
 
@@ -147,6 +160,7 @@ class InstalledMcpBinding:
     pids_limit: int = 128
     memory_limit: str = "512m"
     cpu_limit: int = 1
+    package_ca_skill: tuple[PackageCaSkillMember, ...] = ()
 
 
 def _refuse(code: str, message: str) -> None:
@@ -339,9 +353,35 @@ def _verify_package_tree(package_root: Path, manifest_sha256: str, catalog_sha25
     return row_map
 
 
+def _package_ca_skill(row_map: Mapping[str, Mapping[str, Any]]) -> tuple[PackageCaSkillMember, ...]:
+    """Extract only the verified canonical ``SKILLS/ca`` package subtree."""
+
+    members: list[PackageCaSkillMember] = []
+    prefix = CA_SKILL_ROOT.as_posix() + "/"
+    for path, row in row_map.items():
+        if not path.startswith(prefix):
+            continue
+        if row.get("role") != "skill":
+            _refuse("package-ca-skill-invalid", "canonical ca Skill contains a non-Skill inventory member")
+        members.append(PackageCaSkillMember(path, row["sha256"], row["mode"]))
+    members.sort(key=lambda member: member.path)
+    if not members or members[0].path != CA_SKILL_ENTRYPOINT.as_posix():
+        _refuse("package-ca-skill-missing", "installed package omits canonical SKILLS/ca/SKILL.md")
+    if any(member.path == CA_SKILL_ENTRYPOINT.as_posix() and member.mode != 0o644 for member in members):
+        _refuse("package-ca-skill-invalid", "canonical ca Skill entrypoint mode is invalid")
+    return tuple(members)
+
+
 def _selector(root: Path, package_root: Path, package: VerifiedFrameworkPackage,
               manifest: Mapping[str, Any]) -> tuple[dict[str, Any], str]:
     _, payload = _regular_file(root, INSTALL_CURRENT_RELATIVE, code="installed-selector-missing", label="installed package selector")
+    return _selector_payload(payload, package_root, package, installed_root=root)
+
+
+def _selector_payload(payload: bytes, package_root: Path, package: VerifiedFrameworkPackage,
+                      *, installed_root: Path | None = None) -> tuple[dict[str, Any], str]:
+    """Verify exact D598 selector bytes without requiring their publication."""
+
     selector = _parse_toml(payload, code="installed-selector-invalid", label="installed package selector")
     if (set(selector) == _PACKAGE_SELECTOR_KEYS
             and selector.get("source_catalog_sha256") != package.source_catalog_sha256):
@@ -356,7 +396,7 @@ def _selector(root: Path, package_root: Path, package: VerifiedFrameworkPackage,
             _refuse("installed-selector-mismatch", str(error))
         _refuse("installed-selector-invalid", str(error))
     expected_relpath = f"releases/{package.manifest_digest}"
-    if package_root != root / ".caprmedio_install" / expected_relpath:
+    if installed_root is not None and package_root != installed_root / ".caprmedio_install" / expected_relpath:
         _refuse("installed-selector-mismatch", "installed package selector root differs")
     return {
         "package_manifest_sha256": typed_selector.package_manifest_sha256,
@@ -365,12 +405,17 @@ def _selector(root: Path, package_root: Path, package: VerifiedFrameworkPackage,
     }, hashlib.sha256(payload).hexdigest()
 
 
-def _context(root: Path, expected_digest: str) -> TargetProjectContext:
+def _context(
+    root: Path,
+    expected_digest: str,
+    *,
+    verified_package: VerifiedFrameworkPackage | None = None,
+) -> TargetProjectContext:
     digest = _sha256(expected_digest, code="target-context-invalid", label="target context")
     relative = RUNTIME_CONTEXTS_RELATIVE / f"{digest}.toml"
     path, payload = _regular_file(root, relative, code="target-context-missing", label="target Project context")
     document = _parse_toml(payload, code="target-context-invalid", label="target Project context")
-    if set(document) - _CONTEXT_OPTIONAL_KEYS != _CONTEXT_REQUIRED_KEYS or document.get("schema_version") != SCHEMA_VERSION:
+    if set(document) - _CONTEXT_OPTIONAL_KEYS != _CONTEXT_REQUIRED_KEYS or document.get("schema_version") != CONTEXT_SCHEMA_VERSION:
         _refuse("target-context-invalid", "target Project context schema is not closed")
     if document.get(CONTEXT_DIGEST_FIELD) != digest:
         _refuse("target-context-mismatch", "target Project context self-digest differs from selector identity")
@@ -387,10 +432,29 @@ def _context(root: Path, expected_digest: str) -> TargetProjectContext:
     ):
         _refuse("target-context-invalid", "target Project context identity is invalid")
     control_path = _safe_relative(control, code="target-context-invalid", label="target control child")
-    if len(control_path.parts) != 1 or not control_path.name.startswith(".caprmedio_"):
+    if (
+        len(control_path.parts) != 1
+        or not control_path.name.startswith(".caprmedio_")
+        or control_path.name == ".caprmedio_"
+    ):
         _refuse("target-context-invalid", "target control child is not an exact direct control root")
-    for key in ("settings_sha256", "project_structure_sha256", "registry_sha256"):
+    for key in (
+        "settings_sha256",
+        "project_structure_sha256",
+        "registry_sha256",
+        "framework_instance_settings_sha256",
+        "source_catalog_sha256",
+    ):
         _sha256(document.get(key), code="target-context-invalid", label=key)
+    identities = document.get("methodology_source_identities")
+    if (
+        not isinstance(identities, list)
+        or not identities
+        or any(not isinstance(identity, str) or not identity for identity in identities)
+        or identities != sorted(identities)
+        or len(set(identities)) != len(identities)
+    ):
+        _refuse("target-context-invalid", "target Methodology source identities are invalid")
     repository_identity = document.get("repository_identity")
     if repository_identity is not False:
         _sha256(repository_identity, code="target-context-invalid", label="target repository identity")
@@ -423,6 +487,9 @@ def _context(root: Path, expected_digest: str) -> TargetProjectContext:
         repository_identity=repository_identity,
         root_locator=locator,
         relocates_context_sha256=relocation,
+        framework_instance_settings_sha256=document["framework_instance_settings_sha256"],
+        source_catalog_sha256=document["source_catalog_sha256"],
+        methodology_source_identities=tuple(identities),
     )
     persisted = canonical + f'{CONTEXT_DIGEST_FIELD} = "{digest}"\n'.encode("utf-8")
     if hashlib.sha256(canonical).hexdigest() != digest or payload != persisted:
@@ -430,12 +497,69 @@ def _context(root: Path, expected_digest: str) -> TargetProjectContext:
     control_dir = root.joinpath(*control_path.parts)
     if control_dir.is_symlink() or not control_dir.is_dir():
         _refuse("target-context-mismatch", "target control child is no longer present")
+    controls = {
+        "settings_sha256": PurePosixPath(control_path.as_posix()) / "caprmedio_project_settings.toml",
+        "project_structure_sha256": PurePosixPath(control_path.as_posix()) / "project_structure.toml",
+        "registry_sha256": PurePosixPath(control_path.as_posix()) / "operators_registry.toml",
+    }
+    for field, control_relative in controls.items():
+        _, observed = _regular_file(root, control_relative, code="target-context-mismatch", label=field)
+        if hashlib.sha256(observed).hexdigest() != document[field]:
+            _refuse("target-context-mismatch", f"target control changed: {field}")
+    try:
+        from target_methodology_selection import (
+            FRAMEWORK_INSTANCE_SETTINGS_RELATIVE,
+            TargetMethodologySelectionError,
+            resolve_target_methodology_selection,
+        )
+
+        _, framework_settings = _regular_file(
+            root,
+            PurePosixPath(control_path.as_posix()) / FRAMEWORK_INSTANCE_SETTINGS_RELATIVE,
+            code="target-context-mismatch",
+            label="Framework Instance Settings",
+        )
+        if hashlib.sha256(framework_settings).hexdigest() != document["framework_instance_settings_sha256"]:
+            _refuse("target-context-mismatch", "Framework Instance Settings changed")
+        if verified_package is not None:
+            from framework_package import provide_installation_package_evidence
+
+            if not isinstance(verified_package, VerifiedFrameworkPackage):
+                _refuse("target-context-invalid", "target context package is untrusted")
+            evidence = provide_installation_package_evidence(verified_package.root)
+            if (
+                evidence.package_manifest_sha256 != verified_package.manifest_digest
+                or evidence.catalog_sha256 != verified_package.source_catalog_sha256
+            ):
+                _refuse("target-context-mismatch", "target context package evidence is stale")
+            selection = resolve_target_methodology_selection(
+                control_root=control_dir,
+                package_root=verified_package.root,
+                package_evidence=evidence,
+            )
+            if (
+                selection.framework_instance_settings_sha256 != document["framework_instance_settings_sha256"]
+                or selection.source_catalog_sha256 != document["source_catalog_sha256"]
+                or selection.methodology_source_identities != tuple(identities)
+            ):
+                _refuse("target-context-mismatch", "target Methodology selection changed")
+    except InstalledMcpBindingError:
+        raise
+    except (FrameworkPackageError, TargetMethodologySelectionError) as error:
+        raise InstalledMcpBindingError("target-context-mismatch", "target Methodology selection cannot be reopened") from error
     return TargetProjectContext(digest, mode, identity, control_path.as_posix(), path)
 
 
 def _runtime_selector(root: Path, manifest_sha256: str, context: TargetProjectContext,
                       image_digest: str) -> str:
     _, payload = _regular_file(root, RUNTIME_CURRENT_RELATIVE, code="runtime-selector-missing", label="target runtime selector")
+    return _runtime_selector_payload(payload, manifest_sha256, context, image_digest)
+
+
+def _runtime_selector_payload(payload: bytes, manifest_sha256: str, context: TargetProjectContext,
+                              image_digest: str) -> str:
+    """Verify exact prospective D599 selector bytes without publishing them."""
+
     selector = _parse_toml(payload, code="runtime-selector-invalid", label="target runtime selector")
     if set(selector) != _RUNTIME_SELECTOR_KEYS or selector.get("schema_version") != SCHEMA_VERSION:
         _refuse("runtime-selector-invalid", "target runtime selector schema is not closed")
@@ -452,6 +576,52 @@ def _runtime_selector(root: Path, manifest_sha256: str, context: TargetProjectCo
     if not isinstance(lock_generation, str) or LOCK_GENERATION.fullmatch(lock_generation) is None:
         _refuse("runtime-selector-invalid", "target runtime selector installation_lock_generation is invalid")
     return hashlib.sha256(payload).hexdigest()
+
+
+def admit_candidate_mcp_binding(
+    target_project_root: str | Path,
+    verified_package: VerifiedFrameworkPackage,
+    *,
+    target_context_sha256: str,
+    prospective_package_selector: bytes,
+    prospective_runtime_selector: bytes,
+    route: str = MCP_ROUTE,
+) -> InstalledMcpBinding:
+    """Read-only admission of one sealed, non-active package/selector packet."""
+
+    if route != MCP_ROUTE:
+        _refuse("mcp-route-undesignated", "installed MCP route is not designated")
+    if not isinstance(prospective_package_selector, bytes) or not isinstance(prospective_runtime_selector, bytes):
+        _refuse("candidate-selector-invalid", "prospective selectors must be exact bytes")
+    root = _project_root(target_project_root)
+    package_root, manifest_sha256, catalog_sha256, rows = _verification(verified_package)
+    try:
+        package_root.resolve(strict=True).relative_to(root.resolve(strict=True))
+    except (OSError, ValueError) as error:
+        raise InstalledMcpBindingError("candidate-package-foreign", "candidate package is outside the target Project") from error
+    if package_root.is_symlink() or not package_root.is_dir():
+        _refuse("candidate-package-invalid", "candidate package root is unavailable")
+    row_map = _verify_package_tree(package_root, manifest_sha256, catalog_sha256, rows)
+    ca_skill = _package_ca_skill(row_map)
+    _manifest_path, manifest_payload = _regular_file(package_root, PurePosixPath("manifest.toml"), code="installed-package-missing", label="package manifest")
+    manifest = _parse_toml(manifest_payload, code="installed-package-tampered", label="package manifest")
+    selector, package_selector_sha256 = _selector_payload(prospective_package_selector, package_root, verified_package)
+    context = _context(root, target_context_sha256, verified_package=verified_package)
+    runtime_selector_sha256 = _runtime_selector_payload(
+        prospective_runtime_selector, manifest_sha256, context, selector["image_digest"],
+    )
+    _compose_contract(package_root)
+    for route_file in MCP_FILES:
+        if route_file not in row_map:
+            _refuse("mcp-route-undesignated", f"candidate package has no verified MCP carrier: {route_file}")
+    return InstalledMcpBinding(
+        package_manifest_sha256=manifest_sha256, source_catalog_sha256=catalog_sha256,
+        target_context=context, package_selector_sha256=package_selector_sha256,
+        runtime_selector_sha256=runtime_selector_sha256, image_digest=selector["image_digest"],
+        package_root=package_root, mcp_server=package_root / MCP_FILES[1],
+        mcp_http_server=package_root / MCP_FILES[0], dockerfile=package_root / MCP_FILES[3],
+        compose_file=package_root / MCP_FILES[-1], package_ca_skill=ca_skill,
+    )
 
 
 def _compose_contract(package_root: Path) -> None:
@@ -510,10 +680,11 @@ def admit_installed_mcp_binding(
     package_root, manifest_sha256, catalog_sha256, rows = _verification(verified_package)
     package_root = _package_root(root, package_root, manifest_sha256)
     row_map = _verify_package_tree(package_root, manifest_sha256, catalog_sha256, rows)
+    ca_skill = _package_ca_skill(row_map)
     _, manifest_payload = _regular_file(package_root, PurePosixPath("manifest.toml"), code="installed-package-missing", label="package manifest")
     manifest = _parse_toml(manifest_payload, code="installed-package-tampered", label="package manifest")
     selector, package_selector_sha256 = _selector(root, package_root, verified_package, manifest)
-    context = _context(root, target_context_sha256)
+    context = _context(root, target_context_sha256, verified_package=verified_package)
     runtime_selector_sha256 = _runtime_selector(root, manifest_sha256, context, selector["image_digest"])
     _compose_contract(package_root)
     for route_file in MCP_FILES:
@@ -531,6 +702,7 @@ def admit_installed_mcp_binding(
         mcp_http_server=package_root / MCP_FILES[0],
         dockerfile=package_root / MCP_FILES[3],
         compose_file=package_root / MCP_FILES[-1],
+        package_ca_skill=ca_skill,
     )
 
 
@@ -539,6 +711,8 @@ __all__ = [
     "InstalledMcpBindingError",
     "MCP_FILES",
     "MCP_ROUTE",
+    "PackageCaSkillMember",
     "TargetProjectContext",
+    "admit_candidate_mcp_binding",
     "admit_installed_mcp_binding",
 ]
