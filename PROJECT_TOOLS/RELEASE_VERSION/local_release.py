@@ -133,11 +133,11 @@ def _read_structure(root: Path, config: Mapping[str, Any]) -> tuple[tuple[str, P
     return tuple(selected)
 
 
-def _walk_regular_files(root: Path) -> list[Path]:
+def _walk_regular_files(root: Path, *, excluded_directories: frozenset[str] = frozenset()) -> list[Path]:
     collected: list[Path] = []
     for directory, directories, names in os.walk(root, followlinks=False):
         base = Path(directory)
-        directories[:] = [name for name in directories if not _ignored(name)]
+        directories[:] = [name for name in directories if not _ignored(name) and name.casefold() not in excluded_directories]
         for name in directories:
             child = base / name
             if child.is_symlink():
@@ -175,9 +175,7 @@ def _copy_active_sources(sources: tuple[tuple[str, Path], ...], destination: Pat
         target_root = destination / source.name
         target_root.mkdir(parents=True, exist_ok=False)
         unit_copied = 0
-        for entry in _walk_regular_files(source):
-            if any(part.casefold() in _NON_SOURCE_DIRECTORIES for part in entry.relative_to(source).parts[:-1]):
-                continue
+        for entry in _walk_regular_files(source, excluded_directories=_NON_SOURCE_DIRECTORIES):
             if not _active_atom(entry):
                 continue
             target = target_root / entry.relative_to(source)

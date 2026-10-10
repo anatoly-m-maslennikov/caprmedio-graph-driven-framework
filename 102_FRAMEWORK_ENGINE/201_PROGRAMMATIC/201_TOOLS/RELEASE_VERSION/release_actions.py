@@ -1,4 +1,4 @@
-"""Private O164@6 phase composition behind the shared Session recorder.
+"""Private current-O164 phase composition behind the shared Session recorder.
 
 Phases are selected only by private Step/Action identity. The adapter retains
 typed observations and requires the shared durable checkpoint callback before
@@ -10,6 +10,8 @@ effects stop without implicit replay.
 from __future__ import annotations
 
 import hashlib
+import importlib.util
+import sys
 from collections.abc import Callable
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -67,23 +69,18 @@ if TYPE_CHECKING:
 
 PHASES = (
     ("CA-O-170", "CA-O-165", "freeze"),
-    ("CA-O-171", "CA-O-165", "validate"),
-    ("CA-O-172", "CA-O-166", "deliver_sources"),
-    ("CA-O-173", "CA-O-166", "compile"),
-    ("CA-O-185", "CA-O-168", "closed_unit_gate"),
     ("CA-O-175", "CA-O-167", "stage_candidate"),
+    ("CA-O-185", "CA-O-168", "closed_unit_gate"),
     ("CA-O-176", "CA-O-168", "candidate_image_build"),
     ("CA-O-186", "CA-O-168", "candidate_image_canary"),
     ("CA-O-182", "CA-O-181", "host_candidate_e2e"),
     ("CA-O-184", "CA-O-183", "aggregate_full_gate"),
+    ("CA-O-172", "CA-O-166", "deliver_sources"),
+    ("CA-O-173", "CA-O-166", "compile"),
     ("CA-O-178", "CA-O-169", "promote"),
-    ("CA-O-179", "CA-O-169", "retire"),
 )
 
-# The current action adapter remains O164@6-compatible.  Checkpoint recovery
-# retains v5 separately, but dispatch must not broaden an old selected graph.
-_LEGACY_WORKFLOW_VERSIONS = frozenset({6})
-_NATIVE_PORTABLE_WORKFLOW_VERSION = 9
+_NATIVE_PORTABLE_WORKFLOW_VERSION = 11
 
 
 @dataclass(frozen=True)
@@ -230,7 +227,7 @@ def _selection(request, context, run):
     if not isinstance(run, ReleaseActionRun) or not isinstance(context, SelectedReleaseActionContext):
         raise ReleaseContractError("release-action-context-untrusted", "dispatch requires retained private Run and selected context")
     if (context.workflow_atom_id != "CA-O-164" or type(context.workflow_version) is not int
-            or context.workflow_version not in (_LEGACY_WORKFLOW_VERSIONS | {_NATIVE_PORTABLE_WORKFLOW_VERSION})
+            or context.workflow_version != _NATIVE_PORTABLE_WORKFLOW_VERSION
             or context.workflow_run_id != run.workflow_run_id or context.parent_workflow_run_id != run.workflow_run_id
             or context.parent_step_run_id != context.step_run_id
             or context.project_root != run.project_root or str(Path(request.project_root).resolve(strict=True)) != run.project_root
@@ -243,7 +240,7 @@ def _selection(request, context, run):
             raise ReleaseContractError("release-action-context-invalid", "selected Run identities must be bounded")
     matches = [index for index, pair in enumerate(PHASES) if pair[:2] == (context.step_atom_id, context.action_atom_id)]
     if len(matches) != 1:
-        raise ReleaseContractError("release-action-phase-unselected", "Step/Action pair is outside O164@6")
+        raise ReleaseContractError("release-action-phase-unselected", "Step/Action pair is outside current O164")
     index = matches[0]
     if index in run.contexts and run.contexts[index] != context:
         raise ReleaseContractError("release-action-identity-mismatch", "selected occurrence identity changed")
@@ -253,25 +250,6 @@ def _selection(request, context, run):
     if any(saved.workflow_version != context.workflow_version for saved in run.contexts.values()):
         raise ReleaseContractError("release-action-identity-mismatch", "one private Release Run cannot mix selected workflow revisions")
     return index, PHASES[index][2]
-
-
-def _native_portable_frontier(run: ReleaseActionRun) -> bool:
-    """Return whether the retained selected occurrence is O164@9 portable.
-
-    Workflow revision is provider-owned selected identity, never a request
-    flag.  ``execute_release_action`` records the current context before this
-    helper is reached, so an empty newly allocated Run cannot accidentally
-    choose native behavior.
-    """
-
-    versions = {context.workflow_version for context in run.contexts.values()}
-    if not versions:
-        return False
-    if versions == {_NATIVE_PORTABLE_WORKFLOW_VERSION}:
-        return True
-    if versions <= _LEGACY_WORKFLOW_VERSIONS:
-        return False
-    raise ReleaseContractError("release-action-identity-mismatch", "private Release frontier has mixed workflow revisions")
 
 
 def _checkpoint(run: ReleaseActionRun, *, index: int, context: SelectedReleaseActionContext,
@@ -363,45 +341,66 @@ def _native_candidate_root(run: ReleaseActionRun) -> Path:
     return Path(run.project_root) / ".caprmedio_tmp" / "release_candidates" / run_id
 
 
+def _selected_local_bindings(run: ReleaseActionRun):
+    """Load the Project-owned local transition factory at its fixed boundary."""
+
+    path = Path(run.project_root) / "PROJECT_TOOLS" / "RELEASE_VERSION" / "native_hooks.py"
+    if path.is_symlink() or not path.is_file():
+        raise ReleaseContractError("local-release-hooks-unavailable", "Project local-release bindings are unavailable")
+    name = "_caprmedio_selected_local_release_hooks_" + hashlib.sha256(
+        str(Path(run.project_root).resolve(strict=True)).encode("utf-8")
+    ).hexdigest()
+    module = sys.modules.get(name)
+    if module is None:
+        spec = importlib.util.spec_from_file_location(name, path)
+        if spec is None or spec.loader is None:
+            raise ReleaseContractError("local-release-hooks-unavailable", "Project local-release bindings cannot be loaded")
+        module = importlib.util.module_from_spec(spec)
+        sys.modules[name] = module
+        spec.loader.exec_module(module)
+    factory = getattr(module, "create_selected_local_bindings", None)
+    if not callable(factory):
+        raise ReleaseContractError("local-release-hooks-unavailable", "Project local-release bindings expose no selected factory")
+    return factory(Path(run.project_root), run=run, context=run.in_progress)
+
+
 def _invoke_native_portable(phase: str, run: ReleaseActionRun, candidate: ValidatedCandidate) -> tuple:
     """Execute O164@9's existing occurrences against the portable frontier.
 
-    CA-O-199 owns catalog/admission publication.  This branch only reopens
-    its physical proof while collecting/sealing the already-present private
-    Methodology export and compilation; a missing or changed catalog blocks.
+    O167 is the complete private preparation boundary: it exports, compiles,
+    seals the portable catalog frontier, and prepares the non-active package.
+    The gate phases finish before O166 mutates the product or installed tree.
     """
 
-    if phase == "validate":
-        _revalidate(candidate)
-        if preflight_release_compilation(run.project_root, candidate_release=candidate.manifest.candidate_release) != run.preflight:
-            raise ReleaseContractError("release-action-currentness-stale", "compiler boundary changed after freeze")
-        return "completed", "exact candidate/compiler bindings observed", (), candidate
-    if phase == "deliver_sources":
+    if phase == "stage_candidate":
         export = bind_sealed_methodology_export(candidate, _native_candidate_root(run))
         if export.candidate != candidate:
             raise ReleaseContractError("release-action-result-mismatch", "private Methodology export is not bound to the frozen candidate")
-        run.methodology_export = export
-        return "completed", "complete sealed private candidate source export observed", (
-            f"{export.source_export_root}/methodology-export-inventory.json#sha256={export.export_inventory_sha256}",
-        ), export
-    if run.methodology_export is None or run.methodology_export.candidate != candidate:
-        raise ReleaseContractError("release-action-prerequisite-missing", "sealed private Methodology export is unavailable")
-    if phase == "compile":
-        private = read_sealed_private_methodology_compilation(run.methodology_export)
+        private = read_sealed_private_methodology_compilation(export)
         snapshot = collect_portable_source_snapshot(candidate, private, candidate_run_id=run.workflow_run_id)
         portable = seal_portable_source_snapshot(snapshot)
         if portable.candidate != candidate or portable.private_compilation != private:
             raise ReleaseContractError("release-action-result-mismatch", "portable compilation differs from the sealed private Methodology frontier")
+        package = prepare_portable_release_package(run.project_root, portable)
+        if (not isinstance(package, PreparedPortableReleasePackage)
+                or package.candidate_snapshot_manifest_sha256 != candidate.manifest.sha256
+                or package.input_manifest_sha256 != portable.input_manifest_sha256):
+            raise ReleaseContractError("release-action-result-mismatch", "private portable package is not exactly portable-contract bound")
+        run.methodology_export = export
         run.private_compilation = private
         run.portable_source_snapshot = snapshot
         run.portable_compilation = portable
-        return "completed", "private Methodology and already-admitted portable source contract observed", (
+        run.prepared_portable_package = package
+        return "completed", "complete private Methodology export, compilation, catalog and package prepared", (
             f"{private.compiled_root}/compiled-delivery-manifest.json#sha256={private.compiled_manifest_sha256}",
             f"catalog.toml#sha256={portable.source_catalog_sha256}",
-        ), portable
+            f"{package.private_package_root.relative_to(run.project_root).as_posix()}/manifest.toml",
+        ), package
     portable = run.portable_compilation
-    if not isinstance(portable, SealedPortableCandidateCompilation) or portable.candidate != candidate:
-        raise ReleaseContractError("release-action-prerequisite-missing", "sealed portable compilation is unavailable")
+    if (not isinstance(portable, SealedPortableCandidateCompilation) or portable.candidate != candidate
+            or not isinstance(run.methodology_export, SealedMethodologyExport)
+            or run.methodology_export.candidate != candidate):
+        raise ReleaseContractError("release-action-prerequisite-missing", "sealed private Methodology and portable compilation are unavailable")
     if phase == "closed_unit_gate":
         suite = execute_bound_release_suite(
             candidate,
@@ -423,17 +422,6 @@ def _invoke_native_portable(phase: str, run: ReleaseActionRun, candidate: Valida
     suite = run.portable_suite
     if not isinstance(suite, PortableSuiteGateEvidence) or not suite.passed:
         raise ReleaseContractError("release-action-prerequisite-missing", "passing native Unit evidence is unavailable")
-    if phase == "stage_candidate":
-        verify_bound_suite_evidence(candidate, portable, suite)
-        package = prepare_portable_release_package(run.project_root, portable)
-        if (not isinstance(package, PreparedPortableReleasePackage)
-                or package.candidate_snapshot_manifest_sha256 != candidate.manifest.sha256
-                or package.input_manifest_sha256 != portable.input_manifest_sha256):
-            raise ReleaseContractError("release-action-result-mismatch", "private portable package is not exactly portable-contract bound")
-        run.prepared_portable_package = package
-        return "completed", "complete private portable package prepared after native Unit", (
-            f"{package.private_package_root.relative_to(run.project_root).as_posix()}/manifest.toml",
-        ), package
     package = run.prepared_portable_package
     if not isinstance(package, PreparedPortableReleasePackage):
         raise ReleaseContractError("release-action-prerequisite-missing", "private portable package is unavailable")
@@ -507,47 +495,42 @@ def _invoke_native_portable(phase: str, run: ReleaseActionRun, candidate: Valida
         return ("completed" if full_gate.passed else "pending"), full_gate.reason, (
             (f"{full_gate.evidence_root}/receipt.json",) if full_gate.receipt_sha256 else ()
         ), full_gate
-    if phase == "retire":
-        from release_promotion import admit_selected_native_promotion_start, verify_native_promotion_evidence
-
-        admit_selected_native_promotion_start(run, run.in_progress)
-        if type(run.promotion) is not NativePromotionEvidence:
-            raise ReleaseContractError("release-action-prerequisite-missing", "observed native publication is unavailable")
-        verify_native_promotion_evidence(
-            candidate, portable, suite, run.build, run.verification, run.promotion,
-            e2e=run.e2e, full_gate=run.full_gate, prepared_package=package,
-        )
-        retired = retire_prior_image(
-            candidate, portable, suite, run.build, run.verification, run.promotion,
-            e2e=run.e2e, full_gate=run.full_gate, executor=_executor(run), prepared_package=package,
-        )
-        if type(retired) is not ImageRetirementEvidence:
-            raise ReleaseContractError("release-action-result-untrusted", "native prior image disposition is not typed evidence")
-        _bound(retired, candidate)
-        run.retirement = retired
-        recording = _retirement_recording_handoff(retired)
-        reason = "exact prior image retirement awaits canonical shared Action receipt" if recording else retired.reason
-        retained_complete = (
-            retired.outcome == "retained" and retired.execution_kind == "docker-subprocess"
-            and isinstance(retired.receipt_sha256, str) and SHA256.fullmatch(retired.receipt_sha256) is not None
-            and retired.retention_condition == "retain_prior"
-            and retired.framework_settings_digest == candidate.manifest.framework_settings_digest
-            and isinstance(retired.required_rollback_refs, tuple)
-            and f"{FRAMEWORK_SETTINGS_RELATIVE}#release_version.rollback_retention.condition" in retired.required_rollback_refs
-            and retired.retaining_container_refs == () and retired.removal_intent_ref is None
-            and retired.removal_exit_code is None and retired.prior_image_absent is None
-        )
-        return ("completed" if retained_complete else "pending", reason,
-                (f"{retired.evidence_root}/receipt.json",) if retired.receipt_sha256 else (),
-                retired, retired.outcome, recording)
+    if phase == "deliver_sources":
+        bindings = _selected_local_bindings(run)
+        source_copy, atom_count = bindings.deliver_sources()
+        return "completed", "exact gated Methodology atoms delivered to the product", (
+            f"{source_copy}#active-atom-count={atom_count}",
+            *bindings.checkpoint_refs,
+        ), run.methodology_export
+    if phase == "compile":
+        bindings = _selected_local_bindings(run)
+        digest = bindings.compile_product()
+        return "completed", "exact gated product Methodology compiled", (
+            f"{bindings.layout.applicable_root}#sha256={digest}",
+            *bindings.checkpoint_refs,
+        ), run.portable_compilation
     if phase == "promote":
         from release_promotion import prepare_and_publish_selected_native_runtime
 
+        bindings = _selected_local_bindings(run)
+        installed_root = bindings.layout.installed_root
         outcome, reason, refs, promoted = prepare_and_publish_selected_native_runtime(run, run.in_progress)
         if promoted is not None and type(promoted) is not NativePromotionEvidence:
             raise ReleaseContractError("release-action-result-untrusted", "native publication result is not typed evidence")
         run.promotion = promoted
-        return outcome, reason, refs, promoted, promoted.outcome if promoted is not None else outcome
+        if outcome == "completed" and promoted is not None:
+            try:
+                startup, startup_ref = bindings.start_and_check_mcp(promoted)
+            except (OSError, ValueError, RuntimeError) as error:
+                return "effect_uncertain", f"native publication occurred but final Methodology/MCP verification stopped: {error}", (
+                    installed_root, *bindings.checkpoint_refs, *refs,
+                ), promoted, promoted.outcome
+            refs = (*refs, startup_ref)
+            if not isinstance(startup, Mapping) or startup.get("condition") not in {"READY_STARTED", "READY_REUSED"}:
+                return "effect_uncertain", "native publication occurred but installed MCP did not report ready", (
+                    installed_root, *bindings.checkpoint_refs, *refs,
+                ), promoted, promoted.outcome
+        return outcome, reason, (installed_root, *bindings.checkpoint_refs, *refs), promoted, promoted.outcome if promoted is not None else outcome
     raise ReleaseContractError("release-action-phase-unselected", "unknown selected native portable phase")
 
 
@@ -570,8 +553,7 @@ def _invoke(phase, run):
     if (not isinstance(candidate, ValidatedCandidate) or candidate.project_root != run.project_root
             or candidate.manifest != run.request.candidate_snapshot_manifest):
         raise ReleaseContractError("release-action-prerequisite-mismatch", "retained candidate differs from this frozen Run")
-    if _native_portable_frontier(run):
-        return _invoke_native_portable(phase, run, candidate)
+    return _invoke_native_portable(phase, run, candidate)
     if run.source_copy is not None and (not isinstance(run.source_copy, SealedSourceCopy)
             or run.source_copy.candidate != candidate):
         raise ReleaseContractError("release-action-prerequisite-mismatch", "retained source-copy result belongs to another candidate")

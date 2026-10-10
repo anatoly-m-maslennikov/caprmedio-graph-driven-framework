@@ -46,6 +46,27 @@ class PortableReleaseActionsTests(unittest.TestCase):
         self.fixture.setUp()
         self.addCleanup(self.fixture.doCleanups)
         self.root = self.fixture.root
+        self.fixture.write(
+            ".caprmedio_caprmedio/project_structure.toml",
+            (
+                "[[scope_units]]\n"
+                'scope_unit_name = "FRAMEWORK_METHODOLOGY"\n'
+                'delivery_path = "101_FRAMEWORK_METHODOLOGY"\n\n'
+                "[[scope_units]]\n"
+                'scope_unit_name = "METHODOLOGY_SOURCES"\n'
+                'parent = "FRAMEWORK_METHODOLOGY"\n'
+                f'authority_path = "{portable_fixture.CANONICAL_SOURCE_RELATIVE}"\n'
+                'delivery_path = "101_FRAMEWORK_METHODOLOGY/000_METHODOLOGY_SOURCES"\n\n'
+                "[[scope_units]]\n"
+                'scope_unit_name = "APPLICABLE_METHODOLOGY"\n'
+                'parent = "FRAMEWORK_METHODOLOGY"\n'
+                'delivery_path = "101_FRAMEWORK_METHODOLOGY/00_APPLICABLE_METHODOLOGY"\n\n'
+                "[[scope_units]]\n"
+                'scope_unit_name = "FRAMEWORK_ENGINE"\n'
+                'authority_path = ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE"\n'
+                'delivery_path = "102_FRAMEWORK_ENGINE"\n'
+            ).encode("utf-8"),
+        )
         self.candidate, _private = self.fixture.sealed()
         manifest = self.candidate.manifest.model_dump(mode="json", by_alias=True)
         self.request = {
@@ -76,7 +97,7 @@ class PortableReleaseActionsTests(unittest.TestCase):
             str(self.root), "portable-001", f"portable-001:step:{index + 1}",
             f"portable-001:step:{index + 1}:action:1", "portable-001",
             f"portable-001:step:{index + 1}", step, action,
-            self.run.frozen_parameters_sha256, workflow_version=9,
+            self.run.frozen_parameters_sha256, workflow_version=11,
         )
 
     def execute(self, index: int):
@@ -112,9 +133,9 @@ class PortableReleaseActionsTests(unittest.TestCase):
             elapsed_seconds=0.1,
         )
 
-    def test_native_collect_seal_checkpoint_and_legacy_phase_shape(self) -> None:
+    def test_native_private_preparation_precedes_the_full_gate(self) -> None:
         catalog_before = (self.root / "catalog.toml").read_bytes()
-        for index in range(4):
+        for index in range(2):
             result = self.execute(index)
             self.assertEqual(result.outcome, "completed")
 
@@ -123,8 +144,22 @@ class PortableReleaseActionsTests(unittest.TestCase):
         self.assertIsNotNone(self.run.portable_source_snapshot)
         self.assertIsInstance(self.run.portable_compilation, SealedPortableCandidateCompilation)
         self.assertEqual((self.root / "catalog.toml").read_bytes(), catalog_before)
-        self.assertEqual(self.run.next_phase, 4)
-        self.assertEqual(PHASES[2:4], (("CA-O-172", "CA-O-166", "deliver_sources"), ("CA-O-173", "CA-O-166", "compile")))
+        self.assertEqual(self.run.next_phase, 2)
+        self.assertEqual(
+            PHASES,
+            (
+                ("CA-O-170", "CA-O-165", "freeze"),
+                ("CA-O-175", "CA-O-167", "stage_candidate"),
+                ("CA-O-185", "CA-O-168", "closed_unit_gate"),
+                ("CA-O-176", "CA-O-168", "candidate_image_build"),
+                ("CA-O-186", "CA-O-168", "candidate_image_canary"),
+                ("CA-O-182", "CA-O-181", "host_candidate_e2e"),
+                ("CA-O-184", "CA-O-183", "aggregate_full_gate"),
+                ("CA-O-172", "CA-O-166", "deliver_sources"),
+                ("CA-O-173", "CA-O-166", "compile"),
+                ("CA-O-178", "CA-O-169", "promote"),
+            ),
+        )
 
         checkpoint = dump_release_checkpoint(self.run)
         self.assertEqual(checkpoint["schema"], NATIVE_PORTABLE_RELEASE_ACTION_CHECKPOINT_SCHEMA)
@@ -139,36 +174,31 @@ class PortableReleaseActionsTests(unittest.TestCase):
             restore_release_action_checkpoint(canonical_json(malformed))
         self.assertEqual(invalid.exception.code, "release-checkpoint-invalid")
 
-    def test_native_unit_precedes_private_package_preparation(self) -> None:
-        for index in range(4):
+    def test_native_private_package_precedes_unit_gate(self) -> None:
+        for index in range(2):
             self.assertEqual(self.execute(index).outcome, "completed")
         package_root = self.root / ".caprmedio_tmp/release_candidates/portable-001/package"
-        self.assertFalse(package_root.exists())
+        self.assertTrue(package_root.exists())
         suite = self._portable_suite()
         with (
             patch("release_actions.installed_n_suite_executor", return_value=object()),
             patch("release_actions.execute_bound_release_suite", return_value=suite),
-            patch("release_actions.verify_bound_suite_evidence"),
         ):
-            self.assertEqual(self.execute(4).outcome, "completed")
-            self.assertFalse(package_root.exists())
-            self.assertEqual(self.execute(5).outcome, "completed")
+            self.assertEqual(self.execute(2).outcome, "completed")
 
         self.assertIsInstance(self.run.prepared_portable_package, PreparedPortableReleasePackage)
         self.assertTrue(package_root.exists())
 
     def test_missing_admitted_catalog_blocks_compile_without_replay(self) -> None:
         self.assertEqual(self.execute(0).outcome, "completed")
-        self.assertEqual(self.execute(1).outcome, "completed")
-        self.assertEqual(self.execute(2).outcome, "completed")
         (self.root / "catalog.toml").unlink()
 
-        blocked = self.execute(3)
+        blocked = self.execute(1)
 
         self.assertEqual(blocked.outcome, "blocked")
         self.assertEqual(blocked.reason, "phase stopped: portable-contract-catalog-missing")
         self.assertTrue(self.run.stopped)
-        self.assertEqual(self.execute(3), blocked)
+        self.assertEqual(self.execute(1), blocked)
 
 
 if __name__ == "__main__":

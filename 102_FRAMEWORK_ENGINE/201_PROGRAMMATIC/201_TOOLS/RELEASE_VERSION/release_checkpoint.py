@@ -1002,7 +1002,7 @@ def _context_value(context: SelectedReleaseActionContext) -> dict[str, Any]:
 # Checkpoints preserve the selected Workflow definition recorded when the Run
 # began.  Retain the immediately preceding O164 revision for status/recovery,
 # but reject an unknown revision rather than silently rebinding it.
-_SUPPORTED_RELEASE_WORKFLOW_VERSIONS = frozenset({5, 6, 9})
+_SUPPORTED_RELEASE_WORKFLOW_VERSIONS = frozenset({5, 6, 9, 11})
 
 
 def _load_context(value: Any, index: int, *, root: str, workflow_run_id: str, fingerprint: str) -> SelectedReleaseActionContext:
@@ -1385,7 +1385,7 @@ def _load_pending_recordings(
 
 
 def _native_portable_run(run: ReleaseActionRun) -> bool:
-    """Identify the separate O164@9 frontier from selected contexts only."""
+    """Identify the current O164@11 portable frontier from selected contexts only."""
 
     contexts = [*run.contexts.values()]
     if run.in_progress is not None:
@@ -1393,7 +1393,7 @@ def _native_portable_run(run: ReleaseActionRun) -> bool:
     versions = {context.workflow_version for context in contexts}
     if not versions:
         return False
-    if versions == {9}:
+    if versions == {11}:
         return True
     if versions <= {5, 6}:
         return False
@@ -1833,8 +1833,8 @@ def _load_native_state(value: Mapping[str, Any], root: str, *, documentary_publi
         )
     if portable is None and any(state[name] is not None for name in _NATIVE_STATE_NAMES[6:]):
         raise _error("release-checkpoint-phase-mismatch", "native later evidence lacks portable compilation")
-    if state["portable_suite"] is None and any(state[name] is not None for name in _NATIVE_STATE_NAMES[7:]):
-        raise _error("release-checkpoint-phase-mismatch", "native package or gates lack Unit evidence")
+    if state["portable_suite"] is None and any(state[name] is not None for name in _NATIVE_STATE_NAMES[8:]):
+        raise _error("release-checkpoint-phase-mismatch", "native image evidence lacks Unit evidence")
     if state["prepared_portable_package"] is None and any(state[name] is not None for name in _NATIVE_STATE_NAMES[8:]):
         raise _error("release-checkpoint-phase-mismatch", "native image evidence lacks private prepared package")
     if state["promotion"] is not None and state["full_gate"] is None:
@@ -2166,8 +2166,8 @@ def _encode_native_release_action_checkpoint(
         raise _error("release-checkpoint-binding-mismatch", "native run request, root, or fingerprint is not frozen")
     contexts = []
     for index, context in sorted(run.contexts.items()):
-        if context.workflow_version != 9:
-            raise _error("release-checkpoint-binding-mismatch", "native checkpoint context is not O164@9")
+        if context.workflow_version != 11:
+            raise _error("release-checkpoint-binding-mismatch", "native checkpoint context is not current O164@11")
         _load_context(_context_value(context), _index(index, "contexts.index"), root=root,
                       workflow_run_id=run.workflow_run_id, fingerprint=run.frozen_parameters_sha256)
         contexts.append({"index": index, "context": _context_value(context)})
@@ -2186,8 +2186,8 @@ def _encode_native_release_action_checkpoint(
         _load_native_result(encoded, index, run.contexts[index], candidate, restored_state)
         results.append({"index": index, "result": encoded})
     if run.in_progress is not None:
-        if run.in_progress.workflow_version != 9:
-            raise _error("release-checkpoint-binding-mismatch", "native in-progress context is not O164@9")
+        if run.in_progress.workflow_version != 11:
+            raise _error("release-checkpoint-binding-mismatch", "native in-progress context is not current O164@11")
         _load_context(_context_value(run.in_progress), run.next_phase, root=root,
                       workflow_run_id=run.workflow_run_id, fingerprint=run.frozen_parameters_sha256)
     _validate_phase_continuity(next_phase=run.next_phase, stopped=run.stopped, in_progress=run.in_progress,
@@ -2376,7 +2376,7 @@ def derive_unknown_effect_terminal_checkpoint(payload: Mapping[str, Any]) -> dic
 def _restore_native_release_action_checkpoint(
     payload: Mapping[str, Any], *, image_executor: AdmittedImageExecutor | None = None,
 ) -> tuple[ReleaseActionRun, dict[int, dict[str, Any]], dict[int, dict[str, str]]]:
-    """Restore the closed O164@9 portable frontier without legacy coercion."""
+    """Restore the closed current O164@11 portable frontier without coercion."""
 
     source = _mapping(dict(payload), {
         "schema", "kind", "sha256", "project_root", "workflow_run_id", "frozen_parameters_sha256", "request",
@@ -2413,8 +2413,8 @@ def _restore_native_release_action_checkpoint(
         if index in contexts:
             raise _error("release-checkpoint-invalid", "native contexts repeat a selected phase")
         context = _load_context(record["context"], index, root=root, workflow_run_id=workflow_run_id, fingerprint=fingerprint)
-        if context.workflow_version != 9:
-            raise _error("release-checkpoint-binding-mismatch", "native checkpoint context is not O164@9")
+        if context.workflow_version != 11:
+            raise _error("release-checkpoint-binding-mismatch", "native checkpoint context is not current O164@11")
         contexts[index] = context
     if not isinstance(source["results"], list) or candidate is None:
         if source["results"] or candidate is not None:
@@ -2432,8 +2432,8 @@ def _restore_native_release_action_checkpoint(
     if source["in_progress"] is not None:
         in_progress = _load_context(source["in_progress"], source["next_phase"], root=root,
                                     workflow_run_id=workflow_run_id, fingerprint=fingerprint)
-        if in_progress.workflow_version != 9:
-            raise _error("release-checkpoint-binding-mismatch", "native in-progress context is not O164@9")
+        if in_progress.workflow_version != 11:
+            raise _error("release-checkpoint-binding-mismatch", "native in-progress context is not current O164@11")
     _validate_phase_continuity(next_phase=source["next_phase"], stopped=source["stopped"], in_progress=in_progress,
                                contexts=contexts, results=results)
     _validate_native_result_outputs(results, state)

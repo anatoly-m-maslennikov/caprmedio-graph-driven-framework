@@ -19,7 +19,11 @@ The implementation cores are `RELEASE_VERSION/local_release.py` and
 `PUBLIC_RELEASE/public_release.py`. Their callbacks are integration boundaries,
 not substitute test passes. MCP integration must use the existing admitted
 Session, concrete candidate-bound gate evidence and canonical Journal.
-The new cores are not yet wired to the live MCP provider.
+The selected MCP provider calls the Project-local Public helper and the
+current ten-phase Local dispatcher. Local callbacks retain candidate-bound
+proofs, scoped Git checkpoint receipts and installed MCP readiness evidence.
+This is source-level integration: the current live runtime has not been
+reinstalled or released by these focused tests.
 
 ## Kept small
 

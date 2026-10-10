@@ -684,7 +684,7 @@ class SelectedNativeProviders:
             # and any retained checkpoint have passed this provider's checks.
             # This runtime authority is deliberately absent from the codec.
             private_run.selected_action_session = session
-            if index == 0 and private_run.candidate is None and graph["workflow"]["version"] == 9:
+            if index == 0 and private_run.candidate is None and graph["workflow"]["version"] == 11:
                 from release_promotion import bind_selected_native_n_from_checkpoint
 
                 try:

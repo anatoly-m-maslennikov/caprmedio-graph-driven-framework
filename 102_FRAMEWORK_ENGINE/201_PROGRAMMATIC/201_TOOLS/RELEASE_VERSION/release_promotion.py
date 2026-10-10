@@ -209,8 +209,8 @@ def admit_selected_native_promotion_start(run, context):
     session = run.selected_action_session
     if type(session) is not RunExecutionSession:
         raise ReleaseContractError("release-native-promotion-session-unavailable", "selected publication requires the actual shared Session")
-    if (context.workflow_atom_id != "CA-O-164" or context.workflow_version != 9
-            or context.action_atom_id != "CA-O-169" or context.step_atom_id not in {"CA-O-178", "CA-O-179"}
+    if (context.workflow_atom_id != "CA-O-164" or context.workflow_version != 11
+            or context.action_atom_id != "CA-O-169" or context.step_atom_id != "CA-O-178"
             or context.project_root != run.project_root or context.workflow_run_id != run.workflow_run_id
             or context.parent_workflow_run_id != run.workflow_run_id
             or context.parent_step_run_id != context.step_run_id
@@ -237,10 +237,10 @@ def admit_selected_native_promotion_start(run, context):
             or action.get("parent_run_id") != context.step_run_id
             or step.get("parent_run_id") != context.workflow_run_id
             or action.get("definition", {}).get("atom_id") != "CA-O-169"
-            or action.get("definition", {}).get("version") != 5
+            or action.get("definition", {}).get("version") != 6
             or step.get("definition", {}).get("atom_id") != context.step_atom_id
             or workflow.get("definition", {}).get("atom_id") != "CA-O-164"
-            or workflow.get("definition", {}).get("version") != 9
+            or workflow.get("definition", {}).get("version") != 11
             or action_id in session.terminal or action_id in session.interrupted):
         raise ReleaseContractError("release-native-promotion-start-mismatch", "selected publication Action is not the exact running O169 occurrence")
     try:
@@ -496,10 +496,15 @@ def prepare_and_publish_selected_native_runtime(run, context):
         root, target_context_sha256=target_context.sha256, owner_run_id=context.action_run_id,
         operation="promote_selected_runtime", command_sha256=command.receipt.sha256,
     ) as lock:
+        local_checkpoint_refs: tuple[str, ...] = ()
         try:
             admit_selected_native_promotion_start(run, context)
             if _active_n_state(root, run.candidate) != active_n:
                 raise ReleaseContractError("release-native-promotion-prior-stale", "selected prior N changed before lock-owned preparation")
+            from release_actions import _selected_local_bindings
+
+            local_bindings = _selected_local_bindings(run)
+            product_before_publication = local_bindings.snapshot_product()
             prepared = build_prepared_native_publication(
                 installation, package=package, target_context=target_context,
                 installation_command_sha256=command.receipt.sha256, full_gate_packet=packet,
@@ -507,9 +512,17 @@ def prepare_and_publish_selected_native_runtime(run, context):
                 old_package_selector=old_package_selector,
                 old_execution_selector=old_execution_selector, lock=lock,
             )
+            # The candidate publisher has now materialized the exact tested
+            # projection bytes in the product. Copy that final product before
+            # runtime cut-over, under the same publication lock.
+            delivery = getattr(prepared, "methodology_delivery", None)
+            if Path(getattr(delivery, "output_root", "")).resolve() != root / local_bindings.layout.applicable_root:
+                raise ReleaseContractError("release-native-methodology-place-mismatch", "candidate publication did not materialize the registered product")
+            local_bindings.install_product(product_before_publication=product_before_publication)
+            local_checkpoint_refs = tuple(local_bindings.checkpoint_refs)
             evidence = publish_selected_native_runtime(run, context, command, prepared, lock=lock)
         except (KeyboardInterrupt, InterruptedError, SystemExit, OSError, ValueError, RuntimeError) as error:
-            refs = [command.receipt_path.relative_to(root).as_posix(), lock.lock_path.relative_to(root).as_posix()]
+            refs = [command.receipt_path.relative_to(root).as_posix(), lock.lock_path.relative_to(root).as_posix(), *local_checkpoint_refs]
             for path in (
                 f".caprmedio_runtime/installation/contexts/{target_context.sha256}.toml", ".caprmedio_runtime/config.toml",
                 f".caprmedio_tmp/installation/staging/{lock.lock_generation}/stage-manifest.toml",
@@ -530,7 +543,7 @@ def prepare_and_publish_selected_native_runtime(run, context):
         if evidence.outcome == "promoted" and evidence.receipt_sha256 is not None:
             lock.release("completed")
         return ("completed" if evidence.outcome == "promoted" and evidence.receipt_sha256 else "pending",
-                evidence.reason, (f"{evidence.evidence_root}/receipt.json",) if evidence.receipt_sha256 else evidence.effect_refs,
+                evidence.reason, (*local_checkpoint_refs, *((f"{evidence.evidence_root}/receipt.json",) if evidence.receipt_sha256 else evidence.effect_refs)),
                 evidence)
 
 
