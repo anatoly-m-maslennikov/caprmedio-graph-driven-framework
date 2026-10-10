@@ -471,6 +471,84 @@ def _methodology_descriptor_roots(rows: tuple[object, ...]) -> tuple[tuple[str, 
     )
 
 
+def _binding_descriptor(snapshot: Any, rows: tuple[object, ...]) -> SourceAdmissionDescriptor | None:
+    """Derive the one non-selectable binding descriptor from a frozen frontier.
+
+    Bindings are a package projection, so their catalog identity describes the
+    projection root rather than any individual Delivery Atom.  The snapshot
+    normally has already been revalidated by the writer, but this helper also
+    closes the frontier-to-row cardinality boundary itself: callers cannot
+    silently admit an unaccounted projection by invoking descriptor derivation
+    directly.
+    """
+
+    atoms = getattr(snapshot, "binding_atoms", None)
+    if not isinstance(atoms, tuple):
+        _refuse("source-admission-snapshot-invalid", "sealed source snapshot has an invalid binding frontier")
+    root = PurePosixPath("methodology/bindings")
+    binding_rows = tuple(row for row in rows if getattr(row, "resource", None) == "BINDING_PROJECTION")
+    if not atoms:
+        if binding_rows:
+            _refuse(
+                "source-admission-snapshot-invalid",
+                "sealed source snapshot has binding projections without a frozen frontier",
+            )
+        return None
+
+    expected_destinations: set[str] = set()
+    atom_pairs: set[tuple[str, int]] = set()
+    for atom in atoms:
+        atom_id = getattr(atom, "atom_id", None)
+        version = getattr(atom, "version", None)
+        if not isinstance(atom_id, str) or not atom_id or type(version) is not int or version < 1:
+            _refuse("source-admission-snapshot-invalid", "frozen binding frontier has an invalid Atom identity")
+        _require_sha256(
+            getattr(atom, "sha256", None),
+            field="frozen binding Atom digest",
+            code="source-admission-snapshot-invalid",
+        )
+        source = _safe_relative(
+            getattr(atom, "source_path", None),
+            field="frozen binding Atom source path",
+            code="source-admission-snapshot-invalid",
+        )
+        destination = (root / source).as_posix()
+        if destination in expected_destinations or (atom_id, version) in atom_pairs:
+            _refuse("source-admission-snapshot-invalid", "frozen binding frontier is not canonical")
+        expected_destinations.add(destination)
+        atom_pairs.add((atom_id, version))
+
+    observed_destinations: set[str] = set()
+    for row in binding_rows:
+        destination = _safe_relative(
+            getattr(row, "destination_path", None),
+            field="binding projection destination",
+            code="source-admission-snapshot-invalid",
+        )
+        if destination not in expected_destinations or destination in observed_destinations:
+            _refuse(
+                "source-admission-snapshot-invalid",
+                "binding projections differ from the frozen binding frontier",
+            )
+        observed_destinations.add(destination)
+    if len(binding_rows) != len(atoms) or observed_destinations != expected_destinations:
+        _refuse(
+            "source-admission-snapshot-invalid",
+            "binding projections do not cover the frozen binding frontier",
+        )
+
+    digest = _logical_digest(rows, resource="BINDING_PROJECTION", root=root)
+    return SourceAdmissionDescriptor(
+        "delivery-bindings",
+        "binding",
+        digest,
+        digest,
+        "public",
+        False,
+        root.as_posix(),
+    )
+
+
 def _descriptors_from_snapshot(snapshot: Any) -> tuple[SourceAdmissionDescriptor, ...]:
     rows = _snapshot_rows(snapshot)
     methodology = tuple(
@@ -485,6 +563,7 @@ def _descriptors_from_snapshot(snapshot: Any) -> tuple[SourceAdmissionDescriptor
         )
         for identity, kind, root in _methodology_descriptor_roots(rows)
     )
+    binding = _binding_descriptor(snapshot, rows)
     values = (
         *methodology,
         SourceAdmissionDescriptor(
@@ -505,6 +584,7 @@ def _descriptors_from_snapshot(snapshot: Any) -> tuple[SourceAdmissionDescriptor
             False,
             "methodology/support",
         ),
+        *((binding,) if binding is not None else ()),
     )
     return _ordered_descriptors(
         tuple(sorted(values, key=lambda descriptor: descriptor.identity)),

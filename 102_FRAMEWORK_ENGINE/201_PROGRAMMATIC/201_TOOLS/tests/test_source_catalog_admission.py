@@ -2,11 +2,12 @@
 
 from __future__ import annotations
 
+from dataclasses import replace
 import hashlib
 import json
 import sys
 import unittest
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 
 
 TOOLS_ROOT = Path(__file__).resolve().parents[1]
@@ -17,7 +18,11 @@ for candidate in (TOOLS_ROOT, RELEASE_ROOT, RELEASE_TEST_ROOT):
         sys.path.insert(0, str(candidate))
 
 from portable_package_fixture import PortablePackageFixture  # noqa: E402
-from release_portable_contract import collect_portable_source_snapshot  # noqa: E402
+from release_portable_contract import (  # noqa: E402
+    collect_portable_source_snapshot,
+    seal_portable_source_snapshot,
+)
+import source_catalog_admission as source_admission  # noqa: E402
 from source_catalog_admission import (  # noqa: E402
     SourceAdmissionDescriptor,
     SourceCatalogAdmissionError,
@@ -40,6 +45,20 @@ def _sources() -> tuple[SourceAdmissionDescriptor, ...]:
         SourceAdmissionDescriptor("local-core", "core", _digest("core"), _digest("core"), "public", False, "102_FRAMEWORK_ENGINE"),
         SourceAdmissionDescriptor("methodology-support", "support", _digest("support"), _digest("support"), "public", False, "methodology/support"),
     )
+
+
+class _BindingPortablePackageFixture(PortablePackageFixture):
+    """Real source fixture with one exporter-frozen Delivery binding."""
+
+    def _seed_project(self, extra_engine_members: dict[str, bytes]) -> None:
+        super()._seed_project(extra_engine_members)
+        self.write(
+            ".caprmedio_caprmedio/07_delivery/CA-D-901--binding.md",
+            b"---\natom_id: CA-D-901\nstatus: Active\ncontent_role: Delivery\n"
+            b"version: 1\nupdated_at: 2026-10-10 00:00:00 +0000\nrelations: {}\n---\n"
+            b"# CA-D-901\n\n```toml\n[tool_binding]\n"
+            b'entrypoint = "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/tool.py"\n```\n',
+        )
 
 
 class SourceCatalogAdmissionTests(unittest.TestCase):
@@ -156,6 +175,45 @@ class SourceCatalogAdmissionTests(unittest.TestCase):
             admit_package_sources(second_fixture.root, second_snapshot, invocation_admitter=lambda _request: True)  # type: ignore[return-value]
         self.assertEqual(refused.exception.code, "source-admission-invocation-untrusted")
         self.assertFalse((second_fixture.root / "catalog.toml").exists())
+
+    def test_writer_derives_one_binding_descriptor_from_the_real_frozen_frontier(self) -> None:
+        fixture = _BindingPortablePackageFixture(admit=False)
+        self.addCleanup(fixture.cleanup)
+        self.assertTrue(fixture.source_snapshot.binding_atoms)
+
+        outcome = fixture.admit_sources()
+        binding = tuple(source for source in outcome.sources if source.kind == "binding")
+        self.assertEqual(1, len(binding))
+        self.assertEqual("delivery-bindings", binding[0].identity)
+        self.assertEqual("methodology/bindings", binding[0].path)
+        self.assertFalse(binding[0].selection_default)
+        expected_digest = source_admission._logical_digest(
+            fixture.source_snapshot.portable_package_rows,
+            resource="BINDING_PROJECTION",
+            root=PurePosixPath("methodology/bindings"),
+        )
+        self.assertEqual(expected_digest, binding[0].revision)
+        self.assertEqual(expected_digest, binding[0].sha256)
+        self.assertEqual(outcome.receipt.sources, outcome.sources)
+
+        sealed = seal_portable_source_snapshot(fixture.source_snapshot)
+        self.assertEqual(fixture.source_snapshot.binding_atoms, sealed.binding_atoms)
+
+    def test_binding_descriptor_refuses_row_frontier_cardinality_mismatch(self) -> None:
+        fixture = _BindingPortablePackageFixture(admit=False)
+        self.addCleanup(fixture.cleanup)
+        without_projection_rows = replace(
+            fixture.source_snapshot,
+            portable_package_rows=tuple(
+                row
+                for row in fixture.source_snapshot.portable_package_rows
+                if row.resource != "BINDING_PROJECTION"
+            ),
+        )
+
+        with self.assertRaises(SourceCatalogAdmissionError) as refused:
+            source_admission._descriptors_from_snapshot(without_projection_rows)
+        self.assertEqual("source-admission-snapshot-invalid", refused.exception.code)
 
     def test_writer_refuses_typed_invocation_for_a_different_snapshot_before_effects(self) -> None:
         fixture = PortablePackageFixture(admit=False)
