@@ -6,11 +6,11 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 5
-updated_at: "2026-10-10 07:16:06 +0400"
+version: 4
+updated_at: "2026-10-10 03:33:44 +0400"
 subjects:
   governs: "Framework Installation contribution/Admitted source catalog"
-  depends_on: [Tool, Framework Package, Methodology, Extension, Configuration, MCP, Workflow Run, Action, Operator, Journal, Source Carrier]
+  depends_on: [Tool, Framework Package, Methodology, Extension, Configuration]
 relations:
   delivery_for: [CA-R-1902, CA-R-1908, CA-M-359]
 ---
@@ -49,27 +49,3 @@ The immutable host-command receipt has exactly `schema_version = 1`, `operation 
 The receipt is retained at `.caprmedio_runtime/installation/commands/<receipt_sha256>.json`. The admission record's `command_ref` is the Project-relative reference to that physically reopened receipt. It is derived after the receipt bytes are fixed, so the receipt has no self-reference or self-checksum cycle. Its Action Run and start-event IDs must reopen the actual canonical Journal evidence, with the registered Journal account, exact source binding and prospective input. The host revalidates that evidence, registry, source and snapshot before and after admission.
 
 This receipt proves the particular command and input binding. It is not a source-admission result, permission Boolean, Full Gate pass, second Journal, or command to start another operation. Failed or uncertain effects remain recorded and cannot be silently replayed.
-
-### Retained Release frontier input
-
-The host bridge in `102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/RELEASE_VERSION/source_admission_host_command.py` reopens one explicitly named retained Release Run at its completed delivery frontier. It reads the frozen selected request, current graph/source bindings, actual first three Step/Action start and completed-terminal records, and the private checkpoint. Those records must agree on the Project, source definitions, parentage, candidate and exact completed O172 occurrence. Missing, partial, uncertain, differently bound or advanced frontiers refuse before source admission.
-
-The bridge reconstructs the actual sealed candidate, Methodology export, private compilation and pre-catalog source snapshot through their physical readers. Caller-provided typed objects or expected hashes do not replace those observations. Reopening is read-only: it never starts, resumes or replays a Release phase. The source snapshot remains bound to the retained candidate Run. Its existing digest and the direct command receipt provide traceability; no extra Release-to-admission registry is created.
-
-### Direct MCP binding
-
-The Project MCP advertises `admit_package_sources` as the direct execution binding for CA-O-199. The server fixes the Project root. A closed preview request has exactly `operation = "preview"` and `release_run_id`; it observes that explicit retained frontier without an Action start or catalog write. It does not select a latest Run implicitly.
-
-A closed execute request has exactly `operation = "execute"`, `command_id`, `release_run_id`, `operator`, `authorization_ref` and `observed_snapshot_sha256`. The observed digest must equal the physically reopened snapshot before effects. The exact O172 occurrence, current Operator registry reference and frozen Release authorization reference are derived from the retained Run and Project, not independent caller overrides.
-
-The Operator command carrier is canonical UTF-8 JSON using the byte rules above, retained at a safe Project-relative regular path. It has exactly `schema_version = 1`, `operation = "admit_package_sources"`, `command_id`, `release_run_id`, `operator`, `journal_author`, `snapshot_sha256`, `operators_registry_sha256` and `action_source`. These values bind the actual request, exact snapshot, current registered Operator/account and current CA-O-199 source. Its raw bytes are invocation evidence, not a permission Boolean, admission result or test pass. Unknown or duplicate fields, noncanonical bytes, aliases, secret paths, missing evidence or stale/mismatched bindings refuse before a direct Action start.
-
-Execute invokes the existing source-admission command once through a real direct Action Session. It returns actual snapshot, command/admission receipts, catalog identities and outcome. Failed or uncertain effects retain their actual evidence and are not replayed. Discovery exposes the exact admitted binding and request schema; source availability alone is not executable admission.
-
-```toml
-[tool_binding]
-name = "ADMIT_PACKAGE_SOURCES"
-entrypoint = "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/source_admission_mcp.py"
-mcp_name = "admit_package_sources"
-action_ids = ["CA-O-199"]
-```
