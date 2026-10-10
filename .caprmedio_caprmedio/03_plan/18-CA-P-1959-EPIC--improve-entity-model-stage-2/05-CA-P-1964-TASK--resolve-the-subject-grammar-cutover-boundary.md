@@ -16,7 +16,7 @@ subjects:
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
 version: 1
 updated_at: "2026-10-10 22:32:47 +0400"
-relations: 
+relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1965, CA-P-1967, CA-P-1968]
 ---
