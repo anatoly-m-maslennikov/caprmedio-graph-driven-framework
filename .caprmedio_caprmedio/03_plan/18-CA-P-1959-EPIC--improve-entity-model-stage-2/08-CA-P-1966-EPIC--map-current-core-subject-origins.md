@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 14
-updated_at: "2026-10-11 02:25:56 +0400"
+version: 15
+updated_at: "2026-10-11 02:26:00 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1909]
@@ -58,7 +58,7 @@ Inherit CA-P-1959's source boundary, confidence threshold and preservation rules
 - [CA-P-2001 — Review current Subject batch 010](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/11-CA-P-2001-TASK--review-current-subject-batch-010.md)
 - [CA-P-2002 — Review current Subject batch 011](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/12-CA-P-2002-TASK--review-current-subject-batch-011.md)
 - [CA-P-2003 — Review current Subject batch 012](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/13-CA-P-2003-TASK--review-current-subject-batch-012.md)
-- [CA-P-2004 — Review current Subject batch 013](08-CA-P-1966-EPIC--map-current-core-subject-origins/14-CA-P-2004-TASK--review-current-subject-batch-013.md)
+- [CA-P-2004 — Review current Subject batch 013](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/14-CA-P-2004-TASK--review-current-subject-batch-013.md)
 - [CA-P-2005 — Review current Subject batch 014](08-CA-P-1966-EPIC--map-current-core-subject-origins/15-CA-P-2005-TASK--review-current-subject-batch-014.md)
 - [CA-P-2006 — Review current Subject batch 015](08-CA-P-1966-EPIC--map-current-core-subject-origins/16-CA-P-2006-TASK--review-current-subject-batch-015.md)
 - [CA-P-2007 — Review current Subject batch 016](08-CA-P-1966-EPIC--map-current-core-subject-origins/17-CA-P-2007-TASK--review-current-subject-batch-016.md)
