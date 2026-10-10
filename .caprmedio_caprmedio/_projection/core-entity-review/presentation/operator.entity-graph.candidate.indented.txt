@@ -1,0 +1,86 @@
+Entity Graph Candidate
+  Status: Candidate — Operator-authored; not adopted Core authority
+  Saved: 2026-10-10 (Asia/Tbilisi)
+  Basis: latest decisions in this conversation
+
+  Root Entities
+    Artifact
+      Meaning: One governed lifecycle unit containing named dependent Entities.
+      Lifecycle: The Artifact has one lifecycle; its dependent Entities do not have separate lifecycles.
+      /Atom
+        Named dependent Entities — one shared Atom lifecycle
+          .Summary
+          .Status
+          .Substance
+          .Version Number
+          .Updated At
+    Scope Unit
+      Meaning: Organizes and owns Atoms and other Scope Units; sits outside any individual Atom.
+      Owns: Atoms and other Scope Units
+      Nesting: recursive; not inside an individual Atom
+    Actor
+      Meaning: Who performs work.
+    Relation
+      Meaning: Connections between Atoms.
+    Revision
+      Meaning: A historical snapshot of an Artifact.
+      History: revision of an Artifact; not an Artifact itself
+      Not: IS_BORNE_BY or NARROWER_THAN beneath Artifact/Atom
+      No: Artifact.Revision, Artifact/Revision, Atom.Revision, Atom/Revision
+      No recursive Revision-of-Revision Artifact rule
+    Carrier
+      Meaning: What carries or stores an Entity's representation.
+      Placement: separate root; not a Property
+    Execution
+      Meaning: One actual run of an Operation.
+      /Action Run — proposed Execution kind
+      /Step Run — proposed Execution kind
+      /Workflow Run — proposed Execution kind
+      Operation definition is not its Execution
+
+  Properties and their relation
+    A Property is a named dependent Entity node, not an independent root
+    Property-of is the relation to its owning Entity
+    Dependent Entities share the Artifact lifecycle
+    Display indentation does not admit native relations or change Subjects
+
+  Snapshot and history
+    Entities and Properties describe the selected snapshot.
+    Across all non-archived folders combined, at most one Atom may carry a given Atom ID.
+    The uniqueness boundary includes Active, Done, Backlog, Canceled and other non-archived status containers.
+    Archived snapshots may retain the same Atom ID.
+    Drafts remain without assigned Atom IDs.
+    Archive preserves previous snapshots; Journal records changes.
+    A new Updated At can distinguish a new historical state; no separate Applicable Methodology Revision or Projection Revision kind is formalized here.
+    Revision is a separate historical root, not an Artifact subtype or an IS_BORNE_BY child of Artifact or Atom.
+
+  Content
+    Substance + Substance Scope + optional general Details
+    RMED: Claim; P: Objective; A: Question; C: Issue; O: Operation
+    Omit Substance Scope only for the whole governed Subject AND whole owning Scope Unit
+
+  Applicable Methodology
+    Core + Installed Extensions + Project Configuration
+      select applicable Atoms
+      reconcile conflicts and check coherence
+      publish one consistent projected Atom set
+    Source Atoms remain authoritative
+    Not necessarily one document; not an additional root
+
+  M/E roots — OPEN
+    Proposal only: M/E specifications are Atoms; actual work/checks are Executions
+    Method/Evaluation may head views without becoming new Entity roots
+    Separate Method/Evaluation roots are not confirmed and have not been added
+
+  Unresolved
+    How to identify duplicates among ID-free Drafts.
+    Whether M/E need additional conceptual roots rather than only role-centred views.
+    Whether the Relation root's inter-Atom scope also covers other Entity connections.
+    Exact placement and semantics of Journal, Projection and reusable Operation definitions.
+    A complete mapping from the captured 706-identity review to this simplified candidate.
+    Exact typed history relation, history identifiers and accepted Subject grammar changes.
+
+  Preservation
+    Earlier 706-identity candidate, ledgers, source pins and acceptance stay unchanged
+    This is a concept candidate, not a complete old-to-new remapping
+    No Core, Subject, grammar, implementation or runtime adoption

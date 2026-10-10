@@ -1,0 +1,154 @@
+{
+  "kind": "Entity Graph Candidate",
+  "status": "Candidate",
+  "basis": "Latest Operator decisions in this conversation; later decisions replace earlier conflicting proposals.",
+  "saved_on": "2026-10-10",
+  "timezone": "Asia/Tbilisi",
+  "authority": {
+    "operator_confirmed_root_list": true,
+    "adopted_core_model": false,
+    "native_relation_admission": "not performed",
+    "source_subject_migration": "not performed",
+    "earlier_source_pinned_review": "preserved, not replaced",
+    "complete_706_identity_remapping": "not performed"
+  },
+  "root_entities": [
+    {
+      "name": "Artifact",
+      "meaning": "One governed lifecycle unit containing named dependent Entities.",
+      "lifecycle": "The Artifact has one lifecycle; its dependent Entities do not have separate lifecycles.",
+      "narrower_entities": [
+        {
+          "name": "Atom",
+          "meaning": "An Entity made of named dependent Entities, informally called sub-atoms.",
+          "named_dependent_entity_examples": [
+            "Summary",
+            "Status",
+            "Substance",
+            "Version Number",
+            "Updated At"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Scope Unit",
+      "meaning": "Organizes and owns Atoms and other Scope Units; sits outside any individual Atom.",
+      "owned_entity_kinds": [
+        "Atom",
+        "Scope Unit"
+      ],
+      "nesting": "Recursive Scope Unit nesting is allowed."
+    },
+    {
+      "name": "Actor",
+      "meaning": "Who performs work."
+    },
+    {
+      "name": "Relation",
+      "meaning": "Connections between Atoms.",
+      "note": "This is the Operator's inter-Atom relation family. Internal property qualification is distinguished from the Property node it connects."
+    },
+    {
+      "name": "Revision",
+      "meaning": "A historical snapshot of an Artifact.",
+      "not_an_artifact": true,
+      "not_a_property": true,
+      "not_a_bearer_qualified_entity_under_artifact": true,
+      "excluded_paths": [
+        "Artifact.Revision",
+        "Artifact/Revision",
+        "Atom.Revision",
+        "Atom/Revision"
+      ],
+      "history_connection": "Revision of an Artifact; no new native relation kind is admitted by this candidate.",
+      "recursion_boundary": "Revision is not itself an Artifact subject to another Artifact revision rule."
+    },
+    {
+      "name": "Carrier",
+      "meaning": "What carries or stores an Entity's representation.",
+      "placement": "Separate root Entity, not a Property."
+    },
+    {
+      "name": "Execution",
+      "meaning": "One actual run of an Operation.",
+      "proposed_kinds": [
+        "Action Run",
+        "Step Run",
+        "Workflow Run"
+      ],
+      "definition_boundary": "The Operation definition and its actual Execution are distinct."
+    }
+  ],
+  "dependent_entities": {
+    "meaning": "Named Entities inside an Artifact, including Properties.",
+    "independent_roots": false,
+    "independent_lifecycles": false,
+    "property_node_vs_relation": "A Property is a dependent Entity node; property-of is the relation connecting it to its owning Entity.",
+    "compact_examples": [
+      "Artifact/Atom",
+      "Atom.Summary",
+      "Atom.Status",
+      "Atom.Substance",
+      "Atom.Version Number",
+      "Atom.Updated At"
+    ],
+    "notation_boundary": "Compact examples are candidate display notation, not admission of native edges or permission to migrate Subjects."
+  },
+  "snapshot_and_history_rules": [
+    "Entities and Properties describe the selected snapshot.",
+    "Across all non-archived folders combined, at most one Atom may carry a given Atom ID.",
+    "The uniqueness boundary includes Active, Done, Backlog, Canceled and other non-archived status containers.",
+    "Archived snapshots may retain the same Atom ID.",
+    "Drafts remain without assigned Atom IDs.",
+    "Archive preserves previous snapshots; Journal records changes.",
+    "A new Updated At can distinguish a new historical state; no separate Applicable Methodology Revision or Projection Revision kind is formalized here.",
+    "Revision is a separate historical root, not an Artifact subtype or an IS_BORNE_BY child of Artifact or Atom."
+  ],
+  "content_direction": {
+    "umbrella": "Substance",
+    "role_labels": {
+      "RMED": "Claim",
+      "Plan": "Objective",
+      "Analysis": "Question",
+      "Concern": "Issue",
+      "Operations": "Operation"
+    },
+    "scope_omission": "Substance Scope may be omitted only for the whole governed Subject AND the whole owning Scope Unit; either restriction requires explicit Scope.",
+    "details": "General Details are optional; role/type-required content is not silently removed."
+  },
+  "applicable_methodology": {
+    "form": "A reconciled Projection materialized as projected Atoms, not necessarily one document.",
+    "sources": [
+      "Core",
+      "Installed Extensions",
+      "Project Configuration"
+    ],
+    "requirement": "Select applicable source Atoms, resolve conflicts and check coherence before publishing a consistent projected Atom set.",
+    "authority": "Source Atoms remain authoritative; the projected set does not create new authoritative Atom identities.",
+    "root_status": "Not an additional independent root in this candidate."
+  },
+  "m_e_root_question": {
+    "status": "Open",
+    "operator_question": "What about M/E root Entities?",
+    "proposal": "M and E can be role-centred views over the shared roots: their specifications are Atoms; actual performances or checks are Executions.",
+    "alternative": "Separate Method or Evaluation conceptual roots would need an explicit decision.",
+    "additional_roots_added": false
+  },
+  "unresolved": [
+    "How to identify duplicates among ID-free Drafts.",
+    "Whether M/E need additional conceptual roots rather than only role-centred views.",
+    "Whether the Relation root's inter-Atom scope also covers other Entity connections.",
+    "Exact placement and semantics of Journal, Projection and reusable Operation definitions.",
+    "A complete mapping from the captured 706-identity review to this simplified candidate.",
+    "Exact typed history relation, history identifiers and accepted Subject grammar changes."
+  ],
+  "earlier_review": {
+    "inventory": "candidate.entities.indented.txt",
+    "review": "candidate.review.md",
+    "manifest": "candidate.manifest.json",
+    "captured_core_commit": "a971d0e00c33c779f485fc8cad63194894d440fb",
+    "manifest_sha256": "fb9deec859a5f828e648d94da9d7888c50175872a70b9711e6a9f6a734ec81ce",
+    "note": "The earlier package is immutable review evidence. This Operator-authored concept candidate is not a mechanical rebuild of it."
+  }
+}
