@@ -43,6 +43,23 @@ def _sources() -> tuple[SourceAdmissionDescriptor, ...]:
 
 
 class SourceCatalogAdmissionTests(unittest.TestCase):
+    def test_binding_receipt_is_pinned_non_selectable_discovery_metadata(self) -> None:
+        binding = SourceAdmissionDescriptor(
+            "tool-bindings", "binding", _digest("bindings"), _digest("bindings"),
+            "public", False, "methodology/bindings",
+        )
+        payload = build_source_admission_receipt(
+            operator="operator/fixture", command_ref="command/fixture",
+            action_run_id="run/fixture", sources=(binding,),
+        )
+        self.assertEqual((binding,), read_source_admission_receipt(payload).sources)
+        for default, path in ((True, "methodology/bindings"), (False, "methodology/active")):
+            with self.subTest(default=default, path=path), self.assertRaises(SourceCatalogAdmissionError):
+                source_snapshot_sha256((SourceAdmissionDescriptor(
+                    binding.identity, binding.kind, binding.revision, binding.sha256,
+                    binding.visibility, default, path,
+                ),))
+
     def test_canonical_receipt_round_trips_and_catalog_uses_its_actual_bytes_digest(self) -> None:
         sources = _sources()
         payload = build_source_admission_receipt(

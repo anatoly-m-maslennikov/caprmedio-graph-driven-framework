@@ -33,7 +33,7 @@ SHA256_LENGTH = 64
 
 _SHA256 = re.compile(r"[0-9a-f]{64}\Z")
 _IDENTITY = re.compile(r"[a-z][a-z0-9_-]*\Z")
-_KINDS = frozenset({"core", "methodology", "support", "extension", "configuration"})
+_KINDS = frozenset({"core", "methodology", "support", "extension", "configuration", "binding"})
 _VISIBILITIES = frozenset({"public", "private"})
 _DESCRIPTOR_KEYS = frozenset(
     {"identity", "kind", "revision", "sha256", "visibility", "selection_default", "path"}
@@ -198,6 +198,8 @@ def _descriptor(value: object, *, code: str) -> SourceAdmissionDescriptor:
     digest = _require_sha256(raw.get("sha256"), field=f"receipt source digest {identity}", code=code)
     revision = _require_immutable_revision(raw.get("revision"), field=f"receipt source revision {identity}", code=code)
     path = _safe_relative(raw.get("path"), field=f"receipt source path {identity}", code=code)
+    if kind == "binding" and (default or path != "methodology/bindings"):
+        _refuse(code, f"binding receipt source must be non-selectable discovery metadata: {identity}")
     if path in {CATALOG_NAME, ADMISSIONS_DIRECTORY.as_posix()} or path.startswith(f"{ADMISSIONS_DIRECTORY.as_posix()}/"):
         _refuse(code, f"receipt source cannot name admission control state: {identity}")
     return SourceAdmissionDescriptor(identity, kind, revision, digest, visibility, default, path)
