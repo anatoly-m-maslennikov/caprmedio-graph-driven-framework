@@ -4,10 +4,10 @@ content_role: Delivery
 current_scope_unit: TOOLS
 local_tier: Standard
 global_tier: 11
-status: Active
+status: Archived
 author: Anatoly Maslennikov
-version: 34
-updated_at: "2026-10-10 08:15:55 +0400"
+version: 33
+updated_at: "2026-10-10 02:25:11 +0400"
 subjects:
   governs: "Tool/RELEASE_VERSION/Additive selected-route source admission"
   depends_on: [Tool, Workflow, Action, Manifest, Operator, Run, Journal]
@@ -89,8 +89,8 @@ This one unique delivery-level object is part of the one Release admission recor
 | CA-E-587 | 3 | `.caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/06_evaluation/CA-E-587-TOOLS-QA_CASE--verify-sealed-release-suite-reference-context-and-currentness.md` | `5d5bb6c6f87428b7dd3b7168a23777e084951292998b4a2149d1ba6be140e7d6` |
 | CA-E-589 | 1 | `.caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/06_evaluation/CA-E-589-TOOLS-QA_CASE--verify-source-pinned-candidate-e2e-and-full-gate-aggregation.md` | `06529f4175781d62fddb61f0fd03a2726b305a978c4fc252a2399ccd2702fe3a` |
 | CA-D-560 | 1 | `.caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/07_delivery/CA-D-560-TOOLS-DELIVERY--bind-release-version-tool-request-and-result-boundary.md` | `df88a519c1676f621e0fbfca66b9ebc63a84a6f0732625f5e652df161df08c10` |
-| CA-D-561 | 4 | `.caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/07_delivery/CA-D-561-TOOLS-DELIVERY--bind-release-source-compilation-and-package-carriers.md` | `e89c0e676c80d9dccdabd20e355d836376eecb5f63de2022da6dd658a31e4fc6` |
-| CA-D-562 | 5 | `.caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/07_delivery/CA-D-562-TOOLS-DELIVERY--bind-full-framework-runtime-installation-boundary.md` | `896df33581410955f4ac5a238ea2a5bd74b47b1b20c60b8df6c8d6eff206b0f3` |
+| CA-D-561 | 1 | `.caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/07_delivery/CA-D-561-TOOLS-DELIVERY--bind-release-source-compilation-and-package-carriers.md` | `a2198ba1a3d038100ad8f5ef6fd774a50fa2249906a4340656e9871880d56e7d` |
+| CA-D-562 | 4 | `.caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/07_delivery/CA-D-562-TOOLS-DELIVERY--bind-full-framework-runtime-installation-boundary.md` | `b7cb9f7ab43d5f4a25f17d542e9f055a2eea190883a68e16c76300b77b7866a1` |
 | CA-D-563 | 1 | `.caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/07_delivery/CA-D-563-TOOLS-DELIVERY--bind-project-local-ca-skill-without-hooks.md` | `f73a38dd7b634d654a7044f20c96240a0d1f850c4a71e4eef18f98d074cdbb3d` |
 | CA-D-564 | 2 | `.caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/07_delivery/CA-D-564-TOOLS-DELIVERY--bind-candidate-image-and-safe-retirement-evidence.md` | `6c4acbf3cb4ff8293d9d386b809bcebbc3704adc1061720baeaf9966c9f51993` |
 | CA-D-566 | 2 | `.caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/07_delivery/CA-D-566-TOOLS-DELIVERY--encode-sealed-candidate-snapshot-manifest.md` | `72891771826e3154922d3989ede81d61d16aece9b016be924847817fddc05608` |
@@ -99,7 +99,7 @@ This one unique delivery-level object is part of the one Release admission recor
 | CA-D-573 | 2 | `.caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/07_delivery/CA-D-573-TOOLS-DELIVERY--serialize-approved-release-rollback-retention.md` | `5db7045ec34fbd9aea129d63262f6fce1ac5a6bff2b147af90a9fad6e560adad` |
 | CA-D-574 | 1 | `.caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/07_delivery/CA-D-574-TOOLS-DELIVERY--serialize-typed-release-recovery-checkpoints.md` | `d1162607c515afe184ba2488d6030acc93b522331b3a819c520792db39e28012` |
 | CA-D-579 | 7 | `.caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/07_delivery/CA-D-579-TOOLS-DELIVERY--deliver-the-release-suite-driver-and-junit-report-boundary.md` | `5f8e76409fe3b755b1ff29a48e1619cb3f4d27de1a6a7fe1b24d131792a3b6ea` |
-| CA-D-580 | 8 | `.caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/07_delivery/CA-D-580-TOOLS-DELIVERY--encode-the-private-release-suite-reference-context.md` | `6fd61bc51da5cd163b30765fb45ca5136575f56cca7c56a2c35c9495f05c8a5b` |
+| CA-D-580 | 7 | `.caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/07_delivery/CA-D-580-TOOLS-DELIVERY--encode-the-private-release-suite-reference-context.md` | `e35c2c6e5abe11d246ca641097436352a30889ab33f496866296ecfd5445a767` |
 | CA-D-582 | 1 | `.caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/07_delivery/CA-D-582-TOOLS-DELIVERY--deliver-source-pinned-candidate-e2e-executor-and-phase-boundary.md` | `7cba7e6c566593ca0f02bbb485294a055bef135560ebc1b8e7fa04803db016e3` |
 
 The record is additive source-admission serialization only. It preserves the original thirteen CA-A-1142@2 registry entries and both unchanged query-source admissions (CA-P-1618@1 and CA-P-1535@2) in the same canonical manifest. It is not a second registry, Workflow graph, executor, permission grant, generic effect schema, caller-supplied approval, or dispatch result. Its typed metadata neither changes CA-O-164@9's catch-all stop behavior nor confers permission or automatic execution. A route-bound current Operator authorization and D527 preview/currentness rechecks remain required for `execute`; no admission record itself creates a Run, queue intent, Journal Event, compiler result, package effect, or release completion. Absent, duplicate, malformed, stale, digest-mismatched, out-of-order, incomplete, or self/cross-hash-cyclic Release evidence rejects before shared support.
@@ -143,7 +143,7 @@ This separate private control-authority block governs only the explicitly approv
 [
   {
     "source_path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/RELEASE_VERSION/release_checkpoint.py",
-    "sha256": "63c45da3669e3fed02386350f3d7f7604bbed6447271b86eab547bfea6d89460"
+    "sha256": "60f4cd010d5697447664f63d293677c2b80b8cd6543c13d380ba32ef49be465e"
   },
   {
     "source_path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/RELEASE_VERSION/release_e2e_bindings.json",
@@ -167,7 +167,7 @@ This separate private control-authority block governs only the explicitly approv
   },
   {
     "source_path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/RELEASE_VERSION/release_suite_execution.py",
-    "sha256": "5977861903f32c6f51c401bccfc95fe1bc2d46da0426fde5e4227873ee165f7f"
+    "sha256": "70970bfcffd25f96be320aa5395e2708cf4785f440d18123ba7419a58386b1f5"
   },
   {
     "source_path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/RELEASE_VERSION/release_suite_limits.py",
@@ -175,7 +175,7 @@ This separate private control-authority block governs only the explicitly approv
   },
   {
     "source_path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/RELEASE_VERSION/release_suite_reference_context.py",
-    "sha256": "338f74f62487bb6e9a9fad8a01fb0bad83363ba9dafef42597b5b90fc84096c0"
+    "sha256": "34dae9a6ea246b7f500ced45780503effb71cc4e3ea2b0c1f8464d0fbd6a4af5"
   },
   {
     "source_path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/RELEASE_VERSION/release_test_phases.py",
@@ -215,7 +215,7 @@ This separate private control-authority block governs only the explicitly approv
   },
   {
     "source_path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/selected_native_providers.py",
-    "sha256": "5f1d388bd83927d2bb36ad22be38954c3db3ab892c7d2b39d14377102794edce"
+    "sha256": "349120ef7e1ab0d998ca77629add103051b47c611f582ed704925760be4adce2"
   },
   {
     "source_path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/tests/test_docker_e2e.py",
