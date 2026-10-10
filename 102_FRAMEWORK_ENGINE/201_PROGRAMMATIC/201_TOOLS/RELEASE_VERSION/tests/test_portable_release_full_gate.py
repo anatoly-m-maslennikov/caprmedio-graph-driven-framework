@@ -14,6 +14,7 @@ import json
 import re
 import shutil
 import sys
+import tomllib
 from types import SimpleNamespace
 import unittest
 import xml.etree.ElementTree as ET
@@ -71,14 +72,13 @@ from release_suite import (  # noqa: E402
     execute_bound_release_suite,
 )
 from release_test_phases import CANDIDATE_E2E_MODULES, derive_test_phase_map_from_rows  # noqa: E402
-from release_source_admission import AUTHORITY_PIN, _private_carriers, derive_release_source_admission  # noqa: E402
+from release_source_admission import AUTHORITY_PIN, derive_release_source_admission  # noqa: E402
 import release_source_admission as source_admission  # noqa: E402
 import release_suite_reference_context as suite_reference_context  # noqa: E402
 from selected_routes import PROJECT_SETTINGS_REF, selected_manifest_ref  # noqa: E402
 from release_suite_reference_context import (  # noqa: E402
     _project_structure_ref,
     _prompt_binding_rows,
-    _resolver_authority_pins,
     _selected_source_refresh_frontier,
 )
 
@@ -176,59 +176,6 @@ def _rewrite_fixture_d580(text: str) -> dict[str, bytes]:
     return bindings
 
 
-def _rewrite_fixture_authority(text: str, overrides: dict[str, bytes]) -> str:
-    """Freeze D572's declared source bytes without changing its schema."""
-
-    def rewrite_json_block(value: str, heading: str, digest_key: str) -> str:
-        pattern = re.compile(rf"^(## {re.escape(heading)}\n+```json\n)(.*?)(\n```)$", re.MULTILINE | re.DOTALL)
-        matches = list(pattern.finditer(value))
-        if len(matches) != 1:
-            raise AssertionError(f"fixture D572 {heading} block is unavailable")
-        rows = json.loads(matches[0].group(2))
-        if not isinstance(rows, list):
-            raise AssertionError(f"fixture D572 {heading} is not a row list")
-        for row in rows:
-            if not isinstance(row, dict) or not isinstance(row.get("source_path"), str):
-                raise AssertionError(f"fixture D572 {heading} row is malformed")
-            row[digest_key] = _current_fixture_digest(row["source_path"], overrides)
-            if "atom_id" in row or "version" in row:
-                atom_id, version = _current_fixture_identity(row["source_path"])
-                row["atom_id"] = atom_id
-                row["version"] = version
-        return value[:matches[0].start()] + matches[0].group(1) + json.dumps(rows, indent=2) + matches[0].group(3) + value[matches[0].end():]
-
-    text = rewrite_json_block(text, "Private implementation carriers", "sha256")
-    text = rewrite_json_block(text, "Unknown-effect resolver authority", "digest")
-
-    def frontier(match: re.Match[str]) -> str:
-        atom_id, version = _current_fixture_identity(match.group("path"))
-        return f"{atom_id}@{version} at `{match.group('path')}`, SHA-256 `{_current_fixture_digest(match.group('path'), overrides)}`"
-
-    def table(match: re.Match[str]) -> str:
-        atom_id, version = _current_fixture_identity(match.group("path"))
-        return f"| {atom_id} | {version} | `{match.group('path')}` | `{_current_fixture_digest(match.group('path'), overrides)}` |"
-
-    def occurrence(match: re.Match[str]) -> str:
-        atom_id, version = _current_fixture_identity(match.group("path"))
-        return f"{atom_id}@{version} `{match.group('path')}` `{_current_fixture_digest(match.group('path'), overrides)}`"
-
-    text = re.sub(
-        r"CA-P-[0-9]+@[1-9][0-9]* at `(?P<path>[^`\n]+)`, SHA-256 `[0-9a-f]{64}`",
-        frontier,
-        text,
-    )
-    text = re.sub(
-        r"^\| CA-[A-Z]+-[0-9]+ \| [1-9][0-9]* \| `(?P<path>[^`\n]+)` \| `[0-9a-f]{64}` \|$",
-        table,
-        text,
-        flags=re.MULTILINE,
-    )
-    text = re.sub(
-        r"CA-O-[0-9]+@[1-9][0-9]* `(?P<path>[^`\n]+)` `[0-9a-f]{64}`",
-        occurrence,
-        text,
-    )
-    return text
 
 
 def _rewrite_fixture_manifest(value: object, overrides: dict[str, bytes]) -> dict[str, object]:
@@ -407,12 +354,9 @@ class _NativeHappyPathFixture(PortablePackageFixture):
     def _copy_pinned_control_closure(self) -> None:
         """Seed controls from an isolated, current-byte D572 snapshot.
 
-        The shared checkout's D572 carrier can legitimately lag implementation
-        work in adjacent lanes.  This fixture therefore freezes every D572
-        member it reads into a disposable source tree, rewrites *only* that
-        fixture's D572 digests to those copied bytes, and has the existing
-        closure builder re-open it.  The test never changes the production
-        carrier or its trusted pin.
+        D572 declares current ID membership, not a static private-code block.
+        Copy the actual registered source pins and controls before resolving
+        the disposable source tree. No historical block or path alias is added.
         """
 
         source = self.root / ".fixture-control-source"
@@ -444,9 +388,22 @@ class _NativeHappyPathFixture(PortablePackageFixture):
 
         authority_relative = _PRODUCTION_AUTHORITY_PIN["source_path"]
         production_authority = (PROJECT_ROOT / authority_relative).read_text(encoding="utf-8")
-        for row in _private_carriers(production_authority):
-            copy_current(row["source_path"])
-        fixture_authority = _rewrite_fixture_authority(production_authority, fixture_overrides)
+        actual_admission = derive_release_source_admission(PROJECT_ROOT)
+        for relative in _pins(actual_admission):
+            copy_current(relative)
+        settings_relative = PROJECT_SETTINGS_REF.as_posix()
+        copy_current(settings_relative)
+        copy_current(_project_structure_ref((source / settings_relative).read_bytes()))
+        structure = tomllib.loads((source / _project_structure_ref((source / settings_relative).read_bytes())).read_text(encoding="utf-8"))
+        for unit in structure["scope_units"]:
+            if unit.get("scope_unit_name") not in {"TOOLS", "PROJECT_TOOLS"}:
+                continue
+            for role in ("04_requirement", "05_method", "06_evaluation", "07_delivery"):
+                relative = Path(unit["authority_path"]) / role
+                if (PROJECT_ROOT / relative).is_symlink() or not (PROJECT_ROOT / relative).is_dir():
+                    raise AssertionError(f"registered fixture RMED directory unavailable: {relative}")
+                (source / relative).mkdir(parents=True, exist_ok=True)
+        fixture_authority = production_authority
         authority_target = source / authority_relative
         authority_target.parent.mkdir(parents=True, exist_ok=True)
         authority_target.write_text(fixture_authority, encoding="utf-8", newline="")
@@ -486,8 +443,6 @@ class _NativeHappyPathFixture(PortablePackageFixture):
                     copy_current(pin["path"])
             for relative in _selected_source_refresh_frontier(d580_raw, {}):
                 copy_current(relative)
-            for pin in _resolver_authority_pins(fixture_authority):
-                copy_current(pin["source_path"])
             copy_control_closure(source, self.root)
 
 

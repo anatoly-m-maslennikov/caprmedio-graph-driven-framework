@@ -11,21 +11,19 @@ import hashlib
 import json
 from pathlib import Path, PurePosixPath
 import shutil
+import tomllib
 
 from release_suite_reference_context import (
     ReleaseSuiteReferenceContextError,
     _forbid_non_control_path,
     _project_structure_ref,
     _prompt_binding_rows,
-    _resolver_authority_pins,
     _selected_source_refresh_frontier,
 )
 from release_source_admission import (
     AUTHORITY_PIN,
     derive_release_graph_admission,
-    derive_release_private_carriers,
     derive_release_source_admission,
-    derive_unknown_effect_resolver_authority,
 )
 from selected_routes import PROJECT_SETTINGS_REF, canonical_digest, canonical_json, selected_manifest_ref
 
@@ -206,6 +204,20 @@ def copy_control_closure(repository: Path, root: Path) -> None:
         shutil.copyfile(source, target)
         target.chmod(source.stat().st_mode & 0o777)
 
+    # The current resolver checks both registered RMED namespaces. Mirror
+    # their existing role directories, including an empty namespace when no
+    # member in this fixture selects a carrier from it; invent no source pin.
+    structure = tomllib.loads((root / project_structure_relative).read_text(encoding="utf-8"))
+    for unit in structure["scope_units"]:
+        if unit.get("scope_unit_name") not in {"TOOLS", "PROJECT_TOOLS"}:
+            continue
+        for role in ("04_requirement", "05_method", "06_evaluation", "07_delivery"):
+            relative = Path(unit["authority_path"]) / role
+            existing = repository / relative
+            if existing.is_symlink() or not existing.is_dir():
+                raise RuntimeError(f"current registered RMED directory unavailable: {relative}")
+            (root / relative).mkdir(parents=True, exist_ok=True)
+
     # D580 declares a closed Prompt binding frontier.  Copy only its two
     # binding carriers and their exact pinned active Atom files; no directory
     # discovery or legacy Plan material is admitted into the retained fixture.
@@ -240,33 +252,11 @@ def copy_control_closure(repository: Path, root: Path) -> None:
     }
     _selected_source_refresh_frontier((root / d580_relative).read_bytes(), refresh_captured)
 
-    # Implementation carriers have D572 byte declarations, not Atom pins.
-    # Preserve their actual modes and independently check the copied bytes.
-    for row in derive_release_private_carriers(repository):
-        source = repository / row["source_path"]
-        target = root / row["source_path"]
-        target.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copyfile(source, target)
-        target.chmod(source.stat().st_mode & 0o777)
-        if hashlib.sha256(target.read_bytes()).hexdigest() != row["sha256"]:
-            raise RuntimeError(f"golden private carrier changed: {row['source_path']}")
-
-    # The separate four-pin resolver authority is a closed D572 declaration,
-    # not a Release route or arbitrary application source directory.
+    # Current D572 is ID membership, not an implementation-code or resolver
+    # proof block. Preserve only its actual authority bytes in this fixture.
     authority = root / AUTHORITY_PIN["source_path"]
     if hashlib.sha256(authority.read_bytes()).hexdigest() != AUTHORITY_PIN["digest"]:
-        raise RuntimeError("golden resolver authority carrier changed")
-    resolver_pins = _resolver_authority_pins(authority.read_text(encoding="utf-8"))
-    for pin in resolver_pins:
-        source = _retained_source(repository, pin["source_path"], pin["digest"])
-        target = root / pin["source_path"]
-        target.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copyfile(source, target)
-        target.chmod(source.stat().st_mode & 0o777)
-        if hashlib.sha256(target.read_bytes()).hexdigest() != pin["digest"]:
-            raise RuntimeError(f"golden resolver source changed: {pin['source_path']}")
-    if derive_unknown_effect_resolver_authority(root) != resolver_pins:
-        raise RuntimeError("golden resolver authority differs from captured D572")
+        raise RuntimeError("golden current authority carrier changed")
 
     route, copied_admission = derive_release_graph_admission(root)
     manifest["routes"].append(route)

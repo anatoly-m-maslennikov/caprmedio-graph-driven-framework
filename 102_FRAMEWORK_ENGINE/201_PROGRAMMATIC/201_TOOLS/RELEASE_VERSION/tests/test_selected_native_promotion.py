@@ -22,6 +22,7 @@ from release_checkpoint import (  # noqa: E402
     _NATIVE_STATE_NAMES, _candidate_value, _fingerprint, release_action_checkpoint_sha256,
     NATIVE_PORTABLE_RELEASE_ACTION_CHECKPOINT_SCHEMA, read_native_checkpoint_packet,
     read_direct_native_result_effects, read_direct_native_result_packet,
+    _tag, _load_tag, _shared_recording,
 )
 from release_contract import ReleaseContractError, ValidatedCandidate, canonical_json  # noqa: E402
 from release_promotion import NativePromotionEvidence  # noqa: E402
@@ -29,6 +30,8 @@ from release_version import ReleaseVersionRequest  # noqa: E402
 from release_e2e_gate import CandidateE2EGateEvidence, PortableCandidateE2EGateEvidence  # noqa: E402
 from release_actions import ReleasePhaseResult, SelectedReleaseActionContext, _retirement_recording_handoff  # noqa: E402
 from release_image import ImageRetirementEvidence  # noqa: E402
+from release_actions import PHASES  # noqa: E402
+from methodology_layout import resolve_methodology_layout  # noqa: E402
 
 
 class DirectNativeResultFormatTests(unittest.TestCase):
@@ -360,7 +363,7 @@ class SelectedNativePromotionCodecTests(unittest.TestCase):
         with self.assertRaises(ReleaseContractError):
             _load_native_document({"type": "RunExecutionSession", "value": {}}, root)
 
-    def test_native_retired_effect_retains_pending_shared_recording(self) -> None:
+    def test_historical_retirement_carrier_does_not_become_a_current_phase(self) -> None:
         retired = ImageRetirementEvidence(
             "a" * 64, "retired", "synthetic documentary carrier", "sha256:" + "b" * 64,
             "sha256:" + "c" * 64, "d" * 64, (), (), (), "until_verified_promotion", "e" * 64,
@@ -368,6 +371,20 @@ class SelectedNativePromotionCodecTests(unittest.TestCase):
             "f" * 64, "docker-subprocess", "1" * 64,
         )
         packet = _retirement_recording_handoff(retired)
+        candidate = SimpleNamespace(manifest=SimpleNamespace(sha256="a" * 64))
+        # Read the historical typed carrier through its actual retained tag
+        # codec, not through a nonexistent current retirement phase index.
+        name, restored = _load_tag(_tag("retirement", retired), candidate, "/fixture")
+        self.assertEqual(name, "retirement")
+        self.assertEqual(restored, retired)
+        self.assertEqual(_shared_recording(packet, "historical recording"), packet)
+        changed = _tag("retirement", retired)
+        changed["value"]["candidate_snapshot_manifest_sha256"] = "9" * 64
+        with self.assertRaises(ReleaseContractError):
+            _load_tag(changed, candidate, "/fixture")
+        self.assertEqual(10, len(PHASES))
+        self.assertEqual(("CA-O-178", "CA-O-169", "promote"), PHASES[-1])
+        self.assertNotIn("retire", [phase for _, _, phase in PHASES])
         result = ReleasePhaseResult(
             "workflow", "step", "action", "CA-O-179", "CA-O-169", "retire", "pending",
             "shared recording remains pending", "a" * 64, ("retire",),
@@ -376,18 +393,12 @@ class SelectedNativePromotionCodecTests(unittest.TestCase):
         )
         context = SelectedReleaseActionContext(
             "/fixture", "workflow", "step", "action", "workflow", "step",
-            "CA-O-179", "CA-O-169", "2" * 64, workflow_version=9,
+            "CA-O-178", "CA-O-169", "2" * 64, workflow_version=11,
         )
-        candidate = SimpleNamespace(manifest=SimpleNamespace(sha256="a" * 64))
-        value = _native_result_value(result, 11)
-        restored = _load_native_result(value, 11, context, candidate, {"retirement": retired})
-        self.assertEqual(restored.outcome, "pending")
-        self.assertEqual(restored.effect_outcome, "retired")
-        self.assertEqual(restored.shared_action_recording, packet)
-        changed = copy.deepcopy(value)
-        changed["shared_action_recording"]["on_recorded_result"] = "invented completion"
+        value = _native_result_value(result, len(PHASES) - 1)
         with self.assertRaises(ReleaseContractError):
-            _load_native_result(changed, 11, context, candidate, {"retirement": retired})
+            _load_native_result(value, len(PHASES) - 1, context, candidate,
+                                {"promotion": retired, "retirement": retired})
 
 
 class SelectedNativePacketCodecPhysicalTests(unittest.TestCase):
@@ -414,7 +425,8 @@ class SelectedNativePacketCodecPhysicalTests(unittest.TestCase):
         manifest = self.candidate.manifest
         default_settings = (
             RELEASE_ROOT.parents[3]
-            / "101_LAYER_1_FRAMEWORK_METHODOLOGY/sources/001_CORE_META_MODEL/caprmedio_framework_default_settings.toml"
+            / resolve_methodology_layout(RELEASE_ROOT.parents[3]).source_root
+            / "001_CORE_META_MODEL/caprmedio_framework_default_settings.toml"
         )
         settings_path = work_journal.resolve_settings_path(self.root)
         query_defaults = settings_path.parent / (
@@ -516,7 +528,8 @@ class SelectedNativePacketCodecPhysicalTests(unittest.TestCase):
                       "contexts": [{"index": 10, "context": asdict(context)}],
                       "results": [{"index": 10, "result": _native_result_value(result, 10)}],
                       "shared_recordings": [{"index": 10, "terminal_outcome": "completed", "receipt_refs": [terminal["event_id"]]}],
-                      "pending_recordings": [], "state": state}
+                      "pending_recordings": [], "state": state,
+                      "local_helper_binding": {"native_hooks_sha256": "a" * 64, "local_release_sha256": "b" * 64}}
         checkpoint["sha256"] = release_action_checkpoint_sha256(checkpoint)
         # Normalize exactly as the canonical checkpoint carrier does.
         import json
