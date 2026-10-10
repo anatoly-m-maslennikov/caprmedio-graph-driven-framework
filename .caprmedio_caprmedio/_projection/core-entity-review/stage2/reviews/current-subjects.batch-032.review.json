@@ -1540,19 +1540,14 @@
       "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-444-CORE_META_MODEL-QA_CASE--validate-project-specific-term-meaning.md",
       "source_sha256": "33afa32da8e3334db17bbd7fb27ce6d3cafb8f99b12dd7bac8b1e036fb4b0ae5",
       "source_version": 12,
-      "decision": "proposed",
-      "proposed_value": "Atom.Substance",
-      "confidence": 0.95,
-      "reason": "Current Main Content ('Validate Project-specific Term meaning') uses 'Atom/Claim' as an Atom content subject. The latest candidate selects Substance as the content umbrella and Claim as an RMED role label, so 'Atom.Substance' preserves the Claim role without treating it as an allowed-value admission.",
-      "candidate_basis": [
-        {
-          "pointer": "/content_direction",
-          "reason": "The latest candidate names Substance as the content umbrella and RMED Claim as a role label; current Main Content supplies this Claim use without adding a colon value-domain assertion."
-        }
-      ],
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content uses original Atom Claims as distinct source-meaning and authority evidence. The candidate names Substance as an umbrella and Claim as a role label, but does not establish bare Atom.Substance as the canonical target for this legacy Claim field; that mapping would hide the Claim distinction.",
+      "candidate_basis": [],
       "preserved_distinctions": [
-        "Claim remains the current role label and is not asserted as an allowed value of Substance.",
-        "No native relation, display-only Artifact prefix, carrier registry, or domain assignment is inferred."
+        "The legacy Atom/Claim field remains distinct from generic Substance.",
+        "Claim source-meaning and defining-authority evidence are not collapsed into a new property identity."
       ],
       "question": null,
       "evidence": [
@@ -2525,19 +2520,14 @@
       "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-448-CORE_META_MODEL-EVALUATION_APPROACH--validate-accidental-atom-id-reuse-repair.md",
       "source_sha256": "1504f5ef8fda49372abf4f637712bc84e8a77dfb93cca49089ffcddb46412ace",
       "source_version": 9,
-      "decision": "proposed",
-      "proposed_value": "Atom.Substance",
-      "confidence": 0.95,
-      "reason": "Current Main Content ('Validate accidental Atom ID reuse repair') uses 'Atom/Claim' as an Atom content subject. The latest candidate selects Substance as the content umbrella and Claim as an RMED role label, so 'Atom.Substance' preserves the Claim role without treating it as an allowed-value admission.",
-      "candidate_basis": [
-        {
-          "pointer": "/content_direction",
-          "reason": "The latest candidate names Substance as the content umbrella and RMED Claim as a role label; current Main Content supplies this Claim use without adding a colon value-domain assertion."
-        }
-      ],
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content protects an affected Claim as a distinct dimension of an Atom ID collision repair. The candidate names Substance as an umbrella and Claim as a role label, but does not establish bare Atom.Substance as the canonical target for this legacy Claim field; that mapping would hide the Claim distinction.",
+      "candidate_basis": [],
       "preserved_distinctions": [
-        "Claim remains the current role label and is not asserted as an allowed value of Substance.",
-        "No native relation, display-only Artifact prefix, carrier registry, or domain assignment is inferred."
+        "The legacy Atom/Claim field remains distinct from generic Substance.",
+        "Collision-repair protection for the affected Claim is not collapsed into a new property identity."
       ],
       "question": null,
       "evidence": [
@@ -3442,19 +3432,14 @@
       "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-449-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--validate-entities-graph.md",
       "source_sha256": "29db3bbff5744963c4fc7960042e6267a826b2fe16198e954039f5b223f3b00a",
       "source_version": 12,
-      "decision": "proposed",
-      "proposed_value": "Atom.Substance",
-      "confidence": 0.95,
-      "reason": "Current Main Content ('Validate Entities Graph') uses 'Atom/Claim' as an Atom content subject. The latest candidate selects Substance as the content umbrella and Claim as an RMED role label, so 'Atom.Substance' preserves the Claim role without treating it as an allowed-value admission.",
-      "candidate_basis": [
-        {
-          "pointer": "/content_direction",
-          "reason": "The latest candidate names Substance as the content umbrella and RMED Claim as a role label; current Main Content supplies this Claim use without adding a colon value-domain assertion."
-        }
-      ],
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content requires exact governing source Claims as provenance for Entities Graph admission. The candidate names Substance as an umbrella and Claim as a role label, but does not establish bare Atom.Substance as the canonical target for this legacy Claim field; that mapping would hide the Claim distinction.",
+      "candidate_basis": [],
       "preserved_distinctions": [
-        "Claim remains the current role label and is not asserted as an allowed value of Substance.",
-        "No native relation, display-only Artifact prefix, carrier registry, or domain assignment is inferred."
+        "The legacy Atom/Claim field remains distinct from generic Substance.",
+        "Graph-admission provenance remains a Claim requirement rather than a generic property identity."
       ],
       "question": null,
       "evidence": [
