@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import datetime as dt
 import hashlib
+import json
 import shutil
 import sys
 import tempfile
@@ -25,6 +26,7 @@ for path in (RELEASE_ROOT, TOOLS_ROOT):
         sys.path.insert(0, str(path))
 
 import work_journal  # noqa: E402
+import direct_action_session as direct_action  # noqa: E402
 from direct_action_session import (  # noqa: E402
     ACTION_ATOM_RELATIVE,
     DirectActionJournalError,
@@ -69,6 +71,29 @@ RESTORATION_INTENT = {
     "retained_proof_receipt_sha256": "e" * 64,
     "retained_context_sha256": "f" * 64,
 }
+QUERY_DEFAULTS = (
+    b"[query]\n"
+    b"max_request_bytes = 4096\nmax_grammar_depth = 16\n"
+    b"max_filter_tokens = 128\nmax_in_members = 16\n"
+    b"max_selected_fields = 8\nmax_page_size = 8\n"
+    b"max_snapshot_members = 8\nmax_file_bytes = 65536\n"
+    b"max_total_read_bytes = 262144\ntimeout_seconds = 10\nmax_findings = 8\n"
+)
+
+
+def _tree_digest(root: Path) -> str:
+    rows = [
+        {
+            "path": path.relative_to(root).as_posix(),
+            "sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
+            "mode": path.stat().st_mode & 0o777,
+        }
+        for path in sorted(root.rglob("*"))
+        if path.is_file()
+    ]
+    return hashlib.sha256(
+        json.dumps(rows, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode("utf-8")
+    ).hexdigest()
 
 
 class _ExclusiveFixtureLock(AbstractContextManager[None]):
@@ -95,6 +120,16 @@ class DirectActionSessionTests(unittest.TestCase):
         self._write(
             ".caprmedio_caprmedio/caprmedio_project_settings.toml",
             b"[paths]\ncontrol_root = '.caprmedio_caprmedio'\njournal_root = '.caprmedio_caprmedio/_journal'\nruntime_root = '.caprmedio_runtime'\n",
+        )
+        self._write(
+            ".caprmedio_caprmedio/000_CAPRMEDIO_framework/caprmedio_framework_settings.toml",
+            b"",
+        )
+        self._write(
+            ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/"
+            "000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/"
+            "caprmedio_framework_default_settings.toml",
+            QUERY_DEFAULTS,
         )
         source = REPOSITORY_ROOT / ACTION_ATOM_RELATIVE
         target = self.root / ACTION_ATOM_RELATIVE
@@ -137,6 +172,7 @@ class DirectActionSessionTests(unittest.TestCase):
         action_payload = (REPOSITORY_ROOT / ".caprmedio_caprmedio" / "000_CAPRMEDIO_framework" / "00_APPLICABLE_METHODOLOGY" / "000_APPLICABLE_MTHD_sources" / "003_PROJECT_CONFIGURATION" / "09_operations" / INSTALLATION_ATOM_RELATIVE.name).read_bytes()
         action_relative = INSTALLATION_ATOM_RELATIVE.as_posix()
         write("102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/tool.py", b"tool = 'fixture'\n", mode=0o755)
+        write("methodology/active/001_CORE_META_MODEL/04_requirement/CA-R-001--fixture.md", b"# core\n")
         write(action_relative, action_payload)
         write("methodology/support/CA-D-001--fixture.md", b"# support\n")
         write("SKILLS/ca/SKILL.md", b"# ca\n")
@@ -145,21 +181,27 @@ class DirectActionSessionTests(unittest.TestCase):
         write("uv.lock", b"version = 1\n")
         write("version.toml", b"[framework]\nversion = '0.1.0'\n")
         rows = (
-            ("core", "core", "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/tool.py"),
-            ("methodology", "methodology", action_relative),
-            ("support", "support", "methodology/support/CA-D-001--fixture.md"),
+            ("local-core", "core", "102_FRAMEWORK_ENGINE"),
+            ("core-meta-model", "methodology", "methodology/active/001_CORE_META_MODEL"),
+            ("project-configuration", "configuration", "methodology/active/003_PROJECT_CONFIGURATION"),
+            ("methodology-support", "support", "methodology/support"),
         )
         descriptors = tuple(
-            {
-                "identity": identity,
-                "kind": kind,
-                "revision": hashlib.sha256((source / relative).read_bytes()).hexdigest(),
-                "sha256": hashlib.sha256((source / relative).read_bytes()).hexdigest(),
-                "visibility": "public",
-                "selection_default": False,
-                "path": relative,
-            }
-            for identity, kind, relative in rows
+            sorted(
+                (
+                    {
+                        "identity": identity,
+                        "kind": kind,
+                        "revision": _tree_digest(source / relative),
+                        "sha256": _tree_digest(source / relative),
+                        "visibility": "public",
+                        "selection_default": False,
+                        "path": relative,
+                    }
+                    for identity, kind, relative in rows
+                ),
+                key=lambda descriptor: str(descriptor["identity"]),
+            )
         )
         receipt = write_source_admission_receipt(source, descriptors)
         lines = ["schema_version = 1", ""]
@@ -677,6 +719,143 @@ class DirectActionSessionTests(unittest.TestCase):
             )
         self.assertEqual(raised.exception.code, "direct-action-intent-conflict")
         self.assertEqual([event["event"] for event in self._events()], ["started"])
+
+    def test_reopen_refuses_a_duplicate_event_id_across_journal_parts(self) -> None:
+        self.session.begin_action(
+            action_id=INITIALIZATION_ACTION_ID,
+            requested_run_id="bootstrap-duplicate-across-parts",
+            intent=INTENT,
+        )
+        self.session.close()
+        journal = self.root / ".caprmedio_caprmedio/_journal"
+        original = next(journal.glob("*.ndjson"))
+        (journal / "duplicate-part.ndjson").write_bytes(original.read_bytes())
+        resumed = DirectActionSession(
+            self.root,
+            author="anatoly-m-maslennikov",
+            operator_authorization=AUTHORIZATION,
+            now=lambda: dt.datetime(2026, 10, 5, 18, 1, tzinfo=dt.UTC),
+        )
+        with self.assertRaises(DirectActionJournalError) as refused:
+            resumed.begin_action(
+                action_id=INITIALIZATION_ACTION_ID,
+                requested_run_id="bootstrap-duplicate-across-parts",
+                intent=INTENT,
+            )
+        self.assertEqual("direct-action-journal-unavailable", refused.exception.code)
+
+    def test_reopen_refuses_a_symlinked_journal_member(self) -> None:
+        self.session.begin_action(
+            action_id=INITIALIZATION_ACTION_ID,
+            requested_run_id="bootstrap-symlink-member",
+            intent=INTENT,
+        )
+        self.session.close()
+        journal = self.root / ".caprmedio_caprmedio/_journal"
+        original = next(journal.glob("*.ndjson"))
+        (journal / "unsafe-member.ndjson").symlink_to(original)
+        resumed = DirectActionSession(
+            self.root,
+            author="anatoly-m-maslennikov",
+            operator_authorization=AUTHORIZATION,
+            now=lambda: dt.datetime(2026, 10, 5, 18, 1, tzinfo=dt.UTC),
+        )
+        with self.assertRaises(DirectActionJournalError) as refused:
+            resumed.begin_action(
+                action_id=INITIALIZATION_ACTION_ID,
+                requested_run_id="bootstrap-symlink-member",
+                intent=INTENT,
+            )
+        self.assertEqual("direct-action-journal-unavailable", refused.exception.code)
+
+    def test_reopen_refuses_configured_bounded_member_limit(self) -> None:
+        self.session.begin_action(
+            action_id=INITIALIZATION_ACTION_ID,
+            requested_run_id="bootstrap-member-limit",
+            intent=INTENT,
+        )
+        self.session.close()
+        self._write(
+            ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/"
+            "000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/"
+            "caprmedio_framework_default_settings.toml",
+            QUERY_DEFAULTS.replace(b"max_snapshot_members = 8", b"max_snapshot_members = 1"),
+        )
+        (self.root / ".caprmedio_caprmedio/_journal/unrelated.ndjson").write_text(
+            '{"event_id":"unrelated"}\n', encoding="utf-8"
+        )
+        resumed = DirectActionSession(
+            self.root,
+            author="anatoly-m-maslennikov",
+            operator_authorization=AUTHORIZATION,
+            now=lambda: dt.datetime(2026, 10, 5, 18, 1, tzinfo=dt.UTC),
+        )
+        with self.assertRaises(DirectActionJournalError) as refused:
+            resumed.begin_action(
+                action_id=INITIALIZATION_ACTION_ID,
+                requested_run_id="bootstrap-member-limit",
+                intent=INTENT,
+            )
+        self.assertEqual("direct-action-journal-unavailable", refused.exception.code)
+
+    def test_reopen_refuses_incomplete_bounded_coverage(self) -> None:
+        self.session.begin_action(
+            action_id=INITIALIZATION_ACTION_ID,
+            requested_run_id="bootstrap-incomplete-coverage",
+            intent=INTENT,
+        )
+        self.session.close()
+        resumed = DirectActionSession(
+            self.root,
+            author="anatoly-m-maslennikov",
+            operator_authorization=AUTHORIZATION,
+            now=lambda: dt.datetime(2026, 10, 5, 18, 1, tzinfo=dt.UTC),
+        )
+        with patch.object(
+            direct_action,
+            "query",
+            return_value={"status": "incomplete", "coverage": {"complete": False}, "results": []},
+        ):
+            with self.assertRaises(DirectActionJournalError) as refused:
+                resumed.begin_action(
+                    action_id=INITIALIZATION_ACTION_ID,
+                    requested_run_id="bootstrap-incomplete-coverage",
+                    intent=INTENT,
+                )
+        self.assertEqual("direct-action-journal-incomplete", refused.exception.code)
+
+    def test_reopen_refuses_a_sidecar_without_exact_bounded_carrier_provenance(self) -> None:
+        started = self.session.begin_action(
+            action_id=INITIALIZATION_ACTION_ID,
+            requested_run_id="bootstrap-tampered-sidecar",
+            intent=INTENT,
+        )
+        self.session.close()
+        receipt_path = self.root / ".caprmedio_runtime/state/work_journal/receipts" / f"{started['event_id']}.json"
+        original = receipt_path.read_bytes()
+        for field, value in (
+            ("line", 2),
+            ("carrier", ".caprmedio_caprmedio/_journal/other.ndjson"),
+            ("previous_carrier_digest", "0" * 64),
+        ):
+            with self.subTest(field=field):
+                receipt = json.loads(original)
+                receipt[field] = value
+                receipt_path.write_text(json.dumps(receipt, sort_keys=True), encoding="utf-8")
+                resumed = DirectActionSession(
+                    self.root,
+                    author="anatoly-m-maslennikov",
+                    operator_authorization=AUTHORIZATION,
+                    now=lambda: dt.datetime(2026, 10, 5, 18, 1, tzinfo=dt.UTC),
+                )
+                with self.assertRaises(DirectActionJournalError) as refused:
+                    resumed.begin_action(
+                        action_id=INITIALIZATION_ACTION_ID,
+                        requested_run_id="bootstrap-tampered-sidecar",
+                        intent=INTENT,
+                    )
+                self.assertEqual("direct-action-journal-invalid", refused.exception.code)
+        receipt_path.write_bytes(original)
 
     def test_another_session_cannot_start_same_or_distinct_run_while_first_install_is_owned(self) -> None:
         held: set[str] = set()

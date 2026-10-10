@@ -27,6 +27,12 @@ from pathlib import Path
 from typing import Any
 
 import work_journal
+from FIND_AND_FETCH_JOURNAL_EVENTS import find_and_fetch_journal_events as journal_query
+from FIND_AND_FETCH_JOURNAL_EVENTS.find_and_fetch_journal_events import (
+    JournalQueryError,
+    capture_snapshot,
+    query,
+)
 from operator_registry import OperatorRegistryError, parse_operators_registry
 from workflow_run_support import RecordedActionStartProvenance
 
@@ -337,61 +343,217 @@ def _intent(value: Mapping[str, Any], action_id: str = INITIALIZATION_ACTION_ID)
     }
 
 
-def _journal_parts(root: Path) -> list[Path]:
-    """Return the configured canonical Journal parts without creating a Journal."""
+def _journal_root(root: Path) -> Path | None:
+    """Return only the configured canonical Journal root without creating it."""
     try:
         journal_root = root / work_journal.configured_journal_root(root)
     except (OSError, RuntimeError) as error:
         raise DirectActionJournalError("direct-action-journal-unavailable", "canonical Work Journal is unavailable") from error
     if not journal_root.exists():
-        return []
+        return None
     if journal_root.is_symlink() or not journal_root.is_dir():
         raise DirectActionJournalError("direct-action-journal-invalid", "canonical Work Journal root is not a regular directory")
-    return sorted(path for path in journal_root.glob("*.ndjson") if path.is_file() and not path.is_symlink())
+    return journal_root
+
+
+def _bounded_journal_events(
+    root: Path,
+    filter_expression: str,
+) -> tuple[list[dict[str, Any]], Mapping[str, Any] | None]:
+    """Reopen a complete, bounded canonical Journal frontier exactly once.
+
+    Direct Action evidence must never select the first matching NDJSON line.
+    The Journal query snapshot is the sole physical frontier: it rejects unsafe
+    members and duplicate identities before query, then revalidates the same
+    bounded carrier bytes before returning the complete match set.
+    """
+    journal_root = _journal_root(root)
+    if journal_root is None:
+        return [], None
+    try:
+        configured = work_journal.configured_journal_root(root)
+        snapshot = capture_snapshot(root)
+        if snapshot.get("source_root") != configured.as_posix():
+            raise DirectActionJournalError(
+                "direct-action-journal-invalid",
+                "bounded Journal reader has a different canonical root",
+            )
+        observed = query(snapshot, {"mode": "full_events", "filter": filter_expression})
+    except JournalQueryError as error:
+        raise DirectActionJournalError(
+            "direct-action-journal-unavailable",
+            "bounded canonical Work Journal coverage is unavailable",
+        ) from error
+    if (
+        observed.get("status") != "complete"
+        or observed.get("coverage", {}).get("complete") is not True
+    ):
+        raise DirectActionJournalError(
+            "direct-action-journal-incomplete",
+            "bounded canonical Work Journal coverage is incomplete",
+        )
+    rows = observed.get("results")
+    if not isinstance(rows, list):
+        raise DirectActionJournalError("direct-action-journal-invalid", "bounded Journal result is malformed")
+    events: list[dict[str, Any]] = []
+    for row in rows:
+        if not isinstance(row, Mapping) or set(row) != {"event_id", "event"}:
+            raise DirectActionJournalError("direct-action-journal-invalid", "bounded Journal event result is malformed")
+        try:
+            event = work_journal.validate_sealed_event(row["event"])
+        except work_journal.WorkJournalError as error:
+            raise DirectActionJournalError("direct-action-journal-invalid", "bounded Journal event is not sealed") from error
+        if row["event_id"] != event["event_id"]:
+            raise DirectActionJournalError("direct-action-journal-invalid", "bounded Journal event identity differs from its carrier")
+        events.append(event)
+    return events, snapshot
+
+
+def _receipt_from_sidecar(
+    root: Path,
+    event: Mapping[str, Any],
+    snapshot: Mapping[str, Any],
+) -> dict[str, Any]:
+    """Bind the canonical receipt to one bounded physical Journal coordinate."""
+    event_id = event.get("event_id")
+    if not isinstance(event_id, str) or not event_id or Path(event_id).name != event_id:
+        raise DirectActionJournalError("direct-action-journal-invalid", "reopened Journal event has an unsafe identity")
+    try:
+        retained, _ = journal_query._resolve_retained_snapshot(snapshot)
+        records = retained.get("records")
+        members = retained.get("members")
+        limits = retained.get("limits")
+        if not isinstance(records, list) or not isinstance(members, list) or not isinstance(limits, Mapping):
+            raise JournalQueryError("invalid-snapshot")
+        matched = [record for record in records if isinstance(record, Mapping) and record.get("event_id") == event_id]
+        if len(matched) != 1:
+            raise JournalQueryError("invalid-retained-provenance")
+        coordinate = matched[0]
+        expected_coordinate = {"event_id", "event", "member", "line", "offset", "raw_digest"}
+        if set(coordinate) != expected_coordinate or coordinate.get("event") != dict(event):
+            raise JournalQueryError("invalid-retained-provenance")
+        member = coordinate.get("member")
+        line = coordinate.get("line")
+        offset = coordinate.get("offset")
+        raw_digest = coordinate.get("raw_digest")
+        member_path = Path(member) if isinstance(member, str) else None
+        if (
+            member_path is None
+            or member_path.is_absolute()
+            or ".." in member_path.parts
+            or type(line) is not int
+            or line < 1
+            or type(offset) is not int
+            or offset < 0
+            or not isinstance(raw_digest, str)
+            or _SHA256.fullmatch(raw_digest) is None
+        ):
+            raise JournalQueryError("invalid-retained-provenance")
+        expected_members = [candidate for candidate in members if isinstance(candidate, Mapping) and candidate.get("ref") == member]
+        if len(expected_members) != 1:
+            raise JournalQueryError("invalid-retained-provenance")
+        source_member = expected_members[0]
+        if set(source_member) != {"ref", "prefix_bytes", "prefix_digest"}:
+            raise JournalQueryError("invalid-retained-provenance")
+        prefix_bytes = source_member.get("prefix_bytes")
+        prefix_digest = source_member.get("prefix_digest")
+        max_file_bytes = limits.get("max_file_bytes")
+        max_total_read_bytes = limits.get("max_total_read_bytes")
+        if (
+            type(prefix_bytes) is not int
+            or prefix_bytes < 0
+            or not isinstance(prefix_digest, str)
+            or _SHA256.fullmatch(prefix_digest) is None
+            or type(max_file_bytes) is not int
+            or max_file_bytes < 1
+            or type(max_total_read_bytes) is not int
+            or max_total_read_bytes < 1
+        ):
+            raise JournalQueryError("invalid-retained-provenance")
+        content, _ = journal_query._read_member(
+            root / member_path,
+            max_file_bytes=max_file_bytes,
+            total_read=0,
+            max_total_read=max_total_read_bytes,
+        )
+        if len(content) != prefix_bytes or _sha256(content) != prefix_digest:
+            raise JournalQueryError("changed-member")
+        current_records = journal_query._member_events(member, content)
+        current = [record for record in current_records if record.get("event_id") == event_id]
+        if len(current) != 1 or current[0] != coordinate:
+            raise JournalQueryError("invalid-retained-provenance")
+        lines = content.splitlines(keepends=True)
+        if line > len(lines):
+            raise JournalQueryError("invalid-retained-provenance")
+        before = b"".join(lines[: line - 1])
+        if len(before) != offset:
+            raise JournalQueryError("invalid-retained-provenance")
+        expected_receipt = {
+            "event_id": event_id,
+            "action_id": event["action_id"],
+            "event_digest": event["event_digest"],
+            "carrier": member,
+            "line": line,
+            "previous_carrier_digest": _sha256(before),
+            "appended_carrier_digest": _sha256(before + lines[line - 1]),
+        }
+    except JournalQueryError as error:
+        raise DirectActionJournalError(
+            "direct-action-journal-invalid",
+            "bounded Journal receipt provenance is unavailable",
+        ) from error
+    try:
+        receipt_relative = work_journal.configured_runtime_root(root) / "state/work_journal/receipts" / f"{event_id}.json"
+    except (OSError, RuntimeError) as error:
+        raise DirectActionJournalError("direct-action-journal-unavailable", "canonical Work Journal receipt is unavailable") from error
+    try:
+        receipt = json.loads(
+            _read_regular_relative(
+                root,
+                receipt_relative,
+                code="direct-action-journal-invalid",
+                label="canonical Work Journal receipt",
+            )
+        )
+    except json.JSONDecodeError as error:
+        raise DirectActionJournalError("direct-action-journal-invalid", "canonical Work Journal receipt is malformed") from error
+    expected_keys = {
+        "event_id",
+        "action_id",
+        "event_digest",
+        "carrier",
+        "line",
+        "previous_carrier_digest",
+        "appended_carrier_digest",
+    }
+    if not isinstance(receipt, dict) or set(receipt) != expected_keys:
+        raise DirectActionJournalError("direct-action-journal-invalid", "canonical Work Journal receipt has unsupported fields")
+    if receipt != expected_receipt:
+        raise DirectActionJournalError("direct-action-journal-invalid", "canonical Work Journal receipt differs from its sealed event")
+    return receipt
 
 
 def _reopen_event(root: Path, event_id: str) -> tuple[dict[str, Any], dict[str, Any]] | None:
     """Read one already-appended sealed event and reconstruct its receipt.
 
-    This is a Journal reader, not a second event store.  The receipt shape is
-    identical to the Work Journal writer's receipt and is calculated from the
-    exact carrier bytes that were reopened.
+    This is a Journal reader, not a second event store.  The event is proven
+    from one bounded physical Journal frontier; the receipt retains the exact
+    seven-field canonical writer sidecar rather than re-enumerating carriers.
     """
-    for path in _journal_parts(root):
-        try:
-            raw = path.read_bytes()
-        except OSError as error:
-            raise DirectActionJournalError("direct-action-journal-unavailable", f"cannot reopen {path.name}") from error
-        if raw and not raw.endswith(b"\n"):
-            raise DirectActionJournalError("direct-action-journal-invalid", f"Journal carrier lacks terminal newline: {path.name}")
-        lines = raw.splitlines(keepends=True)
-        for line_number, line in enumerate(lines, start=1):
-            try:
-                candidate = json.loads(line)
-            except json.JSONDecodeError as error:
-                raise DirectActionJournalError("direct-action-journal-invalid", f"invalid JSON in {path.name}:{line_number}") from error
-            if not isinstance(candidate, dict) or candidate.get("event_id") != event_id:
-                continue
-            try:
-                event = work_journal.validate_sealed_event(candidate)
-            except work_journal.WorkJournalError as error:
-                raise DirectActionJournalError("direct-action-journal-invalid", f"invalid sealed Journal event {event_id}") from error
-            before = b"".join(lines[: line_number - 1])
-            appended = b"".join(lines[:line_number])
-            try:
-                carrier = path.relative_to(root).as_posix()
-            except ValueError as error:
-                raise DirectActionJournalError("direct-action-journal-invalid", "Journal carrier escapes project root") from error
-            return event, {
-                "event_id": event["event_id"],
-                "action_id": event["action_id"],
-                "event_digest": event["event_digest"],
-                "carrier": carrier,
-                "line": line_number,
-                "previous_carrier_digest": _sha256(before),
-                "appended_carrier_digest": _sha256(appended),
-            }
-    return None
+    if not isinstance(event_id, str) or not event_id:
+        raise DirectActionJournalError("direct-action-journal-invalid", "Journal event identity is invalid")
+    events, snapshot = _bounded_journal_events(
+        root,
+        '"event:/event_id" = ' + json.dumps(event_id),
+    )
+    if not events:
+        return None
+    if len(events) != 1 or events[0]["event_id"] != event_id:
+        raise DirectActionJournalError("direct-action-journal-invalid", "canonical Journal event identity is ambiguous")
+    if snapshot is None:  # Defensive: a physical event cannot come from an absent Journal.
+        raise DirectActionJournalError("direct-action-journal-invalid", "canonical Journal event lacks bounded provenance")
+    event = events[0]
+    return event, _receipt_from_sidecar(root, event, snapshot)
 
 
 class DirectActionSession:
@@ -981,25 +1143,22 @@ class DirectActionSession:
     ) -> tuple[dict[str, Any], dict[str, Any]] | None:
         prefix = f"direct-action:{identity}:terminal:"
         found: tuple[dict[str, Any], dict[str, Any]] | None = None
-        for path in _journal_parts(self.root):
-            try:
-                raw = path.read_bytes()
-            except OSError as error:
-                raise DirectActionJournalError("direct-action-journal-unavailable", f"cannot reopen {path.name}") from error
-            for line in raw.splitlines():
-                try:
-                    event_id = json.loads(line).get("event_id")
-                except (AttributeError, json.JSONDecodeError) as error:
-                    raise DirectActionJournalError("direct-action-journal-invalid", f"invalid Journal record in {path.name}") from error
-                if isinstance(event_id, str) and event_id.startswith(prefix):
-                    candidate = _reopen_event(self.root, event_id)
-                    if candidate is None:
-                        raise DirectActionJournalError("direct-action-journal-invalid", "terminal event disappeared during reopen")
-                    event, receipt = candidate
-                    self._validate_terminal_shape(event, run_id, requested_run_id, intent, binding)
-                    if found is not None:
-                        raise DirectActionJournalError("direct-action-journal-invalid", "one direct Action has conflicting terminal evidence")
-                    found = (event, receipt)
+        events, snapshot = _bounded_journal_events(
+            self.root,
+            '"event:/run/run_id" = ' + json.dumps(run_id),
+        )
+        if events and snapshot is None:  # Defensive: a physical event cannot come from an absent Journal.
+            raise DirectActionJournalError("direct-action-journal-invalid", "canonical Journal event lacks bounded provenance")
+        for event in events:
+            event_id = event.get("event_id")
+            if not isinstance(event_id, str) or not event_id.startswith(prefix):
+                continue
+            assert snapshot is not None
+            receipt = _receipt_from_sidecar(self.root, event, snapshot)
+            self._validate_terminal_shape(event, run_id, requested_run_id, intent, binding)
+            if found is not None:
+                raise DirectActionJournalError("direct-action-journal-invalid", "one direct Action has conflicting terminal evidence")
+            found = (event, receipt)
         return found
 
     def _pending_event(self, event_id: str) -> dict[str, Any] | None:
