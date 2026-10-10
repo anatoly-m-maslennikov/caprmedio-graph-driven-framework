@@ -265,7 +265,7 @@ for example: one prompt for how to write code, built from all M Atoms that apply
 
 **Different views, one source.** Rebuild Projections from their sources.
 
-Each Project has a `.caprmedio_<project_name>/` folder. Store persistent Journals in `_journal/` and Projections in `_projection/`. Applicable Methodology, graph views and derived Journal views are Projections.
+Each Project has a `.caprmedio_<project_name>/` folder. Store persistent Journals in `_journal/` and general Projections in `_projection/`. Applicable Methodology is the exception: its declared installation location remains below `000_CAPRMEDIO_framework/`. Applicable Methodology, graph views and derived Journal views are all non-authoritative Projections.
 
 With an explicit Project root, Journal writes and queries use that Project's settings and Journal, not those of a parent or sibling Project. Ambiguous control folders and symlinked settings are rejected.
 
@@ -299,6 +299,17 @@ package-admitted default only when it is absent, and otherwise preserves its
 existing bytes or refuses a configuration migration. The legacy Tool-version
 replacement erases only its managed `.caprmedio_runtime/tools` surface, never
 Project controls, Journal, or other runtime state.
+
+The native full-package installation path uses
+`.caprmedio_runtime/installation/current.toml` for Project execution, after
+publishing the matching `.caprmedio_install/current.toml` package selection.
+Replacement requires the exact sealed package, complete release evidence and
+verified quiescence of the selected predecessor. It stages the replacement
+before removing only the old selected package; existing configuration and
+Project-owned history remain outside that deletion boundary. An unavailable
+process query is not proof of quiescence and stops replacement before removal.
+The legacy Framework selector is only a pre-transition binding, not a second
+native execution authority.
 
 A package carries its active Methodology export and `SKILLS/ca` payload. Their
 publication follows the gated installation/promotion path: Methodology output
