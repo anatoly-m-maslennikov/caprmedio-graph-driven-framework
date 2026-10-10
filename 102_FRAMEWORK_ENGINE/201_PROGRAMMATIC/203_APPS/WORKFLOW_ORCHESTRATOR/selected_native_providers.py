@@ -12,6 +12,17 @@ from implementation_agent import ImplementationAgent
 from selected_execution import SelectedExecution, SelectedExecutionError, canonical_json, make_revert_action_handler
 
 
+class _SelectedPublicReleaseExecution(SelectedExecution):
+    """Use only the program-owned public executor for the D613-admitted route."""
+
+    def __init__(self, root: Path, provider: "SelectedNativeProviders", **kwargs: Any) -> None:
+        super().__init__(root, **kwargs)
+        self._provider = provider
+
+    def _execute_admitted_session(self, frozen: Mapping[str, Any], session: Any) -> Any:
+        return self._provider._dispatch_selected_public_release(self, frozen, session)
+
+
 class SelectedNativeProviders:
     """Keep Implementation transport separate from Base Revise and Revert authority.
 
@@ -32,7 +43,8 @@ class SelectedNativeProviders:
     def execution(self, frozen: Mapping[str, Any]) -> SelectedExecution:
         """Build providers from the queue's frozen request, never ambient effects."""
         try:
-            parameters = json.loads(canonical_json(frozen["request"]["execution"].get("parameters")))
+            execution = frozen["request"]["execution"]
+            parameters = json.loads(canonical_json(execution.get("parameters")))
         except (KeyError, TypeError, ValueError) as error:
             raise SelectedExecutionError("native providers require the frozen selected execution") from error
 
@@ -59,10 +71,71 @@ class SelectedNativeProviders:
             return make_revert_action_handler(service)(context)
 
         handlers = {"CA-O-131": revert}
-        if frozen["request"]["execution"].get("operation_route") == "release_version":
+        route = execution.get("operation_route")
+        if route == "release_version":
             handlers.update(self._release_handlers(frozen, parameters))
-        return SelectedExecution(self.root, handlers=handlers,
-                                 implementation_agent=self.implementation_agent)
+        execution_class: type[SelectedExecution] = (
+            _SelectedPublicReleaseExecution if route == "public.release" else SelectedExecution
+        )
+        if execution_class is _SelectedPublicReleaseExecution:
+            return _SelectedPublicReleaseExecution(
+                self.root, self, handlers=handlers, implementation_agent=self.implementation_agent,
+            )
+        return SelectedExecution(self.root, handlers=handlers, implementation_agent=self.implementation_agent)
+
+    @staticmethod
+    def _public_graph_is_exact(graph: Mapping[str, Any]) -> bool:
+        expected = (
+            ("CA-O-189", "CA-O-190"), ("CA-O-191", "CA-O-192"),
+            ("CA-O-193", "CA-O-194"), ("CA-O-195", "CA-O-196"),
+            ("CA-O-197", "CA-O-198"),
+        )
+        workflow = graph.get("workflow")
+        steps = graph.get("steps")
+        if (graph.get("route") != "public.release" or graph.get("entry_step") != expected[0][0]
+                or not isinstance(workflow, Mapping) or workflow.get("atom_id") != "CA-O-188"
+                or graph.get("native_action_calls") != [] or not isinstance(steps, list)):
+            return False
+        pairs: list[tuple[object, object]] = []
+        for step in steps:
+            actions = step.get("actions") if isinstance(step, Mapping) else None
+            if not isinstance(actions, list) or len(actions) != 1 or not isinstance(actions[0], Mapping):
+                return False
+            pairs.append((step.get("atom_id"), actions[0].get("atom_id")))
+        return tuple(pairs) == expected
+
+    def _dispatch_selected_public_release(
+        self, selected: SelectedExecution, frozen: Mapping[str, Any], session: Any,
+    ) -> None:
+        """Run public release in the one shared Session before generic dispatch.
+
+        ``_revalidate`` is the current SelectedExecution loader: it reopens the
+        canonical seventeen-route source-admitted manifest and proves the
+        frozen graph has not changed.  This branch never constructs a second
+        tracker/session and never falls through to ``_execute_graph``.
+        """
+        try:
+            graph = selected._revalidate(frozen)
+        except SelectedExecutionError as error:
+            raise SelectedExecutionError("public Release has no current canonical source admission") from error
+        request = frozen.get("request")
+        execution = request.get("execution") if isinstance(request, Mapping) else None
+        if (not isinstance(execution, Mapping) or execution.get("operation_route") != "public.release"
+                or not self._public_graph_is_exact(graph)):
+            raise SelectedExecutionError("public Release frozen route is not the exact D613-selected graph")
+        public_root = Path(__file__).resolve().parents[2] / "201_TOOLS" / "PUBLIC_RELEASE"
+        if str(public_root) not in sys.path:
+            sys.path.insert(0, str(public_root))
+        try:
+            from selected_host import SelectedPublicHostError, create_selected_public_bindings
+            from public_release import PublicReleaseError, run_execution_session
+        except ImportError as error:
+            raise SelectedExecutionError("public Release private selected host is unavailable") from error
+        try:
+            host = create_selected_public_bindings(self.root, frozen, session)
+            run_execution_session(self.root, session, bindings=host)
+        except (SelectedPublicHostError, PublicReleaseError) as error:
+            raise SelectedExecutionError(str(error)) from error
 
     @staticmethod
     def _json_value(value: Any) -> Any:

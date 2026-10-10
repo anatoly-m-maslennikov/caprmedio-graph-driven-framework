@@ -2778,6 +2778,15 @@ class SelectedExecution:
                 raise SelectedExecutionError("selected transition target is invalid")
         raise SelectedExecutionError("selected Workflow has no terminal result")
 
+    def _execute_admitted_session(self, frozen: Mapping[str, Any], session: Any) -> Any:
+        """Execute one already-admitted session; subclasses may own a sealed route.
+
+        This generic default intentionally starts the Workflow only through the
+        existing graph interpreter.  A program-owned provider may override it
+        for a separately admitted route whose executor owns the same Session.
+        """
+        return self._execute_graph(frozen, session)
+
     def _prepare_journal_query_before_run(
         self, graph: Mapping[str, Any], execution: Mapping[str, Any],
     ) -> Any | None:
@@ -2834,7 +2843,7 @@ class SelectedExecution:
                                     if lifecycle_admission is not None else {})}}
 
         return RunTracker(self.root, source_observer=observe,
-                          executor=lambda _request, session: self._execute_graph(frozen, session))
+                          executor=lambda _request, session: self._execute_admitted_session(frozen, session))
 
     def _shared_dispatch(self, frozen: Mapping[str, Any]) -> dict[str, Any]:
         return self._shared_tracker(frozen).run_selected_operation(dict(frozen["request"]["execution"]))
@@ -3248,7 +3257,7 @@ class SelectedExecution:
                 result = self._shared_dispatch(frozen)
             else:
                 result = run_support(self.root, dict(request["execution"]),
-                                     lambda session: self._execute_graph(frozen, session))
+                                     lambda session: self._execute_admitted_session(frozen, session))
             if not isinstance(result, Mapping):
                 raise SelectedExecutionError("shared selected Run support returned an invalid result")
             value = dict(result)

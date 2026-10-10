@@ -222,7 +222,22 @@ class SelectedNativeProvidersTests(unittest.TestCase):
                 outputs = {'candidate': packet.get('candidate', 'actual-code'), 'commands': ['assertion.py'],
                            'checks': [{'returncode': check.returncode}],
                            'coverage': {'complete': True, 'checked': packet['coverage']['required']}}
-            result = {'CA-O-091': 'evaluation_ready', 'CA-O-092': 'prepared', 'CA-O-093': 'implemented', 'CA-O-094': 'passed'}[step]
+            if step == 'CA-O-091':
+                prior_results = packet.get('prior_results')
+                assert isinstance(prior_results, list)
+                prior = [row.get('result') for row in prior_results if isinstance(row, dict)]
+                if not prior:
+                    result = 'evaluation_ready'
+                elif prior[-1] == 'prepared':
+                    result = 'requirement_ready'
+                elif prior[-1] == 'implemented':
+                    result = 'evaluation_runnable'
+                elif prior[-1] == 'passed':
+                    result = 'complete'
+                else:
+                    raise AssertionError(f'unexpected retained implementation result: {prior[-1]!r}')
+            else:
+                result = {'CA-O-092': 'prepared', 'CA-O-093': 'implemented', 'CA-O-094': 'passed'}[step]
             output.write_text(json.dumps({'result': result, 'outputs': outputs, 'evidence': [{'step': step}], 'blockers': []}))
         '''), encoding="utf-8")
         base.update(golden_e2e=["assertion.py"], baseline_command="assertion.py",
@@ -232,9 +247,10 @@ class SelectedNativeProvidersTests(unittest.TestCase):
         result, session = self.registered_dispatch(frozen, agent=ImplementationAgent([sys.executable, str(script)]))
         self.assertEqual("completed", result["outcome"])
         self.assertTrue((workspace / "implementation.py").is_file())
-        self.assertEqual(["evaluation ready", "tests prepared", "implementation delivered", "checks pass"],
+        self.assertEqual(["evaluation_ready", "prepared", "requirement_ready", "implemented",
+                          "evaluation_runnable", "passed", "complete"],
                          [row["result"] for row in result["step_results"]])
-        self.assertEqual(9, len(session.started))
+        self.assertEqual(15, len(session.started))
 
     def test_startup_is_lazy_and_default_agent_is_distinct(self):
         with patch("implementation_agent._run", side_effect=AssertionError("startup must not launch Agent")):
