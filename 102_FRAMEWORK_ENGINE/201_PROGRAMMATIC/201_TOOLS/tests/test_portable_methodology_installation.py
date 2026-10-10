@@ -85,6 +85,25 @@ class PortableMethodologyInstallationTests(unittest.TestCase):
         structure.write_bytes(payload)
         return bind_target_project_context(self.request.target)
 
+    @staticmethod
+    def _without_scope_unit(payload: bytes, unit_name: str) -> bytes:
+        document = payload.decode("utf-8")
+        marker = f'scope_unit_name = "{unit_name}"'
+        unit_name_start = document.index(marker)
+        section_start = document.rfind("[[scope_units]]", 0, unit_name_start)
+        section_end = document.find("[[scope_units]]", unit_name_start)
+        return (document[:section_start] + ("" if section_end < 0 else document[section_end:])).encode("utf-8")
+
+    @staticmethod
+    def _duplicate_scope_unit(payload: bytes, unit_name: str) -> bytes:
+        document = payload.decode("utf-8")
+        marker = f'scope_unit_name = "{unit_name}"'
+        unit_name_start = document.index(marker)
+        section_start = document.rfind("[[scope_units]]", 0, unit_name_start)
+        section_end = document.find("[[scope_units]]", unit_name_start)
+        section = document[section_start:] if section_end < 0 else document[section_start:section_end]
+        return (document + "\n" + section).encode("utf-8")
+
     def test_context_paths_preserve_legacy_nested_authoring_layout(self) -> None:
         root, source_relative, output_relative = delivery._context_paths_for(self.request, self.context)
 
@@ -118,6 +137,33 @@ class PortableMethodologyInstallationTests(unittest.TestCase):
             Path(".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY"),
             output_relative,
         )
+
+    def test_context_paths_default_output_when_applicable_methodology_is_undeclared(self) -> None:
+        structure = self.fixture.control / "project_structure.toml"
+        payload = self._without_scope_unit(structure.read_bytes(), "APPLICABLE_METHODOLOGY")
+        structure.write_bytes(payload)
+        context = replace(self.context, project_structure_sha256=delivery._digest(payload))
+
+        _, source_relative, output_relative = delivery._context_paths_for(self.request, context)
+
+        self.assertEqual(
+            Path(".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources"),
+            source_relative,
+        )
+        self.assertEqual(
+            Path(".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY"),
+            output_relative,
+        )
+
+    def test_context_paths_refuse_duplicate_applicable_methodology_declarations(self) -> None:
+        structure = self.fixture.control / "project_structure.toml"
+        payload = self._duplicate_scope_unit(structure.read_bytes(), "APPLICABLE_METHODOLOGY")
+        structure.write_bytes(payload)
+        context = replace(self.context, project_structure_sha256=delivery._digest(payload))
+
+        with self.assertRaises(delivery.PortableMethodologyInstallationError) as rejected:
+            delivery._context_paths_for(self.request, context)
+        self.assertEqual("portable-methodology-context-invalid", rejected.exception.code)
 
     def test_context_paths_refuse_unsafe_or_overlapping_declared_metadata(self) -> None:
         output_path = ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY"

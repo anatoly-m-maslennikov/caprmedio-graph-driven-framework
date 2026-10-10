@@ -751,10 +751,10 @@ def _context_paths_for(
     if len(source_units) != 1:
         raise _error("portable-methodology-context-invalid", "Project Structure must declare exactly one METHODOLOGY_SOURCES unit")
     output_units = [unit for unit in units if isinstance(unit, Mapping) and unit.get("scope_unit_name") == "APPLICABLE_METHODOLOGY"] if isinstance(units, list) else []
-    if len(output_units) != 1:
-        raise _error("portable-methodology-context-invalid", "Project Structure must declare exactly one APPLICABLE_METHODOLOGY unit")
+    if len(output_units) > 1:
+        raise _error("portable-methodology-context-invalid", "Project Structure must declare at most one APPLICABLE_METHODOLOGY unit")
     source_relative = _safe_relative(source_units[0].get("authority_path"), label="METHODOLOGY_SOURCES authority_path")
-    delivery_value = output_units[0].get("delivery_path")
+    delivery_value = output_units[0].get("delivery_path") if output_units else None
     output_relative = (
         _safe_relative(delivery_value, label="APPLICABLE_METHODOLOGY delivery_path")
         if delivery_value is not None
