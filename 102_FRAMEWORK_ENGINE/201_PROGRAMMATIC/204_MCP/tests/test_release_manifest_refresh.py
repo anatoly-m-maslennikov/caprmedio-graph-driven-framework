@@ -187,12 +187,11 @@ class ReleaseManifestRefreshTest(unittest.TestCase):
 
     @contextmanager
     def advanced_admission(self):
-        """Advance one Release workflow pin and its D572 trust anchor in this fixture only."""
+        """Advance one source-derived Release workflow pin in this fixture only."""
         old_admission = self.initial["release_source_admissions"][0]
         pin = old_admission["workflow"]
         source = self.root / pin["source_path"]
-        authority = self.root / source_goldens.AUTHORITY_REF
-        source_before, authority_before = source.read_bytes(), authority.read_bytes()
+        source_before = source.read_bytes()
         updated_source = re.sub(
             rf"(?m)^version:\s*{pin['version']}\s*$",
             f"version: {pin['version'] + 1}",
@@ -200,24 +199,13 @@ class ReleaseManifestRefreshTest(unittest.TestCase):
             count=1,
         ).encode("utf-8")
         self.assertNotEqual(source_before, updated_source)
-        updated_digest = hashlib.sha256(updated_source).hexdigest()
-        old_row = f"| {pin['atom_id']} | {pin['version']} | `{pin['source_path']}` | `{pin['digest']}` |"
-        new_row = f"| {pin['atom_id']} | {pin['version'] + 1} | `{pin['source_path']}` | `{updated_digest}` |"
-        updated_authority = authority_before.decode("utf-8").replace(old_row, new_row, 1).encode("utf-8")
-        self.assertNotEqual(authority_before, updated_authority)
         source.write_bytes(updated_source)
-        authority.write_bytes(updated_authority)
-        trusted_authority = {
-            **admission_module.AUTHORITY_PIN,
-            "digest": hashlib.sha256(updated_authority).hexdigest(),
-        }
         try:
-            with patch.object(admission_module, "AUTHORITY_PIN", trusted_authority):
-                route, admission = derive_release_graph_admission(self.root)
-                yield route, admission
+            route, admission = derive_release_graph_admission(self.root)
+            self.assertNotEqual(pin, admission["workflow"])
+            yield route, admission
         finally:
             source.write_bytes(source_before)
-            authority.write_bytes(authority_before)
 
     def test_stale_additive_sixteen_plan_is_effect_free_and_replaces_only_admission(self) -> None:
         with self.advanced_admission() as (current_route, current_admission):
