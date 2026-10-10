@@ -4,10 +4,10 @@ content_role: Delivery
 current_scope_unit: TOOLS
 local_tier: Standard
 global_tier: 11
-status: Active
+status: Archived
 author: Anatoly Maslennikov
-version: 4
-updated_at: "2026-10-10 05:35:00 +0400"
+version: 3
+updated_at: "2026-10-10 05:17:00 +0400"
 subjects:
   governs: "Tool/RELEASE_VERSION/Source and compilation carriers"
   depends_on: [Tool, Methodology, Projection, Manifest, Project Structure, Framework Settings, Framework Package, Installation, Journal]
@@ -41,13 +41,6 @@ Release Version **must** bind its Methodology delivery to the explicitly admitte
 3. Engine `core` descriptors are not compiler Atom input. Methodology, Extension and Configuration descriptors contribute only through explicitly selected admitted paths. Support remains support, not an Atom. Do not silently add checkout sources, installed settings or unselected private Configuration.
 4. Reuse canonical compiler metadata, conflict/selection and projection rendering primitives on that exact view. Unresolved conflicts report actual evidence and stop; installation never invents approval. Reopen source-view and compilation bytes before publication.
 5. A projected Atom retains source Atom ID, revision, source SHA-256 and original Relations digest. Its source-carrier relation resolves to the verified package member; its package-relative original export path preserves provenance. Relocation changes relative presentation, not source identity.
-
-### Project-bound source export
-
-1. A Project export receives its exact Project root explicitly. Resolve its control child, Methodology source root and canonical Framework Instance Settings through that Project's declared controls; the resolved source root must equal the requested source root. Never infer the Project by scanning ancestors or copying settings into the source tree.
-2. Frozen export schema `caprmedio.methodology_export.frozen.v2` contains one `project_binding`: either the explicit Project's resolved root, control/source paths and exact Project Settings, Project Structure and Framework Instance Settings carrier paths/digests, or `null` for a detached Core-only export. Record an absent optional Framework Instance Settings carrier explicitly so later creation changes the binding. The binding is derived input trace, not another settings authority.
-3. Freeze and reopen the Project binding with the active source frontier. Detect addition, removal or byte changes in any bound control before publication. The canonical compiler consumes the real external settings carrier without a nested copy or fallback. A detached export cannot select an Extension or Project Configuration or claim Project-specific applicability.
-4. Historical frozen schema v1 may be read only to validate retained historical ownership/evidence. It does not authorize a new Project-specific export or supply invented Project-binding fields. Selected publication continues to copy its exact gated export, not regenerate it.
 
 ### Target selection and preparation
 
