@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 58
-updated_at: "2026-10-11 02:52:36 +0400"
+version: 60
+updated_at: "2026-10-11 03:23:03 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1909]
@@ -100,6 +100,9 @@ Inherit CA-P-1959's source boundary, confidence threshold and preservation rules
 - [CA-P-2043 — Integrate current Subject mapping ledger](08-CA-P-1966-EPIC--map-current-core-subject-origins/53-CA-P-2043-TASK--integrate-current-subject-mapping-ledger.md)
 
 - [CA-P-2047 — Record the Substance field decision](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/54-CA-P-2047-TASK--record-the-substance-field-decision.md)
+- [CA-P-2048 — Apply the Substance decision to Subject mappings](08-CA-P-1966-EPIC--map-current-core-subject-origins/55-CA-P-2048-TASK--apply-the-substance-decision-to-subject-mappings.md)
+- [CA-P-2049 — Resolve remaining Subject mappings](08-CA-P-1966-EPIC--map-current-core-subject-origins/56-CA-P-2049-TASK--resolve-remaining-subject-mappings.md)
+- [CA-P-2058 — Correct Actor Type Subject candidates](08-CA-P-1966-EPIC--map-current-core-subject-origins/57-CA-P-2058-TASK--correct-actor-type-subject-candidates.md)
 
 ### Definition of Done
 
