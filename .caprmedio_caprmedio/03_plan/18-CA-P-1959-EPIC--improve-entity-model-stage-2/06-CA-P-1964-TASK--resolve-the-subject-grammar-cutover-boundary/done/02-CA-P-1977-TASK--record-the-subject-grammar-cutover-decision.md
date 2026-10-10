@@ -10,12 +10,12 @@ local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
-status: Active
+status: Done
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Projection, Plan, Tool, Operator]
-version: 2
-updated_at: "2026-10-10 23:34:31 +0400"
+version: 3
+updated_at: "2026-10-11 03:25:53 +0400"
 relations:
   is_decomposition_of: [CA-P-1964]
 ---
@@ -42,3 +42,7 @@ Inherit CA-P-1959's source boundary, confidence threshold and preservation rules
 ### Definition of Done
 
 The Plan is **not** Done if an available actual answer is not recorded faithfully; its exact packet cannot be identified; readiness is overstated; or an unapproved effect occurs; any direct decomposing Plan is not Done; or own work exceeds 15 minutes without decomposition.
+
+### Completion evidence
+
+Recorded the actual Operator answer, "Yes, update the five grammar definitions", to the question naming the unchanged five-change packet. Rechecked JSON and Markdown packet hashes and retained their exact approved bounds. The record is `_projection/core-entity-review/stage2/grammar-decision.operator-answer.json`, SHA-256 `396dd826016ff7f021960f74345298bdb583124374249ce07c5cdb3edf1fc0eb`. CA-P-1965 may now prepare the approved parser/validator profiles. This Task did not change any governing definition or original Subjects and did not grant live migration approval.
