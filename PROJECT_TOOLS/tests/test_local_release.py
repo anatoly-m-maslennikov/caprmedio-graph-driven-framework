@@ -168,6 +168,18 @@ class LocalReleaseTests(unittest.TestCase):
         self.assertNotIn("commit", [name for name, _ in calls])
         self.assertNotIn("install_engine", [name for name, _ in calls])
 
+    def test_historical_active_metadata_is_not_released(self) -> None:
+        source = self.root / ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL"
+        for directory in ("archive", "draft", "_projection"):
+            historical = source / directory / "old.md"
+            historical.parent.mkdir()
+            historical.write_text("---\natom_id: CA-R-1\nstatus: Active\n---\nhistorical\n", encoding="utf-8")
+        hooks, _ = self._hooks()
+        result = run_local_release(self.root, run_id="r-history", hooks=hooks)
+        self.assertEqual("completed", result["outcome"])
+        released = self.root / "101_FRAMEWORK_METHODOLOGY/sources/001_CORE_META_MODEL"
+        self.assertEqual(["active.md"], [path.name for path in released.rglob("*.md")])
+
     def test_failed_test_report_stops_before_first_wipe(self) -> None:
         hooks, calls = self._hooks(failed_report=True)
         result = run_local_release(self.root, run_id="r2-report", hooks=hooks)

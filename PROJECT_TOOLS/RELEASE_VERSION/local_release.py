@@ -40,6 +40,7 @@ _PRESERVED_NAMES = frozenset(
 )
 _RUN_ID = re.compile(r"[A-Za-z0-9][A-Za-z0-9._-]*\Z")
 _ACTIVE_STATUS = re.compile(r"^status:\s*[\"']?Active[\"']?\s*$", re.MULTILINE)
+_NON_SOURCE_DIRECTORIES = frozenset({"archive", "draft", "drafts", "journal", "projection", "_journal", "_projection", ".caprmedio_tmp", "__pycache__"})
 
 
 class LocalReleaseHooks(Protocol):
@@ -175,6 +176,8 @@ def _copy_active_sources(sources: tuple[tuple[str, Path], ...], destination: Pat
         target_root.mkdir(parents=True, exist_ok=False)
         unit_copied = 0
         for entry in _walk_regular_files(source):
+            if any(part.casefold() in _NON_SOURCE_DIRECTORIES for part in entry.relative_to(source).parts[:-1]):
+                continue
             if not _active_atom(entry):
                 continue
             target = target_root / entry.relative_to(source)
