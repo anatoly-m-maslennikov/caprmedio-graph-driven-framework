@@ -67,14 +67,13 @@ Entity Graph Candidate
     Source Atoms remain authoritative
     Not necessarily one document; not an additional root
 
-  M/E roots — OPEN
-    Proposal only: M/E specifications are Atoms; actual work/checks are Executions
-    Method/Evaluation may head views without becoming new Entity roots
-    Separate Method/Evaluation roots are not confirmed and have not been added
+  M/E roots — RESOLVED
+    M/E specifications are Atoms; actual work/checks are Executions
+    M/E are role-centred views over the shared roots, not additional Entity roots
+    Operator confirmed this choice on 2026-10-10
 
   Unresolved
     How to identify duplicates among ID-free Drafts.
-    Whether M/E need additional conceptual roots rather than only role-centred views.
     Whether the Relation root's inter-Atom scope also covers other Entity connections.
     Exact placement and semantics of Journal, Projection and reusable Operation definitions.
     A complete mapping from the captured 706-identity review to this simplified candidate.

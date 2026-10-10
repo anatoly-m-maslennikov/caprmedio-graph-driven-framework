@@ -129,15 +129,16 @@
     "root_status": "Not an additional independent root in this candidate."
   },
   "m_e_root_question": {
-    "status": "Open",
+    "status": "Resolved",
     "operator_question": "What about M/E root Entities?",
-    "proposal": "M and E can be role-centred views over the shared roots: their specifications are Atoms; actual performances or checks are Executions.",
-    "alternative": "Separate Method or Evaluation conceptual roots would need an explicit decision.",
+    "decision": "M and E are role-centred views over the shared roots: their specifications are Atoms; actual performances or checks are Executions.",
+    "operator_answer": "okay, yes.",
+    "decided_on": "2026-10-10",
+    "alternative_not_selected": "Add separate Method or Evaluation conceptual roots.",
     "additional_roots_added": false
   },
   "unresolved": [
     "How to identify duplicates among ID-free Drafts.",
-    "Whether M/E need additional conceptual roots rather than only role-centred views.",
     "Whether the Relation root's inter-Atom scope also covers other Entity connections.",
     "Exact placement and semantics of Journal, Projection and reusable Operation definitions.",
     "A complete mapping from the captured 706-identity review to this simplified candidate.",
