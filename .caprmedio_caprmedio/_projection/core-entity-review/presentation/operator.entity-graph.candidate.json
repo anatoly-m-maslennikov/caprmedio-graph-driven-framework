@@ -139,21 +139,23 @@
     "endpoint_boundary": "Grouping does not remove each Relation Type's permitted endpoint constraints."
   },
   "relation_lifecycle_question": {
-    "status": "Open — Operator undecided",
+    "status": "Resolved — Operator-confirmed",
     "operator_context": "Changing an Atom's Status is simple; checking and fixing dropped Relations can be difficult and is another task.",
     "question": "Does a Relation instance follow its declaring Entity's lifecycle or have an independently managed representation and lifecycle?",
-    "confirmed_choice": null,
-    "recommendation": {
-      "status": "Proposed — not Operator-confirmed",
+    "confirmed_choice": "Keep each Relation declaration with one declaring Entity; keep Status changes separate from Relation impact checking and repair. No independent Relation lifecycle is introduced for repair work.",
+    "operator_answer": "agree",
+    "decided_on": "2026-10-10",
+    "decision": {
+      "status": "Confirmed by Operator",
       "direction": "Keep an Atom Status change separate from Relation impact checking and repair.",
       "rules": [
-        "Prefer one authoritative declaration with the declaring Entity rather than introducing an independent Relation lifecycle solely for repair work.",
+        "Keep one authoritative Relation declaration with one declaring Entity rather than introducing an independent Relation lifecycle solely for repair work.",
         "A Status change is not deletion and does not itself erase Relations.",
         "Check affected Relations against their endpoint and applicability rules as a separate task.",
         "Report unresolved or invalid Relations explicitly rather than silently dropping them.",
         "Require the necessary validity check before an affected Relation is relied upon."
       ],
-      "scope": "This workflow separation does not by itself decide Relation ownership or introduce an independent Relation lifecycle."
+      "scope": "The declaring Entity owns the Relation declaration; checking and repair remain separate tasks. Exact typed history links and native admission remain outside this decision."
     }
   },
   "entity_vs_syntax_rules": [
@@ -229,7 +231,6 @@
     "additional_roots_added": false
   },
   "unresolved": [
-    "Relation instance ownership and lifecycle; Status change versus Relation impact checking and repair.",
     "Exact typed links between Operations definitions, Executions, Actors, Journal Records, Revisions and Carriers.",
     "A complete mapping from the captured 706-identity review to this simplified candidate.",
     "Operator confirmation of the proposed history links and historical reference; accepted Subject grammar changes."
