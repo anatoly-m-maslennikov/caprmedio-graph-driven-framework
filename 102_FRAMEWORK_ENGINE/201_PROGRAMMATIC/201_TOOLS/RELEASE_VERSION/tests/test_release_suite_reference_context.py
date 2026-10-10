@@ -442,6 +442,19 @@ class ReleaseSuiteReferenceContextTests(unittest.TestCase):
         self.assertEqual(hashlib.sha256(canonical_json(payload).encode("utf-8")).hexdigest(),
                          context.control_context_digest)
 
+    def test_reader_snapshot_materializes_registered_empty_rmed_namespaces(self) -> None:
+        """Current D572 lookup must work from immutable bytes and empty roots."""
+        structure = (self.root / self.project_structure_ref()).read_bytes()
+        expected = reference_context._admission_namespace_dirs(structure)
+        self.assertEqual(8, len(expected))
+        with reference_context._reader_snapshot(self.root) as (snapshot, _captured):
+            for relative in expected:
+                with self.subTest(relative=relative):
+                    target = snapshot / relative
+                    self.assertTrue(target.is_dir())
+                    self.assertFalse(target.is_symlink())
+            self.assertTrue(reference_context._closure_paths(snapshot))
+
     def test_current_d572_needs_no_retired_private_or_resolver_blocks(self) -> None:
         authority = (self.root / AUTHORITY_REF).read_text(encoding="utf-8")
         self.assertNotIn("## Private implementation carriers", authority)

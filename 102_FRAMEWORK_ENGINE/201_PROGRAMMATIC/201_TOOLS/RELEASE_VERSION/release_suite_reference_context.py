@@ -56,6 +56,10 @@ _ATOM_ID = re.compile(r"CA-[A-Z]+-[0-9]+")
 _SELECTED_SOURCE_REFRESH_IDS = (
     "CA-R-1041", "CA-R-1894", "CA-M-350", "CA-E-593", "CA-D-588",
 )
+_RMED_ROLE_DIRECTORIES = (
+    "04_requirement", "05_method", "06_evaluation", "07_delivery",
+)
+_ADMISSION_SCOPE_UNITS = ("PROJECT_TOOLS", "TOOLS")
 
 
 class ReleaseSuiteReferenceContextError(ValueError):
@@ -232,6 +236,45 @@ def _control_root_from_settings(raw: bytes) -> PurePosixPath:
 def _project_structure_ref(settings_raw: bytes) -> str:
     """Resolve only the explicit Project Structure carrier named by settings."""
     return (_control_root_from_settings(settings_raw) / "project_structure.toml").as_posix()
+
+
+def _admission_namespace_dirs(project_structure_raw: bytes) -> tuple[str, ...]:
+    """Derive the fixed empty RMED roots required by the current resolver.
+
+    ``resolve_current_source_pin`` scans both registered Project Tools and
+    reusable Tools role roots for every RMED lookup.  A file-only reader
+    snapshot therefore has to recreate those eight already-registered
+    directories even when one has no selected source member.  This derives
+    only from the descriptor-captured Project Structure carrier; it performs
+    no root-backed discovery and emits no reference row.
+    """
+    try:
+        document = tomllib.loads(project_structure_raw.decode("utf-8"))
+        rows = document.get("scope_units") if isinstance(document, Mapping) else None
+        if not isinstance(rows, list):
+            raise ValueError("scope_units is absent")
+        roots: list[PurePosixPath] = []
+        for scope_unit in _ADMISSION_SCOPE_UNITS:
+            matches = [row for row in rows if isinstance(row, Mapping)
+                       and row.get("scope_unit_name") == scope_unit]
+            if len(matches) != 1:
+                raise ValueError("admission scope registration is not unique")
+            roots.append(_forbid_non_control_path(matches[0].get("authority_path")))
+    except (UnicodeDecodeError, tomllib.TOMLDecodeError, TypeError, ValueError) as error:
+        raise ReleaseSuiteReferenceContextError(
+            "Project Structure has no valid registered RMED admission namespaces"
+        ) from error
+    return tuple(sorted((root / role).as_posix()
+                        for root in roots for role in _RMED_ROLE_DIRECTORIES))
+
+
+def _materialize_admission_namespace_dirs(snapshot: Path, project_structure_raw: bytes) -> None:
+    """Create only the fixed current resolver roots inside a fresh snapshot."""
+    for relative in _admission_namespace_dirs(project_structure_raw):
+        target = snapshot.joinpath(*_safe_relative(relative).parts)
+        target.mkdir(parents=True, exist_ok=True)
+        if target.is_symlink() or not target.is_dir():
+            _fail("reader snapshot admission namespace is unsafe")
 
 
 def _atom_identity(raw: bytes, relative: str) -> tuple[str, int, str]:
@@ -461,6 +504,11 @@ def _reader_snapshot(root: Path):
     identity = snapshot.stat()
     try:
         snapshot.chmod(0o700)
+        settings_raw, _settings_mode = captured[PROJECT_SETTINGS_REF.as_posix()]
+        project_structure_ref = _project_structure_ref(settings_raw)
+        _materialize_admission_namespace_dirs(
+            snapshot, captured[project_structure_ref][0],
+        )
         for relative in paths:
             payload, mode = captured[relative]
             _write_snapshot_file(snapshot, relative, payload, mode)
