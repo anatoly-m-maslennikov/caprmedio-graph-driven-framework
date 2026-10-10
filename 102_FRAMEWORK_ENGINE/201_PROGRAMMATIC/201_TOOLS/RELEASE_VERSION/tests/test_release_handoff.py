@@ -59,9 +59,6 @@ class ReleaseHandoffTests(unittest.TestCase):
         # This exercises only the handoff's additional control closure. The
         # public handoff still independently requires a real exporter seal.
         root = self.fixture.root
-        self.fixture.structure.write_text(
-            '[[scope_units]]\nscope_unit_name = "METHODOLOGY_SOURCES"\n'
-            f'authority_path = "{CANONICAL_SOURCE}"\n', encoding="utf-8")
         (root / ".caprmedio_caprmedio/caprmedio_project_settings.toml").write_bytes(
             b'[paths]\ncontrol_root = ".caprmedio_caprmedio"\n')
         candidate = self.candidate()
@@ -145,7 +142,7 @@ class ReleaseHandoffTests(unittest.TestCase):
         self.fixture.deliver_copy()
         copied = validate_source_copy(candidate)
         self.assertEqual(copied.actual_derived_source_copy_sha256, self.fixture.manifest["expected_derived_source_copy_sha256"])
-        self.assertEqual(copied.source_copy_root, "101_LAYER_1_FRAMEWORK_METHODOLOGY/sources")
+        self.assertEqual(copied.source_copy_root, "101_FRAMEWORK_METHODOLOGY/sources")
         for relative, expected in before.items():
             path = self.fixture.root / relative
             self.assertEqual((path.read_bytes(), path.stat().st_mode & 0o777), expected)

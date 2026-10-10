@@ -301,7 +301,9 @@ max_stderr_bytes = 1024
 max_junit_bytes = 1024
 """
     instance_settings = b"[release_e2e]\n"
-    frozen = gate._freeze_release_e2e_settings(default_settings, instance_settings)
+    frozen = gate._freeze_release_e2e_settings(default_settings, instance_settings,
+        default_settings_relative=f"{fixture.candidate.manifest.canonical_source_snapshot_ref}/{gate.DEFAULT_FRAMEWORK_SETTINGS_SUFFIX}",
+        instance_settings_relative=gate.FRAMEWORK_SETTINGS_RELATIVE)
     _write(attempt / "release-e2e-limits.json", frozen.snapshot)
     _write(attempt / "release-e2e-grammar.json", grammar_raw)
     _write(attempt / "release-e2e-default-settings.toml", default_settings)
@@ -473,7 +475,7 @@ class PortableReleaseE2EBindingTests(unittest.TestCase):
         source = self.fixture.root / "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/tool.py"
         source.write_bytes(source.read_bytes() + b"mutated only after all proof packets were retained\n")
         (self.fixture.root / gate.GRAMMAR_RELATIVE).write_bytes(b"{}\n")
-        (self.fixture.root / gate.DEFAULT_FRAMEWORK_SETTINGS_RELATIVE).write_bytes(b"[release_e2e]\nchanged = true\n")
+        (self.fixture.root / self.fixture.candidate.manifest.canonical_source_snapshot_ref / gate.DEFAULT_FRAMEWORK_SETTINGS_SUFFIX).write_bytes(b"[release_e2e]\nchanged = true\n")
         (self.fixture.root / gate.FRAMEWORK_SETTINGS_RELATIVE).write_bytes(b"[release_e2e]\nchanged = true\n")
 
         reopened = gate.read_candidate_e2e_execution_artifacts(

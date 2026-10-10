@@ -25,7 +25,6 @@ if str(_TOOLS_ROOT) not in sys.path:
 
 from framework_package import FrameworkPackageError, verify_framework_package  # noqa: E402
 from release_contract import ReleaseContractError, ValidatedCandidate, canonical_json  # noqa: E402
-from release_handoff import CANONICAL_SOURCE_RELATIVE  # noqa: E402
 from release_inventory import ReleaseInventoryError, refuse_secret_path  # noqa: E402
 from release_package_evidence import (  # noqa: E402
     PackageEvidenceError,
@@ -195,7 +194,7 @@ def _normalized_source_path(
     if resource not in {"METHODOLOGY", "METHODOLOGY_SUPPORT"}:
         return source
     export_root = Path(compilation.private_compilation.methodology_export.source_export_root)
-    canonical_root = Path(CANONICAL_SOURCE_RELATIVE)
+    canonical_root = Path(compilation.candidate.manifest.canonical_source_snapshot_ref)
     try:
         normalized = canonical_root / Path(source).relative_to(export_root)
     except ValueError as error:
@@ -214,14 +213,15 @@ def _is_test_module(path: str) -> bool:
     return PurePosixPath(path).name.startswith("test_") and path.endswith(".py")
 
 
-def _expected_test_source_path(package_path: str) -> str:
+def _expected_test_source_path(package_path: str, source_root: str) -> str:
     """Restore the one permitted candidate-origin spelling for a package test.
 
     Core package resources retain their project-relative path.  The two
     Methodology projections are copied from a private export, so the retained
     sidecar records their canonical Methodology origin rather than that
-    candidate-local export path.  This is deliberately derivable from the
-    package path alone: detached reopening has no compilation authority.
+    candidate-local export path. Detached reopening validates one retained
+    source prefix and the immutable package suffix; it does not consult the
+    current authoring registry or read through that documentary prefix.
     """
 
     package = PurePosixPath(
@@ -231,15 +231,15 @@ def _expected_test_source_path(package_path: str) -> str:
             code="retained-package-test-origin-invalid",
         )
     )
-    canonical_root = PurePosixPath(CANONICAL_SOURCE_RELATIVE)
+    canonical_root = PurePosixPath(source_root)
     for projection in (PurePosixPath("methodology/active"), PurePosixPath("methodology/support")):
         if package.is_relative_to(projection):
             return (canonical_root / package.relative_to(projection)).as_posix()
     return package.as_posix()
 
 
-def _require_test_binding_origin(source_path: str, package_path: str) -> None:
-    if source_path != _expected_test_source_path(package_path):
+def _require_test_binding_origin(source_path: str, package_path: str, source_root: str) -> None:
+    if source_path != _expected_test_source_path(package_path, source_root):
         raise _error(
             "retained-package-test-origin-mismatch",
             "sidecar test source path does not match its package projection",
@@ -274,7 +274,7 @@ def _test_bindings_from_live_view(
         checksum = _require_sha256(digest, field="sealed package source digest", code="retained-package-binding-invalid")
         phase_rows.append(_PhaseRow(source, checksum))
         if _is_test_module(source):
-            _require_test_binding_origin(source, package)
+            _require_test_binding_origin(source, package, compilation.candidate.manifest.canonical_source_snapshot_ref)
             candidates.append((source, package, checksum))
     try:
         phase_map = derive_test_phase_map_from_rows(tuple(phase_rows))
@@ -443,6 +443,7 @@ def _parse_test_bindings(value: object, inventory: tuple[PackageMemberEvidence, 
         raise _error("retained-package-sidecar-invalid", "sidecar test bindings are missing")
     members = {member.path: member for member in inventory}
     bindings: list[_TestBinding] = []
+    methodology_source_root: str | None = None
     for raw in value:
         if not isinstance(raw, Mapping) or set(raw) != _TEST_BINDING_KEYS:
             raise _error("retained-package-sidecar-invalid", "sidecar test binding has an invalid closed schema")
@@ -455,7 +456,23 @@ def _parse_test_bindings(value: object, inventory: tuple[PackageMemberEvidence, 
         member = members.get(package)
         if member is None or member.role == "skill" or not _is_test_module(member.path) or member.sha256 != digest:
             raise _error("retained-package-test-projection-mismatch", "sidecar test binding differs from its package member")
-        _require_test_binding_origin(source, package)
+        package_relative = PurePosixPath(package)
+        source_relative = PurePosixPath(source)
+        for projection in (PurePosixPath("methodology/active"), PurePosixPath("methodology/support")):
+            if package_relative.is_relative_to(projection):
+                suffix = package_relative.relative_to(projection)
+                if (len(source_relative.parts) <= len(suffix.parts)
+                        or source_relative.parts[-len(suffix.parts):] != suffix.parts):
+                    raise _error("retained-package-test-origin-mismatch", "retained Methodology source suffix differs from its package projection")
+                prefix = _safe_relative(
+                    PurePosixPath(*source_relative.parts[:-len(suffix.parts)]).as_posix(),
+                    field="retained Methodology source root", code="retained-package-test-origin-mismatch",
+                )
+                if methodology_source_root is not None and prefix != methodology_source_root:
+                    raise _error("retained-package-test-origin-mismatch", "retained Methodology sources have inconsistent origins")
+                methodology_source_root = prefix
+                break
+        _require_test_binding_origin(source, package, methodology_source_root or "unused")
         bindings.append(_TestBinding(source, package, digest, phase))
     ordered = tuple(sorted(bindings, key=lambda binding: binding.source_path))
     if tuple(bindings) != ordered or len({binding.source_path for binding in ordered}) != len(ordered):

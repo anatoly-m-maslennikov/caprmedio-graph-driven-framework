@@ -104,9 +104,18 @@ class PortablePackageFixture:
     def _seed_project(self, extra_engine_members: dict[str, bytes]) -> None:
         self.write(".caprmedio_caprmedio/project_structure.toml", (
             "[[scope_units]]\n"
+            'scope_unit_name = "FRAMEWORK_METHODOLOGY"\n'
+            'authority_path = ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY"\n'
+            'delivery_path = "101_FRAMEWORK_METHODOLOGY"\n\n'
+            "[[scope_units]]\n"
             'scope_unit_name = "METHODOLOGY_SOURCES"\n'
+            'parent = "FRAMEWORK_METHODOLOGY"\n'
             f'authority_path = "{CANONICAL_SOURCE_RELATIVE}"\n'
-            'delivery_path = ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY"\n\n'
+            'delivery_path = "101_FRAMEWORK_METHODOLOGY/sources"\n\n'
+            "[[scope_units]]\n"
+            'scope_unit_name = "APPLICABLE_METHODOLOGY"\n'
+            'parent = "FRAMEWORK_METHODOLOGY"\n'
+            'delivery_path = "101_FRAMEWORK_METHODOLOGY/applicable_methodology"\n\n'
             "[[scope_units]]\n"
             'scope_unit_name = "FRAMEWORK_ENGINE"\n'
             'authority_path = ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE"\n'

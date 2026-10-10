@@ -42,18 +42,18 @@ from release_contract import (
     encode_candidate_manifest,
 )
 from release_inventory import ReleaseInventoryError, persistent_regular_files, refuse_secret_path
+from methodology_layout import resolve_methodology_layout
 
 
 CANONICAL_SOURCE_RELATIVE = (
-    ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/"
-    "000_APPLICABLE_MTHD_sources"
+    ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES"
 )
 PROJECT_STRUCTURE_RELATIVE = ".caprmedio_caprmedio/project_structure.toml"
 FRAMEWORK_SETTINGS_RELATIVE = ".caprmedio_caprmedio/000_CAPRMEDIO_framework/caprmedio_framework_settings.toml"
 CURRENT_SELECTOR_RELATIVE = ".caprmedio_runtime/framework/current.toml"
 NATIVE_CURRENT_SELECTOR_RELATIVE = ".caprmedio_runtime/installation/current.toml"
-DERIVED_SOURCE_COPY_RELATIVE = "101_LAYER_1_FRAMEWORK_METHODOLOGY/sources"
-MATERIALIZED_RELATIVE = ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/_release_materialized"
+DERIVED_SOURCE_COPY_RELATIVE = "101_FRAMEWORK_METHODOLOGY/sources"
+MATERIALIZED_RELATIVE = ".caprmedio_tmp/release_candidates"
 ENGINE_ROOT_RELATIVE = "102_FRAMEWORK_ENGINE"
 SKILL_ROOT_RELATIVE = "102_FRAMEWORK_ENGINE/202_AGENTIC/205_SKILLS/ca"
 COMPILER_ENTRYPOINT_RELATIVE = "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py"
@@ -300,7 +300,7 @@ def _assert_hook_free_skill_payload(root: Path, skill_root: Path) -> list[Path]:
 
 
 def _observed_inventory(root: Path) -> tuple[list[SourceInventoryRow], CandidateImageReference]:
-    source_root = _directory(root, CANONICAL_SOURCE_RELATIVE)
+    source_root = _directory(root, resolve_methodology_layout(root).source_root)
     engine_root = _directory(root, ENGINE_ROOT_RELATIVE)
     skill_root = _directory(root, SKILL_ROOT_RELATIVE)
     dockerfile = _file(root, IMAGE_DOCKERFILE)
@@ -342,9 +342,13 @@ def build_validated_candidate(
 
     root = _root(project_root)
     intent = request if isinstance(request, CandidateBuildRequest) else CandidateBuildRequest.model_validate(request)
-    source_root = _directory(root, CANONICAL_SOURCE_RELATIVE)
-    structure = _file(root, PROJECT_STRUCTURE_RELATIVE)
-    settings = _file(root, FRAMEWORK_SETTINGS_RELATIVE)
+    try:
+        layout = resolve_methodology_layout(root)
+    except (OSError, ValueError) as error:
+        raise _error("release-currentness-stale", "current Project Structure cannot resolve the registered Methodology places") from error
+    source_root = _directory(root, layout.source_root)
+    structure = _file(root, f"{layout.control_root}/project_structure.toml")
+    settings = _file(root, f"{layout.installed_root}/caprmedio_framework_settings.toml")
     if native_installed_n is not None:
         native_installed_n = reopen_native_installed_n(root, native_installed_n)
         executing_release = native_installed_n.selected.framework_version
@@ -367,7 +371,7 @@ def build_validated_candidate(
             "candidate_release": intent.candidate_release,
             "framework_version": framework_version,
             "version_toml_sha256": version_toml_sha256,
-            "canonical_source_snapshot_ref": CANONICAL_SOURCE_RELATIVE,
+            "canonical_source_snapshot_ref": layout.source_root,
             "canonical_source_snapshot_digest": snapshot_digest,
             "project_structure_digest": _sha256_bytes(structure.read_bytes()),
             "framework_settings_digest": _sha256_bytes(settings.read_bytes()),
@@ -492,14 +496,14 @@ def _assert_export_inventory_bound(candidate: ValidatedCandidate, export: Any, e
     inventory = export.inventory
     frozen = inventory.get("frozen_manifest")
     if not isinstance(frozen, Mapping) or frozen.get("source_root") != str(
-        _root(candidate.project_root) / CANONICAL_SOURCE_RELATIVE
+        _root(candidate.project_root) / candidate.manifest.canonical_source_snapshot_ref
     ):
         raise _error("release-methodology-export-source-mismatch", "sealed export was not frozen from the candidate canonical source root")
     root = _root(candidate.project_root)
     if frozen.get("schema") != exporter.FROZEN_SCHEMA:
         raise _error("release-methodology-export-project-binding-required", "new Project handoff requires the Project-bound frozen export schema")
     try:
-        expected_binding = exporter.reopen_project_export_binding(root, root / CANONICAL_SOURCE_RELATIVE)
+        expected_binding = exporter.reopen_project_export_binding(root, root / candidate.manifest.canonical_source_snapshot_ref)
     except Exception as error:
         raise _error("release-methodology-export-project-binding-invalid", "Project export controls cannot be physically reopened") from error
     binding = frozen.get("project_binding")
@@ -517,7 +521,7 @@ def _assert_export_inventory_bound(candidate: ValidatedCandidate, export: Any, e
     for pin in pins:
         path = pin.get("source_path", pin.get("path"))
         digest = pin.get("sha256")
-        candidate_path = f"{CANONICAL_SOURCE_RELATIVE}/{path}" if isinstance(path, str) else None
+        candidate_path = f"{candidate.manifest.canonical_source_snapshot_ref}/{path}" if isinstance(path, str) else None
         if not isinstance(path, str) or not isinstance(digest, str) or source_rows.get(candidate_path) != digest:
             raise _error("release-methodology-export-source-mismatch", "sealed export pin differs from the candidate source inventory")
 
@@ -569,17 +573,18 @@ def validate_source_copy(candidate: ValidatedCandidate, source_copy_root: Path |
 
     current = _revalidate(candidate)
     root = _root(current.project_root)
-    expected = root / DERIVED_SOURCE_COPY_RELATIVE
+    source_copy_relative = resolve_methodology_layout(root).source_copy_root
+    expected = root / source_copy_relative
     supplied = expected if source_copy_root is None else Path(source_copy_root)
     if not supplied.is_absolute():
         supplied = root / supplied
     if supplied.resolve(strict=False) != expected.resolve(strict=False):
         raise _error("release-copy-root-invalid", "derived source copy root is not the D561 delivery root")
-    copy_root = _directory(root, DERIVED_SOURCE_COPY_RELATIVE, code="release-copy-missing")
+    copy_root = _directory(root, source_copy_relative, code="release-copy-missing")
     actual = tree_sha256(root, copy_root)
     if actual != current.manifest.expected_derived_source_copy_sha256:
         raise _error("release-copy-digest-mismatch", "complete derived source copy does not match the sealed expectation")
-    return SealedSourceCopy(current, DERIVED_SOURCE_COPY_RELATIVE, actual)
+    return SealedSourceCopy(current, source_copy_relative, actual)
 
 
 class CompilerEntrypoint(StrictModel):

@@ -16,7 +16,7 @@ from typing import Literal
 
 from release_compilation import PRIVATE_COMPILED_MANIFEST_NAME
 from release_contract import ReleaseContractError, ValidatedCandidate
-from release_handoff import CANONICAL_SOURCE_RELATIVE, _revalidate
+from release_handoff import _revalidate
 from release_inventory import ReleaseInventoryError, persistent_regular_files, refuse_secret_path
 from release_portable_contract import SealedPortableCandidateCompilation, revalidate_sealed_portable_compilation
 from release_test_phases import ReleaseTestPhaseMap, derive_test_phase_map_from_rows
@@ -167,7 +167,7 @@ def _portable_origin(compilation: SealedPortableCandidateCompilation, source_pat
         return source.as_posix()
     export_root = _relative(compilation.private_compilation.methodology_export.source_export_root, field="portable export root")
     try:
-        return (Path(CANONICAL_SOURCE_RELATIVE) / source.relative_to(export_root)).as_posix()
+        return (Path(compilation.candidate.manifest.canonical_source_snapshot_ref) / source.relative_to(export_root)).as_posix()
     except ValueError as error:
         raise _error("release-suite-portable-origin-invalid", "portable Methodology source is outside the sealed export") from error
 

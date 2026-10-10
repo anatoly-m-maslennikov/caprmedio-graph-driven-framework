@@ -19,12 +19,8 @@ from typing import Iterable
 from release_contract import IMAGE_DOCKERFILE, REQUIRED_ENGINE_SOURCE_PREFIXES, VERSION_TOML_RELATIVE
 from release_inventory import _is_ephemeral_file, ReleaseInventoryError, persistent_regular_files, refuse_secret_path
 from release_handoff import (
-    CANONICAL_SOURCE_RELATIVE,
     COMPILER_ENTRYPOINT_RELATIVE,
     CURRENT_SELECTOR_RELATIVE,
-    DERIVED_SOURCE_COPY_RELATIVE,
-    FRAMEWORK_SETTINGS_RELATIVE,
-    MATERIALIZED_RELATIVE,
     PackageRow,
     SealedCandidateCompilation,
     read_framework_version_toml,
@@ -32,6 +28,7 @@ from release_handoff import (
     selected_n_selector_relative,
     tree_sha256,
 )
+from methodology_layout import resolve_methodology_layout
 
 
 RUNTIME_ROOT = Path(".caprmedio_runtime/framework")
@@ -171,7 +168,7 @@ def _require_runtime_parents(root: Path, *, create: bool) -> Path:
     return cursor
 
 
-def _destination_for(row: PackageRow, candidate: str) -> None:
+def _destination_for(row: PackageRow, source_root: str, materialization_root: str) -> None:
     source = Path(row.source_path)
     destination = Path(row.destination_path)
     if row.resource == "FRAMEWORK_ENGINE":
@@ -189,8 +186,8 @@ def _destination_for(row: PackageRow, candidate: str) -> None:
         if destination != Path("SKILLS/ca") / suffix:
             raise ReleasePackagingError("package-destination-invalid", "Skill destination does not preserve source suffix")
     elif row.resource == "METHODOLOGY":
-        canonical = Path(CANONICAL_SOURCE_RELATIVE)
-        materialized = Path(MATERIALIZED_RELATIVE) / candidate
+        canonical = Path(source_root)
+        materialized = Path(materialization_root)
         if source.is_relative_to(canonical):
             if destination != Path("METHODOLOGY/sources") / source.relative_to(canonical):
                 raise ReleasePackagingError("package-destination-invalid", "Methodology source destination is invalid")
@@ -241,10 +238,9 @@ def _complete_rows(root: Path, compilation: SealedCandidateCompilation) -> tuple
         or framework_version != authority.candidate_release
     ):
         raise ReleasePackagingError("release-currentness-stale", "root version.toml changed after candidate sealing")
-    if compilation.source_copy_root != DERIVED_SOURCE_COPY_RELATIVE:
+    layout = resolve_methodology_layout(root)
+    if compilation.source_copy_root != layout.source_copy_root:
         raise ReleasePackagingError("release-copy-root-invalid", "handoff source copy root is not the D561 delivery root")
-    if compilation.child_materialization_root != f"{MATERIALIZED_RELATIVE}/{candidate}":
-        raise ReleasePackagingError("release-materialization-root-invalid", "handoff output is outside its candidate child root")
     if compilation.expected_derived_source_copy_sha256 != compilation.actual_derived_source_copy_sha256:
         raise ReleasePackagingError("release-copy-digest-mismatch", "handoff does not bind an actual accepted source copy")
     if compilation.expected_compiled_output_sha256 != compilation.actual_compiled_output_sha256:
@@ -257,11 +253,11 @@ def _complete_rows(root: Path, compilation: SealedCandidateCompilation) -> tuple
         selected, selector_before = _current_release(root)
         if selected != authority.executing_release:
             raise ReleasePackagingError("release-currentness-stale", "current selector differs from the sealed executing release")
-    canonical_digest = _tree_digest(root, CANONICAL_SOURCE_RELATIVE)
+    canonical_digest = _tree_digest(root, layout.source_root)
     if canonical_digest != authority.canonical_source_snapshot_digest or canonical_digest != authority.nested_source_recursive_sha256_before:
         raise ReleasePackagingError("release-currentness-stale", "canonical Methodology frontier changed after sealing")
-    structure = _regular_file(root, ".caprmedio_caprmedio/project_structure.toml")
-    settings = _regular_file(root, FRAMEWORK_SETTINGS_RELATIVE)
+    structure = _regular_file(root, f"{layout.control_root}/project_structure.toml")
+    settings = _regular_file(root, f"{layout.installed_root}/caprmedio_framework_settings.toml")
     if _sha256(structure.read_bytes()) != authority.project_structure_digest or _sha256(settings.read_bytes()) != authority.framework_settings_digest:
         raise ReleasePackagingError("release-currentness-stale", "Project Structure or Framework Settings changed after sealing")
     if _tree_digest(root, compilation.source_copy_root) != compilation.actual_derived_source_copy_sha256:
@@ -284,7 +280,7 @@ def _complete_rows(root: Path, compilation: SealedCandidateCompilation) -> tuple
     if len(destinations) != len(set(destinations)):
         raise ReleasePackagingError("package-destination-duplicate", "typed package rows contain duplicate destinations")
     for row in rows:
-        _destination_for(row, candidate)
+        _destination_for(row, layout.source_root, compilation.child_materialization_root)
         _read_row(root, row)
 
     source_rows = {row.source_path for row in rows if row.resource == "METHODOLOGY" and row.destination_path.startswith("METHODOLOGY/sources/")}
@@ -297,7 +293,7 @@ def _complete_rows(root: Path, compilation: SealedCandidateCompilation) -> tuple
     engine_actual = {path for path in engine_actual if not Path(path).is_relative_to(SKILL_ROOT)}
     if engine_rows != engine_actual or any(not any(path.startswith(prefix) for path in engine_rows) for prefix in REQUIRED_ENGINE_SOURCE_PREFIXES):
         raise ReleasePackagingError("package-incomplete", "typed handoff does not cover the complete Framework Engine")
-    if source_rows != _regular_files(root, CANONICAL_SOURCE_RELATIVE):
+    if source_rows != _regular_files(root, layout.source_root):
         raise ReleasePackagingError("package-incomplete", "typed handoff does not cover the complete Methodology source delivery")
     if compiled_rows != _regular_files(root, compilation.child_materialization_root):
         raise ReleasePackagingError("package-incomplete", "typed handoff does not cover the complete compiler materialization")

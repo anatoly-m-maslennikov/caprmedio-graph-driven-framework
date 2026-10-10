@@ -23,7 +23,7 @@ from typing import TYPE_CHECKING, Literal, Protocol
 from release_contract import (IMAGE_DOCKERFILE, PROJECT_SKILL_TARGET, CandidateSnapshotManifest,
                               ReleaseContractError, SealedAuthority, ValidatedCandidate, canonical_json)
 from release_handoff import (COMPILER_ENTRYPOINT_RELATIVE, CURRENT_SELECTOR_RELATIVE,
-                             DERIVED_SOURCE_COPY_RELATIVE, FRAMEWORK_SETTINGS_RELATIVE, MATERIALIZED_RELATIVE,
+                             FRAMEWORK_SETTINGS_RELATIVE,
                              SealedCandidateCompilation, _file, NATIVE_CURRENT_SELECTOR_RELATIVE,
                              selected_n_identity, reopen_native_installed_n)
 from release_packaging import RUNTIME_ROOT, _complete_rows, _render_manifest, _verify_release
@@ -437,10 +437,10 @@ engine = Path('/workspace/102_FRAMEWORK_ENGINE')
 assert {p.relative_to(Path('/workspace')).as_posix() for p in engine.rglob('*') if p.is_file() and p.name != '.DS_Store'} == {row['path'] for row in spec['engine_rows']}
 project = Path('/tmp/release-canary-project')
 project.mkdir()
-source = project / '.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources'
+source = project / '.caprmedio_caprmedio/methodology_sources'
 shutil.copytree(base / 'METHODOLOGY/sources', source)
 shutil.copytree(base / 'METHODOLOGY/compiled', project / '.caprmedio_caprmedio/_projection/APPLICABLE_METHODOLOGY')
-(project / '.caprmedio_caprmedio/project_structure.toml').write_text('[[scope_units]]\nscope_unit_name = "METHODOLOGY_SOURCES"\nauthority_path = ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources"\n')
+(project / '.caprmedio_caprmedio/project_structure.toml').write_text('[[scope_units]]\nscope_unit_name = "METHODOLOGY_SOURCES"\nauthority_path = ".caprmedio_caprmedio/methodology_sources"\n')
 async def probe():
     params = StdioServerParameters(command=sys.executable, args=['/workspace/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/server.py', '--project-root', str(project)])
     async with Client(params, cache=None) as client:
@@ -483,9 +483,9 @@ for row in rows:
 assert any(row['role'] == 'source-admission' for row in rows)
 project = Path('/tmp/release-canary-project')
 project.mkdir()
-source = project / '.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources'
+source = project / '.caprmedio_caprmedio/methodology_sources'
 shutil.copytree(base / 'methodology/active', source)
-(project / '.caprmedio_caprmedio/project_structure.toml').write_text('[[scope_units]]\nscope_unit_name = "METHODOLOGY_SOURCES"\nauthority_path = ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources"\n')
+(project / '.caprmedio_caprmedio/project_structure.toml').write_text('[[scope_units]]\nscope_unit_name = "METHODOLOGY_SOURCES"\nauthority_path = ".caprmedio_caprmedio/methodology_sources"\n')
 async def probe():
     params = StdioServerParameters(command=sys.executable, args=['/workspace/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/server.py', '--project-root', str(project)])
     async with Client(params, cache=None) as client:
@@ -508,6 +508,7 @@ def _known_canary(payload: bytes) -> bool:
     return type(payload) is bytes and _digest(payload) in {
         _LEGACY_CANARY_SHA256,
         _METADATA_CANARY_SHA256,
+        _digest(CANARY.encode()),
         _digest(PORTABLE_CANARY.encode()),
     }
 
@@ -1136,6 +1137,9 @@ def _artifact_inputs(candidate, compilation):
         sealed = SealedCandidateCompilation.model_validate(compilation.model_dump(mode="json"))
     except (ValueError, AttributeError) as error:
         raise ReleaseContractError("release-image-handoff-untrusted", "artifact inputs fail canonical typed validation") from error
+    root = Path(candidate.project_root).resolve()
+    if not root.is_dir():
+        raise ReleaseContractError("release-image-project-missing", "artifact Project root is missing")
     if (authority != sealed.authority or authority.expected_candidate_snapshot_manifest_sha256 != manifest.sha256
         or compilation.native_installed_n != candidate.native_installed_n
         or any(getattr(authority, field) != getattr(manifest, field) for field in (
@@ -1148,13 +1152,8 @@ def _artifact_inputs(candidate, compilation):
         or sealed.actual_compiled_output_sha256 != manifest.expected_compiled_output_sha256
         or sealed.compiler_frontier_digest != manifest.source_frontier_digest
         or sealed.compiler_entrypoint.path != COMPILER_ENTRYPOINT_RELATIVE
-        or sealed.source_copy_root != DERIVED_SOURCE_COPY_RELATIVE
-        or sealed.child_materialization_root != f"{MATERIALIZED_RELATIVE}/{manifest.sha256}"
         or list(sealed.package_rows) != sorted(sealed.package_rows, key=lambda row: (row.destination_path, row.source_path, row.sha256))):
         raise ReleaseContractError("release-image-handoff-untrusted", "artifact inputs identify mismatching sealed candidate facts")
-    root = Path(candidate.project_root).resolve()
-    if not root.is_dir():
-        raise ReleaseContractError("release-image-project-missing", "artifact Project root is missing")
     return root
 
 

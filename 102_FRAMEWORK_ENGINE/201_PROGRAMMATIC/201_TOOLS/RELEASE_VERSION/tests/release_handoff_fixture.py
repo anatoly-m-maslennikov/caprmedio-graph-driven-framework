@@ -14,8 +14,8 @@ from pathlib import Path
 
 
 DOCKERFILE = "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/Dockerfile"
-CANONICAL_SOURCE = ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources"
-MATERIALIZED = ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/_release_materialized"
+CANONICAL_SOURCE = ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES"
+MATERIALIZED = ".caprmedio_tmp/release_candidates"
 COMPILER = "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py"
 
 
@@ -101,7 +101,19 @@ class ReleaseFixture:
                 "source_mode": path.stat().st_mode & 0o777,
                 "destination_path": destination,
             })
-        self.structure = self.write(".caprmedio_caprmedio/project_structure.toml", b"[paths]\ncontrol_root = '.caprmedio_caprmedio'\n")
+        self.write(".caprmedio_caprmedio/caprmedio_project_settings.toml", b"[paths]\ncontrol_root = '.caprmedio_caprmedio'\n")
+        self.structure = self.write(".caprmedio_caprmedio/project_structure.toml", (
+            '[[scope_units]]\nscope_unit_name = "FRAMEWORK_METHODOLOGY"\n'
+            'authority_path = ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY"\n'
+            'delivery_path = "101_FRAMEWORK_METHODOLOGY"\n\n'
+            '[[scope_units]]\nscope_unit_name = "METHODOLOGY_SOURCES"\n'
+            'parent = "FRAMEWORK_METHODOLOGY"\n'
+            f'authority_path = "{CANONICAL_SOURCE}"\n'
+            'delivery_path = "101_FRAMEWORK_METHODOLOGY/sources"\n\n'
+            '[[scope_units]]\nscope_unit_name = "APPLICABLE_METHODOLOGY"\n'
+            'parent = "FRAMEWORK_METHODOLOGY"\n'
+            'delivery_path = "101_FRAMEWORK_METHODOLOGY/applicable_methodology"\n'
+        ).encode())
         settings_relative = ".caprmedio_caprmedio/000_CAPRMEDIO_framework/caprmedio_framework_settings.toml"
         self.settings = self.write(settings_relative, b"release_policy = 'sealed'\n")
         compiler = self.write(COMPILER, b"# declared compiler fixture, never invoked\n", 0o755)
@@ -171,7 +183,7 @@ class ReleaseFixture:
         }
 
     def deliver_copy(self) -> Path:
-        destination = self.root / "101_LAYER_1_FRAMEWORK_METHODOLOGY/sources"
+        destination = self.root / "101_FRAMEWORK_METHODOLOGY/sources"
         destination.parent.mkdir(parents=True, exist_ok=True)
         shutil.copytree(self.root / CANONICAL_SOURCE, destination)
         return destination

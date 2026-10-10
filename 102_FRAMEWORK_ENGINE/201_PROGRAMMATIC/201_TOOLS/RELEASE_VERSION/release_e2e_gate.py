@@ -29,7 +29,8 @@ from typing import Any, Literal
 
 from release_contract import ReleaseContractError, ValidatedCandidate, canonical_json
 from release_e2e_context import CANDIDATE_IMAGE_ENVIRONMENT_VARIABLE, CONTEXT_ENVIRONMENT_VARIABLE
-from release_handoff import CANONICAL_SOURCE_RELATIVE, FRAMEWORK_SETTINGS_RELATIVE, PackageRow, SealedCandidateCompilation, tree_sha256
+from release_handoff import FRAMEWORK_SETTINGS_RELATIVE, PackageRow, SealedCandidateCompilation, tree_sha256
+from methodology_layout import resolve_methodology_layout
 from release_image import (ImageBuildEvidence, ImageVerificationEvidence,
                            PortableImageBuildEvidence, PortableImageVerificationEvidence,
                            read_image_execution_artifacts, verify_bound_image_evidence)
@@ -63,9 +64,7 @@ _DOCKER_CANDIDATES = (
     "/usr/bin/docker",
     "/Applications/Docker.app/Contents/Resources/bin/docker",
 )
-DEFAULT_FRAMEWORK_SETTINGS_RELATIVE = (
-    f"{CANONICAL_SOURCE_RELATIVE}/001_CORE_META_MODEL/caprmedio_framework_default_settings.toml"
-)
+DEFAULT_FRAMEWORK_SETTINGS_SUFFIX = "001_CORE_META_MODEL/caprmedio_framework_default_settings.toml"
 _LIMIT_KEYS = (
     "inspect_timeout_seconds",
     "harness_timeout_seconds",
@@ -763,7 +762,9 @@ def _write_new(path: Path, payload: bytes) -> None:
         os.fsync(stream.fileno())
 
 
-def _freeze_release_e2e_settings(default_raw: bytes, instance_raw: bytes) -> FrozenReleaseE2ELimits:
+def _freeze_release_e2e_settings(default_raw: bytes, instance_raw: bytes, *,
+                                 default_settings_relative: str,
+                                 instance_settings_relative: str) -> FrozenReleaseE2ELimits:
     """Resolve the closed E2E limit set from physically supplied TOML bytes."""
 
     try:
@@ -794,11 +795,11 @@ def _freeze_release_e2e_settings(default_raw: bytes, instance_raw: bytes) -> Fro
     snapshot = canonical_json({
         "schema_version": 1,
         "default_settings": {
-            "path": DEFAULT_FRAMEWORK_SETTINGS_RELATIVE,
+            "path": default_settings_relative,
             "sha256": _digest(default_raw),
         },
         "instance_settings": {
-            "path": FRAMEWORK_SETTINGS_RELATIVE,
+            "path": instance_settings_relative,
             "sha256": _digest(instance_raw),
         },
         "limits": asdict(limits),
@@ -814,12 +815,20 @@ def _release_e2e_settings(root: Path, candidate: ValidatedCandidate) -> FrozenRe
     than treating a caller-provided limit or a live TOML read as authoritative.
     """
 
-    default_path = _regular(root, DEFAULT_FRAMEWORK_SETTINGS_RELATIVE, label="default E2E settings")
-    instance_path = _regular(root, FRAMEWORK_SETTINGS_RELATIVE, label="Framework Instance settings")
+    layout = resolve_methodology_layout(root)
+    default_relative = f"{candidate.manifest.canonical_source_snapshot_ref}/{DEFAULT_FRAMEWORK_SETTINGS_SUFFIX}"
+    instance_relative = f"{layout.installed_root}/caprmedio_framework_settings.toml"
+    if (candidate.manifest.canonical_source_snapshot_ref != layout.source_root
+            or candidate.manifest.project_structure_digest != layout.structure_sha256):
+        raise ReleaseContractError("release-currentness-stale", "Methodology registry no longer matches the candidate seal")
+    default_path = _regular(root, default_relative, label="default E2E settings")
+    instance_path = _regular(root, instance_relative, label="Framework Instance settings")
     default_raw, instance_raw = default_path.read_bytes(), instance_path.read_bytes()
     if _digest(instance_raw) != candidate.manifest.framework_settings_digest:
         raise ReleaseContractError("release-currentness-stale", "Framework Instance settings no longer match the candidate seal")
-    return _freeze_release_e2e_settings(default_raw, instance_raw)
+    return _freeze_release_e2e_settings(default_raw, instance_raw,
+                                      default_settings_relative=default_relative,
+                                      instance_settings_relative=instance_relative)
 
 
 def _reopen_release_e2e_settings(root: Path, candidate: ValidatedCandidate,
@@ -863,7 +872,20 @@ def _reopen_retained_release_e2e_settings(root: Path, evidence: CandidateE2EGate
         f"{evidence.evidence_root}/{_RETAINED_INSTANCE_SETTINGS_FILENAME}",
         label="retained Framework Instance E2E settings",
     ).read_bytes()
-    frozen = _freeze_release_e2e_settings(default_raw, instance_raw)
+    try:
+        document = json.loads(snapshot)
+        default_relative = document["default_settings"]["path"]
+        instance_relative = document["instance_settings"]["path"]
+        for relative in (default_relative, instance_relative):
+            if (not isinstance(relative, str) or not relative or "\\" in relative
+                    or PurePosixPath(relative).is_absolute()
+                    or any(part in {".", "..", ""} for part in relative.split("/"))):
+                raise ValueError("unsafe settings reference")
+    except (ValueError, TypeError, KeyError) as error:
+        raise ReleaseContractError("release-e2e-settings-untrusted", "retained E2E settings references are invalid") from error
+    frozen = _freeze_release_e2e_settings(default_raw, instance_raw,
+                                      default_settings_relative=default_relative,
+                                      instance_settings_relative=instance_relative)
     if _digest(snapshot) != evidence.settings_snapshot_sha256 or snapshot != frozen.snapshot:
         raise ReleaseContractError("release-e2e-settings-untrusted", "retained E2E settings packet is incomplete or changed")
     return frozen.limits

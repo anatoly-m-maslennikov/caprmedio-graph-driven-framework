@@ -75,7 +75,9 @@ max_stdout_bytes = 1024
 max_stderr_bytes = 1024
 max_junit_bytes = 1024
 """
-        frozen = gate._freeze_release_e2e_settings(default_settings, b"[release_e2e]\n")
+        frozen = gate._freeze_release_e2e_settings(default_settings, b"[release_e2e]\n",
+            default_settings_relative=f"{candidate.manifest.canonical_source_snapshot_ref}/{gate.DEFAULT_FRAMEWORK_SETTINGS_SUFFIX}",
+            instance_settings_relative=gate.FRAMEWORK_SETTINGS_RELATIVE)
         _write(attempt / "release-e2e-limits.json", frozen.snapshot)
         _write(attempt / "release-e2e-grammar.json", grammar_raw)
         _write(attempt / "release-e2e-default-settings.toml", default_settings)

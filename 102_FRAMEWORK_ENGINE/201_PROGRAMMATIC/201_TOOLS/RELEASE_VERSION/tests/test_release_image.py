@@ -758,7 +758,10 @@ class ReleaseImageTests(unittest.TestCase):
         context = self.root / build.context_root
         metadata_inventory = "if p.is_file() and p.name != '.DS_Store'"
         self.assertEqual(2, release_image.CANARY.count(metadata_inventory))
-        legacy = release_image.CANARY.replace(metadata_inventory, "if p.is_file()")
+        legacy = release_image.CANARY.replace(metadata_inventory, "if p.is_file()").replace(
+            ".caprmedio_caprmedio/methodology_sources",
+            ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources",
+        )
         self.assertEqual(release_image._LEGACY_CANARY_SHA256, release_image._digest(legacy.encode()))
         (context / "canary.py").write_text(legacy)
 

@@ -135,7 +135,7 @@ class RetainedNativePackageTests(unittest.TestCase):
         self.assertEqual(package_extra.exception.code, "package-extra-member")
 
         _missing_root, missing_package, missing_sidecar = self._detached_copy(retained)
-        (missing_package / "defaults/runtime.toml").unlink()
+        (missing_package / "defaults/runtime-config.toml").unlink()
         with self.assertRaises(RetainedNativePackageError) as package_missing:
             read_retained_native_package_evidence(missing_package, missing_sidecar)
         self.assertEqual(package_missing.exception.code, "package-member-missing")

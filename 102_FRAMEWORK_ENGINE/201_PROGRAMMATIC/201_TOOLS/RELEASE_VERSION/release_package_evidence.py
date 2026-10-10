@@ -15,7 +15,7 @@ from pathlib import Path
 from typing import Literal
 
 from release_contract import ReleaseContractError, ValidatedCandidate
-from release_handoff import CANONICAL_SOURCE_RELATIVE, SealedCandidateCompilation, _revalidate
+from release_handoff import SealedCandidateCompilation, _revalidate
 from release_packaging import MANIFEST_NAME, _complete_rows, _render_manifest, _verify_release
 from release_portable_contract import (
     SealedPortableCandidateCompilation,
@@ -194,7 +194,7 @@ def _portable_phase_rows(compilation: SealedPortableCandidateCompilation) -> tup
     """
 
     export_root = Path(compilation.private_compilation.methodology_export.source_export_root)
-    canonical_root = Path(CANONICAL_SOURCE_RELATIVE)
+    canonical_root = Path(compilation.candidate.manifest.canonical_source_snapshot_ref)
     normalized: list[_PhaseRow] = []
     for raw in compilation.portable_package_rows:
         resource = getattr(raw, "resource", None)
