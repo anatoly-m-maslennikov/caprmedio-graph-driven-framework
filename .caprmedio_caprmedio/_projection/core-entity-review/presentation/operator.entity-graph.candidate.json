@@ -127,11 +127,12 @@
     "dependent_entity": {
       "status": "Confirmed",
       "identity": "Owner selector + dependent field",
-      "operator_example": "Atom(Atom ID = CA-R-123).status",
-      "meaning": "Select the Atom whose Atom ID is CA-R-123, then identify its dependent status Entity. The complete expression is the dependent Entity's ID, not merely a display address.",
+      "operator_example": "atom(atom_id=\"CA-R-123\").status",
+      "notation_style": "Pseudocode",
+      "meaning": "Select the Atom instance by atom_id, then identify its dependent status Entity. The complete expression is the dependent Entity's ID, not merely a display address.",
       "independent_surrogate_id": false,
       "view_boundary": "Resolve the owner within the selected source or Projection view; copies retaining the same source Atom ID remain separate instances.",
-      "notation_boundary": "The Operator's example is preserved exactly. Native identifier parsing and Subject grammar adoption are not performed."
+      "notation_boundary": "The Operator's pseudocode example is preserved exactly; it is not an executable API or an adopted parser grammar. Native identifier parsing and Subject grammar adoption are not performed."
     },
     "unconfirmed_details": "Path normalization, rename continuity and distinguishing multiple unnamed Actors are not specified by these answers.",
     "native_adoption": "Not performed."
