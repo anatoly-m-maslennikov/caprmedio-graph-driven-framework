@@ -422,18 +422,39 @@ def _framework_engine_scope(project_binding: Mapping[str, object] | None) -> tup
     return project, authority_root, delivery
 
 
+def _project_tools_authority(project_binding: Mapping[str, object], project: Path,
+                             control_root: Path, engine_authority: Path, engine_delivery: str) -> Path | None:
+    """Exclude only the separate Project Tools boundary declared by Structure."""
+    structure = Path(str(project_binding["project_structure_path"]))
+    units = tomllib.loads(structure.read_text(encoding="utf-8"))["scope_units"]
+    matches = [unit for unit in units if isinstance(unit, Mapping) and unit.get("scope_unit_name") == "PROJECT_TOOLS"]
+    if not matches:
+        return None
+    if len(matches) != 1:
+        raise MethodologyExportError("project-tools-scope-invalid", "Project Structure must declare at most one PROJECT_TOOLS scope")
+    authority = project / _relative(matches[0].get("authority_path"), "PROJECT_TOOLS.authority_path")
+    delivery = Path(_relative(matches[0].get("delivery_path"), "PROJECT_TOOLS.delivery_path"))
+    if (not authority.is_relative_to(control_root) or engine_authority.is_relative_to(authority)
+            or delivery.is_relative_to(Path(engine_delivery))):
+        raise MethodologyExportError("project-tools-scope-invalid", "Project Tools must have a separate control authority and non-Engine delivery root")
+    return authority
+
+
 def _binding_frontier(project_binding: Mapping[str, object] | None) -> tuple[BindingAtom, ...]:
     """Discover every eligible Active Delivery binding in the exact bound control tree."""
     scope = _framework_engine_scope(project_binding)
     if scope is None:
         return ()
-    project, _engine_authority, delivery_root = scope
+    project, engine_authority, delivery_root = scope
     control_root = Path(str(project_binding["control_root"]))
+    project_tools = _project_tools_authority(project_binding, project, control_root, engine_authority, delivery_root)
     _guard_source_metadata(control_root)
     bindings: list[BindingAtom] = []
     for path in sorted(control_root.rglob("*.md")):
         relative_from_control = path.relative_to(control_root)
         if _BINDING_PRUNED_DIRECTORIES.intersection(relative_from_control.parts):
+            continue
+        if project_tools is not None and path.is_relative_to(project_tools):
             continue
         if path.name == ".DS_Store" or path.is_symlink() or not path.is_file():
             continue

@@ -10,27 +10,14 @@ local_tier: Standard
 global_tier: 2
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-09 12:12:13 +0000"
+version: 3
+updated_at: "2026-10-10 18:08:27 +0400"
 subjects:
   governs: "CAPRMEDIO Framework Instance"
-  depends_on:
-    - "Project"
-    - "Plan"
-    - "AI Agent"
-    - "Operator"
-    - "Framework Instance Settings"
-    - "Evaluation"
-    - "Framework Package"
-    - "Methodology Source"
-    - "Version"
-    - "Workflow Run"
-    - "Journal"
+  depends_on: [Project, Plan, AI Agent, Operator, Framework Instance Settings, Evaluation, Framework Package, Methodology Source, Version, Workflow Run, Journal]
 relations:
-  is_decomposition_of:
-    - CA-P-1848
-  blocks:
-    - CA-P-1860
+  is_decomposition_of: [CA-P-1848]
+  blocks: [CA-P-1860]
 ---
 # Summary
 
@@ -38,19 +25,15 @@ Pass the full test suite before local release
 
 ## Objective
 
-the AI Agent obtains a complete passing full-suite gate for the exact inputs selected for the local release cycle.
+the AI Agent obtains a fresh complete full-suite preflight for the exact Local release closure before its first destructive product wipe.
 
 ## Details
 
-- scope: the installation/release contribution of the CAPRMEDIO Framework Instance delivered by the caprmedio Project.
-- input: the private staged candidate **with** final source Methodology, Engine, package/installer changes, dependency lock, defaults, selected Project configuration, matching staged image **and** complete current test inventory.
-- select the canonical Version **from** the `version.toml` carrier **before** candidate compilation; freeze its sealed input identities **and** candidate package/image bytes **before** testing. run the full current suite, including golden/unit/integration **and** required host/Docker/MCP e2e gates, **through** uv-managed environments.
-- obtain an independent code/RMED/O review of the exact sealed candidate **before** the gate; record its reviewer, compared definitions, candidate identities, findings **and** dispositions. unresolved essential findings block the gate **and** promotion. record **every** expected suite/module, executed cases, failures, skipped/incomplete coverage, exit status **and** source/configuration/catalog/lock/package/image identities. focused tests, mocked evidence, queued work **or** an old green receipt are **not** this gate.
-- failed, unavailable **or** incomplete required tests block local release. handle retry/escalation under the applicable settings; do **not** bypass the gate because a dependency, cleanup **or** host permission is inconvenient.
-- source/configuration changes that affect the validated closure invalidate this gate **and** require a newly compiled candidate; this Task records acceptance **only** **and** does **not** perform live package/runtime/source promotion.
-- effort: own work for **=1** AI Agent **must** fit **<=15** minutes. **if** this Plan needs larger own work, decompose it **before** execution **and** preserve its Objective **and** acceptance.
-- control: use applicable Operator input **and** inherited Framework Instance Settings for permission, confidence **and** retry gates. creation is planned work **only**, **not** permission to execute the local/public cycle immediately.
+1. Seal the active Methodology-source selection, Engine/package candidate, image, configuration/catalog/lock and expected product/install/runtime replacement without altering product or installed contents.
+2. Run the complete current suite, including required host, Docker and MCP end-to-end checks, before the first destructive product wipe. Record expected/executed coverage, identities, commands, exit states and full results; do not repeat it solely for the deterministic generated product/install copy.
+3. A failed, missing, skipped or incomplete check blocks Local release. Focused, mock or old evidence does not substitute, and a repaired product closure requires a new full pass.
+4. Perform contract conformance checks inside the Local command; do not require a separately commanded review, approval or handover.
 
 ### Definition of Done
 
-the Plan is **not** Done **if** the independent candidate review is absent **or** has an unresolved essential finding, any required suite has failed, skipped **or** incomplete coverage, the frozen inputs changed, **or** an exit/status/report cannot prove the complete local gate passed.
+the Plan is **not** Done **if** a required suite fails, skips or lacks coverage, frozen inputs changed, results cannot prove the complete local gate, or runtime effects could precede the pass.

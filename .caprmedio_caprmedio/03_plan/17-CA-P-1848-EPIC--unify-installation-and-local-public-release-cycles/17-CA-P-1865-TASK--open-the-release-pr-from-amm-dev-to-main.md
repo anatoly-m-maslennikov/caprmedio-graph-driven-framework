@@ -10,29 +10,14 @@ local_tier: Standard
 global_tier: 2
 status: Active
 author: Anatoly Maslennikov
-version: 3
-updated_at: "2026-10-09 12:30:00 +0000"
+version: 4
+updated_at: "2026-10-10 18:08:27 +0400"
 subjects:
   governs: "CAPRMEDIO Framework Instance"
-  depends_on:
-    - "Project"
-    - "Plan"
-    - "AI Agent"
-    - "Operator"
-    - "Framework Instance Settings"
-    - "Version"
-    - "Framework Package"
-    - "Evaluation"
-    - "Workflow Run"
-    - "Workflow"
-    - "Action"
-    - "Tool"
-    - "Journal"
+  depends_on: [Project, Plan, AI Agent, Operator, Framework Instance Settings, Version, Framework Package, Evaluation, Workflow Run, Workflow, Action, Tool, Journal]
 relations:
-  is_decomposition_of:
-    - CA-P-1848
-  blocks:
-    - CA-P-1871
+  is_decomposition_of: [CA-P-1848]
+  blocks: [CA-P-1871]
 ---
 # Summary
 
@@ -40,19 +25,15 @@ Open the release PR **from** amm/dev **to** main
 
 ## Objective
 
-the AI Agent creates **or** updates the release PR **from** `amm/dev` to `main` **with** the reviewed full description.
+the AI Agent creates **or** updates the release PR **from** `amm/dev` to `main` **with** the full description as an internal Public release stage.
 
 ## Details
 
-- scope: the installation/release contribution of the CAPRMEDIO Framework Instance delivered by the caprmedio Project.
-- input: the verified pushed commit, passing public full-suite evidence, the reusable public-release Workflow/Step/Action/Tool binding **and** the full PR description prepared for these exact changes.
-- execute the reusable public-release Workflow's bound PR discovery/update Action **through** the discovered native binding: verify personal repository identity, base `main`, head `amm/dev` **and** whether a matching PR already exists; update that PR rather than create a duplicate.
-- use the complete description **with** full lists under “What's new” **and** “What's fixed”, install/layout migration, compatibility/rollback, tests **and** remaining limits. the Version History entry retains **only** its concise bullet summary **and** the actual PR link, finalized by Task 19.
-- confirm the PR URL, head commit, base branch **and** rendered description against the actual diff. record Workflow, Step, Action **and** Tool-call parentage/evidence **in** the shared Journal; attach the created/existing PR to this task/chat **through** the supported artifact interface.
-- opening the PR is the public cycle's requested handoff; do **not** merge it, alter CI/branch protection **or** claim that `main` has shipped **without** separate authority/evidence.
-- effort: own work for **=1** AI Agent **must** fit **<=15** minutes. **if** this Plan needs larger own work, decompose it **before** execution **and** preserve its Objective **and** acceptance.
-- control: use applicable Operator input **and** inherited Framework Instance Settings for permission, confidence **and** retry gates. creation is planned work **only**, **not** permission to execute the local/public cycle immediately.
+1. Verify the personal repository, base `main`, head `amm/dev` and whether a matching PR exists. Reuse/update the matching PR rather than create a duplicate.
+2. Use the one-prompt full description with complete “What's new” and “What's fixed” lists; retain only concise history bullets and the actual URL in Version History.
+3. Confirm the PR URL, head commit, base branch and rendered description against the actual diff, then record exact command evidence. If the URL is new, the command's metadata-only follow-up appends it and pushes; no second full suite is needed solely for that link.
+4. Do not merge, alter CI/branch protection or claim that `main` shipped. This stage is not a separate handover command.
 
 ### Definition of Done
 
-the Plan is **not** Done **if** the PR is missing, targets the wrong branches/commit, has an inadequate **or** stale description, duplicates an existing PR, **or** its URL/attachment is **not** confirmed.
+the Plan is **not** Done **if** the PR is missing or targets wrong branches/commit, has an inadequate or stale description, duplicates a matching PR, or its actual URL is unconfirmed.

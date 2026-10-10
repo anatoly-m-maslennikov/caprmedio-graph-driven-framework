@@ -10,8 +10,8 @@ local_tier: Standard
 global_tier: 2
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-09 12:20:27 +0000"
+version: 2
+updated_at: "2026-10-10 18:58:38 +0400"
 subjects:
   governs: CAPRMEDIO Framework Instance
   depends_on: [Project, Plan, AI Agent, Operator, Framework Package, Methodology Source, Applicable Methodology, Project Structure, Requirement, Method, Evaluation, Delivery, Workflow, Step, Action, Tool, Journal, Version]
@@ -25,17 +25,15 @@ Specify the portable package **and** installation Tools
 
 ## Objective
 
-the AI Agent establishes complete RMED for the reusable package, explicit Project initialization, isolated installation **and** retained-state migration capabilities.
+the AI Agent establishes complete RMED for reusable package, initialization, isolated installation and retained-state migration capabilities.
 
 ## Details
 
-- scope: owning Engine Tool authority **and** relevant shared contracts; exact package/selector/source-catalog/lock/gate interfaces; tests **before** implementation.
-- input: the amended Epic CA-P-1848, its Task 01, current authoritative Atoms **and** verified implementation findings.
-- output: saved authoritative contract changes **and** exact verification evidence; preserve Summary identity, source authority **and** unrelated edits.
-- own work for **=1** AI Agent **must** fit **<=15** minutes; decompose residual work **before** exceeding that boundary.
-- **if** confidence remains **<90%** **after** checking active principles **and** live evidence, ask the Operator **before** resolving the uncertain decision.
+1. Keep reusable compiler/installer, shared package/gate models/codecs, detached readers and generic O200 install/bootstrap/restore RMED and implementation currently in `RELEASE_VERSION` in `TOOLS`, allowing fresh arbitrary/non-Git targets without the project-development checkout.
+2. Define release helper Tool RMED only in `PROJECT_TOOLS`: authoring sibling `205_FEATURE_PROJECT_TOOLS` of `TOOLS` under `PROGRAMMATIC`, delivered at root `PROJECT_TOOLS` outside the reusable Engine.
+3. Exclude and relocate CAPRMEDIO-specific Local/Public release helper code from general Methodology/framework-package delivery. Register ProjectTools D declarations as excluded delivery-boundary content so the exporter frontier neither ships nor reports them as an outside-Engine error.
+4. Validate its Project binding with the two release Operations, not a third Workflow, and preserve exact package/selector/source-catalog/lock/gate interfaces with non-live test inputs plus the Local full preflight before the first destructive product wipe.
 
 ### Definition of Done
 
-the Plan is **not** Done **if** its contract deliverable is incomplete, an essential contradiction **or** missing reference remains, **or** the saved evidence cannot prove its stated result.
-
+the Plan is **not** Done **if** release helper RMED/code is in general `TOOLS` or the reusable package, reusable generic capabilities leave `TOOLS`, ProjectTools D declarations ship in or fault the generic exporter frontier, required relocation/exclusion is absent, or the Project-specific binding adds another Operator Workflow.

@@ -243,6 +243,87 @@ class PublicReleaseBindings(Protocol):
                               pull_request: PullRequest) -> FinalizationResult: ...
 
 
+class SelectedPublicSessionPhases:
+    """Drive one already-admitted public Session without creating a tracker.
+
+    The Project-owned adapter may call :meth:`execute` for the five selected
+    public phases.  The callback must return one of the existing typed native
+    binding results carrying ``ToolCallEvidence``; a truthy flag is never a
+    substitute for an admitted effect receipt.
+    """
+
+    def __init__(self, project_root: Path, session: RunExecutionSession):
+        if not isinstance(session, RunExecutionSession):
+            raise PublicReleaseError("invalid-run-session", "public phases require an admitted RunExecutionSession")
+        try:
+            root = Path(project_root).resolve(strict=True)
+            session_root = Path(session.tracker.root).resolve(strict=True)
+        except OSError as error:
+            raise PublicReleaseError("invalid-run-session", "selected Project root cannot be reopened") from error
+        if root != session_root:
+            raise PublicReleaseError("invalid-run-session", "shared Run session belongs to a different selected Project")
+        _expected_runs(session.request)
+        self._session = session
+        self._phase_index = 0
+        self._active: tuple[str, Mapping[str, Any], Mapping[str, Any]] | None = None
+        self._stopped = False
+
+    def execute(self, phase: str, callback: Callable[[], Any]) -> Any:
+        """Start and close the exact next Step/Action around one native call."""
+        if not callable(callback):
+            raise PublicReleaseError("invalid-phase-callback", "selected public phase needs one callable native binding")
+        step, action = self._start(phase)
+        try:
+            result = callback()
+            call = _call(getattr(result, "call", None), f"{phase} native callback")
+        except PublicReleaseInterrupted as error:
+            call = getattr(error, "call", None)
+            self._close("interrupted_pending", call if isinstance(call, ToolCallEvidence) else None)
+            self._stopped = True
+            raise
+        except PublicReleaseError:
+            self._close("failed", None)
+            self._stopped = True
+            raise
+        else:
+            self._close("completed", call)
+            return result
+
+    def _start(self, phase: str) -> tuple[Mapping[str, Any], Mapping[str, Any]]:
+        if self._stopped or self._active is not None:
+            raise PublicReleaseError("invalid-session-phase", "selected public Session is not available for another phase")
+        if self._phase_index >= len(STEPS) or phase != STEPS[self._phase_index][0]:
+            raise PublicReleaseError("invalid-session-phase", "selected public phases must follow the admitted workflow order")
+        _, step_id, action_id = STEPS[self._phase_index]
+        requested = self._session.request["requested_runs"]
+        step_requested = next(row["requested_run_id"] for row in requested if row["definition"]["atom_id"] == step_id)
+        action_requested = next(row["requested_run_id"] for row in requested if row["definition"]["atom_id"] == action_id)
+        step = self._session.start_run(step_requested)
+        action = self._session.start_run(action_requested)
+        if (step.get("kind"), step.get("definition", {}).get("atom_id")) != ("step", step_id):
+            raise PublicReleaseError("invalid-session-phase", "selected Session returned a different public Step")
+        if (action.get("kind"), action.get("definition", {}).get("atom_id")) != ("action", action_id):
+            raise PublicReleaseError("invalid-session-phase", "selected Session returned a different public Action")
+        self._active = (phase, step, action)
+        return step, action
+
+    def _close(self, outcome: str, call: ToolCallEvidence | None) -> None:
+        if self._active is None:
+            raise PublicReleaseError("invalid-session-phase", "selected public phase has no active Step/Action")
+        _, step, action = self._active
+        effect_refs = list(call.effect_refs) if call is not None else []
+        report_refs = list(call.report_refs) if call is not None else []
+        action_result_ref = call.result_ref if call is not None else _run_evidence_ref(self._session, action, outcome=outcome)
+        step_result_ref = _run_evidence_ref(self._session, step, outcome=outcome)
+        report_ref = report_refs[0] if report_refs else action_result_ref
+        _finish(self._session, action, outcome=outcome, result_ref=action_result_ref,
+                effect_refs=effect_refs, report_ref=report_ref)
+        _finish(self._session, step, outcome=outcome, result_ref=step_result_ref,
+                effect_refs=effect_refs, report_ref=report_ref)
+        self._active = None
+        self._phase_index += 1
+
+
 def _safe_ref(value: object, label: str) -> str:
     if not isinstance(value, str) or not value or "\x00" in value:
         raise PublicReleaseError("invalid-input", f"{label} must be a non-empty repository-relative reference")

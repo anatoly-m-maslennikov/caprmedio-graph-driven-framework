@@ -10,35 +10,14 @@ local_tier: Standard
 global_tier: 2
 status: Active
 author: Anatoly Maslennikov
-version: 3
-updated_at: "2026-10-09 12:17:00 +0000"
+version: 4
+updated_at: "2026-10-10 18:58:38 +0400"
 subjects:
   governs: "CAPRMEDIO Framework Instance"
-  depends_on:
-    - "Project"
-    - "Plan"
-    - "AI Agent"
-    - "Operator"
-    - "Framework Instance Settings"
-    - "Framework Package"
-    - "Methodology Source"
-    - "Applicable Methodology"
-    - "Project Structure"
-    - "Requirement"
-    - "Method"
-    - "Delivery"
-    - "Workflow"
-    - "Action"
-    - "Journal"
+  depends_on: [Project, Plan, AI Agent, Operator, Framework Instance Settings, Framework Package, Methodology Source, Applicable Methodology, Project Structure, Requirement, Method, Delivery, Workflow, Action, Journal]
 relations:
-  is_decomposition_of:
-    - CA-P-1848
-  blocks:
-    - CA-P-1850
-    - CA-P-1851
-    - CA-P-1852
-    - CA-P-1853
-    - CA-P-1854
+  is_decomposition_of: [CA-P-1848]
+  blocks: [CA-P-1850, CA-P-1851, CA-P-1852, CA-P-1853, CA-P-1854]
 ---
 # Summary
 
@@ -50,14 +29,12 @@ the AI Agent establishes the RMED **and** Operations contract that separates a r
 
 ## Details
 
-- scope: the installation/release contribution of the CAPRMEDIO Framework Instance delivered by the caprmedio Project.
-- input: the Operator's approved layout **and** the current installer, release, Methodology, startup **and** duplicate-copy findings.
-- output: update the relevant Requirement, Method, Evaluation **and** Delivery Atoms **before** implementation; define the Workflow, Actions **and** Steps separately **in** Operations. keep generic model semantics **in** CORE_META_MODEL, concrete caprmedio bindings **in** PROJECT_CONFIGURATION, **and** Engine implementation specifications **in** their owning Scope Units.
-- the reusable beta Framework Package belongs **in** `.caprmedio_install`; runtime state, environments **and** execution for the selected Project belong **in** that Project's `.caprmedio_runtime`. introduce **=1** package schema **and** selected release identity rather than competing Tool-only **and** full-Engine installations.
-- declare Project root, package root, `.caprmedio_<project>` selection, Methodology source authority, installed projection, version/lock manifests, migration/state boundaries **and** supported host platforms. installation into another Project **must not** require the development checkout **or** the caprmedio Project's personal settings.
-- declare explicit Operator invocation, source freshness, capability discovery, parameter/output contracts, Journal parentage/evidence identities for Workflow, Step **and** Action Runs **and** their Tool-call evidence, idempotent reinstallation, failure recovery **and** the full-suite gates for both cycles. model local **and** public release as reusable bound Workflow→Step→Action→Tool definitions, including public push/PR discovery/update **through** existing native bindings **where** valid, rather than one-off manual Git. **no** release **or** merge is performed by authoring these definitions.
-- effort: own work for **=1** AI Agent **must** fit **<=15** minutes. **if** this Plan needs larger own work, decompose it **before** execution **and** preserve its Objective **and** acceptance.
-- control: use applicable Operator input **and** inherited Framework Instance Settings for permission, confidence **and** retry gates. creation is planned work **only**, **not** permission to execute the local/public cycle immediately.
+1. Define exactly two Operator commands: Local release and Public release. Internal source admission, preparation, validation, commit and conformance stages execute inside their command; no stage is separately commanded, approved or handed over.
+2. Before any installed-methodology wipe, verify the corrected registrations point authoring Methodology Sources to the Project Methodology unit and that `project_structure.toml` agrees. The installed target is read-only until Local release. Only active Methodology-source atoms (Core Meta-Model, selected extensions and Project Configuration) form non-live preflight inputs; Project Engine, Plans and other atoms are excluded.
+3. Define Local release's ordering: prepare the candidate and run its complete preflight suite **before the first destructive product wipe**; then clear root `101_FRAMEWORK_METHODOLOGY`, replace it from the selected source, compile applicable Methodology, clear the installed target and copy the product directory as-is to `.caprmedio_caprmedio/000_CAPRMEDIO_framework`. Do not repeat the full suite solely for this deterministic generated copy. Preserve `caprmedio_framework_settings.toml`, authoritative configuration, Project Structure, Operator registry and support settings; generated manifests/selectors refresh. Commit only each step's owned changes.
+4. Define full-suite, state-isolation, Journal and honest-failure contracts for both commands. The Local command prepares the reusable package and per-Project runtime, installs `ca`, and proves image/restart/MCP smoke only after the complete preflight suite passes.
+5. Define Public release under CA-R-1799: one content prompt produces the full PR description and concise Version History bullets; the command runs its complete suite before commit/push to `amm/dev` and PR create/update to `main`, without merge. A known matching PR URL is reused; a new URL receives a metadata-only follow-up commit/push without a second suite.
+6. Place concrete Local/Public Release Operations only in `.caprmedio_caprmedio/09_operations`. Place release helper Tool RMED in `205_FEATURE_PROJECT_TOOLS` under `PROGRAMMATIC`, delivered at root `PROJECT_TOOLS` outside the reusable Engine; retain reusable compiler/installer, shared package/gate models/codecs, detached readers and generic O200 install/bootstrap/restore capability in `TOOLS`. Plan relocation/exclusion of project release code and ProjectTools D declaration exporter boundary from general Methodology/framework-package delivery.
 
 ### Decomposing Plans
 
@@ -68,4 +45,4 @@ the AI Agent establishes the RMED **and** Operations contract that separates a r
 
 ### Definition of Done
 
-the Plan is **not** Done **if** **any** direct decomposing Plan is **not** Done, a package/runtime boundary, supported-Project contract, reusable local/public Workflow binding, source authority, full-suite gate **or** failure/recovery contract remains unspecified, **or** an adopted bootstrap contract retains a missing/stale Requirement, Method **or** Delivery reference **without** an explicit disposition.
+the Plan is **not** Done **if** either command or an internal stage remains unspecified, authoring sources can be wiped as installed content, a source/product/installed boundary conflicts, a release Operation/helper is delivered as general Methodology/framework package, reusable generic capability leaves `TOOLS`, ProjectTools D declarations ship in or fault the exporter frontier, the complete-suite gate or failure/isolation contract is missing, or the Public command needs more than its one content prompt.

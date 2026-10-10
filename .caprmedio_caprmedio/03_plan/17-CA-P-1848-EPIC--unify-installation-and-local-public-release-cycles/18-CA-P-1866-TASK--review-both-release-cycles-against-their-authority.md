@@ -10,29 +10,13 @@ local_tier: Standard
 global_tier: 2
 status: Active
 author: Anatoly Maslennikov
-version: 3
-updated_at: "2026-10-09 12:30:00 +0000"
+version: 4
+updated_at: "2026-10-10 18:58:38 +0400"
 subjects:
   governs: "CAPRMEDIO Framework Instance"
-  depends_on:
-    - "Project"
-    - "Plan"
-    - "AI Agent"
-    - "Operator"
-    - "Framework Instance Settings"
-    - "Requirement"
-    - "Method"
-    - "Evaluation"
-    - "Delivery"
-    - "Workflow"
-    - "Action"
-    - "Framework Package"
-    - "Applicable Methodology"
-    - "Journal"
-    - "Version"
+  depends_on: [Project, Plan, AI Agent, Operator, Framework Instance Settings, Requirement, Method, Evaluation, Delivery, Workflow, Action, Framework Package, Applicable Methodology, Journal, Version]
 relations:
-  is_decomposition_of:
-    - CA-P-1848
+  is_decomposition_of: [CA-P-1848]
 ---
 # Summary
 
@@ -40,19 +24,16 @@ Review both release cycles against their authority
 
 ## Objective
 
-the AI Agent independently performs the post-public-closure review of the implemented installation **and** both completed release cycles against current RMED/Operations **and** Project principles.
+the AI Agent embeds authority conformance assertions in the two implemented release commands.
 
 ## Details
 
-- scope: the installation/release contribution of the CAPRMEDIO Framework Instance delivered by the caprmedio Project.
-- input: current RMED/Operations, Project principles, package/runtime/migration code, **every** decomposing Plan's evidence, both full-suite receipts, local release result, public Workflow/Step/Action/Tool-call Journal evidence **and** public commit/PR.
-- confirm the independent candidate **and** public-snapshot code/RMED/O audits were completed **before** their respective gates, then check the single-source boundaries, beta-package portability, per-Project runtime isolation, active-only export, projection source relations, selected-package execution, full-suite gate ordering, explicit Operator authority **and** honest Journal outcomes.
-- confirm known failures were resolved: destructive legacy installer cleanup, obsolete `301_TOOLS`/standalone-framework paths, stale compiler/delivery copies, source-checkout bypass, uncontrolled duplicate copies **and** incomplete discovery.
-- confirm remaining copies are intentional selected/rollback/artifact snapshots **with** declared retention, **not** competing editable authorities. preserve differing/history/private inputs; list any remaining Concern **with** evidence **and** disposition.
-- review **only** **after** the public PR handoff **and** final Version History summary/link have closure evidence, including a renewed public gate **if** link finalization changed the published snapshot; close the Epic **only** **after** **all** direct children are Done **and** integrated acceptance is evidenced. a completed Plan folder, worker count, focused suite **or** open PR alone is insufficient; **no** merge is required by this Epic.
-- effort: own work for **=1** AI Agent **must** fit **<=15** minutes. **if** this Plan needs larger own work, decompose it **before** execution **and** preserve its Objective **and** acceptance.
-- control: use applicable Operator input **and** inherited Framework Instance Settings for permission, confidence **and** retry gates. creation is planned work **only**, **not** permission to execute the local/public cycle immediately.
+1. Local release asserts active-source selection, the Project→product→installed boundary, its complete preflight before the first destructive product wipe, package/runtime isolation, protected-setting preservation and honest Journal outcomes.
+2. Public release asserts its one-prompt description/history output, complete-suite frontier, safe commit/push, correct `amm/dev`→`main` PR, actual URL and no merge.
+3. Fail a command for an unresolved material authority, RMED, Operations, portability, isolation or traceability divergence. Record the disposition with that command's evidence.
+4. Assert concrete release Operations are Project-root `.caprmedio_caprmedio/09_operations`, release helpers are `PROJECT_TOOLS` deliveries outside the reusable Engine, and reusable compiler/installer, shared package/gate models/codecs, detached readers and generic O200 install/bootstrap/restore capability remain in `TOOLS`. Require ProjectTools D declaration exclusion from the exporter frontier and relocation/exclusion evidence for project-specific release code.
+5. Do not add a separately requested post-public review, handover or approval workflow.
 
 ### Definition of Done
 
-the Plan is **not** Done **if** authority/code differ, either full-suite gate lacks complete evidence, portability/isolation/source traceability is broken, a required local/public handoff is unproven, **or** an essential unresolved finding remains.
+the Plan is **not** Done **if** either command omits its integrated conformance assertions, release placement/exclusion is wrong, reusable generic capability leaves `TOOLS`, ProjectTools D declarations ship in or fault the exporter frontier, required full-suite evidence is absent, source traceability or isolation is broken, or an essential divergence remains unresolved.

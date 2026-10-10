@@ -10,8 +10,8 @@ local_tier: Standard
 global_tier: 2
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-09 12:20:27 +0000"
+version: 2
+updated_at: "2026-10-10 18:58:38 +0400"
 subjects:
   governs: CAPRMEDIO Framework Instance
   depends_on: [Project, Plan, AI Agent, Operator, Framework Package, Methodology Source, Applicable Methodology, Project Structure, Requirement, Method, Evaluation, Delivery, Workflow, Step, Action, Tool, Journal, Version]
@@ -24,17 +24,16 @@ Reconcile **and** validate installation/release contracts
 
 ## Objective
 
-the AI Agent independently validates the integrated installation **and** local/public release contracts against the approved Epic **and** Project principles.
+the AI Agent validates the two integrated installation and release command contracts against the approved Epic and Project principles.
 
 ## Details
 
-- scope: all three sibling contract deliverables; no missing references, conflicting selectors, invented Run types **or** unsupported completion claims.
-- input: the amended Epic CA-P-1848, its Task 01, current authoritative Atoms **and** verified implementation findings.
-- output: saved authoritative contract changes **and** exact verification evidence; preserve Summary identity, source authority **and** unrelated edits.
-- own work for **=1** AI Agent **must** fit **<=15** minutes; decompose residual work **before** exceeding that boundary.
-- **if** confidence remains **<90%** **after** checking active principles **and** live evidence, ask the Operator **before** resolving the uncertain decision.
+1. Check both command contracts for exact boundaries, source/product/installed order, the Local full preflight before its first destructive product wipe, protected-setting exceptions, Journal evidence, honest failure and no invented Run types.
+2. Confirm the Public contract contains one content prompt and no extra command, approval, handover or post-public review; confirm link-only metadata follow-up needs no second suite.
+3. Confirm Local/Public Operations are Project-root `.caprmedio_caprmedio/09_operations`, their helper Tool RMED/code is in Project `PROJECT_TOOLS` (authored at `205_FEATURE_PROJECT_TOOLS`), and reusable compiler/installer, shared package/gate models/codecs, detached readers and generic O200 install/bootstrap/restore capability remain in `TOOLS`. Require ProjectTools D declaration exclusion from the exporter frontier and relocation/exclusion from general Methodology/framework-package delivery.
+4. Save authoritative contract changes and exact verification evidence while preserving Summary identity, source authority and unrelated edits.
+5. This is contract validation embedded in command delivery, not an independently invoked review Workflow.
 
 ### Definition of Done
 
-the Plan is **not** Done **if** its contract deliverable is incomplete, an essential contradiction **or** missing reference remains, **or** the saved evidence cannot prove its stated result.
-
+the Plan is **not** Done **if** source/product/installed roles conflict, release Operation/helper placement is wrong, reusable generic capability leaves `TOOLS`, ProjectTools D declarations ship in or fault the exporter frontier, either command has an unsupported stage, a required gate or exception is missing, or validation depends on a separate review ritual.

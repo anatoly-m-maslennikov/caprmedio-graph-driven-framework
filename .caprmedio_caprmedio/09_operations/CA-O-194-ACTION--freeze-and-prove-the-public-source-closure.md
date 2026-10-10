@@ -1,0 +1,28 @@
+---
+atom_id: "CA-O-194"
+content_role: Operations
+type: Action
+current_scope_unit: caprmedio
+local_tier: Standard
+global_tier: 2
+status: "Active"
+author: "Anatoly Maslennikov"
+subjects:
+  governs: "Freeze and prove public source closure"
+  depends_on: [Full Gate, Source Proof, Tool Call, Journal]
+version: 2
+updated_at: "2026-10-10 19:05:19 +0400"
+relations:
+  relates_to: [CA-O-188, CA-O-193, CA-R-1922, CA-R-1924, CA-R-1928]
+---
+# Summary
+
+Freeze and prove the public source closure
+
+## Action
+
+Freeze and prove the public source closure **means** the programmatic binding of one selected public closure to a fresh complete suite result before release.
+
+## Details
+
+The Action rejects arbitrary pass JSON, focused, stale, or Local Release results, and a changed code, Methodology, or package closure. A URL-only Version History follow-up does not rerun this Action. It does not write a remote or create a PR.

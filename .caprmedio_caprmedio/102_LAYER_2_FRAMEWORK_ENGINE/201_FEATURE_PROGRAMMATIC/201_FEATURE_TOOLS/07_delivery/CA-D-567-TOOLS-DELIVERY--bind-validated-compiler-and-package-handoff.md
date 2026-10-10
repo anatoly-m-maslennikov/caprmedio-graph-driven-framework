@@ -6,8 +6,8 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 8
-updated_at: "2026-10-09 22:13:15 +0400"
+version: 10
+updated_at: "2026-10-10 18:27:21 +0400"
 subjects:
   governs: "Tool/RELEASE_VERSION/Validated compiler and package handoff"
   depends_on: [Tool, Manifest, Digest, Methodology, Projection, Installation, Runtime]
@@ -26,7 +26,7 @@ The internal trusted handoff from a validated sealed candidate and successful co
 
 Release Version **must** admit package staging only from one typed internal handoff, constructed from locally observed current selections, authority bytes, source inventory, and successful compiler output after the D566 manifest checksum and every sealed binding validate. Current reusable schema-1 packages use `SealedPortableCandidateCompilation`; retained legacy/recovery packages use `SealedCandidateCompilation`. Neither path trusts caller-provided gates, raw authority mappings, package rows, source permissions, or success evidence.
 
-The completed `SealedSourceCopy` handoff is also the predecessor-only source-copy proof when a later phase fails, blocks, or remains unpromoted. Its fixed source-copy target is exactly `101_LAYER_1_FRAMEWORK_METHODOLOGY/sources`; the proof must bind the old frozen candidate manifest, expected and actual old copy SHA-256 values, the same executing N, and a complete old-tree inventory of safe fixed-path files, bytes/SHA-256 values, and modes. The proof is usable only after the canonical Journal record and the exact Action/Run and CA-D-574 sealed checkpoint/proof are authenticated; arbitrary retained JSON, a missing/unrecorded proof, unknown member, tampered bytes, unsafe path, mode drift, or identity/wrong-N mismatch is a strict block. This predecessor proof does not authorize a new candidate, reuse old output, or replay old authorization. A new candidate independently revalidates its current source/settings/frontier/authority and performs the normal fresh copy, requiring its new actual copy SHA-256 to equal its new expected value; old and new source/frontier/settings digests are not required to match.
+The completed `SealedSourceCopy` handoff is also the predecessor-only source-copy proof when a later phase fails, blocks, or remains unpromoted. Its fixed source-copy target is exactly `101_FRAMEWORK_METHODOLOGY/sources`; the proof must bind the old frozen candidate manifest, expected and actual old copy SHA-256 values, the same executing N, and a complete old-tree inventory of safe fixed-path files, bytes/SHA-256 values, and modes. The proof is usable only after the canonical Journal record and the exact Action/Run and CA-D-574 sealed checkpoint/proof are authenticated; arbitrary retained JSON, a missing/unrecorded proof, unknown member, tampered bytes, unsafe path, mode drift, or identity/wrong-N mismatch is a strict block. This predecessor proof does not authorize a new candidate, reuse old output, or replay old authorization. A new candidate independently revalidates its current source/settings/frontier/authority and performs the normal fresh copy, requiring its new actual copy SHA-256 to equal its new expected value; old and new source/frontier/settings digests are not required to match.
 
 ## Details
 
@@ -43,9 +43,9 @@ The completed `SealedSourceCopy` handoff is also the predecessor-only source-cop
 
 The portable rows cover the whole `102_FRAMEWORK_ENGINE` tree, locked root dependencies, root `version.toml`, root `catalog.toml`, its referenced admission proofs, admitted defaults, the canonical ca payload projected to `SKILLS/ca`, and only sealed selected active Methodology Atoms and declared support projected to their D596 package paths. Admission proof rows use `resource = "SOURCE_ADMISSION"` and retain `admissions/<receipt_sha256>.json` as their source and destination. A shared proof appears once. The intentional ca projection may reuse source bytes, but destination paths remain unique. Every source digest and mode is locally observed; catalog source paths and digests must match the planned package rows. The proof bytes and their exact descriptor matches are reopened under D602. A missing catalog, missing or malformed proof, changed input or unsealed private compilation blocks the handoff rather than creating an admission receipt or reconstructing absent authority.
 
-`collect_portable_source_snapshot` provides a typed, read-only `SealedPortableSourceSnapshot` with the same run, candidate and private-compilation binding and the observed package rows before catalog or admission proofs exist. `revalidate_portable_source_snapshot` repeats those observations. This snapshot is input to the separately commanded source-admission Action; it is not approval, a catalog, a package staging handoff or a test result.
+`collect_portable_source_snapshot` provides a typed, read-only `SealedPortableSourceSnapshot` with the same run, candidate and private-compilation binding and the observed package rows before catalog validation exists. `revalidate_portable_source_snapshot` repeats those observations. This snapshot is input to internal source validation within the Operator-commanded local release; it is not approval, a catalog, a separately executable Action, a package staging handoff or a test result.
 
-`build_sealed_portable_compilation` observes this handoff without assembling a package. `revalidate_sealed_portable_compilation` repeats the physical observations and requires exact equality before the package producer copies those bytes. The producer stages only a private D597 candidate package; this handoff grants no test pass, image selection, live installation or promotion.
+`build_sealed_portable_compilation` observes this handoff without assembling a package. `revalidate_sealed_portable_compilation` repeats the physical observations and requires exact equality before the package producer copies those bytes. The producer stages only a private D597 candidate package; this handoff grants no test pass, image selection, live installation or promotion and cannot replace the one complete local suite before local release effects.
 
 ### Retained legacy and recovery handoff
 
@@ -63,7 +63,7 @@ Prospective source-copy replacement reserves a private sibling directory under t
 
 ### Current predecessor trust registrations
 
-Under the existing CA-P-1117 autonomy envelope, Release Version may admit historical source-delivery evidence prospectively through this source-authoritative private carrier. It is a current admission, not retroactive sealing and not proof that mutable bytes were unchanged at the historical run time. The following fenced object is the one locally verified N13 registration, retained as current evidence:
+Under the existing CA-P-1117 autonomy envelope, Release Version may admit historical source-delivery evidence prospectively through this source-authoritative private carrier. It is a current admission, not retroactive sealing and not proof that mutable bytes were unchanged at the historical run time. The following fenced object is the one locally verified N13 registration, retained as current evidence; its old `101_LAYER_1_FRAMEWORK_METHODOLOGY/sources` path is historical evidence and is not rewritten by the forward target change.
 
 ```json
 {

@@ -10,28 +10,14 @@ local_tier: Standard
 global_tier: 2
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-09 15:41:25 +0400"
+version: 2
+updated_at: "2026-10-10 18:08:27 +0400"
 subjects:
   governs: "CAPRMEDIO Framework Instance"
-  depends_on:
-    - "Project"
-    - "Plan"
-    - "AI Agent"
-    - "Operator"
-    - "Framework Instance Settings"
-    - "Methodology Source"
-    - "Applicable Methodology"
-    - "Scope Unit"
-    - "Project Structure"
-    - "Atom"
-    - "Projection"
-    - "Carrier"
+  depends_on: [Project, Plan, AI Agent, Operator, Framework Instance Settings, Methodology Source, Applicable Methodology, Scope Unit, Project Structure, Atom, Projection, Carrier]
 relations:
-  is_decomposition_of:
-    - CA-P-1848
-  blocks:
-    - CA-P-1852
+  is_decomposition_of: [CA-P-1848]
+  blocks: [CA-P-1852]
 ---
 # Summary
 
@@ -39,19 +25,16 @@ Consolidate Methodology source **and** delivery paths
 
 ## Objective
 
-the AI Agent establishes a source-preserving path migration that separates authoritative Methodology Atoms **from** delivered **and** installed Methodology.
+the AI Agent establishes a source-preserving path migration that separates authoritative Methodology Atoms **from** the product and installed Methodology.
 
 ## Details
 
-- scope: the installation/release contribution of the CAPRMEDIO Framework Instance delivered by the caprmedio Project.
-- input: authoritative sources currently under `.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources`, Project Structure, root `101_LAYER_1_FRAMEWORK_METHODOLOGY` **and** its consumers.
-- output: declare authoritative source Scope Unit paths **in** `project_structure.toml` **and** place authoring sources **in** their Project-owned Methodology Units, separate **from** the installed Framework Instance target. root `methodology/` becomes the derived delivery boundary.
-- update compiler, retrieval, release, package, restore, discovery, tests **and** documentation references, including obsolete standalone `.caprmedio_framework` paths. retain original Atom identities **and** source traceability; path-only changes **must not** become new semantic revisions.
-- prepare an inventoried, reversible migration **and** tests. actual source/path cutover occurs **after** the local release gate; the executing N Methodology remains usable while N+1 is prepared.
-- root `101_LAYER_1_FRAMEWORK_METHODOLOGY` is an existing documented release copy, **not** another authoring authority. consolidate its delivery role into `methodology/` **after** consumers move; preserve its unique payload until compared **and** accounted for.
-- effort: own work for **=1** AI Agent **must** fit **<=15** minutes. **if** this Plan needs larger own work, decompose it **before** execution **and** preserve its Objective **and** acceptance.
-- control: use applicable Operator input **and** inherited Framework Instance Settings for permission, confidence **and** retry gates. creation is planned work **only**, **not** permission to execute the local/public cycle immediately.
+1. Verify the corrected registrations point authoring Methodology Sources to the Project Methodology unit and that `project_structure.toml` agrees before any installed-target wipe. The installed target remains read-only and is not source authority until Local release copies the product into it.
+2. Limit the replacement source to active Methodology-source atoms: Core Meta-Model, selected extensions and Project Configuration. Exclude Project Engine, Plans and other Project atoms.
+3. Make root `101_FRAMEWORK_METHODOLOGY` the product boundary, not a draft, archive or authoring authority. Prepare the selected active source as non-live test input and pass the Local full preflight before it is cleared and replaced, then compile applicable Methodology.
+4. Treat `.caprmedio_caprmedio/000_CAPRMEDIO_framework` as the installed current Methodology. After product compilation, clear only replaceable installed contents and copy the product directory as-is while preserving `caprmedio_framework_settings.toml`, authoritative configuration, Project Structure, Operator registry and support settings.
+5. Commit each source, product and installed step separately, staging only its owned changes. Do not perform this migration by authoring the Plan.
 
 ### Definition of Done
 
-the Plan is **not** Done **if** installed Methodology overwrites authoring authority, an Atom loses provenance, an old-path consumer remains unaccounted for, **or** the path cutover lacks recovery evidence.
+the Plan is **not** Done **if** a stale source registration remains, the active source set includes non-Methodology atoms, product or installed paths have an ambiguous role, protected settings are replaced, or a transition lacks its scoped commit boundary.

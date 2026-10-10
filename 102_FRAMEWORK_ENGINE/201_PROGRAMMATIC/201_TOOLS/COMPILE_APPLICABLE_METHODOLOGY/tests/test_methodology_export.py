@@ -267,6 +267,45 @@ class MethodologyExportTest(unittest.TestCase):
         exporter.validate_binding_projection_source_preservation(first_source.read_bytes(), projected.read_bytes(), binding)
         self.assertEqual(result.inventory, exporter.read_sealed_export(release_candidate_root=self.candidate).inventory)
 
+    def test_mixed_framework_and_registered_project_tools_exports_only_framework_binding(self) -> None:
+        self.write("001_CORE_META_MODEL/04_requirement/CA-R-001--active.md", carrier("CA-R-001"))
+        project_authority = self.engine_source / "201_FEATURE_PROGRAMMATIC/205_FEATURE_PROJECT_TOOLS"
+        project_authority.mkdir(parents=True)
+        structure = self.control / "project_structure.toml"
+        structure.write_text(structure.read_text(encoding="utf-8") +
+            '\n[[scope_units]]\nscope_unit_name = "PROJECT_TOOLS"\n' +
+            f'authority_path = {json.dumps(project_authority.relative_to(self.root).as_posix())}\n' +
+            'delivery_path = "PROJECT_TOOLS"\n', encoding="utf-8")
+        engine_entrypoint = "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/DEMO_TOOL/demo_tool.py"
+        project_entrypoint = "PROJECT_TOOLS/PUBLIC_RELEASE/public_release.py"
+        for entrypoint in (engine_entrypoint, project_entrypoint):
+            member = self.root / entrypoint
+            member.parent.mkdir(parents=True, exist_ok=True)
+            member.write_bytes(b"VALUE = 1\n")
+        engine_source = self.write_engine_delivery("201_FEATURE_TOOLS/07_delivery/CA-D-001--tool.md",
+            carrier("CA-D-001", content_role="Delivery", body=f'```toml\n[tool_binding]\nentrypoint = "{engine_entrypoint}"\n```\n'))
+        self.write_control_delivery(
+            (project_authority.relative_to(self.control) / "07_delivery/CA-D-002--project-tool.md").as_posix(),
+            carrier("CA-D-002", content_role="Delivery", body=f'```toml\n[tool_binding]\nentrypoint = "{project_entrypoint}"\n```\n'))
+
+        frozen = self.freeze([{"atom_id": "CA-R-001", "version": 1}])
+        result = self.export()
+
+        self.assertEqual(["CA-D-001"], [row["atom_id"] for row in frozen["binding_atoms"]])
+        self.assertEqual([engine_source.relative_to(self.root).as_posix()],
+                         [row["source_path"] for row in result.inventory["bindings"]])
+        self.assertEqual(result.inventory, exporter.read_sealed_export(release_candidate_root=self.candidate).inventory)
+
+    def test_unregistered_project_tools_entrypoint_remains_invalid_framework_binding(self) -> None:
+        self.write("001_CORE_META_MODEL/04_requirement/CA-R-001--active.md", carrier("CA-R-001"))
+        self.write_engine_delivery("201_FEATURE_TOOLS/07_delivery/CA-D-001--tool.md",
+            carrier("CA-D-001", content_role="Delivery", body='```toml\n[tool_binding]\nentrypoint = "PROJECT_TOOLS/unknown.py"\n```\n'))
+
+        with self.assertRaises(exporter.MethodologyExportError) as raised:
+            self.freeze([{"atom_id": "CA-R-001", "version": 1}])
+
+        self.assertEqual("binding-entrypoint-invalid", raised.exception.code)
+
     def test_frozen_binding_frontier_refuses_framework_engine_inventory_drift_before_export(self) -> None:
         self.write("001_CORE_META_MODEL/04_requirement/CA-R-001--active.md", carrier("CA-R-001"))
         entrypoint = "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/DRIFT_TOOL/drift_tool.py"
@@ -339,7 +378,8 @@ class MethodologyExportTest(unittest.TestCase):
         frontier = exporter._binding_frontier(binding)
 
         by_id = {item.atom_id: item for item in frontier}
-        self.assertTrue({"CA-D-591", "CA-D-602", "CA-D-620"}.issubset(by_id))
+        self.assertTrue({"CA-D-591", "CA-D-620"}.issubset(by_id))
+        self.assertNotIn("CA-D-602", by_id)  # Source validation is internal Local preparation, not a Tool binding.
         d620 = by_id["CA-D-620"]
         self.assertEqual(
             ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/204_FEATURE_MCP/07_delivery/CA-D-620-MCP-DELIVERY--expose-direct-framework-runtime-installation.md",

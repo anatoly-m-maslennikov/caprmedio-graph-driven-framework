@@ -10,29 +10,14 @@ local_tier: Standard
 global_tier: 2
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-09 12:12:13 +0000"
+version: 3
+updated_at: "2026-10-10 18:08:27 +0400"
 subjects:
   governs: "CAPRMEDIO Framework Instance"
-  depends_on:
-    - "Project"
-    - "Plan"
-    - "AI Agent"
-    - "Operator"
-    - "Framework Instance Settings"
-    - "Version"
-    - "Framework Package"
-    - "Evaluation"
-    - "Workflow Run"
-    - "Workflow"
-    - "Action"
-    - "Tool"
-    - "Journal"
+  depends_on: [Project, Plan, AI Agent, Operator, Framework Instance Settings, Version, Framework Package, Evaluation, Workflow Run, Workflow, Action, Tool, Journal]
 relations:
-  is_decomposition_of:
-    - CA-P-1848
-  blocks:
-    - CA-P-1865
+  is_decomposition_of: [CA-P-1848]
+  blocks: [CA-P-1865]
 ---
 # Summary
 
@@ -40,19 +25,15 @@ Commit **and** push the validated release **to** amm/dev
 
 ## Objective
 
-the AI Agent commits **and** pushes **all** safe validated release changes to `amm/dev`.
+the AI Agent commits **and** pushes **all** safe validated release changes to `amm/dev` as an internal Public release stage.
 
 ## Details
 
-- scope: the installation/release contribution of the CAPRMEDIO Framework Instance delivered by the caprmedio Project.
-- input: the fresh passing public full-suite gate, frozen safe-change inventory, final release Version/documentation, reusable public-release Workflow/Step/Action/Tool binding **and** the intended personal repository remote.
-- check current branch, remote identity, existing commits/dirty changes **and** exact staged diff. include **all** approved product/authority/docs/test changes for this release; preserve unrelated work **and** distinguish ignored runtime/build products **from** intended public artifacts.
-- exclude credentials, `.env*`, private provider state, machine environments, caches, Project Run databases **and** unreviewed generated installation state. do **not** add the obsolete live `.caprmedio_install` state merely because it is untracked.
-- execute the reusable public-release Workflow's bound commit/push Action **through** the discovered native binding, creating a descriptive validated commit **and** pushing to `amm/dev` **without** rewriting unrelated history. preserve the full-suite frontier; **if** staged product inputs changed, return to the public gate.
-- record the Workflow, Step, Action **and** Tool-call parentage plus commit **and** confirmed remote branch identity **in** the shared Journal. a local commit **or** an attempted push does **not** prove remote publication; this Task does **not** create **or** merge the PR.
-- effort: own work for **=1** AI Agent **must** fit **<=15** minutes. **if** this Plan needs larger own work, decompose it **before** execution **and** preserve its Objective **and** acceptance.
-- control: use applicable Operator input **and** inherited Framework Instance Settings for permission, confidence **and** retry gates. creation is planned work **only**, **not** permission to execute the local/public cycle immediately.
+1. After the Public command's complete suite passes, check branch, personal remote identity and safe change inventory; preserve unrelated work and exclude credentials, private state, environments, caches and unreviewed generated installation state.
+2. Create the descriptive validated commit and push it to `amm/dev` through the command's bound native action without rewriting unrelated history.
+3. Record exact workflow evidence and remote confirmation. A local commit or attempted push is not publication evidence.
+4. A material staged-input change returns to the Public full-suite gate. This internal stage is not an additional Operator command.
 
 ### Definition of Done
 
-the Plan is **not** Done **if** the staged changes violate scope/safety, the test frontier is stale, the remote identity is wrong, **or** `amm/dev` does **not** contain the verified release commit.
+the Plan is **not** Done **if** scope/safety fails, the test frontier is stale, remote identity is wrong, or `amm/dev` lacks the verified release commit.

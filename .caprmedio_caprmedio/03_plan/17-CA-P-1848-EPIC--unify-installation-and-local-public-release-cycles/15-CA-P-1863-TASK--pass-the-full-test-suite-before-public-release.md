@@ -10,25 +10,14 @@ local_tier: Standard
 global_tier: 2
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-09 12:12:13 +0000"
+version: 3
+updated_at: "2026-10-10 18:08:27 +0400"
 subjects:
   governs: "CAPRMEDIO Framework Instance"
-  depends_on:
-    - "Project"
-    - "Plan"
-    - "AI Agent"
-    - "Operator"
-    - "Framework Instance Settings"
-    - "Evaluation"
-    - "Version"
-    - "Framework Package"
-    - "Workflow Run"
+  depends_on: [Project, Plan, AI Agent, Operator, Framework Instance Settings, Evaluation, Version, Framework Package, Workflow Run]
 relations:
-  is_decomposition_of:
-    - CA-P-1848
-  blocks:
-    - CA-P-1864
+  is_decomposition_of: [CA-P-1848]
+  blocks: [CA-P-1864]
 ---
 # Summary
 
@@ -40,15 +29,12 @@ the AI Agent obtains a fresh complete full-suite gate for the exact final snapsh
 
 ## Details
 
-- scope: the installation/release contribution of the CAPRMEDIO Framework Instance delivered by the caprmedio Project.
-- input: finalized Engine/Methodology/package/installation work, README, Version/Version History changes, reviewed PR description **and** the complete current test inventory.
-- freeze the public release input closure **and** safe-change inventory **after** documentation/version preparation. obtain an independent code/RMED/O review of that exact public snapshot **before** the gate; record its reviewer, compared definitions, snapshot identities, findings **and** dispositions. unresolved essential findings block the gate **and** public push. run the full suite again, including **all** required host/Docker/MCP e2e gates; the local gate is evidence **but not** a substitute.
-- record expected/executed coverage, source identity, commands/environment, exit states **and** full results. validate documentation commands, package installation **and** public release prerequisites against the final snapshot.
-- failed, missing **or** incomplete required coverage, **or** an unresolved independent code/RMED/O review finding, blocks push/PR publication. applicable retries/escalation can repair the cause, **not** waive a gate.
-- any later change to the validated public closure requires renewed acceptance **before** publication; administrative Plan status/receipt updates **must not** conceal a product/test input change.
-- effort: own work for **=1** AI Agent **must** fit **<=15** minutes. **if** this Plan needs larger own work, decompose it **before** execution **and** preserve its Objective **and** acceptance.
-- control: use applicable Operator input **and** inherited Framework Instance Settings for permission, confidence **and** retry gates. creation is planned work **only**, **not** permission to execute the local/public cycle immediately.
+1. Freeze the publishable closure after its automatic documentation preparation and one content prompt.
+2. Run the complete current suite, including all required host/Docker/MCP end-to-end checks, before `amm/dev` push or PR publication. The Local pass is evidence, not a substitute.
+3. Record expected/executed coverage, identities, commands, exit states and full results. Failed, missing or incomplete checks stop the Public release command; focused, mocked or old results cannot waive it.
+4. Product, package, source, configuration or documentation changes require a new complete suite. A URL-only metadata follow-up after a new PR does not.
+5. Validate conformance inside Public release; do not introduce a separately commanded review, approval or handover.
 
 ### Definition of Done
 
-the Plan is **not** Done **if** the independent public-snapshot review is absent **or** has an unresolved essential finding, the fresh full public suite is incomplete **or** failed, its snapshot differs **from** the publishable closure, **or** a release/version/documentation prerequisite remains unverified.
+the Plan is **not** Done **if** the fresh full public suite is incomplete or failed, its snapshot differs from the publishable closure, a material change bypasses the gate, or a release prerequisite is unverified.

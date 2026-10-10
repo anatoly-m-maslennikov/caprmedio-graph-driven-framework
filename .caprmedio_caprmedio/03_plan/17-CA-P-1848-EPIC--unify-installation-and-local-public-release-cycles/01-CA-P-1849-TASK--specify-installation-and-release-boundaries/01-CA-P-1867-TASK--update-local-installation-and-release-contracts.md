@@ -10,8 +10,8 @@ local_tier: Standard
 global_tier: 2
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-09 12:20:27 +0000"
+version: 2
+updated_at: "2026-10-10 18:58:38 +0400"
 subjects:
   governs: CAPRMEDIO Framework Instance
   depends_on: [Project, Plan, AI Agent, Operator, Framework Package, Methodology Source, Applicable Methodology, Project Structure, Requirement, Method, Evaluation, Delivery, Workflow, Step, Action, Tool, Journal, Version]
@@ -25,17 +25,15 @@ Update local installation **and** release contracts
 
 ## Objective
 
-the AI Agent updates the authoritative local installation **and** release Operations contracts to the approved beta-package, per-Project runtime **and** gated candidate boundaries.
+the AI Agent updates the authoritative Local release Operations contract to the approved beta-package, per-Project runtime and gated candidate boundaries.
 
 ## Details
 
-- scope: existing PROJECT_CONFIGURATION Operations CA-O-164–186; no Engine implementation, installed projection **or** live runtime effects.
-- input: the amended Epic CA-P-1848, its Task 01, current authoritative Atoms **and** verified implementation findings.
-- output: saved authoritative contract changes **and** exact verification evidence; preserve Summary identity, source authority **and** unrelated edits.
-- own work for **=1** AI Agent **must** fit **<=15** minutes; decompose residual work **before** exceeding that boundary.
-- **if** confidence remains **<90%** **after** checking active principles **and** live evidence, ask the Operator **before** resolving the uncertain decision.
+1. Define the concrete Local release Operation only in the Project root `.caprmedio_caprmedio/09_operations`; it is not general Methodology or reusable Framework Package delivery.
+2. Bind its release helper tools to Project-owned `PROJECT_TOOLS`; keep reusable compiler/installer capability, shared package/gate models/codecs, detached readers and generic O200 install/bootstrap/restore in `TOOLS`.
+3. Include the Local full preflight before its first destructive product wipe, per-step scoped Git commits, protected-setting preservation and honest Journal evidence.
+4. Plan code relocation/exclusion and exporter delivery-boundary registration without executing code, structure, runtime or Git changes here.
 
 ### Definition of Done
 
-the Plan is **not** Done **if** its contract deliverable is incomplete, an essential contradiction **or** missing reference remains, **or** the saved evidence cannot prove its stated result.
-
+the Plan is **not** Done **if** Local release is defined outside Project Operations, its helpers are packaged generally, reusable capabilities leave `TOOLS`, ProjectTools D declarations are shipped or rejected by the generic exporter frontier, placement/relocation evidence is incomplete, or the gate/order contract is missing.

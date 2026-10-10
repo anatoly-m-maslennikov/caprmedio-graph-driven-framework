@@ -10,30 +10,14 @@ local_tier: Standard
 global_tier: 2
 status: Active
 author: Anatoly Maslennikov
-version: 3
-updated_at: "2026-10-10 01:12:42 +0400"
+version: 4
+updated_at: "2026-10-10 18:08:27 +0400"
 subjects:
   governs: "CAPRMEDIO Framework Instance"
-  depends_on:
-    - "Project"
-    - "Plan"
-    - "AI Agent"
-    - "Operator"
-    - "Framework Instance Settings"
-    - "Framework Package"
-    - "Applicable Methodology"
-    - "Tool"
-    - "Workflow"
-    - "Action"
-    - "Workflow Run"
-    - "Journal"
-    - "Carrier"
-    - "Evaluation"
+  depends_on: [Project, Plan, AI Agent, Operator, Framework Instance Settings, Framework Package, Applicable Methodology, Tool, Workflow, Action, Workflow Run, Journal, Carrier, Evaluation]
 relations:
-  is_decomposition_of:
-    - CA-P-1848
-  blocks:
-    - CA-P-1862
+  is_decomposition_of: [CA-P-1848]
+  blocks: [CA-P-1862]
 ---
 # Summary
 
@@ -41,19 +25,15 @@ Verify the local installation **and** finalize its cleanup
 
 ## Objective
 
-the AI Agent verifies the installed local release **and** completes **only** its admitted duplicate/resource cleanup.
+the AI Agent verifies Local release evidence and only its declared cleanup within the same programmatic command.
 
 ## Details
 
-- scope: the installation/release contribution of the CAPRMEDIO Framework Instance delivered by the caprmedio Project.
-- input: the local release Run, installed package/runtime selectors, Methodology projection, Docker container/image identity, ca Skill and migration/transaction evidence.
-- verify package-bound execution **without** the checkout, installed Methodology completeness/provenance, uv isolation, ca installation, MCP initialization, parallel Tool/Operation discovery, installed read-only Tool execution **and** healthy idempotent reuse. prove that the per-Project installation lock agrees **with** **every** selector/wrapper, the running service generation, image **and** local release evidence.
-- verify migration recovery and the honest unavailable outcome after a destructive-phase failure through the declared tests/receipts. Inspect saved Action/Workflow terminal records; an initialized process or queued Run is not completion.
-- **after** these checks pass, apply **only** the pre-reviewed consolidation/retention plan. retire obsolete root `101_LAYER_1_FRAMEWORK_METHODOLOGY` delivery bindings/copies **and** unreferenced duplicate staging/images; preserve active/rollback images, other Projects, protected data **and** referenced Journal history.
-- save the honest local release result, full-suite/gate references, source/package/Methodology/image identities, endpoint **and** remaining findings. unresolved essential findings block the public cycle.
-- effort: own work for **=1** AI Agent **must** fit **<=15** minutes. **if** this Plan needs larger own work, decompose it **before** execution **and** preserve its Objective **and** acceptance.
-- control: use applicable Operator input **and** inherited Framework Instance Settings for permission, confidence **and** retry gates. creation is planned work **only**, **not** permission to execute the local/public cycle immediately.
+1. Verify the installed Project runs the selected reusable package, installed Methodology is the as-is product copy subject only to declared preserved settings, `ca` resolves from the installed runtime, and the selected image/restart returns the expected MCP endpoint.
+2. Verify source/product/installed provenance, package/image/lock identity, preserved configuration/state and isolated Project resources.
+3. Retain root `101_FRAMEWORK_METHODOLOGY` as the product boundary. Do not retire it as a legacy copy or delete authoring/recovery evidence. Cleanup remains limited to declared replaced installed/package content.
+4. Record the honest terminal result without a separate handover or review command.
 
 ### Definition of Done
 
-the Plan is **not** Done **if** live installed execution/discovery fails, required configuration/Project-owned transaction evidence is absent, cleanup exceeds the reviewed targets, or an essential local release finding remains unresolved.
+the Plan is **not** Done **if** installed execution/discovery fails, product and installed identities conflict outside an allowed exception, configuration or Project-owned evidence is absent, cleanup exceeds declared targets, or endpoint evidence is unverified.

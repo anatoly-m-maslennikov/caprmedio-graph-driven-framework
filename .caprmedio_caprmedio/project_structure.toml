@@ -87,7 +87,7 @@ structural_level = 1
 local_order = 1
 navigational_order_number = 1
 authority_path = ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY"
-delivery_path = "101_LAYER_1_FRAMEWORK_METHODOLOGY"
+delivery_path = "101_FRAMEWORK_METHODOLOGY"
 authority_mode = "strict"
 
 [[scope_units]]
@@ -98,8 +98,8 @@ scope_unit_label = "SUPERLAYER"
 structural_level = 2
 local_order = 1
 navigational_order_number = 1
-authority_path = ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources"
-delivery_path = ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY"
+authority_path = ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES"
+delivery_path = "101_FRAMEWORK_METHODOLOGY/sources"
 authority_mode = "strict"
 
 [[scope_units]]
@@ -110,8 +110,8 @@ scope_unit_label = "LAYER"
 structural_level = 3
 local_order = 1
 navigational_order_number = 1
-authority_path = ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL"
-delivery_path = ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY"
+authority_path = ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL"
+delivery_path = "101_FRAMEWORK_METHODOLOGY/sources/001_CORE_META_MODEL"
 authority_mode = "strict"
 
 [[scope_units]]
@@ -122,8 +122,8 @@ scope_unit_label = "LAYER"
 structural_level = 3
 local_order = 2
 navigational_order_number = 2
-authority_path = ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/002_INSTALLED_EXTENSIONS"
-delivery_path = ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY"
+authority_path = ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/002_INSTALLED_EXTENSIONS"
+delivery_path = "101_FRAMEWORK_METHODOLOGY/sources/002_INSTALLED_EXTENSIONS"
 authority_mode = "strict"
 
 [[scope_units]]
@@ -134,8 +134,8 @@ scope_unit_label = "LAYER"
 structural_level = 3
 local_order = 3
 navigational_order_number = 3
-authority_path = ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/003_PROJECT_CONFIGURATION"
-delivery_path = ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY"
+authority_path = ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION"
+delivery_path = "101_FRAMEWORK_METHODOLOGY/sources/003_PROJECT_CONFIGURATION"
 authority_mode = "strict"
 
 [[scope_units]]
@@ -147,7 +147,7 @@ structural_level = 2
 local_order = 2
 navigational_order_number = 2
 authority_path = ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/202_SUPERLAYER_2_APPLICABLE_METHODOLOGY"
-delivery_path = ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY"
+delivery_path = "101_FRAMEWORK_METHODOLOGY/applicable_methodology"
 authority_mode = "strict"
 
 [[scope_units]]
@@ -180,6 +180,16 @@ structural_level = 3
 navigational_order_number = 1
 authority_path = ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS"
 delivery_path = "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS"
+
+[[scope_units]]
+scope_unit_name = "PROJECT_TOOLS"
+parent = "PROGRAMMATIC"
+scope_unit_type = "Unordered"
+scope_unit_label = "FEATURE"
+structural_level = 3
+navigational_order_number = 4
+authority_path = ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/205_FEATURE_PROJECT_TOOLS"
+delivery_path = "PROJECT_TOOLS"
 
 [[scope_units]]
 scope_unit_name = "APPS"

@@ -10,28 +10,14 @@ local_tier: Standard
 global_tier: 2
 status: Active
 author: Anatoly Maslennikov
-version: 3
-updated_at: "2026-10-09 12:30:00 +0000"
+version: 4
+updated_at: "2026-10-10 18:08:27 +0400"
 subjects:
   governs: "CAPRMEDIO Framework Instance"
-  depends_on:
-    - "Project"
-    - "Plan"
-    - "AI Agent"
-    - "Operator"
-    - "Framework Instance Settings"
-    - "Version"
-    - "Framework Package"
-    - "Workflow Run"
-    - "Workflow"
-    - "Action"
-    - "Journal"
-    - "Evaluation"
+  depends_on: [Project, Plan, AI Agent, Operator, Framework Instance Settings, Version, Framework Package, Workflow Run, Workflow, Action, Journal, Evaluation]
 relations:
-  is_decomposition_of:
-    - CA-P-1848
-  blocks:
-    - CA-P-1863
+  is_decomposition_of: [CA-P-1848]
+  blocks: [CA-P-1863]
 ---
 # Summary
 
@@ -43,16 +29,11 @@ the AI Agent prepares accurate public release documentation **and** a full PR de
 
 ## Details
 
-- scope: the installation/release contribution of the CAPRMEDIO Framework Instance delivered by the caprmedio Project.
-- input: the actual source changes, validated local release result, existing README, canonical Version **and** `VERSION_HISTORY.md`.
-- update README install/start/upgrade instructions to the new `methodology`, `.caprmedio_install` beta-package **and** per-Project `.caprmedio_runtime` boundaries, uv-only execution, ca installation **and** password-free loopback MCP. remove stale path/command claims.
-- reuse the canonical Version sealed by the verified local candidate; keep package, local receipt **and** public files consistent. **if** any documentation/note change requires a Version change, explicitly create a new candidate **and** repeat the local full-suite gate, local promotion **and** local verification **before** public preparation continues.
-- write a full PR description **from** actual changes: full “What's new” **and** “What's fixed” lists, purpose, delivery/install migration, compatibility/rollback, complete tests/evidence **and** honest limitations. keep **only** its concise bullet-point release summary **and** actual PR link **in** Version History; retain the bullet structure for 0.4, 0.4.1 **and** subsequent entries.
-- discover a matching existing PR **before** freezing the public snapshot **when** available. **if** the URL becomes known **only** **after** creating a new PR, Task 19 finalizes its link **and** renews the public gate for changed bytes; an unresolved placeholder is **not** final release documentation.
-- discover **and** invoke the public-release documentation-preparation binding implemented **and** tested **in** Task 08; store the reviewable full PR description **and** its Journal evidence for the later PR Action. documentation preparation **must not** claim a push, PR, merge **or** release that has **not** occurred.
-- effort: own work for **=1** AI Agent **must** fit **<=15** minutes. **if** this Plan needs larger own work, decompose it **before** execution **and** preserve its Objective **and** acceptance.
-- control: use applicable Operator input **and** inherited Framework Instance Settings for permission, confidence **and** retry gates. creation is planned work **only**, **not** permission to execute the local/public cycle immediately.
+1. The Public release command updates documentation programmatically from actual changes and the canonical Version; documentation that changes the product closure requires its fresh complete suite before publication.
+2. Ask one content prompt only. It returns the full PR description with complete “What's new” and “What's fixed” lists and the concise Version History bullet summary. Do not prompt for README text, approval retries or a second description.
+3. Use the matching PR URL when it is already known. For a new PR, append its returned actual URL to Version History in a mechanical metadata-only follow-up commit/push; that link-only change does not require a second complete suite.
+4. Retain only the concise summary and actual PR URL in `VERSION_HISTORY.md`; the complete description belongs to the PR. Do not claim a push, PR, merge or release that has not occurred.
 
 ### Definition of Done
 
-the Plan is **not** Done **if** README is stale, Version files/package identity disagree, the PR description lacks meaningful evidence/migration context, **or** Version History duplicates the full description rather than its short bullet summary.
+the Plan is **not** Done **if** documentation is stale, package/version identity disagrees, the one prompt does not yield both required outputs, Version History duplicates full PR lists, or the recorded URL is not actual.

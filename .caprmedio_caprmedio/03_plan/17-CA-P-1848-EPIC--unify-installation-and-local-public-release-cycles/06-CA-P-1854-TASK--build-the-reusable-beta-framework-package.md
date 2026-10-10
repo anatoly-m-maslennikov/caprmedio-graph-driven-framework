@@ -10,28 +10,14 @@ local_tier: Standard
 global_tier: 2
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-09 12:12:13 +0000"
+version: 3
+updated_at: "2026-10-10 18:58:38 +0400"
 subjects:
   governs: "CAPRMEDIO Framework Instance"
-  depends_on:
-    - "Project"
-    - "Plan"
-    - "AI Agent"
-    - "Operator"
-    - "Framework Instance Settings"
-    - "Framework Package"
-    - "Methodology Source"
-    - "Applicable Methodology"
-    - "Tool"
-    - "Carrier"
-    - "Version"
-    - "Journal"
+  depends_on: [Project, Plan, AI Agent, Operator, Framework Instance Settings, Framework Package, Methodology Source, Applicable Methodology, Tool, Carrier, Version, Journal]
 relations:
-  is_decomposition_of:
-    - CA-P-1848
-  blocks:
-    - CA-P-1855
+  is_decomposition_of: [CA-P-1848]
+  blocks: [CA-P-1855]
 ---
 # Summary
 
@@ -43,15 +29,11 @@ the AI Agent implements a portable beta Framework Package under `.caprmedio_inst
 
 ## Details
 
-- scope: the installation/release contribution of the CAPRMEDIO Framework Instance delivered by the caprmedio Project.
-- input: root `102_FRAMEWORK_ENGINE`, delivered `methodology/`, this target Project's selected extensions/configuration **from** an admitted pinned available catalog, ca Skill sources, locked dependencies **and** the admitted package contract.
-- output: **=1** reusable package scheme **with** explicit manifest, sealed source/version/configuration/catalog/lock identity, integrity checks, selected release **and** declared Engine, Methodology, Skill/default-settings payload. consolidate the current standalone Tool **and** full-Engine package schemes.
-- the package is independent of a development checkout, personal absolute paths, Git repository discovery, caprmedio-specific Project settings, databases, Run records, machine caches **and** credentials. another Project supplies its own settings, configuration **and** Operator registry.
-- preserve the N package needed for rollback while producing N+1. select the canonical Version **before** producing a private candidate; use isolated staging **and** atomic admitted promotion, **and** seal candidate package bytes for the later full-suite gate. a failed package attempt cannot replace a working selection.
-- test deterministic payloads, complete active/support closure, relocation, tampering, missing inputs, mismatched selectors, failed promotion **and** reinstall. `.DS_Store` **and** generated runtime state are excluded; package publication is deferred to the gated local release.
-- effort: own work for **=1** AI Agent **must** fit **<=15** minutes. **if** this Plan needs larger own work, decompose it **before** execution **and** preserve its Objective **and** acceptance.
-- control: use applicable Operator input **and** inherited Framework Instance Settings for permission, confidence **and** retry gates. creation is planned work **only**, **not** permission to execute the local/public cycle immediately.
+1. Deliver reusable Engine, Methodology, Skill/default-settings payload and compiler/installer capabilities from `TOOLS` in the Framework Package.
+2. Exclude CAPRMEDIO-specific Local/Public Release Operations and release helper Tool implementations/RMED from the reusable Engine/package and from general Methodology delivery.
+3. Relocate those concrete project features to Project-owned delivery: Operations under `.caprmedio_caprmedio/09_operations`; helper tools under delivery root `PROJECT_TOOLS`, outside the reusable Engine. Preserve package/source identities and fail closed for an excluded or misplaced release feature.
+4. Seal and test the package candidate through the Local non-live preflight before the first product wipe; do not execute this Plan as a package build or installation.
 
 ### Definition of Done
 
-the Plan is **not** Done **if** the package needs the original checkout, captures Project runtime/private data, has competing package selectors, lacks required payload, **or** cannot be verified **and** selected safely.
+the Plan is **not** Done **if** a reusable compiler/installer capability leaves `TOOLS`, a project-specific release Operation/helper is packaged as general framework/Methodology content, package identity is incomplete, or portability requires the development checkout.
