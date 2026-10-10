@@ -1,5 +1,7 @@
 {
   "task": "CA-P-1984",
+  "source_commit": "d9dc7a79e5b00cff7da20002e9da93c7444ce89b",
+  "commit_note": "Concurrent release-chat commit included this Task's staged files before the root commit completed. Preserve that Git history; this receipt records the actual commit, not a second source revision.",
   "checks": "PASS: exact scope, metadata, role sections, Summary and Version rules; full cross-role acceptance remains CA-P-1981",
   "files": [
     {
