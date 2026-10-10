@@ -10,12 +10,12 @@ local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
-status: Active
+status: Done
 subjects:
   governs: Projection
   depends_on: [Entity, Term, Atom, Property, Carrier, Plan]
-version: 1
-updated_at: "2026-10-10 05:16:00 +0400"
+version: 2
+updated_at: "2026-10-10 05:25:37 +0400"
 relations:
   is_decomposition_of: [CA-P-1908]
 ---
@@ -40,6 +40,14 @@ Check all 706 exact original identities appear once in primary inventory; counts
 Exercise no-write reproduction and negative persistence guards in an isolated scratch area: late mismatch before any creation, symlink targets/parents, exclusive creation race, missing verification output and identical existing output. Preserve all accepted inputs and outputs. Write only `presentation/presentation.acceptance.md` and optionally `presentation/support/verify_candidate_presentation.py`, with exact hashes, checks and explicit limits. Any failed check goes back to the presentation owner; do not repair its outputs.
 
 Exclusive scope is the derived presentation and assigned verification files only. No Core, Subjects, baseline, history, native admission, runtime, MCP, FPF, Git, push or PR writes. Inherit the parent's 90% confidence threshold; preserve uncertainty and ask rather than inventing an answer. The latest Substance Scope omission rule is full governed Subject AND full owning Scope Unit; otherwise Scope stays explicit.
+
+### Completion receipt
+
+Independent presentation-only acceptance PASS is recorded in `presentation/presentation.acceptance.md`, SHA-256 `9d5c9d634f72f4fb5abd0fcc3273a755578302ea1ff689cdd3a0a41983c98905`; verifier SHA-256 `56e3805fe95cfb2af911362e2f3d3808bf5fb40d53d3eab49995adfb577c9767`. CA-P-1957 is Done and byte-identical to its receipt at commit `4b0468fab5b46e293ed4a9698b76fe47ad223c9b`.
+
+The final execution verified all 706 exact original identities and paths, exact 17/3/4/682 buckets, 584 retain/three consolidate/two generalize/117 question marks, both unresolved drops and all 123 blocked legacy labels. Five target/basis/risk summaries, seven conditional scopes, ten Term directions, nine accepted input pins, actual Done Plan blobs, all output hashes, canonical/file hash separation and both RMED references pass. Exact dry-run/read-only reproduction and 16 isolated guards pass; 18 watched files remain unchanged.
+
+This is presentation fidelity acceptance, not a new 951-source or semantic audit, Operator approval, ontology adoption or migration authorization. Only the assigned report and verifier were created. Candidate, Core, Subjects and historical outputs are unchanged by this verification.
 
 ### Definition of Done
 

@@ -9,12 +9,12 @@ claim_target_scope_unit: caprmedio
 local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
-status: Active
+status: Done
 subjects:
   governs: Projection
   depends_on: [Entity, Term, Atom, Property, Carrier, Plan]
-version: 8
-updated_at: "2026-10-10 05:18:56 +0400"
+version: 9
+updated_at: "2026-10-10 05:25:37 +0400"
 relations:
   is_decomposition_of: [CA-P-1872]
   blocks: [CA-P-1909]
@@ -53,14 +53,28 @@ Output: the accessible candidate graph and review package, handed to the Operato
 
 Exclusive scope: derived candidate outputs and their handoff evidence only. Do not implement a new graph frontend, modify Core Atoms or Subjects, overwrite the baseline, delete marked entities, rename YAML keys, activate a runtime, push or create a PR.
 
-Inherit CA-P-1872's explicit 90% confidence threshold and local-without-MCP authorization. Ask the Operator before deciding below that threshold; do not disguise uncertainty as an accepted fact. If the ready workload exceeds 15 minutes, split it into bounded direct child Plans before execution. These Tasks are created now; their work has not started.
+Inherit CA-P-1872's explicit 90% confidence threshold and local-without-MCP authorization. Ask the Operator before deciding below that threshold; do not disguise uncertainty as an accepted fact. Execution is bounded by the direct Tasks below. Candidate delivery is not acceptance.
 
 ### Bounded direct Tasks
 
 - [CA-P-1957](24-CA-P-1908-TASK--present-compact-entities-graph-candidate-for-operator-review/done/01-CA-P-1957-TASK--finish-the-captured-entity-graph-candidate-presentation.md): Finish the captured Entity graph candidate presentation; 15 minutes. Done with exact rendered hashes; accepted inputs remain fixed. Explicitly BLOCKS CA-P-1958.
-- [CA-P-1958](24-CA-P-1908-TASK--present-compact-entities-graph-candidate-for-operator-review/02-CA-P-1958-TASK--verify-the-captured-entity-graph-candidate-presentation.md): Verify the captured Entity graph candidate presentation; 15 minutes. Independently check the final artifacts, input pins, exact coverage, proposals, unresolved notation, receipt locators and no-overwrite guards. No source or candidate edits by this verifier.
+- [CA-P-1958](24-CA-P-1908-TASK--present-compact-entities-graph-candidate-for-operator-review/done/02-CA-P-1958-TASK--verify-the-captured-entity-graph-candidate-presentation.md): Verify the captured Entity graph candidate presentation; 15 minutes. Done after independent presentation-only acceptance. No source or candidate edits by this verifier.
 
-The parent stays Active until both direct Tasks are Done and the candidate is accessible for the Operator. This decomposition does not accept the candidate or open the Subject migration gate.
+Both direct Tasks are Done. This decomposition does not accept the candidate or open the Subject migration gate.
+
+### Completion and Operator handoff
+
+The [indented candidate](../../../../../_projection/core-entity-review/presentation/candidate.entities.indented.txt), [short review](../../../../../_projection/core-entity-review/presentation/candidate.review.md) and [independent acceptance](../../../../../_projection/core-entity-review/presentation/presentation.acceptance.md) are accessible for Operator review. The complete marked relation/disposition ledgers, exact source pins, RMED pointers and manifest are linked from the review. The app preview request is queued; accessibility does not depend on opening that tab.
+
+- Inventory SHA-256: `f32588f6f9bc97e2180578c051bfbc73f39a7e80b7273bdf6702f9309778ed56`.
+- Review SHA-256: `8b0d9c9ff3f940f3bfb4456aabda7b808060424a9910a194ff85a50073bcf975`.
+- Manifest SHA-256: `fb9deec859a5f828e648d94da9d7888c50175872a70b9711e6a9f6a734ec81ce`.
+- Canonical marked candidate JSON SHA-256: `0b26e7571ab4897f85e2b521255feb9f83e33c4f48ce86f02fd0a8f80c9303b1`.
+- Independent acceptance SHA-256: `9d5c9d634f72f4fb5abd0fcc3273a755578302ea1ff689cdd3a0a41983c98905`.
+
+The captured snapshot stays `a971d0e00c33c779f485fc8cad63194894d440fb`, including CA-D-494 revision 2. All 706 identities are preserved: 584 retain decisions, five proposals and 117 open questions. Seventeen Continuant, three Occurrent and four broad anchors are display-only; 682 identities remain explicitly unclassified. Legacy unresolved relations are visibly marked. Omitted Substance Scope means full governed Subject AND full owning Scope Unit.
+
+This Task delivers the candidate, not its acceptance or a new ontology. CA-P-1909 remains deferred until an explicit candidate-bound Operator decision. Core, Subjects and Step 1 are unchanged by this work; separate sealed migration authorization is still required.
 
 ### Definition of Done
 

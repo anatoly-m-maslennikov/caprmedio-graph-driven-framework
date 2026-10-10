@@ -25,8 +25,8 @@ subjects:
     - Action
     - Journal
     - Plan
-version: 16
-updated_at: "2026-10-10 05:01:55 +0400"
+version: 17
+updated_at: "2026-10-10 05:25:37 +0400"
 relations:
   is_decomposition_of:
     - CA-P-1110
@@ -50,7 +50,7 @@ The Operator replaced the immediate execution plan on 2026-10-09. Do these steps
 3. **Give the Operator the new graph candidate.** Present the grouped, inherited and visibly marked candidate in compact notation using `/`, `.`, `:` and `@`. Use NARROWER_THAN, IS_BORNE_BY, IS_ALLOWED_VALUE_OF and IS_CARRIED_BY with correct directions and qualified identities. Hand off its complete relation ledger, node dispositions, exact source pins and candidate hash. Preserve the baseline. Candidate delivery is not acceptance. Only after an explicit Operator decision tied to that candidate may CA-P-1909 apply accepted decisions to a separate derived graph and verify it.
 4. **Update Atom Subjects.** Only after explicit Operator acceptance and verification of the separate accepted graph may CA-P-1910 prepare the exact migration preview. CA-P-1911 may write the confirmed `/`, `.` and `:` notation and required grammar/revision changes only after separate Operator authorization of that sealed preview. CA-P-1912 then rebuilds and verifies reproduction of the accepted graph with its source-backed relation evidence. The display operator `@` is not automatically added to Subject grammar.
 
-Step **1 is complete**. Step **2 is in progress**: CA-P-1905 baseline review, CA-P-1906 design and CA-P-1907 whole-node disposition review are Done. The complete marked ledger and both RMED views passed independent verification against the Operator-selected captured snapshot. CA-P-1908 candidate presentation is ready. Steps 3–4 remain pending. Earlier classification drafts and migration code are preparation only, not accepted decisions or source updates. The approved compact graph notation is `/` for broader-to-narrower, `.` for bearer qualification, `:` for allowed values and `@` for IS_CARRIED_BY; step 1 does not apply it to old `/` occurrences. Exact `@` bindings identify the carried state and Carrier rather than assigning a Property value.
+Steps **1–2 are complete**. CA-P-1905 baseline review, CA-P-1906 design and CA-P-1907 whole-node disposition review are Done against the Operator-selected captured snapshot. CA-P-1908 candidate presentation is also Done after bounded production CA-P-1957 and independent verification CA-P-1958. Step 3 has delivered the candidate, but CA-P-1909 still requires the Operator's explicit decision before building a separate accepted graph. Step 4 remains pending. Earlier classification drafts and migration code are preparation only, not accepted decisions or source updates. The approved compact graph notation is `/` for broader-to-narrower, `.` for bearer qualification, `:` for allowed values and `@` for IS_CARRIED_BY; step 1 does not apply it to old `/` occurrences. Exact `@` bindings identify the carried state and Carrier rather than assigning a Property value.
 
 This sequence governs the immediate local work without MCP. A mechanical projection is not native semantic admission, a live MCP Run or completion of the whole Epic. The existing MCP delivery work remains separate and pending.
 
@@ -102,7 +102,7 @@ CA-P-1905–1908 refine steps 2–3 above. Their outputs remain proposals for Op
 
 ### Bounded candidate-design decomposition
 
-CA-P-1906 is now a composite with no separately executable own work. Eight ready review children cover six disjoint slash-case batches, grouping/inheritance and both RMED views. They require CA-P-1905 Done and explicitly BLOCK CA-P-1921. Integration then BLOCKS independent verification CA-P-1922. CA-P-1906 is now Done after every child and its Definition of Done were verified; CA-P-1907 and its bounded review children are ready. The existing candidate acceptance and sealed migration gates are unchanged.
+CA-P-1906 is a composite with no separately executable own work. Eight bounded review children cover six disjoint slash-case batches, grouping/inheritance and both RMED views. They require CA-P-1905 Done and explicitly BLOCK CA-P-1921. Integration then BLOCKS independent verification CA-P-1922. CA-P-1906 and CA-P-1907 are now Done after their children and Definitions of Done were verified. The existing candidate acceptance and sealed migration gates are unchanged.
 
 CA-P-1918's first bounded pass retained 16 reviewed display-only interpretations and 49 unreviewed checkpoint rows. Its remaining review was split into CA-P-1923–1926 (13/12/12/12 cases), followed by CA-P-1927's complete 65-case join. All five children and CA-P-1918 are now Done after independent verification. The complete original baseline and previous checkpoint remain preserved.
 
@@ -125,9 +125,10 @@ The derived decision record is `.caprmedio_caprmedio/_projection/core-entity-rev
 ### Current local execution evidence
 
 - CA-P-1905 is Done and placed in this Epic's local `done` container. Its fresh review and complete inventory are under `.caprmedio_caprmedio/_projection/core-entity-review/`.
-- The current Step 1 graph and all source/profile pins reproduce exactly. Independent inventory acceptance covers all 706 nodes, 360 edges, 4,534 occurrences and 3,093 source-level relation segments.
+- The preserved captured Step 1 graph and source/profile pins reproduce exactly. Independent inventory acceptance covers all 706 nodes, 360 edges, 4,534 occurrences and 3,093 source-level relation segments.
 - There are 346 syntactic qualification roots (53 branching and 293 standalone) and 74 repeated leaf-label groups. These are diagnostic counts, not independent ontology roots or accepted duplicates.
-- No candidate classification, source migration, native graph admission or MCP Run has been completed. The Epic remains Active.
+- CA-P-1908 is Done and its matching bundle is in `done/`. Its [candidate tree](../../../_projection/core-entity-review/presentation/candidate.entities.indented.txt) and [short review](../../../_projection/core-entity-review/presentation/candidate.review.md) passed [independent presentation acceptance](../../../_projection/core-entity-review/presentation/presentation.acceptance.md). The captured context remains `a971d0e00c33c779f485fc8cad63194894d440fb`; no live Core rebind occurred.
+- No Operator candidate acceptance, source migration, native graph admission or MCP Run has been completed. The Epic remains Active.
 
 ### Candidate acceptance and migration gates
 
@@ -240,7 +241,7 @@ Each leaf has one AI Agent Assignee and <=15 minutes of hands-on work. Composite
 | [CA-P-1905](01-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/done/21-CA-P-1905-TASK--review-current-entities-graph-from-active-core-meta-model.md) | Review current Entities Graph from Active Core Meta-model | Done |
 | [CA-P-1906](01-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/done/22-CA-P-1906-TASK--design-continuant-occurrent-groups-and-inherited-constraints.md) | Design Continuant Occurrent groups and inherited constraints | Child work only |
 | [CA-P-1907](01-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/done/23-CA-P-1907-TASK--mark-entity-drop-and-consolidation-candidates-without-deleting.md) | Mark Entity drop and consolidation candidates without deleting | Child work only |
-| [CA-P-1908](01-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/24-CA-P-1908-TASK--present-compact-entities-graph-candidate-for-operator-review.md) | Present compact Entities Graph candidate for Operator review | 15 min |
+| [CA-P-1908](01-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/done/24-CA-P-1908-TASK--present-compact-entities-graph-candidate-for-operator-review.md) | Present compact Entities Graph candidate for Operator review | Child work only |
 | [CA-P-1909](01-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/25-CA-P-1909-TASK--build-and-verify-the-accepted-core-entities-graph.md) | Build and verify the accepted Core Entities Graph | 15 min |
 | [CA-P-1910](01-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/26-CA-P-1910-TASK--prepare-the-accepted-core-subject-migration-preview.md) | Prepare the accepted Core Subject migration preview | 15 min |
 | [CA-P-1911](01-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/27-CA-P-1911-TASK--apply-the-approved-core-subject-migration.md) | Apply the approved Core Subject migration | 15 min |
