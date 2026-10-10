@@ -18,7 +18,8 @@ import stat
 import tempfile
 import tomllib
 from collections.abc import Mapping, Sequence
-from typing import Any
+from dataclasses import dataclass
+from typing import Any, TYPE_CHECKING
 
 from legacy_process_coverage import (
     LegacyBootstrapSourceProof,
@@ -28,6 +29,9 @@ from legacy_process_coverage import (
     PredecessorProof,
     validate_retained_coverage_rows,
 )
+
+if TYPE_CHECKING:
+    from installation_transaction import InstallationPublicationLock
 
 
 SCHEMA_VERSION = 1
@@ -52,6 +56,15 @@ class InstallationStateError(RuntimeError):
         self.code = code
         self.message = message
         super().__init__(f"{code}: {message}")
+
+
+@dataclass(frozen=True)
+class RetainedNativeQuiescence:
+    """One immutable D607v4 native-rootless quiescence carrier."""
+
+    path: Path
+    quiescence_sha256: str
+    safe: bool
 
 
 def canonical_json(value: object) -> str:
@@ -992,6 +1005,351 @@ def read_quiescence(
     return _validated_quiescence(checked, proof, predecessor_proof=predecessor_proof)
 
 
+_NATIVE_QUIESCENCE_ROOT = INSTALLATION_ROOT / "quiescence"
+_NATIVE_QUIESCENCE_SCHEMA = 2
+_NATIVE_QUIESCENCE_KIND = "native_process_coverage"
+
+
+def _native_lock(root: Path, lock: object) -> tuple[object, str, str]:
+    """Require the concrete, still-held installation lock for native D607."""
+
+    try:
+        from installation_transaction import InstallationPublicationLock
+    except ImportError as error:  # pragma: no cover - package routing failure.
+        raise InstallationStateError("native-quiescence-lock-invalid", "installation lock implementation is unavailable") from error
+    if not isinstance(lock, InstallationPublicationLock):
+        raise InstallationStateError("native-quiescence-lock-invalid", "native quiescence requires the concrete installation lock")
+    _lock_for(root, lock)
+    target = getattr(lock, "target_context_sha256", None)
+    generation = getattr(lock, "lock_generation", None)
+    if not _is_sha256(target):
+        raise InstallationStateError("native-quiescence-lock-invalid", "installation lock target context is invalid")
+    if not isinstance(generation, str) or not MIGRATION_ID.fullmatch(generation):
+        raise InstallationStateError("native-quiescence-lock-invalid", "installation lock generation is invalid")
+    return lock, target, generation
+
+
+def _native_quiescence_path(root: Path, generation: str, digest: str) -> Path:
+    if not _is_sha256(digest):
+        raise InstallationStateError("native-quiescence-invalid", "native quiescence digest is invalid")
+    return root / _NATIVE_QUIESCENCE_ROOT / generation / digest / "quiescence.toml"
+
+
+def _native_quiescence_directories(root: Path, generation: str, digest: str) -> None:
+    """Reopen every fixed D607v4 path segment without accepting aliases."""
+
+    for relative in (
+        Path(".caprmedio_runtime"),
+        INSTALLATION_ROOT,
+        _NATIVE_QUIESCENCE_ROOT,
+        _NATIVE_QUIESCENCE_ROOT / generation,
+        _NATIVE_QUIESCENCE_ROOT / generation / digest,
+    ):
+        _directory(root / relative, "native-quiescence-unavailable")
+
+
+def _native_quiescence_write_parent(root: Path, generation: str, digest: str) -> None:
+    """Reject an existing alias before immutable native-carrier reuse."""
+
+    for relative in (
+        Path(".caprmedio_runtime"),
+        INSTALLATION_ROOT,
+        _NATIVE_QUIESCENCE_ROOT,
+        _NATIVE_QUIESCENCE_ROOT / generation,
+        _NATIVE_QUIESCENCE_ROOT / generation / digest,
+    ):
+        path = root / relative
+        try:
+            path.lstat()
+        except FileNotFoundError:
+            continue
+        _directory(path, "native-quiescence-unsafe")
+
+
+def _native_quiescence_file(path: Path, code: str) -> None:
+    """D607 native carriers are always private regular files, including reuse."""
+
+    observed = _regular(path, code)
+    if stat.S_IMODE(observed.st_mode) != 0o600:
+        raise InstallationStateError(code, f"native quiescence carrier must have mode 0600: {path}")
+
+
+def _native_coverage_rows(
+    process_coverage: object,
+    *,
+    target_context_sha256: str,
+    predecessor_proof: NativeTargetContextProof,
+) -> tuple[dict[str, object], ...]:
+    if not isinstance(process_coverage, LegacyProcessCoverage):
+        raise InstallationStateError("native-quiescence-coverage-invalid", "native quiescence requires typed provider coverage")
+    try:
+        process_coverage.assert_binding(
+            target_context_sha256=target_context_sha256,
+            prior_target_context_sha256=predecessor_proof.prior_target_context_sha256,
+            prior_selector_sha256=predecessor_proof.execution_selector_sha256,
+            predecessor_proof=predecessor_proof,
+        )
+        rows = validate_retained_coverage_rows(
+            list(process_coverage.retained_rows()),
+            target_context_sha256=target_context_sha256,
+            prior_target_context_sha256=predecessor_proof.prior_target_context_sha256,
+            prior_selector_sha256=predecessor_proof.execution_selector_sha256,
+            predecessor_proof=predecessor_proof,
+        )
+    except LegacyProcessCoverageError as error:
+        raise InstallationStateError(error.code, str(error)) from error
+    return rows
+
+
+def _native_process_rows(
+    coverage: Sequence[Mapping[str, object]],
+    *,
+    predecessor_proof: NativeTargetContextProof,
+) -> list[dict[str, object]]:
+    """Derive only D607's existing identity/status/reason process rows."""
+
+    observations = _coverage_observations(coverage)
+    rows: list[dict[str, object]] = []
+    for identity, observation in sorted(observations.items()):
+        status, reason = _proof_status(
+            observation,
+            predecessor_proof.prior_target_context_sha256,
+            selector_sha256=predecessor_proof.execution_selector_sha256,
+        )
+        rows.append({"identity": identity, "status": status, "reason": reason})
+    return rows
+
+
+def _native_safe(coverage: Sequence[Mapping[str, object]], processes: Sequence[Mapping[str, object]]) -> bool:
+    return all(row.get("state") != "unknown" for row in coverage) and all(
+        row.get("status") == "proven-quiescent" for row in processes
+    )
+
+
+def _native_quiescence_body(
+    *,
+    target_context_sha256: str,
+    predecessor_proof: NativeTargetContextProof,
+    installation_lock_generation: str,
+    safe: bool,
+    revalidation_error_code: str,
+    provider_coverage: Sequence[Mapping[str, object]],
+    processes: Sequence[Mapping[str, object]],
+) -> dict[str, object]:
+    return {
+        "schema_version": _NATIVE_QUIESCENCE_SCHEMA,
+        "kind": _NATIVE_QUIESCENCE_KIND,
+        "target_context_sha256": target_context_sha256,
+        "prior_target_context_sha256": predecessor_proof.prior_target_context_sha256,
+        "prior_selector_sha256": predecessor_proof.execution_selector_sha256,
+        "installation_lock_generation": installation_lock_generation,
+        "safe": safe,
+        "revalidation_error_code": revalidation_error_code,
+        "provider_coverage": [dict(row) for row in provider_coverage],
+        "processes": [dict(row) for row in processes],
+    }
+
+
+def _validated_native_quiescence(
+    document: Mapping[str, object],
+    *,
+    target_context_sha256: str,
+    predecessor_proof: NativeTargetContextProof,
+    installation_lock_generation: str,
+) -> dict[str, object]:
+    expected_keys = {
+        "schema_version", "kind", "target_context_sha256", "prior_target_context_sha256", "prior_selector_sha256",
+        "installation_lock_generation", "safe", "revalidation_error_code", "quiescence_sha256",
+        "provider_coverage", "processes",
+    }
+    checked = dict(document)
+    if set(checked) != expected_keys:
+        raise InstallationStateError("native-quiescence-invalid", "native quiescence carrier has an invalid closed shape")
+    if (
+        type(checked.get("schema_version")) is not int
+        or checked.get("schema_version") != _NATIVE_QUIESCENCE_SCHEMA
+        or checked.get("kind") != _NATIVE_QUIESCENCE_KIND
+        or checked.get("target_context_sha256") != target_context_sha256
+        or checked.get("prior_target_context_sha256") != predecessor_proof.prior_target_context_sha256
+        or checked.get("prior_selector_sha256") != predecessor_proof.execution_selector_sha256
+        or checked.get("installation_lock_generation") != installation_lock_generation
+        or not isinstance(checked.get("safe"), bool)
+        or not isinstance(checked.get("revalidation_error_code"), str)
+        or "\n" in str(checked.get("revalidation_error_code"))
+        or "\r" in str(checked.get("revalidation_error_code"))
+        or "\x00" in str(checked.get("revalidation_error_code"))
+        or not isinstance(checked.get("provider_coverage"), list)
+        or not isinstance(checked.get("processes"), list)
+        or not _is_sha256(checked.get("quiescence_sha256"))
+    ):
+        raise InstallationStateError("native-quiescence-invalid", "native quiescence carrier is not bound to this replacement")
+    try:
+        coverage = validate_retained_coverage_rows(
+            checked["provider_coverage"],
+            target_context_sha256=target_context_sha256,
+            prior_target_context_sha256=predecessor_proof.prior_target_context_sha256,
+            prior_selector_sha256=predecessor_proof.execution_selector_sha256,
+            predecessor_proof=predecessor_proof,
+        )
+    except LegacyProcessCoverageError as error:
+        raise InstallationStateError(error.code, str(error)) from error
+    processes = checked["processes"]
+    if any(not isinstance(row, Mapping) for row in processes):
+        raise InstallationStateError("native-quiescence-invalid", "native quiescence process rows are invalid")
+    expected_processes = _native_process_rows(coverage, predecessor_proof=predecessor_proof)
+    materialized_processes = [dict(row) for row in processes if isinstance(row, Mapping)]
+    if materialized_processes != expected_processes:
+        raise InstallationStateError("native-quiescence-invalid", "native quiescence process decisions differ from retained coverage")
+    expected_safe = _native_safe(coverage, expected_processes)
+    error_code = str(checked["revalidation_error_code"])
+    if bool(checked["safe"]) != (False if error_code else expected_safe):
+        raise InstallationStateError("native-quiescence-invalid", "native quiescence safety differs from retained evidence")
+    body = _native_quiescence_body(
+        target_context_sha256=target_context_sha256,
+        predecessor_proof=predecessor_proof,
+        installation_lock_generation=installation_lock_generation,
+        safe=bool(checked["safe"]),
+        revalidation_error_code=error_code,
+        provider_coverage=coverage,
+        processes=expected_processes,
+    )
+    digest = _digest(body)
+    if checked["quiescence_sha256"] != digest:
+        raise InstallationStateError("native-quiescence-tampered", "native quiescence digest differs")
+    checked["provider_coverage"] = [dict(row) for row in coverage]
+    checked["processes"] = expected_processes
+    return checked
+
+
+def retain_native_quiescence(
+    project_root: Path | str,
+    *,
+    process_coverage: LegacyProcessCoverage,
+    predecessor_proof: NativeTargetContextProof,
+    lock: "InstallationPublicationLock",
+) -> RetainedNativeQuiescence:
+    """Persist native-rootless D607 evidence from still-held provider fences.
+
+    This branch neither fabricates a D605 inventory nor acts on any process.
+    A failed physical revalidation is retained as unsafe evidence, preserving
+    its original frozen query rows for explicit recovery rather than retry.
+    """
+
+    root = _project_root(project_root)
+    _concrete_lock, target_context_sha256, generation = _native_lock(root, lock)
+    if not isinstance(predecessor_proof, NativeTargetContextProof):
+        raise InstallationStateError("native-quiescence-proof-invalid", "native quiescence requires typed native predecessor proof")
+    coverage = _native_coverage_rows(
+        process_coverage,
+        target_context_sha256=target_context_sha256,
+        predecessor_proof=predecessor_proof,
+    )
+    try:
+        process_coverage.revalidate()
+        revalidation_error_code = ""
+    except LegacyProcessCoverageError as error:
+        revalidation_error_code = error.code
+    processes = _native_process_rows(coverage, predecessor_proof=predecessor_proof)
+    safe = False if revalidation_error_code else _native_safe(coverage, processes)
+    body = _native_quiescence_body(
+        target_context_sha256=target_context_sha256,
+        predecessor_proof=predecessor_proof,
+        installation_lock_generation=generation,
+        safe=safe,
+        revalidation_error_code=revalidation_error_code,
+        provider_coverage=coverage,
+        processes=processes,
+    )
+    digest = _digest(body)
+    document = {**body, "quiescence_sha256": digest}
+    checked = _validated_native_quiescence(
+        document,
+        target_context_sha256=target_context_sha256,
+        predecessor_proof=predecessor_proof,
+        installation_lock_generation=generation,
+    )
+    path = _native_quiescence_path(root, generation, digest)
+    _native_quiescence_write_parent(root, generation, digest)
+    if path.exists() or path.is_symlink():
+        _native_quiescence_file(path, "native-quiescence-unsafe")
+    carrier_scalars: dict[str, object] = {
+        key: checked[key] for key in (
+            "schema_version", "kind", "target_context_sha256", "prior_target_context_sha256",
+            "prior_selector_sha256", "installation_lock_generation", "safe", "revalidation_error_code",
+            "quiescence_sha256",
+        )
+    }
+    carrier_tables: dict[str, list[dict[str, object]]] = {
+        "provider_coverage": [
+            dict(row) for row in checked["provider_coverage"] if isinstance(row, Mapping)
+        ],
+    }
+    process_rows = [dict(row) for row in checked["processes"] if isinstance(row, Mapping)]
+    if process_rows:
+        carrier_tables["processes"] = process_rows
+    else:
+        # TOML has no array-of-tables spelling for an empty collection.  D607's
+        # closed shape nonetheless requires ``processes`` to be present.
+        carrier_scalars["processes"] = []
+    _write_immutable(
+        path,
+        _render_toml(carrier_scalars, carrier_tables),
+        mode=0o600,
+    )
+    _native_quiescence_file(path, "native-quiescence-unsafe")
+    _lock_for(root, lock)
+    return RetainedNativeQuiescence(path=path, quiescence_sha256=digest, safe=safe)
+
+
+def read_native_quiescence(
+    project_root: Path | str,
+    retained: RetainedNativeQuiescence,
+    *,
+    process_coverage: LegacyProcessCoverage,
+    predecessor_proof: NativeTargetContextProof,
+    lock: "InstallationPublicationLock",
+) -> RetainedNativeQuiescence:
+    """Reopen a native D607 carrier and its still-held provider coverage."""
+
+    root = _project_root(project_root)
+    _concrete_lock, target_context_sha256, generation = _native_lock(root, lock)
+    if not isinstance(retained, RetainedNativeQuiescence):
+        raise InstallationStateError("native-quiescence-invalid", "native quiescence requires a typed retained carrier")
+    if not isinstance(predecessor_proof, NativeTargetContextProof):
+        raise InstallationStateError("native-quiescence-proof-invalid", "native quiescence requires typed native predecessor proof")
+    path = _native_quiescence_path(root, generation, retained.quiescence_sha256)
+    if retained.path != path:
+        raise InstallationStateError("native-quiescence-path-invalid", "retained native quiescence path is not canonical")
+    _native_quiescence_directories(root, generation, retained.quiescence_sha256)
+    _native_quiescence_file(path, "native-quiescence-unavailable")
+    document = _read_toml(path, "native-quiescence-unavailable")
+    checked = _validated_native_quiescence(
+        document,
+        target_context_sha256=target_context_sha256,
+        predecessor_proof=predecessor_proof,
+        installation_lock_generation=generation,
+    )
+    if retained.safe != checked["safe"]:
+        raise InstallationStateError("native-quiescence-stale", "typed native quiescence safety differs from retained bytes")
+    coverage = _native_coverage_rows(
+        process_coverage,
+        target_context_sha256=target_context_sha256,
+        predecessor_proof=predecessor_proof,
+    )
+    try:
+        process_coverage.revalidate()
+    except LegacyProcessCoverageError as error:
+        raise InstallationStateError(error.code, str(error)) from error
+    if tuple(coverage) != tuple(checked["provider_coverage"]):
+        raise InstallationStateError("native-quiescence-coverage-changed", "provider coverage changed after retention")
+    if checked["revalidation_error_code"]:
+        raise InstallationStateError(
+            str(checked["revalidation_error_code"]), "retained native quiescence recorded a failed provider revalidation"
+        )
+    _lock_for(root, lock)
+    return RetainedNativeQuiescence(path=path, quiescence_sha256=retained.quiescence_sha256, safe=bool(checked["safe"]))
+
+
 def _write_immutable(path: Path, content: str, *, mode: int = 0o600) -> None:
     """Create one evidence carrier once; a differing rewrite is never a retry."""
 
@@ -1415,6 +1773,7 @@ __all__ = [
     "LEGACY_INSTALLATION_ROOT",
     "LEGACY_SELECTOR",
     "OWNED_LEGACY_ROOTS",
+    "RetainedNativeQuiescence",
     "RUNTIME_SELECTOR",
     "SCHEMA_VERSION",
     "InstallationStateError",
@@ -1425,12 +1784,14 @@ __all__ = [
     "migration_directory",
     "prove_quiescence",
     "read_inventory",
+    "read_native_quiescence",
     "sha256_bytes",
     "stage_legacy_copy",
     "switch_runtime_selector",
     "verify_inventory",
     "verify_staged_copy",
     "write_inventory",
+    "retain_native_quiescence",
     "write_generation_process_proof",
     "write_quiescence",
     "write_transaction_status",
