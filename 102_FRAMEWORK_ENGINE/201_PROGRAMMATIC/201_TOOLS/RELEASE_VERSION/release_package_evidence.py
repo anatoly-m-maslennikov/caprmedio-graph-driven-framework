@@ -40,6 +40,7 @@ _PORTABLE_RESOURCE_ROLE = {
     "DEFAULT": "default",
     "METHODOLOGY": "methodology",
     "METHODOLOGY_SUPPORT": "methodology-support",
+    "BINDING_PROJECTION": "binding-projection",
 }
 
 

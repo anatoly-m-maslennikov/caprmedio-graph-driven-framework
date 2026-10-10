@@ -18,6 +18,10 @@ for path in (RELEASE_ROOT, TEST_ROOT):
 
 from portable_package_fixture import PortablePackageFixture  # noqa: E402
 from release_portable_package import prepare_portable_release_package  # noqa: E402
+from release_retained_package import (  # noqa: E402
+    read_retained_native_package_evidence,
+    retain_native_package_evidence,
+)
 from framework_package import assemble_framework_package  # noqa: E402
 from release_handoff import (  # noqa: E402
     CompilerSuccessEvidence,
@@ -47,6 +51,7 @@ _ROLE_BY_RESOURCE = {
     "DEFAULT": "default",
     "METHODOLOGY": "methodology",
     "METHODOLOGY_SUPPORT": "methodology-support",
+    "BINDING_PROJECTION": "binding-projection",
 }
 
 
@@ -57,6 +62,25 @@ def _test_member(name: str) -> bytes:
 def _fixture() -> PortablePackageFixture:
     members = {path: _test_member(path) for path in (*CANDIDATE_E2E_MODULES, UNIT_MODULE)}
     return PortablePackageFixture(extra_engine_members=members)
+
+
+class _BindingPortablePackageFixture(PortablePackageFixture):
+    """A physical candidate source with one exporter-frozen Delivery binding."""
+
+    def _seed_project(self, extra_engine_members: dict[str, bytes]) -> None:
+        super()._seed_project(extra_engine_members)
+        self.binding_source = self.write(
+            ".caprmedio_caprmedio/07_delivery/CA-D-901--binding.md",
+            b"---\natom_id: CA-D-901\nstatus: Active\ncontent_role: Delivery\n"
+            b"version: 1\nupdated_at: 2026-10-10 00:00:00 +0000\nrelations: {}\n---\n"
+            b"# CA-D-901\n\n```toml\n[tool_binding]\n"
+            b'entrypoint = "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/tool.py"\n```\n',
+        )
+
+
+def _binding_fixture() -> _BindingPortablePackageFixture:
+    members = {path: _test_member(path) for path in (*CANDIDATE_E2E_MODULES, UNIT_MODULE)}
+    return _BindingPortablePackageFixture(extra_engine_members=members)
 
 
 def _legacy_fixture(root: Path):
@@ -144,6 +168,44 @@ class PackageEvidenceAdapterTests(unittest.TestCase):
         self.assertFalse(hasattr(view, "passed"))
         self.assertFalse(hasattr(view, "outcome"))
 
+    def test_portable_binding_frontier_reopens_in_view_and_retained_proof(self) -> None:
+        fixture = _binding_fixture()
+        self.addCleanup(fixture.cleanup)
+        prepared = prepare_portable_release_package(fixture.root, fixture.sealed)
+
+        view = bind_package_evidence(fixture.candidate, fixture.sealed, prepared_package=prepared)
+        self.assertTrue(fixture.source_snapshot.binding_atoms)
+        self.assertEqual(fixture.source_snapshot.binding_atoms, fixture.sealed.binding_atoms)
+        self.assertTrue(prepared.package.binding_atoms)
+        self.assertEqual(
+            tuple(atom.record() for atom in fixture.sealed.binding_atoms),
+            tuple(atom.record() for atom in prepared.package.binding_atoms),
+        )
+        expected_projection_paths = {
+            f"methodology/bindings/{atom.source_path}"
+            for atom in fixture.sealed.binding_atoms
+        }
+        binding_members = tuple(member for member in view.member_inventory if member.role == "binding-projection")
+        self.assertEqual(expected_projection_paths, {member.path for member in binding_members})
+        self.assertEqual(
+            tuple(sorted(CANDIDATE_E2E_MODULES)),
+            view.phase_map.candidate_e2e_paths,
+        )
+        self.assertNotIn(
+            fixture.sealed.binding_atoms[0].source_path,
+            {path for path, _digest, _phase in view.phase_map.rows},
+        )
+
+        retained = retain_native_package_evidence(fixture.candidate, fixture.sealed, prepared)
+        reopened = read_retained_native_package_evidence(
+            retained.view.package_root,
+            retained.receipt_path,
+            expected_sha256=retained.receipt_sha256,
+        )
+        self.assertEqual(view, retained.view)
+        self.assertEqual(retained, reopened)
+        self.assertEqual(binding_members, tuple(member for member in reopened.view.member_inventory if member.role == "binding-projection"))
+
     def test_supplied_view_is_rebound_before_acceptance(self) -> None:
         fixture = _fixture()
         prepared = prepare_portable_release_package(fixture.root, fixture.sealed)
@@ -184,7 +246,7 @@ class PackageEvidenceAdapterTests(unittest.TestCase):
     def test_portable_source_or_package_drift_refuses_reopen(self) -> None:
         fixture = _fixture()
         prepared = prepare_portable_release_package(fixture.root, fixture.sealed)
-        (fixture.root / "defaults/runtime.toml").write_bytes(b"[runtime]\nprofile = 'drifted'\n")
+        (fixture.root / "defaults/runtime-config.toml").write_bytes(b"[runtime]\nprofile = 'drifted'\n")
 
         with self.assertRaises(ReleaseContractError) as source_drift:
             bind_package_evidence(fixture.candidate, fixture.sealed, prepared_package=prepared)
@@ -192,7 +254,7 @@ class PackageEvidenceAdapterTests(unittest.TestCase):
 
         package_fixture = _fixture()
         package_prepared = prepare_portable_release_package(package_fixture.root, package_fixture.sealed)
-        (package_prepared.package.root / "defaults/runtime.toml").write_bytes(b"[runtime]\nprofile = 'drifted'\n")
+        (package_prepared.package.root / "defaults/runtime-config.toml").write_bytes(b"[runtime]\nprofile = 'drifted'\n")
         with self.assertRaises(PackageEvidenceError) as package_drift:
             bind_package_evidence(package_fixture.candidate, package_fixture.sealed, prepared_package=package_prepared)
         self.assertIn(
