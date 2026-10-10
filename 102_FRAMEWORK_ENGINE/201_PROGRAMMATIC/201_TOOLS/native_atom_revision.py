@@ -13,11 +13,14 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Sequence
 
-SCRIPT_PATH = Path(__file__).resolve()
-REPOSITORY_ROOT = next(parent for parent in SCRIPT_PATH.parents if (parent / ".git").exists())
-sys.pycache_prefix = str(REPOSITORY_ROOT / ".caprmedio_tmp/cache/python")
+TOOLS_ROOT = Path(__file__).resolve().parent
+if str(TOOLS_ROOT) not in sys.path:
+    sys.path.insert(0, str(TOOLS_ROOT))
 
 from artifact_metadata import repository_root
+from project_selection import active_selection
+from VALIDATE_ATOMS.validate_atoms_workers.read_io import ReadContext
+from VALIDATE_ATOMS.validate_atoms_workers.settings import CEILINGS
 from work_journal import append_record, configured_journal_root, event_record
 
 
@@ -34,27 +37,43 @@ class NativeAtom:
 
 
 LEGACY_FRAMEWORK_IDENTITY = "CAPR" + "MADIO"
+FRAMEWORK_SETTINGS_RELATIVE = Path("000_CAPRMEDIO_framework/caprmedio_framework_settings.toml")
 
 
 NATIVE_ATOMS = {
     "framework-settings": NativeAtom(
         artifact_id="CAPRMEDIO-FRAMEWORK-SETTINGS",
-        address=Path("caprmedio_framework_settings.toml"),
+        address=FRAMEWORK_SETTINGS_RELATIVE,
         operation="register_framework_settings_revision",
         legacy_artifact_ids=(f"{LEGACY_FRAMEWORK_IDENTITY}-FRAMEWORK-SETTINGS",),
         legacy_addresses=(
+            # These names remain admissible only for historic Journal records.
+            # They must never select the current Framework Settings carrier.
+            Path("caprmedio_framework_settings.toml"),
             Path(f"{LEGACY_FRAMEWORK_IDENTITY.lower()}_framework_settings.toml"),
         ),
     ),
 }
 
 
+def carrier_address(root: Path, atom: NativeAtom) -> Path:
+    """Return an Atom's current address in this explicitly selected Project."""
+    if atom is not NATIVE_ATOMS["framework-settings"]:
+        return atom.address
+    selection = active_selection(root)
+    return selection.control_relative / atom.address
+
+
 def carrier_digest(root: Path, atom: NativeAtom) -> str:
-    return hashlib.sha256((root / atom.address).read_bytes()).hexdigest()
+    selection = active_selection(root)
+    reader = ReadContext(roots=[str(selection.root)], limits=dict(CEILINGS))
+    raw = reader.read(selection.root / carrier_address(selection.root, atom))
+    return hashlib.sha256(raw).hexdigest()
 
 
 def revision_records(root: Path, atom: NativeAtom) -> list[dict[str, Any]]:
     records: list[dict[str, Any]] = []
+    current_address = carrier_address(root, atom)
     for path in sorted((root / configured_journal_root(root)).glob("src-work-journal-*.ndjson")):
         for line_number, line in enumerate(path.read_text(encoding="utf-8").splitlines(), 1):
             if not line:
@@ -68,7 +87,7 @@ def revision_records(root: Path, atom: NativeAtom) -> list[dict[str, Any]]:
             if record.get("event") not in {"completed", "recovered"}:
                 continue
             accepted_ids = {atom.artifact_id, *atom.legacy_artifact_ids}
-            accepted_addresses = {atom.address.as_posix(), *(path.as_posix() for path in atom.legacy_addresses)}
+            accepted_addresses = {current_address.as_posix(), *(path.as_posix() for path in atom.legacy_addresses)}
             subjects = record.get("governed_subjects")
             outputs = record.get("produced_outputs")
             if not isinstance(subjects, list) or len(subjects) != 1 or subjects[0] not in accepted_ids:
@@ -120,7 +139,7 @@ def register(root: Path, key: str, session_id: str, apply: bool) -> tuple[str, b
         operation=atom.operation,
         session_id=session_id,
         subjects=[atom.artifact_id],
-        outputs=[atom.address.as_posix()],
+        outputs=[carrier_address(root, atom).as_posix()],
         preceding_event=None,
         details={"version": str(version), "sha256": digest},
     )
