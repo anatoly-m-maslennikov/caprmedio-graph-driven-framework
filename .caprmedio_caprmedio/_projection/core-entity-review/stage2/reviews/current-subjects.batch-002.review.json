@@ -1,0 +1,2407 @@
+{
+  "schema_version": 1,
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "task_id": "CA-P-1993",
+  "batch_id": "current-subjects.batch-002",
+  "input_batch_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-002.json",
+  "input_batch_sha256": "2350ff572fda2a58754607a559ae43c4758a948314a754cfa68c926df8369782",
+  "input_inventory_sha256": "e284dbe4943568bc75b7f9ba63ebf583372a60813e62eee3d43b5b75b270220a",
+  "evidence_pins": {
+    "frozen_candidate": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/presentation/operator.entity-graph.candidate.json",
+      "sha256": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b"
+    },
+    "consolidated_review": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/consolidated/nodes.review.json",
+      "sha256": "e4cb9c76b441c13115e87e141890a9dab58634a7a62fb1b3bc32168dbac261f6",
+      "git_commit": "a971d0e00c33c779f485fc8cad63194894d440fb"
+    },
+    "current_subjects_contract": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.contract.md",
+      "sha256": "5eb0d90022b68a7d1d2cd27cf60a147deaf4161cb9b2e1c8bdf6c4ef8f2a10bf"
+    },
+    "current_subjects_review_contract": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.review.contract.md",
+      "sha256": "b7c9c065f997d5bae1409f5c09b4223d08327a523decab6d26c2e4425fd2c28b"
+    }
+  },
+  "source_reviews": [
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1037-CORE_META_MODEL-GENERAL--define-lineage-impact-analysis-content.md",
+      "full_file_sha256": "2393ce992f801088b0c2a70a5ce4bfb49587bf933195382032ef987adac73a2b",
+      "atom_id": "CA-R-1037",
+      "version": 14,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": [
+        "Targeted mapping research is required for 'atom-boundary'; the candidate does not establish a safe replacement from this source's current meaning.",
+        "Targeted mapping research is required for 'relation-model'; the candidate does not establish a safe replacement from this source's current meaning."
+      ]
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1038-CORE_META_MODEL--permit-multiple-child-rows-in-one-lineage-impact-analysis.md",
+      "full_file_sha256": "0712ffaa62550c0feed6ccbaa322f9e6193180e0e2020e8869dba28df6614d1a",
+      "atom_id": "CA-R-1038",
+      "version": 14,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": [
+        "Targeted mapping research is required for 'atom-boundary'; the candidate does not establish a safe replacement from this source's current meaning.",
+        "Targeted mapping research is required for 'relation-model'; the candidate does not establish a safe replacement from this source's current meaning."
+      ]
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1039-CORE_META_MODEL-CORE--preserve-authority-outside-lineage-impact-analysis.md",
+      "full_file_sha256": "4d2896e50ad0898f7c48fc07340f006562833129c38f48531b997e506200c58d",
+      "atom_id": "CA-R-1039",
+      "version": 14,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": [
+        "Targeted mapping research is required for 'atom-boundary'; the candidate does not establish a safe replacement from this source's current meaning.",
+        "Targeted mapping research is required for 'relation-model'; the candidate does not establish a safe replacement from this source's current meaning."
+      ]
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1040-CORE_META_MODEL-CORE--reject-authored-inverse-relations.md",
+      "full_file_sha256": "f713bc002eeaa0832f852337bbcc59e3640d389b376a7951aa140deadf574a44",
+      "atom_id": "CA-R-1040",
+      "version": 16,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": [
+        "Targeted mapping research is required for 'atom-boundary'; the candidate does not establish a safe replacement from this source's current meaning.",
+        "Targeted mapping research is required for 'relation-model'; the candidate does not establish a safe replacement from this source's current meaning."
+      ]
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1044-CORE_META_MODEL-CORE-REQUIREMENT--define-autonomous-confidence-threshold.md",
+      "full_file_sha256": "50f83d3f12961961999d3f7d9ff7cc61cd8bbc58c6b6b198d3cf138d21969422",
+      "atom_id": "CA-R-1044",
+      "version": 15,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1045-CORE_META_MODEL-GENERAL-REQUIREMENT--restrict-autonomous-confidence-threshold-values.md",
+      "full_file_sha256": "37e8c0609ebf108d53b1e5bb586abaec260d182c2e51809a5c3fd66783497dab",
+      "atom_id": "CA-R-1045",
+      "version": 12,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1051-CORE_META_MODEL-CORE-REQUIREMENT--separate-active-authority-from-preserved-history.md",
+      "full_file_sha256": "a4c244028f192490510db4640291a54c23307eed2dbd5a6ba3a2f8d734da6da5",
+      "atom_id": "CA-R-1051",
+      "version": 21,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": [
+        "Targeted mapping research is required for 'lifecycle-traceability'; the candidate does not establish a safe replacement from this source's current meaning."
+      ]
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1052-CORE_META_MODEL-CORE-REQUIREMENT--separate-project-settings-from-the-project-scope-unit-graph.md",
+      "full_file_sha256": "72a4cdf281f42c5be6bbd12801c4f44e530e088e5c760a300e2a52b656217640",
+      "atom_id": "CA-R-1052",
+      "version": 21,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1078-CORE_META_MODEL-CORE-REQUIREMENT--give-every-atom-revision-one-author.md",
+      "full_file_sha256": "8d39e244c674e496625f8c816533de343f88e7fc62bcd4ad441b0270ceec4cff",
+      "atom_id": "CA-R-1078",
+      "version": 15,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": [
+        "Targeted mapping research is required for 'Atom/Revision/Author'; the candidate does not establish a safe replacement from this source's current meaning."
+      ]
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1080-CORE_META_MODEL-GENERAL-REQUIREMENT--default-atom-revision-author-to-the-operator.md",
+      "full_file_sha256": "5dc53dbaddaa3063759348cd490fbc82379378f2b3d78cf64302f4b4e1f97ed1",
+      "atom_id": "CA-R-1080",
+      "version": 14,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": [
+        "Targeted mapping research is required for 'Atom/Revision/Author'; the candidate does not establish a safe replacement from this source's current meaning."
+      ]
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-117-CORE_META_MODEL-CORE--store-each-semantic-relation-once.md",
+      "full_file_sha256": "36ede2f585db21365cf9215b5fa0903c65a2cb6769d2fba73b0077813c79af37",
+      "atom_id": "CA-R-117",
+      "version": 17,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": [
+        "Targeted mapping research is required for 'atom-boundary'; the candidate does not establish a safe replacement from this source's current meaning.",
+        "Targeted mapping research is required for 'relation-model'; the candidate does not establish a safe replacement from this source's current meaning.",
+        "Targeted mapping research is required for 'semantics'; the candidate does not establish a safe replacement from this source's current meaning."
+      ]
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-118-CORE_META_MODEL-CORE--let-the-dependent-atom-own-the-relation.md",
+      "full_file_sha256": "7d32d213810e006d8b8c9e8a029ef6508b7038f529683a594fdf89322a1db651",
+      "atom_id": "CA-R-118",
+      "version": 20,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": [
+        "Targeted mapping research is required for 'artifact-model'; the candidate does not establish a safe replacement from this source's current meaning.",
+        "Targeted mapping research is required for 'atom-boundary'; the candidate does not establish a safe replacement from this source's current meaning.",
+        "Targeted mapping research is required for 'relation-model'; the candidate does not establish a safe replacement from this source's current meaning."
+      ]
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1191-CORE_META_MODEL-CORE-REQUIREMENT--define-primary-entity.md",
+      "full_file_sha256": "52b71abb1b3df787ec3e4394bc5f61c367a4f0da58f5d01fd5ce22ba22e9ff31",
+      "atom_id": "CA-R-1191",
+      "version": 13,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": [
+        "Targeted mapping research is required for 'Primary Entity'; the candidate does not establish a safe replacement from this source's current meaning."
+      ]
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1192-CORE_META_MODEL-CORE-REQUIREMENT--define-dependent-entity.md",
+      "full_file_sha256": "80ef872660ac55977945a7a51c08c0623b7da8221ceee39257bc9a4365c72d30",
+      "atom_id": "CA-R-1192",
+      "version": 12,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1193-CORE_META_MODEL-CORE-REQUIREMENT--define-property.md",
+      "full_file_sha256": "600bc4f919796701478b51b0bc4abea383c89cc8b9929959aa937c288db7c522",
+      "atom_id": "CA-R-1193",
+      "version": 11,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": [
+        "Targeted mapping research is required for 'Property'; the candidate does not establish a safe replacement from this source's current meaning."
+      ]
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1194-CORE_META_MODEL-CORE-REQUIREMENT--define-subject-path.md",
+      "full_file_sha256": "159ff72818c390f6d126c543587ebb8de49d5d5ae53cfc0e437df25d25e3c30e",
+      "atom_id": "CA-R-1194",
+      "version": 14,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1198-CORE_META_MODEL-CORE-REQUIREMENT--define-atom-subjects.md",
+      "full_file_sha256": "6eb2f68642b09eb05e1c6ece6b2dd92d309b92445fcea3e0b37f4b485576365b",
+      "atom_id": "CA-R-1198",
+      "version": 13,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": [
+        "Targeted mapping research is required for 'Property'; the candidate does not establish a safe replacement from this source's current meaning."
+      ]
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1199-CORE_META_MODEL-CORE-REQUIREMENT--define-governs-subject-relation-kind.md",
+      "full_file_sha256": "1eb27ffbeb24d9ba35e39bfb6e6207214260867b6fb0687b1952ba70a7defd30",
+      "atom_id": "CA-R-1199",
+      "version": 13,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1200-CORE_META_MODEL-CORE-REQUIREMENT--define-depends-on-subject-relation-kind.md",
+      "full_file_sha256": "baa339768dcb5ef82ea6ce07c2020b934f787e552fc3e08a37dbc85c0021aa1f",
+      "atom_id": "CA-R-1200",
+      "version": 16,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1201-CORE_META_MODEL-CORE-REQUIREMENT--require-one-governed-subject-on-every-atom.md",
+      "full_file_sha256": "d56b4f7ba89613ab5247e72ec6aadf873b310463731b9269e80a498b2b8408d6",
+      "atom_id": "CA-R-1201",
+      "version": 12,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    }
+  ],
+  "occurrences": [
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1037-CORE_META_MODEL-GENERAL--define-lineage-impact-analysis-content.md#subjects.depends_on[0]",
+      "old_value": "atom-boundary",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1037",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1037-CORE_META_MODEL-GENERAL--define-lineage-impact-analysis-content.md",
+      "source_sha256": "2393ce992f801088b0c2a70a5ce4bfb49587bf933195382032ef987adac73a2b",
+      "source_version": 14,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "Current Main Content says: a Lineage Impact Analysis Atom **must** identify the changed Atom **and** exact previous **and** new Revisions, change class **and** basis, responsible Operator **and** session provenance, expected impact radius, **every** examined child Revision **and** disposition with its basis, **every** resulting Revision, successor, **or** blocking Concern Atom, **every** recursive branch result, **and** the overall fixed-point conclusion. It establishes the current requirement context but not a positive candidate identity for 'atom-boundary'. The frozen review records a source-gap, so no replacement is invented.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1037-CORE_META_MODEL-GENERAL--define-lineage-impact-analysis-content.md",
+          "sha256": "2393ce992f801088b0c2a70a5ce4bfb49587bf933195382032ef987adac73a2b",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "e202e443813458ea32d2a0ea6d53453d7ee37929e5bdd92a2ab81cc8ab85eca5",
+          "reason": "The complete current Main Content supplies the live Scope and Claim context for this exact Subject occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact legacy identity and every current qualification remain preserved pending targeted mapping research.",
+        "No candidate root, owner, field, relation catalogue, or Subject grammar is inferred from display notation."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1037-CORE_META_MODEL-GENERAL--define-lineage-impact-analysis-content.md#subjects.depends_on[1]",
+      "old_value": "relation-model",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1037",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1037-CORE_META_MODEL-GENERAL--define-lineage-impact-analysis-content.md",
+      "source_sha256": "2393ce992f801088b0c2a70a5ce4bfb49587bf933195382032ef987adac73a2b",
+      "source_version": 14,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "Current Main Content says: a Lineage Impact Analysis Atom **must** identify the changed Atom **and** exact previous **and** new Revisions, change class **and** basis, responsible Operator **and** session provenance, expected impact radius, **every** examined child Revision **and** disposition with its basis, **every** resulting Revision, successor, **or** blocking Concern Atom, **every** recursive branch result, **and** the overall fixed-point conclusion. It establishes the current requirement context but not a positive candidate identity for 'relation-model'. The frozen review records a source-gap, so no replacement is invented.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1037-CORE_META_MODEL-GENERAL--define-lineage-impact-analysis-content.md",
+          "sha256": "2393ce992f801088b0c2a70a5ce4bfb49587bf933195382032ef987adac73a2b",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "e202e443813458ea32d2a0ea6d53453d7ee37929e5bdd92a2ab81cc8ab85eca5",
+          "reason": "The complete current Main Content supplies the live Scope and Claim context for this exact Subject occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact legacy identity and every current qualification remain preserved pending targeted mapping research.",
+        "No candidate root, owner, field, relation catalogue, or Subject grammar is inferred from display notation."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1037-CORE_META_MODEL-GENERAL--define-lineage-impact-analysis-content.md#subjects.governs",
+      "old_value": "Lineage Impact Analysis Content",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1037",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1037-CORE_META_MODEL-GENERAL--define-lineage-impact-analysis-content.md",
+      "source_sha256": "2393ce992f801088b0c2a70a5ce4bfb49587bf933195382032ef987adac73a2b",
+      "source_version": 14,
+      "decision": "unchanged",
+      "proposed_value": "Lineage Impact Analysis Content",
+      "confidence": 0.96,
+      "reason": "Current Main Content says: a Lineage Impact Analysis Atom **must** identify the changed Atom **and** exact previous **and** new Revisions, change class **and** basis, responsible Operator **and** session provenance, expected impact radius, **every** examined child Revision **and** disposition with its basis, **every** resulting Revision, successor, **or** blocking Concern Atom, **every** recursive branch result, **and** the overall fixed-point conclusion. It supports retaining the exact current Subject value; neither the current source nor the candidate establishes a different canonical identity that can be substituted safely.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1037-CORE_META_MODEL-GENERAL--define-lineage-impact-analysis-content.md",
+          "sha256": "2393ce992f801088b0c2a70a5ce4bfb49587bf933195382032ef987adac73a2b",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "e202e443813458ea32d2a0ea6d53453d7ee37929e5bdd92a2ab81cc8ab85eca5",
+          "reason": "The complete current Main Content supplies the live Scope and Claim context for this exact Subject occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source role and current Subject distinction are retained without changing its identity, owner, domain, or qualification.",
+        "Candidate display notation is not treated as an admitted native Subject grammar or source migration."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1038-CORE_META_MODEL--permit-multiple-child-rows-in-one-lineage-impact-analysis.md#subjects.depends_on[0]",
+      "old_value": "atom-boundary",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1038",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1038-CORE_META_MODEL--permit-multiple-child-rows-in-one-lineage-impact-analysis.md",
+      "source_sha256": "0712ffaa62550c0feed6ccbaa322f9e6193180e0e2020e8869dba28df6614d1a",
+      "source_version": 14,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "Current Main Content says: **`=1`** Lineage Impact Analysis Atom **may** contain multiple child rows **when** **every** row supports its one primary conclusion that the changed parent Revision's Impact Review is complete **or** blocked. It establishes the current requirement context but not a positive candidate identity for 'atom-boundary'. The frozen review records a source-gap, so no replacement is invented.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1038-CORE_META_MODEL--permit-multiple-child-rows-in-one-lineage-impact-analysis.md",
+          "sha256": "0712ffaa62550c0feed6ccbaa322f9e6193180e0e2020e8869dba28df6614d1a",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "3f303cdbef3d13852fdcbf0ac4b75d15dcce75ed5cc5284cc9a80ad9157c6ea2",
+          "reason": "The complete current Main Content supplies the live Scope and Claim context for this exact Subject occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact legacy identity and every current qualification remain preserved pending targeted mapping research.",
+        "No candidate root, owner, field, relation catalogue, or Subject grammar is inferred from display notation."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1038-CORE_META_MODEL--permit-multiple-child-rows-in-one-lineage-impact-analysis.md#subjects.governs",
+      "old_value": "relation-model",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1038",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1038-CORE_META_MODEL--permit-multiple-child-rows-in-one-lineage-impact-analysis.md",
+      "source_sha256": "0712ffaa62550c0feed6ccbaa322f9e6193180e0e2020e8869dba28df6614d1a",
+      "source_version": 14,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "Current Main Content says: **`=1`** Lineage Impact Analysis Atom **may** contain multiple child rows **when** **every** row supports its one primary conclusion that the changed parent Revision's Impact Review is complete **or** blocked. It establishes the current requirement context but not a positive candidate identity for 'relation-model'. The frozen review records a source-gap, so no replacement is invented.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1038-CORE_META_MODEL--permit-multiple-child-rows-in-one-lineage-impact-analysis.md",
+          "sha256": "0712ffaa62550c0feed6ccbaa322f9e6193180e0e2020e8869dba28df6614d1a",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "3f303cdbef3d13852fdcbf0ac4b75d15dcce75ed5cc5284cc9a80ad9157c6ea2",
+          "reason": "The complete current Main Content supplies the live Scope and Claim context for this exact Subject occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact legacy identity and every current qualification remain preserved pending targeted mapping research.",
+        "No candidate root, owner, field, relation catalogue, or Subject grammar is inferred from display notation."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1039-CORE_META_MODEL-CORE--preserve-authority-outside-lineage-impact-analysis.md#subjects.depends_on[0]",
+      "old_value": "atom-boundary",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1039",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1039-CORE_META_MODEL-CORE--preserve-authority-outside-lineage-impact-analysis.md",
+      "source_sha256": "4d2896e50ad0898f7c48fc07340f006562833129c38f48531b997e506200c58d",
+      "source_version": 14,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "Current Main Content says: a Lineage Impact Analysis Atom **must not** replace an examined child, supporting Evidence, **or** another Atom's Claim. It establishes the current requirement context but not a positive candidate identity for 'atom-boundary'. The frozen review records a source-gap, so no replacement is invented.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1039-CORE_META_MODEL-CORE--preserve-authority-outside-lineage-impact-analysis.md",
+          "sha256": "4d2896e50ad0898f7c48fc07340f006562833129c38f48531b997e506200c58d",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "517a7e56883342021add52276d11a913fa9207899c4f6bef4961dd7694f1e893",
+          "reason": "The complete current Main Content supplies the live Scope and Claim context for this exact Subject occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact legacy identity and every current qualification remain preserved pending targeted mapping research.",
+        "No candidate root, owner, field, relation catalogue, or Subject grammar is inferred from display notation."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1039-CORE_META_MODEL-CORE--preserve-authority-outside-lineage-impact-analysis.md#subjects.governs",
+      "old_value": "relation-model",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1039",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1039-CORE_META_MODEL-CORE--preserve-authority-outside-lineage-impact-analysis.md",
+      "source_sha256": "4d2896e50ad0898f7c48fc07340f006562833129c38f48531b997e506200c58d",
+      "source_version": 14,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "Current Main Content says: a Lineage Impact Analysis Atom **must not** replace an examined child, supporting Evidence, **or** another Atom's Claim. It establishes the current requirement context but not a positive candidate identity for 'relation-model'. The frozen review records a source-gap, so no replacement is invented.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1039-CORE_META_MODEL-CORE--preserve-authority-outside-lineage-impact-analysis.md",
+          "sha256": "4d2896e50ad0898f7c48fc07340f006562833129c38f48531b997e506200c58d",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "517a7e56883342021add52276d11a913fa9207899c4f6bef4961dd7694f1e893",
+          "reason": "The complete current Main Content supplies the live Scope and Claim context for this exact Subject occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact legacy identity and every current qualification remain preserved pending targeted mapping research.",
+        "No candidate root, owner, field, relation catalogue, or Subject grammar is inferred from display notation."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1040-CORE_META_MODEL-CORE--reject-authored-inverse-relations.md#subjects.depends_on[0]",
+      "old_value": "atom-boundary",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1040",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1040-CORE_META_MODEL-CORE--reject-authored-inverse-relations.md",
+      "source_sha256": "f713bc002eeaa0832f852337bbcc59e3640d389b376a7951aa140deadf574a44",
+      "source_version": 16,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "Current Main Content says: validators **must** reject **every** inverse typed relation authored **in** an Atom Carrier. It establishes the current requirement context but not a positive candidate identity for 'atom-boundary'. The frozen review records a source-gap, so no replacement is invented.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1040-CORE_META_MODEL-CORE--reject-authored-inverse-relations.md",
+          "sha256": "f713bc002eeaa0832f852337bbcc59e3640d389b376a7951aa140deadf574a44",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "6b23a42c6f3f887f4eb70772b4b8a568ae67045884435febc018f03380c3dd7b",
+          "reason": "The complete current Main Content supplies the live Scope and Claim context for this exact Subject occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact legacy identity and every current qualification remain preserved pending targeted mapping research.",
+        "No candidate root, owner, field, relation catalogue, or Subject grammar is inferred from display notation."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1040-CORE_META_MODEL-CORE--reject-authored-inverse-relations.md#subjects.governs",
+      "old_value": "relation-model",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1040",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1040-CORE_META_MODEL-CORE--reject-authored-inverse-relations.md",
+      "source_sha256": "f713bc002eeaa0832f852337bbcc59e3640d389b376a7951aa140deadf574a44",
+      "source_version": 16,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "Current Main Content says: validators **must** reject **every** inverse typed relation authored **in** an Atom Carrier. It establishes the current requirement context but not a positive candidate identity for 'relation-model'. The frozen review records a source-gap, so no replacement is invented.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1040-CORE_META_MODEL-CORE--reject-authored-inverse-relations.md",
+          "sha256": "f713bc002eeaa0832f852337bbcc59e3640d389b376a7951aa140deadf574a44",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "6b23a42c6f3f887f4eb70772b4b8a568ae67045884435febc018f03380c3dd7b",
+          "reason": "The complete current Main Content supplies the live Scope and Claim context for this exact Subject occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact legacy identity and every current qualification remain preserved pending targeted mapping research.",
+        "No candidate root, owner, field, relation catalogue, or Subject grammar is inferred from display notation."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1044-CORE_META_MODEL-CORE-REQUIREMENT--define-autonomous-confidence-threshold.md#subjects.depends_on[0]",
+      "old_value": "Confidence Threshold",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1044",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1044-CORE_META_MODEL-CORE-REQUIREMENT--define-autonomous-confidence-threshold.md",
+      "source_sha256": "50f83d3f12961961999d3f7d9ff7cc61cd8bbc58c6b6b198d3cf138d21969422",
+      "source_version": 15,
+      "decision": "unchanged",
+      "proposed_value": "Confidence Threshold",
+      "confidence": 0.96,
+      "reason": "Current Main Content says: an Autonomous Confidence Threshold **means** the Confidence Threshold at which an AI Agent **may** continue Plan work autonomously. It supports retaining the exact current Subject value; neither the current source nor the candidate establishes a different canonical identity that can be substituted safely.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1044-CORE_META_MODEL-CORE-REQUIREMENT--define-autonomous-confidence-threshold.md",
+          "sha256": "50f83d3f12961961999d3f7d9ff7cc61cd8bbc58c6b6b198d3cf138d21969422",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "6ade6da615c59807040e4431fd23a499a037208bb28f2a8aac9697cfa9fa96fd",
+          "reason": "The complete current Main Content supplies the live Scope and Claim context for this exact Subject occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source role and current Subject distinction are retained without changing its identity, owner, domain, or qualification.",
+        "Candidate display notation is not treated as an admitted native Subject grammar or source migration."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1044-CORE_META_MODEL-CORE-REQUIREMENT--define-autonomous-confidence-threshold.md#subjects.depends_on[1]",
+      "old_value": "AI Agent/Confidence",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1044",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1044-CORE_META_MODEL-CORE-REQUIREMENT--define-autonomous-confidence-threshold.md",
+      "source_sha256": "50f83d3f12961961999d3f7d9ff7cc61cd8bbc58c6b6b198d3cf138d21969422",
+      "source_version": 15,
+      "decision": "unchanged",
+      "proposed_value": "AI Agent/Confidence",
+      "confidence": 0.96,
+      "reason": "Current Main Content says: an Autonomous Confidence Threshold **means** the Confidence Threshold at which an AI Agent **may** continue Plan work autonomously. It supports retaining the exact current Subject value; neither the current source nor the candidate establishes a different canonical identity that can be substituted safely.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1044-CORE_META_MODEL-CORE-REQUIREMENT--define-autonomous-confidence-threshold.md",
+          "sha256": "50f83d3f12961961999d3f7d9ff7cc61cd8bbc58c6b6b198d3cf138d21969422",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "6ade6da615c59807040e4431fd23a499a037208bb28f2a8aac9697cfa9fa96fd",
+          "reason": "The complete current Main Content supplies the live Scope and Claim context for this exact Subject occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source role and current Subject distinction are retained without changing its identity, owner, domain, or qualification.",
+        "Candidate display notation is not treated as an admitted native Subject grammar or source migration."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1044-CORE_META_MODEL-CORE-REQUIREMENT--define-autonomous-confidence-threshold.md#subjects.depends_on[2]",
+      "old_value": "Atom/Content Role: Plan/Type: Plan",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1044",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1044-CORE_META_MODEL-CORE-REQUIREMENT--define-autonomous-confidence-threshold.md",
+      "source_sha256": "50f83d3f12961961999d3f7d9ff7cc61cd8bbc58c6b6b198d3cf138d21969422",
+      "source_version": 15,
+      "decision": "unchanged",
+      "proposed_value": "Atom/Content Role: Plan/Type: Plan",
+      "confidence": 0.96,
+      "reason": "Current Main Content says: an Autonomous Confidence Threshold **means** the Confidence Threshold at which an AI Agent **may** continue Plan work autonomously. It supports retaining the exact current Subject value; neither the current source nor the candidate establishes a different canonical identity that can be substituted safely.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1044-CORE_META_MODEL-CORE-REQUIREMENT--define-autonomous-confidence-threshold.md",
+          "sha256": "50f83d3f12961961999d3f7d9ff7cc61cd8bbc58c6b6b198d3cf138d21969422",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "6ade6da615c59807040e4431fd23a499a037208bb28f2a8aac9697cfa9fa96fd",
+          "reason": "The complete current Main Content supplies the live Scope and Claim context for this exact Subject occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source role and current Subject distinction are retained without changing its identity, owner, domain, or qualification.",
+        "Candidate display notation is not treated as an admitted native Subject grammar or source migration."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1044-CORE_META_MODEL-CORE-REQUIREMENT--define-autonomous-confidence-threshold.md#subjects.governs",
+      "old_value": "Autonomous Confidence Threshold",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1044",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1044-CORE_META_MODEL-CORE-REQUIREMENT--define-autonomous-confidence-threshold.md",
+      "source_sha256": "50f83d3f12961961999d3f7d9ff7cc61cd8bbc58c6b6b198d3cf138d21969422",
+      "source_version": 15,
+      "decision": "unchanged",
+      "proposed_value": "Autonomous Confidence Threshold",
+      "confidence": 0.96,
+      "reason": "Current Main Content says: an Autonomous Confidence Threshold **means** the Confidence Threshold at which an AI Agent **may** continue Plan work autonomously. It supports retaining the exact current Subject value; neither the current source nor the candidate establishes a different canonical identity that can be substituted safely.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1044-CORE_META_MODEL-CORE-REQUIREMENT--define-autonomous-confidence-threshold.md",
+          "sha256": "50f83d3f12961961999d3f7d9ff7cc61cd8bbc58c6b6b198d3cf138d21969422",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "6ade6da615c59807040e4431fd23a499a037208bb28f2a8aac9697cfa9fa96fd",
+          "reason": "The complete current Main Content supplies the live Scope and Claim context for this exact Subject occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source role and current Subject distinction are retained without changing its identity, owner, domain, or qualification.",
+        "Candidate display notation is not treated as an admitted native Subject grammar or source migration."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1045-CORE_META_MODEL-GENERAL-REQUIREMENT--restrict-autonomous-confidence-threshold-values.md#subjects.governs",
+      "old_value": "Autonomous Confidence Threshold",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1045",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1045-CORE_META_MODEL-GENERAL-REQUIREMENT--restrict-autonomous-confidence-threshold-values.md",
+      "source_sha256": "37e8c0609ebf108d53b1e5bb586abaec260d182c2e51809a5c3fd66783497dab",
+      "source_version": 12,
+      "decision": "unchanged",
+      "proposed_value": "Autonomous Confidence Threshold",
+      "confidence": 0.96,
+      "reason": "Current Main Content says: **every** Autonomous Confidence Threshold **must** be an integer percentage **`>=0`** **and** **`<=100`**. resolve its effective value from the applicable source under CA-M-271; the methodology **must not** restrict that value **to** a closed list of preferred percentages. It supports retaining the exact current Subject value; neither the current source nor the candidate establishes a different canonical identity that can be substituted safely.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1045-CORE_META_MODEL-GENERAL-REQUIREMENT--restrict-autonomous-confidence-threshold-values.md",
+          "sha256": "37e8c0609ebf108d53b1e5bb586abaec260d182c2e51809a5c3fd66783497dab",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "8de1858efcc06677cc503635eb47ec98ae9610b10e3635a57114476581e1ffaa",
+          "reason": "The complete current Main Content supplies the live Scope and Claim context for this exact Subject occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source role and current Subject distinction are retained without changing its identity, owner, domain, or qualification.",
+        "Candidate display notation is not treated as an admitted native Subject grammar or source migration."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1051-CORE_META_MODEL-CORE-REQUIREMENT--separate-active-authority-from-preserved-history.md#subjects.governs",
+      "old_value": "lifecycle-traceability",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1051",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1051-CORE_META_MODEL-CORE-REQUIREMENT--separate-active-authority-from-preserved-history.md",
+      "source_sha256": "a4c244028f192490510db4640291a54c23307eed2dbd5a6ba3a2f8d734da6da5",
+      "source_version": 21,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "Current Main Content says: the active RMED authority graph represents **only** current governed state. historical states **and** transitions are excluded from that graph **and** preserved through canonical lifecycle placement **and** append-only Journals; generated Projections **may** render history **without** making it active RMED authority. It establishes the current requirement context but not a positive candidate identity for 'lifecycle-traceability'. The frozen review records a source-gap, so no replacement is invented.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1051-CORE_META_MODEL-CORE-REQUIREMENT--separate-active-authority-from-preserved-history.md",
+          "sha256": "a4c244028f192490510db4640291a54c23307eed2dbd5a6ba3a2f8d734da6da5",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "dea29fd49729d6d68acd1b1301ffe53b00d9e05679d9f74780c6b37942414ab2",
+          "reason": "The complete current Main Content supplies the live Scope and Claim context for this exact Subject occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact legacy identity and every current qualification remain preserved pending targeted mapping research.",
+        "No candidate root, owner, field, relation catalogue, or Subject grammar is inferred from display notation."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1052-CORE_META_MODEL-CORE-REQUIREMENT--separate-project-settings-from-the-project-scope-unit-graph.md#subjects.depends_on[0]",
+      "old_value": "Project Structure",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1052",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1052-CORE_META_MODEL-CORE-REQUIREMENT--separate-project-settings-from-the-project-scope-unit-graph.md",
+      "source_sha256": "72a4cdf281f42c5be6bbd12801c4f44e530e088e5c760a300e2a52b656217640",
+      "source_version": 21,
+      "decision": "unchanged",
+      "proposed_value": "Project Structure",
+      "confidence": 0.96,
+      "reason": "Current Main Content says: the CAPRMEDIO Framework **must** distinguish authoritative Project initialization Settings, Framework Instance behavior Settings, **and** Project Structure declarations from read-only Project Scope Unit Graph Projections. structural observations **and** generated effective values **must not** become independent Settings **or** Project Structure authority. It supports retaining the exact current Subject value; neither the current source nor the candidate establishes a different canonical identity that can be substituted safely.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1052-CORE_META_MODEL-CORE-REQUIREMENT--separate-project-settings-from-the-project-scope-unit-graph.md",
+          "sha256": "72a4cdf281f42c5be6bbd12801c4f44e530e088e5c760a300e2a52b656217640",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "0cf1f24bfb1728bbaa9e3c6a17165281028beb895d028ac959d11fcf93aa30b5",
+          "reason": "The complete current Main Content supplies the live Scope and Claim context for this exact Subject occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source role and current Subject distinction are retained without changing its identity, owner, domain, or qualification.",
+        "Candidate display notation is not treated as an admitted native Subject grammar or source migration."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1052-CORE_META_MODEL-CORE-REQUIREMENT--separate-project-settings-from-the-project-scope-unit-graph.md#subjects.depends_on[1]",
+      "old_value": "Framework Instance Settings",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1052",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1052-CORE_META_MODEL-CORE-REQUIREMENT--separate-project-settings-from-the-project-scope-unit-graph.md",
+      "source_sha256": "72a4cdf281f42c5be6bbd12801c4f44e530e088e5c760a300e2a52b656217640",
+      "source_version": 21,
+      "decision": "unchanged",
+      "proposed_value": "Framework Instance Settings",
+      "confidence": 0.96,
+      "reason": "Current Main Content says: the CAPRMEDIO Framework **must** distinguish authoritative Project initialization Settings, Framework Instance behavior Settings, **and** Project Structure declarations from read-only Project Scope Unit Graph Projections. structural observations **and** generated effective values **must not** become independent Settings **or** Project Structure authority. It supports retaining the exact current Subject value; neither the current source nor the candidate establishes a different canonical identity that can be substituted safely.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1052-CORE_META_MODEL-CORE-REQUIREMENT--separate-project-settings-from-the-project-scope-unit-graph.md",
+          "sha256": "72a4cdf281f42c5be6bbd12801c4f44e530e088e5c760a300e2a52b656217640",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "0cf1f24bfb1728bbaa9e3c6a17165281028beb895d028ac959d11fcf93aa30b5",
+          "reason": "The complete current Main Content supplies the live Scope and Claim context for this exact Subject occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source role and current Subject distinction are retained without changing its identity, owner, domain, or qualification.",
+        "Candidate display notation is not treated as an admitted native Subject grammar or source migration."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1052-CORE_META_MODEL-CORE-REQUIREMENT--separate-project-settings-from-the-project-scope-unit-graph.md#subjects.depends_on[2]",
+      "old_value": "Project Scope Unit Graph Projection",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1052",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1052-CORE_META_MODEL-CORE-REQUIREMENT--separate-project-settings-from-the-project-scope-unit-graph.md",
+      "source_sha256": "72a4cdf281f42c5be6bbd12801c4f44e530e088e5c760a300e2a52b656217640",
+      "source_version": 21,
+      "decision": "unchanged",
+      "proposed_value": "Project Scope Unit Graph Projection",
+      "confidence": 0.96,
+      "reason": "Current Main Content says: the CAPRMEDIO Framework **must** distinguish authoritative Project initialization Settings, Framework Instance behavior Settings, **and** Project Structure declarations from read-only Project Scope Unit Graph Projections. structural observations **and** generated effective values **must not** become independent Settings **or** Project Structure authority. It supports retaining the exact current Subject value; neither the current source nor the candidate establishes a different canonical identity that can be substituted safely.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1052-CORE_META_MODEL-CORE-REQUIREMENT--separate-project-settings-from-the-project-scope-unit-graph.md",
+          "sha256": "72a4cdf281f42c5be6bbd12801c4f44e530e088e5c760a300e2a52b656217640",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "0cf1f24bfb1728bbaa9e3c6a17165281028beb895d028ac959d11fcf93aa30b5",
+          "reason": "The complete current Main Content supplies the live Scope and Claim context for this exact Subject occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source role and current Subject distinction are retained without changing its identity, owner, domain, or qualification.",
+        "Candidate display notation is not treated as an admitted native Subject grammar or source migration."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 3,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1052-CORE_META_MODEL-CORE-REQUIREMENT--separate-project-settings-from-the-project-scope-unit-graph.md#subjects.depends_on[3]",
+      "old_value": "Projection",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1052",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1052-CORE_META_MODEL-CORE-REQUIREMENT--separate-project-settings-from-the-project-scope-unit-graph.md",
+      "source_sha256": "72a4cdf281f42c5be6bbd12801c4f44e530e088e5c760a300e2a52b656217640",
+      "source_version": 21,
+      "decision": "unchanged",
+      "proposed_value": "Projection",
+      "confidence": 0.96,
+      "reason": "Current Main Content says: the CAPRMEDIO Framework **must** distinguish authoritative Project initialization Settings, Framework Instance behavior Settings, **and** Project Structure declarations from read-only Project Scope Unit Graph Projections. structural observations **and** generated effective values **must not** become independent Settings **or** Project Structure authority. It supports retaining the exact current Subject value; neither the current source nor the candidate establishes a different canonical identity that can be substituted safely.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1052-CORE_META_MODEL-CORE-REQUIREMENT--separate-project-settings-from-the-project-scope-unit-graph.md",
+          "sha256": "72a4cdf281f42c5be6bbd12801c4f44e530e088e5c760a300e2a52b656217640",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "0cf1f24bfb1728bbaa9e3c6a17165281028beb895d028ac959d11fcf93aa30b5",
+          "reason": "The complete current Main Content supplies the live Scope and Claim context for this exact Subject occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source role and current Subject distinction are retained without changing its identity, owner, domain, or qualification.",
+        "Candidate display notation is not treated as an admitted native Subject grammar or source migration."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1052-CORE_META_MODEL-CORE-REQUIREMENT--separate-project-settings-from-the-project-scope-unit-graph.md#subjects.governs",
+      "old_value": "Project Settings",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1052",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1052-CORE_META_MODEL-CORE-REQUIREMENT--separate-project-settings-from-the-project-scope-unit-graph.md",
+      "source_sha256": "72a4cdf281f42c5be6bbd12801c4f44e530e088e5c760a300e2a52b656217640",
+      "source_version": 21,
+      "decision": "unchanged",
+      "proposed_value": "Project Settings",
+      "confidence": 0.96,
+      "reason": "Current Main Content says: the CAPRMEDIO Framework **must** distinguish authoritative Project initialization Settings, Framework Instance behavior Settings, **and** Project Structure declarations from read-only Project Scope Unit Graph Projections. structural observations **and** generated effective values **must not** become independent Settings **or** Project Structure authority. It supports retaining the exact current Subject value; neither the current source nor the candidate establishes a different canonical identity that can be substituted safely.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1052-CORE_META_MODEL-CORE-REQUIREMENT--separate-project-settings-from-the-project-scope-unit-graph.md",
+          "sha256": "72a4cdf281f42c5be6bbd12801c4f44e530e088e5c760a300e2a52b656217640",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "0cf1f24bfb1728bbaa9e3c6a17165281028beb895d028ac959d11fcf93aa30b5",
+          "reason": "The complete current Main Content supplies the live Scope and Claim context for this exact Subject occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source role and current Subject distinction are retained without changing its identity, owner, domain, or qualification.",
+        "Candidate display notation is not treated as an admitted native Subject grammar or source migration."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1078-CORE_META_MODEL-CORE-REQUIREMENT--give-every-atom-revision-one-author.md#subjects.depends_on[0]",
+      "old_value": "Atom/Revision",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1078",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1078-CORE_META_MODEL-CORE-REQUIREMENT--give-every-atom-revision-one-author.md",
+      "source_sha256": "8d39e244c674e496625f8c816533de343f88e7fc62bcd4ad441b0270ceec4cff",
+      "source_version": 15,
+      "decision": "proposed",
+      "proposed_value": "Revision",
+      "confidence": 0.94,
+      "reason": "Current Main Content says: **every** Atom Revision **must** have **`=1`** Author. The candidate makes Revision a separate historical root and excludes Atom/Revision, so Revision is the supported replacement without rewriting any other path or collapsing version, time, or author distinctions.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1078-CORE_META_MODEL-CORE-REQUIREMENT--give-every-atom-revision-one-author.md",
+          "sha256": "8d39e244c674e496625f8c816533de343f88e7fc62bcd4ad441b0270ceec4cff",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "ae48eea8f638fcf013c11261a7389b24a2e34441f5b8e1dc4f8f2b22c57b8f78",
+          "reason": "The complete current Main Content supplies the live Scope and Claim context for this exact Subject occurrence."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/4",
+          "reason": "The candidate defines Revision as a separate historical root and explicitly excludes Atom/Revision as a candidate path."
+        },
+        {
+          "pointer": "/atom_versioning",
+          "reason": "The candidate distinguishes the current Atom update, the archived older version, and their historical treatment without retaining Atom/Revision as the identity path."
+        }
+      ],
+      "preserved_distinctions": [
+        "Revision remains a separate historical root, not Artifact.Revision or Atom/Revision.",
+        "Version Number, Updated At, and Author remain distinct; this proposal does not introduce a Revision.Author grammar or native relation."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1078-CORE_META_MODEL-CORE-REQUIREMENT--give-every-atom-revision-one-author.md#subjects.depends_on[1]",
+      "old_value": "Actor",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1078",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1078-CORE_META_MODEL-CORE-REQUIREMENT--give-every-atom-revision-one-author.md",
+      "source_sha256": "8d39e244c674e496625f8c816533de343f88e7fc62bcd4ad441b0270ceec4cff",
+      "source_version": 15,
+      "decision": "unchanged",
+      "proposed_value": "Actor",
+      "confidence": 0.96,
+      "reason": "Current Main Content says: **every** Atom Revision **must** have **`=1`** Author. It supports retaining the exact current Subject value; neither the current source nor the candidate establishes a different canonical identity that can be substituted safely.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1078-CORE_META_MODEL-CORE-REQUIREMENT--give-every-atom-revision-one-author.md",
+          "sha256": "8d39e244c674e496625f8c816533de343f88e7fc62bcd4ad441b0270ceec4cff",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "ae48eea8f638fcf013c11261a7389b24a2e34441f5b8e1dc4f8f2b22c57b8f78",
+          "reason": "The complete current Main Content supplies the live Scope and Claim context for this exact Subject occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source role and current Subject distinction are retained without changing its identity, owner, domain, or qualification.",
+        "Candidate display notation is not treated as an admitted native Subject grammar or source migration."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1078-CORE_META_MODEL-CORE-REQUIREMENT--give-every-atom-revision-one-author.md#subjects.governs",
+      "old_value": "Atom/Revision/Author",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1078",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1078-CORE_META_MODEL-CORE-REQUIREMENT--give-every-atom-revision-one-author.md",
+      "source_sha256": "8d39e244c674e496625f8c816533de343f88e7fc62bcd4ad441b0270ceec4cff",
+      "source_version": 15,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "Current Main Content says: **every** Atom Revision **must** have **`=1`** Author. It establishes the current requirement context but not a positive candidate identity for 'Atom/Revision/Author'. The frozen review records a source-gap, so no replacement is invented.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1078-CORE_META_MODEL-CORE-REQUIREMENT--give-every-atom-revision-one-author.md",
+          "sha256": "8d39e244c674e496625f8c816533de343f88e7fc62bcd4ad441b0270ceec4cff",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "ae48eea8f638fcf013c11261a7389b24a2e34441f5b8e1dc4f8f2b22c57b8f78",
+          "reason": "The complete current Main Content supplies the live Scope and Claim context for this exact Subject occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact legacy identity and every current qualification remain preserved pending targeted mapping research.",
+        "No candidate root, owner, field, relation catalogue, or Subject grammar is inferred from display notation."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1080-CORE_META_MODEL-GENERAL-REQUIREMENT--default-atom-revision-author-to-the-operator.md#subjects.depends_on[0]",
+      "old_value": "Operator",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1080",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1080-CORE_META_MODEL-GENERAL-REQUIREMENT--default-atom-revision-author-to-the-operator.md",
+      "source_sha256": "5dc53dbaddaa3063759348cd490fbc82379378f2b3d78cf64302f4b4e1f97ed1",
+      "source_version": 14,
+      "decision": "unchanged",
+      "proposed_value": "Operator",
+      "confidence": 0.96,
+      "reason": "Current Main Content says: its effective Author **must** be the Operator who admits that Revision. It supports retaining the exact current Subject value; neither the current source nor the candidate establishes a different canonical identity that can be substituted safely.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1080-CORE_META_MODEL-GENERAL-REQUIREMENT--default-atom-revision-author-to-the-operator.md",
+          "sha256": "5dc53dbaddaa3063759348cd490fbc82379378f2b3d78cf64302f4b4e1f97ed1",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "4d1cb83524246e16f106cc8242d7ac389bde5db4c5d572053af961d3c51a437f",
+          "reason": "The complete current Main Content supplies the live Scope and Claim context for this exact Subject occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source role and current Subject distinction are retained without changing its identity, owner, domain, or qualification.",
+        "Candidate display notation is not treated as an admitted native Subject grammar or source migration."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1080-CORE_META_MODEL-GENERAL-REQUIREMENT--default-atom-revision-author-to-the-operator.md#subjects.governs",
+      "old_value": "Atom/Revision/Author",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1080",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1080-CORE_META_MODEL-GENERAL-REQUIREMENT--default-atom-revision-author-to-the-operator.md",
+      "source_sha256": "5dc53dbaddaa3063759348cd490fbc82379378f2b3d78cf64302f4b4e1f97ed1",
+      "source_version": 14,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "Current Main Content says: its effective Author **must** be the Operator who admits that Revision. It establishes the current requirement context but not a positive candidate identity for 'Atom/Revision/Author'. The frozen review records a source-gap, so no replacement is invented.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1080-CORE_META_MODEL-GENERAL-REQUIREMENT--default-atom-revision-author-to-the-operator.md",
+          "sha256": "5dc53dbaddaa3063759348cd490fbc82379378f2b3d78cf64302f4b4e1f97ed1",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "4d1cb83524246e16f106cc8242d7ac389bde5db4c5d572053af961d3c51a437f",
+          "reason": "The complete current Main Content supplies the live Scope and Claim context for this exact Subject occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact legacy identity and every current qualification remain preserved pending targeted mapping research.",
+        "No candidate root, owner, field, relation catalogue, or Subject grammar is inferred from display notation."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-117-CORE_META_MODEL-CORE--store-each-semantic-relation-once.md#subjects.depends_on[0]",
+      "old_value": "semantics",
+      "quarantined": false,
+      "source_atom_id": "CA-R-117",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-117-CORE_META_MODEL-CORE--store-each-semantic-relation-once.md",
+      "source_sha256": "36ede2f585db21365cf9215b5fa0903c65a2cb6769d2fba73b0077813c79af37",
+      "source_version": 17,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "Current Main Content says: **every** semantic relation **must** have **`=1`** authoritative declaration. It establishes the current requirement context but not a positive candidate identity for 'semantics'. The frozen review records a source-gap, so no replacement is invented.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-117-CORE_META_MODEL-CORE--store-each-semantic-relation-once.md",
+          "sha256": "36ede2f585db21365cf9215b5fa0903c65a2cb6769d2fba73b0077813c79af37",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "32362721de5fa48ebd1c50a457504565ab423385fbd0a13d533691c636f7d513",
+          "reason": "The complete current Main Content supplies the live Scope and Claim context for this exact Subject occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact legacy identity and every current qualification remain preserved pending targeted mapping research.",
+        "No candidate root, owner, field, relation catalogue, or Subject grammar is inferred from display notation."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-117-CORE_META_MODEL-CORE--store-each-semantic-relation-once.md#subjects.depends_on[1]",
+      "old_value": "atom-boundary",
+      "quarantined": false,
+      "source_atom_id": "CA-R-117",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-117-CORE_META_MODEL-CORE--store-each-semantic-relation-once.md",
+      "source_sha256": "36ede2f585db21365cf9215b5fa0903c65a2cb6769d2fba73b0077813c79af37",
+      "source_version": 17,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "Current Main Content says: **every** semantic relation **must** have **`=1`** authoritative declaration. It establishes the current requirement context but not a positive candidate identity for 'atom-boundary'. The frozen review records a source-gap, so no replacement is invented.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-117-CORE_META_MODEL-CORE--store-each-semantic-relation-once.md",
+          "sha256": "36ede2f585db21365cf9215b5fa0903c65a2cb6769d2fba73b0077813c79af37",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "32362721de5fa48ebd1c50a457504565ab423385fbd0a13d533691c636f7d513",
+          "reason": "The complete current Main Content supplies the live Scope and Claim context for this exact Subject occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact legacy identity and every current qualification remain preserved pending targeted mapping research.",
+        "No candidate root, owner, field, relation catalogue, or Subject grammar is inferred from display notation."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-117-CORE_META_MODEL-CORE--store-each-semantic-relation-once.md#subjects.governs",
+      "old_value": "relation-model",
+      "quarantined": false,
+      "source_atom_id": "CA-R-117",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-117-CORE_META_MODEL-CORE--store-each-semantic-relation-once.md",
+      "source_sha256": "36ede2f585db21365cf9215b5fa0903c65a2cb6769d2fba73b0077813c79af37",
+      "source_version": 17,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "Current Main Content says: **every** semantic relation **must** have **`=1`** authoritative declaration. It establishes the current requirement context but not a positive candidate identity for 'relation-model'. The frozen review records a source-gap, so no replacement is invented.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-117-CORE_META_MODEL-CORE--store-each-semantic-relation-once.md",
+          "sha256": "36ede2f585db21365cf9215b5fa0903c65a2cb6769d2fba73b0077813c79af37",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "32362721de5fa48ebd1c50a457504565ab423385fbd0a13d533691c636f7d513",
+          "reason": "The complete current Main Content supplies the live Scope and Claim context for this exact Subject occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact legacy identity and every current qualification remain preserved pending targeted mapping research.",
+        "No candidate root, owner, field, relation catalogue, or Subject grammar is inferred from display notation."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-118-CORE_META_MODEL-CORE--let-the-dependent-atom-own-the-relation.md#subjects.depends_on[0]",
+      "old_value": "artifact-model",
+      "quarantined": false,
+      "source_atom_id": "CA-R-118",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-118-CORE_META_MODEL-CORE--let-the-dependent-atom-own-the-relation.md",
+      "source_sha256": "7d32d213810e006d8b8c9e8a029ef6508b7038f529683a594fdf89322a1db651",
+      "source_version": 20,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "Current Main Content says: the dependent Atom **must** own the **`=1`** authoritative declaration of its direct semantic relation. It establishes the current requirement context but not a positive candidate identity for 'artifact-model'. The frozen review records a source-gap, so no replacement is invented.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-118-CORE_META_MODEL-CORE--let-the-dependent-atom-own-the-relation.md",
+          "sha256": "7d32d213810e006d8b8c9e8a029ef6508b7038f529683a594fdf89322a1db651",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "c2c76e7feacbd55c9b32db208f0de35bb99278375b65124c7064df90040c6a7b",
+          "reason": "The complete current Main Content supplies the live Scope and Claim context for this exact Subject occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact legacy identity and every current qualification remain preserved pending targeted mapping research.",
+        "No candidate root, owner, field, relation catalogue, or Subject grammar is inferred from display notation."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-118-CORE_META_MODEL-CORE--let-the-dependent-atom-own-the-relation.md#subjects.depends_on[1]",
+      "old_value": "atom-boundary",
+      "quarantined": false,
+      "source_atom_id": "CA-R-118",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-118-CORE_META_MODEL-CORE--let-the-dependent-atom-own-the-relation.md",
+      "source_sha256": "7d32d213810e006d8b8c9e8a029ef6508b7038f529683a594fdf89322a1db651",
+      "source_version": 20,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "Current Main Content says: the dependent Atom **must** own the **`=1`** authoritative declaration of its direct semantic relation. It establishes the current requirement context but not a positive candidate identity for 'atom-boundary'. The frozen review records a source-gap, so no replacement is invented.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-118-CORE_META_MODEL-CORE--let-the-dependent-atom-own-the-relation.md",
+          "sha256": "7d32d213810e006d8b8c9e8a029ef6508b7038f529683a594fdf89322a1db651",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "c2c76e7feacbd55c9b32db208f0de35bb99278375b65124c7064df90040c6a7b",
+          "reason": "The complete current Main Content supplies the live Scope and Claim context for this exact Subject occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact legacy identity and every current qualification remain preserved pending targeted mapping research.",
+        "No candidate root, owner, field, relation catalogue, or Subject grammar is inferred from display notation."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-118-CORE_META_MODEL-CORE--let-the-dependent-atom-own-the-relation.md#subjects.governs",
+      "old_value": "relation-model",
+      "quarantined": false,
+      "source_atom_id": "CA-R-118",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-118-CORE_META_MODEL-CORE--let-the-dependent-atom-own-the-relation.md",
+      "source_sha256": "7d32d213810e006d8b8c9e8a029ef6508b7038f529683a594fdf89322a1db651",
+      "source_version": 20,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "Current Main Content says: the dependent Atom **must** own the **`=1`** authoritative declaration of its direct semantic relation. It establishes the current requirement context but not a positive candidate identity for 'relation-model'. The frozen review records a source-gap, so no replacement is invented.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-118-CORE_META_MODEL-CORE--let-the-dependent-atom-own-the-relation.md",
+          "sha256": "7d32d213810e006d8b8c9e8a029ef6508b7038f529683a594fdf89322a1db651",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "c2c76e7feacbd55c9b32db208f0de35bb99278375b65124c7064df90040c6a7b",
+          "reason": "The complete current Main Content supplies the live Scope and Claim context for this exact Subject occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact legacy identity and every current qualification remain preserved pending targeted mapping research.",
+        "No candidate root, owner, field, relation catalogue, or Subject grammar is inferred from display notation."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1191-CORE_META_MODEL-CORE-REQUIREMENT--define-primary-entity.md#subjects.depends_on[0]",
+      "old_value": "Entity",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1191",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1191-CORE_META_MODEL-CORE-REQUIREMENT--define-primary-entity.md",
+      "source_sha256": "52b71abb1b3df787ec3e4394bc5f61c367a4f0da58f5d01fd5ce22ba22e9ff31",
+      "source_version": 13,
+      "decision": "unchanged",
+      "proposed_value": "Entity",
+      "confidence": 0.96,
+      "reason": "Current Main Content says: a Primary Entity **means** an Entity occurrence whose identity does **not** require another Entity occurrence as its bearer. It supports retaining the exact current Subject value; neither the current source nor the candidate establishes a different canonical identity that can be substituted safely.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1191-CORE_META_MODEL-CORE-REQUIREMENT--define-primary-entity.md",
+          "sha256": "52b71abb1b3df787ec3e4394bc5f61c367a4f0da58f5d01fd5ce22ba22e9ff31",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "a9020ce3a68d82888dc3fcd715f699af15f0328ca22fdc3ce4256d579ea6ba36",
+          "reason": "The complete current Main Content supplies the live Scope and Claim context for this exact Subject occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source role and current Subject distinction are retained without changing its identity, owner, domain, or qualification.",
+        "Candidate display notation is not treated as an admitted native Subject grammar or source migration."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1191-CORE_META_MODEL-CORE-REQUIREMENT--define-primary-entity.md#subjects.governs",
+      "old_value": "Primary Entity",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1191",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1191-CORE_META_MODEL-CORE-REQUIREMENT--define-primary-entity.md",
+      "source_sha256": "52b71abb1b3df787ec3e4394bc5f61c367a4f0da58f5d01fd5ce22ba22e9ff31",
+      "source_version": 13,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "Current Main Content says: a Primary Entity **means** an Entity occurrence whose identity does **not** require another Entity occurrence as its bearer. It establishes the current requirement context but not a positive candidate identity for 'Primary Entity'. The frozen review records a source-gap, so no replacement is invented.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1191-CORE_META_MODEL-CORE-REQUIREMENT--define-primary-entity.md",
+          "sha256": "52b71abb1b3df787ec3e4394bc5f61c367a4f0da58f5d01fd5ce22ba22e9ff31",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "a9020ce3a68d82888dc3fcd715f699af15f0328ca22fdc3ce4256d579ea6ba36",
+          "reason": "The complete current Main Content supplies the live Scope and Claim context for this exact Subject occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact legacy identity and every current qualification remain preserved pending targeted mapping research.",
+        "No candidate root, owner, field, relation catalogue, or Subject grammar is inferred from display notation."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1192-CORE_META_MODEL-CORE-REQUIREMENT--define-dependent-entity.md#subjects.depends_on[0]",
+      "old_value": "Entity",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1192",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1192-CORE_META_MODEL-CORE-REQUIREMENT--define-dependent-entity.md",
+      "source_sha256": "80ef872660ac55977945a7a51c08c0623b7da8221ceee39257bc9a4365c72d30",
+      "source_version": 12,
+      "decision": "unchanged",
+      "proposed_value": "Entity",
+      "confidence": 0.96,
+      "reason": "Current Main Content says: a Dependent Entity **means** an Entity occurrence whose identity requires **`=1`** immediate bearer Entity occurrence. It supports retaining the exact current Subject value; neither the current source nor the candidate establishes a different canonical identity that can be substituted safely.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1192-CORE_META_MODEL-CORE-REQUIREMENT--define-dependent-entity.md",
+          "sha256": "80ef872660ac55977945a7a51c08c0623b7da8221ceee39257bc9a4365c72d30",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "8fff92394f7d6ebab4dcadb00b4114ecc35a6d4859da9a9e3b0b5fb18585b945",
+          "reason": "The complete current Main Content supplies the live Scope and Claim context for this exact Subject occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source role and current Subject distinction are retained without changing its identity, owner, domain, or qualification.",
+        "Candidate display notation is not treated as an admitted native Subject grammar or source migration."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1192-CORE_META_MODEL-CORE-REQUIREMENT--define-dependent-entity.md#subjects.governs",
+      "old_value": "Dependent Entity",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1192",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1192-CORE_META_MODEL-CORE-REQUIREMENT--define-dependent-entity.md",
+      "source_sha256": "80ef872660ac55977945a7a51c08c0623b7da8221ceee39257bc9a4365c72d30",
+      "source_version": 12,
+      "decision": "unchanged",
+      "proposed_value": "Dependent Entity",
+      "confidence": 0.96,
+      "reason": "Current Main Content says: a Dependent Entity **means** an Entity occurrence whose identity requires **`=1`** immediate bearer Entity occurrence. It supports retaining the exact current Subject value; neither the current source nor the candidate establishes a different canonical identity that can be substituted safely.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1192-CORE_META_MODEL-CORE-REQUIREMENT--define-dependent-entity.md",
+          "sha256": "80ef872660ac55977945a7a51c08c0623b7da8221ceee39257bc9a4365c72d30",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "8fff92394f7d6ebab4dcadb00b4114ecc35a6d4859da9a9e3b0b5fb18585b945",
+          "reason": "The complete current Main Content supplies the live Scope and Claim context for this exact Subject occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source role and current Subject distinction are retained without changing its identity, owner, domain, or qualification.",
+        "Candidate display notation is not treated as an admitted native Subject grammar or source migration."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1193-CORE_META_MODEL-CORE-REQUIREMENT--define-property.md#subjects.depends_on[0]",
+      "old_value": "Dependent Entity",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1193",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1193-CORE_META_MODEL-CORE-REQUIREMENT--define-property.md",
+      "source_sha256": "600bc4f919796701478b51b0bc4abea383c89cc8b9929959aa937c288db7c522",
+      "source_version": 11,
+      "decision": "unchanged",
+      "proposed_value": "Dependent Entity",
+      "confidence": 0.96,
+      "reason": "Current Main Content says: a Property **means** a Dependent Entity that represents one characteristic of its bearer. It supports retaining the exact current Subject value; neither the current source nor the candidate establishes a different canonical identity that can be substituted safely.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1193-CORE_META_MODEL-CORE-REQUIREMENT--define-property.md",
+          "sha256": "600bc4f919796701478b51b0bc4abea383c89cc8b9929959aa937c288db7c522",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "b59fc3280243c214c8e736d8d2abcf3ecc276a3c11e97a8ef2c5d363ea0e0330",
+          "reason": "The complete current Main Content supplies the live Scope and Claim context for this exact Subject occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source role and current Subject distinction are retained without changing its identity, owner, domain, or qualification.",
+        "Candidate display notation is not treated as an admitted native Subject grammar or source migration."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1193-CORE_META_MODEL-CORE-REQUIREMENT--define-property.md#subjects.governs",
+      "old_value": "Property",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1193",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1193-CORE_META_MODEL-CORE-REQUIREMENT--define-property.md",
+      "source_sha256": "600bc4f919796701478b51b0bc4abea383c89cc8b9929959aa937c288db7c522",
+      "source_version": 11,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "Current Main Content says: a Property **means** a Dependent Entity that represents one characteristic of its bearer. It establishes the current requirement context but not a positive candidate identity for 'Property'. The frozen review records a source-gap, so no replacement is invented.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1193-CORE_META_MODEL-CORE-REQUIREMENT--define-property.md",
+          "sha256": "600bc4f919796701478b51b0bc4abea383c89cc8b9929959aa937c288db7c522",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "b59fc3280243c214c8e736d8d2abcf3ecc276a3c11e97a8ef2c5d363ea0e0330",
+          "reason": "The complete current Main Content supplies the live Scope and Claim context for this exact Subject occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact legacy identity and every current qualification remain preserved pending targeted mapping research.",
+        "No candidate root, owner, field, relation catalogue, or Subject grammar is inferred from display notation."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1194-CORE_META_MODEL-CORE-REQUIREMENT--define-subject-path.md#subjects.depends_on[0]",
+      "old_value": "Subject Expression",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1194",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1194-CORE_META_MODEL-CORE-REQUIREMENT--define-subject-path.md",
+      "source_sha256": "159ff72818c390f6d126c543587ebb8de49d5d5ae53cfc0e437df25d25e3c30e",
+      "source_version": 14,
+      "decision": "unchanged",
+      "proposed_value": "Subject Expression",
+      "confidence": 0.96,
+      "reason": "Current Main Content says: a Subject Path **means** a full canonical Subject Expression used by a Subject Relation **to** identify **`=1`** Entity through its named Term components **and** registered qualifications. qualification retains its registered endpoint constraints; the path identifies the target **without** creating another target identity **or** becoming the Subject Relation itself. It supports retaining the exact current Subject value; neither the current source nor the candidate establishes a different canonical identity that can be substituted safely.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1194-CORE_META_MODEL-CORE-REQUIREMENT--define-subject-path.md",
+          "sha256": "159ff72818c390f6d126c543587ebb8de49d5d5ae53cfc0e437df25d25e3c30e",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "573b04f84c5474404b03d36c4bd42bd3a72384fb94f8142909ea7ca3bdaa70a6",
+          "reason": "The complete current Main Content supplies the live Scope and Claim context for this exact Subject occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source role and current Subject distinction are retained without changing its identity, owner, domain, or qualification.",
+        "Candidate display notation is not treated as an admitted native Subject grammar or source migration."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1194-CORE_META_MODEL-CORE-REQUIREMENT--define-subject-path.md#subjects.depends_on[1]",
+      "old_value": "Entity",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1194",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1194-CORE_META_MODEL-CORE-REQUIREMENT--define-subject-path.md",
+      "source_sha256": "159ff72818c390f6d126c543587ebb8de49d5d5ae53cfc0e437df25d25e3c30e",
+      "source_version": 14,
+      "decision": "unchanged",
+      "proposed_value": "Entity",
+      "confidence": 0.96,
+      "reason": "Current Main Content says: a Subject Path **means** a full canonical Subject Expression used by a Subject Relation **to** identify **`=1`** Entity through its named Term components **and** registered qualifications. qualification retains its registered endpoint constraints; the path identifies the target **without** creating another target identity **or** becoming the Subject Relation itself. It supports retaining the exact current Subject value; neither the current source nor the candidate establishes a different canonical identity that can be substituted safely.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1194-CORE_META_MODEL-CORE-REQUIREMENT--define-subject-path.md",
+          "sha256": "159ff72818c390f6d126c543587ebb8de49d5d5ae53cfc0e437df25d25e3c30e",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "573b04f84c5474404b03d36c4bd42bd3a72384fb94f8142909ea7ca3bdaa70a6",
+          "reason": "The complete current Main Content supplies the live Scope and Claim context for this exact Subject occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source role and current Subject distinction are retained without changing its identity, owner, domain, or qualification.",
+        "Candidate display notation is not treated as an admitted native Subject grammar or source migration."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1194-CORE_META_MODEL-CORE-REQUIREMENT--define-subject-path.md#subjects.depends_on[2]",
+      "old_value": "Relation",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1194",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1194-CORE_META_MODEL-CORE-REQUIREMENT--define-subject-path.md",
+      "source_sha256": "159ff72818c390f6d126c543587ebb8de49d5d5ae53cfc0e437df25d25e3c30e",
+      "source_version": 14,
+      "decision": "unchanged",
+      "proposed_value": "Relation",
+      "confidence": 0.96,
+      "reason": "Current Main Content says: a Subject Path **means** a full canonical Subject Expression used by a Subject Relation **to** identify **`=1`** Entity through its named Term components **and** registered qualifications. qualification retains its registered endpoint constraints; the path identifies the target **without** creating another target identity **or** becoming the Subject Relation itself. It supports retaining the exact current Subject value; neither the current source nor the candidate establishes a different canonical identity that can be substituted safely.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1194-CORE_META_MODEL-CORE-REQUIREMENT--define-subject-path.md",
+          "sha256": "159ff72818c390f6d126c543587ebb8de49d5d5ae53cfc0e437df25d25e3c30e",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "573b04f84c5474404b03d36c4bd42bd3a72384fb94f8142909ea7ca3bdaa70a6",
+          "reason": "The complete current Main Content supplies the live Scope and Claim context for this exact Subject occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source role and current Subject distinction are retained without changing its identity, owner, domain, or qualification.",
+        "Candidate display notation is not treated as an admitted native Subject grammar or source migration."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 3,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1194-CORE_META_MODEL-CORE-REQUIREMENT--define-subject-path.md#subjects.depends_on[3]",
+      "old_value": "Subject",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1194",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1194-CORE_META_MODEL-CORE-REQUIREMENT--define-subject-path.md",
+      "source_sha256": "159ff72818c390f6d126c543587ebb8de49d5d5ae53cfc0e437df25d25e3c30e",
+      "source_version": 14,
+      "decision": "unchanged",
+      "proposed_value": "Subject",
+      "confidence": 0.96,
+      "reason": "Current Main Content says: a Subject Path **means** a full canonical Subject Expression used by a Subject Relation **to** identify **`=1`** Entity through its named Term components **and** registered qualifications. qualification retains its registered endpoint constraints; the path identifies the target **without** creating another target identity **or** becoming the Subject Relation itself. It supports retaining the exact current Subject value; neither the current source nor the candidate establishes a different canonical identity that can be substituted safely.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1194-CORE_META_MODEL-CORE-REQUIREMENT--define-subject-path.md",
+          "sha256": "159ff72818c390f6d126c543587ebb8de49d5d5ae53cfc0e437df25d25e3c30e",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "573b04f84c5474404b03d36c4bd42bd3a72384fb94f8142909ea7ca3bdaa70a6",
+          "reason": "The complete current Main Content supplies the live Scope and Claim context for this exact Subject occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source role and current Subject distinction are retained without changing its identity, owner, domain, or qualification.",
+        "Candidate display notation is not treated as an admitted native Subject grammar or source migration."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 4,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1194-CORE_META_MODEL-CORE-REQUIREMENT--define-subject-path.md#subjects.depends_on[4]",
+      "old_value": "Term",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1194",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1194-CORE_META_MODEL-CORE-REQUIREMENT--define-subject-path.md",
+      "source_sha256": "159ff72818c390f6d126c543587ebb8de49d5d5ae53cfc0e437df25d25e3c30e",
+      "source_version": 14,
+      "decision": "unchanged",
+      "proposed_value": "Term",
+      "confidence": 0.96,
+      "reason": "Current Main Content says: a Subject Path **means** a full canonical Subject Expression used by a Subject Relation **to** identify **`=1`** Entity through its named Term components **and** registered qualifications. qualification retains its registered endpoint constraints; the path identifies the target **without** creating another target identity **or** becoming the Subject Relation itself. It supports retaining the exact current Subject value; neither the current source nor the candidate establishes a different canonical identity that can be substituted safely.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1194-CORE_META_MODEL-CORE-REQUIREMENT--define-subject-path.md",
+          "sha256": "159ff72818c390f6d126c543587ebb8de49d5d5ae53cfc0e437df25d25e3c30e",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "573b04f84c5474404b03d36c4bd42bd3a72384fb94f8142909ea7ca3bdaa70a6",
+          "reason": "The complete current Main Content supplies the live Scope and Claim context for this exact Subject occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source role and current Subject distinction are retained without changing its identity, owner, domain, or qualification.",
+        "Candidate display notation is not treated as an admitted native Subject grammar or source migration."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1194-CORE_META_MODEL-CORE-REQUIREMENT--define-subject-path.md#subjects.governs",
+      "old_value": "Subject Path",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1194",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1194-CORE_META_MODEL-CORE-REQUIREMENT--define-subject-path.md",
+      "source_sha256": "159ff72818c390f6d126c543587ebb8de49d5d5ae53cfc0e437df25d25e3c30e",
+      "source_version": 14,
+      "decision": "unchanged",
+      "proposed_value": "Subject Path",
+      "confidence": 0.96,
+      "reason": "Current Main Content says: a Subject Path **means** a full canonical Subject Expression used by a Subject Relation **to** identify **`=1`** Entity through its named Term components **and** registered qualifications. qualification retains its registered endpoint constraints; the path identifies the target **without** creating another target identity **or** becoming the Subject Relation itself. It supports retaining the exact current Subject value; neither the current source nor the candidate establishes a different canonical identity that can be substituted safely.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1194-CORE_META_MODEL-CORE-REQUIREMENT--define-subject-path.md",
+          "sha256": "159ff72818c390f6d126c543587ebb8de49d5d5ae53cfc0e437df25d25e3c30e",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "573b04f84c5474404b03d36c4bd42bd3a72384fb94f8142909ea7ca3bdaa70a6",
+          "reason": "The complete current Main Content supplies the live Scope and Claim context for this exact Subject occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source role and current Subject distinction are retained without changing its identity, owner, domain, or qualification.",
+        "Candidate display notation is not treated as an admitted native Subject grammar or source migration."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1198-CORE_META_MODEL-CORE-REQUIREMENT--define-atom-subjects.md#subjects.depends_on[0]",
+      "old_value": "Atom",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1198",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1198-CORE_META_MODEL-CORE-REQUIREMENT--define-atom-subjects.md",
+      "source_sha256": "6eb2f68642b09eb05e1c6ece6b2dd92d309b92445fcea3e0b37f4b485576365b",
+      "source_version": 13,
+      "decision": "unchanged",
+      "proposed_value": "Atom",
+      "confidence": 0.96,
+      "reason": "Current Main Content says: the Atom Subjects Property **means** the Atom Property that records its direct Subject Relations: GOVERNS **and** DEPENDS_ON links from that Atom **to** canonical targets. it preserves the target identities **without** storing copies of the targets **or** introducing a separately identified Subject object **or** a nested Entity **or** Reference Property for **every** link. It supports retaining the exact current Subject value; neither the current source nor the candidate establishes a different canonical identity that can be substituted safely.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1198-CORE_META_MODEL-CORE-REQUIREMENT--define-atom-subjects.md",
+          "sha256": "6eb2f68642b09eb05e1c6ece6b2dd92d309b92445fcea3e0b37f4b485576365b",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "13f695585b980638a4bc30cdc3cbcd51f51cb176cf40579cbb2f2f197f362fc1",
+          "reason": "The complete current Main Content supplies the live Scope and Claim context for this exact Subject occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source role and current Subject distinction are retained without changing its identity, owner, domain, or qualification.",
+        "Candidate display notation is not treated as an admitted native Subject grammar or source migration."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1198-CORE_META_MODEL-CORE-REQUIREMENT--define-atom-subjects.md#subjects.depends_on[1]",
+      "old_value": "Subject",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1198",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1198-CORE_META_MODEL-CORE-REQUIREMENT--define-atom-subjects.md",
+      "source_sha256": "6eb2f68642b09eb05e1c6ece6b2dd92d309b92445fcea3e0b37f4b485576365b",
+      "source_version": 13,
+      "decision": "unchanged",
+      "proposed_value": "Subject",
+      "confidence": 0.96,
+      "reason": "Current Main Content says: the Atom Subjects Property **means** the Atom Property that records its direct Subject Relations: GOVERNS **and** DEPENDS_ON links from that Atom **to** canonical targets. it preserves the target identities **without** storing copies of the targets **or** introducing a separately identified Subject object **or** a nested Entity **or** Reference Property for **every** link. It supports retaining the exact current Subject value; neither the current source nor the candidate establishes a different canonical identity that can be substituted safely.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1198-CORE_META_MODEL-CORE-REQUIREMENT--define-atom-subjects.md",
+          "sha256": "6eb2f68642b09eb05e1c6ece6b2dd92d309b92445fcea3e0b37f4b485576365b",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "13f695585b980638a4bc30cdc3cbcd51f51cb176cf40579cbb2f2f197f362fc1",
+          "reason": "The complete current Main Content supplies the live Scope and Claim context for this exact Subject occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source role and current Subject distinction are retained without changing its identity, owner, domain, or qualification.",
+        "Candidate display notation is not treated as an admitted native Subject grammar or source migration."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1198-CORE_META_MODEL-CORE-REQUIREMENT--define-atom-subjects.md#subjects.depends_on[2]",
+      "old_value": "GOVERNS",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1198",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1198-CORE_META_MODEL-CORE-REQUIREMENT--define-atom-subjects.md",
+      "source_sha256": "6eb2f68642b09eb05e1c6ece6b2dd92d309b92445fcea3e0b37f4b485576365b",
+      "source_version": 13,
+      "decision": "unchanged",
+      "proposed_value": "GOVERNS",
+      "confidence": 0.96,
+      "reason": "Current Main Content says: the Atom Subjects Property **means** the Atom Property that records its direct Subject Relations: GOVERNS **and** DEPENDS_ON links from that Atom **to** canonical targets. it preserves the target identities **without** storing copies of the targets **or** introducing a separately identified Subject object **or** a nested Entity **or** Reference Property for **every** link. It supports retaining the exact current Subject value; neither the current source nor the candidate establishes a different canonical identity that can be substituted safely.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1198-CORE_META_MODEL-CORE-REQUIREMENT--define-atom-subjects.md",
+          "sha256": "6eb2f68642b09eb05e1c6ece6b2dd92d309b92445fcea3e0b37f4b485576365b",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "13f695585b980638a4bc30cdc3cbcd51f51cb176cf40579cbb2f2f197f362fc1",
+          "reason": "The complete current Main Content supplies the live Scope and Claim context for this exact Subject occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source role and current Subject distinction are retained without changing its identity, owner, domain, or qualification.",
+        "Candidate display notation is not treated as an admitted native Subject grammar or source migration."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 3,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1198-CORE_META_MODEL-CORE-REQUIREMENT--define-atom-subjects.md#subjects.depends_on[3]",
+      "old_value": "DEPENDS_ON",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1198",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1198-CORE_META_MODEL-CORE-REQUIREMENT--define-atom-subjects.md",
+      "source_sha256": "6eb2f68642b09eb05e1c6ece6b2dd92d309b92445fcea3e0b37f4b485576365b",
+      "source_version": 13,
+      "decision": "unchanged",
+      "proposed_value": "DEPENDS_ON",
+      "confidence": 0.96,
+      "reason": "Current Main Content says: the Atom Subjects Property **means** the Atom Property that records its direct Subject Relations: GOVERNS **and** DEPENDS_ON links from that Atom **to** canonical targets. it preserves the target identities **without** storing copies of the targets **or** introducing a separately identified Subject object **or** a nested Entity **or** Reference Property for **every** link. It supports retaining the exact current Subject value; neither the current source nor the candidate establishes a different canonical identity that can be substituted safely.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1198-CORE_META_MODEL-CORE-REQUIREMENT--define-atom-subjects.md",
+          "sha256": "6eb2f68642b09eb05e1c6ece6b2dd92d309b92445fcea3e0b37f4b485576365b",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "13f695585b980638a4bc30cdc3cbcd51f51cb176cf40579cbb2f2f197f362fc1",
+          "reason": "The complete current Main Content supplies the live Scope and Claim context for this exact Subject occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source role and current Subject distinction are retained without changing its identity, owner, domain, or qualification.",
+        "Candidate display notation is not treated as an admitted native Subject grammar or source migration."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 4,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1198-CORE_META_MODEL-CORE-REQUIREMENT--define-atom-subjects.md#subjects.depends_on[4]",
+      "old_value": "Property",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1198",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1198-CORE_META_MODEL-CORE-REQUIREMENT--define-atom-subjects.md",
+      "source_sha256": "6eb2f68642b09eb05e1c6ece6b2dd92d309b92445fcea3e0b37f4b485576365b",
+      "source_version": 13,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "Current Main Content says: the Atom Subjects Property **means** the Atom Property that records its direct Subject Relations: GOVERNS **and** DEPENDS_ON links from that Atom **to** canonical targets. it preserves the target identities **without** storing copies of the targets **or** introducing a separately identified Subject object **or** a nested Entity **or** Reference Property for **every** link. It establishes the current requirement context but not a positive candidate identity for 'Property'. The frozen review records a source-gap, so no replacement is invented.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1198-CORE_META_MODEL-CORE-REQUIREMENT--define-atom-subjects.md",
+          "sha256": "6eb2f68642b09eb05e1c6ece6b2dd92d309b92445fcea3e0b37f4b485576365b",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "13f695585b980638a4bc30cdc3cbcd51f51cb176cf40579cbb2f2f197f362fc1",
+          "reason": "The complete current Main Content supplies the live Scope and Claim context for this exact Subject occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact legacy identity and every current qualification remain preserved pending targeted mapping research.",
+        "No candidate root, owner, field, relation catalogue, or Subject grammar is inferred from display notation."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 5,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1198-CORE_META_MODEL-CORE-REQUIREMENT--define-atom-subjects.md#subjects.depends_on[5]",
+      "old_value": "Entity",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1198",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1198-CORE_META_MODEL-CORE-REQUIREMENT--define-atom-subjects.md",
+      "source_sha256": "6eb2f68642b09eb05e1c6ece6b2dd92d309b92445fcea3e0b37f4b485576365b",
+      "source_version": 13,
+      "decision": "unchanged",
+      "proposed_value": "Entity",
+      "confidence": 0.96,
+      "reason": "Current Main Content says: the Atom Subjects Property **means** the Atom Property that records its direct Subject Relations: GOVERNS **and** DEPENDS_ON links from that Atom **to** canonical targets. it preserves the target identities **without** storing copies of the targets **or** introducing a separately identified Subject object **or** a nested Entity **or** Reference Property for **every** link. It supports retaining the exact current Subject value; neither the current source nor the candidate establishes a different canonical identity that can be substituted safely.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1198-CORE_META_MODEL-CORE-REQUIREMENT--define-atom-subjects.md",
+          "sha256": "6eb2f68642b09eb05e1c6ece6b2dd92d309b92445fcea3e0b37f4b485576365b",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "13f695585b980638a4bc30cdc3cbcd51f51cb176cf40579cbb2f2f197f362fc1",
+          "reason": "The complete current Main Content supplies the live Scope and Claim context for this exact Subject occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source role and current Subject distinction are retained without changing its identity, owner, domain, or qualification.",
+        "Candidate display notation is not treated as an admitted native Subject grammar or source migration."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1198-CORE_META_MODEL-CORE-REQUIREMENT--define-atom-subjects.md#subjects.governs",
+      "old_value": "Atom/Subjects",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1198",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1198-CORE_META_MODEL-CORE-REQUIREMENT--define-atom-subjects.md",
+      "source_sha256": "6eb2f68642b09eb05e1c6ece6b2dd92d309b92445fcea3e0b37f4b485576365b",
+      "source_version": 13,
+      "decision": "unchanged",
+      "proposed_value": "Atom/Subjects",
+      "confidence": 0.96,
+      "reason": "Current Main Content says: the Atom Subjects Property **means** the Atom Property that records its direct Subject Relations: GOVERNS **and** DEPENDS_ON links from that Atom **to** canonical targets. it preserves the target identities **without** storing copies of the targets **or** introducing a separately identified Subject object **or** a nested Entity **or** Reference Property for **every** link. It supports retaining the exact current Subject value; neither the current source nor the candidate establishes a different canonical identity that can be substituted safely.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1198-CORE_META_MODEL-CORE-REQUIREMENT--define-atom-subjects.md",
+          "sha256": "6eb2f68642b09eb05e1c6ece6b2dd92d309b92445fcea3e0b37f4b485576365b",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "13f695585b980638a4bc30cdc3cbcd51f51cb176cf40579cbb2f2f197f362fc1",
+          "reason": "The complete current Main Content supplies the live Scope and Claim context for this exact Subject occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source role and current Subject distinction are retained without changing its identity, owner, domain, or qualification.",
+        "Candidate display notation is not treated as an admitted native Subject grammar or source migration."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1199-CORE_META_MODEL-CORE-REQUIREMENT--define-governs-subject-relation-kind.md#subjects.depends_on[0]",
+      "old_value": "Relation Kind",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1199",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1199-CORE_META_MODEL-CORE-REQUIREMENT--define-governs-subject-relation-kind.md",
+      "source_sha256": "1eb27ffbeb24d9ba35e39bfb6e6207214260867b6fb0687b1952ba70a7defd30",
+      "source_version": 13,
+      "decision": "unchanged",
+      "proposed_value": "Relation Kind",
+      "confidence": 0.96,
+      "reason": "Current Main Content says: GOVERNS **means** the direct Subject Relation Kind from an Atom **to** the canonical Entity about which its Claim is authoritative. It supports retaining the exact current Subject value; neither the current source nor the candidate establishes a different canonical identity that can be substituted safely.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1199-CORE_META_MODEL-CORE-REQUIREMENT--define-governs-subject-relation-kind.md",
+          "sha256": "1eb27ffbeb24d9ba35e39bfb6e6207214260867b6fb0687b1952ba70a7defd30",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "f21a60348a8af3364200fe68e1babb6b1d8edb446774987d4170162a473477fc",
+          "reason": "The complete current Main Content supplies the live Scope and Claim context for this exact Subject occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source role and current Subject distinction are retained without changing its identity, owner, domain, or qualification.",
+        "Candidate display notation is not treated as an admitted native Subject grammar or source migration."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1199-CORE_META_MODEL-CORE-REQUIREMENT--define-governs-subject-relation-kind.md#subjects.depends_on[1]",
+      "old_value": "Atom",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1199",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1199-CORE_META_MODEL-CORE-REQUIREMENT--define-governs-subject-relation-kind.md",
+      "source_sha256": "1eb27ffbeb24d9ba35e39bfb6e6207214260867b6fb0687b1952ba70a7defd30",
+      "source_version": 13,
+      "decision": "unchanged",
+      "proposed_value": "Atom",
+      "confidence": 0.96,
+      "reason": "Current Main Content says: GOVERNS **means** the direct Subject Relation Kind from an Atom **to** the canonical Entity about which its Claim is authoritative. It supports retaining the exact current Subject value; neither the current source nor the candidate establishes a different canonical identity that can be substituted safely.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1199-CORE_META_MODEL-CORE-REQUIREMENT--define-governs-subject-relation-kind.md",
+          "sha256": "1eb27ffbeb24d9ba35e39bfb6e6207214260867b6fb0687b1952ba70a7defd30",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "f21a60348a8af3364200fe68e1babb6b1d8edb446774987d4170162a473477fc",
+          "reason": "The complete current Main Content supplies the live Scope and Claim context for this exact Subject occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source role and current Subject distinction are retained without changing its identity, owner, domain, or qualification.",
+        "Candidate display notation is not treated as an admitted native Subject grammar or source migration."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1199-CORE_META_MODEL-CORE-REQUIREMENT--define-governs-subject-relation-kind.md#subjects.depends_on[2]",
+      "old_value": "Subject",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1199",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1199-CORE_META_MODEL-CORE-REQUIREMENT--define-governs-subject-relation-kind.md",
+      "source_sha256": "1eb27ffbeb24d9ba35e39bfb6e6207214260867b6fb0687b1952ba70a7defd30",
+      "source_version": 13,
+      "decision": "unchanged",
+      "proposed_value": "Subject",
+      "confidence": 0.96,
+      "reason": "Current Main Content says: GOVERNS **means** the direct Subject Relation Kind from an Atom **to** the canonical Entity about which its Claim is authoritative. It supports retaining the exact current Subject value; neither the current source nor the candidate establishes a different canonical identity that can be substituted safely.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1199-CORE_META_MODEL-CORE-REQUIREMENT--define-governs-subject-relation-kind.md",
+          "sha256": "1eb27ffbeb24d9ba35e39bfb6e6207214260867b6fb0687b1952ba70a7defd30",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "f21a60348a8af3364200fe68e1babb6b1d8edb446774987d4170162a473477fc",
+          "reason": "The complete current Main Content supplies the live Scope and Claim context for this exact Subject occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source role and current Subject distinction are retained without changing its identity, owner, domain, or qualification.",
+        "Candidate display notation is not treated as an admitted native Subject grammar or source migration."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 3,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1199-CORE_META_MODEL-CORE-REQUIREMENT--define-governs-subject-relation-kind.md#subjects.depends_on[3]",
+      "old_value": "Entity",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1199",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1199-CORE_META_MODEL-CORE-REQUIREMENT--define-governs-subject-relation-kind.md",
+      "source_sha256": "1eb27ffbeb24d9ba35e39bfb6e6207214260867b6fb0687b1952ba70a7defd30",
+      "source_version": 13,
+      "decision": "unchanged",
+      "proposed_value": "Entity",
+      "confidence": 0.96,
+      "reason": "Current Main Content says: GOVERNS **means** the direct Subject Relation Kind from an Atom **to** the canonical Entity about which its Claim is authoritative. It supports retaining the exact current Subject value; neither the current source nor the candidate establishes a different canonical identity that can be substituted safely.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1199-CORE_META_MODEL-CORE-REQUIREMENT--define-governs-subject-relation-kind.md",
+          "sha256": "1eb27ffbeb24d9ba35e39bfb6e6207214260867b6fb0687b1952ba70a7defd30",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "f21a60348a8af3364200fe68e1babb6b1d8edb446774987d4170162a473477fc",
+          "reason": "The complete current Main Content supplies the live Scope and Claim context for this exact Subject occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source role and current Subject distinction are retained without changing its identity, owner, domain, or qualification.",
+        "Candidate display notation is not treated as an admitted native Subject grammar or source migration."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 4,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1199-CORE_META_MODEL-CORE-REQUIREMENT--define-governs-subject-relation-kind.md#subjects.depends_on[4]",
+      "old_value": "Atom/Claim",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1199",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1199-CORE_META_MODEL-CORE-REQUIREMENT--define-governs-subject-relation-kind.md",
+      "source_sha256": "1eb27ffbeb24d9ba35e39bfb6e6207214260867b6fb0687b1952ba70a7defd30",
+      "source_version": 13,
+      "decision": "unchanged",
+      "proposed_value": "Atom/Claim",
+      "confidence": 0.96,
+      "reason": "Current Main Content says: GOVERNS **means** the direct Subject Relation Kind from an Atom **to** the canonical Entity about which its Claim is authoritative. It supports retaining the exact current Subject value; neither the current source nor the candidate establishes a different canonical identity that can be substituted safely.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1199-CORE_META_MODEL-CORE-REQUIREMENT--define-governs-subject-relation-kind.md",
+          "sha256": "1eb27ffbeb24d9ba35e39bfb6e6207214260867b6fb0687b1952ba70a7defd30",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "f21a60348a8af3364200fe68e1babb6b1d8edb446774987d4170162a473477fc",
+          "reason": "The complete current Main Content supplies the live Scope and Claim context for this exact Subject occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source role and current Subject distinction are retained without changing its identity, owner, domain, or qualification.",
+        "Candidate display notation is not treated as an admitted native Subject grammar or source migration."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1199-CORE_META_MODEL-CORE-REQUIREMENT--define-governs-subject-relation-kind.md#subjects.governs",
+      "old_value": "GOVERNS",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1199",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1199-CORE_META_MODEL-CORE-REQUIREMENT--define-governs-subject-relation-kind.md",
+      "source_sha256": "1eb27ffbeb24d9ba35e39bfb6e6207214260867b6fb0687b1952ba70a7defd30",
+      "source_version": 13,
+      "decision": "unchanged",
+      "proposed_value": "GOVERNS",
+      "confidence": 0.96,
+      "reason": "Current Main Content says: GOVERNS **means** the direct Subject Relation Kind from an Atom **to** the canonical Entity about which its Claim is authoritative. It supports retaining the exact current Subject value; neither the current source nor the candidate establishes a different canonical identity that can be substituted safely.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1199-CORE_META_MODEL-CORE-REQUIREMENT--define-governs-subject-relation-kind.md",
+          "sha256": "1eb27ffbeb24d9ba35e39bfb6e6207214260867b6fb0687b1952ba70a7defd30",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "f21a60348a8af3364200fe68e1babb6b1d8edb446774987d4170162a473477fc",
+          "reason": "The complete current Main Content supplies the live Scope and Claim context for this exact Subject occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source role and current Subject distinction are retained without changing its identity, owner, domain, or qualification.",
+        "Candidate display notation is not treated as an admitted native Subject grammar or source migration."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1200-CORE_META_MODEL-CORE-REQUIREMENT--define-depends-on-subject-relation-kind.md#subjects.depends_on[0]",
+      "old_value": "Relation Kind",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1200",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1200-CORE_META_MODEL-CORE-REQUIREMENT--define-depends-on-subject-relation-kind.md",
+      "source_sha256": "baa339768dcb5ef82ea6ce07c2020b934f787e552fc3e08a37dbc85c0021aa1f",
+      "source_version": 16,
+      "decision": "unchanged",
+      "proposed_value": "Relation Kind",
+      "confidence": 0.96,
+      "reason": "Current Main Content says: DEPENDS_ON **means** the direct Subject Relation Kind from an Atom **to** a canonical Entity mentioned **in** its Markdown Main Content other than its GOVERNS target. this reference does **not** make the Claim authoritative about that Entity. It supports retaining the exact current Subject value; neither the current source nor the candidate establishes a different canonical identity that can be substituted safely.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1200-CORE_META_MODEL-CORE-REQUIREMENT--define-depends-on-subject-relation-kind.md",
+          "sha256": "baa339768dcb5ef82ea6ce07c2020b934f787e552fc3e08a37dbc85c0021aa1f",
+          "start_line": 24,
+          "end_line": 38,
+          "span_sha256": "554ad85fe620fd3fc07e3d75201138d93b56fddb526ee8b0badfb8ec2b655f4e",
+          "reason": "The complete current Main Content supplies the live Scope and Claim context for this exact Subject occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source role and current Subject distinction are retained without changing its identity, owner, domain, or qualification.",
+        "Candidate display notation is not treated as an admitted native Subject grammar or source migration."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1200-CORE_META_MODEL-CORE-REQUIREMENT--define-depends-on-subject-relation-kind.md#subjects.depends_on[1]",
+      "old_value": "Atom",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1200",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1200-CORE_META_MODEL-CORE-REQUIREMENT--define-depends-on-subject-relation-kind.md",
+      "source_sha256": "baa339768dcb5ef82ea6ce07c2020b934f787e552fc3e08a37dbc85c0021aa1f",
+      "source_version": 16,
+      "decision": "unchanged",
+      "proposed_value": "Atom",
+      "confidence": 0.96,
+      "reason": "Current Main Content says: DEPENDS_ON **means** the direct Subject Relation Kind from an Atom **to** a canonical Entity mentioned **in** its Markdown Main Content other than its GOVERNS target. this reference does **not** make the Claim authoritative about that Entity. It supports retaining the exact current Subject value; neither the current source nor the candidate establishes a different canonical identity that can be substituted safely.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1200-CORE_META_MODEL-CORE-REQUIREMENT--define-depends-on-subject-relation-kind.md",
+          "sha256": "baa339768dcb5ef82ea6ce07c2020b934f787e552fc3e08a37dbc85c0021aa1f",
+          "start_line": 24,
+          "end_line": 38,
+          "span_sha256": "554ad85fe620fd3fc07e3d75201138d93b56fddb526ee8b0badfb8ec2b655f4e",
+          "reason": "The complete current Main Content supplies the live Scope and Claim context for this exact Subject occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source role and current Subject distinction are retained without changing its identity, owner, domain, or qualification.",
+        "Candidate display notation is not treated as an admitted native Subject grammar or source migration."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1200-CORE_META_MODEL-CORE-REQUIREMENT--define-depends-on-subject-relation-kind.md#subjects.depends_on[2]",
+      "old_value": "Subject",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1200",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1200-CORE_META_MODEL-CORE-REQUIREMENT--define-depends-on-subject-relation-kind.md",
+      "source_sha256": "baa339768dcb5ef82ea6ce07c2020b934f787e552fc3e08a37dbc85c0021aa1f",
+      "source_version": 16,
+      "decision": "unchanged",
+      "proposed_value": "Subject",
+      "confidence": 0.96,
+      "reason": "Current Main Content says: DEPENDS_ON **means** the direct Subject Relation Kind from an Atom **to** a canonical Entity mentioned **in** its Markdown Main Content other than its GOVERNS target. this reference does **not** make the Claim authoritative about that Entity. It supports retaining the exact current Subject value; neither the current source nor the candidate establishes a different canonical identity that can be substituted safely.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1200-CORE_META_MODEL-CORE-REQUIREMENT--define-depends-on-subject-relation-kind.md",
+          "sha256": "baa339768dcb5ef82ea6ce07c2020b934f787e552fc3e08a37dbc85c0021aa1f",
+          "start_line": 24,
+          "end_line": 38,
+          "span_sha256": "554ad85fe620fd3fc07e3d75201138d93b56fddb526ee8b0badfb8ec2b655f4e",
+          "reason": "The complete current Main Content supplies the live Scope and Claim context for this exact Subject occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source role and current Subject distinction are retained without changing its identity, owner, domain, or qualification.",
+        "Candidate display notation is not treated as an admitted native Subject grammar or source migration."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 3,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1200-CORE_META_MODEL-CORE-REQUIREMENT--define-depends-on-subject-relation-kind.md#subjects.depends_on[3]",
+      "old_value": "Atom/Content Role: Plan/Type: Plan",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1200",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1200-CORE_META_MODEL-CORE-REQUIREMENT--define-depends-on-subject-relation-kind.md",
+      "source_sha256": "baa339768dcb5ef82ea6ce07c2020b934f787e552fc3e08a37dbc85c0021aa1f",
+      "source_version": 16,
+      "decision": "unchanged",
+      "proposed_value": "Atom/Content Role: Plan/Type: Plan",
+      "confidence": 0.96,
+      "reason": "Current Main Content says: DEPENDS_ON **means** the direct Subject Relation Kind from an Atom **to** a canonical Entity mentioned **in** its Markdown Main Content other than its GOVERNS target. this reference does **not** make the Claim authoritative about that Entity. It supports retaining the exact current Subject value; neither the current source nor the candidate establishes a different canonical identity that can be substituted safely.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1200-CORE_META_MODEL-CORE-REQUIREMENT--define-depends-on-subject-relation-kind.md",
+          "sha256": "baa339768dcb5ef82ea6ce07c2020b934f787e552fc3e08a37dbc85c0021aa1f",
+          "start_line": 24,
+          "end_line": 38,
+          "span_sha256": "554ad85fe620fd3fc07e3d75201138d93b56fddb526ee8b0badfb8ec2b655f4e",
+          "reason": "The complete current Main Content supplies the live Scope and Claim context for this exact Subject occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source role and current Subject distinction are retained without changing its identity, owner, domain, or qualification.",
+        "Candidate display notation is not treated as an admitted native Subject grammar or source migration."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 4,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1200-CORE_META_MODEL-CORE-REQUIREMENT--define-depends-on-subject-relation-kind.md#subjects.depends_on[4]",
+      "old_value": "Entity",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1200",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1200-CORE_META_MODEL-CORE-REQUIREMENT--define-depends-on-subject-relation-kind.md",
+      "source_sha256": "baa339768dcb5ef82ea6ce07c2020b934f787e552fc3e08a37dbc85c0021aa1f",
+      "source_version": 16,
+      "decision": "unchanged",
+      "proposed_value": "Entity",
+      "confidence": 0.96,
+      "reason": "Current Main Content says: DEPENDS_ON **means** the direct Subject Relation Kind from an Atom **to** a canonical Entity mentioned **in** its Markdown Main Content other than its GOVERNS target. this reference does **not** make the Claim authoritative about that Entity. It supports retaining the exact current Subject value; neither the current source nor the candidate establishes a different canonical identity that can be substituted safely.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1200-CORE_META_MODEL-CORE-REQUIREMENT--define-depends-on-subject-relation-kind.md",
+          "sha256": "baa339768dcb5ef82ea6ce07c2020b934f787e552fc3e08a37dbc85c0021aa1f",
+          "start_line": 24,
+          "end_line": 38,
+          "span_sha256": "554ad85fe620fd3fc07e3d75201138d93b56fddb526ee8b0badfb8ec2b655f4e",
+          "reason": "The complete current Main Content supplies the live Scope and Claim context for this exact Subject occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source role and current Subject distinction are retained without changing its identity, owner, domain, or qualification.",
+        "Candidate display notation is not treated as an admitted native Subject grammar or source migration."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 5,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1200-CORE_META_MODEL-CORE-REQUIREMENT--define-depends-on-subject-relation-kind.md#subjects.depends_on[5]",
+      "old_value": "Atom/Claim",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1200",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1200-CORE_META_MODEL-CORE-REQUIREMENT--define-depends-on-subject-relation-kind.md",
+      "source_sha256": "baa339768dcb5ef82ea6ce07c2020b934f787e552fc3e08a37dbc85c0021aa1f",
+      "source_version": 16,
+      "decision": "unchanged",
+      "proposed_value": "Atom/Claim",
+      "confidence": 0.96,
+      "reason": "Current Main Content says: DEPENDS_ON **means** the direct Subject Relation Kind from an Atom **to** a canonical Entity mentioned **in** its Markdown Main Content other than its GOVERNS target. this reference does **not** make the Claim authoritative about that Entity. It supports retaining the exact current Subject value; neither the current source nor the candidate establishes a different canonical identity that can be substituted safely.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1200-CORE_META_MODEL-CORE-REQUIREMENT--define-depends-on-subject-relation-kind.md",
+          "sha256": "baa339768dcb5ef82ea6ce07c2020b934f787e552fc3e08a37dbc85c0021aa1f",
+          "start_line": 24,
+          "end_line": 38,
+          "span_sha256": "554ad85fe620fd3fc07e3d75201138d93b56fddb526ee8b0badfb8ec2b655f4e",
+          "reason": "The complete current Main Content supplies the live Scope and Claim context for this exact Subject occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source role and current Subject distinction are retained without changing its identity, owner, domain, or qualification.",
+        "Candidate display notation is not treated as an admitted native Subject grammar or source migration."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 6,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1200-CORE_META_MODEL-CORE-REQUIREMENT--define-depends-on-subject-relation-kind.md#subjects.depends_on[6]",
+      "old_value": "Workflow",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1200",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1200-CORE_META_MODEL-CORE-REQUIREMENT--define-depends-on-subject-relation-kind.md",
+      "source_sha256": "baa339768dcb5ef82ea6ce07c2020b934f787e552fc3e08a37dbc85c0021aa1f",
+      "source_version": 16,
+      "decision": "unchanged",
+      "proposed_value": "Workflow",
+      "confidence": 0.96,
+      "reason": "Current Main Content says: DEPENDS_ON **means** the direct Subject Relation Kind from an Atom **to** a canonical Entity mentioned **in** its Markdown Main Content other than its GOVERNS target. this reference does **not** make the Claim authoritative about that Entity. It supports retaining the exact current Subject value; neither the current source nor the candidate establishes a different canonical identity that can be substituted safely.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1200-CORE_META_MODEL-CORE-REQUIREMENT--define-depends-on-subject-relation-kind.md",
+          "sha256": "baa339768dcb5ef82ea6ce07c2020b934f787e552fc3e08a37dbc85c0021aa1f",
+          "start_line": 24,
+          "end_line": 38,
+          "span_sha256": "554ad85fe620fd3fc07e3d75201138d93b56fddb526ee8b0badfb8ec2b655f4e",
+          "reason": "The complete current Main Content supplies the live Scope and Claim context for this exact Subject occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source role and current Subject distinction are retained without changing its identity, owner, domain, or qualification.",
+        "Candidate display notation is not treated as an admitted native Subject grammar or source migration."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1200-CORE_META_MODEL-CORE-REQUIREMENT--define-depends-on-subject-relation-kind.md#subjects.governs",
+      "old_value": "DEPENDS_ON",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1200",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1200-CORE_META_MODEL-CORE-REQUIREMENT--define-depends-on-subject-relation-kind.md",
+      "source_sha256": "baa339768dcb5ef82ea6ce07c2020b934f787e552fc3e08a37dbc85c0021aa1f",
+      "source_version": 16,
+      "decision": "unchanged",
+      "proposed_value": "DEPENDS_ON",
+      "confidence": 0.96,
+      "reason": "Current Main Content says: DEPENDS_ON **means** the direct Subject Relation Kind from an Atom **to** a canonical Entity mentioned **in** its Markdown Main Content other than its GOVERNS target. this reference does **not** make the Claim authoritative about that Entity. It supports retaining the exact current Subject value; neither the current source nor the candidate establishes a different canonical identity that can be substituted safely.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1200-CORE_META_MODEL-CORE-REQUIREMENT--define-depends-on-subject-relation-kind.md",
+          "sha256": "baa339768dcb5ef82ea6ce07c2020b934f787e552fc3e08a37dbc85c0021aa1f",
+          "start_line": 24,
+          "end_line": 38,
+          "span_sha256": "554ad85fe620fd3fc07e3d75201138d93b56fddb526ee8b0badfb8ec2b655f4e",
+          "reason": "The complete current Main Content supplies the live Scope and Claim context for this exact Subject occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source role and current Subject distinction are retained without changing its identity, owner, domain, or qualification.",
+        "Candidate display notation is not treated as an admitted native Subject grammar or source migration."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1201-CORE_META_MODEL-CORE-REQUIREMENT--require-one-governed-subject-on-every-atom.md#subjects.depends_on[0]",
+      "old_value": "GOVERNS",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1201",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1201-CORE_META_MODEL-CORE-REQUIREMENT--require-one-governed-subject-on-every-atom.md",
+      "source_sha256": "d56b4f7ba89613ab5247e72ec6aadf873b310463731b9269e80a498b2b8408d6",
+      "source_version": 12,
+      "decision": "unchanged",
+      "proposed_value": "GOVERNS",
+      "confidence": 0.96,
+      "reason": "Current Main Content says: **every** Atom **must** declare **`=1`** direct GOVERNS target **in** its Subjects Property. It supports retaining the exact current Subject value; neither the current source nor the candidate establishes a different canonical identity that can be substituted safely.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1201-CORE_META_MODEL-CORE-REQUIREMENT--require-one-governed-subject-on-every-atom.md",
+          "sha256": "d56b4f7ba89613ab5247e72ec6aadf873b310463731b9269e80a498b2b8408d6",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "aea6d1317022aaca09cf70945792b54377a5172f3a435fed12211ecdbaf2da8d",
+          "reason": "The complete current Main Content supplies the live Scope and Claim context for this exact Subject occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source role and current Subject distinction are retained without changing its identity, owner, domain, or qualification.",
+        "Candidate display notation is not treated as an admitted native Subject grammar or source migration."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1201-CORE_META_MODEL-CORE-REQUIREMENT--require-one-governed-subject-on-every-atom.md#subjects.governs",
+      "old_value": "Atom/Subjects",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1201",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1201-CORE_META_MODEL-CORE-REQUIREMENT--require-one-governed-subject-on-every-atom.md",
+      "source_sha256": "d56b4f7ba89613ab5247e72ec6aadf873b310463731b9269e80a498b2b8408d6",
+      "source_version": 12,
+      "decision": "unchanged",
+      "proposed_value": "Atom/Subjects",
+      "confidence": 0.96,
+      "reason": "Current Main Content says: **every** Atom **must** declare **`=1`** direct GOVERNS target **in** its Subjects Property. It supports retaining the exact current Subject value; neither the current source nor the candidate establishes a different canonical identity that can be substituted safely.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1201-CORE_META_MODEL-CORE-REQUIREMENT--require-one-governed-subject-on-every-atom.md",
+          "sha256": "d56b4f7ba89613ab5247e72ec6aadf873b310463731b9269e80a498b2b8408d6",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "aea6d1317022aaca09cf70945792b54377a5172f3a435fed12211ecdbaf2da8d",
+          "reason": "The complete current Main Content supplies the live Scope and Claim context for this exact Subject occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source role and current Subject distinction are retained without changing its identity, owner, domain, or qualification.",
+        "Candidate display notation is not treated as an admitted native Subject grammar or source migration."
+      ],
+      "question": null,
+      "executable": false
+    }
+  ]
+}
