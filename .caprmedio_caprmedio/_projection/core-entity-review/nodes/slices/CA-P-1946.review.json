@@ -1,0 +1,1566 @@
+{
+  "baseline_inventory_sha256": "23394abaf6e9c18a585cf3146aedd0a80df166c9dd82be6e86ed7c3c56780bdc",
+  "batch": 7,
+  "captured_identity_occurrence_preservation": "Original input nodes and occurrence IDs are retained verbatim; the unchanged pinned baseline retains source/segment coordinates. Captured locators do not assert current file bytes.",
+  "checks_performed": {
+    "captured_Main_Content_and_revision_pins": "matched",
+    "exact_subset_coverage": 12,
+    "graph_owner_endpoint_direction_boundaries": "kept_distinct",
+    "identity_specific_checks": 60,
+    "new_native_kind_or_fact_admission": "not_performed",
+    "primitive_and_derived_inverse_authority": "kept_distinct",
+    "syntax_to_native_inference": "not_performed"
+  },
+  "counts": {
+    "captured_sources_checked": 14,
+    "dispositions": {
+      "question": 1,
+      "retain": 11
+    },
+    "evidence_spans": 18,
+    "nodes": 12
+  },
+  "current_core_claimed": false,
+  "evidence_catalogue": {
+    "CA-E-425:32-39": {
+      "atom_id": "CA-E-425",
+      "atom_revision": 14,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/06_evaluation/CA-E-425-CORE_META_MODEL-QA_CASE--validate-relational-atom-classifications.md",
+      "carrier_path_is_captured_locator": true,
+      "carrier_sha256": "85d8366aa1962ce23d5564888bff061ea929068d2872670d3ba66e58150b97d4",
+      "end_line": 39,
+      "git_commit": "a971d0e00c33c779f485fc8cad63194894d440fb",
+      "quote": "the Relational Atom classification Evaluation **must** enforce the qualified Types admitted by CA-R-924 **without** treating Plan Labels as Types.\n\n- accept permitted relational Requirement/Goal, Requirement/Demand, **and** Plan/Plan cases with explicit non-default Claim targets.\n- accept a current-scope Plan with decomposition **or** blocking **without** classifying it as relational merely because those Relations exist.\n- change the Plan Label from Task **to** Objective **or** Epic; retain the same target-based classification.\n- reject an unregistered qualified Type, an invalid relational target, **or** a Label interpreted as Type authority.\n\nreport the exact Atom, qualified Type, **and** target condition.",
+      "source_context": "captured_snapshot",
+      "start_line": 32,
+      "text_sha256": "2d4ed60cf997dd82cc224b1c6e64aa2eb5add4c388c29e552a9bc9e63cba23bc"
+    },
+    "CA-M-120:45-50": {
+      "atom_id": "CA-M-120",
+      "atom_revision": 14,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/05_method/CA-M-120-CORE_META_MODEL-CORE--compile-the-direct-relation-registry.md",
+      "carrier_path_is_captured_locator": true,
+      "carrier_sha256": "4f1a2004c885b1134ef57e309c37e1ab14c86bf008a3374fc93bbc20a2c104db",
+      "end_line": 50,
+      "git_commit": "a971d0e00c33c779f485fc8cad63194894d440fb",
+      "quote": "**to** compile the direct-relation registry, the Generator **must** perform **all** of:\n\n1. derive the metadata required by CA-R-806-CORE_META_MODEL-GENERAL-REQUIREMENT--register-complete-relation-kind-metadata for **every** declared Relation Kind from its active governing Requirement authority. report missing **or** conflicting metadata **without** inventing a graph owner, meaning, endpoint class, **or** constraint.\n2. group Relation Kinds by their owning kind of CAPRMEDIO Graph **and** resolve **every** lookup by graph kind **and** canonical name. reuse the same source authority across instances of the same graph kind governed by the same Applicable Methodology; do **not** merge registrations from different graph kinds because their names match.\n3. derive inverse navigation from its declared owning direction **without** independently authoring an inverse Relation fact. distinguish **`=1`** authoritative declaration for an independently authored Relation fact from the governing derivation authority **and** input facts of a derived Relation under CA-R-1437-CORE_META_MODEL-CORE-REQUIREMENT--keep-one-source-for-each-relation-fact; do **not** invent a direct source declaration for a computed result.\n4. retain source traceability for the compiled registry as a non-authoritative Projection. resolve cross-graph **and** authoritative-source endpoints against their admitted graph contexts under CA-R-806-CORE_META_MODEL-GENERAL-REQUIREMENT--register-complete-relation-kind-metadata **and** CA-R-1472-CORE_META_MODEL-GENERAL-REQUIREMENT--admit-typed-secondary-graph-connections. cross-graph references **or** views **must not** register a foreign Relation Kind as native **or** reclassify an external endpoint as a native node of the receiving graph.",
+      "source_context": "captured_snapshot",
+      "start_line": 45,
+      "text_sha256": "10de7bf99c507cadb595271a1600bdf1bda8a8f595f169f7e43e6a63abe137e0"
+    },
+    "CA-M-120:47-50": {
+      "atom_id": "CA-M-120",
+      "atom_revision": 14,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/05_method/CA-M-120-CORE_META_MODEL-CORE--compile-the-direct-relation-registry.md",
+      "carrier_path_is_captured_locator": true,
+      "carrier_sha256": "4f1a2004c885b1134ef57e309c37e1ab14c86bf008a3374fc93bbc20a2c104db",
+      "end_line": 50,
+      "git_commit": "a971d0e00c33c779f485fc8cad63194894d440fb",
+      "quote": "1. derive the metadata required by CA-R-806-CORE_META_MODEL-GENERAL-REQUIREMENT--register-complete-relation-kind-metadata for **every** declared Relation Kind from its active governing Requirement authority. report missing **or** conflicting metadata **without** inventing a graph owner, meaning, endpoint class, **or** constraint.\n2. group Relation Kinds by their owning kind of CAPRMEDIO Graph **and** resolve **every** lookup by graph kind **and** canonical name. reuse the same source authority across instances of the same graph kind governed by the same Applicable Methodology; do **not** merge registrations from different graph kinds because their names match.\n3. derive inverse navigation from its declared owning direction **without** independently authoring an inverse Relation fact. distinguish **`=1`** authoritative declaration for an independently authored Relation fact from the governing derivation authority **and** input facts of a derived Relation under CA-R-1437-CORE_META_MODEL-CORE-REQUIREMENT--keep-one-source-for-each-relation-fact; do **not** invent a direct source declaration for a computed result.\n4. retain source traceability for the compiled registry as a non-authoritative Projection. resolve cross-graph **and** authoritative-source endpoints against their admitted graph contexts under CA-R-806-CORE_META_MODEL-GENERAL-REQUIREMENT--register-complete-relation-kind-metadata **and** CA-R-1472-CORE_META_MODEL-GENERAL-REQUIREMENT--admit-typed-secondary-graph-connections. cross-graph references **or** views **must not** register a foreign Relation Kind as native **or** reclassify an external endpoint as a native node of the receiving graph.",
+      "source_context": "captured_snapshot",
+      "start_line": 47,
+      "text_sha256": "ce7455eb728fe0659c91c0bea13fcf72879930ed87cab8e825733ccf266074e1"
+    },
+    "CA-M-120:48-50": {
+      "atom_id": "CA-M-120",
+      "atom_revision": 14,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/05_method/CA-M-120-CORE_META_MODEL-CORE--compile-the-direct-relation-registry.md",
+      "carrier_path_is_captured_locator": true,
+      "carrier_sha256": "4f1a2004c885b1134ef57e309c37e1ab14c86bf008a3374fc93bbc20a2c104db",
+      "end_line": 50,
+      "git_commit": "a971d0e00c33c779f485fc8cad63194894d440fb",
+      "quote": "2. group Relation Kinds by their owning kind of CAPRMEDIO Graph **and** resolve **every** lookup by graph kind **and** canonical name. reuse the same source authority across instances of the same graph kind governed by the same Applicable Methodology; do **not** merge registrations from different graph kinds because their names match.\n3. derive inverse navigation from its declared owning direction **without** independently authoring an inverse Relation fact. distinguish **`=1`** authoritative declaration for an independently authored Relation fact from the governing derivation authority **and** input facts of a derived Relation under CA-R-1437-CORE_META_MODEL-CORE-REQUIREMENT--keep-one-source-for-each-relation-fact; do **not** invent a direct source declaration for a computed result.\n4. retain source traceability for the compiled registry as a non-authoritative Projection. resolve cross-graph **and** authoritative-source endpoints against their admitted graph contexts under CA-R-806-CORE_META_MODEL-GENERAL-REQUIREMENT--register-complete-relation-kind-metadata **and** CA-R-1472-CORE_META_MODEL-GENERAL-REQUIREMENT--admit-typed-secondary-graph-connections. cross-graph references **or** views **must not** register a foreign Relation Kind as native **or** reclassify an external endpoint as a native node of the receiving graph.",
+      "source_context": "captured_snapshot",
+      "start_line": 48,
+      "text_sha256": "5e7eaefdb744e574459e24932754a91fba3ff7e4ef453a31ff71dd012e0e0285"
+    },
+    "CA-M-120:49-50": {
+      "atom_id": "CA-M-120",
+      "atom_revision": 14,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/05_method/CA-M-120-CORE_META_MODEL-CORE--compile-the-direct-relation-registry.md",
+      "carrier_path_is_captured_locator": true,
+      "carrier_sha256": "4f1a2004c885b1134ef57e309c37e1ab14c86bf008a3374fc93bbc20a2c104db",
+      "end_line": 50,
+      "git_commit": "a971d0e00c33c779f485fc8cad63194894d440fb",
+      "quote": "3. derive inverse navigation from its declared owning direction **without** independently authoring an inverse Relation fact. distinguish **`=1`** authoritative declaration for an independently authored Relation fact from the governing derivation authority **and** input facts of a derived Relation under CA-R-1437-CORE_META_MODEL-CORE-REQUIREMENT--keep-one-source-for-each-relation-fact; do **not** invent a direct source declaration for a computed result.\n4. retain source traceability for the compiled registry as a non-authoritative Projection. resolve cross-graph **and** authoritative-source endpoints against their admitted graph contexts under CA-R-806-CORE_META_MODEL-GENERAL-REQUIREMENT--register-complete-relation-kind-metadata **and** CA-R-1472-CORE_META_MODEL-GENERAL-REQUIREMENT--admit-typed-secondary-graph-connections. cross-graph references **or** views **must not** register a foreign Relation Kind as native **or** reclassify an external endpoint as a native node of the receiving graph.",
+      "source_context": "captured_snapshot",
+      "start_line": 49,
+      "text_sha256": "20b487d55c030d1dfb172ad84fc9e4a5317e6cb579b81282671d3c7ad8e294ed"
+    },
+    "CA-M-313:38-48": {
+      "atom_id": "CA-M-313",
+      "atom_revision": 5,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/05_method/CA-M-313-CORE_META_MODEL-METHOD--write-delivery-claims-with-the-delivery-cce-profile.md",
+      "carrier_path_is_captured_locator": true,
+      "carrier_sha256": "570884157745cc3016065c683188b6b80ad0376bba2f76948c279562edc0f947",
+      "end_line": 48,
+      "git_commit": "a971d0e00c33c779f485fc8cad63194894d440fb",
+      "quote": "a Delivery Claim **must** use the Delivery CCE Role Profile **to** express its Carrier contribution with the following authoring conventions:\n\n1. name the governed Carrier **or** Entity/Carrier binding **and** state its definition, classification, **or** constraint directly.\n2. include format, content, address, placement, **or** lifecycle conditions **when** they are relevant **to** that contribution.\n3. choose CCE Operators **to** express the applicable modality, conditions, quantities, **and** comparisons.\n4. use **means** for a definition; express a classification **or** binding through its admitted Relation Type.\n5. keep the Claim about the governed Subject; use references for separately governed contributions.\n\n## Details\n\nCarrier definitions **and** classifications need **only** the details relevant **to** their own contribution. they do **not** require an invented filename, format, **or** lifecycle condition.",
+      "source_context": "captured_snapshot",
+      "start_line": 38,
+      "text_sha256": "89307c4c204a4f812d8314927f874a2234a4e66dbf74061a31bc6c2954f48bd1"
+    },
+    "CA-O-111:31-40": {
+      "atom_id": "CA-O-111",
+      "atom_revision": 5,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/CA-O-111-CORE_META_MODEL-ACTION--fix-confirmed-local-rmed-atom-issues.md",
+      "carrier_path_is_captured_locator": true,
+      "carrier_sha256": "4408a09c5a8a4ce316a34d072a2a3ca3dd5d057f48f7853de390efb3615f4103",
+      "end_line": 40,
+      "git_commit": "a971d0e00c33c779f485fc8cad63194894d440fb",
+      "quote": "Repair RMED Review Batch **means** the Action that applies the smallest authorized correction for confirmed local findings.\n\n1. read the current Atom, applicable checking criteria, **and** its check report. **if** the checked source **or** applicable criteria changed, stop that item's repair with the mismatch recorded; retain the earlier report as historical evidence rather than inventing a current pass **or** adding an automatic recheck.\n2. resolve confirmed findings under the applicable local rules, permissions, **and** confidence threshold. preserve necessary information, Subject targets, **and** relation targets.\n   - correct forced execution as a capability Requirement **only** **when** its intended capability **and** target are established **and** the semantic change is authorized.\n   - preserve required outcomes, validation gates, safeguards, **and** behavior during authorized execution. do **not** replace `must` with `may` mechanically **or** invent a target.\n   - retirement requires explicit authority; unresolved intent **or** absent authority blocks the correction rather than weakening the Claim.\n3. classify the change under CA-O-067. refresh `updated_at` on **every** edit; retain Version for formatting **or** equivalent wording, **and** increment it for a real meaning change. a Summary-value **or** genuine Type change requires replacement authority. for a Summary change, `allow_replacements=true` **with** fix permission delegates replacement **within** the selected Atom; the executor reserves a new ID **and** Version **`=1`**, archives the predecessor, **and** records the transition. retain required history.\n4. apply the correction **and** record the actual changes **in** the same Atom report. uncertain, unauthorized, **or** outside-scope work remains blocked rather than expanding this Run.\n5. return `fixed_not_rechecked` **or** `replaced_not_rechecked` **only** **when** **all** **`=6`** initial checks concluded **and** **all** findings were corrected **or** rejected with recorded reasons. otherwise return `blocked`, preserving safe partial edits **and** the remaining findings **or** unfinished coverage. this Action performs no proposal review, post-fix Evaluation, **or** automatic recheck loop.",
+      "source_context": "captured_snapshot",
+      "start_line": 31,
+      "text_sha256": "18c556738e4819786ccaff0e76231c41f63194610c6a9c8aba76fc49b612035c"
+    },
+    "CA-O-111:44-46": {
+      "atom_id": "CA-O-111",
+      "atom_revision": 5,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/CA-O-111-CORE_META_MODEL-ACTION--fix-confirmed-local-rmed-atom-issues.md",
+      "carrier_path_is_captured_locator": true,
+      "carrier_sha256": "4408a09c5a8a4ce316a34d072a2a3ca3dd5d057f48f7853de390efb3615f4103",
+      "end_line": 46,
+      "git_commit": "a971d0e00c33c779f485fc8cad63194894d440fb",
+      "quote": "at the configured context threshold, save the current Atom, unfinished correction, **and** completed edits **in** a short handoff. continue **in** a fresh subagent **without** repeating an already applied edit. context handoff does **not** consume a repair retry; genuine failed execution attempts remain subject **to** the admitted retry policy.\n\na correction record is evidence of an edit, **not** a passing check **or** completion of an unperformed check. preserve original check outcomes **and** blockers separately from corrections. a later check is a separately requested Run.",
+      "source_context": "captured_snapshot",
+      "start_line": 44,
+      "text_sha256": "5cd248a28b881591290ede2ba98abcfb39cceabfe5160a23effa5f7368ab437c"
+    },
+    "CA-R-1246:31-35": {
+      "atom_id": "CA-R-1246",
+      "atom_revision": 11,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1246-CORE_META_MODEL-CORE-REQUIREMENT--keep-relation-vocabularies-graph-specific.md",
+      "carrier_path_is_captured_locator": true,
+      "carrier_sha256": "79e1932957ce002ac47ff529f5fb56a1311ebc5bbc07ac85482021ce5b19d4c3",
+      "end_line": 35,
+      "git_commit": "a971d0e00c33c779f485fc8cad63194894d440fb",
+      "quote": "**every** Relation Kind **must** belong **to** **`=1`** kind of CAPRMEDIO Graph **and** be admitted as native **only** **in** instances of that graph kind. instances of the same graph kind governed by the same Applicable Methodology **must** reuse the same Relation Kind authority.\n\nthe owning graph kind **and** canonical name **must** determine the Relation Kind's graph-qualified identity. matching names **or** compatible endpoints **must not** make Relation Kinds from different graph kinds interchangeable.\n\nthe owning graph kind determines a Relation Kind's authority, **not** a requirement that **all** endpoints occupy the same graph. admitted cross-graph endpoints **and** source references under CA-R-1472 retain that graph-qualified ownership. another graph **may** represent a source-traceable reference **or** view of the Relation **without** registering it as native.",
+      "source_context": "captured_snapshot",
+      "start_line": 31,
+      "text_sha256": "470fb622b1ff58b9cf3e092530a17e80c7a732c62f1c5b69dfe5ab77794cf9ae"
+    },
+    "CA-R-1256:28-28": {
+      "atom_id": "CA-R-1256",
+      "atom_revision": 11,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1256-CORE_META_MODEL-CORE-REQUIREMENT--classify-relational-atom-as-an-atom.md",
+      "carrier_path_is_captured_locator": true,
+      "carrier_sha256": "390f52f06501c8af6e74bf258b88220f366d07c13c998582367ec73c44c505f5",
+      "end_line": 28,
+      "git_commit": "a971d0e00c33c779f485fc8cad63194894d440fb",
+      "quote": "the Term Relational Atom **must** be NARROWER_THAN Atom.",
+      "source_context": "captured_snapshot",
+      "start_line": 28,
+      "text_sha256": "5f96ca2f8cce09a52a33bba3ec13e4cea8a0953a68129c86802dca708a979e79"
+    },
+    "CA-R-1275:34-40": {
+      "atom_id": "CA-R-1275",
+      "atom_revision": 14,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1275-CORE_META_MODEL-CORE--define-subject.md",
+      "carrier_path_is_captured_locator": true,
+      "carrier_sha256": "0c73fdd60d70139ba4da4d14b1d2d7e29fda6531a99b2cebe55f82fdb459c0ec",
+      "end_line": 40,
+      "git_commit": "a971d0e00c33c779f485fc8cad63194894d440fb",
+      "quote": "a Subject **means** a direct Relation between an Atom **and** an Entity, typed as GOVERNS **or** DEPENDS_ON.\n\n## Details\n\n- the Atom is the source; the Entity is the target identified by its full canonical Subject Path.\n- the Subject is the Relation, **not** its target, its target's path, **or** a Term used **in** that path.\n- the Relation creates no intermediate Subject object **and** no additional target identity; it does **not** make the target bearer-dependent on the source Atom.",
+      "source_context": "captured_snapshot",
+      "start_line": 34,
+      "text_sha256": "5e843c30dbe5ceda492456cc490db7460cfcdfd926437f4d2f0b89dbd77bfe94"
+    },
+    "CA-R-1437:35-37": {
+      "atom_id": "CA-R-1437",
+      "atom_revision": 6,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1437-CORE_META_MODEL-CORE--keep-one-source-for-each-relation-fact.md",
+      "carrier_path_is_captured_locator": true,
+      "carrier_sha256": "31392aee334fa3ca828d8459d585ca6655f99506ee7a98d59d2ff381bfa0ddbf",
+      "end_line": 37,
+      "git_commit": "a971d0e00c33c779f485fc8cad63194894d440fb",
+      "quote": "**every** independently authored Relation fact **must** have **`=1`** authoritative source declaration under Single Source of Truth. its representation **in** multiple CAPRMEDIO Graph views remains a reference **or** derived Projection of that declaration **without** creating another independently maintained source.\n\na Relation derived under admitted derivation authority **must** remain traceable **to** that authority **and** its authoritative input facts, including through upstream Projections. it does **not** require a fabricated direct source declaration for the derived result. this distinction **must not** weaken a Relation Kind's requirement for an explicit source fact **or** permit unsupported inference.",
+      "source_context": "captured_snapshot",
+      "start_line": 35,
+      "text_sha256": "bfb4ecfaf0ba5e751e58fc783c8d8ab7e99c265e7364297ea92f8cf87ddf9978"
+    },
+    "CA-R-1472:35-37": {
+      "atom_id": "CA-R-1472",
+      "atom_revision": 5,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1472-CORE_META_MODEL-GENERAL--admit-typed-secondary-graph-connections.md",
+      "carrier_path_is_captured_locator": true,
+      "carrier_sha256": "c4ae524cad97b270246272ec9604e243318a8eba5cdd32bae80e4c8e13cacd5e",
+      "end_line": 37,
+      "git_commit": "a971d0e00c33c779f485fc8cad63194894d440fb",
+      "quote": "a secondary CAPRMEDIO Graph **may** represent typed Relations between its own nodes, **to** another secondary graph **or** its nodes, **and** **to** source Atoms **or** other admitted authoritative sources.\n\n**every** connection **must** use **`=1`** graph-qualified Relation Kind whose governing authority admits its endpoint classes, endpoint graph contexts, direction, **and** cardinality. crossing a graph boundary **must not** transfer Relation Kind ownership, import a foreign Relation Kind as native, **or** make a referenced external endpoint a native node of the receiving graph. a cross-graph reference preserves the referenced identity **without** copying its source fact into independent authority. these permissions do **not** admit concrete Relation Kinds **or** authorize inference beyond their declared rules.",
+      "source_context": "captured_snapshot",
+      "start_line": 35,
+      "text_sha256": "115dbee9f978decad7adc1a4428dff2fa09fa11130b107095e905f397be8e874"
+    },
+    "CA-R-1653:25-29": {
+      "atom_id": "CA-R-1653",
+      "atom_revision": 18,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1653-CORE_META_MODEL-REQUIREMENT--register-related-to-for-casual-mode.md",
+      "carrier_path_is_captured_locator": true,
+      "carrier_sha256": "3eaa9aab888e393f88d9e432ff8138ac2dbe04536f418b769a0386708727cca5",
+      "end_line": 29,
+      "git_commit": "a971d0e00c33c779f485fc8cad63194894d440fb",
+      "quote": "`related_to` relation kinds in Artifact sources whose effective `authority_mode` is `casual`.\n\n## Claim\n\n`related_to` **means** the sole imprecise fallback relation kind.",
+      "source_context": "captured_snapshot",
+      "start_line": 25,
+      "text_sha256": "db2e84f97c4ab37f98b1d594b1918f69112b800d7814bcdc6c0e4bd60823a2ae"
+    },
+    "CA-R-1741:30-30": {
+      "atom_id": "CA-R-1741",
+      "atom_revision": 15,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1741-CORE_META_MODEL-CORE--define-concrete-recurrence-protection-as-evaluation.md",
+      "carrier_path_is_captured_locator": true,
+      "carrier_sha256": "9a9f22ad994c1281767fd9161908d5a4419f1d3f60b08fdaeb74f398da072ff9",
+      "end_line": 30,
+      "git_commit": "a971d0e00c33c779f485fc8cad63194894d440fb",
+      "quote": "**every** concrete recurrence protection **must** be represented by an Evaluation Atom that defines one mechanism-neutral bounded check for the corrected failure class.",
+      "source_context": "captured_snapshot",
+      "start_line": 30,
+      "text_sha256": "3bffe9e186131ca223c0116bb6af47a55f5f2f12bc60dee6c260b9d2b83cf5f8"
+    },
+    "CA-R-806:31-31": {
+      "atom_id": "CA-R-806",
+      "atom_revision": 21,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-806-CORE_META_MODEL-GENERAL--register-complete-relation-kind-metadata.md",
+      "carrier_path_is_captured_locator": true,
+      "carrier_sha256": "933901316d347a2e09222d19d3a985c2feb93c7efc86e0a8332ab292cd169dd0",
+      "end_line": 31,
+      "git_commit": "a971d0e00c33c779f485fc8cad63194894d440fb",
+      "quote": "**every** admitted Relation Kind **must** have **`=1`** canonical metadata record derived from its governing authority that resolves its owning kind of CAPRMEDIO Graph, canonical name, meaning, declared direction, inverse direction, source class, target class, the allowed graph context of **every** endpoint including cross-graph **and** authoritative-source references **when** admitted, cardinality, authority effect, transitivity, applicability, Status, **and** exclusive purpose.",
+      "source_context": "captured_snapshot",
+      "start_line": 31,
+      "text_sha256": "3ca18d62121284a7a987b9209d599b8d382a1ce3f6060b510f85535f52c983d5"
+    },
+    "CA-R-923:30-30": {
+      "atom_id": "CA-R-923",
+      "atom_revision": 22,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-923-CORE_META_MODEL-CORE--define-relational-atom.md",
+      "carrier_path_is_captured_locator": true,
+      "carrier_sha256": "251d0accd8acdec682af7687d4df05369222e916cfbef0ef71c94e6e4deb481b",
+      "end_line": 30,
+      "git_commit": "a971d0e00c33c779f485fc8cad63194894d440fb",
+      "quote": "a Relational Atom **means** an Atom that has no containing Scope Unit **or** whose resolved Claim Target Scope Unit differs from its current Scope Unit.",
+      "source_context": "captured_snapshot",
+      "start_line": 30,
+      "text_sha256": "97a53e7023251e9127744acc29f0b5a50629b61832615a98deccfff672265e89"
+    },
+    "CA-R-924:31-31": {
+      "atom_id": "CA-R-924",
+      "atom_revision": 20,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-924-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-relational-atom-classifications.md",
+      "carrier_path_is_captured_locator": true,
+      "carrier_sha256": "aa5a683e5c2b49cd8e56ef1cde4c6561c853e7f8a617c9a624709ee227400b11",
+      "end_line": 31,
+      "git_commit": "a971d0e00c33c779f485fc8cad63194894d440fb",
+      "quote": "the Core contribution **to** allowed qualified Types of Relational Atom **must** be (`Atom/Content Role: Requirement/Type: Goal`, `Atom/Content Role: Requirement/Type: Demand`, `Atom/Content Role: Plan/Type: Plan`); a Plan is relational **only** **when** its actual Claim target differs under the Relational Atom definition, **not** merely because it has decomposition, blocking, **or** a particular Label.",
+      "source_context": "captured_snapshot",
+      "start_line": 31,
+      "text_sha256": "7eef8beebb1daf3584f35a733c64d12942b459dfd94710426eabae7dc01fbd05"
+    }
+  },
+  "git_commit": "a971d0e00c33c779f485fc8cad63194894d440fb",
+  "input_file_sha256": "1b00f9618c10be119147e134d87647ad5da49b740a33a37c77c42dacd43567cf",
+  "nodes": [
+    {
+      "checked_source_atom_ids": [
+        "CA-R-1741"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "CA-R-1741:30-30"
+          ],
+          "finding": "source_backed_distinction",
+          "reason": "Mechanism-neutral check meaning remains distinct from a particular test mechanism and actual check execution."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "CA-R-1741:30-30"
+          ],
+          "finding": "no_duplicate_established",
+          "reason": "The failure-class recurrence check is not the repair, repair Action or proof that no recurrence occurred."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "CA-R-1741:30-30"
+          ],
+          "finding": "meaning_present",
+          "reason": "The captured Claim explicitly requires one bounded check and its Evaluation representation."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "CA-R-1741:30-30"
+          ],
+          "finding": "no_reduction_proposed",
+          "reason": "Generalizing to all Evaluations would lose corrected-failure-class and boundedness conditions."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "CA-R-1741:30-30"
+          ],
+          "finding": "substantive_not_redundant",
+          "reason": "A corrective edit alone does not supply the separately governed recurrence-check obligation."
+        }
+      },
+      "confidence_percent": 99,
+      "disposition": "retain",
+      "evidence_refs": [
+        "CA-R-1741:30-30"
+      ],
+      "identity": "Recurrence Protection",
+      "native_facts_added": [],
+      "native_kind_confirmation": "not_performed",
+      "original_input_node": {
+        "governing_source_atom_ids": [
+          "CA-R-1741"
+        ],
+        "identity": "Recurrence Protection",
+        "is_full_target": true,
+        "is_syntactic_root": true,
+        "occurrence_ids": [
+          3347
+        ],
+        "source_atom_ids": [
+          "CA-R-1741"
+        ]
+      },
+      "proposal": {
+        "effects": {
+          "Relations": "Preserve exact existing graph-qualified kinds, endpoints, directions, declarations and derived provenance; add no native edge or inverse declaration.",
+          "constraints": "Preserve the captured scope, graph-admission, target, cardinality and lifecycle conditions; no inferred or universalized constraints.",
+          "historical_references": "Preserve exact identities and captured source/revision references; no replacement, archive, history rewrite or current-Core assertion.",
+          "queries": "Existing exact-identity and graph-kind-qualified lookups remain unchanged; no alias, merge, renaming or filtering is adopted."
+        },
+        "mark": "retain",
+        "native_admission": "not_performed",
+        "potentially_lost_distinctions": [],
+        "preserved_distinctions": [
+          "Concrete recurrence protection is represented by an Evaluation Atom defining a mechanism-neutral bounded check for the corrected failure class.",
+          "Mechanism-neutral check meaning remains distinct from a particular test mechanism and actual check execution."
+        ],
+        "preserved_identity": "Recurrence Protection",
+        "replacement_identities": [],
+        "semantic_acceptance": "not_performed",
+        "source_migration": "not_performed"
+      },
+      "question": null,
+      "reason": "Concrete recurrence protection is represented by an Evaluation Atom defining a mechanism-neutral bounded check for the corrected failure class.",
+      "source_context": "captured_snapshot"
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-R-1653"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "CA-R-1653:25-29"
+          ],
+          "finding": "source_backed_distinction",
+          "reason": "Retain the constrained vocabulary meaning without claiming native graph owner, direction or endpoint admission absent from this source."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "CA-R-1653:25-29"
+          ],
+          "finding": "no_duplicate_established",
+          "reason": "The imprecise fallback is not equivalent to a precise graph-owned kind merely because both connect endpoints."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "CA-R-1653:25-29"
+          ],
+          "finding": "meaning_present",
+          "reason": "The captured definition supplies the fallback meaning and its casual source context."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "CA-R-1653:25-29"
+          ],
+          "finding": "no_reduction_proposed",
+          "reason": "Do not generalize this fallback into strict/native graph Relations or use it to replace their metadata."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "CA-R-1653:25-29"
+          ],
+          "finding": "substantive_not_redundant",
+          "reason": "The casual-only fallback boundary has a purpose not supplied by precise typed Relations."
+        }
+      },
+      "confidence_percent": 96,
+      "disposition": "retain",
+      "evidence_refs": [
+        "CA-R-1653:25-29"
+      ],
+      "identity": "Related To Relation",
+      "native_admission_gap": "CA-R-1653 defines casual fallback meaning but does not supply a native owning graph, direction or endpoint classes; none is guessed.",
+      "native_facts_added": [],
+      "native_kind_confirmation": "not_performed",
+      "original_input_node": {
+        "governing_source_atom_ids": [
+          "CA-R-1653"
+        ],
+        "identity": "Related To Relation",
+        "is_full_target": true,
+        "is_syntactic_root": true,
+        "occurrence_ids": [
+          3348
+        ],
+        "source_atom_ids": [
+          "CA-R-1653"
+        ]
+      },
+      "proposal": {
+        "effects": {
+          "Relations": "Preserve exact existing graph-qualified kinds, endpoints, directions, declarations and derived provenance; add no native edge or inverse declaration.",
+          "constraints": "Preserve the captured scope, graph-admission, target, cardinality and lifecycle conditions; no inferred or universalized constraints.",
+          "historical_references": "Preserve exact identities and captured source/revision references; no replacement, archive, history rewrite or current-Core assertion.",
+          "queries": "Existing exact-identity and graph-kind-qualified lookups remain unchanged; no alias, merge, renaming or filtering is adopted."
+        },
+        "mark": "retain",
+        "native_admission": "not_performed",
+        "potentially_lost_distinctions": [],
+        "preserved_distinctions": [
+          "related_to is the sole imprecise fallback relation-kind vocabulary in Artifact sources whose effective authority_mode is casual.",
+          "Retain the constrained vocabulary meaning without claiming native graph owner, direction or endpoint admission absent from this source."
+        ],
+        "preserved_identity": "Related To Relation",
+        "replacement_identities": [],
+        "semantic_acceptance": "not_performed",
+        "source_migration": "not_performed"
+      },
+      "question": null,
+      "reason": "related_to is the sole imprecise fallback relation-kind vocabulary in Artifact sources whose effective authority_mode is casual.",
+      "source_context": "captured_snapshot"
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-M-120",
+        "CA-R-1275",
+        "CA-R-1437"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "CA-R-1437:35-37",
+            "CA-R-1275:34-40",
+            "CA-M-120:47-50"
+          ],
+          "finding": "source_backed_distinction",
+          "reason": "Primitive authored facts, derived results and inverse navigation preserve different provenance obligations."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "CA-R-1437:35-37",
+            "CA-R-1275:34-40",
+            "CA-M-120:47-50"
+          ],
+          "finding": "no_duplicate_established",
+          "reason": "A Relation fact is not its Relation Kind, endpoint, target path or repeated view representation."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "CA-R-1437:35-37",
+            "CA-R-1275:34-40",
+            "CA-M-120:47-50"
+          ],
+          "finding": "meaning_present",
+          "reason": "Captured rules supply meaningful direct and derived Relation-fact constraints; lack of a generic means sentence is not emptiness."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "CA-R-1437:35-37",
+            "CA-R-1275:34-40",
+            "CA-M-120:47-50"
+          ],
+          "finding": "no_reduction_proposed",
+          "reason": "Do not merge Relation facts with kinds, paths or compiled registry records, or invent a direct declaration for a derived result."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "CA-R-1437:35-37",
+            "CA-R-1275:34-40",
+            "CA-M-120:47-50"
+          ],
+          "finding": "substantive_not_redundant",
+          "reason": "One declaration and derived-provenance rules prevent separately maintained duplicates without removing the Relation concept."
+        }
+      },
+      "confidence_percent": 97,
+      "disposition": "retain",
+      "evidence_refs": [
+        "CA-R-1437:35-37",
+        "CA-R-1275:34-40",
+        "CA-M-120:47-50"
+      ],
+      "identity": "Relation",
+      "native_facts_added": [],
+      "native_kind_confirmation": "not_performed",
+      "original_input_node": {
+        "governing_source_atom_ids": [],
+        "identity": "Relation",
+        "is_full_target": true,
+        "is_syntactic_root": true,
+        "occurrence_ids": [
+          3349,
+          3350,
+          3351,
+          3352,
+          3353,
+          3354,
+          3355,
+          3356,
+          3357,
+          3358,
+          3359,
+          3360,
+          3361,
+          3362,
+          3363,
+          3364,
+          3365,
+          3366,
+          3367,
+          3368,
+          3369,
+          3370,
+          3371,
+          3372,
+          3373,
+          3374,
+          3375,
+          3376,
+          3377,
+          3378,
+          3379,
+          3380,
+          3381,
+          3382,
+          3383,
+          3384,
+          3385,
+          3386,
+          3387,
+          3388,
+          3425,
+          3426,
+          3427
+        ],
+        "source_atom_ids": [
+          "CA-D-256",
+          "CA-D-471",
+          "CA-D-478",
+          "CA-E-382",
+          "CA-E-444",
+          "CA-E-449",
+          "CA-E-466",
+          "CA-E-477",
+          "CA-E-481",
+          "CA-E-506",
+          "CA-M-120",
+          "CA-M-228",
+          "CA-O-006",
+          "CA-O-008",
+          "CA-O-028",
+          "CA-O-058",
+          "CA-O-079",
+          "CA-O-087",
+          "CA-O-122",
+          "CA-R-1194",
+          "CA-R-1260",
+          "CA-R-1275",
+          "CA-R-1281",
+          "CA-R-1335",
+          "CA-R-1408",
+          "CA-R-1435",
+          "CA-R-1436",
+          "CA-R-1437",
+          "CA-R-1438",
+          "CA-R-1454",
+          "CA-R-1455",
+          "CA-R-1456",
+          "CA-R-1459",
+          "CA-R-1471",
+          "CA-R-1472",
+          "CA-R-1598",
+          "CA-R-1702",
+          "CA-R-1737",
+          "CA-R-1763",
+          "CA-R-796",
+          "CAPRMEDIO-GOV-EVAL-005"
+        ]
+      },
+      "proposal": {
+        "effects": {
+          "Relations": "Preserve exact existing graph-qualified kinds, endpoints, directions, declarations and derived provenance; add no native edge or inverse declaration.",
+          "constraints": "Preserve the captured scope, graph-admission, target, cardinality and lifecycle conditions; no inferred or universalized constraints.",
+          "historical_references": "Preserve exact identities and captured source/revision references; no replacement, archive, history rewrite or current-Core assertion.",
+          "queries": "Existing exact-identity and graph-kind-qualified lookups remain unchanged; no alias, merge, renaming or filtering is adopted."
+        },
+        "mark": "retain",
+        "native_admission": "not_performed",
+        "potentially_lost_distinctions": [],
+        "preserved_distinctions": [
+          "Relation facts preserve exact identities and authority: independently authored facts have one declaration; derived facts trace to derivation authority and input facts. A Subject is a direct Atom-to-Entity Relation, not an intermediate object or target path.",
+          "Primitive authored facts, derived results and inverse navigation preserve different provenance obligations."
+        ],
+        "preserved_identity": "Relation",
+        "replacement_identities": [],
+        "semantic_acceptance": "not_performed",
+        "source_migration": "not_performed"
+      },
+      "question": null,
+      "reason": "Relation facts preserve exact identities and authority: independently authored facts have one declaration; derived facts trace to derivation authority and input facts. A Subject is a direct Atom-to-Entity Relation, not an intermediate object or target path.",
+      "source_context": "captured_snapshot"
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-M-120",
+        "CA-R-1246",
+        "CA-R-806"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "CA-R-1246:31-35",
+            "CA-R-806:31-31",
+            "CA-M-120:48-50"
+          ],
+          "finding": "source_backed_distinction",
+          "reason": "Kind authority differs from a concrete fact and from external endpoint references; cross-graph representation does not transfer ownership."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "CA-R-1246:31-35",
+            "CA-R-806:31-31",
+            "CA-M-120:48-50"
+          ],
+          "finding": "no_duplicate_established",
+          "reason": "Equal names or compatible endpoints in different graph kinds do not establish duplicate kind identities."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "CA-R-1246:31-35",
+            "CA-R-806:31-31",
+            "CA-M-120:48-50"
+          ],
+          "finding": "meaning_present",
+          "reason": "Graph ownership, identity and canonical metadata requirements are directly specified."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "CA-R-1246:31-35",
+            "CA-R-806:31-31",
+            "CA-M-120:48-50"
+          ],
+          "finding": "no_reduction_proposed",
+          "reason": "A universal name-only Relation vocabulary would erase graph-qualified admission and endpoint constraints."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "CA-R-1246:31-35",
+            "CA-R-806:31-31",
+            "CA-M-120:48-50"
+          ],
+          "finding": "substantive_not_redundant",
+          "reason": "The graph-qualified kind identity is necessary beyond a name string or relation instance."
+        }
+      },
+      "confidence_percent": 99,
+      "disposition": "retain",
+      "evidence_refs": [
+        "CA-R-1246:31-35",
+        "CA-R-806:31-31",
+        "CA-M-120:48-50"
+      ],
+      "identity": "Relation Kind",
+      "native_facts_added": [],
+      "native_kind_confirmation": "not_performed",
+      "original_input_node": {
+        "governing_source_atom_ids": [
+          "CA-R-1246"
+        ],
+        "identity": "Relation Kind",
+        "is_full_target": true,
+        "is_syntactic_root": true,
+        "occurrence_ids": [
+          3389,
+          3390,
+          3391,
+          3392,
+          3393,
+          3394,
+          3395,
+          3396,
+          3397,
+          3398,
+          3399,
+          3400,
+          3401,
+          3402,
+          3403,
+          3404,
+          3405,
+          3406,
+          3407,
+          3408,
+          3409,
+          3410,
+          3411,
+          3412,
+          3413,
+          3414,
+          3415,
+          3416,
+          3417,
+          3418,
+          3419,
+          3420,
+          3421,
+          3422,
+          3423
+        ],
+        "source_atom_ids": [
+          "CA-D-269",
+          "CA-E-382",
+          "CA-E-444",
+          "CA-E-449",
+          "CA-E-466",
+          "CA-M-120",
+          "CA-O-134",
+          "CA-O-137",
+          "CA-R-1199",
+          "CA-R-1200",
+          "CA-R-1243",
+          "CA-R-1246",
+          "CA-R-1276",
+          "CA-R-1281",
+          "CA-R-1335",
+          "CA-R-1363",
+          "CA-R-1408",
+          "CA-R-1437",
+          "CA-R-1438",
+          "CA-R-1454",
+          "CA-R-1455",
+          "CA-R-1456",
+          "CA-R-1459",
+          "CA-R-1472",
+          "CA-R-1513",
+          "CA-R-1579",
+          "CA-R-1593",
+          "CA-R-806",
+          "CAPRMEDIO-GOV-EVAL-005"
+        ]
+      },
+      "proposal": {
+        "effects": {
+          "Relations": "Preserve exact existing graph-qualified kinds, endpoints, directions, declarations and derived provenance; add no native edge or inverse declaration.",
+          "constraints": "Preserve the captured scope, graph-admission, target, cardinality and lifecycle conditions; no inferred or universalized constraints.",
+          "historical_references": "Preserve exact identities and captured source/revision references; no replacement, archive, history rewrite or current-Core assertion.",
+          "queries": "Existing exact-identity and graph-kind-qualified lookups remain unchanged; no alias, merge, renaming or filtering is adopted."
+        },
+        "mark": "retain",
+        "native_admission": "not_performed",
+        "potentially_lost_distinctions": [],
+        "preserved_distinctions": [
+          "Relation Kind identity is owning graph kind plus canonical name; native admission belongs to exactly that graph kind, with declared endpoint contexts and metadata.",
+          "Kind authority differs from a concrete fact and from external endpoint references; cross-graph representation does not transfer ownership."
+        ],
+        "preserved_identity": "Relation Kind",
+        "replacement_identities": [],
+        "semantic_acceptance": "not_performed",
+        "source_migration": "not_performed"
+      },
+      "question": null,
+      "reason": "Relation Kind identity is owning graph kind plus canonical name; native admission belongs to exactly that graph kind, with declared endpoint contexts and metadata.",
+      "source_context": "captured_snapshot"
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-M-120",
+        "CA-R-1472",
+        "CA-R-806"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "CA-R-806:31-31",
+            "CA-M-120:47-50",
+            "CA-R-1472:35-37"
+          ],
+          "finding": "source_backed_distinction",
+          "reason": "Record completeness differs from actual fact evidence; missing/conflicting fields block resolution instead of being invented."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "CA-R-806:31-31",
+            "CA-M-120:47-50",
+            "CA-R-1472:35-37"
+          ],
+          "finding": "no_duplicate_established",
+          "reason": "Metadata record is not another kind registration or an independently authored inverse fact."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "CA-R-806:31-31",
+            "CA-M-120:47-50",
+            "CA-R-1472:35-37"
+          ],
+          "finding": "meaning_present",
+          "reason": "The captured Claim specifies a complete record and required dimensions, so this qualified field is not empty."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "CA-R-806:31-31",
+            "CA-M-120:47-50",
+            "CA-R-1472:35-37"
+          ],
+          "finding": "no_reduction_proposed",
+          "reason": "Share the metadata obligation, not another kind record; do not discard cross-graph endpoint or inverse-provenance distinctions."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "CA-R-806:31-31",
+            "CA-M-120:47-50",
+            "CA-R-1472:35-37"
+          ],
+          "finding": "substantive_not_redundant",
+          "reason": "Canonical metadata resolves graph-qualified lookup and admissibility that a label alone cannot supply."
+        }
+      },
+      "confidence_percent": 99,
+      "disposition": "retain",
+      "evidence_refs": [
+        "CA-R-806:31-31",
+        "CA-M-120:47-50",
+        "CA-R-1472:35-37"
+      ],
+      "identity": "Relation Kind/Metadata",
+      "native_facts_added": [],
+      "native_kind_confirmation": "not_performed",
+      "original_input_node": {
+        "governing_source_atom_ids": [
+          "CA-R-806"
+        ],
+        "identity": "Relation Kind/Metadata",
+        "is_full_target": true,
+        "is_syntactic_root": false,
+        "occurrence_ids": [
+          3418,
+          3419,
+          3420,
+          3421,
+          3422
+        ],
+        "source_atom_ids": [
+          "CA-M-120",
+          "CA-R-1246",
+          "CA-R-1472",
+          "CA-R-806",
+          "CAPRMEDIO-GOV-EVAL-005"
+        ]
+      },
+      "proposal": {
+        "effects": {
+          "Relations": "Preserve exact existing graph-qualified kinds, endpoints, directions, declarations and derived provenance; add no native edge or inverse declaration.",
+          "constraints": "Preserve the captured scope, graph-admission, target, cardinality and lifecycle conditions; no inferred or universalized constraints.",
+          "historical_references": "Preserve exact identities and captured source/revision references; no replacement, archive, history rewrite or current-Core assertion.",
+          "queries": "Existing exact-identity and graph-kind-qualified lookups remain unchanged; no alias, merge, renaming or filtering is adopted."
+        },
+        "mark": "retain",
+        "native_admission": "not_performed",
+        "potentially_lost_distinctions": [],
+        "preserved_distinctions": [
+          "Each admitted Relation Kind has one authority-derived canonical metadata record covering graph owner, meaning, direction/inverse, endpoint classes/contexts, cardinality, authority effects, transitivity, applicability, Status and purpose.",
+          "Record completeness differs from actual fact evidence; missing/conflicting fields block resolution instead of being invented."
+        ],
+        "preserved_identity": "Relation Kind/Metadata",
+        "replacement_identities": [],
+        "semantic_acceptance": "not_performed",
+        "source_migration": "not_performed"
+      },
+      "question": null,
+      "reason": "Each admitted Relation Kind has one authority-derived canonical metadata record covering graph owner, meaning, direction/inverse, endpoint classes/contexts, cardinality, authority effects, transitivity, applicability, Status and purpose.",
+      "source_context": "captured_snapshot"
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-M-120"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "CA-M-120:45-50"
+          ],
+          "finding": "source_backed_distinction",
+          "reason": "Construction Method, compiled Projection, governing kind authority and concrete Relation facts stay distinct."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "CA-M-120:45-50"
+          ],
+          "finding": "no_duplicate_established",
+          "reason": "Compiled registry is not a second authoritative definition source or an independently authored inverse Relation."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "CA-M-120:45-50"
+          ],
+          "finding": "meaning_present",
+          "reason": "The captured Method supplies four concrete compilation steps."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "CA-M-120:45-50"
+          ],
+          "finding": "no_reduction_proposed",
+          "reason": "Do not generalize compilation into source admission, merge graph namespaces or fabricate metadata/direct derived-result declarations."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "CA-M-120:45-50"
+          ],
+          "finding": "substantive_not_redundant",
+          "reason": "Grouping, missing/conflicting-metadata reporting and endpoint resolution are substantive construction requirements."
+        }
+      },
+      "confidence_percent": 99,
+      "disposition": "retain",
+      "evidence_refs": [
+        "CA-M-120:45-50"
+      ],
+      "identity": "Relation Kind/registry compilation",
+      "native_facts_added": [],
+      "native_kind_confirmation": "not_performed",
+      "original_input_node": {
+        "governing_source_atom_ids": [
+          "CA-M-120"
+        ],
+        "identity": "Relation Kind/registry compilation",
+        "is_full_target": true,
+        "is_syntactic_root": false,
+        "occurrence_ids": [
+          3423
+        ],
+        "source_atom_ids": [
+          "CA-M-120"
+        ]
+      },
+      "proposal": {
+        "effects": {
+          "Relations": "Preserve exact existing graph-qualified kinds, endpoints, directions, declarations and derived provenance; add no native edge or inverse declaration.",
+          "constraints": "Preserve the captured scope, graph-admission, target, cardinality and lifecycle conditions; no inferred or universalized constraints.",
+          "historical_references": "Preserve exact identities and captured source/revision references; no replacement, archive, history rewrite or current-Core assertion.",
+          "queries": "Existing exact-identity and graph-kind-qualified lookups remain unchanged; no alias, merge, renaming or filtering is adopted."
+        },
+        "mark": "retain",
+        "native_admission": "not_performed",
+        "potentially_lost_distinctions": [],
+        "preserved_distinctions": [
+          "Registry compilation derives metadata from active governing Requirement authority, groups by owning graph kind, derives inverse navigation and retains source traceability as a non-authoritative Projection.",
+          "Construction Method, compiled Projection, governing kind authority and concrete Relation facts stay distinct."
+        ],
+        "preserved_identity": "Relation Kind/registry compilation",
+        "replacement_identities": [],
+        "semantic_acceptance": "not_performed",
+        "source_migration": "not_performed"
+      },
+      "question": null,
+      "reason": "Registry compilation derives metadata from active governing Requirement authority, groups by owning graph kind, derives inverse navigation and retains source traceability as a non-authoritative Projection.",
+      "source_context": "captured_snapshot"
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-M-313"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "CA-M-313:38-48"
+          ],
+          "finding": "referent_unresolved",
+          "reason": "The referent could be a kind synonym or another type/classification concept; that choice remains unresolved."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "CA-M-313:38-48"
+          ],
+          "finding": "possible_synonym_unresolved",
+          "reason": "Possible synonymy with Relation Kind is not demonstrated by this authoring reference."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "CA-M-313:38-48"
+          ],
+          "finding": "not_proven_empty",
+          "reason": "The Method is substantive, but mentioning the phrase is not its independent definition and does not prove emptiness."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "CA-M-313:38-48"
+          ],
+          "finding": "no_unsupported_generalization",
+          "reason": "No consolidation, rename or new type hierarchy is proposed without exact identity, graph-ownership and history/query mapping."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "CA-M-313:38-48"
+          ],
+          "finding": "redundancy_unresolved",
+          "reason": "A phrase used in authoring does not settle whether an additional type identity is redundant."
+        }
+      },
+      "confidence_percent": 78,
+      "disposition": "question",
+      "evidence_refs": [
+        "CA-M-313:38-48"
+      ],
+      "identity": "Relation Type",
+      "native_facts_added": [],
+      "native_kind_confirmation": "not_performed",
+      "original_input_node": {
+        "governing_source_atom_ids": [],
+        "identity": "Relation Type",
+        "is_full_target": true,
+        "is_syntactic_root": true,
+        "occurrence_ids": [
+          3424
+        ],
+        "source_atom_ids": [
+          "CA-M-313"
+        ]
+      },
+      "proposal": null,
+      "question": "Does Relation Type in CA-M-313 denote exactly the graph-qualified Relation Kind, or a distinct type/classification concept? Which captured governing definition establishes that identity and its graph/admission boundaries?",
+      "reason": "Delivery authoring names an admitted Relation Type for classification/binding, but the captured Method does not define Relation Type or equate it with graph-qualified Relation Kind.",
+      "source_context": "captured_snapshot"
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-M-120",
+        "CA-R-1437"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "CA-R-1437:35-37",
+            "CA-M-120:49-50"
+          ],
+          "finding": "source_backed_distinction",
+          "reason": "Direct fact authority, derivation authority, input facts and non-authoritative registry/view traceability remain separate."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "CA-R-1437:35-37",
+            "CA-M-120:49-50"
+          ],
+          "finding": "no_duplicate_established",
+          "reason": "Authority is not a second fact merely because a Relation appears in several views."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "CA-R-1437:35-37",
+            "CA-M-120:49-50"
+          ],
+          "finding": "meaning_present",
+          "reason": "Both source-declaration and derived-result authority rules are explicit."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "CA-R-1437:35-37",
+            "CA-M-120:49-50"
+          ],
+          "finding": "no_reduction_proposed",
+          "reason": "Do not flatten all Relations into independent authored declarations or treat inverse navigation as another primitive fact."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "CA-R-1437:35-37",
+            "CA-M-120:49-50"
+          ],
+          "finding": "substantive_not_redundant",
+          "reason": "The once-owned versus derived-provenance boundary is necessary to avoid duplicate authority."
+        }
+      },
+      "confidence_percent": 99,
+      "disposition": "retain",
+      "evidence_refs": [
+        "CA-R-1437:35-37",
+        "CA-M-120:49-50"
+      ],
+      "identity": "Relation/authority",
+      "native_facts_added": [],
+      "native_kind_confirmation": "not_performed",
+      "original_input_node": {
+        "governing_source_atom_ids": [
+          "CA-R-1437"
+        ],
+        "identity": "Relation/authority",
+        "is_full_target": true,
+        "is_syntactic_root": false,
+        "occurrence_ids": [
+          3425,
+          3426,
+          3427
+        ],
+        "source_atom_ids": [
+          "CA-M-120",
+          "CA-R-1437",
+          "CAPRMEDIO-GOV-EVAL-005"
+        ]
+      },
+      "proposal": {
+        "effects": {
+          "Relations": "Preserve exact existing graph-qualified kinds, endpoints, directions, declarations and derived provenance; add no native edge or inverse declaration.",
+          "constraints": "Preserve the captured scope, graph-admission, target, cardinality and lifecycle conditions; no inferred or universalized constraints.",
+          "historical_references": "Preserve exact identities and captured source/revision references; no replacement, archive, history rewrite or current-Core assertion.",
+          "queries": "Existing exact-identity and graph-kind-qualified lookups remain unchanged; no alias, merge, renaming or filtering is adopted."
+        },
+        "mark": "retain",
+        "native_admission": "not_performed",
+        "potentially_lost_distinctions": [],
+        "preserved_distinctions": [
+          "Independently authored Relation facts have one authoritative declaration; derived Relation results remain traceable to admitted derivation authority and authoritative inputs without a fake direct declaration.",
+          "Direct fact authority, derivation authority, input facts and non-authoritative registry/view traceability remain separate."
+        ],
+        "preserved_identity": "Relation/authority",
+        "replacement_identities": [],
+        "semantic_acceptance": "not_performed",
+        "source_migration": "not_performed"
+      },
+      "question": null,
+      "reason": "Independently authored Relation facts have one authoritative declaration; derived Relation results remain traceable to admitted derivation authority and authoritative inputs without a fake direct declaration.",
+      "source_context": "captured_snapshot"
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-R-1256",
+        "CA-R-923",
+        "CA-R-924"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "CA-R-923:30-30",
+            "CA-R-1256:28-28",
+            "CA-R-924:31-31"
+          ],
+          "finding": "source_backed_distinction",
+          "reason": "Actual Claim target applicability differs from current ownership and from Plan Relation participation."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "CA-R-923:30-30",
+            "CA-R-1256:28-28",
+            "CA-R-924:31-31"
+          ],
+          "finding": "no_duplicate_established",
+          "reason": "Relational Atom is not a Relation fact, a Plan Label or every Atom participating in Relations."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "CA-R-923:30-30",
+            "CA-R-1256:28-28",
+            "CA-R-924:31-31"
+          ],
+          "finding": "meaning_present",
+          "reason": "The captured definition and admitted qualified-type condition are explicit."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "CA-R-923:30-30",
+            "CA-R-1256:28-28",
+            "CA-R-924:31-31"
+          ],
+          "finding": "no_reduction_proposed",
+          "reason": "Generalizing to every linked Atom would erase exact target conditions and qualified Role/Type constraints."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "CA-R-923:30-30",
+            "CA-R-1256:28-28",
+            "CA-R-924:31-31"
+          ],
+          "finding": "substantive_not_redundant",
+          "reason": "Target/ownership condition supplies a classification not captured by generic Atom identity alone."
+        }
+      },
+      "confidence_percent": 99,
+      "disposition": "retain",
+      "evidence_refs": [
+        "CA-R-923:30-30",
+        "CA-R-1256:28-28",
+        "CA-R-924:31-31"
+      ],
+      "identity": "Relational Atom",
+      "native_facts_added": [],
+      "native_kind_confirmation": "not_performed",
+      "original_input_node": {
+        "governing_source_atom_ids": [
+          "CA-R-1256",
+          "CA-R-923"
+        ],
+        "identity": "Relational Atom",
+        "is_full_target": true,
+        "is_syntactic_root": true,
+        "occurrence_ids": [
+          3428,
+          3429,
+          3430,
+          3431,
+          3432,
+          3433,
+          3434,
+          3436,
+          3437
+        ],
+        "source_atom_ids": [
+          "CA-D-482",
+          "CA-E-425",
+          "CA-E-511",
+          "CA-M-115",
+          "CA-R-1256",
+          "CA-R-923",
+          "CA-R-924",
+          "CA-R-925",
+          "CA-R-932"
+        ]
+      },
+      "proposal": {
+        "effects": {
+          "Relations": "Preserve exact existing graph-qualified kinds, endpoints, directions, declarations and derived provenance; add no native edge or inverse declaration.",
+          "constraints": "Preserve the captured scope, graph-admission, target, cardinality and lifecycle conditions; no inferred or universalized constraints.",
+          "historical_references": "Preserve exact identities and captured source/revision references; no replacement, archive, history rewrite or current-Core assertion.",
+          "queries": "Existing exact-identity and graph-kind-qualified lookups remain unchanged; no alias, merge, renaming or filtering is adopted."
+        },
+        "mark": "retain",
+        "native_admission": "not_performed",
+        "potentially_lost_distinctions": [],
+        "preserved_distinctions": [
+          "Relational Atom has no containing Scope Unit or a resolved Claim Target Scope Unit different from its current Scope Unit; it remains an Atom and is not relational merely due to Plan decomposition/blocking or Label.",
+          "Actual Claim target applicability differs from current ownership and from Plan Relation participation."
+        ],
+        "preserved_identity": "Relational Atom",
+        "replacement_identities": [],
+        "semantic_acceptance": "not_performed",
+        "source_migration": "not_performed"
+      },
+      "question": null,
+      "reason": "Relational Atom has no containing Scope Unit or a resolved Claim Target Scope Unit different from its current Scope Unit; it remains an Atom and is not relational merely due to Plan decomposition/blocking or Label.",
+      "source_context": "captured_snapshot"
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-E-425"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "CA-E-425:32-39"
+          ],
+          "finding": "source_backed_distinction",
+          "reason": "Plan Label changes do not change target-based classification; a saved definition is not an executed validation result."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "CA-E-425:32-39"
+          ],
+          "finding": "no_duplicate_established",
+          "reason": "Validation contribution is not the Relational Atom or its Type value."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "CA-E-425:32-39"
+          ],
+          "finding": "meaning_present",
+          "reason": "Captured Evaluation supplies explicit acceptance, label-variation and rejection conditions."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "CA-E-425:32-39"
+          ],
+          "finding": "no_reduction_proposed",
+          "reason": "Generic type validation would lose target-based and label-not-Type failure cases."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "CA-E-425:32-39"
+          ],
+          "finding": "substantive_not_redundant",
+          "reason": "Positive and rejection checks protect classification boundaries beyond merely listing qualified types."
+        }
+      },
+      "confidence_percent": 99,
+      "disposition": "retain",
+      "evidence_refs": [
+        "CA-E-425:32-39"
+      ],
+      "identity": "Relational Atom Classification Validation",
+      "native_facts_added": [],
+      "native_kind_confirmation": "not_performed",
+      "original_input_node": {
+        "governing_source_atom_ids": [
+          "CA-E-425"
+        ],
+        "identity": "Relational Atom Classification Validation",
+        "is_full_target": true,
+        "is_syntactic_root": true,
+        "occurrence_ids": [
+          3435
+        ],
+        "source_atom_ids": [
+          "CA-E-425"
+        ]
+      },
+      "proposal": {
+        "effects": {
+          "Relations": "Preserve exact existing graph-qualified kinds, endpoints, directions, declarations and derived provenance; add no native edge or inverse declaration.",
+          "constraints": "Preserve the captured scope, graph-admission, target, cardinality and lifecycle conditions; no inferred or universalized constraints.",
+          "historical_references": "Preserve exact identities and captured source/revision references; no replacement, archive, history rewrite or current-Core assertion.",
+          "queries": "Existing exact-identity and graph-kind-qualified lookups remain unchanged; no alias, merge, renaming or filtering is adopted."
+        },
+        "mark": "retain",
+        "native_admission": "not_performed",
+        "potentially_lost_distinctions": [],
+        "preserved_distinctions": [
+          "Classification Evaluation enforces admitted qualified Relational Atom Types and target conditions, rejects Labels as Type authority and preserves current-scope Plan nonrelational cases despite decomposition/blocking.",
+          "Plan Label changes do not change target-based classification; a saved definition is not an executed validation result."
+        ],
+        "preserved_identity": "Relational Atom Classification Validation",
+        "replacement_identities": [],
+        "semantic_acceptance": "not_performed",
+        "source_migration": "not_performed"
+      },
+      "question": null,
+      "reason": "Classification Evaluation enforces admitted qualified Relational Atom Types and target conditions, rejects Labels as Type authority and preserves current-scope Plan nonrelational cases despite decomposition/blocking.",
+      "source_context": "captured_snapshot"
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-E-425",
+        "CA-R-924"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "CA-R-924:31-31",
+            "CA-E-425:32-39"
+          ],
+          "finding": "source_backed_distinction",
+          "reason": "Allowed type value, Atom classification, Plan Label and actual target remain distinct; no new subtype follows from path syntax."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "CA-R-924:31-31",
+            "CA-E-425:32-39"
+          ],
+          "finding": "no_duplicate_established",
+          "reason": "Qualified Type domain does not duplicate Plan Labels or unqualified role/type names."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "CA-R-924:31-31",
+            "CA-E-425:32-39"
+          ],
+          "finding": "meaning_present",
+          "reason": "The complete captured qualified domain and target condition are supplied."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "CA-R-924:31-31",
+            "CA-E-425:32-39"
+          ],
+          "finding": "no_reduction_proposed",
+          "reason": "A universal Type list or relational-by-blocking rule would lose qualifications and explicit Plan conditions."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "CA-R-924:31-31",
+            "CA-E-425:32-39"
+          ],
+          "finding": "substantive_not_redundant",
+          "reason": "Exact Role/Type paths and conditional Plan membership are independently required."
+        }
+      },
+      "confidence_percent": 99,
+      "disposition": "retain",
+      "evidence_refs": [
+        "CA-R-924:31-31",
+        "CA-E-425:32-39"
+      ],
+      "identity": "Relational Atom/Qualified Type",
+      "native_facts_added": [],
+      "native_kind_confirmation": "not_performed",
+      "original_input_node": {
+        "governing_source_atom_ids": [
+          "CA-R-924"
+        ],
+        "identity": "Relational Atom/Qualified Type",
+        "is_full_target": true,
+        "is_syntactic_root": false,
+        "occurrence_ids": [
+          3436,
+          3437
+        ],
+        "source_atom_ids": [
+          "CA-E-425",
+          "CA-R-924"
+        ]
+      },
+      "proposal": {
+        "effects": {
+          "Relations": "Preserve exact existing graph-qualified kinds, endpoints, directions, declarations and derived provenance; add no native edge or inverse declaration.",
+          "constraints": "Preserve the captured scope, graph-admission, target, cardinality and lifecycle conditions; no inferred or universalized constraints.",
+          "historical_references": "Preserve exact identities and captured source/revision references; no replacement, archive, history rewrite or current-Core assertion.",
+          "queries": "Existing exact-identity and graph-kind-qualified lookups remain unchanged; no alias, merge, renaming or filtering is adopted."
+        },
+        "mark": "retain",
+        "native_admission": "not_performed",
+        "potentially_lost_distinctions": [],
+        "preserved_distinctions": [
+          "Core allowed qualified Relational Atom Types are Requirement/Goal, Requirement/Demand and Plan/Plan, with Plan relational only under the actual target condition.",
+          "Allowed type value, Atom classification, Plan Label and actual target remain distinct; no new subtype follows from path syntax."
+        ],
+        "preserved_identity": "Relational Atom/Qualified Type",
+        "replacement_identities": [],
+        "semantic_acceptance": "not_performed",
+        "source_migration": "not_performed"
+      },
+      "question": null,
+      "reason": "Core allowed qualified Relational Atom Types are Requirement/Goal, Requirement/Demand and Plan/Plan, with Plan relational only under the actual target condition.",
+      "source_context": "captured_snapshot"
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-O-111"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "CA-O-111:31-40",
+            "CA-O-111:44-46"
+          ],
+          "finding": "source_backed_distinction",
+          "reason": "An applied edit or correction record is not a semantic pass or completion of unperformed checks."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "CA-O-111:31-40",
+            "CA-O-111:44-46"
+          ],
+          "finding": "no_duplicate_established",
+          "reason": "Repair Action is not its actual Run, initial check report, correction record or separately requested later check."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "CA-O-111:31-40",
+            "CA-O-111:44-46"
+          ],
+          "finding": "meaning_present",
+          "reason": "The captured Operation specifies source-mismatch stop, authorization, lifecycle/version/replacement and completion behavior."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "CA-O-111:31-40",
+            "CA-O-111:44-46"
+          ],
+          "finding": "no_reduction_proposed",
+          "reason": "Generic repair would erase local scope, no automatic recheck, version/replacement permission and partial-effect safeguards."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "CA-O-111:31-40",
+            "CA-O-111:44-46"
+          ],
+          "finding": "substantive_not_redundant",
+          "reason": "Authorized local repair and exact initial-finding accounting are not supplied by checking alone."
+        }
+      },
+      "confidence_percent": 99,
+      "disposition": "retain",
+      "evidence_refs": [
+        "CA-O-111:31-40",
+        "CA-O-111:44-46"
+      ],
+      "identity": "Repair RMED Review Batch",
+      "native_facts_added": [],
+      "native_kind_confirmation": "not_performed",
+      "original_input_node": {
+        "governing_source_atom_ids": [
+          "CA-O-111"
+        ],
+        "identity": "Repair RMED Review Batch",
+        "is_full_target": true,
+        "is_syntactic_root": true,
+        "occurrence_ids": [
+          3438
+        ],
+        "source_atom_ids": [
+          "CA-O-111"
+        ]
+      },
+      "proposal": {
+        "effects": {
+          "Relations": "Preserve exact existing graph-qualified kinds, endpoints, directions, declarations and derived provenance; add no native edge or inverse declaration.",
+          "constraints": "Preserve the captured scope, graph-admission, target, cardinality and lifecycle conditions; no inferred or universalized constraints.",
+          "historical_references": "Preserve exact identities and captured source/revision references; no replacement, archive, history rewrite or current-Core assertion.",
+          "queries": "Existing exact-identity and graph-kind-qualified lookups remain unchanged; no alias, merge, renaming or filtering is adopted."
+        },
+        "mark": "retain",
+        "native_admission": "not_performed",
+        "potentially_lost_distinctions": [],
+        "preserved_distinctions": [
+          "Reusable repair Action applies the smallest authorized correction for confirmed local findings, classifies lifecycle changes, preserves partial effects/history and returns fixed/replaced-not-rechecked only after complete finding/check coverage.",
+          "An applied edit or correction record is not a semantic pass or completion of unperformed checks."
+        ],
+        "preserved_identity": "Repair RMED Review Batch",
+        "replacement_identities": [],
+        "semantic_acceptance": "not_performed",
+        "source_migration": "not_performed"
+      },
+      "question": null,
+      "reason": "Reusable repair Action applies the smallest authorized correction for confirmed local findings, classifies lifecycle changes, preserves partial effects/history and returns fixed/replaced-not-rechecked only after complete finding/check coverage.",
+      "source_context": "captured_snapshot"
+    }
+  ],
+  "non_authoritative": true,
+  "operator_direction_boundary": "Substance and optional Scope omission are candidate-only; omission requires whole Subject AND whole owning Scope Unit, retains the default and does not erase ownership or applicability. No Session, ephemerality or Journal-only rule is admitted.",
+  "operator_direction_refs": [
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/operator.decisions.md",
+      "sha256": "53eeb7a3fdaa002cd05170fe185cfb5baeea72814a1f32567d8eea6f56ac65cb"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/nodes/scope.omission.decision.md",
+      "sha256": "d4ea636d540b0558c1a0fbb8263760947e1f0768840c43b3ed1d05c96b497453"
+    }
+  ],
+  "parent_input_pin": {
+    "partition_sha256": "c15461f84c5e59fad27e16674f00efdb0804c3ec45de2290283ad7c25af85b42",
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/nodes/inputs/nodes.batch-7.input.json",
+    "sha256": "9a9188b17a1aca100515a3857e61a7499c07dd840d9672a5589e25739a1be1b6"
+  },
+  "partition_sha256": "011145137f550669a1b85e05d5779c0d879f09a039d246d082742f74d2da3b6d",
+  "semantic_admission": "not_performed",
+  "snapshot_context_pin": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/nodes/snapshot.context.md",
+    "sha256": "bfd6a7d93745d69432111df37ca139ba727a1ad06e821d94d3c059e44169ee23"
+  },
+  "source_context": "captured_snapshot",
+  "source_migration": "not_performed",
+  "source_task": "CA-P-1946",
+  "subset_indexes": [
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23
+  ]
+}

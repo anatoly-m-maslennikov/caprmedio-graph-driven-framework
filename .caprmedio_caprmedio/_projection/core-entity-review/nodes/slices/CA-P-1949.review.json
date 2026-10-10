@@ -1,0 +1,1396 @@
+{
+  "source_task": "CA-P-1949",
+  "batch": 7,
+  "baseline_inventory_sha256": "23394abaf6e9c18a585cf3146aedd0a80df166c9dd82be6e86ed7c3c56780bdc",
+  "input_file_sha256": "86d4b9ff12cc4ee446c78c37f905eb083d317e64b3cbe3e5a06609f37479f5ad",
+  "partition_sha256": "b81c98a57e9027f51f097a32d3fc8a7f0819204b25bee58deddbaa80f33d8e4e",
+  "non_authoritative": true,
+  "semantic_admission": "not_performed",
+  "source_migration": "not_performed",
+  "source_context": "captured_snapshot",
+  "git_commit": "a971d0e00c33c779f485fc8cad63194894d440fb",
+  "parent_input": {
+    "partition_sha256": "c15461f84c5e59fad27e16674f00efdb0804c3ec45de2290283ad7c25af85b42",
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/nodes/inputs/nodes.batch-7.input.json",
+    "sha256": "9a9188b17a1aca100515a3857e61a7499c07dd840d9672a5589e25739a1be1b6"
+  },
+  "scope_omission_pin": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/nodes/scope.omission.decision.md",
+    "sha256": "d4ea636d540b0558c1a0fbb8263760947e1f0768840c43b3ed1d05c96b497453"
+  },
+  "evidence_catalogue": [
+    {
+      "evidence_ref": "e1",
+      "atom_id": "CA-M-127",
+      "atom_revision": 15,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/05_method/CA-M-127-CORE_META_MODEL-METHOD--evaluate-set-valued-property-membership.md",
+      "carrier_sha256": "bb09a5845cbff2aef2b4b36e84e452f0e798a9771e177150937453fef30bf64d",
+      "start_line": 31,
+      "end_line": 31,
+      "quote": "**to** evaluate **in** **or** **not in** for one set-valued governed property, the Resolver **must** evaluate **in** as true exactly **when** **`>=1`** property member **`=`** one listed value **and** **must** evaluate **not in** as true exactly **when** no property member **`=`** **any** listed value.",
+      "text_sha256": "bde657ba155e86b86189da1e3d7e59610266fef55241339a5531cd822c516616"
+    },
+    {
+      "evidence_ref": "e2",
+      "atom_id": "CA-R-1470",
+      "atom_revision": 7,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1470-CORE_META_MODEL-CORE--define-single-source-of-truth.md",
+      "carrier_sha256": "fdd8765be6618a53fd491a48907f6cf297398066efa9da9055bc54fdea47a017",
+      "start_line": 33,
+      "end_line": 33,
+      "quote": "Single Source of Truth **means** **`=1`** canonical authoritative source for **every** independently maintained fact **in** the same applicable context. another representation of that fact references **or** derives from its source **without** becoming an independently maintained authority.",
+      "text_sha256": "c1a3580740017969f002e106ba917e9e178bf2663256f43869c332453c306827"
+    },
+    {
+      "evidence_ref": "e3",
+      "atom_id": "CA-O-010",
+      "atom_revision": 9,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/CA-O-010-CORE_META_MODEL-WORKFLOW--reconcile-sources.md",
+      "carrier_sha256": "0f20146444637ca38de69f97931c4a45c663c9a6dd2d759c3599e9864acfc7da",
+      "start_line": 40,
+      "end_line": 40,
+      "quote": "Source Reconciliation **means** the reusable Workflow whose nodes are the following Steps **and** whose control flow is defined by their result conditions. the Step references reuse those Action definitions; they do **not** copy them **or** make another Workflow the Action invoked by a Step.",
+      "text_sha256": "d6fc7b61f5532933fa7631d5246f2c4a529b5368b7301d0c2e7ff1f004299694"
+    },
+    {
+      "evidence_ref": "e4",
+      "atom_id": "CA-O-147",
+      "atom_revision": 2,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-147-CORE_META_MODEL-STEP--assess-the-reconciliation-source-frontier.md",
+      "carrier_sha256": "e01f9c528f0f1626c9e229c3cc2f4c0fd0ba5cc22d97d330599e271cc07d6335",
+      "start_line": 36,
+      "end_line": 36,
+      "quote": "Source Reconciliation Assessment Step **means** the node **in** Workflow `CA-O-010` invoking **`=1`** Action, `CA-O-005`.",
+      "text_sha256": "9d7c9edaf6a1648a9a1d5c0ada3465394ddd02cdf5ca460f811d7903a7252a83"
+    },
+    {
+      "evidence_ref": "e5",
+      "atom_id": "CA-O-150",
+      "atom_revision": 2,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-150-CORE_META_MODEL-STEP--apply-the-reconciliation-source-corrections.md",
+      "carrier_sha256": "5f5dd94b4e4a453b37c2b5914ec860c508ce75d4f17efcf127740065f100e3be",
+      "start_line": 36,
+      "end_line": 36,
+      "quote": "Source Reconciliation Correction Step **means** the node **in** Workflow `CA-O-010` invoking **`=1`** Action, `CA-O-008`.",
+      "text_sha256": "a2025c1a24f61e84d577701a325fba1036d87fe1bc318d180d7a105d96961c53"
+    },
+    {
+      "evidence_ref": "e6",
+      "atom_id": "CA-O-149",
+      "atom_revision": 2,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-149-CORE_META_MODEL-STEP--obtain-the-reconciliation-source-correction-decision.md",
+      "carrier_sha256": "48f9245598122d2caaa3341720fb69f732771cf456375aefdba3a971b839c103",
+      "start_line": 36,
+      "end_line": 36,
+      "quote": "Source Reconciliation Decision Step **means** the node **in** Workflow `CA-O-010` invoking **`=1`** Action, `CA-O-007`.",
+      "text_sha256": "cd45986ab9bc7e526da7a66882de781f392999b36ff4f6c9e9adaea6225331b8"
+    },
+    {
+      "evidence_ref": "e7",
+      "atom_id": "CA-O-148",
+      "atom_revision": 2,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-148-CORE_META_MODEL-STEP--propose-the-reconciliation-source-corrections.md",
+      "carrier_sha256": "bdc4505a6d43029f55b0f4bc7a0fc19971ed0670f1d0d1ee669f61b645c609b4",
+      "start_line": 36,
+      "end_line": 36,
+      "quote": "Source Reconciliation Proposal Step **means** the node **in** Workflow `CA-O-010` invoking **`=1`** Action, `CA-O-006`.",
+      "text_sha256": "6882df528e430a7804a72d8c557b657f997276498aff8536c86b1a9d97449a83"
+    },
+    {
+      "evidence_ref": "e8",
+      "atom_id": "CA-O-151",
+      "atom_revision": 2,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-151-CORE_META_MODEL-STEP--publish-the-reconciled-source-projection.md",
+      "carrier_sha256": "c0cb676da0a7fad0031bd581b091c6caf3373573535250dc07988f1bbc9fb0f6",
+      "start_line": 36,
+      "end_line": 36,
+      "quote": "Source Reconciliation Publication Step **means** the node **in** Workflow `CA-O-010` invoking **`=1`** Action, `CA-O-009`.",
+      "text_sha256": "2761dda9a4e9c79bed5e60bedfc1130c5401387b162356c184ba2ced8687604d"
+    },
+    {
+      "evidence_ref": "e9",
+      "atom_id": "CA-O-146",
+      "atom_revision": 2,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-146-CORE_META_MODEL-STEP--select-the-reconciliation-source-frontier.md",
+      "carrier_sha256": "47fc11d3062b6a516aff7672143512b4d0dfc0596e57b8b869b305578db7b8ba",
+      "start_line": 36,
+      "end_line": 36,
+      "quote": "Source Reconciliation Selection Step **means** the node **in** Workflow `CA-O-010` invoking **`=1`** Action, `CA-O-004`.",
+      "text_sha256": "c75a0491b6071110408cbd5f98b4c364492e42dfd01f7ae6e0dd4e41d1815661"
+    },
+    {
+      "evidence_ref": "e10",
+      "atom_id": "CA-R-1548",
+      "atom_revision": 5,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1548-CORE_META_MODEL-CORE-REQUIREMENT--define-specification-content-roles.md",
+      "carrier_sha256": "25f7ff661e45ceef86a3a54aa0e02fcd273c32ae4ddac63b10a000cebe1efe5f",
+      "start_line": 34,
+      "end_line": 34,
+      "quote": "Specification Content Roles (Spec, RMED) **means** the set (Requirement, Method, Evaluation, Delivery) that specifies governed content **and** Entities, including CAPO **and** I.",
+      "text_sha256": "6f06764149b5ea0a3cfe99c1c21a7af229ede4813b1f8c7d7cad7f63997a18f6"
+    },
+    {
+      "evidence_ref": "e11",
+      "atom_id": "CA-R-1509",
+      "atom_revision": 6,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1509-CORE_META_MODEL-CORE-REQUIREMENT--define-step.md",
+      "carrier_sha256": "29969fbadae10b18096c356dca721982b60e256dbf186301a065210cfbce3083",
+      "start_line": 34,
+      "end_line": 34,
+      "quote": "a Step **means** a node **in** a Workflow, defined by **`=1`** Step Atom, that specifies invocation of **`=1`** Action with the parameters **and** inputs for that invocation.",
+      "text_sha256": "99592fb84d77e71ff241b18af581aede1c5c24da79252073e9615f6848c88d41"
+    },
+    {
+      "evidence_ref": "e12",
+      "atom_id": "CA-R-1511",
+      "atom_revision": 5,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1511-CORE_META_MODEL-CORE--define-step-run.md",
+      "carrier_sha256": "62a47b27c84cbf9228d0e3419fa6163163ab40aa82a7b568024ad728cad19e49",
+      "start_line": 32,
+      "end_line": 32,
+      "quote": "a Step Run **means** **`=1`** actual execution of **`=1`** Step within **`=1`** Workflow Run, invoking the Step's **`=1`** referenced Action with the bound parameters **and** inputs for that run.",
+      "text_sha256": "d3d95f8f19af006b77e5e7c5c42f2898e26b959d22d1579c5f8037af8efc7694"
+    },
+    {
+      "evidence_ref": "e13",
+      "atom_id": "CA-R-1789",
+      "atom_revision": 1,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1789-CORE_META_MODEL-GENERAL--provide-self-contained-agentic-step-invocation-payloads.md",
+      "carrier_sha256": "4ae58bbfdd3ba4497b86011788c85efce40585e4c580c9581404e9627bd346ef",
+      "start_line": 36,
+      "end_line": 36,
+      "quote": "the executor **must** provide a self-contained Invocation sufficient for the receiving context **to** perform the admitted Action **without** remembering the Workflow procedure from earlier conversation.",
+      "text_sha256": "7b9512d40048025ab4b0ac61082e46c1a4afe8e41fcea8e26905de81fbf3ed08"
+    },
+    {
+      "evidence_ref": "e14",
+      "atom_id": "CA-R-1528",
+      "atom_revision": 5,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1528-CORE_META_MODEL-GENERAL-REQUIREMENT--record-tool-calls-within-step-runs.md",
+      "carrier_sha256": "6f0398d693b75a32af5778be51539da934a79e25492b73d88a82284b70fda17d",
+      "start_line": 34,
+      "end_line": 34,
+      "quote": "a Tool Call **means** an invocation of a Tool during execution; **when** it occurs within a Step Run, its execution evidence **must** remain associated with that parent Step Run **in** the canonical Project Journal.",
+      "text_sha256": "284417da7b883bdd84b4cac962d08690d9074218db599997399394b17532e63b"
+    },
+    {
+      "evidence_ref": "e15",
+      "atom_id": "CA-R-1527",
+      "atom_revision": 4,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1527-CORE_META_MODEL-GENERAL-REQUIREMENT--define-agentic-step-execution-context.md",
+      "carrier_sha256": "54d5849f0b4603b0947e9232ba46f7be0a077f84d30a448fe4f8ba4780b587b5",
+      "start_line": 33,
+      "end_line": 33,
+      "quote": "Agentic Step Execution Context **means** the context selected by a Step's invocation binding for its Agentic Action: Integrated **or** Isolated.",
+      "text_sha256": "14165e62234511c0e2898a6d96b6111cccdf8a4dd878b37a035d319b100018f2"
+    }
+  ],
+  "nodes": [
+    {
+      "identity": "Set-valued Property",
+      "disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "Captured snapshot Main Content has a direct definition or meaningful constraint; retain without inferring a native relation or replacement.",
+      "checks": {
+        "duplicates": {
+          "finding": "no_proven_duplicate",
+          "reason": "Captured snapshot Main Content supports this exact identity and keeps its definition, Run/record, source, or authority boundary distinct; no reduction is proven.",
+          "evidence_refs": [
+            "e1"
+          ]
+        },
+        "redundancy": {
+          "finding": "not_proven_redundant",
+          "reason": "Source/projection and definition/Run distinctions are not redundant label variants.",
+          "evidence_refs": [
+            "e1"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful_constraint_or_definition",
+          "reason": "Captured snapshot Main Content supports this exact identity and keeps its definition, Run/record, source, or authority boundary distinct; no reduction is proven.",
+          "evidence_refs": [
+            "e1"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "captured_meaning_evidenced",
+          "reason": "Captured snapshot Main Content supports this exact identity and keeps its definition, Run/record, source, or authority boundary distinct; no reduction is proven.",
+          "evidence_refs": [
+            "e1"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No replacement and loss analysis supports generalization.",
+          "evidence_refs": [
+            "e1"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "e1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-127"
+      ],
+      "proposal": null,
+      "question": null
+    },
+    {
+      "identity": "Set-valued Property Membership Evaluation",
+      "disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "Captured snapshot Main Content has a direct definition or meaningful constraint; retain without inferring a native relation or replacement.",
+      "checks": {
+        "duplicates": {
+          "finding": "no_proven_duplicate",
+          "reason": "Captured snapshot Main Content supports this exact identity and keeps its definition, Run/record, source, or authority boundary distinct; no reduction is proven.",
+          "evidence_refs": [
+            "e1"
+          ]
+        },
+        "redundancy": {
+          "finding": "not_proven_redundant",
+          "reason": "Source/projection and definition/Run distinctions are not redundant label variants.",
+          "evidence_refs": [
+            "e1"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful_constraint_or_definition",
+          "reason": "Captured snapshot Main Content supports this exact identity and keeps its definition, Run/record, source, or authority boundary distinct; no reduction is proven.",
+          "evidence_refs": [
+            "e1"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "captured_meaning_evidenced",
+          "reason": "Captured snapshot Main Content supports this exact identity and keeps its definition, Run/record, source, or authority boundary distinct; no reduction is proven.",
+          "evidence_refs": [
+            "e1"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No replacement and loss analysis supports generalization.",
+          "evidence_refs": [
+            "e1"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "e1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-127"
+      ],
+      "proposal": null,
+      "question": null
+    },
+    {
+      "identity": "Single Source of Truth",
+      "disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "Captured snapshot Main Content has a direct definition or meaningful constraint; retain without inferring a native relation or replacement.",
+      "checks": {
+        "duplicates": {
+          "finding": "no_proven_duplicate",
+          "reason": "Captured snapshot Main Content supports this exact identity and keeps its definition, Run/record, source, or authority boundary distinct; no reduction is proven.",
+          "evidence_refs": [
+            "e2"
+          ]
+        },
+        "redundancy": {
+          "finding": "not_proven_redundant",
+          "reason": "Source/projection and definition/Run distinctions are not redundant label variants.",
+          "evidence_refs": [
+            "e2"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful_constraint_or_definition",
+          "reason": "Captured snapshot Main Content supports this exact identity and keeps its definition, Run/record, source, or authority boundary distinct; no reduction is proven.",
+          "evidence_refs": [
+            "e2"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "captured_meaning_evidenced",
+          "reason": "Captured snapshot Main Content supports this exact identity and keeps its definition, Run/record, source, or authority boundary distinct; no reduction is proven.",
+          "evidence_refs": [
+            "e2"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No replacement and loss analysis supports generalization.",
+          "evidence_refs": [
+            "e2"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "e2"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-466",
+        "CA-M-120",
+        "CA-R-1408",
+        "CA-R-1437",
+        "CA-R-1470",
+        "CA-R-1471",
+        "CA-R-1483",
+        "CA-R-1598",
+        "CA-R-1609",
+        "CA-R-1610",
+        "CA-R-1746",
+        "CAPRMEDIO-GOV-EVAL-005"
+      ],
+      "proposal": null,
+      "question": null
+    },
+    {
+      "identity": "Skill",
+      "disposition": "question",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot sources are topical, concern-only, or define another target; this is not evidence to drop, consolidate, or generalize.",
+      "checks": {
+        "duplicates": {
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in assigned captured sources.",
+          "evidence_refs": []
+        },
+        "redundancy": {
+          "finding": "unresolved",
+          "reason": "No redundancy proof in assigned captured sources.",
+          "evidence_refs": []
+        },
+        "empty_definition": {
+          "finding": "unresolved",
+          "reason": "Assigned captured snapshot sources do not define or give a verifier-eligible meaningful constraint for Skill. Absence does not establish emptiness.",
+          "evidence_refs": []
+        },
+        "distinct_meaning": {
+          "finding": "unresolved",
+          "reason": "Assigned captured snapshot sources do not define or give a verifier-eligible meaningful constraint for Skill.",
+          "evidence_refs": []
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No replacement and loss analysis supports generalization.",
+          "evidence_refs": []
+        }
+      },
+      "evidence_refs": [],
+      "checked_source_atom_ids": [
+        "CA-M-277",
+        "CA-M-278"
+      ],
+      "proposal": null,
+      "question": "Which captured-snapshot Main Content statement defines or gives a meaningful constraint for Skill?"
+    },
+    {
+      "identity": "Source Reconciliation",
+      "disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "Captured snapshot Main Content has a direct definition or meaningful constraint; retain without inferring a native relation or replacement.",
+      "checks": {
+        "duplicates": {
+          "finding": "no_proven_duplicate",
+          "reason": "Captured snapshot Main Content supports this exact identity and keeps its definition, Run/record, source, or authority boundary distinct; no reduction is proven.",
+          "evidence_refs": [
+            "e3"
+          ]
+        },
+        "redundancy": {
+          "finding": "not_proven_redundant",
+          "reason": "Source/projection and definition/Run distinctions are not redundant label variants.",
+          "evidence_refs": [
+            "e3"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful_constraint_or_definition",
+          "reason": "Captured snapshot Main Content supports this exact identity and keeps its definition, Run/record, source, or authority boundary distinct; no reduction is proven.",
+          "evidence_refs": [
+            "e3"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "captured_meaning_evidenced",
+          "reason": "Captured snapshot Main Content supports this exact identity and keeps its definition, Run/record, source, or authority boundary distinct; no reduction is proven.",
+          "evidence_refs": [
+            "e3"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No replacement and loss analysis supports generalization.",
+          "evidence_refs": [
+            "e3"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "e3"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-010",
+        "CA-O-011",
+        "CA-O-146",
+        "CA-O-147",
+        "CA-O-148",
+        "CA-O-149",
+        "CA-O-150",
+        "CA-O-151"
+      ],
+      "proposal": null,
+      "question": null
+    },
+    {
+      "identity": "Source Reconciliation Assessment Step",
+      "disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "Captured snapshot Main Content has a direct definition or meaningful constraint; retain without inferring a native relation or replacement.",
+      "checks": {
+        "duplicates": {
+          "finding": "no_proven_duplicate",
+          "reason": "Captured snapshot Main Content supports this exact identity and keeps its definition, Run/record, source, or authority boundary distinct; no reduction is proven.",
+          "evidence_refs": [
+            "e4"
+          ]
+        },
+        "redundancy": {
+          "finding": "not_proven_redundant",
+          "reason": "Source/projection and definition/Run distinctions are not redundant label variants.",
+          "evidence_refs": [
+            "e4"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful_constraint_or_definition",
+          "reason": "Captured snapshot Main Content supports this exact identity and keeps its definition, Run/record, source, or authority boundary distinct; no reduction is proven.",
+          "evidence_refs": [
+            "e4"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "captured_meaning_evidenced",
+          "reason": "Captured snapshot Main Content supports this exact identity and keeps its definition, Run/record, source, or authority boundary distinct; no reduction is proven.",
+          "evidence_refs": [
+            "e4"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No replacement and loss analysis supports generalization.",
+          "evidence_refs": [
+            "e4"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "e4"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-147"
+      ],
+      "proposal": null,
+      "question": null
+    },
+    {
+      "identity": "Source Reconciliation Correction Step",
+      "disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "Captured snapshot Main Content has a direct definition or meaningful constraint; retain without inferring a native relation or replacement.",
+      "checks": {
+        "duplicates": {
+          "finding": "no_proven_duplicate",
+          "reason": "Captured snapshot Main Content supports this exact identity and keeps its definition, Run/record, source, or authority boundary distinct; no reduction is proven.",
+          "evidence_refs": [
+            "e5"
+          ]
+        },
+        "redundancy": {
+          "finding": "not_proven_redundant",
+          "reason": "Source/projection and definition/Run distinctions are not redundant label variants.",
+          "evidence_refs": [
+            "e5"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful_constraint_or_definition",
+          "reason": "Captured snapshot Main Content supports this exact identity and keeps its definition, Run/record, source, or authority boundary distinct; no reduction is proven.",
+          "evidence_refs": [
+            "e5"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "captured_meaning_evidenced",
+          "reason": "Captured snapshot Main Content supports this exact identity and keeps its definition, Run/record, source, or authority boundary distinct; no reduction is proven.",
+          "evidence_refs": [
+            "e5"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No replacement and loss analysis supports generalization.",
+          "evidence_refs": [
+            "e5"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "e5"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-150"
+      ],
+      "proposal": null,
+      "question": null
+    },
+    {
+      "identity": "Source Reconciliation Decision Step",
+      "disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "Captured snapshot Main Content has a direct definition or meaningful constraint; retain without inferring a native relation or replacement.",
+      "checks": {
+        "duplicates": {
+          "finding": "no_proven_duplicate",
+          "reason": "Captured snapshot Main Content supports this exact identity and keeps its definition, Run/record, source, or authority boundary distinct; no reduction is proven.",
+          "evidence_refs": [
+            "e6"
+          ]
+        },
+        "redundancy": {
+          "finding": "not_proven_redundant",
+          "reason": "Source/projection and definition/Run distinctions are not redundant label variants.",
+          "evidence_refs": [
+            "e6"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful_constraint_or_definition",
+          "reason": "Captured snapshot Main Content supports this exact identity and keeps its definition, Run/record, source, or authority boundary distinct; no reduction is proven.",
+          "evidence_refs": [
+            "e6"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "captured_meaning_evidenced",
+          "reason": "Captured snapshot Main Content supports this exact identity and keeps its definition, Run/record, source, or authority boundary distinct; no reduction is proven.",
+          "evidence_refs": [
+            "e6"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No replacement and loss analysis supports generalization.",
+          "evidence_refs": [
+            "e6"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "e6"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-149"
+      ],
+      "proposal": null,
+      "question": null
+    },
+    {
+      "identity": "Source Reconciliation Proposal Step",
+      "disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "Captured snapshot Main Content has a direct definition or meaningful constraint; retain without inferring a native relation or replacement.",
+      "checks": {
+        "duplicates": {
+          "finding": "no_proven_duplicate",
+          "reason": "Captured snapshot Main Content supports this exact identity and keeps its definition, Run/record, source, or authority boundary distinct; no reduction is proven.",
+          "evidence_refs": [
+            "e7"
+          ]
+        },
+        "redundancy": {
+          "finding": "not_proven_redundant",
+          "reason": "Source/projection and definition/Run distinctions are not redundant label variants.",
+          "evidence_refs": [
+            "e7"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful_constraint_or_definition",
+          "reason": "Captured snapshot Main Content supports this exact identity and keeps its definition, Run/record, source, or authority boundary distinct; no reduction is proven.",
+          "evidence_refs": [
+            "e7"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "captured_meaning_evidenced",
+          "reason": "Captured snapshot Main Content supports this exact identity and keeps its definition, Run/record, source, or authority boundary distinct; no reduction is proven.",
+          "evidence_refs": [
+            "e7"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No replacement and loss analysis supports generalization.",
+          "evidence_refs": [
+            "e7"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "e7"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-148"
+      ],
+      "proposal": null,
+      "question": null
+    },
+    {
+      "identity": "Source Reconciliation Publication Step",
+      "disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "Captured snapshot Main Content has a direct definition or meaningful constraint; retain without inferring a native relation or replacement.",
+      "checks": {
+        "duplicates": {
+          "finding": "no_proven_duplicate",
+          "reason": "Captured snapshot Main Content supports this exact identity and keeps its definition, Run/record, source, or authority boundary distinct; no reduction is proven.",
+          "evidence_refs": [
+            "e8"
+          ]
+        },
+        "redundancy": {
+          "finding": "not_proven_redundant",
+          "reason": "Source/projection and definition/Run distinctions are not redundant label variants.",
+          "evidence_refs": [
+            "e8"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful_constraint_or_definition",
+          "reason": "Captured snapshot Main Content supports this exact identity and keeps its definition, Run/record, source, or authority boundary distinct; no reduction is proven.",
+          "evidence_refs": [
+            "e8"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "captured_meaning_evidenced",
+          "reason": "Captured snapshot Main Content supports this exact identity and keeps its definition, Run/record, source, or authority boundary distinct; no reduction is proven.",
+          "evidence_refs": [
+            "e8"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No replacement and loss analysis supports generalization.",
+          "evidence_refs": [
+            "e8"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "e8"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-151"
+      ],
+      "proposal": null,
+      "question": null
+    },
+    {
+      "identity": "Source Reconciliation Selection Step",
+      "disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "Captured snapshot Main Content has a direct definition or meaningful constraint; retain without inferring a native relation or replacement.",
+      "checks": {
+        "duplicates": {
+          "finding": "no_proven_duplicate",
+          "reason": "Captured snapshot Main Content supports this exact identity and keeps its definition, Run/record, source, or authority boundary distinct; no reduction is proven.",
+          "evidence_refs": [
+            "e9"
+          ]
+        },
+        "redundancy": {
+          "finding": "not_proven_redundant",
+          "reason": "Source/projection and definition/Run distinctions are not redundant label variants.",
+          "evidence_refs": [
+            "e9"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful_constraint_or_definition",
+          "reason": "Captured snapshot Main Content supports this exact identity and keeps its definition, Run/record, source, or authority boundary distinct; no reduction is proven.",
+          "evidence_refs": [
+            "e9"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "captured_meaning_evidenced",
+          "reason": "Captured snapshot Main Content supports this exact identity and keeps its definition, Run/record, source, or authority boundary distinct; no reduction is proven.",
+          "evidence_refs": [
+            "e9"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No replacement and loss analysis supports generalization.",
+          "evidence_refs": [
+            "e9"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "e9"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-146"
+      ],
+      "proposal": null,
+      "question": null
+    },
+    {
+      "identity": "Source Reconciliation Workflow Carrier layout",
+      "disposition": "question",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot sources are topical, concern-only, or define another target; this is not evidence to drop, consolidate, or generalize.",
+      "checks": {
+        "duplicates": {
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in assigned captured sources.",
+          "evidence_refs": []
+        },
+        "redundancy": {
+          "finding": "unresolved",
+          "reason": "No redundancy proof in assigned captured sources.",
+          "evidence_refs": []
+        },
+        "empty_definition": {
+          "finding": "unresolved",
+          "reason": "Assigned captured snapshot sources do not define or give a verifier-eligible meaningful constraint for Source Reconciliation Workflow Carrier layout. Absence does not establish emptiness.",
+          "evidence_refs": []
+        },
+        "distinct_meaning": {
+          "finding": "unresolved",
+          "reason": "Assigned captured snapshot sources do not define or give a verifier-eligible meaningful constraint for Source Reconciliation Workflow Carrier layout.",
+          "evidence_refs": []
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No replacement and loss analysis supports generalization.",
+          "evidence_refs": []
+        }
+      },
+      "evidence_refs": [],
+      "checked_source_atom_ids": [
+        "CA-C-350"
+      ],
+      "proposal": null,
+      "question": "Which captured-snapshot Main Content statement defines or gives a meaningful constraint for Source Reconciliation Workflow Carrier layout?"
+    },
+    {
+      "identity": "Spec",
+      "disposition": "question",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot sources are topical, concern-only, or define another target; this is not evidence to drop, consolidate, or generalize.",
+      "checks": {
+        "duplicates": {
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in assigned captured sources.",
+          "evidence_refs": []
+        },
+        "redundancy": {
+          "finding": "unresolved",
+          "reason": "No redundancy proof in assigned captured sources.",
+          "evidence_refs": []
+        },
+        "empty_definition": {
+          "finding": "unresolved",
+          "reason": "Assigned captured snapshot sources do not define or give a verifier-eligible meaningful constraint for Spec. Absence does not establish emptiness.",
+          "evidence_refs": []
+        },
+        "distinct_meaning": {
+          "finding": "unresolved",
+          "reason": "Assigned captured snapshot sources do not define or give a verifier-eligible meaningful constraint for Spec.",
+          "evidence_refs": []
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No replacement and loss analysis supports generalization.",
+          "evidence_refs": []
+        }
+      },
+      "evidence_refs": [],
+      "checked_source_atom_ids": [
+        "CA-E-440",
+        "CA-O-017",
+        "CA-O-021",
+        "CA-O-089",
+        "CA-O-090",
+        "CA-O-124",
+        "CA-R-1340",
+        "CA-R-1549",
+        "CA-R-1556",
+        "CA-R-1559"
+      ],
+      "proposal": null,
+      "question": "Which captured-snapshot Main Content statement defines or gives a meaningful constraint for Spec?"
+    },
+    {
+      "identity": "Spec Content Roles",
+      "disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "Captured snapshot Main Content has a direct definition or meaningful constraint; retain without inferring a native relation or replacement.",
+      "checks": {
+        "duplicates": {
+          "finding": "no_proven_duplicate",
+          "reason": "Captured snapshot Main Content supports this exact identity and keeps its definition, Run/record, source, or authority boundary distinct; no reduction is proven.",
+          "evidence_refs": [
+            "e10"
+          ]
+        },
+        "redundancy": {
+          "finding": "not_proven_redundant",
+          "reason": "Source/projection and definition/Run distinctions are not redundant label variants.",
+          "evidence_refs": [
+            "e10"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful_constraint_or_definition",
+          "reason": "Captured snapshot Main Content supports this exact identity and keeps its definition, Run/record, source, or authority boundary distinct; no reduction is proven.",
+          "evidence_refs": [
+            "e10"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "captured_meaning_evidenced",
+          "reason": "Captured snapshot Main Content supports this exact identity and keeps its definition, Run/record, source, or authority boundary distinct; no reduction is proven.",
+          "evidence_refs": [
+            "e10"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No replacement and loss analysis supports generalization.",
+          "evidence_refs": [
+            "e10"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "e10"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-498",
+        "CA-E-499",
+        "CA-R-1431",
+        "CA-R-1548",
+        "CA-R-1550",
+        "CA-R-1568",
+        "CA-R-1610",
+        "CA-R-1682",
+        "CA-R-1683",
+        "CA-R-659"
+      ],
+      "proposal": null,
+      "question": null
+    },
+    {
+      "identity": "Status",
+      "disposition": "question",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot sources are topical, concern-only, or define another target; this is not evidence to drop, consolidate, or generalize.",
+      "checks": {
+        "duplicates": {
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in assigned captured sources.",
+          "evidence_refs": []
+        },
+        "redundancy": {
+          "finding": "unresolved",
+          "reason": "No redundancy proof in assigned captured sources.",
+          "evidence_refs": []
+        },
+        "empty_definition": {
+          "finding": "unresolved",
+          "reason": "Assigned captured snapshot sources do not define or give a verifier-eligible meaningful constraint for Status. Absence does not establish emptiness.",
+          "evidence_refs": []
+        },
+        "distinct_meaning": {
+          "finding": "unresolved",
+          "reason": "Assigned captured snapshot sources do not define or give a verifier-eligible meaningful constraint for Status.",
+          "evidence_refs": []
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No replacement and loss analysis supports generalization.",
+          "evidence_refs": []
+        }
+      },
+      "evidence_refs": [],
+      "checked_source_atom_ids": [
+        "CA-E-490",
+        "CA-M-287",
+        "CA-O-128",
+        "CA-R-1520",
+        "CA-R-1521"
+      ],
+      "proposal": null,
+      "question": "Which captured-snapshot Main Content statement defines or gives a meaningful constraint for Status?"
+    },
+    {
+      "identity": "Step",
+      "disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "Captured snapshot Main Content has a direct definition or meaningful constraint; retain without inferring a native relation or replacement.",
+      "checks": {
+        "duplicates": {
+          "finding": "no_proven_duplicate",
+          "reason": "Captured snapshot Main Content supports this exact identity and keeps its definition, Run/record, source, or authority boundary distinct; no reduction is proven.",
+          "evidence_refs": [
+            "e11"
+          ]
+        },
+        "redundancy": {
+          "finding": "not_proven_redundant",
+          "reason": "Source/projection and definition/Run distinctions are not redundant label variants.",
+          "evidence_refs": [
+            "e11"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful_constraint_or_definition",
+          "reason": "Captured snapshot Main Content supports this exact identity and keeps its definition, Run/record, source, or authority boundary distinct; no reduction is proven.",
+          "evidence_refs": [
+            "e11"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "captured_meaning_evidenced",
+          "reason": "Captured snapshot Main Content supports this exact identity and keeps its definition, Run/record, source, or authority boundary distinct; no reduction is proven.",
+          "evidence_refs": [
+            "e11"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No replacement and loss analysis supports generalization.",
+          "evidence_refs": [
+            "e11"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "e11"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-486",
+        "CA-E-489",
+        "CA-E-491",
+        "CA-E-494",
+        "CA-E-495",
+        "CA-E-496",
+        "CA-E-497",
+        "CA-E-498",
+        "CA-E-500",
+        "CA-E-513",
+        "CA-E-519",
+        "CA-M-301",
+        "CA-M-303",
+        "CA-M-304",
+        "CA-M-305",
+        "CA-O-010",
+        "CA-O-011",
+        "CA-O-015",
+        "CA-O-016",
+        "CA-O-028",
+        "CA-O-080",
+        "CA-O-088",
+        "CA-O-091",
+        "CA-O-092",
+        "CA-O-093",
+        "CA-O-094",
+        "CA-O-095",
+        "CA-O-096",
+        "CA-O-098",
+        "CA-O-099",
+        "CA-O-101",
+        "CA-O-102",
+        "CA-O-104",
+        "CA-O-108",
+        "CA-O-109",
+        "CA-O-110",
+        "CA-O-118",
+        "CA-O-119",
+        "CA-O-120",
+        "CA-O-121",
+        "CA-O-127",
+        "CA-O-129",
+        "CA-O-130",
+        "CA-O-132",
+        "CA-O-133",
+        "CA-O-135",
+        "CA-O-136",
+        "CA-O-138",
+        "CA-O-139",
+        "CA-O-140",
+        "CA-O-141",
+        "CA-O-142",
+        "CA-O-143",
+        "CA-O-144",
+        "CA-O-145",
+        "CA-O-146",
+        "CA-O-147",
+        "CA-O-148",
+        "CA-O-149",
+        "CA-O-150",
+        "CA-O-151",
+        "CA-O-152",
+        "CA-O-153",
+        "CA-O-154",
+        "CA-O-155",
+        "CA-O-156",
+        "CA-O-157",
+        "CA-O-158",
+        "CA-O-161",
+        "CA-O-163",
+        "CA-R-1312",
+        "CA-R-1452",
+        "CA-R-1508",
+        "CA-R-1509",
+        "CA-R-1511",
+        "CA-R-1513",
+        "CA-R-1519",
+        "CA-R-1520",
+        "CA-R-1525",
+        "CA-R-1527",
+        "CA-R-1528",
+        "CA-R-1530",
+        "CA-R-1554",
+        "CA-R-1563",
+        "CA-R-1569",
+        "CA-R-1570",
+        "CA-R-1789",
+        "CA-R-1790",
+        "CA-R-1791",
+        "CA-R-1792",
+        "CA-R-1793"
+      ],
+      "proposal": null,
+      "question": null
+    },
+    {
+      "identity": "Step Run",
+      "disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "Captured snapshot Main Content has a direct definition or meaningful constraint; retain without inferring a native relation or replacement.",
+      "checks": {
+        "duplicates": {
+          "finding": "no_proven_duplicate",
+          "reason": "Captured snapshot Main Content supports this exact identity and keeps its definition, Run/record, source, or authority boundary distinct; no reduction is proven.",
+          "evidence_refs": [
+            "e12"
+          ]
+        },
+        "redundancy": {
+          "finding": "not_proven_redundant",
+          "reason": "Source/projection and definition/Run distinctions are not redundant label variants.",
+          "evidence_refs": [
+            "e12"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful_constraint_or_definition",
+          "reason": "Captured snapshot Main Content supports this exact identity and keeps its definition, Run/record, source, or authority boundary distinct; no reduction is proven.",
+          "evidence_refs": [
+            "e12"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "captured_meaning_evidenced",
+          "reason": "Captured snapshot Main Content supports this exact identity and keeps its definition, Run/record, source, or authority boundary distinct; no reduction is proven.",
+          "evidence_refs": [
+            "e12"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No replacement and loss analysis supports generalization.",
+          "evidence_refs": [
+            "e12"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "e12"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-486",
+        "CA-E-494",
+        "CA-E-495",
+        "CA-E-496",
+        "CA-E-497",
+        "CA-M-304",
+        "CA-O-010",
+        "CA-O-011",
+        "CA-O-015",
+        "CA-O-016",
+        "CA-O-024",
+        "CA-O-028",
+        "CA-O-091",
+        "CA-O-092",
+        "CA-O-093",
+        "CA-O-094",
+        "CA-O-095",
+        "CA-O-096",
+        "CA-O-098",
+        "CA-O-099",
+        "CA-O-101",
+        "CA-O-108",
+        "CA-O-109",
+        "CA-O-110",
+        "CA-O-129",
+        "CA-O-130",
+        "CA-O-131",
+        "CA-O-132",
+        "CA-O-135",
+        "CA-O-138",
+        "CA-O-139",
+        "CA-O-140",
+        "CA-O-141",
+        "CA-O-142",
+        "CA-O-143",
+        "CA-O-144",
+        "CA-O-145",
+        "CA-O-146",
+        "CA-O-147",
+        "CA-O-148",
+        "CA-O-149",
+        "CA-O-150",
+        "CA-O-151",
+        "CA-R-1468",
+        "CA-R-1509",
+        "CA-R-1510",
+        "CA-R-1511",
+        "CA-R-1513",
+        "CA-R-1519",
+        "CA-R-1525",
+        "CA-R-1527",
+        "CA-R-1528",
+        "CA-R-1720",
+        "CA-R-1789",
+        "CA-R-1790",
+        "CA-R-1791",
+        "CA-R-1792",
+        "CA-R-1793"
+      ],
+      "proposal": null,
+      "question": null
+    },
+    {
+      "identity": "Step Run/Invocation",
+      "disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "Captured snapshot Main Content has a direct definition or meaningful constraint; retain without inferring a native relation or replacement.",
+      "checks": {
+        "duplicates": {
+          "finding": "no_proven_duplicate",
+          "reason": "Captured snapshot Main Content supports this exact identity and keeps its definition, Run/record, source, or authority boundary distinct; no reduction is proven.",
+          "evidence_refs": [
+            "e13"
+          ]
+        },
+        "redundancy": {
+          "finding": "not_proven_redundant",
+          "reason": "Source/projection and definition/Run distinctions are not redundant label variants.",
+          "evidence_refs": [
+            "e13"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful_constraint_or_definition",
+          "reason": "Captured snapshot Main Content supports this exact identity and keeps its definition, Run/record, source, or authority boundary distinct; no reduction is proven.",
+          "evidence_refs": [
+            "e13"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "captured_meaning_evidenced",
+          "reason": "Captured snapshot Main Content supports this exact identity and keeps its definition, Run/record, source, or authority boundary distinct; no reduction is proven.",
+          "evidence_refs": [
+            "e13"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No replacement and loss analysis supports generalization.",
+          "evidence_refs": [
+            "e13"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "e13"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-497",
+        "CA-M-304",
+        "CA-R-1789",
+        "CA-R-1790",
+        "CA-R-1791",
+        "CA-R-1792",
+        "CA-R-1793"
+      ],
+      "proposal": null,
+      "question": null
+    },
+    {
+      "identity": "Step Run/Tool Call",
+      "disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "Captured snapshot Main Content has a direct definition or meaningful constraint; retain without inferring a native relation or replacement.",
+      "checks": {
+        "duplicates": {
+          "finding": "no_proven_duplicate",
+          "reason": "Captured snapshot Main Content supports this exact identity and keeps its definition, Run/record, source, or authority boundary distinct; no reduction is proven.",
+          "evidence_refs": [
+            "e14"
+          ]
+        },
+        "redundancy": {
+          "finding": "not_proven_redundant",
+          "reason": "Source/projection and definition/Run distinctions are not redundant label variants.",
+          "evidence_refs": [
+            "e14"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful_constraint_or_definition",
+          "reason": "Captured snapshot Main Content supports this exact identity and keeps its definition, Run/record, source, or authority boundary distinct; no reduction is proven.",
+          "evidence_refs": [
+            "e14"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "captured_meaning_evidenced",
+          "reason": "Captured snapshot Main Content supports this exact identity and keeps its definition, Run/record, source, or authority boundary distinct; no reduction is proven.",
+          "evidence_refs": [
+            "e14"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No replacement and loss analysis supports generalization.",
+          "evidence_refs": [
+            "e14"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "e14"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-496",
+        "CA-M-304",
+        "CA-R-1511",
+        "CA-R-1528"
+      ],
+      "proposal": null,
+      "question": null
+    },
+    {
+      "identity": "Step/Agentic Execution Context",
+      "disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "Captured snapshot Main Content has a direct definition or meaningful constraint; retain without inferring a native relation or replacement.",
+      "checks": {
+        "duplicates": {
+          "finding": "no_proven_duplicate",
+          "reason": "Captured snapshot Main Content supports this exact identity and keeps its definition, Run/record, source, or authority boundary distinct; no reduction is proven.",
+          "evidence_refs": [
+            "e15"
+          ]
+        },
+        "redundancy": {
+          "finding": "not_proven_redundant",
+          "reason": "Source/projection and definition/Run distinctions are not redundant label variants.",
+          "evidence_refs": [
+            "e15"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful_constraint_or_definition",
+          "reason": "Captured snapshot Main Content supports this exact identity and keeps its definition, Run/record, source, or authority boundary distinct; no reduction is proven.",
+          "evidence_refs": [
+            "e15"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "captured_meaning_evidenced",
+          "reason": "Captured snapshot Main Content supports this exact identity and keeps its definition, Run/record, source, or authority boundary distinct; no reduction is proven.",
+          "evidence_refs": [
+            "e15"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No replacement and loss analysis supports generalization.",
+          "evidence_refs": [
+            "e15"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "e15"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-495",
+        "CA-O-091",
+        "CA-O-092",
+        "CA-O-093",
+        "CA-O-094",
+        "CA-O-095",
+        "CA-O-096",
+        "CA-O-098",
+        "CA-O-099",
+        "CA-O-101",
+        "CA-O-108",
+        "CA-O-109",
+        "CA-O-110",
+        "CA-O-129",
+        "CA-O-135",
+        "CA-O-138",
+        "CA-O-139",
+        "CA-O-140",
+        "CA-O-141",
+        "CA-O-142",
+        "CA-O-143",
+        "CA-O-144",
+        "CA-O-145",
+        "CA-O-146",
+        "CA-O-147",
+        "CA-O-148",
+        "CA-O-149",
+        "CA-O-150",
+        "CA-O-151",
+        "CA-R-1508",
+        "CA-R-1509",
+        "CA-R-1511",
+        "CA-R-1527",
+        "CA-R-1789",
+        "CA-R-1790",
+        "CA-R-1791",
+        "CA-R-1792",
+        "CA-R-1793"
+      ],
+      "proposal": null,
+      "question": null
+    }
+  ]
+}

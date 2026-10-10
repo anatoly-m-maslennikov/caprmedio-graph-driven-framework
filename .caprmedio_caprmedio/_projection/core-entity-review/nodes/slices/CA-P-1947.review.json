@@ -1,0 +1,1142 @@
+{
+  "source_task": "CA-P-1947",
+  "batch": 7,
+  "baseline_inventory_sha256": "23394abaf6e9c18a585cf3146aedd0a80df166c9dd82be6e86ed7c3c56780bdc",
+  "input_file_sha256": "3733374e2b9c773f14f89ff9fc3a49ac3b57a47659abb3ececcfe66b65ca0c84",
+  "partition_sha256": "01a547d00670dbd98f15a9376985ea595498dc35a87b5a715f2ea8e2bf699d2a",
+  "non_authoritative": true,
+  "semantic_admission": "not_performed",
+  "source_migration": "not_performed",
+  "snapshot_context": {
+    "source_context": "captured_snapshot",
+    "git_commit": "a971d0e00c33c779f485fc8cad63194894d440fb",
+    "source_pins_checked": 951,
+    "verification": "pass",
+    "current_core_claimed": false
+  },
+  "operator_direction": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/nodes/scope.omission.decision.md",
+    "sha256": "d4ea636d540b0558c1a0fbb8263760947e1f0768840c43b3ed1d05c96b497453",
+    "status": "candidate_input_only_not_captured_core_evidence",
+    "summary": "Absent explicit Substance Scope defaults only to whole governed Subject in whole owning Scope Unit; neither restriction permits omission."
+  },
+  "evidence_catalogue": {
+    "CA-R-1035-29-29": {
+      "evidence_ref": "CA-R-1035-29-29",
+      "atom_id": "CA-R-1035",
+      "atom_revision": 13,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1035-CORE_META_MODEL-GENERAL--define-replacement-required-lineage-impact-disposition.md",
+      "carrier_sha256": "c4a55cd9099152602dbc789c909fa74e5341f9b37862e4e87f75b5f51f8a01b7",
+      "start_line": 29,
+      "end_line": 29,
+      "quote": "`replacement_required` **means** the child requires a successor **and** archival **before** traversal continues through **every** affected descendant.",
+      "text_sha256": "e8f2e63f8b332b5c3e0ddf98dbf1149aa6c23ec5d68402b13db765330af6e118"
+    },
+    "CA-O-019-35-40": {
+      "evidence_ref": "CA-O-019-35-40",
+      "atom_id": "CA-O-019",
+      "atom_revision": 4,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/CA-O-019-CORE_META_MODEL-ACTION--implement-requirements.md",
+      "carrier_sha256": "618eeb966ee41889d487d9ff1e48d4825aaa372bb2180e55688d446bdbc5065b",
+      "start_line": 35,
+      "end_line": 40,
+      "quote": "Requirement Implementation **means** the Agentic Action that realizes the selected P/Plan item's applicable Requirements after their tests are prepared, applying **all** governing Methods within Delivery boundaries.\n\n- inputs: the assigned bounded Plan item, active Method Projection, selected R/E/D, current candidate, prepared tests **and** available baseline results, admitted prerequisites, **and** owned files/work boundary.\n- implement **only** the selected ready work. preserve unrelated edits; do **not** alter expected test behavior **or** governing Atoms merely **to** obtain a pass.\n- preparation of tests precedes the behavior they check; runnable baseline tests precede that behavior. an explicitly necessary test-execution prerequisite is limited **to** that prerequisite **and** remains traceable.\n- return `implemented` with actual changes, fulfilled work, candidate identity **and** pending checks, **or** `blocked` with the exact cause. an unresolved Method conflict requires authority disposition; Atom ID **must not** select the winning Method. implementation is **not** proof of passing Evaluations.",
+      "text_sha256": "f18fd22109c011cad6ddef945089640d5fcddbd4ed785c981cc65418bef3c86c"
+    },
+    "CA-O-093-35-41": {
+      "evidence_ref": "CA-O-093-35-41",
+      "atom_id": "CA-O-093",
+      "atom_revision": 3,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/IMPLEMENTATION_WORKFLOW/CA-O-093-CORE_META_MODEL-STEP--implement-requirements-in-the-assigned-subagent.md",
+      "carrier_sha256": "bda6055ba9ea55de409a1a4f3e89ad7ae8346140e7e2e7bb4dc1eaa931a2b522",
+      "start_line": 35,
+      "end_line": 41,
+      "quote": "Requirement Implementation Step **means** the Workflow node invoking **=1** Action, CA-O-019, **in** Isolated context under CA-R-1527.\n\n- bind inputs from the selected P/Plan item **and** admitted work from CA-O-091, the same assigned subagent context, governing Method Projection **and** R/E/D, prepared tests from CA-O-092, baseline evidence from CA-O-094 **and** CA-O-095 **when** available, **and** the current owned work boundary.\n- use the host's native session/subagent, file, **and** command capabilities; this binding has no MCP prerequisite. missing required context **or** capability returns a blocked invocation, **not** silent execution **in** another context.\n- retain exact Action/Step Revisions, source bindings, actual effects, **and** returned results. pass the Action's result **to** the Workflow **without** independently copying its behavior.\n\nreuse the assigned subagent for the selected P work across its test, implementation, diagnosis, **and** repair invocations **when** available. replacement requires the complete retained input/evidence handoff **and** fresh admission; do **not** rely on unrecorded conversational memory.",
+      "text_sha256": "ecffd470e4eaa1e1dc38d68d8ef34e18fadaeedc5e543ec1b543903008815ff0"
+    },
+    "CA-O-022-28-35": {
+      "evidence_ref": "CA-O-022-28-35",
+      "atom_id": "CA-O-022",
+      "atom_revision": 6,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/CA-O-022-CORE_META_MODEL-ACTION--resolve-and-activate-operator-priorities.md",
+      "carrier_sha256": "44e316259ddd26c107c4ae3d5b468857f58440f6161f7b203006c45fa3227a7c",
+      "start_line": 28,
+      "end_line": 35,
+      "quote": "Resolve Operator Priorities **means** the Action that turns applicable Operator input into the effective priority model for an identified Scope **and** Project stage.\n\n## execution\n\n1. identify the affected Scope **and** Project stage from the Operator input **and** its applicable context.\n2. resolve the Operator-selected model, effective parameters, active criteria, applicable authority, **and** non-negotiable constraints. retain **every** applicable criterion **without** imposing a fixed catalog **or** comparison by priority order on another model.\n3. check whether the input determines an admissible model **and** the parameters needed **to** apply it.\n4. **if** that resolution succeeds, activate the resolved priorities **in** the CAPRMEDIO Framework Instance for the identified context **and** return them as the Action result.",
+      "text_sha256": "3be96abc27f3422a9872ecf612776db4ad6c29e2a6656a7aabd66d37ca80f8bf"
+    },
+    "CA-O-052-36-42": {
+      "evidence_ref": "CA-O-052-36-42",
+      "atom_id": "CA-O-052",
+      "atom_revision": 4,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/CA-O-052-CORE_META_MODEL-ACTION--resolve-project-and-framework-settings-before-derived-structure.md",
+      "carrier_sha256": "d239e6fb7075b391ef5671bb49907480265198e8bb1c6926106d6e88cf61351b",
+      "start_line": 36,
+      "end_line": 42,
+      "quote": "Resolve Project Initialization Inputs **means** the reusable Action that resolves the current Project's authoritative initialization inputs **before** interpreting its Project Structure **or** deriving structural values from it.\n\n1. resolve the current Project's Project Settings through its registered authoritative Carrier under CA-D-366.\n2. resolve that Project's effective Framework Instance Settings parameters according **to** CA-M-279.\n3. use these resolved inputs **before** interpreting authoritative Project Structure **or** deriving structural values from it.\n\nthis Action **must not** require an existing Project Atom **or** Implementation **to** resolve initialization inputs, substitute a Projection for either Settings Artifact, **or** read another Project's instance settings. unresolved required parameters follow CA-M-279's stop condition. the Action reuses the registered Settings Carriers; it does **not** define their format **or** placement independently.",
+      "text_sha256": "aa80654cddc9521437a21e083acfcc245788f8a9f79a3af275a7e816240ccd98"
+    },
+    "CA-O-130-25-36": {
+      "evidence_ref": "CA-O-130-25-36",
+      "atom_id": "CA-O-130",
+      "atom_revision": 1,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/CA-O-130-CORE_META_MODEL-WORKFLOW--revert-approved-changes.md",
+      "carrier_sha256": "ad98bde116ba178edae132b6fbc91376354b1b2d02c15a4ef58038e54f00bee3",
+      "start_line": 25,
+      "end_line": 36,
+      "quote": "Revert Changes **means** the reusable Workflow graph whose entry **and** only node is CA-O-132.\n\nThe graph has no next-Step ON_RESULT edges **and** no retry loop. the node's result selects one terminal outcome:\n\n| From Step | Result condition | Terminal outcome |\n| --- | --- | --- |\n| CA-O-132 | reverted | completed |\n| CA-O-132 | no_op | completed_no_op |\n| CA-O-132 | blocked | blocked |\n| CA-O-132 | failed or partial_failure | failed |\n| CA-O-132 | canceled | canceled |\n| CA-O-132 | recording_blocked | recording_blocked |",
+      "text_sha256": "fcf81c5710d593a2b82340a77809b0d0f481790b19e9d44c5eba7c999a9f2748"
+    },
+    "CA-R-1347-30-30": {
+      "evidence_ref": "CA-R-1347-30-30",
+      "atom_id": "CA-R-1347",
+      "atom_revision": 11,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1347-CORE_META_MODEL-CORE-REQUIREMENT--define-root-term.md",
+      "carrier_sha256": "8d74cf6b7af6a0738844b4d17054fe713a55773c6bed88cf0e48981eec6f9138",
+      "start_line": 30,
+      "end_line": 30,
+      "quote": "a Root Term **means** a Term with **`=0`** direct NARROWER_THAN parents **in** the Terms Graph.",
+      "text_sha256": "629d44cd4accd8a7f4d16f68bd433e8d4bc00b6cafeb7a4e93909ffa94914615"
+    },
+    "CA-D-559-27-27": {
+      "evidence_ref": "CA-D-559-27-27",
+      "atom_id": "CA-D-559",
+      "atom_revision": 1,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-559-CORE_META_MODEL--deliver-runtime-journals-to-configured-sinks.md",
+      "carrier_sha256": "a0efc0dc67bbac626021e6137567d953f20314e8102c926099f8e4f2d71fd7fa",
+      "start_line": 27,
+      "end_line": 27,
+      "quote": "runtime technical **and** business Journals **may** be delivered **to** an explicitly configured local database, remote database, **or** governed logging sink. these Carriers **need not** reside under `.caprmedio_<project_name>/_journal/` **or** `.caprmedio_runtime/`.",
+      "text_sha256": "d1d9d612d53c408cdf1571b96ba468133107b5a3f489bfc6965a436314cf4029"
+    },
+    "CA-E-522-55-60": {
+      "evidence_ref": "CA-E-522-55-60",
+      "atom_id": "CA-E-522",
+      "atom_revision": 1,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/06_evaluation/CA-E-522-CORE_META_MODEL-QA_CASE--storage-boundary-classification-interpretability.md",
+      "carrier_sha256": "3d311421cf753721b84da36b1cb5f67c70bcaa766baa5636bc95453cdf005d62",
+      "start_line": 55,
+      "end_line": 60,
+      "quote": "- return `fail` **if** the evidence establishes **any** of these conditions:\n  - **`<90`**% of classifications are correct.\n  - a classification treats Runtime State **or** scratch as canonical truth.\n  - a placement creates a separate authoritative Journal for a Workflow, Scope Unit, **or** Content Role.\n  - a segment **or** log classification contradicts its expected answer above.\n- **otherwise**, return `unresolved` **if** missing evidence **or** an ambiguous boundary prevents the expected answers **or** classification score from being established. record a Concern for **every** ambiguous boundary **and** stop storage-boundary readiness **until** the governing rule **or** its presentation is corrected.",
+      "text_sha256": "f2096add46183aff7ee0e082b35d896a191a80f2d64c89d7c5f67dc3721751bc"
+    },
+    "CA-D-341-30-30": {
+      "evidence_ref": "CA-D-341-30-30",
+      "atom_id": "CA-D-341",
+      "atom_revision": 11,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-341-CORE_META_MODEL-CORE--separate-persistent-authority-from-runtime-state.md",
+      "carrier_sha256": "a97b70b64bc8097b7c2f94ff727ed81d7cafc1ed8941fed02cc1d764eaaa36e9",
+      "start_line": 30,
+      "end_line": 30,
+      "quote": "Framework-Owned **and** Project-Owned persistent Carriers **must** remain outside Runtime State so Runtime State cleanup cannot remove canonical authority **or** Journal history.",
+      "text_sha256": "e40e8a4cdabc250d8b18c1b6b1f40b1095e805972a2f2eea6e5a8021879d68fc"
+    },
+    "CA-E-207-42-49": {
+      "evidence_ref": "CA-E-207-42-49",
+      "atom_id": "CA-E-207",
+      "atom_revision": 13,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/06_evaluation/CA-E-207-CORE_META_MODEL-EVALUATION_APPROACH--evaluate-priority-governed-alternative-selection.md",
+      "carrier_sha256": "d722991a355ed9c72a210150049bc95be05a9f10b0268403ef8bd65bf97f4f5c",
+      "start_line": 42,
+      "end_line": 49,
+      "quote": "the evaluated behavior passes **if** **all** applicable conditions hold **and** are supported by the evaluated evidence:\n\n- the effective model **and** parameters correspond **to** applicable Operator input; unresolved input is reported **without** activating an invented model **or** preference.\n- **every** selected alternative satisfies active authority **and** non-negotiable constraints.\n- selection follows the Operator-selected model **without** substituting another algorithm.\n- for comparison by priority order, the first deciding criterion governs relative preference; later criteria do **not** reverse it **or** bypass an unresolved earlier comparison.\n- a tie **or** incomparable result is **not** converted into an automatic winner **without** authority from the selected model.\n- unresolved input **or** comparison is returned **to** the Operator with its known inputs, alternatives **when** available, constraints, evidence, **and** exact unresolved point.",
+      "text_sha256": "a72b1cb47177ee62bd3feb575d18cb175b05d9d737924f2a4a1adc6d18f8c3be"
+    },
+    "CA-R-999-28-28": {
+      "evidence_ref": "CA-R-999-28-28",
+      "atom_id": "CA-R-999",
+      "atom_revision": 14,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-999-CORE_META_MODEL-REQUIREMENT--define-scope-expression.md",
+      "carrier_sha256": "d10f530533646e4e9546c1db181c82d00afb7bacd1475918c8afcee4fd4e87d7",
+      "start_line": 28,
+      "end_line": 28,
+      "quote": "a Scope Expression **means** one deterministic expression that identifies Governed Entities through atomic references, explicit Atom IDs, parentheses, registered set **or** logical operators, **and** field predicates including **where**.",
+      "text_sha256": "144452c96e3c2d2ce72036b09f52198a177d49e9349c0a7510a5b6d7a7ba3c01"
+    },
+    "CA-M-121-25-34": {
+      "evidence_ref": "CA-M-121-25-34",
+      "atom_id": "CA-M-121",
+      "atom_revision": 17,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/05_method/CA-M-121-CORE_META_MODEL-METHOD--evaluate-scope-expressions.md",
+      "carrier_sha256": "6b5139e9e507051863dcac7faa4eb75fb70cd38592e68bf05914e9dc6accdb14",
+      "start_line": 25,
+      "end_line": 34,
+      "quote": "**to** evaluate one Scope Expression, the Resolver **must** perform **all** of:\n\n1. resolve **every** exact Atom ID **or** other atomic identity **to** **`=1`** Governed Entity.\n2. interpret **all** `<ENTITY_KIND>` as **every** Governed Entity of that kind within Atom Scope.\n3. interpret **or** as set union.\n4. interpret **and** as set intersection.\n5. interpret **without** as left-side set exclusion.\n6. interpret **where** as retention of **only** members whose field predicate evaluates **to** true according **to** `CA-M-122-CORE_META_MODEL-METHOD--evaluate-condition-expressions`.\n7. evaluate the innermost parenthesized set function **before** its containing set function.\n8. use another Scope function **only** **when** an active CCE Method gives that function **`=1`** set meaning.",
+      "text_sha256": "d2a65ed560d06b3b9ef95448f42df2dc0c38a32988a41e492fec0ff6b77c7a51"
+    },
+    "CA-R-1361-32-32": {
+      "evidence_ref": "CA-R-1361-32-32",
+      "atom_id": "CA-R-1361",
+      "atom_revision": 13,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1361-CORE_META_MODEL--define-canonical-scope-signature.md",
+      "carrier_sha256": "7e5fce4d3eeafe4bc4cab3f4fcd972c5e3a94b5ba86fc96f3d0285d7737a977f",
+      "start_line": 32,
+      "end_line": 32,
+      "quote": "a Canonical Scope Signature **means** a derived non-authoritative comparison value for **`=1`** parenthesized Scope Expression occurrence satisfying **all** of the following boundaries.",
+      "text_sha256": "803d52470b4b1b4f2a85868d6f582c6b736a8c4ce71c041db6f4f4363bd720e3"
+    },
+    "CA-D-347-31-31": {
+      "evidence_ref": "CA-D-347-31-31",
+      "atom_id": "CA-D-347",
+      "atom_revision": 12,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-347-CORE_META_MODEL--deliver-canonical-scope-signatures-as-external-report-projections.md",
+      "carrier_sha256": "34a984e863c035e1a55a2179f6d12dd83b131bdb44ac7c7faa0ca8462f9d9270",
+      "start_line": 31,
+      "end_line": 31,
+      "quote": "**every** Canonical Scope Signature Projection **must** be delivered as **`=1`** non-authoritative JSON report under its Project's `.caprmedio_<project_name>/_projection/` Directory Carrier with the selected source frontier digest, **every** source Atom identity **and** revision, source Carrier digest, source Scope Expression occurrence, Canonical Scope Signature, **and** exclusion diagnostic; the Projection **must not** become an Atom Carrier, modify a selected source Carrier, establish Claim equivalence, **or** create a dependency relation.",
+      "text_sha256": "ff39c6e89e281477e6758d2f6af65151123c66a7078c504d850139ba95c8d141"
+    }
+  },
+  "nodes": [
+    {
+      "identity": "Replacement-Required Lineage Impact Disposition",
+      "disposition": "retain",
+      "confidence_percent": 99,
+      "reason": "Captured Claim defines replacement_required as successor plus archival before traversal of every affected descendant.",
+      "checks": {
+        "duplicates": {
+          "finding": "no-duplicate-proof",
+          "reason": "The successor-and-archival disposition is not shown equivalent to another lineage disposition.",
+          "evidence_refs": [
+            "CA-R-1035-29-29"
+          ]
+        },
+        "redundancy": {
+          "finding": "separate-contribution",
+          "reason": "It controls descendant traversal after a required replacement, so is not a redundant status label.",
+          "evidence_refs": [
+            "CA-R-1035-29-29"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful-captured-content",
+          "reason": "CA-R-1035 gives a direct captured definition rather than a mere occurrence.",
+          "evidence_refs": [
+            "CA-R-1035-29-29"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "identity-specific-boundary",
+          "reason": "It differs from compatible lineage handling because it requires a successor and archival before continuation.",
+          "evidence_refs": [
+            "CA-R-1035-29-29"
+          ]
+        },
+        "generalization": {
+          "finding": "no-safe-generalization",
+          "reason": "Generalizing to a generic impact status would lose the successor, archival, and traversal boundary.",
+          "evidence_refs": [
+            "CA-R-1035-29-29"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "CA-R-1035-29-29"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1035"
+      ],
+      "proposal": {
+        "action": "retain",
+        "preserves": "the exact replacement-required lineage gate",
+        "effects": {
+          "relations": "no change proposed",
+          "constraints": "no change proposed",
+          "historical_references": "no change proposed",
+          "queries": "no change proposed"
+        }
+      },
+      "question": null
+    },
+    {
+      "identity": "Requirement Implementation",
+      "disposition": "retain",
+      "confidence_percent": 99,
+      "reason": "Captured Operation defines the Agentic Action that realizes selected Plan-item Requirements after tests are prepared within Delivery boundaries.",
+      "checks": {
+        "duplicates": {
+          "finding": "no-duplicate-proof",
+          "reason": "The Action is not evidenced as duplicate of its Workflow Step; the Step separately binds this Action.",
+          "evidence_refs": [
+            "CA-O-019-35-40"
+          ]
+        },
+        "redundancy": {
+          "finding": "separate-contribution",
+          "reason": "It performs selected ready work and reports implemented or blocked results, a contribution not supplied by a Plan item.",
+          "evidence_refs": [
+            "CA-O-019-35-40"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful-captured-content",
+          "reason": "CA-O-019 directly defines inputs, work boundary, test order, and return conditions.",
+          "evidence_refs": [
+            "CA-O-019-35-40"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "identity-specific-boundary",
+          "reason": "It is a reusable Agentic Action, not proof of a completed Evaluation or actual execution record.",
+          "evidence_refs": [
+            "CA-O-019-35-40"
+          ]
+        },
+        "generalization": {
+          "finding": "no-safe-generalization",
+          "reason": "Generalizing to implementation would lose selected-Plan, test-first, and Delivery-boundary constraints.",
+          "evidence_refs": [
+            "CA-O-019-35-40"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "CA-O-019-35-40"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-019"
+      ],
+      "proposal": {
+        "action": "retain",
+        "preserves": "the reusable Action and its bounded implementation safeguards",
+        "effects": {
+          "relations": "no change proposed",
+          "constraints": "no change proposed",
+          "historical_references": "no change proposed",
+          "queries": "no change proposed"
+        }
+      },
+      "question": null
+    },
+    {
+      "identity": "Requirement Implementation Step",
+      "disposition": "retain",
+      "confidence_percent": 99,
+      "reason": "Captured Operation defines the Workflow node invoking exactly one CA-O-019 Action in Isolated context with retained execution evidence.",
+      "checks": {
+        "duplicates": {
+          "finding": "no-duplicate-proof",
+          "reason": "The Step is not duplicate of CA-O-019 because it binds Action execution in a Workflow context.",
+          "evidence_refs": [
+            "CA-O-093-35-41"
+          ]
+        },
+        "redundancy": {
+          "finding": "separate-contribution",
+          "reason": "It supplies workflow bindings and result pass-through rather than repeating implementation behavior.",
+          "evidence_refs": [
+            "CA-O-093-35-41"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful-captured-content",
+          "reason": "CA-O-093 directly defines the node, its inputs, context, and evidence retention.",
+          "evidence_refs": [
+            "CA-O-093-35-41"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "identity-specific-boundary",
+          "reason": "It is a reusable Step definition, distinct from an actual Step Run or the invoked Action.",
+          "evidence_refs": [
+            "CA-O-093-35-41"
+          ]
+        },
+        "generalization": {
+          "finding": "no-safe-generalization",
+          "reason": "Generalizing to implementation would lose isolated-context and unchanged-result constraints.",
+          "evidence_refs": [
+            "CA-O-093-35-41"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "CA-O-093-35-41"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-093"
+      ],
+      "proposal": {
+        "action": "retain",
+        "preserves": "the Step/Action/actual-run distinction",
+        "effects": {
+          "relations": "no change proposed",
+          "constraints": "no change proposed",
+          "historical_references": "no change proposed",
+          "queries": "no change proposed"
+        }
+      },
+      "question": null
+    },
+    {
+      "identity": "Resolve Operator Priorities",
+      "disposition": "retain",
+      "confidence_percent": 99,
+      "reason": "Captured legacy Action body directly defines the Action that turns applicable Operator input into the effective priority model for an identified Scope and Project stage.",
+      "checks": {
+        "duplicates": {
+          "finding": "no-duplicate-proof",
+          "reason": "No captured evidence shows this Action duplicates a priority model; it turns input into that model for one identified context.",
+          "evidence_refs": [
+            "CA-O-022-28-35"
+          ]
+        },
+        "redundancy": {
+          "finding": "separate-contribution",
+          "reason": "It contributes context identification, model/parameter/criteria resolution, activation, and unresolved handling rather than merely naming priorities.",
+          "evidence_refs": [
+            "CA-O-022-28-35"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful-captured-content",
+          "reason": "CA-O-022's descriptive H1 is followed by a captured body definition and bounded Action behavior; no Summary heading is used as evidence.",
+          "evidence_refs": [
+            "CA-O-022-28-35"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "identity-specific-boundary",
+          "reason": "The reusable Action is distinct from the effective priority model, an individual alternative selection, and an actual Action Run.",
+          "evidence_refs": [
+            "CA-O-022-28-35"
+          ]
+        },
+        "generalization": {
+          "finding": "no-safe-generalization",
+          "reason": "Generalizing to priorities would lose Operator-input, Scope-and-stage, activation, and unresolved-result boundaries.",
+          "evidence_refs": [
+            "CA-O-022-28-35"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "CA-O-022-28-35"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-022"
+      ],
+      "proposal": {
+        "action": "retain",
+        "preserves": "the reusable Action and its contextual priority-resolution boundary",
+        "effects": {
+          "relations": "no change proposed",
+          "constraints": "no change proposed",
+          "historical_references": "no change proposed",
+          "queries": "no change proposed"
+        }
+      },
+      "question": null
+    },
+    {
+      "identity": "Resolve Project Initialization Inputs",
+      "disposition": "retain",
+      "confidence_percent": 99,
+      "reason": "Captured Operation defines the reusable Action resolving authoritative Project and Framework Instance initialization inputs before Project Structure interpretation.",
+      "checks": {
+        "duplicates": {
+          "finding": "no-duplicate-proof",
+          "reason": "It is not duplicate of Settings Artifacts: it resolves their inputs without defining their representation.",
+          "evidence_refs": [
+            "CA-O-052-36-42"
+          ]
+        },
+        "redundancy": {
+          "finding": "separate-contribution",
+          "reason": "It establishes ordered resolution before structural interpretation and refuses cross-Project substitution.",
+          "evidence_refs": [
+            "CA-O-052-36-42"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful-captured-content",
+          "reason": "CA-O-052 gives direct captured Action meaning and boundaries.",
+          "evidence_refs": [
+            "CA-O-052-36-42"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "identity-specific-boundary",
+          "reason": "The Action differs from a Projection and from Project Structure authority.",
+          "evidence_refs": [
+            "CA-O-052-36-42"
+          ]
+        },
+        "generalization": {
+          "finding": "no-safe-generalization",
+          "reason": "Generalizing to settings resolution would lose the pre-structure and no-existing-Atom/Implementation boundaries.",
+          "evidence_refs": [
+            "CA-O-052-36-42"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "CA-O-052-36-42"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-052"
+      ],
+      "proposal": {
+        "action": "retain",
+        "preserves": "the reusable pre-structure initialization-resolution Action",
+        "effects": {
+          "relations": "no change proposed",
+          "constraints": "no change proposed",
+          "historical_references": "no change proposed",
+          "queries": "no change proposed"
+        }
+      },
+      "question": null
+    },
+    {
+      "identity": "Revert Changes Workflow",
+      "disposition": "retain",
+      "confidence_percent": 99,
+      "reason": "Captured Operation defines the reusable single-node Workflow graph and its terminal outcomes.",
+      "checks": {
+        "duplicates": {
+          "finding": "no-duplicate-proof",
+          "reason": "The Workflow is not a duplicate of its CA-O-132 node because it owns graph entry and terminal-outcome mapping.",
+          "evidence_refs": [
+            "CA-O-130-25-36"
+          ]
+        },
+        "redundancy": {
+          "finding": "separate-contribution",
+          "reason": "Its graph-level terminal semantics are not supplied by a generic revert Action or Run.",
+          "evidence_refs": [
+            "CA-O-130-25-36"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful-captured-content",
+          "reason": "CA-O-130 directly defines the graph, lack of retries, and outcome mapping.",
+          "evidence_refs": [
+            "CA-O-130-25-36"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "identity-specific-boundary",
+          "reason": "It is a reusable Workflow definition, not an actual revert execution or Journal result.",
+          "evidence_refs": [
+            "CA-O-130-25-36"
+          ]
+        },
+        "generalization": {
+          "finding": "no-safe-generalization",
+          "reason": "Generalizing to revert loses no-retry and terminal-outcome distinctions.",
+          "evidence_refs": [
+            "CA-O-130-25-36"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "CA-O-130-25-36"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-130"
+      ],
+      "proposal": {
+        "action": "retain",
+        "preserves": "the reusable Workflow/Step/Run separation and terminal mapping",
+        "effects": {
+          "relations": "no change proposed",
+          "constraints": "no change proposed",
+          "historical_references": "no change proposed",
+          "queries": "no change proposed"
+        }
+      },
+      "question": null
+    },
+    {
+      "identity": "Root Term",
+      "disposition": "retain",
+      "confidence_percent": 99,
+      "reason": "Captured Claim defines Root Term by zero direct NARROWER_THAN parents in the Terms Graph.",
+      "checks": {
+        "duplicates": {
+          "finding": "no-duplicate-proof",
+          "reason": "No duplicate proof exists with Term; Root Term has the zero-direct-parent predicate.",
+          "evidence_refs": [
+            "CA-R-1347-30-30"
+          ]
+        },
+        "redundancy": {
+          "finding": "separate-contribution",
+          "reason": "The predicate identifies a graph-boundary role rather than a redundant generic Term label.",
+          "evidence_refs": [
+            "CA-R-1347-30-30"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful-captured-content",
+          "reason": "CA-R-1347 provides an exact captured definition.",
+          "evidence_refs": [
+            "CA-R-1347-30-30"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "identity-specific-boundary",
+          "reason": "It differs from Term through direct-parent cardinality in the Terms Graph.",
+          "evidence_refs": [
+            "CA-R-1347-30-30"
+          ]
+        },
+        "generalization": {
+          "finding": "no-safe-generalization",
+          "reason": "Generalizing to Term loses the root/topology predicate.",
+          "evidence_refs": [
+            "CA-R-1347-30-30"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "CA-R-1347-30-30"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1347",
+        "CA-R-1353"
+      ],
+      "proposal": {
+        "action": "retain",
+        "preserves": "the Terms Graph root predicate",
+        "effects": {
+          "relations": "no change proposed",
+          "constraints": "no change proposed",
+          "historical_references": "no change proposed",
+          "queries": "no change proposed"
+        }
+      },
+      "question": null
+    },
+    {
+      "identity": "Runtime Journal",
+      "disposition": "retain",
+      "confidence_percent": 91,
+      "reason": "Captured Claim imposes a meaningful delivery boundary for runtime technical and business Journals without making their Carrier location canonical.",
+      "checks": {
+        "duplicates": {
+          "finding": "no-duplicate-proof",
+          "reason": "The source does not prove equivalence to the shared Project Work Journal or another Journal identity.",
+          "evidence_refs": [
+            "CA-D-559-27-27"
+          ]
+        },
+        "redundancy": {
+          "finding": "separate-contribution",
+          "reason": "The delivery-location permission is a distinct operational constraint rather than a duplicate carrier rule.",
+          "evidence_refs": [
+            "CA-D-559-27-27"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful-captured-content",
+          "reason": "CA-D-559 supplies a concrete captured Journal delivery rule, not an empty label.",
+          "evidence_refs": [
+            "CA-D-559-27-27"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "identity-specific-boundary",
+          "reason": "Runtime Journal remains distinct from a Carrier: the Claim permits delivery to several governed sinks.",
+          "evidence_refs": [
+            "CA-D-559-27-27"
+          ]
+        },
+        "generalization": {
+          "finding": "no-safe-generalization",
+          "reason": "Generalizing to Journal would lose its runtime technical/business and non-directory location boundary.",
+          "evidence_refs": [
+            "CA-D-559-27-27"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "CA-D-559-27-27"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-559"
+      ],
+      "proposal": {
+        "action": "retain",
+        "preserves": "the runtime-Journal delivery boundary and Journal/Carrier distinction",
+        "effects": {
+          "relations": "no change proposed",
+          "constraints": "no change proposed",
+          "historical_references": "no change proposed",
+          "queries": "no change proposed"
+        }
+      },
+      "question": null
+    },
+    {
+      "identity": "Runtime Journal/Carrier",
+      "disposition": "retain",
+      "confidence_percent": 93,
+      "reason": "Captured Claim states the Carriers that may deliver runtime technical and business Journals and rejects a fixed journal/runtime-directory requirement.",
+      "checks": {
+        "duplicates": {
+          "finding": "no-duplicate-proof",
+          "reason": "No equivalence is shown with the Journal itself; the clause expressly distinguishes Journal delivery from its Carriers.",
+          "evidence_refs": [
+            "CA-D-559-27-27"
+          ]
+        },
+        "redundancy": {
+          "finding": "separate-contribution",
+          "reason": "The allowed governed-sink choices contribute a carrier boundary not present in Runtime Journal alone.",
+          "evidence_refs": [
+            "CA-D-559-27-27"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful-captured-content",
+          "reason": "CA-D-559 gives a concrete carrier rule for runtime Journals.",
+          "evidence_refs": [
+            "CA-D-559-27-27"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "identity-specific-boundary",
+          "reason": "Carrier denotes delivery location/sink, not canonical Journal authority or Journal identity.",
+          "evidence_refs": [
+            "CA-D-559-27-27"
+          ]
+        },
+        "generalization": {
+          "finding": "no-safe-generalization",
+          "reason": "Generalizing to Carrier would lose the runtime-Journal-specific delivery permission.",
+          "evidence_refs": [
+            "CA-D-559-27-27"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "CA-D-559-27-27"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-559"
+      ],
+      "proposal": {
+        "action": "retain",
+        "preserves": "the Journal/Carrier binding distinction and allowed delivery locations",
+        "effects": {
+          "relations": "no change proposed",
+          "constraints": "no change proposed",
+          "historical_references": "no change proposed",
+          "queries": "no change proposed"
+        }
+      },
+      "question": null
+    },
+    {
+      "identity": "Runtime State",
+      "disposition": "retain",
+      "confidence_percent": 90,
+      "reason": "Captured Evaluation gives Runtime State a meaningful storage-boundary role: treating it as canonical truth fails readiness.",
+      "checks": {
+        "duplicates": {
+          "finding": "no-duplicate-proof",
+          "reason": "No captured source proves Runtime State duplicates a Journal or scratch identity.",
+          "evidence_refs": [
+            "CA-E-522-55-60"
+          ]
+        },
+        "redundancy": {
+          "finding": "separate-contribution",
+          "reason": "The explicit prohibition against canonical-truth classification is a separate boundary contribution.",
+          "evidence_refs": [
+            "CA-E-522-55-60"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful-captured-content",
+          "reason": "CA-E-522 supplies a concrete failure condition involving Runtime State.",
+          "evidence_refs": [
+            "CA-E-522-55-60"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "identity-specific-boundary",
+          "reason": "Runtime State is distinguished from canonical Journal history by the fail condition.",
+          "evidence_refs": [
+            "CA-E-522-55-60"
+          ]
+        },
+        "generalization": {
+          "finding": "no-safe-generalization",
+          "reason": "Generalizing to storage would lose the non-canonical-truth boundary.",
+          "evidence_refs": [
+            "CA-E-522-55-60"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "CA-E-522-55-60"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-522",
+        "CA-E-523"
+      ],
+      "proposal": {
+        "action": "retain",
+        "preserves": "the non-canonical Runtime State versus durable Journal-history boundary",
+        "effects": {
+          "relations": "no change proposed",
+          "constraints": "no change proposed",
+          "historical_references": "no change proposed",
+          "queries": "no change proposed"
+        }
+      },
+      "question": null
+    },
+    {
+      "identity": "Runtime State Carrier",
+      "disposition": "question",
+      "confidence_percent": 78,
+      "reason": "Captured CA-D-341 requires persistent Framework/Project Carriers to remain outside Runtime State, but does not define a Runtime State Carrier identity or its binding.",
+      "checks": {
+        "duplicates": {
+          "finding": "no-duplicate-proof",
+          "reason": "No duplicate proof with persistent Carrier or Runtime State follows from the outside-Runtime-State rule.",
+          "evidence_refs": [
+            "CA-D-341-30-30"
+          ]
+        },
+        "redundancy": {
+          "finding": "separate-contribution",
+          "reason": "The rule protects persistent authority/history; it does not establish a separate Runtime State Carrier contribution.",
+          "evidence_refs": [
+            "CA-D-341-30-30"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful-captured-content",
+          "reason": "The captured clause has meaning but not a definition of this qualified identity.",
+          "evidence_refs": [
+            "CA-D-341-30-30"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "identity-specific-boundary",
+          "reason": "Persistent carriers are explicitly outside Runtime State, so they cannot silently define a Runtime State Carrier.",
+          "evidence_refs": [
+            "CA-D-341-30-30"
+          ]
+        },
+        "generalization": {
+          "finding": "no-safe-generalization",
+          "reason": "Generalization or consolidation would risk inventing a carrier binding absent from the captured source.",
+          "evidence_refs": [
+            "CA-D-341-30-30"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "CA-D-341-30-30"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-341"
+      ],
+      "proposal": null,
+      "question": "What captured Core Claim defines `Runtime State Carrier` itself, including whether it is a carrier of ephemeral state or a prohibited persistent-carrier classification?"
+    },
+    {
+      "identity": "Scope",
+      "disposition": "question",
+      "confidence_percent": 78,
+      "reason": "The listed captured candidates use affected Scope as context but do not define this exact generic Scope identity; the later omission direction is candidate-only and is not Core evidence.",
+      "checks": {
+        "duplicates": {
+          "finding": "no-duplicate-proof",
+          "reason": "No captured Claim/Operation source proves Scope is duplicate of Scope Unit, Claim Target Scope Unit, or applicability restriction.",
+          "evidence_refs": [
+            "CA-E-207-42-49"
+          ]
+        },
+        "redundancy": {
+          "finding": "separate-contribution",
+          "reason": "Priority-selection clauses require an affected Scope context but do not establish a standalone Scope entity definition.",
+          "evidence_refs": [
+            "CA-E-207-42-49"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful-captured-content",
+          "reason": "CA-E-207 supplies an evaluation condition, not a direct Scope definition.",
+          "evidence_refs": [
+            "CA-E-207-42-49"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "identity-specific-boundary",
+          "reason": "The source use must not collapse ownership, target, structural parentage, and applicability into one identity.",
+          "evidence_refs": [
+            "CA-E-207-42-49"
+          ]
+        },
+        "generalization": {
+          "finding": "no-safe-generalization",
+          "reason": "Generalization would erase precisely those unresolved Scope distinctions.",
+          "evidence_refs": [
+            "CA-E-207-42-49"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "CA-E-207-42-49"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-207",
+        "CA-O-022",
+        "CA-R-1487"
+      ],
+      "proposal": null,
+      "question": "Which captured Core Claim defines this generic `Scope` identity and distinguishes it from Scope Unit ownership, Claim Target Scope Unit, and applicability Scope?"
+    },
+    {
+      "identity": "Scope Expression",
+      "disposition": "retain",
+      "confidence_percent": 99,
+      "reason": "Captured Claim defines one deterministic expression identifying Governed Entities by references, IDs, grouping, registered operators, and predicates.",
+      "checks": {
+        "duplicates": {
+          "finding": "no-duplicate-proof",
+          "reason": "No duplicate proof with a Canonical Scope Signature: the signature is a derived comparison value.",
+          "evidence_refs": [
+            "CA-R-999-28-28"
+          ]
+        },
+        "redundancy": {
+          "finding": "separate-contribution",
+          "reason": "The expression contributes deterministic governed-entity selection rather than merely recording a result.",
+          "evidence_refs": [
+            "CA-R-999-28-28"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful-captured-content",
+          "reason": "CA-R-999 gives an exact captured definition.",
+          "evidence_refs": [
+            "CA-R-999-28-28"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "identity-specific-boundary",
+          "reason": "Expression evaluation and signature derivation are separate operations/artifacts from the source expression.",
+          "evidence_refs": [
+            "CA-R-999-28-28"
+          ]
+        },
+        "generalization": {
+          "finding": "no-safe-generalization",
+          "reason": "Generalizing to Scope loses grammar, determinism, and entity-selection semantics.",
+          "evidence_refs": [
+            "CA-R-999-28-28"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "CA-R-999-28-28"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-999",
+        "CA-M-121",
+        "CA-R-1271"
+      ],
+      "proposal": {
+        "action": "retain",
+        "preserves": "the deterministic source expression distinct from evaluation and derived signatures",
+        "effects": {
+          "relations": "no change proposed",
+          "constraints": "no change proposed",
+          "historical_references": "no change proposed",
+          "queries": "no change proposed"
+        }
+      },
+      "question": null
+    },
+    {
+      "identity": "Scope Expression Evaluation",
+      "disposition": "retain",
+      "confidence_percent": 99,
+      "reason": "Captured Claim defines ordered Resolver semantics for identities, entity-kind selectors, operators, predicates, and parentheses.",
+      "checks": {
+        "duplicates": {
+          "finding": "no-duplicate-proof",
+          "reason": "It is not duplicate of Scope Expression because it specifies how the expression is resolved.",
+          "evidence_refs": [
+            "CA-M-121-25-34"
+          ]
+        },
+        "redundancy": {
+          "finding": "separate-contribution",
+          "reason": "The ordered set semantics add a distinct evaluation contribution.",
+          "evidence_refs": [
+            "CA-M-121-25-34"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful-captured-content",
+          "reason": "CA-M-121 directly defines required evaluation behavior.",
+          "evidence_refs": [
+            "CA-M-121-25-34"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "identity-specific-boundary",
+          "reason": "Evaluation is distinct from a derived Canonical Scope Signature and from the expression occurrence.",
+          "evidence_refs": [
+            "CA-M-121-25-34"
+          ]
+        },
+        "generalization": {
+          "finding": "no-safe-generalization",
+          "reason": "Generalizing to expression would lose union/intersection/exclusion/predicate evaluation semantics.",
+          "evidence_refs": [
+            "CA-M-121-25-34"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "CA-M-121-25-34"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-121"
+      ],
+      "proposal": {
+        "action": "retain",
+        "preserves": "the Resolver's deterministic evaluation semantics",
+        "effects": {
+          "relations": "no change proposed",
+          "constraints": "no change proposed",
+          "historical_references": "no change proposed",
+          "queries": "no change proposed"
+        }
+      },
+      "question": null
+    },
+    {
+      "identity": "Scope Expression/Canonical Scope Signature",
+      "disposition": "retain",
+      "confidence_percent": 99,
+      "reason": "Captured Claim defines the Canonical Scope Signature as a derived non-authoritative comparison value for one parenthesized Scope Expression occurrence.",
+      "checks": {
+        "duplicates": {
+          "finding": "no-duplicate-proof",
+          "reason": "It is not duplicate of its source Scope Expression because it is a derived comparison value.",
+          "evidence_refs": [
+            "CA-R-1361-32-32"
+          ]
+        },
+        "redundancy": {
+          "finding": "separate-contribution",
+          "reason": "The comparison role is separate from evaluation and source authoring.",
+          "evidence_refs": [
+            "CA-R-1361-32-32"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful-captured-content",
+          "reason": "CA-R-1361 directly names and defines this derived value.",
+          "evidence_refs": [
+            "CA-R-1361-32-32"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "identity-specific-boundary",
+          "reason": "The non-authoritative signature must not establish Claim equivalence or authority.",
+          "evidence_refs": [
+            "CA-R-1361-32-32"
+          ]
+        },
+        "generalization": {
+          "finding": "no-safe-generalization",
+          "reason": "Generalizing to Scope Expression loses derivation and non-authority constraints.",
+          "evidence_refs": [
+            "CA-R-1361-32-32"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "CA-R-1361-32-32"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1361",
+        "CA-E-407",
+        "CA-M-241"
+      ],
+      "proposal": {
+        "action": "retain",
+        "preserves": "the source-expression versus derived non-authoritative comparison-value distinction",
+        "effects": {
+          "relations": "no change proposed",
+          "constraints": "no change proposed",
+          "historical_references": "no change proposed",
+          "queries": "no change proposed"
+        }
+      },
+      "question": null
+    },
+    {
+      "identity": "Scope Expression/Canonical Scope Signature/Projection",
+      "disposition": "retain",
+      "confidence_percent": 99,
+      "reason": "Captured Claim requires one non-authoritative JSON report with exact source frontier and diagnostics, while prohibiting source rewrite, Claim equivalence, and dependency creation.",
+      "checks": {
+        "duplicates": {
+          "finding": "no-duplicate-proof",
+          "reason": "The Projection is not duplicate of the signature value; it is its delivery/report representation.",
+          "evidence_refs": [
+            "CA-D-347-31-31"
+          ]
+        },
+        "redundancy": {
+          "finding": "separate-contribution",
+          "reason": "It contributes source/revision/digest/frontier and exclusion diagnostics.",
+          "evidence_refs": [
+            "CA-D-347-31-31"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful-captured-content",
+          "reason": "CA-D-347 directly defines the required delivery form.",
+          "evidence_refs": [
+            "CA-D-347-31-31"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "identity-specific-boundary",
+          "reason": "The report remains non-authoritative and distinct from an Atom Carrier or dependency relation.",
+          "evidence_refs": [
+            "CA-D-347-31-31"
+          ]
+        },
+        "generalization": {
+          "finding": "no-safe-generalization",
+          "reason": "Generalizing to Projection loses its exact signature-report and non-equivalence boundaries.",
+          "evidence_refs": [
+            "CA-D-347-31-31"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "CA-D-347-31-31"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-347"
+      ],
+      "proposal": {
+        "action": "retain",
+        "preserves": "the signature value versus its non-authoritative evidence-bearing Projection",
+        "effects": {
+          "relations": "no change proposed",
+          "constraints": "no change proposed",
+          "historical_references": "no change proposed",
+          "queries": "no change proposed"
+        }
+      },
+      "question": null
+    }
+  ]
+}

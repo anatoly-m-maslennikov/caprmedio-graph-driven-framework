@@ -1,0 +1,1594 @@
+{
+  "source_task": "CA-P-1941",
+  "batch": 3,
+  "baseline_inventory_sha256": "23394abaf6e9c18a585cf3146aedd0a80df166c9dd82be6e86ed7c3c56780bdc",
+  "input_file_sha256": "88486cd62b9428432417065f2d81f1640f1346943481bd71939225335ad8308a",
+  "partition_sha256": "5db43e244ec84a25a53c0c64c241bdf0cfddd462ea644c53ac93bf869155133f",
+  "parent_source_task": "CA-P-1931",
+  "parent_input": {
+    "partition_sha256": "88beafef8f20de3b26f0f0c199ada28138d266688d648f3170b036c5cb8cc913",
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/nodes/inputs/nodes.batch-3.input.json",
+    "sha256": "dd32659d557158390a52c869c87afbc5c28757f7bcb73a0c5f39a2d2d4c4dc3a"
+  },
+  "subset_indexes": [
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42
+  ],
+  "identity_count": 18,
+  "non_authoritative": true,
+  "semantic_admission": "not_performed",
+  "source_migration": "not_performed",
+  "source_context": {
+    "kind": "captured_snapshot",
+    "git_commit": "a971d0e00c33c779f485fc8cad63194894d440fb",
+    "baseline_inventory_path": ".caprmedio_caprmedio/_projection/core-entity-review/baseline.inventory.json",
+    "baseline_inventory_file_sha256": "bc5d99e91fb7dd4dcb42e59ff33cc24cff1d0901c5904764394c769aaa0a9430",
+    "current_core_claimed": false
+  },
+  "operator_direction": {
+    "operator_decision_path": ".caprmedio_caprmedio/_projection/core-entity-review/design/operator.decisions.md",
+    "operator_decision_sha256": "53eeb7a3fdaa002cd05170fe185cfb5baeea72814a1f32567d8eea6f56ac65cb",
+    "scope_omission_decision_path": ".caprmedio_caprmedio/_projection/core-entity-review/nodes/scope.omission.decision.md",
+    "scope_omission_decision_sha256": "d4ea636d540b0558c1a0fbb8263760947e1f0768840c43b3ed1d05c96b497453",
+    "scope_omission_rule": "candidate-only default: omit explicit Substance Scope only when it covers the whole governed Subject and whole owning Scope Unit",
+    "scope_omission_application": "not applicable to a CCE identity disposition and not used as captured-Core meaning evidence",
+    "candidate_names_not_core_evidence": true
+  },
+  "evidence_catalogue": {
+    "E-CA-M-113-42": {
+      "atom_id": "CA-M-113",
+      "atom_revision": 17,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/05_method/CA-M-113-CORE_META_MODEL--write-claims-in-caprmedio-controlled-english.md",
+      "carrier_sha256": "81a512b270a42421edf5a5a3f576b334581e8b407b8acd1d4f7d3370f3f54e77",
+      "start_line": 42,
+      "end_line": 51,
+      "quote": "**to** write one Claim **in** CAPRMEDIO Controlled English, the Author **must** satisfy **all** of the following:\n\n- use the controlled English subset of the identified CCE version.\n- name **every** necessary participant **and** relation explicitly.\n- state **every** necessary modality, quantity, condition, **and** boundary explicitly.\n- use exact canonical Terms owned by active Definition Atoms.\n- resolve the effective CCE Role Profile under CA-M-308-CORE_META_MODEL-CORE-METHOD--resolve-the-effective-cce-role-profile **and** satisfy that profile under CA-M-315-CORE_META_MODEL-CORE-METHOD--validate-claims-against-effective-cce-role-profiles.\n- choose wording under CA-M-294-CORE_META_MODEL-METHOD--use-simpler-words-without-losing-meaning.\n- exclude ambiguous pronouns, anaphora, ellipsis, unstated defaults, **and** mixed logical groupings.\n- make the content understandable under CA-M-301-CORE_META_MODEL-METHOD--make-atom-claims-easy-to-understand **and** render Terms **and** CCE Operators under CA-M-229-CORE_META_MODEL--render-governed-terms-and-cce-operators-distinctly.",
+      "text_sha256": "97df7ad5a889e5736524c87f9dc04bf1f5b52f9e72c0bb348a88d526ea92d66c"
+    },
+    "E-CA-E-241-34": {
+      "atom_id": "CA-E-241",
+      "atom_revision": 22,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/06_evaluation/CA-E-241-CORE_META_MODEL-QA_CASE--validate-cce-claims-and-derived-projections.md",
+      "carrier_sha256": "14db0fb0858f91896dabebfb63f9b58e34582357ddd1511a71dbf8c08c61a955",
+      "start_line": 34,
+      "end_line": 44,
+      "quote": "## Claim\n\n**every** active **or** draft Atom **contains** **`=1`** human-readable precise CCE Claim **and** a source-faithful Summary. requested Translation **and** terminology Projections preserve their source meaning; their absence **when** **not** requested is **not** an Atom defect.\n\n### Test case\n\ncreate valid active **and** draft Atom Claims for **every** admitted Content Role. include fixtures with no requested Translation **or** terminology Projection **and** fixtures with requested Projections. derive a candidate Summary during Atom creation, **then** retain it for checks of subsequent Revisions under CA-E-463-CORE_META_MODEL-QA_CASE--validate-summary-identity-preservation. derive requested Translation **and** terminology Projections twice **without** regenerating the existing Atom's Summary. **then** introduce ambiguity, an unstated participant, two independent Claims, an added Projection meaning, an independent vocabulary entry, **and** a confidence result below the effective Confidence Threshold resolved according **to** CA-M-271-CORE_META_MODEL-METHOD--resolve-confidence-thresholds-by-source-precedence.\n\n### Acceptance criteria\n\n**every** valid fixture has **`=1`** precise interpretation, a source-faithful Summary, **and** reproducible Projections **when** requested. no fixture fails merely because an optional Projection was **not** requested. **every** invalid fixture fails. a confidence result below the effective Confidence Threshold leaves the Atom unchanged **and** requests Operator disposition. changing the applicable Operator input, Plan override, enclosing Hub override, **or** Framework Instance Settings default changes the checked threshold according **to** CA-M-271-CORE_META_MODEL-METHOD--resolve-confidence-thresholds-by-source-precedence **without** retaining a fixed percentage gate.",
+      "text_sha256": "c8d31010ce01ab9987704fe5f754dccd0f98f96bfd15e958defcabb6a1e700cb"
+    },
+    "E-CA-M-122-29": {
+      "atom_id": "CA-M-122",
+      "atom_revision": 16,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/05_method/CA-M-122-CORE_META_MODEL-METHOD--evaluate-condition-expressions.md",
+      "carrier_sha256": "f9c8e95aaf79f92b2c92d3cedfdf173870102cac58f6a134fedb830cfe3c5197",
+      "start_line": 29,
+      "end_line": 47,
+      "quote": "## Claim\n\n**to** evaluate one CCE condition expression, the Resolver **must** perform **all** of:\n\n1. evaluate the innermost parenthesized function **before** its containing function.\n2. evaluate **`=`** **and** **`!=`** as exact equality **and** inequality between one governed property **and** one canonical value.\n3. evaluate **`<`**, **`<=`**, **`>`**, **and** **`>=`** **only** for properties with one governed comparison order.\n4. evaluate **in** **and** **not in** as scalar membership **and** non-membership **in** one explicitly parenthesized value list, **or** according **to** CA-M-127-CORE_META_MODEL-METHOD--evaluate-set-valued-property-membership **when** the governed property is set-valued.\n5. evaluate **is empty** **and** **is not empty** as absence **and** presence of a governed property value.\n6. evaluate **contains**, **starts with**, **and** **ends with** **only** for governed textual property values.\n7. evaluate **and** as true **only** **when** **every** argument is true.\n8. evaluate **or** as true **when** **`>=1`** argument is true.\n9. evaluate **not** as the inverse truth value of its argument.\n10. evaluate **if** ... **then** as false **only** **when** its antecedent is true **and** its consequent is false.\n11. evaluate **every** as true **only** **when** its predicate is true for **every** member of its population.\n12. evaluate **any** as true **when** its predicate is true for **`>=1`** member of its population.\n13. evaluate **none** as true **only** **when** its predicate is false for **every** member of its population.\n14. evaluate **where** as restriction of one population **to** members whose predicate is true.\n15. use another logical function **only** **when** an active CCE Method gives that function **`=1`** logical meaning.",
+      "text_sha256": "fa6ab7022e562249c521be20dacc411437eac5ba73c92fc745bd9e9b6214d222"
+    },
+    "E-CA-M-230-26": {
+      "atom_id": "CA-M-230",
+      "atom_revision": 12,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/05_method/CA-M-230-CORE_META_MODEL-METHOD--define-registered-cce-operators-through-cce-methods.md",
+      "carrier_sha256": "b232fd54b2e93341c7227621683ab58cdf5abeabbece3a13c543a44fe4773519",
+      "start_line": 26,
+      "end_line": 28,
+      "quote": "## Claim\n\nwithin CCE, a CCE Operator **means** one canonical lowercase word-form token **or** token sequence **or** one canonical symbolic token that one active CCE Method assigns one syntactic **or** logical function.",
+      "text_sha256": "faa015a7e4236d5536011ea64ef7c8b509286c393d7f9df08a23301a0b768646"
+    },
+    "E-CA-M-234-27": {
+      "atom_id": "CA-M-234",
+      "atom_revision": 12,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/05_method/CA-M-234-CORE_META_MODEL--register-expandable-canonical-cce-operator-list.md",
+      "carrier_sha256": "76e25a9c4bc88ecf5d9e44f7379ed4ba421e3248ae80583efef48ac2e43ad2c5",
+      "start_line": 27,
+      "end_line": 43,
+      "quote": "## Claim\n\nthe current canonical CCE Operator Registry **must** contain this expandable set:\n\n1. statement form: **to**, **means**.\n2. modality: **must**, **must not**, **may**.\n3. condition: **if**, **then**, **when**, **otherwise**.\n4. temporal condition: **before**, **after**, **until**, **unless**.\n5. quantification: **all**, **every**, **any**, **none**.\n6. logical/set: **and**, **or**, **not**, **without**, **where**.\n7. restriction: **only**.\n8. predicate: **in**, **not in**, **is empty**, **is not empty**, **contains**, **starts with**, **ends with**.\n9. comparison: **`=`**, **`!=`**, **`<`**, **`<=`**, **`>`**, **`>=`**.\n\n## Details\n\nanother token **may** enter the CCE Operator Registry **when** one active CCE Method assigns the token one syntactic **or** logical function.",
+      "text_sha256": "5da421513fba45f4e0863f08762e2fe39e26b5821396c08e231bc8dc5e7f9fed"
+    },
+    "E-CA-M-236-27": {
+      "atom_id": "CA-M-236",
+      "atom_revision": 12,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/05_method/CA-M-236-CORE_META_MODEL--normalize-noncanonical-cce-operator-expressions.md",
+      "carrier_sha256": "11adc0ba64795bc0b33892dfed8ce46c24c93a3fcc364ba1179a2a84aaa096b9",
+      "start_line": 27,
+      "end_line": 36,
+      "quote": "## Claim\n\n**to** normalize one noncanonical CCE Operator Expression, the Author **must** apply **all** applicable rewrites:\n\n- `each` **to** **every**.\n- `equals` **to** **`=`**.\n- `does not equal` **to** **`!=`**.\n- `both <A> and <B>` **to** `(<A>` **and** `<B>)`.\n- `either <A> or <B>` **to** `(<A>` **or** `<B>)`.\n- `neither <A> nor <B>` **to** **not** `(<A>` **or** `<B>)`.",
+      "text_sha256": "c38a47aebdb6e04ae47e068d4b8c6c3c1684569ed45092f1f93de6d2c81675c8"
+    },
+    "E-CA-M-307-37": {
+      "atom_id": "CA-M-307",
+      "atom_revision": 4,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/05_method/CA-M-307-CORE_META_MODEL-CORE--define-content-role-specific-cce-profiles.md",
+      "carrier_sha256": "158b7e802ce470f95564bcc9a32644c4f501d4c14c5b278b0573c3e7b3f56b77",
+      "start_line": 37,
+      "end_line": 47,
+      "quote": "## Claim\n\na CCE Role Profile **means** one restriction of shared CCE that identifies the permitted primary Claim contribution, permitted CCE Operator uses, permitted subordinate content slots, **and** prohibited primary contributions for one Content Role **or** one narrower Type **or** content slot.\n\nthe current role-specific profiles apply **only** **to** Plan, Requirement, Method, Evaluation, Delivery, **and** Operations Atoms.\n\nConcern **and** Analysis Claims remain subject **to** shared CCE **without** an additional CCE Role Profile. this absence does **not** exempt them from shared CCE **or** authorize normative authority outside their Content Role meanings.\n\nno CCE Role Profile is currently registered for Implementation because the current source set contains no Implementation Atoms. an absent Implementation profile **must not** be replaced by another role's profile **or** treated as role-profile conformance.\n\na narrower Type **or** content-slot profile **may** restrict its parent role profile **and** define permitted subordinate operator use, but it **must not** change the primary contribution of the Content Role.",
+      "text_sha256": "175151902f7c465ec185804b04b236cfcb496dd89f1665cf75f4879236ee0103"
+    },
+    "E-CA-M-308-38": {
+      "atom_id": "CA-M-308",
+      "atom_revision": 4,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/05_method/CA-M-308-CORE_META_MODEL-CORE--resolve-the-effective-cce-role-profile.md",
+      "carrier_sha256": "c0f47bd447cde321bc74e49045b16c8bfcdaac54709d5dd2c362f218d93aa0f0",
+      "start_line": 38,
+      "end_line": 52,
+      "quote": "## Claim\n\n**to** resolve one effective CCE Role Profile for one Atom Claim, the Author **must** perform **all** of:\n\n1. resolve the Atom's Content Role **before** selecting a profile.\n2. **if** the Content Role is Plan, Requirement, Method, Evaluation, Delivery, **or** Operations, select the corresponding profile under CA-M-309 through CA-M-314.\n3. apply an admitted Type profile **and** content-slot profile **after** the role profile; treat each narrower profile as a restriction **or** declared subordinate use, **not** as permission **to** change the role's primary contribution.\n4. distinguish operators that express the primary Claim contribution from operators inside a condition, Definition of Done, input, result, failure, transition, representation, **or** another governed subordinate slot.\n5. **if** the Content Role is Concern **or** Analysis, apply shared CCE **without** a role-specific profile.\n6. **if** the Content Role is Implementation, return no registered CCE Role Profile **without** selecting a fallback profile **or** reporting role-profile conformance.\n7. **if** the Content Role, Type, content slot, **or** applicable profile is unresolved, report the exact unresolved selection **and** do **not** report role-profile conformance.\n\n## Details\n\nthe effective profile is derived from governed content classification. it is **not** another required Atom property.",
+      "text_sha256": "e47b4ca4b8b1c26e936f835d6339a917f7f4846c47e8832adbfb9712acb7f759"
+    },
+    "E-CA-M-309-36": {
+      "atom_id": "CA-M-309",
+      "atom_revision": 4,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/05_method/CA-M-309-CORE_META_MODEL-METHOD--write-plan-claims-with-the-plan-cce-profile.md",
+      "carrier_sha256": "0ccf013b3aa5e388853f9b0a8acd98e73180fd4d4e0028684a472f2566e46f61",
+      "start_line": 36,
+      "end_line": 49,
+      "quote": "## Claim\n\n**to** write a Plan Claim with the Plan CCE Role Profile, the Author **must** perform **all** of:\n\n1. state the Plan's primary contribution as intended work, an intended outcome, **or** their governed composition under CA-M-306-CORE_META_MODEL-GENERAL-METHOD--author-plan-atoms.\n2. **if** the Plan has own work, identify the action, its object, intended result, Assignee, **and** applicable boundary explicitly. modality, condition, temporal, quantification, logical, restriction, predicate, **and** comparison Operators **may** qualify that intended work.\n3. **if** the Plan is supported **only** by decomposition, state its intended outcome **without** inventing own work.\n4. keep reusable procedure authority, normative product boundaries, current realization facts, **and** reusable operational behavior outside the Plan's primary contribution.\n5. write the Definition of Done as the subordinate falsifying Condition Expression under CA-M-123-CORE_META_MODEL-METHOD--write-definitions-of-done. condition, temporal, quantification, logical, predicate, restriction, **and** comparison Operators **may** occur **in** that slot **only** to determine whether the Plan remains **not** Done.\n6. keep optional Details subordinate **to** the same intended work **or** outcome; Details **must not** introduce another intended outcome **or** a second Definition of Done.\n\n## Details\n\nan action word **in** a Plan identifies intended work. it does **not** define a reusable Operations Action.",
+      "text_sha256": "f0a8c5973e2dc83c0fa38fb7ab9d672f844f10a68541c86986604e333281d302"
+    },
+    "E-CA-M-310-34": {
+      "atom_id": "CA-M-310",
+      "atom_revision": 5,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/05_method/CA-M-310-CORE_META_MODEL--write-requirement-claims-with-the-requirement-cce-profile.md",
+      "carrier_sha256": "b41cd2dfe70813a227d0253e717c5d39ac6d5cb842ea72524ce0582476ed0db6",
+      "start_line": 34,
+      "end_line": 46,
+      "quote": "## Claim\n\n**to** write a Requirement Claim with the Requirement CCE Role Profile, the Author **must** perform **all** of:\n\n1. state the primary contribution as one Entity model **or** required result by its meaning **and** value under CA-R-1339. express required properties **and** observable boundaries within that model **or** result; an obligation, permission, **or** prohibition alone does **not** select Requirement.\n2. use **must**, **must not**, **may**, **only**, quantification, predicates, comparisons, **and** explicit conditions as applicable **to** state what is required, permitted, prohibited, **or** bounded.\n3. use **means** **only** **when** the Claim defines the governed Requirement subject rather than merely describing it.\n4. express temporal Operators **only** as observable timing boundaries **or** conditions on the required result.\n5. keep procedural selection, ordered execution steps, implementation instructions, **and** reusable operational behavior outside the primary contribution. reference applicable Method **or** Operations authority rather than reproducing it.\n\n## Details\n\nthe Requirement profile governs the required model **or** result. an observed test result remains execution evidence; it is **not** the required-result specification.",
+      "text_sha256": "5f066606c6f02680488ec106ca020a22403584cc67c6d4a12f934d9f43635894"
+    },
+    "E-CA-M-311-34": {
+      "atom_id": "CA-M-311",
+      "atom_revision": 5,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/05_method/CA-M-311-CORE_META_MODEL--write-method-claims-with-the-method-cce-profile.md",
+      "carrier_sha256": "e269327a60f09d386b1857772c57f35f2135bce174be8e85f6ab34bcf0b3f1bc",
+      "start_line": 34,
+      "end_line": 48,
+      "quote": "## Claim\n\n**to** write a Method Claim with the Method CCE Role Profile, the Author **must** perform **all** of:\n\n1. state the primary contribution as one reusable authorship, construction, **or** Implementation choice **or** convention for satisfying accepted Spec authority under CA-R-1340.\n2. use **to** for the governed method purpose. identify the applicable inputs, construction **or** selection choices, dependencies, produced result, **and** unresolved-choice handling necessary for reuse. include a performer, order, repetition, **or** stopping condition **only when** the convention requires it; do **not** invent an operational Action **or** Workflow **to** fill a Method template.\n3. use condition, temporal, quantification, logical, restriction, predicate, **and** comparison Operators **only** with explicit scope over the affected method content.\n4. use modality **only** to constrain correct performance of the Method; the Method **must not** create an independently governed product outcome **or** permission that belongs **in** Requirement authority.\n5. use **means** **only** **when** defining the governed Method subject **or** one necessary Method-local term.\n6. reference applicable Requirement, Evaluation, Delivery, **and** Operations authority rather than reproducing their independently governed contributions as method steps.\n7. **when** the Method concerns tests, govern how their implementation is constructed **or** selected. the test's checked behavior, fixture, acceptance policy, expected result, **and** disposition remain Evaluation authority; its executable test code is Implementation.\n\n## Details\n\nthe Method profile governs how accepted authority is satisfied. it does **not** turn one intended Plan action **or** one reusable Operations Action into a Method.",
+      "text_sha256": "d4f952cde9ed5de3261b685e095c1fb730b21342861d96a39b076cda97e093fe"
+    },
+    "E-CA-M-312-34": {
+      "atom_id": "CA-M-312",
+      "atom_revision": 5,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/05_method/CA-M-312-CORE_META_MODEL--write-evaluation-claims-with-the-evaluation-cce-profile.md",
+      "carrier_sha256": "f89d277d5a08c3c9c33129fe95b91e9a735335ed103f50fd37f1c7c41e48ff9e",
+      "start_line": 34,
+      "end_line": 50,
+      "quote": "## Claim\n\n**to** write an Evaluation Claim with the Evaluation CCE Role Profile, the Author **must** perform **all** of:\n\n1. state the primary contribution as one falsifiable check, acceptance criterion, **or** disposition rule against identified checked authority **and** Scope.\n2. state recoverable inputs, the evaluated subject, observable evidence, **and** the condition that yields each result necessary for reproducibility under CA-M-264-CORE_META_MODEL-METHOD--write-evaluations-with-reproducible-falsification.\n3. use condition, temporal, quantification, logical, restriction, predicate, **and** comparison Operators with explicit scope over the checked evidence **and** result.\n4. use modality **only** to constrain correct evaluation **or** disposition. an Evaluation **must not** create the Requirement that it checks.\n5. specify the checked behavior, case inputs **or** fixture, expected observations, acceptance policy, **and** result disposition required by the check. include a checking procedure **only** as subordinate Evaluation content. reusable test-construction **or** selection conventions belong **in** Method authority; executable test code belongs **in** Implementation; a separately reusable test-running Action **or** Workflow belongs **in** Operations.\n6. report unresolved, unavailable, **or** contradictory evidence as its governed result rather than silently converting it **to** pass **or** fail.\n\n## Details\n\nclassification follows the primary contribution. quality-assurance policies **and**\ntest cases are Evaluation contributions; product outcome policy remains Requirement\nauthority, **and** tool **or** technique selection remains Method authority.\napply CA-R-794 for the Evaluation's Local Tier.",
+      "text_sha256": "77b11d4d6fc57571b207e707472f78a84f77e6277ac04448f39b974176428d22"
+    },
+    "E-CA-M-313-36": {
+      "atom_id": "CA-M-313",
+      "atom_revision": 5,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/05_method/CA-M-313-CORE_META_MODEL-METHOD--write-delivery-claims-with-the-delivery-cce-profile.md",
+      "carrier_sha256": "570884157745cc3016065c683188b6b80ad0376bba2f76948c279562edc0f947",
+      "start_line": 36,
+      "end_line": 48,
+      "quote": "## Claim\n\na Delivery Claim **must** use the Delivery CCE Role Profile **to** express its Carrier contribution with the following authoring conventions:\n\n1. name the governed Carrier **or** Entity/Carrier binding **and** state its definition, classification, **or** constraint directly.\n2. include format, content, address, placement, **or** lifecycle conditions **when** they are relevant **to** that contribution.\n3. choose CCE Operators **to** express the applicable modality, conditions, quantities, **and** comparisons.\n4. use **means** for a definition; express a classification **or** binding through its admitted Relation Type.\n5. keep the Claim about the governed Subject; use references for separately governed contributions.\n\n## Details\n\nCarrier definitions **and** classifications need **only** the details relevant **to** their own contribution. they do **not** require an invented filename, format, **or** lifecycle condition.",
+      "text_sha256": "5dced8474242157112c60f288cb2ac1eea1657670c7b8bfca80b64a4b85bb0a5"
+    },
+    "E-CA-M-314-41": {
+      "atom_id": "CA-M-314",
+      "atom_revision": 4,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/05_method/CA-M-314-CORE_META_MODEL-METHOD--write-operations-claims-with-type-specific-cce-profiles.md",
+      "carrier_sha256": "a3f8c559979f66d1130dc199f1a842fff3e77e1e589fca77ff32e3276d61bbbc",
+      "start_line": 41,
+      "end_line": 52,
+      "quote": "## Claim\n\n**to** write an Operations Claim, the Author **must** first resolve its admitted Operations Type **and** **then** apply **`=1`** primary Type profile:\n\n1. for Action, use **means** to define the named reusable operational behavior. state its required inputs, preconditions, operational contribution, returned results, observable effects, **and** failure results. modality, condition, temporal, quantification, logical, restriction, predicate, **and** comparison Operators **may** constrain that behavior.\n2. for Workflow, use **means** to define the reusable graph through Step references, entry, typed transitions, result conditions, **and** terminal outcomes. use condition, temporal, logical, restriction, predicate, **and** comparison Operators **only** with explicit transition scope under CA-M-305-CORE_META_MODEL-METHOD--write-workflow-schemes-using-step-references.\n3. for Step, define the invocation binding of **`=1`** referenced Action with its parameters **and** inputs. do **not** copy the Action behavior **or** define another Workflow.\n4. for Actor, define participation, responsibility, capability, authorization, **or** prohibition using **must**, **may**, **must not**, **only**, conditions, **and** explicit boundaries as applicable. do **not** encode one particular execution as reusable Actor authority.\n\n## Details\n\nan Operations Claim **must not** combine more than one primary type profile. subordinate inputs, conditions, results, failures, transitions, **and** effects remain part of the selected type's single operational contribution.",
+      "text_sha256": "aa9ce2e5e89d482e406386fc10ee8f821a5693758b409914d8c11498fbc39f04"
+    },
+    "E-CA-M-315-37": {
+      "atom_id": "CA-M-315",
+      "atom_revision": 4,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/05_method/CA-M-315-CORE_META_MODEL-CORE--validate-claims-against-effective-cce-role-profiles.md",
+      "carrier_sha256": "e086c85c7b1a25ed6ebe7930e854b1f57fbeec09814e7f372789bb0fe51f8c90",
+      "start_line": 37,
+      "end_line": 52,
+      "quote": "## Claim\n\n**to** validate one Atom Claim against its effective CCE Role Profile, the Validator **must** perform **all** of:\n\n1. resolve the effective profile under CA-M-308 **without** inferring a different Content Role from the wording under review.\n2. identify the Claim's primary contribution, every subordinate content slot, **and** every registered CCE Operator occurrence.\n3. verify that the primary contribution matches the resolved role profile **and** that every narrower Type **or** content-slot contribution remains within its admitted boundary.\n4. verify that every CCE Operator use is permitted for its exact primary **or** subordinate context **and** has explicit logical scope.\n5. reject a primary contribution owned by another Content Role even **when** every individual CCE Operator is present **in** the global registry.\n6. for Concern **or** Analysis, validate shared CCE **and** their governed Content Role meaning **without** requiring a role-specific profile.\n7. for Implementation content, report that no CCE Role Profile is registered; do **not** apply another role's profile **or** report role-profile conformance.\n8. report every mismatch by Content Role, Type, content slot, primary contribution, **and** Operator occurrence. do **not** rewrite the source Claim **or** report conformance while one required classification remains unresolved.\n\n## Details\n\nglobal CCE Operator registration is necessary but insufficient for role-profile conformance.",
+      "text_sha256": "a01fa9bdf6b958e0cc31989b3b6ef63ccab95da39dd7c4b4d634d31722f77ea0"
+    }
+  },
+  "nodes": [
+    {
+      "identity": "CCE",
+      "disposition": "retain",
+      "confidence_percent": 94,
+      "reason": "CA-M-113 makes the identified CCE version's controlled-English subset an authoring constraint for one Claim; CCE therefore has a meaningful shared language boundary in the captured snapshot.",
+      "checks": {
+        "duplicates": {
+          "finding": "not duplicate-proved",
+          "reason": "The captured Claim identifies a CCE-version controlled-English subset for Claim writing; it does not equate CCE with a role profile, operator, or evaluation.",
+          "evidence_refs": [
+            "E-CA-M-113-42"
+          ]
+        },
+        "redundancy": {
+          "finding": "not redundant",
+          "reason": "The shared controlled-English constraint is applied before more specific role-profile and operator choices, so its function remains distinct.",
+          "evidence_refs": [
+            "E-CA-M-113-42"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful constraint recorded",
+          "reason": "The Claim requires use of the controlled-English subset of an identified CCE version, rather than merely naming CCE.",
+          "evidence_refs": [
+            "E-CA-M-113-42"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "shared language boundary retained",
+          "reason": "CCE constrains how a Claim is written; it is not the token-level CCE Operator or the role-specific CCE Profile.",
+          "evidence_refs": [
+            "E-CA-M-113-42"
+          ]
+        },
+        "generalization": {
+          "finding": "no source-backed replacement",
+          "reason": "No captured Main Content supplies a replacement identity or native parent relation for CCE; the syntactic root is preserved without inferring one.",
+          "evidence_refs": [
+            "E-CA-M-113-42"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "E-CA-M-113-42"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-113"
+      ],
+      "proposal": {
+        "action": "preserve",
+        "operator_mark": false,
+        "adoption": "not_performed",
+        "replacement_identity": null,
+        "relations_effect": "no existing relation is rewritten or inferred from compact identity notation",
+        "constraints_effect": "the captured source constraints remain evidence only; no Core change is proposed",
+        "historical_references_effect": "all preserved occurrence and source references remain exact",
+        "queries_effect": "retain the exact qualified identity for candidate-graph review"
+      },
+      "question": null,
+      "input_governing_source_atom_ids": [],
+      "input_source_atom_ids": [
+        "CA-D-346",
+        "CA-E-512",
+        "CA-E-520",
+        "CA-M-111",
+        "CA-M-112",
+        "CA-M-113",
+        "CA-M-115",
+        "CA-M-123",
+        "CA-M-233",
+        "CA-M-294",
+        "CA-M-299",
+        "CA-M-301",
+        "CA-M-307",
+        "CA-M-308",
+        "CA-M-309",
+        "CA-M-310",
+        "CA-M-311",
+        "CA-M-312",
+        "CA-M-313",
+        "CA-M-314",
+        "CA-M-315",
+        "CA-O-053",
+        "CA-R-941"
+      ],
+      "input_occurrence_ids": [
+        1784,
+        1785,
+        1786,
+        1787,
+        1788,
+        1789,
+        1790,
+        1791,
+        1792,
+        1793,
+        1794,
+        1795,
+        1796,
+        1797,
+        1798,
+        1833,
+        1834,
+        1835,
+        1836,
+        1837,
+        1838,
+        1839,
+        1840,
+        1841,
+        1842,
+        1843
+      ],
+      "is_full_target": true,
+      "is_syntactic_root": true
+    },
+    {
+      "identity": "CCE Claim and Projection Validation",
+      "disposition": "retain",
+      "confidence_percent": 97,
+      "reason": "CA-E-241 directly requires one precise CCE Claim and source-faithful Summary for active or draft Atoms, and preservation of requested Projection meaning.",
+      "checks": {
+        "duplicates": {
+          "finding": "not duplicate-proved",
+          "reason": "This Evaluation checks Claim precision, Summary faithfulness, and requested Projection meaning together; no selected source makes it identical to CCE authoring or condition evaluation.",
+          "evidence_refs": [
+            "E-CA-E-241-34"
+          ]
+        },
+        "redundancy": {
+          "finding": "not redundant",
+          "reason": "Its validation obligation is distinct from authoring: it evaluates active or draft Atom content and requested Projections.",
+          "evidence_refs": [
+            "E-CA-E-241-34"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful evaluation obligation",
+          "reason": "The captured Claim specifies concrete pass conditions for CCE Claims, Summaries, and requested Projections.",
+          "evidence_refs": [
+            "E-CA-E-241-34"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "validation boundary retained",
+          "reason": "The identity retains the cross-content validation boundary rather than collapsing it into the Claim language or one role profile.",
+          "evidence_refs": [
+            "E-CA-E-241-34"
+          ]
+        },
+        "generalization": {
+          "finding": "no source-backed replacement",
+          "reason": "No captured span identifies a supertype or replacement that would preserve the combined Claim-and-Projection validation scope.",
+          "evidence_refs": [
+            "E-CA-E-241-34"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "E-CA-E-241-34"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-241"
+      ],
+      "proposal": {
+        "action": "preserve",
+        "operator_mark": false,
+        "adoption": "not_performed",
+        "replacement_identity": null,
+        "relations_effect": "no existing relation is rewritten or inferred from compact identity notation",
+        "constraints_effect": "the captured source constraints remain evidence only; no Core change is proposed",
+        "historical_references_effect": "all preserved occurrence and source references remain exact",
+        "queries_effect": "retain the exact qualified identity for candidate-graph review"
+      },
+      "question": null,
+      "input_governing_source_atom_ids": [
+        "CA-E-241"
+      ],
+      "input_source_atom_ids": [
+        "CA-E-241"
+      ],
+      "input_occurrence_ids": [
+        1799
+      ],
+      "is_full_target": true,
+      "is_syntactic_root": true
+    },
+    {
+      "identity": "CCE Condition Expression",
+      "disposition": "retain",
+      "confidence_percent": 91,
+      "reason": "CA-M-122 gives one CCE condition expression a concrete semantic role: a Resolver evaluates its nested functions, governed properties, values, and logical functions under stated rules.",
+      "checks": {
+        "duplicates": {
+          "finding": "not duplicate-proved",
+          "reason": "The selected Claim operates on a CCE condition expression as the evaluated input; it does not equate that expression with its evaluation procedure.",
+          "evidence_refs": [
+            "E-CA-M-122-29"
+          ]
+        },
+        "redundancy": {
+          "finding": "not redundant",
+          "reason": "The expression is the distinct governed object whose logical and property semantics are evaluated by the Resolver.",
+          "evidence_refs": [
+            "E-CA-M-122-29"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful semantic behavior",
+          "reason": "Nested functions, equality, membership, textual predicates, and logical forms are all assigned evaluation behavior for the expression.",
+          "evidence_refs": [
+            "E-CA-M-122-29"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "expression retained separately from evaluation",
+          "reason": "CCE Condition Expression denotes the evaluated conditional form, while CCE Condition Expression Evaluation denotes the Resolver activity and rules applied to it.",
+          "evidence_refs": [
+            "E-CA-M-122-29"
+          ]
+        },
+        "generalization": {
+          "finding": "no source-backed replacement",
+          "reason": "No captured Main Content proposes replacing this expression identity with a broader generic expression or makes a compact-path edge native.",
+          "evidence_refs": [
+            "E-CA-M-122-29"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "E-CA-M-122-29"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-122"
+      ],
+      "proposal": {
+        "action": "preserve",
+        "operator_mark": false,
+        "adoption": "not_performed",
+        "replacement_identity": null,
+        "relations_effect": "no existing relation is rewritten or inferred from compact identity notation",
+        "constraints_effect": "the captured source constraints remain evidence only; no Core change is proposed",
+        "historical_references_effect": "all preserved occurrence and source references remain exact",
+        "queries_effect": "retain the exact qualified identity for candidate-graph review"
+      },
+      "question": null,
+      "input_governing_source_atom_ids": [],
+      "input_source_atom_ids": [
+        "CA-M-122"
+      ],
+      "input_occurrence_ids": [
+        1800
+      ],
+      "is_full_target": true,
+      "is_syntactic_root": true
+    },
+    {
+      "identity": "CCE Condition Expression Evaluation",
+      "disposition": "retain",
+      "confidence_percent": 96,
+      "reason": "CA-M-122 directly defines the Resolver's required evaluation procedure for one CCE condition expression, including the permitted logical functions and their truth behavior.",
+      "checks": {
+        "duplicates": {
+          "finding": "not duplicate-proved",
+          "reason": "The procedure is not the condition expression itself: it specifies what the Resolver must do to evaluate it.",
+          "evidence_refs": [
+            "E-CA-M-122-29"
+          ]
+        },
+        "redundancy": {
+          "finding": "not redundant",
+          "reason": "The ordered semantic rules for equality, membership, predicates, and Boolean functions are a distinct reusable evaluation obligation.",
+          "evidence_refs": [
+            "E-CA-M-122-29"
+          ]
+        },
+        "empty_definition": {
+          "finding": "directly specified procedure",
+          "reason": "The captured Claim enumerates the evaluation operations and restricts other logical functions to an active CCE Method.",
+          "evidence_refs": [
+            "E-CA-M-122-29"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "evaluation boundary retained",
+          "reason": "The identity denotes Resolver evaluation behavior, not the token registry, language version, or expression occurrence.",
+          "evidence_refs": [
+            "E-CA-M-122-29"
+          ]
+        },
+        "generalization": {
+          "finding": "no source-backed replacement",
+          "reason": "The captured Claim does not identify a replacement procedure or native generalization for this named evaluation.",
+          "evidence_refs": [
+            "E-CA-M-122-29"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "E-CA-M-122-29"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-122"
+      ],
+      "proposal": {
+        "action": "preserve",
+        "operator_mark": false,
+        "adoption": "not_performed",
+        "replacement_identity": null,
+        "relations_effect": "no existing relation is rewritten or inferred from compact identity notation",
+        "constraints_effect": "the captured source constraints remain evidence only; no Core change is proposed",
+        "historical_references_effect": "all preserved occurrence and source references remain exact",
+        "queries_effect": "retain the exact qualified identity for candidate-graph review"
+      },
+      "question": null,
+      "input_governing_source_atom_ids": [
+        "CA-M-122"
+      ],
+      "input_source_atom_ids": [
+        "CA-M-122",
+        "CA-M-127"
+      ],
+      "input_occurrence_ids": [
+        1801,
+        1802
+      ],
+      "is_full_target": true,
+      "is_syntactic_root": true
+    },
+    {
+      "identity": "CCE Method",
+      "disposition": "retain",
+      "confidence_percent": 90,
+      "reason": "CA-M-230 assigns CCE Methods the distinct function of assigning a syntactic or logical function to a registered canonical CCE Operator.",
+      "checks": {
+        "duplicates": {
+          "finding": "not duplicate-proved",
+          "reason": "The captured definition distinguishes a CCE Method's function assignment from the canonical token that becomes a CCE Operator.",
+          "evidence_refs": [
+            "E-CA-M-230-26"
+          ]
+        },
+        "redundancy": {
+          "finding": "not redundant",
+          "reason": "Operator function assignment is needed before a token qualifies as a registered CCE Operator, so CCE Method is not interchangeable with the registry.",
+          "evidence_refs": [
+            "E-CA-M-230-26"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful functional constraint",
+          "reason": "The Main Content gives an active CCE Method a concrete syntactic-or-logical-function assignment role.",
+          "evidence_refs": [
+            "E-CA-M-230-26"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "function-assignment role retained",
+          "reason": "CCE Method is the function-giving authority; CCE Operator is the token or sequence receiving that function.",
+          "evidence_refs": [
+            "E-CA-M-230-26"
+          ]
+        },
+        "generalization": {
+          "finding": "no source-backed replacement",
+          "reason": "The captured source supplies no replacement identity or native hierarchy for CCE Method beyond its stated function-assignment role.",
+          "evidence_refs": [
+            "E-CA-M-230-26"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "E-CA-M-230-26"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-230"
+      ],
+      "proposal": {
+        "action": "preserve",
+        "operator_mark": false,
+        "adoption": "not_performed",
+        "replacement_identity": null,
+        "relations_effect": "no existing relation is rewritten or inferred from compact identity notation",
+        "constraints_effect": "the captured source constraints remain evidence only; no Core change is proposed",
+        "historical_references_effect": "all preserved occurrence and source references remain exact",
+        "queries_effect": "retain the exact qualified identity for candidate-graph review"
+      },
+      "question": null,
+      "input_governing_source_atom_ids": [],
+      "input_source_atom_ids": [
+        "CA-M-230",
+        "CA-M-234"
+      ],
+      "input_occurrence_ids": [
+        1803,
+        1804
+      ],
+      "is_full_target": true,
+      "is_syntactic_root": true
+    },
+    {
+      "identity": "CCE Operator",
+      "disposition": "retain",
+      "confidence_percent": 98,
+      "reason": "CA-M-230 directly defines CCE Operator as a canonical lowercase word-form token or sequence, or canonical symbolic token, to which one active CCE Method assigns one syntactic or logical function.",
+      "checks": {
+        "duplicates": {
+          "finding": "not duplicate-proved",
+          "reason": "The definition keeps a CCE Operator as the assigned canonical token, not the CCE Method that assigns a function or the registry containing tokens.",
+          "evidence_refs": [
+            "E-CA-M-230-26"
+          ]
+        },
+        "redundancy": {
+          "finding": "not redundant",
+          "reason": "Canonical token identity and its assigned syntactic or logical function remain necessary for CCE interpretation.",
+          "evidence_refs": [
+            "E-CA-M-230-26"
+          ]
+        },
+        "empty_definition": {
+          "finding": "direct definition",
+          "reason": "The captured Claim expressly defines token form and its active-Method function assignment.",
+          "evidence_refs": [
+            "E-CA-M-230-26"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "token-level identity retained",
+          "reason": "CCE Operator is a canonical token or sequence, unlike CCE Operator Expression (a possibly noncanonical expression) and Registry (the set of tokens).",
+          "evidence_refs": [
+            "E-CA-M-230-26"
+          ]
+        },
+        "generalization": {
+          "finding": "no source-backed replacement",
+          "reason": "No captured Main Content supports replacing the defined CCE Operator identity or inventing a native parent from graph notation.",
+          "evidence_refs": [
+            "E-CA-M-230-26"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "E-CA-M-230-26"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-230"
+      ],
+      "proposal": {
+        "action": "preserve",
+        "operator_mark": false,
+        "adoption": "not_performed",
+        "replacement_identity": null,
+        "relations_effect": "no existing relation is rewritten or inferred from compact identity notation",
+        "constraints_effect": "the captured source constraints remain evidence only; no Core change is proposed",
+        "historical_references_effect": "all preserved occurrence and source references remain exact",
+        "queries_effect": "retain the exact qualified identity for candidate-graph review"
+      },
+      "question": null,
+      "input_governing_source_atom_ids": [
+        "CA-M-230"
+      ],
+      "input_source_atom_ids": [
+        "CA-D-280",
+        "CA-E-383",
+        "CA-E-405",
+        "CA-E-472",
+        "CA-E-512",
+        "CA-M-122",
+        "CA-M-229",
+        "CA-M-230",
+        "CA-M-234",
+        "CA-M-240",
+        "CA-M-294",
+        "CA-M-307",
+        "CA-M-309",
+        "CA-M-310",
+        "CA-M-311",
+        "CA-M-312",
+        "CA-M-313",
+        "CA-M-314",
+        "CA-M-315",
+        "CA-R-1297",
+        "CA-R-1360",
+        "CA-R-1361"
+      ],
+      "input_occurrence_ids": [
+        1805,
+        1806,
+        1807,
+        1808,
+        1809,
+        1810,
+        1811,
+        1812,
+        1813,
+        1814,
+        1815,
+        1816,
+        1817,
+        1818,
+        1819,
+        1820,
+        1821,
+        1822,
+        1823,
+        1824,
+        1825,
+        1826
+      ],
+      "is_full_target": true,
+      "is_syntactic_root": true
+    },
+    {
+      "identity": "CCE Operator Expression",
+      "disposition": "retain",
+      "confidence_percent": 92,
+      "reason": "CA-M-236 gives a noncanonical CCE Operator Expression a meaningful normalization boundary: it is the expression to which all applicable canonical rewrites are applied.",
+      "checks": {
+        "duplicates": {
+          "finding": "not duplicate-proved",
+          "reason": "The source distinguishes a noncanonical operator expression from the canonical operators that the rewrites produce.",
+          "evidence_refs": [
+            "E-CA-M-236-27"
+          ]
+        },
+        "redundancy": {
+          "finding": "not redundant",
+          "reason": "An expression needing normalization is not interchangeable with the registry's canonical token list.",
+          "evidence_refs": [
+            "E-CA-M-236-27"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful transformation input",
+          "reason": "The Claim identifies this expression as the object of applicable rewrites and lists concrete noncanonical forms.",
+          "evidence_refs": [
+            "E-CA-M-236-27"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "pre-normalization representation retained",
+          "reason": "CCE Operator Expression captures noncanonical representation, whereas CCE Operator captures the canonical token and Normalization captures the rewriting procedure.",
+          "evidence_refs": [
+            "E-CA-M-236-27"
+          ]
+        },
+        "generalization": {
+          "finding": "no source-backed replacement",
+          "reason": "The captured Main Content does not provide a replacement identity or a native hierarchy for these expressions.",
+          "evidence_refs": [
+            "E-CA-M-236-27"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "E-CA-M-236-27"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-236"
+      ],
+      "proposal": {
+        "action": "preserve",
+        "operator_mark": false,
+        "adoption": "not_performed",
+        "replacement_identity": null,
+        "relations_effect": "no existing relation is rewritten or inferred from compact identity notation",
+        "constraints_effect": "the captured source constraints remain evidence only; no Core change is proposed",
+        "historical_references_effect": "all preserved occurrence and source references remain exact",
+        "queries_effect": "retain the exact qualified identity for candidate-graph review"
+      },
+      "question": null,
+      "input_governing_source_atom_ids": [],
+      "input_source_atom_ids": [
+        "CA-M-236"
+      ],
+      "input_occurrence_ids": [
+        1827
+      ],
+      "is_full_target": true,
+      "is_syntactic_root": true
+    },
+    {
+      "identity": "CCE Operator Expression Normalization",
+      "disposition": "retain",
+      "confidence_percent": 96,
+      "reason": "CA-M-236 directly requires all applicable rewrites from named noncanonical forms to canonical CCE Operator forms.",
+      "checks": {
+        "duplicates": {
+          "finding": "not duplicate-proved",
+          "reason": "Normalization is the rewrite activity, not the noncanonical expression it receives or the canonical Registry it targets.",
+          "evidence_refs": [
+            "E-CA-M-236-27"
+          ]
+        },
+        "redundancy": {
+          "finding": "not redundant",
+          "reason": "The listed each/equals/Boolean rewrites preserve a distinct canonicalization function absent from the operator definition.",
+          "evidence_refs": [
+            "E-CA-M-236-27"
+          ]
+        },
+        "empty_definition": {
+          "finding": "directly specified transformation",
+          "reason": "The captured Claim prescribes all applicable rewrites and gives concrete source and target forms.",
+          "evidence_refs": [
+            "E-CA-M-236-27"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "normalization procedure retained",
+          "reason": "This identity denotes canonicalization behavior, not a CCE language version, an operator token, or an evaluated condition.",
+          "evidence_refs": [
+            "E-CA-M-236-27"
+          ]
+        },
+        "generalization": {
+          "finding": "no source-backed replacement",
+          "reason": "No captured source span makes this procedure a duplicate of a broader named process or supports a native parent inference.",
+          "evidence_refs": [
+            "E-CA-M-236-27"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "E-CA-M-236-27"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-236"
+      ],
+      "proposal": {
+        "action": "preserve",
+        "operator_mark": false,
+        "adoption": "not_performed",
+        "replacement_identity": null,
+        "relations_effect": "no existing relation is rewritten or inferred from compact identity notation",
+        "constraints_effect": "the captured source constraints remain evidence only; no Core change is proposed",
+        "historical_references_effect": "all preserved occurrence and source references remain exact",
+        "queries_effect": "retain the exact qualified identity for candidate-graph review"
+      },
+      "question": null,
+      "input_governing_source_atom_ids": [
+        "CA-M-236"
+      ],
+      "input_source_atom_ids": [
+        "CA-M-236"
+      ],
+      "input_occurrence_ids": [
+        1828
+      ],
+      "is_full_target": true,
+      "is_syntactic_root": true
+    },
+    {
+      "identity": "CCE Operator Registry",
+      "disposition": "retain",
+      "confidence_percent": 98,
+      "reason": "CA-M-234 directly requires the current canonical CCE Operator Registry to contain a typed expandable set and states the admission condition for another token.",
+      "checks": {
+        "duplicates": {
+          "finding": "not duplicate-proved",
+          "reason": "The Registry is the required expandable set; it is not an individual CCE Operator token or the Method that assigns a token's function.",
+          "evidence_refs": [
+            "E-CA-M-234-27"
+          ]
+        },
+        "redundancy": {
+          "finding": "not redundant",
+          "reason": "The required category coverage and controlled admission of another token give the Registry a set-level role that individual operators do not supply.",
+          "evidence_refs": [
+            "E-CA-M-234-27"
+          ]
+        },
+        "empty_definition": {
+          "finding": "directly specified set constraint",
+          "reason": "The captured Claim enumerates statement, modality, condition, temporal, quantification, logical, restriction, predicate, and comparison entries.",
+          "evidence_refs": [
+            "E-CA-M-234-27"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "set-level identity retained",
+          "reason": "CCE Operator Registry governs the canonical collection and its expansion condition, distinct from individual tokens and normalization.",
+          "evidence_refs": [
+            "E-CA-M-234-27"
+          ]
+        },
+        "generalization": {
+          "finding": "no source-backed replacement",
+          "reason": "No captured Main Content provides a replacement registry or a native hierarchy that would justify a reduction.",
+          "evidence_refs": [
+            "E-CA-M-234-27"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "E-CA-M-234-27"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-234"
+      ],
+      "proposal": {
+        "action": "preserve",
+        "operator_mark": false,
+        "adoption": "not_performed",
+        "replacement_identity": null,
+        "relations_effect": "no existing relation is rewritten or inferred from compact identity notation",
+        "constraints_effect": "the captured source constraints remain evidence only; no Core change is proposed",
+        "historical_references_effect": "all preserved occurrence and source references remain exact",
+        "queries_effect": "retain the exact qualified identity for candidate-graph review"
+      },
+      "question": null,
+      "input_governing_source_atom_ids": [
+        "CA-M-234"
+      ],
+      "input_source_atom_ids": [
+        "CA-E-512",
+        "CA-M-234",
+        "CA-M-235",
+        "CA-M-236"
+      ],
+      "input_occurrence_ids": [
+        1829,
+        1830,
+        1831,
+        1832
+      ],
+      "is_full_target": true,
+      "is_syntactic_root": true
+    },
+    {
+      "identity": "CCE/Role Profile",
+      "disposition": "retain",
+      "confidence_percent": 98,
+      "reason": "CA-M-307 directly defines a CCE Role Profile as a restriction of shared CCE covering permitted primary contribution, operator uses, subordinate slots, and prohibited contributions for a Content Role, narrower Type, or content slot.",
+      "checks": {
+        "duplicates": {
+          "finding": "not duplicate-proved",
+          "reason": "The Profile is a restriction of shared CCE with role/type/slot boundaries; it is not the general CCE language, an operator, or an effective-profile resolution.",
+          "evidence_refs": [
+            "E-CA-M-307-37"
+          ]
+        },
+        "redundancy": {
+          "finding": "not redundant",
+          "reason": "Permitted and prohibited contribution constraints cannot be replaced by global CCE Operator registration alone.",
+          "evidence_refs": [
+            "E-CA-M-307-37"
+          ]
+        },
+        "empty_definition": {
+          "finding": "direct definition",
+          "reason": "The captured Claim specifies the profile's permitted contribution, operator, slot, and prohibition dimensions.",
+          "evidence_refs": [
+            "E-CA-M-307-37"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "role-bound restriction retained",
+          "reason": "CCE Role Profile retains its shared-CCE restriction role and stays distinct from the specific Plan, Requirement, Method, Evaluation, Delivery, and Operations profiles.",
+          "evidence_refs": [
+            "E-CA-M-307-37"
+          ]
+        },
+        "generalization": {
+          "finding": "no source-backed replacement",
+          "reason": "The source permits narrower profiles to restrict a parent profile but does not assert a replacement identity or a native graph edge from the compact path.",
+          "evidence_refs": [
+            "E-CA-M-307-37"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "E-CA-M-307-37"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-307"
+      ],
+      "proposal": {
+        "action": "preserve",
+        "operator_mark": false,
+        "adoption": "not_performed",
+        "replacement_identity": null,
+        "relations_effect": "no existing relation is rewritten or inferred from compact identity notation",
+        "constraints_effect": "the captured source constraints remain evidence only; no Core change is proposed",
+        "historical_references_effect": "all preserved occurrence and source references remain exact",
+        "queries_effect": "retain the exact qualified identity for candidate-graph review"
+      },
+      "question": null,
+      "input_governing_source_atom_ids": [
+        "CA-M-307"
+      ],
+      "input_source_atom_ids": [
+        "CA-M-307",
+        "CA-M-308",
+        "CA-M-309",
+        "CA-M-310",
+        "CA-M-311",
+        "CA-M-312",
+        "CA-M-313",
+        "CA-M-314",
+        "CA-M-315"
+      ],
+      "input_occurrence_ids": [
+        1833,
+        1834,
+        1835,
+        1836,
+        1837,
+        1838,
+        1839,
+        1840,
+        1841,
+        1842,
+        1843
+      ],
+      "is_full_target": true,
+      "is_syntactic_root": false
+    },
+    {
+      "identity": "CCE/Role Profile/resolution",
+      "disposition": "retain",
+      "confidence_percent": 98,
+      "reason": "CA-M-308 directly specifies how to select the effective profile by Content Role, then apply narrower Type and content-slot restrictions, and report unresolved selection without conformance.",
+      "checks": {
+        "duplicates": {
+          "finding": "not duplicate-proved",
+          "reason": "Resolution selects and orders profiles; it is not the profile definition or the later validation of a Claim against the selected profile.",
+          "evidence_refs": [
+            "E-CA-M-308-38"
+          ]
+        },
+        "redundancy": {
+          "finding": "not redundant",
+          "reason": "Content-Role selection, narrowing order, and the unresolved-selection rule are distinct prerequisites for profile conformance.",
+          "evidence_refs": [
+            "E-CA-M-308-38"
+          ]
+        },
+        "empty_definition": {
+          "finding": "directly specified selection procedure",
+          "reason": "The captured Claim gives role-specific selection, narrowing, subordinate-slot distinction, and unresolved handling steps.",
+          "evidence_refs": [
+            "E-CA-M-308-38"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "selection boundary retained",
+          "reason": "The identity denotes deriving the effective profile from content classification; the source expressly says it is not another required Atom property.",
+          "evidence_refs": [
+            "E-CA-M-308-38"
+          ]
+        },
+        "generalization": {
+          "finding": "no source-backed replacement",
+          "reason": "No captured source identifies a replacement procedure or turns the compact qualified path into an admitted native relation.",
+          "evidence_refs": [
+            "E-CA-M-308-38"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "E-CA-M-308-38"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-308"
+      ],
+      "proposal": {
+        "action": "preserve",
+        "operator_mark": false,
+        "adoption": "not_performed",
+        "replacement_identity": null,
+        "relations_effect": "no existing relation is rewritten or inferred from compact identity notation",
+        "constraints_effect": "the captured source constraints remain evidence only; no Core change is proposed",
+        "historical_references_effect": "all preserved occurrence and source references remain exact",
+        "queries_effect": "retain the exact qualified identity for candidate-graph review"
+      },
+      "question": null,
+      "input_governing_source_atom_ids": [
+        "CA-M-308"
+      ],
+      "input_source_atom_ids": [
+        "CA-M-308"
+      ],
+      "input_occurrence_ids": [
+        1836
+      ],
+      "is_full_target": true,
+      "is_syntactic_root": false
+    },
+    {
+      "identity": "CCE/Role Profile/validation",
+      "disposition": "retain",
+      "confidence_percent": 98,
+      "reason": "CA-M-315 directly requires a Validator to resolve the effective profile, identify Claim contribution and slots, check admitted boundaries and operator scope, and report unresolved classification without conformance.",
+      "checks": {
+        "duplicates": {
+          "finding": "not duplicate-proved",
+          "reason": "Validation checks a resolved profile against a Claim; it is not the profile-selection process or the profile's generic definition.",
+          "evidence_refs": [
+            "E-CA-M-315-37"
+          ]
+        },
+        "redundancy": {
+          "finding": "not redundant",
+          "reason": "Boundary checking, exact-context operator checking, and mismatch reporting are separate from merely selecting a profile.",
+          "evidence_refs": [
+            "E-CA-M-315-37"
+          ]
+        },
+        "empty_definition": {
+          "finding": "directly specified validation procedure",
+          "reason": "The captured Claim lists required validation checks and the prohibition on reporting conformance while classification is unresolved.",
+          "evidence_refs": [
+            "E-CA-M-315-37"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "conformance-check boundary retained",
+          "reason": "CCE Role Profile validation concerns Claim/profile conformance, separate from CCE condition-expression evaluation and CCE Claim-and-Projection validation.",
+          "evidence_refs": [
+            "E-CA-M-315-37"
+          ]
+        },
+        "generalization": {
+          "finding": "no source-backed replacement",
+          "reason": "The captured source has no replacement identity or native hierarchy that would justify reducing this validation procedure.",
+          "evidence_refs": [
+            "E-CA-M-315-37"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "E-CA-M-315-37"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-315"
+      ],
+      "proposal": {
+        "action": "preserve",
+        "operator_mark": false,
+        "adoption": "not_performed",
+        "replacement_identity": null,
+        "relations_effect": "no existing relation is rewritten or inferred from compact identity notation",
+        "constraints_effect": "the captured source constraints remain evidence only; no Core change is proposed",
+        "historical_references_effect": "all preserved occurrence and source references remain exact",
+        "queries_effect": "retain the exact qualified identity for candidate-graph review"
+      },
+      "question": null,
+      "input_governing_source_atom_ids": [
+        "CA-M-315"
+      ],
+      "input_source_atom_ids": [
+        "CA-M-315"
+      ],
+      "input_occurrence_ids": [
+        1837
+      ],
+      "is_full_target": true,
+      "is_syntactic_root": false
+    },
+    {
+      "identity": "CCE/Role Profile: Delivery",
+      "disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "CA-M-313 gives the Delivery CCE Role Profile a distinct primary-contribution boundary: a Carrier contribution naming the governed Carrier or Entity/Carrier binding and its relevant definition, classification, or constraint.",
+      "checks": {
+        "duplicates": {
+          "finding": "not duplicate-proved",
+          "reason": "The captured Delivery profile limits a Delivery-specific primary contribution and does not equate it with another Content Role profile.",
+          "evidence_refs": [
+            "E-CA-M-313-36"
+          ]
+        },
+        "redundancy": {
+          "finding": "not redundant",
+          "reason": "The Delivery-specific contribution boundary remains distinct from the shared CCE Role Profile and from the other role profiles.",
+          "evidence_refs": [
+            "E-CA-M-313-36"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful role-specific constraint",
+          "reason": "The Main Content states the required Delivery primary contribution and the boundaries on what must stay outside it.",
+          "evidence_refs": [
+            "E-CA-M-313-36"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "role-specific meaning retained",
+          "reason": "This profile preserves the Delivery contribution boundary (a Carrier contribution naming the governed Carrier or Entity/Carrier binding and its relevant definition, classification, or constraint) rather than treating all CCE Profiles as interchangeable.",
+          "evidence_refs": [
+            "E-CA-M-313-36"
+          ]
+        },
+        "generalization": {
+          "finding": "no source-backed replacement",
+          "reason": "The captured Delivery Claim supplies no replacement identity or native hierarchy; the qualified display identity is preserved without treating compact punctuation as an admitted relation.",
+          "evidence_refs": [
+            "E-CA-M-313-36"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "E-CA-M-313-36"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-313"
+      ],
+      "proposal": {
+        "action": "preserve",
+        "operator_mark": false,
+        "adoption": "not_performed",
+        "replacement_identity": null,
+        "relations_effect": "no existing relation is rewritten or inferred from compact identity notation",
+        "constraints_effect": "the captured source constraints remain evidence only; no Core change is proposed",
+        "historical_references_effect": "all preserved occurrence and source references remain exact",
+        "queries_effect": "retain the exact qualified identity for candidate-graph review"
+      },
+      "question": null,
+      "input_governing_source_atom_ids": [
+        "CA-M-313"
+      ],
+      "input_source_atom_ids": [
+        "CA-M-313"
+      ],
+      "input_occurrence_ids": [
+        1838
+      ],
+      "is_full_target": true,
+      "is_syntactic_root": false
+    },
+    {
+      "identity": "CCE/Role Profile: Evaluation",
+      "disposition": "retain",
+      "confidence_percent": 96,
+      "reason": "CA-M-312 gives the Evaluation CCE Role Profile a distinct primary-contribution boundary: a falsifiable check, acceptance criterion, or disposition rule against identified authority and Scope.",
+      "checks": {
+        "duplicates": {
+          "finding": "not duplicate-proved",
+          "reason": "The captured Evaluation profile limits a Evaluation-specific primary contribution and does not equate it with another Content Role profile.",
+          "evidence_refs": [
+            "E-CA-M-312-34"
+          ]
+        },
+        "redundancy": {
+          "finding": "not redundant",
+          "reason": "The Evaluation-specific contribution boundary remains distinct from the shared CCE Role Profile and from the other role profiles.",
+          "evidence_refs": [
+            "E-CA-M-312-34"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful role-specific constraint",
+          "reason": "The Main Content states the required Evaluation primary contribution and the boundaries on what must stay outside it.",
+          "evidence_refs": [
+            "E-CA-M-312-34"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "role-specific meaning retained",
+          "reason": "This profile preserves the Evaluation contribution boundary (a falsifiable check, acceptance criterion, or disposition rule against identified authority and Scope) rather than treating all CCE Profiles as interchangeable.",
+          "evidence_refs": [
+            "E-CA-M-312-34"
+          ]
+        },
+        "generalization": {
+          "finding": "no source-backed replacement",
+          "reason": "The captured Evaluation Claim supplies no replacement identity or native hierarchy; the qualified display identity is preserved without treating compact punctuation as an admitted relation.",
+          "evidence_refs": [
+            "E-CA-M-312-34"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "E-CA-M-312-34"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-312"
+      ],
+      "proposal": {
+        "action": "preserve",
+        "operator_mark": false,
+        "adoption": "not_performed",
+        "replacement_identity": null,
+        "relations_effect": "no existing relation is rewritten or inferred from compact identity notation",
+        "constraints_effect": "the captured source constraints remain evidence only; no Core change is proposed",
+        "historical_references_effect": "all preserved occurrence and source references remain exact",
+        "queries_effect": "retain the exact qualified identity for candidate-graph review"
+      },
+      "question": null,
+      "input_governing_source_atom_ids": [
+        "CA-M-312"
+      ],
+      "input_source_atom_ids": [
+        "CA-M-312"
+      ],
+      "input_occurrence_ids": [
+        1839
+      ],
+      "is_full_target": true,
+      "is_syntactic_root": false
+    },
+    {
+      "identity": "CCE/Role Profile: Method",
+      "disposition": "retain",
+      "confidence_percent": 96,
+      "reason": "CA-M-311 gives the Method CCE Role Profile a distinct primary-contribution boundary: a reusable authorship, construction, or Implementation choice or convention for satisfying accepted Spec authority.",
+      "checks": {
+        "duplicates": {
+          "finding": "not duplicate-proved",
+          "reason": "The captured Method profile limits a Method-specific primary contribution and does not equate it with another Content Role profile.",
+          "evidence_refs": [
+            "E-CA-M-311-34"
+          ]
+        },
+        "redundancy": {
+          "finding": "not redundant",
+          "reason": "The Method-specific contribution boundary remains distinct from the shared CCE Role Profile and from the other role profiles.",
+          "evidence_refs": [
+            "E-CA-M-311-34"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful role-specific constraint",
+          "reason": "The Main Content states the required Method primary contribution and the boundaries on what must stay outside it.",
+          "evidence_refs": [
+            "E-CA-M-311-34"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "role-specific meaning retained",
+          "reason": "This profile preserves the Method contribution boundary (a reusable authorship, construction, or Implementation choice or convention for satisfying accepted Spec authority) rather than treating all CCE Profiles as interchangeable.",
+          "evidence_refs": [
+            "E-CA-M-311-34"
+          ]
+        },
+        "generalization": {
+          "finding": "no source-backed replacement",
+          "reason": "The captured Method Claim supplies no replacement identity or native hierarchy; the qualified display identity is preserved without treating compact punctuation as an admitted relation.",
+          "evidence_refs": [
+            "E-CA-M-311-34"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "E-CA-M-311-34"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-311"
+      ],
+      "proposal": {
+        "action": "preserve",
+        "operator_mark": false,
+        "adoption": "not_performed",
+        "replacement_identity": null,
+        "relations_effect": "no existing relation is rewritten or inferred from compact identity notation",
+        "constraints_effect": "the captured source constraints remain evidence only; no Core change is proposed",
+        "historical_references_effect": "all preserved occurrence and source references remain exact",
+        "queries_effect": "retain the exact qualified identity for candidate-graph review"
+      },
+      "question": null,
+      "input_governing_source_atom_ids": [
+        "CA-M-311"
+      ],
+      "input_source_atom_ids": [
+        "CA-M-311"
+      ],
+      "input_occurrence_ids": [
+        1840
+      ],
+      "is_full_target": true,
+      "is_syntactic_root": false
+    },
+    {
+      "identity": "CCE/Role Profile: Operations",
+      "disposition": "retain",
+      "confidence_percent": 97,
+      "reason": "CA-M-314 gives the Operations CCE Role Profile a distinct primary-contribution boundary: one selected Action, Workflow, Step, or Actor primary Type profile with its corresponding operational contribution.",
+      "checks": {
+        "duplicates": {
+          "finding": "not duplicate-proved",
+          "reason": "The captured Operations profile limits a Operations-specific primary contribution and does not equate it with another Content Role profile.",
+          "evidence_refs": [
+            "E-CA-M-314-41"
+          ]
+        },
+        "redundancy": {
+          "finding": "not redundant",
+          "reason": "The Operations-specific contribution boundary remains distinct from the shared CCE Role Profile and from the other role profiles.",
+          "evidence_refs": [
+            "E-CA-M-314-41"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful role-specific constraint",
+          "reason": "The Main Content states the required Operations primary contribution and the boundaries on what must stay outside it.",
+          "evidence_refs": [
+            "E-CA-M-314-41"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "role-specific meaning retained",
+          "reason": "This profile preserves the Operations contribution boundary (one selected Action, Workflow, Step, or Actor primary Type profile with its corresponding operational contribution) rather than treating all CCE Profiles as interchangeable.",
+          "evidence_refs": [
+            "E-CA-M-314-41"
+          ]
+        },
+        "generalization": {
+          "finding": "no source-backed replacement",
+          "reason": "The captured Operations Claim supplies no replacement identity or native hierarchy; the qualified display identity is preserved without treating compact punctuation as an admitted relation.",
+          "evidence_refs": [
+            "E-CA-M-314-41"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "E-CA-M-314-41"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-314"
+      ],
+      "proposal": {
+        "action": "preserve",
+        "operator_mark": false,
+        "adoption": "not_performed",
+        "replacement_identity": null,
+        "relations_effect": "no existing relation is rewritten or inferred from compact identity notation",
+        "constraints_effect": "the captured source constraints remain evidence only; no Core change is proposed",
+        "historical_references_effect": "all preserved occurrence and source references remain exact",
+        "queries_effect": "retain the exact qualified identity for candidate-graph review"
+      },
+      "question": null,
+      "input_governing_source_atom_ids": [
+        "CA-M-314"
+      ],
+      "input_source_atom_ids": [
+        "CA-M-314"
+      ],
+      "input_occurrence_ids": [
+        1841
+      ],
+      "is_full_target": true,
+      "is_syntactic_root": false
+    },
+    {
+      "identity": "CCE/Role Profile: Plan",
+      "disposition": "retain",
+      "confidence_percent": 96,
+      "reason": "CA-M-309 gives the Plan CCE Role Profile a distinct primary-contribution boundary: intended work or outcome, its boundary, and a subordinate falsifying Definition of Done.",
+      "checks": {
+        "duplicates": {
+          "finding": "not duplicate-proved",
+          "reason": "The captured Plan profile limits a Plan-specific primary contribution and does not equate it with another Content Role profile.",
+          "evidence_refs": [
+            "E-CA-M-309-36"
+          ]
+        },
+        "redundancy": {
+          "finding": "not redundant",
+          "reason": "The Plan-specific contribution boundary remains distinct from the shared CCE Role Profile and from the other role profiles.",
+          "evidence_refs": [
+            "E-CA-M-309-36"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful role-specific constraint",
+          "reason": "The Main Content states the required Plan primary contribution and the boundaries on what must stay outside it.",
+          "evidence_refs": [
+            "E-CA-M-309-36"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "role-specific meaning retained",
+          "reason": "This profile preserves the Plan contribution boundary (intended work or outcome, its boundary, and a subordinate falsifying Definition of Done) rather than treating all CCE Profiles as interchangeable.",
+          "evidence_refs": [
+            "E-CA-M-309-36"
+          ]
+        },
+        "generalization": {
+          "finding": "no source-backed replacement",
+          "reason": "The captured Plan Claim supplies no replacement identity or native hierarchy; the qualified display identity is preserved without treating compact punctuation as an admitted relation.",
+          "evidence_refs": [
+            "E-CA-M-309-36"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "E-CA-M-309-36"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-309"
+      ],
+      "proposal": {
+        "action": "preserve",
+        "operator_mark": false,
+        "adoption": "not_performed",
+        "replacement_identity": null,
+        "relations_effect": "no existing relation is rewritten or inferred from compact identity notation",
+        "constraints_effect": "the captured source constraints remain evidence only; no Core change is proposed",
+        "historical_references_effect": "all preserved occurrence and source references remain exact",
+        "queries_effect": "retain the exact qualified identity for candidate-graph review"
+      },
+      "question": null,
+      "input_governing_source_atom_ids": [
+        "CA-M-309"
+      ],
+      "input_source_atom_ids": [
+        "CA-M-309"
+      ],
+      "input_occurrence_ids": [
+        1842
+      ],
+      "is_full_target": true,
+      "is_syntactic_root": false
+    },
+    {
+      "identity": "CCE/Role Profile: Requirement",
+      "disposition": "retain",
+      "confidence_percent": 96,
+      "reason": "CA-M-310 gives the Requirement CCE Role Profile a distinct primary-contribution boundary: a required Entity model or required result, with properties and observable boundaries.",
+      "checks": {
+        "duplicates": {
+          "finding": "not duplicate-proved",
+          "reason": "The captured Requirement profile limits a Requirement-specific primary contribution and does not equate it with another Content Role profile.",
+          "evidence_refs": [
+            "E-CA-M-310-34"
+          ]
+        },
+        "redundancy": {
+          "finding": "not redundant",
+          "reason": "The Requirement-specific contribution boundary remains distinct from the shared CCE Role Profile and from the other role profiles.",
+          "evidence_refs": [
+            "E-CA-M-310-34"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful role-specific constraint",
+          "reason": "The Main Content states the required Requirement primary contribution and the boundaries on what must stay outside it.",
+          "evidence_refs": [
+            "E-CA-M-310-34"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "role-specific meaning retained",
+          "reason": "This profile preserves the Requirement contribution boundary (a required Entity model or required result, with properties and observable boundaries) rather than treating all CCE Profiles as interchangeable.",
+          "evidence_refs": [
+            "E-CA-M-310-34"
+          ]
+        },
+        "generalization": {
+          "finding": "no source-backed replacement",
+          "reason": "The captured Requirement Claim supplies no replacement identity or native hierarchy; the qualified display identity is preserved without treating compact punctuation as an admitted relation.",
+          "evidence_refs": [
+            "E-CA-M-310-34"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "E-CA-M-310-34"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-310"
+      ],
+      "proposal": {
+        "action": "preserve",
+        "operator_mark": false,
+        "adoption": "not_performed",
+        "replacement_identity": null,
+        "relations_effect": "no existing relation is rewritten or inferred from compact identity notation",
+        "constraints_effect": "the captured source constraints remain evidence only; no Core change is proposed",
+        "historical_references_effect": "all preserved occurrence and source references remain exact",
+        "queries_effect": "retain the exact qualified identity for candidate-graph review"
+      },
+      "question": null,
+      "input_governing_source_atom_ids": [
+        "CA-M-310"
+      ],
+      "input_source_atom_ids": [
+        "CA-M-310"
+      ],
+      "input_occurrence_ids": [
+        1843
+      ],
+      "is_full_target": true,
+      "is_syntactic_root": false
+    }
+  ]
+}

@@ -45,11 +45,11 @@ Exclusive scope: assigned derived review output and temporary helper only; root 
 
 The first executor returned a truthful unexecuted checkpoint; no complete review was fabricated. The following coherent subsets are disjoint and cover all 80 parent identities. Each child starts only after CA-P-1906 Done; the join waits for every review child Done. This parent stays Active until all its direct children and Definition of Done pass.
 
-- [CA-P-1945](08-CA-P-1935-TASK--review-seventh-core-node-disposition-batch/01-CA-P-1945-TASK--review-rmed-reconciliation-node-candidates.md): Review RMED reconciliation node candidates (12 nodes); 15 minutes.
-- [CA-P-1946](08-CA-P-1935-TASK--review-seventh-core-node-disposition-batch/02-CA-P-1946-TASK--review-relation-kind-node-candidates.md): Review Relation kind node candidates (12 nodes); 15 minutes.
-- [CA-P-1947](08-CA-P-1935-TASK--review-seventh-core-node-disposition-batch/03-CA-P-1947-TASK--review-operation-and-scope-expression-node-candidates.md): Review operation and Scope expression node candidates (16 nodes); 15 minutes.
-- [CA-P-1948](08-CA-P-1935-TASK--review-seventh-core-node-disposition-batch/04-CA-P-1948-TASK--review-scope-unit-operation-node-candidates.md): Review Scope Unit operation node candidates (20 nodes); 15 minutes.
-- [CA-P-1949](08-CA-P-1935-TASK--review-seventh-core-node-disposition-batch/05-CA-P-1949-TASK--review-source-spec-and-run-node-candidates.md): Review source spec and Run node candidates (20 nodes); 15 minutes.
+- [CA-P-1945](08-CA-P-1935-TASK--review-seventh-core-node-disposition-batch/done/01-CA-P-1945-TASK--review-rmed-reconciliation-node-candidates.md): Review RMED reconciliation node candidates (12 nodes); 15 minutes.
+- [CA-P-1946](08-CA-P-1935-TASK--review-seventh-core-node-disposition-batch/done/02-CA-P-1946-TASK--review-relation-kind-node-candidates.md): Review Relation kind node candidates (12 nodes); 15 minutes.
+- [CA-P-1947](08-CA-P-1935-TASK--review-seventh-core-node-disposition-batch/done/03-CA-P-1947-TASK--review-operation-and-scope-expression-node-candidates.md): Review operation and Scope expression node candidates (16 nodes); 15 minutes.
+- [CA-P-1948](08-CA-P-1935-TASK--review-seventh-core-node-disposition-batch/done/04-CA-P-1948-TASK--review-scope-unit-operation-node-candidates.md): Review Scope Unit operation node candidates (20 nodes); 15 minutes.
+- [CA-P-1949](08-CA-P-1935-TASK--review-seventh-core-node-disposition-batch/done/05-CA-P-1949-TASK--review-source-spec-and-run-node-candidates.md): Review source spec and Run node candidates (20 nodes); 15 minutes.
 - [CA-P-1951](08-CA-P-1935-TASK--review-seventh-core-node-disposition-batch/06-CA-P-1951-TASK--join-the-reviewed-core-node-batch-7-slices.md): Join the reviewed Core node batch 7 slices; 15 minutes.
 
 ### Definition of Done

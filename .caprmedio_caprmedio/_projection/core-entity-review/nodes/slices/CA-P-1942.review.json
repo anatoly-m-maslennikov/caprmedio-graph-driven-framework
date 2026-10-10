@@ -1,0 +1,1056 @@
+{
+  "baseline_inventory_sha256": "23394abaf6e9c18a585cf3146aedd0a80df166c9dd82be6e86ed7c3c56780bdc",
+  "batch": 3,
+  "captured_snapshot": {
+    "current_core_claimed": false,
+    "git_commit": "a971d0e00c33c779f485fc8cad63194894d440fb",
+    "source_context": "captured_snapshot",
+    "source_pins_checked": 951,
+    "verification": "pass"
+  },
+  "evidence_catalogue": [
+    {
+      "atom_id": "CA-E-459",
+      "atom_revision": 16,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/06_evaluation/CA-E-459-CORE_META_MODEL-EVALUATION_APPROACH--validate-authoritative-project-settings-artifact.md",
+      "carrier_sha256": "3dd9aba19d920554a63cbc500d9ffaa4019a0a47b84d0a8ecefec11d49fdc079",
+      "end_line": 60,
+      "evidence_ref": "E01",
+      "quote": "the Evaluation **must** reject Project Settings **if**\n\n- it is treated as an Atom **or** Projection,\n- has an Atom ID **or** Atom Content Role,\n- is **not** available independently of Project Atoms **and** Implementation,\n- violates its registered Project-root placement **or** filename,\n- has other than **`=1`** authoritative TOML Carrier,\n- **contains** Framework Instance choices **or** independently editable Project Structure,\n- violates its Core content boundary, applicable General settings specifications, **or** applicable Standard field specifications,\n- lacks a required CORE_META_MODEL definition **or** storage rule for Project Name **or** Project Atom prefix,\n- lacks an Operator-selected Project Name,\n- lacks an Operator-selected Project Atom prefix,\n- treats a Methodology Atom, Framework Instance Settings, **or** a Projection as an independent authoritative source of either selected value,\n- **or** lacks an exact current Revision, SHA-256 Digest, **and** governed-change Work Journal receipt.",
+      "start_line": 47,
+      "text_sha256": "3bf675a1f8b2595879a65e85b4058c476b33d6a8383c38950bfbf8fa51a2e9c4"
+    },
+    {
+      "atom_id": "CA-M-241",
+      "atom_revision": 9,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/05_method/CA-M-241-CORE_META_MODEL--derive-canonical-scope-signatures-without-source-rewrite.md",
+      "carrier_sha256": "97f0b470a85ecdd81c279fea0008177f6fefabb5669030c94ca6e65ee15f2efc",
+      "end_line": 32,
+      "evidence_ref": "E02",
+      "quote": "**to** derive Canonical Scope Signatures from one caller-selected Atom Carrier folder, the Tool **must** inspect **only** active Carriers with **`=1`** unwrapped Scope Expression **in** one `## Scope` section, resolve **every** atomic identity against active Atom IDs **in** that selected folder, derive a signature **only** **if** the Scope Expression satisfies the restricted Canonical Scope Signature grammar, emit source identity, source revision, source Carrier digest, source frontier digest, source expression, signature, **and** exclusion diagnostic, **and** make no source-Carrier rewrite, lifecycle change, Claim merge, authority decision, **or** dependency relation.",
+      "start_line": 32,
+      "text_sha256": "f9b44a7c7c6f74f51e18fbfde32a370e8a2071e56be9c7801fb8dc310169be0c"
+    },
+    {
+      "atom_id": "CA-E-407",
+      "atom_revision": 10,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/06_evaluation/CA-E-407-CORE_META_MODEL-EVALUATION_APPROACH--validate-canonical-scope-signature-boundary.md",
+      "carrier_sha256": "ef78590cf46f4f2679aa38bd0dd034bf97e6816adfb0c6e1030b5a0ff82ce65b",
+      "end_line": 40,
+      "evidence_ref": "E03",
+      "quote": "the Evaluation **must** reject a Canonical Scope Signature derivation **if** **any** of the following holds:\n\n- it rewrites one source Carrier.\n- it treats one Signature as authority **or** Claim equivalence.\n- it accepts mixed **and** **or** groups, **without**, **where**, **all**, **any** other CCE Operator, function, Entity-kind selector, descendant **or** dynamic selector, unresolved identity, changing source frontier, **or** unparseable prose.\n- it fails **to** flatten nested same-operator groups, retains duplicate exact Atom IDs, loses the distinction between **and** **and** **or**, **or** yields different Signatures from same-operator groups that differ **only** by operand order.\n",
+      "start_line": 34,
+      "text_sha256": "df399400f0e974923a181e95f24a2804335cb5ec1d05000a148322717f579ab1"
+    },
+    {
+      "atom_id": "CA-M-240",
+      "atom_revision": 9,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/05_method/CA-M-240-CORE_META_MODEL-METHOD--derive-restricted-cce-canonical-signatures-without-source-rewrite.md",
+      "carrier_sha256": "03b8fab73bd3a910adeac50371d62fea8a5833836671fb9e3d502ff0062e654c",
+      "end_line": 32,
+      "evidence_ref": "E04",
+      "quote": "**to** derive Canonical Signatures from one selected Atom Carrier folder, the Tool **must** inspect **only** active single-statement Atom Claims, identify **every** outermost parenthesized expression that **contains** the **and** Operator **or** the **or** Operator, derive a Canonical Signature **only** **if** the expression satisfies the Restricted Boolean Expression grammar, emit source-identity evidence **and** **every** exclusion diagnostic, **and** make no source-Carrier rewrite, lifecycle change, Claim merge, **or** authority decision.",
+      "start_line": 32,
+      "text_sha256": "9fbaa8687cd574d12ebd5c0282017560603b865da77013eb737dd477bdf6ef8a"
+    },
+    {
+      "atom_id": "CA-E-405",
+      "atom_revision": 10,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/06_evaluation/CA-E-405-CORE_META_MODEL-EVALUATION_APPROACH--validate-restricted-cce-canonical-signature-boundary.md",
+      "carrier_sha256": "1e237a88f00238545747d71e7a1022445c404accb5dcc8235ca08bc941880a5d",
+      "end_line": 42,
+      "evidence_ref": "E05",
+      "quote": "the Evaluation **must** reject a Canonical Signature derivation **if** any of the following is true:\n\n- it rewrites one source Claim.\n- it treats one Canonical Signature as authority.\n- it accepts mixed **and** **or** groups.\n- it rewrites negation, implication, **where**, **without**, temporal condition, quantifier, extension-defined CCE Operator, **or** unparseable prose.\n- it fails **to** flatten nested same-operator groups.\n- it retains duplicate atomic predicates.\n- it yields different Canonical Signatures from Boolean groups that differ **only** by operand order.",
+      "start_line": 34,
+      "text_sha256": "a265e7bb73b5041063cdcfae930def68cbecf1e0012f6df39a62ad9e2bba6350"
+    },
+    {
+      "atom_id": "CA-M-235",
+      "atom_revision": 11,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/05_method/CA-M-235-CORE_META_MODEL--express-cardinality-with-comparison-operators-and-integer-literals.md",
+      "carrier_sha256": "738043ae13bf80391f1bd5ac62b179a7f68df6b6203474f322e78d8469f8456d",
+      "end_line": 30,
+      "evidence_ref": "E06",
+      "quote": "**to** author one numeric Cardinality Constraint, the Author **must** serialize one canonical comparison CCE Operator immediately followed by one Nonnegative Integer Literal as a prefix immediately **before** the counted Entity **or** expression; examples: **`=1`** Author, **`>=1`** Requirement Atom, **`<=1`** Type, **`>=0`** Property.",
+      "start_line": 30,
+      "text_sha256": "4cd268129688c7cf08f132445c8bf13616fed52c73d89245a895938adbbb7f2f"
+    },
+    {
+      "atom_id": "CA-D-312",
+      "atom_revision": 12,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-312-CORE_META_MODEL-CORE--give-each-scope-unit-authority-and-delivery-carrier-places.md",
+      "carrier_sha256": "8804af6a0385c8c98c5f07d85f18732d5d5411081a917f4dad2ba35545803faf",
+      "end_line": 29,
+      "evidence_ref": "E07",
+      "quote": "**every** Scope Unit **must** have one authority Carrier place **and** one Delivery Carrier place **without** treating its Delivery place as another Scope Unit.",
+      "start_line": 29,
+      "text_sha256": "bbc900e4b30355e1a75bfd52ee02a4d65758ca25511b7a18f37f9dcc5096a042"
+    },
+    {
+      "atom_id": "CA-D-394",
+      "atom_revision": 7,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-394-CORE_META_MODEL-DELIVERY--bind-convenience-symlink-carriers-to-one-native-source.md",
+      "carrier_sha256": "b7f017a14c13671e7b29e90c0bde56c1c542dcacdf11434f61227481bb4d4885",
+      "end_line": 29,
+      "evidence_ref": "E08",
+      "quote": "a convenience symlink Carrier **must** expose the one native reusable framework source governed by project-local authority **without** creating copied authority, an additional governance owner, **or** a live authority cycle.",
+      "start_line": 29,
+      "text_sha256": "9f48559834a9d356982f3a2da4f1607256fa82c4e5a1bc62a8743215ce8ef1ff"
+    },
+    {
+      "atom_id": "CA-D-414",
+      "atom_revision": 14,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-414-CORE_META_MODEL-CORE--classify-carrier-as-a-primary-entity.md",
+      "carrier_sha256": "f0d1d76efc3191ec5dd067f692f8fdaed1f66e242951ee4f6f1c15be80346015",
+      "end_line": 28,
+      "evidence_ref": "E09",
+      "quote": "the Term Carrier **must** be **NARROWER_THAN** Primary Entity.",
+      "start_line": 28,
+      "text_sha256": "bff0a77893708813f33268cc8f1e8bf6b4293775cb1bef615cf844e3aba2f5d4"
+    },
+    {
+      "atom_id": "CA-D-434",
+      "atom_revision": 8,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-434-CORE_META_MODEL--place-authoritative-operations-atom-carriers.md",
+      "carrier_sha256": "a14c02222a752dc3eef6bc662432918e6bf09108d08a44db97cbe7753cc3e2f8",
+      "end_line": 29,
+      "evidence_ref": "E10",
+      "quote": "a current authoritative Operations Atom File Carrier **must** reside **in** the `09_operations/` Content Role Directory directly under its owning Scope Unit. first-artifact directory materialization remains governed by CA-D-296-CORE_META_MODEL--materialize-content-role-directories-on-first-artifact; this placement does **not** replace the separately governed placement of projected copies **or** archived Revisions.",
+      "start_line": 29,
+      "text_sha256": "cb2eb464c5da727742ad90fbea2d06b06e0fad51751a9082bb0e63f019417001"
+    },
+    {
+      "atom_id": "CA-E-522",
+      "atom_revision": 1,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/06_evaluation/CA-E-522-CORE_META_MODEL-QA_CASE--storage-boundary-classification-interpretability.md",
+      "carrier_sha256": "3d311421cf753721b84da36b1cb5f67c70bcaa766baa5636bc95453cdf005d62",
+      "end_line": 60,
+      "evidence_ref": "E11",
+      "quote": "| Case | Expected classification |\n| --- | --- |\n| Workflow **and** Implementation events | the shared Project Work Journal through its D-defined Project-wide Carrier |\n| multiple segments **in** the selected Journal Carrier | Carriers of the same Journal, **not** additional Journals |\n| Artifact Change Log **and** Process Log | non-authoritative Projections of that Journal, **not** separate historical sources |\n\n### Result\n\n- return `fail` **if** the evidence establishes **any** of these conditions:\n  - **`<90`**% of classifications are correct.\n  - a classification treats Runtime State **or** scratch as canonical truth.\n  - a placement creates a separate authoritative Journal for a Workflow, Scope Unit, **or** Content Role.\n  - a segment **or** log classification contradicts its expected answer above.\n- **otherwise**, return `unresolved` **if** missing evidence **or** an ambiguous boundary prevents the expected answers **or** classification score from being established. record a Concern for **every** ambiguous boundary **and** stop storage-boundary readiness **until** the governing rule **or** its presentation is corrected.",
+      "start_line": 47,
+      "text_sha256": "59b27973b22dd45dcdf72b23734ed0eecf4e14a6308a92f40cf8f46310764822"
+    },
+    {
+      "atom_id": "CA-E-523",
+      "atom_revision": 1,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/06_evaluation/CA-E-523-CORE_META_MODEL-QA_CASE--journal-view-integrity.md",
+      "carrier_sha256": "afa851cac9bc169ee46e90e98fe0deb5646a210881bb50a712fa8cc656d7d931",
+      "end_line": 60,
+      "evidence_ref": "E12",
+      "quote": "- the Artifact-change event **may** appear **in** the two views with the same canonical Event identity.\n- the read-only execution **must not** require a fabricated Artifact-change event.\n- rebuilding a view from the same declared Journal selection **must** preserve its source event references **and** represented historical facts.\n\n### Result\n\n- return `fail` **if** a fixture contradicts the expected behavior **or** does **any** of the following:\n  - independently writes history into a view.\n  - creates a second authoritative record merely **to** serve the other view.\n  - changes a represented fact **without** its source record.\n  - invents an execution association **or** successful outcome.\n  - treats a record as proof that its claimed outcome occurred.\n  - reports known incomplete **or** stale coverage as complete current history.\n- **otherwise**, return `unresolved` **if** missing evidence **or** an ambiguous boundary prevents the expected behavior **or** integrity checks from being evaluated. record a Concern for **every** ambiguous boundary **and** stop storage-boundary readiness **until** the governing rule **or** its presentation is corrected.",
+      "start_line": 47,
+      "text_sha256": "a21819d5eef6d3a412b34a3ace2beb3b5d079fefd01be84c46c83bc539c776a2"
+    },
+    {
+      "atom_id": "CA-D-304",
+      "atom_revision": 12,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-304-CORE_META_MODEL-CORE--preserve-authority-through-carrier-only-recoding.md",
+      "carrier_sha256": "d9c2fe921539bbc0a0df41a684581021072b3d1b3d3b40165068789f4a59653a",
+      "end_line": 31,
+      "evidence_ref": "E13",
+      "quote": "**every** Carrier-only recoding **must** preserve Atom identity, Claim, its textual Claim Scope, Claim Target Scope Unit, Atom Scope, **and** authored direct semantic relations **without** semantic change.",
+      "start_line": 31,
+      "text_sha256": "d34d1298bb82aace9af5a507eb0ab8a6fb0c5db20108fe75ec2ee60ef936776b"
+    },
+    {
+      "atom_id": "CA-D-267",
+      "atom_revision": 12,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-267-CORE_META_MODEL-DELIVERY--derive-address-facts-without-duplicated-frontmatter.md",
+      "carrier_sha256": "533c87f928032d8a8049ee4acdc0a34822aa8731a37a5f79964e66e7183b74c6",
+      "end_line": 29,
+      "evidence_ref": "E14",
+      "quote": "that address **must** be its sole Carrier encoding **and** embedded metadata **must not** duplicate it. Atom Properties instead follow CA-D-478 **and** CA-D-480.",
+      "start_line": 29,
+      "text_sha256": "2108b9a8b749188c253bc3ac4387bf9994db9536b022d95714c0756bd038b9b1"
+    },
+    {
+      "atom_id": "CA-D-301",
+      "atom_revision": 15,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-301-CORE_META_MODEL--require-portable-safe-carrier-addresses.md",
+      "carrier_sha256": "40fa41c8ff9abdd81a39689a3b95284a2240cf567113bbf794fa874b8e61a691",
+      "end_line": 31,
+      "evidence_ref": "E15",
+      "quote": "**every** Project-owned Carrier address segment\n\n- **must** use **only** portable automation-safe ASCII letters, digits, underscores, hyphens, **and** dots, with `@` admitted **only** **in** the `@<version>` Archive suffix immediately **before** the file extension, as specified by CA-D-289,\n- **must not** contain whitespace, control characters, path separators, shell metacharacters, empty **or** reserved segments, **or** unsafe leading **or** trailing characters,\n- **and** **must** remain sibling-unique under ASCII case folding.",
+      "start_line": 27,
+      "text_sha256": "47d6aba8b53a9d544968ac97af948c016dc155f59a8fcea800543a73ad922be6"
+    },
+    {
+      "atom_id": "CA-D-507",
+      "atom_revision": 1,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-507-CORE_META_MODEL-CORE--separate-entity-identity-from-carrier-format.md",
+      "carrier_sha256": "f972031598deeda63106bb92875fde04f7a34c27916d4a717a481286f1fb2a88",
+      "end_line": 30,
+      "evidence_ref": "E16",
+      "quote": "a change **to** Carrier Format **or** File Carrier Extension alone **must not** establish **or** change Entity identity.",
+      "start_line": 30,
+      "text_sha256": "3e866ee18723f5a7dc649f07788b1c980bd3d4591a3f3e76a093699d14339d50"
+    },
+    {
+      "atom_id": "CA-D-316",
+      "atom_revision": 11,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-316-CORE_META_MODEL-GENERAL--classify-carriers-by-ownership.md",
+      "carrier_sha256": "8df0a6f78eac1e3fa92bde5f9c0800b360fbf937d43ceba5daf2033471522be7",
+      "end_line": 27,
+      "evidence_ref": "E17",
+      "quote": "**every** internal CAPRMEDIO Carrier **must** have **`=1`** Ownership Class **in** (Framework-Owned, Project-Owned, Runtime State).",
+      "start_line": 27,
+      "text_sha256": "73d0d56435183056b9f0e792ed6246621004bc97223458ab783d13864ad1b77e"
+    },
+    {
+      "atom_id": "CA-D-311",
+      "atom_revision": 11,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-311-CORE_META_MODEL-CORE--represent-authority-without-semantic-change.md",
+      "carrier_sha256": "a049829113f02daa2df65f2daa3e23ad685b157d1bf64155ead647cc54097b4a",
+      "end_line": 28,
+      "evidence_ref": "E18",
+      "quote": "**every** governed Carrier **must** represent its carried Artifact Revision deterministically **and** human-readably **without** adding, removing, duplicating, **or** changing authoritative content.",
+      "start_line": 28,
+      "text_sha256": "fd0598cdf95593c5cbe8000dfaf81db899cd783259e64c615617872a8fbae337"
+    },
+    {
+      "atom_id": "CA-D-395",
+      "atom_revision": 7,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-395-CORE_META_MODEL--serialize-ambient-project-scope-paths.md",
+      "carrier_sha256": "5cf5520dd77ab46b3375ce89b0965f3b0748ebc5b2913966522374c65bb04481",
+      "end_line": 29,
+      "evidence_ref": "E19",
+      "quote": "a Carrier encoding of `scope_path` **must** omit the ambient current Project **and** use an empty path for Project Scope.",
+      "start_line": 29,
+      "text_sha256": "5000b56cd10932494673ea9810685cc7fc70e74580a818ff39229e5a55e23250"
+    },
+    {
+      "atom_id": "CA-D-341",
+      "atom_revision": 11,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-341-CORE_META_MODEL-CORE--separate-persistent-authority-from-runtime-state.md",
+      "carrier_sha256": "a97b70b64bc8097b7c2f94ff727ed81d7cafc1ed8941fed02cc1d764eaaa36e9",
+      "end_line": 30,
+      "evidence_ref": "E20",
+      "quote": "Framework-Owned **and** Project-Owned persistent Carriers **must** remain outside Runtime State so Runtime State cleanup cannot remove canonical authority **or** Journal history.",
+      "start_line": 30,
+      "text_sha256": "e40e8a4cdabc250d8b18c1b6b1f40b1095e805972a2f2eea6e5a8021879d68fc"
+    }
+  ],
+  "input_file_sha256": "0da36c3a1a5a84e0f2c0306d96fac4645289e439a2813031d575464b11f0b070",
+  "nodes": [
+    {
+      "checked_source_atom_ids": [
+        "CA-E-459"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "E01"
+          ],
+          "finding": "meaning unresolved",
+          "reason": "The Claim's defined subject is Project Settings validation, not CORE_META_MODEL."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "E01"
+          ],
+          "finding": "no duplicate established",
+          "reason": "CA-E-459 does not establish another CORE_META_MODEL identity."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "E01"
+          ],
+          "finding": "definition gap",
+          "reason": "The Claim mentions a required CORE_META_MODEL definition but supplies none for this identity."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "E01"
+          ],
+          "finding": "no generalization proposed",
+          "reason": "No captured definition supports changing this identity's scope."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "E01"
+          ],
+          "finding": "no redundancy established",
+          "reason": "The Project Settings validation condition does not show this identity is redundant."
+        }
+      },
+      "confidence_percent": 80,
+      "disposition": "question",
+      "evidence_refs": [
+        "E01"
+      ],
+      "identity": "CORE_META_MODEL",
+      "proposal": null,
+      "question": "Which captured Core Main Claim defines CORE_META_MODEL itself, rather than merely requiring a CORE_META_MODEL definition or storage rule for Project Settings?",
+      "reason": "The captured Main Claim only requires a CORE_META_MODEL definition or storage rule while defining Project Settings validation; it does not define this identity."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-M-241"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "E02"
+          ],
+          "finding": "distinct scope-signature derivation",
+          "reason": "It operates on an unwrapped Scope Expression, rather than Claim expressions."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "E02"
+          ],
+          "finding": "no duplicate established",
+          "reason": "The Method emits a signature with its source identity and revision rather than another source identity."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "E02"
+          ],
+          "finding": "meaningful method constraint present",
+          "reason": "The Claim specifies inputs, grammar boundary, emitted evidence, and prohibited effects."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "E02"
+          ],
+          "finding": "no generalization proposed",
+          "reason": "The Method remains bounded to one selected folder and its restricted grammar."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "E02"
+          ],
+          "finding": "not redundant",
+          "reason": "Restricted derivation and exclusion diagnostics have a defined operational purpose."
+        }
+      },
+      "confidence_percent": 99,
+      "disposition": "retain",
+      "evidence_refs": [
+        "E02"
+      ],
+      "identity": "Canonical Scope Signature Derivation",
+      "proposal": null,
+      "question": null,
+      "reason": "A captured Method gives a bounded Tool derivation from one caller-selected Atom Carrier folder and expressly excludes source rewrite or authority change."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-E-407"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "E03"
+          ],
+          "finding": "distinct from derivation",
+          "reason": "The Evaluation tests acceptability while CA-M-241 defines Tool behavior."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "E03"
+          ],
+          "finding": "no duplicate established",
+          "reason": "The Evaluation validates a derivation result; it does not create another Signature."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "E03"
+          ],
+          "finding": "meaningful validation boundary present",
+          "reason": "Explicit rejection conditions define the evaluation role."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "E03"
+          ],
+          "finding": "no generalization proposed",
+          "reason": "The rejection boundary remains the captured Canonical Scope Signature domain."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "E03"
+          ],
+          "finding": "not redundant",
+          "reason": "It separately checks scope-specific grammar and source-frontier stability."
+        }
+      },
+      "confidence_percent": 99,
+      "disposition": "retain",
+      "evidence_refs": [
+        "E03"
+      ],
+      "identity": "Canonical Scope Signature Derivation Validation",
+      "proposal": null,
+      "question": null,
+      "reason": "A captured Evaluation rejects source rewrite, authority treatment, unsupported selectors/operators, and non-canonical operand handling for scope signatures."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-M-240"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "E04"
+          ],
+          "finding": "distinct Claim-expression derivation",
+          "reason": "It targets active single-statement Atom Claims and parenthesized Boolean expressions."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "E04"
+          ],
+          "finding": "no duplicate established",
+          "reason": "The Method emits source-identity evidence rather than a duplicate Claim or Atom."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "E04"
+          ],
+          "finding": "meaningful method constraint present",
+          "reason": "The Claim fixes input, grammar, evidence, diagnostics, and non-effects."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "E04"
+          ],
+          "finding": "no generalization proposed",
+          "reason": "Its restricted Boolean grammar remains explicit."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "E04"
+          ],
+          "finding": "not redundant",
+          "reason": "It handles outermost Boolean Claim expressions, unlike the scope-expression Method."
+        }
+      },
+      "confidence_percent": 99,
+      "disposition": "retain",
+      "evidence_refs": [
+        "E04"
+      ],
+      "identity": "Canonical Signature Derivation",
+      "proposal": null,
+      "question": null,
+      "reason": "A captured Method defines restricted Boolean-expression signature derivation without source Carrier rewrite, lifecycle change, Claim merge, or authority decision."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-E-405"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "E05"
+          ],
+          "finding": "distinct from derivation",
+          "reason": "The Evaluation judges the Method's output boundary; it does not derive a Signature."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "E05"
+          ],
+          "finding": "no duplicate established",
+          "reason": "The Evaluation checks one derivation rather than authoring another Signature."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "E05"
+          ],
+          "finding": "meaningful validation boundary present",
+          "reason": "The rejection conditions define the validation role."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "E05"
+          ],
+          "finding": "no generalization proposed",
+          "reason": "The check remains restricted to the captured CCE boundary."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "E05"
+          ],
+          "finding": "not redundant",
+          "reason": "It separately rejects Claim rewrite, authority treatment, unsupported operators, duplicate predicates, and order instability."
+        }
+      },
+      "confidence_percent": 99,
+      "disposition": "retain",
+      "evidence_refs": [
+        "E05"
+      ],
+      "identity": "Canonical Signature Derivation Validation",
+      "proposal": null,
+      "question": null,
+      "reason": "A captured Evaluation defines the rejection boundary for restricted CCE canonical signatures."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-M-235"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "E06"
+          ],
+          "finding": "distinct numeric constraint",
+          "reason": "It counts an Entity or expression through a comparison operator and literal."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "E06"
+          ],
+          "finding": "no duplicate established",
+          "reason": "The syntax expresses one numeric constraint without creating another Property or Entity."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "E06"
+          ],
+          "finding": "meaningful authoring constraint present",
+          "reason": "The Claim specifies the exact serial form and examples."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "E06"
+          ],
+          "finding": "no generalization proposed",
+          "reason": "The captured rule is limited to numeric Cardinality Constraint authoring."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "E06"
+          ],
+          "finding": "not redundant",
+          "reason": "The comparison-plus-integer rule supplies the cardinality expression boundary."
+        }
+      },
+      "confidence_percent": 96,
+      "disposition": "retain",
+      "evidence_refs": [
+        "E06"
+      ],
+      "identity": "Cardinality Constraint",
+      "proposal": null,
+      "question": null,
+      "reason": "The captured Method gives a concrete numeric Cardinality Constraint syntax: a canonical comparison operator followed immediately by a nonnegative integer literal before the counted target."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-M-235"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "E06"
+          ],
+          "finding": "distinct authoring activity",
+          "reason": "This identity concerns serialization, not the cardinality concept alone."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "E06"
+          ],
+          "finding": "no duplicate established",
+          "reason": "One serialized comparison/literal prefix represents one authoring occurrence, not a duplicate target."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "E06"
+          ],
+          "finding": "meaningful authoring rule present",
+          "reason": "The Claim names the Author and exact required serialization."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "E06"
+          ],
+          "finding": "no generalization proposed",
+          "reason": "The rule remains numeric Cardinality Constraint authoring."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "E06"
+          ],
+          "finding": "not redundant",
+          "reason": "Authoring has an exact serialization obligation separate from evaluating a constraint."
+        }
+      },
+      "confidence_percent": 99,
+      "disposition": "retain",
+      "evidence_refs": [
+        "E06"
+      ],
+      "identity": "Cardinality Constraint Authoring",
+      "proposal": null,
+      "question": null,
+      "reason": "The same captured Method directly defines authoring of one numeric Cardinality Constraint."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-312",
+        "CA-D-394",
+        "CA-D-414",
+        "CA-D-434",
+        "CA-E-522",
+        "CA-E-523"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "E07",
+            "E09",
+            "E12"
+          ],
+          "finding": "actual Carrier distinct from carried Entity and binding metadata",
+          "reason": "The classification concerns Carrier itself; the other sources constrain uses, locations, or views without changing that identity."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "E08"
+          ],
+          "finding": "no duplicate established",
+          "reason": "A convenience symlink exposes one native source without copied authority or an additional owner."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "E09"
+          ],
+          "finding": "meaningful classification present",
+          "reason": "Carrier is explicitly NARROWER_THAN Primary Entity."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "E09"
+          ],
+          "finding": "no generalization proposed",
+          "reason": "No broad parentage beyond the captured Primary Entity classification is added."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "E07",
+            "E08",
+            "E10",
+            "E11"
+          ],
+          "finding": "not redundant",
+          "reason": "Carrier places, source exposure, placement, and storage boundaries carry distinct obligations."
+        }
+      },
+      "confidence_percent": 99,
+      "disposition": "retain",
+      "evidence_refs": [
+        "E07",
+        "E08",
+        "E09",
+        "E10",
+        "E11",
+        "E12"
+      ],
+      "identity": "Carrier",
+      "proposal": null,
+      "question": null,
+      "reason": "Captured Core classifies Carrier as a Primary Entity and gives Carrier-specific placement, representation, storage, symlink, and Journal-view rules; no carried Entity or binding metadata is substituted for the Carrier identity."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-304"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "E13"
+          ],
+          "finding": "distinct from semantic migration",
+          "reason": "The Claim expressly requires no semantic change."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "E13"
+          ],
+          "finding": "no duplicate established",
+          "reason": "Recoding preserves the existing Atom identity rather than creating another one."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "E13"
+          ],
+          "finding": "meaningful constraint present",
+          "reason": "The Claim gives the exact invariants that recoding must preserve."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "E13"
+          ],
+          "finding": "no generalization proposed",
+          "reason": "The identity remains limited to Carrier-only recoding."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "E13"
+          ],
+          "finding": "not redundant",
+          "reason": "The preservation rule constrains a carrier transformation with otherwise high semantic-risk potential."
+        }
+      },
+      "confidence_percent": 99,
+      "disposition": "retain",
+      "evidence_refs": [
+        "E13"
+      ],
+      "identity": "Carrier-Only Recoding",
+      "proposal": null,
+      "question": null,
+      "reason": "Captured Delivery authority requires recoding to preserve identity, Claim, scopes, and authored direct semantic relations without semantic change."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-267"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "E14"
+          ],
+          "finding": "distinct address metadata",
+          "reason": "The identity is an encoding/binding fact, not an actual Carrier or carried Artifact."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "E14"
+          ],
+          "finding": "no duplicate established",
+          "reason": "The sole-encoding requirement prohibits duplicated embedded metadata."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "E14"
+          ],
+          "finding": "meaningful qualified constraint present",
+          "reason": "The Scope and Claim jointly identify registered canonical Carrier addresses and their sole encoding."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "E14"
+          ],
+          "finding": "no generalization proposed",
+          "reason": "The constraint is limited to qualifying canonical addresses."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "E14"
+          ],
+          "finding": "not redundant",
+          "reason": "It governs address encoding precisely when it derives non-Atom Artifact Properties."
+        }
+      },
+      "confidence_percent": 97,
+      "disposition": "retain",
+      "evidence_refs": [
+        "E14"
+      ],
+      "identity": "Carrier/Canonical Address",
+      "proposal": null,
+      "question": null,
+      "reason": "Captured qualified prose defines a canonical Carrier address encoding as the sole Carrier encoding when it completely and unambiguously derives non-Atom Artifact Properties; this is binding/encoding metadata, not another Carrier."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-301"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "E15"
+          ],
+          "finding": "distinct address component",
+          "reason": "A Segment is a component of address encoding, not an independent Carrier or a carried Entity."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "E15"
+          ],
+          "finding": "no duplicate established",
+          "reason": "Sibling uniqueness under ASCII case folding explicitly prevents duplicate-address segments."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "E15"
+          ],
+          "finding": "meaningful qualified constraint present",
+          "reason": "The Claim directly regulates every Project-owned Carrier address segment."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "E15"
+          ],
+          "finding": "no generalization proposed",
+          "reason": "The rule remains scoped to Project-owned Carrier address segments."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "E15"
+          ],
+          "finding": "not redundant",
+          "reason": "The character, suffix, safety, and uniqueness restrictions define a distinct segment obligation."
+        }
+      },
+      "confidence_percent": 99,
+      "disposition": "retain",
+      "evidence_refs": [
+        "E15"
+      ],
+      "identity": "Carrier/Canonical Address/Segment",
+      "proposal": null,
+      "question": null,
+      "reason": "Captured Delivery authority specifies portable-safe, sibling-unique Project-owned Carrier address segment rules."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-507"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "E16"
+          ],
+          "finding": "distinct from carried Entity identity",
+          "reason": "Carrier Format is explicitly not identity-establishing evidence."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "E16"
+          ],
+          "finding": "no duplicate established",
+          "reason": "A format change alone cannot create an Entity identity duplicate."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "E16"
+          ],
+          "finding": "meaningful qualified constraint present",
+          "reason": "The Claim directly regulates Carrier Format and File Carrier Extension changes."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "E16"
+          ],
+          "finding": "no generalization proposed",
+          "reason": "The constraint covers only format or extension changes alone."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "E16"
+          ],
+          "finding": "not redundant",
+          "reason": "The format/identity boundary prevents carrier encoding from changing the carried Entity's identity."
+        }
+      },
+      "confidence_percent": 98,
+      "disposition": "retain",
+      "evidence_refs": [
+        "E16"
+      ],
+      "identity": "Carrier/Format",
+      "proposal": null,
+      "question": null,
+      "reason": "Captured Core gives Carrier Format a specific identity-separation constraint: a format or file-extension change alone cannot establish or change Entity identity."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-316"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "E17"
+          ],
+          "finding": "distinct metadata classification",
+          "reason": "Ownership Class classifies a Carrier; it is neither the Carrier nor its carried Entity."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "E17"
+          ],
+          "finding": "no duplicate established",
+          "reason": "The `=1` requirement prevents several Ownership Class values for one Carrier."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "E17"
+          ],
+          "finding": "meaningful qualified constraint present",
+          "reason": "The Claim explicitly names the `=1` Ownership Class and allowed values."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "E17"
+          ],
+          "finding": "no generalization proposed",
+          "reason": "The permitted domain remains Framework-Owned, Project-Owned, Runtime State."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "E17"
+          ],
+          "finding": "not redundant",
+          "reason": "The ownership classification determines the bounded Carrier ownership domain."
+        }
+      },
+      "confidence_percent": 99,
+      "disposition": "retain",
+      "evidence_refs": [
+        "E17"
+      ],
+      "identity": "Carrier/Ownership Class",
+      "proposal": null,
+      "question": null,
+      "reason": "Captured Core requires exactly one Ownership Class for every internal CAPRMEDIO Carrier from a stated three-value domain."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-311",
+        "CA-D-395"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "E18"
+          ],
+          "finding": "distinct representation metadata",
+          "reason": "Representation belongs to a Carrier and refers to the carried Artifact Revision without becoming that Artifact."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "E18"
+          ],
+          "finding": "no duplicate established",
+          "reason": "Representation must not add or duplicate authoritative content."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "E18"
+          ],
+          "finding": "meaningful qualified constraint present",
+          "reason": "The Claim specifies representation of the carried Artifact Revision."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "E19"
+          ],
+          "finding": "no generalization proposed",
+          "reason": "The scope_path exception remains limited to ambient Project omission and Project Scope empty path."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "E18",
+            "E19"
+          ],
+          "finding": "not redundant",
+          "reason": "Deterministic human-readable representation and ambient-project scope_path encoding are distinct obligations."
+        }
+      },
+      "confidence_percent": 99,
+      "disposition": "retain",
+      "evidence_refs": [
+        "E18",
+        "E19"
+      ],
+      "identity": "Carrier/Representation",
+      "proposal": null,
+      "question": null,
+      "reason": "Captured Core requires a governed Carrier to represent its carried Artifact Revision deterministically and human-readably without authoritative-content change; a scope_path is a separately constrained Carrier encoding."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-D-341"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "E20"
+          ],
+          "finding": "distinct storage metadata",
+          "reason": "Storage Boundary classifies where persistent Carriers may reside; it is not the Carrier or carried Entity."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "E20"
+          ],
+          "finding": "no duplicate established",
+          "reason": "The rule prevents Runtime State cleanup from becoming a second authority store."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "E20"
+          ],
+          "finding": "meaningful qualified constraint present",
+          "reason": "The Claim directly defines the persistent-carrier storage boundary."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "E20"
+          ],
+          "finding": "no generalization proposed",
+          "reason": "The rule remains limited to persistent Framework-Owned and Project-Owned Carriers."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "E20"
+          ],
+          "finding": "not redundant",
+          "reason": "The persistence boundary protects canonical authority and Journal history."
+        }
+      },
+      "confidence_percent": 99,
+      "disposition": "retain",
+      "evidence_refs": [
+        "E20"
+      ],
+      "identity": "Carrier/Storage Boundary",
+      "proposal": null,
+      "question": null,
+      "reason": "Captured Core requires persistent Framework-Owned and Project-Owned Carriers outside Runtime State to protect canonical authority and Journal history."
+    }
+  ],
+  "non_authoritative": true,
+  "operator_direction": {
+    "core_evidence_status": "not_retroactively_inserted",
+    "effect_on_assigned_identities": "none; no assigned identity is Substance Scope",
+    "scope_omission_decision_considered": true
+  },
+  "parent_input": {
+    "partition_sha256": "88beafef8f20de3b26f0f0c199ada28138d266688d648f3170b036c5cb8cc913",
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/nodes/inputs/nodes.batch-3.input.json",
+    "sha256": "dd32659d557158390a52c869c87afbc5c28757f7bcb73a0c5f39a2d2d4c4dc3a"
+  },
+  "partition_sha256": "2e756178f6f0eda37ad3245e31599813ab2eb66cb0ff9da31245c3fa05f0a127",
+  "scope_omission_pin": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/nodes/scope.omission.decision.md",
+    "sha256": "d4ea636d540b0558c1a0fbb8263760947e1f0768840c43b3ed1d05c96b497453"
+  },
+  "semantic_admission": "not_performed",
+  "source_context": "captured_snapshot",
+  "source_migration": "not_performed",
+  "source_task": "CA-P-1942",
+  "subset_indexes": [
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57
+  ]
+}

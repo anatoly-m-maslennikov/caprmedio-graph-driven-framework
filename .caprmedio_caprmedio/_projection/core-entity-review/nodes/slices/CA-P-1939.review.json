@@ -1,0 +1,884 @@
+{
+  "source_task": "CA-P-1939",
+  "batch": 3,
+  "baseline_inventory_sha256": "23394abaf6e9c18a585cf3146aedd0a80df166c9dd82be6e86ed7c3c56780bdc",
+  "input_file_sha256": "b34b3cb7dedcd6287e02c19c2327f80964bdbc6bfab457039ae0cd230e343c34",
+  "partition_sha256": "775ef9767d52fb868f5cd03f37a52535c2acf59e20fb9b4fc0043b3335de1214",
+  "non_authoritative": true,
+  "semantic_admission": "not_performed",
+  "source_migration": "not_performed",
+  "source_context": "captured_snapshot",
+  "git_commit": "a971d0e00c33c779f485fc8cad63194894d440fb",
+  "parent_input": {
+    "partition_sha256": "88beafef8f20de3b26f0f0c199ada28138d266688d648f3170b036c5cb8cc913",
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/nodes/inputs/nodes.batch-3.input.json",
+    "sha256": "dd32659d557158390a52c869c87afbc5c28757f7bcb73a0c5f39a2d2d4c4dc3a"
+  },
+  "scope_omission_pin": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/nodes/scope.omission.decision.md",
+    "sha256": "d4ea636d540b0558c1a0fbb8263760947e1f0768840c43b3ed1d05c96b497453"
+  },
+  "evidence_catalogue": [
+    {
+      "evidence_ref": "e1",
+      "atom_id": "CA-D-478",
+      "atom_revision": 5,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-478-CORE_META_MODEL-CORE-DELIVERY--store-every-atom-property-in-one-internal-location.md",
+      "carrier_sha256": "a40ad3683ecddd536e5b7eb6c044e8da15806ab44946fa1354c408ce5e966464",
+      "start_line": 33,
+      "end_line": 39,
+      "quote": "**every** applicable Atom Property **must** have **`=1`** canonical internal location assigned by its Delivery authority:\n\n- use YAML Frontmatter **unless** that Property is assigned **to** a named Main Content section.\n- use the named section as the sole value source **when** Main Content carries the Property; do **not** maintain the same Property again **in** frontmatter.\n- names, filename tokens, **and** placement are representations checked against the internal value under CA-D-480, **not** alternative authority.\n- Atom-to-Atom Relations follow their registered owning direction under CA-D-268; do **not** copy inverse **or** transitive Relations **to** make an Atom self-sufficient.\n- the retired top-level fields `cce_version`, `cce_form`, **and** `llm_session_ids` are **not** admitted Atom Properties **and** **must not** be serialized **in** an Atom Carrier. their absence is conforming; their presence is a retired-field finding, **not** a reason **to** select legacy authority. this rule does **not** remove session provenance from its separately governed Journal Carrier.",
+      "text_sha256": "8e2c7a4e1e7a8d913a7a76bf8b6f2cd68c9247c14a4af828c33adcceec6cb5ac"
+    },
+    {
+      "evidence_ref": "e2",
+      "atom_id": "CA-D-268",
+      "atom_revision": 12,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-268-CORE_META_MODEL-DELIVERY--serialize-authored-direct-relations-on-their-owning-atoms.md",
+      "carrier_sha256": "2afc204f59d90286345c9f4b5f74f8fcf2b8b40b992ab5aca734b0ad53e46335",
+      "start_line": 28,
+      "end_line": 28,
+      "quote": "**every** authored direct semantic relation **must** be serialized once under `relations.<RELATION_KIND>` on the Atom that owns its declared direction as a nonempty unordered collection of unique canonical target references **in** deterministic canonical order; target position **must not** add, remove, **or** alter a direct relation **or** dependency.",
+      "text_sha256": "bf0d59c7e5df7bf31beb05eb58a5b13de547e0d10d4bc96be08d472af840bf35"
+    },
+    {
+      "evidence_ref": "e3",
+      "atom_id": "CA-D-302",
+      "atom_revision": 13,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-302-CORE_META_MODEL-DELIVERY--serialize-scope-unit-references-as-filename-tokens.md",
+      "carrier_sha256": "6dafff118ee74ab5995cb2918584bcc4fa1c843de0bb306f06926f4169ed6bfb",
+      "start_line": 27,
+      "end_line": 27,
+      "quote": "**every** Scope Unit reference serialized **in** an Atom filename **must** use **`=1`** stable uppercase token selected from its Scope Unit Name by Project Configuration.",
+      "text_sha256": "40cd8c1c362279e6ae7b4e26446156e77b46300937b5eb10a434f20a13896d9b"
+    },
+    {
+      "evidence_ref": "e4",
+      "atom_id": "CA-R-1198",
+      "atom_revision": 13,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1198-CORE_META_MODEL-CORE-REQUIREMENT--define-atom-subjects.md",
+      "carrier_sha256": "6eb2f68642b09eb05e1c6ece6b2dd92d309b92445fcea3e0b37f4b485576365b",
+      "start_line": 33,
+      "end_line": 33,
+      "quote": "the Atom Subjects Property **means** the Atom Property that records its direct Subject Relations: GOVERNS **and** DEPENDS_ON links from that Atom **to** canonical targets. it preserves the target identities **without** storing copies of the targets **or** introducing a separately identified Subject object **or** a nested Entity **or** Reference Property for **every** link.",
+      "text_sha256": "16771f450862a5c428512f0d07be5283cefb19d4e1829c554020db3aa3f7612d"
+    },
+    {
+      "evidence_ref": "e5",
+      "atom_id": "CA-D-269",
+      "atom_revision": 12,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-269-CORE_META_MODEL-DELIVERY--serialize-atom-subjects-in-frontmatter.md",
+      "carrier_sha256": "eea15e5b1c2411acdd552c8701da98ac34bab89a107ee05f28760eb1ce8eeac3",
+      "start_line": 33,
+      "end_line": 33,
+      "quote": "**every** new **or** migrated Markdown Atom Carrier **must** serialize its Subjects directly as **`=1`** scalar Subject Path at `subjects.governs` **and** an unordered collection of **`>=0`** unique scalar Subject Paths at `subjects.depends_on`; an absent dependency collection **means** zero dependencies. the `governs` **or** `depends_on` key encodes the Subject Relation Kind; the source Atom is implicit **and** the scalar value encodes its target's Subject Path, **not** the Subject Relation itself. these values resolve their canonical targets under CA-R-1202-CORE_META_MODEL-CORE-REQUIREMENT--resolve-every-direct-subject-target-once **without** an intermediate Subject/Entity **or** Subject/Reference field **or** a repeated target-kind field.",
+      "text_sha256": "931014e550299dcd99de59132e5be16e87ac7c4ca1c59b003e4e5c0037f75340"
+    },
+    {
+      "evidence_ref": "e6",
+      "atom_id": "CA-R-1465",
+      "atom_revision": 8,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1465-CORE_META_MODEL-CORE--define-summary-as-an-atom-property.md",
+      "carrier_sha256": "36b83d020dbfbeccde12bee2f5d83e2c8d42f7469072b5f2e95e3f17b08a260a",
+      "start_line": 32,
+      "end_line": 32,
+      "quote": "a Summary **means** a short, non-authoritative navigation Property of **`=1`** Atom, derived from the finalized primary contribution registered for its Content Role, read within its applicability. it belongs **to** that Atom **without** independent identity, lifecycle, **or** authority.",
+      "text_sha256": "d8373e6acf69fdabf1dabe0d156f516dad8e624d3d337fd755a71f357aa19750"
+    },
+    {
+      "evidence_ref": "e7",
+      "atom_id": "CA-M-301",
+      "atom_revision": 6,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/05_method/CA-M-301-CORE_META_MODEL--make-atom-claims-easy-to-understand.md",
+      "carrier_sha256": "5b5d8a498e87e2f377eea0593235af7fd642d21006e9a34ab6358787a8769a41",
+      "start_line": 42,
+      "end_line": 42,
+      "quote": "**to** make an Atom Claim easy **to** understand, the Author **must** express **and** organize its content so the intended reader can identify what is claimed, what it concerns, **and** how its conditions **and** consequences fit together **without** guessing unstated connections.",
+      "text_sha256": "7510ef7f96ec0ae6254f18dab05bae83b5954bfcbe9ee00d6df9e4720760cef0"
+    },
+    {
+      "evidence_ref": "e8",
+      "atom_id": "CA-M-287",
+      "atom_revision": 10,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/05_method/CA-M-287-CORE_META_MODEL-METHOD--exclude-activity-labels-from-content-role-names.md",
+      "carrier_sha256": "50eaddff1271ff1ef1eac2eb559762a12f0a284ed30c96026f15c7a69aecafdd",
+      "start_line": 30,
+      "end_line": 30,
+      "quote": "**to** name a Content Role, the Author **must not** use a verb, imperative, workflow instruction, Status, **or** activity label.",
+      "text_sha256": "2d88548b714c55f62b527ddbd370cbb7b09e3a38fdcd1c025dca24f491fd05fe"
+    },
+    {
+      "evidence_ref": "e9",
+      "atom_id": "CA-R-1430",
+      "atom_revision": 8,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1430-CORE_META_MODEL-GENERAL--select-authority-modes-through-framework-instance-settings.md",
+      "carrier_sha256": "ec9d8b3f6d6aa35d43101e4d7d6d405413778d4bc05d15cce92975ae6356d263",
+      "start_line": 37,
+      "end_line": 37,
+      "quote": "Framework Instance Settings **must** select the Project Authority Mode **and** default Scope Unit Authority Mode. a Scope Unit's explicit Authority Mode override **must** be owned **only** by its Project Structure declaration; an omitted override uses the effective Framework Instance setting **without** becoming an authored per-unit value. permitted values are `strict` **and** `casual`; neither changes the authority of active Atoms.",
+      "text_sha256": "b5f318d42037e7a4bd900c03f9ab259ea7dd4adb640a9b67a30d703d78d90b71"
+    },
+    {
+      "evidence_ref": "e10",
+      "atom_id": "CA-O-013",
+      "atom_revision": 5,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/CA-O-013-CORE_META_MODEL-ACTION--authorize-structural-change.md",
+      "carrier_sha256": "eeb3c6426669b778c0dc44c28065eeff51f2af3b4a0aef5af3e924b505e1bbe9",
+      "start_line": 29,
+      "end_line": 29,
+      "quote": "Authorize Structural Change **means** the Action that checks a structural change proposal against the Operator's actual authorization **and** the effective Autonomous Confidence Threshold, returning permission for the exact proposed effects **or** a blocked decision with its reason. existing authorization **may** cover those effects; a new approval **must** be requested **if** they exceed it, conflict resolution requires it, **or** uncertainty fails the effective threshold. approval **must** remain bound **to** the proposal **and** selected source state. this Action **must not** infer permission from a folder observation, a generated result, confidence alone, **or** the existence of a Plan.",
+      "text_sha256": "fb0569f241cf24050a307401c6e1cf00b8c969114ee041df1638c6f9793a4eb4"
+    },
+    {
+      "evidence_ref": "e11",
+      "atom_id": "CA-R-1044",
+      "atom_revision": 15,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1044-CORE_META_MODEL-CORE-REQUIREMENT--define-autonomous-confidence-threshold.md",
+      "carrier_sha256": "50f83d3f12961961999d3f7d9ff7cc61cd8bbc58c6b6b198d3cf138d21969422",
+      "start_line": 30,
+      "end_line": 30,
+      "quote": "an Autonomous Confidence Threshold **means** the Confidence Threshold at which an AI Agent **may** continue Plan work autonomously.",
+      "text_sha256": "2bba103b6fa8a52c2635239046cd62e0cb05bb8aa14f745ab35c296b920cf167"
+    }
+  ],
+  "nodes": [
+    {
+      "identity": "Atom/Property/Carrier",
+      "disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "Captured Delivery authority gives Atom/Property/Carrier a qualified canonical-internal-location and sole-value-source constraint; retain without treating frontmatter, a Main Content section, or a Carrier as a replacement identity or native fact.",
+      "checks": {
+        "duplicates": {
+          "finding": "no_proven_duplicate",
+          "reason": "The named internal location is a representation location for this Property, not a second Atom Property identity.",
+          "evidence_refs": [
+            "e1"
+          ]
+        },
+        "redundancy": {
+          "finding": "not_proven_redundant",
+          "reason": "The sole-value-source rule preserves one authoritative location rather than making the qualified Property redundant.",
+          "evidence_refs": [
+            "e1"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful_qualified_constraint",
+          "reason": "Delivery authority requires one canonical internal location and forbids competing Frontmatter/Main Content values.",
+          "evidence_refs": [
+            "e1"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "binding_location_distinct",
+          "reason": "The constraint is about the Atom Property/Carrier binding and expressly leaves representation names and placement non-authoritative.",
+          "evidence_refs": [
+            "e1"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No evidence permits collapsing this qualified binding into Atom Property, Carrier, or serialization metadata.",
+          "evidence_refs": [
+            "e1"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "e1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-478"
+      ],
+      "proposal": null,
+      "question": null
+    },
+    {
+      "identity": "Atom/Relation Owner",
+      "disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "Captured snapshot Main Content supplies an exact definition or meaningful constraint for this identity; retain without inferring a native relation or replacement.",
+      "checks": {
+        "duplicates": {
+          "finding": "no_proven_duplicate",
+          "reason": "Captured snapshot Main Content supports this exact preserved identity; no duplicate, reduction, or replacement is established.",
+          "evidence_refs": [
+            "e2"
+          ]
+        },
+        "redundancy": {
+          "finding": "not_proven_redundant",
+          "reason": "A field/authority qualification is not redundant merely because it is represented with another field.",
+          "evidence_refs": [
+            "e2"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful_constraint_or_definition",
+          "reason": "Captured snapshot Main Content supports this exact preserved identity; no duplicate, reduction, or replacement is established.",
+          "evidence_refs": [
+            "e2"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "captured_meaning_evidenced",
+          "reason": "Captured snapshot Main Content supports this exact preserved identity; no duplicate, reduction, or replacement is established.",
+          "evidence_refs": [
+            "e2"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis supports generalization.",
+          "evidence_refs": [
+            "e2"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "e2"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-268"
+      ],
+      "proposal": null,
+      "question": null
+    },
+    {
+      "identity": "Atom/Scope/Filename Token",
+      "disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "Captured snapshot Main Content supplies an exact definition or meaningful constraint for this identity; retain without inferring a native relation or replacement.",
+      "checks": {
+        "duplicates": {
+          "finding": "no_proven_duplicate",
+          "reason": "Captured snapshot Main Content supports this exact preserved identity; no duplicate, reduction, or replacement is established.",
+          "evidence_refs": [
+            "e3"
+          ]
+        },
+        "redundancy": {
+          "finding": "not_proven_redundant",
+          "reason": "A field/authority qualification is not redundant merely because it is represented with another field.",
+          "evidence_refs": [
+            "e3"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful_constraint_or_definition",
+          "reason": "Captured snapshot Main Content supports this exact preserved identity; no duplicate, reduction, or replacement is established.",
+          "evidence_refs": [
+            "e3"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "captured_meaning_evidenced",
+          "reason": "Captured snapshot Main Content supports this exact preserved identity; no duplicate, reduction, or replacement is established.",
+          "evidence_refs": [
+            "e3"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis supports generalization.",
+          "evidence_refs": [
+            "e3"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "e3"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-302"
+      ],
+      "proposal": null,
+      "question": null
+    },
+    {
+      "identity": "Atom/Status",
+      "disposition": "question",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot review found only another target's definition, a representation rule, or no target meaning; this is not evidence to drop, consolidate, or generalize.",
+      "checks": {
+        "duplicates": {
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in assigned captured sources.",
+          "evidence_refs": []
+        },
+        "redundancy": {
+          "finding": "unresolved",
+          "reason": "No redundancy proof in assigned captured sources.",
+          "evidence_refs": []
+        },
+        "empty_definition": {
+          "finding": "unresolved",
+          "reason": "Assigned captured snapshot sources do not contain a target definition or meaningful constraint for Atom/Status. Missing meaning is not emptiness.",
+          "evidence_refs": []
+        },
+        "distinct_meaning": {
+          "finding": "unresolved",
+          "reason": "Assigned captured snapshot sources do not contain a target definition or meaningful constraint for Atom/Status.",
+          "evidence_refs": []
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No replacement and loss analysis supports generalization.",
+          "evidence_refs": []
+        }
+      },
+      "evidence_refs": [],
+      "checked_source_atom_ids": [
+        "CA-E-447",
+        "CA-E-460",
+        "CA-M-273",
+        "CA-M-288",
+        "CAPRMEDIO-GOV-EVAL-005"
+      ],
+      "proposal": null,
+      "question": "Which captured-snapshot Main Content statement defines or supplies a meaningful constraint for Atom/Status?"
+    },
+    {
+      "identity": "Atom/Subjects",
+      "disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "Captured snapshot Main Content supplies an exact definition or meaningful constraint for this identity; retain without inferring a native relation or replacement.",
+      "checks": {
+        "duplicates": {
+          "finding": "no_proven_duplicate",
+          "reason": "Captured snapshot Main Content supports this exact preserved identity; no duplicate, reduction, or replacement is established.",
+          "evidence_refs": [
+            "e4"
+          ]
+        },
+        "redundancy": {
+          "finding": "not_proven_redundant",
+          "reason": "A field/authority qualification is not redundant merely because it is represented with another field.",
+          "evidence_refs": [
+            "e4"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful_constraint_or_definition",
+          "reason": "Captured snapshot Main Content supports this exact preserved identity; no duplicate, reduction, or replacement is established.",
+          "evidence_refs": [
+            "e4"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "captured_meaning_evidenced",
+          "reason": "Captured snapshot Main Content supports this exact preserved identity; no duplicate, reduction, or replacement is established.",
+          "evidence_refs": [
+            "e4"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis supports generalization.",
+          "evidence_refs": [
+            "e4"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "e4"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-269",
+        "CA-D-471",
+        "CA-E-240",
+        "CA-E-246",
+        "CA-E-449",
+        "CA-E-499",
+        "CA-E-511",
+        "CA-E-520",
+        "CA-M-125",
+        "CA-M-225",
+        "CA-M-232",
+        "CA-M-313",
+        "CA-R-1198",
+        "CA-R-1201",
+        "CA-R-1202",
+        "CA-R-1276",
+        "CA-R-1278",
+        "CA-R-1280",
+        "CA-R-1281",
+        "CA-R-1363",
+        "CA-R-1455",
+        "CA-R-1456",
+        "CA-R-1459",
+        "CA-R-1550",
+        "CA-R-1597"
+      ],
+      "proposal": null,
+      "question": null
+    },
+    {
+      "identity": "Atom/Subjects/Frontmatter",
+      "disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "Captured snapshot Main Content supplies an exact definition or meaningful constraint for this identity; retain without inferring a native relation or replacement.",
+      "checks": {
+        "duplicates": {
+          "finding": "no_proven_duplicate",
+          "reason": "Captured snapshot Main Content supports this exact preserved identity; no duplicate, reduction, or replacement is established.",
+          "evidence_refs": [
+            "e5"
+          ]
+        },
+        "redundancy": {
+          "finding": "not_proven_redundant",
+          "reason": "A field/authority qualification is not redundant merely because it is represented with another field.",
+          "evidence_refs": [
+            "e5"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful_constraint_or_definition",
+          "reason": "Captured snapshot Main Content supports this exact preserved identity; no duplicate, reduction, or replacement is established.",
+          "evidence_refs": [
+            "e5"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "captured_meaning_evidenced",
+          "reason": "Captured snapshot Main Content supports this exact preserved identity; no duplicate, reduction, or replacement is established.",
+          "evidence_refs": [
+            "e5"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis supports generalization.",
+          "evidence_refs": [
+            "e5"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "e5"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-269"
+      ],
+      "proposal": null,
+      "question": null
+    },
+    {
+      "identity": "Atom/Summary",
+      "disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "Captured snapshot Main Content supplies an exact definition or meaningful constraint for this identity; retain without inferring a native relation or replacement.",
+      "checks": {
+        "duplicates": {
+          "finding": "no_proven_duplicate",
+          "reason": "Captured snapshot Main Content supports this exact preserved identity; no duplicate, reduction, or replacement is established.",
+          "evidence_refs": [
+            "e6"
+          ]
+        },
+        "redundancy": {
+          "finding": "not_proven_redundant",
+          "reason": "A field/authority qualification is not redundant merely because it is represented with another field.",
+          "evidence_refs": [
+            "e6"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful_constraint_or_definition",
+          "reason": "Captured snapshot Main Content supports this exact preserved identity; no duplicate, reduction, or replacement is established.",
+          "evidence_refs": [
+            "e6"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "captured_meaning_evidenced",
+          "reason": "Captured snapshot Main Content supports this exact preserved identity; no duplicate, reduction, or replacement is established.",
+          "evidence_refs": [
+            "e6"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis supports generalization.",
+          "evidence_refs": [
+            "e6"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "e6"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-282",
+        "CA-D-283",
+        "CA-D-469",
+        "CA-D-470",
+        "CA-D-478",
+        "CA-D-479",
+        "CA-D-480",
+        "CA-E-241",
+        "CA-E-246",
+        "CA-E-384",
+        "CA-E-463",
+        "CA-E-472",
+        "CA-E-491",
+        "CA-E-502",
+        "CA-E-506",
+        "CA-E-520",
+        "CA-E-521",
+        "CA-M-111",
+        "CA-M-116",
+        "CA-M-125",
+        "CA-M-231",
+        "CA-M-294",
+        "CA-M-303",
+        "CA-M-306",
+        "CA-O-053",
+        "CA-O-067",
+        "CA-O-077",
+        "CA-O-079",
+        "CA-O-087",
+        "CA-O-090",
+        "CA-O-103",
+        "CA-O-111",
+        "CA-O-128",
+        "CA-R-1273",
+        "CA-R-1274",
+        "CA-R-1280",
+        "CA-R-1418",
+        "CA-R-1432",
+        "CA-R-1464",
+        "CA-R-1465",
+        "CA-R-1575"
+      ],
+      "proposal": null,
+      "question": null
+    },
+    {
+      "identity": "Atom/Type",
+      "disposition": "question",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot review found only another target's definition, a representation rule, or no target meaning; this is not evidence to drop, consolidate, or generalize.",
+      "checks": {
+        "duplicates": {
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in assigned captured sources.",
+          "evidence_refs": []
+        },
+        "redundancy": {
+          "finding": "unresolved",
+          "reason": "No redundancy proof in assigned captured sources.",
+          "evidence_refs": []
+        },
+        "empty_definition": {
+          "finding": "unresolved",
+          "reason": "Assigned captured snapshot sources do not contain a target definition or meaningful constraint for Atom/Type. Missing meaning is not emptiness.",
+          "evidence_refs": []
+        },
+        "distinct_meaning": {
+          "finding": "unresolved",
+          "reason": "Assigned captured snapshot sources do not contain a target definition or meaningful constraint for Atom/Type.",
+          "evidence_refs": []
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No replacement and loss analysis supports generalization.",
+          "evidence_refs": []
+        }
+      },
+      "evidence_refs": [],
+      "checked_source_atom_ids": [
+        "CA-D-483"
+      ],
+      "proposal": null,
+      "question": "Which captured-snapshot Main Content statement defines or supplies a meaningful constraint for Atom/Type?"
+    },
+    {
+      "identity": "Author",
+      "disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "Captured Methods give Author bounded authorship obligations: make an Atom Claim understandable without unstated connections and exclude activity labels from Content Role names; retain without inferring Actor identity or a native relation.",
+      "checks": {
+        "duplicates": {
+          "finding": "no_proven_duplicate",
+          "reason": "The two obligations govern different authoring decisions and do not identify another Author identity.",
+          "evidence_refs": [
+            "e7",
+            "e8"
+          ]
+        },
+        "redundancy": {
+          "finding": "not_proven_redundant",
+          "reason": "Claim comprehension and Content Role naming impose independent obligations on an Author.",
+          "evidence_refs": [
+            "e7",
+            "e8"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful_qualified_obligations",
+          "reason": "The captured Methods impose positive clarity and negative naming constraints on Author conduct.",
+          "evidence_refs": [
+            "e7",
+            "e8"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "authoring_role_evidenced",
+          "reason": "These are authorship duties; they neither define Author as Actor nor introduce a native relation.",
+          "evidence_refs": [
+            "e7",
+            "e8"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No captured source supports replacing Author with Actor, a role label, or a broader human category.",
+          "evidence_refs": [
+            "e7",
+            "e8"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "e7",
+        "e8"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-472",
+        "CA-M-113",
+        "CA-M-115",
+        "CA-M-125",
+        "CA-M-229",
+        "CA-M-237",
+        "CA-M-287",
+        "CA-M-288",
+        "CA-M-294",
+        "CA-M-301",
+        "CA-M-303",
+        "CA-O-103"
+      ],
+      "proposal": null,
+      "question": null
+    },
+    {
+      "identity": "Authority",
+      "disposition": "question",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot review found only another target's definition, a representation rule, or no target meaning; this is not evidence to drop, consolidate, or generalize.",
+      "checks": {
+        "duplicates": {
+          "finding": "unresolved",
+          "reason": "No same-meaning duplicate proof in assigned captured sources.",
+          "evidence_refs": []
+        },
+        "redundancy": {
+          "finding": "unresolved",
+          "reason": "No redundancy proof in assigned captured sources.",
+          "evidence_refs": []
+        },
+        "empty_definition": {
+          "finding": "unresolved",
+          "reason": "Assigned captured snapshot sources do not contain a target definition or meaningful constraint for Authority. Missing meaning is not emptiness.",
+          "evidence_refs": []
+        },
+        "distinct_meaning": {
+          "finding": "unresolved",
+          "reason": "Assigned captured snapshot sources do not contain a target definition or meaningful constraint for Authority.",
+          "evidence_refs": []
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No replacement and loss analysis supports generalization.",
+          "evidence_refs": []
+        }
+      },
+      "evidence_refs": [],
+      "checked_source_atom_ids": [
+        "CA-R-971"
+      ],
+      "proposal": null,
+      "question": "Which captured-snapshot Main Content statement defines or supplies a meaningful constraint for Authority?"
+    },
+    {
+      "identity": "Authority Mode",
+      "disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "Captured snapshot Main Content supplies an exact definition or meaningful constraint for this identity; retain without inferring a native relation or replacement.",
+      "checks": {
+        "duplicates": {
+          "finding": "no_proven_duplicate",
+          "reason": "Captured snapshot Main Content supports this exact preserved identity; no duplicate, reduction, or replacement is established.",
+          "evidence_refs": [
+            "e9"
+          ]
+        },
+        "redundancy": {
+          "finding": "not_proven_redundant",
+          "reason": "A field/authority qualification is not redundant merely because it is represented with another field.",
+          "evidence_refs": [
+            "e9"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful_constraint_or_definition",
+          "reason": "Captured snapshot Main Content supports this exact preserved identity; no duplicate, reduction, or replacement is established.",
+          "evidence_refs": [
+            "e9"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "captured_meaning_evidenced",
+          "reason": "Captured snapshot Main Content supports this exact preserved identity; no duplicate, reduction, or replacement is established.",
+          "evidence_refs": [
+            "e9"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis supports generalization.",
+          "evidence_refs": [
+            "e9"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "e9"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-374",
+        "CA-D-391",
+        "CA-R-1430",
+        "CA-R-1655",
+        "CAPRMEDIO-GOV-EVAL-002"
+      ],
+      "proposal": null,
+      "question": null
+    },
+    {
+      "identity": "Authorize Structural Change",
+      "disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "Captured snapshot Main Content supplies an exact definition or meaningful constraint for this identity; retain without inferring a native relation or replacement.",
+      "checks": {
+        "duplicates": {
+          "finding": "no_proven_duplicate",
+          "reason": "Captured snapshot Main Content supports this exact preserved identity; no duplicate, reduction, or replacement is established.",
+          "evidence_refs": [
+            "e10"
+          ]
+        },
+        "redundancy": {
+          "finding": "not_proven_redundant",
+          "reason": "A field/authority qualification is not redundant merely because it is represented with another field.",
+          "evidence_refs": [
+            "e10"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful_constraint_or_definition",
+          "reason": "Captured snapshot Main Content supports this exact preserved identity; no duplicate, reduction, or replacement is established.",
+          "evidence_refs": [
+            "e10"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "captured_meaning_evidenced",
+          "reason": "Captured snapshot Main Content supports this exact preserved identity; no duplicate, reduction, or replacement is established.",
+          "evidence_refs": [
+            "e10"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis supports generalization.",
+          "evidence_refs": [
+            "e10"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "e10"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-013",
+        "CA-O-015"
+      ],
+      "proposal": null,
+      "question": null
+    },
+    {
+      "identity": "Autonomous Confidence Threshold",
+      "disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "Captured snapshot Main Content supplies an exact definition or meaningful constraint for this identity; retain without inferring a native relation or replacement.",
+      "checks": {
+        "duplicates": {
+          "finding": "no_proven_duplicate",
+          "reason": "Captured snapshot Main Content supports this exact preserved identity; no duplicate, reduction, or replacement is established.",
+          "evidence_refs": [
+            "e11"
+          ]
+        },
+        "redundancy": {
+          "finding": "not_proven_redundant",
+          "reason": "A field/authority qualification is not redundant merely because it is represented with another field.",
+          "evidence_refs": [
+            "e11"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful_constraint_or_definition",
+          "reason": "Captured snapshot Main Content supports this exact preserved identity; no duplicate, reduction, or replacement is established.",
+          "evidence_refs": [
+            "e11"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "captured_meaning_evidenced",
+          "reason": "Captured snapshot Main Content supports this exact preserved identity; no duplicate, reduction, or replacement is established.",
+          "evidence_refs": [
+            "e11"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No replacement or loss analysis supports generalization.",
+          "evidence_refs": [
+            "e11"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "e11"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-472",
+        "CA-D-485",
+        "CA-E-443",
+        "CA-E-471",
+        "CA-E-477",
+        "CA-E-501",
+        "CA-E-519",
+        "CA-M-272",
+        "CA-M-306",
+        "CA-O-006",
+        "CA-O-010",
+        "CA-O-013",
+        "CA-O-024",
+        "CA-O-028",
+        "CA-O-090",
+        "CA-O-111",
+        "CA-R-1044",
+        "CA-R-1045",
+        "CA-R-1551",
+        "CA-R-1561",
+        "CA-R-1587",
+        "CA-R-1591"
+      ],
+      "proposal": null,
+      "question": null
+    }
+  ]
+}

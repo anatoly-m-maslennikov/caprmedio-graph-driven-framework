@@ -1,5 +1,5 @@
 ---
-atom_id: CA-P-1943
+atom_id: CA-P-1949
 content_role: Plan
 type: Plan
 label: Task
@@ -10,19 +10,19 @@ local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
-status: Active
+status: Done
 subjects:
   governs: Projection
   depends_on: [Entity, Term, Atom, Property, Carrier, Plan]
-version: 2
-updated_at: "2026-10-10 03:47:57 +0400"
+version: 3
+updated_at: "2026-10-10 04:00:38 +0400"
 relations:
-  is_decomposition_of: [CA-P-1931]
-  blocks: [CA-P-1950]
+  is_decomposition_of: [CA-P-1935]
+  blocks: [CA-P-1951]
 ---
 # Summary
 
-Review checks and Claim value node candidates
+Review source spec and Run node candidates
 
 ## Objective
 
@@ -36,11 +36,15 @@ Estimated own work: 15 minutes. Assignee: AI Agent.
 
 Required start prerequisite: CA-P-1906. It explicitly BLOCKS this Task.
 
-Review 12 exact identities from batch 3, node indexes `58,59,60,61,62,63,64,65,66,67,68,69`, preserved in `nodes/inputs/slices/CA-P-1943.input.json`. Read the parent batch, shared node contract, source Main Content and Scope-omission decision. Output `nodes/slices/CA-P-1943.review.json` with the same node/evidence schema, exact subset coverage, parent input pin and subset pin. Use retain when a current definition or meaningful constraint supports the identity; do not require proof of a nonexistent replacement to preserve it. Merely mentioning a name while defining another concept is not its definition. Missing meaning is a specific question, not an empty entity or permission to delete.
+Review 20 exact identities from batch 7, node indexes `60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79`, preserved in `nodes/inputs/slices/CA-P-1949.input.json`. Read the parent batch, shared node contract, source Main Content and Scope-omission decision. Output `nodes/slices/CA-P-1949.review.json` with the same node/evidence schema, exact subset coverage, parent input pin and subset pin. Use retain when a current definition or meaningful constraint supports the identity; do not require proof of a nonexistent replacement to preserve it. Merely mentioning a name while defining another concept is not its definition. Missing meaning is a specific question, not an empty entity or permission to delete.
 
 All five checks need identity-specific reasons. Positive reduction proposals need exact evidence, replacements and effects on relations, constraints, history and queries. Below 90% confidence, keep the semantic proposal unresolved and ask the specific Operator question. New Substance and Scope-omission directions are candidate proposals, not Core proof. No actual deletion, adoption or Subject migration.
 
 Exclusive scope: assigned derived slice output and unique temporary helper. You are not alone; preserve others. Root owns Plans/Git. No Core, Subjects, baseline, history, schema, implementation, runtime, MCP or FPF writes. Use uv only; return truthful partial work if incomplete.
+
+### Completion receipt
+
+Captured-snapshot review verified: 20 original identities, {"question":4,"retain":16} dispositions, 15 exact Main Content spans and 134 captured sources checked. Output `nodes/slices/CA-P-1949.review.json` SHA-256 `64b668c07ea89f342bb4c8f0fa439d25b7cb00edb015f1ceadfc839f7a9dbf99`. Target-specific meaning checks and required repairs passed; missing or limited meanings remain explicit questions, never deletion evidence. No Core, Subject, native fact, source migration or candidate adoption occurred. All source bytes are bound to the selected captured Git snapshot; this is not a current-Core receipt.
 
 ### Definition of Done
 
