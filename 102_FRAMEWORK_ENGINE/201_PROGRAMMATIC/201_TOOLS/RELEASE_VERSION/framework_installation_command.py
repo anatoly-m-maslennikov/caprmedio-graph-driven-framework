@@ -13,7 +13,7 @@ import hashlib
 import json
 import os
 from collections.abc import Mapping
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path, PurePosixPath
 import re
 import stat
@@ -43,12 +43,14 @@ from installation_context import (
     bind_target_project_context,
 )
 from operator_registry import OperatorRegistryError, OperatorRegistryRecord, parse_operators_registry
+from retained_full_gate_packet import RetainedNativeFullGatePacket
 import work_journal
 
 
 SCHEMA_VERSION = 1
 OPERATION = "install_framework_runtime"
 COMMAND_DIRECTORY = Path(".caprmedio_runtime/installation/commands")
+RESULT_DIRECTORY = Path(".caprmedio_tmp/installation/results")
 _SHA256 = re.compile(r"[0-9a-f]{64}\Z")
 _COMMAND_ID = re.compile(r"[A-Za-z0-9][A-Za-z0-9._:-]{0,159}\Z")
 _RECEIPT_KEYS = frozenset(
@@ -67,6 +69,32 @@ _RECEIPT_KEYS = frozenset(
     }
 )
 _SOURCE_KEYS = frozenset({"atom_id", "version", "path", "sha256"})
+_RESULT_KEYS = frozenset(
+    {
+        "schema_version",
+        "action_id",
+        "action_run_id",
+        "installation_command_sha256",
+        "package_manifest_sha256",
+        "target_project_context_sha256",
+        "state_generation",
+        "effect_outcome",
+        "reason",
+        "effects",
+    }
+)
+_RESULT_OUTCOMES = frozenset(
+    {"completed", "blocked_before_delete", "unavailable_after_delete", "effect_uncertain"}
+)
+_FULL_GATE_EFFECT_KINDS = (
+    "full_gate_receipt",
+    "retained_candidate_descriptor",
+    "retained_package_sidecar",
+    "unit_gate_receipt",
+    "build_receipt",
+    "verification_receipt",
+    "e2e_gate_receipt",
+)
 _PRIOR_RUNTIME_SELECTORS = (
     PurePosixPath(".caprmedio_runtime/installation/current.toml"),
     # ``installation_state.LEGACY_SELECTOR`` is the prior migration surface;
@@ -128,6 +156,58 @@ class FrameworkInstallationCommandResult:
     action_start: Mapping[str, object]
     action_provenance: object
     action_session: DirectActionSession
+
+
+@dataclass(frozen=True)
+class DirectInstallationEffect:
+    """One immutable, Project-contained carrier observed for an O200 result."""
+
+    kind: str
+    reference: str
+    sha256: str
+
+
+@dataclass(frozen=True)
+class _ObservedDirectFullGateClosure:
+    """Private, process-local provenance for one physical packet observation.
+
+    D604 retains effect rows in the public direct result, but the rows alone
+    must never become an authorization substitute.  This capability is set
+    only by the physical Full-Gate reader and is bound to the exact still-open
+    O-200 Session.  It is deliberately neither serialized nor comparable.
+    """
+
+    action_session: DirectActionSession
+    action_run_id: str
+    installation_command_sha256: str
+    package_manifest_sha256: str
+    target_project_context_sha256: str
+    full_gate_receipt_sha256: str
+    packet: RetainedNativeFullGatePacket
+
+
+@dataclass(frozen=True)
+class DirectFullGateEffectClosure:
+    """The seven original Full Gate carriers reopened before replacement.
+
+    This is deliberately a small receipt of the physical re-open, rather than
+    a second Full Gate model.  Later result recording consumes these exact
+    references after replacement, so it never tries to rediscover a receipt
+    from a digest or from whatever gate happens to be newest.
+    """
+
+    action_run_id: str
+    installation_command_sha256: str
+    package_manifest_sha256: str
+    target_project_context_sha256: str
+    full_gate_receipt_sha256: str
+    effects: tuple[DirectInstallationEffect, ...]
+    _observation: _ObservedDirectFullGateClosure | None = field(
+        default=None,
+        init=False,
+        repr=False,
+        compare=False,
+    )
 
 
 def _refuse(code: str, message: str) -> None:
@@ -355,6 +435,488 @@ def read_framework_installation_command_receipt(
     if raw != _canonical_json(dict(document)):
         _refuse("installation-command-receipt-invalid", "command receipt is noncanonical")
     return result
+
+
+def reopen_framework_installation_command_start(
+    project_root: str | Path,
+    receipt: FrameworkInstallationCommandReceipt,
+    *,
+    action_package: VerifiedFrameworkPackage,
+    operators_registry_ref: str | Path,
+) -> Mapping[str, object]:
+    """Reopen the exact historical direct O200 start named by ``receipt``.
+
+    This is a reader only.  It deliberately rebuilds the deterministic direct
+    Action identity from the immutable command, rereads the selected registry
+    and package-owned Methodology source, then validates the canonical Journal
+    event through the existing direct-Action validator.  It does not recreate
+    a Session run, append Journal evidence, or grant execution authority.
+    """
+
+    if type(receipt) is not FrameworkInstallationCommandReceipt:
+        _refuse("installation-command-untrusted", "installation command must be closed typed evidence")
+    if not isinstance(action_package, VerifiedFrameworkPackage):
+        _refuse("installation-command-package-invalid", "installation command needs a typed selected Framework package")
+    if action_package.manifest_digest != receipt.package_manifest_sha256:
+        _refuse("installation-command-package-mismatch", "selected package differs from retained command package")
+    root = _root(project_root)
+    registry_ref = _relative(str(operators_registry_ref), field="operators_registry_ref")
+    canonical = COMMAND_DIRECTORY / f"{receipt.sha256}.json"
+    if read_framework_installation_command_receipt(
+        _regular_bytes(root, PurePosixPath(canonical.as_posix()), code="installation-command-receipt-invalid", label="command receipt"),
+        expected_sha256=receipt.sha256,
+    ) != receipt:
+        _refuse("installation-command-stale", "installation command differs from its retained carrier")
+    record, registry, author = _operator_record(root, registry_ref, receipt.operator)
+    if author != receipt.journal_author or _sha256(registry) != receipt.operators_registry_sha256:
+        _refuse("installation-command-operator-invalid", "installation command differs from exact registered Operator attribution")
+
+    # Keep the historic source policy in direct_action_session: the private
+    # helper physically rereads the package-owned O200 carrier, verifies it
+    # against the package inventory, and returns the one canonical binding.
+    from direct_action_session import (
+        DirectActionJournalError,
+        DirectActionSession,
+        INSTALLATION_ACTION_ID,
+        STRUCTURAL_SCOPE,
+        _source_binding,
+    )
+    try:
+        session = DirectActionSession(
+            root,
+            author=receipt.journal_author,
+            operator_authorization={"operator": record.name, "authorization_ref": "installation-command/" + receipt.command_id},
+            action_id=INSTALLATION_ACTION_ID,
+            action_package=action_package,
+            operators_registry_ref=registry_ref.as_posix(),
+        )
+        binding = _source_binding(root, INSTALLATION_ACTION_ID, action_package=action_package)
+        source = {
+            "atom_id": binding["atom_id"],
+            "version": binding["version"],
+            "path": binding["path"],
+            "sha256": binding["digest"],
+        }
+        if source != dict(receipt.action_source):
+            _refuse("installation-command-source-mismatch", "direct O200 source differs from retained command source")
+        requested_run_id = "installation-command:" + _sha256(receipt.command_id.encode("utf-8"))
+        identity = work_journal.canonical_json_digest({
+            "action_id": INSTALLATION_ACTION_ID,
+            "requested_run_id": requested_run_id,
+            "binding": dict(binding),
+            "project_root": str(root),
+            "structural_scope": STRUCTURAL_SCOPE,
+        })
+        action_run_id = "direct-action:" + identity
+        from direct_action_session import _reopen_event
+
+        reopened = _reopen_event(root, action_run_id + ":started")
+        if reopened is None:
+            _refuse("installation-command-start-invalid", "canonical direct O200 start cannot be reopened")
+        event, _event_receipt = reopened
+        intent = {
+            "action_id": INSTALLATION_ACTION_ID,
+            "kind": "install_one_admitted_project_runtime",
+            "installation_command_sha256": receipt.sha256,
+            "target_project_context_sha256": receipt.target_project_context_sha256,
+            "package_manifest_sha256": receipt.package_manifest_sha256,
+            "full_gate_receipt_sha256": receipt.full_gate_receipt_sha256,
+            "prior_runtime_selector_sha256": receipt.prior_runtime_selector_sha256,
+            "operators_registry_sha256": receipt.operators_registry_sha256,
+        }
+        session._validate_started(event, requested_run_id, intent, binding, action_run_id)
+        return event
+    except FrameworkInstallationCommandError:
+        raise
+    except DirectActionJournalError as error:
+        raise FrameworkInstallationCommandError("installation-command-start-invalid", str(error)) from error
+    finally:
+        if "session" in locals():
+            session.close()
+
+
+def _direct_result_context(result: object) -> tuple[FrameworkInstallationCommandResult, Path, str]:
+    """Reopen the one direct command/start that may own a result carrier."""
+
+    if type(result) is not FrameworkInstallationCommandResult:
+        _refuse("installation-command-result-invalid", "direct result requires a closed O200 command result")
+    if type(result.action_session) is not DirectActionSession:
+        _refuse("installation-command-result-invalid", "direct result requires the original open O200 Session")
+    root = _root(result.action_session.root)
+    action_run_id = result.action_start.get("run_id") if isinstance(result.action_start, Mapping) else None
+    if (
+        not isinstance(action_run_id, str)
+        or not action_run_id
+        or "/" in action_run_id
+        or "\\" in action_run_id
+        or action_run_id in {".", ".."}
+    ):
+        _refuse("installation-command-result-invalid", "direct result has no safe actual O200 Run identity")
+    if result.command_receipt.package_manifest_sha256 != result.package.manifest_digest:
+        _refuse("installation-command-result-invalid", "direct result command names another Framework package")
+    if result.command_receipt.target_project_context_sha256 != result.target_context.sha256:
+        _refuse("installation-command-result-invalid", "direct result command names another target context")
+    if result.command_receipt_path != root / COMMAND_DIRECTORY / f"{result.command_receipt.sha256}.json":
+        _refuse("installation-command-result-invalid", "direct result command is not at its canonical digest path")
+    try:
+        if verify_framework_package(result.package.root) != result.package:
+            _refuse("installation-command-result-invalid", "direct result package bytes changed")
+        registry_ref = Path(result.target_context.control_child_relpath) / REGISTRY_FILENAME
+        reopened_start = reopen_framework_installation_command_start(
+            root,
+            result.command_receipt,
+            action_package=result.package,
+            operators_registry_ref=registry_ref,
+        )
+        reopened_run = reopened_start.get("run")
+        if not isinstance(reopened_run, Mapping) or reopened_run.get("run_id") != action_run_id:
+            _refuse("installation-command-result-invalid", "reopened O200 start names another Action Run")
+        if result.action_session.read_recorded_action_start(action_run_id) != result.action_provenance:
+            _refuse("installation-command-result-invalid", "direct O200 start provenance changed")
+    except FrameworkInstallationCommandError:
+        raise
+    except (FrameworkPackageError, RuntimeError, OSError, TypeError, ValueError) as error:
+        raise FrameworkInstallationCommandError(
+            "installation-command-result-invalid", "direct O200 result inputs cannot be physically reopened"
+        ) from error
+    return result, root, action_run_id
+
+
+def _result_effect(
+    root: Path,
+    *,
+    kind: str,
+    carrier: Path,
+    expected_sha256: str | None = None,
+) -> DirectInstallationEffect:
+    """Read one exact regular Project carrier and retain its raw-byte hash."""
+
+    if not isinstance(kind, str) or not kind:
+        _refuse("installation-command-result-invalid", "direct result effect kind is invalid")
+    reference = _relative_to_root(root, carrier)
+    payload = _regular_bytes(
+        root,
+        _relative(reference, field="direct result effect reference"),
+        code="installation-command-result-invalid",
+        label=f"direct result {kind} carrier",
+    )
+    observed = _sha256(payload)
+    if expected_sha256 is not None and observed != _digest(
+        expected_sha256,
+        field=f"direct result {kind} digest",
+        code="installation-command-full-gate-invalid",
+    ):
+        _refuse("installation-command-full-gate-invalid", f"original {kind} bytes changed")
+    return DirectInstallationEffect(kind=kind, reference=reference, sha256=observed)
+
+
+def _packet_carrier(
+    project_root: Path,
+    artifact_root: Path,
+    value: object,
+    *,
+    label: str,
+) -> Path:
+    """Require a verified packet relation to stay under its Project artifact root."""
+
+    if not isinstance(value, Path) or not value.is_absolute():
+        _refuse("installation-command-full-gate-invalid", f"{label} has no absolute original carrier")
+    try:
+        artifact_root.relative_to(project_root)
+        value.relative_to(artifact_root)
+    except ValueError as error:
+        raise FrameworkInstallationCommandError(
+            "installation-command-full-gate-invalid", f"{label} escapes the original retained Project closure"
+        ) from error
+    return value
+
+
+def _packet_receipt_carrier(artifact_root: Path, evidence_root: object, *, label: str) -> Path:
+    try:
+        relative = _relative(evidence_root, field=f"{label} evidence root")
+    except FrameworkInstallationCommandError as error:
+        raise FrameworkInstallationCommandError(
+            "installation-command-full-gate-invalid", f"{label} evidence root is unsafe"
+        ) from error
+    return artifact_root.joinpath(*relative.parts) / "receipt.json"
+
+
+def _observe_direct_full_gate_effect_closure(
+    command: FrameworkInstallationCommandResult,
+    root: Path,
+    action_run_id: str,
+    *,
+    full_gate_packet: RetainedNativeFullGatePacket,
+) -> DirectFullGateEffectClosure:
+    """Physically observe D604v7's original seven Full Gate carriers.
+
+    This private reader is the only producer of a closure whose rows can later
+    be retained by the direct result.  It never resolves a carrier from a
+    caller digest, a string, or a latest-result search.
+    """
+
+    packet = full_gate_packet
+    try:
+        from release_full_gate import verify_detached_native_full_gate_evidence
+
+        retained = verify_detached_native_full_gate_evidence(
+            packet.artifact_root,
+            packet.retained_candidate,
+            packet.suite,
+            packet.build,
+            packet.verification,
+            packet.e2e,
+            packet.evidence,
+        )
+    except Exception as error:
+        raise FrameworkInstallationCommandError(
+            "installation-command-full-gate-invalid", "original Full Gate packet cannot be physically reopened"
+        ) from error
+    if (
+        retained != packet.retained_candidate.package_evidence
+        or retained.view.actual_package_manifest_sha256 != command.package.manifest_digest
+        or packet.evidence.package_manifest_sha256 != command.package.manifest_digest
+        or packet.evidence.receipt_sha256 != command.command_receipt.full_gate_receipt_sha256
+    ):
+        _refuse("installation-command-full-gate-invalid", "original Full Gate packet differs from the direct command package")
+    artifact_root = _packet_carrier(root, Path(packet.artifact_root), Path(packet.artifact_root), label="Full Gate artifact root")
+    carriers = (
+        (
+            "full_gate_receipt",
+            _packet_receipt_carrier(artifact_root, packet.evidence.evidence_root, label="Full Gate"),
+            packet.evidence.receipt_sha256,
+        ),
+        (
+            "retained_candidate_descriptor",
+            _packet_carrier(root, artifact_root, packet.retained_candidate.descriptor_path, label="retained candidate descriptor"),
+            packet.retained_candidate.descriptor_sha256,
+        ),
+        (
+            "retained_package_sidecar",
+            _packet_carrier(root, artifact_root, retained.receipt_path, label="retained package sidecar"),
+            retained.receipt_sha256,
+        ),
+        (
+            "unit_gate_receipt",
+            _packet_receipt_carrier(artifact_root, packet.suite.evidence_root, label="Unit gate"),
+            packet.suite.receipt_sha256,
+        ),
+        (
+            "build_receipt",
+            _packet_receipt_carrier(artifact_root, packet.build.evidence_root, label="build"),
+            packet.build.receipt_sha256,
+        ),
+        (
+            "verification_receipt",
+            _packet_receipt_carrier(artifact_root, packet.verification.evidence_root, label="verification"),
+            packet.verification.receipt_sha256,
+        ),
+        (
+            "e2e_gate_receipt",
+            _packet_receipt_carrier(artifact_root, packet.e2e.evidence_root, label="E2E gate"),
+            packet.e2e.receipt_sha256,
+        ),
+    )
+    effects = tuple(
+        _result_effect(root, kind=kind, carrier=_packet_carrier(root, artifact_root, carrier, label=kind), expected_sha256=digest)
+        for kind, carrier, digest in carriers
+    )
+    if tuple(effect.kind for effect in effects) != _FULL_GATE_EFFECT_KINDS:
+        _refuse("installation-command-full-gate-invalid", "original Full Gate closure is incomplete")
+    if len({effect.reference for effect in effects}) != len(effects):
+        _refuse("installation-command-full-gate-invalid", "original Full Gate closure has ambiguous carriers")
+    return DirectFullGateEffectClosure(
+        action_run_id=action_run_id,
+        installation_command_sha256=command.command_receipt.sha256,
+        package_manifest_sha256=command.package.manifest_digest,
+        target_project_context_sha256=command.target_context.sha256,
+        full_gate_receipt_sha256=command.command_receipt.full_gate_receipt_sha256,
+        effects=effects,
+    )
+
+
+def prepare_direct_full_gate_effect_closure(
+    result: object,
+    *,
+    full_gate_packet: object,
+) -> DirectFullGateEffectClosure:
+    """Observe and retain one process-local original Full Gate closure.
+
+    The public row DTO is intentionally not an authority: it carries an
+    opaque observation capability that only this physical reader can create.
+    Record-time reopening consumes that capability before it writes a result
+    or requests an O-200 terminal event.
+    """
+
+    command, root, action_run_id = _direct_result_context(result)
+    if type(full_gate_packet) is not RetainedNativeFullGatePacket:
+        _refuse("installation-command-full-gate-invalid", "direct result requires the original typed Full Gate packet")
+    closure = _observe_direct_full_gate_effect_closure(
+        command,
+        root,
+        action_run_id,
+        full_gate_packet=full_gate_packet,
+    )
+    object.__setattr__(
+        closure,
+        "_observation",
+        _ObservedDirectFullGateClosure(
+            action_session=command.action_session,
+            action_run_id=action_run_id,
+            installation_command_sha256=command.command_receipt.sha256,
+            package_manifest_sha256=command.package.manifest_digest,
+            target_project_context_sha256=command.target_context.sha256,
+            full_gate_receipt_sha256=command.command_receipt.full_gate_receipt_sha256,
+            packet=full_gate_packet,
+        ),
+    )
+    return closure
+
+
+def _reopen_observed_direct_full_gate_effect_closure(
+    command: FrameworkInstallationCommandResult,
+    root: Path,
+    action_run_id: str,
+    closure: DirectFullGateEffectClosure,
+) -> None:
+    """Require the exact physical observation again before result writing."""
+
+    observation = closure._observation
+    if type(observation) is not _ObservedDirectFullGateClosure:
+        _refuse("installation-command-result-invalid", "direct result Full Gate closure was not physically observed")
+    if (
+        observation.action_session is not command.action_session
+        or observation.action_run_id != action_run_id
+        or observation.installation_command_sha256 != command.command_receipt.sha256
+        or observation.package_manifest_sha256 != command.package.manifest_digest
+        or observation.target_project_context_sha256 != command.target_context.sha256
+        or observation.full_gate_receipt_sha256 != command.command_receipt.full_gate_receipt_sha256
+        or type(observation.packet) is not RetainedNativeFullGatePacket
+    ):
+        _refuse("installation-command-result-invalid", "direct result Full Gate closure belongs to another O200 Session")
+    observed = _observe_direct_full_gate_effect_closure(
+        command,
+        root,
+        action_run_id,
+        full_gate_packet=observation.packet,
+    )
+    if observed != closure:
+        _refuse("installation-command-full-gate-invalid", "original Full Gate closure changed before direct result recording")
+
+
+def _completed_installation_effects(
+    root: Path,
+    *,
+    package_manifest_sha256: str,
+    state_generation: int,
+) -> tuple[DirectInstallationEffect, ...]:
+    """Observe only the four canonical current carriers of a completed O200."""
+
+    return (
+        _result_effect(root, kind="package_selector", carrier=root / ".caprmedio_install/current.toml"),
+        _result_effect(root, kind="runtime_selector", carrier=root / ".caprmedio_runtime/installation/current.toml"),
+        _result_effect(
+            root,
+            kind="release_proof",
+            carrier=root / ".caprmedio_runtime/installation/generations" / str(state_generation) / "release-proof.toml",
+        ),
+        _result_effect(
+            root,
+            kind="package_manifest",
+            carrier=root / ".caprmedio_install/releases" / package_manifest_sha256 / "manifest.toml",
+        ),
+    )
+
+
+def record_direct_installation_result(
+    result: object,
+    *,
+    full_gate_effects: DirectFullGateEffectClosure,
+    state_generation: int,
+    effect_outcome: str,
+    reason: str | None,
+) -> dict[str, object]:
+    """Write/reopen one D604 direct result, then request its sole terminal.
+
+    The pre-delete Full Gate closure is supplied only through
+    :func:`prepare_direct_full_gate_effect_closure`.  Result recording uses
+    those retained rows as-is; it never reopens post-replacement sources to
+    infer a new gate association.
+    """
+
+    command, root, action_run_id = _direct_result_context(result)
+    if type(full_gate_effects) is not DirectFullGateEffectClosure:
+        _refuse("installation-command-result-invalid", "direct result requires the retained original Full Gate closure")
+    if (
+        full_gate_effects.action_run_id != action_run_id
+        or full_gate_effects.installation_command_sha256 != command.command_receipt.sha256
+        or full_gate_effects.package_manifest_sha256 != command.package.manifest_digest
+        or full_gate_effects.target_project_context_sha256 != command.target_context.sha256
+        or full_gate_effects.full_gate_receipt_sha256 != command.command_receipt.full_gate_receipt_sha256
+        or tuple(effect.kind for effect in full_gate_effects.effects) != _FULL_GATE_EFFECT_KINDS
+        or len({effect.reference for effect in full_gate_effects.effects}) != len(full_gate_effects.effects)
+    ):
+        _refuse("installation-command-result-invalid", "direct result Full Gate closure belongs to another O200 command")
+    _reopen_observed_direct_full_gate_effect_closure(command, root, action_run_id, full_gate_effects)
+    if isinstance(state_generation, bool) or not isinstance(state_generation, int) or state_generation < 1:
+        _refuse("installation-command-result-invalid", "direct result state generation is invalid")
+    if effect_outcome not in _RESULT_OUTCOMES:
+        _refuse("installation-command-result-invalid", "direct result effect outcome is not governed")
+    if reason is not None and (not isinstance(reason, str) or "\x00" in reason or "\n" in reason or "\r" in reason):
+        _refuse("installation-command-result-invalid", "direct result reason is invalid")
+    effects = list(full_gate_effects.effects)
+    if effect_outcome == "completed":
+        effects = [
+            *_completed_installation_effects(
+                root,
+                package_manifest_sha256=command.package.manifest_digest,
+                state_generation=state_generation,
+            ),
+            *effects,
+        ]
+    rows = [{"kind": effect.kind, "reference": effect.reference, "sha256": effect.sha256} for effect in effects]
+    if len({row["kind"] for row in rows}) != len(rows) or len({row["reference"] for row in rows}) != len(rows):
+        _refuse("installation-command-result-invalid", "direct result effects are ambiguous")
+    document = {
+        "schema_version": 1,
+        "action_id": INSTALLATION_ACTION_ID,
+        "action_run_id": action_run_id,
+        "installation_command_sha256": command.command_receipt.sha256,
+        "package_manifest_sha256": command.package.manifest_digest,
+        "target_project_context_sha256": command.target_context.sha256,
+        "state_generation": state_generation,
+        "effect_outcome": effect_outcome,
+        "reason": reason,
+        "effects": rows,
+    }
+    if set(document) != _RESULT_KEYS:
+        _refuse("installation-command-result-invalid", "direct result schema is not closed")
+    payload = _canonical_json(document)
+    directory = _ensure_directory(root, PurePosixPath(*(RESULT_DIRECTORY / action_run_id).parts))
+    path = _publish_exact(directory, "result.json", payload)
+    result_ref = _relative_to_root(root, path)
+    if _regular_bytes(
+        root,
+        _relative(result_ref, field="direct result reference"),
+        code="installation-command-result-invalid",
+        label="direct installation result",
+    ) != payload:
+        _refuse("installation-command-result-invalid", "retained direct result bytes differ")
+    effect_refs = [row["reference"] for row in rows] + [result_ref]
+    action_outcome = "completed" if effect_outcome == "completed" else (
+        "failed" if effect_outcome == "blocked_before_delete" else "partial"
+    )
+    try:
+        command.action_session.record_effects(action_run_id, result_ref=result_ref, effect_refs=effect_refs)
+        terminal = command.action_session.finish_action(
+            action_run_id,
+            outcome=action_outcome,
+            result_ref=result_ref,
+            effect_refs=effect_refs,
+        )
+    except RuntimeError:
+        return {"state": "recording_pending", "result_ref": result_ref, "result": document, "terminal": None}
+    return {"state": "recorded", "result_ref": result_ref, "result": document, "terminal": dict(terminal)}
 
 
 def _ensure_directory(root: Path, relative: PurePosixPath) -> Path:
@@ -607,6 +1169,9 @@ def run_framework_installation_command(
 
 __all__ = [
     "COMMAND_DIRECTORY",
+    "RESULT_DIRECTORY",
+    "DirectFullGateEffectClosure",
+    "DirectInstallationEffect",
     "FrameworkInstallationCommandError",
     "FrameworkInstallationCommandReceipt",
     "FrameworkInstallationCommandRequest",
@@ -614,6 +1179,9 @@ __all__ = [
     "OPERATION",
     "SCHEMA_VERSION",
     "build_framework_installation_command_receipt",
+    "prepare_direct_full_gate_effect_closure",
     "read_framework_installation_command_receipt",
+    "record_direct_installation_result",
+    "reopen_framework_installation_command_start",
     "run_framework_installation_command",
 ]

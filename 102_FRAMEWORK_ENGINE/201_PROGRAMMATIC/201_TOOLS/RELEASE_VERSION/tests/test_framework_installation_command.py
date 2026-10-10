@@ -23,16 +23,22 @@ for _path in (RELEASE_ROOT, TOOLS_ROOT, TOOLS_TEST_ROOT):
 from direct_action_session import INSTALLATION_ATOM_RELATIVE  # noqa: E402
 from framework_installation_command import (  # noqa: E402
     COMMAND_DIRECTORY,
+    DirectFullGateEffectClosure,
     FrameworkInstallationCommandError,
     FrameworkInstallationCommandRequest,
     build_framework_installation_command_receipt,
+    prepare_direct_full_gate_effect_closure,
     read_framework_installation_command_receipt,
+    record_direct_installation_result,
     run_framework_installation_command,
 )
 import framework_installation_command as command_module  # noqa: E402
-from framework_package import assemble_framework_package  # noqa: E402
+from framework_package import _path_digest, assemble_framework_package  # noqa: E402
 from installation_context import TargetProjectRequest, bind_target_project_context  # noqa: E402
 from source_admission_fixture import write_source_admission_receipt  # noqa: E402
+import test_detached_native_full_gate as detached_gate_fixture  # noqa: E402
+import test_native_installation_proof as proof_fixture  # noqa: E402
+import test_native_selected_installation as selected_fixture  # noqa: E402
 
 
 TEST_TEMP_ROOT = Path.cwd() / ".caprmedio_tmp" / "tests" / Path(__file__).stem
@@ -53,6 +59,11 @@ def _repository_root() -> Path:
 
 
 REPOSITORY_ROOT = _repository_root()
+DEFAULT_SETTINGS_SOURCE = (
+    REPOSITORY_ROOT
+    / ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY"
+    / "000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/caprmedio_framework_default_settings.toml"
+)
 
 
 class FrameworkInstallationCommandTests(unittest.TestCase):
@@ -81,6 +92,11 @@ class FrameworkInstallationCommandTests(unittest.TestCase):
         )
         action_relative = INSTALLATION_ATOM_RELATIVE.as_posix()
         self._write(source, "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/tool.py", b"tool = 'fixture'\n", mode=0o755)
+        self._write(
+            source,
+            "methodology/active/001_CORE_META_MODEL/04_requirement/CA-R-001--fixture.md",
+            b"# core Methodology\n",
+        )
         self._write(source, action_relative, action_source.read_bytes())
         self._write(source, "methodology/support/CA-D-001--fixture.md", b"# support\n")
         self._write(source, "SKILLS/ca/SKILL.md", b"# ca\n")
@@ -89,16 +105,17 @@ class FrameworkInstallationCommandTests(unittest.TestCase):
         self._write(source, "uv.lock", b"version = 1\n")
         self._write(source, "version.toml", b"[framework]\nversion = '0.1.0'\n")
         rows = (
-            ("core", "core", "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/tool.py"),
-            ("methodology", "methodology", action_relative),
-            ("support", "support", "methodology/support/CA-D-001--fixture.md"),
+            ("core", "core", "102_FRAMEWORK_ENGINE"),
+            ("methodology", "methodology", "methodology/active/001_CORE_META_MODEL"),
+            ("project-configuration", "configuration", "methodology/active/003_PROJECT_CONFIGURATION"),
+            ("support", "support", "methodology/support"),
         )
         descriptors = tuple(
             {
                 "identity": identity,
                 "kind": kind,
-                "revision": hashlib.sha256((source / relative).read_bytes()).hexdigest(),
-                "sha256": hashlib.sha256((source / relative).read_bytes()).hexdigest(),
+                "revision": _path_digest(source, Path(relative), code="fixture-catalog"),
+                "sha256": _path_digest(source, Path(relative), code="fixture-catalog"),
                 "visibility": "public",
                 "selection_default": False,
                 "path": relative,
@@ -142,6 +159,15 @@ class FrameworkInstallationCommandTests(unittest.TestCase):
             '[[operators]]\nname = "Fixture Operator"\nrole = "project owner"\njournal_author = "fixture-operator"\n',
             encoding="utf-8",
         )
+        framework = control / "000_CAPRMEDIO_framework"
+        framework.mkdir()
+        (framework / "caprmedio_framework_settings.toml").write_text(
+            "# no optional Extension or Configuration selected\n",
+            encoding="utf-8",
+        )
+        defaults = framework / "00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL"
+        defaults.mkdir(parents=True)
+        (defaults / "caprmedio_framework_default_settings.toml").write_bytes(DEFAULT_SETTINGS_SOURCE.read_bytes())
         return root, control
 
     def _request(self, *, mode: str = "bootstrap") -> FrameworkInstallationCommandRequest:
@@ -285,6 +311,179 @@ class FrameworkInstallationCommandTests(unittest.TestCase):
             read_framework_installation_command_receipt(json.dumps(forged, sort_keys=True, separators=(",", ":")).encode())
         self.assertEqual("installation-command-receipt-invalid", invalid.exception.code)
         self.assertEqual(hashlib.sha256(payload).hexdigest(), receipt.sha256)
+
+
+class DirectInstallationResultEffectsTests(unittest.TestCase):
+    """D604v7 retains an actual packet closure before any direct cut-over."""
+
+    @classmethod
+    def setUpClass(cls) -> None:
+        fixture = selected_fixture._O200NativeHappyPathFixture()
+        (
+            proof_fixture.CandidateNativeInstallationProofTests._source_archive,
+            proof_fixture.CandidateNativeInstallationProofTests._source_identity,
+            proof_fixture.CandidateNativeInstallationProofTests._suite,
+            proof_fixture.CandidateNativeInstallationProofTests._build,
+            proof_fixture.CandidateNativeInstallationProofTests._verification,
+            proof_fixture.CandidateNativeInstallationProofTests._e2e,
+            proof_fixture.CandidateNativeInstallationProofTests._full,
+        ) = detached_gate_fixture.DetachedNativeFullGateTests()._packet(fixture)
+
+    def setUp(self) -> None:
+        self.fixture = proof_fixture.CandidateNativeInstallationProofTests("runTest")
+        self.fixture.setUp()
+        self.addCleanup(self.fixture.doCleanups)
+        defaults = (
+            self.fixture.control
+            / "000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY"
+            / "000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL"
+        )
+        defaults.mkdir(parents=True, exist_ok=True)
+        (defaults / "caprmedio_framework_default_settings.toml").write_bytes(DEFAULT_SETTINGS_SOURCE.read_bytes())
+        self.packet = self.fixture._packet()
+        self.command = run_framework_installation_command(
+            FrameworkInstallationCommandRequest(
+                target=self.fixture.target_request,
+                target_context=self.fixture.context,
+                package=self.fixture.package,
+                full_gate_receipt_sha256=self.packet.evidence.receipt_sha256,
+                command_id="direct-result-fixture",
+                operator="Anatoly Maslennikov",
+            )
+        )
+        self.addCleanup(self.command.action_session.close)
+
+    def test_retains_the_seven_physical_original_gate_carriers_before_terminal_recording(self) -> None:
+        closure = prepare_direct_full_gate_effect_closure(self.command, full_gate_packet=self.packet)
+
+        self.assertIsInstance(closure, DirectFullGateEffectClosure)
+        self.assertEqual(
+            (
+                "full_gate_receipt",
+                "retained_candidate_descriptor",
+                "retained_package_sidecar",
+                "unit_gate_receipt",
+                "build_receipt",
+                "verification_receipt",
+                "e2e_gate_receipt",
+            ),
+            tuple(effect.kind for effect in closure.effects),
+        )
+        for effect in closure.effects:
+            carrier = self.fixture.target / effect.reference
+            self.assertTrue(carrier.is_file())
+            self.assertEqual(hashlib.sha256(carrier.read_bytes()).hexdigest(), effect.sha256)
+
+        with patch.object(self.command.action_session, "finish_action", side_effect=RuntimeError("terminal unavailable")):
+            pending = record_direct_installation_result(
+                self.command,
+                full_gate_effects=closure,
+                state_generation=1,
+                effect_outcome="blocked_before_delete",
+                reason="fixture-blocked",
+            )
+
+        self.assertEqual("recording_pending", pending["state"])
+        retained = self.fixture.target / pending["result_ref"]
+        self.assertEqual(0o600, retained.stat().st_mode & 0o777)
+        self.assertEqual(
+            tuple(effect.kind for effect in closure.effects),
+            tuple(row["kind"] for row in pending["result"]["effects"]),
+        )
+
+    def test_refuses_a_handcrafted_exact_closure_before_result_or_terminal(self) -> None:
+        """Matching rows are evidence only when the private observation exists."""
+
+        observed = prepare_direct_full_gate_effect_closure(self.command, full_gate_packet=self.packet)
+        handcrafted = DirectFullGateEffectClosure(
+            action_run_id=observed.action_run_id,
+            installation_command_sha256=observed.installation_command_sha256,
+            package_manifest_sha256=observed.package_manifest_sha256,
+            target_project_context_sha256=observed.target_project_context_sha256,
+            full_gate_receipt_sha256=observed.full_gate_receipt_sha256,
+            effects=observed.effects,
+        )
+        action_run = self.command.action_start["run_id"]
+        result_path = self.fixture.target / ".caprmedio_tmp/installation/results" / action_run / "result.json"
+
+        with (
+            patch.object(self.command.action_session, "record_effects") as record_effects,
+            patch.object(self.command.action_session, "finish_action") as finish_action,
+        ):
+            with self.assertRaises(FrameworkInstallationCommandError) as refused:
+                record_direct_installation_result(
+                    self.command,
+                    full_gate_effects=handcrafted,
+                    state_generation=1,
+                    effect_outcome="blocked_before_delete",
+                    reason="handcrafted-closure",
+                )
+
+        self.assertEqual("installation-command-result-invalid", refused.exception.code)
+        self.assertFalse(result_path.exists())
+        record_effects.assert_not_called()
+        finish_action.assert_not_called()
+
+    def test_completed_result_retains_exact_eleven_observed_effect_rows(self) -> None:
+        closure = prepare_direct_full_gate_effect_closure(self.command, full_gate_packet=self.packet)
+        generation = 1
+        current_rows = (
+            ("package_selector", Path(".caprmedio_install/current.toml"), b"package-current\n"),
+            ("runtime_selector", Path(".caprmedio_runtime/installation/current.toml"), b"runtime-current\n"),
+            (
+                "release_proof",
+                Path(".caprmedio_runtime/installation/generations") / str(generation) / "release-proof.toml",
+                b"release-proof\n",
+            ),
+            (
+                "package_manifest",
+                Path(".caprmedio_install/releases") / self.command.package.manifest_digest / "manifest.toml",
+                b"package-manifest\n",
+            ),
+        )
+        for _kind, relative, payload in current_rows:
+            carrier = self.fixture.target / relative
+            carrier.parent.mkdir(parents=True, exist_ok=True)
+            carrier.write_bytes(payload)
+
+        recorded = record_direct_installation_result(
+            self.command,
+            full_gate_effects=closure,
+            state_generation=generation,
+            effect_outcome="completed",
+            reason=None,
+        )
+
+        expected = [
+            (kind, relative.as_posix(), hashlib.sha256(payload).hexdigest())
+            for kind, relative, payload in current_rows
+        ] + [(effect.kind, effect.reference, effect.sha256) for effect in closure.effects]
+        rows = recorded["result"]["effects"]
+        self.assertEqual("recorded", recorded["state"])
+        self.assertEqual(11, len(rows))
+        self.assertEqual(
+            tuple(kind for kind, _reference, _sha256 in expected),
+            tuple(row["kind"] for row in rows),
+        )
+        self.assertEqual(
+            tuple(reference for _kind, reference, _sha256 in expected),
+            tuple(row["reference"] for row in rows),
+        )
+        self.assertEqual(
+            tuple(digest for _kind, _reference, digest in expected),
+            tuple(row["sha256"] for row in rows),
+        )
+
+    def test_refuses_a_changed_original_gate_carrier_before_any_result_or_terminal(self) -> None:
+        receipt = self.packet.artifact_root / self.packet.evidence.evidence_root / "receipt.json"
+        receipt.write_bytes(receipt.read_bytes() + b"changed")
+
+        with self.assertRaises(FrameworkInstallationCommandError) as refused:
+            prepare_direct_full_gate_effect_closure(self.command, full_gate_packet=self.packet)
+
+        self.assertEqual("installation-command-full-gate-invalid", refused.exception.code)
+        action_run = self.command.action_start["run_id"]
+        self.assertFalse((self.fixture.target / ".caprmedio_tmp/installation/results" / action_run / "result.json").exists())
 
 
 if __name__ == "__main__":  # pragma: no cover
