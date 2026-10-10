@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Requirement, Method, Evaluation, Delivery, Operations, Plan, Operator]
-version: 3
-updated_at: "2026-10-11 00:00:29 +0400"
+version: 4
+updated_at: "2026-10-11 00:08:45 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1960]
@@ -47,7 +47,7 @@ Inherit CA-P-1959's confidence, preservation and execution boundaries. Creating 
 
 - [CA-P-1979 — Review current Subject Tool RMEDO](01-CA-P-1978-TASK--review-and-update-rmedo-for-subject-tools/done/01-CA-P-1979-TASK--review-current-subject-tool-rmedo.md)
 - [CA-P-1980 — Repair Subject Tool RMEDO](01-CA-P-1978-TASK--review-and-update-rmedo-for-subject-tools/done/02-CA-P-1980-TASK--repair-subject-tool-rmedo.md)
-- [CA-P-1981 — Verify repaired Subject Tool RMEDO](01-CA-P-1978-TASK--review-and-update-rmedo-for-subject-tools/03-CA-P-1981-TASK--verify-repaired-subject-tool-rmedo.md)
+- [CA-P-1981 — Verify repaired Subject Tool RMEDO](01-CA-P-1978-TASK--review-and-update-rmedo-for-subject-tools/done/03-CA-P-1981-TASK--verify-repaired-subject-tool-rmedo.md)
 
 ### Definition of Done
 
