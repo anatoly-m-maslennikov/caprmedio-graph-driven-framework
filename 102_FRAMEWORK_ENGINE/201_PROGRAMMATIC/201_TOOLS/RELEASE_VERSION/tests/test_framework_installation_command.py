@@ -241,15 +241,54 @@ class FrameworkInstallationCommandTests(unittest.TestCase):
         self.assertEqual([], self._events())
 
     def test_adopt_binds_the_exact_observed_legacy_runtime_selector(self) -> None:
-        selector = self.root / ".caprmedio_install/current.toml"
-        selector.parent.mkdir(parents=True)
-        selector.write_bytes(b"release = 'legacy'\n")
+        tool_selector = self.root / ".caprmedio_install/current.toml"
+        framework_selector = self.root / ".caprmedio_runtime/framework/current.toml"
+        tool_selector.parent.mkdir(parents=True)
+        framework_selector.parent.mkdir(parents=True)
+        tool_selector.write_bytes(b"tool_release = 'legacy-tool'\n")
+        framework_selector.write_bytes(b"framework_release = 'legacy-framework'\n")
 
         result = run_framework_installation_command(self._request(mode="adopt"))
         self.addCleanup(result.action_session.close)
 
-        self.assertEqual(hashlib.sha256(selector.read_bytes()).hexdigest(), result.command_receipt.prior_runtime_selector_sha256)
-        self.assertEqual(b"release = 'legacy'\n", selector.read_bytes())
+        self.assertEqual(
+            hashlib.sha256(framework_selector.read_bytes()).hexdigest(),
+            result.command_receipt.prior_runtime_selector_sha256,
+        )
+        self.assertNotEqual(
+            hashlib.sha256(tool_selector.read_bytes()).hexdigest(),
+            result.command_receipt.prior_runtime_selector_sha256,
+        )
+
+    def test_tool_selector_alone_is_not_aliased_as_legacy_framework_execution(self) -> None:
+        tool_selector = self.root / ".caprmedio_install/current.toml"
+        tool_selector.parent.mkdir(parents=True)
+        tool_selector.write_bytes(b"tool_release = 'legacy-tool-only'\n")
+
+        result = run_framework_installation_command(self._request(mode="adopt"))
+        self.addCleanup(result.action_session.close)
+
+        self.assertIsNone(result.command_receipt.prior_runtime_selector_sha256)
+
+    def test_native_execution_selector_precedes_distinct_legacy_framework_and_tool_selectors(self) -> None:
+        native_selector = self.root / ".caprmedio_runtime/installation/current.toml"
+        framework_selector = self.root / ".caprmedio_runtime/framework/current.toml"
+        tool_selector = self.root / ".caprmedio_install/current.toml"
+        for selector, payload in (
+            (native_selector, b"native_execution = 'current'\n"),
+            (framework_selector, b"framework_release = 'legacy-framework'\n"),
+            (tool_selector, b"tool_release = 'legacy-tool'\n"),
+        ):
+            selector.parent.mkdir(parents=True, exist_ok=True)
+            selector.write_bytes(payload)
+
+        result = run_framework_installation_command(self._request(mode="adopt"))
+        self.addCleanup(result.action_session.close)
+
+        self.assertEqual(
+            hashlib.sha256(native_selector.read_bytes()).hexdigest(),
+            result.command_receipt.prior_runtime_selector_sha256,
+        )
 
     def test_refuses_package_drift_before_command_or_journal_effect(self) -> None:
         request = self._request()

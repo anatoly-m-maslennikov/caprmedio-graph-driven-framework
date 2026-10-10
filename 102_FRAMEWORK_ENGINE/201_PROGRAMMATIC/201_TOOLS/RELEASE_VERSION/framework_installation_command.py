@@ -97,9 +97,10 @@ _FULL_GATE_EFFECT_KINDS = (
 )
 _PRIOR_RUNTIME_SELECTORS = (
     PurePosixPath(".caprmedio_runtime/installation/current.toml"),
-    # ``installation_state.LEGACY_SELECTOR`` is the prior migration surface;
-    # package selection is not inferred from an arbitrary framework checkout.
-    PurePosixPath(".caprmedio_install/current.toml"),
+    # The legacy Framework selector is the old execution binding.  The
+    # adjacent ``.caprmedio_install/current.toml`` is a distinct Tool package
+    # selector and cannot stand in for this D604 predecessor identity.
+    PurePosixPath(".caprmedio_runtime/framework/current.toml"),
 )
 
 
@@ -1034,14 +1035,18 @@ def _revalidate_request(request: FrameworkInstallationCommandRequest) -> tuple[P
 
 
 def _prior_runtime_selector_sha256(root: Path) -> str | None:
-    observed: list[tuple[str, str]] = []
+    """Return the current execution selector, preferring native over legacy.
+
+    The legacy Tool selector is intentionally outside this list: it is a
+    separate package carrier and therefore cannot be aliased as a Framework
+    execution predecessor in the D604 command.
+    """
+
     for relative in _PRIOR_RUNTIME_SELECTORS:
         payload = _optional_regular_bytes(root, relative, label="prior runtime selector")
         if payload is not None:
-            observed.append((relative.as_posix(), _sha256(payload)))
-    if len(observed) > 1:
-        _refuse("installation-command-prior-selector-ambiguous", "both native and legacy runtime selectors are present")
-    return observed[0][1] if observed else None
+            return _sha256(payload)
+    return None
 
 
 def _relative_to_root(root: Path, path: Path) -> str:
