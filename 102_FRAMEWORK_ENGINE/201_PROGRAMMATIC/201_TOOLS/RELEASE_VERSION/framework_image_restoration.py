@@ -53,6 +53,7 @@ _SELECTOR_FIELDS = (
     "image_digest",
 )
 _MAX_DOCKER_OUTPUT_BYTES = 4 * 1024 * 1024
+_MAX_COMMAND_BYTES = 64 * 1024
 
 
 class FrameworkImageRestorationError(ReleaseContractError):
@@ -132,6 +133,101 @@ def _direct_action_module() -> Any:
     import direct_action_session
 
     return direct_action_session
+
+
+def validate_framework_image_recording_command(
+    root: Path,
+    *,
+    result_ref: str,
+    authorization_ref: str,
+    operator: str,
+    journal_author: str,
+    operators_registry_ref: str | Path,
+) -> str:
+    """Reopen the exact D591 recording command at the native recovery boundary."""
+    if not isinstance(authorization_ref, str):
+        raise _error("framework-image-restoration-recording-authorization-invalid", "recording authorization reference is invalid")
+    command_path = _regular_file(
+        root,
+        Path(authorization_ref),
+        code="framework-image-restoration-recording-authorization-invalid",
+    )
+    try:
+        if command_path.stat().st_size > _MAX_COMMAND_BYTES:
+            raise _error("framework-image-restoration-recording-authorization-invalid", "recording command is oversized")
+        raw = command_path.read_bytes()
+        value = json.loads(raw.decode("utf-8"))
+        canonical = canonical_json(value)
+    except FrameworkImageRestorationError:
+        raise
+    except (OSError, UnicodeDecodeError, ValueError, TypeError) as error:
+        raise _error("framework-image-restoration-recording-authorization-invalid", "recording command is unreadable") from error
+    digest = hashlib.sha256(raw).hexdigest()
+    module = _direct_action_module()
+    try:
+        binding = module._source_binding(root, RESTORATION_ACTION_ID)
+        registry_path = _regular_file(
+            root,
+            Path(operators_registry_ref),
+            code="framework-image-restoration-recording-authorization-invalid",
+        )
+        registry_sha256 = hashlib.sha256(registry_path.read_bytes()).hexdigest()
+    except (AttributeError, OSError, module.DirectActionJournalError) as error:
+        raise _error("framework-image-restoration-recording-authorization-invalid", "recording authority cannot be reopened") from error
+    expected_source = {
+        "atom_id": binding["atom_id"],
+        "version": binding["version"],
+        "path": binding["path"],
+        "sha256": binding["digest"],
+    }
+    expected_keys = {
+        "schema_version", "operation", "command_id", "operator", "journal_author",
+        "operators_registry_sha256", "action_source", "input",
+    }
+    if (
+        not isinstance(value, dict)
+        or set(value) != expected_keys
+        or raw != canonical
+        or value.get("schema_version") != 1
+        or type(value.get("schema_version")) is not int
+        or value.get("operation") != "record_terminal"
+        or not isinstance(value.get("command_id"), str)
+        or not value["command_id"].strip()
+        or any(char in value["command_id"] for char in "\r\n")
+        or value.get("operator") != operator
+        or value.get("journal_author") != journal_author
+        or value.get("operators_registry_sha256") != registry_sha256
+        or value.get("action_source") != expected_source
+        or value.get("input") != {"result_ref": result_ref}
+        or command_path.name != f"{digest}.json"
+    ):
+        raise _error("framework-image-restoration-recording-authorization-invalid", "recording command does not bind this recovery")
+    return digest
+
+
+def _validate_recording_authorization(
+    root: Path,
+    journal: Any,
+    *,
+    result_ref: str,
+    authorization_ref: str,
+) -> None:
+    authorization = getattr(journal, "authorization", None)
+    if (
+        not isinstance(authorization, Mapping)
+        or authorization.get("authorization_ref") != authorization_ref
+        or not isinstance(authorization.get("operator"), str)
+        or not isinstance(getattr(journal, "author", None), str)
+    ):
+        raise _error("framework-image-restoration-recording-authorization-invalid", "recording command is not owned by this Session")
+    validate_framework_image_recording_command(
+        root,
+        result_ref=result_ref,
+        authorization_ref=authorization_ref,
+        operator=authorization["operator"],
+        journal_author=journal.author,
+        operators_registry_ref=journal.operators_registry_ref,
+    )
 
 
 def _work_journal_module() -> Any:
@@ -401,7 +497,7 @@ def _private_result_for_selector(root: Path, expected_selector_sha256: str) -> t
     return found
 
 
-def _freeze(root: Path, expected_selector_sha256: str) -> _FrozenRestoration:
+def _freeze(root: Path, expected_selector_sha256: str, *, retain: bool = True) -> _FrozenRestoration:
     if not isinstance(expected_selector_sha256, str) or _SHA256.fullmatch(expected_selector_sha256) is None:
         raise _error("framework-image-restoration-selector-digest-invalid", "expected selector SHA-256 is invalid")
     selector_path = _regular_file(root, Path(CURRENT_SELECTOR_RELATIVE), code="framework-image-restoration-selector-missing")
@@ -441,9 +537,15 @@ def _freeze(root: Path, expected_selector_sha256: str) -> _FrozenRestoration:
         "retained_context_sha256": original.context_sha256,
     }
     intent_sha256 = _digest(canonical_json(intent))
-    private_root = _private_directory(root, intent_sha256)
-    _write_once(private_root / "intent.json", canonical_json(intent))
-    _write_once(private_root / "prior-selector.toml", selector)
+    # A public preview must authenticate the same immutable inputs as an
+    # execution, but it is not an Action start and must not create private
+    # restoration evidence.  Executions retain the closed evidence exactly as
+    # before.
+    private_root = root / RESTORATION_ROOT / intent_sha256
+    if retain:
+        private_root = _private_directory(root, intent_sha256)
+        _write_once(private_root / "intent.json", canonical_json(intent))
+        _write_once(private_root / "prior-selector.toml", selector)
     return _FrozenRestoration(root, selector, selector_sha256, release, old_image_digest, original,
                               package_inventory_sha256, skill_inventory_sha256, intent, intent_sha256, private_root)
 
@@ -562,11 +664,14 @@ def _pending_event_id_from_session(journal: DirectActionJournal, *, run_id: str,
 
 
 def _terminalize(journal: DirectActionJournal, run_id: str, *, outcome: str, result_ref: str,
-                 effect_refs: list[str]) -> _Terminalization:
+                 effect_refs: list[str], report_ref: str | None = None) -> _Terminalization:
     effect_refs = _stable_effect_refs(effect_refs)
     try:
         journal.record_effects(run_id, result_ref=result_ref, effect_refs=effect_refs)
-        terminal = journal.finish_action(run_id, outcome=outcome, result_ref=result_ref, effect_refs=effect_refs)
+        terminal = journal.finish_action(
+            run_id, outcome=outcome, result_ref=result_ref, effect_refs=effect_refs,
+            report_ref=report_ref,
+        )
     except Exception as error:
         return _Terminalization(
             None,
@@ -1253,6 +1358,7 @@ def recover_framework_image_terminal(
     journal: DirectActionJournal,
     result_ref: str,
     image_executor: DockerExecutor,
+    recording_authorization_ref: str | None = None,
 ) -> dict[str, Any]:
     """Record one already-observed successful restoration; never rebuild or publish.
 
@@ -1270,11 +1376,22 @@ def recover_framework_image_terminal(
             DirectActionSession, DirectActionJournalError = _direct_action_types()
             if not isinstance(journal, DirectActionSession):
                 return {"state": "recovery_required", "reason": "framework-image-restoration-recovery-session-required"}
+            if recording_authorization_ref is not None:
+                _validate_recording_authorization(
+                    root,
+                    journal,
+                    result_ref=result_ref,
+                    authorization_ref=recording_authorization_ref,
+                )
             reopen = getattr(journal, "reopen_restoration_for_recording", None)
             if not callable(reopen):
                 return {"state": "recovery_required", "reason": "framework-image-restoration-recovery-admission-unavailable"}
             try:
-                reopened = reopen(requested_run_id=result["requested_run_id"], intent=intent)
+                reopened = reopen(
+                    requested_run_id=result["requested_run_id"],
+                    intent=intent,
+                    recording_authorization_ref=recording_authorization_ref,
+                )
             except DirectActionJournalError as error:
                 return {"state": "recovery_required", "reason": error.code}
             run_id = reopened.get("run_id") if isinstance(reopened, Mapping) else None
@@ -1283,7 +1400,7 @@ def recover_framework_image_terminal(
                 return {"state": "recovery_required", "reason": "framework-image-restoration-recovery-unconfirmed"}
             terminal = _terminalize(
                 journal, run_id, outcome="completed", result_ref=_result_ref(root, result_root),
-                effect_refs=effect_refs,
+                effect_refs=effect_refs, report_ref=recording_authorization_ref,
             )
             if not _terminal_confirmed(terminal, "completed"):
                 return _pending_reply(result_root, terminal, result_ref=_result_ref(root, result_root), run_id=run_id)
@@ -1296,6 +1413,34 @@ def recover_framework_image_terminal(
             }
     except (FrameworkImageRestorationError, SelectorPublicationLockError) as error:
         return {"state": "recovery_required", "reason": getattr(error, "code", "framework-image-restoration-publication-lock-unavailable")}
+
+
+def preview_framework_image_restoration(project_root: Path | str) -> dict[str, Any]:
+    """Reopen the selected restoration inputs without recording or executing.
+
+    This deliberately does not construct a Journal Session, Docker executor,
+    private restoration directory, Action Run, or selector publication.  It
+    returns only the frozen intent and selected selector identity that a later
+    explicitly authorized invocation must independently revalidate.
+    """
+    try:
+        root = _root(project_root)
+        selector = _regular_file(
+            root,
+            Path(CURRENT_SELECTOR_RELATIVE),
+            code="framework-image-restoration-selector-missing",
+        ).read_bytes()
+        frozen = _freeze(root, _digest(selector), retain=False)
+        return {
+            "state": "preview",
+            "intent": dict(frozen.intent),
+            "intent_sha256": frozen.intent_sha256,
+            "selected_selector_sha256": frozen.selector_sha256,
+            "release": frozen.release,
+            "old_image_digest": frozen.old_image_digest,
+        }
+    except FrameworkImageRestorationError as error:
+        return {"state": "blocked", "reason": error.code}
 
 
 def restore_framework_image(
@@ -1573,5 +1718,7 @@ if __name__ == "__main__":
 
 __all__ = [
     "FrameworkImageRestorationError", "RESTORATION_ACTION_ID",
-    "recover_framework_image_journal", "recover_framework_image_terminal", "restore_framework_image",
+    "preview_framework_image_restoration", "recover_framework_image_journal",
+    "recover_framework_image_terminal", "restore_framework_image",
+    "validate_framework_image_recording_command",
 ]

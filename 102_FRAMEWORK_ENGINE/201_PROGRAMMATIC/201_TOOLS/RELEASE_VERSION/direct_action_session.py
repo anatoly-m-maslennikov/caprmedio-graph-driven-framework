@@ -57,9 +57,9 @@ RESTORATION_ATOM_VERSION = 2
 RESTORATION_ATOM_RELATIVE = ACTION_ATOM_RELATIVE.parent / "CA-O-187-PROJECT_CONFIGURATION-ACTION--restore-the-selected-missing-bootstrap-image.md"
 RESTORATION_ATOM_SHA256 = "6e0320a7026f37c6e0e4199051d47a4c597cdbe22bb5fb1bfb7b0626258852c1"
 SOURCE_ADMISSION_ACTION_ID = "CA-O-199"
-SOURCE_ADMISSION_ATOM_VERSION = 2
+SOURCE_ADMISSION_ATOM_VERSION = 3
 SOURCE_ADMISSION_ATOM_RELATIVE = ACTION_ATOM_RELATIVE.parent / "CA-O-199-PROJECT_CONFIGURATION-ACTION--admit-local-package-sources.md"
-SOURCE_ADMISSION_ATOM_SHA256 = "6b4e510bf5d25ac0b01e7262a79ef6b276272ed52ff02780dfd37f5d63402923"
+SOURCE_ADMISSION_ATOM_SHA256 = "210e558c256f923e818dce60cf365500fc61c9b14223f7de6177874dd79b7a73"
 INSTALLATION_ACTION_ID = "CA-O-200"
 INSTALLATION_ATOM_VERSION = 1
 # O-200 travels inside the closed Framework package.  Its Project-authority
@@ -716,6 +716,7 @@ class DirectActionSession:
                 "requested_run_id": requested_run_id,
                 "intent": normalized_intent,
                 "binding": binding,
+                "authorization": dict(self.authorization),
                 "event_id": started_id,
                 "event_receipt": dict(receipt),
             }
@@ -768,6 +769,8 @@ class DirectActionSession:
         self,
         requested_run_id: str,
         intent: Mapping[str, Any],
+        *,
+        recording_authorization_ref: str | None = None,
     ) -> Mapping[str, Any]:
         """Own the original O-187 Run solely to record independently proven effects.
 
@@ -793,6 +796,16 @@ class DirectActionSession:
             journal_author=self.author,
             operators_registry_ref=self.operators_registry_ref,
         )
+        recording_ref = _safe_ref(
+            recording_authorization_ref,
+            "recording_authorization_ref",
+            allow_none=True,
+        )
+        if recording_ref is not None and str(recording_ref) != self.authorization["authorization_ref"]:
+            raise DirectActionJournalError(
+                "direct-action-recording-authorization-invalid",
+                "recording command differs from the current Session authorization",
+            )
         identity = self._run_identity(requested_run_id, binding)
         run_id = f"direct-action:{identity}"
         if run_id in self.actual:
@@ -805,16 +818,42 @@ class DirectActionSession:
             if reopened is None:
                 raise DirectActionJournalError("direct-action-recording-unavailable", "the original canonical started restoration Run is unavailable")
             event, receipt = reopened
-            self._validate_started(event, requested_run_id, normalized_intent, binding, run_id)
+            original_ref = _safe_ref(event.get("input_ref"), "original_authorization_ref")
+            if recording_ref is None and str(original_ref) != self.authorization["authorization_ref"]:
+                raise DirectActionJournalError(
+                    "direct-action-recording-authorization-required",
+                    "a distinct recording command must be retained for this recovery",
+                )
+            if recording_ref is not None and str(original_ref) == str(recording_ref):
+                raise DirectActionJournalError(
+                    "direct-action-recording-authorization-invalid",
+                    "recording command cannot replace the original execute command",
+                )
+            original_authorization = {
+                "operator": self.authorization["operator"],
+                "authorization_ref": str(original_ref),
+            }
+            self._validate_started(
+                event,
+                requested_run_id,
+                normalized_intent,
+                binding,
+                run_id,
+                authorization=original_authorization,
+            )
             if self._existing_terminal(identity, requested_run_id, normalized_intent, binding, run_id) is not None:
                 raise DirectActionJournalError("direct-action-already-terminal", "this direct Action already has canonical terminal evidence")
-            self.actual[run_id] = {
+            actual = {
                 "requested_run_id": requested_run_id,
                 "intent": normalized_intent,
                 "binding": binding,
+                "authorization": original_authorization,
                 "event_id": started_id,
                 "event_receipt": dict(receipt),
             }
+            if recording_ref is not None:
+                actual["recording_authorization_ref"] = str(recording_ref)
+            self.actual[run_id] = actual
             self.receipts.append(dict(receipt))
             return {"run_id": run_id, "disposition": "recording_only", "event_id": started_id,
                     "event_receipt": dict(receipt)}
@@ -849,6 +888,12 @@ class DirectActionSession:
         result = str(_safe_ref(result_ref, "result_ref"))
         effects = self._effect_refs(effect_refs)
         report = _safe_ref(report_ref, "report_ref", allow_none=True)
+        recording_ref = run.get("recording_authorization_ref")
+        if recording_ref is not None and str(report) != recording_ref:
+            raise DirectActionJournalError(
+                "direct-action-recording-authorization-invalid",
+                "terminal report_ref must retain the admitted recording command",
+            )
         observed = self._observed.get(run_id)
         if observed is None:
             raise DirectActionJournalError("direct-action-effects-unobserved", "actual effects must be observed before terminal recording")
@@ -858,7 +903,9 @@ class DirectActionSession:
         event_name = {"completed": "completed", "no_op": "completed", "failed": "failed", "partial": "failed", "cancelled": "abandoned"}[outcome]
         terminal_key = work_journal.canonical_json_digest(
             {
-                "intent_sha256": self._intent_identity(run["intent"], run["binding"]),
+                "intent_sha256": self._intent_identity(
+                    run["intent"], run["binding"], authorization=run.get("authorization"),
+                ),
                 "outcome": outcome,
                 "result_ref": result,
                 "effect_refs": effects,
@@ -877,12 +924,16 @@ class DirectActionSession:
             result_ref=result,
             effect_refs=effects,
             report_ref=report,
+            authorization=run.get("authorization"),
         )
         try:
             reopened = _reopen_event(self.root, event_id)
             if reopened is not None:
                 saved, receipt = reopened
-                self._validate_terminal(saved, run_id, run["requested_run_id"], run["intent"], run["binding"], event)
+                self._validate_terminal(
+                    saved, run_id, run["requested_run_id"], run["intent"], run["binding"], event,
+                    authorization=run.get("authorization"),
+                )
                 result_value = self._terminal_result(event, receipt)
                 self.terminal[run_id] = result_value
                 self.receipts.append(dict(receipt))
@@ -892,7 +943,10 @@ class DirectActionSession:
             if reopened is None:
                 raise DirectActionJournalError("direct-action-journal-unavailable", "terminal Action evidence did not reopen after append")
             saved, saved_receipt = reopened
-            self._validate_terminal(saved, run_id, run["requested_run_id"], run["intent"], run["binding"], event)
+            self._validate_terminal(
+                saved, run_id, run["requested_run_id"], run["intent"], run["binding"], event,
+                authorization=run.get("authorization"),
+            )
             if saved_receipt != receipt:
                 raise DirectActionJournalError("direct-action-journal-invalid", "reopened terminal receipt differs from append receipt")
             result_value = self._terminal_result(event, receipt)
@@ -972,13 +1026,20 @@ class DirectActionSession:
             }
         )
 
-    def _intent_identity(self, intent: Mapping[str, str], binding: Mapping[str, Any]) -> str:
+    def _intent_identity(
+        self,
+        intent: Mapping[str, str],
+        binding: Mapping[str, Any],
+        *,
+        authorization: Mapping[str, Any] | None = None,
+    ) -> str:
+        identity_authorization = self.authorization if authorization is None else authorization
         return work_journal.canonical_json_digest(
             {
                 "intent": dict(intent),
                 "binding": dict(binding),
-                "operator": self.authorization["operator"],
-                "authorization_ref": self.authorization["authorization_ref"],
+                "operator": identity_authorization["operator"],
+                "authorization_ref": identity_authorization["authorization_ref"],
                 "author": self.author,
             }
         )
@@ -1041,12 +1102,14 @@ class DirectActionSession:
         result_ref: str | None,
         effect_refs: Sequence[str],
         report_ref: str | None,
+        authorization: Mapping[str, Any] | None = None,
     ) -> dict[str, Any]:
         moment = self._now()
         if moment.tzinfo is None:
             raise DirectActionJournalError("direct-action-journal-context-invalid", "clock must return a timezone-aware timestamp")
         if self.timezone == "UTC":
             moment = moment.astimezone(dt.UTC)
+        event_authorization = self.authorization if authorization is None else authorization
         payload: dict[str, Any] = {
             "schema_version": 5,
             "kind": "workflow_execution",
@@ -1055,14 +1118,17 @@ class DirectActionSession:
             "event": event_name,
             "author": self.author,
             "occurred_at": moment.isoformat(timespec="seconds"),
-            "llm_session": {"app": DIRECT_ACTION_APP, "uuid": self._intent_identity(intent, binding)},
+            "llm_session": {
+                "app": DIRECT_ACTION_APP,
+                "uuid": self._intent_identity(intent, binding, authorization=event_authorization),
+            },
             "structural_scope": STRUCTURAL_SCOPE,
             "initiative": {
                 "initiative_id": self.descriptor.atom_id,
-                "instruction_summary": "Operator " + self.authorization["operator"]
+                "instruction_summary": "Operator " + event_authorization["operator"]
                 + " authorized " + self.descriptor.instruction + "; intent SHA-256 "
-                + self._intent_identity(intent, binding),
-                "initiative_ref": self.authorization["authorization_ref"],
+                + self._intent_identity(intent, binding, authorization=event_authorization),
+                "initiative_ref": event_authorization["authorization_ref"],
             },
             "run": {
                 "run_id": run_id,
@@ -1070,7 +1136,7 @@ class DirectActionSession:
                 "definition": {key: binding[key] for key in ("atom_id", "version", "path", "digest")},
             },
             "definition_bindings": [dict(binding)],
-            "input_ref": self.authorization["authorization_ref"],
+            "input_ref": event_authorization["authorization_ref"],
             "outcome": outcome,
             "result_ref": result_ref,
             "effect_refs": list(effect_refs),
@@ -1205,10 +1271,15 @@ class DirectActionSession:
         intent: Mapping[str, str],
         binding: Mapping[str, Any],
         run_id: str,
+        *,
+        authorization: Mapping[str, Any] | None = None,
     ) -> None:
         if event.get("event") != "started" or event.get("outcome") is not None:
             raise DirectActionJournalError("direct-action-journal-invalid", "reopened event is not a started direct Action")
-        self._validate_terminal_shape(event, run_id, requested_run_id, intent, binding, allow_nonterminal=True)
+        self._validate_terminal_shape(
+            event, run_id, requested_run_id, intent, binding,
+            allow_nonterminal=True, authorization=authorization,
+        )
 
     def _validate_terminal(
         self,
@@ -1218,8 +1289,12 @@ class DirectActionSession:
         intent: Mapping[str, str],
         binding: Mapping[str, Any],
         expected: Mapping[str, Any],
+        *,
+        authorization: Mapping[str, Any] | None = None,
     ) -> None:
-        self._validate_terminal_shape(event, run_id, requested_run_id, intent, binding)
+        self._validate_terminal_shape(
+            event, run_id, requested_run_id, intent, binding, authorization=authorization,
+        )
         if dict(event) != dict(expected):
             raise DirectActionJournalError("direct-action-journal-invalid", "reopened terminal evidence does not match this Action result")
 
@@ -1232,8 +1307,12 @@ class DirectActionSession:
         binding: Mapping[str, Any],
         *,
         allow_nonterminal: bool = False,
+        authorization: Mapping[str, Any] | None = None,
     ) -> None:
-        expected_intent_identity = self._intent_identity(intent, binding)
+        event_authorization = self.authorization if authorization is None else authorization
+        expected_intent_identity = self._intent_identity(
+            intent, binding, authorization=event_authorization,
+        )
         actual_session = event.get("llm_session")
         if (
             isinstance(actual_session, Mapping)
@@ -1254,10 +1333,10 @@ class DirectActionSession:
             or event.get("structural_scope") != STRUCTURAL_SCOPE
             or event.get("initiative") != {
                 "initiative_id": self.descriptor.atom_id,
-                "instruction_summary": "Operator " + self.authorization["operator"]
+                "instruction_summary": "Operator " + event_authorization["operator"]
                 + " authorized " + self.descriptor.instruction + "; intent SHA-256 "
                 + expected_intent_identity,
-                "initiative_ref": self.authorization["authorization_ref"],
+                "initiative_ref": event_authorization["authorization_ref"],
             }
             or event.get("run") != {
                 "run_id": run_id,
@@ -1265,7 +1344,7 @@ class DirectActionSession:
                 "definition": {key: binding[key] for key in ("atom_id", "version", "path", "digest")},
             }
             or event.get("definition_bindings") != [dict(binding)]
-            or event.get("input_ref") != self.authorization["authorization_ref"]
+            or event.get("input_ref") != event_authorization["authorization_ref"]
         ):
             raise DirectActionJournalError("direct-action-journal-invalid", "reopened Journal event does not bind this direct Action")
         if not allow_nonterminal and event.get("event") not in {"completed", "failed", "abandoned"}:

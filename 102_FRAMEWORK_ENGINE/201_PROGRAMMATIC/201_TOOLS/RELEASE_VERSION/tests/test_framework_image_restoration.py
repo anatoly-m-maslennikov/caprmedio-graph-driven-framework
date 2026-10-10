@@ -22,7 +22,8 @@ RELEASE_ROOT = Path(__file__).resolve().parents[1]
 PROJECT_ROOT = RELEASE_ROOT.parents[3]
 TEST_ROOT = Path(__file__).resolve().parent
 TOOLS_ROOT = RELEASE_ROOT.parent
-for directory in (RELEASE_ROOT, TOOLS_ROOT, TEST_ROOT):
+MCP_ROOT = RELEASE_ROOT.parent.parent / "204_MCP"
+for directory in (RELEASE_ROOT, TOOLS_ROOT, TEST_ROOT, MCP_ROOT):
     if str(directory) not in sys.path:
         sys.path.insert(0, str(directory))
 
@@ -52,7 +53,15 @@ from selector_publication_lock import (  # noqa: E402
     selector_publication_lock,
 )
 import work_journal  # noqa: E402
-from direct_action_session import DirectActionJournalError, DirectActionSession  # noqa: E402
+from direct_action_session import (  # noqa: E402
+    DirectActionJournalError,
+    DirectActionSession,
+    RESTORATION_ATOM_ID,
+    RESTORATION_ATOM_RELATIVE,
+    RESTORATION_ATOM_SHA256,
+    RESTORATION_ATOM_VERSION,
+)
+from framework_image_restoration_mcp import FrameworkImageRestorationAdapter  # noqa: E402
 
 
 OLD_IMAGE = "sha256:" + "a" * 64
@@ -155,6 +164,16 @@ class FrameworkImageRestorationTests(unittest.TestCase):
             "journal_root = '.caprmedio_caprmedio/_journal'\nruntime_root = '.caprmedio_runtime'\n",
             encoding="utf-8",
         )
+        framework_settings = self.root / ".caprmedio_caprmedio/000_CAPRMEDIO_framework/caprmedio_framework_settings.toml"
+        framework_settings.parent.mkdir(parents=True, exist_ok=True)
+        framework_settings.write_bytes(b"")
+        default_settings_relative = Path(
+            ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/"
+            "000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/caprmedio_framework_default_settings.toml"
+        )
+        default_settings = self.root / default_settings_relative
+        default_settings.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(PROJECT_ROOT / default_settings_relative, default_settings)
         shutil.copyfile(
             PROJECT_ROOT / ".caprmedio_caprmedio/operators_registry.toml",
             self.root / ".caprmedio_caprmedio/operators_registry.toml",
@@ -220,6 +239,34 @@ class FrameworkImageRestorationTests(unittest.TestCase):
     def _inventory(root: Path) -> dict[str, tuple[bytes, int]]:
         return {path.relative_to(root).as_posix(): (path.read_bytes(), path.stat().st_mode & 0o777)
                 for path in root.rglob("*") if path.is_file()}
+
+    def _mcp_command(self, request: dict[str, object], *, command_id: str) -> str:
+        registry = (self.root / ".caprmedio_caprmedio/operators_registry.toml").read_bytes()
+        command = {
+            "schema_version": 1,
+            "operation": request["operation"],
+            "command_id": command_id,
+            "operator": request["operator"],
+            "journal_author": "anatoly-m-maslennikov",
+            "operators_registry_sha256": hashlib.sha256(registry).hexdigest(),
+            "action_source": {
+                "atom_id": RESTORATION_ATOM_ID,
+                "version": RESTORATION_ATOM_VERSION,
+                "path": RESTORATION_ATOM_RELATIVE.as_posix(),
+                "sha256": RESTORATION_ATOM_SHA256,
+            },
+            "input": {
+                key: value for key, value in request.items()
+                if key in {"requested_run_id", "expected_selector_sha256", "retry_of_terminal_event_id", "result_ref"}
+                and value is not None
+            },
+        }
+        raw = json.dumps(command, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode("utf-8")
+        reference = "operator-commands/" + hashlib.sha256(raw).hexdigest() + ".json"
+        target = self.root / reference
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_bytes(raw)
+        return reference
 
     def restore(self):
         return self.restore_with(self.journal)
@@ -360,6 +407,45 @@ class FrameworkImageRestorationTests(unittest.TestCase):
         self.assertEqual(result_path.parent, reopened_result_root)
         self.assertEqual(json.loads(original_result_bytes), reopened_result)
         self.assertEqual(event, reopened_event)
+
+    def test_mcp_execute_then_record_terminal_uses_native_session_and_distinct_durable_commands(self):
+        execute = {
+            "operation": "execute",
+            "requested_run_id": "mcp-native-recording",
+            "expected_selector_sha256": hashlib.sha256(self.selector_before).hexdigest(),
+            "operator": "Anatoly Maslennikov",
+        }
+        execute["authorization_ref"] = self._mcp_command(execute, command_id="mcp-native-execute")
+        adapter = FrameworkImageRestorationAdapter(self.root)
+        with (
+            patch.object(restoration, "_stable_effect_refs", side_effect=lambda values: list(values)),
+            patch.object(DockerSubprocessExecutor, "run", side_effect=self.docker.run),
+        ):
+            pending = adapter.invoke(execute)
+        self.assertEqual("recording_pending", pending["state"], pending)
+        started_id = f"{pending['run_id']}:started"
+        direct_action = __import__("direct_action_session")
+        started_before = direct_action._reopen_event(self.root, started_id)
+        calls_before_recovery = list(self.docker.calls)
+        record = {
+            "operation": "record_terminal",
+            "result_ref": pending["result_ref"],
+            "operator": "Anatoly Maslennikov",
+        }
+        record["authorization_ref"] = self._mcp_command(record, command_id="mcp-native-record-terminal")
+
+        with patch.object(DockerSubprocessExecutor, "run", side_effect=self.docker.run):
+            recovered = adapter.invoke(record)
+
+        self.assertEqual("restored", recovered["state"], recovered)
+        self.assertEqual(started_before, direct_action._reopen_event(self.root, started_id))
+        terminal, _receipt = direct_action._reopen_event(self.root, recovered["terminal"]["event_id"])
+        self.assertEqual(execute["authorization_ref"], terminal["input_ref"])
+        self.assertEqual(execute["authorization_ref"], terminal["initiative"]["initiative_ref"])
+        self.assertEqual(record["authorization_ref"], terminal["report_ref"])
+        recovery_calls = self.docker.calls[len(calls_before_recovery):]
+        self.assertFalse(any("build" in call for call in recovery_calls))
+        self.assertFalse(any(call[:2] == ("docker", "run") for call in recovery_calls))
 
     def test_recovery_refuses_fixture_forged_unique_effect_set_without_new_journal_events(self):
         """A unique list is insufficient: the successful result shape is exact."""

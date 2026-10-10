@@ -18,6 +18,16 @@ from capability_discovery.service import Service, Query, Context, Observation, W
 sys.path.insert(0, str(TOOLS_ROOT.parent / '203_APPS/WORKFLOW_ORCHESTRATOR'))
 from orchestrator import Request as OrchestratorRequest, run as orchestrate  # noqa: E402
 from selected_routes import QUERY_ROUTE_NAMES, register_selected_routes  # noqa: E402
+from framework_image_restoration_mcp import (  # noqa: E402
+    MCP_NAME as RESTORATION_MCP_NAME,
+    TOOL_NAME as RESTORATION_TOOL_NAME,
+    register_framework_image_restoration,
+)
+from source_admission_mcp import (  # noqa: E402
+    MCP_NAME as SOURCE_ADMISSION_MCP_NAME,
+    TOOL_NAME as SOURCE_ADMISSION_TOOL_NAME,
+    register_source_admission,
+)
 from hot_reload import startup_selection, bind_selection
 
 
@@ -43,6 +53,30 @@ def create_server(root):
         'gather/check/fix. workflow_orchestrator enqueues explicitly authorized Runs '
         'for a separately started worker. No recheck or automatically started Runs.')
     register_orchestrator(server, root)
+
+    # O187 is a separately source-declared direct Action.  It must never be
+    # inferred from the selected-route manifest, and a missing or altered
+    # delivery binding leaves it unregistered and unresolved.
+    restoration_bindings = [
+        item for item in discovery.catalog()[1]
+        if item.get('name') == RESTORATION_TOOL_NAME
+    ]
+    if len(restoration_bindings) == 1 and register_framework_image_restoration(
+        server, root, binding=restoration_bindings[0],
+    ):
+        discovery.exposed.add(RESTORATION_MCP_NAME)
+
+    # O199 is separately source-declared as well.  The adapter owns its closed
+    # request schema, so discovery can expose it only after the one current
+    # catalog binding has admitted the actual server registration.
+    source_admission_bindings = [
+        item for item in discovery.catalog()[1]
+        if item.get('name') == SOURCE_ADMISSION_TOOL_NAME
+    ]
+    if len(source_admission_bindings) == 1 and register_source_admission(
+        server, root, binding=source_admission_bindings[0],
+    ):
+        discovery.exposed.add(SOURCE_ADMISSION_MCP_NAME)
 
     @server.tool(name='rmed_atoms_base_revise', structured_output=True, annotations=ToolAnnotations(
         read_only_hint=False, destructive_hint=False, idempotent_hint=False, open_world_hint=False))

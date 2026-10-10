@@ -1,0 +1,154 @@
+"""Direct-MCP registration follows the current Service catalog only."""
+
+from __future__ import annotations
+
+from pathlib import Path
+import shutil
+import sys
+import tempfile
+from types import SimpleNamespace
+import unittest
+from unittest.mock import patch
+
+
+MCP_ROOT = Path(__file__).resolve().parents[1]
+PROGRAMMATIC_ROOT = MCP_ROOT.parent
+TOOLS_ROOT = PROGRAMMATIC_ROOT / "201_TOOLS"
+REPOSITORY_ROOT = PROGRAMMATIC_ROOT.parents[1]
+for directory in (MCP_ROOT, TOOLS_ROOT, TOOLS_ROOT / "VALIDATE_ATOMS", TOOLS_ROOT / "RELEASE_VERSION"):
+    if str(directory) not in sys.path:
+        sys.path.insert(0, str(directory))
+
+from capability_discovery.service import Context, Query, Service as DiscoveryService  # noqa: E402
+import implementation_server  # noqa: E402
+from source_admission_mcp import MCP_NAME, TOOL_NAME, input_schema  # noqa: E402
+
+
+D602_RELATIVE = Path(
+    ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/"
+    "201_FEATURE_TOOLS/07_delivery/"
+    "CA-D-602-TOOLS-DELIVERY--encode-admitted-package-source-catalog.md"
+)
+O199_RELATIVE = Path(
+    ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/"
+    "000_APPLICABLE_MTHD_sources/003_PROJECT_CONFIGURATION/09_operations/"
+    "CA-O-199-PROJECT_CONFIGURATION-ACTION--admit-local-package-sources.md"
+)
+
+
+class _Server:
+    instances: list["_Server"] = []
+
+    def __init__(self, *_args, **_kwargs) -> None:
+        self.registered: list[tuple[dict, object]] = []
+        self.__class__.instances.append(self)
+
+    def tool(self, **metadata):
+        def decorate(function):
+            self.registered.append((metadata, function))
+            return function
+        return decorate
+
+
+class _CapturingService(DiscoveryService):
+    instances: list["_CapturingService"] = []
+
+    def __init__(self, *args, **kwargs) -> None:
+        super().__init__(*args, **kwargs)
+        self.__class__.instances.append(self)
+
+
+class ImplementationServerTests(unittest.TestCase):
+    def setUp(self) -> None:
+        self.temporary = tempfile.TemporaryDirectory(ignore_cleanup_errors=True)
+        self.addCleanup(self.temporary.cleanup)
+        self.root = Path(self.temporary.name)
+        control = self.root / ".caprmedio_caprmedio"
+        control.mkdir()
+        (control / "caprmedio_project_settings.toml").write_text(
+            '[paths]\ncontrol_root = ".caprmedio_caprmedio"\n', encoding="utf-8"
+        )
+        _Server.instances.clear()
+        _CapturingService.instances.clear()
+
+    def _copy(self, relative: Path) -> None:
+        destination = self.root / relative
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(REPOSITORY_ROOT / relative, destination)
+
+    def _seed_o199_source(self, delivery: bytes | None = None) -> Path:
+        self._copy(O199_RELATIVE)
+        destination = self.root / D602_RELATIVE
+        if delivery is not None:
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            destination.write_bytes(delivery)
+        return destination
+
+    def _create_server(self) -> tuple[_Server, _CapturingService]:
+        with (
+            patch.object(implementation_server, "MCPServer", _Server),
+            patch.object(implementation_server, "Service", _CapturingService),
+            patch.object(
+                implementation_server,
+                "register_selected_routes",
+                return_value=SimpleNamespace(public_route_names=frozenset()),
+            ),
+        ):
+            server = implementation_server.create_server(self.root)
+        self.assertIsInstance(server, _Server)
+        self.assertEqual(1, len(_CapturingService.instances))
+        return server, _CapturingService.instances[0]
+
+    @staticmethod
+    def _registered_names(server: _Server) -> set[str]:
+        return {metadata["name"] for metadata, _function in server.registered}
+
+    def test_o199_registers_from_the_exact_current_catalog_binding_and_exposes_its_schema(self):
+        self._seed_o199_source((REPOSITORY_ROOT / D602_RELATIVE).read_bytes())
+
+        server, discovery = self._create_server()
+
+        self.assertIn(MCP_NAME, self._registered_names(server))
+        self.assertIn(MCP_NAME, discovery.exposed)
+        context = discovery.context(Context(id="CA-O-199"))
+        operation = discovery.discover(Query(query="CA-O-199"), operations=True)["matches"]
+        self.assertEqual(input_schema(), context["input_schema"])
+        self.assertEqual(["mcp"], [row["availability"] for row in operation])
+
+    def test_o199_source_action_without_delivery_binding_is_not_registered_or_exposed(self):
+        self._seed_o199_source()
+
+        server, discovery = self._create_server()
+
+        self.assertNotIn(MCP_NAME, self._registered_names(server))
+        self.assertNotIn(MCP_NAME, discovery.exposed)
+        self.assertIsNone(discovery.context(Context(id="CA-O-199"))["input_schema"])
+
+    def test_o199_mismatched_delivery_binding_is_not_registered_or_exposed(self):
+        delivery = (REPOSITORY_ROOT / D602_RELATIVE).read_bytes().replace(
+            b'entrypoint = "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/source_admission_mcp.py"',
+            b'entrypoint = "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/other.py"',
+        )
+        self._seed_o199_source(delivery)
+
+        server, discovery = self._create_server()
+
+        self.assertNotIn(MCP_NAME, self._registered_names(server))
+        self.assertNotIn(MCP_NAME, discovery.exposed)
+        self.assertIsNone(discovery.context(Context(id="CA-O-199"))["input_schema"])
+
+    def test_o199_ambiguous_delivery_bindings_are_not_registered_or_exposed(self):
+        delivery = (REPOSITORY_ROOT / D602_RELATIVE).read_bytes()
+        canonical = self._seed_o199_source(delivery)
+        duplicate = canonical.with_name("CA-D-603-TOOLS-DELIVERY--ambiguous-source-admission.md")
+        duplicate.write_bytes(delivery.replace(b"atom_id: CA-D-602", b"atom_id: CA-D-603"))
+
+        server, discovery = self._create_server()
+
+        self.assertNotIn(MCP_NAME, self._registered_names(server))
+        self.assertNotIn(MCP_NAME, discovery.exposed)
+        self.assertIsNone(discovery.context(Context(id="CA-O-199"))["input_schema"])
+
+
+if __name__ == "__main__":  # pragma: no cover
+    unittest.main()

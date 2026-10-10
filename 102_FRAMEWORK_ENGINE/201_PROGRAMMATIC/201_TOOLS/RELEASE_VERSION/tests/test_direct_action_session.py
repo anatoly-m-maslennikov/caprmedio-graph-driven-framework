@@ -38,6 +38,8 @@ from direct_action_session import (  # noqa: E402
     RESTORATION_ATOM_RELATIVE,
 )
 from framework_package import assemble_framework_package  # noqa: E402
+import framework_image_restoration as image_restoration  # noqa: E402
+from release_image import DockerSubprocessExecutor  # noqa: E402
 
 TOOLS_TEST_ROOT = TOOLS_ROOT / "tests"
 if str(TOOLS_TEST_ROOT) not in sys.path:
@@ -159,6 +161,29 @@ class DirectActionSessionTests(unittest.TestCase):
             events.extend(__import__("json").loads(line) for line in path.read_text(encoding="utf-8").splitlines())
         return events
 
+    def _recording_command(self, result_ref: str, *, command_id: str) -> str:
+        binding = direct_action._source_binding(self.root, RESTORATION_ACTION_ID)
+        registry = (self.root / ".caprmedio_caprmedio/operators_registry.toml").read_bytes()
+        command = {
+            "schema_version": 1,
+            "operation": "record_terminal",
+            "command_id": command_id,
+            "operator": AUTHORIZATION["operator"],
+            "journal_author": "anatoly-m-maslennikov",
+            "operators_registry_sha256": hashlib.sha256(registry).hexdigest(),
+            "action_source": {
+                "atom_id": binding["atom_id"],
+                "version": binding["version"],
+                "path": binding["path"],
+                "sha256": binding["digest"],
+            },
+            "input": {"result_ref": result_ref},
+        }
+        raw = json.dumps(command, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode("utf-8")
+        reference = "operator-commands/" + hashlib.sha256(raw).hexdigest() + ".json"
+        self._write(reference, raw)
+        return reference
+
     def _o200_package(self):
         source = self.root / "o200-package-source"
         releases = self.root / "o200-package-releases"
@@ -222,13 +247,13 @@ class DirectActionSessionTests(unittest.TestCase):
         write("catalog.toml", ("\n".join(lines) + "\n").encode())
         return assemble_framework_package(source, releases)
 
-    def _restoration_session(self) -> DirectActionSession:
+    def _restoration_session(self, *, authorization=AUTHORIZATION) -> DirectActionSession:
         target = self.root / RESTORATION_ATOM_RELATIVE
         target.parent.mkdir(parents=True, exist_ok=True)
         if not target.exists():
             shutil.copyfile(REPOSITORY_ROOT / RESTORATION_ATOM_RELATIVE, target)
         session = DirectActionSession(
-            self.root, author="anatoly-m-maslennikov", operator_authorization=AUTHORIZATION,
+            self.root, author="anatoly-m-maslennikov", operator_authorization=authorization,
             action_id=RESTORATION_ACTION_ID,
             now=lambda: dt.datetime(2026, 10, 5, 18, 0, tzinfo=dt.UTC),
         )
@@ -403,6 +428,75 @@ class DirectActionSessionTests(unittest.TestCase):
         self.assertEqual("direct-action-already-terminal", terminal_exists.exception.code)
         self.assertEqual(["started", "completed"], [event["event"] for event in self._events()])
 
+    def test_restoration_recording_uses_distinct_command_as_terminal_report_only(self) -> None:
+        original = self._restoration_session()
+        started = original.begin_action(
+            action_id=RESTORATION_ACTION_ID,
+            requested_run_id="restore-recording-command",
+            intent=RESTORATION_INTENT,
+        )
+        original.close()
+        result_ref = "tmp/restoration/result.json"
+        recording_ref = self._recording_command(result_ref, command_id="record-terminal-positive")
+        resumed = self._restoration_session(
+            authorization=dict(AUTHORIZATION, authorization_ref=recording_ref),
+        )
+        result_path = self._write(result_ref, b"{}")
+        retained = (
+            self.root / "tmp/restoration/intent",
+            result_path.parent,
+            RESTORATION_INTENT,
+            {"requested_run_id": "restore-recording-command", "run_id": started["run_id"]},
+            [result_ref],
+        )
+        with patch.object(image_restoration, "_retained_result_for_terminal", return_value=retained):
+            recovered = image_restoration.recover_framework_image_terminal(
+                self.root,
+                journal=resumed,
+                result_ref=result_ref,
+                image_executor=DockerSubprocessExecutor(),
+                recording_authorization_ref=recording_ref,
+            )
+        self.assertEqual("restored", recovered["state"], recovered)
+        event = next(item for item in self._events() if item["event_id"] == recovered["terminal"]["event_id"])
+        self.assertEqual(AUTHORIZATION["authorization_ref"], event["input_ref"])
+        self.assertEqual(AUTHORIZATION["authorization_ref"], event["initiative"]["initiative_ref"])
+        self.assertEqual(recording_ref, event["report_ref"])
+
+    def test_restoration_recording_refuses_unowned_recording_command(self) -> None:
+        original = self._restoration_session()
+        original.begin_action(
+            action_id=RESTORATION_ACTION_ID,
+            requested_run_id="restore-recording-command-refused",
+            intent=RESTORATION_INTENT,
+        )
+        original.close()
+        result_ref = "tmp/restoration/refused-result.json"
+        recording_ref = self._recording_command(result_ref, command_id="record-terminal-owned")
+        other_ref = self._recording_command(result_ref, command_id="record-terminal-other")
+        resumed = self._restoration_session(
+            authorization=dict(AUTHORIZATION, authorization_ref=recording_ref),
+        )
+        result_path = self._write(result_ref, b"{}")
+        started = next(iter(original.actual))
+        retained = (
+            self.root / "tmp/restoration/refused-intent",
+            result_path.parent,
+            RESTORATION_INTENT,
+            {"requested_run_id": "restore-recording-command-refused", "run_id": started},
+            [result_ref],
+        )
+        with patch.object(image_restoration, "_retained_result_for_terminal", return_value=retained):
+            refused = image_restoration.recover_framework_image_terminal(
+                self.root,
+                journal=resumed,
+                result_ref=result_ref,
+                image_executor=DockerSubprocessExecutor(),
+                recording_authorization_ref=other_ref,
+            )
+        self.assertEqual("recovery_required", refused["state"], refused)
+        self.assertEqual("framework-image-restoration-recording-authorization-invalid", refused["reason"])
+
     def test_restoration_recording_refuses_wrong_run_intent_authorization_and_current_source(self) -> None:
         original = self._restoration_session()
         original.begin_action(action_id=RESTORATION_ACTION_ID,
@@ -414,7 +508,7 @@ class DirectActionSessionTests(unittest.TestCase):
              AUTHORIZATION, "direct-action-intent-conflict"),
             ("restore-recording-identity", RESTORATION_INTENT,
              dict(AUTHORIZATION, authorization_ref="tmp/operator-authorizations/different.md"),
-             "direct-action-intent-conflict"),
+             "direct-action-recording-authorization-required"),
         ):
             with self.subTest(expected=expected, requested=requested):
                 resumed = DirectActionSession(self.root, author="anatoly-m-maslennikov", operator_authorization=authorization,
