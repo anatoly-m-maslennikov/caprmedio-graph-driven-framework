@@ -10,12 +10,12 @@ local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
-status: Active
+status: Done
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Requirement, Method, Evaluation, Delivery, Operations, Plan, Operator]
-version: 1
-updated_at: "2026-10-10 23:34:31 +0400"
+version: 2
+updated_at: "2026-10-10 23:48:34 +0400"
 relations:
   is_decomposition_of: [CA-P-1978]
   blocks: [CA-P-1980, CA-P-1982]
@@ -41,6 +41,10 @@ Record whether each required MCP capability is actually supported. Unsupported M
 Output: pinned inventory, confirmed gaps, bounded repair scope and acceptance cases. No RMEDO, Core, code, runtime, Journal or migration effects. Decompose before work if this inventory cannot fit 15 minutes.
 
 Inherit CA-P-1959's confidence, preservation and execution boundaries. Creating this Plan records work; it does not execute or complete it.
+
+### Local execution receipt
+
+Completed read-only inventory in four independent lanes. The pinned report is `.caprmedio_caprmedio/_projection/core-entity-review/stage2/tool-rmedo-review.md`; it covers all ten current R/E/D/O carriers, both missing active Methods, valid-file Tool boundaries, legacy carrier repairs, actual checks and unsupported MCP limits. Root rechecked current hashes. No authoritative Tool or Core source was changed. This completes the inventory only; repair and independent acceptance remain pending.
 
 ### Definition of Done
 
