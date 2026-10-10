@@ -7,6 +7,10 @@ import sys
 
 sys.dont_write_bytecode = True
 
+TOOLS_ROOT = Path(__file__).resolve().parents[1]
+if str(TOOLS_ROOT) not in sys.path:
+    sys.path.insert(0, str(TOOLS_ROOT))
+
 from validate_atoms_workers.contracts import parse_request, request_error_report, validate_report  # noqa: E402
 from validate_atoms_workers.read_io import protected, open_regular  # noqa: E402
 from validate_atoms_workers.runtime import execute  # noqa: E402

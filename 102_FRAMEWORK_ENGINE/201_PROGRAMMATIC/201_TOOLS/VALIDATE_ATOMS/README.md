@@ -106,19 +106,23 @@ projected copies do not create additional authoritative identities.
 Supply `operators_registry: {"path": "/absolute/project/operators_registry.toml"}`
 for Author checks (optional SHA-256 pin supported). The registry is authoritative,
 not generated from Atom authors. Its only root key is a nonempty `operators` array
-of tables, each containing exactly `name` and `role` nonblank strings. Names must
-be unique. Example:
+of tables, each containing `name` and `role` nonblank strings and optionally
+`journal_author`, an explicitly declared Journal account. Names and supplied
+Journal accounts must be unique. Example:
 
 ```toml
 [[operators]]
 name = "Example Operator"
 role = "project owner"
+journal_author = "example-operator"
 ```
 
 The carried `author` must exactly match one registered name. Unknown names fail;
 missing, malformed, inaccessible, or stale registry context leaves membership
 incomplete. No case folding, whitespace trimming, aliases, extra identity lookup,
-or inferred permissions are applied. The registry is fingerprinted and included
+or inferred permissions are applied. `journal_author` does not replace the
+Atom's Author name or grant permission; it only supplies Journal attribution.
+The registry is fingerprinted and included
 in input-currentness checks. Assignee resolution is not performed for now.
 
 For legacy **authority inputs** without carried identity/status, an exact
