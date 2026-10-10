@@ -111,11 +111,28 @@
     "parts_are_optional": "This permission does not require every Atom to have both parts.",
     "child_boundary": "Carriers of child Atom instances are not additional representation parts of the parent Atom instance."
   },
+  "entity_identity_model": {
+    "status": "Confirmed",
+    "scope_unit": "Name + Path",
+    "actor": {
+      "identity": "Actor Type + optional Name",
+      "type_examples": [
+        "AI Agent",
+        "Operator"
+      ],
+      "name_required": false
+    },
+    "carrier": "Filename + Path",
+    "execution": "Execution ID",
+    "unconfirmed_details": "Path normalization, rename continuity, distinguishing multiple unnamed Actors and dependent Entity identity are not specified by this answer.",
+    "native_adoption": "Not performed."
+  },
   "atom_versioning": {
     "status": "Confirmed",
     "increment": 1,
     "example_sequence": [1, 2, 3, 4],
     "trigger": "Every Atom update, including Status-only and other metadata-only changes, increments Version Number by 1.",
+    "projection_boundary": "Projected copies preserve their source Atom's Version Number; Projection rebuilds are tracked by the Projection, not by inventing a new source Atom version.",
     "native_adoption": "Not performed."
   },
   "atom_lookup": {
@@ -132,6 +149,8 @@
     "whole_set": "The whole set of derived Atom instances is a Projection.",
     "lifecycle": "The Projection set has its own lifecycle and is managed as a whole.",
     "atom_id_rule": "Each derived Atom keeps the same Atom ID as its source Atom.",
+    "version_number_rule": "Each derived Atom keeps its source Atom's Version Number.",
+    "rebuild_tracking": "The Projection tracks its own rebuilds. Its rebuild history does not increment the source Atom's Version Number.",
     "source_reference": {
       "required_for_each_derived_atom": true,
       "form": "Relative link to its source Atom",
@@ -208,6 +227,18 @@
     ],
     "revision_role": "Preserves a historical Artifact state.",
     "journal_role": "Records what happened, including changes, Executions and observed outcomes. A record is not the event itself.",
+    "version_preservation": {
+      "status": "Confirmed",
+      "every_atom_version_recoverable": true,
+      "records": "Keep records of each Atom's new versions.",
+      "storage_boundary": "Every previous version must remain recoverable; this does not require a separate archived file for each version. The storage mechanism is not selected here."
+    },
+    "relation_version_binding": {
+      "status": "Confirmed — loose for now",
+      "mandatory_endpoint_version_pins": false,
+      "reconstruction_basis": "Use Atom version records to reconstruct which version of one Atom was linked with which version of another Atom.",
+      "deferred_details": "Exact temporal resolution and the reconstruction algorithm remain unspecified; this decision does not claim that exact historical bindings are already recoverable."
+    },
     "relation_proposal": {
       "status": "Proposed — not Operator-confirmed or natively admitted",
       "connections": [
@@ -240,24 +271,28 @@
     "details": "General Details are optional; role/type-required content is not silently removed."
   },
   "applicable_methodology": {
-    "form": "A one-to-one Projection of selected source Atoms; applying and manually resolving the methodology is a realization process rather than only copying a Projection.",
+    "form": "A one-to-one Projection of all source Atoms into status folders, not only Active; applying and manually resolving the methodology is a realization process rather than only copying a Projection.",
     "sources": [
       "Core",
       "Installed Extensions",
       "Project Configuration"
     ],
-    "requirement": "Keep each projected Atom mapped one-to-one to one source Atom. Resolve conflicts manually rather than combining multiple sources into one derived Atom.",
+    "requirement": "Project every Atom from the input sources somewhere in Applicable Methodology. Keep each projected Atom mapped one-to-one to one source Atom; not every projected Atom is Active. Resolve conflicts manually rather than combining multiple sources into one derived Atom.",
     "mapping": {
       "source_atoms_per_projected_atom": 1,
       "combine_multiple_sources_into_one_atom": false,
+      "all_source_atoms_projected": true,
+      "active_only": false,
       "identity": "Preserve the source Atom ID and add a relative link to that source."
     },
     "manual_realization": {
-      "conflict_resolution": "Manually obsolete some Atoms and, when needed, create new authored Atoms.",
+      "conflict_resolution": "Place an excluded projected Atom in Applicable Methodology's archived subfolder and record the decision in a Journal. When needed, create a new authored Atom in Project Configuration.",
+      "exclusion_target": "The projected Atom in Applicable Methodology, not a project-local mutation of its original source Atom.",
+      "excluded_atom_folder": "archived",
+      "journal_record_required_for_exclusion": true,
       "new_atom_location": "Project Configuration",
       "new_atom_origin": "A newly authored original Atom may have no upstream source Atom; it is not a derived Projection member at creation.",
-      "subsequent_projection": "When included in the derived view, that original Configuration Atom has a one-to-one projected instance linked back to it.",
-      "obsoletion_target_scope": "Which upstream or project-local Atoms are obsoleted remains to be specified."
+      "subsequent_projection": "That original Configuration Atom is projected one-to-one into the derived view with a link back to it."
     },
     "authority": "Core, Installed Extensions and Project Configuration originals remain the source of truth. Newly authored Configuration Atoms are original sources; the derived view creates no second authoritative source for their facts.",
     "instance_boundary": "The Projection is a distinct Entity instance with one representation. References to source Atoms do not make it another representation of those source instances.",
@@ -273,8 +308,8 @@
     "additional_roots_added": false
   },
   "unresolved": [
-    "Which upstream or project-local Atoms manual Applicable Methodology conflict resolution may obsolete, and how that decision is retained in the source of truth.",
-    "Projected member Version Numbers versus source Version Numbers and Projection-set lifecycle metadata.",
+    "Serialization and storage of Projection rebuild history, archived applicability decisions and required Journal records.",
+    "Path normalization and rename continuity for path-based identities; distinguishing multiple unnamed Actors; identity of dependent Entities.",
     "Exact typed links between Operations definitions, Executions, Actors, Journal Records, Revisions and Carriers.",
     "A complete mapping from the captured 706-identity review to this simplified candidate.",
     "Operator confirmation of the proposed history links; serialization of the confirmed historical-reference keys and accepted Subject grammar changes."
