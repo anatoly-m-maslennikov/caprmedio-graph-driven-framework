@@ -1091,21 +1091,16 @@
       "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1634-CORE_META_MODEL-GENERAL--register-catalog-map-and-hub-as-type-values-under-projection.md",
       "source_sha256": "bd9a77fd4ccf72bcd78441f710af014c613bca8a53aab8d22f16e3d132f338f8",
       "source_version": 26,
-      "decision": "proposed",
-      "proposed_value": "Atom.Substance",
-      "confidence": 0.95,
-      "reason": "Current Main Content ('Register Catalog, Map, and Hub as Type Values under Projection') uses 'Atom/Claim' for the Atom's independently replaceable Claim and its derived comparison field. The latest candidate selects Substance as the content umbrella, so 'Atom.Substance' preserves that owner/field distinction without treating Claim as an allowed-value admission.",
-      "candidate_basis": [
-        {
-          "pointer": "/content_direction",
-          "reason": "The latest candidate names Substance as the content umbrella and RMED Claim as a role label; current Main Content supplies the Claim and signature meaning without adding a colon value-domain assertion."
-        }
-      ],
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "Current Main Content ('Register Catalog, Map, and Hub as Type Values under Projection') gives the live meaning for 'Atom/Claim', but the frozen candidate does not establish a safe target without losing its qualification.",
+      "candidate_basis": [],
       "preserved_distinctions": [
-        "Claim remains the current role label and is not asserted as an allowed value of Substance.",
-        "No native relation, display-only Artifact prefix, carrier registry, or domain assignment is inferred."
+        "The exact current depends_on identity 'Atom/Claim' remains visible without an invented replacement.",
+        "No native relation, display-only prefix, or Atom-only lifecycle rule is inferred."
       ],
-      "question": null,
+      "question": "Research gap: this current source treats Artifact Claims as linked content outside Projection Type authority; the candidate does not establish a Claim field that can be safely mapped to Atom.Substance here.",
       "evidence": [
         {
           "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1634-CORE_META_MODEL-GENERAL--register-catalog-map-and-hub-as-type-values-under-projection.md",
@@ -2998,4 +2993,3 @@
     }
   ]
 }
-
