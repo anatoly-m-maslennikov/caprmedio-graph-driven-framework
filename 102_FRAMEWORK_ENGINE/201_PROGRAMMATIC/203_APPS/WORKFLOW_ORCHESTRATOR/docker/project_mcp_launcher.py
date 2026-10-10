@@ -154,6 +154,39 @@ def _project_lock(selection: object, timeout: float) -> Iterator[None]:
             os.close(descriptor)
 
 
+class _LegacyProcessFence:
+    """Keep the launch writer fence held while retained coverage is open."""
+
+    def __init__(self, admission: object, deadline: float) -> None:
+        selection = getattr(admission, "selection", None)
+        root = getattr(admission, "project_root", None)
+        instance = getattr(admission, "project_instance_id", None)
+        remaining = deadline - time.monotonic()
+        if (selection is None or getattr(selection, "root", None) != root
+                or getattr(selection, "instance_id", None) != instance or remaining <= 0):
+            raise LaunchError("PROJECT_SELECTION_REFUSED")
+        self._admission = admission
+        self._lock = _project_lock(selection, min(30.0, remaining))
+        self._lock.__enter__()
+        self._closed = False
+
+    def snapshot(self, deadline: float):
+        if self._closed or time.monotonic() >= deadline:
+            return {"outcome": "unavailable", "records": []}
+        from project_mcp_backend import collect_legacy_processes
+        return collect_legacy_processes(self._admission, deadline)
+
+    def close(self) -> None:
+        if not self._closed:
+            self._closed = True
+            self._lock.__exit__(None, None, None)
+
+
+def open_legacy_process_fence(admission: object, deadline: float) -> _LegacyProcessFence:
+    """Acquire the same Project-MCP writer fence used by launch/start."""
+    return _LegacyProcessFence(admission, deadline)
+
+
 def _positive_timeout(value: object, *, ceiling: float, default: float) -> float:
     if value is None:
         return default

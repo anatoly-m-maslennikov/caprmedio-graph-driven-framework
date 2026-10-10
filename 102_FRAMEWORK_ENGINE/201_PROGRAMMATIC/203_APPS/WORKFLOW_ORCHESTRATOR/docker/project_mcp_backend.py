@@ -204,12 +204,22 @@ class ProjectMcpBackend:
             and Path(source) == root
         )
 
-    def inspect(self, selection):
+    def inspect(self, selection, *, timeout: float = 30.0):
+        """Read the selected Project's Docker namespace within one deadline."""
+        if (isinstance(timeout, bool) or not isinstance(timeout, (int, float))
+                or not 0 < timeout <= 30.0):
+            raise BackendError("DOCKER_PUBLICATION_FAILED")
+        deadline = time.monotonic() + float(timeout)
+        def remaining() -> float:
+            value = deadline - time.monotonic()
+            if value <= 0:
+                raise BackendError("DOCKER_PUBLICATION_FAILED")
+            return value
         instance = self._safe_instance(selection)
         listing = _bounded_run([
             "docker", "ps", "--all", "--filter", f"label=org.caprmedio.project={instance}",
             "--format", "{{.ID}}",
-        ], timeout=30.0, env=self._docker_client_environment())
+        ], timeout=remaining(), env=self._docker_client_environment())
         identifiers = [line.strip() for line in listing.splitlines() if line.strip()]
         if len(identifiers) > 1 or any(_CONTAINER_ID.fullmatch(value) is None for value in identifiers):
             raise BackendError("DOCKER_PUBLICATION_FAILED")
@@ -217,7 +227,7 @@ class ProjectMcpBackend:
         for identifier in identifiers:
             raw = _bounded_run([
                 "docker", "container", "inspect", "--format", _INSPECT_FORMAT, identifier,
-            ], timeout=30.0, env=self._docker_client_environment())
+            ], timeout=remaining(), env=self._docker_client_environment())
             try:
                 value = json.loads(raw, object_pairs_hook=_unique_object)
                 if not isinstance(value, dict) or not self._projection_matches_selection(value, selection):
@@ -226,6 +236,37 @@ class ProjectMcpBackend:
             except (TypeError, ValueError, json.JSONDecodeError) as error:
                 raise BackendError("RUNTIME_MISMATCH") from error
         return rows
+
+    def collect_legacy_processes(self, admission: object, deadline: float) -> Mapping[str, object]:
+        """Query the actual Docker namespace without acting on any container.
+
+        The generic migration collector validates a complete sealed process
+        identity before it can classify a non-empty roster as ``observed``.
+        Docker's existing inspect projection does not carry that identity, so
+        a live row is deliberately returned as raw provider evidence and the
+        caller will block rather than guess that it belongs to the predecessor.
+        """
+        selection = getattr(admission, "selection", None)
+        root = getattr(admission, "project_root", None)
+        instance = getattr(admission, "project_instance_id", None)
+        if (selection is None or getattr(selection, "root", None) != root
+                or getattr(selection, "instance_id", None) != instance):
+            return {"outcome": "unavailable", "records": []}
+        remaining = deadline - time.monotonic()
+        if remaining <= 0:
+            return {"outcome": "unavailable", "records": []}
+        rows = self.inspect(selection, timeout=min(30.0, remaining))
+        records: list[dict[str, object]] = []
+        for row in rows:
+            if not isinstance(row, Mapping):
+                return {"outcome": "unavailable", "records": []}
+            config = row.get("Config")
+            labels = config.get("Labels") if isinstance(config, Mapping) else None
+            records.append({
+                "container_id": row.get("Id"),
+                "labels": dict(labels) if isinstance(labels, Mapping) else None,
+            })
+        return {"outcome": "complete", "records": records}
 
     @staticmethod
     def _compose_file(value: Path | str) -> Path:
@@ -293,4 +334,9 @@ class ProjectMcpBackend:
         return True
 
 
-__all__ = ["BackendError", "ProjectMcpBackend"]
+def collect_legacy_processes(admission: object, deadline: float) -> Mapping[str, object]:
+    """Provider hook used only by retained-migration read-only collection."""
+    return ProjectMcpBackend(build_if_missing=False).collect_legacy_processes(admission, deadline)
+
+
+__all__ = ["BackendError", "ProjectMcpBackend", "collect_legacy_processes"]
