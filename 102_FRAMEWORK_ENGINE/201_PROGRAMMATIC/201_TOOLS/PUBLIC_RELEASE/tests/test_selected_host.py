@@ -1,7 +1,6 @@
 """Temporary real selected Session tests; no Git, fresh gate or live installation."""
 from __future__ import annotations
 
-from contextlib import ExitStack
 from dataclasses import replace
 import json
 import hashlib
@@ -51,14 +50,11 @@ class SelectedPublicHostTests(unittest.TestCase):
         cls.fixture._cleanups = retained_cleanups
         cls.addClassCleanup(cls.fixture.doCleanups)
         cls.fixture._copy_public_release_sources()
-        cls.stack = ExitStack()
-        cls.addClassCleanup(cls.stack.close)
-        cls.stack.enter_context(cls.fixture._locally_completed_d613())
         admission = selected_admission.derive_public_release_source_admission(cls.fixture.root)
         cls.fixture.save(cls.fixture.public_successor(admission))
         cls.root = cls.fixture.root
         (cls.root / ".caprmedio_caprmedio/caprmedio_project_settings.toml").write_text(
-            '[project]\nname = "host-fixture"\n[paths]\ncontrol_root = ".caprmedio_caprmedio"\n'
+            '[project]\nname = "caprmedio"\n[paths]\ncontrol_root = ".caprmedio_caprmedio"\n'
             'journal_root = ".caprmedio_caprmedio/_journal"\nruntime_root = ".caprmedio_runtime"\n', encoding="utf-8")
 
     def setUp(self):
