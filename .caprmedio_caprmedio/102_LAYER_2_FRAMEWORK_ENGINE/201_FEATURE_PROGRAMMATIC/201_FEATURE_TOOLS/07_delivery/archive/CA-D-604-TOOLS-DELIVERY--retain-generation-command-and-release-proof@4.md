@@ -4,10 +4,10 @@ content_role: Delivery
 current_scope_unit: TOOLS
 local_tier: Standard
 global_tier: 11
-status: Active
+status: Archived
 author: Anatoly Maslennikov
-version: 5
-updated_at: "2026-10-10 04:46:02 +0400"
+version: 4
+updated_at: "2026-10-10 03:51:36 +0400"
 subjects:
   governs: "Framework Installation contribution/Generation and release proof"
   depends_on: [Tool, Runtime, Framework Package, Command, Docker Image, Journal]
@@ -48,16 +48,5 @@ CA-O-200 has its own direct installation command; the CA-O-199 source-admission 
 
 Canonical UTF-8 JSON uses sorted keys, compact separators, no trailing newline and no self-digest. Retain exact input at a safe digest-named Project-relative path before the actual direct Action start, then reopen both input and canonical start before staging. The lock's `command_sha256` is this input's actual byte hash. These records do not grant permission for a different target, package, replacement or retry.
 
-Account resolution follows CA-D-494-CORE_META_MODEL-DELIVERY--store-operator-registry-in-project-root: use the explicit `journal_author` mapping, or the exact registered `name` when that name already is a valid Journal account. Converting a human display name to an account alias is not permitted.
-
 Candidate-aware command, native-proof and MCP readers validate the same complete physical package, context, inventory, fields and modes as installed readers, but accept the exact prospective package/runtime selector bytes instead of requiring live selectors to be published first. The publisher must physically reopen the retained Full Gate; neither a typed handoff nor a prospective proof asserts a pass. After installation, the unchanged installed readers reopen the actual final carriers. This breaks the staging/activation cycle without relaxing post-installation validation.
 
-### Selected promotion command
-
-The existing selected CA-O-169 promotion uses its own actual Action Run, not a manufactured CA-O-200 Run. Its immutable command uses the same canonical JSON and digest-addressed `.caprmedio_runtime/installation/commands/<sha256>.json` carrier. This separate closed variant has the direct-command keys above, with `operation = promote_selected_runtime`, an `action_source` pin for the actually selected CA-O-169 revision, and exactly two additional keys: `selected_start_receipt` and `parent_lineage`.
-
-`selected_start_receipt` is the unchanged canonical Work Journal receipt with exactly `event_id`, `action_id`, `event_digest`, `carrier`, `line`, `previous_carrier_digest` and `appended_carrier_digest`. `parent_lineage` is the ordered list of actual parent Run IDs returned by the existing selected Session's recorded-start reader. The selected provider physically reopens that start, its source and frozen selected inputs before retaining the command or acquiring its publication lock. The command's Operator and Journal account resolve through the exact registered mapping. A command, context or lineage assertion alone grants no authority; the selected Session supplies and revalidates its existing authorization. A final-generation reader reopens the same receipt-addressed canonical start and binds its Action, author and lineage to this command.
-
-### Direct installation result
-
-An actual CA-O-200 execution retains its immutable canonical JSON result at `.caprmedio_tmp/installation/results/<actual-action-run-id>/result.json`, mode 0600, before requesting a canonical terminal Journal record. Its closed keys are `schema_version = 1`, `action_id = CA-O-200`, `action_run_id`, `installation_command_sha256`, `package_manifest_sha256`, `target_project_context_sha256`, `state_generation`, `effect_outcome`, `reason` and `effects`. The outcome is one of `completed`, `blocked_before_delete`, `unavailable_after_delete` or `effect_uncertain`; `reason` is a string or null. Every effect has exactly `kind`, safe Project-relative `reference` and the observed byte `sha256`. Effects describe actual retained carriers, not intended effects. The result is separate from the Journal's canonical recording state: failed terminal recording reports pending recording and the original result reference, and never replays installation. Selected CA-O-169 keeps its existing shared Session result/checkpoint transport rather than creating this direct-Action result or another Run.

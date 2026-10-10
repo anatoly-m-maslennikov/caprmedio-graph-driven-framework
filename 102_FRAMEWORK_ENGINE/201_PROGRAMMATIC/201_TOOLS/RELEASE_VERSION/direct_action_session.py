@@ -54,6 +54,15 @@ SOURCE_ADMISSION_ACTION_ID = "CA-O-199"
 SOURCE_ADMISSION_ATOM_VERSION = 2
 SOURCE_ADMISSION_ATOM_RELATIVE = ACTION_ATOM_RELATIVE.parent / "CA-O-199-PROJECT_CONFIGURATION-ACTION--admit-local-package-sources.md"
 SOURCE_ADMISSION_ATOM_SHA256 = "6b4e510bf5d25ac0b01e7262a79ef6b276272ed52ff02780dfd37f5d63402923"
+INSTALLATION_ACTION_ID = "CA-O-200"
+INSTALLATION_ATOM_VERSION = 1
+# O-200 travels inside the closed Framework package.  Its Project-authority
+# source spelling is deliberately *not* a fallback for another target Project.
+INSTALLATION_ATOM_RELATIVE = Path(
+    "methodology/active/003_PROJECT_CONFIGURATION/09_operations/"
+    "CA-O-200-PROJECT_CONFIGURATION-ACTION--install-one-admitted-project-runtime.md"
+)
+INSTALLATION_ATOM_SHA256 = "ffae75bedb643a4de5a5b081c65333a6bde6ea1055a4b29a6d6481139d0d71ce"
 _SHA256 = re.compile(r"^[0-9a-f]{64}$")
 _RUN_ID = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._:-]{0,159}$")
 _OUTCOMES = frozenset({"completed", "no_op", "failed", "cancelled", "partial"})
@@ -74,6 +83,7 @@ class _ActionDescriptor:
     path: Path
     digest: str
     instruction: str
+    package_owned: bool = False
 
 
 def _action_descriptor(action_id: str) -> _ActionDescriptor:
@@ -87,6 +97,15 @@ def _action_descriptor(action_id: str) -> _ActionDescriptor:
     if action_id == SOURCE_ADMISSION_ACTION_ID:
         return _ActionDescriptor(SOURCE_ADMISSION_ACTION_ID, SOURCE_ADMISSION_ATOM_VERSION, SOURCE_ADMISSION_ATOM_RELATIVE,
                                  SOURCE_ADMISSION_ATOM_SHA256, "local package source admission")
+    if action_id == INSTALLATION_ACTION_ID:
+        return _ActionDescriptor(
+            INSTALLATION_ACTION_ID,
+            INSTALLATION_ATOM_VERSION,
+            INSTALLATION_ATOM_RELATIVE,
+            INSTALLATION_ATOM_SHA256,
+            "one admitted Project runtime installation",
+            package_owned=True,
+        )
     raise DirectActionJournalError("direct-action-unadmitted", "direct Action is not admitted for direct execution")
 
 
@@ -138,11 +157,52 @@ def _read_regular_relative(root: Path, relative: Path, *, code: str, label: str)
         raise DirectActionJournalError(code, f"{label} is unreadable") from error
 
 
-def _source_binding(root: Path, action_id: str = INITIALIZATION_ACTION_ID) -> dict[str, Any]:
+def _verified_action_package(value: object) -> object:
+    """Reopen the sole package type admitted to carry O-200's source."""
+
+    try:
+        from framework_package import FrameworkPackageError, VerifiedFrameworkPackage, verify_framework_package
+    except ImportError as error:  # pragma: no cover - protects isolated Journal readers.
+        raise DirectActionJournalError("direct-action-package-invalid", "Framework package verifier is unavailable") from error
+    if not isinstance(value, VerifiedFrameworkPackage):
+        raise DirectActionJournalError(
+            "direct-action-package-required",
+            "CA-O-200 requires a typed physically verified Framework package",
+        )
+    try:
+        reopened = verify_framework_package(value.root)
+    except FrameworkPackageError as error:
+        raise DirectActionJournalError("direct-action-package-invalid", "CA-O-200 package cannot be physically reopened") from error
+    if reopened != value:
+        raise DirectActionJournalError("direct-action-package-stale", "CA-O-200 package differs from its typed verified handoff")
+    return reopened
+
+
+def _source_binding(
+    root: Path,
+    action_id: str = INITIALIZATION_ACTION_ID,
+    *,
+    action_package: object | None = None,
+) -> dict[str, Any]:
     descriptor = _action_descriptor(action_id)
     name = descriptor.atom_id.removeprefix("CA-")
+    source_root = root
+    if descriptor.package_owned:
+        package = _verified_action_package(action_package)
+        source_root = getattr(package, "root")
+        inventory = getattr(package, "inventory", ())
+        expected = [
+            row
+            for row in inventory
+            if getattr(row, "path", None) == descriptor.path.as_posix()
+        ]
+        if len(expected) != 1 or getattr(expected[0], "sha256", None) != descriptor.digest or getattr(expected[0], "role", None) != "methodology":
+            raise DirectActionJournalError(
+                "direct-action-package-invalid",
+                "CA-O-200 source is not one admitted active Methodology package member",
+            )
     payload = _read_regular_relative(
-        root,
+        source_root,
         descriptor.path,
         code="direct-action-source-stale",
         label=f"the exact {name} source carrier",
@@ -210,7 +270,7 @@ def _image_digest(value: object) -> str:
     return value
 
 
-def _intent(value: Mapping[str, Any], action_id: str = INITIALIZATION_ACTION_ID) -> dict[str, str]:
+def _intent(value: Mapping[str, Any], action_id: str = INITIALIZATION_ACTION_ID) -> dict[str, Any]:
     if action_id == RESTORATION_ACTION_ID:
         expected = {"action_id", "kind", "manifest_sha256", "source_context_sha256",
                     "selected_selector_sha256", "old_image_digest", "retained_proof_receipt_sha256",
@@ -237,6 +297,29 @@ def _intent(value: Mapping[str, Any], action_id: str = INITIALIZATION_ACTION_ID)
             "action_id": SOURCE_ADMISSION_ACTION_ID,
             "kind": "local_package_source_admission",
             "snapshot_sha256": _digest(value.get("snapshot_sha256"), "intent.snapshot_sha256"),
+            "operators_registry_sha256": _digest(value.get("operators_registry_sha256"), "intent.operators_registry_sha256"),
+        }
+    if action_id == INSTALLATION_ACTION_ID:
+        expected = {
+            "action_id", "kind", "installation_command_sha256", "target_project_context_sha256",
+            "package_manifest_sha256", "full_gate_receipt_sha256", "prior_runtime_selector_sha256",
+            "operators_registry_sha256",
+        }
+        if not isinstance(value, Mapping) or set(value) != expected:
+            raise DirectActionJournalError("direct-action-invalid-intent", "installation intent has unsupported or missing fields")
+        if value.get("action_id") != INSTALLATION_ACTION_ID or value.get("kind") != "install_one_admitted_project_runtime":
+            raise DirectActionJournalError("direct-action-invalid-intent", "intent does not describe the admitted installation Action")
+        prior = value.get("prior_runtime_selector_sha256")
+        if prior is not None:
+            prior = _digest(prior, "intent.prior_runtime_selector_sha256")
+        return {
+            "action_id": INSTALLATION_ACTION_ID,
+            "kind": "install_one_admitted_project_runtime",
+            "installation_command_sha256": _digest(value.get("installation_command_sha256"), "intent.installation_command_sha256"),
+            "target_project_context_sha256": _digest(value.get("target_project_context_sha256"), "intent.target_project_context_sha256"),
+            "package_manifest_sha256": _digest(value.get("package_manifest_sha256"), "intent.package_manifest_sha256"),
+            "full_gate_receipt_sha256": _digest(value.get("full_gate_receipt_sha256"), "intent.full_gate_receipt_sha256"),
+            "prior_runtime_selector_sha256": prior,
             "operators_registry_sha256": _digest(value.get("operators_registry_sha256"), "intent.operators_registry_sha256"),
         }
     _action_descriptor(action_id)
@@ -326,12 +409,22 @@ class DirectActionSession:
         author: str,
         operator_authorization: Mapping[str, Any],
         action_id: str = INITIALIZATION_ACTION_ID,
+        action_package: object | None = None,
         operators_registry_ref: str | Path = ".caprmedio_caprmedio/operators_registry.toml",
         timezone: str = "UTC",
         now: Callable[[], dt.datetime] | None = None,
     ) -> None:
         self.descriptor = _action_descriptor(action_id)
         self.action_id = action_id
+        if self.descriptor.package_owned:
+            self._action_package = _verified_action_package(action_package)
+        elif action_package is not None:
+            raise DirectActionJournalError(
+                "direct-action-package-unadmitted",
+                "only CA-O-200 accepts a Framework package Action source",
+            )
+        else:
+            self._action_package = None
         self.root = _regular_root(project_root)
         registry_ref = _safe_ref(str(operators_registry_ref), "operators_registry_ref")
         self.operators_registry_ref = Path(str(registry_ref))
@@ -405,7 +498,7 @@ class DirectActionSession:
             operators_registry_ref=self.operators_registry_ref,
         )
         normalized_intent = _intent(intent, self.action_id)
-        binding = _source_binding(self.root, self.action_id)
+        binding = _source_binding(self.root, self.action_id, action_package=self._action_package)
         identity = self._run_identity(requested_run_id, binding)
         run_id = f"direct-action:{identity}"
         existing = self.actual.get(run_id)
@@ -765,6 +858,10 @@ class DirectActionSession:
     def _boundary_lock_key(self) -> str:
         if self.action_id == INITIALIZATION_ACTION_ID:
             return self._first_initialization_lock_key()
+        if self.action_id == INSTALLATION_ACTION_ID:
+            return "direct-action-framework-installation:" + work_journal.canonical_json_digest(
+                {"action_id": self.action_id, "project_root": str(self.root), "structural_scope": STRUCTURAL_SCOPE}
+            )
         return "direct-action-image-restoration:" + work_journal.canonical_json_digest(
             {"action_id": self.action_id, "project_root": str(self.root), "structural_scope": STRUCTURAL_SCOPE}
         )
@@ -1053,6 +1150,10 @@ __all__ = [
     "DirectActionJournalError",
     "DirectActionSession",
     "INITIALIZATION_ACTION_ID",
+    "INSTALLATION_ACTION_ID",
+    "INSTALLATION_ATOM_RELATIVE",
+    "INSTALLATION_ATOM_SHA256",
+    "INSTALLATION_ATOM_VERSION",
     "RESTORATION_ACTION_ID",
     "RESTORATION_ATOM_ID",
     "RESTORATION_ATOM_RELATIVE",

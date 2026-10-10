@@ -23,8 +23,11 @@ from installation_context import (  # noqa: E402
     TargetProjectRequest,
     VerifiedPackageEvidence,
     bind_target_project_context,
+    persist_target_project_context,
+    reopen_target_project_context,
 )
 from framework_package import assemble_framework_package, provide_installation_package_evidence  # noqa: E402
+from installation_transaction import installation_publication_lock  # noqa: E402
 from source_admission_fixture import write_source_admission_receipt  # noqa: E402
 
 
@@ -188,28 +191,52 @@ class InstallationContextTests(unittest.TestCase):
         self.assertEqual(original, config.read_bytes())
         self.assertFalse((root / ".caprmedio_runtime/installation").exists())
 
-    def test_adopt_refuses_active_runtime_selector_without_writing_state(self) -> None:
+    def test_adopt_binds_beside_selected_runtime_without_replacing_it(self) -> None:
         root, control = self.project("active")
         selector = root / ".caprmedio_runtime/installation/current.toml"
         selector.parent.mkdir(parents=True)
         selector.write_text("schema_version = 1\n", encoding="utf-8")
         before = selector.read_bytes()
 
-        with self.assertRaisesRegex(InstallationContextError, "active"):
-            bind_target_project_context(self.request(root, control, mode="adopt"))
+        context = bind_target_project_context(self.request(root, control, mode="adopt"))
 
+        self.assertEqual("adopt", context.mode)
         self.assertEqual(before, selector.read_bytes())
 
-    def test_adopt_refuses_an_existing_public_ca_skill(self) -> None:
+    def test_adopt_binds_beside_an_existing_public_ca_skill(self) -> None:
         root, control = self.project("public-skill")
         public_skill = root / ".agents/skills/ca"
         public_skill.mkdir(parents=True)
         (public_skill / "SKILL.md").write_text("# ca\n", encoding="utf-8")
 
-        with self.assertRaisesRegex(InstallationContextError, "active"):
-            bind_target_project_context(self.request(root, control, mode="adopt"))
+        context = bind_target_project_context(self.request(root, control, mode="adopt"))
 
+        self.assertEqual("adopt", context.mode)
         self.assertTrue((public_skill / "SKILL.md").is_file())
+
+    def test_bootstrap_still_refuses_active_runtime_selector_without_writing_context(self) -> None:
+        root, control = self.project("bootstrap-active")
+        selector = root / ".caprmedio_runtime/installation/current.toml"
+        selector.parent.mkdir(parents=True)
+        before = b"schema_version = 1\n"
+        selector.write_bytes(before)
+
+        with self.assertRaisesRegex(InstallationContextError, "active"):
+            bind_target_project_context(self.request(root, control, mode="bootstrap"))
+
+        self.assertEqual(before, selector.read_bytes())
+        self.assertFalse((root / ".caprmedio_runtime/installation/contexts").exists())
+
+    def test_bootstrap_refuses_the_legacy_package_selector_too(self) -> None:
+        root, control = self.project("bootstrap-legacy-active")
+        selector = root / ".caprmedio_install/current.toml"
+        selector.parent.mkdir(parents=True)
+        selector.write_bytes(b"schema_version = 1\n")
+
+        with self.assertRaisesRegex(InstallationContextError, "active"):
+            bind_target_project_context(self.request(root, control, mode="bootstrap"))
+
+        self.assertEqual(b"schema_version = 1\n", selector.read_bytes())
 
     def test_refuses_missing_or_replaced_explicit_control_carrier(self) -> None:
         root, control = self.project("missing")
@@ -326,6 +353,85 @@ class InstallationContextTests(unittest.TestCase):
                     relocates_from=previous,
                 )
             )
+
+    def test_locked_writer_reopens_exact_immutable_context_and_current_controls(self) -> None:
+        root, control = self.project("writer")
+        request = self.request(root, control)
+        context = bind_target_project_context(request)
+
+        with installation_publication_lock(
+            root,
+            target_context_sha256=context.sha256,
+            owner_run_id="context-writer",
+            operation="install_framework_runtime",
+            command_sha256="a" * 64,
+        ) as lock:
+            carrier = persist_target_project_context(request, context, lock=lock)
+            reopened = reopen_target_project_context(request, expected_sha256=context.sha256)
+            repeated = persist_target_project_context(request, context, lock=lock)
+            lock.release("blocked")
+
+        self.assertEqual(carrier, repeated)
+        self.assertEqual(context, reopened)
+        self.assertEqual(context.with_digest_toml(), carrier.read_bytes())
+        self.assertEqual(0o600, carrier.stat().st_mode & 0o777)
+        selected = root / ".caprmedio_runtime/installation/current.toml"
+        selected.write_bytes(b"schema_version = 1\n")
+        self.assertEqual(context, reopen_target_project_context(request, expected_sha256=context.sha256))
+
+    def test_locked_writer_refuses_control_drift_conflict_and_aliases(self) -> None:
+        root, control = self.project("writer-refusals")
+        request = self.request(root, control)
+        context = bind_target_project_context(request)
+        with installation_publication_lock(
+            root,
+            target_context_sha256=context.sha256,
+            owner_run_id="context-refusals",
+            operation="install_framework_runtime",
+            command_sha256="b" * 64,
+        ) as lock:
+            carrier = persist_target_project_context(request, context, lock=lock)
+            carrier.write_bytes(b"schema_version = 1\n")
+            with self.assertRaisesRegex(InstallationContextError, "carrier"):
+                persist_target_project_context(request, context, lock=lock)
+            lock.release("blocked")
+
+        root, control = self.project("writer-drift")
+        request = self.request(root, control)
+        context = bind_target_project_context(request)
+        (control / "caprmedio_project_settings.toml").write_text(
+            "[project]\nname = \"changed\"\n\n[paths]\ncontrol_root = \".caprmedio_writer-drift\"\n",
+            encoding="utf-8",
+        )
+        with installation_publication_lock(
+            root,
+            target_context_sha256=context.sha256,
+            owner_run_id="context-drift",
+            operation="install_framework_runtime",
+            command_sha256="c" * 64,
+        ) as lock:
+            with self.assertRaisesRegex(InstallationContextError, "identity"):
+                persist_target_project_context(request, context, lock=lock)
+            lock.release("blocked")
+
+        root, control = self.project("writer-alias")
+        request = self.request(root, control)
+        context = bind_target_project_context(request)
+        contexts = root / ".caprmedio_runtime/installation/contexts"
+        contexts.mkdir(parents=True)
+        target = root / "retained-context.toml"
+        target.write_bytes(context.with_digest_toml())
+        (contexts / f"{context.sha256}.toml").symlink_to(target)
+        with installation_publication_lock(
+            root,
+            target_context_sha256=context.sha256,
+            owner_run_id="context-alias",
+            operation="install_framework_runtime",
+            command_sha256="d" * 64,
+        ) as lock:
+            with self.assertRaisesRegex(InstallationContextError, "aliased"):
+                persist_target_project_context(request, context, lock=lock)
+            lock.release("blocked")
 
 
 if __name__ == "__main__":

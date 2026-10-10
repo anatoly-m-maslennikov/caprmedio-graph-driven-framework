@@ -14,6 +14,7 @@ import os
 from pathlib import Path
 import re
 import stat
+import tempfile
 import tomllib
 
 
@@ -23,6 +24,7 @@ REGISTRY_FILENAME = "operators_registry.toml"
 CONTROL_PREFIX = ".caprmedio_"
 RUNTIME_DIRECTORY = Path(".caprmedio_runtime")
 INSTALLATION_DIRECTORY = RUNTIME_DIRECTORY / "installation"
+CONTEXTS_DIRECTORY = INSTALLATION_DIRECTORY / "contexts"
 CONTEXT_DIGEST_FIELD = "target_project_context_sha256"
 _SHA256 = re.compile(r"[0-9a-f]{64}\Z")
 
@@ -318,6 +320,7 @@ def _runtime_is_empty(root: Path) -> None:
     active = (
         installation / "current.toml",
         installation / "generations",
+        root / ".caprmedio_install" / "current.toml",
         root / ".caprmedio_runtime" / "framework" / "current.toml",
         root / ".caprmedio_runtime" / "framework" / "releases",
         root / ".agents" / "skills" / "ca",
@@ -326,7 +329,164 @@ def _runtime_is_empty(root: Path) -> None:
         raise InstallationContextError("target has an active runtime boundary")
 
 
-def bind_target_project_context(request: TargetProjectRequest) -> TargetProjectContext:
+def _relative_directory(root: Path, relative: Path, *, create: bool) -> Path:
+    """Return one real Project-contained directory without following aliases."""
+
+    if relative.is_absolute() or not relative.parts or any(part in {"", ".", ".."} for part in relative.parts):
+        raise InstallationContextError("target context directory is unsafe")
+    cursor = root
+    try:
+        for part in relative.parts:
+            cursor = cursor / part
+            try:
+                observed = cursor.lstat()
+            except FileNotFoundError:
+                if not create:
+                    raise InstallationContextError("target context directory is unavailable")
+                cursor.mkdir(mode=0o700)
+                observed = cursor.lstat()
+            if stat.S_ISLNK(observed.st_mode) or not stat.S_ISDIR(observed.st_mode):
+                raise InstallationContextError("target context directory is aliased or invalid")
+        return cursor
+    except InstallationContextError:
+        raise
+    except OSError as error:
+        raise InstallationContextError("target context directory is unavailable") from error
+
+
+def _read_context_carrier(root: Path, digest: str) -> bytes:
+    directory = _relative_directory(root, CONTEXTS_DIRECTORY, create=False)
+    carrier = directory / f"{digest}.toml"
+    try:
+        observed = carrier.lstat()
+        if stat.S_ISLNK(observed.st_mode) or not stat.S_ISREG(observed.st_mode) or observed.st_nlink != 1:
+            raise InstallationContextError("target context carrier is aliased or invalid")
+        before = (observed.st_dev, observed.st_ino, observed.st_size, observed.st_mtime_ns)
+        payload = carrier.read_bytes()
+        after = carrier.stat()
+        if before != (after.st_dev, after.st_ino, after.st_size, after.st_mtime_ns):
+            raise InstallationContextError("target context carrier changed while being reopened")
+        return payload
+    except InstallationContextError:
+        raise
+    except OSError as error:
+        raise InstallationContextError("target context carrier is unavailable") from error
+
+
+def _require_active_context_lock(lock: object, *, root: Path, context: TargetProjectContext) -> None:
+    """Require the shared installation lock that owns mutable D600 publication."""
+
+    try:
+        from installation_transaction import InstallationPublicationLock, InstallationTransactionError
+    except ImportError as error:  # pragma: no cover - protects isolated readers.
+        raise InstallationContextError("installation publication lock is unavailable") from error
+    if not isinstance(lock, InstallationPublicationLock):
+        raise InstallationContextError("target context persistence requires the typed installation publication lock")
+    if lock.project_root != root or lock.target_context_sha256 != context.sha256:
+        raise InstallationContextError("installation publication lock does not bind this Project context")
+    try:
+        lock.revalidate()
+    except InstallationTransactionError as error:
+        raise InstallationContextError("installation publication lock is not current") from error
+
+
+def _publish_context_carrier(root: Path, context: TargetProjectContext) -> Path:
+    """Publish exact canonical bytes once, reusing only identical carriers."""
+
+    directory = _relative_directory(root, CONTEXTS_DIRECTORY, create=True)
+    payload = context.with_digest_toml()
+    carrier = directory / f"{context.sha256}.toml"
+    try:
+        try:
+            existing = carrier.lstat()
+        except FileNotFoundError:
+            existing = None
+        if existing is not None:
+            if stat.S_ISLNK(existing.st_mode) or not stat.S_ISREG(existing.st_mode) or existing.st_nlink != 1:
+                raise InstallationContextError("target context carrier is aliased or invalid")
+            if _read_context_carrier(root, context.sha256) != payload:
+                raise InstallationContextError("target context carrier conflicts with the immutable context")
+            return carrier
+        descriptor, temporary_name = tempfile.mkstemp(prefix=".context-", dir=directory)
+        temporary = Path(temporary_name)
+        try:
+            os.fchmod(descriptor, 0o600)
+            with os.fdopen(descriptor, "wb", closefd=True) as stream:
+                stream.write(payload)
+                stream.flush()
+                os.fsync(stream.fileno())
+            try:
+                os.link(temporary, carrier)
+            except FileExistsError:
+                if _read_context_carrier(root, context.sha256) != payload:
+                    raise InstallationContextError("target context carrier conflicts with the immutable context")
+            return carrier
+        finally:
+            temporary.unlink(missing_ok=True)
+    except InstallationContextError:
+        raise
+    except OSError as error:
+        raise InstallationContextError("target context carrier could not be published") from error
+
+
+def reopen_target_project_context(
+    request: TargetProjectRequest,
+    *,
+    expected_sha256: str,
+) -> TargetProjectContext:
+    """Reopen one persisted D600 context against current physical controls.
+
+    The context carrier is not a substitute for its target controls or package:
+    the request is rebound first, then the exact digest-named canonical bytes
+    are compared with the retained carrier.
+    """
+
+    digest = _require_digest(expected_sha256, "expected target context")
+    # A retained context is reopened both before staging and after a completed
+    # installation.  Bootstrap emptiness is an admission precondition, not a
+    # property that remains true once the admitted runtime exists.
+    current = _bind_target_project_context(request, require_empty_bootstrap=False)
+    if current.sha256 != digest:
+        raise InstallationContextError("target context differs from current target controls")
+    root = _canonical_root(request.target_root)
+    if _read_context_carrier(root, digest) != current.with_digest_toml():
+        raise InstallationContextError("target context carrier differs from current canonical context")
+    return current
+
+
+def persist_target_project_context(
+    request: TargetProjectRequest,
+    context: TargetProjectContext,
+    *,
+    lock: object,
+) -> Path:
+    """Write the one locked, immutable D600 context carrier.
+
+    This is preparation only: it publishes no package selector, runtime
+    selector, configuration, process observation, or deletion decision.
+    """
+
+    if not isinstance(context, TargetProjectContext):
+        raise InstallationContextError("target context persistence requires a typed context")
+    rebound = bind_target_project_context(request)
+    if rebound != context:
+        raise InstallationContextError("target context changed before persistence")
+    root = _canonical_root(request.target_root)
+    _require_active_context_lock(lock, root=root, context=context)
+    carrier = _publish_context_carrier(root, context)
+    _require_active_context_lock(lock, root=root, context=context)
+    reopened = reopen_target_project_context(request, expected_sha256=context.sha256)
+    if reopened != context or carrier != root / CONTEXTS_DIRECTORY / f"{context.sha256}.toml":
+        raise InstallationContextError("persisted target context did not reopen exactly")
+    _require_active_context_lock(lock, root=root, context=context)
+    return carrier
+
+
+def _bind_target_project_context(
+    request: TargetProjectRequest,
+    *,
+    require_empty_bootstrap: bool,
+) -> TargetProjectContext:
     """Reopen and bind one requested Project with zero filesystem effects.
 
     A verified package is required before a target context becomes usable by an
@@ -353,7 +513,8 @@ def bind_target_project_context(request: TargetProjectRequest) -> TargetProjectC
     registry_bytes, registry = _snapshot_toml(registry_path, "operators registry")
     _validate_controls(settings, structure, registry, child=child, identity=identity)
     evidence = _reopen_package_evidence(request.package_root, request.package_evidence)
-    _runtime_is_empty(root)
+    if require_empty_bootstrap and request.mode == "bootstrap":
+        _runtime_is_empty(root)
     locator = _require_relative_locator(request.root_locator)
     repository_identity = request.repository_identity
     if repository_identity is not False:
@@ -382,8 +543,20 @@ def bind_target_project_context(request: TargetProjectRequest) -> TargetProjectC
     )
 
 
+def bind_target_project_context(request: TargetProjectRequest) -> TargetProjectContext:
+    """Reopen and bind one requested Project with zero filesystem effects.
+
+    A bootstrap admission is valid only before there is an active native or
+    legacy runtime.  The retained-context reader intentionally uses the same
+    control/package validation without reimposing that historical condition.
+    """
+
+    return _bind_target_project_context(request, require_empty_bootstrap=True)
+
+
 __all__ = [
     "CONTEXT_DIGEST_FIELD",
+    "CONTEXTS_DIRECTORY",
     "InstallationContextError",
     "PackageSourcePin",
     "TargetProjectContext",
@@ -391,4 +564,6 @@ __all__ = [
     "VerifiedPackageEvidence",
     "bind_target_project_context",
     "canonical_target_project_context_toml",
+    "persist_target_project_context",
+    "reopen_target_project_context",
 ]

@@ -8,6 +8,7 @@ turning cleanup failures into success.
 from __future__ import annotations
 
 import datetime as dt
+import hashlib
 import shutil
 import sys
 import tempfile
@@ -29,9 +30,17 @@ from direct_action_session import (  # noqa: E402
     DirectActionJournalError,
     DirectActionSession,
     INITIALIZATION_ACTION_ID,
+    INSTALLATION_ACTION_ID,
+    INSTALLATION_ATOM_RELATIVE,
     RESTORATION_ACTION_ID,
     RESTORATION_ATOM_RELATIVE,
 )
+from framework_package import assemble_framework_package  # noqa: E402
+
+TOOLS_TEST_ROOT = TOOLS_ROOT / "tests"
+if str(TOOLS_TEST_ROOT) not in sys.path:
+    sys.path.insert(0, str(TOOLS_TEST_ROOT))
+from source_admission_fixture import write_source_admission_receipt  # noqa: E402
 
 
 def _repository_root() -> Path:
@@ -115,6 +124,62 @@ class DirectActionSessionTests(unittest.TestCase):
             events.extend(__import__("json").loads(line) for line in path.read_text(encoding="utf-8").splitlines())
         return events
 
+    def _o200_package(self):
+        source = self.root / "o200-package-source"
+        releases = self.root / "o200-package-releases"
+
+        def write(relative: str, payload: bytes, *, mode: int = 0o644) -> None:
+            target = source / relative
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(payload)
+            target.chmod(mode)
+
+        action_payload = (REPOSITORY_ROOT / ".caprmedio_caprmedio" / "000_CAPRMEDIO_framework" / "00_APPLICABLE_METHODOLOGY" / "000_APPLICABLE_MTHD_sources" / "003_PROJECT_CONFIGURATION" / "09_operations" / INSTALLATION_ATOM_RELATIVE.name).read_bytes()
+        action_relative = INSTALLATION_ATOM_RELATIVE.as_posix()
+        write("102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/tool.py", b"tool = 'fixture'\n", mode=0o755)
+        write(action_relative, action_payload)
+        write("methodology/support/CA-D-001--fixture.md", b"# support\n")
+        write("SKILLS/ca/SKILL.md", b"# ca\n")
+        write("defaults/framework.toml", b"[defaults]\nname = 'fixture'\n")
+        write("pyproject.toml", b"[project]\nname = 'fixture'\nversion = '0.1.0'\n")
+        write("uv.lock", b"version = 1\n")
+        write("version.toml", b"[framework]\nversion = '0.1.0'\n")
+        rows = (
+            ("core", "core", "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/tool.py"),
+            ("methodology", "methodology", action_relative),
+            ("support", "support", "methodology/support/CA-D-001--fixture.md"),
+        )
+        descriptors = tuple(
+            {
+                "identity": identity,
+                "kind": kind,
+                "revision": hashlib.sha256((source / relative).read_bytes()).hexdigest(),
+                "sha256": hashlib.sha256((source / relative).read_bytes()).hexdigest(),
+                "visibility": "public",
+                "selection_default": False,
+                "path": relative,
+            }
+            for identity, kind, relative in rows
+        )
+        receipt = write_source_admission_receipt(source, descriptors)
+        lines = ["schema_version = 1", ""]
+        for descriptor in descriptors:
+            lines.extend(
+                [
+                    f"[source.{descriptor['identity']}]",
+                    f'kind = "{descriptor["kind"]}"',
+                    f'revision = "{descriptor["revision"]}"',
+                    f'sha256 = "{descriptor["sha256"]}"',
+                    f'admission_receipt_sha256 = "{receipt.sha256}"',
+                    f'visibility = "{descriptor["visibility"]}"',
+                    "selection_default = false",
+                    f'path = "{descriptor["path"]}"',
+                    "",
+                ]
+            )
+        write("catalog.toml", ("\n".join(lines) + "\n").encode())
+        return assemble_framework_package(source, releases)
+
     def _restoration_session(self) -> DirectActionSession:
         target = self.root / RESTORATION_ATOM_RELATIVE
         target.parent.mkdir(parents=True, exist_ok=True)
@@ -146,6 +211,43 @@ class DirectActionSessionTests(unittest.TestCase):
         self.assertEqual("terminal", terminal["disposition"])
         self.assertEqual(["started", "completed"], [event["event"] for event in self._events()])
         self.assertEqual(effects, self._events()[-1]["effect_refs"])
+
+    def test_o200_requires_and_records_the_physically_verified_package_source(self) -> None:
+        package = self._o200_package()
+        session = DirectActionSession(
+            self.root,
+            author="anatoly-m-maslennikov",
+            operator_authorization=AUTHORIZATION,
+            action_id=INSTALLATION_ACTION_ID,
+            action_package=package,
+            now=lambda: dt.datetime(2026, 10, 5, 18, 0, tzinfo=dt.UTC),
+        )
+        self.addCleanup(session.close)
+        intent = {
+            "action_id": INSTALLATION_ACTION_ID,
+            "kind": "install_one_admitted_project_runtime",
+            "installation_command_sha256": "a" * 64,
+            "target_project_context_sha256": "b" * 64,
+            "package_manifest_sha256": package.manifest_digest,
+            "full_gate_receipt_sha256": "c" * 64,
+            "prior_runtime_selector_sha256": None,
+            "operators_registry_sha256": "d" * 64,
+        }
+        started = session.begin_action(action_id=INSTALLATION_ACTION_ID, requested_run_id="install-001", intent=intent)
+
+        event = self._events()[0]
+        self.assertEqual("CA-O-200", event["run"]["definition"]["atom_id"])
+        self.assertEqual(INSTALLATION_ATOM_RELATIVE.as_posix(), event["run"]["definition"]["path"])
+        self.assertEqual(package.manifest_digest, intent["package_manifest_sha256"])
+        self.assertEqual(started["run_id"], session.read_recorded_action_start(started["run_id"]).action_run_id)
+        with self.assertRaises(DirectActionJournalError) as missing_package:
+            DirectActionSession(
+                self.root,
+                author="anatoly-m-maslennikov",
+                operator_authorization=AUTHORIZATION,
+                action_id=INSTALLATION_ACTION_ID,
+            )
+        self.assertEqual("direct-action-package-required", missing_package.exception.code)
 
     def test_restoration_intent_and_session_dispatch_are_closed(self) -> None:
         with self.assertRaises(DirectActionJournalError) as invalid:
