@@ -10,12 +10,12 @@ local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
-status: Active
+status: Done
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Projection, Plan, Operator]
-version: 1
-updated_at: "2026-10-11 01:23:41 +0400"
+version: 2
+updated_at: "2026-10-11 02:37:55 +0400"
 relations:
   is_decomposition_of: [CA-P-1966]
   depends_on: ["CA-P-1972", "CA-P-1988", "CA-P-1989", "CA-P-1990"]
@@ -36,6 +36,8 @@ Estimated own work: 15 minutes. Required prerequisites: CA-P-1972, CA-P-1988, CA
 Recheck each source pin, then read its current Main Content. Compare the frozen candidate/review as separate evidence; do not refresh captured files or infer meaning from a label alone. Return one row per occurrence under the review-output contract: unchanged, proposed or unresolved; exact old value, nullable proposed value, confidence, current evidence spans/hashes, preserved distinctions and any concrete question. Below 90%, leave the replacement null. Report quarantined sources and unresolved findings. No deletion, source write, grammar adoption, native admission or schema/key rename.
 
 Own only `stage2/reviews/current-subjects.batch-050.review.json` and an optional same-batch support helper. Root owns integration and Git. Preserve others' edits. If work exceeds 15 minutes, create bounded decomposition before continuing. Creating this Plan does not start or complete review.
+
+Completion: independent structural checks passed for 16 current sources and 120 exact occurrences. Independent meaning review checked all 37 proposals and all 27 unchanged rows against current source meaning. Actual Workflow and Step runs, Actor Type and source-proven Step Run agentic context preserve their distinctions. The 56 unresolved rows remain explicit research in the report and required ledger integration. All rows remain non-executable; no original Atom changed. Evidence: stage2/task-2041.receipt.json. Review completion is not mapping completion or migration approval.
 
 ### Definition of Done
 
