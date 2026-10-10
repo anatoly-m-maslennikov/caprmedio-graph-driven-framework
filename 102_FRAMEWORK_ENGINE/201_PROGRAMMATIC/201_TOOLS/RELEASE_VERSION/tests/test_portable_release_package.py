@@ -52,8 +52,8 @@ class PortableReleasePackageTests(unittest.TestCase):
             next((row.role, row.sha256, row.mode) for row in prepared.package.inventory if row.path == proof.destination_path),
         )
         self.assertEqual(
-            (prepared.private_package_root / "defaults/runtime.toml").read_bytes(),
-            (self.fixture.root / "defaults/runtime.toml").read_bytes(),
+            (prepared.private_package_root / "defaults/runtime-config.toml").read_bytes(),
+            (self.fixture.root / "defaults/runtime-config.toml").read_bytes(),
         )
         self.assertEqual(
             (prepared.private_package_root / "102_FRAMEWORK_ENGINE/202_AGENTIC/205_SKILLS/ca/SKILL.md").read_bytes(),

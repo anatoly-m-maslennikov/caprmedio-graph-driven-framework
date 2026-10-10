@@ -12,6 +12,7 @@ from pathlib import Path
 RELEASE_ROOT = Path(__file__).resolve().parents[1]
 TOOLS_ROOT = RELEASE_ROOT.parents[1]
 EXPORT_ROOT = RELEASE_ROOT.parent / "COMPILE_APPLICABLE_METHODOLOGY"
+CANONICAL_RUNTIME_DEFAULT = RELEASE_ROOT.parents[3] / "defaults/runtime-config.toml"
 for _path in (TOOLS_ROOT, RELEASE_ROOT, EXPORT_ROOT):
     if str(_path) not in sys.path:
         sys.path.insert(0, str(_path))
@@ -122,7 +123,9 @@ class PortablePackageFixture:
         self.write("version.toml", b'[framework]\nversion = "N+1"\n')
         self.write("pyproject.toml", b"[project]\nname = 'portable-fixture'\nversion = '0.0.0'\n")
         self.write("uv.lock", b"version = 1\n")
-        self.write("defaults/runtime.toml", b"[runtime]\nprofile = 'fixture'\n")
+        # The portable package must carry the real admitted Project-MCP
+        # default before candidate observation, catalog admission, and sealing.
+        self.write("defaults/runtime-config.toml", CANONICAL_RUNTIME_DEFAULT.read_bytes())
         self.write("102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/tool.py", b"tool = 'fixture'\n", 0o755)
         self.write("102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/app.py", b"app = 'fixture'\n")
         self.write("102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/server.py", b"server = 'fixture'\n")
