@@ -1,0 +1,28 @@
+{
+  "task": "CA-P-2034",
+  "recorded_at": "2026-10-11 02:52:36 +0400",
+  "result": "PASS: complete candidate review; unresolved mapping research retained",
+  "output": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-043.review.json",
+    "sha256": "3120c340f085faf411d351372e8f740dcde9101dc85e4975faebb9f688110bec"
+  },
+  "input_batch": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-043.json",
+    "sha256": "74a567c46d8677c2828a52f8d1802c45ac63516e0b9b2d4bd3160b7e6b180d2f"
+  },
+  "checks": {
+    "independent_structural_verifier": "PASS",
+    "sources": 16,
+    "occurrences": 115,
+    "proposed": 14,
+    "unchanged": 24,
+    "unresolved": 77,
+    "meaning_review": "Independent meaning review checked all proposals and all unchanged rows. Six unproved owner placeholders, copied field evidence or Identifier qualifications became unresolved. Explicit Atom and Scope Unit Carrier binding Properties remain distinct from the Primary Carrier root; general semantic Carrier links are not a per-Property registry.",
+    "all_executable_false": true
+  },
+  "unresolved_work": "77 occurrence-level research rows remain in the pinned report and required CA-P-2045 integration; CA-P-1966 remains Active.",
+  "limits": [
+    "No original Atom, captured candidate, grammar, native or runtime change",
+    "Review completion is not migration approval"
+  ]
+}
