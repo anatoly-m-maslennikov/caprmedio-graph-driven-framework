@@ -15,6 +15,8 @@ from unittest.mock import patch
 
 MODULE = Path(__file__).resolve().parents[1] / "project_structure.py"
 TOOLS = Path(__file__).resolve().parents[3]
+TEST_TEMP_ROOT = Path.cwd() / ".caprmedio_tmp" / "tests" / Path(__file__).stem
+TEST_TEMP_ROOT.mkdir(parents=True, exist_ok=True)
 if str(TOOLS) not in sys.path:
     sys.path.insert(0, str(TOOLS))
 SPEC = importlib.util.spec_from_file_location("project_structure", MODULE)
@@ -60,9 +62,9 @@ def declaration(
 
 class ProjectStructureActions(unittest.TestCase):
     def setUp(self) -> None:
-        self.temp = tempfile.TemporaryDirectory()
-        self.addCleanup(self.temp.cleanup)
-        self.root = Path(self.temp.name)
+        # Retain disposable fixtures: the managed macOS profile can refuse
+        # cleanup after framework control directories are observed.
+        self.root = Path(tempfile.mkdtemp(dir=TEST_TEMP_ROOT)).resolve()
         control = self.root / ".caprmedio_caprmedio"
         control.mkdir()
         (control / "caprmedio_project_settings.toml").write_text(
@@ -77,6 +79,19 @@ class ProjectStructureActions(unittest.TestCase):
 
     def write_structure(self, rows: list[dict[str, object]]) -> None:
         self.toml.write_text(project_structure.serialize_project_structure(rows), encoding="utf-8")
+
+    def test_canonical_framework_settings_precede_project_and_nested_legacy_settings(self) -> None:
+        canonical = self.root / ".caprmedio_caprmedio/000_CAPRMEDIO_framework/caprmedio_framework_settings.toml"
+        canonical.parent.mkdir()
+        canonical.write_text("[authority_modes]\ndefault = 'strict'\n", encoding="utf-8")
+        legacy = (
+            self.root / ".caprmedio_caprmedio/000_CAPRMEDIO_framework/"
+            "00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/"
+            "003_PROJECT_CONFIGURATION/caprmedio_framework_settings.toml"
+        )
+        legacy.parent.mkdir(parents=True)
+        legacy.write_text("[authority_modes]\ndefault = 'casual'\n", encoding="utf-8")
+        self.assertEqual("strict", project_structure._default_authority_mode(self.root))
 
     def parameters(self, operation: str, **values: object) -> dict[str, object]:
         result: dict[str, object] = {
@@ -679,9 +694,7 @@ class ProjectStructureSharedServiceIntegration(unittest.TestCase):
     """CA-D-527 integration: the service admits, this route performs effects."""
 
     def setUp(self) -> None:
-        self.temp = tempfile.TemporaryDirectory()
-        self.addCleanup(self.temp.cleanup)
-        self.root = Path(self.temp.name)
+        self.root = Path(tempfile.mkdtemp(dir=TEST_TEMP_ROOT)).resolve()
         (self.root / ".git").mkdir()
         control = self.root / ".caprmedio_caprmedio"
         control.mkdir()

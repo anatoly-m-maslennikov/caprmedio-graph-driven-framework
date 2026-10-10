@@ -49,9 +49,7 @@ _UNIT_DEADLINE_SETTINGS = frozenset({
     ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/"
     "000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/"
     "caprmedio_framework_default_settings.toml",
-    ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/"
-    "000_APPLICABLE_MTHD_sources/003_PROJECT_CONFIGURATION/"
-    "caprmedio_framework_settings.toml",
+    ".caprmedio_caprmedio/000_CAPRMEDIO_framework/caprmedio_framework_settings.toml",
 })
 
 

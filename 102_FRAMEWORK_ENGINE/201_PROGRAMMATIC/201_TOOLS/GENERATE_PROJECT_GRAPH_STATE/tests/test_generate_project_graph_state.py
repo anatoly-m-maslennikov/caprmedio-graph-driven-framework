@@ -34,6 +34,16 @@ class GenerateProjectGraphStateTests(unittest.TestCase):
             generate_project_graph_state.JOURNAL,
         )
 
+    def test_methodology_sources_are_independent_from_instance_settings(self) -> None:
+        expected = (
+            generate_project_graph_state.CONTROL
+            / "000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/"
+            "000_APPLICABLE_MTHD_sources"
+        )
+        self.assertEqual(expected, generate_project_graph_state.METHODOLOGY_SOURCES)
+        self.assertNotEqual(generate_project_graph_state.CONFIG.parent.parent,
+                            generate_project_graph_state.METHODOLOGY_SOURCES)
+
     def test_quoted_source_timestamps_use_the_existing_supported_formats(self) -> None:
         for value in ('"2026-09-06 12:00:00 +0400"', "'2026-09-06 12:00:00'", "2026-09-06 12:00:00 +0400"):
             self.assertEqual("2026-09-06 12:00:00", generate_project_graph_state.normalise_timestamp(value))
@@ -53,11 +63,49 @@ class GenerateProjectGraphStateTests(unittest.TestCase):
             "[project]\nkey = 'fixture_project'\nname = 'fixture_project'\nrepository_slug = 'test'\n"
             "[artifacts.identity]\nproject_prefix = 'TEST'\n", encoding="utf-8",
         )
-        self.framework_settings = self.root / "framework_settings.toml"
+        self.framework_settings = self.control / "000_CAPRMEDIO_framework/caprmedio_framework_settings.toml"
+        self.framework_settings.parent.mkdir()
         self.framework_settings.write_text(
             "[authority_modes]\ndefault = 'casual'\ngovernance = 'strict'\n"
             "metamodel = 'strict'\nproject = 'strict'\nsemantics = 'strict'\n", encoding="utf-8",
         )
+        self.methodology_sources = (
+            self.control / "000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/"
+            "000_APPLICABLE_MTHD_sources"
+        )
+        for index, (scope, atom_id) in enumerate((
+            ("001_CORE_META_MODEL", "CA-R-101"),
+            ("002_INSTALLED_EXTENSIONS", "CA-M-102"),
+            ("003_PROJECT_CONFIGURATION", "CA-D-103"),
+        ), 1):
+            source = self.methodology_sources / scope / f"{atom_id}--fixture.md"
+            source.parent.mkdir(parents=True, exist_ok=True)
+            source.write_text(
+                f"---\natom_id: {atom_id}\nversion: {index}\nupdated_at: 2026-10-01 00:00:0{index}\n---\n",
+                encoding="utf-8",
+            )
+        self.fixture_generator = self.root / generate_project_graph_state.CANONICAL_GENERATOR_CARRIER
+        self.fixture_generator.parent.mkdir(parents=True, exist_ok=True)
+        self.fixture_generator.write_bytes(generate_project_graph_state.CANONICAL_GENERATOR.read_bytes())
+        self._fixture_patch = mock.patch.multiple(
+            generate_project_graph_state,
+            ROOT=self.root,
+            CONTROL=self.control,
+            CONFIG=self.framework_settings,
+            JOURNAL=self.control / "_journal",
+            OUTPUT=self.control / "_projection/project_scope_unit_graph.projection.toml",
+            SOURCE_MAP=self.control / "_projection/project_scope_unit_graph_sources.projection.toml",
+            SCRIPT=self.fixture_generator,
+            CANONICAL_GENERATOR=self.fixture_generator,
+            METHODOLOGY_SOURCES=self.methodology_sources,
+            METHODOLOGY_SOURCE_SCOPE_UNITS=(
+                ("CORE_META_MODEL", self.methodology_sources / "001_CORE_META_MODEL"),
+                ("INSTALLED_EXTENSIONS", self.methodology_sources / "002_INSTALLED_EXTENSIONS"),
+                ("PROJECT_CONFIGURATION", self.methodology_sources / "003_PROJECT_CONFIGURATION"),
+            ),
+        )
+        self._fixture_patch.start()
+        self.addCleanup(self._fixture_patch.stop)
 
     def tearDown(self) -> None:
         self.temporary.cleanup()
@@ -204,12 +252,12 @@ class GenerateProjectGraphStateTests(unittest.TestCase):
             ".caprmedio_caprmedio/caprmedio_project_settings.toml",
             bindings["project_settings"]["carrier"],
         )
-        self.assertEqual("CA", config["artifacts"]["identity"]["project_prefix"])
-        self.assertEqual("caprmedio", config["project"]["key"])
-        self.assertIn('key = "caprmedio"', payload)
-        self.assertIn('name = "caprmedio"', payload)
+        self.assertEqual("TEST", config["artifacts"]["identity"]["project_prefix"])
+        self.assertEqual("fixture_project", config["project"]["key"])
+        self.assertIn('key = "fixture_project"', payload)
+        self.assertIn('name = "fixture_project"', payload)
         self.assertIn(
-            'carrier = ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/003_PROJECT_CONFIGURATION/caprmedio_framework_settings.toml"',
+            'carrier = ".caprmedio_caprmedio/000_CAPRMEDIO_framework/caprmedio_framework_settings.toml"',
             payload,
         )
         self.assertNotIn("002_FRAMEWORK_ENGINE", payload)
