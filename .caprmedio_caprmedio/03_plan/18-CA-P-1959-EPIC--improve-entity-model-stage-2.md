@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 12
-updated_at: "2026-10-11 03:46:50 +0400"
+version: 13
+updated_at: "2026-10-11 03:59:01 +0400"
 relations: {}
 ---
 # Summary
@@ -53,7 +53,7 @@ The Operator clarified: Atom.Substance is the shared field; Claim, Question and 
 
 The Operator approved the five-definition grammar exception during Step 1. CA-P-1977 records the actual answer; CA-P-2059 adopts only those exact grammar definitions and their replacement/history effects. All other ordinary content stays in Step 2. Native slash admission and live Subject migration remain separate.
 
-- [CA-P-2059 — Adopt the approved Subject grammar definitions](18-CA-P-1959-EPIC--improve-entity-model-stage-2/15-CA-P-2059-TASK--adopt-the-approved-subject-grammar-definitions.md)
+- [CA-P-2059 — Adopt the approved Subject grammar definitions](18-CA-P-1959-EPIC--improve-entity-model-stage-2/done/15-CA-P-2059-TASK--adopt-the-approved-subject-grammar-definitions.md)
 
 Reusable Tools operate correct files only: structural Subject lookup and exact pinned Subject-only preview/update. Repair broken carriers and migrate notation with small ad-hoc scripts. Do not build a reusable repair/migration framework. This latest Operator direction narrows the older Tool work below; it does not waive source pins, exact approval or the existing live-write guard. Commit after each completed Task.
 
@@ -65,7 +65,7 @@ Lookup must target exact Subject fields and return occurrence/source pins. Previ
 
 Tests must preserve every unrelated frontmatter field and body byte, not just named sections. Use a separately authored expected occurrence/edge ledger; the verifier must not call the producer's graph builder. A deliberate wrong output must fail the check. After grammar support changes, CA-P-1975 rechecks the exact implementation before any final migration preview.
 
-One exact decision remains before live migration: active grammar uses / for bearer qualification and treats . as ordinary text, while the chosen candidate uses / for narrowing and . for bearer qualification. CA-P-1964 asks whether the minimum governing grammar-body revisions may be included in Step 1. All other body work stays Step 2. This Epic does not answer or authorize that exception.
+The five-definition grammar exception is approved and adopted by CA-P-2059: / is broader-to-narrower, . is bearer-to-dependent, : remains Property-to-allowed-value, and @ is outside Subject syntax. Current original Subjects remain unchanged. CA-P-1965 must implement the approved profile before the final migration preview. All other body work stays Step 2; native slash admission and selector grammar are not authorized by this exception.
 
 Live application needs a separately approved exact sealed packet, current pins and the existing admitted mutation boundary. Candidate approval and Tool approval are not that packet approval. Changed pins require a fresh preview. Preserve current Atom identities and history; do not delete entities, fabricate relations or rewrite archived history.
 

@@ -3,8 +3,8 @@ subjects:
   governs: "Term/name"
   depends_on:
     - "Subject Expression"
-version: 11
-updated_at: "2026-10-11 03:56:26 +0400"
+version: 10
+updated_at: "2026-10-02 22:05:04 +0400"
 relations: {}
 atom_id: "CA-R-1324"
 content_role: "Requirement"
@@ -25,6 +25,6 @@ Term names in Subject Expressions.
 
 ## Claim
 
-a Term name **must not** contain `/`, `.`, **or** `:`. `@` is outside Subject syntax **and** is **not** a Subject Expression separator.
+a Term name **must not** contain `/` **or** `:`.
 
 ## Details

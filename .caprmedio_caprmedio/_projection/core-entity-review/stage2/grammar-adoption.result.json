@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "non_authoritative": true,
+  "task": "CA-P-2059",
+  "recorded_at": "2026-10-11 03:57:55 +0400",
+  "result": "PASS: five approved Core grammar definitions adopted",
+  "effects_at": "2026-10-11 03:56:26 +0400",
+  "approval": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/grammar-decision.operator-answer.json",
+    "sha256": "396dd826016ff7f021960f74345298bdb583124374249ce07c5cdb3edf1fc0eb"
+  },
+  "packet_sha256": "4e3636cc01e40801c8f6b8beec9632e80fee3187524bf052656cec9a4e6035ab",
+  "preview": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/grammar-adoption.preview.json",
+    "sha256": "f6d1bf78cd2e186b7bc4027338dba4be8e879fb780b66a19368a33340e0481d1",
+    "timestamp_status": "illustrative only; effects freshly recomputed before authoring"
+  },
+  "helper_sha256": "42b6325261c5a8fc420b335e7032782866cf66b74cafa69ae3f969906dd10a97",
+  "test_sha256": "7689409ee4f21acc2b0b89a9cf22b77828e696abfc0aef6e002a6d1705215e84",
+  "effects": [
+    {
+      "atom_id": "CA-R-1204",
+      "operation": "replace_with_new_id",
+      "before": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1204-CORE_META_MODEL--use-subject-path-slash-only-for-bearer-qualification.md",
+        "version": 14,
+        "sha256": "f57d56dab2cff12ea38a94900a1f146e40ead39f0af9e26e3130e9867f290dda"
+      },
+      "after": {
+        "atom_id": "CA-R-1931",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1931-CORE_META_MODEL--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md",
+        "version": 1,
+        "sha256": "f11bc913a0f7b31abc746a86599eaeaa76db8be412568ef4c34f68c7d01525c8"
+      },
+      "history": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-1204-CORE_META_MODEL--use-subject-path-slash-only-for-bearer-qualification@14.md",
+        "sha256": "f57d56dab2cff12ea38a94900a1f146e40ead39f0af9e26e3130e9867f290dda"
+      }
+    },
+    {
+      "atom_id": "CA-R-1321",
+      "operation": "revise_active_atom",
+      "before": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression.md",
+        "version": 12,
+        "sha256": "6baf3f4179591dcc89c458dcb6503a55f24b70f9f1bd93203f4b748a9bcb1b8c"
+      },
+      "after": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression.md",
+        "version": 13,
+        "sha256": "e70433376c3c1fdda8189e90f31a2d9b7cfd740a2c23e7f9c91ad9a3de81be5f"
+      },
+      "history": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression@12.md",
+        "sha256": "6baf3f4179591dcc89c458dcb6503a55f24b70f9f1bd93203f4b748a9bcb1b8c"
+      },
+      "allowed_changes": [
+        "Claim",
+        "Version",
+        "Updated At"
+      ]
+    },
+    {
+      "atom_id": "CA-R-1324",
+      "operation": "revise_active_atom",
+      "before": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1324-CORE_META_MODEL-REQUIREMENT--reserve-subject-expression-separators.md",
+        "version": 10,
+        "sha256": "f38d4cc446b04cde6958f1fe011679ff95048bdfe30f360d11a7366a572bc0b1"
+      },
+      "after": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1324-CORE_META_MODEL-REQUIREMENT--reserve-subject-expression-separators.md",
+        "version": 11,
+        "sha256": "b672d509190b0e87d5ff839721da9a5b05e52a572cc845450f2a7f1a96fa21f7"
+      },
+      "history": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-1324-CORE_META_MODEL-REQUIREMENT--reserve-subject-expression-separators@10.md",
+        "sha256": "f38d4cc446b04cde6958f1fe011679ff95048bdfe30f360d11a7366a572bc0b1"
+      },
+      "allowed_changes": [
+        "Claim",
+        "Version",
+        "Updated At"
+      ]
+    },
+    {
+      "atom_id": "CA-M-228",
+      "operation": "revise_active_atom",
+      "before": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-228-CORE_META_MODEL-METHOD--write-subject-expressions-with-bearer-and-value-qualification.md",
+        "version": 14,
+        "sha256": "f5a2152648b95c04af56c49118f43ac64ee46dd8183b23913cb64f335d6f26df"
+      },
+      "after": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-228-CORE_META_MODEL-METHOD--write-subject-expressions-with-bearer-and-value-qualification.md",
+        "version": 15,
+        "sha256": "f3febddbb9edf1776b7fd6d8680f46b69b735a7eb1a311bea844b0fbb74bcd70"
+      },
+      "history": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/archive/CA-M-228-CORE_META_MODEL-METHOD--write-subject-expressions-with-bearer-and-value-qualification@14.md",
+        "sha256": "f5a2152648b95c04af56c49118f43ac64ee46dd8183b23913cb64f335d6f26df"
+      },
+      "allowed_changes": [
+        "Claim",
+        "Version",
+        "Updated At"
+      ]
+    },
+    {
+      "atom_id": "CA-E-383",
+      "operation": "revise_active_atom",
+      "before": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md",
+        "version": 13,
+        "sha256": "00c3e901fbd18cdb584387386f6b04cd43905f651c4369e16a97d20b469b3274"
+      },
+      "after": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md",
+        "version": 14,
+        "sha256": "6e17caba7c5dac4bce187bdd79084bd49d316abc393ebb564280364fee39f143"
+      },
+      "history": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/archive/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions@13.md",
+        "sha256": "00c3e901fbd18cdb584387386f6b04cd43905f651c4369e16a97d20b469b3274"
+      },
+      "allowed_changes": [
+        "Claim",
+        "Details",
+        "Version",
+        "Updated At",
+        "relations.evaluation_for CA-R-1204 -> CA-R-1931"
+      ]
+    }
+  ],
+  "checks": {
+    "independent_pre_effect_review": "PASS: subject_review_007; exact five changes and preserved source surfaces",
+    "independent_post_effect_review": "PASS: subject_review_007; exact current/history bytes, unchanged Subjects/scopes and 15 sealed Journal events",
+    "pre_effect_focused_tests_passed": 7,
+    "actual_current_and_history_bytes": "PASS: exact recomputed byte equality and hashes",
+    "subjects_and_scopes": "unchanged",
+    "unaffected_core_files": 12101,
+    "unaffected_manifest_sha256": "399beb43b6b3ea3fc5fd36b92366866f502b0f8677a9a50798c6b872b6310f6a",
+    "journal_events": 15,
+    "journal_schema_and_current_results": "PASS"
+  },
+  "journal": {
+    "path": ".caprmedio_caprmedio/_journal/anatoly-m-maslennikov-2026-10-11-part-2.ndjson",
+    "sha256": "886e8c133b04021ee0d58ef1792c628130d8b5b08667589e96e4124b02352bf1",
+    "observer_id": "ad-hoc-source-observation:8dce039b-09f0-4727-b419-7d2d3ebf38f9"
+  },
+  "limits": [
+    "No original Subjects were migrated.",
+    "No new native slash/taxonomy relation or selector syntax was admitted.",
+    "Other Summary, Substance, Scope and Details updates remain Step 2.",
+    "Parser, reusable Tools, MCP and FPF were not changed or invoked.",
+    "The five old source pins are now historical. Keep frozen reports/ledger unchanged and rebind current sources before migration.",
+    "This is a direct authoring task receipt, not a fabricated Tool or Workflow execution receipt."
+  ]
+}

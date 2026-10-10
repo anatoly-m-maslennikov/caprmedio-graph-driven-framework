@@ -10,12 +10,12 @@ local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
-status: Active
+status: Done
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Projection, Plan, Operator]
-version: 1
-updated_at: "2026-10-11 03:37:05 +0400"
+version: 2
+updated_at: "2026-10-11 03:59:01 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
 ---
@@ -38,3 +38,9 @@ Use local ad-hoc preparation and normal file authoring, not unsupported MCP or a
 ### Definition of Done
 
 Not Done if required checks fail or are missing, source/evidence pins are stale, scope expands beyond the approved changes, unresolved work is hidden, actual effects are overstated, or own work exceeds 15 minutes without decomposition.
+
+### Completion
+
+Exactly the five approved grammar definitions are authoritative: CA-R-1931@1 replaces CA-R-1204@14; CA-R-1321@13, CA-R-1324@11, CA-M-228@15 and CA-E-383@14 are current. Five exact prior revisions are preserved in role-local archive paths. Subjects and scopes are unchanged. All 12,101 other Core files have the same manifest digest. Independent pre-effect scope review and seven focused tests passed; actual current/history bytes and fifteen schema-v3 Journal events passed Root verification. The old preflight now rejects the occupied successor ID, as expected.
+
+Receipt and exact before/after pins: `_projection/core-entity-review/stage2/grammar-adoption.result.json`. No live Subject migration, parser implementation, selector grammar, native slash Relation, MCP or FPF execution is claimed. The old five live pins are historical; refresh current source bindings before later migration.

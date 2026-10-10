@@ -1,0 +1,206 @@
+{
+  "evidence_pins": [
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/grammar-decision.operator-answer.json",
+      "sha256": "396dd826016ff7f021960f74345298bdb583124374249ce07c5cdb3edf1fc0eb"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/grammar-decision.packet.json",
+      "sha256": "4e3636cc01e40801c8f6b8beec9632e80fee3187524bf052656cec9a4e6035ab"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/grammar-decision.packet.md",
+      "sha256": "06eea91d64c206ac438d1f8c0150b282027c04923f9aec7dbc2e6bdeae42c85d"
+    },
+    {
+      "path": ".caprmedio_caprmedio/caprmedio_project_settings.toml",
+      "sha256": "a0f8761157c1bd6b2ce79b72c69ceeea4cb6131b2bf79a246346f181d8c302de"
+    }
+  ],
+  "limits": [
+    "Only the five approved grammar definitions are represented.",
+    "All active Subjects, existing summaries/scopes except the approved new-ID successor summary, and other metadata remain unchanged.",
+    "Archive entries preserve exact prior revision bytes; predecessor/successor history is not an active Atom relation.",
+    "No Journal entry, native slash relation, Core write, parser change, source migration, MCP, FPF, or Git action is performed by this preview."
+  ],
+  "native_admission": "not_performed",
+  "non_authoritative": true,
+  "planned_effects": [
+    {
+      "allowed_changes": [
+        "new ID",
+        "Summary",
+        "Claim",
+        "Version",
+        "Updated At"
+      ],
+      "approved_predecessor": {
+        "content_utf8": "---\nsubjects:\n  governs: \"Subject Path\"\n  depends_on:\n    - \"Dependent Entity\"\n    - \"IS_BORNE_BY\"\n    - \"Entity\"\nversion: 14\nupdated_at: \"2026-10-02 21:30:43 +0400\"\nrelations: {}\natom_id: \"CA-R-1204\"\ncontent_role: \"Requirement\"\ncurrent_scope_unit: \"CORE_META_MODEL\"\nclaim_target_scope_unit: \"CORE_META_MODEL\"\nlocal_tier: \"Standard\"\nstatus: \"Active\"\nauthor: \"Anatoly Maslennikov\"\nglobal_tier: 11\n---\n# Summary\n\nUse Subject Path Slash Only for Bearer Qualification\n\n## Scope\n\na Subject Path.\n\n## Claim\n\n**in** a Subject Path, `/` **must** express **only** **`=1`** IS_BORNE_BY edge from the following Dependent Entity occurrence **to** the immediately preceding qualified Entity occurrence.\n\n## Details\n",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1204-CORE_META_MODEL--use-subject-path-slash-only-for-bearer-qualification.md",
+        "sha256": "f57d56dab2cff12ea38a94900a1f146e40ead39f0af9e26e3130e9867f290dda",
+        "version": 14
+      },
+      "atom_id": "CA-R-1204",
+      "history": {
+        "content_utf8": "---\nsubjects:\n  governs: \"Subject Path\"\n  depends_on:\n    - \"Dependent Entity\"\n    - \"IS_BORNE_BY\"\n    - \"Entity\"\nversion: 14\nupdated_at: \"2026-10-02 21:30:43 +0400\"\nrelations: {}\natom_id: \"CA-R-1204\"\ncontent_role: \"Requirement\"\ncurrent_scope_unit: \"CORE_META_MODEL\"\nclaim_target_scope_unit: \"CORE_META_MODEL\"\nlocal_tier: \"Standard\"\nstatus: \"Active\"\nauthor: \"Anatoly Maslennikov\"\nglobal_tier: 11\n---\n# Summary\n\nUse Subject Path Slash Only for Bearer Qualification\n\n## Scope\n\na Subject Path.\n\n## Claim\n\n**in** a Subject Path, `/` **must** express **only** **`=1`** IS_BORNE_BY edge from the following Dependent Entity occurrence **to** the immediately preceding qualified Entity occurrence.\n\n## Details\n",
+        "from": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1204-CORE_META_MODEL--use-subject-path-slash-only-for-bearer-qualification.md",
+        "operation": "move_exact_bytes",
+        "sha256": "f57d56dab2cff12ea38a94900a1f146e40ead39f0af9e26e3130e9867f290dda",
+        "to": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-1204-CORE_META_MODEL--use-subject-path-slash-only-for-bearer-qualification@14.md"
+      },
+      "operation": "replace_with_new_id",
+      "successor": {
+        "atom_id": "CA-R-1931",
+        "content_utf8": "---\nsubjects:\n  governs: \"Subject Path\"\n  depends_on:\n    - \"Dependent Entity\"\n    - \"IS_BORNE_BY\"\n    - \"Entity\"\nversion: 1\nupdated_at: \"2026-10-11 03:44:52 +0400\"\nrelations: {}\natom_id: \"CA-R-1931\"\ncontent_role: \"Requirement\"\ncurrent_scope_unit: \"CORE_META_MODEL\"\nclaim_target_scope_unit: \"CORE_META_MODEL\"\nlocal_tier: \"Standard\"\nstatus: \"Active\"\nauthor: \"Anatoly Maslennikov\"\nglobal_tier: 11\n---\n# Summary\n\nUse Subject Path Separators for Broader-to-Narrower and Bearer-to-Dependent\n\n## Scope\n\na Subject Path.\n\n## Claim\n\n**in** a Subject Path, `/` **must** separate a broader component from its following narrower component; `.` **must** separate a bearer component from its following dependent component; `:` **must** separate a Property component from its following allowed-value component; **and** `@` is **not** Subject syntax. a Subject Path still resolves **`=1`** canonical target **and** does **not** create target identities. the mechanical native fact for `.` is Dependent IS_BORNE_BY Bearer; for `:` it is AllowedValue IS_ALLOWED_VALUE_OF Property. `/` admits **no** native Subject **or** Entity relation; any later Terms-Graph binding to NARROWER_THAN remains separately governed.\n\n## Details\n",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1931-CORE_META_MODEL--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md",
+        "sha256": "8a9f61539a12d904f7bf6d39bf83225f9ded027db88331ee687d3b1873138c34",
+        "version": 1
+      }
+    },
+    {
+      "active": {
+        "new_content_utf8": "---\nsubjects:\n  governs: \"Subject Expression\"\n  depends_on:\n    - \"Entity\"\n    - \"Term\"\n    - \"Property\"\n    - \"Subject\"\n    - \"Atom\"\nversion: 13\nupdated_at: \"2026-10-11 03:44:52 +0400\"\nrelations: {}\natom_id: \"CA-R-1321\"\ncontent_role: \"Requirement\"\ncurrent_scope_unit: \"CORE_META_MODEL\"\nclaim_target_scope_unit: \"CORE_META_MODEL\"\nlocal_tier: \"Core\"\nstatus: \"Active\"\nauthor: \"Anatoly Maslennikov\"\nglobal_tier: 9\n---\n# Summary\nDefine Subject Expression\n\n## Scope\nSubject Expressions formed from Term references **and** registered relation syntax.\n\n## Claim\n\na Subject Expression **means** a reference **to** **`=1`** Entity formed from Term references **and** registered relation syntax. **every** named component, including the initial target name, Property names, **and** named allowed values, references a Term; `/`, `.`, **and** `:` are syntax, **not** Terms. `@` is outside Subject syntax. the expression identifies the target, **not** the Atom's Subject Relation **to** it.\n\n## Details\n",
+        "new_sha256": "b789118453403ba99f01013f0c18f591939c12a1ec12a5e4834fa84527b54964",
+        "new_version": 13,
+        "old_content_utf8": "---\nsubjects:\n  governs: \"Subject Expression\"\n  depends_on:\n    - \"Entity\"\n    - \"Term\"\n    - \"Property\"\n    - \"Subject\"\n    - \"Atom\"\nversion: 12\nupdated_at: \"2026-09-28 15:12:22 +0400\"\nrelations: {}\natom_id: \"CA-R-1321\"\ncontent_role: \"Requirement\"\ncurrent_scope_unit: \"CORE_META_MODEL\"\nclaim_target_scope_unit: \"CORE_META_MODEL\"\nlocal_tier: \"Core\"\nstatus: \"Active\"\nauthor: \"Anatoly Maslennikov\"\nglobal_tier: 9\n---\n# Summary\nDefine Subject Expression\n\n## Scope\nSubject Expressions formed from Term references **and** registered relation syntax.\n\n## Claim\n\na Subject Expression **means** a reference **to** **`=1`** Entity formed from Term references **and** registered relation syntax. **every** named component, including the initial target name, Property names, **and** named allowed values, references a Term; `/` **and** `:` are syntax, **not** Terms. the expression identifies the target, **not** the Atom's Subject Relation **to** it.\n\n## Details\n",
+        "old_sha256": "6baf3f4179591dcc89c458dcb6503a55f24b70f9f1bd93203f4b748a9bcb1b8c",
+        "old_version": 12,
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression.md"
+      },
+      "allowed_changes": [
+        "Claim",
+        "Version",
+        "Updated At"
+      ],
+      "atom_id": "CA-R-1321",
+      "history": {
+        "content_utf8": "---\nsubjects:\n  governs: \"Subject Expression\"\n  depends_on:\n    - \"Entity\"\n    - \"Term\"\n    - \"Property\"\n    - \"Subject\"\n    - \"Atom\"\nversion: 12\nupdated_at: \"2026-09-28 15:12:22 +0400\"\nrelations: {}\natom_id: \"CA-R-1321\"\ncontent_role: \"Requirement\"\ncurrent_scope_unit: \"CORE_META_MODEL\"\nclaim_target_scope_unit: \"CORE_META_MODEL\"\nlocal_tier: \"Core\"\nstatus: \"Active\"\nauthor: \"Anatoly Maslennikov\"\nglobal_tier: 9\n---\n# Summary\nDefine Subject Expression\n\n## Scope\nSubject Expressions formed from Term references **and** registered relation syntax.\n\n## Claim\n\na Subject Expression **means** a reference **to** **`=1`** Entity formed from Term references **and** registered relation syntax. **every** named component, including the initial target name, Property names, **and** named allowed values, references a Term; `/` **and** `:` are syntax, **not** Terms. the expression identifies the target, **not** the Atom's Subject Relation **to** it.\n\n## Details\n",
+        "operation": "create_exact_prior_revision",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression@12.md",
+        "sha256": "6baf3f4179591dcc89c458dcb6503a55f24b70f9f1bd93203f4b748a9bcb1b8c"
+      },
+      "operation": "revise_active_atom"
+    },
+    {
+      "active": {
+        "new_content_utf8": "---\nsubjects:\n  governs: \"Term/name\"\n  depends_on:\n    - \"Subject Expression\"\nversion: 11\nupdated_at: \"2026-10-11 03:44:52 +0400\"\nrelations: {}\natom_id: \"CA-R-1324\"\ncontent_role: \"Requirement\"\ncurrent_scope_unit: \"CORE_META_MODEL\"\nclaim_target_scope_unit: \"CORE_META_MODEL\"\nlocal_tier: \"Standard\"\nstatus: \"Active\"\nauthor: \"Anatoly Maslennikov\"\nglobal_tier: 11\n---\n# Summary\n\nReserve Subject Expression Separators\n\n## Scope\n\nTerm names in Subject Expressions.\n\n## Claim\n\na Term name **must not** contain `/`, `.`, **or** `:`. `@` is outside Subject syntax **and** is **not** a Subject Expression separator.\n\n## Details\n",
+        "new_sha256": "ec953dd88143778e38609e9d060cef393ec22bc49622e488184071f7b2803759",
+        "new_version": 11,
+        "old_content_utf8": "---\nsubjects:\n  governs: \"Term/name\"\n  depends_on:\n    - \"Subject Expression\"\nversion: 10\nupdated_at: \"2026-10-02 22:05:04 +0400\"\nrelations: {}\natom_id: \"CA-R-1324\"\ncontent_role: \"Requirement\"\ncurrent_scope_unit: \"CORE_META_MODEL\"\nclaim_target_scope_unit: \"CORE_META_MODEL\"\nlocal_tier: \"Standard\"\nstatus: \"Active\"\nauthor: \"Anatoly Maslennikov\"\nglobal_tier: 11\n---\n# Summary\n\nReserve Subject Expression Separators\n\n## Scope\n\nTerm names in Subject Expressions.\n\n## Claim\n\na Term name **must not** contain `/` **or** `:`.\n\n## Details\n",
+        "old_sha256": "f38d4cc446b04cde6958f1fe011679ff95048bdfe30f360d11a7366a572bc0b1",
+        "old_version": 10,
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1324-CORE_META_MODEL-REQUIREMENT--reserve-subject-expression-separators.md"
+      },
+      "allowed_changes": [
+        "Claim",
+        "Version",
+        "Updated At"
+      ],
+      "atom_id": "CA-R-1324",
+      "history": {
+        "content_utf8": "---\nsubjects:\n  governs: \"Term/name\"\n  depends_on:\n    - \"Subject Expression\"\nversion: 10\nupdated_at: \"2026-10-02 22:05:04 +0400\"\nrelations: {}\natom_id: \"CA-R-1324\"\ncontent_role: \"Requirement\"\ncurrent_scope_unit: \"CORE_META_MODEL\"\nclaim_target_scope_unit: \"CORE_META_MODEL\"\nlocal_tier: \"Standard\"\nstatus: \"Active\"\nauthor: \"Anatoly Maslennikov\"\nglobal_tier: 11\n---\n# Summary\n\nReserve Subject Expression Separators\n\n## Scope\n\nTerm names in Subject Expressions.\n\n## Claim\n\na Term name **must not** contain `/` **or** `:`.\n\n## Details\n",
+        "operation": "create_exact_prior_revision",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-1324-CORE_META_MODEL-REQUIREMENT--reserve-subject-expression-separators@10.md",
+        "sha256": "f38d4cc446b04cde6958f1fe011679ff95048bdfe30f360d11a7366a572bc0b1"
+      },
+      "operation": "revise_active_atom"
+    },
+    {
+      "active": {
+        "new_content_utf8": "---\nsubjects:\n  governs: \"Subject Expression Writing\"\n  depends_on:\n    - \"Subject Path\"\n    - \"Entity\"\n    - \"Relation\"\n    - \"Term\"\n    - \"Subject\"\n    - \"GOVERNS\"\n    - \"DEPENDS_ON\"\nversion: 15\nupdated_at: \"2026-10-11 03:44:52 +0400\"\nrelations: {}\natom_id: \"CA-M-228\"\ncontent_role: \"Method\"\ncurrent_scope_unit: \"CORE_META_MODEL\"\nclaim_target_scope_unit: \"CORE_META_MODEL\"\nlocal_tier: \"Standard\"\nstatus: \"Active\"\nauthor: \"Anatoly Maslennikov\"\nglobal_tier: 11\n---\n# Summary\n\nWrite Subject Expressions with Bearer and Value Qualification\n\n## Scope\n\nauthoring one Subject Expression.\n\n## Claim\n\n**to** write a Subject Expression, start with a canonical Entity reference **and** apply `/` in broader-to-narrower order, `.` in bearer-to-dependent order, **and** `:` in Property-to-allowed-value order. resolve **every** named component, including names **before** **and** **after** the separators, as a Term reference under CA-R-1321. `.` retains the mechanical native fact Dependent IS_BORNE_BY Bearer, **and** `:` retains AllowedValue IS_ALLOWED_VALUE_OF Property; `/` admits no native Subject or Entity relation. the resulting qualified path identifies its existing canonical target **without** copying it; connecting the Atom **to** that target through GOVERNS **or** DEPENDS_ON creates the Subject Relation, **not** another target Entity.\n\n## Details\n",
+        "new_sha256": "978e763167c89ee7a4b50be8b9f8de81afa8a662860087096117f98f4d536da6",
+        "new_version": 15,
+        "old_content_utf8": "---\nsubjects:\n  governs: \"Subject Expression Writing\"\n  depends_on:\n    - \"Subject Path\"\n    - \"Entity\"\n    - \"Relation\"\n    - \"Term\"\n    - \"Subject\"\n    - \"GOVERNS\"\n    - \"DEPENDS_ON\"\nversion: 14\nupdated_at: \"2026-10-01 21:38:15 +0400\"\nrelations: {}\natom_id: \"CA-M-228\"\ncontent_role: \"Method\"\ncurrent_scope_unit: \"CORE_META_MODEL\"\nclaim_target_scope_unit: \"CORE_META_MODEL\"\nlocal_tier: \"Standard\"\nstatus: \"Active\"\nauthor: \"Anatoly Maslennikov\"\nglobal_tier: 11\n---\n# Summary\n\nWrite Subject Expressions with Bearer and Value Qualification\n\n## Scope\n\nauthoring one Subject Expression.\n\n## Claim\n\n**to** write a Subject Expression, start with a canonical Entity reference **and** apply `/` **or** `:` qualification **only** **where** the registered relation admits the exact endpoints. `/` retains bearer qualification **and** `:` retains allowed-value qualification; resolve **every** named component, including names **before** **and** **after** the separators, as a Term reference under CA-R-1321. the resulting qualified path identifies its existing canonical target **without** copying it; connecting the Atom **to** that target through GOVERNS **or** DEPENDS_ON creates the Subject Relation, **not** another target Entity.\n\n## Details\n",
+        "old_sha256": "f5a2152648b95c04af56c49118f43ac64ee46dd8183b23913cb64f335d6f26df",
+        "old_version": 14,
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-228-CORE_META_MODEL-METHOD--write-subject-expressions-with-bearer-and-value-qualification.md"
+      },
+      "allowed_changes": [
+        "Claim",
+        "Version",
+        "Updated At"
+      ],
+      "atom_id": "CA-M-228",
+      "history": {
+        "content_utf8": "---\nsubjects:\n  governs: \"Subject Expression Writing\"\n  depends_on:\n    - \"Subject Path\"\n    - \"Entity\"\n    - \"Relation\"\n    - \"Term\"\n    - \"Subject\"\n    - \"GOVERNS\"\n    - \"DEPENDS_ON\"\nversion: 14\nupdated_at: \"2026-10-01 21:38:15 +0400\"\nrelations: {}\natom_id: \"CA-M-228\"\ncontent_role: \"Method\"\ncurrent_scope_unit: \"CORE_META_MODEL\"\nclaim_target_scope_unit: \"CORE_META_MODEL\"\nlocal_tier: \"Standard\"\nstatus: \"Active\"\nauthor: \"Anatoly Maslennikov\"\nglobal_tier: 11\n---\n# Summary\n\nWrite Subject Expressions with Bearer and Value Qualification\n\n## Scope\n\nauthoring one Subject Expression.\n\n## Claim\n\n**to** write a Subject Expression, start with a canonical Entity reference **and** apply `/` **or** `:` qualification **only** **where** the registered relation admits the exact endpoints. `/` retains bearer qualification **and** `:` retains allowed-value qualification; resolve **every** named component, including names **before** **and** **after** the separators, as a Term reference under CA-R-1321. the resulting qualified path identifies its existing canonical target **without** copying it; connecting the Atom **to** that target through GOVERNS **or** DEPENDS_ON creates the Subject Relation, **not** another target Entity.\n\n## Details\n",
+        "operation": "create_exact_prior_revision",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/archive/CA-M-228-CORE_META_MODEL-METHOD--write-subject-expressions-with-bearer-and-value-qualification@14.md",
+        "sha256": "f5a2152648b95c04af56c49118f43ac64ee46dd8183b23913cb64f335d6f26df"
+      },
+      "operation": "revise_active_atom"
+    },
+    {
+      "active": {
+        "new_content_utf8": "---\nsubjects:\n  governs: \"Subject Expression Evaluation\"\n  depends_on:\n    - \"General Term\"\n    - \"Governed Term\"\n    - \"Subject Expression\"\n    - \"Dependent Entity\"\n    - \"Property\"\n    - \"IS_BORNE_BY\"\n    - \"IS_ALLOWED_VALUE_OF\"\n    - \"Term\"\n    - \"CCE Operator\"\n    - \"Scope Unit/Name\"\n    - \"Subject\"\n    - \"Subject Path\"\nversion: 14\nupdated_at: \"2026-10-11 03:44:52 +0400\"\nrelations:\n  evaluation_for:\n    - CA-R-1194\n    - CA-R-1931\n    - CA-R-1245\n    - CA-R-1436\n    - CA-M-229\n    - CA-R-1324\n    - CA-R-1325\n    - CA-R-1321\n    - CA-R-1275\n    - CA-R-1297\natom_id: \"CA-E-383\"\ncontent_role: \"Evaluation\"\ncurrent_scope_unit: \"CORE_META_MODEL\"\nclaim_target_scope_unit: \"CORE_META_MODEL\"\nlocal_tier: \"Standard\"\nstatus: \"Active\"\nauthor: \"Anatoly Maslennikov\"\ntype: \"Evaluation Approach\"\nglobal_tier: 11\n---\n# Reject Invalid Subject Expressions\n\n## Scope\n\nSubject Expressions evaluated for invalid component handling.\n\n## Claim\n\nthe Evaluation **must** reject a Subject Expression **if**\n\n- `/` does **not** express the approved broader-to-narrower Subject Path profile,\n- `.` does **not** encode **`=1`** valid bearer edge from the following Dependent Entity occurrence **to** the immediately preceding bearer occurrence,\n- `:` does **not** express **`=1`** admitted IS_ALLOWED_VALUE_OF qualification under CA-R-1436-CORE_META_MODEL-CORE-REQUIREMENT--define-is-allowed-value-of,\n- allowed-value admission is treated as assignment **to** a particular Property occurrence **or** as determining its cardinality,\n- a Dependent Entity occurrence lacks **`=1`** immediate bearer,\n- a reusable Term is rejected **only** for changing ordinal position,\n- a Governed Term begins with a lowercase letter,\n- a named component fails **to** resolve **to** a Term under CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression,\n- an ordinary General Term is substituted for a required Term reference,\n- a Term name **contains** `/`, `.`, **or** `:`,\n- `@` is used as a Subject token,\n- a complete composite Subject Expression is classified as one Term,\n- **or** a registered CCE Operator is redefined as a Governed Term **or** Scope Unit Name.\n\n## Details\n\n### Term-component cases\n\n`Artifact/Atom.Status: Active` **must** pass the component check **only when** its four named Terms **and** exact qualified target are admitted. `/`, `.`, **and** `:` contribute no Term nodes. an unresolved named component **must** fail the source-reference check; the diagnostic **must** preserve the unresolved reference **without** supplying an invented definition. a complete composite path **must not** be admitted as **`=1`** Term merely because it resolves **to** **`=1`** Entity.\n\n`Atom/Content Role: Requirement/Type: Demand` is retained only as a legacy five-component fixture; it does **not** define an approved all-dot role conjunction or selector grammar.\n",
+        "new_sha256": "b08a0923edfcd7a60123290b8d8f5727ef8589cf111829b08d267eb55407a62e",
+        "new_version": 14,
+        "old_content_utf8": "---\nsubjects:\n  governs: \"Subject Expression Evaluation\"\n  depends_on:\n    - \"General Term\"\n    - \"Governed Term\"\n    - \"Subject Expression\"\n    - \"Dependent Entity\"\n    - \"Property\"\n    - \"IS_BORNE_BY\"\n    - \"IS_ALLOWED_VALUE_OF\"\n    - \"Term\"\n    - \"CCE Operator\"\n    - \"Scope Unit/Name\"\n    - \"Subject\"\n    - \"Subject Path\"\nversion: 13\nupdated_at: \"2026-10-01 21:36:04 +0400\"\nrelations:\n  evaluation_for:\n    - CA-R-1194\n    - CA-R-1204\n    - CA-R-1245\n    - CA-R-1436\n    - CA-M-229\n    - CA-R-1324\n    - CA-R-1325\n    - CA-R-1321\n    - CA-R-1275\n    - CA-R-1297\natom_id: \"CA-E-383\"\ncontent_role: \"Evaluation\"\ncurrent_scope_unit: \"CORE_META_MODEL\"\nclaim_target_scope_unit: \"CORE_META_MODEL\"\nlocal_tier: \"Standard\"\nstatus: \"Active\"\nauthor: \"Anatoly Maslennikov\"\ntype: \"Evaluation Approach\"\nglobal_tier: 11\n---\n# Reject Invalid Subject Expressions\n\n## Scope\n\nSubject Expressions evaluated for invalid component handling.\n\n## Claim\n\nthe Evaluation **must** reject a Subject Expression **if**\n\n- `/` does **not** encode **`=1`** valid bearer edge,\n- `:` does **not** express **`=1`** admitted IS_ALLOWED_VALUE_OF qualification under CA-R-1436-CORE_META_MODEL-CORE-REQUIREMENT--define-is-allowed-value-of,\n- allowed-value admission is treated as assignment **to** a particular Property occurrence **or** as determining its cardinality,\n- a Dependent Entity occurrence lacks **`=1`** immediate bearer,\n- a reusable Term is rejected **only** for changing ordinal position,\n- a Governed Term begins with a lowercase letter,\n- a named component fails **to** resolve **to** a Term under CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression,\n- an ordinary General Term is substituted for a required Term reference,\n- a Term name **contains** `/` **or** `:`,\n- a complete composite Subject Expression is classified as one Term,\n- **or** a registered CCE Operator is redefined as a Governed Term **or** Scope Unit Name.\n\n## Details\n\n### Term-component cases\n\n`Atom/Content Role: Requirement/Type: Demand` **must** pass the component check **when** its five named Terms **and** exact qualified target are admitted. `/` **and** `:` contribute no Term nodes. an unresolved named component **must** fail the source-reference check; the diagnostic **must** preserve the unresolved reference **without** supplying an invented definition. a complete composite path **must not** be admitted as **`=1`** Term merely because it resolves **to** **`=1`** Entity.\n",
+        "old_sha256": "00c3e901fbd18cdb584387386f6b04cd43905f651c4369e16a97d20b469b3274",
+        "old_version": 13,
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md"
+      },
+      "allowed_changes": [
+        "Claim",
+        "Details",
+        "Version",
+        "Updated At",
+        "relations.evaluation_for CA-R-1204 -> CA-R-1931"
+      ],
+      "atom_id": "CA-E-383",
+      "history": {
+        "content_utf8": "---\nsubjects:\n  governs: \"Subject Expression Evaluation\"\n  depends_on:\n    - \"General Term\"\n    - \"Governed Term\"\n    - \"Subject Expression\"\n    - \"Dependent Entity\"\n    - \"Property\"\n    - \"IS_BORNE_BY\"\n    - \"IS_ALLOWED_VALUE_OF\"\n    - \"Term\"\n    - \"CCE Operator\"\n    - \"Scope Unit/Name\"\n    - \"Subject\"\n    - \"Subject Path\"\nversion: 13\nupdated_at: \"2026-10-01 21:36:04 +0400\"\nrelations:\n  evaluation_for:\n    - CA-R-1194\n    - CA-R-1204\n    - CA-R-1245\n    - CA-R-1436\n    - CA-M-229\n    - CA-R-1324\n    - CA-R-1325\n    - CA-R-1321\n    - CA-R-1275\n    - CA-R-1297\natom_id: \"CA-E-383\"\ncontent_role: \"Evaluation\"\ncurrent_scope_unit: \"CORE_META_MODEL\"\nclaim_target_scope_unit: \"CORE_META_MODEL\"\nlocal_tier: \"Standard\"\nstatus: \"Active\"\nauthor: \"Anatoly Maslennikov\"\ntype: \"Evaluation Approach\"\nglobal_tier: 11\n---\n# Reject Invalid Subject Expressions\n\n## Scope\n\nSubject Expressions evaluated for invalid component handling.\n\n## Claim\n\nthe Evaluation **must** reject a Subject Expression **if**\n\n- `/` does **not** encode **`=1`** valid bearer edge,\n- `:` does **not** express **`=1`** admitted IS_ALLOWED_VALUE_OF qualification under CA-R-1436-CORE_META_MODEL-CORE-REQUIREMENT--define-is-allowed-value-of,\n- allowed-value admission is treated as assignment **to** a particular Property occurrence **or** as determining its cardinality,\n- a Dependent Entity occurrence lacks **`=1`** immediate bearer,\n- a reusable Term is rejected **only** for changing ordinal position,\n- a Governed Term begins with a lowercase letter,\n- a named component fails **to** resolve **to** a Term under CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression,\n- an ordinary General Term is substituted for a required Term reference,\n- a Term name **contains** `/` **or** `:`,\n- a complete composite Subject Expression is classified as one Term,\n- **or** a registered CCE Operator is redefined as a Governed Term **or** Scope Unit Name.\n\n## Details\n\n### Term-component cases\n\n`Atom/Content Role: Requirement/Type: Demand` **must** pass the component check **when** its five named Terms **and** exact qualified target are admitted. `/` **and** `:` contribute no Term nodes. an unresolved named component **must** fail the source-reference check; the diagnostic **must** preserve the unresolved reference **without** supplying an invented definition. a complete composite path **must not** be admitted as **`=1`** Term merely because it resolves **to** **`=1`** Entity.\n",
+        "operation": "create_exact_prior_revision",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/archive/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions@13.md",
+        "sha256": "00c3e901fbd18cdb584387386f6b04cd43905f651c4369e16a97d20b469b3274"
+      },
+      "operation": "revise_active_atom"
+    }
+  ],
+  "preview_only": true,
+  "schema_version": 1,
+  "source_pins": [
+    {
+      "atom_id": "CA-R-1204",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1204-CORE_META_MODEL--use-subject-path-slash-only-for-bearer-qualification.md",
+      "sha256": "f57d56dab2cff12ea38a94900a1f146e40ead39f0af9e26e3130e9867f290dda",
+      "version": 14
+    },
+    {
+      "atom_id": "CA-R-1321",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression.md",
+      "sha256": "6baf3f4179591dcc89c458dcb6503a55f24b70f9f1bd93203f4b748a9bcb1b8c",
+      "version": 12
+    },
+    {
+      "atom_id": "CA-R-1324",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1324-CORE_META_MODEL-REQUIREMENT--reserve-subject-expression-separators.md",
+      "sha256": "f38d4cc446b04cde6958f1fe011679ff95048bdfe30f360d11a7366a572bc0b1",
+      "version": 10
+    },
+    {
+      "atom_id": "CA-M-228",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-228-CORE_META_MODEL-METHOD--write-subject-expressions-with-bearer-and-value-qualification.md",
+      "sha256": "f5a2152648b95c04af56c49118f43ac64ee46dd8183b23913cb64f335d6f26df",
+      "version": 14
+    },
+    {
+      "atom_id": "CA-E-383",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md",
+      "sha256": "00c3e901fbd18cdb584387386f6b04cd43905f651c4369e16a97d20b469b3274",
+      "version": 13
+    }
+  ],
+  "source_writes": "not_performed",
+  "subject_migration": "not_performed",
+  "successor_id_check": {
+    "existing_atom_id_matches": 0,
+    "prior_global_requirement_max": 1930,
+    "successor_id": "CA-R-1931"
+  },
+  "task_id": "CA-P-2059",
+  "timestamp": {
+    "status": "dry_run_illustrative; Root must obtain a fresh timestamp and recompute effect hashes immediately before applying.",
+    "timezone_source": ".caprmedio_caprmedio/caprmedio_project_settings.toml [artifact_timestamps].timezone via artifact_metadata.configured_timezone",
+    "value": "2026-10-11 03:44:52 +0400"
+  }
+}
