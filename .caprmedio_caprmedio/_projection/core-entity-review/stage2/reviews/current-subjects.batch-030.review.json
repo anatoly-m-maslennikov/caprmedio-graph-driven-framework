@@ -25,6 +25,10 @@
     "review_contract": {
       "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.review.contract.md",
       "sha256": "b7c9c065f997d5bae1409f5c09b4223d08327a523decab6d26c2e4425fd2c28b"
+    },
+    "current_supporting_governed_subject_source": {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1363-CORE_META_MODEL-CORE--define-atom-governed-subject.md",
+      "sha256": "f897ce81ed4e0d630006ed7f0f382a082204b82bde93664e394d7e31abbf0b12"
     }
   },
   "source_reviews": [
@@ -2856,10 +2860,10 @@
       "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-313-CORE_META_MODEL-METHOD--write-delivery-claims-with-the-delivery-cce-profile.md",
       "source_sha256": "570884157745cc3016065c683188b6b80ad0376bba2f76948c279562edc0f947",
       "source_version": 5,
-      "decision": "proposed",
-      "proposed_value": "Atom.Subjects",
-      "confidence": 0.92,
-      "reason": "The current body distinguishes an Atom's governed Subject facts from independently resolved ownership and target facts. The candidate's generic dependent-field identity supports the source-evidenced Atom Subjects field without rewriting those facts.",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "The owning current body retains only the Claim's governed Subject meaning. Pinned current CA-R-1363 defines that meaning as a GOVERNS Subject Relation with a distinct canonical target; this body does not establish that its legacy Atom/Subjects reference denotes the aggregate Atom Subjects Property rather than that relation incidence, so Atom.Subjects is not selected at proposal confidence.",
       "evidence": [
         {
           "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-313-CORE_META_MODEL-METHOD--write-delivery-claims-with-the-delivery-cce-profile.md",
@@ -2868,21 +2872,20 @@
           "end_line": 48,
           "span_sha256": "e2ca46077d12c54535233dd0f84605f4b7195f059d5588d4a82b1aaa5936cdca",
           "reason": "The owning current Main Content was read in full and supplies this occurrence's meaning and uncertainty boundary."
-        }
-      ],
-      "candidate_basis": [
-        {
-          "pointer": "#/dependent_entities/meaning",
-          "reason": "The candidate confirms named Properties are dependent Entities inside an Artifact."
         },
         {
-          "pointer": "#/entity_identity_model/dependent_entity/identity",
-          "reason": "The candidate confirms owner selector plus dependent field identity, supporting a source-evidenced dependent field even when its display string is not printed."
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1363-CORE_META_MODEL-CORE--define-atom-governed-subject.md",
+          "sha256": "f897ce81ed4e0d630006ed7f0f382a082204b82bde93664e394d7e31abbf0b12",
+          "start_line": 28,
+          "end_line": 40,
+          "span_sha256": "788d88b9c5b248ee3682d0e2ed2802f667ed961a905c770981607f6e6e09a6cf",
+          "reason": "Pinned current CA-R-1363 defines the governed-Subject meaning as a GOVERNS Subject Relation with a distinct canonical Entity target; it preserves the ambiguity that this body does not resolve as an aggregate Property reference."
         }
       ],
+      "candidate_basis": [],
       "preserved_distinctions": [
-        "The source-evidenced identity, field/value and current role distinctions are retained.",
-        "No display-only Artifact prefix, native edge, Carrier binding or grammar admission is inferred."
+        "The governed Subject remains a distinct GOVERNS Relation with its canonical target.",
+        "The unresolved row does not decide whether this legacy aggregate label denotes that relation incidence or the separately defined Atom Subjects Property."
       ],
       "question": null,
       "executable": false
@@ -3857,10 +3860,10 @@
       "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-240-CORE_META_MODEL-QA_CASE--validate-atom-scope-and-claim-scope.md",
       "source_sha256": "861e6591dc33e2ab0a687609748251cd15767fc853defa0fce98fe4e78235498",
       "source_version": 30,
-      "decision": "proposed",
-      "proposed_value": "Atom.Subjects",
-      "confidence": 0.92,
-      "reason": "The current body distinguishes an Atom's governed Subject facts from independently resolved ownership and target facts. The candidate's generic dependent-field identity supports the source-evidenced Atom Subjects field without rewriting those facts.",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "The owning current body requires an Atom's =1 GOVERNS Relation independently of ownership and Claim Target Scope Unit. Pinned current CA-R-1363 defines that governed Subject as a Relation with a distinct canonical target; this body does not establish that its legacy Atom/Subjects reference denotes the aggregate Atom Subjects Property rather than that relation incidence, so Atom.Subjects is not selected at proposal confidence.",
       "evidence": [
         {
           "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-240-CORE_META_MODEL-QA_CASE--validate-atom-scope-and-claim-scope.md",
@@ -3869,21 +3872,20 @@
           "end_line": 55,
           "span_sha256": "6c485958ad1e1b0ceeced90154318fc5176c3fa0536fd9d7ae54721e878253f1",
           "reason": "The owning current Main Content was read in full and supplies this occurrence's meaning and uncertainty boundary."
-        }
-      ],
-      "candidate_basis": [
-        {
-          "pointer": "#/dependent_entities/meaning",
-          "reason": "The candidate confirms named Properties are dependent Entities inside an Artifact."
         },
         {
-          "pointer": "#/entity_identity_model/dependent_entity/identity",
-          "reason": "The candidate confirms owner selector plus dependent field identity, supporting a source-evidenced dependent field even when its display string is not printed."
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1363-CORE_META_MODEL-CORE--define-atom-governed-subject.md",
+          "sha256": "f897ce81ed4e0d630006ed7f0f382a082204b82bde93664e394d7e31abbf0b12",
+          "start_line": 28,
+          "end_line": 40,
+          "span_sha256": "788d88b9c5b248ee3682d0e2ed2802f667ed961a905c770981607f6e6e09a6cf",
+          "reason": "Pinned current CA-R-1363 defines the governed-Subject meaning as a GOVERNS Subject Relation with a distinct canonical Entity target; it preserves the ambiguity that this body does not resolve as an aggregate Property reference."
         }
       ],
+      "candidate_basis": [],
       "preserved_distinctions": [
-        "The source-evidenced identity, field/value and current role distinctions are retained.",
-        "No display-only Artifact prefix, native edge, Carrier binding or grammar admission is inferred."
+        "The governed Subject remains a distinct GOVERNS Relation with its canonical target.",
+        "The unresolved row does not decide whether this legacy aggregate label denotes that relation incidence or the separately defined Atom Subjects Property."
       ],
       "question": null,
       "executable": false
@@ -4451,4 +4453,3 @@
     }
   ]
 }
-
