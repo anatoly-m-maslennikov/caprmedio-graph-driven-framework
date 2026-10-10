@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Projection, Plan, Tool, Operator]
-version: 4
-updated_at: "2026-10-11 01:01:30 +0400"
+version: 5
+updated_at: "2026-10-11 01:05:16 +0400"
 relations:
   is_decomposition_of: [CA-P-1966]
 ---
@@ -43,7 +43,7 @@ The Plan is **not** Done if batches overlap or omit selected occurrences, source
 
 ### Decomposing Plans
 
-- [CA-P-1988 — Inventory current Core Subject sources](01-CA-P-1972-TASK--prepare-disjoint-subject-mapping-tasks/01-CA-P-1988-TASK--inventory-current-core-subject-sources.md)
+- [CA-P-1988 — Inventory current Core Subject sources](01-CA-P-1972-TASK--prepare-disjoint-subject-mapping-tasks/done/01-CA-P-1988-TASK--inventory-current-core-subject-sources.md)
 - [CA-P-1989 — Compare current sources with captured evidence](01-CA-P-1972-TASK--prepare-disjoint-subject-mapping-tasks/02-CA-P-1989-TASK--compare-current-sources-with-captured-evidence.md)
 - [CA-P-1990 — Verify current Subject inventory and batches](01-CA-P-1972-TASK--prepare-disjoint-subject-mapping-tasks/03-CA-P-1990-TASK--verify-current-subject-inventory-and-batches.md)
 - [CA-P-1991 — Create bounded current Subject review Plans](01-CA-P-1972-TASK--prepare-disjoint-subject-mapping-tasks/04-CA-P-1991-TASK--create-bounded-current-subject-review-plans.md)

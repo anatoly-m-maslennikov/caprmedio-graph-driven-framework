@@ -1,0 +1,37 @@
+{
+  "task": "CA-P-1988",
+  "recorded_at": "2026-10-11 01:05:16 +0400",
+  "result": "PASS: read-only current Core inventory and bounded source partitions",
+  "outputs": [
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/support/inventory_current_subjects.py",
+      "sha256": "4a0ebb02cf41f3310166238faeb535a9e6c5d2e28e3f4b5c9a961050a4ff5207"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.inventory.json",
+      "sha256": "e284dbe4943568bc75b7f9ba63ebf583372a60813e62eee3d43b5b75b270220a"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.batches.json",
+      "sha256": "8dfc8e12a144833bc8130806e9a5e885f4f13fbafe5b80ea72118bd109eb9e2f"
+    }
+  ],
+  "checks": {
+    "selected_sources": 907,
+    "occurrences": 4534,
+    "batches": 51,
+    "excluded_sources": 11198,
+    "quarantined_sources": 8,
+    "quarantined_occurrences": 35,
+    "independent_verifier": "PASS: exact live input/source pins and exact disjoint partitions",
+    "isolated_verifier_tests": {
+      "passed": 7,
+      "failed": 0
+    }
+  },
+  "limits": [
+    "Read-only derived inventory; no Subject proposals or original-source writes",
+    "Legacy IDs and naive timestamps remain findings, not repaired",
+    "Captured review, grammar and native taxonomy unchanged"
+  ]
+}
