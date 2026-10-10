@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Projection
   depends_on: [Entity, Term, Atom, Property, Carrier, Plan]
-version: 7
-updated_at: "2026-10-10 05:16:00 +0400"
+version: 8
+updated_at: "2026-10-10 05:18:56 +0400"
 relations:
   is_decomposition_of: [CA-P-1872]
   blocks: [CA-P-1909]
@@ -57,7 +57,7 @@ Inherit CA-P-1872's explicit 90% confidence threshold and local-without-MCP auth
 
 ### Bounded direct Tasks
 
-- [CA-P-1957](24-CA-P-1908-TASK--present-compact-entities-graph-candidate-for-operator-review/01-CA-P-1957-TASK--finish-the-captured-entity-graph-candidate-presentation.md): Finish the captured Entity graph candidate presentation; 15 minutes. Own the renderer and three candidate outputs, repair the five preparation findings, and keep the accepted inputs fixed. Explicitly BLOCKS CA-P-1958.
+- [CA-P-1957](24-CA-P-1908-TASK--present-compact-entities-graph-candidate-for-operator-review/done/01-CA-P-1957-TASK--finish-the-captured-entity-graph-candidate-presentation.md): Finish the captured Entity graph candidate presentation; 15 minutes. Done with exact rendered hashes; accepted inputs remain fixed. Explicitly BLOCKS CA-P-1958.
 - [CA-P-1958](24-CA-P-1908-TASK--present-compact-entities-graph-candidate-for-operator-review/02-CA-P-1958-TASK--verify-the-captured-entity-graph-candidate-presentation.md): Verify the captured Entity graph candidate presentation; 15 minutes. Independently check the final artifacts, input pins, exact coverage, proposals, unresolved notation, receipt locators and no-overwrite guards. No source or candidate edits by this verifier.
 
 The parent stays Active until both direct Tasks are Done and the candidate is accessible for the Operator. This decomposition does not accept the candidate or open the Subject migration gate.
