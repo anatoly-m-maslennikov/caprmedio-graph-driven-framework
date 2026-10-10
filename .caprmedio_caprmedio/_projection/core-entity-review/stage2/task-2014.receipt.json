@@ -1,0 +1,28 @@
+{
+  "task": "CA-P-2014",
+  "recorded_at": "2026-10-11 02:27:29 +0400",
+  "result": "PASS: complete candidate review; unresolved mapping research retained",
+  "output": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-023.review.json",
+    "sha256": "33072790e08fd4e097b8a18614727429d97d4914f8b83d15e87569996ebfa8a6"
+  },
+  "input_batch": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-023.json",
+    "sha256": "abc29f2fe49b091e3ccc4270c783ee0e9f7530b43377c1475ec4d8b9a796ec5a"
+  },
+  "checks": {
+    "independent_structural_verifier": "PASS",
+    "sources": 19,
+    "occurrences": 117,
+    "proposed": 34,
+    "unchanged": 52,
+    "unresolved": 31,
+    "meaning_review": "Independent meaning review identified copied rebuild evidence in 15 rows. Current-body rationale was restored, and four unsupported Execution mappings became unresolved; remaining proposals preserve definition versus run meaning.",
+    "all_executable_false": true
+  },
+  "unresolved_work": "31 occurrence-level research rows remain in the pinned report and required CA-P-2045 integration; CA-P-1966 remains Active.",
+  "limits": [
+    "No original Atom, captured candidate, grammar, native or runtime change",
+    "Review completion is not migration approval"
+  ]
+}

@@ -1837,16 +1837,16 @@
       "decision": "proposed",
       "proposed_value": "Execution/Step Run",
       "confidence": 0.95,
-      "reason": "Current Main Content ('Provide self-contained Agentic Step Invocation payloads') describes 'Step Run' as an actual rebuild occurrence with a recorded outcome. The proposed 'Execution/Step Run' places that run under the candidate Execution root using broader-to-narrower slash notation.",
+      "reason": "Current Main Content ('Provide self-contained Agentic Step Invocation payloads') requires a self-contained Agentic Step Invocation to identify the Step Run together with relevant prior results and actual effects. The proposed 'Execution/Step Run' uses the candidate's actual-Execution root and its Step Run kind without recasting the reusable Step definition as a run.",
       "candidate_basis": [
         {
           "pointer": "/root_entities/6",
-          "reason": "The latest candidate defines Execution as one actual run of an Operation; current Main Content establishes the rebuild as an occurrence distinct from its Journal record or Projection."
+          "reason": "The latest candidate defines Execution as one actual run and explicitly lists Step Run as a proposed kind; current Main Content supplies the Agentic Step run context."
         }
       ],
       "preserved_distinctions": [
-        "The actual run remains distinct from its reusable Operation definition, Projection, and Journal record.",
-        "No run-kind native admission or persistence mechanism is inferred."
+        "The actual Step Run remains distinct from the reusable Step, Action definition, Journal record, and Invocation content.",
+        "No run-kind native admission or execution-state persistence mechanism is inferred."
       ],
       "question": null,
       "evidence": [
@@ -1874,16 +1874,16 @@
       "decision": "proposed",
       "proposed_value": "Execution/Workflow Run",
       "confidence": 0.95,
-      "reason": "Current Main Content ('Provide self-contained Agentic Step Invocation payloads') describes 'Workflow Run' as an actual rebuild occurrence with a recorded outcome. The proposed 'Execution/Workflow Run' places that run under the candidate Execution root using broader-to-narrower slash notation.",
+      "reason": "Current Main Content ('Provide self-contained Agentic Step Invocation payloads') identifies the Workflow Run in the self-contained Invocation payload. The proposed 'Execution/Workflow Run' uses the candidate's actual-Execution root without turning the Workflow definition into an Execution.",
       "candidate_basis": [
         {
           "pointer": "/root_entities/6",
-          "reason": "The latest candidate defines Execution as one actual run of an Operation; current Main Content establishes the rebuild as an occurrence distinct from its Journal record or Projection."
+          "reason": "The latest candidate defines Execution as one actual run and explicitly lists Workflow Run as a proposed kind; current Main Content supplies the run or handoff context."
         }
       ],
       "preserved_distinctions": [
-        "The actual run remains distinct from its reusable Operation definition, Projection, and Journal record.",
-        "No run-kind native admission or persistence mechanism is inferred."
+        "The actual Workflow Run remains distinct from the reusable Workflow definition, Step Run, and Journal record.",
+        "No run-kind native admission or execution-state persistence mechanism is inferred."
       ],
       "question": null,
       "evidence": [
@@ -2144,16 +2144,16 @@
       "decision": "proposed",
       "proposed_value": "Execution/Step Run.Invocation",
       "confidence": 0.95,
-      "reason": "Current Main Content ('Provide self-contained Agentic Step Invocation payloads') describes 'Step Run/Invocation' as an actual rebuild occurrence with a recorded outcome. The proposed 'Execution/Step Run.Invocation' places that run under the candidate Execution root using broader-to-narrower slash notation.",
+      "reason": "Current Main Content ('Provide self-contained Agentic Step Invocation payloads') requires a self-contained Invocation for an identified Step Run. The proposed 'Execution/Step Run.Invocation' preserves the actual-run subtype with Invocation as its dependent context rather than treating delivery as Step completion.",
       "candidate_basis": [
         {
           "pointer": "/root_entities/6",
-          "reason": "The latest candidate defines Execution as one actual run of an Operation; current Main Content establishes the rebuild as an occurrence distinct from its Journal record or Projection."
+          "reason": "The latest candidate defines Execution as one actual run and lists Step Run as a proposed kind; current Main Content supplies the Invocation and run-context distinction."
         }
       ],
       "preserved_distinctions": [
-        "The actual run remains distinct from its reusable Operation definition, Projection, and Journal record.",
-        "No run-kind native admission or persistence mechanism is inferred."
+        "Invocation delivery, dispatch, handoff, results, and effects remain distinct from Step Run completion and the reusable Step definition.",
+        "No run-kind native admission or execution-state persistence mechanism is inferred."
       ],
       "question": null,
       "evidence": [
@@ -2181,16 +2181,16 @@
       "decision": "proposed",
       "proposed_value": "Execution/Step Run",
       "confidence": 0.95,
-      "reason": "Current Main Content ('Retain Agentic Step executor state **and** routing') describes 'Step Run' as an actual rebuild occurrence with a recorded outcome. The proposed 'Execution/Step Run' places that run under the candidate Execution root using broader-to-narrower slash notation.",
+      "reason": "Current Main Content ('Retain Agentic Step executor state **and** routing') covers execution coordination during dispatch or resumption of an Agentic Step and requires retained execution state. The proposed 'Execution/Step Run' uses the candidate's actual-Execution root and its Step Run kind without recasting the reusable Step definition as a run.",
       "candidate_basis": [
         {
           "pointer": "/root_entities/6",
-          "reason": "The latest candidate defines Execution as one actual run of an Operation; current Main Content establishes the rebuild as an occurrence distinct from its Journal record or Projection."
+          "reason": "The latest candidate defines Execution as one actual run and explicitly lists Step Run as a proposed kind; current Main Content supplies the Agentic Step run context."
         }
       ],
       "preserved_distinctions": [
-        "The actual run remains distinct from its reusable Operation definition, Projection, and Journal record.",
-        "No run-kind native admission or persistence mechanism is inferred."
+        "The actual Step Run remains distinct from the reusable Step, Action definition, Journal record, and Invocation content.",
+        "No run-kind native admission or execution-state persistence mechanism is inferred."
       ],
       "question": null,
       "evidence": [
@@ -2215,21 +2215,16 @@
       "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1790-CORE_META_MODEL-GENERAL--retain-agentic-step-executor-state-and-routing.md",
       "source_sha256": "43822a4b596c2ec78e8825f586a9f9d45ba5b381ddbda1d83483300ea73201b8",
       "source_version": 1,
-      "decision": "proposed",
-      "proposed_value": "Execution/Workflow Run",
-      "confidence": 0.95,
-      "reason": "Current Main Content ('Retain Agentic Step executor state **and** routing') describes 'Workflow Run' as an actual rebuild occurrence with a recorded outcome. The proposed 'Execution/Workflow Run' places that run under the candidate Execution root using broader-to-narrower slash notation.",
-      "candidate_basis": [
-        {
-          "pointer": "/root_entities/6",
-          "reason": "The latest candidate defines Execution as one actual run of an Operation; current Main Content establishes the rebuild as an occurrence distinct from its Journal record or Projection."
-        }
-      ],
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "Current Main Content ('Retain Agentic Step executor state **and** routing') gives the live meaning for 'Workflow Run', but the frozen candidate does not establish a safe target without losing its qualification.",
+      "candidate_basis": [],
       "preserved_distinctions": [
-        "The actual run remains distinct from its reusable Operation definition, Projection, and Journal record.",
-        "No run-kind native admission or persistence mechanism is inferred."
+        "The exact current depends_on identity 'Workflow Run' remains visible without an invented replacement.",
+        "No native relation, display-only prefix, or Atom-only lifecycle rule is inferred."
       ],
-      "question": null,
+      "question": "Research gap: the current body defines Workflow transition routing but does not establish a particular actual Workflow Run for an Execution mapping.",
       "evidence": [
         {
           "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1790-CORE_META_MODEL-GENERAL--retain-agentic-step-executor-state-and-routing.md",
@@ -2485,21 +2480,16 @@
       "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1790-CORE_META_MODEL-GENERAL--retain-agentic-step-executor-state-and-routing.md",
       "source_sha256": "43822a4b596c2ec78e8825f586a9f9d45ba5b381ddbda1d83483300ea73201b8",
       "source_version": 1,
-      "decision": "proposed",
-      "proposed_value": "Execution/Step Run.Invocation",
-      "confidence": 0.95,
-      "reason": "Current Main Content ('Retain Agentic Step executor state **and** routing') describes 'Step Run/Invocation' as an actual rebuild occurrence with a recorded outcome. The proposed 'Execution/Step Run.Invocation' places that run under the candidate Execution root using broader-to-narrower slash notation.",
-      "candidate_basis": [
-        {
-          "pointer": "/root_entities/6",
-          "reason": "The latest candidate defines Execution as one actual run of an Operation; current Main Content establishes the rebuild as an occurrence distinct from its Journal record or Projection."
-        }
-      ],
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "Current Main Content ('Retain Agentic Step executor state **and** routing') gives the live meaning for 'Step Run/Invocation', but the frozen candidate does not establish a safe target without losing its qualification.",
+      "candidate_basis": [],
       "preserved_distinctions": [
-        "The actual run remains distinct from its reusable Operation definition, Projection, and Journal record.",
-        "No run-kind native admission or persistence mechanism is inferred."
+        "The exact current governs identity 'Step Run/Invocation' remains visible without an invented replacement.",
+        "No native relation, display-only prefix, or Atom-only lifecycle rule is inferred."
       ],
-      "question": null,
+      "question": "Research gap: the current body defines dispatch and resumption coordination but does not establish Invocation as a dependent Entity of an actual Step Run.",
       "evidence": [
         {
           "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1790-CORE_META_MODEL-GENERAL--retain-agentic-step-executor-state-and-routing.md",
@@ -2525,16 +2515,16 @@
       "decision": "proposed",
       "proposed_value": "Execution/Step Run",
       "confidence": 0.95,
-      "reason": "Current Main Content ('Keep Invocation delivery distinct from Step completion') describes 'Step Run' as an actual rebuild occurrence with a recorded outcome. The proposed 'Execution/Step Run' places that run under the candidate Execution root using broader-to-narrower slash notation.",
+      "reason": "Current Main Content ('Keep Invocation delivery distinct from Step completion') states that requesting participation or returning a prompt must not itself complete a Step Run. The proposed 'Execution/Step Run' uses the candidate's actual-Execution root and its Step Run kind without recasting the reusable Step definition as a run.",
       "candidate_basis": [
         {
           "pointer": "/root_entities/6",
-          "reason": "The latest candidate defines Execution as one actual run of an Operation; current Main Content establishes the rebuild as an occurrence distinct from its Journal record or Projection."
+          "reason": "The latest candidate defines Execution as one actual run and explicitly lists Step Run as a proposed kind; current Main Content supplies the Agentic Step run context."
         }
       ],
       "preserved_distinctions": [
-        "The actual run remains distinct from its reusable Operation definition, Projection, and Journal record.",
-        "No run-kind native admission or persistence mechanism is inferred."
+        "The actual Step Run remains distinct from the reusable Step, Action definition, Journal record, and Invocation content.",
+        "No run-kind native admission or execution-state persistence mechanism is inferred."
       ],
       "question": null,
       "evidence": [
@@ -2559,21 +2549,16 @@
       "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1791-CORE_META_MODEL-GENERAL--keep-invocation-delivery-distinct-from-step-completion.md",
       "source_sha256": "862bb052342540e38d2fc16525a56c71c22b7d91c2968688bbcf083d38c6fdd0",
       "source_version": 1,
-      "decision": "proposed",
-      "proposed_value": "Execution/Workflow Run",
-      "confidence": 0.95,
-      "reason": "Current Main Content ('Keep Invocation delivery distinct from Step completion') describes 'Workflow Run' as an actual rebuild occurrence with a recorded outcome. The proposed 'Execution/Workflow Run' places that run under the candidate Execution root using broader-to-narrower slash notation.",
-      "candidate_basis": [
-        {
-          "pointer": "/root_entities/6",
-          "reason": "The latest candidate defines Execution as one actual run of an Operation; current Main Content establishes the rebuild as an occurrence distinct from its Journal record or Projection."
-        }
-      ],
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "Current Main Content ('Keep Invocation delivery distinct from Step completion') gives the live meaning for 'Workflow Run', but the frozen candidate does not establish a safe target without losing its qualification.",
+      "candidate_basis": [],
       "preserved_distinctions": [
-        "The actual run remains distinct from its reusable Operation definition, Projection, and Journal record.",
-        "No run-kind native admission or persistence mechanism is inferred."
+        "The exact current depends_on identity 'Workflow Run' remains visible without an invented replacement.",
+        "No native relation, display-only prefix, or Atom-only lifecycle rule is inferred."
       ],
-      "question": null,
+      "question": "Research gap: the current body distinguishes prompt delivery from Step Run completion but does not establish a Workflow Run meaning for an Execution mapping.",
       "evidence": [
         {
           "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1791-CORE_META_MODEL-GENERAL--keep-invocation-delivery-distinct-from-step-completion.md",
@@ -2832,16 +2817,16 @@
       "decision": "proposed",
       "proposed_value": "Execution/Step Run.Invocation",
       "confidence": 0.95,
-      "reason": "Current Main Content ('Keep Invocation delivery distinct from Step completion') describes 'Step Run/Invocation' as an actual rebuild occurrence with a recorded outcome. The proposed 'Execution/Step Run.Invocation' places that run under the candidate Execution root using broader-to-narrower slash notation.",
+      "reason": "Current Main Content ('Keep Invocation delivery distinct from Step completion') distinguishes Agentic Step Invocation delivery from Step Run completion. The proposed 'Execution/Step Run.Invocation' preserves the actual-run subtype with Invocation as its dependent context rather than treating delivery as Step completion.",
       "candidate_basis": [
         {
           "pointer": "/root_entities/6",
-          "reason": "The latest candidate defines Execution as one actual run of an Operation; current Main Content establishes the rebuild as an occurrence distinct from its Journal record or Projection."
+          "reason": "The latest candidate defines Execution as one actual run and lists Step Run as a proposed kind; current Main Content supplies the Invocation and run-context distinction."
         }
       ],
       "preserved_distinctions": [
-        "The actual run remains distinct from its reusable Operation definition, Projection, and Journal record.",
-        "No run-kind native admission or persistence mechanism is inferred."
+        "Invocation delivery, dispatch, handoff, results, and effects remain distinct from Step Run completion and the reusable Step definition.",
+        "No run-kind native admission or execution-state persistence mechanism is inferred."
       ],
       "question": null,
       "evidence": [
@@ -2869,16 +2854,16 @@
       "decision": "proposed",
       "proposed_value": "Execution/Step Run",
       "confidence": 0.95,
-      "reason": "Current Main Content ('Preserve terminal Workflow handoff approval boundaries') describes 'Step Run' as an actual rebuild occurrence with a recorded outcome. The proposed 'Execution/Step Run' places that run under the candidate Execution root using broader-to-narrower slash notation.",
+      "reason": "Current Main Content ('Preserve terminal Workflow handoff approval boundaries') defines a terminal Workflow handoff from an Agentic Step Invocation that ends a predecessor Run before admitting a successor. The proposed 'Execution/Step Run' uses the candidate's actual-Execution root and its Step Run kind without recasting the reusable Step definition as a run.",
       "candidate_basis": [
         {
           "pointer": "/root_entities/6",
-          "reason": "The latest candidate defines Execution as one actual run of an Operation; current Main Content establishes the rebuild as an occurrence distinct from its Journal record or Projection."
+          "reason": "The latest candidate defines Execution as one actual run and explicitly lists Step Run as a proposed kind; current Main Content supplies the Agentic Step run context."
         }
       ],
       "preserved_distinctions": [
-        "The actual run remains distinct from its reusable Operation definition, Projection, and Journal record.",
-        "No run-kind native admission or persistence mechanism is inferred."
+        "The actual Step Run remains distinct from the reusable Step, Action definition, Journal record, and Invocation content.",
+        "No run-kind native admission or execution-state persistence mechanism is inferred."
       ],
       "question": null,
       "evidence": [
@@ -2906,16 +2891,16 @@
       "decision": "proposed",
       "proposed_value": "Execution/Workflow Run",
       "confidence": 0.95,
-      "reason": "Current Main Content ('Preserve terminal Workflow handoff approval boundaries') describes 'Workflow Run' as an actual rebuild occurrence with a recorded outcome. The proposed 'Execution/Workflow Run' places that run under the candidate Execution root using broader-to-narrower slash notation.",
+      "reason": "Current Main Content ('Preserve terminal Workflow handoff approval boundaries') defines a terminal Workflow handoff that ends a predecessor Run and admits a separate successor. The proposed 'Execution/Workflow Run' uses the candidate's actual-Execution root without turning the Workflow definition into an Execution.",
       "candidate_basis": [
         {
           "pointer": "/root_entities/6",
-          "reason": "The latest candidate defines Execution as one actual run of an Operation; current Main Content establishes the rebuild as an occurrence distinct from its Journal record or Projection."
+          "reason": "The latest candidate defines Execution as one actual run and explicitly lists Workflow Run as a proposed kind; current Main Content supplies the run or handoff context."
         }
       ],
       "preserved_distinctions": [
-        "The actual run remains distinct from its reusable Operation definition, Projection, and Journal record.",
-        "No run-kind native admission or persistence mechanism is inferred."
+        "The actual Workflow Run remains distinct from the reusable Workflow definition, Step Run, and Journal record.",
+        "No run-kind native admission or execution-state persistence mechanism is inferred."
       ],
       "question": null,
       "evidence": [
@@ -3176,16 +3161,16 @@
       "decision": "proposed",
       "proposed_value": "Execution/Step Run.Invocation",
       "confidence": 0.95,
-      "reason": "Current Main Content ('Preserve terminal Workflow handoff approval boundaries') describes 'Step Run/Invocation' as an actual rebuild occurrence with a recorded outcome. The proposed 'Execution/Step Run.Invocation' places that run under the candidate Execution root using broader-to-narrower slash notation.",
+      "reason": "Current Main Content ('Preserve terminal Workflow handoff approval boundaries') defines a terminal Workflow handoff from an Agentic Step Invocation. The proposed 'Execution/Step Run.Invocation' preserves the actual-run subtype with Invocation as its dependent context rather than treating delivery as Step completion.",
       "candidate_basis": [
         {
           "pointer": "/root_entities/6",
-          "reason": "The latest candidate defines Execution as one actual run of an Operation; current Main Content establishes the rebuild as an occurrence distinct from its Journal record or Projection."
+          "reason": "The latest candidate defines Execution as one actual run and lists Step Run as a proposed kind; current Main Content supplies the Invocation and run-context distinction."
         }
       ],
       "preserved_distinctions": [
-        "The actual run remains distinct from its reusable Operation definition, Projection, and Journal record.",
-        "No run-kind native admission or persistence mechanism is inferred."
+        "Invocation delivery, dispatch, handoff, results, and effects remain distinct from Step Run completion and the reusable Step definition.",
+        "No run-kind native admission or execution-state persistence mechanism is inferred."
       ],
       "question": null,
       "evidence": [
@@ -3213,16 +3198,16 @@
       "decision": "proposed",
       "proposed_value": "Execution/Step Run",
       "confidence": 0.95,
-      "reason": "Current Main Content ('Preserve Agentic Invocation results **without** replaying effects') describes 'Step Run' as an actual rebuild occurrence with a recorded outcome. The proposed 'Execution/Step Run' places that run under the candidate Execution root using broader-to-narrower slash notation.",
+      "reason": "Current Main Content ('Preserve Agentic Invocation results **without** replaying effects') requires actual results against an identified Agentic Step Invocation and forbids repeating already performed effects. The proposed 'Execution/Step Run' uses the candidate's actual-Execution root and its Step Run kind without recasting the reusable Step definition as a run.",
       "candidate_basis": [
         {
           "pointer": "/root_entities/6",
-          "reason": "The latest candidate defines Execution as one actual run of an Operation; current Main Content establishes the rebuild as an occurrence distinct from its Journal record or Projection."
+          "reason": "The latest candidate defines Execution as one actual run and explicitly lists Step Run as a proposed kind; current Main Content supplies the Agentic Step run context."
         }
       ],
       "preserved_distinctions": [
-        "The actual run remains distinct from its reusable Operation definition, Projection, and Journal record.",
-        "No run-kind native admission or persistence mechanism is inferred."
+        "The actual Step Run remains distinct from the reusable Step, Action definition, Journal record, and Invocation content.",
+        "No run-kind native admission or execution-state persistence mechanism is inferred."
       ],
       "question": null,
       "evidence": [
@@ -3247,21 +3232,16 @@
       "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1793-CORE_META_MODEL-GENERAL--preserve-agentic-invocation-results-without-replaying-effects.md",
       "source_sha256": "f847c6bb0936122046a5392017d0824b5b510e90dfb5af90620939f2cc91de50",
       "source_version": 1,
-      "decision": "proposed",
-      "proposed_value": "Execution/Workflow Run",
-      "confidence": 0.95,
-      "reason": "Current Main Content ('Preserve Agentic Invocation results **without** replaying effects') describes 'Workflow Run' as an actual rebuild occurrence with a recorded outcome. The proposed 'Execution/Workflow Run' places that run under the candidate Execution root using broader-to-narrower slash notation.",
-      "candidate_basis": [
-        {
-          "pointer": "/root_entities/6",
-          "reason": "The latest candidate defines Execution as one actual run of an Operation; current Main Content establishes the rebuild as an occurrence distinct from its Journal record or Projection."
-        }
-      ],
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "Current Main Content ('Preserve Agentic Invocation results **without** replaying effects') gives the live meaning for 'Workflow Run', but the frozen candidate does not establish a safe target without losing its qualification.",
+      "candidate_basis": [],
       "preserved_distinctions": [
-        "The actual run remains distinct from its reusable Operation definition, Projection, and Journal record.",
-        "No run-kind native admission or persistence mechanism is inferred."
+        "The exact current depends_on identity 'Workflow Run' remains visible without an invented replacement.",
+        "No native relation, display-only prefix, or Atom-only lifecycle rule is inferred."
       ],
-      "question": null,
+      "question": "Research gap: the current body identifies Invocation results and performed effects but does not establish a Workflow Run meaning for an Execution mapping.",
       "evidence": [
         {
           "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1793-CORE_META_MODEL-GENERAL--preserve-agentic-invocation-results-without-replaying-effects.md",
@@ -3520,16 +3500,16 @@
       "decision": "proposed",
       "proposed_value": "Execution/Step Run.Invocation",
       "confidence": 0.95,
-      "reason": "Current Main Content ('Preserve Agentic Invocation results **without** replaying effects') describes 'Step Run/Invocation' as an actual rebuild occurrence with a recorded outcome. The proposed 'Execution/Step Run.Invocation' places that run under the candidate Execution root using broader-to-narrower slash notation.",
+      "reason": "Current Main Content ('Preserve Agentic Invocation results **without** replaying effects') requires actual results against the identified Invocation and forbids replaying effects. The proposed 'Execution/Step Run.Invocation' preserves the actual-run subtype with Invocation as its dependent context rather than treating delivery as Step completion.",
       "candidate_basis": [
         {
           "pointer": "/root_entities/6",
-          "reason": "The latest candidate defines Execution as one actual run of an Operation; current Main Content establishes the rebuild as an occurrence distinct from its Journal record or Projection."
+          "reason": "The latest candidate defines Execution as one actual run and lists Step Run as a proposed kind; current Main Content supplies the Invocation and run-context distinction."
         }
       ],
       "preserved_distinctions": [
-        "The actual run remains distinct from its reusable Operation definition, Projection, and Journal record.",
-        "No run-kind native admission or persistence mechanism is inferred."
+        "Invocation delivery, dispatch, handoff, results, and effects remain distinct from Step Run completion and the reusable Step definition.",
+        "No run-kind native admission or execution-state persistence mechanism is inferred."
       ],
       "question": null,
       "evidence": [
