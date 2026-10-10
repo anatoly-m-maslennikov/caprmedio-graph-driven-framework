@@ -9,12 +9,12 @@ claim_target_scope_unit: caprmedio
 local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
-status: Active
+status: Done
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Requirement, Method, Evaluation, Delivery, Operations, Plan, Operator]
-version: 7
-updated_at: "2026-10-11 00:00:01 +0400"
+version: 8
+updated_at: "2026-10-11 00:00:29 +0400"
 relations:
   is_decomposition_of: [CA-P-1978]
   blocks: [CA-P-1981]
@@ -53,6 +53,10 @@ Inherit CA-P-1959's confidence, preservation and execution boundaries. Creating 
 ### Coverage and ownership
 
 CA-P-1983 owns the one-off legacy format repair before the other edit lanes start. Then CA-P-1984 owns R/M, CA-P-1985 E, CA-P-1986 D and CA-P-1987 O. Their file sets are disjoint and share the CA-P-1979 minimum valid-file contract. Root integrates and commits each completed leaf. CA-P-1981 independently checks the complete packet. Repairs and migrations are ad-hoc scripts; reusable Tools do not accept broken files or decide migrations.
+
+### Local execution receipt
+
+All six direct children are Done. The seven-file format repair and four disjoint role repairs produced the actual twelve-carrier R/M/E/D/O packet, frozen against commit `49bfdf9cbbb1b4c3995aaeef1f4ab8f0c7156662` in `.caprmedio_caprmedio/_projection/core-entity-review/stage2/tool-rmedo.packet.json`. Root rechecked every committed carrier, exact ID, Version and hash and the unchanged Project Structure pin. Per-leaf receipts retain before/after evidence. Generic apply guards remain; unsupported MCP is unused; Core sources and feature code are unchanged. This completes authoring, not independent acceptance: CA-P-1981 still gates CA-P-1978 and all implementation.
 
 ### Definition of Done
 
