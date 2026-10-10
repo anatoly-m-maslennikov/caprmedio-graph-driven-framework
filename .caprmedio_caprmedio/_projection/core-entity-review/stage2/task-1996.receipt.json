@@ -1,0 +1,28 @@
+{
+  "task": "CA-P-1996",
+  "recorded_at": "2026-10-11 02:31:01 +0400",
+  "result": "PASS: complete candidate review; unresolved mapping research retained",
+  "output": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-005.review.json",
+    "sha256": "d43074c44747e97225acd376beae2e0790a00e7555d56a476da80b5346d498f4"
+  },
+  "input_batch": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-005.json",
+    "sha256": "ea96145b216ab9b01b4ccad07aacdfaa496420d94def0534290e5a697401a20a"
+  },
+  "checks": {
+    "independent_structural_verifier": "PASS",
+    "sources": 20,
+    "occurrences": 85,
+    "proposed": 14,
+    "unchanged": 46,
+    "unresolved": 25,
+    "meaning_review": "Root inspected the proposed mapping reasons and key current defining bodies. Explicit Subjects fields remain distinct from the governed Subject Relation; Summary, Type, Content Role and Scope Unit Name qualification remain intact. Prior review corrected three historical Status domain losses to unresolved.",
+    "all_executable_false": true
+  },
+  "unresolved_work": "25 occurrence-level research rows remain in the pinned report and required CA-P-2045 integration; CA-P-1966 remains Active.",
+  "limits": [
+    "No original Atom, captured candidate, grammar, native or runtime change",
+    "Review completion is not migration approval"
+  ]
+}
