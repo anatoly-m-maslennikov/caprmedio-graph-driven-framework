@@ -7,7 +7,7 @@ global_tier: 11
 status: Active
 author: Anatoly Maslennikov
 version: 8
-updated_at: "2026-10-10 19:05:35 +0400"
+updated_at: "2026-10-10 21:03:59 +0400"
 subjects:
   governs: "Tool/RELEASE_VERSION/Private suite reference-context encoding"
   depends_on: [Tool, Release Version, Candidate Manifest, Test Suite, Project Structure, Operator, Workflow, Action, Source Carrier, Digest]
@@ -61,7 +61,7 @@ The closed `reference_rows` set also includes **only** the following source-path
 
 | Atom ID | Version | Source path | SHA-256 | Mode |
 | --- | --- | --- | --- | --- |
-| `CA-R-1041` | 8 | `.caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/205_FEATURE_PROJECT_TOOLS/REPLACE_ATOM/04_requirement/CA-R-1041-TOOLS--coordinate-atom-replacement-intent.md` | `45a87fc9dbb416111b66b22875c844abcce0cd362f0a421190406897413bd9bc` | `0644` |
+| `CA-R-1041` | 8 | `.caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/REPLACE_ATOM/04_requirement/CA-R-1041-TOOLS--coordinate-atom-replacement-intent.md` | `45a87fc9dbb416111b66b22875c844abcce0cd362f0a421190406897413bd9bc` | `0644` |
 | `CA-R-1894` | 1 | `.caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/204_FEATURE_MCP/04_requirement/CA-R-1894-MCP-REQUIREMENT--refresh-only-accepted-selected-source-pins.md` | `8c757293510088685fa539e22eedb8cea2a4d3cdd14ccc7fadf3f20d0e7ece4b` | `0644` |
 | `CA-M-350` | 1 | `.caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/204_FEATURE_MCP/05_method/CA-M-350-MCP-METHOD--derive-the-registered-selected-pin-refresh.md` | `611f47a31ec786a8ec927e5fcd33a41cff39bf5e0832803220ed4194f3799744` | `0644` |
 | `CA-E-593` | 1 | `.caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/204_FEATURE_MCP/06_evaluation/CA-E-593-MCP-QA_CASE--verify-the-registered-selected-pin-refresh.md` | `562e5840644c75916218a223a4a07b986131f8979501ca73e51ca1e1611119e3` | `0644` |
