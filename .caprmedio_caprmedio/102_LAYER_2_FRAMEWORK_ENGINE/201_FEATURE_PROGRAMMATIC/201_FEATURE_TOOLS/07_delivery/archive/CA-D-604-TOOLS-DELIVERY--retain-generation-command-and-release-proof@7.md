@@ -4,10 +4,10 @@ content_role: Delivery
 current_scope_unit: TOOLS
 local_tier: Standard
 global_tier: 11
-status: Active
+status: Archived
 author: Anatoly Maslennikov
-version: 8
-updated_at: "2026-10-10 09:41:31 +0400"
+version: 7
+updated_at: "2026-10-10 05:56:00 +0400"
 subjects:
   governs: "Framework Installation contribution/Generation and release proof"
   depends_on: [Tool, Runtime, Framework Package, Command, Docker Image, Journal]
@@ -60,8 +60,6 @@ The existing selected CA-O-169 promotion uses its own actual Action Run, not a m
 
 `selected_start_receipt` is the unchanged canonical Work Journal receipt with exactly `event_id`, `action_id`, `event_digest`, `carrier`, `line`, `previous_carrier_digest` and `appended_carrier_digest`. `parent_lineage` is the ordered list of actual parent Run IDs returned by the existing selected Session's recorded-start reader. The selected provider physically reopens that start, its source and frozen selected inputs before retaining the command or acquiring its publication lock. The command's Operator and Journal account resolve through the exact registered mapping. A command, context or lineage assertion alone grants no authority; the selected Session supplies and revalidates its existing authorization. A final-generation reader reopens the same receipt-addressed canonical start and binds its Action, author and lineage to this command.
 
-For subsequent-command discovery of a selected installed generation, reopen the existing shared Session result and canonical terminal recording for its actual CA-O-169 promotion Action. The completed result must agree with the original start, command, observed publication and retained gate closure; a private promoted observation or checkpoint alone is insufficient. Missing or pending promotion recording blocks that discovery. Completion of later retirement or of the enclosing Workflow is not required for this association. The installation's own prepublication and final validation uses its already-bound concrete gate and does not require its future terminal event. This adds no selected Run, Journal, receipt grammar or replay permission.
-
 ### Direct installed-generation association
 
 1. A completed direct installation result retains observed effect rows for the exact original gate closure, using these kinds: `full_gate_receipt`, `retained_candidate_descriptor`, `retained_package_sidecar`, `unit_gate_receipt`, `build_receipt`, `verification_receipt` and `e2e_gate_receipt`. Every reference is an actual Project-contained regular carrier with its original raw byte digest. Retain and reopen the unchanged original closure before destructive effects; do not manufacture a replacement receipt, infer a locator from an aggregate digest or select the latest available receipt.
@@ -71,3 +69,4 @@ For subsequent-command discovery of a selected installed generation, reopen the 
 ### Direct installation result
 
 An actual CA-O-200 execution retains its immutable canonical JSON result at `.caprmedio_tmp/installation/results/<actual-action-run-id>/result.json`, mode 0600, before requesting a canonical terminal Journal record. Its closed keys are `schema_version = 1`, `action_id = CA-O-200`, `action_run_id`, `installation_command_sha256`, `package_manifest_sha256`, `target_project_context_sha256`, `state_generation`, `effect_outcome`, `reason` and `effects`. The outcome is one of `completed`, `blocked_before_delete`, `unavailable_after_delete` or `effect_uncertain`; `reason` is a string or null. Every effect has exactly `kind`, safe Project-relative `reference` and the observed byte `sha256`. Effects describe actual retained carriers, not intended effects. The result is separate from the Journal's canonical recording state: failed terminal recording reports pending recording and the original result reference, and never replays installation. Selected CA-O-169 keeps its existing shared Session result/checkpoint transport rather than creating this direct-Action result or another Run.
+
