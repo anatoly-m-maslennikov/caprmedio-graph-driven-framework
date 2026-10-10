@@ -6,6 +6,7 @@ Docker, full-suite, or Journal effect is performed here.
 
 from __future__ import annotations
 
+import os
 import sys
 import tempfile
 import unittest
@@ -75,6 +76,31 @@ class ReleasePackagingTests(unittest.TestCase):
         self.assertIn("candidate_snapshot_manifest_sha256", (release / "manifest.toml").read_text(encoding="utf-8"))
         for relative, before in protected.items():
             self.assertEqual((self.fixture.root / relative).read_bytes(), before)
+
+    def test_stages_when_host_denies_nested_directory_rename(self) -> None:
+        handoff = self._sealed_compilation()
+        real_replace = os.replace
+        denied: list[tuple[Path, Path]] = []
+
+        def deny_directory_rename(source: str | Path, target: str | Path) -> None:
+            source_path, target_path = Path(source), Path(target)
+            if source_path.name.startswith(".staging-"):
+                denied.append((source_path, target_path))
+                raise PermissionError("fixture denies nested directory rename")
+            real_replace(source, target)
+
+        with patch("release_packaging.os.replace", side_effect=deny_directory_rename):
+            result = stage_framework_package(self.fixture.root, handoff)
+
+        release = self.fixture.root / result["release_root"]
+        self.assertEqual(1, len(denied))
+        self.assertTrue(result["staged"])
+        self.assertTrue(result["verified"])
+        self.assertEqual((release / "manifest.toml").read_text(encoding="utf-8").splitlines()[0], "schema_version = 2")
+        self.assertEqual(
+            (release / "FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/server.py").read_bytes(),
+            (self.fixture.root / "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/server.py").read_bytes(),
+        )
 
     def test_raw_mapping_and_noncanonical_candidate_are_refused(self) -> None:
         handoff = self._sealed_compilation()

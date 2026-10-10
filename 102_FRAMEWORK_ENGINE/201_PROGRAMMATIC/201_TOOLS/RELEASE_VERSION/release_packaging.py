@@ -402,6 +402,68 @@ def _copy_release(
     )
 
 
+def _publish_staged_release(
+    staging: Path,
+    release_root: Path,
+    manifest: str,
+    rows: Iterable[PackageRow],
+    *,
+    framework_version: str,
+    version_toml_sha256: str,
+) -> bool:
+    """Publish the verified package without requiring a directory rename.
+
+    Some sandboxed macOS filesystems reject the otherwise atomic rename of a
+    newly-created nested directory.  In that case create only the exact
+    sealed members, publish ``manifest.toml`` last, and verify the resulting
+    package before it can be returned as consumable.  A partial fallback tree
+    has no manifest and therefore cannot be a valid retained package.
+    """
+
+    rows = tuple(rows)
+    try:
+        os.replace(staging, release_root)
+        return True
+    except FileExistsError:
+        return False
+    except PermissionError:
+        # A target which appeared while the host denied the directory rename
+        # is an idempotent/racing publication, never ours to overwrite.
+        if os.path.lexists(release_root):
+            return False
+
+    try:
+        release_root.mkdir()
+    except FileExistsError:
+        return False
+
+    # Re-observe the private staging carrier after the failed host primitive.
+    _verify_release(
+        staging, manifest, rows,
+        framework_version=framework_version, version_toml_sha256=version_toml_sha256,
+    )
+    for row in rows:
+        source = staging / row.destination_path
+        target = release_root / row.destination_path
+        target.parent.mkdir(parents=True, exist_ok=True)
+        temporary = target.with_name(f".{target.name}.next")
+        shutil.copyfile(source, temporary)
+        temporary.chmod(row.mode)
+        os.replace(temporary, target)
+
+    # The manifest is the sealed package's completion marker, so publish it
+    # last.  A failed fallback remains an incomplete, non-consumable tree.
+    manifest_target = release_root / MANIFEST_NAME
+    manifest_next = manifest_target.with_name(f".{manifest_target.name}.next")
+    manifest_next.write_text(manifest, encoding="utf-8", newline="\n")
+    os.replace(manifest_next, manifest_target)
+    _verify_release(
+        release_root, manifest, rows,
+        framework_version=framework_version, version_toml_sha256=version_toml_sha256,
+    )
+    return True
+
+
 def stage_framework_package(project_root: Path | str, sealed_compilation: SealedCandidateCompilation) -> dict[str, object]:
     """Stage one retained package from a sealed D567 post-compiler handoff."""
 
@@ -443,17 +505,17 @@ def stage_framework_package(project_root: Path | str, sealed_compilation: Sealed
             framework_version=sealed_compilation.framework_version,
             version_toml_sha256=sealed_compilation.version_toml_sha256,
         )
-        try:
-            os.replace(staging, release_root)
-        except FileExistsError:
+        staged = _publish_staged_release(
+            staging, release_root, manifest, rows,
+            framework_version=sealed_compilation.framework_version,
+            version_toml_sha256=sealed_compilation.version_toml_sha256,
+        )
+        if not staged:
             _verify_release(
                 release_root, manifest, rows,
                 framework_version=sealed_compilation.framework_version,
                 version_toml_sha256=sealed_compilation.version_toml_sha256,
             )
-            staged = False
-        else:
-            staged = True
         _verify_release(
             release_root, manifest, rows,
             framework_version=sealed_compilation.framework_version,
