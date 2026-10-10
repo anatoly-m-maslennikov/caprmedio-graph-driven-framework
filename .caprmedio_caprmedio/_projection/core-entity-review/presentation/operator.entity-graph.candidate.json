@@ -111,6 +111,21 @@
     "parts_are_optional": "This permission does not require every Atom to have both parts.",
     "child_boundary": "Carriers of child Atom instances are not additional representation parts of the parent Atom instance."
   },
+  "atom_versioning": {
+    "status": "Confirmed",
+    "increment": 1,
+    "example_sequence": [1, 2, 3, 4],
+    "trigger": "Every Atom update, including Status-only and other metadata-only changes, increments Version Number by 1.",
+    "native_adoption": "Not performed."
+  },
+  "atom_lookup": {
+    "status": "Confirmed",
+    "default_view": "Active original Atoms in the source of truth.",
+    "maximum_active_originals_per_atom_id": 1,
+    "projection_boundary": "Projected instances are a separate view and do not count as additional Active original Atoms.",
+    "archived_lookup": "Atom ID + Version Number",
+    "native_adoption": "Not performed."
+  },
   "projection_member_model": {
     "status": "Confirmed",
     "member_instances": "Derived Atom instances, not merely entries inside a Projection.",
@@ -208,8 +223,8 @@
       "status": "Confirmed by Operator — not yet adopted as native reference grammar",
       "atom_reference": "Atom ID + Version Number",
       "other_unversioned_artifact_reference": "Artifact ID + Updated At",
-      "version_increment_policy": "Not decided by this reference-key choice.",
-      "projection_resolution": "The lookup context distinguishing a source Atom from a same-ID projected instance remains to be specified."
+      "version_increment_policy": "Every Atom update increments Version Number by 1, including Status-only and other metadata-only changes.",
+      "projection_resolution": "Default lookup covers Active original source-of-truth Atoms, with at most one Active original per Atom ID. Projected instances belong to a separate view."
     }
   },
   "content_direction": {
@@ -225,14 +240,26 @@
     "details": "General Details are optional; role/type-required content is not silently removed."
   },
   "applicable_methodology": {
-    "form": "A reconciled set of derived Atom instances; the whole set is a Projection with its own lifecycle, not necessarily one document.",
+    "form": "A one-to-one Projection of selected source Atoms; applying and manually resolving the methodology is a realization process rather than only copying a Projection.",
     "sources": [
       "Core",
       "Installed Extensions",
       "Project Configuration"
     ],
-    "requirement": "Select applicable source Atoms, resolve conflicts and check coherence before publishing a consistent projected Atom set.",
-    "authority": "Source Atoms remain authoritative; the projected set does not create new authoritative Atom identities.",
+    "requirement": "Keep each projected Atom mapped one-to-one to one source Atom. Resolve conflicts manually rather than combining multiple sources into one derived Atom.",
+    "mapping": {
+      "source_atoms_per_projected_atom": 1,
+      "combine_multiple_sources_into_one_atom": false,
+      "identity": "Preserve the source Atom ID and add a relative link to that source."
+    },
+    "manual_realization": {
+      "conflict_resolution": "Manually obsolete some Atoms and, when needed, create new authored Atoms.",
+      "new_atom_location": "Project Configuration",
+      "new_atom_origin": "A newly authored original Atom may have no upstream source Atom; it is not a derived Projection member at creation.",
+      "subsequent_projection": "When included in the derived view, that original Configuration Atom has a one-to-one projected instance linked back to it.",
+      "obsoletion_target_scope": "Which upstream or project-local Atoms are obsoleted remains to be specified."
+    },
+    "authority": "Core, Installed Extensions and Project Configuration originals remain the source of truth. Newly authored Configuration Atoms are original sources; the derived view creates no second authoritative source for their facts.",
     "instance_boundary": "The Projection is a distinct Entity instance with one representation. References to source Atoms do not make it another representation of those source instances.",
     "root_status": "Not an additional independent root in this candidate."
   },
@@ -246,9 +273,8 @@
     "additional_roots_added": false
   },
   "unresolved": [
-    "Source versus Projection lookup context when derived Atom instances preserve the same Atom ID.",
-    "When an Atom Version Number increments, including Status-only or other metadata-only changes, under the Atom ID + Version historical-reference rule.",
-    "Provenance and source-link representation for a derived Atom with multiple contributing sources.",
+    "Which upstream or project-local Atoms manual Applicable Methodology conflict resolution may obsolete, and how that decision is retained in the source of truth.",
+    "Projected member Version Numbers versus source Version Numbers and Projection-set lifecycle metadata.",
     "Exact typed links between Operations definitions, Executions, Actors, Journal Records, Revisions and Carriers.",
     "A complete mapping from the captured 706-identity review to this simplified candidate.",
     "Operator confirmation of the proposed history links; serialization of the confirmed historical-reference keys and accepted Subject grammar changes."
