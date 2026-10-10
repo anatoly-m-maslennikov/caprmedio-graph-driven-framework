@@ -7,7 +7,7 @@ bytes, but it does not make the selector current or permit command execution.
 
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import dataclass, fields as dataclass_fields
 import hashlib
 import json
 import os
@@ -21,8 +21,14 @@ from framework_package import (
     VerifiedFrameworkPackage,
     verify_current_package_selector,
     verify_framework_package,
+    provide_installation_package_evidence,
 )
-from installation_context import TargetProjectContext
+from installation_context import TargetProjectContext, TargetProjectRequest
+from framework_installation import PortableInstallationRequest
+import portable_methodology_installation as methodology
+from portable_methodology_installation import (
+    PortableMethodologyDelivery, CandidatePortableMethodologyDelivery, TargetPortableMethodologyDelivery,
+)
 from installation_transaction import InstallationPublicationLock, InstallationTransactionError
 from installed_mcp_binding import InstalledMcpBindingError, _context as _read_d600_context
 from portable_runtime_materialization import (
@@ -32,6 +38,7 @@ from portable_runtime_materialization import (
     _read_stage_regular,
     _read_target_regular,
     _write_new,
+    _validate_fragment_documents,
 )
 from retained_full_gate_packet import RetainedNativeFullGatePacket
 
@@ -72,6 +79,8 @@ _PROOF_KEYS = (
     "installation_command_sha256",
     "command_sha256",
     "command_stage_manifest_sha256",
+    "methodology_delivery_manifest_ref",
+    "methodology_delivery_manifest_sha256",
     "selector_sha256",
 )
 
@@ -92,6 +101,7 @@ class NativeInstallationProofRequest:
     target_context: TargetProjectContext
     command_stage: RuntimeCommandStage
     prospective_selector: bytes
+    methodology_delivery: PortableMethodologyDelivery | TargetPortableMethodologyDelivery
 
 
 @dataclass(frozen=True)
@@ -104,6 +114,7 @@ class CandidateNativeInstallationProofRequest:
     prospective_package_selector: bytes
     prospective_selector: bytes
     full_gate_packet: RetainedNativeFullGatePacket
+    methodology_delivery: PortableMethodologyDelivery | TargetPortableMethodologyDelivery | CandidatePortableMethodologyDelivery
 
 
 @dataclass(frozen=True)
@@ -125,7 +136,225 @@ class NativeInstallationProof:
     installation_command_sha256: str
     command_sha256: str
     command_stage_manifest_sha256: str
+    methodology_delivery_manifest_ref: str
+    methodology_delivery_manifest_sha256: str
     selector_sha256: str
+
+
+@dataclass(frozen=True)
+class NativeMethodologyDeliveryBinding:
+    """Physical Methodology fact; the digest covers complete manifest bytes."""
+
+    manifest_ref: str
+    manifest_sha256: str
+    delivery: PortableMethodologyDelivery | TargetPortableMethodologyDelivery | CandidatePortableMethodologyDelivery
+    gate_receipt_sha256: str | None
+
+
+def _delivery_context(root: Path, package: VerifiedFrameworkPackage, digest: str):
+    _read_d600_context(root, digest, verified_package=package)
+    raw = _read_target_regular(root, _CONTEXTS / f"{digest}.toml", code="native-proof-delivery-context-invalid", label="delivery context")
+    document = _parse_toml(raw, code="native-proof-delivery-context-invalid", label="delivery context")
+    values = {field.name: document[field.name] for field in dataclass_fields(TargetProjectContext)
+              if field.name != "package_evidence" and field.name in document}
+    for name in ("methodology_source_identities",):
+        if name in values and isinstance(values[name], list):
+            values[name] = tuple(values[name])
+    context = TargetProjectContext(**values, package_evidence=provide_installation_package_evidence(package.root))
+    if context.sha256 != digest or context.with_digest_toml() != raw:
+        _refuse("native-proof-delivery-context-invalid", "delivery context is not the exact canonical target carrier")
+    control = root / context.control_child_relpath
+    target = TargetProjectRequest(
+        target_root=root, control_child=context.control_child_relpath, mode=context.mode,
+        target_project_identity=context.target_project_identity,
+        settings_path=control / "caprmedio_project_settings.toml",
+        project_structure_path=control / "project_structure.toml",
+        operators_registry_path=control / "operators_registry.toml",
+        repository_identity=context.repository_identity, root_locator=context.root_locator,
+        package_root=package.root, package_evidence=context.package_evidence,
+    )
+    return context, target
+
+
+def _read_delivery(root: Path, package: VerifiedFrameworkPackage, *, target_context_sha256: str,
+                   manifest_ref: str, expected_manifest_sha256: str,
+                   full_gate_packet: RetainedNativeFullGatePacket | None) -> NativeMethodologyDeliveryBinding:
+    context, target = _delivery_context(root, package, target_context_sha256)
+    request = PortableInstallationRequest(target=target, retained_gate_receipt_path=root / "unused",
+                                          full_gate_packet=full_gate_packet)
+    _, source_relative, output_relative = methodology._context_paths_for(request, context)
+    expected_ref = (output_relative / methodology._MANIFEST_NAME).as_posix()
+    if manifest_ref != expected_ref:
+        _refuse("native-proof-delivery-target-mismatch", "delivery manifest is not this target's canonical Applicable Methodology output")
+    raw = _read_target_regular(root, Path(expected_ref), code="native-proof-delivery-stale", label="Methodology delivery manifest", expected_mode=0o644)
+    if _sha256(raw) != expected_manifest_sha256:
+        _refuse("native-proof-delivery-stale", "delivery manifest raw bytes differ from proof binding")
+    document = json.loads(raw.decode("utf-8"))
+    if not isinstance(document, dict) or raw != methodology._canonical_json(document) + b"\n":
+        _refuse("native-proof-delivery-invalid", "delivery manifest is not canonical JSON")
+    unsigned = dict(document)
+    semantic_digest = unsigned.pop("sha256", None)
+    if semantic_digest != methodology._digest(methodology._canonical_json(unsigned)):
+        _refuse("native-proof-delivery-invalid", "delivery manifest semantic checksum is invalid")
+    common = {
+        "schema": methodology._MANIFEST_SCHEMA, "package_manifest_sha256": package.manifest_digest,
+        "source_catalog_sha256": package.source_catalog_sha256, "target_project_context_sha256": context.sha256,
+    }
+    if any(document.get(key) != value for key, value in common.items()):
+        _refuse("native-proof-delivery-binding-mismatch", "delivery manifest names another package, catalog or context")
+    output_root = root / output_relative
+    package_compiler, compiler_binding = methodology.open_admitted_package_compiler(package)
+    actual_files = methodology._projection_records(output_root, compiler_module=package_compiler)
+    if not actual_files or document.get("files") != [file.__dict__ for file in actual_files]:
+        _refuse("native-proof-delivery-stale", "delivery output bytes or modes differ from the manifest")
+    for file in actual_files:
+        actual_payload = _read_target_regular(root, output_relative / file.path,
+            code="native-proof-delivery-stale", label="Methodology output", expected_mode=file.mode)
+        if _sha256(actual_payload) != file.sha256:
+            _refuse("native-proof-delivery-stale", "delivery output changed while reopening its inventory")
+    output_digest, manifest_path = methodology._reopen_delivery(output_root, actual_files, semantic_digest,
+                                                               compiler_module=package_compiler)
+    if document.get("output_tree_sha256") != output_digest:
+        _refuse("native-proof-delivery-stale", "delivery output tree checksum differs")
+    if "candidate_snapshot_manifest_sha256" in document:
+        required = set(common) | {"candidate_snapshot_manifest_sha256", "candidate_run_id", "gate_receipt_sha256",
+            "frozen_manifest_sha256", "export_inventory_sha256", "export_seal_sha256", "compiled_manifest_sha256",
+            "source_export_sha256", "output_tree_sha256", "files", "sha256"}
+        if set(document) != required or not isinstance(full_gate_packet, RetainedNativeFullGatePacket):
+            _refuse("native-proof-delivery-gate-required", "candidate delivery requires its concrete retained Full Gate packet")
+        from release_full_gate import verify_detached_native_full_gate_evidence
+        packet = full_gate_packet
+        verify_detached_native_full_gate_evidence(packet.artifact_root, packet.retained_candidate, packet.suite,
+                                                 packet.build, packet.verification, packet.e2e, packet.evidence)
+        (source_root, compiled_root, frozen, inventory, seal, compiled_manifest, source_files,
+         compiled_files, candidate_sha, run_id) = methodology._read_private_candidate_delivery(request, package)
+        bindings = {
+            "candidate_snapshot_manifest_sha256": candidate_sha, "candidate_run_id": run_id,
+            "gate_receipt_sha256": packet.evidence.receipt_sha256, "frozen_manifest_sha256": frozen,
+            "export_inventory_sha256": inventory, "export_seal_sha256": seal,
+            "compiled_manifest_sha256": compiled_manifest,
+            "source_export_sha256": methodology._digest(methodology._canonical_json([file.__dict__ for file in source_files])),
+        }
+        if any(document.get(key) != value for key, value in bindings.items()) or actual_files != compiled_files:
+            _refuse("native-proof-delivery-binding-mismatch", "candidate delivery differs from actual Full Gate compilation")
+        published_source = methodology._source_export_root(root)
+        if methodology._tree_records(published_source) != source_files:
+            _refuse("native-proof-delivery-stale", "published source export differs from retained gated sources")
+        delivery = CandidatePortableMethodologyDelivery(
+            package.manifest_digest, package.source_catalog_sha256, context.sha256,
+            packet.evidence.receipt_sha256, candidate_sha, run_id, bindings["source_export_sha256"],
+            output_digest, semantic_digest, published_source, output_root, manifest_path, actual_files,
+        )
+    else:
+        base_keys = set(common) | {"compiler_sha256", "compiler_frontier_sha256", "source_view_sha256",
+            "authoring_source_sha256", "source_members", "output_tree_sha256", "files", "sha256"}
+        target_prepared = "target_preparation_sha256" in document
+        if set(document) != base_keys | ({"gate_receipt_sha256", "target_preparation_sha256"} if target_prepared else set()):
+            _refuse("native-proof-delivery-invalid", "target delivery manifest schema is not closed")
+        selected = methodology._target_methodology_identities(context)
+        members = methodology._selected_members(package, methodology._catalog(package), selected, context.package_evidence.source_pins)
+        sources = methodology._target_source_members(members)
+        candidates = []
+        for member in members:
+            if member.kind == methodology._SUPPORT_KIND:
+                methodology._validate_support(member, compiler_module=package_compiler)
+            else:
+                candidates.append(methodology._candidate(member, output_relative=output_relative, compiler_module=package_compiler))
+        candidates.sort(key=package_compiler.candidate_sort_key)
+        frontier = package_compiler.frontier_digest(candidates)
+        by_package_path = {member.package_path.as_posix(): member for member in members}
+        final_package_root = root / _PACKAGE_RELEASES / package.manifest_digest
+        for file in actual_files:
+            if file.mode != 0o644:
+                _refuse("native-proof-delivery-invalid", "direct projection output mode is not canonical")
+            projected = _read_target_regular(root, output_relative / file.path,
+                code="native-proof-delivery-stale", label="direct Methodology projection", expected_mode=0o644)
+            matches = 0
+            for candidate in candidates:
+                if (Path(candidate.role_directory) / candidate.basename).as_posix() != file.path:
+                    continue
+                member = by_package_path[candidate.source_path]
+                relation = Path(os.path.relpath(final_package_root / member.package_path,
+                    start=root / output_relative / candidate.role_directory)).as_posix()
+                try:
+                    package_compiler.validate_projection_source_preservation(
+                        member.payload, projected, relation, candidate)
+                except package_compiler.CompileError:
+                    continue
+                matches += 1
+            if matches != 1:
+                _refuse("native-proof-delivery-source-mismatch", "direct projection is not preserved admitted source with canonical final-package metadata")
+        source_view = (methodology._target_source_view_sha256(sources) if target_prepared else
+            methodology._digest(methodology._canonical_json([methodology.PortableMethodologyFile(
+                member.source_relative.as_posix(), member.sha256, member.mode).__dict__
+                for member in sorted(members, key=lambda member: member.source_relative.as_posix())])))
+        bindings = {
+            "compiler_sha256": compiler_binding.sha256,
+            "compiler_frontier_sha256": frontier, "source_view_sha256": source_view,
+            "authoring_source_sha256": methodology._tree_digest(methodology._directory(root, source_relative, missing_ok=True)),
+            "source_members": [source.__dict__ for source in sources],
+        }
+        if any(document.get(key) != value for key, value in bindings.items()):
+            _refuse("native-proof-delivery-binding-mismatch", "target delivery compiler or source bindings changed")
+        if target_prepared:
+            receipt = _require_digest(document.get("gate_receipt_sha256"), code="native-proof-delivery-invalid", label="delivery gate")
+            if full_gate_packet is not None and receipt != full_gate_packet.evidence.receipt_sha256:
+                _refuse("native-proof-delivery-binding-mismatch", "target delivery binds another Full Gate")
+            prepared_files = tuple(methodology.PreparedTargetMethodologyFile(file.path, file.sha256, file.mode,
+                _read_target_regular(root, output_relative / file.path, code="native-proof-delivery-stale", label="delivery output", expected_mode=file.mode))
+                for file in actual_files)
+            _, prepared_digest = methodology._target_preparation_manifest(
+                package=package, target_context=context, receipt=receipt, selected=selected,
+                compiler_sha256=bindings["compiler_sha256"], frontier=frontier, source_view=source_view,
+                authoring=bindings["authoring_source_sha256"], sources=sources, files=prepared_files,
+            )
+            if document.get("target_preparation_sha256") != prepared_digest:
+                _refuse("native-proof-delivery-binding-mismatch", "delivery does not bind its target preparation")
+        if target_prepared:
+            delivery = TargetPortableMethodologyDelivery(package.manifest_digest, package.source_catalog_sha256,
+                context.sha256, receipt, frontier, source_view, output_digest, semantic_digest,
+                output_root, manifest_path, actual_files)
+        else:
+            delivery = PortableMethodologyDelivery(package.manifest_digest, package.source_catalog_sha256, context.sha256,
+                bindings["compiler_sha256"], frontier, source_view, bindings["authoring_source_sha256"], output_digest,
+                semantic_digest, output_root, manifest_path, actual_files)
+    methodology.reopen_admitted_package_compiler(package, compiler_binding)
+    return NativeMethodologyDeliveryBinding(expected_ref, _sha256(raw), delivery, document.get("gate_receipt_sha256"))
+
+
+def read_native_methodology_delivery(project_root: Path, package: VerifiedFrameworkPackage, *,
+        target_context_sha256: str, manifest_ref: str, expected_manifest_sha256: str,
+        full_gate_packet: RetainedNativeFullGatePacket | None = None) -> NativeMethodologyDeliveryBinding:
+    """Reopen a proof-bound actual delivery; never accept a self-digest as raw SHA."""
+    try:
+        if not isinstance(package, VerifiedFrameworkPackage) or verify_framework_package(package.root) != package:
+            _refuse("native-proof-delivery-package-invalid", "delivery package is not physically verified")
+        _require_digest(expected_manifest_sha256, code="native-proof-delivery-invalid", label="raw manifest digest")
+        return _read_delivery(project_root, package, target_context_sha256=target_context_sha256,
+            manifest_ref=manifest_ref, expected_manifest_sha256=expected_manifest_sha256, full_gate_packet=full_gate_packet)
+    except NativeInstallationProofError:
+        raise
+    except (RuntimeError, OSError, TypeError, ValueError, KeyError) as error:
+        raise NativeInstallationProofError("native-proof-delivery-invalid", "actual Methodology delivery cannot be reopened") from error
+
+
+def reopen_native_methodology_delivery(project_root: Path, package: VerifiedFrameworkPackage,
+        target_context: TargetProjectContext,
+        delivery: PortableMethodologyDelivery | TargetPortableMethodologyDelivery | CandidatePortableMethodologyDelivery,
+        *, full_gate_packet: RetainedNativeFullGatePacket | None = None) -> NativeMethodologyDeliveryBinding:
+    """Derive a schema-2 proof binding from the actual typed publisher result."""
+    if not isinstance(delivery, (PortableMethodologyDelivery, TargetPortableMethodologyDelivery, CandidatePortableMethodologyDelivery)):
+        _refuse("native-proof-delivery-untrusted", "proof requires the actual typed Methodology delivery")
+    try:
+        ref = delivery.delivery_manifest_path.relative_to(project_root).as_posix()
+    except (TypeError, ValueError) as error:
+        _refuse("native-proof-delivery-target-mismatch", "delivery manifest belongs to another Project")
+    raw = _read_target_regular(project_root, Path(ref), code="native-proof-delivery-stale", label="Methodology delivery manifest", expected_mode=0o644)
+    binding = read_native_methodology_delivery(project_root, package, target_context_sha256=target_context.sha256,
+        manifest_ref=ref, expected_manifest_sha256=_sha256(raw), full_gate_packet=full_gate_packet)
+    if binding.delivery != delivery:
+        _refuse("native-proof-delivery-stale", "typed delivery differs from reopened physical output")
+    return binding
 
 
 def _refuse(code: str, message: str) -> None:
@@ -209,7 +438,7 @@ def _reopen_context(
     ):
         _refuse("native-proof-context-mismatch", "target context does not bind the reopened package")
     try:
-        persisted = _read_d600_context(root, value.sha256)
+        persisted = _read_d600_context(root, value.sha256, verified_package=package)
     except InstalledMcpBindingError as error:
         _refuse("native-proof-context-invalid", "persisted target context is not a valid D600 carrier")
     if (
@@ -272,6 +501,11 @@ def _reopen_command_stage(
             expected_mode=0o600,
         ),
     }
+    try:
+        _validate_fragment_documents(files[_COMMAND_NAME], files[_ENVIRONMENT_NAME], files[_WRAPPER_NAME],
+                                     files[_STAGE_MANIFEST_NAME], code="native-proof-command-stage-invalid")
+    except RuntimeError as error:
+        _refuse("native-proof-command-stage-invalid", "staged command fails the shared closed D601 validator")
     command = _parse_toml(files[_COMMAND_NAME], code="native-proof-command-stage-invalid", label="staged command")
     environment = _parse_toml(files[_ENVIRONMENT_NAME], code="native-proof-command-stage-invalid", label="staged environment")
     manifest = _parse_toml(files[_STAGE_MANIFEST_NAME], code="native-proof-command-stage-invalid", label="command stage manifest")
@@ -434,13 +668,14 @@ def _proof_fields(
     stage_manifest_sha256: str,
     selector_sha256: str,
     lock: InstallationPublicationLock,
+    delivery: NativeMethodologyDeliveryBinding,
 ) -> dict[str, object]:
     full_gate_receipt_sha256 = getattr(selected, "full_gate_receipt_sha256", None)
     image_digest = getattr(selected, "image_digest", None)
     if not isinstance(full_gate_receipt_sha256, str) or not isinstance(image_digest, str):
         _refuse("native-proof-package-invalid", "reopened package selector is invalid")
     return {
-        "schema_version": 1,
+        "schema_version": 2,
         "package_manifest_sha256": package.manifest_digest,
         "framework_version": package.framework_version,
         "version_toml_sha256": package.version_toml_sha256,
@@ -453,6 +688,8 @@ def _proof_fields(
         "installation_command_sha256": lock.command_sha256,
         "command_sha256": command_sha256,
         "command_stage_manifest_sha256": stage_manifest_sha256,
+        "methodology_delivery_manifest_ref": delivery.manifest_ref,
+        "methodology_delivery_manifest_sha256": delivery.manifest_sha256,
         "selector_sha256": selector_sha256,
     }
 
@@ -461,6 +698,11 @@ def _selected_fields(request: NativeInstallationProofRequest, lock: Installation
     root = lock.project_root
     package, selected = _reopen_package(root, request.package)
     context = _reopen_context(root, request.target_context, package, lock)
+    if not isinstance(request.methodology_delivery, (PortableMethodologyDelivery, TargetPortableMethodologyDelivery)):
+        _refuse("native-proof-delivery-untrusted", "installed proof requires a typed target delivery")
+    delivery = reopen_native_methodology_delivery(root, package, context, request.methodology_delivery)
+    if delivery.gate_receipt_sha256 is not None and delivery.gate_receipt_sha256 != selected.full_gate_receipt_sha256:
+        _refuse("native-proof-delivery-binding-mismatch", "installed delivery binds another Full Gate")
     generation, command_sha256, stage_manifest_sha256 = _reopen_command_stage(
         root, request.command_stage, package=package, context=context, lock=lock
     )
@@ -481,6 +723,7 @@ def _selected_fields(request: NativeInstallationProofRequest, lock: Installation
         stage_manifest_sha256,
         selector_sha256,
         lock,
+        delivery,
     ), selector
 
 
@@ -499,6 +742,10 @@ def _candidate_fields(
     except FrameworkPackageError:
         _refuse("native-proof-package-selector-invalid", "prospective package selector does not admit the candidate package")
     context = _reopen_context(root, request.target_context, package, lock)
+    delivery = reopen_native_methodology_delivery(root, package, context, request.methodology_delivery,
+                                                full_gate_packet=request.full_gate_packet)
+    if delivery.gate_receipt_sha256 != selected.full_gate_receipt_sha256:
+        _refuse("native-proof-delivery-binding-mismatch", "candidate delivery does not bind the original Full Gate")
     generation, command_sha256, stage_manifest_sha256 = _reopen_command_stage(
         root, request.command_stage, package=package, context=context, lock=lock
     )
@@ -519,6 +766,7 @@ def _candidate_fields(
         stage_manifest_sha256,
         selector_sha256,
         lock,
+        delivery,
     ), selector
 
 
@@ -582,6 +830,8 @@ def _reopen_proof(
         installation_command_sha256=str(proof["installation_command_sha256"]),
         command_sha256=str(proof["command_sha256"]),
         command_stage_manifest_sha256=str(proof["command_stage_manifest_sha256"]),
+        methodology_delivery_manifest_ref=str(proof["methodology_delivery_manifest_ref"]),
+        methodology_delivery_manifest_sha256=str(proof["methodology_delivery_manifest_sha256"]),
         selector_sha256=str(proof["selector_sha256"]),
     )
 
@@ -675,6 +925,9 @@ __all__ = [
     "NativeInstallationProof",
     "NativeInstallationProofError",
     "NativeInstallationProofRequest",
+    "NativeMethodologyDeliveryBinding",
+    "read_native_methodology_delivery",
+    "reopen_native_methodology_delivery",
     "read_candidate_native_installation_proof",
     "read_native_installation_proof",
     "stage_candidate_native_installation_proof",

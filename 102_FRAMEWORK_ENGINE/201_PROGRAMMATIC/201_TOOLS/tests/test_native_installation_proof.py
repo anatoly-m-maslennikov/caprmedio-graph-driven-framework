@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import hashlib
+import json
 from dataclasses import replace
 from pathlib import Path
 import shlex
@@ -23,6 +24,9 @@ for candidate in (TOOLS, Path(__file__).resolve().parent, RELEASE_ROOT, RELEASE_
         sys.path.insert(0, str(candidate))
 
 import test_portable_runtime_materialization as command_fixture  # noqa: E402
+import test_native_proof_delivery as delivery_fixture  # noqa: E402
+from framework_installation import PortableInstallationRequest  # noqa: E402
+import portable_methodology_installation as methodology  # noqa: E402
 from native_installation_proof import (  # noqa: E402
     CandidateNativeInstallationProofRequest,
     NativeInstallationProofError,
@@ -52,7 +56,7 @@ def _sha256(payload: bytes) -> str:
 
 class NativeInstallationProofTests(unittest.TestCase):
     def setUp(self) -> None:
-        self.fixture = command_fixture.PortableRuntimeMaterializationTests("runTest")
+        self.fixture = delivery_fixture.DeliveryRuntimeFixture("runTest")
         self.fixture.setUp()
         self.target = self.fixture.target
         self.package = self.fixture.package
@@ -62,6 +66,7 @@ class NativeInstallationProofTests(unittest.TestCase):
         lock = self.fixture._lock()
         self.addCleanup(lambda: lock.active and lock.release("completed"))
         command_stage = stage_runtime_command(self.fixture._request(), lock=lock)
+        self.delivery = delivery_fixture.physical_delivery(self.fixture, lock)
         return lock, command_stage
 
     def _selector(
@@ -94,6 +99,7 @@ class NativeInstallationProofTests(unittest.TestCase):
             "target_context": self.context,
             "command_stage": command_stage,
             "prospective_selector": self._selector(lock),
+            "methodology_delivery": self.delivery,
         }
         values.update(changes)
         return NativeInstallationProofRequest(**values)
@@ -121,8 +127,12 @@ class NativeInstallationProofTests(unittest.TestCase):
                 "source_catalog_sha256", "full_gate_receipt_sha256", "image_digest", "target_project_context_sha256",
                 "state_generation", "installation_lock_generation", "installation_command_sha256", "command_sha256",
                 "command_stage_manifest_sha256", "selector_sha256",
+                "methodology_delivery_manifest_ref", "methodology_delivery_manifest_sha256",
             },
         )
+        self.assertEqual(2, document["schema_version"])
+        self.assertEqual(_sha256(self.delivery.delivery_manifest_path.read_bytes()), proof.methodology_delivery_manifest_sha256)
+        self.assertNotEqual(self.delivery.delivery_manifest_sha256, proof.methodology_delivery_manifest_sha256)
         self.assertEqual(read_native_installation_proof(request, lock=lock), proof)
         self.assertFalse((self.target / ".caprmedio_runtime" / "installation" / "current.toml").exists())
         self.assertFalse((self.target / ".caprmedio_runtime" / "config.toml").exists())
@@ -136,6 +146,29 @@ class NativeInstallationProofTests(unittest.TestCase):
         with self.assertRaisesRegex(NativeInstallationProofError, "native-proof-prospective-selector-mismatch"):
             stage_native_installation_proof(request, lock=lock)
         self.assertFalse((self.target / ".caprmedio_tmp" / "installation" / "proofs" / lock.lock_generation).exists())
+
+    def test_refuses_untyped_delivery_before_proof_stage_write(self) -> None:
+        lock, command_stage = self._stage()
+        request = self._request(lock, command_stage, methodology_delivery=True)
+        with self.assertRaisesRegex(NativeInstallationProofError, "native-proof-delivery-untrusted"):
+            stage_native_installation_proof(request, lock=lock)
+        self.assertFalse((self.target / ".caprmedio_tmp/installation/proofs" / lock.lock_generation).exists())
+
+    def test_refuses_resealed_selection_before_proof_stage_write(self) -> None:
+        from installation_transaction import InstallationPublicationLock
+        forged = replace(self.context, methodology_source_identities=("core-methodology",))
+        carrier = self.target / ".caprmedio_runtime/installation/contexts" / f"{forged.sha256}.toml"
+        carrier.write_bytes(forged.with_digest_toml())
+        lock = InstallationPublicationLock(self.target, target_context_sha256=forged.sha256,
+            owner_run_id="forged-selection-proof", operation="native-proof-stage", command_sha256="c" * 64).acquire()
+        self.addCleanup(lambda: lock.active and lock.release("completed"))
+        request = NativeInstallationProofRequest(package=self.package, target_context=forged,
+            command_stage=None, prospective_selector=self._selector(lock, context_sha256=forged.sha256),
+            methodology_delivery=None)
+        with self.assertRaisesRegex(NativeInstallationProofError, "native-proof-context-invalid") as refused:
+            stage_native_installation_proof(request, lock=lock)
+        self.assertIn("target Methodology selection changed", str(refused.exception.__context__))
+        self.assertFalse((self.target / ".caprmedio_tmp/installation/proofs" / lock.lock_generation).exists())
 
     def test_reader_refuses_tampered_command_stage(self) -> None:
         lock, command_stage = self._stage()
@@ -175,6 +208,7 @@ class NativeInstallationProofTests(unittest.TestCase):
                 ).acquire()
                 try:
                     command_stage = stage_runtime_command(self.fixture._request(target_context=forged), lock=lock)
+                    self.delivery = delivery_fixture.physical_delivery(self.fixture, lock)
                     request = self._request(
                         lock,
                         command_stage,
@@ -242,12 +276,16 @@ class CandidateNativeInstallationProofTests(unittest.TestCase):
         self.control.mkdir()
         for name in ("caprmedio_project_settings.toml", "project_structure.toml", "operators_registry.toml"):
             shutil.copy2(control_source / name, self.control / name)
+        from target_methodology_selection import FRAMEWORK_INSTANCE_SETTINGS_RELATIVE
+        settings_source = control_source / FRAMEWORK_INSTANCE_SETTINGS_RELATIVE
+        settings_target = self.control / FRAMEWORK_INSTANCE_SETTINGS_RELATIVE
+        settings_target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(settings_source, settings_target)
         settings = tomllib.loads((self.control / "caprmedio_project_settings.toml").read_text(encoding="utf-8"))
         project = settings["project"]
         self.assertIsInstance(project, dict)
         self.assertIsInstance(project.get("name"), str)
-        self.context = bind_target_project_context(
-            TargetProjectRequest(
+        self.target_request = TargetProjectRequest(
                 target_root=self.target,
                 control_child=self.control.name,
                 mode="bootstrap",
@@ -260,7 +298,7 @@ class CandidateNativeInstallationProofTests(unittest.TestCase):
                 package_root=self.package.root,
                 package_evidence=provide_installation_package_evidence(self.package.root),
             )
-        )
+        self.context = bind_target_project_context(self.target_request)
         context_path = self.target / ".caprmedio_runtime" / "installation" / "contexts" / f"{self.context.sha256}.toml"
         context_path.parent.mkdir(parents=True, exist_ok=True)
         context_path.write_bytes(self.context.with_digest_toml())
@@ -302,6 +340,17 @@ class CandidateNativeInstallationProofTests(unittest.TestCase):
         return next(
             row.path for row in self.package.inventory if row.role == "engine" and row.path.endswith(".py")
         )
+
+    def _publish_delivery(self, lock):
+        request = PortableInstallationRequest(target=self.target_request,
+            retained_gate_receipt_path=self.artifact_root / self._full.evidence_root / "receipt.json",
+            full_gate_packet=self._packet())
+        from framework_package import verify_current_package_selector
+        selector = verify_current_package_selector(self._package_selector(), self.package)
+        prepared = methodology.prepare_candidate_portable_methodology_publication(request,
+            package=self.package, target_context=self.context, prospective_selector=selector)
+        return methodology.publish_prepared_candidate_portable_methodology(request, prepared,
+            package=self.package, target_context=self.context, prospective_selector=selector, lock=lock)
 
     def _candidate_stage_request(self, **changes: object) -> CandidateRuntimeCommandStageRequest:
         values: dict[str, object] = {
@@ -369,6 +418,7 @@ class CandidateNativeInstallationProofTests(unittest.TestCase):
             prospective_package_selector=command_request.prospective_package_selector,
             prospective_selector=self._runtime_selector(lock),
             full_gate_packet=command_request.full_gate_packet,
+            methodology_delivery=self._publish_delivery(lock),
         )
 
         proof = stage_candidate_native_installation_proof(proof_request, lock=lock)
@@ -392,6 +442,49 @@ class CandidateNativeInstallationProofTests(unittest.TestCase):
                 lock=lock,
             )
         self.assertFalse((self.target / ".caprmedio_tmp" / "installation" / "staging" / lock.lock_generation).exists())
+
+    def test_candidate_proof_refuses_physically_valid_ungated_legacy_delivery(self) -> None:
+        lock = self._lock()
+        self.addCleanup(lambda: lock.active and lock.release("completed"))
+        command_request = self._candidate_stage_request()
+        stage = stage_candidate_runtime_command(command_request, lock=lock)
+        installation = PortableInstallationRequest(target=self.target_request,
+            retained_gate_receipt_path=self.artifact_root / self._full.evidence_root / "receipt.json",
+            full_gate_packet=self._packet())
+        from framework_package import verify_current_package_selector
+        selector = verify_current_package_selector(self._package_selector(), self.package)
+        prepared = methodology.prepare_target_portable_methodology_publication(installation,
+            package=self.package, target_context=self.context, prospective_selector=selector)
+        delivered = methodology.publish_prepared_target_portable_methodology(installation, prepared,
+            package=self.package, target_context=self.context, prospective_selector=selector, lock=lock)
+        # Retain exact physically published output, compiler, source members,
+        # context and canonical final-package references. Only remove the
+        # target preparation's Full Gate binding to model the legacy schema.
+        document = json.loads(delivered.delivery_manifest_path.read_bytes())
+        document.pop("gate_receipt_sha256")
+        document.pop("target_preparation_sha256")
+        document["source_view_sha256"] = methodology._digest(methodology._canonical_json([
+            methodology.PortableMethodologyFile(source.source_view_path, source.sha256, source.mode).__dict__
+            for source in sorted(prepared.source_members, key=lambda source: source.source_view_path)]))
+        document.pop("sha256")
+        document["sha256"] = methodology._digest(methodology._canonical_json(document))
+        delivered.delivery_manifest_path.write_bytes(methodology._canonical_json(document) + b"\n")
+        legacy = methodology.PortableMethodologyDelivery(self.package.manifest_digest,
+            self.package.source_catalog_sha256, self.context.sha256, prepared.compiler_sha256,
+            prepared.compiler_frontier_sha256, document["source_view_sha256"], prepared.authoring_source_sha256,
+            delivered.output_tree_sha256, document["sha256"], delivered.output_root,
+            delivered.delivery_manifest_path, delivered.files)
+        from native_installation_proof import reopen_native_methodology_delivery
+        physical = reopen_native_methodology_delivery(self.target, self.package, self.context, legacy,
+            full_gate_packet=self._packet())
+        self.assertIsNone(physical.gate_receipt_sha256)
+        request = CandidateNativeInstallationProofRequest(package=self.package, target_context=self.context,
+            command_stage=stage, prospective_package_selector=self._package_selector(),
+            prospective_selector=self._runtime_selector(lock), full_gate_packet=self._packet(),
+            methodology_delivery=legacy)
+        with self.assertRaisesRegex(NativeInstallationProofError, "native-proof-delivery-binding-mismatch"):
+            stage_candidate_native_installation_proof(request, lock=lock)
+        self.assertFalse((self.target / ".caprmedio_tmp/installation/proofs" / lock.lock_generation).exists())
 
 
 if __name__ == "__main__":  # pragma: no cover
