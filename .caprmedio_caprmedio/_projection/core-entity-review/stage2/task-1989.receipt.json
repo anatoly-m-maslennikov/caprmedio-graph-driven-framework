@@ -1,0 +1,36 @@
+{
+  "task": "CA-P-1989",
+  "recorded_at": "2026-10-11 01:06:02 +0400",
+  "result": "PASS: current/captured comparison preserves frozen evidence",
+  "outputs": [
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/support/compare_current_snapshot.py",
+      "sha256": "478c7ededa56d270269f4e2b51e549496b93b3cfe575b55c206f5f7c3324c97f"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-snapshot.delta.json",
+      "sha256": "9c0b3137e5f3f728d3f7440323ab6ea8e7abab815054398623f2f17a4c2ed204"
+    }
+  ],
+  "checks": {
+    "current_inventory_sha256": "e284dbe4943568bc75b7f9ba63ebf583372a60813e62eee3d43b5b75b270220a",
+    "exact_delta_current_inventory_match": 907,
+    "independent_current_and_captured_raw_pins": 907,
+    "producer_full_captured_pin_check": 951,
+    "same_bytes": 906,
+    "changed": [
+      {
+        "atom_id": "CA-D-494",
+        "captured_version": 2,
+        "current_version": 3
+      }
+    ],
+    "new": 0,
+    "missing": 0
+  },
+  "limits": [
+    "No semantic mapping, source migration or native admission",
+    "Original frozen capture remains Version 2 for CA-D-494; current Version 3 is separate",
+    "Baseline's 908/4534 count and captured RMEDO subset 907/4533 remain separately recorded"
+  ]
+}
