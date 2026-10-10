@@ -1266,6 +1266,58 @@ def _verify_retained_host_capability_for_release(root: Path, executing_release: 
             raise ReleaseContractError("release-e2e-capability-untrusted", f"retained {identity.role} executable changed") from error
 
 
+def _verify_detached_host_capability_identity(
+    executing_release: str,
+    unit_suite: object,
+    capability: FrozenHostE2ECapability,
+    *,
+    captured_source_root: Path,
+) -> None:
+    """Bind a historical host packet without reopening its removed N package.
+
+    The detached reader consumes immutable receipt bytes after a successful
+    cut-over.  Its host identities are already reopened from the E2E receipt
+    and bound to the retained Unit receipt, aggregate receipt, and canonical
+    captured context.  Reopening the original N package here would make a
+    correctly removed predecessor a requirement for historical verification.
+    Fresh readers continue to use ``_verify_retained_host_capability_for_release``
+    and therefore still revalidate the live N bytes before effects.
+    """
+
+    expected_state = (
+        getattr(unit_suite, "executing_selector_sha256", None),
+        getattr(unit_suite, "executing_release_package_sha256", None),
+        getattr(unit_suite, "executing_skill_sha256", None),
+    )
+    actual_state = (
+        capability.executing_selector_sha256,
+        capability.executing_release_package_sha256,
+        capability.executing_skill_sha256,
+    )
+    if actual_state != expected_state:
+        raise ReleaseContractError("release-e2e-capability-untrusted", "host capability differs from the original Suite N identity")
+    if (
+        not isinstance(executing_release, str)
+        or not executing_release
+        or PurePosixPath(executing_release).as_posix() != executing_release
+        or PurePosixPath(executing_release).is_absolute()
+        or any(part in {"", ".", ".."} for part in PurePosixPath(executing_release).parts)
+    ):
+        raise ReleaseContractError("release-e2e-capability-untrusted", "retained host capability has no sealed executing release")
+    package_relative = RUNTIME_ROOT / "releases" / executing_release
+    expected_controller = captured_source_root / package_relative / _N_DRIVER_RELATIVE
+    if (
+        capability.n_host_controller.path != str(expected_controller)
+        or capability.driver.path != str(expected_controller)
+        or capability.driver.sha256 != capability.n_host_controller.sha256
+    ):
+        raise ReleaseContractError("release-e2e-capability-untrusted", "retained host controller differs from its captured execution identity")
+    for identity in (capability.python, capability.docker):
+        _captured_absolute_path(identity.path, label=f"{identity.role} executable")
+    if capability.closed_path != str(Path(capability.docker.path).parent):
+        raise ReleaseContractError("release-e2e-capability-untrusted", "retained host executable path is not closed")
+
+
 def _verify_retained_host_capability(root: Path, candidate: ValidatedCandidate,
                                      unit_suite: SuiteGateEvidence,
                                      capability: FrozenHostE2ECapability) -> None:
@@ -1519,8 +1571,8 @@ def read_detached_candidate_e2e_execution_artifacts(
         grammar_sha256=e2e.grammar_sha256, phase_map=phase_map, retained=True,
         captured_context=captured_context,
     )
-    _verify_retained_host_capability_for_release(
-        root, retained.descriptor.executing_release, suite, capability,
+    _verify_detached_host_capability_identity(
+        retained.descriptor.executing_release, suite, capability,
         captured_source_root=captured_context.source_root,
     )
     return root

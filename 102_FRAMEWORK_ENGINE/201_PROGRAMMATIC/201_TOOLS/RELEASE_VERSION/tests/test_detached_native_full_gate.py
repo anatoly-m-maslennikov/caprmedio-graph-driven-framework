@@ -54,6 +54,27 @@ class DetachedNativeFullGateTests(unittest.TestCase):
 
         self.assertEqual(full.package_manifest_sha256, package.view.actual_package_manifest_sha256)
 
+    def test_reopens_historical_packet_after_predecessor_n_is_removed(self) -> None:
+        archive, identity, suite, build, verification, e2e, full = self._packet()
+        predecessor = archive / ".caprmedio_runtime/framework/releases" / identity.descriptor.executing_release
+        self.assertTrue(predecessor.is_dir())
+        # The copied package preserves its sealed file modes.  Scrub every
+        # predecessor byte from this disposable archive.  Some macOS test
+        # filesystems retain empty provenance-marked directories, but those
+        # empty directories cannot serve as a retained N package or backup.
+        for path in sorted((predecessor, *predecessor.rglob("*")), key=lambda item: len(item.parts)):
+            path.chmod(0o700 if path.is_dir() else 0o600)
+        for path in sorted(predecessor.rglob("*"), key=lambda item: len(item.parts), reverse=True):
+            if path.is_file():
+                path.unlink()
+        self.assertFalse(any(path.is_file() for path in predecessor.rglob("*")))
+
+        package = verify_detached_native_full_gate_evidence(
+            archive, identity, suite, build, verification, e2e, full,
+        )
+
+        self.assertEqual(full.package_manifest_sha256, package.view.actual_package_manifest_sha256)
+
     def test_refuses_tampered_aggregate_and_malformed_typed_evidence(self) -> None:
         archive, identity, suite, build, verification, e2e, full = self._packet()
         receipt = archive / full.evidence_root / "receipt.json"
