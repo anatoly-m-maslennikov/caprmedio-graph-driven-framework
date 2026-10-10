@@ -42,6 +42,7 @@ from release_suite_reference_context import (  # noqa: E402
 )
 from release_suite_limits import MAX_UNIT_TIMEOUT_SECONDS, resolve_unit_deadline  # noqa: E402
 from selected_routes import PROJECT_SETTINGS_REF, canonical_json, load_selected_manifest, selected_manifest_ref  # noqa: E402
+import full_suite_golden.control_fixture as control_fixture  # noqa: E402
 from full_suite_golden.control_fixture import copy_control_closure  # noqa: E402
 
 
@@ -150,6 +151,107 @@ class PromptBindingFrontierTests(unittest.TestCase):
         tampered[target] = (captured[target][0] + b"\nchanged\n", captured[target][1])
         with self.assertRaises(ReleaseSuiteReferenceContextError):
             reference_context._selected_source_refresh_frontier(d580, tampered)
+
+
+class RetainedGoldenControlSourceTests(unittest.TestCase):
+    """Historic Prompt pins are fixture evidence, not current source authority."""
+
+    def test_closed_fixture_rows_reopen_only_their_exact_historic_pins(self) -> None:
+        document = json.loads(control_fixture._RETAINED_CONTROL_SOURCES_MANIFEST.read_bytes())
+        self.assertEqual({
+            "package_manifest_ref": control_fixture._RETAINED_PACKAGE_MANIFEST_REF,
+            "package_manifest_sha256": control_fixture._RETAINED_PACKAGE_MANIFEST_SHA256,
+        }, document["provenance"])
+        self.assertEqual(2, len(document["sources"]))
+        for row in document["sources"]:
+            with self.subTest(source_path=row["source_path"]):
+                source = control_fixture._retained_source(REPOSITORY, row["source_path"], row["sha256"])
+                self.assertEqual(
+                    control_fixture._RETAINED_CONTROL_SOURCES_ROOT / row["fixture_path"],
+                    source,
+                )
+                self.assertTrue(source.is_file())
+                self.assertFalse(source.is_symlink())
+                self.assertEqual(row["sha256"], hashlib.sha256(source.read_bytes()).hexdigest())
+                self.assertEqual(row["mode"], source.stat().st_mode & 0o777)
+                self.assertIsNone(control_fixture._retained_fixture_source(row["source_path"], "0" * 64))
+
+    def test_retained_fixture_symlink_refuses_instead_of_sourcing_a_package(self) -> None:
+        # Managed macOS refuses recursive cleanup of directories containing a
+        # symlink.  This disposable root is intentionally retained.
+        temporary = Path(tempfile.mkdtemp(prefix="release-suite-retained-fixture-"))
+        fixture_root = temporary / "retained"
+        fixture_root.mkdir()
+        target = temporary / "target.md"
+        target.write_bytes(b"retained bytes\n")
+        (fixture_root / "carrier.md").symlink_to(target)
+        source_path = ".caprmedio_caprmedio/historic.md"
+        digest = hashlib.sha256(target.read_bytes()).hexdigest()
+        manifest = {
+            "schema_version": 1,
+            "provenance": {
+                "package_manifest_ref": control_fixture._RETAINED_PACKAGE_MANIFEST_REF,
+                "package_manifest_sha256": control_fixture._RETAINED_PACKAGE_MANIFEST_SHA256,
+            },
+            "sources": [{
+                "source_path": source_path,
+                "fixture_path": "carrier.md",
+                "sha256": digest,
+                "mode": 0o644,
+            }],
+        }
+        manifest_path = fixture_root / "manifest.json"
+        manifest_path.write_bytes(json.dumps(manifest).encode("utf-8"))
+        with patch.object(control_fixture, "_RETAINED_CONTROL_SOURCES_ROOT", fixture_root), \
+                patch.object(control_fixture, "_RETAINED_CONTROL_SOURCES_MANIFEST", manifest_path), \
+                self.assertRaisesRegex(RuntimeError, "retained fixture"):
+            control_fixture._retained_source(temporary / "empty-project", source_path, digest)
+
+    def test_retained_source_refuses_unsafe_prompt_paths_before_project_join(self) -> None:
+        class NoProjectJoin:
+            def __truediv__(self, _relative: object) -> Path:
+                raise AssertionError("unsafe Prompt path reached Project filesystem join")
+
+        for source_path in (
+            "/102_FRAMEWORK_ENGINE/202_AGENTIC/202_PROMPTS/ACTION_PROMPTS/RMED_ATOM_REVIEW/source_bindings.json",
+            "../102_FRAMEWORK_ENGINE/202_AGENTIC/202_PROMPTS/ACTION_PROMPTS/RMED_ATOM_REVIEW/source_bindings.json",
+        ):
+            with self.subTest(source_path=source_path), \
+                    self.assertRaises(ReleaseSuiteReferenceContextError):
+                control_fixture._retained_source(NoProjectJoin(), source_path, "0" * 64)
+
+    def test_retained_fixture_refuses_unsafe_manifest_source_paths(self) -> None:
+        temporary = Path(tempfile.mkdtemp(prefix="release-suite-retained-manifest-"))
+        requested_path = (
+            "102_FRAMEWORK_ENGINE/202_AGENTIC/202_PROMPTS/ACTION_PROMPTS/"
+            "RMED_ATOM_REVIEW/missing-historic.md"
+        )
+        for index, source_path in enumerate((
+            "/102_FRAMEWORK_ENGINE/202_AGENTIC/202_PROMPTS/ACTION_PROMPTS/RMED_ATOM_REVIEW/source_bindings.json",
+            "../102_FRAMEWORK_ENGINE/202_AGENTIC/202_PROMPTS/ACTION_PROMPTS/RMED_ATOM_REVIEW/source_bindings.json",
+        )):
+            with self.subTest(source_path=source_path):
+                fixture_root = temporary / str(index)
+                fixture_root.mkdir()
+                manifest = {
+                    "schema_version": 1,
+                    "provenance": {
+                        "package_manifest_ref": control_fixture._RETAINED_PACKAGE_MANIFEST_REF,
+                        "package_manifest_sha256": control_fixture._RETAINED_PACKAGE_MANIFEST_SHA256,
+                    },
+                    "sources": [{
+                        "source_path": source_path,
+                        "fixture_path": "must-not-be-accessed.md",
+                        "sha256": "0" * 64,
+                        "mode": 0o644,
+                    }],
+                }
+                manifest_path = fixture_root / "manifest.json"
+                manifest_path.write_bytes(json.dumps(manifest).encode("utf-8"))
+                with patch.object(control_fixture, "_RETAINED_CONTROL_SOURCES_ROOT", fixture_root), \
+                        patch.object(control_fixture, "_RETAINED_CONTROL_SOURCES_MANIFEST", manifest_path), \
+                        self.assertRaisesRegex(RuntimeError, "retained fixture"):
+                    control_fixture._retained_fixture_source(requested_path, "0" * 64)
 
 
 class UnitDeadlineTests(unittest.TestCase):
