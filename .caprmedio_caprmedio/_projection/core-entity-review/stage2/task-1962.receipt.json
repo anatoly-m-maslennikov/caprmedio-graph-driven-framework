@@ -1,0 +1,30 @@
+{
+  "task": "CA-P-1962",
+  "recorded_at": "2026-10-11 00:36:36 +0400",
+  "result": "PASS: local sealed Subjects-only preview; no live apply or MCP binding",
+  "implementation": [
+    {"path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_patch.py", "sha256": "783d838fdb035921ae7219e8a7a8dcd31e27efc34b988e64b6d0989d7091cc04"},
+    {"path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_operations.py", "sha256": "cb5cdaa90188d6bcb96ed590cd8a0369f515f2d2715e2411a4f851d07ac12647"},
+    {"path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_UPDATE/tests/test_subject_patch_preview.py", "sha256": "0db41692e9632e51f38ee1ef4b30bd2093cfa09b1c29f19d5047ec25318a2b0b"}
+  ],
+  "checks": {
+    "focused_preview_tests": {"passed": 10, "failed": 0},
+    "independent_code_review": "PASS: original pin/symlink race closed; no actionable new-mode defect",
+    "real_complete_validator_cli": {
+      "source": "CA-R-866@13",
+      "source_sha256": "187476b0990f9e37a7df305998ef420f3bdc202c9147a95f25542dde872034bd",
+      "source_and_proposed_carriers_validated": true,
+      "noop": {"after_version": 13, "preview_sha256": "2b78b432fc8fbb4d4f2e2555e2d15b90f495762b37eb8eabbc95cad7010f28ff"},
+      "changed": {"after_version": 14, "illustrative_updated_at": "2026-10-11 00:35:37 +0400", "preview_sha256": "c00ca259ab9965b05b6a01a2deda80ce093ca6402680a523ceb3075520359348"},
+      "canonical_hash_independently_checked": true,
+      "source_unchanged": true,
+      "all_core_carriers_unchanged": true,
+      "standalone_apply_refused": true
+    }
+  },
+  "limits": [
+    "Read-only preview, not an execution/approval/history/Journal receipt",
+    "A returned source pin may become stale after the final snapshot recheck; any later application must recheck it",
+    "No grammar adoption, Entity/Term native fact admission, migration or runtime activation"
+  ]
+}

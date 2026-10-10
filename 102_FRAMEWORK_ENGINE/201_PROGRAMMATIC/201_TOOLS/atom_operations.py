@@ -818,6 +818,15 @@ def run_create(root: Path, args: argparse.Namespace) -> dict[str, Any]:
 def run_update(root: Path, args: argparse.Namespace) -> dict[str, Any]:
     root = root.resolve()
     raw_items = _items(_load_payload(args.input))
+    subject_items = ["subject_patches" in item for item in raw_items]
+    if any(subject_items):
+        if not all(subject_items):
+            raise ToolError("input-invalid", "Subject-only and generic update items cannot be mixed")
+        if args.apply:
+            raise ToolError("subject-apply-not-admitted", "Subject-only updates are local previews, not an admitted live writer")
+        from atom_subject_patch import preview_subject_patches
+
+        return preview_subject_patches(root, raw_items)
     selectors = [item.get("selector") for item in raw_items]
     if any(not isinstance(selector, str) for selector in selectors):
         raise ToolError("input-invalid", "every update item requires selector")
@@ -1204,6 +1213,14 @@ def describe(tool_id: str) -> dict[str, Any]:
             "matches": ["exact", "prefix"], "prefix_boundaries": ["/", ":"],
             "default_lifecycle": "active", "filters": ["under", "atom", "query", "content_role", "scope_unit", "lifecycle", "limit"],
             "output": ["source_root", "count", "occurrences", "diagnostics"],
+            "mcp_binding": None,
+        }
+    elif tool_id == "ATOM_UPDATE":
+        result["subject_preview"] = {
+            "item_fields": ["selector", "expected", "subject_patches"],
+            "expected_fields": ["atom_id", "version", "sha256"],
+            "patch_fields": ["field", "index (depends_on only)", "old", "new"],
+            "selector": "exact repository-relative file path", "apply_supported": False,
             "mcp_binding": None,
         }
     return result

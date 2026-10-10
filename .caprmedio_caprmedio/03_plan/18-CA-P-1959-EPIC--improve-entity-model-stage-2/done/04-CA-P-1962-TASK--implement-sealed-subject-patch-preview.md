@@ -10,12 +10,12 @@ local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
-status: Active
+status: Done
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 4
-updated_at: "2026-10-10 23:51:04 +0400"
+version: 5
+updated_at: "2026-10-11 00:36:36 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1963]
@@ -47,3 +47,9 @@ Inherit CA-P-1959's source boundary, confidence threshold and preservation rules
 ### Definition of Done
 
 The Plan is **not** Done if the preview is unsealed, stale input is accepted, unrelated bytes change, Version/timestamp/history implications are missing, targets are inferred, tests fail, or a live write boundary is weakened; any direct decomposing Plan is not Done; or own work exceeds 15 minutes without decomposition.
+
+### Completion evidence
+
+Implemented local Subjects-only preview in atom_subject_patch.py and the existing ATOM_UPDATE wrapper. Exact input pins and replacements bind one no-follow descriptor snapshot. Both the original and proposed complete carrier are validated; all batch sources are rechecked before returning. The existing apply guard remains intact. Preview has no source, history or Journal writer, and no MCP binding.
+
+The ten focused tests passed, including injected source replacement, stale snapshots, full byte preservation and validator refusal. Independent code review passed after the source-read race was repaired. Root independently ran real no-op and non-no-op CLI previews against CA-R-866 with the complete validator, checked the canonical digest and default timezone-bearing timestamp, and confirmed unchanged Tool/Core sources and apply refusal. Exact pins and limits are in [_projection/core-entity-review/stage2/task-1962.receipt.json](../../../_projection/core-entity-review/stage2/task-1962.receipt.json). Later migration still needs grammar resolution, exact approval and an admitted application route.
