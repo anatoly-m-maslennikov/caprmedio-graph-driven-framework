@@ -1,0 +1,28 @@
+{
+  "task": "CA-P-2038",
+  "recorded_at": "2026-10-11 02:44:53 +0400",
+  "result": "PASS: complete candidate review; unresolved mapping research retained",
+  "output": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-047.review.json",
+    "sha256": "00da3c6bf085e2f8673112b5e2159e58685c5695479b7455343ae295634410a4"
+  },
+  "input_batch": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-047.json",
+    "sha256": "b18e0b0d741c9989657aa95e969096a6e27b010cb4a17c13060f10e6b6c8d321"
+  },
+  "checks": {
+    "independent_structural_verifier": "PASS",
+    "sources": 12,
+    "occurrences": 119,
+    "proposed": 30,
+    "unchanged": 18,
+    "unresolved": 71,
+    "meaning_review": "Independent meaning review checked all proposals and high-risk unchanged rows. Seven Actor hierarchy errors were repaired to source-supported Actor Type allowed values with precise confirmed candidate pointers.",
+    "all_executable_false": true
+  },
+  "unresolved_work": "71 occurrence-level research rows remain in the pinned report and required CA-P-2045 integration; CA-P-1966 remains Active.",
+  "limits": [
+    "No original Atom, captured candidate, grammar, native or runtime change",
+    "Review completion is not migration approval"
+  ]
+}
