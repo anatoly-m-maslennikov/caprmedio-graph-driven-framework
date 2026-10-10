@@ -23,6 +23,7 @@ from release_actions import (  # noqa: E402
     execute_release_action,
 )
 from release_checkpoint import (  # noqa: E402
+    LEGACY_NATIVE_PORTABLE_RELEASE_ACTION_CHECKPOINT_SCHEMA,
     NATIVE_PORTABLE_RELEASE_ACTION_CHECKPOINT_SCHEMA,
     dump_release_checkpoint,
     release_action_checkpoint_sha256,
@@ -66,6 +67,17 @@ class PortableReleaseActionsTests(unittest.TestCase):
                 'authority_path = ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE"\n'
                 'delivery_path = "102_FRAMEWORK_ENGINE"\n'
             ).encode("utf-8"),
+        )
+        # The native v11 Run pins these Project-owned helpers before its first
+        # gate.  This focused portable fixture does not invoke O166/O169, so
+        # the minimal valid bytes are sufficient here.
+        self.fixture.write(
+            "PROJECT_TOOLS/RELEASE_VERSION/local_release.py",
+            b"FIXTURE_LOCAL_RELEASE = True\n",
+        )
+        self.fixture.write(
+            "PROJECT_TOOLS/RELEASE_VERSION/native_hooks.py",
+            b"def bind_local_release_core(module):\n    return None\n",
         )
         self.candidate, _private = self.fixture.sealed()
         manifest = self.candidate.manifest.model_dump(mode="json", by_alias=True)
@@ -140,6 +152,7 @@ class PortableReleaseActionsTests(unittest.TestCase):
             self.assertEqual(result.outcome, "completed")
 
         self.assertIsNotNone(self.run.methodology_export)
+        self.assertIsNotNone(self.run.local_helper_binding)
         self.assertIsNotNone(self.run.private_compilation)
         self.assertIsNotNone(self.run.portable_source_snapshot)
         self.assertIsInstance(self.run.portable_compilation, SealedPortableCandidateCompilation)
@@ -163,9 +176,22 @@ class PortableReleaseActionsTests(unittest.TestCase):
 
         checkpoint = dump_release_checkpoint(self.run)
         self.assertEqual(checkpoint["schema"], NATIVE_PORTABLE_RELEASE_ACTION_CHECKPOINT_SCHEMA)
+        self.assertEqual(
+            set(checkpoint["local_helper_binding"]),
+            {"native_hooks_sha256", "local_release_sha256"},
+        )
         restored = restore_release_action_checkpoint(canonical_json(checkpoint))
         self.assertEqual(restored.portable_compilation, self.run.portable_compilation)
         self.assertEqual(restored.portable_source_snapshot, self.run.portable_source_snapshot)
+        self.assertEqual(restored.local_helper_binding, self.run.local_helper_binding)
+
+        # The preceding portable schema remains documentary-only: it restores
+        # without a helper grant and therefore cannot drive O166/O169.
+        legacy = copy.deepcopy(checkpoint)
+        legacy["schema"] = LEGACY_NATIVE_PORTABLE_RELEASE_ACTION_CHECKPOINT_SCHEMA
+        del legacy["local_helper_binding"]
+        legacy["sha256"] = release_action_checkpoint_sha256(legacy)
+        self.assertIsNone(restore_release_action_checkpoint(canonical_json(legacy)).local_helper_binding)
 
         malformed = copy.deepcopy(checkpoint)
         malformed["state"]["unexpected"] = None

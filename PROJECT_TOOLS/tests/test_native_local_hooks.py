@@ -16,11 +16,22 @@ from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[2]
 MODULE_PATH = ROOT / "PROJECT_TOOLS/RELEASE_VERSION/native_hooks.py"
+CORE_PATH = ROOT / "PROJECT_TOOLS/RELEASE_VERSION/local_release.py"
 SPEC = importlib.util.spec_from_file_location("test_native_local_hooks_module", MODULE_PATH)
 assert SPEC is not None and SPEC.loader is not None
 hooks = importlib.util.module_from_spec(SPEC)
 sys.modules[SPEC.name] = hooks
 SPEC.loader.exec_module(hooks)
+
+# Production native hooks receive this sibling from the Release Run's
+# digest-bound loader.  This focused unit module supplies its own explicit
+# in-memory core; it must not exercise a production filesystem fallback.
+CORE_SPEC = importlib.util.spec_from_file_location("test_native_local_release_core", CORE_PATH)
+assert CORE_SPEC is not None and CORE_SPEC.loader is not None
+core = importlib.util.module_from_spec(CORE_SPEC)
+sys.modules[CORE_SPEC.name] = core
+CORE_SPEC.loader.exec_module(core)
+hooks.bind_local_release_core(core)
 
 
 class NativeLocalHooksExportTests(unittest.TestCase):

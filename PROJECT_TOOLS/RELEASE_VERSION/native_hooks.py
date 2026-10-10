@@ -9,7 +9,6 @@ create a second Run, Journal, or callback surface.
 from __future__ import annotations
 
 import hashlib
-import importlib.util
 import json
 import os
 import stat
@@ -17,10 +16,11 @@ import subprocess
 import sys
 from dataclasses import dataclass, field
 from pathlib import Path, PurePosixPath
+from types import ModuleType
 from typing import Any, Mapping
 
 
-_PROJECT_ROOT = Path(__file__).resolve().parents[2]
+_PROJECT_ROOT = Path(globals().get("__caprmedio_project_root__", Path(__file__).resolve().parents[2]))
 _ENGINE_RELEASE = _PROJECT_ROOT / "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/RELEASE_VERSION"
 _ENGINE_TOOLS = _ENGINE_RELEASE.parent
 for _path in (_ENGINE_RELEASE, _ENGINE_TOOLS):
@@ -37,21 +37,26 @@ from methodology_layout import MethodologyLayout, resolve_methodology_layout  # 
 _SOURCE_TOP_LEVEL = frozenset({"001_CORE_META_MODEL", "002_INSTALLED_EXTENSIONS", "003_PROJECT_CONFIGURATION"})
 
 
-def _local_release_module():
-    """Load the sibling Project runner without exposing a second CLI."""
+_BOUND_LOCAL_RELEASE_CORE: ModuleType | None = None
 
-    name = "_caprmedio_project_local_release_core"
-    existing = sys.modules.get(name)
-    if existing is not None:
-        return existing
-    path = Path(__file__).with_name("local_release.py")
-    spec = importlib.util.spec_from_file_location(name, path)
-    if spec is None or spec.loader is None:
-        raise ReleaseContractError("local-release-hooks-unavailable", "Project local-release core is unavailable")
-    module = importlib.util.module_from_spec(spec)
-    sys.modules[name] = module
-    spec.loader.exec_module(module)
-    return module
+
+def bind_local_release_core(module: ModuleType) -> None:
+    """Accept the sibling module that the selected Run already byte-bound."""
+
+    global _BOUND_LOCAL_RELEASE_CORE
+    if not isinstance(module, ModuleType):
+        raise ReleaseContractError("local-release-helper-unavailable", "frozen local-release core is not a module")
+    if _BOUND_LOCAL_RELEASE_CORE is not None and _BOUND_LOCAL_RELEASE_CORE is not module:
+        raise ReleaseContractError("local-release-helper-unavailable", "local-release hook cannot replace its frozen sibling")
+    _BOUND_LOCAL_RELEASE_CORE = module
+
+
+def _local_release_module() -> ModuleType:
+    """Return only the sibling module injected by the frozen Release Run."""
+
+    if _BOUND_LOCAL_RELEASE_CORE is None:
+        raise ReleaseContractError("local-release-helper-unbound", "local-release core was not frozen with this selected Run")
+    return _BOUND_LOCAL_RELEASE_CORE
 
 
 def _safe_relative(value: object, *, label: str) -> PurePosixPath:

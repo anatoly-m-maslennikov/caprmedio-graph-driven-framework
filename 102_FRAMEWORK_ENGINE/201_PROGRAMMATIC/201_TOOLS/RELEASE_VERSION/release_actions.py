@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import hashlib
 import importlib.util
+import stat
 import sys
 from collections.abc import Callable
 from dataclasses import dataclass, field
@@ -108,6 +109,19 @@ class AdmittedImageExecutor:
 
 
 @dataclass(frozen=True)
+class LocalReleaseHelperBinding:
+    """Exact Project-local helper bytes captured before the candidate gate.
+
+    These helpers deliberately remain Project-owned rather than package
+    members.  The private Run therefore retains their two immutable digests
+    and only executes the bytes that match them at the destructive boundary.
+    """
+
+    native_hooks_sha256: str
+    local_release_sha256: str
+
+
+@dataclass(frozen=True)
 class ReleasePhaseResult:
     workflow_run_id: str
     step_run_id: str
@@ -173,6 +187,7 @@ class ReleaseActionRun:
     full_gate: FullGateEvidence | None = None
     promotion: PromotionEvidence | NativePromotionEvidence | None = None
     retirement: ImageRetirementEvidence | None = None
+    local_helper_binding: LocalReleaseHelperBinding | None = None
     # The caller supplies the one shared durable checkpoint writer.  This
     # private adapter never opens a carrier or creates a second record; the
     # callback is runtime-only and the closed checkpoint codec excludes it.
@@ -341,27 +356,120 @@ def _native_candidate_root(run: ReleaseActionRun) -> Path:
     return Path(run.project_root) / ".caprmedio_tmp" / "release_candidates" / run_id
 
 
+_LOCAL_RELEASE_HELPER_DIRECTORY = ("PROJECT_TOOLS", "RELEASE_VERSION")
+_LOCAL_RELEASE_HELPER_NAMES = ("native_hooks.py", "local_release.py")
+
+
+def _read_local_release_helper(root: Path, name: str) -> tuple[Path, bytes]:
+    """Read one fixed helper only through regular, non-symlink ancestors."""
+
+    if name not in _LOCAL_RELEASE_HELPER_NAMES:
+        raise ReleaseContractError("local-release-helper-invalid", "local helper name is outside the fixed release boundary")
+    current = root
+    for part in (*_LOCAL_RELEASE_HELPER_DIRECTORY, name):
+        current /= part
+        try:
+            mode = current.lstat().st_mode
+        except OSError as error:
+            raise ReleaseContractError("local-release-helper-unavailable", "Project local-release helper is unavailable") from error
+        expected_directory = part != name
+        if stat.S_ISLNK(mode) or (expected_directory and not stat.S_ISDIR(mode)) or (not expected_directory and not stat.S_ISREG(mode)):
+            raise ReleaseContractError("local-release-helper-unavailable", "Project local-release helper path is unsafe")
+    try:
+        return current, current.read_bytes()
+    except OSError as error:
+        raise ReleaseContractError("local-release-helper-unavailable", "Project local-release helper cannot be read") from error
+
+
+def _freeze_local_release_helper_binding(root: Path) -> LocalReleaseHelperBinding:
+    """Observe the exact two Project helpers before any selected v11 gate."""
+
+    _hooks, hooks_bytes = _read_local_release_helper(root, "native_hooks.py")
+    _core, core_bytes = _read_local_release_helper(root, "local_release.py")
+    return LocalReleaseHelperBinding(
+        native_hooks_sha256=hashlib.sha256(hooks_bytes).hexdigest(),
+        local_release_sha256=hashlib.sha256(core_bytes).hexdigest(),
+    )
+
+
+def _bound_local_release_helper_bytes(root: Path, binding: LocalReleaseHelperBinding) -> tuple[Path, bytes, Path, bytes]:
+    """Reopen the frozen helpers and refuse any drift before their execution."""
+
+    if type(binding) is not LocalReleaseHelperBinding:
+        raise ReleaseContractError("local-release-helper-unbound", "destructive local release requires a frozen helper binding")
+    if any(not isinstance(value, str) or SHA256.fullmatch(value) is None for value in (
+        binding.native_hooks_sha256, binding.local_release_sha256,
+    )):
+        raise ReleaseContractError("local-release-helper-binding-invalid", "frozen local helper digests are malformed")
+    hooks_path, hooks_bytes = _read_local_release_helper(root, "native_hooks.py")
+    core_path, core_bytes = _read_local_release_helper(root, "local_release.py")
+    if (hashlib.sha256(hooks_bytes).hexdigest() != binding.native_hooks_sha256
+            or hashlib.sha256(core_bytes).hexdigest() != binding.local_release_sha256):
+        raise ReleaseContractError("local-release-helper-stale", "Project local-release helper changed after the frozen candidate boundary")
+    return hooks_path, hooks_bytes, core_path, core_bytes
+
+
+def _load_bound_local_release_helpers(root: Path, binding: LocalReleaseHelperBinding):
+    """Execute only the pre-read, digest-bound Project helper bytes.
+
+    ``native_hooks`` receives its sibling module explicitly.  This avoids its
+    former later filesystem import, which could otherwise substitute mutable
+    Project code after the Full Gate.
+    """
+
+    hooks_path, hooks_bytes, core_path, core_bytes = _bound_local_release_helper_bytes(root, binding)
+    key = hashlib.sha256(canonical_json({
+        "root": str(root),
+        "native_hooks_sha256": binding.native_hooks_sha256,
+        "local_release_sha256": binding.local_release_sha256,
+    })).hexdigest()
+    core_name = f"_caprmedio_selected_local_release_core_{key}"
+    hooks_name = f"_caprmedio_selected_local_release_hooks_{key}"
+
+    core = sys.modules.get(core_name)
+    if core is None:
+        core = importlib.util.module_from_spec(importlib.util.spec_from_loader(core_name, loader=None))
+        core.__file__ = str(core_path)
+        sys.modules[core_name] = core
+        try:
+            exec(compile(core_bytes, str(core_path), "exec"), core.__dict__)
+        except BaseException:
+            if sys.modules.get(core_name) is core:
+                sys.modules.pop(core_name, None)
+            raise
+    hooks = sys.modules.get(hooks_name)
+    if hooks is None:
+        hooks = importlib.util.module_from_spec(importlib.util.spec_from_loader(hooks_name, loader=None))
+        hooks.__file__ = str(hooks_path)
+        hooks.__caprmedio_project_root__ = str(root)
+        sys.modules[hooks_name] = hooks
+        try:
+            exec(compile(hooks_bytes, str(hooks_path), "exec"), hooks.__dict__)
+        except BaseException:
+            if sys.modules.get(hooks_name) is hooks:
+                sys.modules.pop(hooks_name, None)
+            raise
+    binder = getattr(hooks, "bind_local_release_core", None)
+    if not callable(binder):
+        raise ReleaseContractError("local-release-helper-unavailable", "Project local-release hook cannot bind its frozen sibling")
+    try:
+        binder(core)
+    except BaseException:
+        if sys.modules.get(hooks_name) is hooks:
+            sys.modules.pop(hooks_name, None)
+        raise
+    return hooks
+
+
 def _selected_local_bindings(run: ReleaseActionRun):
     """Load the Project-owned local transition factory at its fixed boundary."""
 
-    path = Path(run.project_root) / "PROJECT_TOOLS" / "RELEASE_VERSION" / "native_hooks.py"
-    if path.is_symlink() or not path.is_file():
-        raise ReleaseContractError("local-release-hooks-unavailable", "Project local-release bindings are unavailable")
-    name = "_caprmedio_selected_local_release_hooks_" + hashlib.sha256(
-        str(Path(run.project_root).resolve(strict=True)).encode("utf-8")
-    ).hexdigest()
-    module = sys.modules.get(name)
-    if module is None:
-        spec = importlib.util.spec_from_file_location(name, path)
-        if spec is None or spec.loader is None:
-            raise ReleaseContractError("local-release-hooks-unavailable", "Project local-release bindings cannot be loaded")
-        module = importlib.util.module_from_spec(spec)
-        sys.modules[name] = module
-        spec.loader.exec_module(module)
+    root = Path(run.project_root).resolve(strict=True)
+    module = _load_bound_local_release_helpers(root, run.local_helper_binding)
     factory = getattr(module, "create_selected_local_bindings", None)
     if not callable(factory):
         raise ReleaseContractError("local-release-hooks-unavailable", "Project local-release bindings expose no selected factory")
-    return factory(Path(run.project_root), run=run, context=run.in_progress)
+    return factory(root, run=run, context=run.in_progress)
 
 
 def _invoke_native_portable(phase: str, run: ReleaseActionRun, candidate: ValidatedCandidate) -> tuple:
@@ -792,6 +900,20 @@ def execute_release_action(request: ReleaseVersionRequest | Mapping[str, Any], *
             _executor(run)
         except ReleaseContractError as error:
             result = _result(run, context, phase, "blocked", f"phase stopped: {error.code}")
+            run.contexts[index], run.results[index], run.stopped = context, result, True
+            return result
+    if phase == "freeze" and context.workflow_version == _NATIVE_PORTABLE_WORKFLOW_VERSION:
+        try:
+            observed_binding = _freeze_local_release_helper_binding(Path(run.project_root).resolve(strict=True))
+            if run.local_helper_binding is None:
+                run.local_helper_binding = observed_binding
+            elif run.local_helper_binding != observed_binding:
+                raise ReleaseContractError(
+                    "local-release-helper-stale",
+                    "Project local-release helper differs from the retained frozen helper binding",
+                )
+        except (OSError, ValueError, RuntimeError) as error:
+            result = _result(run, context, phase, "blocked", f"phase stopped: {getattr(error, 'code', type(error).__name__)}")
             run.contexts[index], run.results[index], run.stopped = context, result, True
             return result
     run.contexts[index], run.in_progress = context, context

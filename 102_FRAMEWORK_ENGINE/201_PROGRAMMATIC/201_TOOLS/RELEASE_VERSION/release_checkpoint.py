@@ -22,6 +22,7 @@ from typing import Any, Mapping, TypeVar
 from release_actions import (
     PHASES,
     AdmittedImageExecutor,
+    LocalReleaseHelperBinding,
     ReleaseActionRun,
     ReleasePhaseResult,
     SelectedReleaseActionContext,
@@ -74,7 +75,8 @@ from release_version import ReleaseVersionRequest
 
 
 RELEASE_ACTION_CHECKPOINT_SCHEMA = "caprmedio.release_version.action_run_checkpoint.v1"
-NATIVE_PORTABLE_RELEASE_ACTION_CHECKPOINT_SCHEMA = "caprmedio.release_version.action_run_checkpoint.v2-portable"
+LEGACY_NATIVE_PORTABLE_RELEASE_ACTION_CHECKPOINT_SCHEMA = "caprmedio.release_version.action_run_checkpoint.v2-portable"
+NATIVE_PORTABLE_RELEASE_ACTION_CHECKPOINT_SCHEMA = "caprmedio.release_version.action_run_checkpoint.v3-portable"
 _TAGGED_TYPES = {
     "candidate": ValidatedCandidate,
     "preflight": ReleaseCompilationPreflight,
@@ -125,6 +127,10 @@ _NATIVE_PHASE_STATE = {
     "aggregate_full_gate": "full_gate",
     "promote": "promotion",
     "retire": "retirement",
+}
+_NATIVE_CHECKPOINT_FIELDS = {
+    "schema", "kind", "sha256", "project_root", "workflow_run_id", "frozen_parameters_sha256", "request",
+    "next_phase", "stopped", "in_progress", "contexts", "results", "shared_recordings", "pending_recordings", "state",
 }
 _SHA256_HEX = frozenset("0123456789abcdef")
 _PENDING_EVENT_OUTCOMES = frozenset({"completed", "no_op", "failed", "cancelled", "partial", "interrupted_pending"})
@@ -183,6 +189,39 @@ def _sha256(value: Any, label: str) -> str:
     if len(value) != 64 or any(character not in _SHA256_HEX for character in value):
         raise _error("release-checkpoint-invalid", f"{label} must be one lowercase SHA-256 digest")
     return value
+
+
+def _local_helper_binding_value(value: LocalReleaseHelperBinding | None) -> dict[str, str]:
+    """Encode the two Project-local helper digests for the current Run only."""
+
+    if type(value) is not LocalReleaseHelperBinding:
+        raise _error("release-checkpoint-binding-mismatch", "current native checkpoint lacks its frozen local helper binding")
+    return {
+        "native_hooks_sha256": _sha256(value.native_hooks_sha256, "local_helper_binding.native_hooks_sha256"),
+        "local_release_sha256": _sha256(value.local_release_sha256, "local_helper_binding.local_release_sha256"),
+    }
+
+
+def _load_local_helper_binding(value: Any) -> LocalReleaseHelperBinding:
+    payload = _mapping(value, {"native_hooks_sha256", "local_release_sha256"}, "local_helper_binding")
+    return LocalReleaseHelperBinding(
+        native_hooks_sha256=_sha256(payload["native_hooks_sha256"], "local_helper_binding.native_hooks_sha256"),
+        local_release_sha256=_sha256(payload["local_release_sha256"], "local_helper_binding.local_release_sha256"),
+    )
+
+
+def _native_checkpoint_envelope(value: Any, label: str) -> tuple[dict[str, Any], LocalReleaseHelperBinding | None]:
+    """Read v3 helper-bound checkpoints and retain v2 as documentary-only."""
+
+    if not isinstance(value, dict):
+        raise _error("release-checkpoint-invalid", f"{label} must be an object")
+    schema = value.get("schema")
+    if schema == NATIVE_PORTABLE_RELEASE_ACTION_CHECKPOINT_SCHEMA:
+        source = _mapping(value, _NATIVE_CHECKPOINT_FIELDS | {"local_helper_binding"}, label)
+        return source, _load_local_helper_binding(source["local_helper_binding"])
+    if schema == LEGACY_NATIVE_PORTABLE_RELEASE_ACTION_CHECKPOINT_SCHEMA:
+        return _mapping(value, _NATIVE_CHECKPOINT_FIELDS, label), None
+    raise _error("release-checkpoint-schema-unsupported", "native checkpoint schema or kind is not supported")
 
 
 def _index(value: Any, label: str) -> int:
@@ -687,13 +726,10 @@ def read_native_checkpoint_packet(payload: Mapping[str, Any], *, project_root: s
     from release_retained_candidate import encode_retained_candidate_descriptor, read_retained_candidate_identity
     from retained_full_gate_packet import RetainedNativeFullGatePacket
 
-    source = _mapping(dict(payload), {
-        "schema", "kind", "sha256", "project_root", "workflow_run_id", "frozen_parameters_sha256", "request",
-        "next_phase", "stopped", "in_progress", "contexts", "results", "shared_recordings", "pending_recordings", "state",
-    }, "native historical checkpoint")
+    source, _helper_binding = _native_checkpoint_envelope(dict(payload), "native historical checkpoint")
     request = _load_model(source["request"], ReleaseVersionRequest, "native historical request")
     expected = ReleaseVersionRequest.model_validate(expected_request)
-    if (source["schema"] != NATIVE_PORTABLE_RELEASE_ACTION_CHECKPOINT_SCHEMA or source["kind"] != "release_action_run"
+    if (source["schema"] not in {NATIVE_PORTABLE_RELEASE_ACTION_CHECKPOINT_SCHEMA, LEGACY_NATIVE_PORTABLE_RELEASE_ACTION_CHECKPOINT_SCHEMA} or source["kind"] != "release_action_run"
             or source["sha256"] != release_action_checkpoint_sha256(source)
             or source["project_root"] != project_root or request.project_root != project_root
             or source["workflow_run_id"] != expected_workflow_run_id
@@ -2217,6 +2253,7 @@ def _encode_native_release_action_checkpoint(
         "shared_recordings": recording_payload,
         "pending_recordings": pending_payload,
         "state": state,
+        "local_helper_binding": _local_helper_binding_value(run.local_helper_binding),
     }
     if type(run.stopped) is not bool:
         raise _error("release-checkpoint-invalid", "native stopped must be a boolean")
@@ -2378,11 +2415,8 @@ def _restore_native_release_action_checkpoint(
 ) -> tuple[ReleaseActionRun, dict[int, dict[str, Any]], dict[int, dict[str, str]]]:
     """Restore the closed current O164@11 portable frontier without coercion."""
 
-    source = _mapping(dict(payload), {
-        "schema", "kind", "sha256", "project_root", "workflow_run_id", "frozen_parameters_sha256", "request",
-        "next_phase", "stopped", "in_progress", "contexts", "results", "shared_recordings", "pending_recordings", "state",
-    }, "native checkpoint")
-    if source["schema"] != NATIVE_PORTABLE_RELEASE_ACTION_CHECKPOINT_SCHEMA or source["kind"] != "release_action_run":
+    source, helper_binding = _native_checkpoint_envelope(dict(payload), "native checkpoint")
+    if source["schema"] not in {NATIVE_PORTABLE_RELEASE_ACTION_CHECKPOINT_SCHEMA, LEGACY_NATIVE_PORTABLE_RELEASE_ACTION_CHECKPOINT_SCHEMA} or source["kind"] != "release_action_run":
         raise _error("release-checkpoint-schema-unsupported", "native checkpoint schema or kind is not supported")
     if _sha256(source["sha256"], "sha256") != release_action_checkpoint_sha256(source):
         raise _error("release-checkpoint-digest-mismatch", "native checkpoint content digest does not match its canonical bytes")
@@ -2453,6 +2487,7 @@ def _restore_native_release_action_checkpoint(
         in_progress=in_progress,
         contexts=contexts,
         results=results,
+        local_helper_binding=helper_binding,
         **state,
     ), shared_recordings, pending_recordings
 
@@ -2463,7 +2498,7 @@ def _restore_release_action_checkpoint(
     """Restore exact private state; an executor is deliberately reinjected externally."""
 
     decoded = _canonical_input(checkpoint)
-    if decoded.get("schema") == NATIVE_PORTABLE_RELEASE_ACTION_CHECKPOINT_SCHEMA:
+    if decoded.get("schema") in {NATIVE_PORTABLE_RELEASE_ACTION_CHECKPOINT_SCHEMA, LEGACY_NATIVE_PORTABLE_RELEASE_ACTION_CHECKPOINT_SCHEMA}:
         return _restore_native_release_action_checkpoint(decoded, image_executor=image_executor)
     payload = _mapping(decoded, {
         "schema", "kind", "sha256", "project_root", "workflow_run_id", "frozen_parameters_sha256", "request",

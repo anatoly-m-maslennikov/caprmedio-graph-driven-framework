@@ -37,5 +37,6 @@ Failures stop and report the actual failed step for manual handling.
 UV_PROJECT_ENVIRONMENT=.caprmedio_runtime/launcher-venv uv run --locked --no-sync --no-env-file --group rmed-workflow-mcp --group workflow-orchestrator python -B -m unittest discover -s PROJECT_TOOLS/tests
 ```
 
-These tests use temporary fixtures and mocked integrations; they are not a
-real release gate and do not publish, install or start the current Project.
+These tests use temporary fixtures, real scoped Git checkpoints and mocked
+external integrations. They are not a real release gate and do not publish,
+install or start the current Project.
