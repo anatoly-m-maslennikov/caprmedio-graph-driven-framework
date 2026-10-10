@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 3
-updated_at: "2026-10-10 23:34:31 +0400"
+version: 4
+updated_at: "2026-10-10 23:51:04 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1963]
@@ -32,9 +32,9 @@ Preview explicit Subject replacements with stale-source checks and exact preserv
 
 Estimated own work: 15 minutes. Assignee: AI Agent. Required prerequisite: CA-P-1960.
 
-Extend the existing migration preview instead of using whole-frontmatter replacement. Inputs identify the current source hash, Atom ID/Version, field/index, exact old value and explicit new value. Do not infer replacements from candidate display paths or prose. A move between governs and depends_on must be an explicit paired operation, never a guessed consequence.
+Add a small Subject-only preview mode to the existing Atom update surface for already-correct files. Inputs identify the current source hash, Atom ID/Version, field/index, exact old value and explicit new value. Do not use whole-frontmatter replacement, infer mappings or repair legacy files. Migration decisions and application remain in a later ad-hoc script, not this reusable Tool.
 
-Validate the selected grammar profile, source spans and complete before/after Subjects shape. Preserve body and unrelated frontmatter bytes, including formatting and line endings. Preview the current Version +1 and new updated_at; include archive/history and Journal effects for the later approved execution. Seal the exact patch set and its before/after pins with a canonical hash.
+Validate the admitted flat Subjects shape, exact source spans and complete resulting file. Preserve body and unrelated frontmatter bytes, including formatting and line endings. Preview the current Version +1 and illustrative updated_at. Return the exact patch set, before/after pins and a canonical preview digest. Do not execute or fabricate archive/history/Journal effects; the later ad-hoc migration packet specifies them separately.
 
 Check ID preservation and exact old Version +1. Bind actual effect-time updated_at using only the sealed metadata materialization rule; mark dry-run timestamps illustrative. Record both the sealed template and actual materialized after hash. All non-Subjects bytes remain unchanged except the specifically admitted Version/updated_at effects; history/Journal effects are separate named effects, not unspecified frontmatter changes.
 

@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 3
-updated_at: "2026-10-10 23:34:31 +0400"
+version: 4
+updated_at: "2026-10-10 23:51:04 +0400"
 relations: {}
 ---
 # Summary
@@ -46,6 +46,10 @@ The Operator added CA-P-1978 as the first Task: review and update the Tools' Req
 - The seven candidate roots are Artifact, Scope Unit, Actor, Relation, Revision, Carrier and Execution. Dependent Entities belong to their owner lifecycle. Candidate display paths, temporal display groups and pseudocode are not automatically native grammar.
 - Keep the captured review frozen at commit `a971d0e00c33c779f485fc8cad63194894d440fb`. The [candidate](../_projection/core-entity-review/presentation/operator.entity-graph.candidate.json) and [consolidated review](../_projection/core-entity-review/consolidated/contract.md) guide decisions; they do not replace live source pins. Their 442 display proposals are not executable replacements, and 149 follow-ups must not be guessed or hidden.
 - Latest Operator input wins. Use the existing 90% threshold: investigate missing evidence; ask only when a concrete unresolved decision remains below it.
+
+### Simple execution boundary
+
+Reusable Tools operate correct files only: structural Subject lookup and exact pinned Subject-only preview/update. Repair broken carriers and migrate notation with small ad-hoc scripts. Do not build a reusable repair/migration framework. This latest Operator direction narrows the older Tool work below; it does not waive source pins, exact approval or the existing live-write guard. Commit after each completed Task.
 
 ### Tool audit and safe cutover
 

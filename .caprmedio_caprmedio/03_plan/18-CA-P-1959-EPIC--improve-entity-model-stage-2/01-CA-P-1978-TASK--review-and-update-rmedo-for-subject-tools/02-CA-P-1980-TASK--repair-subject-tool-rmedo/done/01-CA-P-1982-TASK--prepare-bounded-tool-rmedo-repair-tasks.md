@@ -10,14 +10,15 @@ local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
-status: Active
+status: Done
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Requirement, Method, Evaluation, Delivery, Operations, Plan, Operator]
-version: 1
-updated_at: "2026-10-10 23:34:31 +0400"
+version: 2
+updated_at: "2026-10-10 23:51:04 +0400"
 relations:
   is_decomposition_of: [CA-P-1980]
+  blocks: [CA-P-1983, CA-P-1984, CA-P-1985, CA-P-1986, CA-P-1987]
 ---
 # Summary
 
@@ -38,6 +39,10 @@ Preserve existing Atoms where a governed revision suffices; classify any new ide
 Output: the bounded child Plans and one complete coverage/ownership map. This preparation does not edit Tool RMEDO and cannot complete CA-P-1980 by itself.
 
 Inherit CA-P-1959's confidence, preservation and execution boundaries. Creating this Plan records work; it does not execute or complete it.
+
+### Local execution receipt
+
+Prepared CA-P-1983–1987 with exclusive files, pinned inputs, outputs and checks. CA-P-1983 restores seven legacy Tool carriers with a small ad-hoc script; then four independent lanes cover R/M, E, D and O. Existing generic contracts and their apply guard remain. New Method IDs CA-M-370 and CA-M-371 are reserved for this packet. Each leaf has at most 15 minutes of own work. Root owns cross-role integration and Git; CA-P-1981 independently accepts the actual revised packet. Preparation did not modify Tool authority and does not complete CA-P-1980.
 
 ### Definition of Done
 
