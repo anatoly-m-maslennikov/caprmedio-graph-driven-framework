@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Projection
   depends_on: [Entity, Term, Atom, Property, Carrier, Plan]
-version: 11
-updated_at: "2026-10-10 04:42:00 +0400"
+version: 12
+updated_at: "2026-10-10 04:44:00 +0400"
 relations:
   is_decomposition_of: [CA-P-1872]
   blocks: [CA-P-1908]
@@ -75,7 +75,7 @@ Latest content direction: use Substance as the shared primary-content name, with
 
 Independent preparation found false missing-meaning questions in captured batches 1, 4, 5 and 8. These bounded repairs must be Done before CA-P-1937 starts. Prior Done receipts are not retroactively rewritten.
 
-- [CA-P-1952](23-CA-P-1907-TASK--mark-entity-drop-and-consolidation-candidates-without-deleting/12-CA-P-1952-TASK--repair-qualified-atom-and-artifact-node-review.md): Repair qualified Atom and Artifact node review; 15 minutes. Explicitly BLOCKS CA-P-1937.
+- [CA-P-1952](23-CA-P-1907-TASK--mark-entity-drop-and-consolidation-candidates-without-deleting/done/12-CA-P-1952-TASK--repair-qualified-atom-and-artifact-node-review.md): Repair qualified Atom and Artifact node review; 15 minutes. Explicitly BLOCKS CA-P-1937.
 - [CA-P-1953](23-CA-P-1907-TASK--mark-entity-drop-and-consolidation-candidates-without-deleting/done/13-CA-P-1953-TASK--repair-qualified-carrier-and-settings-node-review.md): Repair qualified Carrier and settings node review; 15 minutes. Explicitly BLOCKS CA-P-1937.
 - [CA-P-1954](23-CA-P-1907-TASK--mark-entity-drop-and-consolidation-candidates-without-deleting/done/14-CA-P-1954-TASK--repair-qualified-subject-and-workflow-node-review.md): Repair qualified Subject and Workflow node review; 15 minutes. Explicitly BLOCKS CA-P-1937.
 

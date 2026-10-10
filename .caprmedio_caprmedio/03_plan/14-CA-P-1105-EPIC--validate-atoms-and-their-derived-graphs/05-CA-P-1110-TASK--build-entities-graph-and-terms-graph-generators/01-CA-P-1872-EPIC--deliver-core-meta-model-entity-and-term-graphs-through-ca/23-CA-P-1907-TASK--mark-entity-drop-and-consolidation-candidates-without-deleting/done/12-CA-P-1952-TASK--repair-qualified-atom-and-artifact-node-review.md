@@ -10,12 +10,12 @@ local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
-status: Active
+status: Done
 subjects:
   governs: Projection
   depends_on: [Entity, Atom, Carrier, Plan]
-version: 1
-updated_at: "2026-10-10 04:24:00 +0400"
+version: 2
+updated_at: "2026-10-10 04:44:00 +0400"
 relations:
   is_decomposition_of: [CA-P-1907]
   blocks: [CA-P-1937]
@@ -41,6 +41,12 @@ Known false-gap examples: Atom/Carrier (CA-D-505@1 Main Claim and Details), AI A
 Own only `nodes/nodes.batch-1.review.json` and a temporary repair helper under `.caprmedio_tmp/planning/core-entity-review/nodes/`. Preserve all original identities, input pins and unaffected rows. Add exact captured Main Content spans, truthful checked/unassessed source coverage, and target-specific reasons for all five checks in each corrected row. Correct captured-versus-current narration outside raw quotations. Record repair provenance and the prior review SHA; Git preserves the original receipt. Do not modify the completed original Plan.
 
 Root owns Plans, Git and integration. You are not alone; preserve other edits. No Core, Subject, baseline, runtime, implementation, MCP or FPF writes. Use uv only. Below 90% confidence, retain a specific unresolved question. If this bounded repair cannot finish in 15 minutes, return a checkpoint for decomposition before further execution. No deletion, adoption or native fact admission.
+
+### Completion receipt
+
+Final review: nodes/nodes.batch-1.review.json; SHA-256: b7b0fa9619f189a7b6158bac1ffc78c9de8955b72721d92ff1f2e9b0d18b936a.
+
+Captured-only repair verified: 80 identities, 79 bounded retains, one Analysis target-identification question, 116 exact nonempty spans and 97 assessed captured source pins. Independent read-only audit by definition_implementation passed all 62 promotions and their five substantive checks, preserving Carrier/bearer, role/status/value-domain and Action/Run-record distinctions. Assessed and unassessed candidate-source references are explicit; positive meaning rests only on checked evidence. No native admission, Core/Subject change or live-Core validation was performed. Original batch receipt remains historical.
 
 ### Definition of Done
 
