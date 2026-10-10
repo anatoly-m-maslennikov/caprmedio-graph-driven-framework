@@ -6,7 +6,6 @@ import hashlib
 import json
 import shutil
 import sys
-import tomllib
 import unittest
 from pathlib import Path
 from unittest.mock import patch
@@ -24,10 +23,17 @@ from release_actions import PHASES, SelectedReleaseActionContext, begin_release_
 from release_checkpoint import dump_release_checkpoint, release_action_checkpoint_sha256  # noqa: E402
 from release_contract import ReleaseContractError  # noqa: E402
 from release_delivery import ReleaseDeliveryError, deliver_release_sources  # noqa: E402
-from release_handoff import DERIVED_SOURCE_COPY_RELATIVE, PackageRow, SealedSourceCopy, build_validated_candidate  # noqa: E402
+from release_handoff import DERIVED_SOURCE_COPY_RELATIVE, SealedSourceCopy, build_validated_candidate  # noqa: E402
 from release_inventory import _is_ephemeral_directory, _is_ephemeral_file, refuse_secret_path  # noqa: E402
 from release_packaging import stage_framework_package  # noqa: E402
-from bootstrap_image import _source_context  # noqa: E402
+from bootstrap_image import produce_initial_framework_image  # noqa: E402
+from framework_initialization import (  # noqa: E402
+    PACKAGE_IMAGE_LABEL,
+    SOURCE_CONTEXT_IMAGE_LABEL,
+    initialize_framework_runtime,
+    plan_initial_framework_installation,
+)
+from release_image import DockerCommandResult, DockerSubprocessExecutor  # noqa: E402
 from work_journal import with_event_digest  # noqa: E402
 import test_release_compilation as compilation_test  # noqa: E402
 import release_delivery  # noqa: E402
@@ -40,16 +46,76 @@ def records(folder: Path) -> dict[str, tuple[bool, bytes, int]]:
             for path in (folder, *sorted(folder.rglob("*")))}
 
 
+_BOOTSTRAP_IMAGE_ID = "sha256:" + "a" * 64
+
+
+class _BootstrapJournal:
+    """Minimal canonical Journal surface used by the real first-N producer."""
+
+    def begin_action(self, **_kwargs):
+        return {"run_id": "bootstrap-run", "disposition": "started"}
+
+    def record_effects(self, *_args, **_kwargs):
+        return None
+
+    def finish_action(self, run_id, *, outcome, result_ref, effect_refs, report_ref=None):
+        return {"run_id": run_id, "outcome": outcome, "disposition": "terminal"}
+
+
+class _BootstrapImage:
+    """Exercise DockerSubprocessExecutor's sealed image protocol locally."""
+
+    def __init__(self, manifest_sha256: str, source_context_sha256: str) -> None:
+        self.labels = {
+            PACKAGE_IMAGE_LABEL: manifest_sha256,
+            SOURCE_CONTEXT_IMAGE_LABEL: source_context_sha256,
+        }
+
+    def run(self, argv, *, cwd, timeout_seconds):
+        del cwd, timeout_seconds
+        if argv[1] == "build":
+            self.labels = {}
+            for index, value in enumerate(argv):
+                if value == "--label":
+                    key, label = argv[index + 1].split("=", 1)
+                    self.labels[key] = label
+            Path(argv[argv.index("--iidfile") + 1]).write_text(_BOOTSTRAP_IMAGE_ID + "\n", encoding="utf-8")
+            self.canary = json.loads((Path(argv[-1]) / "bootstrap-canary.json").read_bytes())
+            return DockerCommandResult(0, b"build\n", b"")
+        if argv[1] == "run":
+            return DockerCommandResult(0, json.dumps({
+                "schema": "caprmedio.bootstrap_image_canary.v1",
+                "manifest_sha256": self.canary["manifest_sha256"],
+                "source_context_sha256": self.canary["source_context_sha256"],
+                "verified_files": len(self.canary["package_rows"]),
+                "mcp_tools": ["get_mcp_reload_status"],
+            }).encode(), b"")
+        return DockerCommandResult(0, json.dumps([{"Id": _BOOTSTRAP_IMAGE_ID, "Config": {
+            "Labels": self.labels,
+        }}]).encode(), b"")
+
+
 class ReleaseDeliveryTests(unittest.TestCase):
     def setUp(self) -> None:
+        self._fresh_fixture(include_project_skill=True)
+
+    def _fresh_fixture(self, *, include_project_skill: bool, first_install: bool = False) -> None:
+        """Make one independent fixture so bootstrap subtests cannot advance it."""
+
         self.fixture = compilation_test.ReleaseCompilationTests("run")
         self.fixture.setUp()
         self.addCleanup(self.fixture.doCleanups)
         self.root = self.fixture.root
+        if first_install:
+            # The generic release fixture names an already-selected N.  A
+            # genuine initial installation must instead publish this selector
+            # itself after its package and project Skill are complete.
+            (self.root / ".caprmedio_runtime/framework/current.toml").unlink()
         self.target = self.root / DERIVED_SOURCE_COPY_RELATIVE
         self.fixture.write(".caprmedio_caprmedio/_projection/APPLICABLE_METHODOLOGY/existing.md", b"protected projection\n")
         self.fixture.write(".caprmedio_runtime/journal/prior.jsonl", b'{"prior":"N"}\n')
-        self.fixture.write(".agents/skills/ca/SKILL.md", b"prior skill\n")
+        if include_project_skill:
+            self.fixture.write(".agents/skills/ca/SKILL.md", b"prior skill\n")
         self.fixture.write(f"{self.fixture.source.relative_to(self.root)}/001_CORE_META_MODEL/04_requirement/payload/run.sh", b"#!/bin/sh\ntrue\n", 0o755)
         (self.fixture.source / "001_CORE_META_MODEL/04_requirement/empty/private").mkdir(parents=True)
         (self.fixture.source / "001_CORE_META_MODEL/04_requirement/empty/private").chmod(0o700)
@@ -73,48 +139,36 @@ class ReleaseDeliveryTests(unittest.TestCase):
         return next_preflight, next_candidate, before, release_root, retained_before
 
     def bootstrap_owned_predecessor(self):
-        """Materialize the installed first-N selector/package shape exactly."""
+        """Produce exact first-N carriers, then test its N+1 predecessor read."""
 
-        preflight, initial = self.fixture.build()
+        # A first install must begin with no active project-local Skill.  Use
+        # a new fixture every time: this helper advances source/version to
+        # N+2, which otherwise cascades through subsequent subtests.
+        self._fresh_fixture(include_project_skill=False, first_install=True)
+        plan = plan_initial_framework_installation(self.root)
+        image = _BootstrapImage(plan.manifest_sha256, plan.source_context_sha256)
+        executor = DockerSubprocessExecutor()
+        with patch.object(DockerSubprocessExecutor, "run", side_effect=image.run):
+            evidence = produce_initial_framework_image(plan, executor=executor)
+            self.assertEqual(evidence.outcome, "verified")
+            self.assertEqual(evidence.execution_kind, "docker-subprocess")
+            installed = initialize_framework_runtime(
+                self.root,
+                journal=_BootstrapJournal(),
+                requested_run_id="bootstrap-release-delivery",
+                image_digest=_BOOTSTRAP_IMAGE_ID,
+                image_executor=executor,
+            )
+        self.assertEqual(installed["state"], "installed")
+        self.assertEqual(installed["release"], plan.release)
+        bootstrap = self.root / installed["release_root"]
+        self.assertEqual(bootstrap.name, plan.release)
+
+        # The source-delivery precursor is real and unpromoted: it proves the
+        # exact source root that the next candidate will replace, while the
+        # selected package remains the producer's first-N package above.
+        _preflight, initial = self.fixture.build()
         deliver_release_sources(initial)
-        staged = stage_framework_package(self.root, render_release_candidate(initial, preflight))
-        original = self.root / staged["release_root"]
-        manifest = tomllib.loads((original / "manifest.toml").read_text(encoding="utf-8"))
-        rows = tuple(PackageRow.model_validate({
-            "resource": row["resource"],
-            "source_path": row["source_path"],
-            "destination_path": row["destination"],
-            "sha256": row["sha256"],
-            "mode": row["mode"],
-        }) for row in manifest["files"])
-        source_context = _source_context(rows)
-        bootstrap_manifest = (original / "manifest.toml").read_bytes().replace(
-            f'candidate_snapshot_manifest_sha256 = "{initial.manifest.sha256}"'.encode(),
-            f'candidate_snapshot_manifest_sha256 = "{source_context}"'.encode(),
-        )
-        bootstrap_release = hashlib.sha256(bootstrap_manifest).hexdigest()
-        bootstrap = original.parent / bootstrap_release
-        shutil.copytree(original, bootstrap)
-        (bootstrap / "manifest.toml").write_bytes(bootstrap_manifest)
-        self.assertEqual(hashlib.sha256(bootstrap_manifest).hexdigest(), bootstrap_release)
-        self.assertEqual(
-            tomllib.loads(bootstrap_manifest.decode())["candidate_snapshot_manifest_sha256"],
-            source_context,
-        )
-        selected_root = f".caprmedio_runtime/framework/releases/{bootstrap_release}"
-        self.fixture.write(
-            ".caprmedio_runtime/framework/current.toml",
-            (
-                "schema_version = 1\n"
-                f'manifest_sha256 = "{bootstrap_release}"\n'
-                f'release = "{bootstrap_release}"\n'
-                f'selected_release_root = "{selected_root}"\n'
-                f'framework_engine_root = "{selected_root}/FRAMEWORK_ENGINE"\n'
-                f'methodology_root = "{selected_root}/METHODOLOGY"\n'
-                f'image_digest = "sha256:{"a" * 64}"\n'
-            ).encode(),
-        )
-        self.assertNotEqual(source_context, bootstrap_release)
         prior = records(self.target)
         self.fixture.core.write_bytes(compilation_test.carrier("CA-R-001", version=2))
         self.fixture.set_version("N+2")

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import os
 import shutil
 import sys
 import tempfile
@@ -11,8 +12,11 @@ from pathlib import Path
 
 
 RELEASE_ROOT = Path(__file__).resolve().parents[1]
+COMPILER_ROOT = RELEASE_ROOT.parent / "COMPILE_APPLICABLE_METHODOLOGY"
 if str(RELEASE_ROOT) not in sys.path:
     sys.path.insert(0, str(RELEASE_ROOT))
+if str(COMPILER_ROOT) not in sys.path:
+    sys.path.insert(0, str(COMPILER_ROOT))
 
 from release_compilation import (  # noqa: E402
     CHILD_MANIFEST_NAME,
@@ -23,6 +27,7 @@ from release_compilation import (  # noqa: E402
 )
 from release_contract import ReleaseContractError  # noqa: E402
 from release_handoff import CANONICAL_SOURCE_RELATIVE, MATERIALIZED_RELATIVE, tree_sha256  # noqa: E402
+import compile_applicable_methodology as compiler  # noqa: E402
 
 
 def carrier(atom_id: str, *, version: int = 1) -> bytes:
@@ -57,8 +62,8 @@ class ReleaseCompilationTests(unittest.TestCase):
             f'authority_path = "{CANONICAL_SOURCE_RELATIVE}"\n'
         ).encode())
         self.write(".caprmedio_caprmedio/caprmedio_project_settings.toml", b'[paths]\ncontrol_root = ".caprmedio_caprmedio"\n')
+        self.write(".caprmedio_caprmedio/000_CAPRMEDIO_framework/caprmedio_framework_settings.toml", b"")
         self.write(f"{CANONICAL_SOURCE_RELATIVE}/001_CORE_META_MODEL/caprmedio_framework_default_settings.toml", b"")
-        self.write(f"{CANONICAL_SOURCE_RELATIVE}/003_PROJECT_CONFIGURATION/caprmedio_framework_settings.toml", b"")
         self.write(".caprmedio_runtime/framework/current.toml", b'release = "N"\n')
         self.write("version.toml", b'[framework]\nversion = "N+1"\n')
         self.write("102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/tool.py", b"tool\n", 0o755)
@@ -71,7 +76,10 @@ class ReleaseCompilationTests(unittest.TestCase):
         self.write("uv.lock", b"version = 1\n")
         self.write(
             "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/Dockerfile",
-            b"FROM scratch\nCOPY pyproject.toml uv.lock ./\n",
+            (
+                RELEASE_ROOT.parents[1]
+                / "203_APPS/WORKFLOW_ORCHESTRATOR/docker/Dockerfile"
+            ).read_bytes(),
         )
         self.compiler = self.write(
             "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py",
@@ -79,6 +87,7 @@ class ReleaseCompilationTests(unittest.TestCase):
             0o755,
         )
         self.core = self.write(f"{CANONICAL_SOURCE_RELATIVE}/001_CORE_META_MODEL/04_requirement/CA-R-001--core.md", carrier("CA-R-001"))
+        self.materialize_current_projection()
 
     def write(self, relative: str, data: bytes, mode: int = 0o644) -> Path:
         path = self.root / relative
@@ -89,6 +98,30 @@ class ReleaseCompilationTests(unittest.TestCase):
 
     def set_version(self, version: str) -> None:
         self.write("version.toml", f'[framework]\nversion = "{version}"\n'.encode())
+
+    def materialize_current_projection(self) -> None:
+        """Seed the canonical compiler output with its real pure renderer.
+
+        First-install planning reads a retained, already-current Methodology
+        projection.  This fixture therefore renders that projection from the
+        exact compiler bytes it declares, without invoking compiler
+        publication or creating any runtime carrier.
+        """
+
+        places = compiler.methodology_paths(self.root)
+        report, candidates, _snapshot = compiler.compile_report(self.root, places)
+        self.assertTrue(report["can_apply"], report)
+        output = self.root / places.output
+        for _role, directory in compiler.ROLES:
+            (output / directory).mkdir(parents=True, exist_ok=True)
+        for candidate in candidates:
+            source = self.root / candidate.source_path
+            parent = output / candidate.role_directory
+            source_relative = Path(os.path.relpath(source, start=parent)).as_posix()
+            self.write(
+                (parent / candidate.basename).relative_to(self.root).as_posix(),
+                compiler.projection_bytes(source.read_bytes(), source_relative, candidate),
+            )
 
     def copy_source(self) -> Path:
         target = self.root / "101_LAYER_1_FRAMEWORK_METHODOLOGY/sources"
