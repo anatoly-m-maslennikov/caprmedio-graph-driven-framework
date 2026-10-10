@@ -14,8 +14,8 @@ status: Done
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Projection, Plan, Operator]
-version: 2
-updated_at: "2026-10-11 02:31:05 +0400"
+version: 3
+updated_at: "2026-10-11 02:45:46 +0400"
 relations:
   is_decomposition_of: [CA-P-1966]
   depends_on: ["CA-P-1972", "CA-P-1988", "CA-P-1989", "CA-P-1990"]
@@ -38,6 +38,8 @@ Recheck each source pin, then read its current Main Content. Compare the frozen 
 Own only `stage2/reviews/current-subjects.batch-006.review.json` and an optional same-batch support helper. Root owns integration and Git. Preserve others' edits. If work exceeds 15 minutes, create bounded decomposition before continuing. Creating this Plan does not start or complete review.
 
 Completion: independent structural checks passed for 20 current sources and 71 exact occurrences. Root checked all five proposal meanings against current Main Content: exact source Revision, direct DERIVED_FROM relation, Actor Type Operator, Journal Record and Projection Type Terms Graph. Prior review corrected unsupported Substance field/role and root-colon mappings. The 36 unresolved rows remain explicit research in the report and required ledger integration. All rows remain non-executable; no original Atom changed. Evidence: stage2/task-1997.receipt.json. Review completion is not mapping completion or migration approval.
+
+Revalidation: Independent revalidation accepted all 22 proposed targets across batches 003, 005 and 006, including the Subjects aggregate Property distinct from the Governed Subject Relation. Five Projection Type or Content Role rows gained precise generic owner/field basis using current defining facts. The high-risk unchanged-row audit found no concrete incorrect mapping decision or qualifier loss. The receipt now pins the repaired report; Git retains the prior evidence revision.
 
 ### Definition of Done
 

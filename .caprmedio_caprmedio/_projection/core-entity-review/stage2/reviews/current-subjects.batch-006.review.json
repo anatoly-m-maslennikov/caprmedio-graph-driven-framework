@@ -1990,7 +1990,7 @@
       "decision": "proposed",
       "proposed_value": "Projection.Type: Terms Graph",
       "confidence": 0.95,
-      "reason": "Current Main Content defines Terms Graph as a Projection Type whose instances are derived CAPRMEDIO Graphs with native Term nodes and admitted Relation edges. The candidate rules support 'Projection.Type: Terms Graph' while retaining the source distinction; this is a non-executable candidate mapping, not grammar or native-relation adoption.",
+      "reason": "Current Main Content (line 32) explicitly defines Terms Graph as a Type value under Projection, with derived graph instances and graph-qualified Relation authority. The candidate confirms both the separate Terms Graph boundary and the Projection owner, while its generic dependent owner-field rules preserve Type as Projection's field and Terms Graph as the value. This is a non-executable candidate mapping, not grammar or native-relation adoption.",
       "evidence": [
         {
           "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1335-CORE_META_MODEL-CORE-REQUIREMENT--define-terms-graph.md",
@@ -2003,12 +2003,24 @@
       ],
       "candidate_basis": [
         {
-          "pointer": "/terms_graph_boundary/decision",
+          "pointer": "#/terms_graph_boundary/decision",
           "reason": "Terms are confirmed to belong to a separate graph."
         },
         {
-          "pointer": "/projection_member_model/member_instances",
+          "pointer": "#/projection_member_model/member_instances",
           "reason": "Projection is confirmed to contain derived instances."
+        },
+        {
+          "pointer": "#/entity_identity_model/dependent_entity",
+          "reason": "The candidate confirms dependent identity as an owner selector plus a dependent field; current Main Content supplies Projection as owner and Type as its field."
+        },
+        {
+          "pointer": "#/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate keeps a Property as a dependent Entity node; current Main Content supplies Terms Graph as the Type value without creating a new root or native relation."
+        },
+        {
+          "pointer": "#/dependent_entities/notation_boundary",
+          "reason": "The dot/colon result remains candidate notation only and does not admit a grammar rewrite or source migration."
         }
       ],
       "preserved_distinctions": [
