@@ -461,19 +461,36 @@ class Gateway:
             except Exception:
                 value['diagnostics'].append('Retired generation cleanup failed')
 
-    async def reload(self, request, context):
-        if not request.request_id or not re.fullmatch(r'[A-Za-z0-9_-]{1,128}', request.request_id):
+    @staticmethod
+    def _refresh_value(request_id, old):
+        return {'request_id': request_id, 'previous_generation': old.fingerprint,
+                'active_generation': old.fingerprint, 'implementation_fingerprint': old.fingerprint,
+                'registry_fingerprint': old.registry, 'registry_changed': False,
+                'notification_status': 'unsupported', 'client_refresh_status': 'unconfirmed',
+                'diagnostics': [], 'outcome': 'unchanged'}
+
+    async def refresh_generation(self, context, *, request_id, force=False):
+        """Prepare and publish one validated generation under the writer fence.
+
+        ``force`` is for a completed, admitted metadata activation: the
+        implementation bytes can remain unchanged while its source-derived
+        registration changes.  It is deliberately not a watcher and callers
+        must already have an explicit command-completion authority.
+        """
+        if not isinstance(request_id, str) or re.fullmatch(r'[A-Za-z0-9_-]{1,128}', request_id) is None:
             raise ValueError('reload requires a safe request_id')
+        if type(force) is not bool:
+            raise ValueError('force must be a boolean')
         async with self.reload_lock:
             # This is also the physical fence held by retained-migration
             # observation.  Never block the event loop on a threading lock:
             # a fenced observer can yield while it owns the lock.
-            if request.request_id in self.receipts:
-                return self.receipts[request.request_id]
+            if request_id in self.receipts:
+                return self.receipts[request_id]
             if not self.generation_fence.acquire(blocking=False):
                 old = self.active
                 return {
-                    'request_id': request.request_id,
+                    'request_id': request_id,
                     'previous_generation': old.fingerprint if old is not None else None,
                     'active_generation': old.fingerprint if old is not None else None,
                     'implementation_fingerprint': old.fingerprint if old is not None else None,
@@ -488,25 +505,26 @@ class Gateway:
                 old = self.active
                 if old is None or self._singleton_descriptor is None:
                     raise RuntimeError('MCP gateway is not initialized')
-                value = {'request_id': request.request_id, 'previous_generation': old.fingerprint,
-                         'active_generation': old.fingerprint, 'implementation_fingerprint': old.fingerprint,
-                         'registry_fingerprint': old.registry, 'registry_changed': False,
-                         'notification_status': 'unsupported', 'client_refresh_status': 'unconfirmed',
-                         'diagnostics': [], 'outcome': 'unchanged'}
+                value = self._refresh_value(request_id, old)
                 try:
                     fingerprint = self._fingerprint_with_timing('reload_fingerprint')
-                    if fingerprint != old.fingerprint:
+                    if force or fingerprint != old.fingerprint:
                         await self.publish(old, fingerprint, context, value)
                 except Exception as error:
                     value.update(outcome='failed', diagnostics=[f'{type(error).__name__}: candidate rejected'])
-                self.receipts[request.request_id] = value
+                self.receipts[request_id] = value
                 try:
-                    self.persist(request.request_id, value)
+                    self.persist(request_id, value)
                 except (OSError, ValueError):
                     value['diagnostics'].append('Receipt persistence failed')
                 return value
             finally:
                 self.generation_fence.release()
+
+    async def reload(self, request, context):
+        if not request.request_id or not re.fullmatch(r'[A-Za-z0-9_-]{1,128}', request.request_id):
+            raise ValueError('reload requires a safe request_id')
+        return await self.refresh_generation(context, request_id=request.request_id)
 
     async def control(self, context, arguments):
         try:
@@ -534,8 +552,28 @@ class Gateway:
         try:
             if params.name not in {t.name for t in generation.tools}:
                 return result({'outcome': 'rejected', 'diagnostics': ['Unknown Tool']}, True)
-            return await generation.client.call_tool(params.name, params.arguments,
+            response = await generation.client.call_tool(params.name, params.arguments,
                 read_timeout_seconds=IMPLEMENTATION_CALL_TIMEOUT_SECONDS)
+            from activation_refresh import activation_succeeded, attach_receipt, completion_marker
+            try:
+                marker = completion_marker(response.structured_content)
+            except ValueError:
+                # The effect result is authoritative; a malformed optional
+                # marker must not rewrite it as an uncertain tool outcome.
+                return attach_receipt(response, {'outcome': 'rejected', 'diagnostic': 'invalid activation marker'})
+            if marker is None or response.is_error or not activation_succeeded(response.structured_content):
+                return response
+            if marker is not None and marker['kind'] == 'metadata':
+                try:
+                    receipt = await self.refresh_generation(
+                        context, request_id=marker['request_id'], force=True,
+                    )
+                    attach_receipt(response, receipt)
+                except Exception:
+                    attach_receipt(response, {'outcome': 'failed', 'diagnostic': 'activation refresh failed'})
+            elif marker is not None:
+                attach_receipt(response, {**marker, 'outcome': 'recreation_required'})
+            return response
         except Exception:
             return result({'outcome': 'uncertain', 'generation': generation.fingerprint,
                            'diagnostics': ['Implementation call failed; no automatic replay']}, True)

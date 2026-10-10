@@ -19,7 +19,7 @@ import stat
 import sys
 from typing import Annotated, Any, Literal
 
-from pydantic import BaseModel, ConfigDict, Field, TypeAdapter, ValidationError
+from pydantic import BaseModel, ConfigDict, Field, JsonValue, RootModel, TypeAdapter, ValidationError
 
 
 _TOOLS_ROOT = Path(__file__).resolve().parents[1] / "201_TOOLS"
@@ -76,6 +76,14 @@ class ExecuteRequest(_ClosedRequest):
 
 SourceAdmissionRequest = Annotated[PreviewRequest | ExecuteRequest, Field(discriminator="operation")]
 _REQUESTS = TypeAdapter(SourceAdmissionRequest)
+
+
+class SourceAdmissionToolRequest(RootModel[SourceAdmissionRequest]):
+    """Canonical transport-neutral request model for the O199 Tool."""
+
+
+class SourceAdmissionToolResult(RootModel[dict[str, JsonValue]]):
+    """Canonical open structured result retained by the native O199 boundary."""
 
 
 @dataclass(frozen=True)
@@ -564,15 +572,93 @@ class SourceAdmissionAdapter:
         return dict(result)
 
 
-def input_schema() -> dict[str, Any]:
-    """Return the actual MCP envelope schema, including every closed variant."""
+class _DescriptorAdapter:
+    """Uniform descriptor wrapper; the native adapter remains the invoker."""
+
+    def __init__(self, root: str | Path) -> None:
+        self._adapter = SourceAdmissionAdapter(root)
+
+    def invoke(
+        self,
+        request: SourceAdmissionToolRequest | SourceAdmissionRequest | Mapping[str, Any],
+    ) -> dict[str, Any]:
+        return self._adapter.invoke(request.root if isinstance(request, SourceAdmissionToolRequest) else request)
+
+
+def create_adapter(root: str | Path) -> _DescriptorAdapter:
+    """Create the sole root-bound adapter used by descriptor-driven providers."""
+
+    return _DescriptorAdapter(root)
+
+
+def describe_tool() -> dict[str, Any]:
+    """Describe O199 without opening carriers, invoking it, or causing an effect."""
 
     return {
+        "schema_version": 1,
+        "identity": {
+            "name": TOOL_NAME,
+            "tool_version": 1,
+            "title": "Admit package sources",
+            "description": "Preview or execute the source-bound CA-O-199 package-source admission Action.",
+            "purpose": "Admit package sources only through the existing direct Action boundary.",
+        },
+        "binding": {
+            "delivery_atom_id": DELIVERY_ID,
+            "action_ids": [ACTION_ID],
+            "implementation_entrypoint": ENTRYPOINT,
+        },
+        "models": {
+            "input": {"module": ENTRYPOINT, "symbol": "SourceAdmissionToolRequest"},
+            "output": {"module": ENTRYPOINT, "symbol": "SourceAdmissionToolResult"},
+        },
+        "callable": {"module": ENTRYPOINT, "symbol": "create_adapter"},
+        "effect_hints": {
+            "read_only_hint": False,
+            "destructive_hint": False,
+            "idempotent_hint": False,
+            "open_world_hint": False,
+        },
+        "permissions": {
+            "execution": "operator_authorized",
+            "enforcement": "canonical_action_boundary",
+            "metadata_grants_permission": False,
+        },
+        "source_pins": {"delivery_atom_id": DELIVERY_ID, "action_ids": [ACTION_ID]},
+        "admission": {
+            "module": ENTRYPOINT,
+            "symbol": "binding_is_admitted",
+            "refresh_after_success": False,
+        },
+        "diagnostics": {
+            "error_type": "SourceAdmissionMcpError",
+            "discovery_is_effect_free": True,
+        },
+        "failure_contract": {
+            "mode": "raise_stable_refusal",
+            "exception": "SourceAdmissionMcpError",
+            "invokes_on_discovery": False,
+        },
+    }
+
+
+def input_schema() -> dict[str, Any]:
+    """Derive the legacy MCP envelope from the canonical descriptor model."""
+
+    request_schema = SourceAdmissionToolRequest.model_json_schema()
+    definitions = request_schema.pop("$defs", None)
+    reference = request_schema.get("$ref")
+    if isinstance(definitions, dict) and isinstance(reference, str) and reference.startswith("#/$defs/"):
+        request_schema = definitions.get(reference.removeprefix("#/$defs/"), request_schema)
+    envelope: dict[str, Any] = {
         "type": "object",
         "additionalProperties": False,
         "required": ["request"],
-        "properties": {"request": _REQUESTS.json_schema()},
+        "properties": {"request": request_schema},
     }
+    if definitions is not None:
+        envelope["$defs"] = definitions
+    return envelope
 
 
 def binding_is_admitted(binding: Mapping[str, Any] | None) -> bool:
@@ -615,6 +701,7 @@ def register_source_admission(server: Any, root: str | Path, *, binding: Mapping
 __all__ = [
     "ACTION_ID", "DELIVERY_ID", "ENTRYPOINT", "ExecuteRequest", "MCP_NAME",
     "PreviewRequest", "SourceAdmissionAdapter", "SourceAdmissionMcpError",
-    "SourceAdmissionRequest", "TOOL_NAME", "binding_is_admitted", "input_schema",
+    "SourceAdmissionRequest", "SourceAdmissionToolRequest", "SourceAdmissionToolResult",
+    "TOOL_NAME", "binding_is_admitted", "create_adapter", "describe_tool", "input_schema",
     "register_source_admission",
 ]

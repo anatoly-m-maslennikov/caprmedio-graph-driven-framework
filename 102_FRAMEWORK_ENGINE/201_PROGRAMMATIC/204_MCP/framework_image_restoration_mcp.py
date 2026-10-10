@@ -18,7 +18,7 @@ import stat
 import sys
 from typing import Annotated, Any, Literal
 
-from pydantic import BaseModel, ConfigDict, Field, TypeAdapter, ValidationError
+from pydantic import BaseModel, ConfigDict, Field, JsonValue, RootModel, TypeAdapter, ValidationError
 
 
 _TOOLS_ROOT = Path(__file__).resolve().parents[1] / "201_TOOLS"
@@ -92,6 +92,27 @@ RestorationRequest = Annotated[
     Field(discriminator="operation"),
 ]
 _REQUESTS = TypeAdapter(RestorationRequest)
+
+
+class FrameworkImageRestorationRequest(RootModel[RestorationRequest]):
+    """Canonical transport-neutral request model for the O187 Tool."""
+
+
+class FrameworkImageRestorationResult(RootModel[dict[str, JsonValue]]):
+    """Canonical open structured result retained by the native O187 boundary."""
+
+
+class _DescriptorAdapter:
+    """Uniform descriptor wrapper; the native adapter remains the invoker."""
+
+    def __init__(self, root: str | Path) -> None:
+        self._adapter = FrameworkImageRestorationAdapter(root)
+
+    def invoke(
+        self,
+        request: FrameworkImageRestorationRequest | RestorationRequest | Mapping[str, Any],
+    ) -> dict[str, Any]:
+        return self._adapter.invoke(request.root if isinstance(request, FrameworkImageRestorationRequest) else request)
 
 
 @dataclass(frozen=True)
@@ -355,14 +376,80 @@ class FrameworkImageRestorationAdapter:
             )
 
 
-def input_schema() -> dict[str, Any]:
-    """Return the actual MCP envelope schema, including every closed variant."""
+def create_adapter(root: str | Path) -> _DescriptorAdapter:
+    """Create the sole root-bound adapter used by descriptor-driven providers."""
+
+    return _DescriptorAdapter(root)
+
+
+def describe_tool() -> dict[str, Any]:
+    """Describe O187 without opening carriers, invoking it, or causing an effect."""
+
     return {
+        "schema_version": 1,
+        "identity": {
+            "name": TOOL_NAME,
+            "tool_version": 1,
+            "title": "Restore Framework image",
+            "description": "Preview or execute the source-bound CA-O-187 Framework image restoration Action.",
+            "purpose": "Restore a selected Framework image only through the existing direct Action boundary.",
+        },
+        "binding": {
+            "delivery_atom_id": DELIVERY_ID,
+            "action_ids": [ACTION_ID],
+            "implementation_entrypoint": ENTRYPOINT,
+        },
+        "models": {
+            "input": {"module": ENTRYPOINT, "symbol": "FrameworkImageRestorationRequest"},
+            "output": {"module": ENTRYPOINT, "symbol": "FrameworkImageRestorationResult"},
+        },
+        "callable": {"module": ENTRYPOINT, "symbol": "create_adapter"},
+        "effect_hints": {
+            "read_only_hint": False,
+            "destructive_hint": False,
+            "idempotent_hint": False,
+            "open_world_hint": False,
+        },
+        "permissions": {
+            "execution": "operator_authorized",
+            "enforcement": "canonical_action_boundary",
+            "metadata_grants_permission": False,
+        },
+        "source_pins": {"delivery_atom_id": DELIVERY_ID, "action_ids": [ACTION_ID]},
+        "admission": {
+            "module": ENTRYPOINT,
+            "symbol": "binding_is_admitted",
+            "refresh_after_success": False,
+        },
+        "diagnostics": {
+            "error_type": "FrameworkImageRestorationMcpError",
+            "discovery_is_effect_free": True,
+        },
+        "failure_contract": {
+            "mode": "raise_stable_refusal",
+            "exception": "FrameworkImageRestorationMcpError",
+            "invokes_on_discovery": False,
+        },
+    }
+
+
+def input_schema() -> dict[str, Any]:
+    """Derive the legacy MCP envelope from the canonical descriptor model."""
+
+    request_schema = FrameworkImageRestorationRequest.model_json_schema()
+    definitions = request_schema.pop("$defs", None)
+    reference = request_schema.get("$ref")
+    if isinstance(definitions, dict) and isinstance(reference, str) and reference.startswith("#/$defs/"):
+        request_schema = definitions.get(reference.removeprefix("#/$defs/"), request_schema)
+    envelope: dict[str, Any] = {
         "type": "object",
         "additionalProperties": False,
         "required": ["request"],
-        "properties": {"request": _REQUESTS.json_schema()},
+        "properties": {"request": request_schema},
     }
+    if definitions is not None:
+        envelope["$defs"] = definitions
+    return envelope
 
 
 def binding_is_admitted(binding: Mapping[str, Any] | None) -> bool:
@@ -401,6 +488,8 @@ def register_framework_image_restoration(server: Any, root: str | Path, *, bindi
 
 __all__ = [
     "ACTION_ID", "DELIVERY_ID", "ENTRYPOINT", "FrameworkImageRestorationAdapter",
-    "FrameworkImageRestorationMcpError", "MCP_NAME", "RestorationRequest", "TOOL_NAME",
-    "binding_is_admitted", "input_schema", "register_framework_image_restoration",
+    "FrameworkImageRestorationMcpError", "FrameworkImageRestorationRequest",
+    "FrameworkImageRestorationResult", "MCP_NAME", "RestorationRequest", "TOOL_NAME",
+    "binding_is_admitted", "create_adapter", "describe_tool", "input_schema",
+    "register_framework_image_restoration",
 ]

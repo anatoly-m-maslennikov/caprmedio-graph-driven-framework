@@ -9,8 +9,8 @@ import sys
 import tempfile
 from types import SimpleNamespace
 import unittest
-from unittest.mock import patch
-from mcp import Client, StdioServerParameters
+from unittest.mock import AsyncMock, patch
+from mcp import Client, StdioServerParameters, types
 
 APP = Path(__file__).resolve().parents[1]
 ROOT = APP.parents[2]
@@ -99,6 +99,20 @@ class HotReload(unittest.IsolatedAsyncioTestCase):
             self.assertEqual(response.structured_content['outcome'], 'reloaded')
             self.assertEqual((await old_call).structured_content['version'], 'A')
             self.assertEqual((await client.call_tool('echo')).structured_content['version'], 'B')
+
+    async def test_forced_metadata_activation_prepares_a_new_generation_without_code_drift(self):
+        """A completed admitted command may change registration without Python edits."""
+        gateway = Gateway(self.root, self.source)
+        await gateway.initialize()
+        previous = gateway.active
+        try:
+            response = await gateway.refresh_generation(None, request_id='metadata-change', force=True)
+            self.assertEqual(response['outcome'], 'reloaded')
+            self.assertFalse(response['registry_changed'])
+            self.assertIsNot(gateway.active, previous)
+            self.assertEqual(gateway.active.fingerprint, previous.fingerprint)
+        finally:
+            await gateway.close()
 
     async def test_strict_control_rejects_paths_and_extra_fields(self):
         async with Client(self.params(), cache=None) as client:
@@ -258,7 +272,7 @@ class HotReload(unittest.IsolatedAsyncioTestCase):
 
     async def test_forwarded_call_has_a_separate_bounded_deadline(self):
         observed = []
-        response = object()
+        response = types.CallToolResult(content=[], structured_content={"outcome": "prepared"})
 
         class ImplementationClient:
             async def call_tool(self, name, arguments, *, read_timeout_seconds):
@@ -278,6 +292,67 @@ class HotReload(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(IMPLEMENTATION_CALL_TIMEOUT_SECONDS, 90)
         self.assertEqual(GENERATION_READY_TIMEOUT_SECONDS, 20)
         self.assertEqual(generation.in_flight, 0)
+
+    async def test_completed_metadata_marker_forces_parent_generation_refresh(self):
+        response = SimpleNamespace(structured_content={"effect_outcome": "completed", "recording_state": "recorded", "mcp_activation": {
+            "schema_version": 1, "kind": "metadata", "request_id": "operator-command-1",
+        }}, is_error=False, meta=None)
+
+        class ImplementationClient:
+            async def call_tool(self, *args, **kwargs):
+                return response
+
+        gateway = Gateway(self.root, self.source)
+        gateway.active = SimpleNamespace(client=ImplementationClient(), fingerprint="test",
+                                         tools=[SimpleNamespace(name="admitted")], in_flight=0)
+        gateway.refresh_generation = AsyncMock(return_value={"outcome": "reloaded"})
+        self.assertIs(response, await gateway.call(None, SimpleNamespace(name="admitted", arguments={})))
+        gateway.refresh_generation.assert_awaited_once_with(
+            None, request_id="operator-command-1", force=True,
+        )
+        self.assertEqual({"outcome": "reloaded"}, response.meta["caprmedio_mcp_activation"])
+
+    async def test_image_recreation_marker_never_claims_an_in_place_reload(self):
+        response = SimpleNamespace(structured_content={"effect_outcome": "completed", "recording_state": "recorded", "mcp_activation": {
+            "schema_version": 1, "kind": "image_recreation", "request_id": "operator-command-2",
+        }}, is_error=False, meta=None)
+
+        class ImplementationClient:
+            async def call_tool(self, *args, **kwargs):
+                return response
+
+        gateway = Gateway(self.root, self.source)
+        gateway.active = SimpleNamespace(client=ImplementationClient(), fingerprint="test",
+                                         tools=[SimpleNamespace(name="admitted")], in_flight=0)
+        gateway.refresh_generation = AsyncMock()
+        self.assertIs(response, await gateway.call(None, SimpleNamespace(name="admitted", arguments={})))
+        gateway.refresh_generation.assert_not_awaited()
+        self.assertEqual("recreation_required", response.meta["caprmedio_mcp_activation"]["outcome"])
+
+    async def test_failed_or_unknown_marked_results_never_activate(self):
+        cases = (
+            {"effect_outcome": "blocked_before_delete", "recording_state": "recorded"},
+            {"effect_outcome": "completed", "recording_state": "recording_pending"},
+            {"effect_outcome": "completed", "recording_state": "recorded", "is_error": True},
+            {},
+        )
+        for fields in cases:
+            with self.subTest(fields=fields):
+                response = SimpleNamespace(structured_content={
+                    **{key: value for key, value in fields.items() if key != "is_error"},
+                    "mcp_activation": {"schema_version": 1, "kind": "metadata", "request_id": "operator-command-3"},
+                }, is_error=fields.get("is_error", False), meta=None)
+
+                class ImplementationClient:
+                    async def call_tool(self, *args, **kwargs):
+                        return response
+
+                gateway = Gateway(self.root, self.source)
+                gateway.active = SimpleNamespace(client=ImplementationClient(), fingerprint="test",
+                                                 tools=[SimpleNamespace(name="admitted")], in_flight=0)
+                gateway.refresh_generation = AsyncMock()
+                self.assertIs(response, await gateway.call(None, SimpleNamespace(name="admitted", arguments={})))
+                gateway.refresh_generation.assert_not_awaited()
 
     async def test_generation_retains_only_explicit_runtime_namespace(self):
         self.source.write_text(

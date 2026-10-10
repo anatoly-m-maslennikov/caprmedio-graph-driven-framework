@@ -10,6 +10,7 @@ from types import SimpleNamespace
 import unittest
 from unittest.mock import patch
 
+import jsonschema
 
 MCP_ROOT = Path(__file__).resolve().parents[1]
 PROGRAMMATIC_ROOT = MCP_ROOT.parent
@@ -26,10 +27,14 @@ from capability_discovery.service import Context, Query, Service as DiscoverySer
 from framework_runtime_installation_mcp import (  # noqa: E402
     MCP_NAME as RUNTIME_INSTALLATION_MCP_NAME,
     TOOL_NAME as RUNTIME_INSTALLATION_TOOL_NAME,
-    input_schema as runtime_installation_input_schema,
 )
 import implementation_server  # noqa: E402
-from source_admission_mcp import MCP_NAME, TOOL_NAME  # noqa: E402
+from source_admission_mcp import (  # noqa: E402
+    MCP_NAME,
+    TOOL_NAME,
+    SourceAdmissionToolRequest,
+    describe_tool as describe_source_admission_tool,
+)
 from test_service import seed_selected_runtime_binding_package  # noqa: E402
 
 
@@ -72,6 +77,9 @@ class _Server:
             self.registered.append((metadata, function))
             return function
         return decorate
+
+    def add_tool(self, function, **metadata):
+        self.registered.append((metadata, function))
 
 
 class _CapturingService(DiscoveryService):
@@ -212,7 +220,11 @@ class ImplementationServerTests(unittest.TestCase):
         self.assertIn(RUNTIME_INSTALLATION_MCP_NAME, discovery.exposed)
         context = discovery.context(Context(id="CA-O-200"))
         operation = discovery.discover(Query(query="CA-O-200"), operations=True)["matches"]
-        self.assertEqual(runtime_installation_input_schema(), context["input_schema"])
+        self.assertEqual(["request"], context["input_schema"]["required"])
+        self.assertFalse(context["input_schema"]["additionalProperties"])
+        self.assertIn("native_packet", str(context["input_schema"]))
+        self.assertIsNotNone(context["output_schema"])
+        self.assertIsNotNone(context["tool_description"])
         self.assertEqual(["mcp"], [row["availability"] for row in operation])
 
     def test_o200_registers_from_selected_package_binding_without_current_delivery(self):
@@ -225,7 +237,36 @@ class ImplementationServerTests(unittest.TestCase):
         self.assertIn(RUNTIME_INSTALLATION_MCP_NAME, self._registered_names(server))
         self.assertIn(RUNTIME_INSTALLATION_MCP_NAME, discovery.exposed)
         context = discovery.context(Context(id=RUNTIME_INSTALLATION_TOOL_NAME))
-        self.assertEqual(runtime_installation_input_schema(), context["input_schema"])
+        self.assertEqual(["request"], context["input_schema"]["required"])
+        self.assertFalse(context["input_schema"]["additionalProperties"])
+        self.assertIn("native_packet", str(context["input_schema"]))
+
+    def test_context_envelope_hoists_canonical_defs_for_preview_and_execute(self):
+        """The generic context envelope preserves RootModel refs at its root."""
+
+        discovery = DiscoveryService(self.root)
+        projection = {
+            "input_schema": SourceAdmissionToolRequest.model_json_schema(),
+            "output_schema": {"type": "object"},
+            "descriptor": describe_source_admission_tool(),
+        }
+        tool = {"name": TOOL_NAME, "action_ids": [], "workflow_ids": []}
+        with (
+            patch.object(discovery, "catalog", return_value=({}, [tool], [])),
+            patch.object(discovery, "_tool_projection", return_value=projection),
+        ):
+            schema = discovery.context(Context(id=TOOL_NAME))["input_schema"]
+
+        self.assertIn("$defs", schema)
+        jsonschema.validate(
+            {"request": {"operation": "preview", "release_run_id": "release-1"}}, schema,
+        )
+        jsonschema.validate(
+            {"request": {
+                "operation": "execute", "command_id": "command-1", "release_run_id": "release-1",
+                "operator": "operator", "authorization_ref": "receipt", "observed_snapshot_sha256": "a" * 64,
+            }}, schema,
+        )
 
     def test_o200_selected_package_duplicate_claim_from_other_delivery_is_not_registered(self):
         self._retain_fixture = True

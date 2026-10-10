@@ -18,7 +18,7 @@ import sys
 import tomllib
 from typing import Any, Literal
 
-from pydantic import BaseModel, ConfigDict, Field, JsonValue, TypeAdapter, ValidationError
+from pydantic import BaseModel, ConfigDict, Field, JsonValue, RootModel, TypeAdapter, ValidationError
 
 
 _TOOLS_ROOT = Path(__file__).resolve().parents[1] / "201_TOOLS"
@@ -79,6 +79,34 @@ class ExecuteRequest(_ClosedRequest):
 
 
 _REQUESTS = TypeAdapter(ExecuteRequest)
+
+
+class FrameworkRuntimeInstallationRequest(RootModel[ExecuteRequest]):
+    """Canonical transport-neutral request model for the O200 Tool."""
+
+
+class McpActivation(BaseModel):
+    """Declared image-recreation handoff after one fully recorded installation."""
+
+    model_config = ConfigDict(extra="forbid", strict=True)
+
+    schema_version: Literal[1]
+    kind: Literal["image_recreation"]
+    request_id: str
+
+
+class FrameworkRuntimeInstallationToolResult(BaseModel):
+    """Closed structured result emitted by the O200 transport adapter."""
+
+    model_config = ConfigDict(extra="forbid", strict=True)
+
+    operation: Literal["execute"]
+    effect_outcome: Literal[
+        "completed", "blocked_before_delete", "unavailable_after_delete", "effect_uncertain"
+    ]
+    recording_state: Literal["recorded", "recording_pending"]
+    result_ref: str
+    mcp_activation: McpActivation | None = None
 
 
 @dataclass(frozen=True)
@@ -471,7 +499,7 @@ class FrameworkRuntimeInstallationAdapter:
         self._installer = installer
         self._selection_resolver = selection_resolver
 
-    def invoke(self, request: Mapping[str, Any] | ExecuteRequest) -> dict[str, str]:
+    def invoke(self, request: Mapping[str, Any] | ExecuteRequest) -> dict[str, Any]:
         try:
             parsed = request if isinstance(request, ExecuteRequest) else _REQUESTS.validate_python(request)
         except ValidationError as error:
@@ -501,18 +529,106 @@ class FrameworkRuntimeInstallationAdapter:
             raise FrameworkRuntimeInstallationMcpError(
                 "framework-runtime-installation-mcp-execute-refused", "direct Framework installation was refused"
             ) from error
-        return _actual_result_transport(result)
+        transport = _actual_result_transport(result)
+        if transport["effect_outcome"] == "completed" and transport["recording_state"] == "recorded":
+            # A completed O200 publishes an immutable image.  The parent
+            # gateway must not pretend its image-local implementation changed;
+            # its existing launcher/recreation path owns that handoff.
+            transport["mcp_activation"] = {
+                "schema_version": 1, "kind": "image_recreation", "request_id": parsed.command_id,
+            }
+        return transport
+
+
+class _DescriptorAdapter:
+    """Uniform descriptor wrapper; the native adapter remains the invoker."""
+
+    def __init__(self, root: str | Path) -> None:
+        self._adapter = FrameworkRuntimeInstallationAdapter(root)
+
+    def invoke(
+        self,
+        request: FrameworkRuntimeInstallationRequest | ExecuteRequest | Mapping[str, Any],
+    ) -> dict[str, Any]:
+        return self._adapter.invoke(
+            request.root if isinstance(request, FrameworkRuntimeInstallationRequest) else request
+        )
+
+
+def create_adapter(root: str | Path) -> _DescriptorAdapter:
+    """Create the sole root-bound adapter used by descriptor-driven providers."""
+
+    return _DescriptorAdapter(root)
+
+
+def describe_tool() -> dict[str, Any]:
+    """Describe O200 without opening carriers, invoking it, or causing an effect."""
+
+    return {
+        "schema_version": 1,
+        "identity": {
+            "name": TOOL_NAME,
+            "tool_version": 1,
+            "title": "Install Framework runtime",
+            "description": "Execute the source-bound CA-O-200 Framework runtime installation Action.",
+            "purpose": "Install the Framework runtime only through the existing direct Action boundary.",
+        },
+        "binding": {
+            "delivery_atom_id": DELIVERY_ID,
+            "action_ids": [ACTION_ID],
+            "implementation_entrypoint": ENTRYPOINT,
+        },
+        "models": {
+            "input": {"module": ENTRYPOINT, "symbol": "FrameworkRuntimeInstallationRequest"},
+            "output": {"module": ENTRYPOINT, "symbol": "FrameworkRuntimeInstallationToolResult"},
+        },
+        "callable": {"module": ENTRYPOINT, "symbol": "create_adapter"},
+        "effect_hints": {
+            "read_only_hint": False,
+            "destructive_hint": True,
+            "idempotent_hint": False,
+            "open_world_hint": False,
+        },
+        "permissions": {
+            "execution": "operator_authorized",
+            "enforcement": "canonical_action_boundary",
+            "metadata_grants_permission": False,
+        },
+        "source_pins": {"delivery_atom_id": DELIVERY_ID, "action_ids": [ACTION_ID]},
+        "admission": {
+            "module": ENTRYPOINT,
+            "symbol": "binding_is_admitted",
+            "refresh_after_success": True,
+        },
+        "diagnostics": {
+            "error_type": "FrameworkRuntimeInstallationMcpError",
+            "discovery_is_effect_free": True,
+        },
+        "failure_contract": {
+            "mode": "raise_stable_refusal",
+            "exception": "FrameworkRuntimeInstallationMcpError",
+            "invokes_on_discovery": False,
+        },
+    }
 
 
 def input_schema() -> dict[str, Any]:
-    """Return the closed one-variant MCP envelope schema."""
+    """Derive the legacy MCP envelope from the canonical descriptor model."""
 
-    return {
+    request_schema = FrameworkRuntimeInstallationRequest.model_json_schema()
+    definitions = request_schema.pop("$defs", None)
+    reference = request_schema.get("$ref")
+    if isinstance(definitions, dict) and isinstance(reference, str) and reference.startswith("#/$defs/"):
+        request_schema = definitions.get(reference.removeprefix("#/$defs/"), request_schema)
+    envelope: dict[str, Any] = {
         "type": "object",
         "additionalProperties": False,
         "required": ["request"],
-        "properties": {"request": _REQUESTS.json_schema()},
+        "properties": {"request": request_schema},
     }
+    if definitions is not None:
+        envelope["$defs"] = definitions
+    return envelope
 
 
 def binding_is_admitted(binding: Mapping[str, Any] | None) -> bool:
@@ -564,9 +680,14 @@ __all__ = [
     "ExecuteRequest",
     "FrameworkRuntimeInstallationAdapter",
     "FrameworkRuntimeInstallationMcpError",
+    "FrameworkRuntimeInstallationRequest",
+    "FrameworkRuntimeInstallationToolResult",
     "MCP_NAME",
+    "McpActivation",
     "TOOL_NAME",
     "binding_is_admitted",
+    "create_adapter",
+    "describe_tool",
     "input_schema",
     "read_native_packet",
     "register_framework_runtime_installation",

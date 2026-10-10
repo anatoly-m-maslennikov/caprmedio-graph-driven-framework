@@ -20,21 +20,11 @@ from capability_discovery.service import (  # noqa: E402
     Query,
     Service,
     Watch,
-    _exact_direct_contract,
 )
 sys.path.insert(0, str(TOOLS_ROOT.parent / '203_APPS/WORKFLOW_ORCHESTRATOR'))
 from orchestrator import Request as OrchestratorRequest, run as orchestrate  # noqa: E402
 from selected_routes import QUERY_ROUTE_NAMES, register_selected_routes  # noqa: E402
-from framework_image_restoration_mcp import (  # noqa: E402
-    MCP_NAME as RESTORATION_MCP_NAME,
-    TOOL_NAME as RESTORATION_TOOL_NAME,
-    register_framework_image_restoration,
-)
-from source_admission_mcp import (  # noqa: E402
-    MCP_NAME as SOURCE_ADMISSION_MCP_NAME,
-    TOOL_NAME as SOURCE_ADMISSION_TOOL_NAME,
-    register_source_admission,
-)
+from registered_tool_registry import register_catalog_tools  # noqa: E402
 from hot_reload import startup_selection, bind_selection
 
 
@@ -61,56 +51,14 @@ def create_server(root):
         'for a separately started worker. No recheck or automatically started Runs.')
     register_orchestrator(server, root)
 
-    # One read-only source observation admits all optional direct adapters for
-    # this startup.  It is deliberately not retained after construction: each
-    # MCP request continues to reopen current discovery state independently.
+    # Compile one effect-free descriptor frontier.  Registration is generic:
+    # no capability name or adapter implementation is selected by this server.
     _atoms, catalog_tools, _issues = discovery.catalog()
-
-    # O187 is a separately source-declared direct Action.  It must never be
-    # inferred from the selected-route manifest, and a missing or altered
-    # delivery binding leaves it unregistered and unresolved.
-    restoration_bindings = [
-        item for item in catalog_tools
-        if item.get('name') == RESTORATION_TOOL_NAME
-    ]
-    if len(restoration_bindings) == 1 and register_framework_image_restoration(
-        server, root, binding=restoration_bindings[0],
-    ):
-        discovery.exposed.add(RESTORATION_MCP_NAME)
-
-    # O199 is separately source-declared as well.  The adapter owns its closed
-    # request schema, so discovery can expose it only after the one current
-    # catalog binding has admitted the actual server registration.
-    source_admission_bindings = [
-        item for item in catalog_tools
-        if item.get('name') == SOURCE_ADMISSION_TOOL_NAME
-    ]
-    if len(source_admission_bindings) == 1 and register_source_admission(
-        server, root, binding=source_admission_bindings[0],
-    ):
-        discovery.exposed.add(SOURCE_ADMISSION_MCP_NAME)
-
-    # O200 is another separately source-declared direct Action.  Keep the
-    # optional adapter import inside this admission boundary: a checkout which
-    # lacks the package-owned implementation is not an executable capability.
-    runtime_installation_bindings = [
-        item for item in catalog_tools
-        if item.get('name') == 'INSTALL_FRAMEWORK_RUNTIME'
-    ]
-    if (len(runtime_installation_bindings) == 1
-            and _exact_direct_contract(runtime_installation_bindings[0]) is not None):
-        try:
-            from framework_runtime_installation_mcp import (
-                MCP_NAME as RUNTIME_INSTALLATION_MCP_NAME,
-                register_framework_runtime_installation,
-            )
-            admitted = register_framework_runtime_installation(
-                server, root, binding=runtime_installation_bindings[0],
-            )
-        except (ImportError, OSError, ValueError, TypeError):
-            admitted = False
-        if admitted:
-            discovery.exposed.add(RUNTIME_INSTALLATION_MCP_NAME)
+    registry = register_catalog_tools(
+        server, root, [tool for tool in catalog_tools if not tool.get('selected_route')],
+    )
+    discovery.registry_quarantined = registry.quarantined
+    discovery.exposed.update(registry.registered_names)
 
     @server.tool(name='rmed_atoms_base_revise', structured_output=True, annotations=ToolAnnotations(
         read_only_hint=False, destructive_hint=False, idempotent_hint=False, open_world_hint=False))

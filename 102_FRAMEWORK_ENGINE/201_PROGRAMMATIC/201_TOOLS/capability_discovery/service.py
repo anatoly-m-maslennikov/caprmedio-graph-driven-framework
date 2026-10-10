@@ -19,72 +19,24 @@ _DISCOVERY_TOOL_FIELDS = frozenset({
 })
 _SHA256 = re.compile(r"[0-9a-f]{64}\Z")
 _INSTALLED_FRAMEWORK_ROOT = '000_CAPRMEDIO_framework'
-_DIRECT_TOOL_CONTRACTS = (
-    {
-        'name': 'FRAMEWORK_IMAGE_RESTORATION',
-        'mcp_name': 'restore_framework_image',
-        'entrypoint': '102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/framework_image_restoration_mcp.py',
-        'action_id': 'CA-O-187',
-        'source_atom': 'CA-D-591',
-    },
-    {
-        'name': 'ADMIT_PACKAGE_SOURCES',
-        'mcp_name': 'admit_package_sources',
-        'entrypoint': '102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/source_admission_mcp.py',
-        'action_id': 'CA-O-199',
-        'source_atom': 'CA-D-602',
-    },
-    {
-        'name': 'INSTALL_FRAMEWORK_RUNTIME',
-        'mcp_name': 'install_framework_runtime',
-        'entrypoint': '102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/framework_runtime_installation_mcp.py',
-        'action_id': 'CA-O-200',
-        'source_atom': 'CA-D-620',
-    },
-)
 
 
-def _direct_contract_claims(tool):
-    """Return exact direct-MCP contracts claimed by one source declaration.
+def _mcp_binding_candidate(binding):
+    """Whether a declared binding asks the MCP registry for admission.
 
-    These are deliberately the governed direct Tools, not a caller-supplied
-    registry or a route inference rule.  A malformed declaration that claims
-    either Tool is still a direct-binding failure, rather than a generic source
-    tool that discovery could accidentally present as executable.
+    This deliberately identifies shape rather than Tool identity: no fixed
+    provider name, source Atom, or handwritten schema participates.
     """
 
-    name = tool.get('name')
-    mcp_name = tool.get('mcp_name')
-    action_ids = tool.get('action_ids')
-    if not isinstance(action_ids, list):
-        action_ids = []
-    return tuple(
-        contract for contract in _DIRECT_TOOL_CONTRACTS
-        if name == contract['name']
-        or mcp_name == contract['mcp_name']
-        or contract['action_id'] in action_ids
+    actions = binding.get('action_ids') if isinstance(binding, dict) else None
+    return (
+        isinstance(binding, dict)
+        and isinstance(binding.get('name'), str) and bool(binding['name'])
+        and isinstance(binding.get('mcp_name'), str) and bool(binding['mcp_name'])
+        and isinstance(binding.get('entrypoint'), str) and bool(binding['entrypoint'])
+        and isinstance(actions, list) and bool(actions)
+        and all(isinstance(action, str) and action for action in actions)
     )
-
-
-def _exact_direct_contract(tool):
-    """Return one closed source declaration, or no executable direct Tool."""
-
-    claims = _direct_contract_claims(tool)
-    if len(claims) != 1:
-        return None
-    contract = claims[0]
-    source_binding_fields = set(tool).difference(_DISCOVERY_TOOL_FIELDS)
-    if source_binding_fields != {'name', 'mcp_name', 'entrypoint', 'action_ids'}:
-        return None
-    if (
-        tool.get('name') != contract['name']
-        or tool.get('mcp_name') != contract['mcp_name']
-        or tool.get('entrypoint') != contract['entrypoint']
-        or tool.get('action_ids') != [contract['action_id']]
-        or tool.get('source_atom') != contract['source_atom']
-    ):
-        return None
-    return contract
 
 
 def _source_tool_declaration(body):
@@ -139,6 +91,7 @@ class Service:
     def __init__(self, root, exposed=()):
         self.root = Path(root).resolve(strict=True)
         self.exposed = set(exposed)
+        self.registry_quarantined = ()
 
     def read(self, path):
         path = Path(path)
@@ -380,15 +333,12 @@ class Service:
                 'scope_unit': metadata.get('current_scope_unit'),
                 'summary': body.split('##', 1)[0].replace('# Summary', '').strip(),
             }
-            contract = _exact_direct_contract(tool)
-            if _direct_contract_claims(tool):
-                tool['availability'] = (
-                    'mcp' if contract is not None and tool.get('mcp_name') in self.exposed else 'unresolved'
-                )
+            # The package reader has already established the entrypoint is an
+            # Engine member.  Never consult a root-checkout fallback here.
+            if _mcp_binding_candidate(tool):
+                tool['availability'] = 'mcp' if tool.get('mcp_name') in self.exposed else 'unresolved'
             else:
-                # The package reader has already established that entrypoint is
-                # a regular Engine member; never consult a root checkout path.
-                tool['availability'] = 'mcp' if tool.get('mcp_name') in self.exposed else 'source'
+                tool['availability'] = 'source'
             tools.append(tool)
         return True, tools
 
@@ -420,18 +370,16 @@ class Service:
                                              "assigned_action_id", "requested_runs", "operator_authorization"]}}],
         }
 
-    @staticmethod
-    def _direct_tool_input_schema(request_id, row, tools):
-        """Load one exact admitted direct-MCP schema without route inference."""
+    def _tool_projection(self, request_id, tools):
+        """Derive one MCP projection solely from canonical provider symbols."""
         candidates = [
-            (tool, _exact_direct_contract(tool)) for tool in tools
+            tool for tool in tools
             if tool.get('availability') == 'mcp'
             and request_id in {
                 tool.get("name"), tool.get("source_atom"),
                 *tool.get("action_ids", []), *tool.get("workflow_ids", []),
             }
         ]
-        candidates = [(tool, contract) for tool, contract in candidates if contract is not None]
         if len(candidates) != 1:
             return None
         try:
@@ -439,20 +387,13 @@ class Service:
             mcp_root = Path(__file__).resolve().parents[2] / "204_MCP"
             if str(mcp_root) not in sys.path:
                 sys.path.insert(0, str(mcp_root))
-            tool, contract = candidates[0]
-            if contract['name'] == 'FRAMEWORK_IMAGE_RESTORATION':
-                from framework_image_restoration_mcp import binding_is_admitted, input_schema
-            elif contract['name'] == 'ADMIT_PACKAGE_SOURCES':
-                from source_admission_mcp import binding_is_admitted, input_schema
-            elif contract['name'] == 'INSTALL_FRAMEWORK_RUNTIME':
-                from framework_runtime_installation_mcp import binding_is_admitted, input_schema
-            else:  # pragma: no cover - contracts above are closed and exhaustive.
+            from registered_tool_registry import compile_registry
+
+            snapshot = compile_registry(self.root, candidates)
+            if len(snapshot.tools) != 1:
                 return None
-            return input_schema() if binding_is_admitted(tool) else None
-        except (ImportError, OSError, ValueError, TypeError):
-            # A source declaration is not executable if its implementation
-            # schema cannot be loaded.  Leave context incomplete rather than
-            # inventing a callable request grammar.
+            return snapshot.tools[0]
+        except (ImportError, OSError, TypeError, ValueError):
             return None
 
     def catalog(self):
@@ -531,16 +472,11 @@ class Service:
                             'source_path': row['source_path'],
                             'sha256': row['sha256'], 'scope_unit': row['scope_unit'],
                             'summary': parsed.body.split('##', 1)[0].replace('# Summary', '').strip()}
-                    if _direct_contract_claims(tool):
-                        # Direct Tool source is only an executable capability
-                        # after the one closed declaration is server-exposed.
-                        tool['availability'] = (
-                            'mcp' if (_exact_direct_contract(tool) is not None
-                                      and tool.get('mcp_name') in self.exposed) else 'unresolved'
-                        )
-                    else:
+                    if _mcp_binding_candidate(binding):
                         tool['availability'] = ('mcp' if binding.get('mcp_name') in self.exposed
-                                                else 'source' if entry.is_file() else 'missing')
+                                                else 'unresolved')
+                    else:
+                        tool['availability'] = ('source' if entry.is_file() else 'missing')
                     source_tools.append(tool)
             except (ValueError, OSError, KeyError, TypeError) as error:
                 issues.append(f'{path.relative_to(self.root)}: {type(error).__name__}')
@@ -557,6 +493,18 @@ class Service:
             and (package_selected or tool['source_atom'] in valid)
         ]
         tools.extend(self._admitted_selected_route_tools(issues))
+        for unavailable in self.registry_quarantined:
+            source = unavailable.get('source') if isinstance(unavailable, dict) else None
+            diagnostics = unavailable.get('diagnostics') if isinstance(unavailable, dict) else None
+            label = source.get('name') if isinstance(source, dict) else None
+            if not isinstance(label, str) or not label:
+                label = 'unknown Tool'
+            if isinstance(diagnostics, list):
+                for diagnostic in diagnostics:
+                    if isinstance(diagnostic, dict):
+                        field, code = diagnostic.get('field'), diagnostic.get('code')
+                        if isinstance(field, str) and isinstance(code, str):
+                            issues.append(f'registry unavailable: {label}: {field}: {code}')
         return valid, tools, issues
 
     def discover(self, request, operations=False):
@@ -566,14 +514,15 @@ class Service:
             rows = [row for row in rows if row['content_role'] == 'Operations']
             for row in rows:
                 bindings = [tool for tool in tools if row['id'] in tool.get('action_ids', []) + tool.get('workflow_ids', [])]
-                direct = [tool for tool in bindings if _direct_contract_claims(tool)]
-                # D591 and D602 are direct MCP Actions, not generic source
-                # fallbacks: source-only, malformed, or ambiguous bindings
-                # remain unresolved even when their carriers are readable.
-                if direct:
-                    row['availability'] = 'mcp' if any(tool['availability'] == 'mcp' for tool in direct) else 'unresolved'
+                mcp_candidates = [tool for tool in bindings if _mcp_binding_candidate(tool)]
+                selected_bindings = [tool for tool in bindings if tool.get('selected_route')]
+                if any(tool['availability'] == 'mcp' for tool in selected_bindings):
+                    row['availability'] = 'mcp'
+                elif mcp_candidates:
+                    row['availability'] = ('mcp' if any(tool['availability'] == 'mcp' for tool in mcp_candidates)
+                                           else 'unresolved')
                 else:
-                    row['availability'] = 'mcp' if any(tool['availability'] == 'mcp' for tool in bindings) else 'source' if bindings else 'unresolved'
+                    row['availability'] = 'source' if bindings else 'unresolved'
                 row['tools'] = [tool['name'] for tool in bindings]
                 row['summary'] = row['content'].split('##', 1)[0].replace('# Summary', '').strip()
         words = request.query.lower().split()
@@ -639,10 +588,36 @@ class Service:
         models = {'DISCOVER_TOOLS': Query, 'DISCOVER_OPERATIONS': Query,
                   'GET_EXECUTION_CONTEXT': Context, 'GET_EXECUTION_STATUS': Observation,
                   'RESUME_EXECUTION_CONTEXT': Observation, 'WATCH_EXECUTION': Watch}
-        direct_schema = self._direct_tool_input_schema(request.id, row, tools)
+        projection = self._tool_projection(request.id, tools)
+        input_schema = None
+        output_schema = None
+        tool_description = None
+        if projection is not None:
+            # Pydantic's canonical RootModel schema keeps its references at
+            # ``#/$defs/...``.  Once it becomes the ``request`` property of
+            # the transport envelope, those definitions must live on the
+            # envelope root too; nesting them would leave dangling refs.
+            request_schema = dict(projection['input_schema'])
+            definitions = request_schema.pop('$defs', None)
+            reference = request_schema.get('$ref')
+            if (
+                isinstance(definitions, dict)
+                and isinstance(reference, str)
+                and reference.startswith('#/$defs/')
+            ):
+                request_schema = dict(definitions.get(reference.removeprefix('#/$defs/'), request_schema))
+            input_schema = {
+                'type': 'object', 'additionalProperties': False, 'required': ['request'],
+                'properties': {'request': request_schema},
+            }
+            if isinstance(definitions, dict):
+                input_schema['$defs'] = definitions
+            output_schema = projection['output_schema']
+            tool_description = projection['descriptor']
         return {'definition': row, 'related_definitions': selected,
-                'input_schema': (direct_schema if direct_schema is not None
+                'input_schema': (input_schema if input_schema is not None
                                  else models[request.id].model_json_schema() if request.id in models else None),
+                'output_schema': output_schema, 'tool_description': tool_description,
                 'context_complete': len(selected) == len(related) and used <= budget,
                 'coverage_issues': issues}
 
