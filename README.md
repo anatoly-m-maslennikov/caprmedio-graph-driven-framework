@@ -284,20 +284,35 @@ source-admitted model for every supported content role and reports the matching
 canonical Workflow terminal evidence rather than a scheduler or child-Action
 outcome.
 
-The MCP remains available over local stdio. The Docker runtime additionally
-offers `project-mcp` to start or reuse a password-free, loopback-only Streamable HTTP
-endpoint for an explicitly selected Project folder, including nested Projects
-in one repository, with an explicit independent Framework source path.
-Docker allocates its `127.0.0.1` port; see the
-[launcher usage and connection examples](102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/README.md#launch-a-selected-project-mcp-endpoint).
-Neither transport starts work or grants authorization by itself.
+The MCP remains available over local stdio. The Docker `project-mcp` command
+documented below is a development source launcher: it requires an explicit
+Framework source root and can build a compatible image. It is distinct from
+activation of a selected installed package. Neither transport starts work or
+grants authorization by itself; see the [development and installed activation
+routes](102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/README.md#launch-a-selected-project-mcp-endpoint).
+
+A reusable Framework package is selected from
+`.caprmedio_install/releases/<package-manifest-sha256>` by
+`.caprmedio_install/current.toml`; Project-owned runtime state remains in
+`.caprmedio_runtime/`. Installation creates `config.toml` from the
+package-admitted default only when it is absent, and otherwise preserves its
+existing bytes or refuses a configuration migration. The legacy Tool-version
+replacement erases only its managed `.caprmedio_runtime/tools` surface, never
+Project controls, Journal, or other runtime state.
+
+A package carries its active Methodology export and `SKILLS/ca` payload. Their
+publication follows the gated installation/promotion path: Methodology output
+is limited to its declared delivery root and never overwrites authoritative
+source, and Skill publication is not automatic host registration. Use the
+package-owned UV CLI documented with Docker only after valid package and runtime
+selections exist; it does not install a package or start a Workflow.
 
 This cut has golden mock-Agent evidence for the Implementation Workflow (W09),
 not a live-LLM claim. It is not a formal Release or promotion, does not claim
 full sixteen-route coverage, and leaves Scope mutations, Revert, graph builders,
-and standalone advanced Artifact/Journal queries deferred. The installed N
-runtime remains untouched while later Release Version work follows its separate
-candidate-and-promotion gates.
+and standalone advanced Artifact/Journal queries deferred. This README makes
+no claim that a Project has passed native installation, Full Gate, package
+selection, or release promotion.
 
 ## Current boundaries
 

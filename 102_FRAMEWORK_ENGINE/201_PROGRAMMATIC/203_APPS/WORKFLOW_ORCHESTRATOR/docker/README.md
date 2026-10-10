@@ -1,8 +1,10 @@
 # Project-scoped Docker runtime
 
 One image supports separate MCP, durable DBOS worker, and Codex Agent services.
-`project-mcp` starts or reuses only the selected Project's HTTP MCP container.
-Nothing starts automatically or enqueues a Workflow during startup.
+The source-development `project-mcp` route starts or reuses only the selected
+Project's HTTP MCP container. The selected-installed-package route is described
+separately below. Nothing starts automatically or enqueues a Workflow during
+startup.
 
 The worker and MCP receive one Project bind mount at `/project`, allowing atomic
 publication from `.caprmedio_tmp/` into admitted authority and execution-state
@@ -122,10 +124,42 @@ connection. MCP shutdown does not stop the worker or its queue.
 
 ## Launch a selected Project MCP endpoint
 
-For the normal local launcher, run the standard-library bootstrap through its
-isolated uv shebang environment. It pins the child launcher to the selected
-Framework source's `.caprmedio_runtime/launcher-venv` and does not use a host
-Python environment:
+Choose one route below. The development source launcher and selected-installed
+package activation have different evidence and image-input boundaries.
+
+### Selected installed package activation
+
+After installation has selected matching package and runtime selectors, invoke
+the package-owned CLI through the selected package's locked UV project. The CLI
+has `--project-root`, `--control-root`, `--mode` (`http` by default or `stdio`),
+and an optional HTTP-only `--port`; it is a real `build_parser`/`run`/`main`
+entry point and may be invoked directly as a Python script:
+
+```sh
+PACKAGE=/ABSOLUTE/PROJECT/.caprmedio_install/releases/<package-manifest-sha256>
+UV_PROJECT_ENVIRONMENT=/ABSOLUTE/PROJECT/.caprmedio_runtime/launcher-venv \
+uv run --project "$PACKAGE" --locked --no-sync --no-env-file \
+  --group rmed-workflow-mcp --group workflow-orchestrator python \
+  "$PACKAGE/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/installed_mcp_cli.py" \
+  --project-root /ABSOLUTE/PROJECT \
+  --control-root .caprmedio_project \
+  --mode http
+```
+
+The command reopens the selected package, native runtime, target context, and
+read-only Project configuration before its one transport effect. It accepts no
+source-checkout override and does not build an image or install/publish a
+package. HTTP prints a safe JSON launcher result; `--mode stdio` owns stdio and
+accepts no `--port`. Missing or mismatched selectors/configuration are refused.
+This describes the bounded activation interface, not evidence that an installed
+Project has passed Full Gate, native installation, or a live endpoint proof.
+
+### Development source launcher
+
+For development from a Framework source checkout, run the standard-library
+bootstrap through its isolated uv shebang environment. It pins the child
+launcher to the selected Framework source's `.caprmedio_runtime/launcher-venv`
+and does not use a host Python environment:
 
 ```sh
 uv run --no-project --isolated --managed-python --python 3.14 --no-env-file python -I \
@@ -181,20 +215,12 @@ healthy Project runtime must already use a requested port exactly; otherwise it
 is retained and reported as a mismatch. If a requested port is occupied, startup
 fails without stopping the other runtime or selecting a different port.
 
-Every `project-mcp` invocation requires `--source-root` to name a readable
-Framework source checkout for image identity and build inputs. Omitting it
-returns JSON with `condition: IMAGE_INPUT_UNAVAILABLE`; no repository or ancestor
-is inferred. A retained Framework package lacks the Dockerfile and dependency
-inputs, so supply the separate source checkout when using its launcher:
-
-```sh
-UV_PROJECT_ENVIRONMENT="/ABSOLUTE/FRAMEWORK-SOURCE/.caprmedio_runtime/launcher-venv" \
-uv run --project /ABSOLUTE/FRAMEWORK-SOURCE --locked --python 3.14 --managed-python --no-env-file \
-  --group rmed-workflow-mcp python \
-  /ABSOLUTE/FRAMEWORK-PACKAGE/FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/runtime.py \
-  --project-root /ABSOLUTE/PROJECT --source-root /ABSOLUTE/FRAMEWORK-SOURCE \
-  --output url project-mcp
-```
+Every invocation of this development `project-mcp` launcher requires
+`--source-root` to name a readable Framework source checkout for image identity
+and build inputs. Omitting it returns JSON with
+`condition: IMAGE_INPUT_UNAVAILABLE`; no repository or ancestor is inferred.
+Use the selected-installed-package CLI above rather than substituting a package
+path into this source-development route.
 
 `--output url` prints only the URL on success. Failures still return JSON with
 `disposition` and `condition`, exit nonzero, and contain no success URL. Use
