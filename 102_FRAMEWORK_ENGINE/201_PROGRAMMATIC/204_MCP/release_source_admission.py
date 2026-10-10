@@ -225,12 +225,73 @@ def _registered_scope(root: Path, scope_unit: str, authority_path: str) -> None:
         ) from error
 
 
+def _scan_current_source_root(
+    root: Path,
+    source_root: str,
+    expected_scope: str,
+    registered_root: str | None,
+) -> tuple[tuple[Path, bytes, dict[str, str]], ...]:
+    """Capture one checked source-root snapshot for one admission derivation.
+
+    The snapshot has only derivation lifetime.  It avoids repeatedly walking
+    the same declared authoring root while leaving every selected source pin
+    physically reopened by ``_read_pin`` below.
+    """
+    if registered_root is not None:
+        _registered_scope(root, expected_scope, registered_root)
+    base, _relative_base = _checked_source_root(root, source_root)
+    rows: list[tuple[Path, bytes, dict[str, str]]] = []
+    for path in sorted(base.rglob("*.md")):
+        relative = path.relative_to(root)
+        if "archive" in relative.parts:
+            continue
+        cursor = root
+        for part in relative.parts:
+            cursor /= part
+            if cursor.is_symlink():
+                _reject("source Atom path contains a symlink", code="release-source-path-unsafe")
+        if not path.is_file() or path.stat().st_size > _MAX_SOURCE_BYTES:
+            _reject("source Atom is unavailable", code="release-source-unavailable")
+        try:
+            raw = path.read_bytes()
+        except OSError as error:
+            raise ReleaseSourceAdmissionError(
+                "release-source-unavailable", "source Atom is unavailable"
+            ) from error
+        rows.append((path, raw, _frontmatter(raw)))
+    return tuple(rows)
+
+
+class _CurrentSourceIndex:
+    """One non-shareable source snapshot used by a single D572 derivation."""
+
+    def __init__(self, root: Path) -> None:
+        self.root = root
+        self._roots: dict[
+            tuple[str, str, str | None], tuple[tuple[Path, bytes, dict[str, str]], ...]
+        ] = {}
+
+    def rows(
+        self,
+        source_root: str,
+        expected_scope: str,
+        registered_root: str | None,
+    ) -> tuple[tuple[Path, bytes, dict[str, str]], ...]:
+        key = (source_root, expected_scope, registered_root)
+        if key not in self._roots:
+            self._roots[key] = _scan_current_source_root(
+                self.root, source_root, expected_scope, registered_root
+            )
+        return self._roots[key]
+
+
 def resolve_current_source_pin(
     project_root: str | Path,
     atom_id: str,
     *,
     role: str,
     operation_type: str | None = None,
+    _source_index: _CurrentSourceIndex | None = None,
 ) -> dict[str, Any]:
     """Return one physically current, registered active Project source pin.
 
@@ -240,6 +301,10 @@ def resolve_current_source_pin(
     or an ambiguous current definition.
     """
     root = _project_root(project_root)
+    if _source_index is None:
+        _source_index = _CurrentSourceIndex(root)
+    elif _source_index.root != root:
+        _reject("source index belongs to another Project", code="release-source-unavailable")
     if not isinstance(atom_id, str) or _ATOM.fullmatch(atom_id) is None:
         _reject("source Atom identity is invalid", code="release-source-identity-invalid")
     if role == "Operations":
@@ -255,27 +320,7 @@ def resolve_current_source_pin(
         source_roots = ((_OPERATIONS_ROOT, "caprmedio", None),)
     candidates: list[tuple[Path, bytes, dict[str, str]]] = []
     for source_root, expected_scope, registered_root in source_roots:
-        if registered_root is not None:
-            _registered_scope(root, expected_scope, registered_root)
-        base, _relative_base = _checked_source_root(root, source_root)
-        for path in sorted(base.rglob("*.md")):
-            relative = path.relative_to(root)
-            if "archive" in relative.parts:
-                continue
-            cursor = root
-            for part in relative.parts:
-                cursor /= part
-                if cursor.is_symlink():
-                    _reject("source Atom path contains a symlink", code="release-source-path-unsafe")
-            if not path.is_file() or path.stat().st_size > _MAX_SOURCE_BYTES:
-                _reject("source Atom is unavailable", code="release-source-unavailable")
-            try:
-                raw = path.read_bytes()
-            except OSError as error:
-                raise ReleaseSourceAdmissionError(
-                    "release-source-unavailable", "source Atom is unavailable"
-                ) from error
-            frontmatter = _frontmatter(raw)
+        for path, raw, frontmatter in _source_index.rows(source_root, expected_scope, registered_root):
             if frontmatter.get("atom_id") != atom_id or frontmatter.get("status") != "Active":
                 continue
             if frontmatter.get("current_scope_unit") != expected_scope:
@@ -296,8 +341,12 @@ def resolve_current_source_pin(
     if str(version) != frontmatter["version"] or version < 1:
         _reject("current source Atom version is invalid", code="release-source-identity-invalid")
     relative = path.relative_to(root).as_posix()
-    return _pin_shape({"atom_id": atom_id, "version": version, "source_path": relative,
-                       "digest": hashlib.sha256(raw).hexdigest()})
+    pin = _pin_shape({"atom_id": atom_id, "version": version, "source_path": relative,
+                      "digest": hashlib.sha256(raw).hexdigest()})
+    # The index is a bounded discovery snapshot, never pin evidence.  Reopen
+    # the selected member so every pin reflects bytes available at resolution.
+    _read_pin(root, pin)
+    return pin
 
 
 def _tables(text: str) -> list[list[list[str]]]:
@@ -488,6 +537,30 @@ def _workflow_step_pairs(raw: bytes) -> list[tuple[str, str]]:
         ) from error
 
 
+def _derive_release_source_admission(root: Path, source_index: _CurrentSourceIndex) -> dict[str, Any]:
+    """Derive one admission from a single bounded current-source snapshot."""
+    text = _read_pin(root, AUTHORITY_PIN).decode("utf-8")
+    memberships = _rmed_membership(text)
+    workflow = resolve_current_source_pin(
+        root, "CA-O-164", role="Operations", operation_type="Workflow", _source_index=source_index
+    )
+    pairs = _workflow_step_pairs(_read_pin(root, workflow))
+    steps = [{
+        "step": resolve_current_source_pin(
+            root, step, role="Operations", operation_type="Step", _source_index=source_index
+        ),
+        "action": resolve_current_source_pin(
+            root, action, role="Operations", operation_type="Action", _source_index=source_index
+        ),
+    } for step, action in pairs]
+    rmed = [resolve_current_source_pin(root, atom_id, role=_RMED_ROLES[role], _source_index=source_index)
+            for role, atom_id in memberships]
+    return {"route": "release_version", "acceptance_frontier": copy.deepcopy(workflow),
+            "workflow": workflow, "ordered_steps": steps,
+            "ordered_actions": [copy.deepcopy(row["action"]) for row in steps],
+            "rmed_frontier": rmed, "mutation_capable": True, "native_action_calls": []}
+
+
 def derive_release_source_admission(project_root: str | Path) -> dict[str, Any]:
     """Derive the one D572@36 admission record from current registered source.
 
@@ -496,19 +569,7 @@ def derive_release_source_admission(project_root: str | Path) -> dict[str, Any]:
     ambiguous source cannot silently reuse an installed or historical pin.
     """
     root = _project_root(project_root)
-    text = _read_pin(root, AUTHORITY_PIN).decode("utf-8")
-    memberships = _rmed_membership(text)
-    workflow = resolve_current_source_pin(root, "CA-O-164", role="Operations", operation_type="Workflow")
-    pairs = _workflow_step_pairs(_read_pin(root, workflow))
-    steps = [{"step": resolve_current_source_pin(root, step, role="Operations", operation_type="Step"),
-              "action": resolve_current_source_pin(root, action, role="Operations", operation_type="Action")}
-             for step, action in pairs]
-    rmed = [resolve_current_source_pin(root, atom_id, role=_RMED_ROLES[role])
-            for role, atom_id in memberships]
-    return {"route": "release_version", "acceptance_frontier": copy.deepcopy(workflow),
-            "workflow": workflow, "ordered_steps": steps,
-            "ordered_actions": [copy.deepcopy(row["action"]) for row in steps],
-            "rmed_frontier": rmed, "mutation_capable": True, "native_action_calls": []}
+    return _derive_release_source_admission(root, _CurrentSourceIndex(root))
 
 
 def _release_workflow_graph(raw: bytes, admission: Mapping[str, Any]) -> dict[str, Any]:
@@ -579,7 +640,7 @@ def derive_release_graph_admission(project_root: str | Path) -> tuple[dict[str, 
     validated here rather than serialized as a non-schema route member.
     """
     root = _project_root(project_root)
-    admission = derive_release_source_admission(root)
+    admission = _derive_release_source_admission(root, _CurrentSourceIndex(root))
     workflow_raw = _read_pin(root, admission["workflow"])
     graph = _release_workflow_graph(workflow_raw, admission)
     route = {"route": "release_version", "workflow": copy.deepcopy(admission["workflow"]),
@@ -637,12 +698,12 @@ def validate_release_source_admissions(project_root: str | Path, manifest: Mappi
         _reject("Release route requires exactly one source admission")
     actual = _record_shape(admissions[0])
     root = _project_root(project_root)
-    expected = derive_release_source_admission(root)
+    expected = _derive_release_source_admission(root, _CurrentSourceIndex(root))
     if actual != expected:
         _reject("Release admission differs from the accepted D572 source frontier")
     # Python considers True == 1; route pins must retain the same strict types
     # as admission pins even when this helper is called before the route loader.
-    graph, _ = derive_release_graph_admission(root)
+    graph = _release_workflow_graph(_read_pin(root, expected["workflow"]), expected)
     route_shape = {**expected, **{field: release[0].get(field)
                                   for field in ("workflow", "ordered_steps", "ordered_actions")}}
     _record_shape(route_shape)

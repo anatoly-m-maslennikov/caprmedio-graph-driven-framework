@@ -9,6 +9,7 @@ import shutil
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 
 
 MCP = Path(__file__).resolve().parents[1]
@@ -111,6 +112,29 @@ class ReleaseSourceAdmissionTest(unittest.TestCase):
         self.assertEqual("CA-O-170", route["entry_step"])
         self.assertEqual(10, len(route["on_result"]))
         self.assertEqual([self.record], validate_release_source_admissions(self.root, self.manifest))
+        self.assertEqual(before, self.snapshot())
+
+    def test_derivation_scans_each_registered_root_once_without_cross_call_cache(self) -> None:
+        before = self.snapshot()
+        scanner = admission_module._scan_current_source_root
+        with patch.object(admission_module, "_scan_current_source_root", wraps=scanner) as scan:
+            self.assertEqual(self.record, derive_release_source_admission(self.root))
+            # Operations plus the Project Tools and reusable Tools roots for
+            # each of the four RMED roles; every one is scanned once.
+            self.assertEqual(9, scan.call_count)
+        with patch.object(admission_module, "_scan_current_source_root", wraps=scanner) as scan:
+            self.assertEqual([self.record], validate_release_source_admissions(self.root, self.manifest))
+            self.assertEqual(9, scan.call_count)
+        source = self.root / self.record["workflow"]["source_path"]
+        original = source.read_bytes()
+        try:
+            source.write_bytes(original + b"\nfresh derivation bytes\n")
+            with patch.object(admission_module, "_scan_current_source_root", wraps=scanner) as scan:
+                refreshed = derive_release_source_admission(self.root)
+                self.assertEqual(9, scan.call_count)
+            self.assertNotEqual(self.record["workflow"]["digest"], refreshed["workflow"]["digest"])
+        finally:
+            source.write_bytes(original)
         self.assertEqual(before, self.snapshot())
 
     def test_stale_or_missing_current_workflow_refuses_before_manifest_admission(self) -> None:
