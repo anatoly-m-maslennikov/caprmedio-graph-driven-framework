@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Projection
   depends_on: [Entity, Term, Atom, Property, Carrier, Plan]
-version: 7
-updated_at: "2026-10-10 04:26:00 +0400"
+version: 8
+updated_at: "2026-10-10 04:34:00 +0400"
 relations:
   is_decomposition_of: [CA-P-1872]
   blocks: [CA-P-1908]
@@ -31,7 +31,7 @@ Review every Entity in the proposed graph for dropping, consolidation or general
 
 Review context: the Operator chose **Finish against the captured snapshot only**. Use the original CA-P-1905 source pins and immutable Git commit `a971d0e00c33c779f485fc8cad63194894d440fb`; read `nodes/snapshot.context.md` and `nodes/support/snapshot_sources.py`. CA-D-494 revision 2 remains the review input; live revision 3 is outside this snapshot. Preserve originals and label receipts as captured-snapshot checks, not current-Core checks. Any currentness or source-pin requirement below means exact validity against this selected captured snapshot. Do not silently rebind or overwrite live Core.
 
-Child work only; no separately executable own work. Nine source-pinned review batches and four bounded meaning repairs precede integration and independent verification. Original completed review receipts remain historical; the repairs explicitly BLOCK integration.
+Child work only; no separately executable own work. Nine source-pinned review batches and five bounded meaning repairs precede integration and independent verification. Original completed review receipts remain historical; the repairs explicitly BLOCK integration.
 
 Required start prerequisite: CA-P-1906. Inputs: CA-P-1905's pinned inventory and CA-P-1906's proposed structure, inheritance map and complete relation-occurrence ledger.
 
@@ -80,6 +80,8 @@ Independent preparation found false missing-meaning questions in captured batche
 - [CA-P-1954](23-CA-P-1907-TASK--mark-entity-drop-and-consolidation-candidates-without-deleting/14-CA-P-1954-TASK--repair-qualified-subject-and-workflow-node-review.md): Repair qualified Subject and Workflow node review; 15 minutes. Explicitly BLOCKS CA-P-1937.
 
 - [CA-P-1955](23-CA-P-1907-TASK--mark-entity-drop-and-consolidation-candidates-without-deleting/15-CA-P-1955-TASK--repair-qualified-main-content-and-relation-node-review.md): Repair qualified Main Content and Relation node review; 15 minutes. Explicitly BLOCKS CA-P-1937.
+
+- [CA-P-1956](23-CA-P-1907-TASK--mark-entity-drop-and-consolidation-candidates-without-deleting/16-CA-P-1956-TASK--repair-captured-frontier-and-metamodel-meaning.md): Repair captured frontier and Metamodel meaning; 15 minutes. Explicitly BLOCKS CA-P-1937. Batch 3's original joined receipt is preserved in Git; this is a post-join derived review correction.
 
 ### Definition of Done
 

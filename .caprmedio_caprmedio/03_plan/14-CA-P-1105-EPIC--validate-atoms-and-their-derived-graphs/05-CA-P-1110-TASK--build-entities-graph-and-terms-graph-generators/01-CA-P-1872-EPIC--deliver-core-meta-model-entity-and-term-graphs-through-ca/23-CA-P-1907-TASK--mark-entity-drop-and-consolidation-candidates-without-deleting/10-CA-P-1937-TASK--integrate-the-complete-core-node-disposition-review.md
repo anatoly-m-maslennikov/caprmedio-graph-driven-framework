@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Projection
   depends_on: [Entity, Term, Atom, Property, Carrier, Plan]
-version: 4
-updated_at: "2026-10-10 04:26:00 +0400"
+version: 5
+updated_at: "2026-10-10 04:34:00 +0400"
 relations:
   is_decomposition_of: [CA-P-1907]
   blocks: [CA-P-1938]
@@ -34,7 +34,7 @@ Review context: the Operator chose **Finish against the captured snapshot only**
 
 Estimated own work: 15 minutes. Assignee: AI Agent.
 
-Required start prerequisites: CA-P-1928, CA-P-1929, CA-P-1930, CA-P-1931, CA-P-1932, CA-P-1933, CA-P-1934, CA-P-1935, CA-P-1936, CA-P-1952, CA-P-1953, CA-P-1954, CA-P-1955. Each required prerequisite explicitly BLOCKS this Task. Read the final repaired outputs; original Done batch receipts remain historical and do not pin the later repaired review bytes.
+Required start prerequisites: CA-P-1928, CA-P-1929, CA-P-1930, CA-P-1931, CA-P-1932, CA-P-1933, CA-P-1934, CA-P-1935, CA-P-1936, CA-P-1952, CA-P-1953, CA-P-1954, CA-P-1955, CA-P-1956. Each required prerequisite explicitly BLOCKS this Task. Read the final repaired outputs; original Done batch receipts remain historical and do not pin the later repaired review bytes. CA-P-1956 supplies a post-join batch-3 correction, not a fresh original join receipt.
 
 Join all nine Done review outputs, covering 706 baseline identities exactly once. Preserve original evidence, questions, dispositions and every row in CA-P-1906's 3093-segment ledger. Annotate affected and unaffected qualified endpoints without inventing a native relation or changing original reasons. Output `nodes.dispositions.json`, `relations.marked.ledger.json` and a marked candidate structure, plus a reproducible create-only producer in the node-review directory. Preserve requested Revision/Projection/Substance examples and Scope-omission default. Shared RMED pointers, additional separately evidenced relations, inherited constraints and historical references remain traceable. No actual deletion or source migration.
 
