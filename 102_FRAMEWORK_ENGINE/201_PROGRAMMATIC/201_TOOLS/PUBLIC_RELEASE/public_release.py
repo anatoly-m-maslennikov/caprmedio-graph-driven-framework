@@ -25,8 +25,9 @@ from urllib.parse import urlparse
 
 
 TOOLS_ROOT = Path(__file__).resolve().parents[1]
-if str(TOOLS_ROOT) not in sys.path:
-    sys.path.insert(0, str(TOOLS_ROOT))
+for _import_root in (TOOLS_ROOT, TOOLS_ROOT / "RELEASE_VERSION"):
+    if str(_import_root) not in sys.path:
+        sys.path.insert(0, str(_import_root))
 
 import work_journal  # noqa: E402
 from workflow_run_support import RunExecutionSession, RunTracker, SelectedRunError  # noqa: E402
@@ -165,9 +166,16 @@ class DetachedNativeFullGateBinding:
 
 
 @dataclass(frozen=True)
+class FreshPublicNativeFullGateBinding:
+    """Actual fresh public producer result, physically reopened before push."""
+
+    result: object
+
+
+@dataclass(frozen=True)
 class GateResult:
     call: ToolCallEvidence
-    binding: FullGateBinding | DetachedNativeFullGateBinding
+    binding: FullGateBinding | DetachedNativeFullGateBinding | FreshPublicNativeFullGateBinding
 
 
 @dataclass(frozen=True)
@@ -509,9 +517,16 @@ def _reopen_detached_native_full_gate(binding: DetachedNativeFullGateBinding) ->
     return packet.evidence, _native_packet_receipt_ref(packet)
 
 
-def _full_gate_receipt_ref(binding: FullGateBinding | DetachedNativeFullGateBinding) -> str:
+def _full_gate_receipt_ref(binding: FullGateBinding | DetachedNativeFullGateBinding | FreshPublicNativeFullGateBinding) -> str:
     """Obtain the aggregate receipt ref only after its binding has been reopened."""
 
+    if isinstance(binding, FreshPublicNativeFullGateBinding):
+        from release_public_producer import verify_public_native_full_gate_result
+
+        evidence = verify_public_native_full_gate_result(binding.result)
+        ref = f"{evidence.evidence_root}/receipt.json"
+        _safe_ref(ref, "fresh public Full Gate receipt")
+        return ref
     if isinstance(binding, DetachedNativeFullGateBinding):
         return _native_packet_receipt_ref(binding.packet)
     if isinstance(binding, FullGateBinding):
@@ -529,6 +544,29 @@ def _gate(value: object, label: str, source: SourceProof, *, project_root: Path,
     if not isinstance(value, GateResult):
         raise PublicReleaseError("invalid-full-gate", f"{label} must return GateResult")
     _call(value.call, f"{label}.call")
+    if isinstance(value.binding, FreshPublicNativeFullGateBinding):
+        from release_public_producer import PublicNativeFullGateResult, verify_public_native_full_gate_result
+
+        result = value.binding.result
+        if not isinstance(result, PublicNativeFullGateResult):
+            raise PublicReleaseError("invalid-full-gate", "fresh public gate requires its typed producer result")
+        try:
+            evidence = verify_public_native_full_gate_result(result)
+        except Exception as error:
+            raise PublicReleaseError("full-gate-unproven", "fresh public producer result cannot be physically reopened") from error
+        inputs = result.inputs
+        expected_phase = "history_link" if label == "renewed full gate" else "initial"
+        if (inputs.project_root.resolve() != Path(project_root).resolve()
+                or inputs.source != source
+                or inputs.public_document_closure_sha256 != document_closure_digest(source)
+                or inputs.phase != expected_phase
+                or evidence.candidate_snapshot_manifest_sha256 != source.candidate_snapshot_manifest_sha256):
+            raise PublicReleaseError("stale-full-gate", "fresh gate does not bind this Project, phase and public source closure")
+        if (evidence.framework_version != selected_version
+                or evidence.framework_version != source.framework_version
+                or evidence.version_toml_sha256 != source.version_toml_sha256):
+            raise PublicReleaseError("new-local-cycle-required", "fresh public gate version binding changed")
+        return value
     if isinstance(value.binding, DetachedNativeFullGateBinding):
         evidence, _receipt_ref = _reopen_detached_native_full_gate(value.binding)
         if not getattr(evidence, "passed", False):
@@ -841,10 +879,15 @@ def _executor(project_root: Path, bindings: PublicReleaseBindings, trace: list[d
                 elif name == "freeze_and_gate":
                     if source is None:
                         raise PublicReleaseError("missing-source-proof", "public materials must be prepared before the full gate")
-                    result = _gate(bindings.run_full_gate(parsed_parameters, source, "initial"), name, source,
-                                   project_root=Path(project_root), selected_version=parsed_parameters["release"]["selected_version"].removeprefix("v"))
-                    _append_call(trace, operation=name, call=result.call, step_run_id=step["run_id"], action_run_id=action["run_id"])
-                    action_reports.extend((*result.call.report_refs, _full_gate_receipt_ref(result.binding)))
+                    result = bindings.run_full_gate(parsed_parameters, source, "initial")
+                    if isinstance(result, GateResult):
+                        observed_call = _call(result.call, name)
+                        _append_call(trace, operation=name, call=observed_call, step_run_id=step["run_id"], action_run_id=action["run_id"])
+                        action_reports.extend(observed_call.report_refs)
+                        action_result_ref = observed_call.result_ref
+                    result = _gate(result, name, source, project_root=Path(project_root),
+                                   selected_version=parsed_parameters["release"]["selected_version"].removeprefix("v"))
+                    action_reports.append(_full_gate_receipt_ref(result.binding))
                     action_result_ref = result.call.result_ref
                 elif name == "push_and_upsert_pr":
                     if source is None:
@@ -894,10 +937,15 @@ def _executor(project_root: Path, bindings: PublicReleaseBindings, trace: list[d
                         _require_prepared_source(parsed_parameters["source"], final_source, pr=final_pr,
                                                  project_root=Path(project_root), release=parsed_parameters["release"],
                                                  require_selected_candidate=True)
-                        renewed = _gate(bindings.run_full_gate(parsed_parameters, final_source, "history_link_final"), "renewed full gate", final_source,
+                        renewed = bindings.run_full_gate(parsed_parameters, final_source, "history_link_final")
+                        if isinstance(renewed, GateResult):
+                            observed_call = _call(renewed.call, "renewed full gate")
+                            _append_call(trace, operation="renewed_full_gate", call=observed_call, step_run_id=step["run_id"], action_run_id=action["run_id"])
+                            action_reports.extend(observed_call.report_refs)
+                            action_result_ref = observed_call.result_ref
+                        renewed = _gate(renewed, "renewed full gate", final_source,
                                         project_root=Path(project_root), selected_version=parsed_parameters["release"]["selected_version"].removeprefix("v"))
-                        _append_call(trace, operation="renewed_full_gate", call=renewed.call, step_run_id=step["run_id"], action_run_id=action["run_id"])
-                        action_reports.extend((*renewed.call.report_refs, _full_gate_receipt_ref(renewed.binding)))
+                        action_reports.append(_full_gate_receipt_ref(renewed.binding))
                         action_result_ref = renewed.call.result_ref
                         pushed = _push(bindings.commit_and_push(parsed_parameters, final_source, "history_link_final"), "final push",
                                        release=parsed_parameters["release"])

@@ -14,7 +14,7 @@ import tempfile
 import xml.etree.ElementTree as ET
 from dataclasses import asdict, dataclass, replace
 from pathlib import Path, PurePosixPath
-from typing import TYPE_CHECKING, Literal
+from typing import TYPE_CHECKING, Literal, Mapping
 
 from release_contract import ReleaseContractError, ValidatedCandidate, canonical_json
 from release_handoff import SealedCandidateCompilation
@@ -961,6 +961,473 @@ def verify_detached_native_full_gate_evidence(
     return package
 
 
+def _reopen_public_fresh_inputs(inputs: object) -> tuple[object, Path]:
+    """Reopen the action-scoped input carrier before public aggregation.
+
+    Keep this import local.  ``release_public_gate`` reuses the detached
+    native reader above, so importing it while this module initializes would
+    make an otherwise acyclic retained-reader path depend on module order.
+    """
+
+    from release_public_gate import PublicFreshGateInputs, reopen_public_fresh_gate_inputs
+
+    if not isinstance(inputs, PublicFreshGateInputs):
+        raise _error(
+            "release-full-gate-public-input-untrusted",
+            "public native Full Gate requires typed reopened public inputs",
+        )
+    try:
+        observed = reopen_public_fresh_gate_inputs(
+            inputs.project_root, inputs.session, inputs.original_packet, inputs.source,
+        )
+    except (ReleaseContractError, OSError, TypeError, ValueError) as error:
+        raise _error(
+            "release-full-gate-public-input-stale",
+            "public native Full Gate inputs cannot be physically reopened",
+        ) from error
+    if observed != inputs:
+        raise _error(
+            "release-full-gate-public-input-stale",
+            "public native Full Gate inputs changed after their physical reopen",
+        )
+    root = _detached_artifact_root(observed.project_root)
+    if root != observed.project_root:
+        raise _error("release-full-gate-public-input-stale", "public native Full Gate root changed after reopening")
+    return observed, root
+
+
+def _reopen_recorded_public_fresh_inputs(inputs: object) -> tuple[object, Path]:
+    """Reopen completed public-run inputs without requiring an active Action.
+
+    Aggregation is an activation operation and uses
+    :func:`_reopen_public_fresh_inputs`.  Historical verification instead
+    reopens the exact recorded O194/O198 start and, when terminal evidence is
+    present, its result field.  It still rereads the public documents,
+    original packet, and selected N+1 binding; it simply never asks a
+    completed Action to look active again.
+    """
+
+    from release_public_gate import (
+        PublicFreshGateInputs,
+        _ACTION_PHASES,
+        _fresh_attempt_root,
+        _project_root,
+        _reopen_current_native_n,
+        _reopen_original_packet,
+        _reopen_source,
+        _require_same_identity,
+    )
+    from workflow_run_support import RunExecutionSession
+
+    if not isinstance(inputs, PublicFreshGateInputs):
+        raise _error(
+            "release-full-gate-public-input-untrusted",
+            "public native Full Gate requires typed reopened public inputs",
+        )
+    try:
+        root = _project_root(inputs.project_root)
+    except (ReleaseContractError, OSError, TypeError, ValueError) as error:
+        raise _error("release-full-gate-public-input-stale", "public verification root cannot be reopened") from error
+    session = inputs.session
+    if not isinstance(session, RunExecutionSession):
+        raise _error("release-full-gate-public-input-stale", "public verification Session is not typed")
+    try:
+        tracker_root = Path(session.tracker.root).resolve(strict=True)
+    except (AttributeError, OSError, TypeError, ValueError) as error:
+        raise _error("release-full-gate-public-input-stale", "public verification Session root is unavailable") from error
+    if tracker_root != root or not isinstance(session.requested, Mapping) or not isinstance(session.actual, Mapping):
+        raise _error("release-full-gate-public-input-stale", "public verification Session differs from its Project")
+    request = session.request
+    if not isinstance(request, Mapping) or request.get("mode") != "execute" or request.get("operation_route") != "public.release":
+        raise _error("release-full-gate-public-input-stale", "public verification Session is not an admitted public release")
+
+    matched: list[tuple[str, Mapping[object, object], Mapping[object, object], str, str]] = []
+    for requested_id, requested in session.requested.items():
+        if not isinstance(requested_id, str) or not isinstance(requested, Mapping):
+            continue
+        definition = requested.get("definition")
+        action_id = definition.get("atom_id") if isinstance(definition, Mapping) else None
+        specification = _ACTION_PHASES.get(action_id)
+        record = session.actual.get(requested_id)
+        if specification is None or not isinstance(record, Mapping):
+            continue
+        # A history-link Session can retain a completed O194 beside the live
+        # O198.  Verification is bound to the caller's exact recorded Action,
+        # so unrelated public phases are neither revalidated nor counted.
+        if action_id != inputs.action_definition_id or record.get("run_id") != inputs.action_run_id:
+            continue
+        phase, parent_action = specification
+        parent_requested_id = requested.get("parent_requested_run_id")
+        parent_requested = session.requested.get(parent_requested_id) if isinstance(parent_requested_id, str) else None
+        parent = session.actual.get(parent_requested_id) if isinstance(parent_requested_id, str) else None
+        workflow_requested_id = (
+            parent_requested.get("parent_requested_run_id") if isinstance(parent_requested, Mapping) else None
+        )
+        workflow = session.actual.get(workflow_requested_id) if isinstance(workflow_requested_id, str) else None
+        parent_definition = parent.get("definition") if isinstance(parent, Mapping) else None
+        workflow_definition = workflow.get("definition") if isinstance(workflow, Mapping) else None
+        run_id = record.get("run_id")
+        if (
+            requested.get("kind") != "action"
+            or record.get("kind") != "action"
+            or record.get("definition") != definition
+            or not isinstance(run_id, str)
+            or not run_id
+            or not isinstance(parent_requested, Mapping)
+            or parent_requested.get("kind") != "step"
+            or not isinstance(parent, Mapping)
+            or parent.get("kind") != "step"
+            or not isinstance(parent_definition, Mapping)
+            or parent_definition.get("atom_id") != parent_action
+            or record.get("parent_run_id") != parent.get("run_id")
+            or not isinstance(workflow, Mapping)
+            or workflow.get("kind") != "workflow"
+            or not isinstance(workflow_definition, Mapping)
+            or workflow_definition.get("atom_id") != "CA-O-188"
+            or parent.get("parent_run_id") != workflow.get("run_id")
+        ):
+            raise _error("release-full-gate-public-input-stale", "public verification Action lineage is invalid")
+        try:
+            provenance = session.read_recorded_action_start(run_id)
+        except Exception as error:
+            raise _error("release-full-gate-public-input-stale", "public verification Action start is not recorded") from error
+        if provenance.action_run_id != run_id or provenance.parent_lineage != (parent["run_id"], workflow["run_id"]):
+            raise _error("release-full-gate-public-input-stale", "public verification Action start differs from its lineage")
+        terminal = session.terminal.get(requested_id)
+        if terminal is None:
+            if requested_id in session.interrupted:
+                raise _error("release-full-gate-public-input-stale", "public verification Action is interrupted")
+        elif (
+            not isinstance(terminal, Mapping)
+            or terminal.get("run_id") != run_id
+            or terminal.get("disposition") != "terminal"
+            or terminal.get("outcome") != "completed"
+            or not isinstance(terminal.get("result_ref"), str)
+            or not terminal["result_ref"]
+        ):
+            raise _error("release-full-gate-public-input-stale", "public verification Action terminal result is invalid")
+        matched.append((requested_id, requested, record, phase, action_id))
+    if len(matched) != 1:
+        raise _error("release-full-gate-public-input-stale", "public verification requires its exact recorded O194 or O198 Action")
+    _requested_id, _requested, record, phase, action_id = matched[0]
+    if phase != inputs.phase or action_id != inputs.action_definition_id or record["run_id"] != inputs.action_run_id:
+        raise _error("release-full-gate-public-input-stale", "public verification Action differs from the aggregate inputs")
+    try:
+        source, closure = _reopen_source(root, session, inputs.source)
+        retained = _reopen_original_packet(root, inputs.original_packet)
+        current = _reopen_current_native_n(root)
+        _require_same_identity(source, inputs.original_packet, retained, current)
+    except (ReleaseContractError, OSError, TypeError, ValueError) as error:
+        raise _error("release-full-gate-public-input-stale", "public verification inputs cannot be physically reread") from error
+    observed = replace(
+        inputs,
+        project_root=root,
+        source=source,
+        public_document_closure_sha256=closure,
+        retained_package=retained,
+        current_native_n=current,
+        fresh_attempt_root=_fresh_attempt_root(root, inputs.action_run_id),
+    )
+    if observed != inputs:
+        raise _error("release-full-gate-public-input-stale", "public verification inputs changed after their physical reread")
+    return observed, root
+
+
+def _reopen_public_original_packet(
+    root: Path,
+    inputs: object,
+) -> tuple[RetainedNativePackageEvidence, PortableSuiteGateEvidence, object, object]:
+    """Reopen only the immutable native packet used by a public fresh gate.
+
+    The original Unit/build/image/E2E packet proves the immutable package and
+    image lineage.  It is deliberately *not* used as the public phase's Unit
+    or E2E result; those two receipt slots are supplied by fresh evidence.
+    """
+
+    from release_public_gate import PublicFreshGateInputs
+    from retained_full_gate_packet import RetainedNativeFullGatePacket
+
+    if not isinstance(inputs, PublicFreshGateInputs) or not isinstance(
+        inputs.original_packet, RetainedNativeFullGatePacket,
+    ):
+        raise _error(
+            "release-full-gate-public-original-untrusted",
+            "public native Full Gate requires one typed original native packet",
+        )
+    packet = inputs.original_packet
+    if _detached_artifact_root(packet.artifact_root) != root:
+        raise _error(
+            "release-full-gate-public-original-mismatch",
+            "original native packet belongs to another public gate root",
+        )
+    retained = verify_detached_native_full_gate_evidence(
+        root,
+        packet.retained_candidate,
+        packet.suite,
+        packet.build,
+        packet.verification,
+        packet.e2e,
+        packet.evidence,
+    )
+    if retained != inputs.retained_package:
+        raise _error(
+            "release-full-gate-public-original-mismatch",
+            "public inputs name a package different from the reopened original packet",
+        )
+    # Keep these explicit, even though the detached aggregate reader above
+    # also reaches them: public aggregation must never substitute a new Unit
+    # for the original packet when reopening image provenance.
+    _native_predecessor_bindings_at_root(
+        root, retained, packet.suite, packet.build, packet.verification, packet.e2e,
+    )
+    original_suite = _reopen_retained_native_suite(root, packet.suite, retained.view)
+    return retained, original_suite, packet.build, packet.verification
+
+
+def _reopen_public_fresh_evidence(
+    root: Path,
+    inputs: object,
+    fresh_suite: object,
+    fresh_e2e: object,
+    *,
+    historical: bool = False,
+) -> tuple[PortableSuiteGateEvidence, "PortableCandidateE2EGateEvidence"]:
+    """Use the action-scoped E2E reader, never the old candidate reader."""
+
+    from release_e2e_gate import PortableCandidateE2EGateEvidence
+    import release_public_e2e
+    from release_suite import PortableSuiteGateEvidence
+
+    if not isinstance(fresh_suite, PortableSuiteGateEvidence) or not isinstance(
+        fresh_e2e, PortableCandidateE2EGateEvidence,
+    ):
+        raise _error(
+            "release-full-gate-public-fresh-untrusted",
+            "public native Full Gate requires typed fresh Unit and candidate-E2E evidence",
+        )
+    try:
+        if historical:
+            # The exported reader deliberately performs activation-time
+            # ``_reopen_inputs`` checks.  A completed O194/O198 is no longer
+            # active, so historical verification reuses its two physical
+            # receipt readers after this module has independently reopened
+            # the recorded Action, source, package, and selected N+1.
+            evidence_root = release_public_e2e._root(inputs)
+            suite = release_public_e2e._read_fresh_suite(evidence_root, inputs, fresh_suite)
+            release_public_e2e._read_fresh_e2e(evidence_root, inputs, suite, fresh_e2e)
+        else:
+            reader = getattr(
+                release_public_e2e, "read_public_candidate_e2e_execution_artifacts", None,
+            ) or getattr(release_public_e2e, "reopen_public_fresh_e2e", None)
+            if reader is None:
+                raise _error(
+                    "release-full-gate-public-fresh-untrusted",
+                    "public native Full Gate has no action-scoped E2E artifact reader",
+                )
+            evidence_root = reader(inputs, fresh_suite, fresh_e2e)
+    except (ReleaseContractError, OSError, TypeError, ValueError) as error:
+        raise _error(
+            "release-full-gate-public-fresh-untrusted",
+            "fresh public Unit or candidate-E2E evidence cannot be physically reopened",
+        ) from error
+    if evidence_root != root:
+        raise _error(
+            "release-full-gate-public-fresh-mismatch",
+            "fresh public E2E evidence belongs to another Project root",
+        )
+    return fresh_suite, fresh_e2e
+
+
+def _public_native_evidence(
+    root: Path,
+    retained: RetainedNativePackageEvidence,
+    original_verification: object,
+    receipts: tuple[str, str, str, str],
+    outcome: Literal["passed", "failed", "incomplete", "stale", "recording_uncertain"],
+    reason: str,
+    evidence_root: str,
+    executed_tests: int,
+) -> NativeFullGateEvidence:
+    """Build the existing canonical schema without a public-only extension."""
+
+    view = retained.view
+    return NativeFullGateEvidence(
+        candidate_snapshot_manifest_sha256=view.candidate_snapshot_manifest_sha256,
+        candidate_image_digest=getattr(original_verification, "candidate_image_digest", ""),
+        phase_map_sha256=view.phase_map.sha256,
+        suite_receipt_sha256=receipts[0],
+        build_receipt_sha256=receipts[1],
+        image_receipt_sha256=receipts[2],
+        e2e_receipt_sha256=receipts[3],
+        outcome=outcome,
+        reason=reason,
+        evidence_root=evidence_root,
+        receipt_sha256=None,
+        executed_tests=executed_tests,
+        package_schema="portable-1",
+        package_manifest_sha256=view.actual_package_manifest_sha256,
+        package_evidence_sha256=retained.receipt_sha256,
+        package_evidence_relpath=retained.receipt_path.relative_to(root).as_posix(),
+        source_catalog_sha256=view.source_catalog_sha256,
+        candidate_run_id=view.candidate_run_id,
+        input_manifest_sha256=view.input_manifest_sha256,
+        framework_version=view.framework_version,
+        version_toml_sha256=view.version_toml_sha256,
+    )
+
+
+def aggregate_public_native_full_gate(
+    inputs: "PublicFreshGateInputs",
+    fresh_suite: PortableSuiteGateEvidence,
+    fresh_e2e: "PortableCandidateE2EGateEvidence",
+) -> NativeFullGateEvidence:
+    """Retain one public fresh aggregate without building an image or package.
+
+    Only action-scoped Unit/E2E evidence can fill the test receipt slots.
+    Build and image receipts are copied only from the physically reopened
+    original native packet, maintaining the immutable N+1 package lineage.
+    """
+
+    inputs, root = _reopen_public_fresh_inputs(inputs)
+    retained, original_suite, original_build, original_verification = _reopen_public_original_packet(root, inputs)
+    fresh_suite, fresh_e2e = _reopen_public_fresh_evidence(root, inputs, fresh_suite, fresh_e2e)
+    packet = inputs.original_packet
+    if fresh_e2e.receipt_sha256 == packet.e2e.receipt_sha256:
+        raise _error(
+            "release-full-gate-public-fresh-untrusted",
+            "original native E2E receipt cannot prove a public fresh aggregate",
+        )
+    # Validate original build/image coherence with the *original* E2E.  Do
+    # not route fresh E2E through this native reader: that would reintroduce
+    # the removed old-N candidate boundary.
+    _unit, build_receipt, image_receipt, _old_e2e_receipt = _detached_constituent_receipts(
+        retained.view.candidate_snapshot_manifest_sha256,
+        original_build,
+        original_verification,
+        packet.e2e,
+    )
+    if (
+        getattr(original_verification, "candidate_image_digest", None) != fresh_e2e.candidate_image_digest
+        or fresh_suite.candidate_snapshot_manifest_sha256 != retained.view.candidate_snapshot_manifest_sha256
+        or fresh_suite.phase_map_sha256 != retained.view.phase_map.sha256
+        or fresh_e2e.candidate_snapshot_manifest_sha256 != retained.view.candidate_snapshot_manifest_sha256
+        or fresh_e2e.phase_map_sha256 != retained.view.phase_map.sha256
+        or not fresh_suite.passed
+        or not fresh_e2e.passed
+        or not _is_sha256(fresh_suite.receipt_sha256)
+        or not _is_sha256(fresh_e2e.receipt_sha256)
+        or fresh_suite.receipt_sha256 == original_suite.receipt_sha256
+    ):
+        raise _error(
+            "release-full-gate-public-fresh-mismatch",
+            "fresh public Unit/E2E evidence does not bind the original immutable package/image",
+        )
+    receipts = (fresh_suite.receipt_sha256, build_receipt, image_receipt, fresh_e2e.receipt_sha256)
+    parent = _path(
+        root,
+        f"{EVIDENCE_ROOT}/{retained.view.candidate_snapshot_manifest_sha256}",
+        label="public full-gate evidence",
+        create=True,
+    )
+    attempt = Path(tempfile.mkdtemp(prefix="attempt-", dir=parent))
+    evidence_root = attempt.relative_to(root).as_posix()
+    outcome: Literal["passed", "failed", "incomplete", "stale", "recording_uncertain"] = "failed"
+    reason = "fresh public reports are incomplete"
+    executed_tests = 0
+    try:
+        executed_tests = _observe_partition(root, fresh_suite, fresh_e2e, retained.view.phase_map)
+        outcome, reason = "passed", "fresh public Unit and candidate E2E reports form one complete partition"
+    except ReleaseContractError as error:
+        outcome, reason = "failed", str(error)
+    evidence = _public_native_evidence(
+        root, retained, original_verification, receipts, outcome, reason, evidence_root, executed_tests,
+    )
+    # Just before publication, repeat the public physical reopen.  This is an
+    # activation guard, not a second execution; any O194/O198/session/source
+    # or selected-N drift prevents a durable aggregate receipt.
+    observed, observed_root = _reopen_public_fresh_inputs(inputs)
+    if observed != inputs or observed_root != root:
+        raise _error("release-full-gate-public-input-stale", "public inputs changed before aggregate recording")
+    try:
+        receipt = canonical_json(asdict(evidence))
+        _write_new(attempt / "receipt.json", receipt)
+        descriptor = os.open(attempt, os.O_RDONLY)
+        try:
+            os.fsync(descriptor)
+        finally:
+            os.close(descriptor)
+        return replace(evidence, receipt_sha256=_digest(receipt))
+    except OSError:
+        return replace(
+            evidence,
+            outcome="recording_uncertain",
+            reason="public native Full Gate aggregate receipt could not be durably recorded",
+        )
+
+
+def verify_public_native_full_gate_evidence(
+    inputs: "PublicFreshGateInputs",
+    fresh_suite: PortableSuiteGateEvidence,
+    fresh_e2e: "PortableCandidateE2EGateEvidence",
+    evidence: NativeFullGateEvidence,
+) -> RetainedNativePackageEvidence:
+    """Verify a public fresh aggregate without admitting a new build or image.
+
+    This intentionally is a separate verifier.  Ordinary native full-gate
+    readers continue to require one non-mixed original Unit/build/image/E2E
+    lineage and therefore cannot accept this public fresh composition.
+    """
+
+    inputs, root = _reopen_recorded_public_fresh_inputs(inputs)
+    retained, original_suite, original_build, original_verification = _reopen_public_original_packet(root, inputs)
+    fresh_suite, fresh_e2e = _reopen_public_fresh_evidence(
+        root, inputs, fresh_suite, fresh_e2e, historical=True,
+    )
+    packet = inputs.original_packet
+    if not isinstance(evidence, NativeFullGateEvidence) or not evidence.passed:
+        raise _error("release-full-gate-public-evidence-untrusted", "public native Full Gate requires passed typed aggregate evidence")
+    if fresh_e2e.receipt_sha256 == packet.e2e.receipt_sha256 or fresh_suite.receipt_sha256 == original_suite.receipt_sha256:
+        raise _error("release-full-gate-public-fresh-untrusted", "public aggregate reuses an original native test receipt")
+    _unit, build_receipt, image_receipt, _old_e2e_receipt = _detached_constituent_receipts(
+        retained.view.candidate_snapshot_manifest_sha256,
+        original_build,
+        original_verification,
+        packet.e2e,
+    )
+    expected = _public_native_evidence(
+        root,
+        retained,
+        original_verification,
+        (fresh_suite.receipt_sha256, build_receipt, image_receipt, fresh_e2e.receipt_sha256),
+        evidence.outcome,
+        evidence.reason,
+        evidence.evidence_root,
+        evidence.executed_tests,
+    )
+    prefix = f"{EVIDENCE_ROOT}/{retained.view.candidate_snapshot_manifest_sha256}/"
+    if (
+        replace(evidence, receipt_sha256=None) != expected
+        or not isinstance(evidence.evidence_root, str)
+        or not evidence.evidence_root.startswith(prefix)
+        or not evidence.evidence_root.removeprefix(prefix).startswith("attempt-")
+        or "/" in evidence.evidence_root.removeprefix(prefix)
+    ):
+        raise _error("release-full-gate-public-evidence-mismatch", "public aggregate does not bind exact fresh/original receipts")
+    receipt = _path(root, f"{evidence.evidence_root}/receipt.json", label="public native full-gate receipt")
+    payload = receipt.read_bytes()
+    if (
+        _digest(payload) != evidence.receipt_sha256
+        or payload != canonical_json(asdict(replace(evidence, receipt_sha256=None)))
+    ):
+        raise _error("release-full-gate-public-evidence-untrusted", "public aggregate receipt changed or is caller-forged")
+    if _observe_partition(root, fresh_suite, fresh_e2e, retained.view.phase_map) != evidence.executed_tests:
+        raise _error("release-full-gate-public-evidence-untrusted", "public aggregate testcase count changed")
+    observed, observed_root = _reopen_recorded_public_fresh_inputs(inputs)
+    if observed != inputs or observed_root != root:
+        raise _error("release-full-gate-public-input-stale", "public inputs changed during aggregate verification")
+    return retained
+
+
 def verify_bound_full_gate_evidence(
     candidate: ValidatedCandidate,
     compilation: SealedCandidateCompilation | SealedPortableCandidateCompilation,
@@ -1025,6 +1492,8 @@ __all__ = [
     "FullGateEvidence",
     "NativeFullGateEvidence",
     "aggregate_bound_release_gates",
+    "aggregate_public_native_full_gate",
     "verify_detached_native_full_gate_evidence",
     "verify_bound_full_gate_evidence",
+    "verify_public_native_full_gate_evidence",
 ]

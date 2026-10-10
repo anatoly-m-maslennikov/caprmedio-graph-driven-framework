@@ -289,6 +289,15 @@ def _compiled_root_relative(value: object) -> str:
     return relative
 
 
+def _candidate_manifest_sha256(value: ValidatedCandidate | str) -> str:
+    """Return a sealed identity without fabricating a candidate model."""
+
+    digest = value.manifest.sha256 if isinstance(value, ValidatedCandidate) else value
+    if not isinstance(digest, str) or _SOURCE_CONTEXT.fullmatch(digest) is None:
+        raise ReleaseContractError("release-suite-bindings-invalid", "candidate snapshot digest is invalid")
+    return digest
+
+
 def _reference_context_like(value: object) -> bool:
     """Accept the immutable context model and historical fixture duck types."""
 
@@ -299,7 +308,7 @@ def _suite_process_environment(
     root: Path,
     report_path: Path,
     compiled_root: object,
-    candidate: ValidatedCandidate,
+    candidate: ValidatedCandidate | str,
     *,
     source_bindings_sha256: str,
     executable_path: str = os.defpath,
@@ -324,7 +333,7 @@ def _suite_process_environment(
         PROJECT_ROOT_ENVIRONMENT_VARIABLE: str(root),
         REPORT_ENVIRONMENT_VARIABLE: str(report_path),
         COMPILED_ROOT_ENVIRONMENT_VARIABLE: _compiled_root_relative(compiled_root),
-        CANDIDATE_MANIFEST_ENVIRONMENT_VARIABLE: candidate.manifest.sha256,
+        CANDIDATE_MANIFEST_ENVIRONMENT_VARIABLE: _candidate_manifest_sha256(candidate),
         SOURCE_BINDINGS_ENVIRONMENT_VARIABLE: str(SANDBOX_WORKSPACE_PATH / SOURCE_BINDINGS_RELATIVE),
         SOURCE_BINDINGS_SHA256_ENVIRONMENT_VARIABLE: source_bindings_sha256,
     }
@@ -516,6 +525,32 @@ def _active_skill_records(root: Path, relative: str) -> tuple[dict[str, tuple[st
     return files, directories
 
 
+def _active_native_n_state(root: Path, native_installed_n: object) -> tuple[str, str, str]:
+    """Prove the current native N package and its project-local ca Skill.
+
+    This is deliberately independent of a prospective candidate.  The public
+    fresh-suite adapter uses it after reopening the selected native N+1; the
+    local candidate path below keeps the same physical checks by delegating
+    here rather than accepting selector fields supplied by a caller.
+    """
+
+    binding = reopen_native_installed_n(root, native_installed_n)
+    package = binding.verified_package
+    expected_skill = {
+        row.path.removeprefix("SKILLS/ca/"): (row.sha256, row.mode)
+        for row in package.inventory if row.path.startswith("SKILLS/ca/")
+    }
+    expected_directories = {parent.as_posix() for name in expected_skill for parent in Path(name).parents if parent != Path(".")}
+    actual_skill, actual_directories = _active_skill_records(root, PROJECT_SKILL_TARGET)
+    if actual_skill != expected_skill or actual_directories != expected_directories:
+        raise ReleaseContractError("release-active-n-invalid", "project-local ca Skill differs from the selected native package")
+    return (
+        binding.selected.selector_sha256,
+        tree_sha256(root, package.root.relative_to(root).as_posix()),
+        _digest(canonical_json({"files": actual_skill, "directories": sorted(actual_directories)})),
+    )
+
+
 def _active_n_state(root: Path, candidate: ValidatedCandidate) -> tuple[str, str, str]:
     """Prove and digest the actual runnable N release and its public Skill.
 
@@ -525,21 +560,7 @@ def _active_n_state(root: Path, candidate: ValidatedCandidate) -> tuple[str, str
     """
 
     if candidate.native_installed_n is not None:
-        binding = reopen_native_installed_n(root, candidate.native_installed_n)
-        package = binding.verified_package
-        expected_skill = {
-            row.path.removeprefix("SKILLS/ca/"): (row.sha256, row.mode)
-            for row in package.inventory if row.path.startswith("SKILLS/ca/")
-        }
-        expected_directories = {parent.as_posix() for name in expected_skill for parent in Path(name).parents if parent != Path(".")}
-        actual_skill, actual_directories = _active_skill_records(root, PROJECT_SKILL_TARGET)
-        if actual_skill != expected_skill or actual_directories != expected_directories:
-            raise ReleaseContractError("release-active-n-invalid", "project-local ca Skill differs from the selected native package")
-        return (
-            binding.selected.selector_sha256,
-            tree_sha256(root, package.root.relative_to(root).as_posix()),
-            _digest(canonical_json({"files": actual_skill, "directories": sorted(actual_directories)})),
-        )
+        return _active_native_n_state(root, candidate.native_installed_n)
     _refuse_secret_relative(CURRENT_SELECTOR_RELATIVE)
     selector = root / CURRENT_SELECTOR_RELATIVE
     if selector.is_symlink() or not selector.is_file():
@@ -681,7 +702,7 @@ def _unit_phase_map(rows: tuple[Any, ...] | list[PackageRow]) -> ReleaseTestPhas
 def _observe_report(
     path: Path,
     root: Path,
-    candidate: ValidatedCandidate,
+    candidate: ValidatedCandidate | str,
     rows: tuple[Any, ...] | SealedCandidateCompilation,
     compiled_root: str | ReleaseSuiteReferenceContext,
     phase_map: ReleaseTestPhaseMap | None = None,
@@ -722,7 +743,7 @@ def _observe_report(
         return 0, (), "coverage report has no executed testcases"
     try:
         envelope_sha256 = _digest(_source_bindings_bytes(
-            root, candidate.manifest.sha256, rows, compiled_root, phase_map, context,
+            root, _candidate_manifest_sha256(candidate), rows, compiled_root, phase_map, context,
         ))
         _rules_row, explicit_probes = _validate_module_rules(
             root, rows, compiled_root, phase_map,
@@ -1002,7 +1023,7 @@ def _copy_workspace_file(root: Path, workspace: Path, relative: str, sha256: str
 def _materialize_suite_workspace(
     root: Path,
     workspace: Path,
-    candidate: ValidatedCandidate,
+    candidate: ValidatedCandidate | str,
     workspace_rows: tuple[Any, ...],
     binding_rows: tuple[Any, ...],
     compiled_root: str,
@@ -1042,7 +1063,7 @@ def _materialize_suite_workspace(
         _copy_workspace_file(root, workspace, relative, sha256, mode)
 
     bindings = _source_bindings_bytes(
-        root, candidate.manifest.sha256, binding_rows, compiled_root, phase_map, context,
+        root, _candidate_manifest_sha256(candidate), binding_rows, compiled_root, phase_map, context,
     )
     try:
         validate_schema2_context(json.loads(bindings), context)

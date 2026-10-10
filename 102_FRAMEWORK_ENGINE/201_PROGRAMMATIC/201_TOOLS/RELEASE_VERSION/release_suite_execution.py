@@ -14,10 +14,12 @@ import hashlib
 import re
 import tomllib
 from dataclasses import dataclass, replace
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 
 from release_contract import ReleaseContractError, ValidatedCandidate
-from release_handoff import CURRENT_SELECTOR_RELATIVE, SealedCandidateCompilation, reopen_native_installed_n, selected_n_identity
+from release_handoff import (CURRENT_SELECTOR_RELATIVE, NativeInstalledNBinding,
+                             SealedCandidateCompilation, reopen_native_installed_n,
+                             selected_n_identity)
 from release_image import CANDIDATE_LABEL, CONTEXT_LABEL, DockerExecutor, IMAGE_ID
 from release_portable_contract import SealedPortableCandidateCompilation, revalidate_sealed_portable_compilation
 from release_suite_limits import MAX_UNIT_TIMEOUT_SECONDS
@@ -37,6 +39,8 @@ from release_suite import (
     _bootstrap_prior_manifest_is_exact,
     _bootstrap_source_context_is_valid,
     require_declared_suite_command,
+    SUITE_DRIVER_COMMAND,
+    SUITE_DRIVER_WORKING_DIRECTORY,
 )
 
 
@@ -571,4 +575,72 @@ def installed_n_suite_executor(
     )
 
 
-__all__ = ["InstalledNSuiteDockerExecutor", "SelectedNImageBinding", "installed_n_suite_executor"]
+def installed_public_n_suite_executor(
+    candidate_snapshot_manifest_sha256: str,
+    current_native_n: NativeInstalledNBinding,
+    *,
+    project_root: str,
+    compiled_root: str,
+    docker: DockerExecutor,
+) -> InstalledNSuiteDockerExecutor:
+    """Bind one fresh public Unit run to the presently selected native N+1.
+
+    Unlike the local candidate factory, this consumes a reopened selected-N
+    binding and immutable package identity.  It does not reconstruct a
+    candidate, portable compilation, or prior-N selector.
+    """
+
+    if not isinstance(candidate_snapshot_manifest_sha256, str) or _SHA256.fullmatch(candidate_snapshot_manifest_sha256) is None:
+        raise ReleaseContractError("release-suite-executor-handoff-untrusted", "public suite requires an immutable candidate manifest digest")
+    compiled_path = PurePosixPath(compiled_root) if isinstance(compiled_root, str) else None
+    if (compiled_path is None or not compiled_root or compiled_path.is_absolute()
+            or compiled_path.as_posix() != compiled_root or "\\" in compiled_root
+            or "." in compiled_path.parts or ".." in compiled_path.parts):
+        raise ReleaseContractError("release-suite-executor-handoff-untrusted", "public suite requires an immutable compiled package root")
+    root = Path(project_root).resolve(strict=True)
+    if not callable(getattr(docker, "run", None)):
+        raise ReleaseContractError("release-suite-executor-unadmitted", "public suite executor is not an admitted Docker boundary")
+    native = reopen_native_installed_n(root, current_native_n)
+    if native != current_native_n:
+        raise ReleaseContractError("release-suite-executor-binding-mismatch", "current selected native N changed before public Unit execution")
+    retained_candidate = native.full_gate_packet.retained_candidate
+    if retained_candidate.candidate_snapshot_manifest_sha256 != candidate_snapshot_manifest_sha256:
+        raise ReleaseContractError("release-suite-executor-binding-mismatch", "selected native N does not bind the retained public package")
+    selected = native.selected
+    packet = native.full_gate_packet
+    context = getattr(getattr(packet, "build", None), "context_sha256", None)
+    if not isinstance(context, str) or _SHA256.fullmatch(context) is None:
+        raise ReleaseContractError("release-suite-executor-n-unproven", "selected native N has no immutable image context")
+    binding = SelectedNImageBinding(
+        "sha256:" + selected.image_digest.removeprefix("sha256:"),
+        selected.framework_version,
+        context,
+        False,
+        selected.selector_sha256,
+        selected.framework_version,
+        native_package_manifest_sha256=selected.package_manifest_sha256,
+        native_candidate_snapshot_manifest_sha256=candidate_snapshot_manifest_sha256,
+    )
+    binding = _inspect_bound_n_image(docker, root, binding)
+    if binding.image_path is None:
+        raise ReleaseContractError("release-suite-executor-n-unproven", "executing N image PATH is absent")
+    return InstalledNSuiteDockerExecutor(
+        root=root,
+        docker=docker,
+        candidate_snapshot_manifest_sha256=candidate_snapshot_manifest_sha256,
+        executing_release=binding.executing_release,
+        image_digest=binding.image_digest,
+        source_context_sha256=binding.source_context_sha256,
+        selected_n_image=binding,
+        image_path=binding.image_path,
+        sealed_command=SUITE_DRIVER_COMMAND,
+        sealed_working_directory=SUITE_DRIVER_WORKING_DIRECTORY,
+        compiled_root=compiled_root,
+        native_installed_n=native,
+    )
+
+
+__all__ = [
+    "InstalledNSuiteDockerExecutor", "SelectedNImageBinding", "installed_n_suite_executor",
+    "installed_public_n_suite_executor",
+]
