@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Projection
   depends_on: [Entity, Term, Atom, Property, Carrier, Plan]
-version: 5
-updated_at: "2026-10-10 03:47:57 +0400"
+version: 6
+updated_at: "2026-10-10 04:24:00 +0400"
 relations:
   is_decomposition_of: [CA-P-1872]
   blocks: [CA-P-1908]
@@ -31,7 +31,7 @@ Review every Entity in the proposed graph for dropping, consolidation or general
 
 Review context: the Operator chose **Finish against the captured snapshot only**. Use the original CA-P-1905 source pins and immutable Git commit `a971d0e00c33c779f485fc8cad63194894d440fb`; read `nodes/snapshot.context.md` and `nodes/support/snapshot_sources.py`. CA-D-494 revision 2 remains the review input; live revision 3 is outside this snapshot. Preserve originals and label receipts as captured-snapshot checks, not current-Core checks. Any currentness or source-pin requirement below means exact validity against this selected captured snapshot. Do not silently rebind or overwrite live Core.
 
-Child work only; no separately executable own work. Nine source-pinned review batches precede integration and independent verification.
+Child work only; no separately executable own work. Nine source-pinned review batches and three bounded meaning repairs precede integration and independent verification. Original completed review receipts remain historical; the repairs explicitly BLOCK integration.
 
 Required start prerequisite: CA-P-1906. Inputs: CA-P-1905's pinned inventory and CA-P-1906's proposed structure, inheritance map and complete relation-occurrence ledger.
 
@@ -70,6 +70,14 @@ The 62 explicit Substance/Revision/Projection identities are reviewed separately
 - [CA-P-1938](23-CA-P-1907-TASK--mark-entity-drop-and-consolidation-candidates-without-deleting/11-CA-P-1938-TASK--verify-the-complete-core-node-disposition-review.md): Verify the complete Core node disposition review; 15 minutes.
 
 Latest content direction: use Substance as the shared primary-content name, with Substance Scope describing applicability and optional general Details. Explicit Substance Scope may be omitted only for the whole governed Subject AND the whole owning Scope Unit; omission resolves that default. Preserve ownership metadata, role-specific labels and type-required content. Review this in the candidate only; do not rewrite Core or treat the new direction as old source evidence.
+
+### Meaning-repair prerequisites
+
+Independent preparation found false missing-meaning questions in captured batches 1, 4 and 8. These bounded repairs must be Done before CA-P-1937 starts. Prior Done receipts are not retroactively rewritten.
+
+- [CA-P-1952](23-CA-P-1907-TASK--mark-entity-drop-and-consolidation-candidates-without-deleting/12-CA-P-1952-TASK--repair-qualified-atom-and-artifact-node-review.md): Repair qualified Atom and Artifact node review; 15 minutes. Explicitly BLOCKS CA-P-1937.
+- [CA-P-1953](23-CA-P-1907-TASK--mark-entity-drop-and-consolidation-candidates-without-deleting/13-CA-P-1953-TASK--repair-qualified-carrier-and-settings-node-review.md): Repair qualified Carrier and settings node review; 15 minutes. Explicitly BLOCKS CA-P-1937.
+- [CA-P-1954](23-CA-P-1907-TASK--mark-entity-drop-and-consolidation-candidates-without-deleting/14-CA-P-1954-TASK--repair-qualified-subject-and-workflow-node-review.md): Repair qualified Subject and Workflow node review; 15 minutes. Explicitly BLOCKS CA-P-1937.
 
 ### Definition of Done
 
