@@ -646,8 +646,28 @@ class ReleaseSuiteReferenceContextTests(unittest.TestCase):
 
 
 class ReaderSnapshotCleanupTests(unittest.TestCase):
+    _CONTROL_REF = ".caprmedio_caprmedio/control.json"
+    _SETTINGS = b'[paths]\ncontrol_root = ".caprmedio_caprmedio"\n'
+    _STRUCTURE = (
+        b'[[scope_units]]\n'
+        b'scope_unit_name = "PROJECT_TOOLS"\n'
+        b'authority_path = ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/'
+        b'201_FEATURE_PROGRAMMATIC/205_FEATURE_PROJECT_TOOLS"\n\n'
+        b'[[scope_units]]\n'
+        b'scope_unit_name = "TOOLS"\n'
+        b'authority_path = ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/'
+        b'201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS"\n'
+    )
+
+    def _captured(self, payload: bytes, mode: int) -> dict[str, tuple[bytes, int]]:
+        return {
+            PROJECT_SETTINGS_REF.as_posix(): (self._SETTINGS, 0o644),
+            ".caprmedio_caprmedio/project_structure.toml": (self._STRUCTURE, 0o644),
+            self._CONTROL_REF: (payload, mode),
+        }
+
     def test_disposable_snapshot_cleanup_targets_only_exact_reader_snapshot(self) -> None:
-        captured = {'.caprmedio_caprmedio/control.json': (b'captured evidence', 0o600)}
+        captured = self._captured(b'captured evidence', 0o600)
         removed = []
         def successful_cleanup(path):
             removed.append(path)
@@ -662,7 +682,7 @@ class ReaderSnapshotCleanupTests(unittest.TestCase):
         self.assertEqual(verified, captured)
 
     def test_disposable_snapshot_removed_after_reader_with_readonly_file(self) -> None:
-        captured = {'.caprmedio_caprmedio/control.json': (b'captured evidence', 0o444)}
+        captured = self._captured(b'captured evidence', 0o444)
         remover = shutil.rmtree
         denied = []
         def observe_cleanup(path):
@@ -677,7 +697,7 @@ class ReaderSnapshotCleanupTests(unittest.TestCase):
                 patch.object(reference_context.shutil, 'rmtree', observe_cleanup):
             with reference_context._reader_snapshot(REPOSITORY) as (snapshot, verified):
                 self.assertEqual(snapshot.stat().st_mode & 0o777, 0o700)
-                self.assertEqual((snapshot / next(iter(captured))).stat().st_mode & 0o777, 0o444)
+                self.assertEqual((snapshot / self._CONTROL_REF).stat().st_mode & 0o777, 0o444)
                 self.assertEqual(verified, captured)
         if snapshot.exists():
             self.assertTrue(denied, 'snapshot retained without observed permission denial')
@@ -686,7 +706,7 @@ class ReaderSnapshotCleanupTests(unittest.TestCase):
         self.assertEqual(verified, captured)
 
     def test_permission_denied_cleanup_retains_exact_snapshot_and_captured_evidence(self) -> None:
-        captured = {'.caprmedio_caprmedio/control.json': (b'captured evidence', 0o444)}
+        captured = self._captured(b'captured evidence', 0o444)
         def denied(path):
             raise PermissionError('profile denied fixture cleanup')
         denied.avoids_symlink_attacks = True
@@ -696,7 +716,7 @@ class ReaderSnapshotCleanupTests(unittest.TestCase):
             with reference_context._reader_snapshot(REPOSITORY) as (snapshot, verified):
                 pass
         self.assertTrue(snapshot.is_dir())
-        self.assertEqual((snapshot / next(iter(captured))).read_bytes(), b'captured evidence')
+        self.assertEqual((snapshot / self._CONTROL_REF).read_bytes(), b'captured evidence')
         self.assertEqual(verified, captured)
         # Leave the denied snapshot as requested; no cleanup retry.
 

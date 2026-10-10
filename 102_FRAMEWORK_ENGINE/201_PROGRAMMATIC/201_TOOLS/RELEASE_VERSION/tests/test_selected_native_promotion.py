@@ -20,7 +20,8 @@ from release_checkpoint import (  # noqa: E402
     _load_e2e, _validate_native_evidence_bindings, _native_packet_value, _load_native_packet,
     _native_document_value, _load_native_document, _native_result_value, _load_native_result,
     _NATIVE_STATE_NAMES, _candidate_value, _fingerprint, release_action_checkpoint_sha256,
-    NATIVE_PORTABLE_RELEASE_ACTION_CHECKPOINT_SCHEMA, read_native_checkpoint_packet,
+    NATIVE_PORTABLE_RELEASE_ACTION_CHECKPOINT_SCHEMA,
+    LEGACY_NATIVE_PORTABLE_RELEASE_ACTION_CHECKPOINT_SCHEMA, read_native_checkpoint_packet,
     read_direct_native_result_effects, read_direct_native_result_packet,
     _tag, _load_tag, _shared_recording,
 )
@@ -521,15 +522,16 @@ class SelectedNativePacketCodecPhysicalTests(unittest.TestCase):
                           "input_manifest_sha256": packet.evidence.input_manifest_sha256,
                           "package_manifest_sha256": packet.evidence.package_manifest_sha256,
                       }})
-        checkpoint = {"schema": NATIVE_PORTABLE_RELEASE_ACTION_CHECKPOINT_SCHEMA, "kind": "release_action_run",
+        historical_result = asdict(result)
+        historical_result["output"] = "promotion"
+        checkpoint = {"schema": LEGACY_NATIVE_PORTABLE_RELEASE_ACTION_CHECKPOINT_SCHEMA, "kind": "release_action_run",
                       "project_root": str(self.root), "workflow_run_id": "original-workflow",
                       "request": request.model_dump(mode="json", by_alias=True), "frozen_parameters_sha256": _fingerprint(request),
                       "next_phase": 11, "stopped": False, "in_progress": None,
                       "contexts": [{"index": 10, "context": asdict(context)}],
-                      "results": [{"index": 10, "result": _native_result_value(result, 10)}],
+                      "results": [{"index": 10, "result": historical_result}],
                       "shared_recordings": [{"index": 10, "terminal_outcome": "completed", "receipt_refs": [terminal["event_id"]]}],
-                      "pending_recordings": [], "state": state,
-                      "local_helper_binding": {"native_hooks_sha256": "a" * 64, "local_release_sha256": "b" * 64}}
+                      "pending_recordings": [], "state": state}
         checkpoint["sha256"] = release_action_checkpoint_sha256(checkpoint)
         # Normalize exactly as the canonical checkpoint carrier does.
         import json
