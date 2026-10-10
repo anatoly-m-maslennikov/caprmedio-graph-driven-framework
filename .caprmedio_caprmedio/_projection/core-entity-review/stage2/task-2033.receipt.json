@@ -1,0 +1,28 @@
+{
+  "task": "CA-P-2033",
+  "recorded_at": "2026-10-11 02:44:31 +0400",
+  "result": "PASS: complete candidate review; unresolved mapping research retained",
+  "output": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-042.review.json",
+    "sha256": "b1d15901b4ffda82dbbac546f16dd283f5e801962982239396ac79e3e1b6f439"
+  },
+  "input_batch": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-042.json",
+    "sha256": "f02aa56f8a6991490f41d1c7d0028380eddb045838d3d13316b42f244cb8476b"
+  },
+  "checks": {
+    "independent_structural_verifier": "PASS",
+    "sources": 20,
+    "occurrences": 117,
+    "proposed": 25,
+    "unchanged": 15,
+    "unresolved": 77,
+    "meaning_review": "Independent meaning review checked all proposals and high-risk unchanged rows. The Actor Operator mapping was corrected to the confirmed Actor Type allowed value without turning it into a slash subtype; the captured D494 snapshot remains frozen.",
+    "all_executable_false": true
+  },
+  "unresolved_work": "77 occurrence-level research rows remain in the pinned report and required CA-P-2045 integration; CA-P-1966 remains Active.",
+  "limits": [
+    "No original Atom, captured candidate, grammar, native or runtime change",
+    "Review completion is not migration approval"
+  ]
+}
