@@ -216,7 +216,7 @@
     "Derived Projection Atom instances keep their source Atom IDs and each carry a relative source link; this supersedes the earlier unqualified ban on reused IDs across every non-archived folder.",
     "Archived snapshots may retain the same Atom ID.",
     "Drafts remain without assigned Atom IDs.",
-    "Archive preserves previous snapshots; Journal records changes.",
+    "Git preserves Atom contents and versions; Journal records changes and applicability decisions.",
     "An Atom historical reference is Atom ID + Version Number. For another Artifact without a Version Number, it is Artifact ID + Updated At. No separate Applicable Methodology Revision or Projection Revision kind is formalized here.",
     "Revision is a separate historical root, not an Artifact subtype or an IS_BORNE_BY child of Artifact or Atom."
   ],
@@ -230,8 +230,10 @@
     "version_preservation": {
       "status": "Confirmed",
       "every_atom_version_recoverable": true,
-      "records": "Keep records of each Atom's new versions.",
-      "storage_boundary": "Every previous version must remain recoverable; this does not require a separate archived file for each version. The storage mechanism is not selected here."
+      "preserved_by": "Git",
+      "records": "Git preserves Atom contents and versions. Journal records identify Atoms involved in applicability and creation decisions without duplicating their contents.",
+      "storage_boundary": "Every previous Atom version must remain recoverable from Git history; preserving Atom contents is not the Journal's job.",
+      "retention_requirement": "Retain Git history containing every Atom version required for recovery. No new commit or retention mechanism is implemented by this candidate."
     },
     "relation_version_binding": {
       "status": "Confirmed — loose for now",
@@ -285,6 +287,18 @@
       "active_only": false,
       "identity": "Preserve the source Atom ID and add a relative link to that source."
     },
+    "decision_journal": {
+      "status": "Confirmed",
+      "atom_reference": "Atom ID",
+      "registered_decisions": [
+        "Which Atoms were projected to Active.",
+        "Which Atoms were projected to archived.",
+        "Which Atoms were created in Project Configuration."
+      ],
+      "recording_required": true,
+      "contents_boundary": "The Journal registers these decisions by Atom ID; Git preserves the Atoms themselves and their versions.",
+      "rebuild_roles": "Source Atoms provide contents; Journal records provide applicability decisions; Git preserves recoverable Atom history. Exact record serialization and replay mechanics are not specified here."
+    },
     "manual_realization": {
       "conflict_resolution": "Place an excluded projected Atom in Applicable Methodology's archived subfolder and record the decision in a Journal. When needed, create a new authored Atom in Project Configuration.",
       "exclusion_target": "The projected Atom in Applicable Methodology, not a project-local mutation of its original source Atom.",
@@ -294,7 +308,7 @@
       "new_atom_origin": "A newly authored original Atom may have no upstream source Atom; it is not a derived Projection member at creation.",
       "subsequent_projection": "That original Configuration Atom is projected one-to-one into the derived view with a link back to it."
     },
-    "authority": "Core, Installed Extensions and Project Configuration originals remain the source of truth. Newly authored Configuration Atoms are original sources; the derived view creates no second authoritative source for their facts.",
+    "authority": "Core, Installed Extensions and Project Configuration originals remain the source of truth for Atom facts. Newly authored Configuration Atoms are original sources; Journal records register applicability and creation decisions. The derived view creates no second authoritative source for Atom facts; Git preserves Atom contents and versions.",
     "instance_boundary": "The Projection is a distinct Entity instance with one representation. References to source Atoms do not make it another representation of those source instances.",
     "root_status": "Not an additional independent root in this candidate."
   },
@@ -308,7 +322,7 @@
     "additional_roots_added": false
   },
   "unresolved": [
-    "Serialization and storage of Projection rebuild history, archived applicability decisions and required Journal records.",
+    "Serialization and replay mechanics of Journal applicability and creation records, Projection rebuild metadata, and Git version-recovery mechanics; the Journal/Git responsibility split is confirmed.",
     "Path normalization and rename continuity for path-based identities; distinguishing multiple unnamed Actors; identity of dependent Entities.",
     "Exact typed links between Operations definitions, Executions, Actors, Journal Records, Revisions and Carriers.",
     "A complete mapping from the captured 706-identity review to this simplified candidate.",
