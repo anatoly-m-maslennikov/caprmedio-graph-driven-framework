@@ -1,0 +1,2016 @@
+{
+  "schema_version": 1,
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "task_id": "CA-P-2029",
+  "batch_id": "current-subjects.batch-038",
+  "input_batch_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-038.json",
+  "input_batch_sha256": "f66a2633af6f9973966c8d199193d08ddf58d9fa3ac1103f4ed904c884dc7aad",
+  "input_inventory_sha256": "e284dbe4943568bc75b7f9ba63ebf583372a60813e62eee3d43b5b75b270220a",
+  "evidence_pins": {
+    "frozen_candidate": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/presentation/operator.entity-graph.candidate.json",
+      "sha256": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b"
+    },
+    "consolidated_review": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/consolidated/nodes.review.json",
+      "sha256": "e4cb9c76b441c13115e87e141890a9dab58634a7a62fb1b3bc32168dbac261f6",
+      "git_commit": "a971d0e00c33c779f485fc8cad63194894d440fb"
+    },
+    "preparation_contract": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.contract.md",
+      "sha256": "5eb0d90022b68a7d1d2cd27cf60a147deaf4161cb9b2e1c8bdf6c4ef8f2a10bf"
+    },
+    "review_contract": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.review.contract.md",
+      "sha256": "b7c9c065f997d5bae1409f5c09b4223d08327a523decab6d26c2e4425fd2c28b"
+    }
+  },
+  "source_reviews": [
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-300-CORE_META_MODEL--size-structural-level-prefixes-dynamically.md",
+      "full_file_sha256": "c70f6b177a74db94c3905cc2386bcf2bed99557d421aa974404fae91c7669819",
+      "atom_id": "CA-D-300",
+      "version": 14,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "read": true,
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-300-CORE_META_MODEL--size-structural-level-prefixes-dynamically.md",
+        "sha256": "c70f6b177a74db94c3905cc2386bcf2bed99557d421aa974404fae91c7669819",
+        "start_line": 20,
+        "end_line": 37,
+        "span_sha256": "e1c7226dd689528d4b8b3f48ec052017853f833597bb5724618ca94f18f38075"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-301-CORE_META_MODEL--require-portable-safe-carrier-addresses.md",
+      "full_file_sha256": "40fa41c8ff9abdd81a39689a3b95284a2240cf567113bbf794fa874b8e61a691",
+      "atom_id": "CA-D-301",
+      "version": 15,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "read": true,
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-301-CORE_META_MODEL--require-portable-safe-carrier-addresses.md",
+        "sha256": "40fa41c8ff9abdd81a39689a3b95284a2240cf567113bbf794fa874b8e61a691",
+        "start_line": 17,
+        "end_line": 33,
+        "span_sha256": "c6ff139b9320d672c3821dfabd32eaff4b863b77e7376b1e9a0bf9c52300d391"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-302-CORE_META_MODEL-DELIVERY--serialize-scope-unit-references-as-filename-tokens.md",
+      "full_file_sha256": "6dafff118ee74ab5995cb2918584bcc4fa1c843de0bb306f06926f4169ed6bfb",
+      "atom_id": "CA-D-302",
+      "version": 13,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "read": true,
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-302-CORE_META_MODEL-DELIVERY--serialize-scope-unit-references-as-filename-tokens.md",
+        "sha256": "6dafff118ee74ab5995cb2918584bcc4fa1c843de0bb306f06926f4169ed6bfb",
+        "start_line": 19,
+        "end_line": 29,
+        "span_sha256": "95b61c83fa9f10121dc787a147617acf2a59283139727a4b49db1d76fce4d580"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-303-CORE_META_MODEL-CORE--replace-and-archive-atoms-as-whole-carriers.md",
+      "full_file_sha256": "f3b6503ac723f9ef9465b8f692d92029c1fbffa89cc2e1ed8585b4de8fb711ff",
+      "atom_id": "CA-D-303",
+      "version": 11,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "read": true,
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-303-CORE_META_MODEL-CORE--replace-and-archive-atoms-as-whole-carriers.md",
+        "sha256": "f3b6503ac723f9ef9465b8f692d92029c1fbffa89cc2e1ed8585b4de8fb711ff",
+        "start_line": 18,
+        "end_line": 30,
+        "span_sha256": "379f910c31d5496e9576cdbfcd67b2925102492b2adb17b64b22022f120ae878"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-304-CORE_META_MODEL-CORE--preserve-authority-through-carrier-only-recoding.md",
+      "full_file_sha256": "d9c2fe921539bbc0a0df41a684581021072b3d1b3d3b40165068789f4a59653a",
+      "atom_id": "CA-D-304",
+      "version": 12,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "read": true,
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-304-CORE_META_MODEL-CORE--preserve-authority-through-carrier-only-recoding.md",
+        "sha256": "d9c2fe921539bbc0a0df41a684581021072b3d1b3d3b40165068789f4a59653a",
+        "start_line": 21,
+        "end_line": 33,
+        "span_sha256": "dca8da3a01a40580e0890ffbbe45768fbf5e47a11b6314fc797e1c28ec2189ff"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-305-CORE_META_MODEL-CORE--carry-projected-atoms-without-new-identity.md",
+      "full_file_sha256": "34745d90e00d208a3874fead3267912663d6c922b2231ee2d6f87684bff64b9f",
+      "atom_id": "CA-D-305",
+      "version": 10,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "read": true,
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-305-CORE_META_MODEL-CORE--carry-projected-atoms-without-new-identity.md",
+        "sha256": "34745d90e00d208a3874fead3267912663d6c922b2231ee2d6f87684bff64b9f",
+        "start_line": 20,
+        "end_line": 39,
+        "span_sha256": "d29a874ccf9f1831db024f7f0ee04719bd55497ed827016b01a52f672f14a30a"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-306-CORE_META_MODEL--materialize-applicable-methodology-as-projected-atom-files.md",
+      "full_file_sha256": "af41d7cc169cf18ec430fce7275661b97184a781adda47455aac84704324ae71",
+      "atom_id": "CA-D-306",
+      "version": 11,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "read": true,
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-306-CORE_META_MODEL--materialize-applicable-methodology-as-projected-atom-files.md",
+        "sha256": "af41d7cc169cf18ec430fce7275661b97184a781adda47455aac84704324ae71",
+        "start_line": 18,
+        "end_line": 30,
+        "span_sha256": "eeba921cc7c092d388edbc44bb88b66df71dd91f984c6549950281490e55793b"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-307-CORE_META_MODEL-DELIVERY--prohibit-persistent-applicable-methodology-subject-indexes.md",
+      "full_file_sha256": "84f1e41ffe1d1bd5e17fffbbdd51c0de63ea8be0769f2182bc7a06e43488e144",
+      "atom_id": "CA-D-307",
+      "version": 11,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "read": true,
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-307-CORE_META_MODEL-DELIVERY--prohibit-persistent-applicable-methodology-subject-indexes.md",
+        "sha256": "84f1e41ffe1d1bd5e17fffbbdd51c0de63ea8be0769f2182bc7a06e43488e144",
+        "start_line": 20,
+        "end_line": 32,
+        "span_sha256": "3c30863242e241ebcb68c7e82e31e53fd849162f9c26797d88347556a58c2eb7"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-308-CORE_META_MODEL-CORE--serialize-journals-as-append-only-carriers.md",
+      "full_file_sha256": "0d2117b41344599129fd9751872754d7d358d8a759281abd65ba8874de9a5a01",
+      "atom_id": "CA-D-308",
+      "version": 11,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "read": true,
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-308-CORE_META_MODEL-CORE--serialize-journals-as-append-only-carriers.md",
+        "sha256": "0d2117b41344599129fd9751872754d7d358d8a759281abd65ba8874de9a5a01",
+        "start_line": 18,
+        "end_line": 30,
+        "span_sha256": "57018bd05fac9e1e1ac46783e6eaf872b1789f4167cff78e12974952b61a21b6"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-309-CORE_META_MODEL-CORE--bind-materialized-representations-to-regeneration-sources.md",
+      "full_file_sha256": "08d9a70a3f6edc6ad973af0c23f47639b9fa1e299a258e068a0cf12aa18f59ee",
+      "atom_id": "CA-D-309",
+      "version": 12,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "read": true,
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-309-CORE_META_MODEL-CORE--bind-materialized-representations-to-regeneration-sources.md",
+        "sha256": "08d9a70a3f6edc6ad973af0c23f47639b9fa1e299a258e068a0cf12aa18f59ee",
+        "start_line": 18,
+        "end_line": 34,
+        "span_sha256": "e8dbab07e73339390204a23c0207aa32c30b6529243d130ca55be8fcedb1de64"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-310-CORE_META_MODEL--serialize-projection-updated-at.md",
+      "full_file_sha256": "40a88c75afa5bcdad37a417c7dbc12a392b5afc7b38d6f44c35acf23bd884d70",
+      "atom_id": "CA-D-310",
+      "version": 11,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "read": true,
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-310-CORE_META_MODEL--serialize-projection-updated-at.md",
+        "sha256": "40a88c75afa5bcdad37a417c7dbc12a392b5afc7b38d6f44c35acf23bd884d70",
+        "start_line": 17,
+        "end_line": 29,
+        "span_sha256": "66efc4f0ad42a3b121f01b446b21e19217997cb21f356510ddd88d265d0b2ad3"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-311-CORE_META_MODEL-CORE--represent-authority-without-semantic-change.md",
+      "full_file_sha256": "a049829113f02daa2df65f2daa3e23ad685b157d1bf64155ead647cc54097b4a",
+      "atom_id": "CA-D-311",
+      "version": 11,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "read": true,
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-311-CORE_META_MODEL-CORE--represent-authority-without-semantic-change.md",
+        "sha256": "a049829113f02daa2df65f2daa3e23ad685b157d1bf64155ead647cc54097b4a",
+        "start_line": 18,
+        "end_line": 30,
+        "span_sha256": "da7e3a09e206b768e6da76bc1fa4100f54b487c3adf49efbf243b047e11a3383"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-312-CORE_META_MODEL-CORE--give-each-scope-unit-authority-and-delivery-carrier-places.md",
+      "full_file_sha256": "8804af6a0385c8c98c5f07d85f18732d5d5411081a917f4dad2ba35545803faf",
+      "atom_id": "CA-D-312",
+      "version": 12,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "read": true,
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-312-CORE_META_MODEL-CORE--give-each-scope-unit-authority-and-delivery-carrier-places.md",
+        "sha256": "8804af6a0385c8c98c5f07d85f18732d5d5411081a917f4dad2ba35545803faf",
+        "start_line": 19,
+        "end_line": 31,
+        "span_sha256": "fd6579fba4d4d1ce3084a4317018b8c19a18c7d87455139acf2006872fe599a8"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-316-CORE_META_MODEL-GENERAL--classify-carriers-by-ownership.md",
+      "full_file_sha256": "8df0a6f78eac1e3fa92bde5f9c0800b360fbf937d43ceba5daf2033471522be7",
+      "atom_id": "CA-D-316",
+      "version": 11,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "read": true,
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-316-CORE_META_MODEL-GENERAL--classify-carriers-by-ownership.md",
+        "sha256": "8df0a6f78eac1e3fa92bde5f9c0800b360fbf937d43ceba5daf2033471522be7",
+        "start_line": 17,
+        "end_line": 29,
+        "span_sha256": "92895b9a28e6f250189cda1788e0e1b299d347139768e4876df51c951eebf6fa"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-317-CORE_META_MODEL--place-each-project-framework-instance-inside-its-project.md",
+      "full_file_sha256": "c93ede85518a750816c36cff62d6f7e1ec3a66377f31ae221d17296cac30c8ef",
+      "atom_id": "CA-D-317",
+      "version": 12,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "read": true,
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-317-CORE_META_MODEL--place-each-project-framework-instance-inside-its-project.md",
+        "sha256": "c93ede85518a750816c36cff62d6f7e1ec3a66377f31ae221d17296cac30c8ef",
+        "start_line": 17,
+        "end_line": 31,
+        "span_sha256": "94e2664237226c6211e89c4090805ebb4dc909f8f6cbfcd8c4165e2b4449e2a9"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-318-CORE_META_MODEL--place-project-owned-persistent-carriers.md",
+      "full_file_sha256": "03e49c2ba9f28aecfcfca3899d40f5bd9a3131e0220613f88b83badc4deb51ea",
+      "atom_id": "CA-D-318",
+      "version": 11,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "read": true,
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-318-CORE_META_MODEL--place-project-owned-persistent-carriers.md",
+        "sha256": "03e49c2ba9f28aecfcfca3899d40f5bd9a3131e0220613f88b83badc4deb51ea",
+        "start_line": 17,
+        "end_line": 31,
+        "span_sha256": "1a87893421b60b4680f275c7302be963e354e7c17732de5a202be0a198900dad"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-329-CORE_META_MODEL--serialize-proof-frontier-references.md",
+      "full_file_sha256": "965f664d842c8633f356944fdb9b3fd899da2e5aff2fa2999ac72581677345ca",
+      "atom_id": "CA-D-329",
+      "version": 12,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "read": true,
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-329-CORE_META_MODEL--serialize-proof-frontier-references.md",
+        "sha256": "965f664d842c8633f356944fdb9b3fd899da2e5aff2fa2999ac72581677345ca",
+        "start_line": 17,
+        "end_line": 29,
+        "span_sha256": "4a86d057e8db02bc01a15d758dff892f38f60096565639ce80ef86b6737284c7"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-330-CORE_META_MODEL--preserve-github-file-preview-compatibility.md",
+      "full_file_sha256": "5a23877586a794848b0a8228d768d5a5d5300db0d44c7f6b44318e253403d804",
+      "atom_id": "CA-D-330",
+      "version": 11,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "read": true,
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-330-CORE_META_MODEL--preserve-github-file-preview-compatibility.md",
+        "sha256": "5a23877586a794848b0a8228d768d5a5d5300db0d44c7f6b44318e253403d804",
+        "start_line": 20,
+        "end_line": 32,
+        "span_sha256": "cc02aba98b2f841d2e3df5a6d552778f45ba18ab699cabb758ea35abe9820c60"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-331-CORE_META_MODEL--keep-durable-hub-navigation-at-folder-level.md",
+      "full_file_sha256": "4164a0e480deed49d8bb569559941e8b7822bac09c8a88cf02205982c532e6a2",
+      "atom_id": "CA-D-331",
+      "version": 11,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "read": true,
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-331-CORE_META_MODEL--keep-durable-hub-navigation-at-folder-level.md",
+        "sha256": "4164a0e480deed49d8bb569559941e8b7822bac09c8a88cf02205982c532e6a2",
+        "start_line": 17,
+        "end_line": 29,
+        "span_sha256": "e88dac45df7a32b03b9afd58159b4e154d740d6c7f40335b6b6cbcadd8a88dc7"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-333-CORE_META_MODEL-GENERAL--serialize-scope-unit-graph-projection-generation-metadata.md",
+      "full_file_sha256": "bf77494c08450a4be5e469aaf70f3d551982e8c321641267cc1c85713f9ddab0",
+      "atom_id": "CA-D-333",
+      "version": 12,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "read": true,
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-333-CORE_META_MODEL-GENERAL--serialize-scope-unit-graph-projection-generation-metadata.md",
+        "sha256": "bf77494c08450a4be5e469aaf70f3d551982e8c321641267cc1c85713f9ddab0",
+        "start_line": 21,
+        "end_line": 33,
+        "span_sha256": "6fff9ec3087bd6115c183767a57c66fbea43bb0ed1cf11a25ea2d483cab8a788"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    }
+  ],
+  "occurrences": [
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-300-CORE_META_MODEL--size-structural-level-prefixes-dynamically.md#subjects.depends_on[0]",
+      "old_value": "Scope Unit",
+      "quarantined": false,
+      "source_atom_id": "CA-D-300",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-300-CORE_META_MODEL--size-structural-level-prefixes-dynamically.md",
+      "source_sha256": "c70f6b177a74db94c3905cc2386bcf2bed99557d421aa974404fae91c7669819",
+      "source_version": 14,
+      "decision": "unchanged",
+      "proposed_value": "Scope Unit",
+      "confidence": 0.96,
+      "reason": "The current body directly governs Scope Unit references or places. Scope Unit is an exact selected candidate root, retained without confusing ownership with a Carrier address.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-300-CORE_META_MODEL--size-structural-level-prefixes-dynamically.md",
+          "sha256": "c70f6b177a74db94c3905cc2386bcf2bed99557d421aa974404fae91c7669819",
+          "start_line": 20,
+          "end_line": 37,
+          "span_sha256": "e1c7226dd689528d4b8b3f48ec052017853f833597bb5724618ca94f18f38075",
+          "reason": "The owning current Main Content was read in full and supplies this occurrence's meaning and uncertainty boundary."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current identity is retained.",
+        "No display-only prefix, native edge, grammar adoption or source mutation is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-300-CORE_META_MODEL--size-structural-level-prefixes-dynamically.md#subjects.depends_on[1]",
+      "old_value": "Structural Level",
+      "quarantined": false,
+      "source_atom_id": "CA-D-300",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-300-CORE_META_MODEL--size-structural-level-prefixes-dynamically.md",
+      "source_sha256": "c70f6b177a74db94c3905cc2386bcf2bed99557d421aa974404fae91c7669819",
+      "source_version": 14,
+      "decision": "proposed",
+      "proposed_value": "Scope Unit.Structural Level",
+      "confidence": 0.9,
+      "reason": "The current body makes Structural Level a component of a Project-internal Scope Unit Directory Carrier prefix. The proposal identifies only that source-evidenced Scope Unit field and does not equate the prefix convention with Carrier identity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-300-CORE_META_MODEL--size-structural-level-prefixes-dynamically.md",
+          "sha256": "c70f6b177a74db94c3905cc2386bcf2bed99557d421aa974404fae91c7669819",
+          "start_line": 20,
+          "end_line": 37,
+          "span_sha256": "e1c7226dd689528d4b8b3f48ec052017853f833597bb5724618ca94f18f38075",
+          "reason": "The owning current Main Content was read in full and supplies this occurrence's meaning and uncertainty boundary."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "#/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate confirms that a Property is a dependent Entity node rather than a new root."
+        },
+        {
+          "pointer": "#/entity_identity_model/dependent_entity/identity",
+          "reason": "The candidate confirms owner selector plus dependent field identity for source-evidenced fields even where a display string is not printed."
+        }
+      ],
+      "preserved_distinctions": [
+        "The exact source-evidenced Scope Unit field remains distinct from its Directory Carrier convention.",
+        "No Carrier identity, storage path, fixed width or native grammar is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-300-CORE_META_MODEL--size-structural-level-prefixes-dynamically.md#subjects.depends_on[2]",
+      "old_value": "Navigational Order Number",
+      "quarantined": false,
+      "source_atom_id": "CA-D-300",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-300-CORE_META_MODEL--size-structural-level-prefixes-dynamically.md",
+      "source_sha256": "c70f6b177a74db94c3905cc2386bcf2bed99557d421aa974404fae91c7669819",
+      "source_version": 14,
+      "decision": "proposed",
+      "proposed_value": "Scope Unit.Navigational Order Number",
+      "confidence": 0.9,
+      "reason": "The current body makes Navigational Order Number a separately decoded component of a Scope Unit Directory Carrier prefix. The proposal identifies only that source-evidenced Scope Unit field and preserves its distinct width/value semantics.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-300-CORE_META_MODEL--size-structural-level-prefixes-dynamically.md",
+          "sha256": "c70f6b177a74db94c3905cc2386bcf2bed99557d421aa974404fae91c7669819",
+          "start_line": 20,
+          "end_line": 37,
+          "span_sha256": "e1c7226dd689528d4b8b3f48ec052017853f833597bb5724618ca94f18f38075",
+          "reason": "The owning current Main Content was read in full and supplies this occurrence's meaning and uncertainty boundary."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "#/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate confirms that a Property is a dependent Entity node rather than a new root."
+        },
+        {
+          "pointer": "#/entity_identity_model/dependent_entity/identity",
+          "reason": "The candidate confirms owner selector plus dependent field identity for source-evidenced fields even where a display string is not printed."
+        }
+      ],
+      "preserved_distinctions": [
+        "The exact source-evidenced Scope Unit field remains distinct from its Directory Carrier convention.",
+        "No Carrier identity, storage path, fixed width or native grammar is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-300-CORE_META_MODEL--size-structural-level-prefixes-dynamically.md#subjects.governs",
+      "old_value": "Directory Carrier/Numeric Prefix",
+      "quarantined": false,
+      "source_atom_id": "CA-D-300",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-300-CORE_META_MODEL--size-structural-level-prefixes-dynamically.md",
+      "source_sha256": "c70f6b177a74db94c3905cc2386bcf2bed99557d421aa974404fae91c7669819",
+      "source_version": 14,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current body governs a delivery convention for a specific Carrier context. The candidate selects Carrier as a root but no subtype/property expression preserving the context and policy distinction.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-300-CORE_META_MODEL--size-structural-level-prefixes-dynamically.md",
+          "sha256": "c70f6b177a74db94c3905cc2386bcf2bed99557d421aa974404fae91c7669819",
+          "start_line": 20,
+          "end_line": 37,
+          "span_sha256": "e1c7226dd689528d4b8b3f48ec052017853f833597bb5724618ca94f18f38075",
+          "reason": "The owning current Main Content was read in full and supplies this occurrence's meaning and uncertainty boundary."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact old identity and every named delivery, owner, policy, relation, history and format qualifier remain preserved.",
+        "No unsupported root, property, Carrier binding, topic alias or Subject grammar is invented."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-301-CORE_META_MODEL--require-portable-safe-carrier-addresses.md#subjects.governs",
+      "old_value": "Carrier/Canonical Address/Segment",
+      "quarantined": false,
+      "source_atom_id": "CA-D-301",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-301-CORE_META_MODEL--require-portable-safe-carrier-addresses.md",
+      "source_sha256": "40fa41c8ff9abdd81a39689a3b95284a2240cf567113bbf794fa874b8e61a691",
+      "source_version": 15,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current body governs a Carrier address, representation or delivery convention. The candidate keeps filename/path as storage location rather than Carrier identity and confirms no field path that does not conflate policy with ownership.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-301-CORE_META_MODEL--require-portable-safe-carrier-addresses.md",
+          "sha256": "40fa41c8ff9abdd81a39689a3b95284a2240cf567113bbf794fa874b8e61a691",
+          "start_line": 17,
+          "end_line": 33,
+          "span_sha256": "c6ff139b9320d672c3821dfabd32eaff4b863b77e7376b1e9a0bf9c52300d391",
+          "reason": "The owning current Main Content was read in full and supplies this occurrence's meaning and uncertainty boundary."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact old identity and every named delivery, owner, policy, relation, history and format qualifier remain preserved.",
+        "No unsupported root, property, Carrier binding, topic alias or Subject grammar is invented."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-302-CORE_META_MODEL-DELIVERY--serialize-scope-unit-references-as-filename-tokens.md#subjects.depends_on[0]",
+      "old_value": "Scope Unit/Name",
+      "quarantined": false,
+      "source_atom_id": "CA-D-302",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-302-CORE_META_MODEL-DELIVERY--serialize-scope-unit-references-as-filename-tokens.md",
+      "source_sha256": "6dafff118ee74ab5995cb2918584bcc4fa1c843de0bb306f06926f4169ed6bfb",
+      "source_version": 13,
+      "decision": "proposed",
+      "proposed_value": "Scope Unit.Name",
+      "confidence": 0.92,
+      "reason": "The current body selects a stable token from the Scope Unit Name. The candidate separately preserves Scope Unit Name from its stable ID, and the generic property rule supports the source-evidenced field.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-302-CORE_META_MODEL-DELIVERY--serialize-scope-unit-references-as-filename-tokens.md",
+          "sha256": "6dafff118ee74ab5995cb2918584bcc4fa1c843de0bb306f06926f4169ed6bfb",
+          "start_line": 19,
+          "end_line": 29,
+          "span_sha256": "95b61c83fa9f10121dc787a147617acf2a59283139727a4b49db1d76fce4d580",
+          "reason": "The owning current Main Content was read in full and supplies this occurrence's meaning and uncertainty boundary."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "#/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate confirms that a Property is a dependent Entity node rather than a new root."
+        },
+        {
+          "pointer": "#/entity_identity_model/dependent_entity/identity",
+          "reason": "The candidate confirms owner selector plus dependent field identity for source-evidenced fields even where a display string is not printed."
+        },
+        {
+          "pointer": "#/entity_identity_model/scope_unit_rename/metadata_folder_contents",
+          "reason": "The candidate explicitly preserves Scope Unit Name separately from its stable ID in metadata naming."
+        }
+      ],
+      "preserved_distinctions": [
+        "The exact source-evidenced Scope Unit field remains distinct from its Directory Carrier convention.",
+        "No Carrier identity, storage path, fixed width or native grammar is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-302-CORE_META_MODEL-DELIVERY--serialize-scope-unit-references-as-filename-tokens.md#subjects.depends_on[1]",
+      "old_value": "Project Configuration",
+      "quarantined": false,
+      "source_atom_id": "CA-D-302",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-302-CORE_META_MODEL-DELIVERY--serialize-scope-unit-references-as-filename-tokens.md",
+      "source_sha256": "6dafff118ee74ab5995cb2918584bcc4fa1c843de0bb306f06926f4169ed6bfb",
+      "source_version": 13,
+      "decision": "unchanged",
+      "proposed_value": "Project Configuration",
+      "confidence": 0.96,
+      "reason": "The current body uses Project Configuration as the source that selects a stable Scope Unit token. The candidate explicitly retains Project Configuration among Applicable Methodology sources; retaining the exact term adds no root or alias.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-302-CORE_META_MODEL-DELIVERY--serialize-scope-unit-references-as-filename-tokens.md",
+          "sha256": "6dafff118ee74ab5995cb2918584bcc4fa1c843de0bb306f06926f4169ed6bfb",
+          "start_line": 19,
+          "end_line": 29,
+          "span_sha256": "95b61c83fa9f10121dc787a147617acf2a59283139727a4b49db1d76fce4d580",
+          "reason": "The owning current Main Content was read in full and supplies this occurrence's meaning and uncertainty boundary."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current identity is retained.",
+        "No display-only prefix, native edge, grammar adoption or source mutation is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-302-CORE_META_MODEL-DELIVERY--serialize-scope-unit-references-as-filename-tokens.md#subjects.governs",
+      "old_value": "Atom/Scope/Filename Token",
+      "quarantined": false,
+      "source_atom_id": "CA-D-302",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-302-CORE_META_MODEL-DELIVERY--serialize-scope-unit-references-as-filename-tokens.md",
+      "source_sha256": "6dafff118ee74ab5995cb2918584bcc4fa1c843de0bb306f06926f4169ed6bfb",
+      "source_version": 13,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current body distinguishes this Atom claim, identity, scope or direct-relation fact from Carrier delivery. The candidate confirms no replacement path retaining every role, target, ownership or semantic-relation qualifier.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-302-CORE_META_MODEL-DELIVERY--serialize-scope-unit-references-as-filename-tokens.md",
+          "sha256": "6dafff118ee74ab5995cb2918584bcc4fa1c843de0bb306f06926f4169ed6bfb",
+          "start_line": 19,
+          "end_line": 29,
+          "span_sha256": "95b61c83fa9f10121dc787a147617acf2a59283139727a4b49db1d76fce4d580",
+          "reason": "The owning current Main Content was read in full and supplies this occurrence's meaning and uncertainty boundary."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact old identity and every named delivery, owner, policy, relation, history and format qualifier remain preserved.",
+        "No unsupported root, property, Carrier binding, topic alias or Subject grammar is invented."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-303-CORE_META_MODEL-CORE--replace-and-archive-atoms-as-whole-carriers.md#subjects.depends_on[0]",
+      "old_value": "Atom/Revision",
+      "quarantined": false,
+      "source_atom_id": "CA-D-303",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-303-CORE_META_MODEL-CORE--replace-and-archive-atoms-as-whole-carriers.md",
+      "source_sha256": "f3b6503ac723f9ef9465b8f692d92029c1fbffa89cc2e1ed8585b4de8fb711ff",
+      "source_version": 11,
+      "decision": "proposed",
+      "proposed_value": "Revision",
+      "confidence": 0.96,
+      "reason": "The current body archives or source-binds a selected Atom Revision. The candidate explicitly makes Revision the separate historical root, so the proposal preserves history without retaining the excluded Atom/Revision path.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-303-CORE_META_MODEL-CORE--replace-and-archive-atoms-as-whole-carriers.md",
+          "sha256": "f3b6503ac723f9ef9465b8f692d92029c1fbffa89cc2e1ed8585b4de8fb711ff",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "379f910c31d5496e9576cdbfcd67b2925102492b2adb17b64b22022f120ae878",
+          "reason": "The owning current Main Content was read in full and supplies this occurrence's meaning and uncertainty boundary."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/4",
+          "reason": "The candidate explicitly selects Revision as the separate historical snapshot root."
+        },
+        {
+          "pointer": "#/root_entities/4/excluded_paths",
+          "reason": "The candidate explicitly excludes Artifact/Revision and Atom/Revision because Revision is the historical root."
+        }
+      ],
+      "preserved_distinctions": [
+        "Revision remains a separate historical root; no Artifact or Atom subtype is asserted.",
+        "No history Relation admission, source mutation or grammar adoption is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-303-CORE_META_MODEL-CORE--replace-and-archive-atoms-as-whole-carriers.md#subjects.governs",
+      "old_value": "Atom Carrier Replacement",
+      "quarantined": false,
+      "source_atom_id": "CA-D-303",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-303-CORE_META_MODEL-CORE--replace-and-archive-atoms-as-whole-carriers.md",
+      "source_sha256": "f3b6503ac723f9ef9465b8f692d92029c1fbffa89cc2e1ed8585b4de8fb711ff",
+      "source_version": 11,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current body governs a whole-Carrier transition or recoding policy. The candidate's Carrier root does not make that policy an Entity or a Carrier-owned field.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-303-CORE_META_MODEL-CORE--replace-and-archive-atoms-as-whole-carriers.md",
+          "sha256": "f3b6503ac723f9ef9465b8f692d92029c1fbffa89cc2e1ed8585b4de8fb711ff",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "379f910c31d5496e9576cdbfcd67b2925102492b2adb17b64b22022f120ae878",
+          "reason": "The owning current Main Content was read in full and supplies this occurrence's meaning and uncertainty boundary."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact old identity and every named delivery, owner, policy, relation, history and format qualifier remain preserved.",
+        "No unsupported root, property, Carrier binding, topic alias or Subject grammar is invented."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-304-CORE_META_MODEL-CORE--preserve-authority-through-carrier-only-recoding.md#subjects.depends_on[0]",
+      "old_value": "Atom/Identity",
+      "quarantined": false,
+      "source_atom_id": "CA-D-304",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-304-CORE_META_MODEL-CORE--preserve-authority-through-carrier-only-recoding.md",
+      "source_sha256": "d9c2fe921539bbc0a0df41a684581021072b3d1b3d3b40165068789f4a59653a",
+      "source_version": 12,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current body distinguishes this Atom claim, identity, scope or direct-relation fact from Carrier delivery. The candidate confirms no replacement path retaining every role, target, ownership or semantic-relation qualifier.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-304-CORE_META_MODEL-CORE--preserve-authority-through-carrier-only-recoding.md",
+          "sha256": "d9c2fe921539bbc0a0df41a684581021072b3d1b3d3b40165068789f4a59653a",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "dca8da3a01a40580e0890ffbbe45768fbf5e47a11b6314fc797e1c28ec2189ff",
+          "reason": "The owning current Main Content was read in full and supplies this occurrence's meaning and uncertainty boundary."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact old identity and every named delivery, owner, policy, relation, history and format qualifier remain preserved.",
+        "No unsupported root, property, Carrier binding, topic alias or Subject grammar is invented."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-304-CORE_META_MODEL-CORE--preserve-authority-through-carrier-only-recoding.md#subjects.depends_on[1]",
+      "old_value": "Atom/Claim",
+      "quarantined": false,
+      "source_atom_id": "CA-D-304",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-304-CORE_META_MODEL-CORE--preserve-authority-through-carrier-only-recoding.md",
+      "source_sha256": "d9c2fe921539bbc0a0df41a684581021072b3d1b3d3b40165068789f4a59653a",
+      "source_version": 12,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current body distinguishes this Atom claim, identity, scope or direct-relation fact from Carrier delivery. The candidate confirms no replacement path retaining every role, target, ownership or semantic-relation qualifier.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-304-CORE_META_MODEL-CORE--preserve-authority-through-carrier-only-recoding.md",
+          "sha256": "d9c2fe921539bbc0a0df41a684581021072b3d1b3d3b40165068789f4a59653a",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "dca8da3a01a40580e0890ffbbe45768fbf5e47a11b6314fc797e1c28ec2189ff",
+          "reason": "The owning current Main Content was read in full and supplies this occurrence's meaning and uncertainty boundary."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact old identity and every named delivery, owner, policy, relation, history and format qualifier remain preserved.",
+        "No unsupported root, property, Carrier binding, topic alias or Subject grammar is invented."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-304-CORE_META_MODEL-CORE--preserve-authority-through-carrier-only-recoding.md#subjects.depends_on[2]",
+      "old_value": "Atom/Scope",
+      "quarantined": false,
+      "source_atom_id": "CA-D-304",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-304-CORE_META_MODEL-CORE--preserve-authority-through-carrier-only-recoding.md",
+      "source_sha256": "d9c2fe921539bbc0a0df41a684581021072b3d1b3d3b40165068789f4a59653a",
+      "source_version": 12,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current body distinguishes this Atom claim, identity, scope or direct-relation fact from Carrier delivery. The candidate confirms no replacement path retaining every role, target, ownership or semantic-relation qualifier.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-304-CORE_META_MODEL-CORE--preserve-authority-through-carrier-only-recoding.md",
+          "sha256": "d9c2fe921539bbc0a0df41a684581021072b3d1b3d3b40165068789f4a59653a",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "dca8da3a01a40580e0890ffbbe45768fbf5e47a11b6314fc797e1c28ec2189ff",
+          "reason": "The owning current Main Content was read in full and supplies this occurrence's meaning and uncertainty boundary."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact old identity and every named delivery, owner, policy, relation, history and format qualifier remain preserved.",
+        "No unsupported root, property, Carrier binding, topic alias or Subject grammar is invented."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 3,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-304-CORE_META_MODEL-CORE--preserve-authority-through-carrier-only-recoding.md#subjects.depends_on[3]",
+      "old_value": "Atom/Direct Relation",
+      "quarantined": false,
+      "source_atom_id": "CA-D-304",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-304-CORE_META_MODEL-CORE--preserve-authority-through-carrier-only-recoding.md",
+      "source_sha256": "d9c2fe921539bbc0a0df41a684581021072b3d1b3d3b40165068789f4a59653a",
+      "source_version": 12,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current body distinguishes this Atom claim, identity, scope or direct-relation fact from Carrier delivery. The candidate confirms no replacement path retaining every role, target, ownership or semantic-relation qualifier.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-304-CORE_META_MODEL-CORE--preserve-authority-through-carrier-only-recoding.md",
+          "sha256": "d9c2fe921539bbc0a0df41a684581021072b3d1b3d3b40165068789f4a59653a",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "dca8da3a01a40580e0890ffbbe45768fbf5e47a11b6314fc797e1c28ec2189ff",
+          "reason": "The owning current Main Content was read in full and supplies this occurrence's meaning and uncertainty boundary."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact old identity and every named delivery, owner, policy, relation, history and format qualifier remain preserved.",
+        "No unsupported root, property, Carrier binding, topic alias or Subject grammar is invented."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-304-CORE_META_MODEL-CORE--preserve-authority-through-carrier-only-recoding.md#subjects.governs",
+      "old_value": "Carrier-Only Recoding",
+      "quarantined": false,
+      "source_atom_id": "CA-D-304",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-304-CORE_META_MODEL-CORE--preserve-authority-through-carrier-only-recoding.md",
+      "source_sha256": "d9c2fe921539bbc0a0df41a684581021072b3d1b3d3b40165068789f4a59653a",
+      "source_version": 12,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current body governs a whole-Carrier transition or recoding policy. The candidate's Carrier root does not make that policy an Entity or a Carrier-owned field.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-304-CORE_META_MODEL-CORE--preserve-authority-through-carrier-only-recoding.md",
+          "sha256": "d9c2fe921539bbc0a0df41a684581021072b3d1b3d3b40165068789f4a59653a",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "dca8da3a01a40580e0890ffbbe45768fbf5e47a11b6314fc797e1c28ec2189ff",
+          "reason": "The owning current Main Content was read in full and supplies this occurrence's meaning and uncertainty boundary."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact old identity and every named delivery, owner, policy, relation, history and format qualifier remain preserved.",
+        "No unsupported root, property, Carrier binding, topic alias or Subject grammar is invented."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-305-CORE_META_MODEL-CORE--carry-projected-atoms-without-new-identity.md#subjects.depends_on[0]",
+      "old_value": "Applicable Methodology/Member",
+      "quarantined": false,
+      "source_atom_id": "CA-D-305",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-305-CORE_META_MODEL-CORE--carry-projected-atoms-without-new-identity.md",
+      "source_sha256": "34745d90e00d208a3874fead3267912663d6c922b2231ee2d6f87684bff64b9f",
+      "source_version": 10,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current body describes a particular Applicable Methodology Projection carrier, member, generated binding or prohibited index. The candidate confirms a one-to-one Projection but no single Entity/property expression retaining this delivery-specific qualifier.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-305-CORE_META_MODEL-CORE--carry-projected-atoms-without-new-identity.md",
+          "sha256": "34745d90e00d208a3874fead3267912663d6c922b2231ee2d6f87684bff64b9f",
+          "start_line": 20,
+          "end_line": 39,
+          "span_sha256": "d29a874ccf9f1831db024f7f0ee04719bd55497ed827016b01a52f672f14a30a",
+          "reason": "The owning current Main Content was read in full and supplies this occurrence's meaning and uncertainty boundary."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact old identity and every named delivery, owner, policy, relation, history and format qualifier remain preserved.",
+        "No unsupported root, property, Carrier binding, topic alias or Subject grammar is invented."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-305-CORE_META_MODEL-CORE--carry-projected-atoms-without-new-identity.md#subjects.depends_on[1]",
+      "old_value": "Atom/Revision",
+      "quarantined": false,
+      "source_atom_id": "CA-D-305",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-305-CORE_META_MODEL-CORE--carry-projected-atoms-without-new-identity.md",
+      "source_sha256": "34745d90e00d208a3874fead3267912663d6c922b2231ee2d6f87684bff64b9f",
+      "source_version": 10,
+      "decision": "proposed",
+      "proposed_value": "Revision",
+      "confidence": 0.96,
+      "reason": "The current body archives or source-binds a selected Atom Revision. The candidate explicitly makes Revision the separate historical root, so the proposal preserves history without retaining the excluded Atom/Revision path.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-305-CORE_META_MODEL-CORE--carry-projected-atoms-without-new-identity.md",
+          "sha256": "34745d90e00d208a3874fead3267912663d6c922b2231ee2d6f87684bff64b9f",
+          "start_line": 20,
+          "end_line": 39,
+          "span_sha256": "d29a874ccf9f1831db024f7f0ee04719bd55497ed827016b01a52f672f14a30a",
+          "reason": "The owning current Main Content was read in full and supplies this occurrence's meaning and uncertainty boundary."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/4",
+          "reason": "The candidate explicitly selects Revision as the separate historical snapshot root."
+        },
+        {
+          "pointer": "#/root_entities/4/excluded_paths",
+          "reason": "The candidate explicitly excludes Artifact/Revision and Atom/Revision because Revision is the historical root."
+        }
+      ],
+      "preserved_distinctions": [
+        "Revision remains a separate historical root; no Artifact or Atom subtype is asserted.",
+        "No history Relation admission, source mutation or grammar adoption is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-305-CORE_META_MODEL-CORE--carry-projected-atoms-without-new-identity.md#subjects.depends_on[2]",
+      "old_value": "Methodology Source/Carrier",
+      "quarantined": false,
+      "source_atom_id": "CA-D-305",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-305-CORE_META_MODEL-CORE--carry-projected-atoms-without-new-identity.md",
+      "source_sha256": "34745d90e00d208a3874fead3267912663d6c922b2231ee2d6f87684bff64b9f",
+      "source_version": 10,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current body governs a materialized, source or Projection Carrier binding/serialization. The candidate distinguishes representation, Projection rebuild tracking and Carrier identity but confirms no single expression retaining all contexts.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-305-CORE_META_MODEL-CORE--carry-projected-atoms-without-new-identity.md",
+          "sha256": "34745d90e00d208a3874fead3267912663d6c922b2231ee2d6f87684bff64b9f",
+          "start_line": 20,
+          "end_line": 39,
+          "span_sha256": "d29a874ccf9f1831db024f7f0ee04719bd55497ed827016b01a52f672f14a30a",
+          "reason": "The owning current Main Content was read in full and supplies this occurrence's meaning and uncertainty boundary."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact old identity and every named delivery, owner, policy, relation, history and format qualifier remain preserved.",
+        "No unsupported root, property, Carrier binding, topic alias or Subject grammar is invented."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-305-CORE_META_MODEL-CORE--carry-projected-atoms-without-new-identity.md#subjects.governs",
+      "old_value": "Applicable Methodology/Projected Atom Carrier",
+      "quarantined": false,
+      "source_atom_id": "CA-D-305",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-305-CORE_META_MODEL-CORE--carry-projected-atoms-without-new-identity.md",
+      "source_sha256": "34745d90e00d208a3874fead3267912663d6c922b2231ee2d6f87684bff64b9f",
+      "source_version": 10,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current body describes a particular Applicable Methodology Projection carrier, member, generated binding or prohibited index. The candidate confirms a one-to-one Projection but no single Entity/property expression retaining this delivery-specific qualifier.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-305-CORE_META_MODEL-CORE--carry-projected-atoms-without-new-identity.md",
+          "sha256": "34745d90e00d208a3874fead3267912663d6c922b2231ee2d6f87684bff64b9f",
+          "start_line": 20,
+          "end_line": 39,
+          "span_sha256": "d29a874ccf9f1831db024f7f0ee04719bd55497ed827016b01a52f672f14a30a",
+          "reason": "The owning current Main Content was read in full and supplies this occurrence's meaning and uncertainty boundary."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact old identity and every named delivery, owner, policy, relation, history and format qualifier remain preserved.",
+        "No unsupported root, property, Carrier binding, topic alias or Subject grammar is invented."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-306-CORE_META_MODEL--materialize-applicable-methodology-as-projected-atom-files.md#subjects.depends_on[0]",
+      "old_value": "Applicable Methodology/Member",
+      "quarantined": false,
+      "source_atom_id": "CA-D-306",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-306-CORE_META_MODEL--materialize-applicable-methodology-as-projected-atom-files.md",
+      "source_sha256": "af41d7cc169cf18ec430fce7275661b97184a781adda47455aac84704324ae71",
+      "source_version": 11,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current body describes a particular Applicable Methodology Projection carrier, member, generated binding or prohibited index. The candidate confirms a one-to-one Projection but no single Entity/property expression retaining this delivery-specific qualifier.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-306-CORE_META_MODEL--materialize-applicable-methodology-as-projected-atom-files.md",
+          "sha256": "af41d7cc169cf18ec430fce7275661b97184a781adda47455aac84704324ae71",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "eeba921cc7c092d388edbc44bb88b66df71dd91f984c6549950281490e55793b",
+          "reason": "The owning current Main Content was read in full and supplies this occurrence's meaning and uncertainty boundary."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact old identity and every named delivery, owner, policy, relation, history and format qualifier remain preserved.",
+        "No unsupported root, property, Carrier binding, topic alias or Subject grammar is invented."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-306-CORE_META_MODEL--materialize-applicable-methodology-as-projected-atom-files.md#subjects.governs",
+      "old_value": "Applicable Methodology/Carrier Set",
+      "quarantined": false,
+      "source_atom_id": "CA-D-306",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-306-CORE_META_MODEL--materialize-applicable-methodology-as-projected-atom-files.md",
+      "source_sha256": "af41d7cc169cf18ec430fce7275661b97184a781adda47455aac84704324ae71",
+      "source_version": 11,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current body describes a particular Applicable Methodology Projection carrier, member, generated binding or prohibited index. The candidate confirms a one-to-one Projection but no single Entity/property expression retaining this delivery-specific qualifier.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-306-CORE_META_MODEL--materialize-applicable-methodology-as-projected-atom-files.md",
+          "sha256": "af41d7cc169cf18ec430fce7275661b97184a781adda47455aac84704324ae71",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "eeba921cc7c092d388edbc44bb88b66df71dd91f984c6549950281490e55793b",
+          "reason": "The owning current Main Content was read in full and supplies this occurrence's meaning and uncertainty boundary."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact old identity and every named delivery, owner, policy, relation, history and format qualifier remain preserved.",
+        "No unsupported root, property, Carrier binding, topic alias or Subject grammar is invented."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-307-CORE_META_MODEL-DELIVERY--prohibit-persistent-applicable-methodology-subject-indexes.md#subjects.depends_on[0]",
+      "old_value": "GOVERNS",
+      "quarantined": false,
+      "source_atom_id": "CA-D-307",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-307-CORE_META_MODEL-DELIVERY--prohibit-persistent-applicable-methodology-subject-indexes.md",
+      "source_sha256": "84f1e41ffe1d1bd5e17fffbbdd51c0de63ea8be0769f2182bc7a06e43488e144",
+      "source_version": 11,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current body prohibits a persistent Subject Index Carrier for this relation kind. The candidate confirms typed Relations but no exact kind, owner or endpoints, so the relation label remains unresolved.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-307-CORE_META_MODEL-DELIVERY--prohibit-persistent-applicable-methodology-subject-indexes.md",
+          "sha256": "84f1e41ffe1d1bd5e17fffbbdd51c0de63ea8be0769f2182bc7a06e43488e144",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "3c30863242e241ebcb68c7e82e31e53fd849162f9c26797d88347556a58c2eb7",
+          "reason": "The owning current Main Content was read in full and supplies this occurrence's meaning and uncertainty boundary."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact old identity and every named delivery, owner, policy, relation, history and format qualifier remain preserved.",
+        "No unsupported root, property, Carrier binding, topic alias or Subject grammar is invented."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-307-CORE_META_MODEL-DELIVERY--prohibit-persistent-applicable-methodology-subject-indexes.md#subjects.depends_on[1]",
+      "old_value": "DEPENDS_ON",
+      "quarantined": false,
+      "source_atom_id": "CA-D-307",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-307-CORE_META_MODEL-DELIVERY--prohibit-persistent-applicable-methodology-subject-indexes.md",
+      "source_sha256": "84f1e41ffe1d1bd5e17fffbbdd51c0de63ea8be0769f2182bc7a06e43488e144",
+      "source_version": 11,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current body prohibits a persistent Subject Index Carrier for this relation kind. The candidate confirms typed Relations but no exact kind, owner or endpoints, so the relation label remains unresolved.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-307-CORE_META_MODEL-DELIVERY--prohibit-persistent-applicable-methodology-subject-indexes.md",
+          "sha256": "84f1e41ffe1d1bd5e17fffbbdd51c0de63ea8be0769f2182bc7a06e43488e144",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "3c30863242e241ebcb68c7e82e31e53fd849162f9c26797d88347556a58c2eb7",
+          "reason": "The owning current Main Content was read in full and supplies this occurrence's meaning and uncertainty boundary."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact old identity and every named delivery, owner, policy, relation, history and format qualifier remain preserved.",
+        "No unsupported root, property, Carrier binding, topic alias or Subject grammar is invented."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-307-CORE_META_MODEL-DELIVERY--prohibit-persistent-applicable-methodology-subject-indexes.md#subjects.governs",
+      "old_value": "Applicable Methodology/Subject Index Carrier",
+      "quarantined": false,
+      "source_atom_id": "CA-D-307",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-307-CORE_META_MODEL-DELIVERY--prohibit-persistent-applicable-methodology-subject-indexes.md",
+      "source_sha256": "84f1e41ffe1d1bd5e17fffbbdd51c0de63ea8be0769f2182bc7a06e43488e144",
+      "source_version": 11,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current body describes a particular Applicable Methodology Projection carrier, member, generated binding or prohibited index. The candidate confirms a one-to-one Projection but no single Entity/property expression retaining this delivery-specific qualifier.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-307-CORE_META_MODEL-DELIVERY--prohibit-persistent-applicable-methodology-subject-indexes.md",
+          "sha256": "84f1e41ffe1d1bd5e17fffbbdd51c0de63ea8be0769f2182bc7a06e43488e144",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "3c30863242e241ebcb68c7e82e31e53fd849162f9c26797d88347556a58c2eb7",
+          "reason": "The owning current Main Content was read in full and supplies this occurrence's meaning and uncertainty boundary."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact old identity and every named delivery, owner, policy, relation, history and format qualifier remain preserved.",
+        "No unsupported root, property, Carrier binding, topic alias or Subject grammar is invented."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-308-CORE_META_MODEL-CORE--serialize-journals-as-append-only-carriers.md#subjects.depends_on[0]",
+      "old_value": "Journal/Record",
+      "quarantined": false,
+      "source_atom_id": "CA-D-308",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-308-CORE_META_MODEL-CORE--serialize-journals-as-append-only-carriers.md",
+      "source_sha256": "0d2117b41344599129fd9751872754d7d358d8a759281abd65ba8874de9a5a01",
+      "source_version": 11,
+      "decision": "proposed",
+      "proposed_value": "Journal.Record",
+      "confidence": 0.9,
+      "reason": "The current body requires Journal Records to remain append-only in their Carrier. The candidate explicitly recognizes Journal.Record; this proposal changes only the contextual separator and does not admit a native RECORDS relation.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-308-CORE_META_MODEL-CORE--serialize-journals-as-append-only-carriers.md",
+          "sha256": "0d2117b41344599129fd9751872754d7d358d8a759281abd65ba8874de9a5a01",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "57018bd05fac9e1e1ac46783e6eaf872b1789f4167cff78e12974952b61a21b6",
+          "reason": "The owning current Main Content was read in full and supplies this occurrence's meaning and uncertainty boundary."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "#/history_model/confirmed_parts/1",
+          "reason": "The candidate confirms Journal as a history-model part."
+        },
+        {
+          "pointer": "#/history_model/relation_proposal/connections/1",
+          "reason": "The candidate explicitly uses Journal.Record for the record concept while keeping native admission separate."
+        }
+      ],
+      "preserved_distinctions": [
+        "Journal Record remains distinct from Journal Carrier serialization and from an actual Execution.",
+        "No native RECORDS relation or Journal Carrier identity is admitted."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-308-CORE_META_MODEL-CORE--serialize-journals-as-append-only-carriers.md#subjects.governs",
+      "old_value": "Journal/Carrier",
+      "quarantined": false,
+      "source_atom_id": "CA-D-308",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-308-CORE_META_MODEL-CORE--serialize-journals-as-append-only-carriers.md",
+      "source_sha256": "0d2117b41344599129fd9751872754d7d358d8a759281abd65ba8874de9a5a01",
+      "source_version": 11,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current body governs a Journal Carrier's append-only serialization. The candidate confirms Journal records but no Journal Carrier identity or field path; Carrier policy is not recast as a record property.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-308-CORE_META_MODEL-CORE--serialize-journals-as-append-only-carriers.md",
+          "sha256": "0d2117b41344599129fd9751872754d7d358d8a759281abd65ba8874de9a5a01",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "57018bd05fac9e1e1ac46783e6eaf872b1789f4167cff78e12974952b61a21b6",
+          "reason": "The owning current Main Content was read in full and supplies this occurrence's meaning and uncertainty boundary."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact old identity and every named delivery, owner, policy, relation, history and format qualifier remain preserved.",
+        "No unsupported root, property, Carrier binding, topic alias or Subject grammar is invented."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-309-CORE_META_MODEL-CORE--bind-materialized-representations-to-regeneration-sources.md#subjects.depends_on[0]",
+      "old_value": "Artifact/Revision",
+      "quarantined": false,
+      "source_atom_id": "CA-D-309",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-309-CORE_META_MODEL-CORE--bind-materialized-representations-to-regeneration-sources.md",
+      "source_sha256": "08d9a70a3f6edc6ad973af0c23f47639b9fa1e299a258e068a0cf12aa18f59ee",
+      "source_version": 12,
+      "decision": "proposed",
+      "proposed_value": "Revision",
+      "confidence": 0.96,
+      "reason": "The current body requires an exact canonical source Revision or an Artifact Revision carried deterministically. The candidate explicitly makes Revision the separate historical root, so the proposal preserves history without an Artifact display prefix.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-309-CORE_META_MODEL-CORE--bind-materialized-representations-to-regeneration-sources.md",
+          "sha256": "08d9a70a3f6edc6ad973af0c23f47639b9fa1e299a258e068a0cf12aa18f59ee",
+          "start_line": 18,
+          "end_line": 34,
+          "span_sha256": "e8dbab07e73339390204a23c0207aa32c30b6529243d130ca55be8fcedb1de64",
+          "reason": "The owning current Main Content was read in full and supplies this occurrence's meaning and uncertainty boundary."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/4",
+          "reason": "The candidate explicitly selects Revision as the separate historical snapshot root."
+        },
+        {
+          "pointer": "#/root_entities/4/excluded_paths",
+          "reason": "The candidate explicitly excludes Artifact/Revision and Atom/Revision because Revision is the historical root."
+        }
+      ],
+      "preserved_distinctions": [
+        "Revision remains a separate historical root; no Artifact or Atom subtype is asserted.",
+        "No history Relation admission, source mutation or grammar adoption is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-309-CORE_META_MODEL-CORE--bind-materialized-representations-to-regeneration-sources.md#subjects.governs",
+      "old_value": "Materialized Representation/Carrier",
+      "quarantined": false,
+      "source_atom_id": "CA-D-309",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-309-CORE_META_MODEL-CORE--bind-materialized-representations-to-regeneration-sources.md",
+      "source_sha256": "08d9a70a3f6edc6ad973af0c23f47639b9fa1e299a258e068a0cf12aa18f59ee",
+      "source_version": 12,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current body governs a materialized, source or Projection Carrier binding/serialization. The candidate distinguishes representation, Projection rebuild tracking and Carrier identity but confirms no single expression retaining all contexts.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-309-CORE_META_MODEL-CORE--bind-materialized-representations-to-regeneration-sources.md",
+          "sha256": "08d9a70a3f6edc6ad973af0c23f47639b9fa1e299a258e068a0cf12aa18f59ee",
+          "start_line": 18,
+          "end_line": 34,
+          "span_sha256": "e8dbab07e73339390204a23c0207aa32c30b6529243d130ca55be8fcedb1de64",
+          "reason": "The owning current Main Content was read in full and supplies this occurrence's meaning and uncertainty boundary."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact old identity and every named delivery, owner, policy, relation, history and format qualifier remain preserved.",
+        "No unsupported root, property, Carrier binding, topic alias or Subject grammar is invented."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-310-CORE_META_MODEL--serialize-projection-updated-at.md#subjects.governs",
+      "old_value": "Projection/Carrier/Updated At",
+      "quarantined": false,
+      "source_atom_id": "CA-D-310",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-310-CORE_META_MODEL--serialize-projection-updated-at.md",
+      "source_sha256": "40a88c75afa5bcdad37a417c7dbc12a392b5afc7b38d6f44c35acf23bd884d70",
+      "source_version": 11,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current body governs a materialized, source or Projection Carrier binding/serialization. The candidate distinguishes representation, Projection rebuild tracking and Carrier identity but confirms no single expression retaining all contexts.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-310-CORE_META_MODEL--serialize-projection-updated-at.md",
+          "sha256": "40a88c75afa5bcdad37a417c7dbc12a392b5afc7b38d6f44c35acf23bd884d70",
+          "start_line": 17,
+          "end_line": 29,
+          "span_sha256": "66efc4f0ad42a3b121f01b446b21e19217997cb21f356510ddd88d265d0b2ad3",
+          "reason": "The owning current Main Content was read in full and supplies this occurrence's meaning and uncertainty boundary."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact old identity and every named delivery, owner, policy, relation, history and format qualifier remain preserved.",
+        "No unsupported root, property, Carrier binding, topic alias or Subject grammar is invented."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-311-CORE_META_MODEL-CORE--represent-authority-without-semantic-change.md#subjects.depends_on[0]",
+      "old_value": "Artifact/Revision",
+      "quarantined": false,
+      "source_atom_id": "CA-D-311",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-311-CORE_META_MODEL-CORE--represent-authority-without-semantic-change.md",
+      "source_sha256": "a049829113f02daa2df65f2daa3e23ad685b157d1bf64155ead647cc54097b4a",
+      "source_version": 11,
+      "decision": "proposed",
+      "proposed_value": "Revision",
+      "confidence": 0.96,
+      "reason": "The current body requires an exact canonical source Revision or an Artifact Revision carried deterministically. The candidate explicitly makes Revision the separate historical root, so the proposal preserves history without an Artifact display prefix.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-311-CORE_META_MODEL-CORE--represent-authority-without-semantic-change.md",
+          "sha256": "a049829113f02daa2df65f2daa3e23ad685b157d1bf64155ead647cc54097b4a",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "da7e3a09e206b768e6da76bc1fa4100f54b487c3adf49efbf243b047e11a3383",
+          "reason": "The owning current Main Content was read in full and supplies this occurrence's meaning and uncertainty boundary."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/4",
+          "reason": "The candidate explicitly selects Revision as the separate historical snapshot root."
+        },
+        {
+          "pointer": "#/root_entities/4/excluded_paths",
+          "reason": "The candidate explicitly excludes Artifact/Revision and Atom/Revision because Revision is the historical root."
+        }
+      ],
+      "preserved_distinctions": [
+        "Revision remains a separate historical root; no Artifact or Atom subtype is asserted.",
+        "No history Relation admission, source mutation or grammar adoption is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-311-CORE_META_MODEL-CORE--represent-authority-without-semantic-change.md#subjects.governs",
+      "old_value": "Carrier/Representation",
+      "quarantined": false,
+      "source_atom_id": "CA-D-311",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-311-CORE_META_MODEL-CORE--represent-authority-without-semantic-change.md",
+      "source_sha256": "a049829113f02daa2df65f2daa3e23ad685b157d1bf64155ead647cc54097b4a",
+      "source_version": 11,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current body governs a Carrier address, representation or delivery convention. The candidate keeps filename/path as storage location rather than Carrier identity and confirms no field path that does not conflate policy with ownership.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-311-CORE_META_MODEL-CORE--represent-authority-without-semantic-change.md",
+          "sha256": "a049829113f02daa2df65f2daa3e23ad685b157d1bf64155ead647cc54097b4a",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "da7e3a09e206b768e6da76bc1fa4100f54b487c3adf49efbf243b047e11a3383",
+          "reason": "The owning current Main Content was read in full and supplies this occurrence's meaning and uncertainty boundary."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact old identity and every named delivery, owner, policy, relation, history and format qualifier remain preserved.",
+        "No unsupported root, property, Carrier binding, topic alias or Subject grammar is invented."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-312-CORE_META_MODEL-CORE--give-each-scope-unit-authority-and-delivery-carrier-places.md#subjects.depends_on[0]",
+      "old_value": "Scope Unit",
+      "quarantined": false,
+      "source_atom_id": "CA-D-312",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-312-CORE_META_MODEL-CORE--give-each-scope-unit-authority-and-delivery-carrier-places.md",
+      "source_sha256": "8804af6a0385c8c98c5f07d85f18732d5d5411081a917f4dad2ba35545803faf",
+      "source_version": 12,
+      "decision": "unchanged",
+      "proposed_value": "Scope Unit",
+      "confidence": 0.96,
+      "reason": "The current body directly governs Scope Unit references or places. Scope Unit is an exact selected candidate root, retained without confusing ownership with a Carrier address.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-312-CORE_META_MODEL-CORE--give-each-scope-unit-authority-and-delivery-carrier-places.md",
+          "sha256": "8804af6a0385c8c98c5f07d85f18732d5d5411081a917f4dad2ba35545803faf",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "fd6579fba4d4d1ce3084a4317018b8c19a18c7d87455139acf2006872fe599a8",
+          "reason": "The owning current Main Content was read in full and supplies this occurrence's meaning and uncertainty boundary."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current identity is retained.",
+        "No display-only prefix, native edge, grammar adoption or source mutation is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-312-CORE_META_MODEL-CORE--give-each-scope-unit-authority-and-delivery-carrier-places.md#subjects.depends_on[1]",
+      "old_value": "Delivery",
+      "quarantined": false,
+      "source_atom_id": "CA-D-312",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-312-CORE_META_MODEL-CORE--give-each-scope-unit-authority-and-delivery-carrier-places.md",
+      "source_sha256": "8804af6a0385c8c98c5f07d85f18732d5d5411081a917f4dad2ba35545803faf",
+      "source_version": 12,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current body distinguishes a Delivery Carrier place from another Scope Unit. The candidate does not confirm that this contextual Delivery label is a root, field or allowed value in this occurrence.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-312-CORE_META_MODEL-CORE--give-each-scope-unit-authority-and-delivery-carrier-places.md",
+          "sha256": "8804af6a0385c8c98c5f07d85f18732d5d5411081a917f4dad2ba35545803faf",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "fd6579fba4d4d1ce3084a4317018b8c19a18c7d87455139acf2006872fe599a8",
+          "reason": "The owning current Main Content was read in full and supplies this occurrence's meaning and uncertainty boundary."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact old identity and every named delivery, owner, policy, relation, history and format qualifier remain preserved.",
+        "No unsupported root, property, Carrier binding, topic alias or Subject grammar is invented."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-312-CORE_META_MODEL-CORE--give-each-scope-unit-authority-and-delivery-carrier-places.md#subjects.governs",
+      "old_value": "Carrier",
+      "quarantined": false,
+      "source_atom_id": "CA-D-312",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-312-CORE_META_MODEL-CORE--give-each-scope-unit-authority-and-delivery-carrier-places.md",
+      "source_sha256": "8804af6a0385c8c98c5f07d85f18732d5d5411081a917f4dad2ba35545803faf",
+      "source_version": 12,
+      "decision": "unchanged",
+      "proposed_value": "Carrier",
+      "confidence": 0.96,
+      "reason": "The current body directly governs Carrier places or representations. Carrier is an exact selected candidate root, retained without converting a storage policy into a Carrier property.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-312-CORE_META_MODEL-CORE--give-each-scope-unit-authority-and-delivery-carrier-places.md",
+          "sha256": "8804af6a0385c8c98c5f07d85f18732d5d5411081a917f4dad2ba35545803faf",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "fd6579fba4d4d1ce3084a4317018b8c19a18c7d87455139acf2006872fe599a8",
+          "reason": "The owning current Main Content was read in full and supplies this occurrence's meaning and uncertainty boundary."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current identity is retained.",
+        "No display-only prefix, native edge, grammar adoption or source mutation is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-316-CORE_META_MODEL-GENERAL--classify-carriers-by-ownership.md#subjects.governs",
+      "old_value": "Carrier/Ownership Class",
+      "quarantined": false,
+      "source_atom_id": "CA-D-316",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-316-CORE_META_MODEL-GENERAL--classify-carriers-by-ownership.md",
+      "source_sha256": "8df0a6f78eac1e3fa92bde5f9c0800b360fbf937d43ceba5daf2033471522be7",
+      "source_version": 11,
+      "decision": "proposed",
+      "proposed_value": "Carrier.Ownership Class",
+      "confidence": 0.92,
+      "reason": "The current body requires every internal Carrier to have exactly one Ownership Class in a stated value domain. The generic candidate property rule supports the source-evidenced Carrier-owned field without inventing a Carrier relation or policy.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-316-CORE_META_MODEL-GENERAL--classify-carriers-by-ownership.md",
+          "sha256": "8df0a6f78eac1e3fa92bde5f9c0800b360fbf937d43ceba5daf2033471522be7",
+          "start_line": 17,
+          "end_line": 29,
+          "span_sha256": "92895b9a28e6f250189cda1788e0e1b299d347139768e4876df51c951eebf6fa",
+          "reason": "The owning current Main Content was read in full and supplies this occurrence's meaning and uncertainty boundary."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "#/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate confirms that a Property is a dependent Entity node rather than a new root."
+        },
+        {
+          "pointer": "#/entity_identity_model/dependent_entity/identity",
+          "reason": "The candidate confirms owner selector plus dependent field identity for source-evidenced fields even where a display string is not printed."
+        }
+      ],
+      "preserved_distinctions": [
+        "Ownership Class remains a Carrier-owned field with the current source's allowed-value domain.",
+        "No per-Property Carrier binding or delivery-policy substitution is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-317-CORE_META_MODEL--place-each-project-framework-instance-inside-its-project.md#subjects.governs",
+      "old_value": "CAPRMEDIO Framework Instance/Carrier Root",
+      "quarantined": false,
+      "source_atom_id": "CA-D-317",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-317-CORE_META_MODEL--place-each-project-framework-instance-inside-its-project.md",
+      "source_sha256": "c93ede85518a750816c36cff62d6f7e1ec3a66377f31ae221d17296cac30c8ef",
+      "source_version": 12,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current body uses this Project or Framework carrier context for placement or compatibility. The candidate confirms no exact Entity/property path that preserves the context without promoting a delivery policy into identity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-317-CORE_META_MODEL--place-each-project-framework-instance-inside-its-project.md",
+          "sha256": "c93ede85518a750816c36cff62d6f7e1ec3a66377f31ae221d17296cac30c8ef",
+          "start_line": 17,
+          "end_line": 31,
+          "span_sha256": "94e2664237226c6211e89c4090805ebb4dc909f8f6cbfcd8c4165e2b4449e2a9",
+          "reason": "The owning current Main Content was read in full and supplies this occurrence's meaning and uncertainty boundary."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact old identity and every named delivery, owner, policy, relation, history and format qualifier remain preserved.",
+        "No unsupported root, property, Carrier binding, topic alias or Subject grammar is invented."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-318-CORE_META_MODEL--place-project-owned-persistent-carriers.md#subjects.governs",
+      "old_value": "Project-Owned Carrier Root",
+      "quarantined": false,
+      "source_atom_id": "CA-D-318",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-318-CORE_META_MODEL--place-project-owned-persistent-carriers.md",
+      "source_sha256": "03e49c2ba9f28aecfcfca3899d40f5bd9a3131e0220613f88b83badc4deb51ea",
+      "source_version": 11,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current body uses this Project or Framework carrier context for placement or compatibility. The candidate confirms no exact Entity/property path that preserves the context without promoting a delivery policy into identity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-318-CORE_META_MODEL--place-project-owned-persistent-carriers.md",
+          "sha256": "03e49c2ba9f28aecfcfca3899d40f5bd9a3131e0220613f88b83badc4deb51ea",
+          "start_line": 17,
+          "end_line": 31,
+          "span_sha256": "1a87893421b60b4680f275c7302be963e354e7c17732de5a202be0a198900dad",
+          "reason": "The owning current Main Content was read in full and supplies this occurrence's meaning and uncertainty boundary."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact old identity and every named delivery, owner, policy, relation, history and format qualifier remain preserved.",
+        "No unsupported root, property, Carrier binding, topic alias or Subject grammar is invented."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-329-CORE_META_MODEL--serialize-proof-frontier-references.md#subjects.governs",
+      "old_value": "Proof Carrier/Dependency Frontier",
+      "quarantined": false,
+      "source_atom_id": "CA-D-329",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-329-CORE_META_MODEL--serialize-proof-frontier-references.md",
+      "source_sha256": "965f664d842c8633f356944fdb9b3fd899da2e5aff2fa2999ac72581677345ca",
+      "source_version": 12,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current body requires a machine-readable proof-frontier list in a proof Carrier. The candidate confirms no Proof Carrier or Dependency Frontier identity; the policy remains unresolved.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-329-CORE_META_MODEL--serialize-proof-frontier-references.md",
+          "sha256": "965f664d842c8633f356944fdb9b3fd899da2e5aff2fa2999ac72581677345ca",
+          "start_line": 17,
+          "end_line": 29,
+          "span_sha256": "4a86d057e8db02bc01a15d758dff892f38f60096565639ce80ef86b6737284c7",
+          "reason": "The owning current Main Content was read in full and supplies this occurrence's meaning and uncertainty boundary."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact old identity and every named delivery, owner, policy, relation, history and format qualifier remain preserved.",
+        "No unsupported root, property, Carrier binding, topic alias or Subject grammar is invented."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-330-CORE_META_MODEL--preserve-github-file-preview-compatibility.md#subjects.depends_on[0]",
+      "old_value": "Markdown",
+      "quarantined": false,
+      "source_atom_id": "CA-D-330",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-330-CORE_META_MODEL--preserve-github-file-preview-compatibility.md",
+      "source_sha256": "5a23877586a794848b0a8228d768d5a5d5300db0d44c7f6b44318e253403d804",
+      "source_version": 11,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current body requires GitHub-preview compatibility for this File Carrier format. The candidate selects neither a format property nor an allowed-value domain, so no format identity is invented.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-330-CORE_META_MODEL--preserve-github-file-preview-compatibility.md",
+          "sha256": "5a23877586a794848b0a8228d768d5a5d5300db0d44c7f6b44318e253403d804",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "cc02aba98b2f841d2e3df5a6d552778f45ba18ab699cabb758ea35abe9820c60",
+          "reason": "The owning current Main Content was read in full and supplies this occurrence's meaning and uncertainty boundary."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact old identity and every named delivery, owner, policy, relation, history and format qualifier remain preserved.",
+        "No unsupported root, property, Carrier binding, topic alias or Subject grammar is invented."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-330-CORE_META_MODEL--preserve-github-file-preview-compatibility.md#subjects.depends_on[1]",
+      "old_value": "TOML",
+      "quarantined": false,
+      "source_atom_id": "CA-D-330",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-330-CORE_META_MODEL--preserve-github-file-preview-compatibility.md",
+      "source_sha256": "5a23877586a794848b0a8228d768d5a5d5300db0d44c7f6b44318e253403d804",
+      "source_version": 11,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current body requires GitHub-preview compatibility for this File Carrier format. The candidate selects neither a format property nor an allowed-value domain, so no format identity is invented.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-330-CORE_META_MODEL--preserve-github-file-preview-compatibility.md",
+          "sha256": "5a23877586a794848b0a8228d768d5a5d5300db0d44c7f6b44318e253403d804",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "cc02aba98b2f841d2e3df5a6d552778f45ba18ab699cabb758ea35abe9820c60",
+          "reason": "The owning current Main Content was read in full and supplies this occurrence's meaning and uncertainty boundary."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact old identity and every named delivery, owner, policy, relation, history and format qualifier remain preserved.",
+        "No unsupported root, property, Carrier binding, topic alias or Subject grammar is invented."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-330-CORE_META_MODEL--preserve-github-file-preview-compatibility.md#subjects.depends_on[2]",
+      "old_value": "YAML",
+      "quarantined": false,
+      "source_atom_id": "CA-D-330",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-330-CORE_META_MODEL--preserve-github-file-preview-compatibility.md",
+      "source_sha256": "5a23877586a794848b0a8228d768d5a5d5300db0d44c7f6b44318e253403d804",
+      "source_version": 11,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current body requires GitHub-preview compatibility for this File Carrier format. The candidate selects neither a format property nor an allowed-value domain, so no format identity is invented.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-330-CORE_META_MODEL--preserve-github-file-preview-compatibility.md",
+          "sha256": "5a23877586a794848b0a8228d768d5a5d5300db0d44c7f6b44318e253403d804",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "cc02aba98b2f841d2e3df5a6d552778f45ba18ab699cabb758ea35abe9820c60",
+          "reason": "The owning current Main Content was read in full and supplies this occurrence's meaning and uncertainty boundary."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact old identity and every named delivery, owner, policy, relation, history and format qualifier remain preserved.",
+        "No unsupported root, property, Carrier binding, topic alias or Subject grammar is invented."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-330-CORE_META_MODEL--preserve-github-file-preview-compatibility.md#subjects.governs",
+      "old_value": "File Carrier/GitHub Preview",
+      "quarantined": false,
+      "source_atom_id": "CA-D-330",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-330-CORE_META_MODEL--preserve-github-file-preview-compatibility.md",
+      "source_sha256": "5a23877586a794848b0a8228d768d5a5d5300db0d44c7f6b44318e253403d804",
+      "source_version": 11,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current body governs a delivery convention for a specific Carrier context. The candidate selects Carrier as a root but no subtype/property expression preserving the context and policy distinction.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-330-CORE_META_MODEL--preserve-github-file-preview-compatibility.md",
+          "sha256": "5a23877586a794848b0a8228d768d5a5d5300db0d44c7f6b44318e253403d804",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "cc02aba98b2f841d2e3df5a6d552778f45ba18ab699cabb758ea35abe9820c60",
+          "reason": "The owning current Main Content was read in full and supplies this occurrence's meaning and uncertainty boundary."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact old identity and every named delivery, owner, policy, relation, history and format qualifier remain preserved.",
+        "No unsupported root, property, Carrier binding, topic alias or Subject grammar is invented."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-331-CORE_META_MODEL--keep-durable-hub-navigation-at-folder-level.md#subjects.governs",
+      "old_value": "Hub/Carrier/Navigation Entry",
+      "quarantined": false,
+      "source_atom_id": "CA-D-331",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-331-CORE_META_MODEL--keep-durable-hub-navigation-at-folder-level.md",
+      "source_sha256": "4164a0e480deed49d8bb569559941e8b7822bac09c8a88cf02205982c532e6a2",
+      "source_version": 11,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current body governs a delivery convention for a specific Carrier context. The candidate selects Carrier as a root but no subtype/property expression preserving the context and policy distinction.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-331-CORE_META_MODEL--keep-durable-hub-navigation-at-folder-level.md",
+          "sha256": "4164a0e480deed49d8bb569559941e8b7822bac09c8a88cf02205982c532e6a2",
+          "start_line": 17,
+          "end_line": 29,
+          "span_sha256": "e88dac45df7a32b03b9afd58159b4e154d740d6c7f40335b6b6cbcadd8a88dc7",
+          "reason": "The owning current Main Content was read in full and supplies this occurrence's meaning and uncertainty boundary."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact old identity and every named delivery, owner, policy, relation, history and format qualifier remain preserved.",
+        "No unsupported root, property, Carrier binding, topic alias or Subject grammar is invented."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-333-CORE_META_MODEL-GENERAL--serialize-scope-unit-graph-projection-generation-metadata.md#subjects.depends_on[0]",
+      "old_value": "Project Structure",
+      "quarantined": false,
+      "source_atom_id": "CA-D-333",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-333-CORE_META_MODEL-GENERAL--serialize-scope-unit-graph-projection-generation-metadata.md",
+      "source_sha256": "bf77494c08450a4be5e469aaf70f3d551982e8c321641267cc1c85713f9ddab0",
+      "source_version": 12,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current body uses this Project or Framework carrier context for placement or compatibility. The candidate confirms no exact Entity/property path that preserves the context without promoting a delivery policy into identity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-333-CORE_META_MODEL-GENERAL--serialize-scope-unit-graph-projection-generation-metadata.md",
+          "sha256": "bf77494c08450a4be5e469aaf70f3d551982e8c321641267cc1c85713f9ddab0",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "6fff9ec3087bd6115c183767a57c66fbea43bb0ed1cf11a25ea2d483cab8a788",
+          "reason": "The owning current Main Content was read in full and supplies this occurrence's meaning and uncertainty boundary."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact old identity and every named delivery, owner, policy, relation, history and format qualifier remain preserved.",
+        "No unsupported root, property, Carrier binding, topic alias or Subject grammar is invented."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-333-CORE_META_MODEL-GENERAL--serialize-scope-unit-graph-projection-generation-metadata.md#subjects.depends_on[1]",
+      "old_value": "Framework Instance Settings",
+      "quarantined": false,
+      "source_atom_id": "CA-D-333",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-333-CORE_META_MODEL-GENERAL--serialize-scope-unit-graph-projection-generation-metadata.md",
+      "source_sha256": "bf77494c08450a4be5e469aaf70f3d551982e8c321641267cc1c85713f9ddab0",
+      "source_version": 12,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current body uses this Project or Framework carrier context for placement or compatibility. The candidate confirms no exact Entity/property path that preserves the context without promoting a delivery policy into identity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-333-CORE_META_MODEL-GENERAL--serialize-scope-unit-graph-projection-generation-metadata.md",
+          "sha256": "bf77494c08450a4be5e469aaf70f3d551982e8c321641267cc1c85713f9ddab0",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "6fff9ec3087bd6115c183767a57c66fbea43bb0ed1cf11a25ea2d483cab8a788",
+          "reason": "The owning current Main Content was read in full and supplies this occurrence's meaning and uncertainty boundary."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact old identity and every named delivery, owner, policy, relation, history and format qualifier remain preserved.",
+        "No unsupported root, property, Carrier binding, topic alias or Subject grammar is invented."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-333-CORE_META_MODEL-GENERAL--serialize-scope-unit-graph-projection-generation-metadata.md#subjects.depends_on[2]",
+      "old_value": "Project Settings",
+      "quarantined": false,
+      "source_atom_id": "CA-D-333",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-333-CORE_META_MODEL-GENERAL--serialize-scope-unit-graph-projection-generation-metadata.md",
+      "source_sha256": "bf77494c08450a4be5e469aaf70f3d551982e8c321641267cc1c85713f9ddab0",
+      "source_version": 12,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current body uses this Project or Framework carrier context for placement or compatibility. The candidate confirms no exact Entity/property path that preserves the context without promoting a delivery policy into identity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-333-CORE_META_MODEL-GENERAL--serialize-scope-unit-graph-projection-generation-metadata.md",
+          "sha256": "bf77494c08450a4be5e469aaf70f3d551982e8c321641267cc1c85713f9ddab0",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "6fff9ec3087bd6115c183767a57c66fbea43bb0ed1cf11a25ea2d483cab8a788",
+          "reason": "The owning current Main Content was read in full and supplies this occurrence's meaning and uncertainty boundary."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact old identity and every named delivery, owner, policy, relation, history and format qualifier remain preserved.",
+        "No unsupported root, property, Carrier binding, topic alias or Subject grammar is invented."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 3,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-333-CORE_META_MODEL-GENERAL--serialize-scope-unit-graph-projection-generation-metadata.md#subjects.depends_on[3]",
+      "old_value": "Carrier",
+      "quarantined": false,
+      "source_atom_id": "CA-D-333",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-333-CORE_META_MODEL-GENERAL--serialize-scope-unit-graph-projection-generation-metadata.md",
+      "source_sha256": "bf77494c08450a4be5e469aaf70f3d551982e8c321641267cc1c85713f9ddab0",
+      "source_version": 12,
+      "decision": "unchanged",
+      "proposed_value": "Carrier",
+      "confidence": 0.96,
+      "reason": "The current body directly governs Carrier places or representations. Carrier is an exact selected candidate root, retained without converting a storage policy into a Carrier property.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-333-CORE_META_MODEL-GENERAL--serialize-scope-unit-graph-projection-generation-metadata.md",
+          "sha256": "bf77494c08450a4be5e469aaf70f3d551982e8c321641267cc1c85713f9ddab0",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "6fff9ec3087bd6115c183767a57c66fbea43bb0ed1cf11a25ea2d483cab8a788",
+          "reason": "The owning current Main Content was read in full and supplies this occurrence's meaning and uncertainty boundary."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current identity is retained.",
+        "No display-only prefix, native edge, grammar adoption or source mutation is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-333-CORE_META_MODEL-GENERAL--serialize-scope-unit-graph-projection-generation-metadata.md#subjects.governs",
+      "old_value": "Project Scope Unit Graph Projection",
+      "quarantined": false,
+      "source_atom_id": "CA-D-333",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-333-CORE_META_MODEL-GENERAL--serialize-scope-unit-graph-projection-generation-metadata.md",
+      "source_sha256": "bf77494c08450a4be5e469aaf70f3d551982e8c321641267cc1c85713f9ddab0",
+      "source_version": 12,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current body uses this Project or Framework carrier context for placement or compatibility. The candidate confirms no exact Entity/property path that preserves the context without promoting a delivery policy into identity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-333-CORE_META_MODEL-GENERAL--serialize-scope-unit-graph-projection-generation-metadata.md",
+          "sha256": "bf77494c08450a4be5e469aaf70f3d551982e8c321641267cc1c85713f9ddab0",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "6fff9ec3087bd6115c183767a57c66fbea43bb0ed1cf11a25ea2d483cab8a788",
+          "reason": "The owning current Main Content was read in full and supplies this occurrence's meaning and uncertainty boundary."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact old identity and every named delivery, owner, policy, relation, history and format qualifier remain preserved.",
+        "No unsupported root, property, Carrier binding, topic alias or Subject grammar is invented."
+      ],
+      "question": null,
+      "executable": false
+    }
+  ]
+}
+
