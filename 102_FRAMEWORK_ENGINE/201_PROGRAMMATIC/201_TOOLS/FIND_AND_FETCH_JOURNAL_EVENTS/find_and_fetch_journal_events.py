@@ -63,9 +63,7 @@ _DEFAULT_SETTINGS = Path(
     "caprmedio_framework_default_settings.toml"
 )
 _INSTANCE_SETTINGS = Path(
-    "000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/"
-    "000_APPLICABLE_MTHD_sources/003_PROJECT_CONFIGURATION/"
-    "caprmedio_framework_settings.toml"
+    "000_CAPRMEDIO_framework/caprmedio_framework_settings.toml"
 )
 _LIMIT_NAMES = (
     "max_request_bytes",

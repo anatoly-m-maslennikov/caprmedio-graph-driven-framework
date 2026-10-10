@@ -135,10 +135,9 @@ class JournalQueryProjectIsolationTest(unittest.TestCase):
 
     def test_dangling_instance_settings_symlink_is_not_treated_as_absent(self) -> None:
         instance = self.alpha / (
-            ".caprmedio_alpha/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/"
-            "000_APPLICABLE_MTHD_sources/003_PROJECT_CONFIGURATION/caprmedio_framework_settings.toml"
+            ".caprmedio_alpha/000_CAPRMEDIO_framework/caprmedio_framework_settings.toml"
         )
-        instance.parent.mkdir(parents=True)
+        instance.parent.mkdir(parents=True, exist_ok=True)
         instance.symlink_to(self.beta / "missing-settings.toml")
         with self.assertRaisesRegex(JournalQueryError, "instance-settings-unavailable"):
             capture_snapshot(self.alpha)

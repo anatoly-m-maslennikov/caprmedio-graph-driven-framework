@@ -361,8 +361,8 @@ class JournalQueryGoldenTest(unittest.TestCase):
 
     def test_limit_provenance_survives_snapshot_and_request_override(self):
         self.write_events("events.ndjson", {"event_id": "E-1"})
-        instance = self.control / "000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/003_PROJECT_CONFIGURATION"
-        instance.mkdir(parents=True)
+        instance = self.control / "000_CAPRMEDIO_framework"
+        instance.mkdir(parents=True, exist_ok=True)
         (instance / "caprmedio_framework_settings.toml").write_text(
             "[query]\nmax_page_size = 1\n", encoding="utf-8"
         )
@@ -372,6 +372,18 @@ class JournalQueryGoldenTest(unittest.TestCase):
         overridden = query(snapshot, {"limits": {"max_page_size": 2}})
         self.assertEqual(overridden["limits"]["max_page_size"]["configured"], 2)
         self.assertEqual(overridden["limits"]["max_page_size"]["source"], "request")
+
+    def test_retired_nested_instance_settings_do_not_override_canonical_defaults(self):
+        self.write_events("events.ndjson", {"event_id": "E-1"})
+        legacy = self.control / (
+            "000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/"
+            "000_APPLICABLE_MTHD_sources/003_PROJECT_CONFIGURATION/caprmedio_framework_settings.toml"
+        )
+        legacy.parent.mkdir(parents=True)
+        legacy.write_text("[query]\nmax_page_size = 1\n", encoding="utf-8")
+        result = query(capture_snapshot(self.root), {})
+        self.assertEqual(2, result["limits"]["max_page_size"]["configured"])
+        self.assertNotEqual("instance", result["limits"]["max_page_size"]["source"])
 
     def test_malformed_duplicate_ids_duplicate_keys_and_limits_fail_closed(self):
         self.write_events("duplicate-keys.ndjson", {"event_id": "E-1"})
