@@ -20,6 +20,12 @@ import tomllib
 from collections.abc import Mapping, Sequence
 from typing import Any
 
+from legacy_process_coverage import (
+    LegacyProcessCoverage,
+    LegacyProcessCoverageError,
+    validate_retained_coverage_rows,
+)
+
 
 SCHEMA_VERSION = 1
 INSTALLATION_ROOT = Path(".caprmedio_runtime/installation")
@@ -301,7 +307,7 @@ def _observation_rows(observations: Sequence[Mapping[str, object]]) -> list[dict
 
 
 def _inventory_body(inventory: Mapping[str, object]) -> dict[str, object]:
-    return {
+    body: dict[str, object] = {
         "schema_version": inventory.get("schema_version"),
         "migration_id": inventory.get("migration_id"),
         "target_context_sha256": inventory.get("target_context_sha256"),
@@ -313,6 +319,18 @@ def _inventory_body(inventory: Mapping[str, object]) -> dict[str, object]:
         "legacy_selector_mode": inventory.get("legacy_selector_mode"),
         "prior_runtime_selector_sha256": inventory.get("prior_runtime_selector_sha256"),
     }
+    # Schema-1 retained inventories predate D607 provider coverage.  Keep
+    # their original digest shape readable; any new coverage-bearing inventory
+    # includes all three fields atomically.
+    if "provider_coverage" in inventory:
+        body.update(
+            {
+                "provider_coverage": inventory.get("provider_coverage"),
+                "prior_execution_context_sha256": inventory.get("prior_execution_context_sha256"),
+                "prior_execution_selector_sha256": inventory.get("prior_execution_selector_sha256"),
+            }
+        )
+    return body
 
 
 def build_legacy_inventory(
@@ -321,6 +339,9 @@ def build_legacy_inventory(
     migration_id: str,
     target_context_sha256: str,
     process_observations: Sequence[Mapping[str, object]] = (),
+    process_coverage: LegacyProcessCoverage | None = None,
+    prior_execution_context_sha256: str | None = None,
+    prior_execution_selector_sha256: str | None = None,
 ) -> dict[str, object]:
     """Inventory exactly the three named legacy subtrees without changing them."""
 
@@ -352,7 +373,36 @@ def build_legacy_inventory(
             }
         )
         rows.extend(root_rows)
-    observations = _observation_rows(process_observations)
+    if process_coverage is None:
+        if prior_execution_context_sha256 is not None or prior_execution_selector_sha256 is not None:
+            raise InstallationStateError(
+                "process-coverage-required", "prior execution bindings require provider-owned process coverage"
+            )
+        observations = _observation_rows(process_observations)
+    else:
+        if not isinstance(process_coverage, LegacyProcessCoverage):
+            raise InstallationStateError("process-coverage-invalid", "provider coverage has an invalid type")
+        if process_observations:
+            raise InstallationStateError(
+                "process-coverage-mixed", "caller process observations cannot be mixed with provider coverage"
+            )
+        if not _is_sha256(prior_execution_context_sha256) or not _is_sha256(prior_execution_selector_sha256):
+            raise InstallationStateError(
+                "process-coverage-invalid", "provider coverage requires exact prior context and selector digests"
+            )
+        try:
+            process_coverage.assert_binding(
+                target_context_sha256=target_context_sha256,
+                prior_target_context_sha256=prior_execution_context_sha256,
+                prior_selector_sha256=prior_execution_selector_sha256,
+            )
+            process_coverage.revalidate()
+            provider_coverage = [dict(row) for row in process_coverage.retained_rows()]
+            observations = _observation_rows(process_coverage.observations())
+        except LegacyProcessCoverageError as error:
+            raise InstallationStateError(error.code, str(error)) from error
+        prior_context = prior_execution_context_sha256
+        prior_selector = prior_execution_selector_sha256
     inventory: dict[str, object] = {
         "schema_version": SCHEMA_VERSION,
         "migration_id": migration,
@@ -367,8 +417,69 @@ def build_legacy_inventory(
         # claiming adjacent legacy state is installation-owned.
         "prior_runtime_selector_sha256": prior_runtime_selector_sha256,
     }
+    if process_coverage is not None:
+        inventory.update(
+            {
+                "provider_coverage": provider_coverage,
+                "prior_execution_context_sha256": prior_context,
+                "prior_execution_selector_sha256": prior_selector,
+            }
+        )
     inventory["inventory_sha256"] = _digest(_inventory_body(inventory))
     return inventory
+
+
+def _validated_provider_coverage(inventory: Mapping[str, object]) -> tuple[dict[str, object], ...]:
+    """Validate retained D607 rows without claiming their providers are live.
+
+    A live re-open is possible only through ``LegacyProcessCoverage`` while
+    its provider admission fences remain held.  This parser is deliberately
+    limited to retained carrier integrity.
+    """
+
+    rows = inventory.get("provider_coverage", [])
+    prior_context = inventory.get("prior_execution_context_sha256", "")
+    prior_selector = inventory.get("prior_execution_selector_sha256", "")
+    if rows == []:
+        if prior_context != "" or prior_selector != "":
+            raise InstallationStateError("process-coverage-invalid", "empty provider coverage cannot name prior bindings")
+        return ()
+    if not _is_sha256(prior_context) or not _is_sha256(prior_selector):
+        raise InstallationStateError("process-coverage-invalid", "retained coverage prior bindings are invalid")
+    try:
+        return validate_retained_coverage_rows(
+            rows,
+            target_context_sha256=str(inventory["target_context_sha256"]),
+            prior_target_context_sha256=str(prior_context),
+            prior_selector_sha256=str(prior_selector),
+        )
+    except LegacyProcessCoverageError as error:
+        raise InstallationStateError(error.code, str(error)) from error
+
+
+def _coverage_observations(coverage: Sequence[Mapping[str, object]]) -> dict[str, Mapping[str, object]]:
+    """Return frozen observation identities bound to their provider row."""
+
+    observations: dict[str, Mapping[str, object]] = {}
+    for row in coverage:
+        namespace = row.get("owned_subtree")
+        encoded = row.get("observations_json")
+        if not isinstance(namespace, str) or not isinstance(encoded, str):
+            raise InstallationStateError("process-coverage-invalid", "retained coverage observation is invalid")
+        try:
+            decoded = json.loads(encoded)
+        except json.JSONDecodeError as error:
+            raise InstallationStateError("process-coverage-invalid", "retained coverage observation is malformed") from error
+        if not isinstance(decoded, list):
+            raise InstallationStateError("process-coverage-invalid", "retained coverage observations are invalid")
+        for observation in decoded:
+            if not isinstance(observation, Mapping) or observation.get("owned_subtree") != namespace:
+                raise InstallationStateError("process-coverage-invalid", "provider observation belongs to another namespace")
+            identity = _process_identity(observation)
+            if identity in observations:
+                raise InstallationStateError("process-coverage-invalid", "provider observations have duplicate identities")
+            observations[identity] = observation
+    return observations
 
 
 def _validated_inventory(inventory: Mapping[str, object]) -> dict[str, object]:
@@ -384,6 +495,8 @@ def _validated_inventory(inventory: Mapping[str, object]) -> dict[str, object]:
         raise InstallationStateError("inventory-invalid", "inventory rows are missing")
     if not isinstance(materialized.get("owned_process_observations"), list):
         raise InstallationStateError("inventory-invalid", "inventory process observations are missing")
+    if not isinstance(materialized.get("provider_coverage", []), list):
+        raise InstallationStateError("inventory-invalid", "inventory provider coverage is invalid")
     if (
         materialized.get("legacy_selector_path") != LEGACY_SELECTOR.as_posix()
         or not _is_sha256(materialized.get("legacy_selector_sha256"))
@@ -398,27 +511,59 @@ def _validated_inventory(inventory: Mapping[str, object]) -> dict[str, object]:
     names = [row.get("name") for row in materialized["source_roots"] if isinstance(row, Mapping)]
     if names != [name for name, _ in OWNED_LEGACY_ROOTS]:
         raise InstallationStateError("inventory-invalid", "inventory roots are not the exact owned set")
+    coverage = _validated_provider_coverage(materialized)
+    if coverage:
+        expected_observations = _coverage_observations(coverage)
+        actual_observations = _inventory_observations(materialized)
+        if set(expected_observations) != {_process_identity(row) for row in actual_observations}:
+            raise InstallationStateError("process-coverage-invalid", "inventory observations differ from provider coverage")
     return materialized
 
 
-def verify_inventory(project_root: Path | str, inventory: Mapping[str, object]) -> None:
+def verify_inventory(
+    project_root: Path | str,
+    inventory: Mapping[str, object],
+    *,
+    process_coverage: LegacyProcessCoverage | None = None,
+) -> None:
     """Reopen all source rows and reject every changed byte, mode, or path."""
 
     checked = _validated_inventory(inventory)
-    observations: list[Mapping[str, object]] = []
-    for row in checked["owned_process_observations"]:  # type: ignore[index]
-        if not isinstance(row, Mapping) or not isinstance(row.get("observation_json"), str):
-            raise InstallationStateError("inventory-invalid", "inventory process observation is invalid")
-        decoded = json.loads(str(row["observation_json"]))
-        if not isinstance(decoded, dict):
-            raise InstallationStateError("inventory-invalid", "inventory process observation must decode to a table")
-        observations.append(decoded)
-    rebuilt = build_legacy_inventory(
-        project_root,
-        migration_id=str(checked["migration_id"]),
-        target_context_sha256=str(checked["target_context_sha256"]),
-        process_observations=observations,
-    )
+    coverage_rows = _validated_provider_coverage(checked)
+    if coverage_rows:
+        if not isinstance(process_coverage, LegacyProcessCoverage):
+            raise InstallationStateError(
+                "process-coverage-required", "provider coverage must remain open before replacement effects"
+            )
+        prior_context = str(checked["prior_execution_context_sha256"])
+        prior_selector = str(checked["prior_execution_selector_sha256"])
+        try:
+            process_coverage.assert_binding(
+                target_context_sha256=str(checked["target_context_sha256"]),
+                prior_target_context_sha256=prior_context,
+                prior_selector_sha256=prior_selector,
+            )
+            process_coverage.revalidate()
+            if tuple(process_coverage.retained_rows()) != coverage_rows:
+                raise LegacyProcessCoverageError("coverage-changed", "provider coverage differs from retained inventory")
+        except LegacyProcessCoverageError as error:
+            raise InstallationStateError(error.code, str(error)) from error
+        rebuilt = build_legacy_inventory(
+            project_root,
+            migration_id=str(checked["migration_id"]),
+            target_context_sha256=str(checked["target_context_sha256"]),
+            process_coverage=process_coverage,
+            prior_execution_context_sha256=prior_context,
+            prior_execution_selector_sha256=prior_selector,
+        )
+    else:
+        observations = _inventory_observations(checked)
+        rebuilt = build_legacy_inventory(
+            project_root,
+            migration_id=str(checked["migration_id"]),
+            target_context_sha256=str(checked["target_context_sha256"]),
+            process_observations=observations,
+        )
     if rebuilt["inventory_sha256"] != checked["inventory_sha256"]:
         raise InstallationStateError("inventory-changed", "legacy bytes, modes, paths, or observations changed")
 
@@ -428,19 +573,32 @@ def _inventory_toml(inventory: Mapping[str, object]) -> str:
     roots = [dict(row) for row in checked["source_roots"] if isinstance(row, Mapping)]  # type: ignore[index]
     rows = [dict(row) for row in checked["rows"] if isinstance(row, Mapping)]  # type: ignore[index]
     observations = [dict(row) for row in checked["owned_process_observations"] if isinstance(row, Mapping)]  # type: ignore[index]
-    return _render_toml(
-        {
-            "schema_version": SCHEMA_VERSION,
-            "migration_id": str(checked["migration_id"]),
-            "target_context_sha256": str(checked["target_context_sha256"]),
-            "inventory_sha256": str(checked["inventory_sha256"]),
-            "legacy_selector_path": str(checked["legacy_selector_path"]),
-            "legacy_selector_sha256": str(checked["legacy_selector_sha256"]),
-            "legacy_selector_mode": int(checked["legacy_selector_mode"]),
-            "prior_runtime_selector_sha256": str(checked["prior_runtime_selector_sha256"]),
-        },
-        {"source_roots": roots, "rows": rows, "owned_process_observations": observations},
-    )
+    scalars: dict[str, object] = {
+        "schema_version": SCHEMA_VERSION,
+        "migration_id": str(checked["migration_id"]),
+        "target_context_sha256": str(checked["target_context_sha256"]),
+        "inventory_sha256": str(checked["inventory_sha256"]),
+        "legacy_selector_path": str(checked["legacy_selector_path"]),
+        "legacy_selector_sha256": str(checked["legacy_selector_sha256"]),
+        "legacy_selector_mode": int(checked["legacy_selector_mode"]),
+        "prior_runtime_selector_sha256": str(checked["prior_runtime_selector_sha256"]),
+    }
+    tables: dict[str, Sequence[Mapping[str, object]]] = {
+        "source_roots": roots,
+        "rows": rows,
+        "owned_process_observations": observations,
+    }
+    if "provider_coverage" in checked:
+        scalars.update(
+            {
+                "prior_execution_context_sha256": str(checked["prior_execution_context_sha256"]),
+                "prior_execution_selector_sha256": str(checked["prior_execution_selector_sha256"]),
+            }
+        )
+        tables["provider_coverage"] = [
+            dict(row) for row in checked["provider_coverage"] if isinstance(row, Mapping)
+        ]
+    return _render_toml(scalars, tables)
 
 
 def write_inventory(project_root: Path | str, inventory: Mapping[str, object], *, lock: object) -> Path:
@@ -455,7 +613,7 @@ def write_inventory(project_root: Path | str, inventory: Mapping[str, object], *
 
 def read_inventory(project_root: Path | str, migration_id: str) -> dict[str, object]:
     document = _read_toml(migration_directory(project_root, migration_id) / "inventory.toml", "inventory-unavailable")
-    inventory = {
+    inventory: dict[str, object] = {
         "schema_version": document.get("schema_version"),
         "migration_id": document.get("migration_id"),
         "target_context_sha256": document.get("target_context_sha256"),
@@ -468,6 +626,14 @@ def read_inventory(project_root: Path | str, migration_id: str) -> dict[str, obj
         "prior_runtime_selector_sha256": document.get("prior_runtime_selector_sha256"),
         "inventory_sha256": document.get("inventory_sha256"),
     }
+    if "provider_coverage" in document:
+        inventory.update(
+            {
+                "provider_coverage": document.get("provider_coverage"),
+                "prior_execution_context_sha256": document.get("prior_execution_context_sha256"),
+                "prior_execution_selector_sha256": document.get("prior_execution_selector_sha256"),
+            }
+        )
     return _validated_inventory(inventory)
 
 
@@ -545,10 +711,43 @@ def _inventory_observations(inventory: Mapping[str, object]) -> list[dict[str, o
     return observations
 
 
-def prove_quiescence(inventory: Mapping[str, object], process_observations: Sequence[Mapping[str, object]]) -> dict[str, object]:
+def prove_quiescence(
+    inventory: Mapping[str, object],
+    process_observations: Sequence[Mapping[str, object]] = (),
+    *,
+    process_coverage: LegacyProcessCoverage | None = None,
+) -> dict[str, object]:
     """Generate a proof from supplied evidence; it performs no process action."""
 
     checked = _validated_inventory(inventory)
+    coverage = _validated_provider_coverage(checked)
+    if coverage:
+        if process_observations:
+            raise InstallationStateError(
+                "process-coverage-mixed", "caller process observations cannot be mixed with provider coverage"
+            )
+        if process_coverage is not None:
+            if not isinstance(process_coverage, LegacyProcessCoverage):
+                raise InstallationStateError("process-coverage-invalid", "provider coverage has an invalid type")
+            prior_context = str(checked["prior_execution_context_sha256"])
+            prior_selector = str(checked["prior_execution_selector_sha256"])
+            try:
+                process_coverage.assert_binding(
+                    target_context_sha256=str(checked["target_context_sha256"]),
+                    prior_target_context_sha256=prior_context,
+                    prior_selector_sha256=prior_selector,
+                )
+                process_coverage.revalidate()
+                if tuple(process_coverage.retained_rows()) != coverage:
+                    raise LegacyProcessCoverageError("coverage-changed", "provider coverage differs from retained inventory")
+                process_observations = process_coverage.observations()
+            except LegacyProcessCoverageError as error:
+                raise InstallationStateError(error.code, str(error)) from error
+        else:
+            # Retained-carrier readers recompute only the already admitted
+            # evidence.  Before copy/switch, ``verify_inventory`` requires the
+            # still-open coverage handle and performs the physical re-open.
+            process_observations = _inventory_observations(checked)
     expected: dict[str, Mapping[str, object]] = {}
     for row in checked["owned_process_observations"]:  # type: ignore[index]
         if not isinstance(row, Mapping) or not isinstance(row.get("identity"), str):
@@ -562,6 +761,11 @@ def prove_quiescence(inventory: Mapping[str, object], process_observations: Sequ
         if identity in actual:
             raise InstallationStateError("process-observation-invalid", "duplicate process observation")
         actual[identity] = observation
+    prior_context_by_identity: dict[str, str] = {}
+    for row in coverage:
+        for identity in _coverage_observations((row,)):
+            prior_context_by_identity[identity] = str(row["prior_target_context_sha256"])
+    prior_selector = str(checked["prior_execution_selector_sha256"]) if coverage else str(checked["legacy_selector_sha256"])
     processes: list[dict[str, object]] = []
     for identity in sorted(set(expected) | set(actual)):
         if identity not in expected:
@@ -571,8 +775,8 @@ def prove_quiescence(inventory: Mapping[str, object], process_observations: Sequ
         else:
             status, reason = _proof_status(
                 actual[identity],
-                str(checked["target_context_sha256"]),
-                selector_sha256=str(checked["legacy_selector_sha256"]),
+                prior_context_by_identity.get(identity, str(checked["target_context_sha256"])),
+                selector_sha256=prior_selector,
             )
         processes.append({"identity": identity, "status": status, "reason": reason})
     proof: dict[str, object] = {
@@ -580,9 +784,14 @@ def prove_quiescence(inventory: Mapping[str, object], process_observations: Sequ
         "migration_id": checked["migration_id"],
         "target_context_sha256": checked["target_context_sha256"],
         "inventory_sha256": checked["inventory_sha256"],
-        "safe": all(row["status"] == "proven-quiescent" for row in processes),
+        "safe": (
+            all(row["state"] != "unknown" for row in coverage)
+            and all(row["status"] == "proven-quiescent" for row in processes)
+        ),
         "processes": processes,
     }
+    if coverage:
+        proof["provider_coverage"] = [dict(row) for row in coverage]
     proof["quiescence_sha256"] = _digest({key: value for key, value in proof.items() if key != "quiescence_sha256"})
     return proof
 
@@ -596,13 +805,18 @@ def _validated_quiescence(inventory: Mapping[str, object], quiescence: Mapping[s
         or checked.get("target_context_sha256") != checked_inventory["target_context_sha256"]
         or checked.get("inventory_sha256") != checked_inventory["inventory_sha256"]
         or not isinstance(checked.get("safe"), bool)
+        or not isinstance(checked.get("provider_coverage", []), list)
         or not isinstance(checked.get("processes"), list)
     ):
         raise InstallationStateError("quiescence-invalid", "quiescence proof is not bound to this inventory")
     # A caller may recompute a digest over forged ``safe`` / ``processes``.
     # Reconstruct the only admissible proof from the frozen full evidence
     # tuple, including its injected shutdown acknowledgement, instead.
-    expected = prove_quiescence(checked_inventory, _inventory_observations(checked_inventory))
+    expected = (
+        prove_quiescence(checked_inventory)
+        if _validated_provider_coverage(checked_inventory)
+        else prove_quiescence(checked_inventory, _inventory_observations(checked_inventory))
+    )
     if checked != expected:
         raise InstallationStateError("quiescence-invalid", "quiescence must exactly match retained full process evidence")
     return expected
@@ -619,12 +833,17 @@ def write_quiescence(
     _lock_for(root, lock)
     checked = _validated_quiescence(inventory, quiescence)
     rows = [dict(row) for row in checked["processes"] if isinstance(row, Mapping)]  # type: ignore[index]
+    coverage = [dict(row) for row in checked.get("provider_coverage", []) if isinstance(row, Mapping)]
     path = migration_directory(root, str(checked["migration_id"])) / "quiescence.toml"
     _atomic_write(
         path,
         _render_toml(
             {key: checked[key] for key in ("schema_version", "migration_id", "target_context_sha256", "inventory_sha256", "safe", "quiescence_sha256")},
-            {"processes": rows},
+            (
+                {"provider_coverage": coverage, "processes": rows}
+                if "provider_coverage" in checked
+                else {"processes": rows}
+            ),
         ),
         mode=0o600,
     )
@@ -639,7 +858,7 @@ def read_quiescence(project_root: Path | str, inventory: Mapping[str, object]) -
     document = _read_toml(
         migration_directory(project_root, str(checked["migration_id"])) / "quiescence.toml", "quiescence-unavailable"
     )
-    proof = {
+    proof: dict[str, object] = {
         "schema_version": document.get("schema_version"),
         "migration_id": document.get("migration_id"),
         "target_context_sha256": document.get("target_context_sha256"),
@@ -648,6 +867,8 @@ def read_quiescence(project_root: Path | str, inventory: Mapping[str, object]) -
         "processes": document.get("processes", []),
         "quiescence_sha256": document.get("quiescence_sha256"),
     }
+    if "provider_coverage" in document:
+        proof["provider_coverage"] = document.get("provider_coverage")
     return _validated_quiescence(checked, proof)
 
 
@@ -816,6 +1037,7 @@ def stage_legacy_copy(
     quiescence: Mapping[str, object],
     *,
     lock: object,
+    process_coverage: LegacyProcessCoverage | None = None,
 ) -> dict[str, object]:
     """Copy exact frozen rows to private staging after only proven quiescence."""
 
@@ -825,7 +1047,7 @@ def stage_legacy_copy(
     proof = _validated_quiescence(checked, quiescence)
     if not proof["safe"]:
         raise InstallationStateError("migration-quiescence-blocked", "unsafe process proof blocks copy without process action")
-    verify_inventory(root, checked)
+    verify_inventory(root, checked, process_coverage=process_coverage)
     migration_root = migration_directory(root, str(checked["migration_id"]))
     stage = migration_root / "staging"
     if stage.exists():
@@ -913,6 +1135,7 @@ def switch_runtime_selector(
     *,
     state_generation: str,
     lock: object,
+    process_coverage: LegacyProcessCoverage | None = None,
 ) -> dict[str, object]:
     """Atomically publish only verified selector bytes; legacy carriers remain untouched."""
 
@@ -926,16 +1149,26 @@ def switch_runtime_selector(
     checked = read_inventory(root, str(supplied["migration_id"]))
     if checked != supplied:
         raise InstallationStateError("inventory-tampered", "caller inventory differs from retained inventory")
-    verify_inventory(root, checked)
+    verify_inventory(root, checked, process_coverage=process_coverage)
     proof = read_quiescence(root, checked)
     if not proof["safe"]:
         raise InstallationStateError("migration-quiescence-blocked", "retained quiescence proof is unsafe")
+    coverage = _validated_provider_coverage(checked)
+    prior_context_by_identity: dict[str, str] = {}
+    for row in coverage:
+        for identity in _coverage_observations((row,)):
+            prior_context_by_identity[identity] = str(row["prior_target_context_sha256"])
+    prior_selector = str(checked["prior_execution_selector_sha256"]) if coverage else str(checked["legacy_selector_sha256"])
     for observation in _inventory_observations(checked):
+        identity = _process_identity(observation)
         status, reason = _proof_status(
             observation,
-            str(checked["target_context_sha256"]),
-            selector_sha256=str(checked["legacy_selector_sha256"]),
-            state_generation=state_generation,
+            prior_context_by_identity.get(identity, str(checked["target_context_sha256"])),
+            selector_sha256=prior_selector,
+            # D607 coverage names a predecessor process.  Its generation is
+            # the retained process binding, not the prospective runtime
+            # generation that this switch is about to publish.
+            state_generation=None if coverage else state_generation,
         )
         if status != "proven-quiescent":
             raise InstallationStateError("migration-quiescence-blocked", reason)
