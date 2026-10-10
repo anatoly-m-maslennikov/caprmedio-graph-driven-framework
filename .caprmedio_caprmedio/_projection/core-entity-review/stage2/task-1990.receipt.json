@@ -1,0 +1,39 @@
+{
+  "task": "CA-P-1990",
+  "recorded_at": "2026-10-11 01:06:29 +0400",
+  "result": "PASS: independent current-source and batch verification",
+  "outputs": [
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/support/verify_current_inventory.py",
+      "sha256": "6006e8a1946f7cf66b641002fbb3b77f6c941c0c4e183b509ef5276dfdf27cf4"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/support/test_current_inventory.py",
+      "sha256": "2e279d5fedb9c79707b0262bb17c4750ce4332bdcbad4a5a2d673d78f888fa34"
+    }
+  ],
+  "input_pins": {
+    "inventory": "e284dbe4943568bc75b7f9ba63ebf583372a60813e62eee3d43b5b75b270220a",
+    "batches_manifest": "8dfc8e12a144833bc8130806e9a5e885f4f13fbafe5b80ea72118bd109eb9e2f"
+  },
+  "checks": {
+    "live_verifier": "PASS",
+    "isolated_tests_passed": 7,
+    "isolated_tests_failed": 0,
+    "selected_sources": 907,
+    "excluded_sources": 11198,
+    "occurrences": 4534,
+    "batches": 51,
+    "quarantined_sources": 8,
+    "quarantined_occurrences": 35,
+    "exact_input_and_live_source_pins": true,
+    "source_partition": "exact, disjoint, lexical",
+    "occurrence_partition": "exact, disjoint, source-contiguous",
+    "imports_inventory_producer": false
+  },
+  "limits": [
+    "No semantic mapping or source writes",
+    "No Core/captured/grammar change",
+    "Ruff not claimed; unavailable offline"
+  ]
+}
