@@ -10,12 +10,12 @@ local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
-status: Active
+status: Done
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Projection, Plan, Operator]
-version: 1
-updated_at: "2026-10-11 03:20:22 +0400"
+version: 2
+updated_at: "2026-10-11 03:45:48 +0400"
 relations:
   is_decomposition_of: [CA-P-1966]
   depends_on: [CA-P-2047]
@@ -35,3 +35,7 @@ Estimated own work: 15 minutes. Required prerequisites: CA-P-2047 and persisted 
 ### Definition of Done
 
 Not Done if assigned coverage or evidence is missing/stale, a meaning is guessed, unresolved work is hidden, Core or frozen evidence changes, an approval is inferred, tests fail, or own work exceeds 15 minutes without decomposition.
+
+### Completion evidence
+
+Created and independently accepted the exact 143-row bare Claim overlay from 142 pinned sources: all targets are Atom.Substance; 137 baseline candidates change and six were already aligned. The other 63 Claim-bearing rows remain excluded. Six isolated tests and live structural/evidence checks pass; a second write refuses overwrite. Independent meaning review confirms source roles and Operations body labels are preserved. The real receipt is `_projection/core-entity-review/stage2/task-2048.receipt.json`. Original Subjects, bodies and frozen evidence remain unchanged.

@@ -1,0 +1,32 @@
+{
+  "task": "CA-P-2048",
+  "recorded_at": "2026-10-11 03:45:48 +0400",
+  "result": "PASS: exact bare Claim mapping supplement; no original Subject migration",
+  "output": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/substance.review.json",
+    "sha256": "09c1c1aec6e138ff507711254dd5d1cc426e80f967d7aee18ae6e873b74efcad"
+  },
+  "inputs": {
+    "baseline_ledger_sha256": "4d094ce89390e31290ce6ae7248cde78701376085bbe3078e33a228055e2eb39",
+    "actual_operator_decision_sha256": "743fd63f5c8c8ea19b0f1ffae1fa1d89d81504308c7f5345e2809fe7cef15ffc"
+  },
+  "checks": {
+    "exact_occurrences": 143,
+    "source_files": 142,
+    "changed_baseline_candidates": 137,
+    "already_aligned": 6,
+    "target": "Atom.Substance",
+    "other_claim_rows_excluded": 63,
+    "source_pins_and_spans_current": true,
+    "all_rows_non_executable": true,
+    "isolated_tests_passed": 6,
+    "create_only_second_write_rejected": true,
+    "independent_semantic_review": "PASS: subject_review_005; source roles and RMED field meaning retained; no O body-label rename",
+    "independent_supplement_checker": "PASS: subject_review_010; nine reports/2163 occurrences structurally verified"
+  },
+  "limits": [
+    "Derived candidate mappings only",
+    "Frozen candidate, 51 reports and baseline ledger unchanged",
+    "No Core source, ordinary body, grammar, native admission or live migration approval change"
+  ]
+}
