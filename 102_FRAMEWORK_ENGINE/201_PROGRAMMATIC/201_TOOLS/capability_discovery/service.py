@@ -3,6 +3,7 @@ import asyncio
 import base64
 import hashlib
 import json
+import re
 import time
 import tomllib
 from pathlib import Path
@@ -16,6 +17,7 @@ from project_selection import bound_selection
 _DISCOVERY_TOOL_FIELDS = frozenset({
     'source_atom', 'source_path', 'sha256', 'scope_unit', 'summary', 'availability',
 })
+_SHA256 = re.compile(r"[0-9a-f]{64}\Z")
 _DIRECT_TOOL_CONTRACTS = (
     {
         'name': 'FRAMEWORK_IMAGE_RESTORATION',
@@ -31,13 +33,20 @@ _DIRECT_TOOL_CONTRACTS = (
         'action_id': 'CA-O-199',
         'source_atom': 'CA-D-602',
     },
+    {
+        'name': 'INSTALL_FRAMEWORK_RUNTIME',
+        'mcp_name': 'install_framework_runtime',
+        'entrypoint': '102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/framework_runtime_installation_mcp.py',
+        'action_id': 'CA-O-200',
+        'source_atom': 'CA-D-620',
+    },
 )
 
 
 def _direct_contract_claims(tool):
     """Return exact direct-MCP contracts claimed by one source declaration.
 
-    These are deliberately the two governed direct Tools, not a caller-supplied
+    These are deliberately the governed direct Tools, not a caller-supplied
     registry or a route inference rule.  A malformed declaration that claims
     either Tool is still a direct-binding failure, rather than a generic source
     tool that discovery could accidentally present as executable.
@@ -75,6 +84,27 @@ def _exact_direct_contract(tool):
     ):
         return None
     return contract
+
+
+def _source_tool_declaration(body):
+    """Return one source declaration solely for package-conflict detection.
+
+    The source tree is never an installed binding provider.  It remains useful
+    evidence, however: if a current declaration for a package-projected Atom
+    has drifted, the consumer must report ambiguity instead of choosing either
+    presentation by traversal order.
+    """
+
+    declarations = []
+    for block in body.split('```toml')[1:]:
+        try:
+            document = tomllib.loads(block.split('```', 1)[0])
+        except tomllib.TOMLDecodeError:
+            return None
+        binding = document.get('tool_binding') if isinstance(document, dict) else None
+        if isinstance(binding, dict):
+            declarations.append(binding)
+    return declarations[0] if len(declarations) == 1 else None
 
 
 class Query(BaseModel):
@@ -217,6 +247,150 @@ class Service:
             })
         return rows
 
+    def _current_verified_package(self, issues):
+        """Reopen the one selected package without deriving it from checkout.
+
+        A missing selector retains the legacy source-only discovery surface for
+        an uninstalled Project.  Once a selector exists, even an invalid one
+        is a fail-closed package-discovery boundary: callers do not fall back
+        to source declarations.
+        """
+
+        selector_path = self.root / '.caprmedio_install' / 'current.toml'
+        try:
+            selector_path.lstat()
+        except FileNotFoundError:
+            return False, None
+        except OSError:
+            issues.append('installed package binding unavailable')
+            return True, None
+        try:
+            from framework_package import (
+                FrameworkPackageError,
+                verify_current_package_selector,
+                verify_framework_package,
+            )
+
+            payload = self.read(selector_path)
+            selector = tomllib.loads(payload.decode('utf-8'))
+            manifest = selector.get('package_manifest_sha256') if isinstance(selector, dict) else None
+            if not isinstance(manifest, str) or _SHA256.fullmatch(manifest) is None:
+                raise ValueError('package selector manifest is invalid')
+            if selector.get('release_relpath') != f'releases/{manifest}':
+                raise ValueError('package selector release is not canonical')
+            package = verify_framework_package(
+                self.root / '.caprmedio_install' / 'releases' / manifest,
+            )
+            verify_current_package_selector(payload, package)
+            return True, package
+        except (FrameworkPackageError, OSError, UnicodeDecodeError, tomllib.TOMLDecodeError, ValueError):
+            issues.append('installed package binding unavailable')
+            return True, None
+
+    @staticmethod
+    def _package_binding_conflicts(projection, current_sources):
+        """Whether an active source declaration conflicts with package identity.
+
+        A same-byte declaration of the same projected Atom is a second
+        presentation of one verified identity.  Every other source declaration
+        sharing its Atom, source path, Tool name, MCP name, or Action claim is
+        ambiguous.  Package discovery must not choose a duplicate claimant by
+        traversal order after replacing the source-tool rows.
+        """
+
+        expected_binding = dict(projection.tool_binding)
+        expected_actions = expected_binding.get('action_ids')
+        expected_action_ids = set(expected_actions) if isinstance(expected_actions, list) else set()
+        expected_name = expected_binding.get('name')
+        expected_name = expected_name if isinstance(expected_name, str) and expected_name else None
+        expected_mcp_name = expected_binding.get('mcp_name')
+        expected_mcp_name = (
+            expected_mcp_name
+            if isinstance(expected_mcp_name, str) and expected_mcp_name
+            else None
+        )
+        for candidates in current_sources.values():
+            for candidate in candidates:
+                if (
+                    candidate['atom_id'] == projection.atom_id
+                    and candidate['source_path'] == projection.source_path
+                    and candidate['sha256'] == projection.source_sha256
+                    and candidate['tool_binding'] == expected_binding
+                ):
+                    continue
+                binding = candidate['tool_binding']
+                if candidate['atom_id'] == projection.atom_id or candidate['source_path'] == projection.source_path:
+                    return True
+                if not isinstance(binding, dict):
+                    continue
+                candidate_actions = binding.get('action_ids')
+                if (
+                    (expected_name is not None and binding.get('name') == expected_name)
+                    or (expected_mcp_name is not None and binding.get('mcp_name') == expected_mcp_name)
+                    or (
+                        isinstance(candidate_actions, list)
+                        and bool(expected_action_ids.intersection(candidate_actions))
+                    )
+                ):
+                    return True
+        return False
+
+    def _selected_package_tools(self, current_sources, issues):
+        """Expose only projections physically reopened from selected package bytes."""
+
+        package_selected, package = self._current_verified_package(issues)
+        if not package_selected:
+            return False, []
+        if package is None:
+            return True, []
+        try:
+            from framework_package import FrameworkPackageError, read_verified_binding_projections
+
+            projections = read_verified_binding_projections(package)
+        except (FrameworkPackageError, OSError, ValueError):
+            issues.append('installed package binding unavailable')
+            return True, []
+
+        # The projection reader reopens package bytes; also ensure selection
+        # did not move to a different package between selector admission and
+        # that physical read.  A raced selector never falls back to checkout.
+        selected_after, package_after = self._current_verified_package([])
+        if not selected_after or package_after != package:
+            issues.append('installed package binding changed during discovery')
+            return True, []
+
+        tools = []
+        for projection in projections:
+            if self._package_binding_conflicts(projection, current_sources):
+                issues.append(f'ambiguous package binding: {projection.atom_id}')
+                continue
+            try:
+                parsed = parse_carrier(projection.source_payload, Path(projection.source_path))
+            except (ValueError, TypeError):
+                issues.append(f'installed package binding invalid: {projection.atom_id}')
+                continue
+            metadata = parsed.metadata
+            body = parsed.body
+            tool = {
+                **dict(projection.tool_binding),
+                'source_atom': projection.atom_id,
+                'source_path': projection.source_path,
+                'sha256': projection.source_sha256,
+                'scope_unit': metadata.get('current_scope_unit'),
+                'summary': body.split('##', 1)[0].replace('# Summary', '').strip(),
+            }
+            contract = _exact_direct_contract(tool)
+            if _direct_contract_claims(tool):
+                tool['availability'] = (
+                    'mcp' if contract is not None and tool.get('mcp_name') in self.exposed else 'unresolved'
+                )
+            else:
+                # The package reader has already established that entrypoint is
+                # a regular Engine member; never consult a root checkout path.
+                tool['availability'] = 'mcp' if tool.get('mcp_name') in self.exposed else 'source'
+            tools.append(tool)
+        return True, tools
+
     @staticmethod
     def _selected_route_input_schema(route: str):
         """Compact contract for the generic selected-route MCP request object."""
@@ -269,6 +443,8 @@ class Service:
                 from framework_image_restoration_mcp import binding_is_admitted, input_schema
             elif contract['name'] == 'ADMIT_PACKAGE_SOURCES':
                 from source_admission_mcp import binding_is_admitted, input_schema
+            elif contract['name'] == 'INSTALL_FRAMEWORK_RUNTIME':
+                from framework_runtime_installation_mcp import binding_is_admitted, input_schema
             else:  # pragma: no cover - contracts above are closed and exhaustive.
                 return None
             return input_schema() if binding_is_admitted(tool) else None
@@ -280,7 +456,7 @@ class Service:
 
     def catalog(self):
         control = self._control_root()
-        atoms, tools, issues = {}, [], []
+        atoms, source_tools, current_sources, issues = {}, [], {}, []
         started, total = time.monotonic(), 0
         excluded = {'archive', 'archived', 'draft', 'done', 'resolved', 'canceled',
                     'cancelled', '_journal', '_projection'}
@@ -336,32 +512,44 @@ class Service:
                     atoms[identity] = None
                 else:
                     atoms[identity] = row
-                for block in parsed.body.split('```toml')[1:]:
-                    binding = tomllib.loads(block.split('```', 1)[0]).get('tool_binding')
-                    if binding:
-                        entry = self.root / binding['entrypoint']
-                        tool = {**binding, 'source_atom': identity,
-                                'source_path': row['source_path'],
-                                'sha256': row['sha256'], 'scope_unit': row['scope_unit'],
-                                'summary': parsed.body.split('##', 1)[0].replace('# Summary', '').strip()}
-                        if _direct_contract_claims(tool):
-                            # Direct Tool source is only an executable capability
-                            # after the one closed declaration is server-exposed.
-                            tool['availability'] = (
-                                'mcp' if (_exact_direct_contract(tool) is not None
-                                          and tool.get('mcp_name') in self.exposed) else 'unresolved'
-                            )
-                        else:
-                            tool['availability'] = ('mcp' if binding.get('mcp_name') in self.exposed
-                                                    else 'source' if entry.is_file() else 'missing')
-                        tools.append(tool)
+                binding = _source_tool_declaration(parsed.body)
+                current_sources.setdefault(identity, []).append({
+                    'atom_id': identity,
+                    'source_path': row['source_path'],
+                    'sha256': row['sha256'],
+                    'tool_binding': binding,
+                })
+                if binding is not None:
+                    entry = self.root / binding.get('entrypoint', '')
+                    tool = {**binding, 'source_atom': identity,
+                            'source_path': row['source_path'],
+                            'sha256': row['sha256'], 'scope_unit': row['scope_unit'],
+                            'summary': parsed.body.split('##', 1)[0].replace('# Summary', '').strip()}
+                    if _direct_contract_claims(tool):
+                        # Direct Tool source is only an executable capability
+                        # after the one closed declaration is server-exposed.
+                        tool['availability'] = (
+                            'mcp' if (_exact_direct_contract(tool) is not None
+                                      and tool.get('mcp_name') in self.exposed) else 'unresolved'
+                        )
+                    else:
+                        tool['availability'] = ('mcp' if binding.get('mcp_name') in self.exposed
+                                                else 'source' if entry.is_file() else 'missing')
+                    source_tools.append(tool)
             except (ValueError, OSError, KeyError, TypeError) as error:
                 issues.append(f'{path.relative_to(self.root)}: {type(error).__name__}')
         valid = {key: value for key, value in atoms.items() if value}
+        package_selected, tools = self._selected_package_tools(current_sources, issues)
+        if not package_selected:
+            tools = source_tools
         counts = {}
         for tool in tools:
             counts[tool['name']] = counts.get(tool['name'], 0) + 1
-        tools = [tool for tool in tools if tool['source_atom'] in valid and counts[tool['name']] == 1]
+        tools = [
+            tool for tool in tools
+            if counts[tool['name']] == 1
+            and (package_selected or tool['source_atom'] in valid)
+        ]
         tools.extend(self._admitted_selected_route_tools(issues))
         return valid, tools, issues
 
