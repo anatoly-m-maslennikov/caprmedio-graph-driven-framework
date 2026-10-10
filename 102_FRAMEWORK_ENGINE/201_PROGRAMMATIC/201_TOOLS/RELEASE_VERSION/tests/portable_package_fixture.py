@@ -107,8 +107,14 @@ class PortablePackageFixture:
             f'authority_path = "{CANONICAL_SOURCE_RELATIVE}"\n'
         ).encode())
         self.write(".caprmedio_caprmedio/caprmedio_project_settings.toml", b'[paths]\ncontrol_root = ".caprmedio_caprmedio"\n')
+        # D359 has one instance-settings carrier below the selected Project
+        # control root.  It must exist before candidate observation/freezing;
+        # the historical source-tree copy is not a fallback carrier.
+        self.write(
+            ".caprmedio_caprmedio/000_CAPRMEDIO_framework/caprmedio_framework_settings.toml",
+            b"# canonical fixture Framework Instance Settings\n",
+        )
         self.write(f"{CANONICAL_SOURCE_RELATIVE}/001_CORE_META_MODEL/caprmedio_framework_default_settings.toml", b"")
-        self.write(f"{CANONICAL_SOURCE_RELATIVE}/003_PROJECT_CONFIGURATION/caprmedio_framework_settings.toml", b"")
         self.atom_one = self.write(f"{CANONICAL_SOURCE_RELATIVE}/001_CORE_META_MODEL/04_requirement/CA-R-001--one.md", atom("CA-R-001", version=1))
         self.atom_two = self.write(f"{CANONICAL_SOURCE_RELATIVE}/003_PROJECT_CONFIGURATION/05_method/CA-M-002--two.md", atom("CA-M-002", version=1))
         self.support = self.write(f"{CANONICAL_SOURCE_RELATIVE}/002_INSTALLED_EXTENSIONS/support.txt", b"declared support\n")
@@ -128,6 +134,23 @@ class PortablePackageFixture:
             "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py",
             (EXPORT_ROOT / "compile_applicable_methodology.py").read_bytes(), 0o755,
         )
+        # The sealed package's compiler must load its actual closed Engine
+        # dependency set.  Seed the canonical bytes before observation,
+        # catalog admission, and sealing; no cached-N or waiver path exists.
+        for relative in (
+            "project_runtime.py",
+            "project_selection.py",
+            "artifact_metadata.py",
+            "VALIDATE_ATOMS/validate_atoms_workers/__init__.py",
+            "VALIDATE_ATOMS/validate_atoms_workers/read_io.py",
+            "VALIDATE_ATOMS/validate_atoms_workers/settings.py",
+        ):
+            source = EXPORT_ROOT.parent / relative
+            self.write(
+                f"102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/{relative}",
+                source.read_bytes(),
+                source.stat().st_mode & 0o777,
+            )
         for relative, payload in extra_engine_members.items():
             if not relative.startswith("102_FRAMEWORK_ENGINE/") or not isinstance(payload, bytes):
                 raise ValueError("extra_engine_members must map Framework Engine paths to bytes")
@@ -146,10 +169,14 @@ class PortablePackageFixture:
             selected_atoms=[{"atom_id": "CA-R-001", "version": 1}, {"atom_id": "CA-M-002", "version": 1}],
             support_inventory=[{"path": self.support.relative_to(self.source).as_posix(), "sha256": digest(self.support.read_bytes())}],
             catalog_pins=[],
+            project_root=self.root,
         )
         frozen = self.write("freeze/manifest.json", exporter.frozen_manifest_bytes(manifest))
         exporter.export_selected_methodology(
-            source_root=self.source, frozen_manifest_path=frozen, release_candidate_root=self.candidate_root,
+            source_root=self.source,
+            frozen_manifest_path=frozen,
+            release_candidate_root=self.candidate_root,
+            project_root=self.root,
         )
 
     def admit_sources(self, *, admitter=None):
