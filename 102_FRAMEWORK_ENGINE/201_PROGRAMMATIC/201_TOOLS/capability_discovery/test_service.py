@@ -3,6 +3,7 @@ import asyncio
 import json
 import os
 from pathlib import Path
+import shutil
 import sys
 import tempfile
 import unittest
@@ -12,7 +13,24 @@ sys.path.insert(0, str(TOOLS))
 sys.path.insert(0, str(TOOLS / 'VALIDATE_ATOMS'))
 sys.path.insert(0, str(TOOLS.parent / '204_MCP'))
 from capability_discovery.service import Service, Query, Observation, Watch
+from source_admission_mcp import input_schema as source_admission_input_schema
 from unittest.mock import patch
+
+
+REPOSITORY_ROOT = TOOLS.parents[2]
+D602_RELATIVE = Path(
+    '.caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/'
+    '201_FEATURE_TOOLS/07_delivery/'
+    'CA-D-602-TOOLS-DELIVERY--encode-admitted-package-source-catalog.md'
+)
+O199_RELATIVE = Path(
+    '.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/'
+    '000_APPLICABLE_MTHD_sources/003_PROJECT_CONFIGURATION/09_operations/'
+    'CA-O-199-PROJECT_CONFIGURATION-ACTION--admit-local-package-sources.md'
+)
+SOURCE_ADMISSION_ENTRYPOINT = Path(
+    '102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/source_admission_mcp.py'
+)
 
 
 class ServiceTests(unittest.TestCase):
@@ -24,6 +42,38 @@ class ServiceTests(unittest.TestCase):
         control.mkdir()
         (control / 'caprmedio_project_settings.toml').write_text('[paths]\ncontrol_root=".caprmedio_caprmedio"\n')
         self.service = Service(self.root)
+
+    def _seed_source_admission_binding(self, *, delivery_payload: bytes | None = None) -> Path:
+        """Install the actual D602/O199 source pair without an executable adapter."""
+
+        for relative in (O199_RELATIVE,):
+            destination = self.root / relative
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copyfile(REPOSITORY_ROOT / relative, destination)
+        if delivery_payload is not None:
+            delivery = self.root / D602_RELATIVE
+            delivery.parent.mkdir(parents=True, exist_ok=True)
+            delivery.write_bytes(delivery_payload)
+        entrypoint = self.root / SOURCE_ADMISSION_ENTRYPOINT
+        entrypoint.parent.mkdir(parents=True, exist_ok=True)
+        entrypoint.write_text('raise AssertionError("discovery must not execute source entrypoints")\n', encoding='utf-8')
+        return self.root / D602_RELATIVE
+
+    @staticmethod
+    def _files(root: Path) -> tuple[tuple[str, bytes], ...]:
+        return tuple(
+            (path.relative_to(root).as_posix(), path.read_bytes())
+            for path in sorted(root.rglob('*')) if path.is_file() and not path.is_symlink()
+        )
+
+    @staticmethod
+    def _operation(service: Service) -> dict:
+        operations = service.discover(Query(query='CA-O-199'), operations=True)
+        return next(row for row in operations['matches'] if row['id'] == 'CA-O-199')
+
+    @staticmethod
+    def _context(service: Service) -> dict:
+        return service.context(type('Request', (), {'id': 'CA-O-199'})())
 
     def test_active_operations_only(self):
         for status in ('Active', 'Draft'):
@@ -149,6 +199,74 @@ class ServiceTests(unittest.TestCase):
         self.assertEqual(self.service.discover(Query())['matches'][0]['availability'], 'source')
         (control / 'duplicate.md').write_text(text)
         self.assertEqual(self.service.discover(Query())['matches'], [])
+
+    def test_source_only_package_admission_is_unresolved_and_has_no_schema_or_effects(self):
+        delivery = (REPOSITORY_ROOT / D602_RELATIVE).read_bytes()
+        self._seed_source_admission_binding(delivery_payload=delivery)
+        before = self._files(self.root)
+
+        operation = self._operation(self.service)
+        context = self._context(self.service)
+
+        self.assertEqual('unresolved', operation['availability'])
+        self.assertEqual(['ADMIT_PACKAGE_SOURCES'], operation['tools'])
+        self.assertIsNone(context['input_schema'])
+        self.assertEqual(before, self._files(self.root))
+
+    def test_exposed_package_admission_returns_the_exact_adapter_schema_without_effects(self):
+        delivery = (REPOSITORY_ROOT / D602_RELATIVE).read_bytes()
+        self._seed_source_admission_binding(delivery_payload=delivery)
+        service = Service(self.root, exposed=('admit_package_sources',))
+        before = self._files(self.root)
+
+        tool = next(row for row in service.discover(Query(query='ADMIT_PACKAGE_SOURCES'))['matches']
+                    if row['name'] == 'ADMIT_PACKAGE_SOURCES')
+        operation = self._operation(service)
+        context = self._context(service)
+        schema = context['input_schema']
+
+        self.assertEqual('mcp', tool['availability'])
+        self.assertEqual('mcp', operation['availability'])
+        self.assertEqual(source_admission_input_schema(), schema)
+        encoded = json.dumps(schema, sort_keys=True)
+        self.assertIn('release_run_id', encoded)
+        self.assertIn('observed_snapshot_sha256', encoded)
+        self.assertIn('additionalProperties', encoded)
+        self.assertEqual(before, self._files(self.root))
+
+    def test_malformed_source_admission_binding_is_unresolved_without_effects(self):
+        delivery = (REPOSITORY_ROOT / D602_RELATIVE).read_bytes().replace(
+            b'entrypoint = "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/source_admission_mcp.py"',
+            b'entrypoint = "other.py"',
+        )
+        self._seed_source_admission_binding(delivery_payload=delivery)
+        service = Service(self.root, exposed=('admit_package_sources',))
+        before = self._files(self.root)
+
+        self.assertEqual('unresolved', self._operation(service)['availability'])
+        self.assertIsNone(self._context(service)['input_schema'])
+        self.assertEqual(before, self._files(self.root))
+
+    def test_ambiguous_source_admission_binding_is_unresolved_without_effects(self):
+        delivery = (REPOSITORY_ROOT / D602_RELATIVE).read_bytes()
+        canonical = self._seed_source_admission_binding(delivery_payload=delivery)
+        duplicate = canonical.with_name('CA-D-603-TOOLS-DELIVERY--ambiguous-source-admission.md')
+        duplicate.write_bytes(delivery.replace(b'atom_id: CA-D-602', b'atom_id: CA-D-603'))
+        service = Service(self.root, exposed=('admit_package_sources',))
+        before = self._files(self.root)
+
+        self.assertEqual('unresolved', self._operation(service)['availability'])
+        self.assertIsNone(self._context(service)['input_schema'])
+        self.assertEqual(before, self._files(self.root))
+
+    def test_missing_source_admission_binding_is_unresolved_without_effects(self):
+        self._seed_source_admission_binding()
+        service = Service(self.root, exposed=('admit_package_sources',))
+        before = self._files(self.root)
+
+        self.assertEqual('unresolved', self._operation(service)['availability'])
+        self.assertIsNone(self._context(service)['input_schema'])
+        self.assertEqual(before, self._files(self.root))
 
     def test_admitted_release_route_is_discoverable_and_has_compact_context(self):
         control = self.root / '.caprmedio_caprmedio'
