@@ -124,7 +124,16 @@
     },
     "carrier": "Filename + Path",
     "execution": "Execution ID",
-    "unconfirmed_details": "Path normalization, rename continuity, distinguishing multiple unnamed Actors and dependent Entity identity are not specified by this answer.",
+    "dependent_entity": {
+      "status": "Confirmed",
+      "identity": "Owner selector + dependent field",
+      "operator_example": "Atom(Atom ID = CA-R-123).status",
+      "meaning": "Select the Atom whose Atom ID is CA-R-123, then identify its dependent status Entity. The complete expression is the dependent Entity's ID, not merely a display address.",
+      "independent_surrogate_id": false,
+      "view_boundary": "Resolve the owner within the selected source or Projection view; copies retaining the same source Atom ID remain separate instances.",
+      "notation_boundary": "The Operator's example is preserved exactly. Native identifier parsing and Subject grammar adoption are not performed."
+    },
+    "unconfirmed_details": "Path normalization, rename continuity and distinguishing multiple unnamed Actors are not specified by these answers.",
     "native_adoption": "Not performed."
   },
   "atom_versioning": {
@@ -323,7 +332,7 @@
   },
   "unresolved": [
     "Serialization and replay mechanics of Journal applicability and creation records, Projection rebuild metadata, and Git version-recovery mechanics; the Journal/Git responsibility split is confirmed.",
-    "Path normalization and rename continuity for path-based identities; distinguishing multiple unnamed Actors; identity of dependent Entities.",
+    "Path normalization and rename continuity for path-based identities; distinguishing multiple unnamed Actors. Dependent Entity identity is confirmed as owner selector + dependent field; native parsing remains implementation work.",
     "Exact typed links between Operations definitions, Executions, Actors, Journal Records, Revisions and Carriers.",
     "A complete mapping from the captured 706-identity review to this simplified candidate.",
     "Operator confirmation of the proposed history links; serialization of the confirmed historical-reference keys and accepted Subject grammar changes."
