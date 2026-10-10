@@ -114,13 +114,30 @@
   "entity_identity_model": {
     "status": "Confirmed",
     "scope_unit": "Name + Path",
+    "scope_unit_rename": {
+      "status": "Open — two Operator alternatives, not yet selected",
+      "existing_identity_boundary": "Name + Path remains the previously selected identity; neither new alternative is adopted by this discussion.",
+      "alternatives": [
+        {
+          "identity": "Stable Scope Unit ID",
+          "rename": "Keep the Scope Unit ID while changing its Name or Label."
+        },
+        {
+          "identity": "Scope Unit Name",
+          "rename": "Technically create a Scope Unit with the new Name, transfer all Artifacts to it, then remove the old Scope Unit."
+        }
+      ],
+      "carrier_boundary": "These Scope Unit alternatives do not decide Carrier rename continuity."
+    },
     "actor": {
       "identity": "Actor Type + optional Name",
       "type_examples": [
         "AI Agent",
         "Operator"
       ],
-      "name_required": false
+      "name_required": false,
+      "unnamed_reference": "A generic Actor Type, not one specific performer.",
+      "individual_disambiguation_priority": "Not important for now, per Operator."
     },
     "carrier": "Filename + Path",
     "execution": "Execution ID",
@@ -134,7 +151,16 @@
       "view_boundary": "Resolve the owner within the selected source or Projection view; copies retaining the same source Atom ID remain separate instances.",
       "notation_boundary": "The Operator's pseudocode example is preserved exactly; it is not an executable API or an adopted parser grammar. Native identifier parsing and Subject grammar adoption are not performed."
     },
-    "unconfirmed_details": "Path normalization, rename continuity and distinguishing multiple unnamed Actors are not specified by these answers.",
+    "unconfirmed_details": "Path normalization, the choice between the two Scope Unit rename alternatives and Carrier rename continuity remain unspecified. Individual unnamed Actor distinctions are low priority; their generic reference meaning is confirmed.",
+    "native_adoption": "Not performed."
+  },
+  "execution_definition_policy": {
+    "status": "Confirmed",
+    "ad_hoc_executions_allowed": true,
+    "o_atom_required_for_ad_hoc_execution": false,
+    "o_atom_role": "Defines repeatable Operations.",
+    "repeatability_decision_authority": "Operator",
+    "automatic_repeatability_rule": "Not introduced; the Operator decides what is repeatable.",
     "native_adoption": "Not performed."
   },
   "atom_versioning": {
@@ -333,7 +359,7 @@
   },
   "unresolved": [
     "Serialization and replay mechanics of Journal applicability and creation records, Projection rebuild metadata, and Git version-recovery mechanics; the Journal/Git responsibility split is confirmed.",
-    "Path normalization and rename continuity for path-based identities; distinguishing multiple unnamed Actors. Dependent Entity identity is confirmed as owner selector + dependent field; native parsing remains implementation work.",
+    "Choose stable Scope Unit ID or Name-based identity with replacement-and-transfer rename semantics. Path normalization and Carrier rename continuity remain open. Unnamed Actors have generic Type references; individual disambiguation is low priority. Dependent Entity identity is confirmed; native parsing remains implementation work.",
     "Exact typed links between Operations definitions, Executions, Actors, Journal Records, Revisions and Carriers.",
     "A complete mapping from the captured 706-identity review to this simplified candidate.",
     "Operator confirmation of the proposed history links; serialization of the confirmed historical-reference keys and accepted Subject grammar changes."
