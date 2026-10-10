@@ -40,6 +40,11 @@ ACTION_ID = "MCP_RELEASE_MANIFEST_PUBLICATION"
 STRUCTURAL_SCOPE = "MCP"
 _INTENT_PREFIX = "release-manifest-publication:"
 _GIT_COMMIT = re.compile(r"[0-9a-f]{40,64}")
+_REFRESH_ROUTE_NAMES = (*SELECTED_ROUTE_NAMES, "release_version")
+_O030_REFRESH_ROUTE_NAMES = (*_REFRESH_ROUTE_NAMES, "public.release")
+_O030_REFRESH_PLAN_FIELDS = frozenset({
+    "source_refresh_schema_version", "source_refresh_registration_id",
+})
 
 
 class ReleaseManifestLifecycleError(RuntimeError):
@@ -111,7 +116,7 @@ def _normalized_refresh_plan(plan: Mapping[str, Any]) -> dict[str, Any]:
     if (
         not isinstance(plan, Mapping)
         or not required <= set(plan)
-        or set(plan) - required - {"mode"}
+        or set(plan) - required - {"mode", *_O030_REFRESH_PLAN_FIELDS}
         or plan.get("publication_operation") != "refresh"
         or ("mode" in plan and plan["mode"] != "plan")
     ):
@@ -122,9 +127,28 @@ def _normalized_refresh_plan(plan: Mapping[str, Any]) -> dict[str, Any]:
     result["candidate_canonical_manifest_sha256"] = _digest(
         result["candidate_canonical_manifest_sha256"], "refresh plan.candidate_canonical_manifest_sha256"
     )
-    expected_names = [*SELECTED_ROUTE_NAMES, "release_version"]
-    if result["current_route_names"] != expected_names or result["candidate_route_names"] != expected_names:
-        raise ReleaseManifestLifecycleError("refresh plan does not retain the exact sixteen-route projection")
+    expected_names = list(_REFRESH_ROUTE_NAMES)
+    expected_o030_names = list(_O030_REFRESH_ROUTE_NAMES)
+    if (result["current_route_names"] != result["candidate_route_names"]
+            or result["current_route_names"] not in (expected_names, expected_o030_names)):
+        raise ReleaseManifestLifecycleError(
+            "refresh plan does not retain the exact sixteen-route projection or the exact O030 seventeen-route projection"
+        )
+    is_o030_repair = result["current_route_names"] == expected_o030_names
+    if is_o030_repair:
+        if (type(plan.get("source_refresh_schema_version")) is not int
+                or plan.get("source_refresh_schema_version") != 4):
+            raise ReleaseManifestLifecycleError("O030 refresh plan must name the exact schema-4 registration")
+        registration_id = plan.get("source_refresh_registration_id")
+        if (not isinstance(registration_id, str) or not registration_id
+                or "\n" in registration_id or "\r" in registration_id):
+            raise ReleaseManifestLifecycleError("O030 refresh plan registration identifier is invalid")
+        result.update(
+            source_refresh_schema_version=4,
+            source_refresh_registration_id=registration_id,
+        )
+    elif _O030_REFRESH_PLAN_FIELDS & set(plan):
+        raise ReleaseManifestLifecycleError("sixteen-route refresh plan must not claim O030 registration metadata")
     if result["added_route"] != "release_version" or result["added_admission_route"] != "release_version":
         raise ReleaseManifestLifecycleError("refresh plan does not identify the Release row")
     if type(result["candidate_byte_count"]) is not int or result["candidate_byte_count"] < 1:
@@ -359,6 +383,9 @@ class ReleaseManifestLifecycle:
         ) if key in result}
         if "publication_operation" in result:
             plan["publication_operation"] = result["publication_operation"]
+        for field in _O030_REFRESH_PLAN_FIELDS:
+            if field in result:
+                plan[field] = result[field]
         return _normalized_any_plan(plan)
 
     def recover_release_manifest_publication(self, event_id: str) -> dict[str, Any]:

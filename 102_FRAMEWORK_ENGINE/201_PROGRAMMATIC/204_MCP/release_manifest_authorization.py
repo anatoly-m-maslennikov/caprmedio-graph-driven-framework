@@ -41,6 +41,11 @@ _PLAN_FIELDS = frozenset({
     "candidate_canonical_manifest_sha256", "added_route", "added_admission_route", "candidate_byte_count",
 })
 _PUBLIC_OPERATION = "public"
+_REFRESH_ROUTE_NAMES = (*SELECTED_ROUTE_NAMES, "release_version")
+_O030_REFRESH_ROUTE_NAMES = (*_REFRESH_ROUTE_NAMES, "public.release")
+_O030_REFRESH_PLAN_FIELDS = frozenset({
+    "source_refresh_schema_version", "source_refresh_registration_id",
+})
 
 
 class ReleaseManifestAuthorizationError(ValueError):
@@ -136,6 +141,12 @@ def _sha256(value: object, label: str) -> str:
     return value
 
 
+def _registration_id(value: object, label: str) -> str:
+    if not isinstance(value, str) or not value or "\n" in value or "\r" in value:
+        _reject("publication-plan-invalid", f"{label} must be a non-empty single-line identifier")
+    return value
+
+
 def _read_regular(root: Path, relative: PurePosixPath, *, label: str) -> bytes:
     cursor = root
     try:
@@ -190,7 +201,7 @@ def _normalize_refresh_plan(value: Any, root: Path) -> dict[str, Any]:
     if not isinstance(value, Mapping):
         _reject("publication-plan-invalid", "refresh plan must be an object")
     fields = set(value)
-    allowed = {"mode", "publication_operation", *_PLAN_FIELDS}
+    allowed = {"mode", "publication_operation", *_PLAN_FIELDS, *_O030_REFRESH_PLAN_FIELDS}
     if fields - allowed or not ({"publication_operation", *_PLAN_FIELDS} <= fields):
         _reject("publication-plan-invalid", "refresh plan has unsupported or missing fields")
     if value.get("mode", "plan") != "plan" or value["publication_operation"] != "refresh":
@@ -198,17 +209,29 @@ def _normalize_refresh_plan(value: Any, root: Path) -> dict[str, Any]:
     manifest_ref = value["manifest_ref"]
     if not isinstance(manifest_ref, str) or manifest_ref != selected_manifest_ref(root):
         _reject("publication-plan-invalid", "refresh plan has a different manifest carrier")
-    expected_names = [*SELECTED_ROUTE_NAMES, "release_version"]
+    expected_names = list(_REFRESH_ROUTE_NAMES)
+    expected_o030_names = list(_O030_REFRESH_ROUTE_NAMES)
     current, candidate = value["current_route_names"], value["candidate_route_names"]
-    if (not isinstance(current, list) or current != expected_names
-            or not isinstance(candidate, list) or candidate != expected_names):
-        _reject("publication-plan-invalid", "refresh plan must retain the exact sixteen-route sequence")
+    if (not isinstance(current, list) or not isinstance(candidate, list)
+            or current != candidate or current not in (expected_names, expected_o030_names)):
+        _reject(
+            "publication-plan-invalid",
+            "refresh plan must retain the exact sixteen-route sequence or the exact O030 seventeen-route sequence",
+        )
+    is_o030_repair = current == expected_o030_names
+    if is_o030_repair:
+        if (type(value.get("source_refresh_schema_version")) is not int
+                or value.get("source_refresh_schema_version") != 4
+                or "source_refresh_registration_id" not in value):
+            _reject("publication-plan-invalid", "O030 refresh plan must name the exact schema-4 registration")
+    elif _O030_REFRESH_PLAN_FIELDS & fields:
+        _reject("publication-plan-invalid", "sixteen-route refresh plan must not claim O030 registration metadata")
     if value["added_route"] != "release_version" or value["added_admission_route"] != "release_version":
         _reject("publication-plan-invalid", "refresh plan does not identify the Release row")
     size = value["candidate_byte_count"]
     if type(size) is not int or size <= 0:
         _reject("publication-plan-invalid", "refresh candidate byte count must be positive")
-    return {
+    normalized = {
         "publication_operation": "refresh",
         "manifest_ref": manifest_ref,
         "observed_input_sha256": _sha256(value["observed_input_sha256"], "observed_input_sha256"),
@@ -221,6 +244,35 @@ def _normalize_refresh_plan(value: Any, root: Path) -> dict[str, Any]:
         "added_admission_route": "release_version",
         "candidate_byte_count": size,
     }
+    if is_o030_repair:
+        normalized.update(
+            source_refresh_schema_version=4,
+            source_refresh_registration_id=_registration_id(
+                value["source_refresh_registration_id"], "source_refresh_registration_id"
+            ),
+        )
+    return normalized
+
+
+def _validate_o030_refresh_registration(root: Path, plan: Mapping[str, Any]) -> None:
+    """Bind a 17-route refresh only to D588's current closed O030 record."""
+    if "source_refresh_schema_version" not in plan:
+        return
+    try:
+        from selected_source_refresh import registered_source_refresh
+
+        registration = registered_source_refresh(root)
+    except (ImportError, OSError, TypeError, ValueError) as error:
+        raise ReleaseManifestAuthorizationError(
+            "publication-source-stale", "O030 schema-4 refresh registration is unavailable"
+        ) from error
+    if (
+        not isinstance(registration, Mapping)
+        or registration.get("schema_version") != plan["source_refresh_schema_version"]
+        or registration.get("schema_version") != 4
+        or registration.get("registration_id") != plan["source_refresh_registration_id"]
+    ):
+        _reject("publication-source-stale", "O030 schema-4 refresh registration differs from the issued plan")
 
 
 def _normalize_public_plan(value: Any, root: Path) -> dict[str, Any]:
@@ -482,6 +534,7 @@ def authorize_operator_refresh(
     """Issue one trusted-host-only capability for the exact refresh plan."""
     root = _root(project_root)
     supplied = _normalize_refresh_plan(plan, root)
+    _validate_o030_refresh_registration(root, supplied)
     expected, observed, _, payload, _, admission, _ = _derive_refresh_parts(root)
     if supplied != expected:
         _reject("publication-plan-stale", "refresh plan differs from the current source-derived successor")
@@ -909,6 +962,7 @@ def validate_refresh_context(
         _reject("publication-context-stale", "refresh context belongs to another Project root")
     if supplied != dict(stored_plan_items):
         _reject("publication-context-stale", "refresh plan differs from the issued context")
+    _validate_o030_refresh_registration(root, supplied)
     if authority_digest != AUTHORITY_PIN["digest"]:
         _reject("publication-context-stale", "refresh context has a different source authority")
     operator = _operator_row(root, operator_name)
@@ -942,11 +996,12 @@ def validate_refresh_context(
             raise ReleaseManifestAuthorizationError(
                 "publication-candidate-stale", "published manifest is not current"
             ) from error
-        expected_names = [*SELECTED_ROUTE_NAMES, "release_version"]
+        expected_names = list(supplied["candidate_route_names"])
         if ([row.get("route") for row in loaded.get("routes", [])] != expected_names
                 or loaded.get("canonical_manifest_sha256") != supplied["candidate_canonical_manifest_sha256"]):
             _reject("publication-candidate-stale", "published manifest is not the issued refresh successor")
-        if loaded["routes"][-1] != current_route or loaded.get("release_source_admissions") != [admission]:
+        if (loaded["routes"][len(SELECTED_ROUTE_NAMES)] != current_route
+                or loaded.get("release_source_admissions") != [admission]):
             _reject("publication-candidate-stale", "published Release admission is not source-derived")
         expected_candidate = copy.deepcopy(loaded)
         expected_candidate.pop("manifest_ref", None)

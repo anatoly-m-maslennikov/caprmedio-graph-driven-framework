@@ -215,6 +215,33 @@ def _refresh_candidate(
     return current, candidate, payload, path, admission
 
 
+def _registered_schema4_plan_metadata(
+    project_root: Path, current: Mapping[str, Any], candidate: Mapping[str, Any], payload: bytes, path: Path,
+) -> dict[str, Any]:
+    """Expose schema-4 provenance only for the reader's exact sealed successor.
+
+    This deliberately reopens the private reader instead of accepting a caller
+    marker or inferring provenance from a seventeen-route shape.  Historical
+    and normal D572 refresh plans therefore keep their existing plan contract.
+    """
+    try:
+        from selected_source_refresh import derive_registered_source_refresh, registered_source_refresh
+
+        registration = registered_source_refresh(project_root)
+        if registration["schema_version"] != 4:
+            return {}
+        source_current, source_candidate, source_payload, source_path = derive_registered_source_refresh(project_root)
+    except (ImportError, OSError, TypeError, ValueError, RuntimeError):
+        return {}
+    if (source_current != current or source_candidate != candidate
+            or source_payload != payload or source_path != path):
+        return {}
+    return {
+        "source_refresh_schema_version": registration["schema_version"],
+        "source_refresh_registration_id": registration["registration_id"],
+    }
+
+
 def _refresh_parts(
     project_root: Path, *, require_drift: bool = True,
 ) -> tuple[dict[str, Any], bytes, dict[str, Any], bytes, Path, dict[str, Any], dict[str, Any]]:
@@ -234,6 +261,7 @@ def _refresh_parts(
         "added_admission_route": "release_version",
         "candidate_byte_count": len(payload),
     }
+    plan.update(_registered_schema4_plan_metadata(project_root, current, candidate, payload, path))
     return plan, observed, current, payload, path, admission, candidate
 
 

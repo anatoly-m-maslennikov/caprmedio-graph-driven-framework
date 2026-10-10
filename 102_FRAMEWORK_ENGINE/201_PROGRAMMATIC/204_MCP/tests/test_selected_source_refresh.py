@@ -28,6 +28,7 @@ from selected_routes import selected_manifest_ref  # noqa: E402
 
 REPOSITORY = MCP.parents[2]
 GOLDEN_INPUT = MCP / "tests/selected_source_refresh_golden/input_manifest.v7.json"
+GOLDEN_SCHEMA4_INPUT = MCP / "tests/selected_source_refresh_golden/input_manifest.schema4.v1.json"
 GOLDEN_CONTROLS = MCP / "tests/selected_source_refresh_golden/historical_controls.json"
 GOLDEN_D572_READER = MCP / "tests/selected_source_refresh_golden/release_suite_reference_context.d572v13.py"
 _HISTORICAL_READER_REF = "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/RELEASE_VERSION/release_suite_reference_context.py"
@@ -165,16 +166,17 @@ class RegisteredSelectedSourceRefreshTest(unittest.TestCase):
             "release_source_admissions": [{"unchanged": True}],
         }
 
-    def test_closed_registration_is_the_exact_d588_schema3_revision(self) -> None:
+    def test_closed_registration_is_the_exact_d588_schema4_revision(self) -> None:
         registration = registered_source_refresh()
-        self.assertEqual(3, registration["schema_version"])
-        self.assertEqual("epic1848-current-local-release-frontier-20261010", registration["registration_id"])
-        self.assertEqual("3b8d7c34376b68b964d7713cace6a4aff90166b265ce053c9a699f36934560dc", registration["input_manifest_sha256"])
-        self.assertEqual("0bf0c7000b83af54b25ac4d1729df9858276b8ce2012779dd154a04af80c330e", registration["input_canonical_manifest_sha256"])
-        self.assertEqual(16, registration["input_route_count"])
-        self.assertEqual(15, registration["preserved_route_count"])
-        self.assertEqual("CA-D-572", registration["release_frontier"]["authority_pin"]["atom_id"])
-        self.assertEqual(36, registration["release_frontier"]["authority_pin"]["version"])
+        self.assertEqual(4, registration["schema_version"])
+        self.assertEqual("epic1848-exact-three-pin-binding-repair-20261011", registration["registration_id"])
+        self.assertEqual("CA-P-1866", registration["repair_task_id"])
+        self.assertEqual("bee103e7604ddbe5912bce5ea31d79d18c3e9efbec22bd6557ef0875222b78bf", registration["input_manifest_sha256"])
+        self.assertEqual("80b0cecd066fa421608a517b296664580ffe575a56e8dbd4bdb28ea4df682774", registration["input_canonical_manifest_sha256"])
+        self.assertEqual(17, registration["input_route_count"])
+        self.assertEqual(3, registration["pin_occurrences"])
+        self.assertEqual(["CA-O-030", "CA-M-343", "CA-D-579"], [row["prior_pin"]["atom_id"] for row in registration["replacements"]])
+        self.assertEqual("6d1e3aaacf33d4c3cb645f9ed46641dac38b6480773a080074bac51249c143f4", registration["expected_manifest_sha256"])
 
     def test_successor_replaces_exactly_eight_registered_action_pins_and_rederives_only_digests(self) -> None:
         registration = self._v1_registration()
@@ -203,126 +205,137 @@ class RegisteredSelectedSourceRefreshTest(unittest.TestCase):
 
         self.assertEqual(broken_before, manifest)
 
-    def test_schema3_replaces_only_release_and_its_admission_and_requires_frontier(self) -> None:
+    def test_schema4_replaces_only_three_registered_pins_and_rederives_only_digests(self) -> None:
         registration = registered_source_refresh()
-        manifest = json.loads((REPOSITORY / selected_manifest_ref(REPOSITORY)).read_text(encoding="utf-8"))
+        manifest = json.loads(GOLDEN_SCHEMA4_INPUT.read_text(encoding="utf-8"))
         before = copy.deepcopy(manifest)
-        release_route = copy.deepcopy(manifest["routes"][-1])
-        release_admission = copy.deepcopy(manifest["release_source_admissions"][0])
-        release_route["workflow"]["version"] = 999
-        release_admission["workflow"]["version"] = 999
+        candidate = derive_registered_source_successor(manifest, registration)
 
-        with self.assertRaises(RegisteredSourceRefreshError):
-            derive_registered_source_successor(manifest, registration)
-
-        candidate = derive_registered_source_successor(
-            manifest, registration, release_route=release_route, release_admission=release_admission,
-        )
-        self.assertEqual(before["routes"][:15], candidate["routes"][:15])
-        self.assertEqual(999, candidate["routes"][-1]["workflow"]["version"])
-        self.assertEqual(999, candidate["release_source_admissions"][0]["workflow"]["version"])
-        for field in ("selected_binding_ref", "selected_source_registry_ref", "selected_source_registry_version", "selected_source_registry_digest"):
-            self.assertEqual(before["source_freshness"][field], candidate["source_freshness"][field])
+        self.assertEqual([row["route"] for row in before["routes"]], [row["route"] for row in candidate["routes"]])
+        self.assertEqual(before["routes"][:1], candidate["routes"][:1])
+        self.assertEqual(before["routes"][2:], candidate["routes"][2:])
+        self.assertEqual(before["query_source_admissions"], candidate["query_source_admissions"])
+        self.assertEqual(before["public_release_source_admissions"], candidate["public_release_source_admissions"])
+        self.assertEqual(registration["replacements"][0]["current_pin"], candidate["routes"][1]["native_action_calls"][0])
+        frontier = candidate["release_source_admissions"][0]["rmed_frontier"]
+        self.assertEqual(registration["replacements"][1]["current_pin"], frontier[11])
+        self.assertEqual(registration["replacements"][2]["current_pin"], frontier[31])
         self.assertNotEqual(before["source_freshness"]["selected_binding_digest"], candidate["source_freshness"]["selected_binding_digest"])
+        self.assertNotEqual(before["canonical_manifest_sha256"], candidate["canonical_manifest_sha256"])
 
-    def test_schema3_refuses_a_preserved_route_change_without_mutating_input(self) -> None:
+    def test_schema4_refuses_nonregistered_route_drift_without_mutating_input(self) -> None:
         registration = registered_source_refresh()
-        manifest = json.loads((REPOSITORY / selected_manifest_ref(REPOSITORY)).read_text(encoding="utf-8"))
+        manifest = json.loads(GOLDEN_SCHEMA4_INPUT.read_text(encoding="utf-8"))
         manifest["routes"][0]["route"] = "other_route"
         before = copy.deepcopy(manifest)
 
         with self.assertRaises(RegisteredSourceRefreshError):
-            derive_registered_source_successor(
-                manifest, registration,
-                release_route=manifest["routes"][-1],
-                release_admission=manifest["release_source_admissions"][0],
-            )
+            derive_registered_source_successor(manifest, registration)
 
         self.assertEqual(before, manifest)
 
-    def test_schema3_current_plan_is_effect_free_and_uses_the_frozen_sixteen_route_input(self) -> None:
-        from release_manifest_publisher import plan_release_manifest_refresh
+class RegisteredSchema4SourceRefreshTest(unittest.TestCase):
+    """The current closed registration changes only three fixed seventeen-route Pins."""
 
-        path = REPOSITORY / selected_manifest_ref(REPOSITORY)
-        before = path.read_bytes()
-        plan = plan_release_manifest_refresh(REPOSITORY)
-
-        self.assertEqual("plan", plan["mode"])
-        self.assertEqual("refresh", plan["publication_operation"])
-        self.assertEqual(hashlib.sha256(before).hexdigest(), plan["observed_input_sha256"])
-        self.assertEqual(16, len(plan["current_route_names"]))
-        self.assertEqual(plan["current_route_names"], plan["candidate_route_names"])
-        self.assertEqual(before, path.read_bytes())
-
-
-class RegisteredSchema3SourceRefreshTest(unittest.TestCase):
-    """The current closed registration preserves fifteen routes and derives D572 once."""
+    _PIN_FIELDS = {"atom_id", "version", "source_path", "digest"}
 
     def setUp(self) -> None:
         self.temporary = tempfile.TemporaryDirectory(ignore_cleanup_errors=True)
         self.addCleanup(self.temporary.cleanup)
         self.root = Path(self.temporary.name)
         self.registration = registered_source_refresh()
-        self.assertEqual(3, self.registration["schema_version"])
+        self.assertEqual(4, self.registration["schema_version"])
         manifest_ref = selected_manifest_ref(REPOSITORY)
-        self.manifest = json.loads((REPOSITORY / manifest_ref).read_text(encoding="utf-8"))
+        self.manifest_bytes = GOLDEN_SCHEMA4_INPUT.read_bytes()
+        self.assertEqual(self.registration["input_manifest_sha256"], hashlib.sha256(self.manifest_bytes).hexdigest())
+        self.manifest = json.loads(self.manifest_bytes)
         target = self.root / manifest_ref
         target.parent.mkdir(parents=True, exist_ok=True)
-        target.write_bytes((REPOSITORY / manifest_ref).read_bytes())
+        target.write_bytes(self.manifest_bytes)
         self._copy(_D588_REF)
-        self._copy(self.registration["release_frontier"]["authority_pin"]["source_path"])
+        for source_path in self._pin_paths(self.manifest):
+            self._copy(source_path)
+        import release_source_admission as admission_module
+        for source_root in (*admission_module._RMED_ROOTS.values(), *admission_module._TOOLS_RMED_ROOTS.values()):
+            (self.root / source_root).mkdir(parents=True, exist_ok=True)
+        for replacement in self.registration["replacements"]:
+            self._copy(replacement["current_pin"]["source_path"])
+            if "prior_receipt_ref" in replacement:
+                self._copy(replacement["prior_receipt_ref"])
+            else:
+                self._copy(replacement["prior_archive_path"])
+        public_release = MCP.parent / "201_TOOLS" / "PUBLIC_RELEASE"
+        if str(public_release) not in sys.path:
+            sys.path.insert(0, str(public_release))
+        from selected_admission import AUTHORITY_REF as public_authority_ref
+        for relative in (
+            self.manifest["source_freshness"]["selected_source_registry_ref"],
+            ".caprmedio_caprmedio/caprmedio_project_settings.toml",
+            ".caprmedio_caprmedio/project_structure.toml",
+            admission_module.AUTHORITY_REF,
+            public_authority_ref,
+        ):
+            self._copy(relative)
 
     def _copy(self, relative: str) -> None:
         destination = self.root / relative
         destination.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(REPOSITORY / relative, destination)
 
-    def _release_frontier(self) -> tuple[dict[str, object], dict[str, object]]:
-        route = copy.deepcopy(self.manifest["routes"][-1])
-        admission = copy.deepcopy(self.manifest["release_source_admissions"][0])
-        route["workflow"]["version"] = 999
-        admission["workflow"]["version"] = 999
-        return route, admission
+    @classmethod
+    def _pin_paths(cls, value: object) -> set[str]:
+        if isinstance(value, dict):
+            if set(value) == cls._PIN_FIELDS:
+                return {value["source_path"]}
+            return set().union(*(cls._pin_paths(item) for item in value.values()))
+        if isinstance(value, list):
+            return set().union(*(cls._pin_paths(item) for item in value))
+        return set()
 
     def _derive(self) -> tuple[dict[str, object], dict[str, object], bytes, Path]:
-        route, admission = self._release_frontier()
-        with patch("release_source_admission.derive_release_graph_admission", return_value=(route, admission)), patch.object(
-            source_refresh_module, "validate_selected_manifest_document", side_effect=lambda _root, value: copy.deepcopy(value),
-        ):
-            return derive_registered_source_refresh(self.root)
+        return derive_registered_source_refresh(self.root)
 
-    def test_schema3_reader_preserves_routes_and_registry_and_composes_release_before_validation(self) -> None:
+    def test_schema4_reader_preserves_routes_and_replaces_only_closed_pin_locations(self) -> None:
         current, candidate, payload, carrier = self._derive()
         self.assertEqual((self.root / selected_manifest_ref(REPOSITORY)).resolve(), carrier)
         self.assertEqual(self.manifest, current)
-        self.assertEqual(self.manifest["routes"][:15], candidate["routes"][:15])
+        self.assertEqual(self.manifest["routes"][:1], candidate["routes"][:1])
+        self.assertEqual(self.manifest["routes"][2:], candidate["routes"][2:])
         for field in ("selected_binding_ref", "selected_source_registry_ref", "selected_source_registry_version", "selected_source_registry_digest"):
             self.assertEqual(self.manifest["source_freshness"][field], candidate["source_freshness"][field])
-        self.assertEqual(999, candidate["routes"][-1]["workflow"]["version"])
-        self.assertEqual(999, candidate["release_source_admissions"][0]["workflow"]["version"])
+        self.assertEqual(self.registration["replacements"][0]["current_pin"], candidate["routes"][1]["native_action_calls"][0])
+        frontier = candidate["release_source_admissions"][0]["rmed_frontier"]
+        self.assertEqual(self.registration["replacements"][1]["current_pin"], frontier[11])
+        self.assertEqual(self.registration["replacements"][2]["current_pin"], frontier[31])
         self.assertEqual(json.loads(payload), candidate)
 
-    def test_schema3_reader_refuses_input_byte_drift_before_derivation(self) -> None:
+    def test_schema4_current_plan_is_effect_free_and_propagates_registered_metadata(self) -> None:
+        from release_manifest_publisher import plan_release_manifest_refresh
+
+        path = self.root / selected_manifest_ref(self.root)
+        before = path.read_bytes()
+        plan = plan_release_manifest_refresh(self.root)
+
+        self.assertEqual("plan", plan["mode"])
+        self.assertEqual("refresh", plan["publication_operation"])
+        self.assertEqual(hashlib.sha256(before).hexdigest(), plan["observed_input_sha256"])
+        self.assertEqual(17, len(plan["current_route_names"]))
+        self.assertEqual(plan["current_route_names"], plan["candidate_route_names"])
+        self.assertEqual(4, plan["source_refresh_schema_version"])
+        self.assertEqual(self.registration["registration_id"], plan["source_refresh_registration_id"])
+        self.assertEqual("f903ad67c3b92d7edd2415107f467be42bce1c53d259f440ac1fdb513fa69d5f", plan["candidate_canonical_manifest_sha256"])
+        self.assertEqual(before, path.read_bytes())
+
+    def test_schema4_reader_refuses_input_byte_drift_before_derivation(self) -> None:
         manifest = self.root / selected_manifest_ref(REPOSITORY)
         manifest.write_bytes(manifest.read_bytes() + b"\ninput drift")
         with self.assertRaises(RegisteredSourceRefreshError):
             self._derive()
 
-    def test_schema3_reader_requires_the_exact_current_release_authority(self) -> None:
-        import release_source_admission as admission_module
-
-        wrong_authority = dict(self.registration["release_frontier"]["authority_pin"])
-        wrong_authority["version"] = 35
-        with patch.object(admission_module, "AUTHORITY_PIN", wrong_authority), patch(
-            "release_source_admission.derive_release_graph_admission", side_effect=AssertionError("derivation must not run"),
-        ), patch.object(source_refresh_module, "validate_selected_manifest_document", side_effect=AssertionError("validation must not run")):
-            with self.assertRaises(RegisteredSourceRefreshError):
-                derive_registered_source_refresh(self.root)
-
-    def test_schema3_reader_requires_the_current_release_frontier(self) -> None:
-        with patch("release_source_admission.derive_release_graph_admission", side_effect=ValueError("stale private carrier")), patch.object(
-            source_refresh_module, "validate_selected_manifest_document", side_effect=AssertionError("validation must not run"),
-        ):
+    def test_schema4_reader_requires_each_current_pin_before_validation(self) -> None:
+        source = self.root / self.registration["replacements"][1]["current_pin"]["source_path"]
+        source.write_bytes(source.read_bytes() + b"\ncurrent source drift")
+        with patch.object(source_refresh_module, "validate_selected_manifest_document", side_effect=AssertionError("validation must not run")):
             with self.assertRaises(RegisteredSourceRefreshError):
                 derive_registered_source_refresh(self.root)
 

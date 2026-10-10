@@ -113,7 +113,92 @@ _EXPECTED_V3 = {
         "admission_occurrences": 1,
     },
 }
-_EXPECTED_BY_SCHEMA = {1: _EXPECTED_V1, 2: _EXPECTED_V2, 3: _EXPECTED_V3}
+_EXPECTED_V4 = {
+    "schema_version": 4,
+    "registration_id": "epic1848-exact-three-pin-binding-repair-20261011",
+    "authorization_ref": ".caprmedio_caprmedio/03_plan/17-CA-P-1848-EPIC--unify-installation-and-local-public-release-cycles.md",
+    "repair_task_id": "CA-P-1866",
+    "input_manifest_ref": ".caprmedio_caprmedio/_projection/selected_workflow_bindings.json",
+    "input_manifest_sha256": "bee103e7604ddbe5912bce5ea31d79d18c3e9efbec22bd6557ef0875222b78bf",
+    "input_canonical_manifest_sha256": "80b0cecd066fa421608a517b296664580ffe575a56e8dbd4bdb28ea4df682774",
+    "input_route_count": 17,
+    "pin_occurrences": 3,
+    "replacements": [
+        {
+            "target": "route",
+            "route": "update_atom",
+            "occurrences": ["native_action_calls[0]"],
+            "prior_pin": {
+                "atom_id": "CA-O-030", "version": 5,
+                "source_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_UPDATE/09_operations/CA-O-030-TOOLS-ACTION--update-sealed-caprmedio-atom-carriers.md",
+                "digest": "99e18ebce351c72e7e6c684455057439209d107faa217a53782e58b8747c7edc",
+            },
+            "prior_receipt_ref": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/task-1987.receipt.json",
+            "current_pin": {
+                "atom_id": "CA-O-030", "version": 6,
+                "source_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_UPDATE/09_operations/CA-O-030-TOOLS-ACTION--update-sealed-caprmedio-atom-carriers.md",
+                "digest": "19097af83287005dae4d55e4b4da2234acce9e9f92b0f70671afb831bd8b256b",
+            },
+        },
+        {
+            "target": "release_source_admission", "route": "release_version", "admission_index": 0,
+            "occurrences": ["rmed_frontier[11]"],
+            "prior_pin": {
+                "atom_id": "CA-M-343", "version": 5,
+                "source_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/205_FEATURE_PROJECT_TOOLS/05_method/CA-M-343-PROJECT_TOOLS-METHOD--discover-run-and-attest-the-declared-release-suite.md",
+                "digest": "a9ff112abe8c5834a5f03e5267450cc97a997ecf8e76ff6d6d537a694dc8ddfe",
+            },
+            "prior_archive_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/205_FEATURE_PROJECT_TOOLS/05_method/archive/CA-M-343-PROJECT_TOOLS-METHOD--discover-run-and-attest-the-declared-release-suite@5.md",
+            "current_pin": {
+                "atom_id": "CA-M-343", "version": 6,
+                "source_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/205_FEATURE_PROJECT_TOOLS/05_method/CA-M-343-PROJECT_TOOLS-METHOD--discover-run-and-attest-the-declared-release-suite.md",
+                "digest": "3cb5cda089a625e451884de2a485e2887839e7dfc37f686170ed591de905aaa1",
+            },
+        },
+        {
+            "target": "release_source_admission", "route": "release_version", "admission_index": 0,
+            "occurrences": ["rmed_frontier[31]"],
+            "prior_pin": {
+                "atom_id": "CA-D-579", "version": 7,
+                "source_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/205_FEATURE_PROJECT_TOOLS/07_delivery/CA-D-579-PROJECT_TOOLS-DELIVERY--deliver-the-release-suite-driver-and-junit-report-boundary.md",
+                "digest": "58226c140f4dac0d946cad880bbcf55e993edcdbbd9ad65446a5c2ddead94740",
+            },
+            "prior_archive_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/205_FEATURE_PROJECT_TOOLS/07_delivery/archive/CA-D-579-PROJECT_TOOLS-DELIVERY--deliver-the-release-suite-driver-and-junit-report-boundary@7.md",
+            "current_pin": {
+                "atom_id": "CA-D-579", "version": 8,
+                "source_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/205_FEATURE_PROJECT_TOOLS/07_delivery/CA-D-579-PROJECT_TOOLS-DELIVERY--deliver-the-release-suite-driver-and-junit-report-boundary.md",
+                "digest": "9b140abfd9518daa6842db370c66ee9fc4b6818cbc3856822c582a21c15eb8e4",
+            },
+        },
+    ],
+    "expected_manifest_sha256": "6d1e3aaacf33d4c3cb645f9ed46641dac38b6480773a080074bac51249c143f4",
+    "expected_selected_binding_digest": "6a3629975109bb402570e20021072a51df9114715ed785eacc6e7479042c9164",
+    "expected_canonical_manifest_sha256": "f903ad67c3b92d7edd2415107f467be42bce1c53d259f440ac1fdb513fa69d5f",
+}
+_EXPECTED_BY_SCHEMA = {1: _EXPECTED_V1, 2: _EXPECTED_V2, 3: _EXPECTED_V3, 4: _EXPECTED_V4}
+
+_EXPECTED_O030_RECEIPT = {
+    "task": "CA-P-1987",
+    "checks": "PASS: exact IDs, owner/status, Summary preserved, Version+1 and canonical body headings; full packet acceptance remains CA-P-1981",
+    "files": [
+        {
+            "atom_id": "CA-O-030",
+            "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_UPDATE/09_operations/CA-O-030-TOOLS-ACTION--update-sealed-caprmedio-atom-carriers.md",
+            "before_version": 5,
+            "after_version": 6,
+            "before_sha256": "99e18ebce351c72e7e6c684455057439209d107faa217a53782e58b8747c7edc",
+            "after_sha256": "19097af83287005dae4d55e4b4da2234acce9e9f92b0f70671afb831bd8b256b",
+        },
+        {
+            "atom_id": "CA-O-046",
+            "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_SEARCH/09_operations/CA-O-046-ATOM_SEARCH-ACTION--search-caprmedio-atom-carriers.md",
+            "before_version": 3,
+            "after_version": 4,
+            "before_sha256": "66528adfb7b6af7570b10af158a4855f74f0c956650d5cefea81fff067aa21a6",
+            "after_sha256": "6e8194cc18c0377344b785d8bf89897c8c785aa83cd1eb51e32cf1d479a6bfe5",
+        },
+    ],
+}
 
 
 class RegisteredSourceRefreshError(ValueError):
@@ -190,7 +275,7 @@ def _validate_registration(value: Any) -> dict[str, Any]:
                 or not isinstance(frontier["route"], str)
                 or type(frontier["admission_occurrences"]) is not int):
             raise RegisteredSourceRefreshError("schema-2 Release frontier shape is invalid")
-    else:
+    elif value["schema_version"] == 3:
         if (type(value["input_route_count"]) is not int
                 or type(value["preserved_route_count"]) is not int
                 or value["input_route_count"] != len(SELECTED_ROUTE_NAMES) + 1
@@ -206,6 +291,35 @@ def _validate_registration(value: Any) -> dict[str, Any]:
                 or frontier["admission_occurrences"] != 1):
             raise RegisteredSourceRefreshError("schema-3 Release frontier shape is invalid")
         _validate_pin_shape(frontier["authority_pin"])
+    else:
+        if (type(value["input_route_count"]) is not int
+                or type(value["pin_occurrences"]) is not int
+                or value["input_route_count"] != len(SELECTED_ROUTE_NAMES) + 2
+                or value["pin_occurrences"] != 3):
+            raise RegisteredSourceRefreshError("schema-4 route or pin occurrence count is invalid")
+        rows = value["replacements"]
+        if not isinstance(rows, list) or len(rows) != value["pin_occurrences"]:
+            raise RegisteredSourceRefreshError("schema-4 replacement rows are invalid")
+        expected_locations = (
+            ("route", "update_atom", None, ["native_action_calls[0]"],
+             {"target", "route", "occurrences", "prior_pin", "prior_receipt_ref", "current_pin"}),
+            ("release_source_admission", "release_version", 0, ["rmed_frontier[11]"],
+             {"target", "route", "admission_index", "occurrences", "prior_pin", "prior_archive_path", "current_pin"}),
+            ("release_source_admission", "release_version", 0, ["rmed_frontier[31]"],
+             {"target", "route", "admission_index", "occurrences", "prior_pin", "prior_archive_path", "current_pin"}),
+        )
+        for row, (target, route, index, occurrences, fields) in zip(rows, expected_locations, strict=True):
+            if (not isinstance(row, Mapping) or set(row) != fields
+                    or row.get("target") != target or row.get("route") != route
+                    or row.get("occurrences") != occurrences):
+                raise RegisteredSourceRefreshError("schema-4 replacement row shape is invalid")
+            if index is None:
+                if not isinstance(row["prior_receipt_ref"], str):
+                    raise RegisteredSourceRefreshError("schema-4 O030 receipt reference is invalid")
+            elif type(row.get("admission_index")) is not int or row["admission_index"] != index or not isinstance(row["prior_archive_path"], str):
+                raise RegisteredSourceRefreshError("schema-4 Release replacement location is invalid")
+            _validate_pin_shape(row["prior_pin"])
+            _validate_pin_shape(row["current_pin"])
     return copy.deepcopy(dict(value))
 
 
@@ -419,6 +533,113 @@ def _derive_schema3_successor(
     return candidate
 
 
+def _validate_schema4_receipt(root: Path, replacement: Mapping[str, Any]) -> None:
+    """Require the closed CA-P-1987 evidence for the one O030 transition."""
+    receipt = _safe_regular(root, str(replacement["prior_receipt_ref"]), label="registered O030 prior receipt")
+    try:
+        value = json.loads(receipt.read_text(encoding="utf-8"), object_pairs_hook=_unique_object)
+    except (OSError, UnicodeDecodeError, json.JSONDecodeError, RegisteredSourceRefreshError) as error:
+        raise RegisteredSourceRefreshError("registered O030 prior receipt is invalid") from error
+    if value != _EXPECTED_O030_RECEIPT:
+        raise RegisteredSourceRefreshError("registered O030 prior receipt differs")
+
+
+def _validate_schema4_prior_archive(root: Path, replacement: Mapping[str, Any]) -> None:
+    """Confirm prior Release history without treating Archived bytes as active bytes."""
+    archive = _safe_regular(root, str(replacement["prior_archive_path"]), label="registered prior archive")
+    try:
+        text = archive.read_text(encoding="utf-8")
+    except (OSError, UnicodeDecodeError) as error:
+        raise RegisteredSourceRefreshError("registered prior archive is unreadable") from error
+    prior = replacement["prior_pin"]
+    if (_frontmatter_value(text, "atom_id") != prior["atom_id"]
+            or _frontmatter_value(text, "version") != str(prior["version"])
+            or _frontmatter_value(text, "status") != "Archived"):
+        raise RegisteredSourceRefreshError("registered prior archive metadata differs")
+
+
+def _schema4_route(candidate: dict[str, Any], route_name: str) -> dict[str, Any]:
+    routes = candidate.get("routes")
+    expected_names = [*SELECTED_ROUTE_NAMES, "release_version", "public.release"]
+    if (not isinstance(routes, list)
+            or [row.get("route") if isinstance(row, Mapping) else None for row in routes] != expected_names):
+        raise RegisteredSourceRefreshError("schema-4 input route registry differs")
+    route = routes[expected_names.index(route_name)]
+    if not isinstance(route, dict):
+        raise RegisteredSourceRefreshError("schema-4 registered route is unavailable")
+    return route
+
+
+def _schema4_replacement_target(candidate: dict[str, Any], replacement: Mapping[str, Any]) -> tuple[Any, Any]:
+    """Resolve only the three registered schema-4 Pin locations."""
+    target = replacement["target"]
+    if target == "route":
+        route = _schema4_route(candidate, replacement["route"])
+        calls = route.get("native_action_calls")
+        if replacement["occurrences"] != ["native_action_calls[0]"] or not isinstance(calls, list) or not calls:
+            raise RegisteredSourceRefreshError("schema-4 O030 replacement location is unavailable")
+        return calls, 0
+    admissions = candidate.get("release_source_admissions")
+    if (target != "release_source_admission" or replacement["route"] != "release_version"
+            or replacement["admission_index"] != 0 or not isinstance(admissions, list)
+            or len(admissions) != 1 or not isinstance(admissions[0], dict)
+            or admissions[0].get("route") != "release_version"):
+        raise RegisteredSourceRefreshError("schema-4 Release replacement location is unavailable")
+    frontier = admissions[0].get("rmed_frontier")
+    occurrence = replacement["occurrences"]
+    if not isinstance(frontier, list) or occurrence not in (["rmed_frontier[11]"], ["rmed_frontier[31]"]):
+        raise RegisteredSourceRefreshError("schema-4 Release replacement location is unavailable")
+    index = 11 if occurrence == ["rmed_frontier[11]"] else 31
+    if len(frontier) <= index:
+        raise RegisteredSourceRefreshError("schema-4 Release replacement location is unavailable")
+    return frontier, index
+
+
+def _count_exact(value: Any, expected: Mapping[str, Any]) -> int:
+    if isinstance(value, Mapping):
+        return (1 if dict(value) == dict(expected) else 0) + sum(
+            _count_exact(item, expected) for item in value.values()
+        )
+    if isinstance(value, list):
+        return sum(_count_exact(item, expected) for item in value)
+    return 0
+
+
+def _derive_schema4_successor(manifest: Mapping[str, Any], registered: Mapping[str, Any]) -> dict[str, Any]:
+    """Derive only the closed O030/M343/D579 seventeen-route successor."""
+    if not isinstance(manifest, Mapping) or not isinstance(manifest.get("routes"), list):
+        raise RegisteredSourceRefreshError("schema-4 refresh input has no route collection")
+    candidate = copy.deepcopy(dict(manifest))
+    if len(candidate["routes"]) != registered["input_route_count"]:
+        raise RegisteredSourceRefreshError("schema-4 input route count differs")
+    _schema4_route(candidate, "update_atom")
+    if (not isinstance(candidate.get("query_source_admissions"), list)
+            or len(candidate["query_source_admissions"]) != 2
+            or not isinstance(candidate.get("public_release_source_admissions"), list)
+            or len(candidate["public_release_source_admissions"]) != 1):
+        raise RegisteredSourceRefreshError("schema-4 input admission registry differs")
+    replacements = registered["replacements"]
+    if sum(_count_exact(candidate, row["prior_pin"]) for row in replacements) != registered["pin_occurrences"]:
+        raise RegisteredSourceRefreshError("schema-4 registered prior pin occurrence count differs")
+    locations: set[tuple[int, int | str]] = set()
+    for replacement in replacements:
+        owner, key = _schema4_replacement_target(candidate, replacement)
+        location = (id(owner), key)
+        if location in locations or owner[key] != replacement["prior_pin"]:
+            raise RegisteredSourceRefreshError("registered prior pin differs at its schema-4 location")
+        locations.add(location)
+        owner[key] = copy.deepcopy(replacement["current_pin"])
+    candidate = _recompute_manifest_digests(candidate)
+    if candidate["source_freshness"]["selected_binding_digest"] != registered["expected_selected_binding_digest"]:
+        raise RegisteredSourceRefreshError("schema-4 selected-binding digest differs")
+    if candidate["canonical_manifest_sha256"] != registered["expected_canonical_manifest_sha256"]:
+        raise RegisteredSourceRefreshError("schema-4 canonical-manifest digest differs")
+    payload = (json.dumps(candidate, ensure_ascii=False, allow_nan=False, sort_keys=True, separators=(",", ":")) + "\n").encode("utf-8")
+    if hashlib.sha256(payload).hexdigest() != registered["expected_manifest_sha256"]:
+        raise RegisteredSourceRefreshError("schema-4 serialized manifest digest differs")
+    return candidate
+
+
 def derive_registered_source_successor(
     manifest: Mapping[str, Any], registration: Mapping[str, Any], *,
     release_route: Mapping[str, Any] | None = None,
@@ -426,15 +647,18 @@ def derive_registered_source_successor(
 ) -> dict[str, Any]:
     """Purely derive one closed registered successor without an effect.
 
-    Schemas 1 and 2 are retained for archived fixtures.  Current schema 3
-    replaces only ``release_version`` and its sole admission using the
-    root-bound D572 derivation below.
+    Schemas 1 through 3 are retained for archived fixtures. Current schema 4
+    replaces only the three closed O030/M343/D579 Pin occurrences below.
     """
     registered = _validate_registration(registration)
     if registered["schema_version"] == 1:
         if release_route is not None or release_admission is not None:
             raise RegisteredSourceRefreshError("schema-1 successor does not accept a Release frontier")
         return _derive_schema1_successor(manifest, registered)
+    if registered["schema_version"] == 4:
+        if release_route is not None or release_admission is not None:
+            raise RegisteredSourceRefreshError("schema-4 successor does not accept a Release frontier")
+        return _derive_schema4_successor(manifest, registered)
     if release_route is None or release_admission is None:
         raise RegisteredSourceRefreshError(
             f"schema-{registered['schema_version']} successor requires the current Release frontier"
@@ -443,9 +667,10 @@ def derive_registered_source_successor(
         return _derive_schema2_successor(
             manifest, registered, release_route=release_route, release_admission=release_admission,
         )
-    return _derive_schema3_successor(
-        manifest, registered, release_route=release_route, release_admission=release_admission,
-    )
+    if registered["schema_version"] == 3:
+        return _derive_schema3_successor(
+            manifest, registered, release_route=release_route, release_admission=release_admission,
+        )
 
 
 def derive_registered_source_refresh(root: str | Path) -> tuple[dict[str, Any], dict[str, Any], bytes, Path]:
@@ -493,7 +718,7 @@ def derive_registered_source_refresh(root: str | Path) -> tuple[dict[str, Any], 
         candidate = derive_registered_source_successor(
             manifest, registration, release_route=release_route, release_admission=release_admission,
         )
-    else:
+    elif registration["schema_version"] == 3:
         try:
             from release_source_admission import AUTHORITY_PIN, derive_release_graph_admission
 
@@ -511,6 +736,17 @@ def derive_registered_source_refresh(root: str | Path) -> tuple[dict[str, Any], 
         candidate = derive_registered_source_successor(
             manifest, registration, release_route=release_route, release_admission=release_admission,
         )
+    else:
+        for replacement in registration["replacements"]:
+            if replacement["target"] == "route":
+                _validate_schema4_receipt(project_root, replacement)
+            else:
+                _validate_schema4_prior_archive(project_root, replacement)
+            _validate_current_pin(
+                project_root, replacement["current_pin"],
+                label=f"registered current source for {replacement['prior_pin']['atom_id']}",
+            )
+        candidate = derive_registered_source_successor(manifest, registration)
     try:
         validate_selected_manifest_document(project_root, candidate)
     except (OSError, TypeError, ValueError, SelectedRouteError) as error:
