@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 4
-updated_at: "2026-10-11 01:25:08 +0400"
+version: 5
+updated_at: "2026-10-11 01:26:09 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1909]
@@ -45,7 +45,7 @@ Inherit CA-P-1959's source boundary, confidence threshold and preservation rules
 
 ### Decomposing Plans
 
-- [CA-P-1972 — Prepare disjoint Subject mapping Tasks](08-CA-P-1966-EPIC--map-current-core-subject-origins/01-CA-P-1972-TASK--prepare-disjoint-subject-mapping-tasks.md)
+- [CA-P-1972 — Prepare disjoint Subject mapping Tasks](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/01-CA-P-1972-TASK--prepare-disjoint-subject-mapping-tasks.md)
 - [CA-P-1992 — Review current Subject batch 001](08-CA-P-1966-EPIC--map-current-core-subject-origins/02-CA-P-1992-TASK--review-current-subject-batch-001.md)
 - [CA-P-1993 — Review current Subject batch 002](08-CA-P-1966-EPIC--map-current-core-subject-origins/03-CA-P-1993-TASK--review-current-subject-batch-002.md)
 - [CA-P-1994 — Review current Subject batch 003](08-CA-P-1966-EPIC--map-current-core-subject-origins/04-CA-P-1994-TASK--review-current-subject-batch-003.md)
