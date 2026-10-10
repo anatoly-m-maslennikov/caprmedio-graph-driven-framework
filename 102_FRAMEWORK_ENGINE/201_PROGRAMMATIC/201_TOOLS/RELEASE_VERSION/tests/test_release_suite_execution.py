@@ -10,6 +10,7 @@ import sys
 import tempfile
 import time
 import unittest
+from dataclasses import replace
 from pathlib import Path
 from unittest.mock import patch
 
@@ -34,8 +35,11 @@ from release_suite_execution import (
     InstalledNSuiteDockerExecutor,
     SelectedNImageBinding,
     _prepare_executor_scratch,
+    installed_n_suite_executor,
 )
 from release_suite_limits import MAX_UNIT_TIMEOUT_SECONDS
+from release_portable_contract import SealedPortableCandidateCompilation
+from portable_package_fixture import PortablePackageFixture
 
 
 IMAGE = "sha256:" + "a" * 64
@@ -51,6 +55,69 @@ class GovernedSuiteBindingsTests(unittest.TestCase):
         # sealed module-rules byte sequence.
         payload = (RELEASE_ROOT / "release_suite_bindings.json").read_bytes()
         self.assertEqual(payload, canonical_json(json.loads(payload)))
+
+
+class InstalledNPortableCompilationFactoryTests(unittest.TestCase):
+    """The local N executor accepts only a freshly reopened portable seal."""
+
+    def setUp(self) -> None:
+        self.fixture = PortablePackageFixture()
+        self.addCleanup(self.fixture.cleanup)
+        self.candidate = self.fixture.candidate
+        self.compilation = self.fixture.sealed
+        self.assertIsInstance(self.compilation, SealedPortableCandidateCompilation)
+        self.docker = FakeDocker()
+        self.binding = SelectedNImageBinding(
+            IMAGE, "N", CONTEXT, False, "e" * 64, "N",
+        )
+
+    def _executor(self, candidate=None, compilation=None):
+        # The portable fixture is intentionally pre-package and therefore has
+        # no complete retained N Framework package.  This factory test uses
+        # its real sealed portable contract while preserving the independently
+        # tested active-N admission boundary and declared-driver validation;
+        # image inspection remains real.
+        with (
+            patch("release_suite_execution._active_n_state"),
+            patch("release_suite_execution._selector_binding", return_value=self.binding),
+            patch("release_suite_execution.require_declared_suite_command"),
+        ):
+            return installed_n_suite_executor(
+                self.candidate if candidate is None else candidate,
+                self.compilation if compilation is None else compilation,
+                project_root=str(self.fixture.root),
+                docker=self.docker,
+            )
+
+    def test_real_portable_compilation_reopens_and_derives_golden_n_docker_input(self) -> None:
+        executor = self._executor()
+
+        self.assertEqual(executor.compiled_root, self.compilation.private_compilation.compiled_root)
+        self.assertEqual(executor.native_installed_n, self.candidate.native_installed_n)
+        self.assertEqual(len(self.docker.calls), 1)
+        self.assertEqual(
+            self.docker.calls[0],
+            (("docker", "image", "inspect", IMAGE), self.fixture.root, 30),
+        )
+
+    def test_refuses_portable_compilation_for_a_different_selected_candidate_before_docker(self) -> None:
+        foreign = replace(self.candidate, native_installed_n=object())
+
+        with self.assertRaises(ReleaseContractError) as rejected:
+            self._executor(candidate=foreign)
+
+        self.assertEqual(rejected.exception.code, "release-suite-executor-binding-mismatch")
+        self.assertEqual(self.docker.calls, [])
+
+    def test_refuses_stale_portable_compilation_before_n_image_inspection(self) -> None:
+        defaults = self.fixture.root / "defaults/runtime-config.toml"
+        defaults.write_bytes(defaults.read_bytes() + b"\n[fixture]\nstale = true\n")
+
+        with self.assertRaises(ReleaseContractError) as rejected:
+            self._executor()
+
+        self.assertEqual(rejected.exception.code, "portable-contract-stale")
+        self.assertEqual(self.docker.calls, [])
 
 
 class FakeDocker:
@@ -474,8 +541,7 @@ class ScratchMetadataHelperTests(unittest.TestCase):
     """Only disposable scratch preparation; no executor or Docker invocation."""
 
     def setUp(self) -> None:
-        temporary = tempfile.TemporaryDirectory(prefix="suite-scratch-metadata-")
-        self.addCleanup(temporary.cleanup)
+        temporary = tempfile.TemporaryDirectory(prefix="suite-scratch-metadata-", delete=False)
         self.workspace = Path(temporary.name)
         self.scratch = self.workspace / ".caprmedio_tmp"
 
@@ -519,17 +585,26 @@ class ScratchMetadataHelperTests(unittest.TestCase):
             _prepare_executor_scratch(self.workspace)
 
     def test_metadata_named_directory_or_symlink_is_not_empty_scratch(self) -> None:
-        self.scratch.mkdir()
-        metadata = self.scratch / ".DS_Store"
+        # Keep the incompatible metadata-shaped entries in separate retained
+        # scratch roots.  Some hosts deny deletion of a .DS_Store directory,
+        # and this test must not turn that host behavior into cleanup work.
+        directory_workspace = Path(tempfile.mkdtemp(prefix="suite-scratch-metadata-directory-"))
+        directory_scratch = directory_workspace / ".caprmedio_tmp"
+        directory_scratch.mkdir()
+        metadata = directory_scratch / ".DS_Store"
         metadata.mkdir()
         with self.assertRaises(ReleaseContractError):
-            _prepare_executor_scratch(self.workspace)
-        metadata.rmdir()
-        target = self.workspace / "real-state"
+            _prepare_executor_scratch(directory_workspace)
+
+        symlink_workspace = Path(tempfile.mkdtemp(prefix="suite-scratch-metadata-symlink-"))
+        symlink_scratch = symlink_workspace / ".caprmedio_tmp"
+        symlink_scratch.mkdir()
+        target = symlink_workspace / "real-state"
         target.write_bytes(b"real state\n")
+        metadata = symlink_scratch / ".DS_Store"
         metadata.symlink_to(target)
         with self.assertRaises(ReleaseContractError):
-            _prepare_executor_scratch(self.workspace)
+            _prepare_executor_scratch(symlink_workspace)
         self.assertEqual(b"real state\n", target.read_bytes())
 
 

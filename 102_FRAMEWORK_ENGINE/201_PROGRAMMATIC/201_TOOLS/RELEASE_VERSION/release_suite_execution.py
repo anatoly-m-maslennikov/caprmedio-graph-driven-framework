@@ -17,8 +17,9 @@ from dataclasses import dataclass, replace
 from pathlib import Path
 
 from release_contract import ReleaseContractError, ValidatedCandidate
-from release_handoff import CURRENT_SELECTOR_RELATIVE, SealedCandidateCompilation
+from release_handoff import CURRENT_SELECTOR_RELATIVE, SealedCandidateCompilation, reopen_native_installed_n, selected_n_identity
 from release_image import CANDIDATE_LABEL, CONTEXT_LABEL, DockerExecutor, IMAGE_ID
+from release_portable_contract import SealedPortableCandidateCompilation, revalidate_sealed_portable_compilation
 from release_suite_limits import MAX_UNIT_TIMEOUT_SECONDS
 from bootstrap_image import BootstrapImageError, read_retained_initial_framework_image
 from release_suite import (
@@ -131,11 +132,24 @@ class SelectedNImageBinding:
     selector_sha256: str
     candidate_release: str | None
     image_path: str | None = None
+    native_package_manifest_sha256: str | None = None
+    native_candidate_snapshot_manifest_sha256: str | None = None
 
 
 def _selector_binding(root: Path, candidate: ValidatedCandidate) -> SelectedNImageBinding:
     """Read only the fully selected immutable N-image binding."""
 
+    native_installed_n = getattr(candidate, "native_installed_n", None)
+    if native_installed_n is not None:
+        native = reopen_native_installed_n(root, native_installed_n)
+        packet = native.full_gate_packet
+        image_digest = "sha256:" + native.selected.image_digest.removeprefix("sha256:")
+        return SelectedNImageBinding(
+            image_digest, native.selected.framework_version, packet.build.context_sha256,
+            False, native.selected.selector_sha256, native.selected.framework_version,
+            native_package_manifest_sha256=native.selected.package_manifest_sha256,
+            native_candidate_snapshot_manifest_sha256=selected_n_identity(candidate),
+        )
     selector = root / CURRENT_SELECTOR_RELATIVE
     if selector.is_symlink() or not selector.is_file():
         raise ReleaseContractError("release-suite-executor-n-invalid", "selected N image binding is missing or unsafe")
@@ -212,13 +226,14 @@ def _inspect_bound_n_image(docker: DockerExecutor, root: Path,
         environment = item["Config"]["Env"]
         package_label = _BOOTSTRAP_PACKAGE_LABEL if binding.bootstrap else CANDIDATE_LABEL
         context_label = _BOOTSTRAP_CONTEXT_LABEL if binding.bootstrap else CONTEXT_LABEL
+        candidate_identity = binding.native_candidate_snapshot_manifest_sha256 or binding.executing_release
         context = labels[context_label]
         if (
             observed.exit_code != 0
             or not isinstance(payload, list)
             or len(payload) != 1
             or item.get("Id") != binding.image_digest
-            or labels.get(package_label) != binding.executing_release
+            or labels.get(package_label) != candidate_identity
             or context != binding.source_context_sha256
             or not isinstance(environment, list)
         ):
@@ -376,6 +391,7 @@ class InstalledNSuiteDockerExecutor:
     sealed_command: tuple[str, ...]
     sealed_working_directory: str
     compiled_root: str
+    native_installed_n: object | None = None
 
     def _validate_invocation(
         self,
@@ -409,7 +425,7 @@ class InstalledNSuiteDockerExecutor:
         # this preserves the N manifest/context binding observed at admission.
         current_selection = _selector_binding(
             self.root,
-            type("Candidate", (), {"authority": type("Authority", (), {
+            type("Candidate", (), {"native_installed_n": self.native_installed_n, "authority": type("Authority", (), {
                 "executing_release": self.executing_release,
             })(), "manifest": type("Manifest", (), {
                 "candidate_release": self.selected_n_image.candidate_release,
@@ -486,22 +502,52 @@ class InstalledNSuiteDockerExecutor:
         return SuiteExecutionResult(observed.exit_code, observed.stdout, observed.stderr)
 
 
+def _suite_compiled_root(
+    candidate: ValidatedCandidate,
+    compilation: SealedCandidateCompilation | SealedPortableCandidateCompilation,
+) -> str:
+    """Return a physically current sealed compilation root for the Unit executor.
+
+    The portable branch deliberately reopens the physical portable contract;
+    it never manufactures a legacy compilation proxy.  Both branches then
+    bind the root to the same selected candidate, authority, and native N.
+    """
+
+    if isinstance(compilation, SealedCandidateCompilation):
+        if (compilation.candidate_snapshot_manifest_sha256 != candidate.manifest.sha256
+                or compilation.authority != candidate.authority
+                or compilation.native_installed_n != candidate.native_installed_n):
+            raise ReleaseContractError("release-suite-executor-binding-mismatch", "compiled candidate differs from selected suite candidate")
+        return compilation.child_materialization_root
+    if isinstance(compilation, SealedPortableCandidateCompilation):
+        current = revalidate_sealed_portable_compilation(compilation)
+        if (
+            current != compilation
+            or current.candidate != candidate
+            or current.candidate_snapshot_manifest_sha256 != candidate.manifest.sha256
+            or current.authority != candidate.authority
+            or current.candidate.native_installed_n != candidate.native_installed_n
+        ):
+            raise ReleaseContractError("release-suite-executor-binding-mismatch", "portable compilation differs from selected suite candidate")
+        return current.private_compilation.compiled_root
+    raise ReleaseContractError("release-suite-executor-handoff-untrusted", "suite executor requires typed candidate and compilation")
+
+
 def installed_n_suite_executor(
     candidate: ValidatedCandidate,
-    compilation: SealedCandidateCompilation,
+    compilation: SealedCandidateCompilation | SealedPortableCandidateCompilation,
     *,
     project_root: str,
     docker: DockerExecutor,
 ) -> InstalledNSuiteDockerExecutor:
     """Derive the only admitted executor from retained selected-Run state."""
 
-    if not isinstance(candidate, ValidatedCandidate) or not isinstance(compilation, SealedCandidateCompilation):
+    if not isinstance(candidate, ValidatedCandidate):
         raise ReleaseContractError("release-suite-executor-handoff-untrusted", "suite executor requires typed candidate and compilation")
     root = Path(project_root).resolve(strict=True)
     if str(root) != candidate.project_root or not callable(getattr(docker, "run", None)):
         raise ReleaseContractError("release-suite-executor-unadmitted", "suite executor is not bound to the selected Project Run")
-    if compilation.candidate_snapshot_manifest_sha256 != candidate.manifest.sha256 or compilation.authority != candidate.authority:
-        raise ReleaseContractError("release-suite-executor-binding-mismatch", "compiled candidate differs from selected suite candidate")
+    compiled_root = _suite_compiled_root(candidate, compilation)
     _active_n_state(root, candidate)
     binding = _selector_binding(root, candidate)
     binding = _inspect_bound_n_image(docker, root, binding)
@@ -520,7 +566,8 @@ def installed_n_suite_executor(
         image_path=binding.image_path,
         sealed_command=tuple(environment.command),
         sealed_working_directory=environment.working_directory,
-        compiled_root=compilation.child_materialization_root,
+        compiled_root=compiled_root,
+        native_installed_n=candidate.native_installed_n,
     )
 
 
