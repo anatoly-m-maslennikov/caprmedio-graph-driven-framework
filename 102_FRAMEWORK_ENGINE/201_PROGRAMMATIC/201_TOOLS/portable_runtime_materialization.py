@@ -18,6 +18,7 @@ from pathlib import Path, PurePosixPath
 import re
 import shlex
 import stat
+import sys
 import tomllib
 
 from framework_package import (
@@ -28,6 +29,8 @@ from framework_package import (
 )
 from installation_context import TargetProjectContext
 from installation_transaction import InstallationPublicationLock, InstallationTransactionError
+from installed_mcp_binding import InstalledMcpBindingError, _context as _read_d600_context
+from retained_full_gate_packet import RetainedNativeFullGatePacket
 
 
 _NONCE = re.compile(r"[A-Za-z0-9][A-Za-z0-9._-]{0,127}\Z")
@@ -59,6 +62,26 @@ class RuntimeCommandStageRequest:
 
     package: VerifiedFrameworkPackage
     target_context: TargetProjectContext
+    state_generation: int
+    entrypoint: str
+    fixed_arguments: tuple[str, ...]
+    invocation_nonce: str
+    path_directories: tuple[Path | str, ...]
+    home: Path | str
+
+
+@dataclass(frozen=True)
+class CandidateRuntimeCommandStageRequest:
+    """Prospective command data for a sealed package before selector publication.
+
+    The packet is merely transport.  ``stage_candidate_runtime_command``
+    physically reopens its retained Full Gate before the package can be used.
+    """
+
+    package: VerifiedFrameworkPackage
+    target_context: TargetProjectContext
+    prospective_package_selector: bytes
+    full_gate_packet: RetainedNativeFullGatePacket
     state_generation: int
     entrypoint: str
     fixed_arguments: tuple[str, ...]
@@ -334,9 +357,13 @@ def _validate_entrypoint(target_root: Path, package: VerifiedFrameworkPackage, v
     rows = [row for row in package.inventory if row.path == value and row.role == "engine"]
     if len(rows) != 1:
         _refuse("runtime-stage-entrypoint-unadmitted", "entrypoint is not one admitted engine member")
+    try:
+        package_relative = package.root.relative_to(target_root)
+    except ValueError:
+        _refuse("runtime-stage-entrypoint-unadmitted", "entrypoint package is outside the target Project")
     payload = _read_target_regular(
         target_root,
-        _PACKAGE_RELEASES / package.manifest_digest / Path(relative.as_posix()),
+        package_relative / Path(relative.as_posix()),
         code="runtime-stage-entrypoint-unadmitted",
         label="entrypoint",
         expected_mode=rows[0].mode,
@@ -380,6 +407,209 @@ def _reopen_selected_package(root: Path, value: object) -> VerifiedFrameworkPack
     return reopened
 
 
+def _target_contained_directory(root: Path, value: object, *, code: str, label: str) -> Path:
+    """Return one real target-contained directory without traversing aliases."""
+
+    if not isinstance(value, Path) or not value.is_absolute():
+        _refuse(code, f"{label} must be an absolute target-contained directory")
+    try:
+        relative = value.relative_to(root)
+    except ValueError:
+        _refuse(code, f"{label} is outside the locked target Project")
+    if not relative.parts:
+        _refuse(code, f"{label} must not be the target Project root")
+    cursor = root
+    for component in relative.parts:
+        cursor = cursor / component
+        try:
+            observed = cursor.lstat()
+        except OSError:
+            _refuse(code, f"{label} is unavailable")
+        if cursor.is_symlink() or not stat.S_ISDIR(observed.st_mode):
+            _refuse(code, f"{label} has an unsafe directory boundary")
+    return value
+
+
+def _target_contained_regular(root: Path, value: object, *, code: str, label: str) -> Path:
+    """Return one real target-contained regular carrier without aliases."""
+
+    if not isinstance(value, Path) or not value.is_absolute():
+        _refuse(code, f"{label} must be an absolute target-contained carrier")
+    try:
+        relative = value.relative_to(root)
+    except ValueError:
+        _refuse(code, f"{label} is outside the locked target Project")
+    if not relative.parts:
+        _refuse(code, f"{label} must not be the target Project root")
+    cursor = root
+    for component in relative.parts:
+        cursor = cursor / component
+        try:
+            observed = cursor.lstat()
+        except OSError:
+            _refuse(code, f"{label} is unavailable")
+        if cursor.is_symlink():
+            _refuse(code, f"{label} has an unsafe directory boundary")
+        if component != relative.parts[-1] and not stat.S_ISDIR(observed.st_mode):
+            _refuse(code, f"{label} has a non-directory ancestor")
+    if not stat.S_ISREG(observed.st_mode):
+        _refuse(code, f"{label} is not a regular carrier")
+    return value
+
+
+def _release_version_root() -> Path:
+    """Locate only the host-owned retained Full Gate verifier."""
+
+    release_root = Path(__file__).resolve().parent / "RELEASE_VERSION"
+    try:
+        observed = release_root.lstat()
+    except OSError:
+        _refuse("candidate-full-gate-unavailable", "package-owned retained Full Gate verifier is unavailable")
+    if release_root.is_symlink() or not stat.S_ISDIR(observed.st_mode):
+        _refuse("candidate-full-gate-unavailable", "package-owned retained Full Gate verifier is unavailable")
+    return release_root
+
+
+def _candidate_packet_path(root: Path, value: object, *, label: str) -> Path:
+    return _target_contained_regular(root, value, code="candidate-full-gate-invalid", label=label)
+
+
+def _reopen_candidate_full_gate(
+    root: Path,
+    package: VerifiedFrameworkPackage,
+    selector: object,
+    packet: object,
+) -> None:
+    """Physically reopen the retained Full Gate for one sealed target candidate."""
+
+    if not isinstance(packet, RetainedNativeFullGatePacket):
+        _refuse("candidate-full-gate-invalid", "candidate retained Full Gate packet must be typed")
+    artifact_root = _target_contained_directory(
+        root,
+        packet.artifact_root,
+        code="candidate-full-gate-invalid",
+        label="candidate Full Gate artifact root",
+    )
+    release_root = _release_version_root()
+    release_path = release_root.as_posix()
+    added_release_path = release_path not in sys.path
+    if added_release_path:
+        sys.path.insert(0, release_path)
+    try:
+        try:
+            from release_contract import ReleaseContractError
+            from release_e2e_gate import PortableCandidateE2EGateEvidence
+            from release_full_gate import NativeFullGateEvidence, verify_detached_native_full_gate_evidence
+            from release_image import PortableImageBuildEvidence, PortableImageVerificationEvidence
+            from release_retained_candidate import RetainedCandidateIdentity
+            from release_suite import PortableSuiteGateEvidence
+        except ImportError as error:
+            _refuse("candidate-full-gate-unavailable", "package-owned retained Full Gate verifier cannot be imported")
+            raise AssertionError from error
+        if not (
+            isinstance(packet.retained_candidate, RetainedCandidateIdentity)
+            and isinstance(packet.suite, PortableSuiteGateEvidence)
+            and isinstance(packet.build, PortableImageBuildEvidence)
+            and isinstance(packet.verification, PortableImageVerificationEvidence)
+            and isinstance(packet.e2e, PortableCandidateE2EGateEvidence)
+            and isinstance(packet.evidence, NativeFullGateEvidence)
+        ):
+            _refuse("candidate-full-gate-invalid", "candidate retained Full Gate packet has untrusted carriers")
+        retained_candidate = packet.retained_candidate
+        retained_package = getattr(retained_candidate, "package_evidence", None)
+        retained_view = getattr(retained_package, "view", None)
+        _candidate_packet_path(root, getattr(retained_candidate, "descriptor_path", None), label="candidate descriptor")
+        _candidate_packet_path(root, getattr(retained_package, "receipt_path", None), label="candidate package sidecar")
+        retained_package_root = _target_contained_directory(
+            root,
+            getattr(retained_view, "package_root", None),
+            code="candidate-full-gate-invalid",
+            label="candidate sealed package",
+        )
+        try:
+            retained = verify_detached_native_full_gate_evidence(
+                artifact_root,
+                retained_candidate,
+                packet.suite,
+                packet.build,
+                packet.verification,
+                packet.e2e,
+                packet.evidence,
+            )
+        except ReleaseContractError as error:
+            _refuse("candidate-full-gate-invalid", "candidate retained Full Gate evidence cannot be reopened")
+        if retained.view.package_root != retained_package_root or package.root != retained_package_root:
+            _refuse("candidate-package-mismatch", "candidate package is not the retained sealed Full Gate package")
+        evidence = packet.evidence
+        image_digest = getattr(evidence, "candidate_image_digest", None)
+        receipt_sha256 = getattr(evidence, "receipt_sha256", None)
+        if not isinstance(image_digest, str) or not image_digest.startswith("sha256:"):
+            _refuse("candidate-full-gate-invalid", "candidate Full Gate image digest is invalid")
+        if (
+            getattr(selector, "image_digest", None) != image_digest.removeprefix("sha256:")
+            or getattr(selector, "full_gate_receipt_sha256", None) != receipt_sha256
+        ):
+            _refuse("candidate-full-gate-mismatch", "prospective package selector differs from the retained Full Gate")
+        view = retained.view
+        if (
+            view.actual_package_manifest_sha256 != package.manifest_digest
+            or view.source_catalog_sha256 != package.source_catalog_sha256
+            or view.framework_version != package.framework_version
+            or view.version_toml_sha256 != package.version_toml_sha256
+        ):
+            _refuse("candidate-full-gate-mismatch", "retained Full Gate does not bind the physical candidate package")
+    finally:
+        if added_release_path:
+            try:
+                sys.path.remove(release_path)
+            except ValueError:
+                pass
+
+
+def _reopen_candidate_package(
+    root: Path,
+    value: object,
+    prospective_selector: object,
+    full_gate_packet: object,
+) -> VerifiedFrameworkPackage:
+    """Reopen a sealed candidate without requiring an installed selector."""
+
+    if not isinstance(value, VerifiedFrameworkPackage):
+        _refuse("candidate-package-invalid", "candidate stage requires a typed verified Framework package")
+    candidate_root = _target_contained_directory(
+        root, value.root, code="candidate-package-invalid", label="candidate package root"
+    )
+    try:
+        relative = candidate_root.relative_to(root)
+        if relative.parts[0] != ".caprmedio_tmp":
+            _refuse("candidate-package-unsealed", "candidate package must remain under target temporary staging")
+        reopened = verify_framework_package(candidate_root)
+    except FrameworkPackageError:
+        _refuse("candidate-package-invalid", "candidate Framework package cannot be physically reopened")
+    if reopened != value:
+        _refuse("candidate-package-stale", "typed candidate package differs from its physical bytes")
+    if not isinstance(prospective_selector, bytes):
+        _refuse("candidate-selector-invalid", "candidate package selector must be exact bytes")
+    try:
+        selector = verify_current_package_selector(prospective_selector, reopened)
+    except FrameworkPackageError:
+        _refuse("candidate-selector-invalid", "prospective package selector does not admit the physical candidate")
+    _reopen_candidate_full_gate(root, reopened, selector, full_gate_packet)
+    lock_member = next((row for row in reopened.inventory if row.path == "uv.lock" and row.role == "dependency"), None)
+    if lock_member is None:
+        _refuse("candidate-package-invalid", "sealed candidate package omits its admitted uv.lock carrier")
+    lock_payload = _read_target_regular(
+        root,
+        relative / "uv.lock",
+        code="candidate-package-stale",
+        label="candidate package uv.lock",
+        expected_mode=lock_member.mode,
+    )
+    if _sha256(lock_payload) != lock_member.sha256:
+        _refuse("candidate-package-stale", "candidate package uv.lock differs from its inventory")
+    return reopened
+
+
 def _reopen_context(root: Path, value: object, package: VerifiedFrameworkPackage, lock: InstallationPublicationLock) -> TargetProjectContext:
     if not isinstance(value, TargetProjectContext):
         _refuse("runtime-stage-context-invalid", "stage requires a typed target Project context")
@@ -399,7 +629,29 @@ def _reopen_context(root: Path, value: object, package: VerifiedFrameworkPackage
     return value
 
 
-def _environment(root: Path, request: RuntimeCommandStageRequest) -> tuple[dict[str, str], str, bytes]:
+def _reopen_candidate_context(
+    root: Path, value: object, package: VerifiedFrameworkPackage, lock: InstallationPublicationLock
+) -> TargetProjectContext:
+    """Require a full D600 physical reopen before candidate-stage writes."""
+
+    context = _reopen_context(root, value, package, lock)
+    try:
+        persisted = _read_d600_context(root, context.sha256)
+    except InstalledMcpBindingError:
+        _refuse("candidate-context-invalid", "persisted target context is not a valid D600 carrier")
+    if (
+        persisted.mode != context.mode
+        or persisted.target_project_identity != context.target_project_identity
+        or persisted.control_child_relpath != context.control_child_relpath
+        or persisted.control_child_relpath == ".caprmedio_"
+    ):
+        _refuse("candidate-context-mismatch", "persisted target context differs from typed context identity")
+    return context
+
+
+def _environment(
+    root: Path, request: RuntimeCommandStageRequest | CandidateRuntimeCommandStageRequest
+) -> tuple[dict[str, str], str, bytes]:
     if not isinstance(request.path_directories, tuple) or not request.path_directories:
         _refuse("runtime-stage-environment-invalid", "PATH needs a non-empty immutable directory tuple")
     directories = tuple(
@@ -559,19 +811,22 @@ def _validate_visible_fragment(
             _refuse("runtime-stage-reopen-failed", f"visible stage carrier differs: {name}")
 
 
-def stage_runtime_command(request: RuntimeCommandStageRequest, *, lock: InstallationPublicationLock) -> RuntimeCommandStage:
-    """Create and reopen one inert native command fragment under a live lock.
+def _stage_opened_runtime_command(
+    request: RuntimeCommandStageRequest | CandidateRuntimeCommandStageRequest,
+    *,
+    lock: InstallationPublicationLock,
+    target_root: Path,
+    package: VerifiedFrameworkPackage,
+    context: TargetProjectContext,
+    runtime_package_root: Path,
+) -> RuntimeCommandStage:
+    """Stage command bytes after a package was physically reopened.
 
-    The function only writes beneath ``.caprmedio_tmp/installation/staging``.
-    It neither invokes the wrapper nor changes configuration, any selector,
-    Skills, projections, package bytes, or runtime environment directories.
+    Candidate validation reads its sealed temporary package, while its inert
+    command bytes name the exact future installed release location.  This
+    helper never creates or opens that prospective destination.
     """
 
-    if not isinstance(request, RuntimeCommandStageRequest):
-        _refuse("runtime-stage-request-invalid", "staging requires a typed request")
-    concrete_lock, target_root = _target_root(lock)
-    package = _reopen_selected_package(target_root, request.package)
-    context = _reopen_context(target_root, request.target_context, package, concrete_lock)
     if isinstance(request.state_generation, bool) or not isinstance(request.state_generation, int) or request.state_generation < 1:
         _refuse("runtime-stage-generation-invalid", "native state generation must be a positive integer")
     if not isinstance(request.invocation_nonce, str) or _NONCE.fullmatch(request.invocation_nonce) is None:
@@ -579,8 +834,8 @@ def stage_runtime_command(request: RuntimeCommandStageRequest, *, lock: Installa
     entrypoint = _validate_entrypoint(target_root, package, request.entrypoint)
     fixed_arguments = _validate_fixed_arguments(request.fixed_arguments)
     variables, environment_digest, environment_payload = _environment(target_root, request)
-    argv = (*_UV_PREFIX, "--project", package.root.as_posix(), "python", entrypoint, *fixed_arguments)
-    wrapper_payload = _render_wrapper(package.root, variables, argv)
+    argv = (*_UV_PREFIX, "--project", runtime_package_root.as_posix(), "python", entrypoint, *fixed_arguments)
+    wrapper_payload = _render_wrapper(runtime_package_root, variables, argv)
     wrapper_digest = _sha256(wrapper_payload)
     command_body: dict[str, object] = {
         "schema_version": 1,
@@ -597,9 +852,9 @@ def stage_runtime_command(request: RuntimeCommandStageRequest, *, lock: Installa
     command = {**command_body, "command_sha256": command_digest}
     command_payload = _render_command(command)
 
-    concrete_lock.revalidate()
+    lock.revalidate()
     parent_fd = _open_stage_parent(target_root)
-    stage_root = target_root / _STAGING / concrete_lock.lock_generation
+    stage_root = target_root / _STAGING / lock.lock_generation
     files = (
         (_COMMAND_NAME, 0o600, _sha256(command_payload)),
         (_ENVIRONMENT_NAME, 0o600, _sha256(environment_payload)),
@@ -609,18 +864,18 @@ def stage_runtime_command(request: RuntimeCommandStageRequest, *, lock: Installa
         package_manifest_sha256=package.manifest_digest,
         target_project_context_sha256=context.sha256,
         state_generation=request.state_generation,
-        lock_generation=concrete_lock.lock_generation,
+        lock_generation=lock.lock_generation,
         files=files,
     )
     try:
-        stage_fd = _open_stage(parent_fd, concrete_lock.lock_generation)
+        stage_fd = _open_stage(parent_fd, lock.lock_generation)
         try:
             _write_new(stage_fd, _COMMAND_NAME, command_payload, mode=0o600)
             _write_new(stage_fd, _ENVIRONMENT_NAME, environment_payload, mode=0o600)
             _write_new(stage_fd, _WRAPPER_NAME, wrapper_payload, mode=0o700)
             _write_new(stage_fd, _MANIFEST_NAME, manifest_payload, mode=0o600)
             os.fsync(stage_fd)
-            concrete_lock.revalidate()
+            lock.revalidate()
             _validate_reopened_fragment(
                 stage_fd,
                 expected_command=command_payload,
@@ -633,13 +888,13 @@ def stage_runtime_command(request: RuntimeCommandStageRequest, *, lock: Installa
             )
             _validate_visible_fragment(
                 target_root,
-                concrete_lock.lock_generation,
+                lock.lock_generation,
                 expected_command=command_payload,
                 expected_environment=environment_payload,
                 expected_wrapper=wrapper_payload,
                 expected_manifest=manifest_payload,
             )
-            concrete_lock.revalidate()
+            lock.revalidate()
         finally:
             os.close(stage_fd)
     finally:
@@ -653,16 +908,66 @@ def stage_runtime_command(request: RuntimeCommandStageRequest, *, lock: Installa
         package_manifest_sha256=package.manifest_digest,
         target_project_context_sha256=context.sha256,
         state_generation=request.state_generation,
-        lock_generation=concrete_lock.lock_generation,
+        lock_generation=lock.lock_generation,
         command_sha256=command_digest,
         environment_sha256=environment_digest,
         wrapper_sha256=wrapper_digest,
     )
 
 
+def stage_runtime_command(request: RuntimeCommandStageRequest, *, lock: InstallationPublicationLock) -> RuntimeCommandStage:
+    """Stage one selected-package command fragment without effects."""
+
+    if not isinstance(request, RuntimeCommandStageRequest):
+        _refuse("runtime-stage-request-invalid", "staging requires a typed selected-package request")
+    concrete_lock, target_root = _target_root(lock)
+    package = _reopen_selected_package(target_root, request.package)
+    context = _reopen_context(target_root, request.target_context, package, concrete_lock)
+    return _stage_opened_runtime_command(
+        request,
+        lock=concrete_lock,
+        target_root=target_root,
+        package=package,
+        context=context,
+        runtime_package_root=package.root,
+    )
+
+
+def stage_candidate_runtime_command(
+    request: CandidateRuntimeCommandStageRequest, *, lock: InstallationPublicationLock
+) -> RuntimeCommandStage:
+    """Stage one sealed-candidate command fragment before selector publication.
+
+    This writes only the immutable D601 stage under the lock.  It does not
+    publish either prospective selector, configure the target, or invoke the
+    rendered wrapper.
+    """
+
+    if not isinstance(request, CandidateRuntimeCommandStageRequest):
+        _refuse("candidate-stage-request-invalid", "candidate staging requires a typed request")
+    concrete_lock, target_root = _target_root(lock)
+    package = _reopen_candidate_package(
+        target_root,
+        request.package,
+        request.prospective_package_selector,
+        request.full_gate_packet,
+    )
+    context = _reopen_candidate_context(target_root, request.target_context, package, concrete_lock)
+    return _stage_opened_runtime_command(
+        request,
+        lock=concrete_lock,
+        target_root=target_root,
+        package=package,
+        context=context,
+        runtime_package_root=target_root / _PACKAGE_RELEASES / package.manifest_digest,
+    )
+
+
 __all__ = [
+    "CandidateRuntimeCommandStageRequest",
     "PortableRuntimeMaterializationError",
     "RuntimeCommandStage",
     "RuntimeCommandStageRequest",
+    "stage_candidate_runtime_command",
     "stage_runtime_command",
 ]
