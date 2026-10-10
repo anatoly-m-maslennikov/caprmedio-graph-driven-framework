@@ -41,6 +41,7 @@ from public_release import (
     SourceProof,
     ToolCallEvidence,
     VerifiedPushReceipt,
+    document_closure_record,
     _parameters,
     _read_source_file,
     _source,
@@ -649,12 +650,10 @@ class NativePublicReleaseBindings:
 
     @staticmethod
     def _source_observation(source: SourceProof) -> dict[str, object]:
-        return {
-            "candidate_snapshot_manifest_sha256": source.candidate_snapshot_manifest_sha256,
-            "readme_ref": source.readme_ref, "readme_sha256": source.readme_sha256,
-            "pr_body_ref": source.pr_body_ref, "pr_body_sha256": source.pr_body_sha256,
-            "version_history_ref": source.version_history_ref, "version_history_sha256": source.version_history_sha256,
-        }
+        observation = document_closure_record(source)
+        observation.pop("schema")
+        observation["public_document_closure_sha256"] = source.public_document_closure_sha256
+        return observation
 
     @staticmethod
     def _assert_exact_history(history: str, summary: object, pull_request: PullRequest | None) -> None:

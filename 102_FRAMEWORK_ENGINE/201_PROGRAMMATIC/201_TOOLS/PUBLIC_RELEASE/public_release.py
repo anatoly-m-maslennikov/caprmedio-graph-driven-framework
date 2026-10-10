@@ -18,7 +18,7 @@ import re
 import stat
 import sys
 import tomllib
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path, PurePosixPath
 from typing import Any, Callable, Mapping, Protocol
 from urllib.parse import urlparse
@@ -87,6 +87,39 @@ class SourceProof:
     version_history_summary: str
     version_history_pr_url: str | None
     version_history_pr_number: int | None
+    public_document_closure_sha256: str = field(init=False)
+
+    def __post_init__(self) -> None:
+        # This is derived evidence, never a request field or a caller-supplied
+        # replacement for physically rereading the source carriers in _source.
+        object.__setattr__(self, "public_document_closure_sha256", document_closure_digest(self))
+
+
+def document_closure_record(source: SourceProof) -> dict[str, Any]:
+    """Return R1922's exact closed, non-self-referential document binding."""
+    if not isinstance(source, SourceProof):
+        raise PublicReleaseError("invalid-source-proof", "document closure requires a typed SourceProof")
+    return {
+        "schema": "caprmedio.public_release.document_closure.v1",
+        "candidate_snapshot_manifest_sha256": source.candidate_snapshot_manifest_sha256,
+        "framework_version": source.framework_version,
+        "version_toml_sha256": source.version_toml_sha256,
+        "readme_ref": source.readme_ref,
+        "readme_sha256": source.readme_sha256,
+        "pr_body_ref": source.pr_body_ref,
+        "pr_body_sha256": source.pr_body_sha256,
+        "version_history_ref": source.version_history_ref,
+        "version_history_sha256": source.version_history_sha256,
+        "version_history_summary": source.version_history_summary,
+        "version_history_pr_url": source.version_history_pr_url,
+        "version_history_pr_number": source.version_history_pr_number,
+    }
+
+
+def document_closure_digest(source: SourceProof) -> str:
+    encoded = json.dumps(document_closure_record(source), sort_keys=True,
+                         separators=(",", ":"), ensure_ascii=False, allow_nan=False).encode("utf-8")
+    return hashlib.sha256(encoded).hexdigest()
 
 
 @dataclass(frozen=True)
@@ -208,6 +241,8 @@ def _safe_ref(value: object, label: str) -> str:
     path = Path(value)
     if path.is_absolute() or ".." in path.parts or "\\" in value:
         raise PublicReleaseError("invalid-input", f"{label} must be repository-relative and traversal-free")
+    if any(part.startswith(".env") or part.endswith(".env") for part in path.parts):
+        raise PublicReleaseError("invalid-input", f"{label} must not address an environment carrier")
     return value
 
 
@@ -255,7 +290,13 @@ def _call(value: object, label: str) -> ToolCallEvidence:
 
 def _read_source_file(project_root: Path, ref: str, label: str) -> tuple[str, str]:
     root = project_root.resolve(strict=True)
+    _safe_ref(ref, label)
     target = root / ref
+    current = root
+    for part in Path(ref).parts:
+        current /= part
+        if current.is_symlink():
+            raise PublicReleaseError("source-proof-unavailable", f"{label} has a symlinked carrier ancestor")
     if target.is_symlink() or not target.is_file():
         raise PublicReleaseError("source-proof-unavailable", f"{label} is not a regular source file")
     try:
@@ -307,6 +348,8 @@ def _source(value: object, label: str, *, project_root: Path, release: Mapping[s
     if (readme_sha != value.readme_sha256 or pr_body_sha != value.pr_body_sha256
             or history_sha != value.version_history_sha256):
         raise PublicReleaseError("source-proof-stale", f"{label} document bytes differ from its asserted source proof")
+    if value.public_document_closure_sha256 != document_closure_digest(value):
+        raise PublicReleaseError("source-proof-stale", f"{label} document closure differs from local canonical recomputation")
     try:
         actual_version = tomllib.loads(version_toml)["framework"]["version"]
     except (KeyError, TypeError, tomllib.TOMLDecodeError) as error:
