@@ -30,9 +30,15 @@ def frozen_sources() -> list[dict[str, Any]]:
         "structure_authority",
         "context_authority",
     ):
-        entries.update(
-            json.loads((TOOL / "validate_atoms_workers" / (name + ".json")).read_text())["sources"]
-        )
+        source_entries = json.loads(
+            (TOOL / "validate_atoms_workers" / (name + ".json")).read_text()
+        )["sources"]
+        # A graph or derived carrier can describe an existing atom, but it is
+        # not an independent authority replacement for the registry's canonical
+        # source. The combined CLI frontier has one binding per atom ID, so
+        # retain the first (registry) binding on a collision.
+        for identifier, entry in source_entries.items():
+            entries.setdefault(identifier, entry)
     fixtures = TOOL / "tests/fixtures"
     result = []
     for identifier, entry in entries.items():
@@ -143,6 +149,19 @@ the Plan is **not** Done **if** the work is missing.
 
 
 class ExtendedIntegration(unittest.TestCase):
+    def test_frozen_sources_retains_canonical_registry_binding_on_collision(self) -> None:
+        bindings = {
+            source["binding"]["atom_id"]: source["binding"]
+            for source in frozen_sources()
+        }
+        registry = json.loads(
+            (TOOL / "validate_atoms_workers/registry.json").read_text()
+        )["sources"]
+        for identifier in ("CA-D-268", "CA-D-269"):
+            with self.subTest(identifier=identifier):
+                self.assertEqual(bindings[identifier]["sha256"], registry[identifier]["sha256"])
+                self.assertEqual(bindings[identifier]["version"], registry[identifier]["version"])
+
     def test_twenty_additional_adapters_are_registered(self) -> None:
         expected = {
             "relations.resolution",

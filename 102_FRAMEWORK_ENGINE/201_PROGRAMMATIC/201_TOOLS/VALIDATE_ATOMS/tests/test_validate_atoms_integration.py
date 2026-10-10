@@ -11,6 +11,8 @@ import shutil
 from typing import Any
 import yaml
 
+from golden_fixtures import fingerprint as fixture_fingerprint
+
 HERE = Path(__file__).resolve().parent
 COMMAND = HERE.parent / "validate_atoms.py"
 
@@ -63,12 +65,15 @@ class IntegrationTests(unittest.TestCase):
         self.assertNotIn("Traceback", result.stderr)
         return report
 
-    def fingerprint(self) -> dict[str, str]:
-        return {
-            str(p): hashlib.sha256(p.read_bytes()).hexdigest()
-            for p in self.root.rglob("*")
-            if p.is_file() and not p.is_symlink()
-        }
+    def fingerprint(self) -> dict[str, tuple[str, int] | tuple[str, int, str]]:
+        return fixture_fingerprint(self.root)
+
+    def test_fingerprint_ignores_ds_store_but_detects_content_change(self) -> None:
+        before = self.fingerprint()
+        (self.root / ".DS_Store").write_bytes(b"finder metadata")
+        self.assertEqual(before, self.fingerprint())
+        self.target.write_text("changed")
+        self.assertNotEqual(before, self.fingerprint())
 
     def test_absent_authority_is_not_a_pass_and_repeatable(self) -> None:
         first = self.run_tool()

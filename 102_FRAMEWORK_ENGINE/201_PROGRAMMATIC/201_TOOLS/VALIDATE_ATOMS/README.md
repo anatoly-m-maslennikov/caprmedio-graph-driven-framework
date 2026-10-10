@@ -17,8 +17,9 @@ source revision/digest-bound checks, byte-preserving projection comparison,
 duplicate source revisions, deterministic diagnostics, and input currentness.
 
 Twenty additional adapters cover the supported cases of the previously missing
-checks. With the exact reviewed source inventory, 50 of 51 known obligations have
-adapters; `plan.assignee_resolution` is intentionally deferred by the Operator.
+checks. With the exact reviewed source inventory, all 51 known obligations have
+registered adapters; `plan.assignee_resolution` remains intentionally unchecked
+by the Operator's decision.
 Author resolution is exact Operator registry membership. This count describes adapter
 availability, not complete coverage on an individual Atom.
 
@@ -35,6 +36,11 @@ compare known carried values against an admitted representation rule. Unknown
 properties fail only with a complete reviewed admission inventory; unresolved
 extension declarations remain gaps. Plan checks are structural, not a semantic
 claim that a Plan has one indivisible Claim.
+
+Graph-rule pins are refreshed only from the finite, uniquely Active authoring
+source closure. A projected carrier cannot replace its original, even if placed
+inside an authoring directory. Shared registry/graph pins must identify the same
+source path, revision and exact bytes; stale or ambiguous evidence is refused.
 
 Body checks follow CA-D-479 v6: literal `# Summary` and the required,
 ordered sections for each supported Content Role. They check section cardinality,
@@ -145,6 +151,8 @@ byte-exact source fixtures, actual CLI subprocess calls, read-only fingerprints,
 unsafe inputs, and targeted regressions. Test fixtures are created only beneath
 `.caprmedio_tmp`; the command creates no files or bytecode. Host-denied cleanup
 leaves fixture directories there and emits a warning.
+Read-only fingerprints ignore only exact `.DS_Store` basenames; meaningful file
+bytes, modes, links and paths remain checked.
 
 Remaining work includes complete source composition/admission, deferred Assignee
 resolution, unsupported extension Property contracts, full address/placement rules, executable
