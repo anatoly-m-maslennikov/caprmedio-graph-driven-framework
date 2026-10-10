@@ -61,11 +61,16 @@ def create_server(root):
         'for a separately started worker. No recheck or automatically started Runs.')
     register_orchestrator(server, root)
 
+    # One read-only source observation admits all optional direct adapters for
+    # this startup.  It is deliberately not retained after construction: each
+    # MCP request continues to reopen current discovery state independently.
+    _atoms, catalog_tools, _issues = discovery.catalog()
+
     # O187 is a separately source-declared direct Action.  It must never be
     # inferred from the selected-route manifest, and a missing or altered
     # delivery binding leaves it unregistered and unresolved.
     restoration_bindings = [
-        item for item in discovery.catalog()[1]
+        item for item in catalog_tools
         if item.get('name') == RESTORATION_TOOL_NAME
     ]
     if len(restoration_bindings) == 1 and register_framework_image_restoration(
@@ -77,7 +82,7 @@ def create_server(root):
     # request schema, so discovery can expose it only after the one current
     # catalog binding has admitted the actual server registration.
     source_admission_bindings = [
-        item for item in discovery.catalog()[1]
+        item for item in catalog_tools
         if item.get('name') == SOURCE_ADMISSION_TOOL_NAME
     ]
     if len(source_admission_bindings) == 1 and register_source_admission(
@@ -89,7 +94,7 @@ def create_server(root):
     # optional adapter import inside this admission boundary: a checkout which
     # lacks the package-owned implementation is not an executable capability.
     runtime_installation_bindings = [
-        item for item in discovery.catalog()[1]
+        item for item in catalog_tools
         if item.get('name') == 'INSTALL_FRAMEWORK_RUNTIME'
     ]
     if (len(runtime_installation_bindings) == 1

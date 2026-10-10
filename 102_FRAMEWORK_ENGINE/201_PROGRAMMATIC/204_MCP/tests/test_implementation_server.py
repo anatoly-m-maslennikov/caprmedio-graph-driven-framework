@@ -29,7 +29,7 @@ from framework_runtime_installation_mcp import (  # noqa: E402
     input_schema as runtime_installation_input_schema,
 )
 import implementation_server  # noqa: E402
-from source_admission_mcp import MCP_NAME, TOOL_NAME, input_schema  # noqa: E402
+from source_admission_mcp import MCP_NAME, TOOL_NAME  # noqa: E402
 from test_service import seed_selected_runtime_binding_package  # noqa: E402
 
 
@@ -39,6 +39,11 @@ D602_RELATIVE = Path(
     "CA-D-602-TOOLS-DELIVERY--encode-admitted-package-source-catalog.md"
 )
 O199_RELATIVE = Path(
+    ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/"
+    "003_PROJECT_CONFIGURATION/09_operations/"
+    "CA-O-199-PROJECT_CONFIGURATION-ACTION--admit-local-package-sources.md"
+)
+O199_SOURCE = Path(
     ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/"
     "000_APPLICABLE_MTHD_sources/003_PROJECT_CONFIGURATION/09_operations/"
     "CA-O-199-PROJECT_CONFIGURATION-ACTION--admit-local-package-sources.md"
@@ -49,8 +54,8 @@ RUNTIME_INSTALLATION_DELIVERY = Path(
     "CA-D-620-MCP-DELIVERY--expose-direct-framework-runtime-installation.md"
 )
 RUNTIME_INSTALLATION_ACTION = Path(
-    ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/"
-    "000_APPLICABLE_MTHD_sources/003_PROJECT_CONFIGURATION/09_operations/"
+    ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/"
+    "003_PROJECT_CONFIGURATION/09_operations/"
     "CA-O-200-PROJECT_CONFIGURATION-ACTION--install-one-admitted-project-runtime.md"
 )
 
@@ -74,7 +79,12 @@ class _CapturingService(DiscoveryService):
 
     def __init__(self, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)
+        self.catalog_calls = 0
         self.__class__.instances.append(self)
+
+    def catalog(self):
+        self.catalog_calls += 1
+        return super().catalog()
 
 
 class ImplementationServerTests(unittest.TestCase):
@@ -103,7 +113,9 @@ class ImplementationServerTests(unittest.TestCase):
         shutil.copyfile(REPOSITORY_ROOT / relative, destination)
 
     def _seed_o199_source(self, delivery: bytes | None = None) -> Path:
-        self._copy(O199_RELATIVE)
+        destination_source = self.root / O199_RELATIVE
+        destination_source.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(REPOSITORY_ROOT / O199_SOURCE, destination_source)
         destination = self.root / D602_RELATIVE
         if delivery is not None:
             destination.parent.mkdir(parents=True, exist_ok=True)
@@ -137,17 +149,25 @@ class ImplementationServerTests(unittest.TestCase):
     def _registered_names(server: _Server) -> set[str]:
         return {metadata["name"] for metadata, _function in server.registered}
 
-    def test_o199_registers_from_the_exact_current_catalog_binding_and_exposes_its_schema(self):
+    def test_o199_internal_source_validation_is_not_registered_as_a_direct_adapter(self):
         self._seed_o199_source((REPOSITORY_ROOT / D602_RELATIVE).read_bytes())
 
         server, discovery = self._create_server()
 
-        self.assertIn(MCP_NAME, self._registered_names(server))
-        self.assertIn(MCP_NAME, discovery.exposed)
+        self.assertNotIn(MCP_NAME, self._registered_names(server))
+        self.assertNotIn(MCP_NAME, discovery.exposed)
         context = discovery.context(Context(id="CA-O-199"))
-        operation = discovery.discover(Query(query="CA-O-199"), operations=True)["matches"]
-        self.assertEqual(input_schema(), context["input_schema"])
-        self.assertEqual(["mcp"], [row["availability"] for row in operation])
+        self.assertIsNone(context["input_schema"])
+
+    def test_startup_uses_one_catalog_snapshot_for_optional_direct_adapters(self):
+        self._seed_o200_source((REPOSITORY_ROOT / RUNTIME_INSTALLATION_DELIVERY).read_bytes())
+
+        server, discovery = self._create_server()
+
+        self.assertEqual(1, discovery.catalog_calls)
+        self.assertIn(RUNTIME_INSTALLATION_MCP_NAME, self._registered_names(server))
+        self.assertIn(RUNTIME_INSTALLATION_MCP_NAME, discovery.exposed)
+        self.assertNotIn(MCP_NAME, self._registered_names(server))
 
     def test_o199_source_action_without_delivery_binding_is_not_registered_or_exposed(self):
         self._seed_o199_source()
