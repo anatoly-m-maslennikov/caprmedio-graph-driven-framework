@@ -40,6 +40,18 @@ ROUTE_CASES = (
 )
 MANIFEST_ROUTE_NAMES = tuple(route for _, route in ROUTE_CASES)
 QUERY_SOURCE_ADMISSION_ROUTE_NAMES = MANIFEST_ROUTE_NAMES[-2:]
+_CA_O_134_PATH = (
+    ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/"
+    "000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/"
+    "CA-O-134-CORE_META_MODEL-ACTION--construct-entities-graph-projection.md"
+)
+_STALE_CA_O_134_DIGEST = "b94eebdd85eab9f7080680e85999c68022e82cdfa7945bf0d840b429ebad037a"
+_CA_O_137_PATH = (
+    ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/"
+    "000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/"
+    "CA-O-137-CORE_META_MODEL-ACTION--construct-terms-graph-projection.md"
+)
+_STALE_CA_O_137_DIGEST = "6c154852b99df16961fe63c8fd869dbf86f8d75ecc950b25b189e41c3c1c5dad"
 JOURNAL_CASES = tuple(f"J{number:02d}" for number in range(1, 9))
 STATUS_DOMAINS = (
     ("Requirement", "R", "04_requirement", "CA-R-1309", ("Draft", "Active", "Archived")),
@@ -918,6 +930,20 @@ class GoldenProject:
             manifest = copy.deepcopy(manifest)
             manifest["routes"] = manifest["routes"][:-1]
             manifest.pop("release_source_admissions", None)
+            self._refresh_graph_action_fixture_pin(
+                manifest,
+                route_name="build_entities_graph",
+                action_id="CA-O-134",
+                source_path=_CA_O_134_PATH,
+                stale_digest=_STALE_CA_O_134_DIGEST,
+            )
+            self._refresh_graph_action_fixture_pin(
+                manifest,
+                route_name="build_terms_graph",
+                action_id="CA-O-137",
+                source_path=_CA_O_137_PATH,
+                stale_digest=_STALE_CA_O_137_DIGEST,
+            )
             manifest["source_freshness"]["selected_binding_digest"] = digest(manifest["routes"])
             unsigned = {key: value for key, value in manifest.items() if key != "canonical_manifest_sha256"}
             manifest["canonical_manifest_sha256"] = digest(unsigned)
@@ -967,6 +993,60 @@ class GoldenProject:
         self.manifest_path.parent.mkdir(parents=True, exist_ok=True)
         self.manifest_path.write_bytes(canonical_json(manifest) + b"\n")
         return manifest
+
+    def _refresh_graph_action_fixture_pin(
+        self,
+        manifest: dict[str, Any],
+        *,
+        route_name: str,
+        action_id: str,
+        source_path: str,
+        stale_digest: str,
+    ) -> None:
+        """Reseal one approved graph-action pair in the historical corpus.
+
+        The disposable fifteen-route corpus deliberately preserves the reviewed
+        manifest shape.  An approved graph Action changed in place after that
+        carrier was sealed, so copying it requires its actual current bytes and
+        frontmatter version rather than accepting the stale production pin.
+        """
+        routes = manifest.get("routes")
+        if not isinstance(routes, list):
+            raise GoldenCorpusError("selected workflow fixture manifest has no route list")
+        entity_routes = [route for route in routes if isinstance(route, dict)
+                         and route.get("route") == route_name]
+        if len(entity_routes) != 1:
+            raise GoldenCorpusError(f"selected workflow fixture has no unique {route_name} route")
+        route = entity_routes[0]
+        try:
+            candidates = [route["ordered_steps"][0]["action"], route["ordered_actions"][0]]
+        except (IndexError, KeyError, TypeError) as error:
+            raise GoldenCorpusError(f"{route_name} no longer has the expected one-step shape") from error
+        if any(not isinstance(pin, dict) for pin in candidates):
+            raise GoldenCorpusError(f"{route_name} action pins are malformed")
+        if any(pin.get("atom_id") != action_id or pin.get("source_path") != source_path
+               for pin in candidates):
+            raise GoldenCorpusError(f"{route_name} action topology changed; fixture pin cannot be refreshed")
+
+        source = self.source_root / source_path
+        if not source.is_file():
+            raise GoldenCorpusError(f"current {action_id} source is unavailable")
+        lines = source.read_text(encoding="utf-8").splitlines()
+        try:
+            actual_version = int(next(line.partition(":")[2].strip() for line in lines
+                                      if line.startswith("version:")))
+        except (StopIteration, ValueError) as error:
+            raise GoldenCorpusError(f"current {action_id} source has no integer version") from error
+        actual_digest = file_digest(source)
+        if all(pin.get("version") == actual_version and pin.get("digest") == actual_digest
+               for pin in candidates):
+            return
+        if any(pin.get("version") != 2 or pin.get("digest") != stale_digest
+               for pin in candidates):
+            raise GoldenCorpusError(f"{route_name} action pin is neither current nor the approved stale corpus pin")
+        for pin in candidates:
+            pin["version"] = actual_version
+            pin["digest"] = actual_digest
 
     def _copy_pinned(self, relative: Path, expected_digest: object) -> None:
         if not isinstance(expected_digest, str) or len(expected_digest) != 64:
