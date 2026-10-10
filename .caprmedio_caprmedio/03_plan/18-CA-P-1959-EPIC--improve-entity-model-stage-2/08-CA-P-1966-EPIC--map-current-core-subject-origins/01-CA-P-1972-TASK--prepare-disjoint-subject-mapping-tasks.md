@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Projection, Plan, Tool, Operator]
-version: 3
-updated_at: "2026-10-10 23:34:31 +0400"
+version: 4
+updated_at: "2026-10-11 01:01:30 +0400"
 relations:
   is_decomposition_of: [CA-P-1966]
 ---
@@ -29,7 +29,7 @@ Decompose the current occurrence inventory into evidence-pinned review Tasks wit
 
 ## Details
 
-Estimated own work: 15 minutes. Assignee: AI Agent.
+Own work: none. This preparation is now decomposed because source selection, snapshot comparison, independent verification and Plan creation need separate checks. The first uncommitted inventory was rejected; no rejected output counts as completion.
 
 Required prerequisite: CA-P-1963. Pin the current authoring Core inventory and define disjoint review batches with exact occurrences, role/owner/source limits, input pins, output schema and at-most-15-minute checks. Create child Plans under CA-P-1966 before review work. Every selected occurrence has one owner; unchanged and malformed cases remain accounted for. Define final ledger integration and actual completion checks. Do not map Subjects in this preparation Task, change captured reviews or edit authoritative Atoms.
 
@@ -40,3 +40,10 @@ Finishing this preparation does not finish CA-P-1966: only its generated evidenc
 ### Definition of Done
 
 The Plan is **not** Done if batches overlap or omit selected occurrences, source pins or output/check contracts are missing, any child has more than 15 minutes of undecomposed own work, or source mappings/writes are performed; any direct decomposing Plan is not Done; or own work exceeds 15 minutes without decomposition.
+
+### Decomposing Plans
+
+- [CA-P-1988 — Inventory current Core Subject sources](01-CA-P-1972-TASK--prepare-disjoint-subject-mapping-tasks/01-CA-P-1988-TASK--inventory-current-core-subject-sources.md)
+- [CA-P-1989 — Compare current sources with captured evidence](01-CA-P-1972-TASK--prepare-disjoint-subject-mapping-tasks/02-CA-P-1989-TASK--compare-current-sources-with-captured-evidence.md)
+- [CA-P-1990 — Verify current Subject inventory and batches](01-CA-P-1972-TASK--prepare-disjoint-subject-mapping-tasks/03-CA-P-1990-TASK--verify-current-subject-inventory-and-batches.md)
+- [CA-P-1991 — Create bounded current Subject review Plans](01-CA-P-1972-TASK--prepare-disjoint-subject-mapping-tasks/04-CA-P-1991-TASK--create-bounded-current-subject-review-plans.md)
