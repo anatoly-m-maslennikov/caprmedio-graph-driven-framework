@@ -26,7 +26,14 @@ from typing import Any
 
 import yaml
 
-from framework_package import FrameworkPackageError, VerifiedFrameworkPackage, verify_current_package_selector
+from framework_package import (
+    FrameworkPackageError,
+    PACKAGE_MANIFEST_SCHEMA_VERSION,
+    VerifiedFrameworkPackage,
+    read_verified_binding_projections,
+    verify_current_package_selector,
+    verify_framework_package,
+)
 from installation_context import CONTEXT_DIGEST_FIELD, canonical_target_project_context_toml
 
 
@@ -59,6 +66,8 @@ REQUIRED_PACKAGE_CARRIERS = ("pyproject.toml", "uv.lock", "version.toml", *MCP_F
 _PACKAGE_MANIFEST_KEYS = frozenset(
     {"schema_version", "package", "framework_version", "version_toml_sha256", "source_catalog_sha256", "files"}
 )
+_PACKAGE_MANIFEST_V2_KEYS = _PACKAGE_MANIFEST_KEYS | frozenset({"binding_atoms"})
+_HISTORICAL_PACKAGE_MANIFEST_SCHEMA_VERSION = 1
 _PACKAGE_SELECTOR_KEYS = frozenset(
     {
         "schema_version", "package_manifest_sha256", "release_relpath", "framework_version",
@@ -312,8 +321,22 @@ def _actual_package_paths(package_root: Path) -> set[str]:
     return found
 
 
-def _verify_package_tree(package_root: Path, manifest_sha256: str, catalog_sha256: str,
-                         rows: tuple[dict[str, Any], ...]) -> dict[str, dict[str, Any]]:
+def _verify_package_tree(
+    package_root: Path,
+    manifest_sha256: str,
+    catalog_sha256: str,
+    rows: tuple[dict[str, Any], ...],
+    *,
+    verified_package: VerifiedFrameworkPackage,
+) -> dict[str, dict[str, Any]]:
+    """Reopen one schema-1 historical or schema-2 current package exactly.
+
+    The generic package verifier remains authoritative for schema-2 binding
+    projection pins.  This consumer independently keeps its narrower
+    installed-MCP manifest and transport checks closed, then requires the
+    generic reopen to equal the caller's typed package handoff.
+    """
+
     row_map = {row["path"]: row for row in rows}
     expected_files = {"manifest.toml", *row_map}
     actual_files = _actual_package_paths(package_root)
@@ -321,11 +344,22 @@ def _verify_package_tree(package_root: Path, manifest_sha256: str, catalog_sha25
         _refuse("installed-package-tampered", "installed package files differ from its verified inventory")
 
     _, manifest_payload = _regular_file(package_root, PurePosixPath("manifest.toml"), code="installed-package-missing", label="package manifest")
+    manifest = _parse_toml(manifest_payload, code="installed-package-tampered", label="package manifest")
+    schema = manifest.get("schema_version")
+    if type(schema) is not int or schema not in {
+        _HISTORICAL_PACKAGE_MANIFEST_SCHEMA_VERSION,
+        PACKAGE_MANIFEST_SCHEMA_VERSION,
+    }:
+        _refuse("installed-package-tampered", "package manifest schema is not closed")
+    expected_manifest_keys = (
+        _PACKAGE_MANIFEST_KEYS
+        if schema == _HISTORICAL_PACKAGE_MANIFEST_SCHEMA_VERSION
+        else _PACKAGE_MANIFEST_V2_KEYS
+    )
+    if set(manifest) != expected_manifest_keys or manifest.get("package") != PACKAGE_NAME:
+        _refuse("installed-package-tampered", "package manifest schema is not closed")
     if hashlib.sha256(manifest_payload).hexdigest() != manifest_sha256:
         _refuse("installed-package-tampered", "installed package manifest digest differs from its identity")
-    manifest = _parse_toml(manifest_payload, code="installed-package-tampered", label="package manifest")
-    if set(manifest) != _PACKAGE_MANIFEST_KEYS or manifest.get("schema_version") != SCHEMA_VERSION or manifest.get("package") != PACKAGE_NAME:
-        _refuse("installed-package-tampered", "package manifest schema is not closed")
     if not isinstance(manifest.get("framework_version"), str) or not manifest["framework_version"]:
         _refuse("installed-package-tampered", "package manifest framework version is invalid")
     _sha256(manifest.get("version_toml_sha256"), code="installed-package-tampered", label="package version carrier")
@@ -334,6 +368,10 @@ def _verify_package_tree(package_root: Path, manifest_sha256: str, catalog_sha25
     manifest_rows = manifest.get("files")
     if not isinstance(manifest_rows, list) or manifest_rows != list(rows):
         _refuse("installed-package-tampered", "package manifest inventory differs from typed verification")
+    if schema == _HISTORICAL_PACKAGE_MANIFEST_SCHEMA_VERSION and any(
+        row["role"] == "binding-projection" for row in rows
+    ):
+        _refuse("installed-package-tampered", "historical package manifest cannot carry binding projections")
     for row in rows:
         relative = PurePosixPath(row["path"])
         carrier, payload = _regular_file(package_root, relative, code="installed-package-missing", label=f"package carrier {row['path']}")
@@ -350,6 +388,25 @@ def _verify_package_tree(package_root: Path, manifest_sha256: str, catalog_sha25
             _refuse("installed-package-missing", f"installed package omits required MCP carrier: {required}")
     if not any(path.startswith("102_FRAMEWORK_ENGINE/") for path in row_map):
         _refuse("installed-package-missing", "installed package omits the Engine inventory")
+    try:
+        reopened = verify_framework_package(package_root)
+        # ``read_verified_binding_projections`` additionally proves every
+        # schema-2 source pin against its canonical derived carrier.  It is
+        # intentionally invoked even for an empty schema-2 frontier, where it
+        # proves that no projection has been invented.
+        projections = read_verified_binding_projections(reopened)
+    except FrameworkPackageError as error:
+        raise InstalledMcpBindingError(
+            "installed-package-tampered", "installed package cannot be physically reopened"
+        ) from error
+    if reopened != verified_package:
+        _refuse("installed-package-tampered", "installed package differs from its typed verification")
+    expected_binding_records = [atom.record() for atom in reopened.binding_atoms]
+    if schema == PACKAGE_MANIFEST_SCHEMA_VERSION:
+        if manifest.get("binding_atoms") != expected_binding_records or len(projections) != len(expected_binding_records):
+            _refuse("installed-package-tampered", "package binding frontier differs from its physical projections")
+    elif reopened.binding_atoms or projections:
+        _refuse("installed-package-tampered", "historical package unexpectedly supplies binding projections")
     return row_map
 
 
@@ -601,7 +658,13 @@ def admit_candidate_mcp_binding(
         raise InstalledMcpBindingError("candidate-package-foreign", "candidate package is outside the target Project") from error
     if package_root.is_symlink() or not package_root.is_dir():
         _refuse("candidate-package-invalid", "candidate package root is unavailable")
-    row_map = _verify_package_tree(package_root, manifest_sha256, catalog_sha256, rows)
+    row_map = _verify_package_tree(
+        package_root,
+        manifest_sha256,
+        catalog_sha256,
+        rows,
+        verified_package=verified_package,
+    )
     ca_skill = _package_ca_skill(row_map)
     _manifest_path, manifest_payload = _regular_file(package_root, PurePosixPath("manifest.toml"), code="installed-package-missing", label="package manifest")
     manifest = _parse_toml(manifest_payload, code="installed-package-tampered", label="package manifest")
@@ -679,7 +742,13 @@ def admit_installed_mcp_binding(
     root = _project_root(target_project_root)
     package_root, manifest_sha256, catalog_sha256, rows = _verification(verified_package)
     package_root = _package_root(root, package_root, manifest_sha256)
-    row_map = _verify_package_tree(package_root, manifest_sha256, catalog_sha256, rows)
+    row_map = _verify_package_tree(
+        package_root,
+        manifest_sha256,
+        catalog_sha256,
+        rows,
+        verified_package=verified_package,
+    )
     ca_skill = _package_ca_skill(row_map)
     _, manifest_payload = _regular_file(package_root, PurePosixPath("manifest.toml"), code="installed-package-missing", label="package manifest")
     manifest = _parse_toml(manifest_payload, code="installed-package-tampered", label="package manifest")

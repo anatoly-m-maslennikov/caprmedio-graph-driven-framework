@@ -33,6 +33,7 @@ from framework_package import (  # noqa: E402
 )
 from release_inventory import ReleaseInventoryError, persistent_regular_files, refuse_secret_path  # noqa: E402
 from release_portable_contract import (  # noqa: E402
+    PortableBindingAtom,
     SealedPortableCandidateCompilation,
     revalidate_sealed_portable_compilation,
 )
@@ -226,6 +227,10 @@ def _require_destination(resource: str, source: Path, destination: Path) -> None
         if not destination.is_relative_to(Path("methodology/support")):
             raise PortableReleasePackageError("portable-package-input-invalid", "Methodology support row destination is invalid")
         return
+    if resource == "BINDING_PROJECTION":
+        if not destination.is_relative_to(Path("methodology/bindings")):
+            raise PortableReleasePackageError("portable-package-input-invalid", "binding projection row destination is invalid")
+        return
     raise PortableReleasePackageError("portable-package-input-invalid", f"unknown portable package resource: {resource}")
 
 
@@ -237,7 +242,34 @@ def _observed_files(root: Path, relative: Path) -> set[str]:
         raise PortableReleasePackageError(error.code, str(error)) from error
 
 
-def _validate_complete_rows(root: Path, rows: Iterable[object]) -> tuple[tuple[object, ...], dict[str, tuple[str, Path, Path, str, int]]]:
+def _binding_atoms(compilation: SealedPortableCandidateCompilation) -> tuple[PortableBindingAtom, ...]:
+    """Close the package-facing frozen binding frontier before assembly.
+
+    The raw source pins remain metadata only.  The assembly contains solely
+    their already-sealed projections and the reusable package primitive
+    performs the byte-level inverse verification after materialization.
+    """
+
+    raw = getattr(compilation, "binding_atoms", ())
+    if not isinstance(raw, (list, tuple)) or any(not isinstance(atom, PortableBindingAtom) for atom in raw):
+        raise PortableReleasePackageError("portable-package-input-invalid", "sealed compilation binding frontier is invalid")
+    atoms = tuple(raw)
+    if tuple(sorted(atoms, key=lambda atom: atom.source_path)) != atoms:
+        raise PortableReleasePackageError("portable-package-input-invalid", "sealed compilation binding frontier is not canonical")
+    if len({atom.source_path for atom in atoms}) != len(atoms) or len({(atom.atom_id, atom.version) for atom in atoms}) != len(atoms):
+        raise PortableReleasePackageError("portable-package-input-invalid", "sealed compilation binding frontier is ambiguous")
+    for atom in atoms:
+        _safe_relative(atom.source_path, field="binding atom source_path")
+        if not atom.atom_id or type(atom.version) is not int or atom.version < 1 or not _is_sha256(atom.sha256):
+            raise PortableReleasePackageError("portable-package-input-invalid", "sealed compilation binding atom is invalid")
+    return atoms
+
+
+def _validate_complete_rows(
+    root: Path,
+    rows: Iterable[object],
+    binding_atoms: tuple[PortableBindingAtom, ...],
+) -> tuple[tuple[object, ...], dict[str, tuple[str, Path, Path, str, int]]]:
     records = tuple(rows)
     parsed = tuple(_row_paths(row) for row in records)
     if tuple(sorted(parsed, key=lambda item: (item[2].as_posix(), item[1].as_posix(), item[3]))) != parsed:
@@ -281,6 +313,19 @@ def _validate_complete_rows(root: Path, rows: Iterable[object]) -> tuple[tuple[o
         raise PortableReleasePackageError("portable-package-input-incomplete", "portable rows lack exact catalog carrier")
     if not by_resource.get("SOURCE_ADMISSION"):
         raise PortableReleasePackageError("portable-package-input-incomplete", "portable rows lack source-admission proof")
+    expected_binding_destinations = {
+        (Path("methodology/bindings") / atom.source_path).as_posix()
+        for atom in binding_atoms
+    }
+    actual_binding_destinations = {
+        destination.as_posix()
+        for _resource, _source, destination, _digest, _mode in by_resource.get("BINDING_PROJECTION", [])
+    }
+    if actual_binding_destinations != expected_binding_destinations:
+        raise PortableReleasePackageError(
+            "portable-package-input-incomplete",
+            "portable rows do not exactly cover the sealed binding frontier",
+        )
     for _resource, source, _destination, digest, _mode in by_resource["SOURCE_ADMISSION"]:
         if source.stem != digest:
             raise PortableReleasePackageError("portable-package-input-invalid", "admission filename must equal its sealed byte digest")
@@ -353,7 +398,8 @@ def prepare_portable_release_package(
     if not _is_sha256(candidate_sha256) or candidate_sha256 != current.authority.expected_candidate_snapshot_manifest_sha256:
         raise PortableReleasePackageError("portable-package-untrusted", "sealed compilation is not bound to its candidate manifest")
     candidate_run_id = _candidate_run_id(current)
-    rows, by_source = _validate_complete_rows(root, _portable_rows(current))
+    binding_atoms = _binding_atoms(current)
+    rows, by_source = _validate_complete_rows(root, _portable_rows(current), binding_atoms)
     _validate_catalog_binding(current, by_source)
     package_root = _candidate_package_root(root, candidate_run_id)
 
@@ -361,7 +407,11 @@ def prepare_portable_release_package(
     try:
         _copy_assembly(root, staging, rows)
         try:
-            package = assemble_framework_package(staging, package_root)
+            package = assemble_framework_package(
+                staging,
+                package_root,
+                binding_atoms=[atom.record() for atom in binding_atoms],
+            )
             reopened = verify_framework_package(package.root)
         except FrameworkPackageError as error:
             raise PortableReleasePackageError(error.code, str(error)) from error
@@ -371,6 +421,8 @@ def prepare_portable_release_package(
             raise PortableReleasePackageError("portable-package-catalog-stale", "reopened package catalog differs from sealed catalog")
         if reopened.framework_version != current.framework_version or reopened.version_toml_sha256 != current.version_toml_sha256:
             raise PortableReleasePackageError("portable-package-version-stale", "reopened package version differs from sealed candidate")
+        if tuple(atom.record() for atom in reopened.binding_atoms) != tuple(atom.record() for atom in binding_atoms):
+            raise PortableReleasePackageError("portable-package-binding-stale", "reopened package binding frontier differs from sealed compilation")
         if reopened.manifest_digest == candidate_sha256:
             raise PortableReleasePackageError("portable-package-identity-collision", "candidate and package manifest identities must remain distinct")
         return PreparedPortableReleasePackage(candidate_run_id, candidate_sha256, current.input_manifest_sha256, reopened)

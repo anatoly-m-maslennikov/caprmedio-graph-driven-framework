@@ -28,6 +28,7 @@ from release_portable_contract import (  # noqa: E402
     revalidate_sealed_portable_compilation,
     seal_portable_source_snapshot,
 )
+from release_portable_package import prepare_portable_release_package  # noqa: E402
 from source_catalog_admission import build_source_admission_receipt, read_source_admission_receipt  # noqa: E402
 
 
@@ -48,11 +49,13 @@ def _tree_digest(root: Path) -> str:
     return _sha256(json.dumps(rows, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode("utf-8"))
 
 
-def carrier(atom_id: str) -> bytes:
+def carrier(atom_id: str, *, content_role: str | None = None) -> bytes:
+    role = f"content_role: {content_role}\n" if content_role is not None else ""
     return (
         "---\n"
         f"atom_id: {atom_id}\n"
         "status: Active\n"
+        f"{role}"
         "version: 1\n"
         "updated_at: 2026-10-09 00:00:00 +0000\n"
         "relations: {}\n"
@@ -76,7 +79,13 @@ class PortableContractTests(unittest.TestCase):
             "[[scope_units]]\n"
             'scope_unit_name = "METHODOLOGY_SOURCES"\n'
             f'authority_path = "{CANONICAL_SOURCE_RELATIVE}"\n'
+            'delivery_path = ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY"\n\n'
+            "[[scope_units]]\n"
+            'scope_unit_name = "FRAMEWORK_ENGINE"\n'
+            'authority_path = ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE"\n'
+            'delivery_path = "102_FRAMEWORK_ENGINE"\n'
         ).encode())
+        (self.root / ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE").mkdir()
         self.write(".caprmedio_caprmedio/caprmedio_project_settings.toml", b'[paths]\ncontrol_root = ".caprmedio_caprmedio"\n')
         self.instance_settings = self.write(
             ".caprmedio_caprmedio/000_CAPRMEDIO_framework/caprmedio_framework_settings.toml",
@@ -131,25 +140,35 @@ class PortableContractTests(unittest.TestCase):
             "",
         ]
 
-    def _write_catalog(self) -> None:
+    def _write_catalog(
+        self,
+        *,
+        active_files: tuple[Path, ...] | None = None,
+        binding_projection: tuple[Path, Path] | None = None,
+        workspace: str = ".catalog",
+    ) -> None:
+        if active_files is None:
+            active_files = (self.atom,)
         engine = _tree_digest(self.root / "102_FRAMEWORK_ENGINE")
         # Catalog digests use logical package-relative paths, not authoring
         # roots.  Build only those row shapes without copying any real source.
-        active_root = self.root / ".catalog-active"
+        active_root = self.root / f"{workspace}-active"
         active_root.mkdir()
-        active_copy = active_root / "001_CORE_META_MODEL/04_requirement/CA-R-001--core.md"
-        active_copy.parent.mkdir(parents=True)
-        active_copy.write_bytes(self.atom.read_bytes())
-        active_copy.chmod(self.atom.stat().st_mode & 0o777)
+        source_active_root = self.source / "001_CORE_META_MODEL"
+        for active_file in active_files:
+            active_copy = active_root / "001_CORE_META_MODEL" / active_file.relative_to(source_active_root)
+            active_copy.parent.mkdir(parents=True, exist_ok=True)
+            active_copy.write_bytes(active_file.read_bytes())
+            active_copy.chmod(active_file.stat().st_mode & 0o777)
         active = _tree_digest(active_root / "001_CORE_META_MODEL")
-        support_root = self.root / ".catalog-support"
+        support_root = self.root / f"{workspace}-support"
         support_root.mkdir()
         copied = support_root / "003_PROJECT_CONFIGURATION/support.txt"
         copied.parent.mkdir(parents=True)
         copied.write_bytes(self.support.read_bytes())
         copied.chmod(self.support.stat().st_mode & 0o777)
         support = _tree_digest(support_root)
-        descriptors = (
+        descriptors: list[dict[str, object]] = [
             {
                 "identity": "core-meta-model",
                 "kind": "methodology",
@@ -177,7 +196,24 @@ class PortableContractTests(unittest.TestCase):
                 "selection_default": False,
                 "path": "methodology/support",
             },
-        )
+        ]
+        if binding_projection is not None:
+            projection, relative = binding_projection
+            binding_root = self.root / f"{workspace}-binding"
+            binding_copy = binding_root / relative
+            binding_copy.parent.mkdir(parents=True, exist_ok=True)
+            binding_copy.write_bytes(projection.read_bytes())
+            binding_copy.chmod(projection.stat().st_mode & 0o777)
+            binding = _tree_digest(binding_root)
+            descriptors.append({
+                "identity": "delivery-bindings",
+                "kind": "binding",
+                "revision": binding,
+                "sha256": binding,
+                "visibility": "public",
+                "selection_default": False,
+                "path": "methodology/bindings",
+            })
         receipt_bytes = build_source_admission_receipt(
             operator="fixture-operator",
             command_ref="fixture-command",
@@ -190,13 +226,17 @@ class PortableContractTests(unittest.TestCase):
         lines.extend(self._catalog_record("core-meta-model", "methodology", active, "methodology/active/001_CORE_META_MODEL", receipt.sha256))
         lines.extend(self._catalog_record("local-core", "core", engine, "102_FRAMEWORK_ENGINE", receipt.sha256))
         lines.extend(self._catalog_record("methodology-support", "support", support, "methodology/support", receipt.sha256))
+        if binding_projection is not None:
+            lines.extend(self._catalog_record("delivery-bindings", "binding", _tree_digest(self.root / f"{workspace}-binding"), "methodology/bindings", receipt.sha256))
         self.write("catalog.toml", ("\n".join(lines) + "\n").encode())
 
-    def sealed(self):
+    def sealed(self, *, selected_atoms: list[dict[str, object]] | None = None):
+        if selected_atoms is None:
+            selected_atoms = [{"atom_id": "CA-R-001", "version": 1}]
         frozen = exporter.freeze_methodology_manifest(
             source_root=self.source,
             project_root=self.root,
-            selected_atoms=[{"atom_id": "CA-R-001", "version": 1}],
+            selected_atoms=selected_atoms,
             support_inventory=[{
                 "path": "003_PROJECT_CONFIGURATION/support.txt",
                 "sha256": _sha256(self.support.read_bytes()),
@@ -259,6 +299,73 @@ class PortableContractTests(unittest.TestCase):
         self.assertNotIn("SOURCE_ADMISSION", {row.resource for row in snapshot.portable_package_rows})
         self.assertNotIn("catalog.toml", {row.destination_path for row in snapshot.portable_package_rows})
         self.assertEqual(revalidate_portable_source_snapshot(snapshot), snapshot)
+
+    def test_collects_frozen_binding_projection_without_copying_live_delivery_authority(self) -> None:
+        delivery_relative = ".caprmedio_caprmedio/07_delivery/CA-D-001--binding.md"
+        delivery = self.write(
+            delivery_relative,
+            carrier("CA-D-001", content_role="Delivery")
+            + b"\n```toml\n[tool_binding]\n"
+            + b'entrypoint = "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/tool.py"\n```\n',
+        )
+        candidate, private = self.sealed(selected_atoms=[
+            {"atom_id": "CA-R-001", "version": 1},
+        ])
+        snapshot = collect_portable_source_snapshot(candidate, private, candidate_run_id="portable-001")
+
+        self.assertEqual(1, len(snapshot.binding_atoms))
+        binding = snapshot.binding_atoms[0]
+        self.assertEqual("CA-D-001", binding.atom_id)
+        self.assertEqual(1, binding.version)
+        self.assertEqual(
+            delivery_relative,
+            binding.source_path,
+        )
+        self.assertEqual(_sha256(delivery.read_bytes()), binding.sha256)
+        rows = [row for row in snapshot.portable_package_rows if row.resource == "BINDING_PROJECTION"]
+        self.assertEqual(1, len(rows))
+        self.assertEqual(
+            f"methodology/bindings/{binding.source_path}",
+            rows[0].destination_path,
+        )
+        self.assertNotEqual(binding.sha256, rows[0].sha256)
+        self.assertEqual(revalidate_portable_source_snapshot(snapshot), snapshot)
+
+    def test_seals_and_assembles_the_binding_projection_with_exact_source_pin(self) -> None:
+        delivery = self.write(
+            ".caprmedio_caprmedio/07_delivery/CA-D-001--binding.md",
+            carrier("CA-D-001", content_role="Delivery")
+            + b"\n```toml\n[tool_binding]\n"
+            + b'entrypoint = "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/tool.py"\n```\n',
+        )
+        candidate, private = self.sealed(selected_atoms=[
+            {"atom_id": "CA-R-001", "version": 1},
+        ])
+        snapshot = collect_portable_source_snapshot(candidate, private, candidate_run_id="portable-001")
+        projection = next(row for row in snapshot.portable_package_rows if row.resource == "BINDING_PROJECTION")
+        self._write_catalog(
+            active_files=(self.atom,),
+            binding_projection=(
+                self.root / projection.source_path,
+                Path(projection.destination_path).relative_to("methodology/bindings"),
+            ),
+            workspace=".binding-catalog",
+        )
+
+        sealed = seal_portable_source_snapshot(snapshot)
+        prepared = prepare_portable_release_package(self.root, sealed)
+
+        self.assertEqual(tuple(atom.record() for atom in prepared.package.binding_atoms), tuple(atom.record() for atom in sealed.binding_atoms))
+        package_projection = next(
+            row for row in prepared.package.inventory
+            if row.role == "binding-projection"
+        )
+        self.assertEqual(projection.destination_path, package_projection.path)
+        self.assertEqual(
+            (self.root / projection.source_path).read_bytes(),
+            (prepared.private_package_root / projection.destination_path).read_bytes(),
+        )
+        self.assertNotEqual(delivery.read_bytes(), (prepared.private_package_root / projection.destination_path).read_bytes())
 
     def test_pre_catalog_source_snapshot_refuses_physical_drift(self) -> None:
         candidate, private = self.sealed()

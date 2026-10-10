@@ -23,19 +23,24 @@ def digest(value: bytes) -> str:
     return hashlib.sha256(value).hexdigest()
 
 
-def carrier(atom_id: str, *, status: str = "Active", version: int = 1, body: str = "claim") -> bytes:
-    return (
+def carrier(atom_id: str, *, status: str = "Active", version: int = 1, content_role: str | None = None, body: str = "claim") -> bytes:
+    lines = (
         "---\n"
         f"atom_id: {atom_id}\n"
         "cce_version: cce_1\n"
         "cce_form: obligation\n"
+    )
+    if content_role is not None:
+        lines += f"content_role: {content_role}\n"
+    lines += (
         f"status: {status}\n"
         f"version: {version}\n"
         "updated_at: 2026-10-09 00:00:00 +0400\n"
         "relations: {}\n"
         "---\n"
         f"# {atom_id}\n\n{body}\n"
-    ).encode("utf-8")
+    )
+    return lines.encode("utf-8")
 
 
 class FakeDirEntry:
@@ -72,6 +77,8 @@ class MethodologyExportTest(unittest.TestCase):
         self.addCleanup(shutil.rmtree, self.root, True)
         self.control = self.root / ".control"
         self.source = self.control / "101_CAPRMEDIO_FRAMEWORK/001_METHODOLOGY_SOURCES"
+        self.engine_source = self.control / "102_LAYER_2_FRAMEWORK_ENGINE"
+        self.engine_source.mkdir(parents=True, exist_ok=True)
         for layer in ("001_CORE_META_MODEL", "003_PROJECT_CONFIGURATION"):
             for role in exporter.compiler.ROLE_BY_DIRECTORY:
                 (self.source / layer / role).mkdir(parents=True, exist_ok=True)
@@ -83,7 +90,11 @@ class MethodologyExportTest(unittest.TestCase):
             "[[scope_units]]\n"
             'scope_unit_name = "METHODOLOGY_SOURCES"\n'
             f"authority_path = {json.dumps(self.source.relative_to(self.root).as_posix())}\n"
-            'delivery_path = ".control/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY"\n',
+            'delivery_path = ".control/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY"\n\n'
+            "[[scope_units]]\n"
+            'scope_unit_name = "FRAMEWORK_ENGINE"\n'
+            f"authority_path = {json.dumps(self.engine_source.relative_to(self.root).as_posix())}\n"
+            'delivery_path = "102_FRAMEWORK_ENGINE"\n',
             encoding="utf-8",
         )
         self.write_instance(b"")
@@ -100,6 +111,18 @@ class MethodologyExportTest(unittest.TestCase):
 
     def write_instance(self, data: bytes) -> Path:
         path = self.control / exporter.compiler.INSTANCE_SETTINGS_RELATIVE
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(data)
+        return path
+
+    def write_engine_delivery(self, relative: str, data: bytes) -> Path:
+        path = self.engine_source / relative
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(data)
+        return path
+
+    def write_control_delivery(self, relative: str, data: bytes) -> Path:
+        path = self.control / relative
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_bytes(data)
         return path
@@ -187,6 +210,143 @@ class MethodologyExportTest(unittest.TestCase):
         self.assertTrue(frozen["active_frontier"])
         self.assertEqual({}, self.output_files())
 
+    def test_frozen_binding_frontier_discovers_two_active_deliveries_outside_methodology_and_projects_them(self) -> None:
+        self.write("001_CORE_META_MODEL/04_requirement/CA-R-001--active.md", carrier("CA-R-001"))
+        first_entrypoint = "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/DEMO_TOOL/demo_tool.py"
+        second_entrypoint = "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/OTHER_TOOL/other_tool.py"
+        for entrypoint, contents in ((first_entrypoint, b"def main():\n    return None\n"), (second_entrypoint, b"VALUE = 2\n")):
+            engine_member = self.root / entrypoint
+            engine_member.parent.mkdir(parents=True, exist_ok=True)
+            engine_member.write_bytes(contents)
+        first_source = self.write_engine_delivery(
+            "201_FEATURE_TOOLS/DEMO_TOOL/07_delivery/CA-D-001--tool.md",
+            carrier(
+                "CA-D-001",
+                content_role="Delivery",
+                body=(
+                    "binding\n\n```toml\n[tool_binding]\n"
+                    'name = "DEMO_TOOL"\n'
+                    f'entrypoint = "{first_entrypoint}"\n'
+                    "```\n"
+                ),
+            ),
+        )
+        second_source = self.write_control_delivery(
+            "003_PROJECT_CONFIGURATION/201_FEATURE_TOOLS/OTHER_TOOL/CA-D-002--tool.md",
+            carrier(
+                "CA-D-002",
+                content_role="Delivery",
+                body=f"binding\n\n```toml\n[tool_binding]\nentrypoint = \"{second_entrypoint}\"\n```\n",
+            ),
+        )
+        self.write_engine_delivery(
+            "201_FEATURE_TOOLS/OTHER_TOOL/archive/CA-D-999--ignored.md",
+            carrier("CA-D-999", content_role="Delivery", body=f"```toml\n[tool_binding]\nentrypoint = \"{first_entrypoint}\"\n```\n"),
+        )
+
+        frozen = self.freeze([{"atom_id": "CA-R-001", "version": 1}])
+        result = self.export()
+
+        expected_first = first_source.relative_to(self.root).as_posix()
+        expected_second = second_source.relative_to(self.root).as_posix()
+        expected_bindings = sorted(
+            [
+                {"atom_id": "CA-D-001", "source_path": expected_first, "version": 1, "sha256": digest(first_source.read_bytes())},
+                {"atom_id": "CA-D-002", "source_path": expected_second, "version": 1, "sha256": digest(second_source.read_bytes())},
+            ],
+            key=lambda item: str(item["source_path"]),
+        )
+        self.assertEqual(
+            expected_bindings,
+            frozen["binding_atoms"],
+        )
+        row = next(item for item in result.inventory["bindings"] if item["source_path"] == expected_first)
+        self.assertEqual(f"bindings/{expected_first}", row["destination_path"])
+        projected = result.output_root / row["destination_path"]
+        binding = exporter.BindingAtom(expected_first, "CA-D-001", 1, digest(first_source.read_bytes()))
+        exporter.validate_binding_projection_source_preservation(first_source.read_bytes(), projected.read_bytes(), binding)
+        self.assertEqual(result.inventory, exporter.read_sealed_export(release_candidate_root=self.candidate).inventory)
+
+    def test_frozen_binding_frontier_refuses_framework_engine_inventory_drift_before_export(self) -> None:
+        self.write("001_CORE_META_MODEL/04_requirement/CA-R-001--active.md", carrier("CA-R-001"))
+        entrypoint = "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/DRIFT_TOOL/drift_tool.py"
+        engine_member = self.root / entrypoint
+        engine_member.parent.mkdir(parents=True)
+        engine_member.write_bytes(b"VALUE = 1\n")
+        self.write_engine_delivery(
+            "201_FEATURE_TOOLS/DRIFT_TOOL/07_delivery/CA-D-002--tool.md",
+            carrier(
+                "CA-D-002",
+                content_role="Delivery",
+                body="binding\n\n```toml\n[tool_binding]\nentrypoint = \"102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/DRIFT_TOOL/drift_tool.py\"\n```\n",
+            ),
+        )
+        self.freeze([{"atom_id": "CA-R-001", "version": 1}])
+        engine_member.write_bytes(b"VALUE = 2\n")
+
+        with self.assertRaises(exporter.MethodologyExportError) as raised:
+            self.export()
+
+        self.assertEqual("framework-engine-inventory-stale", raised.exception.code)
+        self.assertEqual({}, self.output_files())
+
+    def test_frozen_binding_frontier_refuses_an_added_active_control_binding_before_export(self) -> None:
+        self.write("001_CORE_META_MODEL/04_requirement/CA-R-001--active.md", carrier("CA-R-001"))
+        first_entrypoint = "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIRST_TOOL/first.py"
+        second_entrypoint = "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/SECOND_TOOL/second.py"
+        for entrypoint in (first_entrypoint, second_entrypoint):
+            member = self.root / entrypoint
+            member.parent.mkdir(parents=True, exist_ok=True)
+            member.write_bytes(b"VALUE = 1\n")
+        self.write_engine_delivery(
+            "201_FEATURE_TOOLS/FIRST_TOOL/07_delivery/CA-D-010--first.md",
+            carrier("CA-D-010", content_role="Delivery", body=f"```toml\n[tool_binding]\nentrypoint = \"{first_entrypoint}\"\n```\n"),
+        )
+        self.freeze([{"atom_id": "CA-R-001", "version": 1}])
+        self.write_engine_delivery(
+            "201_FEATURE_TOOLS/SECOND_TOOL/07_delivery/CA-D-011--second.md",
+            carrier("CA-D-011", content_role="Delivery", body=f"```toml\n[tool_binding]\nentrypoint = \"{second_entrypoint}\"\n```\n"),
+        )
+
+        with self.assertRaises(exporter.MethodologyExportError) as raised:
+            self.export()
+
+        self.assertEqual("binding-frontier-stale", raised.exception.code)
+        self.assertEqual({}, self.output_files())
+
+    def test_binding_frontier_requires_an_explicit_atom_id_in_control_metadata(self) -> None:
+        self.write("001_CORE_META_MODEL/04_requirement/CA-R-001--active.md", carrier("CA-R-001"))
+        entrypoint = "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/NO_ID_TOOL/no_id.py"
+        member = self.root / entrypoint
+        member.parent.mkdir(parents=True, exist_ok=True)
+        member.write_bytes(b"VALUE = 1\n")
+        source = carrier("CA-D-012", content_role="Delivery", body=f"```toml\n[tool_binding]\nentrypoint = \"{entrypoint}\"\n```\n")
+        self.write_control_delivery(
+            "003_PROJECT_CONFIGURATION/201_FEATURE_TOOLS/NO_ID_TOOL/CA-D-012--tool.md",
+            source.replace(b"atom_id: CA-D-012\n", b""),
+        )
+
+        with self.assertRaises(exporter.MethodologyExportError) as raised:
+            self.freeze([{"atom_id": "CA-R-001", "version": 1}])
+
+        self.assertEqual("binding-source-identity-invalid", raised.exception.code)
+
+    def test_actual_control_frontier_contains_required_tool_bindings_without_using_methodology_source_layout(self) -> None:
+        project = Path(__file__).resolve().parents[5]
+        source = project / exporter.compiler.methodology_paths(project).source
+        binding = exporter.reopen_project_export_binding(project, source)
+
+        frontier = exporter._binding_frontier(binding)
+
+        by_id = {item.atom_id: item for item in frontier}
+        self.assertTrue({"CA-D-591", "CA-D-602", "CA-D-620"}.issubset(by_id))
+        d620 = by_id["CA-D-620"]
+        self.assertEqual(
+            ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/204_FEATURE_MCP/07_delivery/CA-D-620-MCP-DELIVERY--expose-direct-framework-runtime-installation.md",
+            d620.source_path,
+        )
+        self.assertEqual(1, d620.version)
+
     def test_configured_extension_revision_is_frozen_and_unselected_revision_is_excluded(self) -> None:
         self.write_instance(b'[extensions.demo]\nenabled = true\nrevision = "v2"\n')
         self.write("002_INSTALLED_EXTENSIONS/demo/v1/04_requirement/CA-R-010--v1.md", carrier("CA-R-010"))
@@ -271,6 +431,8 @@ class MethodologyExportTest(unittest.TestCase):
         frozen = self.freeze([{"atom_id": "CA-R-001", "version": 1}])
         legacy = dict(frozen)
         legacy.pop("project_binding")
+        legacy.pop("binding_atoms")
+        legacy.pop("framework_engine_inventory_sha256")
         legacy["schema"] = exporter.LEGACY_FROZEN_SCHEMA
         legacy["sha256"] = exporter._checksum(legacy)
         self.manifest_path.write_bytes(exporter.frozen_manifest_bytes(legacy))
@@ -293,6 +455,8 @@ class MethodologyExportTest(unittest.TestCase):
         inventory = json.loads(inventory_path.read_text(encoding="utf-8"))
         legacy = dict(inventory["frozen_manifest"])
         legacy.pop("project_binding")
+        legacy.pop("binding_atoms")
+        legacy.pop("framework_engine_inventory_sha256")
         legacy["schema"] = exporter.LEGACY_FROZEN_SCHEMA
         legacy["sha256"] = exporter._checksum(legacy)
         inventory["frozen_manifest"] = legacy

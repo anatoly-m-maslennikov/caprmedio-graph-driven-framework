@@ -106,7 +106,13 @@ class PortablePackageFixture:
             "[[scope_units]]\n"
             'scope_unit_name = "METHODOLOGY_SOURCES"\n'
             f'authority_path = "{CANONICAL_SOURCE_RELATIVE}"\n'
+            'delivery_path = ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY"\n\n'
+            "[[scope_units]]\n"
+            'scope_unit_name = "FRAMEWORK_ENGINE"\n'
+            'authority_path = ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE"\n'
+            'delivery_path = "102_FRAMEWORK_ENGINE"\n'
         ).encode())
+        (self.root / ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE").mkdir()
         self.write(".caprmedio_caprmedio/caprmedio_project_settings.toml", b'[paths]\ncontrol_root = ".caprmedio_caprmedio"\n')
         # D359 has one instance-settings carrier below the selected Project
         # control root.  It must exist before candidate observation/freezing;

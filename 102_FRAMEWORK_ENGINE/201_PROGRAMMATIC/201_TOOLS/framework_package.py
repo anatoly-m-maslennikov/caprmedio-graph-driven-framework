@@ -9,17 +9,22 @@ INSTALL_TOOLS facade remains responsible for gated publication of its separate
 from __future__ import annotations
 
 import hashlib
+import importlib.util
 import json
 import os
+import re
 import shutil
+import sys
 import tempfile
 import tomllib
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, Mapping
+from typing import Any, Mapping, Sequence
 
 
 SCHEMA_VERSION = 1
+PACKAGE_MANIFEST_SCHEMA_VERSION = 2
+HISTORICAL_PACKAGE_MANIFEST_SCHEMA_VERSION = 1
 PACKAGE_NAME = "caprmedio-framework"
 MANIFEST_NAME = "manifest.toml"
 CATALOG_NAME = "catalog.toml"
@@ -31,7 +36,7 @@ ADMISSIONS_ROOT = Path("admissions")
 REQUIRED_TOP_LEVEL_FILES = ("pyproject.toml", "uv.lock", "version.toml", CATALOG_NAME)
 SHA256_LENGTH = 64
 _SHA256_CHARACTERS = frozenset("0123456789abcdef")
-_CATALOG_KINDS = frozenset({"core", "methodology", "support", "extension", "configuration"})
+_CATALOG_KINDS = frozenset({"core", "methodology", "support", "extension", "configuration", "binding"})
 _CATALOG_VISIBILITIES = frozenset({"public", "private"})
 _ROLES = frozenset(
     {
@@ -43,6 +48,7 @@ _ROLES = frozenset(
         "skill",
         "methodology",
         "methodology-support",
+        "binding-projection",
         "source-admission",
     }
 )
@@ -92,6 +98,39 @@ class PackageInventoryRow:
 
 
 @dataclass(frozen=True)
+class PackageBindingAtom:
+    """One source-bound Tool declaration sealed into the package manifest."""
+
+    atom_id: str
+    version: int
+    source_path: str
+    sha256: str
+
+    def record(self) -> dict[str, object]:
+        return {
+            "atom_id": self.atom_id,
+            "sha256": self.sha256,
+            "source_path": self.source_path,
+            "version": self.version,
+        }
+
+
+@dataclass(frozen=True)
+class VerifiedBindingProjection:
+    """One physically reopened, inverse-verified package discovery record."""
+
+    atom_id: str
+    version: int
+    source_path: str
+    source_sha256: str
+    tool_binding: Mapping[str, object]
+    source_payload: bytes
+    projection_member: str
+    projection_sha256: str
+    mode: int
+
+
+@dataclass(frozen=True)
 class VerifiedFrameworkPackage:
     """The typed handoff for later gated package-selection and installation."""
 
@@ -101,6 +140,7 @@ class VerifiedFrameworkPackage:
     framework_version: str
     version_toml_sha256: str
     source_catalog_sha256: str
+    binding_atoms: tuple[PackageBindingAtom, ...] = ()
 
 
 @dataclass(frozen=True)
@@ -194,6 +234,48 @@ def _read_toml_bytes(payload: bytes, *, code: str, subject: str) -> dict[str, An
     return parsed
 
 
+def _binding_atom_records(value: object, *, code: str) -> tuple[PackageBindingAtom, ...]:
+    if not isinstance(value, Sequence) or isinstance(value, (str, bytes)):
+        raise FrameworkPackageError(code, "binding_atoms must be an ordered list")
+    atoms: list[PackageBindingAtom] = []
+    for raw in value:
+        if not isinstance(raw, Mapping) or set(raw) != {"atom_id", "version", "source_path", "sha256"}:
+            raise FrameworkPackageError(code, "binding_atoms row has an invalid closed schema")
+        atom_id, version, digest = raw.get("atom_id"), raw.get("version"), raw.get("sha256")
+        relative = _safe_relative(raw.get("source_path"), "binding_atoms.source_path", code=code)
+        _check_visible_path(relative)
+        if not isinstance(atom_id, str) or not atom_id or type(version) is not int or version < 1 or not _is_sha256(digest):
+            raise FrameworkPackageError(code, "binding_atoms row is invalid")
+        atoms.append(PackageBindingAtom(atom_id, version, relative.as_posix(), digest))
+    ordered = tuple(sorted(atoms, key=lambda atom: atom.source_path))
+    if tuple(atoms) != ordered:
+        raise FrameworkPackageError(code, "binding_atoms must be source-path ordered")
+    if len({atom.source_path for atom in atoms}) != len(atoms) or len({(atom.atom_id, atom.version) for atom in atoms}) != len(atoms):
+        raise FrameworkPackageError(code, "binding_atoms must identify unique source revisions")
+    return ordered
+
+
+def _methodology_export_module() -> Any:
+    """Load the canonical binding projection codec from the packaged Engine."""
+
+    module_name = "caprmedio_framework_package_methodology_export"
+    existing = sys.modules.get(module_name)
+    if existing is not None:
+        return existing
+    path = Path(__file__).resolve().parent / "COMPILE_APPLICABLE_METHODOLOGY" / "methodology_export.py"
+    spec = importlib.util.spec_from_file_location(module_name, path)
+    if spec is None or spec.loader is None:
+        raise FrameworkPackageError("binding-projection-reader-unavailable", "canonical binding projection reader is unavailable")
+    module = importlib.util.module_from_spec(spec)
+    sys.modules[module_name] = module
+    try:
+        spec.loader.exec_module(module)
+    except Exception as error:
+        sys.modules.pop(module_name, None)
+        raise FrameworkPackageError("binding-projection-reader-unavailable", "canonical binding projection reader is unavailable") from error
+    return module
+
+
 def _walk_regular_files(root: Path, *, code_prefix: str) -> tuple[Path, ...]:
     if root.is_symlink():
         raise FrameworkPackageError(f"{code_prefix}-symlink", f"package root is a symlink: {root}")
@@ -246,6 +328,8 @@ def _role_for(relative: Path) -> str:
         if relative.parent == ADMISSIONS_ROOT and relative.suffix == ".json" and _is_sha256(relative.stem):
             return "source-admission"
         raise FrameworkPackageError("package-extra-member", f"unadmitted source admission member: {relative.as_posix()}")
+    if relative.is_relative_to(METHODOLOGY_ROOT / "bindings"):
+        return "binding-projection"
     if relative.is_relative_to(METHODOLOGY_ROOT / "support"):
         return "methodology-support"
     if relative.is_relative_to(METHODOLOGY_ROOT):
@@ -329,6 +413,8 @@ def read_source_catalog_records(payload: bytes) -> tuple[tuple[str, Mapping[str,
             raise FrameworkPackageError("catalog-invalid", f"catalog source selection is invalid: {identity}")
         if visibility == "private" and selection_default:
             raise FrameworkPackageError("catalog-invalid", f"private catalog source cannot be a default: {identity}")
+        if kind == "binding" and selection_default:
+            raise FrameworkPackageError("catalog-invalid", f"binding projection source cannot be a default: {identity}")
         relative = _safe_relative(raw.get("path"), f"source.{identity}.path", code="catalog-invalid")
         _check_visible_path(relative)
         if (
@@ -447,7 +533,14 @@ def _validate_methodology_catalog_partition(
     for identity, record in records:
         kind = str(record["kind"])
         relative = _safe_relative(record["path"], f"source.{identity}.path", code="catalog-invalid")
-        if kind == "configuration":
+        if kind == "binding":
+            expected = METHODOLOGY_ROOT / "bindings"
+            if relative != expected:
+                raise FrameworkPackageError(
+                    "catalog-topology-invalid",
+                    f"binding-projection root is not {expected.as_posix()}: {identity}",
+                )
+        elif kind == "configuration":
             expected = METHODOLOGY_ROOT / "active" / "003_PROJECT_CONFIGURATION"
             if relative != expected:
                 raise FrameworkPackageError(
@@ -463,6 +556,10 @@ def _validate_methodology_catalog_partition(
                 )
         if kind in compiler_kinds:
             compiler_roots.append(relative)
+
+    binding_records = [record for _identity, record in records if record["kind"] == "binding"]
+    if len(binding_records) > 1:
+        raise FrameworkPackageError("catalog-topology-invalid", "catalog has more than one binding-projection root")
 
     for index, left in enumerate(compiler_roots):
         for right in compiler_roots[index + 1:]:
@@ -546,6 +643,7 @@ def _validate_complete_layout(
     paths: set[str],
     rows: tuple[PackageInventoryRow, ...],
     catalog_records: tuple[tuple[str, Mapping[str, Any]], ...],
+    binding_atoms: tuple[PackageBindingAtom, ...],
 ) -> None:
     """Reapply D596 completeness to both source assembly and reopened bytes."""
 
@@ -562,6 +660,12 @@ def _validate_complete_layout(
     ):
         if not by_role[role]:
             raise FrameworkPackageError("package-incomplete", f"{label} is missing")
+    binding_catalog = [record for _identity, record in catalog_records if record["kind"] == "binding"]
+    if bool(binding_atoms) != bool(binding_catalog) or bool(binding_atoms) != bool(by_role["binding-projection"]):
+        raise FrameworkPackageError(
+            "binding-frontier-mismatch",
+            "binding catalog and projection inventory must exist exactly when binding_atoms is nonempty",
+        )
     expected_admissions = {
         _admission_member_path(str(record["admission_receipt_sha256"])).as_posix()
         for _, record in catalog_records
@@ -587,12 +691,16 @@ def _validate_complete_layout(
             # every retained active byte has one exact catalog descriptor.
             "methodology": frozenset({"methodology", "extension", "configuration"}),
             "methodology-support": frozenset({"support"}),
+            "binding-projection": frozenset({"binding"}),
         }.get(row.role)
         if catalog_kinds is not None and not _catalog_covers(relative, kinds=catalog_kinds, records=catalog_records):
             raise FrameworkPackageError("catalog-incomplete", f"catalog does not admit package member: {row.path}")
 
 
-def _source_inventory(root: Path) -> tuple[tuple[PackageInventoryRow, ...], str, str, str]:
+def _source_inventory(
+    root: Path,
+    binding_atoms: tuple[PackageBindingAtom, ...],
+) -> tuple[tuple[PackageInventoryRow, ...], str, str, str]:
     files = _walk_regular_files(root, code_prefix="package")
     by_relative = {file.relative_to(root).as_posix(): file for file in files}
     missing = [name for name in REQUIRED_TOP_LEVEL_FILES if name not in by_relative]
@@ -612,7 +720,7 @@ def _source_inventory(root: Path) -> tuple[tuple[PackageInventoryRow, ...], str,
     )
     if MANIFEST_NAME in by_relative:
         raise FrameworkPackageError("package-manifest-source", "source package must not carry a self-hashing manifest")
-    _validate_complete_layout(set(by_relative), rows, catalog_records)
+    _validate_complete_layout(set(by_relative), rows, catalog_records, binding_atoms)
     version_payload = by_relative["version.toml"].read_bytes()
     return rows, _version_from_toml(version_payload), _sha256(version_payload), _sha256(catalog_path.read_bytes())
 
@@ -623,15 +731,29 @@ def _render_manifest(
     version_toml_sha256: str,
     source_catalog_sha256: str,
     rows: tuple[PackageInventoryRow, ...],
+    binding_atoms: tuple[PackageBindingAtom, ...] = (),
 ) -> bytes:
     lines = [
-        f"schema_version = {SCHEMA_VERSION}",
+        f"schema_version = {PACKAGE_MANIFEST_SCHEMA_VERSION}",
         f"package = {_quoted(PACKAGE_NAME)}",
         f"framework_version = {_quoted(framework_version)}",
         f"version_toml_sha256 = {_quoted(version_toml_sha256)}",
         f"source_catalog_sha256 = {_quoted(source_catalog_sha256)}",
         "",
     ]
+    if not binding_atoms:
+        lines.extend(["binding_atoms = []", ""])
+    for atom in binding_atoms:
+        lines.extend(
+            [
+                "[[binding_atoms]]",
+                f"atom_id = {_quoted(atom.atom_id)}",
+                f"version = {atom.version}",
+                f"source_path = {_quoted(atom.source_path)}",
+                f"sha256 = {_quoted(atom.sha256)}",
+                "",
+            ]
+        )
     for row in rows:
         lines.extend(
             [
@@ -646,17 +768,33 @@ def _render_manifest(
     return "\n".join(lines).encode("utf-8")
 
 
-def _manifest_inventory(payload: bytes) -> tuple[tuple[PackageInventoryRow, ...], str, str, str]:
+def _manifest_inventory(
+    payload: bytes,
+) -> tuple[tuple[PackageInventoryRow, ...], str, str, str, tuple[PackageBindingAtom, ...]]:
     document = _read_toml_bytes(payload, code="package-manifest-invalid", subject=MANIFEST_NAME)
-    if set(document) != {"schema_version", "package", "framework_version", "version_toml_sha256", "source_catalog_sha256", "files"}:
+    schema = document.get("schema_version")
+    historical_keys = {"schema_version", "package", "framework_version", "version_toml_sha256", "source_catalog_sha256", "files"}
+    current_keys = historical_keys | {"binding_atoms"}
+    if type(schema) is not int or schema not in {
+        HISTORICAL_PACKAGE_MANIFEST_SCHEMA_VERSION,
+        PACKAGE_MANIFEST_SCHEMA_VERSION,
+    }:
+        raise FrameworkPackageError("package-manifest-invalid", "manifest schema version is invalid")
+    expected_keys = historical_keys if schema == HISTORICAL_PACKAGE_MANIFEST_SCHEMA_VERSION else current_keys
+    if set(document) != expected_keys:
         raise FrameworkPackageError("package-manifest-invalid", "manifest.toml has an invalid closed root schema")
-    if not _is_schema_version(document.get("schema_version")) or document.get("package") != PACKAGE_NAME:
+    if document.get("package") != PACKAGE_NAME:
         raise FrameworkPackageError("package-manifest-invalid", "manifest identity is invalid")
     framework_version = document.get("framework_version")
     version_digest = document.get("version_toml_sha256")
     catalog_digest = document.get("source_catalog_sha256")
     if not isinstance(framework_version, str) or not framework_version or not _is_sha256(version_digest) or not _is_sha256(catalog_digest):
         raise FrameworkPackageError("package-manifest-invalid", "manifest version or catalog identity is invalid")
+    binding_atoms = (
+        ()
+        if schema == HISTORICAL_PACKAGE_MANIFEST_SCHEMA_VERSION
+        else _binding_atom_records(document.get("binding_atoms"), code="package-manifest-invalid")
+    )
     raw_rows = document.get("files")
     if not isinstance(raw_rows, list) or not raw_rows:
         raise FrameworkPackageError("package-manifest-invalid", "manifest file inventory is missing")
@@ -674,7 +812,141 @@ def _manifest_inventory(payload: bytes) -> tuple[tuple[PackageInventoryRow, ...]
     ordered = tuple(sorted(rows, key=lambda row: row.path))
     if tuple(rows) != ordered or len({row.path for row in rows}) != len(rows):
         raise FrameworkPackageError("package-manifest-invalid", "manifest rows must be path-ordered and unique")
-    return ordered, framework_version, version_digest, catalog_digest
+    if schema == HISTORICAL_PACKAGE_MANIFEST_SCHEMA_VERSION and any(row.role == "binding-projection" for row in rows):
+        raise FrameworkPackageError("package-manifest-invalid", "historical manifest cannot carry binding projections")
+    return ordered, framework_version, version_digest, catalog_digest, binding_atoms
+
+
+def _binding_tool_mapping(source: bytes, source_path: str, codec: Any) -> Mapping[str, object]:
+    """Return the one closed declaration already accepted by the exporter codec."""
+
+    try:
+        expected_entrypoint = codec._tool_entrypoint(source, source_path)
+    except codec.MethodologyExportError as error:
+        raise FrameworkPackageError(error.code, str(error)) from error
+    if expected_entrypoint is None:
+        raise FrameworkPackageError("binding-projection-invalid", "binding source has no Tool declaration")
+    declarations: list[Mapping[str, object]] = []
+    for block in re.findall(rb"(?ms)^```toml\n(.*?)^```\s*$", source):
+        try:
+            value = tomllib.loads(block.decode("utf-8"))
+        except (UnicodeDecodeError, tomllib.TOMLDecodeError):
+            continue
+        binding = value.get("tool_binding") if isinstance(value, Mapping) else None
+        if isinstance(binding, Mapping):
+            declarations.append(dict(binding))
+    if len(declarations) != 1 or declarations[0].get("entrypoint") != expected_entrypoint:
+        raise FrameworkPackageError("binding-projection-invalid", "binding source Tool declaration is ambiguous")
+    return declarations[0]
+
+
+def _validate_binding_source_metadata(source: bytes, atom: PackageBindingAtom, codec: Any) -> None:
+    """Bind an inverse-recovered Carrier to its observed authoritative metadata."""
+
+    try:
+        frontmatter, _ = codec.compiler.split_frontmatter(source, atom.source_path)
+        explicit_atom_id = codec.compiler.top_scalar(frontmatter, "atom_id")
+        observed_atom_id = codec.compiler.derive_atom_id(Path(atom.source_path), frontmatter)
+        observed_version = codec.compiler.top_scalar(frontmatter, "version")
+        observed_status = codec.compiler.top_scalar(frontmatter, "status")
+        observed_role = codec.compiler.top_scalar(frontmatter, "content_role")
+    except codec.compiler.CompileError as error:
+        raise FrameworkPackageError(error.code, error.message) from error
+    if explicit_atom_id != atom.atom_id or observed_atom_id != atom.atom_id:
+        raise FrameworkPackageError("binding-projection-source-metadata-mismatch", "binding source Atom ID differs from its frozen pin")
+    if observed_version is None or re.fullmatch(r"[1-9][0-9]*", observed_version) is None or int(observed_version) != atom.version:
+        raise FrameworkPackageError("binding-projection-source-metadata-mismatch", "binding source Version differs from its frozen pin")
+    if observed_status != "Active" or observed_role != "Delivery":
+        raise FrameworkPackageError("binding-projection-source-metadata-mismatch", "binding source must be an Active Delivery Atom")
+
+
+def _regular_engine_member(root: Path, value: object) -> None:
+    relative = _safe_relative(value, "tool_binding.entrypoint", code="binding-projection-invalid")
+    if not relative.is_relative_to(ENGINE_ROOT):
+        raise FrameworkPackageError("binding-projection-invalid", "binding entrypoint is outside the packaged Engine")
+    cursor = root
+    for part in relative.parts:
+        cursor = cursor / part
+        try:
+            cursor.lstat()
+        except OSError as error:
+            raise FrameworkPackageError("binding-projection-invalid", "binding entrypoint is absent from the packaged Engine") from error
+        if cursor.is_symlink():
+            raise FrameworkPackageError("binding-projection-invalid", "binding entrypoint has a symlinked package ancestor")
+    if not cursor.is_file():
+        raise FrameworkPackageError("binding-projection-invalid", "binding entrypoint is not a regular packaged Engine member")
+
+
+def _binding_projection_records(
+    root: Path,
+    binding_atoms: tuple[PackageBindingAtom, ...],
+    inventory: tuple[PackageInventoryRow, ...],
+) -> tuple[VerifiedBindingProjection, ...]:
+    rows = {row.path: row for row in inventory if row.role == "binding-projection"}
+    expected_paths = {
+        (METHODOLOGY_ROOT / "bindings" / atom.source_path).as_posix()
+        for atom in binding_atoms
+    }
+    if set(rows) != expected_paths:
+        raise FrameworkPackageError("binding-frontier-mismatch", "binding projections do not exactly cover binding_atoms")
+    if not binding_atoms:
+        return ()
+    codec = _methodology_export_module()
+    verified: list[VerifiedBindingProjection] = []
+    claimed_names: set[str] = set()
+    claimed_mcp_names: set[str] = set()
+    claimed_actions: set[str] = set()
+    for atom in binding_atoms:
+        relative = METHODOLOGY_ROOT / "bindings" / atom.source_path
+        projected = (root / relative).read_bytes()
+        marker = b"\nprojection:\n"
+        if projected.count(marker) != 1:
+            raise FrameworkPackageError("binding-projection-invalid", "binding projection lacks one canonical metadata insertion")
+        start = projected.index(marker)
+        boundary = projected.find(b"\n---\n", start + len(marker))
+        if boundary < 0:
+            raise FrameworkPackageError("binding-projection-invalid", "binding projection has no canonical frontmatter boundary")
+        source = projected[:start] + projected[boundary:]
+        if _sha256(source) != atom.sha256:
+            raise FrameworkPackageError("binding-projection-source-mismatch", "binding projection inverse differs from its frozen source pin")
+        _validate_binding_source_metadata(source, atom, codec)
+        binding = codec.BindingAtom(atom.source_path, atom.atom_id, atom.version, atom.sha256)
+        try:
+            if codec.binding_projection_bytes(source, binding) != projected:
+                raise FrameworkPackageError("binding-projection-invalid", "binding projection is not canonical")
+            codec.validate_binding_projection_source_preservation(source, projected, binding)
+        except codec.MethodologyExportError as error:
+            raise FrameworkPackageError(error.code, str(error)) from error
+        declaration = _binding_tool_mapping(source, atom.source_path, codec)
+        _regular_engine_member(root, declaration.get("entrypoint"))
+        name, mcp_name = declaration.get("name"), declaration.get("mcp_name")
+        action_ids = declaration.get("action_ids", [])
+        if name is not None and (not isinstance(name, str) or not name or name in claimed_names):
+            raise FrameworkPackageError("binding-projection-duplicate-claim", "binding projections repeat or invalidate a Tool name")
+        if mcp_name is not None and (not isinstance(mcp_name, str) or not mcp_name or mcp_name in claimed_mcp_names):
+            raise FrameworkPackageError("binding-projection-duplicate-claim", "binding projections repeat or invalidate an MCP name")
+        if not isinstance(action_ids, list) or any(not isinstance(action, str) or not action for action in action_ids) or claimed_actions.intersection(action_ids):
+            raise FrameworkPackageError("binding-projection-duplicate-claim", "binding projections repeat or invalidate an Action claim")
+        if isinstance(name, str):
+            claimed_names.add(name)
+        if isinstance(mcp_name, str):
+            claimed_mcp_names.add(mcp_name)
+        claimed_actions.update(action_ids)
+        row = rows[relative.as_posix()]
+        verified.append(
+            VerifiedBindingProjection(
+                atom.atom_id,
+                atom.version,
+                atom.source_path,
+                atom.sha256,
+                declaration,
+                source,
+                relative.as_posix(),
+                row.sha256,
+                row.mode,
+            )
+        )
+    return tuple(verified)
 
 
 def _verify_package_tree(root: Path, *, require_content_addressed_name: bool) -> VerifiedFrameworkPackage:
@@ -684,7 +956,7 @@ def _verify_package_tree(root: Path, *, require_content_addressed_name: bool) ->
     if manifest.is_symlink() or not manifest.is_file():
         raise FrameworkPackageError("package-manifest-missing", f"package manifest is unavailable: {manifest}")
     manifest_bytes = manifest.read_bytes()
-    inventory, framework_version, version_digest, catalog_digest = _manifest_inventory(manifest_bytes)
+    inventory, framework_version, version_digest, catalog_digest, binding_atoms = _manifest_inventory(manifest_bytes)
     manifest_digest = _sha256(manifest_bytes)
     if require_content_addressed_name and root.name != manifest_digest:
         raise FrameworkPackageError("package-digest-mismatch", "release directory name differs from manifest bytes digest")
@@ -714,11 +986,25 @@ def _verify_package_tree(root: Path, *, require_content_addressed_name: bool) ->
     if _sha256(catalog.read_bytes()) != catalog_digest:
         raise FrameworkPackageError("package-catalog-mismatch", "package catalog differs from manifest")
     catalog_records = _validate_catalog(root, catalog.read_bytes())
-    _validate_complete_layout(actual_paths - {MANIFEST_NAME}, inventory, catalog_records)
-    return VerifiedFrameworkPackage(manifest_digest, root, inventory, framework_version, version_digest, catalog_digest)
+    _validate_complete_layout(actual_paths - {MANIFEST_NAME}, inventory, catalog_records, binding_atoms)
+    _binding_projection_records(root, binding_atoms, inventory)
+    return VerifiedFrameworkPackage(
+        manifest_digest,
+        root,
+        inventory,
+        framework_version,
+        version_digest,
+        catalog_digest,
+        binding_atoms,
+    )
 
 
-def assemble_framework_package(source_root: Path | str, releases_root: Path | str) -> VerifiedFrameworkPackage:
+def assemble_framework_package(
+    source_root: Path | str,
+    releases_root: Path | str,
+    *,
+    binding_atoms: Sequence[Mapping[str, object]] = (),
+) -> VerifiedFrameworkPackage:
     """Copy a closed source assembly into one content-addressed package release.
 
     ``source_root`` is a preselected, non-checkout payload assembly.  The
@@ -728,12 +1014,14 @@ def assemble_framework_package(source_root: Path | str, releases_root: Path | st
 
     source = _lexical_root(source_root, field="source_root", must_exist=True)
     releases = _lexical_root(releases_root, field="releases_root", must_exist=False)
-    rows, framework_version, version_digest, catalog_digest = _source_inventory(source)
+    frozen_bindings = _binding_atom_records(binding_atoms, code="binding-frontier-invalid")
+    rows, framework_version, version_digest, catalog_digest = _source_inventory(source, frozen_bindings)
     manifest = _render_manifest(
         framework_version=framework_version,
         version_toml_sha256=version_digest,
         source_catalog_sha256=catalog_digest,
         rows=rows,
+        binding_atoms=frozen_bindings,
     )
     manifest_digest = _sha256(manifest)
     if releases.is_symlink():
@@ -789,6 +1077,19 @@ def verify_framework_package(package_root: Path | str) -> VerifiedFrameworkPacka
 
     root = _lexical_root(package_root, field="package_root", must_exist=True)
     return _verify_package_tree(root, require_content_addressed_name=True)
+
+
+def read_verified_binding_projections(
+    package: VerifiedFrameworkPackage,
+) -> tuple[VerifiedBindingProjection, ...]:
+    """Reopen one verified package and return only physical binding evidence."""
+
+    if not isinstance(package, VerifiedFrameworkPackage):
+        raise FrameworkPackageError("binding-package-invalid", "binding discovery requires a typed verified package")
+    reopened = verify_framework_package(package.root)
+    if reopened != package:
+        raise FrameworkPackageError("binding-package-stale", "binding package handoff differs from reopened bytes")
+    return _binding_projection_records(reopened.root, reopened.binding_atoms, reopened.inventory)
 
 
 def verify_current_package_selector(payload: bytes | str, package: VerifiedFrameworkPackage) -> CurrentPackageSelector:
@@ -882,11 +1183,15 @@ __all__ = [
     "FrameworkPackageError",
     "MANIFEST_NAME",
     "PACKAGE_NAME",
+    "PACKAGE_MANIFEST_SCHEMA_VERSION",
+    "PackageBindingAtom",
     "PackageInventoryRow",
     "SCHEMA_VERSION",
     "VerifiedFrameworkPackage",
+    "VerifiedBindingProjection",
     "assemble_framework_package",
     "provide_installation_package_evidence",
+    "read_verified_binding_projections",
     "read_source_catalog_records",
     "verify_current_package_selector",
     "verify_framework_package",

@@ -122,6 +122,30 @@ class PortablePackageRow:
 
 
 @dataclass(frozen=True)
+class PortableBindingAtom:
+    """One frozen raw-source pin for a package-owned binding projection.
+
+    The projection bytes live in ``portable_package_rows``.  This companion
+    fact is intentionally the source lineage the reusable package manifest
+    must retain so its reader can reconstruct and inverse-verify each
+    projection without consulting live Project authority after freezing.
+    """
+
+    atom_id: str
+    version: int
+    source_path: str
+    sha256: str
+
+    def record(self) -> dict[str, object]:
+        return {
+            "atom_id": self.atom_id,
+            "sha256": self.sha256,
+            "source_path": self.source_path,
+            "version": self.version,
+        }
+
+
+@dataclass(frozen=True)
 class SealedPortableCandidateCompilation:
     """Typed, read-only portable package inputs bound to physical evidence."""
 
@@ -131,6 +155,7 @@ class SealedPortableCandidateCompilation:
     portable_package_rows: tuple[PortablePackageRow, ...]
     source_catalog_sha256: str
     input_manifest_sha256: str
+    binding_atoms: tuple[PortableBindingAtom, ...] = ()
 
     @property
     def candidate_snapshot_manifest_sha256(self) -> str:
@@ -162,6 +187,7 @@ class SealedPortableSourceSnapshot:
     candidate: ValidatedCandidate
     private_compilation: SealedPrivateMethodologyCompilation
     portable_package_rows: tuple[PortablePackageRow, ...]
+    binding_atoms: tuple[PortableBindingAtom, ...] = ()
 
 
 def _candidate_run_id(value: object, private: SealedPrivateMethodologyCompilation) -> str:
@@ -186,7 +212,99 @@ def _private_export(root: Path, private: SealedPrivateMethodologyCompilation) ->
         raise _error(str(code), "private Methodology export is not sealed") from error
 
 
-def _private_rows(root: Path, private: SealedPrivateMethodologyCompilation) -> list[PortablePackageRow]:
+def _binding_atoms_and_rows(
+    root: Path,
+    source_root: Path,
+    export: Any,
+) -> tuple[tuple[PortableBindingAtom, ...], list[PortablePackageRow]]:
+    """Return only the exporter-sealed binding lineage and projections.
+
+    Binding projections are derived export artifacts, not compiler inputs and
+    not copies of Active authority carriers.  The export reader has already
+    reopened its seal; this boundary closes the package-facing shape without
+    reopening a live Delivery Atom after the freeze.
+    """
+
+    inventory = export.inventory
+    frozen = inventory.get("frozen_manifest")
+    expected_schema = getattr(_exporter_module(), "FROZEN_SCHEMA", None)
+    if (
+        not isinstance(frozen, Mapping)
+        or frozen.get("schema") != expected_schema
+        or not isinstance(frozen.get("binding_atoms"), list)
+    ):
+        raise _error("portable-contract-binding-frontier-invalid", "sealed export lacks the current frozen binding frontier")
+    atoms: list[PortableBindingAtom] = []
+    for raw in frozen["binding_atoms"]:
+        if not isinstance(raw, Mapping) or set(raw) != {"atom_id", "sha256", "source_path", "version"}:
+            raise _error("portable-contract-binding-frontier-invalid", "frozen binding Atom has an invalid shape")
+        atom_id, version, digest = raw["atom_id"], raw["version"], raw["sha256"]
+        source = _relative(raw["source_path"], field="frozen binding source path")
+        if (
+            not isinstance(atom_id, str)
+            or not atom_id
+            or type(version) is not int
+            or version < 1
+            or not isinstance(digest, str)
+            or len(digest) != 64
+            or any(character not in "0123456789abcdef" for character in digest)
+        ):
+            raise _error("portable-contract-binding-frontier-invalid", "frozen binding Atom has invalid lineage")
+        atoms.append(PortableBindingAtom(atom_id, version, source.as_posix(), digest))
+    ordered_atoms = tuple(sorted(atoms, key=lambda atom: atom.source_path))
+    if (
+        tuple(atoms) != ordered_atoms
+        or len({atom.source_path for atom in ordered_atoms}) != len(ordered_atoms)
+        or len({(atom.atom_id, atom.version) for atom in ordered_atoms}) != len(ordered_atoms)
+    ):
+        raise _error("portable-contract-binding-frontier-invalid", "frozen binding Atom frontier is not canonical")
+
+    raw_rows = inventory.get("bindings")
+    if not isinstance(raw_rows, list) or inventory.get("binding_count") != len(ordered_atoms):
+        raise _error("portable-contract-binding-frontier-invalid", "sealed export binding inventory is incomplete")
+    expected = {atom.source_path: atom for atom in ordered_atoms}
+    rows: list[PortablePackageRow] = []
+    observed: set[str] = set()
+    for raw in raw_rows:
+        if not isinstance(raw, Mapping) or set(raw) != {
+            "atom_id", "destination_path", "digest", "sha256", "source_path", "version",
+        }:
+            raise _error("portable-contract-binding-frontier-invalid", "sealed binding projection row is invalid")
+        source_path = _relative(raw["source_path"], field="sealed binding source path")
+        atom = expected.get(source_path.as_posix())
+        projection = raw["digest"]
+        destination = _relative(raw["destination_path"], field="sealed binding projection path")
+        if (
+            atom is None
+            or raw["atom_id"] != atom.atom_id
+            or raw["version"] != atom.version
+            or raw["sha256"] != atom.sha256
+            or not isinstance(projection, str)
+            or len(projection) != 64
+            or any(character not in "0123456789abcdef" for character in projection)
+            or destination != Path("bindings") / source_path
+            or source_path.as_posix() in observed
+        ):
+            raise _error("portable-contract-binding-frontier-invalid", "sealed binding projection differs from its frozen source pin")
+        observed.add(source_path.as_posix())
+        rows.append(
+            _row(
+                "BINDING_PROJECTION",
+                root,
+                source_root / destination,
+                Path("methodology") / destination,
+                expected_sha256=projection,
+            )
+        )
+    if observed != set(expected):
+        raise _error("portable-contract-binding-frontier-invalid", "sealed binding projections do not cover the frozen frontier")
+    return ordered_atoms, rows
+
+
+def _private_rows(
+    root: Path,
+    private: SealedPrivateMethodologyCompilation,
+) -> tuple[list[PortablePackageRow], tuple[PortableBindingAtom, ...]]:
     export = _private_export(root, private)
     source_root = root / private.methodology_export.source_export_root
     rows: list[PortablePackageRow] = []
@@ -204,10 +322,15 @@ def _private_rows(root: Path, private: SealedPrivateMethodologyCompilation) -> l
             raise _error("portable-contract-export-invalid", "sealed support row is invalid")
         path = _relative(item["path"], field="support source path")
         rows.append(_row("METHODOLOGY_SUPPORT", root, source_root / path, Path("methodology/support") / path, expected_sha256=item["sha256"]))
-    return rows
+    bindings, binding_rows = _binding_atoms_and_rows(root, source_root, export)
+    rows.extend(binding_rows)
+    return rows, bindings
 
 
-def _validate_source_rows(rows: list[PortablePackageRow]) -> tuple[PortablePackageRow, ...]:
+def _validate_source_rows(
+    rows: list[PortablePackageRow],
+    binding_atoms: tuple[PortableBindingAtom, ...],
+) -> tuple[PortablePackageRow, ...]:
     """Close the pre-catalog source shape without interpreting admission."""
 
     ordered = tuple(sorted(rows, key=lambda row: (row.destination_path, row.source_path, row.sha256)))
@@ -222,8 +345,21 @@ def _validate_source_rows(rows: list[PortablePackageRow]) -> tuple[PortablePacka
         "METHODOLOGY",
         "METHODOLOGY_SUPPORT",
     }
+    if binding_atoms:
+        required_resources.add("BINDING_PROJECTION")
     if {row.resource for row in ordered} != required_resources:
         raise _error("portable-contract-incomplete", "portable source rows are incomplete")
+    binding_destinations = {
+        (Path("methodology/bindings") / atom.source_path).as_posix()
+        for atom in binding_atoms
+    }
+    actual_bindings = {
+        row.destination_path
+        for row in ordered
+        if row.resource == "BINDING_PROJECTION"
+    }
+    if actual_bindings != binding_destinations:
+        raise _error("portable-contract-binding-frontier-invalid", "portable binding rows do not exactly cover the frozen frontier")
     return ordered
 
 
@@ -247,6 +383,7 @@ def _logical_digest(rows: tuple[PortablePackageRow, ...], relative: Path) -> str
 def _validate_methodology_catalog_coverage(
     rows: tuple[PortablePackageRow, ...],
     records: tuple[tuple[str, Mapping[str, Any]], ...],
+    binding_atoms: tuple[PortableBindingAtom, ...],
 ) -> None:
     """Require each sealed Methodology row to have one disjoint D561 root.
 
@@ -291,6 +428,19 @@ def _validate_methodology_catalog_coverage(
             if left == right or left.is_relative_to(right) or right.is_relative_to(left):
                 raise _error("catalog-methodology-overlap", "catalog Methodology descriptors overlap")
 
+    binding_records = [
+        record
+        for _identity, record in records
+        if record["kind"] == "binding"
+    ]
+    if bool(binding_atoms) != bool(binding_records) or len(binding_records) > 1:
+        raise _error(
+            "catalog-binding-frontier-mismatch",
+            "catalog binding descriptor must exist exactly when the frozen binding frontier is nonempty",
+        )
+    if binding_records and _relative(binding_records[0]["path"], field="binding catalog path") != Path("methodology/bindings"):
+        raise _error("catalog-topology-invalid", "binding catalog descriptor must cover methodology/bindings")
+
     material_rows = [row for row in rows if row.resource == "METHODOLOGY"]
     if not material_rows:
         raise _error("portable-contract-methodology-incomplete", "sealed portable source snapshot has no Methodology rows")
@@ -301,9 +451,21 @@ def _validate_methodology_catalog_coverage(
             raise _error("catalog-methodology-uncovered", f"catalog does not admit Methodology row: {row.destination_path}")
         if len(matches) != 1:  # Defensive: descriptor overlap is rejected above.
             raise _error("catalog-methodology-overlap", f"catalog admits Methodology row more than once: {row.destination_path}")
+    binding_rows = [row for row in rows if row.resource == "BINDING_PROJECTION"]
+    if bool(binding_rows) != bool(binding_atoms):  # Defensive: source-row validation runs before this reader.
+        raise _error("portable-contract-binding-frontier-invalid", "portable binding rows differ from frozen binding frontier")
+    if binding_records and any(
+        not Path(row.destination_path).is_relative_to(Path("methodology/bindings"))
+        for row in binding_rows
+    ):
+        raise _error("catalog-binding-frontier-mismatch", "binding projection lies outside its catalog root")
 
 
-def _catalog_records(catalog: bytes, rows: tuple[PortablePackageRow, ...]) -> tuple[tuple[str, Mapping[str, Any]], ...]:
+def _catalog_records(
+    catalog: bytes,
+    rows: tuple[PortablePackageRow, ...],
+    binding_atoms: tuple[PortableBindingAtom, ...],
+) -> tuple[tuple[str, Mapping[str, Any]], ...]:
     """Apply the shared closed descriptor reader to planned portable rows."""
 
     try:
@@ -314,7 +476,7 @@ def _catalog_records(catalog: bytes, rows: tuple[PortablePackageRow, ...]) -> tu
         path = _relative(record["path"], field=f"source.{identity}.path")
         if _logical_digest(rows, path) != record["sha256"]:
             raise _error("catalog-source-digest-mismatch", f"catalog source digest differs: {identity}")
-    _validate_methodology_catalog_coverage(rows, records)
+    _validate_methodology_catalog_coverage(rows, records, binding_atoms)
     return records
 
 
@@ -388,6 +550,9 @@ def _validate_rows(rows: list[PortablePackageRow], records: tuple[tuple[str, Map
         "METHODOLOGY",
         "METHODOLOGY_SUPPORT",
     }
+    binding_records = [record for _identity, record in records if record["kind"] == "binding"]
+    if binding_records:
+        expected_resources.add("BINDING_PROJECTION")
     if {row.resource for row in ordered} != expected_resources:
         raise _error("portable-contract-incomplete", "portable package rows are incomplete")
     for row in ordered:
@@ -405,10 +570,19 @@ def _validate_rows(rows: list[PortablePackageRow], records: tuple[tuple[str, Map
                 raise _error("catalog-incomplete", f"catalog does not admit Methodology row: {row.destination_path}")
         if row.resource == "METHODOLOGY_SUPPORT" and not _covered(destination, "support", records):
             raise _error("catalog-incomplete", f"catalog does not admit support row: {row.destination_path}")
+        if row.resource == "BINDING_PROJECTION" and not _covered(destination, "binding", records):
+            raise _error("catalog-incomplete", f"catalog does not admit binding projection row: {row.destination_path}")
     return ordered
 
 
-def _manifest_sha256(run_id: str, candidate: ValidatedCandidate, private: SealedPrivateMethodologyCompilation, catalog: str, rows: tuple[PortablePackageRow, ...]) -> str:
+def _manifest_sha256(
+    run_id: str,
+    candidate: ValidatedCandidate,
+    private: SealedPrivateMethodologyCompilation,
+    catalog: str,
+    rows: tuple[PortablePackageRow, ...],
+    binding_atoms: tuple[PortableBindingAtom, ...],
+) -> str:
     return _digest(canonical_json({
         "candidate_run_id": run_id,
         "candidate_snapshot_manifest_sha256": candidate.manifest.sha256,
@@ -418,6 +592,7 @@ def _manifest_sha256(run_id: str, candidate: ValidatedCandidate, private: Sealed
         "schema": SCHEMA,
         "source_catalog_sha256": catalog,
         "version_toml_sha256": candidate.manifest.version_toml_sha256,
+        "binding_atoms": [atom.record() for atom in binding_atoms],
         "portable_package_rows": [row.record() for row in rows],
     }))
 
@@ -454,12 +629,14 @@ def collect_portable_source_snapshot(
     rows.append(_row("PACKAGE_CONTROL", root, root / VERSION, VERSION, expected_sha256=current.manifest.version_toml_sha256))
     for file in _regular_tree(root, DEFAULTS_ROOT, code="portable-contract-defaults-missing"):
         rows.append(_row("DEFAULT", root, file, file.relative_to(root)))
-    rows.extend(_private_rows(root, observed_private))
+    private_rows, binding_atoms = _private_rows(root, observed_private)
+    rows.extend(private_rows)
     return SealedPortableSourceSnapshot(
         candidate_run_id=run_id,
         candidate=current,
         private_compilation=observed_private,
-        portable_package_rows=_validate_source_rows(rows),
+        portable_package_rows=_validate_source_rows(rows, binding_atoms),
+        binding_atoms=binding_atoms,
     )
 
 
@@ -496,7 +673,7 @@ def seal_portable_source_snapshot(
     catalog_row = _row("CATALOG", root, catalog_file, CATALOG, expected_sha256=catalog_digest)
     rows = [*source_snapshot.portable_package_rows, catalog_row]
     provisional = tuple(sorted(rows, key=lambda row: (row.destination_path, row.source_path, row.sha256)))
-    records = _catalog_records(catalog_bytes, provisional)
+    records = _catalog_records(catalog_bytes, provisional, source_snapshot.binding_atoms)
     rows.extend(_admission_rows(root, records))
     sealed_rows = _validate_rows(rows, records)
     return SealedPortableCandidateCompilation(
@@ -511,7 +688,9 @@ def seal_portable_source_snapshot(
             source_snapshot.private_compilation,
             catalog_digest,
             sealed_rows,
+            source_snapshot.binding_atoms,
         ),
+        binding_atoms=source_snapshot.binding_atoms,
     )
 
 
@@ -549,6 +728,7 @@ def revalidate_sealed_portable_compilation(value: SealedPortableCandidateCompila
 
 __all__ = [
     "PortablePackageRow",
+    "PortableBindingAtom",
     "SCHEMA",
     "SealedPortableCandidateCompilation",
     "SealedPortableSourceSnapshot",

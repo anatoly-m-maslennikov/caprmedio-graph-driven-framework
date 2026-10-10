@@ -132,7 +132,7 @@ class PortableReleaseSuiteTests(unittest.TestCase):
         self.assertEqual(boolean.exception.code, "release-suite-evidence-untrusted")
 
     def test_current_reverification_refuses_portable_source_drift(self) -> None:
-        defaults = self.fixture.root / "defaults/runtime.toml"
+        defaults = self.fixture.root / "defaults/runtime-config.toml"
         defaults.write_bytes(defaults.read_bytes() + b"changed = true\n")
 
         with self.assertRaises(ReleaseContractError) as raised:

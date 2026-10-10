@@ -28,6 +28,7 @@ from framework_package import (  # noqa: E402
     FrameworkPackageError,
     assemble_framework_package,
     provide_installation_package_evidence,
+    read_verified_binding_projections,
     read_source_catalog_records,
     verify_current_package_selector,
     verify_framework_package,
@@ -76,11 +77,13 @@ class FrameworkPackageTests(unittest.TestCase):
         return target
 
     def _write_catalog(self, *, revision: str | None = None) -> None:
-        source_rows = (
+        source_rows = [
             ("local-core", "core", "102_FRAMEWORK_ENGINE"),
             ("core-meta-model", "methodology", "methodology/active/001_CORE_META_MODEL"),
             ("methodology-support", "support", "methodology/support"),
-        )
+        ]
+        if (self.source / "methodology/bindings").is_dir():
+            source_rows.append(("tool-bindings", "binding", "methodology/bindings"))
         descriptor_rows = tuple(sorted((
             {
                 "identity": identity,
@@ -116,6 +119,61 @@ class FrameworkPackageTests(unittest.TestCase):
             )
         self._write("catalog.toml", ("\n".join(lines) + "\n").encode("utf-8"))
 
+    def _binding_frontier(self) -> tuple[dict[str, object], ...]:
+        codec = package_library._methodology_export_module()
+        rows: list[dict[str, object]] = []
+        for suffix, action in (("901", "CA-O-901"), ("902", "CA-O-902")):
+            atom_id = f"CA-D-{suffix}"
+            source_path = f".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/fixture/07_delivery/{atom_id}--binding.md"
+            payload = (
+                "---\n"
+                f"atom_id: {atom_id}\n"
+                "content_role: Delivery\n"
+                "current_scope_unit: TOOLS\n"
+                "status: Active\n"
+                "author: fixture\n"
+                "version: 1\n"
+                "relations:\n"
+                "  delivery_for: [CA-R-001]\n"
+                "---\n"
+                f"# {atom_id}\n\n"
+                "```toml\n"
+                "[tool_binding]\n"
+                f'name = "FIXTURE_{suffix}"\n'
+                'entrypoint = "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/tool.py"\n'
+                f'mcp_name = "fixture_{suffix}"\n'
+                f'action_ids = ["{action}"]\n'
+                "```\n"
+            ).encode("utf-8")
+            row = {"atom_id": atom_id, "version": 1, "source_path": source_path, "sha256": _sha256(payload)}
+            binding = codec.BindingAtom(source_path, atom_id, 1, row["sha256"])
+            self._write(f"methodology/bindings/{source_path}", codec.binding_projection_bytes(payload, binding))
+            rows.append(row)
+        self._write_catalog()
+        return tuple(rows)
+
+    def _replace_first_binding_source(
+        self,
+        frontier: tuple[dict[str, object], ...],
+        expected: bytes,
+        replacement: bytes,
+    ) -> tuple[dict[str, object], ...]:
+        codec = package_library._methodology_export_module()
+        rows = [dict(row) for row in frontier]
+        row = rows[0]
+        member = self.source / f"methodology/bindings/{row['source_path']}"
+        projected = member.read_bytes()
+        start = projected.index(b"\nprojection:\n")
+        boundary = projected.index(b"\n---\n", start)
+        source = projected[:start] + projected[boundary:]
+        changed = source.replace(expected, replacement, 1)
+        self.assertNotEqual(changed, source)
+        row["sha256"] = _sha256(changed)
+        binding = codec.BindingAtom(row["source_path"], row["atom_id"], row["version"], row["sha256"])
+        member.write_bytes(codec.binding_projection_bytes(changed, binding))
+        self._write_catalog()
+        return tuple(rows)
+
     def _catalog_records(self) -> tuple[tuple[str, object], ...]:
         return read_source_catalog_records((self.source / "catalog.toml").read_bytes())
 
@@ -143,6 +201,7 @@ class FrameworkPackageTests(unittest.TestCase):
         self.assertEqual(package.root.name, package.manifest_digest)
         self.assertEqual(package.manifest_digest, _sha256((package.root / "manifest.toml").read_bytes()))
         self.assertEqual(package.framework_version, "0.1.0")
+        self.assertTrue((package.root / "manifest.toml").read_bytes().startswith(b"schema_version = 2\n"))
         self.assertEqual(package.source_catalog_sha256, _sha256((package.root / "catalog.toml").read_bytes()))
         self.assertNotIn("manifest.toml", {row.path for row in package.inventory})
         self.assertEqual(
@@ -159,6 +218,128 @@ class FrameworkPackageTests(unittest.TestCase):
         self.assertEqual(evidence.package_manifest_sha256, package.manifest_digest)
         self.assertEqual(evidence.catalog_sha256, package.source_catalog_sha256)
         self.assertEqual(evidence.selected_source_identities, ("core-meta-model", "local-core", "methodology-support"))
+
+    def test_reopens_exact_historical_schema_one_without_binding_frontier(self) -> None:
+        package = assemble_framework_package(self.source, self.releases)
+        current = (package.root / "manifest.toml").read_bytes()
+        historical = current.replace(b"schema_version = 2\n", b"schema_version = 1\n", 1).replace(
+            b"binding_atoms = []\n\n",
+            b"",
+            1,
+        )
+        historical_root = package.root.parent / _sha256(historical)
+        shutil.copytree(package.root, historical_root)
+        (historical_root / "manifest.toml").write_bytes(historical)
+
+        reopened = verify_framework_package(historical_root)
+
+        self.assertEqual(reopened.manifest_digest, _sha256(historical))
+        self.assertEqual(reopened.binding_atoms, ())
+        self.assertEqual(read_verified_binding_projections(reopened), ())
+
+    def test_schema_two_requires_exact_binding_frontier_field_without_fallback(self) -> None:
+        package = assemble_framework_package(self.source, self.releases)
+        current = (package.root / "manifest.toml").read_bytes()
+        malformed = (
+            current.replace(b"binding_atoms = []\n\n", b"", 1),
+            current.replace(b"binding_atoms = []", b'binding_atoms = "not-a-frontier"', 1),
+            current.replace(b"binding_atoms = []\n", b"binding_atoms = []\nmanifest_binding_atoms = []\n", 1),
+        )
+        for payload in malformed:
+            with self.subTest(payload=payload[:100]):
+                with self.assertRaises(FrameworkPackageError) as raised:
+                    package_library._manifest_inventory(payload)
+                self.assertEqual(raised.exception.code, "package-manifest-invalid")
+
+    def test_historical_schema_one_rejects_binding_projection_role(self) -> None:
+        frontier = self._binding_frontier()
+        package = assemble_framework_package(self.source, self.releases, binding_atoms=frontier)
+        current = (package.root / "manifest.toml").read_text(encoding="utf-8")
+        prefix, remainder = current.split("[[binding_atoms]]", 1)
+        _binding_rows, files = remainder.split("[[files]]", 1)
+        historical = (prefix.replace("schema_version = 2", "schema_version = 1", 1) + "[[files]]" + files).encode("utf-8")
+
+        with self.assertRaises(FrameworkPackageError) as raised:
+            package_library._manifest_inventory(historical)
+
+        self.assertEqual(raised.exception.code, "package-manifest-invalid")
+
+    def test_seals_and_reopens_complete_generic_binding_projection_frontier(self) -> None:
+        frontier = self._binding_frontier()
+
+        package = assemble_framework_package(self.source, self.releases, binding_atoms=frontier)
+        projections = read_verified_binding_projections(package)
+
+        self.assertEqual(package.binding_atoms, package_library._binding_atom_records(frontier, code="fixture"))
+        self.assertEqual([row.role for row in package.inventory].count("binding-projection"), 2)
+        self.assertEqual([row.atom_id for row in projections], ["CA-D-901", "CA-D-902"])
+        self.assertEqual([row.tool_binding["mcp_name"] for row in projections], ["fixture_901", "fixture_902"])
+        self.assertEqual([_sha256(row.source_payload) for row in projections], [row.source_sha256 for row in projections])
+        self.assertTrue(all(row.projection_member.startswith("methodology/bindings/") for row in projections))
+        evidence = provide_installation_package_evidence(package.root)
+        self.assertNotIn("tool-bindings", evidence.selected_source_identities)
+
+    def test_refuses_incomplete_extra_and_noncanonical_binding_projections(self) -> None:
+        frontier = self._binding_frontier()
+        first = self.source / f"methodology/bindings/{frontier[0]['source_path']}"
+        second = self.source / f"methodology/bindings/{frontier[1]['source_path']}"
+        first_payload = first.read_bytes()
+
+        second.unlink()
+        self._write_catalog()
+        with self.assertRaises(FrameworkPackageError) as missing:
+            assemble_framework_package(self.source, self.releases, binding_atoms=frontier)
+        self.assertEqual(missing.exception.code, "binding-frontier-mismatch")
+
+        self._binding_frontier()
+        self._write("methodology/bindings/unreferenced.md", first_payload)
+        self._write_catalog()
+        with self.assertRaises(FrameworkPackageError) as extra:
+            assemble_framework_package(self.source, self.releases, binding_atoms=frontier)
+        self.assertEqual(extra.exception.code, "binding-frontier-mismatch")
+
+        (self.source / "methodology/bindings/unreferenced.md").unlink()
+        first.write_bytes(first_payload.replace(b"source_atom_revision: 1", b"source_atom_revision: 2"))
+        self._write_catalog()
+        with self.assertRaises(FrameworkPackageError) as altered:
+            assemble_framework_package(self.source, self.releases, binding_atoms=frontier)
+        self.assertIn(altered.exception.code, {"binding-projection-invalid", "projection-source-preservation-invalid"})
+
+    def test_refuses_truthfully_hashed_binding_source_with_wrong_observed_metadata(self) -> None:
+        mutations = (
+            (b"atom_id: CA-D-901\n", b"atom_id: CA-D-999\n"),
+            (b"atom_id: CA-D-901\n", b""),
+            (b"version: 1\n", b"version: 2\n"),
+            (b"status: Active\n", b"status: Draft\n"),
+            (b"content_role: Delivery\n", b"content_role: Method\n"),
+        )
+        for index, (expected, replacement) in enumerate(mutations):
+            with self.subTest(replacement=replacement):
+                frontier = self._binding_frontier()
+                changed = self._replace_first_binding_source(frontier, expected, replacement)
+                with self.assertRaises(FrameworkPackageError) as raised:
+                    assemble_framework_package(
+                        self.source,
+                        self.root / f"metadata-refusal-{index}",
+                        binding_atoms=changed,
+                    )
+                self.assertEqual(raised.exception.code, "binding-projection-source-metadata-mismatch")
+
+    def test_binding_catalog_is_nonselectable_and_forbidden_for_an_empty_frontier(self) -> None:
+        frontier = self._binding_frontier()
+        catalog = self.source / "catalog.toml"
+        payload = catalog.read_text(encoding="utf-8")
+        before, binding = payload.split("[source.tool-bindings]", 1)
+        binding = binding.replace("selection_default = false", "selection_default = true", 1)
+        catalog.write_text(before + "[source.tool-bindings]" + binding, encoding="utf-8")
+        with self.assertRaises(FrameworkPackageError) as selected:
+            assemble_framework_package(self.source, self.releases, binding_atoms=frontier)
+        self.assertEqual(selected.exception.code, "catalog-invalid")
+
+        self._write_catalog()
+        with self.assertRaises(FrameworkPackageError) as omitted:
+            assemble_framework_package(self.source, self.releases)
+        self.assertEqual(omitted.exception.code, "binding-frontier-mismatch")
 
     def test_ignores_finder_metadata_but_refuses_substantive_extra_members(self) -> None:
         self._write(".DS_Store", b"finder")
@@ -325,7 +506,7 @@ class FrameworkPackageTests(unittest.TestCase):
         package = assemble_framework_package(self.source, self.releases)
         manifest = package.root / "manifest.toml"
         manifest_bytes = manifest.read_bytes()
-        manifest.write_bytes(manifest_bytes.replace(b"schema_version = 1", b"schema_version = true"))
+        manifest.write_bytes(manifest_bytes.replace(b"schema_version = 2", b"schema_version = true"))
         with self.assertRaises(FrameworkPackageError) as raised:
             verify_framework_package(package.root)
         self.assertEqual(raised.exception.code, "package-manifest-invalid")

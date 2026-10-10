@@ -6,6 +6,7 @@ import hashlib
 import json
 import os
 from pathlib import Path
+import shutil
 import sys
 import tempfile
 import unittest
@@ -30,8 +31,10 @@ from framework_package import (  # noqa: E402
     VerifiedFrameworkPackage,
     assemble_framework_package,
     provide_installation_package_evidence,
+    read_verified_binding_projections,
     verify_framework_package,
 )
+import framework_package as package_library  # noqa: E402
 from installation_context import TargetProjectRequest, bind_target_project_context  # noqa: E402
 from installation_transaction import InstallationPublicationLock  # noqa: E402
 from source_admission_fixture import write_source_admission_receipt  # noqa: E402
@@ -114,7 +117,8 @@ class InstalledMcpBindingTests(unittest.TestCase):
 
     def _package(self, *, compose_payload: bytes | None = None,
                  omit: str | None = None,
-                 extra_payloads: dict[str, bytes] | None = None) -> VerifiedFrameworkPackage:
+                 extra_payloads: dict[str, bytes] | None = None,
+                 binding_count: int = 0) -> VerifiedFrameworkPackage:
         self.package_number += 1
         source = self.root / ".package_sources" / str(self.package_number)
         payloads: dict[str, bytes] = {
@@ -139,16 +143,23 @@ class InstalledMcpBindingTests(unittest.TestCase):
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_bytes(payload)
             target.chmod(0o644)
+        binding_atoms = self._binding_frontier(source, count=binding_count)
         self._write_catalog(source)
-        package = assemble_framework_package(source, self.root / ".caprmedio_install/releases")
+        package = assemble_framework_package(
+            source,
+            self.root / ".caprmedio_install/releases",
+            binding_atoms=binding_atoms,
+        )
         return verify_framework_package(package.root)
 
     def _write_catalog(self, source: Path) -> None:
-        records = (
+        records = [
             ("core", "core", "102_FRAMEWORK_ENGINE"),
             ("methodology", "methodology", "methodology/active/001_CORE_META_MODEL"),
             ("support", "support", "methodology/support"),
-        )
+        ]
+        if (source / "methodology" / "bindings").is_dir():
+            records.append(("tool-bindings", "binding", "methodology/bindings"))
         descriptors = tuple(
             {
                 "identity": identity,
@@ -180,6 +191,54 @@ class InstalledMcpBindingTests(unittest.TestCase):
         catalog = source / "catalog.toml"
         catalog.write_text("\n".join(lines), encoding="utf-8")
         catalog.chmod(0o644)
+
+    @staticmethod
+    def _binding_frontier(source: Path, *, count: int) -> tuple[dict[str, object], ...]:
+        """Build canonical D561 projection fixtures for schema-2 reopening."""
+
+        if count not in {0, 2}:
+            raise AssertionError("fixture supports only empty or two-pin binding frontiers")
+        codec = package_library._methodology_export_module()
+        rows: list[dict[str, object]] = []
+        for suffix in ("901", "902")[:count]:
+            atom_id = f"CA-D-{suffix}"
+            source_path = (
+                ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/fixture/"
+                f"07_delivery/{atom_id}--binding.md"
+            )
+            source_payload = (
+                "---\n"
+                f"atom_id: {atom_id}\n"
+                "content_role: Delivery\n"
+                "current_scope_unit: TOOLS\n"
+                "status: Active\n"
+                "author: fixture\n"
+                "version: 1\n"
+                "relations:\n"
+                "  delivery_for: [CA-R-001]\n"
+                "---\n"
+                f"# {atom_id}\n\n"
+                "```toml\n"
+                "[tool_binding]\n"
+                f'name = "FIXTURE_{suffix}"\n'
+                'entrypoint = "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/tool.py"\n'
+                f'mcp_name = "fixture_{suffix}"\n'
+                f'action_ids = ["CA-O-{suffix}"]\n'
+                "```\n"
+            ).encode("utf-8")
+            record = {
+                "atom_id": atom_id,
+                "version": 1,
+                "source_path": source_path,
+                "sha256": _digest(source_payload),
+            }
+            binding = codec.BindingAtom(source_path, atom_id, 1, record["sha256"])
+            target = source / "methodology" / "bindings" / source_path
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(codec.binding_projection_bytes(source_payload, binding))
+            target.chmod(0o644)
+            rows.append(record)
+        return tuple(rows)
 
     @staticmethod
     def _tree_digest(root: Path) -> str:
@@ -288,6 +347,70 @@ class InstalledMcpBindingTests(unittest.TestCase):
         self.assertEqual((128, "512m", 1), (binding.pids_limit, binding.memory_limit, binding.cpu_limit))
         self.assertEqual(_digest((self.root / ".caprmedio_install/current.toml").read_bytes()), binding.package_selector_sha256)
         self.assertEqual(_digest((self.root / ".caprmedio_runtime/installation/current.toml").read_bytes()), binding.runtime_selector_sha256)
+
+    def test_admits_schema_two_empty_binding_frontier_without_a_fallback(self) -> None:
+        manifest = (self.verified.root / "manifest.toml").read_text(encoding="utf-8")
+        self.assertIn("schema_version = 2\n", manifest)
+        self.assertIn("binding_atoms = []\n", manifest)
+        self.assertEqual((), self.verified.binding_atoms)
+        self.assertEqual((), read_verified_binding_projections(self.verified))
+        self._admit()
+
+    def test_reopens_schema_two_binding_frontier_for_installed_and_candidate_admission(self) -> None:
+        self.verified = self._package(binding_count=2)
+        self._bind_context(mode="adopt")
+        self._write_selectors()
+
+        self.assertEqual(["CA-D-901", "CA-D-902"], [atom.atom_id for atom in self.verified.binding_atoms])
+        self.assertEqual(2, len(read_verified_binding_projections(self.verified)))
+        installed = self._admit()
+        package_selector = (self.root / ".caprmedio_install/current.toml").read_bytes()
+        runtime_selector = (self.root / ".caprmedio_runtime/installation/current.toml").read_bytes()
+        candidate = admit_candidate_mcp_binding(
+            self.root,
+            self.verified,
+            target_context_sha256=self.context_sha256,
+            prospective_package_selector=package_selector,
+            prospective_runtime_selector=runtime_selector,
+        )
+        self.assertEqual(self.verified.manifest_digest, installed.package_manifest_sha256)
+        self.assertEqual(self.verified.manifest_digest, candidate.package_manifest_sha256)
+
+    def test_reopens_historical_schema_one_without_binding_projection_or_conversion(self) -> None:
+        current = (self.verified.root / "manifest.toml").read_bytes()
+        historical = current.replace(b"schema_version = 2\n", b"schema_version = 1\n", 1).replace(
+            b"binding_atoms = []\n\n", b"", 1,
+        )
+        historical_root = self.verified.root.parent / _digest(historical)
+        shutil.copytree(self.verified.root, historical_root)
+        (historical_root / "manifest.toml").write_bytes(historical)
+        self.verified = verify_framework_package(historical_root)
+        self._bind_context(mode="adopt")
+        self._write_selectors()
+
+        self.assertEqual((), self.verified.binding_atoms)
+        self.assertEqual((), read_verified_binding_projections(self.verified))
+        self._admit()
+
+    def test_refuses_missing_extra_or_unknown_package_manifest_schemas(self) -> None:
+        manifest = self.verified.root / "manifest.toml"
+        original = manifest.read_bytes()
+        malformed = (
+            original.replace(b"binding_atoms = []\n\n", b"", 1),
+            original.replace(
+                b"binding_atoms = []\n",
+                b"binding_atoms = []\nmanifest_binding_atoms = []\n",
+                1,
+            ),
+            original.replace(b"schema_version = 2\n", b"schema_version = 99\n", 1),
+        )
+        for payload in malformed:
+            with self.subTest(payload=payload[:80]):
+                manifest.write_bytes(payload)
+                with self.assertRaises(InstalledMcpBindingError) as raised:
+                    self._admit()
+                self.assertEqual("installed-package-tampered", raised.exception.code)
+                manifest.write_bytes(original)
 
     def test_refuses_missing_canonical_ca_skill_even_when_another_skill_member_exists(self) -> None:
         self.verified = self._package(
