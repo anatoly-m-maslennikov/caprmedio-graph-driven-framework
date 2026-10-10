@@ -742,6 +742,46 @@
       "quote": "a Concern whose subject spans multiple Structural scopes belongs **to** their narrowest common ancestor.",
       "start_line": 27,
       "text_sha256": "bb28e9e7f693d34d2a3a456e5521115e8031714bb6e71aa435dd1c8653511e79"
+    },
+    "E075": {
+      "atom_id": "CA-E-383",
+      "atom_revision": 13,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md",
+      "carrier_sha256": "00c3e901fbd18cdb584387386f6b04cd43905f651c4369e16a97d20b469b3274",
+      "start_line": 49,
+      "end_line": 61,
+      "quote": "the Evaluation **must** reject a Subject Expression **if**\n\n- `/` does **not** encode **`=1`** valid bearer edge,\n- `:` does **not** express **`=1`** admitted IS_ALLOWED_VALUE_OF qualification under CA-R-1436-CORE_META_MODEL-CORE-REQUIREMENT--define-is-allowed-value-of,\n- allowed-value admission is treated as assignment **to** a particular Property occurrence **or** as determining its cardinality,\n- a Dependent Entity occurrence lacks **`=1`** immediate bearer,\n- a reusable Term is rejected **only** for changing ordinal position,\n- a Governed Term begins with a lowercase letter,\n- a named component fails **to** resolve **to** a Term under CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression,\n- an ordinary General Term is substituted for a required Term reference,\n- a Term name **contains** `/` **or** `:`,\n- a complete composite Subject Expression is classified as one Term,\n- **or** a registered CCE Operator is redefined as a Governed Term **or** Scope Unit Name.",
+      "text_sha256": "0d9def13b54d4c87f2c5011c8c6e4f7a5ccbd846a3c5341bfa74ad60be2f94e7"
+    },
+    "E076": {
+      "atom_id": "CA-R-997",
+      "atom_revision": 17,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-997-CORE_META_MODEL-REQUIREMENT--validate-work-sequence-numbers.md",
+      "carrier_sha256": "fe5adbdfd0fdf5b84930e836dbfbc5d67b40a0861e29a3b4ebb37060a9a89e56",
+      "start_line": 33,
+      "end_line": 33,
+      "quote": "**every** supplied Work Sequence Number **must** be a unique positive ordinal among direct Plans decomposing the same Hub **or** sharing the same top-level Plan container.",
+      "text_sha256": "2f62584ada9556717dacbd6d5d9a0c3d0011b1d4a8b135bae8336ee78ac19b95"
+    },
+    "E077": {
+      "atom_id": "CA-R-992",
+      "atom_revision": 17,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-992-CORE_META_MODEL-CORE-REQUIREMENT--separate-work-sequence-from-atom-identity.md",
+      "carrier_sha256": "78ffc3aeea41c075bcd73658d78721eb73d15ee573d903e2ff1288c6ad4813f5",
+      "start_line": 36,
+      "end_line": 36,
+      "quote": "a Work Sequence Number **must not** establish **or** change Atom identity, Atom Scope, Claim Target Scope Unit, Type, authoring Subtype, decomposition, **or** blocking.",
+      "text_sha256": "5ff12c2053fdbfffa025f9b9a4f6e7b5899b0093aa0c8679e4e41c57ff3c31be"
+    },
+    "E078": {
+      "atom_id": "CA-M-125",
+      "atom_revision": 25,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/05_method/CA-M-125-CORE_META_MODEL--assign-subjects-from-the-claim.md",
+      "carrier_sha256": "3c4a8960bac48476767cb4deda9a7771ea48b8fb303a1c6b85da2dc9a0f19e31",
+      "start_line": 34,
+      "end_line": 53,
+      "quote": "Subject assignment for an Atom from its Claim **and** complete Markdown Main Content.\n\n## Claim\n\n**to** assign an Atom's Subjects, the Author **must** perform **all** of:\n\n1. read the entire Markdown Main Content, including Summary, Scope, Claim, Details, other registered sections, nested headings, tables, examples, **and** reference labels. build an inventory of canonical Entity mentions with exact locations **and** full resolved paths. treat an Atom citation label rendered under `CA-M-301-CORE_META_MODEL-METHOD--make-atom-claims-easy-to-understand` as the referenced Atom's complete filename **without** its `.md` extension **or** directory path. under `CA-R-1280-CORE_META_MODEL-CORE-REQUIREMENT--reference-every-prerequisite-subject-through-depends-on`, the label is readable reference evidence, **not** an Entity mention **or** Subject target, including **when** it occurs **in** the same sentence as Entity language; inventory an Entity **only** **when** surrounding prose independently uses it.\n\n   recognize Terms through their existing definitions, including `Term` itself under `CA-R-1318-CORE_META_MODEL-CORE-REQUIREMENT--define-term`. `Evaluation` remains a Term **when** used inside an Evaluation Atom under `CA-R-1341-CORE_META_MODEL-CORE-REQUIREMENT--define-evaluation-content-role`. resolve its referenced Entity from that definition **and** the usage context. self-reference alone does **not** (remove a mentioned Entity from the inventory **or** establish a new Entity); a Term's spelling alone does **not** establish its Subject target. retain unresolved meaning as an explicit gap rather than treating it as ordinary wording.\n2. select the **`=1`** canonical Entity that the Claim governs **and** reference its narrowest exact Subject Path directly through GOVERNS.\n\n   - for a Claim about entry **or** exit criteria of a Dependent Entity, apply this same narrowest-target rule rather than substituting its wider bearer.\n   - **when** the Atom has Content Role Evaluation **and** its Claim defines a conformance check, select the canonical target whose conformance is checked; do **not** select a generic Evaluation label **or** the execution of the check merely from its Content Role. bind the checked authority separately with `evaluation_for` under `CA-R-1018-CORE_META_MODEL-CORE-REQUIREMENT--register-evaluation-targets`.\n3. connect **every** other Entity **in** the mention inventory through DEPENDS_ON using its narrowest exact full Subject Path. include mentions outside Claim; do **not** repeat GOVERNS **or** add unmentioned Entities. unresolved mentions block completion rather than disappearing from the inventory.\n4. for a definition Claim, use its defined Term **in** the Subject Path that identifies the target being defined, under `CA-R-1279-CORE_META_MODEL-CORE-REQUIREMENT--govern-every-defined-term`. resolve **every** named path component as a Term reference; the path identifies the target **and** the GOVERNS link is the Subject Relation. the path does **not** define its component Terms.\n5. split the Atom **before** assignment **when** the Claim governs **`>1`** canonical targets.\n6. verify that the distinct GOVERNS **and** DEPENDS_ON targets equal the mention inventory. record **every** reference once **without** creating an intermediate Subject object, repeating definitions, **or** treating path components **and** implicit bearer prefixes as separate Entity mentions.\n7. serialize the direct references under `CA-D-269-CORE_META_MODEL-DELIVERY--serialize-atom-subjects-in-frontmatter`. its migration-limited legacy compatibility preserves existing temporal carrier evidence; it does **not** add temporal nesting **to** a migrated flat Carrier.\n\n## Details",
+      "text_sha256": "e517db58665b02e1e5c70f2e4c0aab8a2d2a971e78d1b5a2dc9ccf1007ba3204"
     }
   },
   "input_file_sha256": "c7652bc1108b67b4fa9b9d037c78a9093ee2a78043f71bc244dec18033588b2b",
@@ -825,7 +865,7 @@
         "replacement": null
       },
       "question": null,
-      "reason": "Current pins and Claim sections for 1 source Atom(s) were checked; evidence E001 directly defines 'Structural Coordinate'. It is retained unchanged with no new native admission or reduction decision.",
+      "reason": "Captured snapshot pins and Claim sections for 1 source Atom(s) were checked; evidence E001 directly defines 'Structural Coordinate'. It is retained unchanged with no new native admission or reduction decision.",
       "segment_ids": [],
       "source_atom_ids": [
         "CAPRMEDIO-R-791"
@@ -977,7 +1017,7 @@
         "replacement": null
       },
       "question": null,
-      "reason": "Current pins and Claim sections for 25 source Atom(s) were checked; evidence E002 directly defines 'Structural Entity'. It is retained unchanged with no new native admission or reduction decision.",
+      "reason": "Captured snapshot pins and Claim sections for 25 source Atom(s) were checked; evidence E002 directly defines 'Structural Entity'. It is retained unchanged with no new native admission or reduction decision.",
       "segment_ids": [
         "subject-segment:0111f09ed3d9a87adeee2ea9f970e171e3b06d851089708d1623ad27b60da364",
         "subject-segment:1c7405cef522ce602d57e507b71e60870e28561db78ba5044ef47f46ac7103f4",
@@ -1075,7 +1115,7 @@
       ],
       "proposal": null,
       "question": "Do the checked Core Main Content sections (CA-D-465) define 'Structural Entity/Authoritative Carrier' as a distinct model identity, rather than only a qualified reference to 'Structural Entity'; if distinct, what exact relation and direction own it?",
-      "reason": "Current pins and Claim sections for 1 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'Structural Entity/Authoritative Carrier'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
+      "reason": "Captured snapshot pins and Claim sections for 1 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'Structural Entity/Authoritative Carrier'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
       "segment_ids": [
         "subject-segment:0111f09ed3d9a87adeee2ea9f970e171e3b06d851089708d1623ad27b60da364"
       ],
@@ -1142,7 +1182,7 @@
       ],
       "proposal": null,
       "question": "Do the checked Core Main Content sections (CA-D-266) define 'Structural Entity/Containment' as a distinct model identity, rather than only a qualified reference to 'Structural Entity'; if distinct, what exact relation and direction own it?",
-      "reason": "Current pins and Claim sections for 1 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'Structural Entity/Containment'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
+      "reason": "Captured snapshot pins and Claim sections for 1 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'Structural Entity/Containment'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
       "segment_ids": [
         "subject-segment:1c7405cef522ce602d57e507b71e60870e28561db78ba5044ef47f46ac7103f4"
       ],
@@ -1217,7 +1257,7 @@
       ],
       "proposal": null,
       "question": "Do the checked Core Main Content sections (CA-D-264, CA-R-1376, CA-R-1383, CA-R-1409 (+1 further checked)) define 'Structural Entity/Direct Containment' as a distinct model identity, rather than only a qualified reference to 'Structural Entity'; if distinct, what exact relation and direction own it?",
-      "reason": "Current pins and Claim sections for 5 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'Structural Entity/Direct Containment'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
+      "reason": "Captured snapshot pins and Claim sections for 5 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'Structural Entity/Direct Containment'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
       "segment_ids": [
         "subject-segment:275e5f8e6ebe1113761e5b8638d36eacdf9ef3ddcea368479fb355b0c45d6caf",
         "subject-segment:2e3c98e4cb03c10e6652e88441c0eb295d222ef96b462264d4148645e62f796e",
@@ -1292,7 +1332,7 @@
       ],
       "proposal": null,
       "question": "Do the checked Core Main Content sections (CA-R-1498) define 'Structural Entity/Recursive Containment' as a distinct model identity, rather than only a qualified reference to 'Structural Entity'; if distinct, what exact relation and direction own it?",
-      "reason": "Current pins and Claim sections for 1 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'Structural Entity/Recursive Containment'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
+      "reason": "Captured snapshot pins and Claim sections for 1 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'Structural Entity/Recursive Containment'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
       "segment_ids": [
         "subject-segment:88174e2827844fec580469d47dda6c3b0e4c6ba3355dd423f790d3185bee0723"
       ],
@@ -1409,7 +1449,7 @@
         "replacement": null
       },
       "question": null,
-      "reason": "Current pins and Claim sections for 11 source Atom(s) were checked; evidence E007 directly defines 'Structural Level'. It is retained unchanged with no new native admission or reduction decision.",
+      "reason": "Captured snapshot pins and Claim sections for 11 source Atom(s) were checked; evidence E007 directly defines 'Structural Level'. It is retained unchanged with no new native admission or reduction decision.",
       "segment_ids": [],
       "source_atom_ids": [
         "CA-D-297",
@@ -1508,7 +1548,7 @@
       ],
       "proposal": null,
       "question": "Which checked Core Main Content definition (CA-R-1390, CA-R-1392, CA-R-1484, CA-R-1485 (+8 further checked)) establishes 'Structural Parent Relation' as distinct from same-label or qualified identities, and what exact replacement would preserve all stated distinctions if it is not distinct?",
-      "reason": "Current pins and Claim sections for 12 source Atom(s) were checked; 1 exact-identity Claim line(s) across 1 source(s) do not prove a safe positive semantic disposition for 'Structural Parent Relation'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
+      "reason": "Captured snapshot pins and Claim sections for 12 source Atom(s) were checked; 1 exact-identity Claim line(s) across 1 source(s) do not prove a safe positive semantic disposition for 'Structural Parent Relation'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
       "segment_ids": [],
       "source_atom_ids": [
         "CA-R-1390",
@@ -1608,7 +1648,7 @@
         "replacement": null
       },
       "question": null,
-      "reason": "Current pins and Claim sections for 2 source Atom(s) were checked; evidence E009 directly defines 'Structural Path'. It is retained unchanged with no new native admission or reduction decision.",
+      "reason": "Captured snapshot pins and Claim sections for 2 source Atom(s) were checked; evidence E009 directly defines 'Structural Path'. It is retained unchanged with no new native admission or reduction decision.",
       "segment_ids": [],
       "source_atom_ids": [
         "CA-R-1661",
@@ -1757,7 +1797,7 @@
         "replacement": null
       },
       "question": null,
-      "reason": "Current pins and Claim sections for 22 source Atom(s) were checked; evidence E010 directly defines 'Subject'. It is retained unchanged with no new native admission or reduction decision.",
+      "reason": "Captured snapshot pins and Claim sections for 22 source Atom(s) were checked; evidence E010 directly defines 'Subject'. It is retained unchanged with no new native admission or reduction decision.",
       "segment_ids": [],
       "source_atom_ids": [
         "CA-D-269",
@@ -1790,46 +1830,46 @@
         "CA-M-125"
       ],
       "checks": {
-        "distinct_meaning": {
-          "evidence_refs": [
-            "E011"
-          ],
-          "finding": "unresolved",
-          "reason": "The available Main Content has not proved the exact native meaning of 'Subject Assignment'; its Subjects occurrence remains preserved as evidence, not an admission."
-        },
         "duplicates": {
+          "finding": "no_proven_duplicate",
+          "reason": "The captured constraint identifies the complete-Main-Content inventory, one narrowest GOVERNS target, and direct DEPENDS_ON references for every other mentioned Entity; no checked source equates it with another preserved identity.",
           "evidence_refs": [
-            "E011"
-          ],
-          "finding": "not_proven",
-          "reason": "No checked Main Content source from CA-M-125 states that 'Subject Assignment' is the same referent as another preserved identity; repeated spelling is not duplication proof."
-        },
-        "empty_definition": {
-          "evidence_refs": [
-            "E011"
-          ],
-          "finding": "not_established",
-          "reason": "A missing exact definition for 'Subject Assignment' in the checked Main Content is not evidence of emptiness and cannot justify a drop candidate."
-        },
-        "generalization": {
-          "evidence_refs": [
-            "E011"
-          ],
-          "finding": "not_proposed",
-          "reason": "No checked Claim defines a supertype or relation direction for 'Subject Assignment'; no generalization, inherited constraint, or Node Type is inferred."
+            "E078"
+          ]
         },
         "redundancy": {
+          "finding": "not_proven_redundant",
+          "reason": "Direct subject relations are distinct from an intermediate subject object and from path components as separate entity mentions; that bounded contribution is not redundant merely because related identities also occur.",
           "evidence_refs": [
-            "E011"
-          ],
-          "finding": "not_proven",
-          "reason": "The checked source occurrence uses 'Subject Assignment', but does not establish that it has no distinct governed purpose, constraint, history, or query effect."
+            "E078"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful_captured_constraint",
+          "reason": "Captured Main Content supplies the complete-Main-Content inventory, one narrowest GOVERNS target, and direct DEPENDS_ON references for every other mentioned Entity, so missing universal ontology wording is not an empty-definition finding.",
+          "evidence_refs": [
+            "E078"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "bounded_meaning_evidenced",
+          "reason": "Direct subject relations are distinct from an intermediate subject object and from path components as separate entity mentions.",
+          "evidence_refs": [
+            "E078"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No captured source authorizes collapsing Subject Assignment into a broader identity or admitting a new native relation.",
+          "evidence_refs": [
+            "E078"
+          ]
         }
       },
-      "confidence_percent": 0,
-      "disposition": "question",
+      "confidence_percent": 95,
+      "disposition": "retain",
       "evidence_refs": [
-        "E011"
+        "E078"
       ],
       "exact_identity_main_content_source_atom_ids": [],
       "governing_source_atom_ids": [
@@ -1842,8 +1882,8 @@
         3989
       ],
       "proposal": null,
-      "question": "Which checked Core Main Content definition (CA-M-125) establishes 'Subject Assignment' as distinct from same-label or qualified identities, and what exact replacement would preserve all stated distinctions if it is not distinct?",
-      "reason": "Current pins and Claim sections for 1 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'Subject Assignment'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
+      "question": null,
+      "reason": "Captured snapshot Main Content supplies the complete-Main-Content inventory, one narrowest GOVERNS target, and direct DEPENDS_ON references for every other mentioned Entity; retain the unchanged qualified identity without native admission, replacement, or spelling-mapping inference.",
       "segment_ids": [],
       "source_atom_ids": [
         "CA-M-125"
@@ -1957,7 +1997,7 @@
         "replacement": null
       },
       "question": null,
-      "reason": "Current pins and Claim sections for 12 source Atom(s) were checked; evidence E012 directly defines 'Subject Expression'. It is retained unchanged with no new native admission or reduction decision.",
+      "reason": "Captured snapshot pins and Claim sections for 12 source Atom(s) were checked; evidence E012 directly defines 'Subject Expression'. It is retained unchanged with no new native admission or reduction decision.",
       "segment_ids": [],
       "source_atom_ids": [
         "CA-E-383",
@@ -1980,46 +2020,46 @@
         "CA-E-383"
       ],
       "checks": {
-        "distinct_meaning": {
-          "evidence_refs": [
-            "E013"
-          ],
-          "finding": "unresolved",
-          "reason": "The available Main Content has not proved the exact native meaning of 'Subject Expression Evaluation'; its Subjects occurrence remains preserved as evidence, not an admission."
-        },
         "duplicates": {
+          "finding": "no_proven_duplicate",
+          "reason": "The captured constraint identifies the Evaluation rejection boundary for invalid bearer, allowed-value, Term-resolution, and composite-expression handling; no checked source equates it with another preserved identity.",
           "evidence_refs": [
-            "E013"
-          ],
-          "finding": "not_proven",
-          "reason": "No checked Main Content source from CA-E-383 states that 'Subject Expression Evaluation' is the same referent as another preserved identity; repeated spelling is not duplication proof."
-        },
-        "empty_definition": {
-          "evidence_refs": [
-            "E013"
-          ],
-          "finding": "not_established",
-          "reason": "A missing exact definition for 'Subject Expression Evaluation' in the checked Main Content is not evidence of emptiness and cannot justify a drop candidate."
-        },
-        "generalization": {
-          "evidence_refs": [
-            "E013"
-          ],
-          "finding": "not_proposed",
-          "reason": "No checked Claim defines a supertype or relation direction for 'Subject Expression Evaluation'; no generalization, inherited constraint, or Node Type is inferred."
+            "E075"
+          ]
         },
         "redundancy": {
+          "finding": "not_proven_redundant",
+          "reason": "Rejecting invalid expressions is distinct from defining a new term or scope unit; that bounded contribution is not redundant merely because related identities also occur.",
           "evidence_refs": [
-            "E013"
-          ],
-          "finding": "not_proven",
-          "reason": "The checked source occurrence uses 'Subject Expression Evaluation', but does not establish that it has no distinct governed purpose, constraint, history, or query effect."
+            "E075"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful_captured_constraint",
+          "reason": "Captured Main Content supplies the Evaluation rejection boundary for invalid bearer, allowed-value, Term-resolution, and composite-expression handling, so missing universal ontology wording is not an empty-definition finding.",
+          "evidence_refs": [
+            "E075"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "bounded_meaning_evidenced",
+          "reason": "Rejecting invalid expressions is distinct from defining a new term or scope unit.",
+          "evidence_refs": [
+            "E075"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No captured source authorizes collapsing Subject Expression Evaluation into a broader identity or admitting a new native relation.",
+          "evidence_refs": [
+            "E075"
+          ]
         }
       },
-      "confidence_percent": 0,
-      "disposition": "question",
+      "confidence_percent": 95,
+      "disposition": "retain",
       "evidence_refs": [
-        "E013"
+        "E075"
       ],
       "exact_identity_main_content_source_atom_ids": [],
       "governing_source_atom_ids": [
@@ -2032,8 +2072,8 @@
         4002
       ],
       "proposal": null,
-      "question": "Which checked Core Main Content definition (CA-E-383) establishes 'Subject Expression Evaluation' as distinct from same-label or qualified identities, and what exact replacement would preserve all stated distinctions if it is not distinct?",
-      "reason": "Current pins and Claim sections for 1 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'Subject Expression Evaluation'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
+      "question": null,
+      "reason": "Captured snapshot Main Content supplies the Evaluation rejection boundary for invalid bearer, allowed-value, Term-resolution, and composite-expression handling; retain the unchanged qualified identity without native admission, replacement, or spelling-mapping inference.",
       "segment_ids": [],
       "source_atom_ids": [
         "CA-E-383"
@@ -2045,44 +2085,44 @@
         "CA-M-228"
       ],
       "checks": {
-        "distinct_meaning": {
-          "evidence_refs": [
-            "E014"
-          ],
-          "finding": "unresolved",
-          "reason": "The available Main Content has not proved the exact native meaning of 'Subject Expression Writing'; its Subjects occurrence remains preserved as evidence, not an admission."
-        },
         "duplicates": {
+          "finding": "no_proven_duplicate",
+          "reason": "The captured constraint identifies the canonical-reference and admitted bearer/allowed-value qualification method, without copying a target Entity; no checked source equates it with another preserved identity.",
           "evidence_refs": [
             "E014"
-          ],
-          "finding": "not_proven",
-          "reason": "No checked Main Content source from CA-M-228 states that 'Subject Expression Writing' is the same referent as another preserved identity; repeated spelling is not duplication proof."
-        },
-        "empty_definition": {
-          "evidence_refs": [
-            "E014"
-          ],
-          "finding": "not_established",
-          "reason": "A missing exact definition for 'Subject Expression Writing' in the checked Main Content is not evidence of emptiness and cannot justify a drop candidate."
-        },
-        "generalization": {
-          "evidence_refs": [
-            "E014"
-          ],
-          "finding": "not_proposed",
-          "reason": "No checked Claim defines a supertype or relation direction for 'Subject Expression Writing'; no generalization, inherited constraint, or Node Type is inferred."
+          ]
         },
         "redundancy": {
+          "finding": "not_proven_redundant",
+          "reason": "Authoring a qualified path is distinct from creating another entity or subject relation; that bounded contribution is not redundant merely because related identities also occur.",
           "evidence_refs": [
             "E014"
-          ],
-          "finding": "not_proven",
-          "reason": "The checked source occurrence uses 'Subject Expression Writing', but does not establish that it has no distinct governed purpose, constraint, history, or query effect."
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful_captured_constraint",
+          "reason": "Captured Main Content supplies the canonical-reference and admitted bearer/allowed-value qualification method, without copying a target Entity, so missing universal ontology wording is not an empty-definition finding.",
+          "evidence_refs": [
+            "E014"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "bounded_meaning_evidenced",
+          "reason": "Authoring a qualified path is distinct from creating another entity or subject relation.",
+          "evidence_refs": [
+            "E014"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No captured source authorizes collapsing Subject Expression Writing into a broader identity or admitting a new native relation.",
+          "evidence_refs": [
+            "E014"
+          ]
         }
       },
-      "confidence_percent": 0,
-      "disposition": "question",
+      "confidence_percent": 95,
+      "disposition": "retain",
       "evidence_refs": [
         "E014"
       ],
@@ -2097,8 +2137,8 @@
         4003
       ],
       "proposal": null,
-      "question": "Which checked Core Main Content definition (CA-M-228) establishes 'Subject Expression Writing' as distinct from same-label or qualified identities, and what exact replacement would preserve all stated distinctions if it is not distinct?",
-      "reason": "Current pins and Claim sections for 1 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'Subject Expression Writing'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
+      "question": null,
+      "reason": "Captured snapshot Main Content supplies the canonical-reference and admitted bearer/allowed-value qualification method, without copying a target Entity; retain the unchanged qualified identity without native admission, replacement, or spelling-mapping inference.",
       "segment_ids": [],
       "source_atom_ids": [
         "CA-M-228"
@@ -2231,7 +2271,7 @@
         "replacement": null
       },
       "question": null,
-      "reason": "Current pins and Claim sections for 20 source Atom(s) were checked; evidence E015 directly defines 'Subject Path'. It is retained unchanged with no new native admission or reduction decision.",
+      "reason": "Captured snapshot pins and Claim sections for 20 source Atom(s) were checked; evidence E015 directly defines 'Subject Path'. It is retained unchanged with no new native admission or reduction decision.",
       "segment_ids": [],
       "source_atom_ids": [
         "CA-D-269",
@@ -2262,44 +2302,44 @@
         "CA-M-232"
       ],
       "checks": {
-        "distinct_meaning": {
-          "evidence_refs": [
-            "E016"
-          ],
-          "finding": "unresolved",
-          "reason": "The available Main Content has not proved the exact native meaning of 'Subject Projection Derivation'; its Subjects occurrence remains preserved as evidence, not an admission."
-        },
         "duplicates": {
+          "finding": "no_proven_duplicate",
+          "reason": "The captured constraint identifies the derived Atom Subjects Graph reproduction rule for direct source-Atom GOVERNS or DEPENDS_ON links without reauthoring authority; no checked source equates it with another preserved identity.",
           "evidence_refs": [
             "E016"
-          ],
-          "finding": "not_proven",
-          "reason": "No checked Main Content source from CA-M-232 states that 'Subject Projection Derivation' is the same referent as another preserved identity; repeated spelling is not duplication proof."
-        },
-        "empty_definition": {
-          "evidence_refs": [
-            "E016"
-          ],
-          "finding": "not_established",
-          "reason": "A missing exact definition for 'Subject Projection Derivation' in the checked Main Content is not evidence of emptiness and cannot justify a drop candidate."
-        },
-        "generalization": {
-          "evidence_refs": [
-            "E016"
-          ],
-          "finding": "not_proposed",
-          "reason": "No checked Claim defines a supertype or relation direction for 'Subject Projection Derivation'; no generalization, inherited constraint, or Node Type is inferred."
+          ]
         },
         "redundancy": {
+          "finding": "not_proven_redundant",
+          "reason": "A derived projection is distinct from reauthoring target kind or adding duplicate source metadata; that bounded contribution is not redundant merely because related identities also occur.",
           "evidence_refs": [
             "E016"
-          ],
-          "finding": "not_proven",
-          "reason": "The checked source occurrence uses 'Subject Projection Derivation', but does not establish that it has no distinct governed purpose, constraint, history, or query effect."
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful_captured_constraint",
+          "reason": "Captured Main Content supplies the derived Atom Subjects Graph reproduction rule for direct source-Atom GOVERNS or DEPENDS_ON links without reauthoring authority, so missing universal ontology wording is not an empty-definition finding.",
+          "evidence_refs": [
+            "E016"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "bounded_meaning_evidenced",
+          "reason": "A derived projection is distinct from reauthoring target kind or adding duplicate source metadata.",
+          "evidence_refs": [
+            "E016"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No captured source authorizes collapsing Subject Projection Derivation into a broader identity or admitting a new native relation.",
+          "evidence_refs": [
+            "E016"
+          ]
         }
       },
-      "confidence_percent": 0,
-      "disposition": "question",
+      "confidence_percent": 95,
+      "disposition": "retain",
       "evidence_refs": [
         "E016"
       ],
@@ -2314,8 +2354,8 @@
         4024
       ],
       "proposal": null,
-      "question": "Which checked Core Main Content definition (CA-M-232) establishes 'Subject Projection Derivation' as distinct from same-label or qualified identities, and what exact replacement would preserve all stated distinctions if it is not distinct?",
-      "reason": "Current pins and Claim sections for 1 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'Subject Projection Derivation'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
+      "question": null,
+      "reason": "Captured snapshot Main Content supplies the derived Atom Subjects Graph reproduction rule for direct source-Atom GOVERNS or DEPENDS_ON links without reauthoring authority; retain the unchanged qualified identity without native admission, replacement, or spelling-mapping inference.",
       "segment_ids": [],
       "source_atom_ids": [
         "CA-M-232"
@@ -2378,7 +2418,7 @@
       ],
       "proposal": null,
       "question": "Which checked Core Main Content definition (CA-R-1580) establishes 'Subject Relation Kind' as distinct from same-label or qualified identities, and what exact replacement would preserve all stated distinctions if it is not distinct?",
-      "reason": "Current pins and Claim sections for 1 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'Subject Relation Kind'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
+      "reason": "Captured snapshot pins and Claim sections for 1 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'Subject Relation Kind'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
       "segment_ids": [
         "subject-segment:4e2a8888a676eecf42b752068d22eb08a067c73b5547e4c505fb85b77eb39500"
       ],
@@ -2443,7 +2483,7 @@
       ],
       "proposal": null,
       "question": "Do the checked Core Main Content sections (CA-R-1580) define 'Subject Relation Kind: DEPENDS_ON' as a distinct allowed-value domain, including its owning Property and value direction, or only as Subjects notation?",
-      "reason": "Current pins and Claim sections for 1 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'Subject Relation Kind: DEPENDS_ON'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
+      "reason": "Captured snapshot pins and Claim sections for 1 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'Subject Relation Kind: DEPENDS_ON'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
       "segment_ids": [
         "subject-segment:4e2a8888a676eecf42b752068d22eb08a067c73b5547e4c505fb85b77eb39500"
       ],
@@ -2537,7 +2577,7 @@
         "replacement": null
       },
       "question": null,
-      "reason": "Current pins and Claim sections for 4 source Atom(s) were checked; evidence E018 directly defines 'Subtree-owned Atoms'. It is retained unchanged with no new native admission or reduction decision.",
+      "reason": "Captured snapshot pins and Claim sections for 4 source Atom(s) were checked; evidence E018 directly defines 'Subtree-owned Atoms'. It is retained unchanged with no new native admission or reduction decision.",
       "segment_ids": [],
       "source_atom_ids": [
         "CA-E-460",
@@ -2638,7 +2678,7 @@
         "replacement": null
       },
       "question": null,
-      "reason": "Current pins and Claim sections for 5 source Atom(s) were checked; evidence E019 directly defines 'Subtree-targeting Atoms'. It is retained unchanged with no new native admission or reduction decision.",
+      "reason": "Captured snapshot pins and Claim sections for 5 source Atom(s) were checked; evidence E019 directly defines 'Subtree-targeting Atoms'. It is retained unchanged with no new native admission or reduction decision.",
       "segment_ids": [],
       "source_atom_ids": [
         "CA-E-447",
@@ -2707,7 +2747,7 @@
       ],
       "proposal": null,
       "question": "Which checked Core Main Content definition (CA-D-330) establishes 'TOML' as distinct from same-label or qualified identities, and what exact replacement would preserve all stated distinctions if it is not distinct?",
-      "reason": "Current pins and Claim sections for 1 source Atom(s) were checked; 1 exact-identity Claim line(s) across 1 source(s) do not prove a safe positive semantic disposition for 'TOML'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
+      "reason": "Captured snapshot pins and Claim sections for 1 source Atom(s) were checked; 1 exact-identity Claim line(s) across 1 source(s) do not prove a safe positive semantic disposition for 'TOML'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
       "segment_ids": [],
       "source_atom_ids": [
         "CA-D-330"
@@ -2772,7 +2812,7 @@
       ],
       "proposal": null,
       "question": "Which checked Core Main Content definition (CA-R-1554) establishes 'Target Set' as distinct from same-label or qualified identities, and what exact replacement would preserve all stated distinctions if it is not distinct?",
-      "reason": "Current pins and Claim sections for 1 source Atom(s) were checked; 1 exact-identity Claim line(s) across 1 source(s) do not prove a safe positive semantic disposition for 'Target Set'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
+      "reason": "Captured snapshot pins and Claim sections for 1 source Atom(s) were checked; 1 exact-identity Claim line(s) across 1 source(s) do not prove a safe positive semantic disposition for 'Target Set'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
       "segment_ids": [],
       "source_atom_ids": [
         "CA-R-1554"
@@ -2869,7 +2909,7 @@
         "replacement": null
       },
       "question": null,
-      "reason": "Current pins and Claim sections for 5 source Atom(s) were checked; evidence E022 directly defines 'Targeting Atoms'. It is retained unchanged with no new native admission or reduction decision.",
+      "reason": "Captured snapshot pins and Claim sections for 5 source Atom(s) were checked; evidence E022 directly defines 'Targeting Atoms'. It is retained unchanged with no new native admission or reduction decision.",
       "segment_ids": [],
       "source_atom_ids": [
         "CA-E-460",
@@ -3041,7 +3081,7 @@
         "replacement": null
       },
       "question": null,
-      "reason": "Current pins and Claim sections for 30 source Atom(s) were checked; evidence E023 directly defines 'Term'. It is retained unchanged with no new native admission or reduction decision.",
+      "reason": "Captured snapshot pins and Claim sections for 30 source Atom(s) were checked; evidence E023 directly defines 'Term'. It is retained unchanged with no new native admission or reduction decision.",
       "segment_ids": [
         "subject-segment:d9f9b6bf8a312ed4dccfa81e517967aa6e67c9f93389ade6ace4d004231a30d1"
       ],
@@ -3137,7 +3177,7 @@
       ],
       "proposal": null,
       "question": "Do the checked Core Main Content sections (CA-R-1324) define 'Term/name' as a distinct model identity, rather than only a qualified reference to 'Term'; if distinct, what exact relation and direction own it?",
-      "reason": "Current pins and Claim sections for 1 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'Term/name'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
+      "reason": "Captured snapshot pins and Claim sections for 1 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'Term/name'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
       "segment_ids": [
         "subject-segment:d9f9b6bf8a312ed4dccfa81e517967aa6e67c9f93389ade6ace4d004231a30d1"
       ],
@@ -3204,7 +3244,7 @@
       ],
       "proposal": null,
       "question": "Which checked Core Main Content definition (CA-M-114) establishes 'Terminology Projection Derivation' as distinct from same-label or qualified identities, and what exact replacement would preserve all stated distinctions if it is not distinct?",
-      "reason": "Current pins and Claim sections for 1 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'Terminology Projection Derivation'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
+      "reason": "Captured snapshot pins and Claim sections for 1 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'Terminology Projection Derivation'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
       "segment_ids": [],
       "source_atom_ids": [
         "CA-M-114"
@@ -3276,7 +3316,7 @@
       ],
       "proposal": null,
       "question": "Which checked Core Main Content definition (CA-R-1244, CA-R-1345, CA-R-1347, CA-R-1435) establishes 'Terms Graph' as distinct from same-label or qualified identities, and what exact replacement would preserve all stated distinctions if it is not distinct?",
-      "reason": "Current pins and Claim sections for 4 source Atom(s) were checked; 2 exact-identity Claim line(s) across 2 source(s) do not prove a safe positive semantic disposition for 'Terms Graph'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
+      "reason": "Captured snapshot pins and Claim sections for 4 source Atom(s) were checked; 2 exact-identity Claim line(s) across 2 source(s) do not prove a safe positive semantic disposition for 'Terms Graph'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
       "segment_ids": [],
       "source_atom_ids": [
         "CA-R-1244",
@@ -3364,7 +3404,7 @@
         "replacement": null
       },
       "question": null,
-      "reason": "Current pins and Claim sections for 1 source Atom(s) were checked; evidence E027 directly defines 'Terms Graph Construction Step'. It is retained unchanged with no new native admission or reduction decision.",
+      "reason": "Captured snapshot pins and Claim sections for 1 source Atom(s) were checked; evidence E027 directly defines 'Terms Graph Construction Step'. It is retained unchanged with no new native admission or reduction decision.",
       "segment_ids": [],
       "source_atom_ids": [
         "CA-O-138"
@@ -3462,7 +3502,7 @@
       ],
       "proposal": null,
       "question": "Which checked Core Main Content definition (CA-D-361, CA-D-372, CA-D-568, CA-E-496 (+11 further checked)) establishes 'Tool' as distinct from same-label or qualified identities, and what exact replacement would preserve all stated distinctions if it is not distinct?",
-      "reason": "Current pins and Claim sections for 15 source Atom(s) were checked; 6 exact-identity Claim line(s) across 6 source(s) do not prove a safe positive semantic disposition for 'Tool'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
+      "reason": "Captured snapshot pins and Claim sections for 15 source Atom(s) were checked; 6 exact-identity Claim line(s) across 6 source(s) do not prove a safe positive semantic disposition for 'Tool'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
       "segment_ids": [
         "subject-segment:0644c194c59990b9b546e7e22a2b5aeabf992dfae14604af8c52c9b41dc79ed9",
         "subject-segment:32bc96920041a24cd6faa741438d393fb79b2a74a1ce76c431964908b8918cb1",
@@ -3543,7 +3583,7 @@
       ],
       "proposal": null,
       "question": "Do the checked Core Main Content sections (CA-D-568) define 'Tool/Workflow Operations' as a distinct model identity, rather than only a qualified reference to 'Tool'; if distinct, what exact relation and direction own it?",
-      "reason": "Current pins and Claim sections for 1 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'Tool/Workflow Operations'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
+      "reason": "Captured snapshot pins and Claim sections for 1 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'Tool/Workflow Operations'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
       "segment_ids": [
         "subject-segment:0644c194c59990b9b546e7e22a2b5aeabf992dfae14604af8c52c9b41dc79ed9",
         "subject-segment:32bc96920041a24cd6faa741438d393fb79b2a74a1ce76c431964908b8918cb1",
@@ -3610,7 +3650,7 @@
       ],
       "proposal": null,
       "question": "Do the checked Core Main Content sections (CA-D-568) define 'Tool/Workflow Operations/Atom Lifecycle' as a distinct model identity, rather than only a qualified reference to 'Tool/Workflow Operations'; if distinct, what exact relation and direction own it?",
-      "reason": "Current pins and Claim sections for 1 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'Tool/Workflow Operations/Atom Lifecycle'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
+      "reason": "Captured snapshot pins and Claim sections for 1 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'Tool/Workflow Operations/Atom Lifecycle'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
       "segment_ids": [
         "subject-segment:0644c194c59990b9b546e7e22a2b5aeabf992dfae14604af8c52c9b41dc79ed9",
         "subject-segment:32bc96920041a24cd6faa741438d393fb79b2a74a1ce76c431964908b8918cb1",
@@ -3677,7 +3717,7 @@
       ],
       "proposal": null,
       "question": "Do the checked Core Main Content sections (CA-D-568) define 'Tool/Workflow Operations/Atom Lifecycle/Request Parameters' as a distinct model identity, rather than only a qualified reference to 'Tool/Workflow Operations/Atom Lifecycle'; if distinct, what exact relation and direction own it?",
-      "reason": "Current pins and Claim sections for 1 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'Tool/Workflow Operations/Atom Lifecycle/Request Parameters'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
+      "reason": "Captured snapshot pins and Claim sections for 1 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'Tool/Workflow Operations/Atom Lifecycle/Request Parameters'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
       "segment_ids": [
         "subject-segment:0644c194c59990b9b546e7e22a2b5aeabf992dfae14604af8c52c9b41dc79ed9",
         "subject-segment:32bc96920041a24cd6faa741438d393fb79b2a74a1ce76c431964908b8918cb1",
@@ -3751,7 +3791,7 @@
       ],
       "proposal": null,
       "question": "Which checked Core Main Content definition (CA-E-241, CA-M-116, CA-R-1274) establishes 'Translation' as distinct from same-label or qualified identities, and what exact replacement would preserve all stated distinctions if it is not distinct?",
-      "reason": "Current pins and Claim sections for 3 source Atom(s) were checked; 2 exact-identity Claim line(s) across 2 source(s) do not prove a safe positive semantic disposition for 'Translation'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
+      "reason": "Captured snapshot pins and Claim sections for 3 source Atom(s) were checked; 2 exact-identity Claim line(s) across 2 source(s) do not prove a safe positive semantic disposition for 'Translation'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
       "segment_ids": [],
       "source_atom_ids": [
         "CA-E-241",
@@ -3942,7 +3982,7 @@
         "replacement": null
       },
       "question": null,
-      "reason": "Current pins and Claim sections for 35 source Atom(s) were checked; evidence E031 directly defines 'Type'. It is retained unchanged with no new native admission or reduction decision.",
+      "reason": "Captured snapshot pins and Claim sections for 35 source Atom(s) were checked; evidence E031 directly defines 'Type'. It is retained unchanged with no new native admission or reduction decision.",
       "segment_ids": [],
       "source_atom_ids": [
         "CA-D-393",
@@ -4041,7 +4081,7 @@
       ],
       "proposal": null,
       "question": "Which checked Core Main Content definition (CA-E-386) establishes 'Type-Qualified Status Validation' as distinct from same-label or qualified identities, and what exact replacement would preserve all stated distinctions if it is not distinct?",
-      "reason": "Current pins and Claim sections for 1 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'Type-Qualified Status Validation'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
+      "reason": "Captured snapshot pins and Claim sections for 1 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'Type-Qualified Status Validation'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
       "segment_ids": [],
       "source_atom_ids": [
         "CA-E-386"
@@ -4106,7 +4146,7 @@
       ],
       "proposal": null,
       "question": "Which checked Core Main Content definition (CA-R-1036) establishes 'Uncertain Lineage Impact Disposition' as distinct from same-label or qualified identities, and what exact replacement would preserve all stated distinctions if it is not distinct?",
-      "reason": "Current pins and Claim sections for 1 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'Uncertain Lineage Impact Disposition'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
+      "reason": "Captured snapshot pins and Claim sections for 1 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'Uncertain Lineage Impact Disposition'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
       "segment_ids": [],
       "source_atom_ids": [
         "CA-R-1036"
@@ -4191,7 +4231,7 @@
         "replacement": null
       },
       "question": null,
-      "reason": "Current pins and Claim sections for 1 source Atom(s) were checked; evidence E034 directly defines 'Unit'. It is retained unchanged with no new native admission or reduction decision.",
+      "reason": "Captured snapshot pins and Claim sections for 1 source Atom(s) were checked; evidence E034 directly defines 'Unit'. It is retained unchanged with no new native admission or reduction decision.",
       "segment_ids": [],
       "source_atom_ids": [
         "CA-R-964"
@@ -4256,7 +4296,7 @@
       ],
       "proposal": null,
       "question": "Which checked Core Main Content definition (CA-R-1034) establishes 'Update-Required Lineage Impact Disposition' as distinct from same-label or qualified identities, and what exact replacement would preserve all stated distinctions if it is not distinct?",
-      "reason": "Current pins and Claim sections for 1 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'Update-Required Lineage Impact Disposition'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
+      "reason": "Captured snapshot pins and Claim sections for 1 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'Update-Required Lineage Impact Disposition'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
       "segment_ids": [],
       "source_atom_ids": [
         "CA-R-1034"
@@ -4336,7 +4376,7 @@
       ],
       "proposal": null,
       "question": "Which checked Core Main Content definition (CA-R-1505, CA-R-1633, CA-R-1638, CA-R-1683 (+2 further checked)) establishes 'Verification' as distinct from same-label or qualified identities, and what exact replacement would preserve all stated distinctions if it is not distinct?",
-      "reason": "Current pins and Claim sections for 6 source Atom(s) were checked; 6 exact-identity Claim line(s) across 6 source(s) do not prove a safe positive semantic disposition for 'Verification'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
+      "reason": "Captured snapshot pins and Claim sections for 6 source Atom(s) were checked; 6 exact-identity Claim line(s) across 6 source(s) do not prove a safe positive semantic disposition for 'Verification'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
       "segment_ids": [],
       "source_atom_ids": [
         "CA-R-1505",
@@ -4445,7 +4485,7 @@
       ],
       "proposal": null,
       "question": "Do the checked Core Main Content sections (CA-D-338, CA-D-340, CA-D-360, CA-D-365 (+11 further checked)) identify 'Work Journal' as a reusable definition, an actual Run, or a durable record, and which distinctions must remain separate?",
-      "reason": "Current pins and Claim sections for 15 source Atom(s) were checked; 10 exact-identity Claim line(s) across 10 source(s) do not prove a safe positive semantic disposition for 'Work Journal'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
+      "reason": "Captured snapshot pins and Claim sections for 15 source Atom(s) were checked; 10 exact-identity Claim line(s) across 10 source(s) do not prove a safe positive semantic disposition for 'Work Journal'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
       "segment_ids": [
         "subject-segment:16b55eda6344ae9bef4db36d077cf08edb87534c1ef1e18b3b2b017281d8f973",
         "subject-segment:2219cb6cb4ea8749fc0fbdce007c3eb0a226a806aa51694b282bd6ded8650316",
@@ -4541,7 +4581,7 @@
       ],
       "proposal": null,
       "question": "Do the checked Core Main Content sections (CA-R-1649) define 'Work Journal/Action' as a distinct model identity, rather than only a qualified reference to 'Work Journal'; if distinct, what exact relation and direction own it?",
-      "reason": "Current pins and Claim sections for 1 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'Work Journal/Action'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
+      "reason": "Captured snapshot pins and Claim sections for 1 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'Work Journal/Action'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
       "segment_ids": [
         "subject-segment:93fa37a0d6229411e424caf46fb29e6eca2afe971b83d4ad3fbd331720195024"
       ],
@@ -4624,7 +4664,7 @@
       ],
       "proposal": null,
       "question": "Do the checked Core Main Content sections (CA-D-340, CA-E-462, CA-E-522, CA-E-523 (+4 further checked)) define 'Work Journal/Event' as a distinct model identity, rather than only a qualified reference to 'Work Journal'; if distinct, what exact relation and direction own it?",
-      "reason": "Current pins and Claim sections for 8 source Atom(s) were checked; 1 exact-identity Claim line(s) across 1 source(s) do not prove a safe positive semantic disposition for 'Work Journal/Event'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
+      "reason": "Captured snapshot pins and Claim sections for 8 source Atom(s) were checked; 1 exact-identity Claim line(s) across 1 source(s) do not prove a safe positive semantic disposition for 'Work Journal/Event'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
       "segment_ids": [
         "subject-segment:2219cb6cb4ea8749fc0fbdce007c3eb0a226a806aa51694b282bd6ded8650316",
         "subject-segment:343b0066bc1bbc715313a3f1b7d3cd3424d1f05c50a4150aa48630b3d49a63e3",
@@ -4710,7 +4750,7 @@
       ],
       "proposal": null,
       "question": "Do the checked Core Main Content sections (CA-D-340) define 'Work Journal/Event/Carrier Serialization' as a distinct model identity, rather than only a qualified reference to 'Work Journal/Event'; if distinct, what exact relation and direction own it?",
-      "reason": "Current pins and Claim sections for 1 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'Work Journal/Event/Carrier Serialization'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
+      "reason": "Captured snapshot pins and Claim sections for 1 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'Work Journal/Event/Carrier Serialization'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
       "segment_ids": [
         "subject-segment:a5afc1ee0385647b83f79d610a42630b93f7b7f749e62404cb3df181c679fcd6",
         "subject-segment:e9d60f511ff65b455d2c13c540c663a40c4c994331f3f77fd3b02b72c7affb3f"
@@ -4782,7 +4822,7 @@
       ],
       "proposal": null,
       "question": "Do the checked Core Main Content sections (CA-D-340, CA-R-1643) define 'Work Journal/Event/Type' as a distinct model identity, rather than only a qualified reference to 'Work Journal/Event'; if distinct, what exact relation and direction own it?",
-      "reason": "Current pins and Claim sections for 2 source Atom(s) were checked; 1 exact-identity Claim line(s) across 1 source(s) do not prove a safe positive semantic disposition for 'Work Journal/Event/Type'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
+      "reason": "Captured snapshot pins and Claim sections for 2 source Atom(s) were checked; 1 exact-identity Claim line(s) across 1 source(s) do not prove a safe positive semantic disposition for 'Work Journal/Event/Type'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
       "segment_ids": [
         "subject-segment:82e9befb8d1f627a0fc4d0a45f8346c5562af9e01295c6337d905ed6b81d9b09",
         "subject-segment:c337d0c942bc5e0f012b4f714a87bb4d2fd76aab27457ea9490c12e08e66c74c",
@@ -4851,7 +4891,7 @@
       ],
       "proposal": null,
       "question": "Do the checked Core Main Content sections (CA-D-338) define 'Work Journal/Projection Rebuild' as a distinct model identity, rather than only a qualified reference to 'Work Journal'; if distinct, what exact relation and direction own it?",
-      "reason": "Current pins and Claim sections for 1 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'Work Journal/Projection Rebuild'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
+      "reason": "Captured snapshot pins and Claim sections for 1 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'Work Journal/Projection Rebuild'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
       "segment_ids": [
         "subject-segment:16b55eda6344ae9bef4db36d077cf08edb87534c1ef1e18b3b2b017281d8f973",
         "subject-segment:2fdd87d1f617e343b8ce31682616b7432ca18037e32d4932ea4fdd4e14e7b3be"
@@ -4919,7 +4959,7 @@
       ],
       "proposal": null,
       "question": "Do the checked Core Main Content sections (CA-D-338) define 'Work Journal/Projection Rebuild/Completed Event' as a distinct model identity, rather than only a qualified reference to 'Work Journal/Projection Rebuild'; if distinct, what exact relation and direction own it?",
-      "reason": "Current pins and Claim sections for 1 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'Work Journal/Projection Rebuild/Completed Event'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
+      "reason": "Captured snapshot pins and Claim sections for 1 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'Work Journal/Projection Rebuild/Completed Event'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
       "segment_ids": [
         "subject-segment:16b55eda6344ae9bef4db36d077cf08edb87534c1ef1e18b3b2b017281d8f973",
         "subject-segment:2fdd87d1f617e343b8ce31682616b7432ca18037e32d4932ea4fdd4e14e7b3be"
@@ -4987,7 +5027,7 @@
       ],
       "proposal": null,
       "question": "Do the checked Core Main Content sections (CA-D-360, CA-D-365) define 'Work Journal/Record' as a distinct model identity, rather than only a qualified reference to 'Work Journal'; if distinct, what exact relation and direction own it?",
-      "reason": "Current pins and Claim sections for 2 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'Work Journal/Record'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
+      "reason": "Captured snapshot pins and Claim sections for 2 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'Work Journal/Record'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
       "segment_ids": [
         "subject-segment:2db4582bea637dec75b7165af0eaa01400ccf45183d108394d63e9ae42fbb43e",
         "subject-segment:484fbbcf276a32290b33ed4603f28c9ab3657f8a911ec667b5f1b8affa60db7c"
@@ -5005,46 +5045,52 @@
         "CA-R-997"
       ],
       "checks": {
-        "distinct_meaning": {
-          "evidence_refs": [
-            "E042"
-          ],
-          "finding": "unresolved",
-          "reason": "The available Main Content has not proved the exact native meaning of 'Work Sequence Number'; its Subjects occurrence remains preserved as evidence, not an admission."
-        },
         "duplicates": {
+          "finding": "no_proven_duplicate",
+          "reason": "The captured constraint identifies the positive-ordinal uniqueness constraint and the separate non-identity boundary; no checked source equates it with another preserved identity.",
           "evidence_refs": [
-            "E042"
-          ],
-          "finding": "not_proven",
-          "reason": "No checked Main Content source from CA-D-381, CA-R-992, CA-R-997 states that 'Work Sequence Number' is the same referent as another preserved identity; repeated spelling is not duplication proof."
-        },
-        "empty_definition": {
-          "evidence_refs": [
-            "E042"
-          ],
-          "finding": "not_established",
-          "reason": "A missing exact definition for 'Work Sequence Number' in the checked Main Content is not evidence of emptiness and cannot justify a drop candidate."
-        },
-        "generalization": {
-          "evidence_refs": [
-            "E042"
-          ],
-          "finding": "not_proposed",
-          "reason": "No checked Claim defines a supertype or relation direction for 'Work Sequence Number'; no generalization, inherited constraint, or Node Type is inferred."
+            "E076",
+            "E077"
+          ]
         },
         "redundancy": {
+          "finding": "not_proven_redundant",
+          "reason": "Ordering direct plans is distinct from atom identity, scope, type, decomposition, and blocking; that bounded contribution is not redundant merely because related identities also occur.",
           "evidence_refs": [
-            "E042"
-          ],
-          "finding": "not_proven",
-          "reason": "The checked source occurrence uses 'Work Sequence Number', but does not establish that it has no distinct governed purpose, constraint, history, or query effect."
+            "E076",
+            "E077"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful_captured_constraint",
+          "reason": "Captured Main Content supplies the positive-ordinal uniqueness constraint and the separate non-identity boundary, so missing universal ontology wording is not an empty-definition finding.",
+          "evidence_refs": [
+            "E076",
+            "E077"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "bounded_meaning_evidenced",
+          "reason": "Ordering direct plans is distinct from atom identity, scope, type, decomposition, and blocking.",
+          "evidence_refs": [
+            "E076",
+            "E077"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No captured source authorizes collapsing Work Sequence Number into a broader identity or admitting a new native relation.",
+          "evidence_refs": [
+            "E076",
+            "E077"
+          ]
         }
       },
-      "confidence_percent": 0,
-      "disposition": "question",
+      "confidence_percent": 95,
+      "disposition": "retain",
       "evidence_refs": [
-        "E042"
+        "E076",
+        "E077"
       ],
       "exact_identity_main_content_source_atom_ids": [
         "CA-D-381",
@@ -5065,8 +5111,8 @@
         4160
       ],
       "proposal": null,
-      "question": "Which checked Core Main Content definition (CA-D-381, CA-R-992, CA-R-997) establishes 'Work Sequence Number' as distinct from same-label or qualified identities, and what exact replacement would preserve all stated distinctions if it is not distinct?",
-      "reason": "Current pins and Claim sections for 3 source Atom(s) were checked; 3 exact-identity Claim line(s) across 3 source(s) do not prove a safe positive semantic disposition for 'Work Sequence Number'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
+      "question": null,
+      "reason": "Captured snapshot Main Content supplies the positive-ordinal uniqueness constraint and the separate non-identity boundary; retain the unchanged qualified identity without native admission, replacement, or spelling-mapping inference.",
       "segment_ids": [],
       "source_atom_ids": [
         "CA-D-381",
@@ -5397,7 +5443,7 @@
         "replacement": null
       },
       "question": null,
-      "reason": "Current pins and Claim sections for 78 source Atom(s) were checked; evidence E043 directly defines 'Workflow'. It is retained unchanged with no new native admission or reduction decision.",
+      "reason": "Captured snapshot pins and Claim sections for 78 source Atom(s) were checked; evidence E043 directly defines 'Workflow'. It is retained unchanged with no new native admission or reduction decision.",
       "segment_ids": [
         "subject-segment:054b734a8f999d44c560d572d0e41900a65c9f41a977ba61e4e212689c29008e",
         "subject-segment:0abcf133e597555a21786ab821638677e5d8ecfbb7b14f0ee33c5cae324ea5b0",
@@ -5794,7 +5840,7 @@
         "replacement": null
       },
       "question": null,
-      "reason": "Current pins and Claim sections for 80 source Atom(s) were checked; evidence E044 directly defines 'Workflow Run'. It is retained unchanged with no new native admission or reduction decision.",
+      "reason": "Captured snapshot pins and Claim sections for 80 source Atom(s) were checked; evidence E044 directly defines 'Workflow Run'. It is retained unchanged with no new native admission or reduction decision.",
       "segment_ids": [],
       "source_atom_ids": [
         "CA-D-496",
@@ -5886,44 +5932,44 @@
         "CA-E-500"
       ],
       "checks": {
-        "distinct_meaning": {
-          "evidence_refs": [
-            "E045"
-          ],
-          "finding": "unresolved",
-          "reason": "The available Main Content has not proved the exact native meaning of 'Workflow/Carrier'; its Subjects occurrence remains preserved as evidence, not an admission."
-        },
         "duplicates": {
+          "finding": "no_proven_duplicate",
+          "reason": "The captured constraint identifies the folder-backed Workflow carrier layout with one Workflow Atom carrier and separate Step carriers; no checked source equates it with another preserved identity.",
           "evidence_refs": [
             "E045"
-          ],
-          "finding": "not_proven",
-          "reason": "No checked Main Content source from CA-D-467, CA-E-500 states that 'Workflow/Carrier' is the same referent as another preserved identity; repeated spelling is not duplication proof."
-        },
-        "empty_definition": {
-          "evidence_refs": [
-            "E045"
-          ],
-          "finding": "not_established",
-          "reason": "A missing exact definition for 'Workflow/Carrier' in the checked Main Content is not evidence of emptiness and cannot justify a drop candidate."
-        },
-        "generalization": {
-          "evidence_refs": [
-            "E045"
-          ],
-          "finding": "not_proposed",
-          "reason": "No checked Claim defines a supertype or relation direction for 'Workflow/Carrier'; no generalization, inherited constraint, or Node Type is inferred."
+          ]
         },
         "redundancy": {
+          "finding": "not_proven_redundant",
+          "reason": "The grouping carrier is distinct from another workflow definition or owning scope unit; that bounded contribution is not redundant merely because related identities also occur.",
           "evidence_refs": [
             "E045"
-          ],
-          "finding": "not_proven",
-          "reason": "The checked source occurrence uses 'Workflow/Carrier', but does not establish that it has no distinct governed purpose, constraint, history, or query effect."
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful_captured_constraint",
+          "reason": "Captured Main Content supplies the folder-backed Workflow carrier layout with one Workflow Atom carrier and separate Step carriers, so missing universal ontology wording is not an empty-definition finding.",
+          "evidence_refs": [
+            "E045"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "bounded_meaning_evidenced",
+          "reason": "The grouping carrier is distinct from another workflow definition or owning scope unit.",
+          "evidence_refs": [
+            "E045"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No captured source authorizes collapsing Workflow/Carrier into a broader identity or admitting a new native relation.",
+          "evidence_refs": [
+            "E045"
+          ]
         }
       },
-      "confidence_percent": 0,
-      "disposition": "question",
+      "confidence_percent": 95,
+      "disposition": "retain",
       "evidence_refs": [
         "E045"
       ],
@@ -5940,8 +5986,8 @@
         4319
       ],
       "proposal": null,
-      "question": "Do the checked Core Main Content sections (CA-D-467, CA-E-500) define 'Workflow/Carrier' as a distinct model identity, rather than only a qualified reference to 'Workflow'; if distinct, what exact relation and direction own it?",
-      "reason": "Current pins and Claim sections for 2 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'Workflow/Carrier'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
+      "question": null,
+      "reason": "Captured snapshot Main Content supplies the folder-backed Workflow carrier layout with one Workflow Atom carrier and separate Step carriers; retain the unchanged qualified identity without native admission, replacement, or spelling-mapping inference.",
       "segment_ids": [
         "subject-segment:893cbad0a9578ea0bd86accaf972a1ef63ea5983db5402b4094fcb1b1c6123bb",
         "subject-segment:9a481324307bdbe39f2a644758cc9c9b161c6d61895b6338f74e7f35a8ce4876"
@@ -5975,46 +6021,46 @@
         "CA-R-1570"
       ],
       "checks": {
-        "distinct_meaning": {
-          "evidence_refs": [
-            "E046"
-          ],
-          "finding": "unresolved",
-          "reason": "The available Main Content has not proved the exact native meaning of 'Workflow/Relation Kind'; its Subjects occurrence remains preserved as evidence, not an admission."
-        },
         "duplicates": {
+          "finding": "no_proven_duplicate",
+          "reason": "The captured constraint identifies typed, directed control-flow Relations owned by the reusable Workflow graph kind; no checked source equates it with another preserved identity.",
           "evidence_refs": [
-            "E046"
-          ],
-          "finding": "not_proven",
-          "reason": "No checked Main Content source from CA-E-486, CA-E-489, CA-E-500, CA-E-513 (+15 further checked) states that 'Workflow/Relation Kind' is the same referent as another preserved identity; repeated spelling is not duplication proof."
-        },
-        "empty_definition": {
-          "evidence_refs": [
-            "E046"
-          ],
-          "finding": "not_established",
-          "reason": "A missing exact definition for 'Workflow/Relation Kind' in the checked Main Content is not evidence of emptiness and cannot justify a drop candidate."
-        },
-        "generalization": {
-          "evidence_refs": [
-            "E046"
-          ],
-          "finding": "not_proposed",
-          "reason": "No checked Claim defines a supertype or relation direction for 'Workflow/Relation Kind'; no generalization, inherited constraint, or Node Type is inferred."
+            "E043"
+          ]
         },
         "redundancy": {
+          "finding": "not_proven_redundant",
+          "reason": "Workflow-owned control-flow relations are distinct from the step and action definitions they connect; that bounded contribution is not redundant merely because related identities also occur.",
           "evidence_refs": [
-            "E046"
-          ],
-          "finding": "not_proven",
-          "reason": "The checked source occurrence uses 'Workflow/Relation Kind', but does not establish that it has no distinct governed purpose, constraint, history, or query effect."
+            "E043"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful_captured_constraint",
+          "reason": "Captured Main Content supplies typed, directed control-flow Relations owned by the reusable Workflow graph kind, so missing universal ontology wording is not an empty-definition finding.",
+          "evidence_refs": [
+            "E043"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "bounded_meaning_evidenced",
+          "reason": "Workflow-owned control-flow relations are distinct from the step and action definitions they connect.",
+          "evidence_refs": [
+            "E043"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No captured source authorizes collapsing Workflow/Relation Kind into a broader identity or admitting a new native relation.",
+          "evidence_refs": [
+            "E043"
+          ]
         }
       },
-      "confidence_percent": 0,
-      "disposition": "question",
+      "confidence_percent": 95,
+      "disposition": "retain",
       "evidence_refs": [
-        "E046"
+        "E043"
       ],
       "exact_identity_main_content_source_atom_ids": [],
       "governing_source_atom_ids": [],
@@ -6043,8 +6089,8 @@
         4338
       ],
       "proposal": null,
-      "question": "Do the checked Core Main Content sections (CA-E-486, CA-E-489, CA-E-500, CA-E-513 (+15 further checked)) define 'Workflow/Relation Kind' as a distinct model identity, rather than only a qualified reference to 'Workflow'; if distinct, what exact relation and direction own it?",
-      "reason": "Current pins and Claim sections for 19 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'Workflow/Relation Kind'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
+      "question": null,
+      "reason": "Captured snapshot Main Content supplies typed, directed control-flow Relations owned by the reusable Workflow graph kind; retain the unchanged qualified identity without native admission, replacement, or spelling-mapping inference.",
       "segment_ids": [
         "subject-segment:054b734a8f999d44c560d572d0e41900a65c9f41a977ba61e4e212689c29008e",
         "subject-segment:0abcf133e597555a21786ab821638677e5d8ecfbb7b14f0ee33c5cae324ea5b0",
@@ -6131,44 +6177,44 @@
         "CA-R-1570"
       ],
       "checks": {
-        "distinct_meaning": {
-          "evidence_refs": [
-            "E047"
-          ],
-          "finding": "unresolved",
-          "reason": "The available Main Content has not proved the exact native meaning of 'Workflow/Relation Kind: On Result'; its Subjects occurrence remains preserved as evidence, not an admission."
-        },
         "duplicates": {
+          "finding": "no_proven_duplicate",
+          "reason": "The captured constraint identifies the directed same-Workflow Step transition qualified by a source Step Run result condition; no checked source equates it with another preserved identity.",
           "evidence_refs": [
             "E047"
-          ],
-          "finding": "not_proven",
-          "reason": "No checked Main Content source from CA-E-486, CA-E-489, CA-E-500, CA-E-513 (+15 further checked) states that 'Workflow/Relation Kind: On Result' is the same referent as another preserved identity; repeated spelling is not duplication proof."
-        },
-        "empty_definition": {
-          "evidence_refs": [
-            "E047"
-          ],
-          "finding": "not_established",
-          "reason": "A missing exact definition for 'Workflow/Relation Kind: On Result' in the checked Main Content is not evidence of emptiness and cannot justify a drop candidate."
-        },
-        "generalization": {
-          "evidence_refs": [
-            "E047"
-          ],
-          "finding": "not_proposed",
-          "reason": "No checked Claim defines a supertype or relation direction for 'Workflow/Relation Kind: On Result'; no generalization, inherited constraint, or Node Type is inferred."
+          ]
         },
         "redundancy": {
+          "finding": "not_proven_redundant",
+          "reason": "The transition is distinct from an action definition, subject depends_on, and a task prerequisite; that bounded contribution is not redundant merely because related identities also occur.",
           "evidence_refs": [
             "E047"
-          ],
-          "finding": "not_proven",
-          "reason": "The checked source occurrence uses 'Workflow/Relation Kind: On Result', but does not establish that it has no distinct governed purpose, constraint, history, or query effect."
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful_captured_constraint",
+          "reason": "Captured Main Content supplies the directed same-Workflow Step transition qualified by a source Step Run result condition, so missing universal ontology wording is not an empty-definition finding.",
+          "evidence_refs": [
+            "E047"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "bounded_meaning_evidenced",
+          "reason": "The transition is distinct from an action definition, subject depends_on, and a task prerequisite.",
+          "evidence_refs": [
+            "E047"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No captured source authorizes collapsing Workflow/Relation Kind: On Result into a broader identity or admitting a new native relation.",
+          "evidence_refs": [
+            "E047"
+          ]
         }
       },
-      "confidence_percent": 0,
-      "disposition": "question",
+      "confidence_percent": 95,
+      "disposition": "retain",
       "evidence_refs": [
         "E047"
       ],
@@ -6201,8 +6247,8 @@
         4338
       ],
       "proposal": null,
-      "question": "Do the checked Core Main Content sections (CA-E-486, CA-E-489, CA-E-500, CA-E-513 (+15 further checked)) define 'Workflow/Relation Kind: On Result' as a distinct allowed-value domain, including its owning Property and value direction, or only as Subjects notation?",
-      "reason": "Current pins and Claim sections for 19 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'Workflow/Relation Kind: On Result'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
+      "question": null,
+      "reason": "Captured snapshot Main Content supplies the directed same-Workflow Step transition qualified by a source Step Run result condition; retain the unchanged qualified identity without native admission, replacement, or spelling-mapping inference.",
       "segment_ids": [
         "subject-segment:054b734a8f999d44c560d572d0e41900a65c9f41a977ba61e4e212689c29008e",
         "subject-segment:0abcf133e597555a21786ab821638677e5d8ecfbb7b14f0ee33c5cae324ea5b0",
@@ -6324,7 +6370,7 @@
       ],
       "proposal": null,
       "question": "Which checked Core Main Content definition (CA-D-330) establishes 'YAML' as distinct from same-label or qualified identities, and what exact replacement would preserve all stated distinctions if it is not distinct?",
-      "reason": "Current pins and Claim sections for 1 source Atom(s) were checked; 1 exact-identity Claim line(s) across 1 source(s) do not prove a safe positive semantic disposition for 'YAML'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
+      "reason": "Captured snapshot pins and Claim sections for 1 source Atom(s) were checked; 1 exact-identity Claim line(s) across 1 source(s) do not prove a safe positive semantic disposition for 'YAML'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
       "segment_ids": [],
       "source_atom_ids": [
         "CA-D-330"
@@ -6394,7 +6440,7 @@
       ],
       "proposal": null,
       "question": "Which checked Core Main Content definition (CA-R-1669, CA-R-1670) establishes 'applicability' as distinct from same-label or qualified identities, and what exact replacement would preserve all stated distinctions if it is not distinct?",
-      "reason": "Current pins and Claim sections for 2 source Atom(s) were checked; 1 exact-identity Claim line(s) across 1 source(s) do not prove a safe positive semantic disposition for 'applicability'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
+      "reason": "Captured snapshot pins and Claim sections for 2 source Atom(s) were checked; 1 exact-identity Claim line(s) across 1 source(s) do not prove a safe positive semantic disposition for 'applicability'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
       "segment_ids": [],
       "source_atom_ids": [
         "CA-R-1669",
@@ -6458,7 +6504,7 @@
       ],
       "proposal": null,
       "question": "Which checked Core Main Content definition (CA-R-1664) establishes 'artifact-catalog' as distinct from same-label or qualified identities, and what exact replacement would preserve all stated distinctions if it is not distinct?",
-      "reason": "Current pins and Claim sections for 1 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'artifact-catalog'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
+      "reason": "Captured snapshot pins and Claim sections for 1 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'artifact-catalog'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
       "segment_ids": [],
       "source_atom_ids": [
         "CA-R-1664"
@@ -6551,7 +6597,7 @@
       ],
       "proposal": null,
       "question": "Which checked Core Main Content definition (CA-M-113, CA-R-118, CA-R-151, CA-R-1700 (+8 further checked)) establishes 'artifact-model' as distinct from same-label or qualified identities, and what exact replacement would preserve all stated distinctions if it is not distinct?",
-      "reason": "Current pins and Claim sections for 12 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'artifact-model'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
+      "reason": "Captured snapshot pins and Claim sections for 12 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'artifact-model'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
       "segment_ids": [],
       "source_atom_ids": [
         "CA-M-113",
@@ -6701,7 +6747,7 @@
       ],
       "proposal": null,
       "question": "Which checked Core Main Content definition (CA-R-1016, CA-R-1017, CA-R-1019, CA-R-1020 (+35 further checked)) establishes 'atom-boundary' as distinct from same-label or qualified identities, and what exact replacement would preserve all stated distinctions if it is not distinct?",
-      "reason": "Current pins and Claim sections for 39 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'atom-boundary'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
+      "reason": "Captured snapshot pins and Claim sections for 39 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'atom-boundary'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
       "segment_ids": [],
       "source_atom_ids": [
         "CA-R-1016",
@@ -6840,7 +6886,7 @@
       ],
       "proposal": null,
       "question": "Which checked Core Main Content definition (CA-R-1656, CA-R-1658, CA-R-1681, CA-R-1682 (+8 further checked)) establishes 'authority' as distinct from same-label or qualified identities, and what exact replacement would preserve all stated distinctions if it is not distinct?",
-      "reason": "Current pins and Claim sections for 12 source Atom(s) were checked; 7 exact-identity Claim line(s) across 7 source(s) do not prove a safe positive semantic disposition for 'authority'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
+      "reason": "Captured snapshot pins and Claim sections for 12 source Atom(s) were checked; 7 exact-identity Claim line(s) across 7 source(s) do not prove a safe positive semantic disposition for 'authority'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
       "segment_ids": [],
       "source_atom_ids": [
         "CA-R-1656",
@@ -6918,7 +6964,7 @@
       ],
       "proposal": null,
       "question": "Which checked Core Main Content definition (CA-R-1701) establishes 'classification' as distinct from same-label or qualified identities, and what exact replacement would preserve all stated distinctions if it is not distinct?",
-      "reason": "Current pins and Claim sections for 1 source Atom(s) were checked; 1 exact-identity Claim line(s) across 1 source(s) do not prove a safe positive semantic disposition for 'classification'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
+      "reason": "Captured snapshot pins and Claim sections for 1 source Atom(s) were checked; 1 exact-identity Claim line(s) across 1 source(s) do not prove a safe positive semantic disposition for 'classification'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
       "segment_ids": [],
       "source_atom_ids": [
         "CA-R-1701"
@@ -6994,7 +7040,7 @@
       ],
       "proposal": null,
       "question": "Which checked Core Main Content definition (CA-R-1734, CA-R-1735, CA-R-1741, CA-R-1742 (+1 further checked)) establishes 'continuous-improvement' as distinct from same-label or qualified identities, and what exact replacement would preserve all stated distinctions if it is not distinct?",
-      "reason": "Current pins and Claim sections for 5 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'continuous-improvement'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
+      "reason": "Captured snapshot pins and Claim sections for 5 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'continuous-improvement'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
       "segment_ids": [],
       "source_atom_ids": [
         "CA-R-1734",
@@ -7075,7 +7121,7 @@
       ],
       "proposal": null,
       "question": "Which checked Core Main Content definition (CA-R-1685, CA-R-1691, CA-R-1714, CA-R-1715 (+1 further checked)) establishes 'development-flow' as distinct from same-label or qualified identities, and what exact replacement would preserve all stated distinctions if it is not distinct?",
-      "reason": "Current pins and Claim sections for 5 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'development-flow'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
+      "reason": "Captured snapshot pins and Claim sections for 5 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'development-flow'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
       "segment_ids": [],
       "source_atom_ids": [
         "CA-R-1685",
@@ -7162,7 +7208,7 @@
       ],
       "proposal": null,
       "question": "Which checked Core Main Content definition (CA-R-1647, CA-R-1679, CA-R-1684, CA-R-1687 (+2 further checked)) establishes 'evaluation' as distinct from same-label or qualified identities, and what exact replacement would preserve all stated distinctions if it is not distinct?",
-      "reason": "Current pins and Claim sections for 6 source Atom(s) were checked; 2 exact-identity Claim line(s) across 2 source(s) do not prove a safe positive semantic disposition for 'evaluation'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
+      "reason": "Captured snapshot pins and Claim sections for 6 source Atom(s) were checked; 2 exact-identity Claim line(s) across 2 source(s) do not prove a safe positive semantic disposition for 'evaluation'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
       "segment_ids": [],
       "source_atom_ids": [
         "CA-R-1647",
@@ -7244,7 +7290,7 @@
       ],
       "proposal": null,
       "question": "Which checked Core Main Content definition (CA-R-1733, CA-R-1752, CA-R-1753, CA-R-1754 (+1 further checked)) establishes 'extension-model' as distinct from same-label or qualified identities, and what exact replacement would preserve all stated distinctions if it is not distinct?",
-      "reason": "Current pins and Claim sections for 5 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'extension-model'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
+      "reason": "Captured snapshot pins and Claim sections for 5 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'extension-model'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
       "segment_ids": [],
       "source_atom_ids": [
         "CA-R-1733",
@@ -7316,7 +7362,7 @@
       ],
       "proposal": null,
       "question": "Which checked Core Main Content definition (CA-R-1627, CA-R-1648) establishes 'external-boundary' as distinct from same-label or qualified identities, and what exact replacement would preserve all stated distinctions if it is not distinct?",
-      "reason": "Current pins and Claim sections for 2 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'external-boundary'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
+      "reason": "Captured snapshot pins and Claim sections for 2 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'external-boundary'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
       "segment_ids": [],
       "source_atom_ids": [
         "CA-R-1627",
@@ -7382,7 +7428,7 @@
       ],
       "proposal": null,
       "question": "Which checked Core Main Content definition (CA-R-1680) establishes 'framework-boundary' as distinct from same-label or qualified identities, and what exact replacement would preserve all stated distinctions if it is not distinct?",
-      "reason": "Current pins and Claim sections for 1 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'framework-boundary'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
+      "reason": "Captured snapshot pins and Claim sections for 1 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'framework-boundary'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
       "segment_ids": [],
       "source_atom_ids": [
         "CA-R-1680"
@@ -7447,7 +7493,7 @@
       ],
       "proposal": null,
       "question": "Which checked Core Main Content definition (CA-R-853) establishes 'interaction' as distinct from same-label or qualified identities, and what exact replacement would preserve all stated distinctions if it is not distinct?",
-      "reason": "Current pins and Claim sections for 1 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'interaction'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
+      "reason": "Captured snapshot pins and Claim sections for 1 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'interaction'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
       "segment_ids": [],
       "source_atom_ids": [
         "CA-R-853"
@@ -7529,7 +7575,7 @@
       ],
       "proposal": null,
       "question": "Which checked Core Main Content definition (CA-E-472, CA-M-112, CA-M-113, CA-M-294 (+2 further checked)) establishes 'language' as distinct from same-label or qualified identities, and what exact replacement would preserve all stated distinctions if it is not distinct?",
-      "reason": "Current pins and Claim sections for 6 source Atom(s) were checked; 1 exact-identity Claim line(s) across 1 source(s) do not prove a safe positive semantic disposition for 'language'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
+      "reason": "Captured snapshot pins and Claim sections for 6 source Atom(s) were checked; 1 exact-identity Claim line(s) across 1 source(s) do not prove a safe positive semantic disposition for 'language'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
       "segment_ids": [],
       "source_atom_ids": [
         "CA-E-472",
@@ -7599,7 +7645,7 @@
       ],
       "proposal": null,
       "question": "Which checked Core Main Content definition (CA-R-1630) establishes 'lifecycle' as distinct from same-label or qualified identities, and what exact replacement would preserve all stated distinctions if it is not distinct?",
-      "reason": "Current pins and Claim sections for 1 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'lifecycle'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
+      "reason": "Captured snapshot pins and Claim sections for 1 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'lifecycle'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
       "segment_ids": [],
       "source_atom_ids": [
         "CA-R-1630"
@@ -7690,7 +7736,7 @@
       ],
       "proposal": null,
       "question": "Which checked Core Main Content definition (CA-R-1032, CA-R-1051, CA-R-1697, CA-R-1698 (+6 further checked)) establishes 'lifecycle-traceability' as distinct from same-label or qualified identities, and what exact replacement would preserve all stated distinctions if it is not distinct?",
-      "reason": "Current pins and Claim sections for 10 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'lifecycle-traceability'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
+      "reason": "Captured snapshot pins and Claim sections for 10 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'lifecycle-traceability'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
       "segment_ids": [],
       "source_atom_ids": [
         "CA-R-1032",
@@ -7764,7 +7810,7 @@
       ],
       "proposal": null,
       "question": "Which checked Core Main Content definition (CA-R-1696) establishes 'principles' as distinct from same-label or qualified identities, and what exact replacement would preserve all stated distinctions if it is not distinct?",
-      "reason": "Current pins and Claim sections for 1 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'principles'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
+      "reason": "Captured snapshot pins and Claim sections for 1 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'principles'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
       "segment_ids": [],
       "source_atom_ids": [
         "CA-R-1696"
@@ -7835,7 +7881,7 @@
       ],
       "proposal": null,
       "question": "Which checked Core Main Content definition (CA-R-834, CA-R-836) establishes 'project-containment graph' as distinct from same-label or qualified identities, and what exact replacement would preserve all stated distinctions if it is not distinct?",
-      "reason": "Current pins and Claim sections for 2 source Atom(s) were checked; 2 exact-identity Claim line(s) across 2 source(s) do not prove a safe positive semantic disposition for 'project-containment graph'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
+      "reason": "Captured snapshot pins and Claim sections for 2 source Atom(s) were checked; 2 exact-identity Claim line(s) across 2 source(s) do not prove a safe positive semantic disposition for 'project-containment graph'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
       "segment_ids": [],
       "source_atom_ids": [
         "CA-R-834",
@@ -7903,7 +7949,7 @@
       ],
       "proposal": null,
       "question": "Which checked Core Main Content definition (CA-M-135) establishes 'provenance' as distinct from same-label or qualified identities, and what exact replacement would preserve all stated distinctions if it is not distinct?",
-      "reason": "Current pins and Claim sections for 1 source Atom(s) were checked; 1 exact-identity Claim line(s) across 1 source(s) do not prove a safe positive semantic disposition for 'provenance'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
+      "reason": "Captured snapshot pins and Claim sections for 1 source Atom(s) were checked; 1 exact-identity Claim line(s) across 1 source(s) do not prove a safe positive semantic disposition for 'provenance'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
       "segment_ids": [],
       "source_atom_ids": [
         "CA-M-135"
@@ -7968,7 +8014,7 @@
       ],
       "proposal": null,
       "question": "Which checked Core Main Content definition (CAPRMEDIO-GOV-EVAL-005) establishes 'relation validation' as distinct from same-label or qualified identities, and what exact replacement would preserve all stated distinctions if it is not distinct?",
-      "reason": "Current pins and Claim sections for 1 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'relation validation'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
+      "reason": "Captured snapshot pins and Claim sections for 1 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'relation validation'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
       "segment_ids": [],
       "source_atom_ids": [
         "CAPRMEDIO-GOV-EVAL-005"
@@ -8136,7 +8182,7 @@
       ],
       "proposal": null,
       "question": "Which checked Core Main Content definition (CA-R-1016, CA-R-1017, CA-R-1019, CA-R-1020 (+37 further checked)) establishes 'relation-model' as distinct from same-label or qualified identities, and what exact replacement would preserve all stated distinctions if it is not distinct?",
-      "reason": "Current pins and Claim sections for 41 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'relation-model'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
+      "reason": "Captured snapshot pins and Claim sections for 41 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'relation-model'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
       "segment_ids": [],
       "source_atom_ids": [
         "CA-R-1016",
@@ -8244,7 +8290,7 @@
       ],
       "proposal": null,
       "question": "Which checked Core Main Content definition (CA-R-1671, CA-R-1672) establishes 'requirement-topology' as distinct from same-label or qualified identities, and what exact replacement would preserve all stated distinctions if it is not distinct?",
-      "reason": "Current pins and Claim sections for 2 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'requirement-topology'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
+      "reason": "Captured snapshot pins and Claim sections for 2 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'requirement-topology'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
       "segment_ids": [],
       "source_atom_ids": [
         "CA-R-1671",
@@ -8308,7 +8354,7 @@
       ],
       "proposal": null,
       "question": "Which checked Core Main Content definition (CA-R-1650) establishes 'runtime' as distinct from same-label or qualified identities, and what exact replacement would preserve all stated distinctions if it is not distinct?",
-      "reason": "Current pins and Claim sections for 1 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'runtime'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
+      "reason": "Captured snapshot pins and Claim sections for 1 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'runtime'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
       "segment_ids": [],
       "source_atom_ids": [
         "CA-R-1650"
@@ -8431,7 +8477,7 @@
       ],
       "proposal": null,
       "question": "Which checked Core Main Content definition (CA-R-1656, CA-R-1658, CA-R-1677, CA-R-1678 (+19 further checked)) establishes 'scope-topology' as distinct from same-label or qualified identities, and what exact replacement would preserve all stated distinctions if it is not distinct?",
-      "reason": "Current pins and Claim sections for 23 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'scope-topology'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
+      "reason": "Captured snapshot pins and Claim sections for 23 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'scope-topology'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
       "segment_ids": [],
       "source_atom_ids": [
         "CA-R-1656",
@@ -8543,7 +8589,7 @@
       ],
       "proposal": null,
       "question": "Which checked Core Main Content definition (CA-M-123, CA-R-117, CA-R-121, CA-R-1702 (+7 further checked)) establishes 'semantics' as distinct from same-label or qualified identities, and what exact replacement would preserve all stated distinctions if it is not distinct?",
-      "reason": "Current pins and Claim sections for 11 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'semantics'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
+      "reason": "Captured snapshot pins and Claim sections for 11 source Atom(s) were checked; 0 exact-identity Claim line(s) across 0 source(s) do not prove a safe positive semantic disposition for 'semantics'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
       "segment_ids": [],
       "source_atom_ids": [
         "CA-M-123",
@@ -8620,7 +8666,7 @@
       ],
       "proposal": null,
       "question": "Which checked Core Main Content definition (CA-R-1429) establishes 'settings specification' as distinct from same-label or qualified identities, and what exact replacement would preserve all stated distinctions if it is not distinct?",
-      "reason": "Current pins and Claim sections for 1 source Atom(s) were checked; 1 exact-identity Claim line(s) across 1 source(s) do not prove a safe positive semantic disposition for 'settings specification'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
+      "reason": "Captured snapshot pins and Claim sections for 1 source Atom(s) were checked; 1 exact-identity Claim line(s) across 1 source(s) do not prove a safe positive semantic disposition for 'settings specification'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
       "segment_ids": [],
       "source_atom_ids": [
         "CA-R-1429"
@@ -8687,7 +8733,7 @@
       ],
       "proposal": null,
       "question": "Which checked Core Main Content definition (CA-R-1770) establishes 'subject' as distinct from same-label or qualified identities, and what exact replacement would preserve all stated distinctions if it is not distinct?",
-      "reason": "Current pins and Claim sections for 1 source Atom(s) were checked; 1 exact-identity Claim line(s) across 1 source(s) do not prove a safe positive semantic disposition for 'subject'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
+      "reason": "Captured snapshot pins and Claim sections for 1 source Atom(s) were checked; 1 exact-identity Claim line(s) across 1 source(s) do not prove a safe positive semantic disposition for 'subject'. The preserved identity therefore remains an explicit Operator question, not a retain/consolidate/generalize/drop decision.",
       "segment_ids": [],
       "source_atom_ids": [
         "CA-R-1770"
@@ -8709,9 +8755,9 @@
   },
   "partition_sha256": "6c3c6b43c92b0c3c61a91714b0507640a345669bdeb931087f8a4e025591ab0a",
   "review_context": {
-    "current_core_claimed": false,
+    "kind": "captured_snapshot",
     "git_commit": "a971d0e00c33c779f485fc8cad63194894d440fb",
-    "kind": "captured_snapshot"
+    "current_core_claimed": false
   },
   "semantic_admission": "not_performed",
   "source_binding": {
@@ -8721,20 +8767,38 @@
   },
   "source_migration": "not_performed",
   "source_pin_validation": {
-    "checked_current_bytes": true,
-    "checked_scope": "exact Active CORE_META_MODEL sources referenced by this batch",
-    "checked_source_atom_count": 411,
-    "status": "passed"
+    "status": "passed",
+    "checked_captured_bytes": true,
+    "checked_current_bytes": false,
+    "checked_scope": "corrected identities' cited sources against captured snapshot pins; retained row source coverage is verified mechanically",
+    "checked_source_atom_count": 9
   },
   "source_task": "CA-P-1936",
   "summary": {
     "dispositions": {
-      "question": 65,
-      "retain": 16
+      "retain": 24,
+      "question": 57
     },
     "identity_count": 81,
-    "positive_semantic_proposal_count": 16,
+    "positive_semantic_proposal_count": 24,
     "preservation": "All input identities, occurrences, source Atom IDs, and baseline-derived segment IDs are retained; no new native Node Type, relation, deletion, merge, or migration is proposed.",
-    "unresolved_question_count": 65
+    "unresolved_question_count": 57,
+    "repair_task": "CA-P-1954"
+  },
+  "repair_provenance": {
+    "repair_task": "CA-P-1954",
+    "prior_review_sha256": "817e08c50b121beac72a3f34c88f0e4e7625168a9a255ebaae8a92ed80268cad",
+    "source_context": "captured_snapshot",
+    "git_commit": "a971d0e00c33c779f485fc8cad63194894d440fb",
+    "corrected_identities": [
+      "Subject Assignment",
+      "Subject Expression Writing",
+      "Subject Expression Evaluation",
+      "Subject Projection Derivation",
+      "Work Sequence Number",
+      "Workflow/Carrier",
+      "Workflow/Relation Kind",
+      "Workflow/Relation Kind: On Result"
+    ]
   }
 }

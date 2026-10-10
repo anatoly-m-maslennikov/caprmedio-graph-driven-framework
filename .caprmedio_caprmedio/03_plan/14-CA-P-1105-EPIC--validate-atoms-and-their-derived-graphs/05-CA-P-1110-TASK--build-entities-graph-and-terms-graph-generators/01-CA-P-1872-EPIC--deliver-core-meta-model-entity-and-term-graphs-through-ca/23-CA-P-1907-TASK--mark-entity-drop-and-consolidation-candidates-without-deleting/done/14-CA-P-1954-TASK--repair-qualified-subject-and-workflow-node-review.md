@@ -10,12 +10,12 @@ local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
-status: Active
+status: Done
 subjects:
   governs: Projection
   depends_on: [Entity, Atom, Carrier, Plan]
-version: 1
-updated_at: "2026-10-10 04:24:00 +0400"
+version: 2
+updated_at: "2026-10-10 04:37:00 +0400"
 relations:
   is_decomposition_of: [CA-P-1907]
   blocks: [CA-P-1937]
@@ -41,6 +41,12 @@ Known false-gap examples: Subject Expression Writing (CA-M-228@14), Subject Expr
 Own only `nodes/nodes.batch-8.review.json` and a temporary repair helper under `.caprmedio_tmp/planning/core-entity-review/nodes/`. Preserve all original identities, input pins and unaffected rows. Add exact captured Main Content spans, truthful checked/unassessed source coverage, and target-specific reasons for all five checks in each corrected row. Correct captured-versus-current narration outside raw quotations. Record repair provenance and the prior review SHA; Git preserves the original receipt. Do not modify the completed original Plan.
 
 Root owns Plans, Git and integration. You are not alone; preserve other edits. No Core, Subject, baseline, runtime, implementation, MCP or FPF writes. Use uv only. Below 90% confidence, retain a specific unresolved question. If this bounded repair cannot finish in 15 minutes, return a checkpoint for decomposition before further execution. No deletion, adoption or native fact admission.
+
+### Completion receipt
+
+Final review: nodes/nodes.batch-8.review.json; SHA-256: ef376294fceedd369713f2c1b5aee0bb2b0a1ca657b4c7ec14705cbef5aa61ab.
+
+Captured-only repair verified: 81 identities, 24 retain decisions, 57 preserved questions, 78 exact nonempty Main Content evidence spans and 411 captured source pins checked. Independent read-only meaning audit by fact_contract passed for all 8 corrected rows, including target-specific five-check rationales and no native admission. Original completed batch receipt remains historical; no Core, Subject or baseline change was performed.
 
 ### Definition of Done
 
