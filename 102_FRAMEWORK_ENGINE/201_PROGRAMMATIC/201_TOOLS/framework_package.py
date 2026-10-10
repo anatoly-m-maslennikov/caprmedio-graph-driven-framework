@@ -410,6 +410,85 @@ def _catalog_receipt_descriptor(identity: str, record: Mapping[str, Any]) -> dic
     }
 
 
+def _validate_methodology_catalog_partition(
+    root: Path,
+    records: tuple[tuple[str, Mapping[str, Any]], ...],
+) -> None:
+    """Require the D561v3 disjoint source roots before a package is trusted.
+
+    Selection is intentionally irrelevant here.  A retained optional Extension
+    or Configuration remains physical package content and must therefore be
+    represented once, while a nested descriptor may never borrow an ancestor's
+    coverage.
+    """
+
+    expected_singletons = {
+        "core": Path("102_FRAMEWORK_ENGINE"),
+        "support": METHODOLOGY_ROOT / "support",
+        "methodology": METHODOLOGY_ROOT / "active" / "001_CORE_META_MODEL",
+    }
+    compiler_kinds = frozenset({"methodology", "extension", "configuration"})
+    compiler_roots: list[Path] = []
+    for kind, expected in expected_singletons.items():
+        matching = [
+            identity
+            for identity, record in records
+            if record["kind"] == kind
+            and _safe_relative(record["path"], f"source.{identity}.path", code="catalog-invalid") == expected
+        ]
+        if len(matching) != 1:
+            raise FrameworkPackageError(
+                "catalog-topology-invalid",
+                f"catalog must admit exactly one {kind} root at {expected.as_posix()}",
+            )
+        if sum(record["kind"] == kind for _identity, record in records) != 1:
+            raise FrameworkPackageError("catalog-topology-invalid", f"catalog has an unexpected {kind} root")
+
+    for identity, record in records:
+        kind = str(record["kind"])
+        relative = _safe_relative(record["path"], f"source.{identity}.path", code="catalog-invalid")
+        if kind == "configuration":
+            expected = METHODOLOGY_ROOT / "active" / "003_PROJECT_CONFIGURATION"
+            if relative != expected:
+                raise FrameworkPackageError(
+                    "catalog-topology-invalid",
+                    f"Configuration root is not {expected.as_posix()}: {identity}",
+                )
+        elif kind == "extension":
+            prefix = METHODOLOGY_ROOT / "active" / "002_INSTALLED_EXTENSIONS"
+            if not relative.is_relative_to(prefix) or len(relative.relative_to(prefix).parts) != 2:
+                raise FrameworkPackageError(
+                    "catalog-topology-invalid",
+                    f"Extension root is not identity/revision scoped: {identity}",
+                )
+        if kind in compiler_kinds:
+            compiler_roots.append(relative)
+
+    for index, left in enumerate(compiler_roots):
+        for right in compiler_roots[index + 1:]:
+            if left == right or left.is_relative_to(right) or right.is_relative_to(left):
+                raise FrameworkPackageError(
+                    "catalog-methodology-overlap",
+                    "catalog Methodology descriptors overlap",
+                )
+
+    active = root / METHODOLOGY_ROOT / "active"
+    active_rows = _walk_regular_files(active, code_prefix="catalog-source")
+    for file in active_rows:
+        relative = file.relative_to(root)
+        matches = [descriptor for descriptor in compiler_roots if relative.is_relative_to(descriptor)]
+        if not matches:
+            raise FrameworkPackageError(
+                "catalog-methodology-uncovered",
+                f"catalog does not admit Methodology member: {relative.as_posix()}",
+            )
+        if len(matches) != 1:  # Defensive: the topology comparison above should reject this first.
+            raise FrameworkPackageError(
+                "catalog-methodology-overlap",
+                f"catalog admits Methodology member more than once: {relative.as_posix()}",
+            )
+
+
 def _validate_catalog(root: Path, payload: bytes) -> tuple[tuple[str, Mapping[str, Any]], ...]:
     """Validate descriptors, their physical sources, and retained D602 proofs."""
 
@@ -444,12 +523,18 @@ def _validate_catalog(root: Path, payload: bytes) -> tuple[tuple[str, Mapping[st
                 "catalog-admission-source-mismatch",
                 "admission receipt includes a source not named by its catalog references",
             )
+    _validate_methodology_catalog_partition(root, records)
     return records
 
 
-def _catalog_covers(relative: Path, *, kind: str, records: tuple[tuple[str, Mapping[str, Any]], ...]) -> bool:
+def _catalog_covers(
+    relative: Path,
+    *,
+    kinds: frozenset[str],
+    records: tuple[tuple[str, Mapping[str, Any]], ...],
+) -> bool:
     for _, record in records:
-        if record["kind"] != kind:
+        if record["kind"] not in kinds:
             continue
         admitted = _safe_relative(record["path"], "catalog source path", code="catalog-invalid")
         if relative == admitted or relative.is_relative_to(admitted):
@@ -494,12 +579,16 @@ def _validate_complete_layout(
         relative = Path(row.path)
         if _role_for(relative) != row.role:
             raise FrameworkPackageError("package-manifest-invalid", f"package member role differs: {row.path}")
-        catalog_kind = {
-            "engine": "core",
-            "methodology": "methodology",
-            "methodology-support": "support",
+        catalog_kinds = {
+            "engine": frozenset({"core"}),
+            # All three D561 compiler source classes are represented by the
+            # one package inventory role.  Their target applicability remains
+            # explicit in target_methodology_selection; this only proves that
+            # every retained active byte has one exact catalog descriptor.
+            "methodology": frozenset({"methodology", "extension", "configuration"}),
+            "methodology-support": frozenset({"support"}),
         }.get(row.role)
-        if catalog_kind is not None and not _catalog_covers(relative, kind=catalog_kind, records=catalog_records):
+        if catalog_kinds is not None and not _catalog_covers(relative, kinds=catalog_kinds, records=catalog_records):
             raise FrameworkPackageError("catalog-incomplete", f"catalog does not admit package member: {row.path}")
 
 
@@ -748,7 +837,10 @@ def provide_installation_package_evidence(package_root: Path | str) -> object:
 
     The returned ``installation_context.VerifiedPackageEvidence`` cannot be
     caller-asserted: this provider first reopens the release, verifies every
-    manifest member, and reads its pins from the sealed ``catalog.toml``.
+    manifest member, and reads its pins from the sealed ``catalog.toml``.  Its
+    legacy ``selected_source_identities`` compatibility summary is not target
+    applicability; target_methodology_selection binds that separately from
+    canonical Framework Instance Settings.
     ``installation_context`` stays imported lazily so this reusable package
     primitive has no import-time dependency on target-control code.
     """
@@ -766,6 +858,7 @@ def provide_installation_package_evidence(package_root: Path | str) -> object:
             revision=str(record["revision"]),
             sha256=str(record["sha256"]),
             admission_receipt_sha256=str(record["admission_receipt_sha256"]),
+            path=str(record["path"]),
         )
         for identity, record in records
     )

@@ -40,13 +40,26 @@ def _sha256(payload: bytes) -> str:
     return hashlib.sha256(payload).hexdigest()
 
 
+def _tree_digest(root: Path) -> str:
+    rows = [
+        {
+            "path": file.relative_to(root).as_posix(),
+            "sha256": _sha256(file.read_bytes()),
+            "mode": file.stat().st_mode & 0o777,
+        }
+        for file in sorted(root.rglob("*"))
+        if file.is_file()
+    ]
+    return _sha256(json.dumps(rows, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode("utf-8"))
+
+
 class FrameworkPackageTests(unittest.TestCase):
     def setUp(self) -> None:
         self.root = Path(tempfile.mkdtemp(prefix="caprmedio-framework-package-")).resolve()
         self.source = self.root / "source"
         self.releases = self.root / "releases"
         self._write("102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/tool.py", b"tool = 'fixture'\n", mode=0o755)
-        self._write("methodology/active/CA-R-001--fixture.md", b"# active methodology\n")
+        self._write("methodology/active/001_CORE_META_MODEL/04_requirement/CA-R-001--fixture.md", b"# active methodology\n")
         self._write("methodology/support/CA-D-001--fixture.md", b"# declared support\n")
         self._write("SKILLS/ca/SKILL.md", b"# ca\n")
         self._write("defaults/framework.toml", b"[defaults]\nname = 'fixture'\n")
@@ -64,22 +77,22 @@ class FrameworkPackageTests(unittest.TestCase):
 
     def _write_catalog(self, *, revision: str | None = None) -> None:
         source_rows = (
-            ("core", "core", "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/tool.py"),
-            ("methodology", "methodology", "methodology/active/CA-R-001--fixture.md"),
-            ("support", "support", "methodology/support/CA-D-001--fixture.md"),
+            ("local-core", "core", "102_FRAMEWORK_ENGINE"),
+            ("core-meta-model", "methodology", "methodology/active/001_CORE_META_MODEL"),
+            ("methodology-support", "support", "methodology/support"),
         )
-        descriptor_rows = tuple(
+        descriptor_rows = tuple(sorted((
             {
                 "identity": identity,
                 "kind": kind,
-                "revision": _sha256((self.source / relative).read_bytes()),
-                "sha256": _sha256((self.source / relative).read_bytes()),
+                "revision": _tree_digest(self.source / relative),
+                "sha256": _tree_digest(self.source / relative),
                 "visibility": "public",
                 "selection_default": False,
                 "path": relative,
             }
             for identity, kind, relative in source_rows
-        )
+        ), key=lambda descriptor: str(descriptor["identity"])))
         admissions = self.source / "admissions"
         if admissions.exists():
             for receipt in admissions.iterdir():
@@ -145,7 +158,7 @@ class FrameworkPackageTests(unittest.TestCase):
         self.assertTrue(evidence.verified)
         self.assertEqual(evidence.package_manifest_sha256, package.manifest_digest)
         self.assertEqual(evidence.catalog_sha256, package.source_catalog_sha256)
-        self.assertEqual(evidence.selected_source_identities, ("core", "methodology", "support"))
+        self.assertEqual(evidence.selected_source_identities, ("core-meta-model", "local-core", "methodology-support"))
 
     def test_ignores_finder_metadata_but_refuses_substantive_extra_members(self) -> None:
         self._write(".DS_Store", b"finder")

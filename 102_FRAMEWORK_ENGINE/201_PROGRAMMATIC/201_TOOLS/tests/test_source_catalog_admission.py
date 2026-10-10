@@ -36,7 +36,7 @@ def _digest(value: str) -> str:
 
 def _sources() -> tuple[SourceAdmissionDescriptor, ...]:
     return (
-        SourceAdmissionDescriptor("active-methodology", "methodology", _digest("active"), _digest("active"), "public", False, "methodology/active"),
+        SourceAdmissionDescriptor("core-meta-model", "methodology", _digest("active"), _digest("active"), "public", False, "methodology/active/001_CORE_META_MODEL"),
         SourceAdmissionDescriptor("local-core", "core", _digest("core"), _digest("core"), "public", False, "102_FRAMEWORK_ENGINE"),
         SourceAdmissionDescriptor("methodology-support", "support", _digest("support"), _digest("support"), "public", False, "methodology/support"),
     )
@@ -125,7 +125,7 @@ class SourceCatalogAdmissionTests(unittest.TestCase):
         self.assertTrue(all(source.revision == source.sha256 for source in outcome.sources))
         self.assertEqual(
             tuple(source.identity for source in outcome.sources),
-            ("active-methodology", "local-core", "methodology-support"),
+            ("core-meta-model", "local-core", "methodology-support", "project-configuration"),
         )
 
         second_fixture = PortablePackageFixture()

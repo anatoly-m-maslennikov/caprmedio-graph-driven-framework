@@ -244,6 +244,65 @@ def _logical_digest(rows: tuple[PortablePackageRow, ...], relative: Path) -> str
     return _digest(json.dumps(records, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode("utf-8"))
 
 
+def _validate_methodology_catalog_coverage(
+    rows: tuple[PortablePackageRow, ...],
+    records: tuple[tuple[str, Mapping[str, Any]], ...],
+) -> None:
+    """Require each sealed Methodology row to have one disjoint D561 root.
+
+    This is deliberately a source-snapshot check, not a selection policy.  It
+    keeps retained optional Extension and Configuration bytes visible to the
+    catalog while leaving target-context selection to its separate boundary.
+    """
+
+    expected_singletons = {
+        "core": Path("102_FRAMEWORK_ENGINE"),
+        "support": Path("methodology/support"),
+        "methodology": Path("methodology/active/001_CORE_META_MODEL"),
+    }
+    compiler_kinds = frozenset({"methodology", "extension", "configuration"})
+    compiler_roots: list[Path] = []
+    for kind, expected in expected_singletons.items():
+        matching = [
+            identity
+            for identity, record in records
+            if record["kind"] == kind and _relative(record["path"], field=f"source.{identity}.path") == expected
+        ]
+        if len(matching) != 1 or sum(record["kind"] == kind for _identity, record in records) != 1:
+            raise _error(
+                "catalog-topology-invalid",
+                f"catalog must admit exactly one {kind} root at {expected.as_posix()}",
+            )
+
+    for identity, record in records:
+        kind = str(record["kind"])
+        relative = _relative(record["path"], field=f"source.{identity}.path")
+        if kind == "configuration" and relative != Path("methodology/active/003_PROJECT_CONFIGURATION"):
+            raise _error("catalog-topology-invalid", f"Configuration root is invalid: {identity}")
+        if kind == "extension":
+            prefix = Path("methodology/active/002_INSTALLED_EXTENSIONS")
+            if not relative.is_relative_to(prefix) or len(relative.relative_to(prefix).parts) != 2:
+                raise _error("catalog-topology-invalid", f"Extension root is not identity/revision scoped: {identity}")
+        if kind in compiler_kinds:
+            compiler_roots.append(relative)
+
+    for index, left in enumerate(compiler_roots):
+        for right in compiler_roots[index + 1:]:
+            if left == right or left.is_relative_to(right) or right.is_relative_to(left):
+                raise _error("catalog-methodology-overlap", "catalog Methodology descriptors overlap")
+
+    material_rows = [row for row in rows if row.resource == "METHODOLOGY"]
+    if not material_rows:
+        raise _error("portable-contract-methodology-incomplete", "sealed portable source snapshot has no Methodology rows")
+    for row in material_rows:
+        destination = _relative(row.destination_path, field="Methodology destination path")
+        matches = [root for root in compiler_roots if destination.is_relative_to(root)]
+        if not matches:
+            raise _error("catalog-methodology-uncovered", f"catalog does not admit Methodology row: {row.destination_path}")
+        if len(matches) != 1:  # Defensive: descriptor overlap is rejected above.
+            raise _error("catalog-methodology-overlap", f"catalog admits Methodology row more than once: {row.destination_path}")
+
+
 def _catalog_records(catalog: bytes, rows: tuple[PortablePackageRow, ...]) -> tuple[tuple[str, Mapping[str, Any]], ...]:
     """Apply the shared closed descriptor reader to planned portable rows."""
 
@@ -252,9 +311,10 @@ def _catalog_records(catalog: bytes, rows: tuple[PortablePackageRow, ...]) -> tu
     except FrameworkPackageError as error:
         raise _error(error.code, str(error)) from error
     for identity, record in records:
-        path = Path(record["path"])
+        path = _relative(record["path"], field=f"source.{identity}.path")
         if _logical_digest(rows, path) != record["sha256"]:
             raise _error("catalog-source-digest-mismatch", f"catalog source digest differs: {identity}")
+    _validate_methodology_catalog_coverage(rows, records)
     return records
 
 
@@ -334,8 +394,15 @@ def _validate_rows(rows: list[PortablePackageRow], records: tuple[tuple[str, Map
         destination = Path(row.destination_path)
         if row.resource == "FRAMEWORK_ENGINE" and not _covered(destination, "core", records):
             raise _error("catalog-incomplete", f"catalog does not admit Framework Engine row: {row.destination_path}")
-        if row.resource == "METHODOLOGY" and not _covered(destination, "methodology", records):
-            raise _error("catalog-incomplete", f"catalog does not admit Methodology row: {row.destination_path}")
+        if row.resource == "METHODOLOGY":
+            matches = [
+                record
+                for _identity, record in records
+                if record["kind"] in {"methodology", "extension", "configuration"}
+                and destination.is_relative_to(Path(record["path"]))
+            ]
+            if len(matches) != 1:
+                raise _error("catalog-incomplete", f"catalog does not admit Methodology row: {row.destination_path}")
         if row.resource == "METHODOLOGY_SUPPORT" and not _covered(destination, "support", records):
             raise _error("catalog-incomplete", f"catalog does not admit support row: {row.destination_path}")
     return ordered

@@ -78,8 +78,11 @@ class PortableContractTests(unittest.TestCase):
             f'authority_path = "{CANONICAL_SOURCE_RELATIVE}"\n'
         ).encode())
         self.write(".caprmedio_caprmedio/caprmedio_project_settings.toml", b'[paths]\ncontrol_root = ".caprmedio_caprmedio"\n')
+        self.instance_settings = self.write(
+            ".caprmedio_caprmedio/000_CAPRMEDIO_framework/caprmedio_framework_settings.toml",
+            b"",
+        )
         self.write(f"{CANONICAL_SOURCE_RELATIVE}/001_CORE_META_MODEL/caprmedio_framework_default_settings.toml", b"")
-        self.write(f"{CANONICAL_SOURCE_RELATIVE}/003_PROJECT_CONFIGURATION/caprmedio_framework_settings.toml", b"")
         self.atom = self.write(f"{CANONICAL_SOURCE_RELATIVE}/001_CORE_META_MODEL/04_requirement/CA-R-001--core.md", carrier("CA-R-001"))
         self.support = self.write(f"{CANONICAL_SOURCE_RELATIVE}/003_PROJECT_CONFIGURATION/support.txt", b"declared support\n")
         self.write(".caprmedio_runtime/framework/current.toml", b'release = "N"\n')
@@ -138,7 +141,7 @@ class PortableContractTests(unittest.TestCase):
         active_copy.parent.mkdir(parents=True)
         active_copy.write_bytes(self.atom.read_bytes())
         active_copy.chmod(self.atom.stat().st_mode & 0o777)
-        active = _tree_digest(active_root)
+        active = _tree_digest(active_root / "001_CORE_META_MODEL")
         support_root = self.root / ".catalog-support"
         support_root.mkdir()
         copied = support_root / "003_PROJECT_CONFIGURATION/support.txt"
@@ -148,16 +151,16 @@ class PortableContractTests(unittest.TestCase):
         support = _tree_digest(support_root)
         descriptors = (
             {
-                "identity": "active",
+                "identity": "core-meta-model",
                 "kind": "methodology",
                 "revision": active,
                 "sha256": active,
                 "visibility": "public",
                 "selection_default": False,
-                "path": "methodology/active",
+                "path": "methodology/active/001_CORE_META_MODEL",
             },
             {
-                "identity": "core",
+                "identity": "local-core",
                 "kind": "core",
                 "revision": engine,
                 "sha256": engine,
@@ -166,7 +169,7 @@ class PortableContractTests(unittest.TestCase):
                 "path": "102_FRAMEWORK_ENGINE",
             },
             {
-                "identity": "support",
+                "identity": "methodology-support",
                 "kind": "support",
                 "revision": support,
                 "sha256": support,
@@ -179,19 +182,20 @@ class PortableContractTests(unittest.TestCase):
             operator="fixture-operator",
             command_ref="fixture-command",
             action_run_id="fixture-action-run",
-            sources=descriptors,
+            sources=tuple(sorted(descriptors, key=lambda descriptor: str(descriptor["identity"]))),
         )
         receipt = read_source_admission_receipt(receipt_bytes)
         self.write(f"admissions/{receipt.sha256}.json", receipt_bytes)
         lines = ["schema_version = 1", ""]
-        lines.extend(self._catalog_record("core", "core", engine, "102_FRAMEWORK_ENGINE", receipt.sha256))
-        lines.extend(self._catalog_record("active", "methodology", active, "methodology/active", receipt.sha256))
-        lines.extend(self._catalog_record("support", "support", support, "methodology/support", receipt.sha256))
+        lines.extend(self._catalog_record("core-meta-model", "methodology", active, "methodology/active/001_CORE_META_MODEL", receipt.sha256))
+        lines.extend(self._catalog_record("local-core", "core", engine, "102_FRAMEWORK_ENGINE", receipt.sha256))
+        lines.extend(self._catalog_record("methodology-support", "support", support, "methodology/support", receipt.sha256))
         self.write("catalog.toml", ("\n".join(lines) + "\n").encode())
 
     def sealed(self):
         frozen = exporter.freeze_methodology_manifest(
             source_root=self.source,
+            project_root=self.root,
             selected_atoms=[{"atom_id": "CA-R-001", "version": 1}],
             support_inventory=[{
                 "path": "003_PROJECT_CONFIGURATION/support.txt",
@@ -204,6 +208,7 @@ class PortableContractTests(unittest.TestCase):
             source_root=self.source,
             frozen_manifest_path=frozen_path,
             release_candidate_root=self.run_root,
+            project_root=self.root,
         )
         candidate = build_preflight_validated_candidate(
             self.root,

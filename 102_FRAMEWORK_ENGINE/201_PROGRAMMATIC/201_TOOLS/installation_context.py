@@ -61,6 +61,16 @@ def _require_relative_locator(value: object) -> str:
     return locator
 
 
+def _require_methodology_source_identities(value: object) -> tuple[str, ...]:
+    if not isinstance(value, tuple) or not value:
+        raise InstallationContextError("methodology_source_identities must be a non-empty tuple")
+    if any(not isinstance(identity, str) or not identity for identity in value):
+        raise InstallationContextError("methodology_source_identities must contain non-empty strings")
+    if tuple(sorted(value)) != value or len(set(value)) != len(value):
+        raise InstallationContextError("methodology_source_identities must be uniquely sorted")
+    return value
+
+
 def canonical_target_project_context_toml(
     *,
     mode: str,
@@ -72,6 +82,9 @@ def canonical_target_project_context_toml(
     repository_identity: str | bool,
     root_locator: str,
     relocates_context_sha256: str | None = None,
+    framework_instance_settings_sha256: str | None = None,
+    source_catalog_sha256: str | None = None,
+    methodology_source_identities: tuple[str, ...] | None = None,
 ) -> bytes:
     """Render the D600 digest preimage, excluding its self-digest carrier.
 
@@ -81,21 +94,52 @@ def canonical_target_project_context_toml(
     always identify the same byte preimage.
     """
 
+    schema_two = (
+        framework_instance_settings_sha256 is not None
+        or source_catalog_sha256 is not None
+        or methodology_source_identities is not None
+    )
+    if schema_two:
+        if (
+            framework_instance_settings_sha256 is None
+            or source_catalog_sha256 is None
+            or methodology_source_identities is None
+        ):
+            raise InstallationContextError("schema 2 target context requires settings, catalog, and Methodology selection")
+        framework_instance_settings_sha256 = _require_digest(
+            framework_instance_settings_sha256, "framework_instance_settings_sha256"
+        )
+        source_catalog_sha256 = _require_digest(source_catalog_sha256, "source_catalog_sha256")
+        methodology_source_identities = _require_methodology_source_identities(methodology_source_identities)
     lines = [
-        "schema_version = 1",
+        f"schema_version = {2 if schema_two else 1}",
         f"mode = {_quoted(mode)}",
         f"target_project_identity = {_quoted(target_project_identity)}",
         f"control_child_relpath = {_quoted(control_child_relpath)}",
         f"settings_sha256 = {_quoted(settings_sha256)}",
         f"project_structure_sha256 = {_quoted(project_structure_sha256)}",
         f"registry_sha256 = {_quoted(registry_sha256)}",
-        (
+    ]
+    if schema_two:
+        lines.extend(
+            [
+                f"framework_instance_settings_sha256 = {_quoted(framework_instance_settings_sha256)}",
+                f"source_catalog_sha256 = {_quoted(source_catalog_sha256)}",
+                "methodology_source_identities = ["
+                + ", ".join(_quoted(identity) for identity in methodology_source_identities)
+                + "]",
+            ]
+        )
+    lines.extend(
+        [
+            (
             "repository_identity = false"
             if repository_identity is False
             else f"repository_identity = {_quoted(str(repository_identity))}"
-        ),
-        f"root_locator = {_quoted(root_locator)}",
-    ]
+            ),
+            f"root_locator = {_quoted(root_locator)}",
+        ]
+    )
     if relocates_context_sha256 is not None:
         lines.append(f"relocates_context_sha256 = {_quoted(relocates_context_sha256)}")
     return ("\n".join(lines) + "\n").encode("utf-8")
@@ -110,6 +154,7 @@ class PackageSourcePin:
     revision: str
     sha256: str
     admission_receipt_sha256: str
+    path: str
 
 
 @dataclass(frozen=True)
@@ -119,6 +164,9 @@ class VerifiedPackageEvidence:
     This value alone grants no authority.  ``bind_target_project_context``
     reopens ``TargetProjectRequest.package_root`` through the package provider
     and compares the provider's evidence to these expected pinned values.
+    ``selected_source_identities`` is retained only as a package-availability
+    compatibility summary; D600v3 target applicability is exclusively
+    ``TargetProjectContext.methodology_source_identities``.
     """
 
     package_manifest_sha256: str
@@ -160,9 +208,17 @@ class TargetProjectContext:
     root_locator: str
     package_evidence: VerifiedPackageEvidence
     relocates_context_sha256: str | None = None
+    framework_instance_settings_sha256: str | None = None
+    source_catalog_sha256: str | None = None
+    methodology_source_identities: tuple[str, ...] = ()
 
     def toml_bytes(self) -> bytes:
         """Return canonical CA-D-600 bytes excluding the carrier digest itself."""
+        framework_settings = _require_digest(
+            self.framework_instance_settings_sha256, "framework_instance_settings_sha256"
+        )
+        source_catalog = _require_digest(self.source_catalog_sha256, "source_catalog_sha256")
+        identities = _require_methodology_source_identities(self.methodology_source_identities)
         return canonical_target_project_context_toml(
             mode=self.mode,
             target_project_identity=self.target_project_identity,
@@ -173,6 +229,9 @@ class TargetProjectContext:
             repository_identity=self.repository_identity,
             root_locator=self.root_locator,
             relocates_context_sha256=self.relocates_context_sha256,
+            framework_instance_settings_sha256=framework_settings,
+            source_catalog_sha256=source_catalog,
+            methodology_source_identities=identities,
         )
 
     @property
@@ -513,6 +572,16 @@ def _bind_target_project_context(
     registry_bytes, registry = _snapshot_toml(registry_path, "operators registry")
     _validate_controls(settings, structure, registry, child=child, identity=identity)
     evidence = _reopen_package_evidence(request.package_root, request.package_evidence)
+    try:
+        from target_methodology_selection import TargetMethodologySelectionError, resolve_target_methodology_selection
+
+        selection = resolve_target_methodology_selection(
+            control_root=control,
+            package_root=request.package_root,
+            package_evidence=evidence,
+        )
+    except TargetMethodologySelectionError as error:
+        raise InstallationContextError(str(error)) from error
     if require_empty_bootstrap and request.mode == "bootstrap":
         _runtime_is_empty(root)
     locator = _require_relative_locator(request.root_locator)
@@ -540,6 +609,9 @@ def _bind_target_project_context(
         root_locator=locator,
         package_evidence=evidence,
         relocates_context_sha256=relocation_sha256,
+        framework_instance_settings_sha256=selection.framework_instance_settings_sha256,
+        source_catalog_sha256=selection.source_catalog_sha256,
+        methodology_source_identities=selection.methodology_source_identities,
     )
 
 

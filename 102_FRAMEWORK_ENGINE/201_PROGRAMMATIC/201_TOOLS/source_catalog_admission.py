@@ -403,18 +403,88 @@ def _logical_digest(rows: tuple[object, ...], *, resource: str, root: PurePosixP
     return _sha256(_canonical_json(records))
 
 
+def _extension_identity(root: PurePosixPath) -> str:
+    """Return one stable lawful catalog identity for an Extension root.
+
+    Extension directory labels are source data, not catalog identifiers: they
+    may contain characters that the closed descriptor schema deliberately does
+    not permit.  The digest suffix therefore gives every observed physical
+    root a stable, collision-free identity without rewriting or interpreting
+    that source label.
+    """
+
+    return f"extension-{_sha256(root.as_posix().encode('utf-8'))[:24]}"
+
+
+def _methodology_descriptor_roots(rows: tuple[object, ...]) -> tuple[tuple[str, str, PurePosixPath], ...]:
+    """Classify every material Methodology row by its one D561v3 root.
+
+    The sealed snapshot is the only input here.  In particular, no checkout
+    directory is reopened to discover absent Extensions or Configuration.
+    """
+
+    active = PurePosixPath("methodology/active")
+    roots: dict[PurePosixPath, tuple[str, str]] = {}
+    for row in rows:
+        if getattr(row, "resource", None) != "METHODOLOGY":
+            continue
+        destination = _safe_relative(
+            getattr(row, "destination_path", None),
+            field="logical Methodology row destination",
+            code="source-admission-snapshot-invalid",
+        )
+        path = PurePosixPath(destination)
+        if not path.is_relative_to(active):
+            _refuse("source-admission-snapshot-invalid", "Methodology row is outside methodology/active")
+        tail = path.relative_to(active).parts
+        if not tail:
+            _refuse("source-admission-snapshot-invalid", "Methodology row cannot name the active root")
+        if tail[0] == "001_CORE_META_MODEL":
+            root = active / "001_CORE_META_MODEL"
+            classified = ("core-meta-model", "methodology")
+        elif tail[0] == "003_PROJECT_CONFIGURATION":
+            root = active / "003_PROJECT_CONFIGURATION"
+            classified = ("project-configuration", "configuration")
+        elif tail[0] == "002_INSTALLED_EXTENSIONS":
+            if len(tail) < 4 or not tail[1] or not tail[2]:
+                _refuse(
+                    "source-admission-snapshot-invalid",
+                    "Extension Methodology row does not name an identity and label revision root",
+                )
+            root = active / tail[0] / tail[1] / tail[2]
+            classified = (_extension_identity(root), "extension")
+        else:
+            _refuse("source-admission-snapshot-invalid", "Methodology row is outside the governed source topology")
+        previous = roots.setdefault(root, classified)
+        if previous != classified:  # pragma: no cover - one root has one structural classification.
+            _refuse("source-admission-snapshot-invalid", "Methodology root has ambiguous catalog classification")
+    if not roots:
+        _refuse("source-admission-snapshot-incomplete", "sealed source snapshot lacks METHODOLOGY rows")
+    core = active / "001_CORE_META_MODEL"
+    if core not in roots:
+        _refuse("source-admission-snapshot-incomplete", "sealed source snapshot lacks Core Meta-model Methodology rows")
+    return tuple(
+        (identity, kind, root)
+        for root, (identity, kind) in sorted(roots.items(), key=lambda item: item[1][0])
+    )
+
+
 def _descriptors_from_snapshot(snapshot: Any) -> tuple[SourceAdmissionDescriptor, ...]:
     rows = _snapshot_rows(snapshot)
-    values = (
+    methodology = tuple(
         SourceAdmissionDescriptor(
-            "active-methodology",
-            "methodology",
-            _logical_digest(rows, resource="METHODOLOGY", root=PurePosixPath("methodology/active")),
-            _logical_digest(rows, resource="METHODOLOGY", root=PurePosixPath("methodology/active")),
+            identity,
+            kind,
+            _logical_digest(rows, resource="METHODOLOGY", root=root),
+            _logical_digest(rows, resource="METHODOLOGY", root=root),
             "public",
             False,
-            "methodology/active",
-        ),
+            root.as_posix(),
+        )
+        for identity, kind, root in _methodology_descriptor_roots(rows)
+    )
+    values = (
+        *methodology,
         SourceAdmissionDescriptor(
             "local-core",
             "core",
@@ -434,7 +504,10 @@ def _descriptors_from_snapshot(snapshot: Any) -> tuple[SourceAdmissionDescriptor
             "methodology/support",
         ),
     )
-    return _ordered_descriptors(values, code="source-admission-snapshot-invalid")
+    return _ordered_descriptors(
+        tuple(sorted(values, key=lambda descriptor: descriptor.identity)),
+        code="source-admission-snapshot-invalid",
+    )
 
 
 def _project_root(value: Path | str) -> Path:

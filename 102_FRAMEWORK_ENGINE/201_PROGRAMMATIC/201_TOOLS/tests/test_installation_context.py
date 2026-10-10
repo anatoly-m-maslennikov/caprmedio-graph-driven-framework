@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from dataclasses import replace
 import hashlib
+import json
 from pathlib import Path
 import sys
 import tempfile
@@ -39,6 +40,23 @@ def _sha_bytes(value: bytes) -> str:
     return hashlib.sha256(value).hexdigest()
 
 
+def _tree_sha(path: Path) -> str:
+    """Match the catalog tree-digest shape used by framework_package."""
+
+    if path.is_file():
+        return _sha_bytes(path.read_bytes())
+    rows = [
+        {
+            "path": member.relative_to(path).as_posix(),
+            "sha256": _sha_bytes(member.read_bytes()),
+            "mode": member.stat().st_mode & 0o777,
+        }
+        for member in sorted(path.rglob("*"))
+        if member.is_file() and not member.is_symlink()
+    ]
+    return _sha_bytes(json.dumps(rows, sort_keys=True, separators=(",", ":"), ensure_ascii=False).encode("utf-8"))
+
+
 class InstallationContextTests(unittest.TestCase):
     def setUp(self) -> None:
         self.temporary = tempfile.TemporaryDirectory(dir=TEST_TEMP_ROOT, ignore_cleanup_errors=True)
@@ -58,7 +76,9 @@ class InstallationContextTests(unittest.TestCase):
             target.chmod(mode)
 
         write("102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/tool.py", b"tool = 'fixture'\n", mode=0o755)
-        write("methodology/active/CA-R-001--fixture.md", b"# active methodology\n")
+        write("methodology/active/001_CORE_META_MODEL/04_requirement/CA-R-001--fixture.md", b"# active methodology\n")
+        write("methodology/active/002_INSTALLED_EXTENSIONS/extension-a/label-v1/04_requirement/CA-R-002--fixture.md", b"# extension methodology\n")
+        write("methodology/active/003_PROJECT_CONFIGURATION/05_method/CA-M-003--fixture.md", b"# configuration methodology\n")
         write("methodology/support/CA-D-001--fixture.md", b"# declared support\n")
         write("SKILLS/ca/SKILL.md", b"# ca\n")
         write("defaults/framework.toml", b"[defaults]\nname = 'fixture'\n")
@@ -66,21 +86,28 @@ class InstallationContextTests(unittest.TestCase):
         write("uv.lock", b"version = 1\n")
         write("version.toml", b"[framework]\nversion = '0.1.0'\n")
         source_rows = (
-            ("core", "core", "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/tool.py"),
-            ("methodology", "methodology", "methodology/active/CA-R-001--fixture.md"),
-            ("support", "support", "methodology/support/CA-D-001--fixture.md"),
+            ("core", "core", "102_FRAMEWORK_ENGINE"),
+            ("methodology", "methodology", "methodology/active/001_CORE_META_MODEL"),
+            ("extension-a", "extension", "methodology/active/002_INSTALLED_EXTENSIONS/extension-a/label-v1"),
+            ("project-config", "configuration", "methodology/active/003_PROJECT_CONFIGURATION"),
+            ("support", "support", "methodology/support"),
         )
         descriptors = tuple(
-            {
-                "identity": identity,
-                "kind": kind,
-                "revision": _sha_bytes((source / relative).read_bytes()),
-                "sha256": _sha_bytes((source / relative).read_bytes()),
-                "visibility": "public",
-                "selection_default": False,
-                "path": relative,
-            }
-            for identity, kind, relative in source_rows
+            sorted(
+                (
+                    {
+                        "identity": identity,
+                        "kind": kind,
+                        "revision": _tree_sha(source / relative),
+                        "sha256": _tree_sha(source / relative),
+                        "visibility": "public",
+                        "selection_default": False,
+                        "path": relative,
+                    }
+                    for identity, kind, relative in source_rows
+                ),
+                key=lambda descriptor: descriptor["identity"],
+            )
         )
         receipt = write_source_admission_receipt(source, descriptors)
         lines = ["schema_version = 1", ""]
@@ -118,6 +145,9 @@ class InstallationContextTests(unittest.TestCase):
             encoding="utf-8",
         )
         (control / "operators_registry.toml").write_text("operators = []\n", encoding="utf-8")
+        framework = control / "000_CAPRMEDIO_framework"
+        framework.mkdir()
+        (framework / "caprmedio_framework_settings.toml").write_text("# explicit target selection\n", encoding="utf-8")
         return root, control
 
     def request(
@@ -160,6 +190,10 @@ class InstallationContextTests(unittest.TestCase):
         self.assertEqual(_sha((control / "caprmedio_project_settings.toml").read_text()), context.settings_sha256)
         self.assertEqual(_sha((control / "project_structure.toml").read_text()), context.project_structure_sha256)
         self.assertEqual(_sha((control / "operators_registry.toml").read_text()), context.registry_sha256)
+        framework_settings = control / "000_CAPRMEDIO_framework/caprmedio_framework_settings.toml"
+        self.assertEqual(_sha(framework_settings.read_text()), context.framework_instance_settings_sha256)
+        self.assertEqual(self.package_evidence.catalog_sha256, context.source_catalog_sha256)
+        self.assertEqual(("methodology", "support"), context.methodology_source_identities)
         self.assertFalse((root / ".caprmedio_runtime").exists())
         carrier = context.toml_bytes().decode("utf-8")
         self.assertIn('mode = "bootstrap"', carrier)
