@@ -9,12 +9,12 @@ claim_target_scope_unit: caprmedio
 local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
-status: Active
+status: Done
 subjects:
   governs: Projection
   depends_on: [Entity, Term, Atom, Property, Carrier, Plan]
-version: 13
-updated_at: "2026-10-10 04:48:00 +0400"
+version: 14
+updated_at: "2026-10-10 05:01:55 +0400"
 relations:
   is_decomposition_of: [CA-P-1872]
   blocks: [CA-P-1908]
@@ -67,7 +67,7 @@ The 62 explicit Substance/Revision/Projection identities are reviewed separately
 - [CA-P-1935](23-CA-P-1907-TASK--mark-entity-drop-and-consolidation-candidates-without-deleting/done/08-CA-P-1935-TASK--review-seventh-core-node-disposition-batch.md): Review seventh Core node disposition batch (80 nodes); 15 minutes.
 - [CA-P-1936](23-CA-P-1907-TASK--mark-entity-drop-and-consolidation-candidates-without-deleting/done/09-CA-P-1936-TASK--review-eighth-core-node-disposition-batch.md): Review eighth Core node disposition batch (81 nodes); 15 minutes.
 - [CA-P-1937](23-CA-P-1907-TASK--mark-entity-drop-and-consolidation-candidates-without-deleting/done/10-CA-P-1937-TASK--integrate-the-complete-core-node-disposition-review.md): Integrate the complete Core node disposition review; 15 minutes.
-- [CA-P-1938](23-CA-P-1907-TASK--mark-entity-drop-and-consolidation-candidates-without-deleting/11-CA-P-1938-TASK--verify-the-complete-core-node-disposition-review.md): Verify the complete Core node disposition review; 15 minutes.
+- [CA-P-1938](23-CA-P-1907-TASK--mark-entity-drop-and-consolidation-candidates-without-deleting/done/11-CA-P-1938-TASK--verify-the-complete-core-node-disposition-review.md): Verify the complete Core node disposition review; 15 minutes.
 
 Latest content direction: use Substance as the shared primary-content name, with Substance Scope describing applicability and optional general Details. Explicit Substance Scope may be omitted only for the whole governed Subject AND the whole owning Scope Unit; omission resolves that default. Preserve ownership metadata, role-specific labels and type-required content. Review this in the candidate only; do not rewrite Core or treat the new direction as old source evidence.
 
@@ -82,6 +82,10 @@ Independent preparation found false missing-meaning questions in captured batche
 - [CA-P-1955](23-CA-P-1907-TASK--mark-entity-drop-and-consolidation-candidates-without-deleting/done/15-CA-P-1955-TASK--repair-qualified-main-content-and-relation-node-review.md): Repair qualified Main Content and Relation node review; 15 minutes. Explicitly BLOCKS CA-P-1937.
 
 - [CA-P-1956](23-CA-P-1907-TASK--mark-entity-drop-and-consolidation-candidates-without-deleting/done/16-CA-P-1956-TASK--repair-captured-frontier-and-metamodel-meaning.md): Repair captured frontier and Metamodel meaning; 15 minutes. Explicitly BLOCKS CA-P-1937. Batch 3's original joined receipt is preserved in Git; this is a post-join derived review correction.
+
+### Completion receipt
+
+All direct review, repair, integration and independent-verification Tasks are Done. Complete derived review preserves 706 identities, 4534 occurrences and 3093 segments; 584 bounded retain decisions, three consolidation proposals, two generalization proposals and 117 questions are source-pinned and visible. The original design, Step 1 graph, Core and Subjects remain unchanged by this work. Full marked outputs reproduce exactly; independent acceptance `nodes/nodes.acceptance.md` SHA-256 `c2576865efcd2cfcc10a7075ad546b1c2d288cdae9f285eeaeb61f858bbf2e9b` passed. Candidate presentation CA-P-1908 is now ready; Operator approval and sealed migration remain later gates.
 
 ### Definition of Done
 
