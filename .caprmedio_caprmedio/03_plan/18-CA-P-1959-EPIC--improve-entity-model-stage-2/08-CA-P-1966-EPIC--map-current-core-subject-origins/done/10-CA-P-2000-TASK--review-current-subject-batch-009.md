@@ -10,12 +10,12 @@ local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
-status: Active
+status: Done
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Projection, Plan, Operator]
-version: 1
-updated_at: "2026-10-11 01:23:41 +0400"
+version: 2
+updated_at: "2026-10-11 01:54:51 +0400"
 relations:
   is_decomposition_of: [CA-P-1966]
   depends_on: ["CA-P-1972", "CA-P-1988", "CA-P-1989", "CA-P-1990"]
@@ -36,6 +36,8 @@ Estimated own work: 15 minutes. Required prerequisites: CA-P-1972, CA-P-1988, CA
 Recheck each source pin, then read its current Main Content. Compare the frozen candidate/review as separate evidence; do not refresh captured files or infer meaning from a label alone. Return one row per occurrence under the review-output contract: unchanged, proposed or unresolved; exact old value, nullable proposed value, confidence, current evidence spans/hashes, preserved distinctions and any concrete question. Below 90%, leave the replacement null. Report quarantined sources and unresolved findings. No deletion, source write, grammar adoption, native admission or schema/key rename.
 
 Own only `stage2/reviews/current-subjects.batch-009.review.json` and an optional same-batch support helper. Root owns integration and Git. Preserve others' edits. If work exceeds 15 minutes, create bounded decomposition before continuing. Creating this Plan does not start or complete review.
+
+Completion: root independently verified all 20 current source pins and all 88 occurrences, then read the owning Main Content for the 1 proposed and 28 unchanged decisions. The Summary mapping preserves its Atom bearer. The 59 unresolved rows remain explicit research in the report and required ledger integration; no replacement is guessed. All rows remain non-executable. Evidence: stage2/task-2000.receipt.json. This completed review is not completed mapping or migration approval.
 
 ### Definition of Done
 
