@@ -21,7 +21,10 @@ Entity Graph Candidate
     Actor
       Meaning: Who performs work.
     Relation
-      Meaning: Connections between Atoms.
+      Meaning: Typed connections between Entities.
+      Allowed connections: constrained by Relation kind and endpoint Entity kinds
+      Examples: Artifact to Property; Scope Unit to Atom; Carrier to Artifact
+      Not: every Relation kind between every pair of Entities
     Revision
       Meaning: A historical snapshot of an Artifact.
       History: revision of an Artifact; not an Artifact itself
@@ -43,6 +46,11 @@ Entity Graph Candidate
     Property-of is the relation to its owning Entity
     Dependent Entities share the Artifact lifecycle
     Display indentation does not admit native relations or change Subjects
+
+  Entity identity and representation
+    Each Entity instance has exactly one representation: one source of truth for that instance.
+    A Projection is another Entity instance, not another representation of its source Entity instance.
+    A Projection remains derived; it is not another authority for its source facts.
 
   Snapshot and history
     Entities and Properties describe the selected snapshot.
@@ -74,8 +82,8 @@ Entity Graph Candidate
 
   Unresolved
     How to identify duplicates among ID-free Drafts.
-    Whether the Relation root's inter-Atom scope also covers other Entity connections.
-    Exact placement and semantics of Journal, Projection and reusable Operation definitions.
+    The admission rule distinguishing modeled Entities from syntax, contextual labels and aliases.
+    Exact typed links between Operations definitions, Executions, Actors, Journal Records, Revisions and Carriers.
     A complete mapping from the captured 706-identity review to this simplified candidate.
     Exact typed history relation, history identifiers and accepted Subject grammar changes.
 
