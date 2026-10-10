@@ -199,6 +199,8 @@
     "increment": 1,
     "example_sequence": [1, 2, 3, 4],
     "trigger": "Every Atom update, including Status-only and other metadata-only changes, increments Version Number by 1.",
+    "version_transition": "Update Atom -> new Version -> older Version archived -> current Version Active.",
+    "archive_meaning": "Archived older versions are history, not a permanent exclusion of the Atom ID or an inherited Status for the new current version.",
     "projection_boundary": "Projected copies preserve their source Atom's Version Number; Projection rebuilds are tracked by the Projection, not by inventing a new source Atom version.",
     "native_adoption": "Not performed."
   },
@@ -282,6 +284,7 @@
     "The uniqueness boundary includes Active, Done, Backlog, Canceled and other non-archived status containers.",
     "Derived Projection Atom instances keep their source Atom IDs and each carry a relative source link; this supersedes the earlier unqualified ban on reused IDs across every non-archived folder.",
     "Archived snapshots may retain the same Atom ID.",
+    "On an Atom version update, the older version is archived history and the new current version is Active; archiving a version does not permanently archive the Atom ID.",
     "Drafts remain without assigned Atom IDs.",
     "Git preserves Atom contents and versions; Journal records changes and applicability decisions.",
     "An Atom historical reference is Atom ID + Version Number. For another Artifact without a Version Number, it is Artifact ID + Updated At. No separate Applicable Methodology Revision or Projection Revision kind is formalized here.",
@@ -298,6 +301,7 @@
       "status": "Confirmed",
       "every_atom_version_recoverable": true,
       "preserved_by": "Git",
+      "archived_version_meaning": "An older archived Atom version is history. The current version is Active after an update; old archived history does not make the current version archived.",
       "records": "Git preserves Atom contents and versions. Journal records identify Atoms involved in applicability and creation decisions without duplicating their contents.",
       "storage_boundary": "Every previous Atom version must remain recoverable from Git history; preserving Atom contents is not the Journal's job.",
       "retention_requirement": "Retain Git history containing every Atom version required for recovery. No new commit or retention mechanism is implemented by this candidate."
@@ -367,17 +371,20 @@
       ],
       "recording_required": true,
       "contents_boundary": "The Journal registers these decisions by Atom ID; Git preserves the Atoms themselves and their versions.",
+      "archive_record_boundary": "Recording an archived version does not permanently exclude that Atom ID or transfer the older version's archived Status to a new current version.",
       "rebuild_roles": "Source Atoms provide contents; Journal records provide applicability decisions; Git preserves recoverable Atom history. Exact record serialization and replay mechanics are not specified here."
     },
     "source_update_policy": {
-      "status": "Open — Operator requested explanation",
-      "question": "When a source Atom gets a new version, does its recorded Active or archived applicability choice persist by Atom ID until the Operator changes it?",
-      "boundary": "No persistence or automatic reactivation rule is adopted by this candidate yet."
+      "status": "Resolved — ordinary version lifecycle clarified; prior question withdrawn",
+      "decision": "An Atom update creates a new current Active version; the older version is archived history.",
+      "withdrawn_question": "The assistant conflated an archived historical version with a permanent applicability exclusion by Atom ID.",
+      "boundary": "No permanent-ID exclusion or archived-Status inheritance rule is introduced. Earlier explicit manual conflict-resolution decisions are not silently replaced by a different automatic projection mechanism."
     },
     "manual_realization": {
       "conflict_resolution": "Place an excluded projected Atom in Applicable Methodology's archived subfolder and record the decision in a Journal. When needed, create a new authored Atom in Project Configuration.",
       "exclusion_target": "The projected Atom in Applicable Methodology, not a project-local mutation of its original source Atom.",
       "excluded_atom_folder": "archived",
+      "archive_scope": "Archiving concerns the projected copy or version addressed by that decision; it is not a blanket archived Status for every future version sharing the Atom ID.",
       "journal_record_required_for_exclusion": true,
       "new_atom_location": "Project Configuration",
       "new_atom_origin": "A newly authored original Atom may have no upstream source Atom; it is not a derived Projection member at creation.",
@@ -397,7 +404,7 @@
     "additional_roots_added": false
   },
   "unresolved": [
-    "Whether recorded Active or archived applicability choices persist across new source Atom versions remains open pending explanation. Journal record serialization and replay, Projection rebuild metadata and Git version recovery remain implementation work; the Journal/Git responsibility split is confirmed.",
+    "Journal record serialization and replay, Projection rebuild metadata and Git version recovery remain implementation work. The ordinary version lifecycle is confirmed: older version archived as history, new current version Active. The earlier permanent-ID archive-inheritance question is withdrawn.",
     "Carrier ID format, assignment and reuse or replacement lifecycle rules remain open; filename and path are not Carrier identity. Scope Unit stable ID and metadata naming are confirmed. Unnamed Actors have generic Type references; individual disambiguation is low priority. Native parsing and migration remain implementation work.",
     "Remaining semantic links between Operations definitions, Executions, Actors, Journal Records, Revisions and Carriers. Entity-specific Carrier Relation Types are not needed; storage and field mappings belong to D Atoms or D Policies.",
     "A complete mapping from the captured 706-identity review to this simplified candidate.",
