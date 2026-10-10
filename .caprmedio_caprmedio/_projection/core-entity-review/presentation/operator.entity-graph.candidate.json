@@ -1,7 +1,7 @@
 {
   "kind": "Entity Graph Candidate",
   "status": "Candidate",
-  "basis": "Latest Operator decisions in this conversation; later decisions replace earlier conflicting proposals.",
+  "basis": "Latest Operator decisions in this conversation; later decisions replace earlier conflicting proposals. Unconfirmed assistant proposals are marked separately.",
   "saved_on": "2026-10-10",
   "timezone": "Asia/Tbilisi",
   "authority": {
@@ -12,6 +12,7 @@
     "earlier_source_pinned_review": "preserved, not replaced",
     "complete_706_identity_remapping": "not performed"
   },
+  "graph_model": "Entities are nodes; typed Relations connect them. Permitted Relation kinds constrain the valid endpoint Entity kinds.",
   "root_entities": [
     {
       "name": "Artifact",
@@ -115,6 +116,30 @@
     "A new Updated At can distinguish a new historical state; no separate Applicable Methodology Revision or Projection Revision kind is formalized here.",
     "Revision is a separate historical root, not an Artifact subtype or an IS_BORNE_BY child of Artifact or Atom."
   ],
+  "history_model": {
+    "confirmed_parts": [
+      "Revision",
+      "Journal"
+    ],
+    "revision_role": "Preserves a historical Artifact state.",
+    "journal_role": "Records what happened, including changes, Executions and observed outcomes. A record is not the event itself.",
+    "relation_proposal": {
+      "status": "Proposed — not Operator-confirmed or natively admitted",
+      "connections": [
+        "Revision — REVISION_OF → Artifact",
+        "Journal.Record — FROM_REVISION → previous Revision",
+        "Journal.Record — TO_REVISION → resulting Revision",
+        "Journal.Record — RECORDS → Execution"
+      ],
+      "change_record_scope": "FROM_REVISION and TO_REVISION apply to records of Artifact state changes, not every Journal record. Creation has no previous Revision.",
+      "execution_record_scope": "RECORDS points to an Execution when the Journal record describes an actual run."
+    },
+    "historical_reference_proposal": {
+      "status": "Proposed — not a required identifier or accepted Subject grammar",
+      "atom_reference": "Atom ID + unique Updated At",
+      "reason": "Version Number alone may not distinguish metadata-only historical states."
+    }
+  },
   "content_direction": {
     "umbrella": "Substance",
     "role_labels": {
@@ -136,6 +161,7 @@
     ],
     "requirement": "Select applicable source Atoms, resolve conflicts and check coherence before publishing a consistent projected Atom set.",
     "authority": "Source Atoms remain authoritative; the projected set does not create new authoritative Atom identities.",
+    "instance_boundary": "The Projection is a distinct Entity instance with one representation. References to source Atoms do not make it another representation of those source instances.",
     "root_status": "Not an additional independent root in this candidate."
   },
   "m_e_root_question": {
@@ -151,7 +177,7 @@
     "How to identify duplicates among ID-free Drafts.",
     "Exact typed links between Operations definitions, Executions, Actors, Journal Records, Revisions and Carriers.",
     "A complete mapping from the captured 706-identity review to this simplified candidate.",
-    "Exact typed history relation, history identifiers and accepted Subject grammar changes."
+    "Operator confirmation of the proposed history links and historical reference; accepted Subject grammar changes."
   ],
   "earlier_review": {
     "inventory": "candidate.entities.indented.txt",

@@ -1,7 +1,11 @@
 Entity Graph Candidate
-  Status: Candidate — Operator-authored; not adopted Core authority
+  Status: Candidate — Operator-confirmed decisions with separately marked proposals; not adopted Core authority
   Saved: 2026-10-10 (Asia/Tbilisi)
   Basis: latest decisions in this conversation
+
+  Graph model
+    Entities are nodes; typed Relations connect them.
+    Relation kinds constrain which Entity kinds may connect.
 
   Root Entities
     Artifact
@@ -67,6 +71,23 @@ Entity Graph Candidate
     A new Updated At can distinguish a new historical state; no separate Applicable Methodology Revision or Projection Revision kind is formalized here.
     Revision is a separate historical root, not an Artifact subtype or an IS_BORNE_BY child of Artifact or Atom.
 
+  History — confirmed distinction
+    Revision preserves a historical Artifact state.
+    Journal records what happened: changes, Executions and observed outcomes.
+    A Journal record is not the event itself.
+
+    History links — PROPOSED; not Operator-confirmed or natively admitted
+      Revision — REVISION_OF → Artifact
+      Journal.Record — FROM_REVISION → previous Revision
+      Journal.Record — TO_REVISION → resulting Revision
+      Journal.Record — RECORDS → Execution
+      From/to links apply to Artifact change records, not every Journal record.
+      Creation has no previous Revision; RECORDS applies when a record describes an actual run.
+
+    Historical reference — PROPOSED; not a required identifier or accepted Subject grammar
+      Atom ID + unique Updated At
+      Version Number alone may not distinguish metadata-only historical states.
+
   Content
     Substance + Substance Scope + optional general Details
     RMED: Claim; P: Objective; A: Question; C: Issue; O: Operation
@@ -78,6 +99,7 @@ Entity Graph Candidate
       reconcile conflicts and check coherence
       publish one consistent projected Atom set
     Source Atoms remain authoritative
+    The Projection is a distinct Entity instance with one representation; source references are not identity reuse.
     Not necessarily one document; not an additional root
 
   M/E roots — RESOLVED
@@ -89,7 +111,7 @@ Entity Graph Candidate
     How to identify duplicates among ID-free Drafts.
     Exact typed links between Operations definitions, Executions, Actors, Journal Records, Revisions and Carriers.
     A complete mapping from the captured 706-identity review to this simplified candidate.
-    Exact typed history relation, history identifiers and accepted Subject grammar changes.
+    Operator confirmation of the proposed history links and historical reference; accepted Subject grammar changes.
 
   Preservation
     Earlier 706-identity candidate, ledgers, source pins and acceptance stay unchanged
