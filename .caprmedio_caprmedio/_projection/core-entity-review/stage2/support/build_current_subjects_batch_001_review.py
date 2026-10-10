@@ -44,6 +44,11 @@ REVIEW_CONTRACT_REL = Path(
     ".caprmedio_caprmedio/_projection/core-entity-review/stage2/"
     "current-subjects.review.contract.md"
 )
+GOVERNED_SUBJECT_REL = Path(
+    ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/"
+    "001_CORE_META_MODEL/04_requirement/"
+    "CA-R-1363-CORE_META_MODEL-CORE--define-atom-governed-subject.md"
+)
 CAPTURED_CORE_COMMIT = "a971d0e00c33c779f485fc8cad63194894d440fb"
 
 EXPECTED = {
@@ -53,6 +58,7 @@ EXPECTED = {
     CONSOLIDATED_REVIEW_REL: "e4cb9c76b441c13115e87e141890a9dab58634a7a62fb1b3bc32168dbac261f6",
     SUBJECTS_CONTRACT_REL: "5eb0d90022b68a7d1d2cd27cf60a147deaf4161cb9b2e1c8bdf6c4ef8f2a10bf",
     REVIEW_CONTRACT_REL: "b7c9c065f997d5bae1409f5c09b4223d08327a523decab6d26c2e4425fd2c28b",
+    GOVERNED_SUBJECT_REL: "f897ce81ed4e0d630006ed7f0f382a082204b82bde93664e394d7e31abbf0b12",
 }
 
 
@@ -143,8 +149,8 @@ def preserved_for(atom_id: str, old_value: str) -> list[str]:
         ]
     if old_value == "Atom/Governed Subject":
         return [
-            "The required single governed Subject is retained as a distinct constraint.",
-            "It is not conflated with Scope Unit Scope or Claim restrictions.",
+            "The required governed Subject remains a distinct GOVERNS Relation with its canonical Entity target.",
+            "It is not converted into an Atom dependent-property binding or conflated with Scope Unit Scope or Claim restrictions.",
         ]
     if old_value == "Atom/Claim":
         return [
@@ -212,6 +218,15 @@ def unresolved_reason(atom_id: str, old_value: str) -> str:
             "establish a Scope dependent-field identity or extent. Scope Unit.Scope would "
             "therefore be an unsupported dot binding."
         )
+    if old_value == "Atom/Governed Subject":
+        return (
+            "CA-R-1014 requires exactly one Atom Governed Subject in Atom Scope, but the "
+            "pinned current CA-R-1363 defines that meaning as a Subject Relation whose "
+            "Relation Kind is GOVERNS and whose canonical Entity target is distinct. The "
+            "candidate confirms Relation as a root but does not admit Atom.Governed Subject "
+            "as a dependent-property binding, so the dot proposal would lose the relation "
+            "and target semantics."
+        )
     if old_value == "Atom/Scope":
         return (
             "CA-R-1014 defines Atom Scope as a composite of Scope Unit Scope or Operator "
@@ -271,43 +286,14 @@ def unresolved_reason(atom_id: str, old_value: str) -> str:
     )
 
 
-def review_occurrence(occurrence: dict[str, Any], evidence: dict[str, Any]) -> dict[str, Any]:
+def review_occurrence(
+    occurrence: dict[str, Any],
+    evidence: dict[str, Any],
+    governed_subject_evidence: dict[str, Any],
+) -> dict[str, Any]:
     old_value = occurrence["old_value"]
     result = dict(occurrence)
-    if old_value == "Atom/Governed Subject":
-        result.update(
-            {
-                "decision": "proposed",
-                "proposed_value": "Atom.Governed Subject",
-                "confidence": 0.90,
-                "reason": (
-                    "CA-R-1014's current Claim requires exactly one Atom Governed "
-                    "Subject. The candidate's dependent-entity identity is an owner "
-                    "selector plus dependent field, and its Scope rule explicitly retains "
-                    "the whole governed Subject, supporting this qualified Atom field."
-                ),
-                "candidate_basis": [
-                    {
-                        "pointer": "/entity_identity_model/dependent_entity/identity",
-                        "reason": "A dependent Entity identity is owner selector plus dependent field.",
-                    },
-                    {
-                        "pointer": "/entity_identity_model/dependent_entity/meaning",
-                        "reason": "The candidate describes selecting an Atom then its dependent field.",
-                    },
-                    {
-                        "pointer": "/content_direction/scope_omission",
-                        "reason": "The confirmed Scope rule retains the whole governed Subject.",
-                    },
-                ],
-                "preserved_distinctions": [
-                    "The required cardinality of one governed Subject is retained.",
-                    "Governed Subject remains distinct from Scope Unit Scope and Claim restrictions.",
-                ],
-                "question": None,
-            }
-        )
-    elif old_value == "Artifact":
+    if old_value == "Artifact":
         result.update(
             {
                 "decision": "unchanged",
@@ -371,6 +357,17 @@ def review_occurrence(occurrence: dict[str, Any], evidence: dict[str, Any]) -> d
             ),
         }
     ]
+    if old_value == "Atom/Governed Subject":
+        result["evidence"].append(
+            {
+                **governed_subject_evidence,
+                "reason": (
+                    "Pinned current CA-R-1363 defines Atom Governed Subject as a GOVERNS "
+                    "Subject Relation with a distinct canonical Entity target; it rules out "
+                    "the unsupported Atom dependent-property proposal."
+                ),
+            }
+        )
     result["executable"] = False
     return result
 
@@ -388,6 +385,9 @@ def build() -> dict[str, Any]:
         )
         for source in batch["selected_sources"]
     }
+    governed_subject_evidence = main_content_span(
+        GOVERNED_SUBJECT_REL.as_posix(), EXPECTED[GOVERNED_SUBJECT_REL]
+    )
     source_reviews = []
     for source in batch["selected_sources"]:
         review = dict(source)
@@ -402,7 +402,11 @@ def build() -> dict[str, Any]:
         source_reviews.append(review)
 
     occurrences = [
-        review_occurrence(occurrence, source_evidence[occurrence["source_atom_id"]])
+        review_occurrence(
+            occurrence,
+            source_evidence[occurrence["source_atom_id"]],
+            governed_subject_evidence,
+        )
         for occurrence in batch["occurrences"]
     ]
     output = {
@@ -436,6 +440,11 @@ def build() -> dict[str, Any]:
                 "kind": "review_contract",
                 "path": REVIEW_CONTRACT_REL.as_posix(),
                 "sha256": EXPECTED[REVIEW_CONTRACT_REL],
+            },
+            {
+                "kind": "current_supporting_governed_subject_source",
+                "path": GOVERNED_SUBJECT_REL.as_posix(),
+                "sha256": EXPECTED[GOVERNED_SUBJECT_REL],
             },
         ],
         "source_reviews": source_reviews,

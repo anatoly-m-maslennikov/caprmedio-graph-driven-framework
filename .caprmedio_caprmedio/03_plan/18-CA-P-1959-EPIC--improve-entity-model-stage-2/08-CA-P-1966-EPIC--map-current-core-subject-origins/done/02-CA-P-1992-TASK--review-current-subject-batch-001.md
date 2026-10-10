@@ -14,8 +14,8 @@ status: Done
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Projection, Plan, Operator]
-version: 2
-updated_at: "2026-10-11 01:57:33 +0400"
+version: 3
+updated_at: "2026-10-11 02:03:03 +0400"
 relations:
   is_decomposition_of: [CA-P-1966]
   depends_on: ["CA-P-1972", "CA-P-1988", "CA-P-1989", "CA-P-1990"]
@@ -37,7 +37,7 @@ Recheck each source pin, then read its current Main Content. Compare the frozen 
 
 Own only `stage2/reviews/current-subjects.batch-001.review.json` and an optional same-batch support helper. Root owns integration and Git. Preserve others' edits. If work exceeds 15 minutes, create bounded decomposition before continuing. Creating this Plan does not start or complete review.
 
-Completion: independent structural checks passed for 20 current sources and 63 exact occurrences. Root checked both decided rows against the exact owning source Main Content. The Governed Subject field retains its Atom bearer; Artifact remains the exact admitted root. Unsupported root-colon shortcuts, topic aliases and Claim-domain mappings are now null. The 61 unresolved rows remain explicit research in this report and required ledger integration. All rows remain non-executable; no original Atom changed. Evidence: stage2/task-1992.receipt.json. Review completion is not mapping completion or migration approval.
+Completion: independent structural checks passed for 20 current sources and 63 exact occurrences. A follow-up check of the current governing definition CA-R-1363 establishes Governed Subject as a GOVERNS Relation with a distinct Entity target, not an admitted Atom dependent Property. The earlier field proposal is withdrawn. Artifact remains the one unchanged decision, checked against CA-R-1026; no proposed replacement remains. The 62 unresolved rows remain explicit research in this report and required ledger integration. All rows remain non-executable; no original Atom changed. Evidence: stage2/task-1992.receipt.json. Prior review and receipt revisions remain in Git. Review completion is not mapping completion or migration approval.
 
 ### Definition of Done
 

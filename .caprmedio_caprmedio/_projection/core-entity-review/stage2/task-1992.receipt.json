@@ -1,10 +1,10 @@
 {
   "task": "CA-P-1992",
-  "recorded_at": "2026-10-11 01:57:33 +0400",
+  "recorded_at": "2026-10-11 02:03:03 +0400",
   "result": "PASS: complete candidate review; unresolved mapping research retained",
   "output": {
     "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-001.review.json",
-    "sha256": "3f9ce621083500a677830c0ad3aec058e630f6daa82142c8bcd661a76249b916"
+    "sha256": "e71a55c836e4bc62280b79cebf4bad2177346f00b26a8d850206ba84d6b640ae"
   },
   "input_batch": {
     "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-001.json",
@@ -14,15 +14,21 @@
     "independent_structural_verifier": "PASS",
     "sources": 20,
     "occurrences": 63,
-    "proposed": 1,
+    "proposed": 0,
     "unchanged": 1,
-    "unresolved": 61,
-    "meaning_review": "Root checked both decided rows against the exact owning source Main Content. The Governed Subject field retains its Atom bearer; Artifact remains the exact admitted root. Unsupported root-colon shortcuts, topic aliases and Claim-domain mappings are now null.",
+    "unresolved": 62,
+    "meaning_review": "Cross-source definition check: CA-R-1363 defines Governed Subject as a GOVERNS Relation with distinct Entity target, not an admitted Atom dependent Property. The earlier proposal is withdrawn. Artifact remains unchanged, checked against CA-R-1026.",
     "all_executable_false": true
   },
-  "unresolved_work": "61 explicit occurrence-level research rows remain in this pinned report and required CA-P-2045 integration; CA-P-1966 remains Active.",
+  "unresolved_work": "62 explicit occurrence-level research rows remain in this pinned report and required CA-P-2045 integration; CA-P-1966 remains Active.",
   "limits": [
     "No original Atom, captured candidate, grammar, native or runtime change",
     "Review completion is not migration approval"
-  ]
+  ],
+  "follow_up": {
+    "reason": "Corrected a dependent-Property inference using the actual current governing definition",
+    "prior_review_sha256": "3f9ce621083500a677830c0ad3aec058e630f6daa82142c8bcd661a76249b916",
+    "helper_sha256": "0999604735bec73fa2f211f48ac2cf0181b82806b09baece950f65e374b42167",
+    "history": "Prior receipt/report and Plan revision remain in Git; no Core Atom updated."
+  }
 }

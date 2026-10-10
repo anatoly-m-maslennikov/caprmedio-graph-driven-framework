@@ -29,6 +29,11 @@
       "kind": "review_contract",
       "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.review.contract.md",
       "sha256": "b7c9c065f997d5bae1409f5c09b4223d08327a523decab6d26c2e4425fd2c28b"
+    },
+    {
+      "kind": "current_supporting_governed_subject_source",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1363-CORE_META_MODEL-CORE--define-atom-governed-subject.md",
+      "sha256": "f897ce81ed4e0d630006ed7f0f382a082204b82bde93664e394d7e31abbf0b12"
     }
   ],
   "source_reviews": [
@@ -621,27 +626,14 @@
       "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1014-CORE_META_MODEL-CORE-REQUIREMENT--resolve-atom-scope-contextually.md",
       "source_sha256": "57013a4e165d493701cb180a4cc32df85c8aa79373b2ec503e3b4e5dd1c4352e",
       "source_version": 18,
-      "decision": "proposed",
-      "proposed_value": "Atom.Governed Subject",
-      "confidence": 0.9,
-      "reason": "CA-R-1014's current Claim requires exactly one Atom Governed Subject. The candidate's dependent-entity identity is an owner selector plus dependent field, and its Scope rule explicitly retains the whole governed Subject, supporting this qualified Atom field.",
-      "candidate_basis": [
-        {
-          "pointer": "/entity_identity_model/dependent_entity/identity",
-          "reason": "A dependent Entity identity is owner selector plus dependent field."
-        },
-        {
-          "pointer": "/entity_identity_model/dependent_entity/meaning",
-          "reason": "The candidate describes selecting an Atom then its dependent field."
-        },
-        {
-          "pointer": "/content_direction/scope_omission",
-          "reason": "The confirmed Scope rule retains the whole governed Subject."
-        }
-      ],
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "CA-R-1014 requires exactly one Atom Governed Subject in Atom Scope, but the pinned current CA-R-1363 defines that meaning as a Subject Relation whose Relation Kind is GOVERNS and whose canonical Entity target is distinct. The candidate confirms Relation as a root but does not admit Atom.Governed Subject as a dependent-property binding, so the dot proposal would lose the relation and target semantics.",
+      "candidate_basis": [],
       "preserved_distinctions": [
-        "The required cardinality of one governed Subject is retained.",
-        "Governed Subject remains distinct from Scope Unit Scope and Claim restrictions."
+        "The required governed Subject remains a distinct GOVERNS Relation with its canonical Entity target.",
+        "It is not converted into an Atom dependent-property binding or conflated with Scope Unit Scope or Claim restrictions."
       ],
       "question": null,
       "evidence": [
@@ -652,6 +644,14 @@
           "end_line": 36,
           "span_sha256": "f003adc896e74bb23f53d801f32e0c9216a03867e0ce7ec32f8802e64e7de90e",
           "reason": "Full current Main Content (Summary, Scope, Claim, and Details heading) was read for CA-R-1014; it is the current meaning evidence for this occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1363-CORE_META_MODEL-CORE--define-atom-governed-subject.md",
+          "sha256": "f897ce81ed4e0d630006ed7f0f382a082204b82bde93664e394d7e31abbf0b12",
+          "start_line": 28,
+          "end_line": 40,
+          "span_sha256": "788d88b9c5b248ee3682d0e2ed2802f667ed961a905c770981607f6e6e09a6cf",
+          "reason": "Pinned current CA-R-1363 defines Atom Governed Subject as a GOVERNS Subject Relation with a distinct canonical Entity target; it rules out the unsupported Atom dependent-property proposal."
         }
       ],
       "executable": false
