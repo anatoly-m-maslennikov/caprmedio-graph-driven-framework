@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 1
-updated_at: "2026-10-10 22:32:47 +0400"
+version: 2
+updated_at: "2026-10-10 23:24:00 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1970, CA-P-1974]
@@ -38,10 +38,12 @@ Rebuild the subject-driven entity graph with the pinned implementation. Verify e
 
 A partial batch, unresolved executable mapping, failed validation, stale pin or changed ordinary body prevents a pass. The Step-1 receipt identifies exact source/implementation/graph hashes and limitations. Only a complete current pass unblocks CA-P-1970.
 
+Validate all preserved body/frontmatter bytes. The only body exceptions are the exact approved minimum grammar patches; compare them to their allow-list rather than rejecting the approved cutover. Check actual ID/Version/status/time and Journal/history effects against the materialized packet. Step 1 verifies origins and the subject-driven graph, not already-rewritten Step-2 body content; accepted deferred body issues stay visible.
+
 No content repair, authority edits, runtime activation or native MCP delivery occurs in this verification Task.
 
 Inherit CA-P-1959's source boundary, confidence threshold and preservation rules. Creating this Plan records work; it does not start or complete it.
 
 ### Definition of Done
 
-The Plan is **not** Done if Step 1 lacks a complete current pass, approved effects are missing or divergent, ordinary bodies changed, graph reproduction fails, or partial evidence is treated as the content-update gate, any direct decomposing Plan is not Done, or own work exceeds 15 minutes without decomposition.
+The Plan is **not** Done if Step 1 lacks a complete current pass, approved effects are missing or divergent, ordinary bodies changed, graph reproduction fails, or partial evidence is treated as the content-update gate; any direct decomposing Plan is not Done; or own work exceeds 15 minutes without decomposition.

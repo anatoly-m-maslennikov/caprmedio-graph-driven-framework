@@ -14,11 +14,11 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 1
-updated_at: "2026-10-10 22:32:47 +0400"
+version: 2
+updated_at: "2026-10-10 23:24:00 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
-  blocks: [CA-P-1967, CA-P-1968]
+  blocks: [CA-P-1967, CA-P-1968, CA-P-1975]
 ---
 # Summary
 
@@ -34,6 +34,8 @@ Estimated own work: 15 minutes. Assignee: AI Agent. Required prerequisite: CA-P-
 
 Use its recorded decision and exact grammar candidate. Update the existing parser/validator/preview implementation with explicitly selected old and proposed profiles; never silently reinterpret old sources. The proposed profile supports / broader-to-narrower, . bearer qualification and : allowed value with the approved direction and character rules.
 
+If the Operator refuses or defers the new-grammar exception, this Task is not ready; record the blocked cutover, do not fabricate approval. Include the graph producer in the profile contract. CA-P-1975 must verify the final changed implementation; the earlier CA-P-1963 receipt cannot accept later code.
+
 Exercise mixed operators, malformed paths, reserved-character escaping, collisions and old-profile compatibility. Derive typed relations, not edges inferred from Source Atom metadata. Keep entity and Term namespaces separate.
 
 This Task changes implementation and isolated fixtures only. It does not adopt governing grammar Atoms, activate a runtime, publish graphs or migrate sources. Include exact implementation pins in the subsequent preview. Split larger work before execution.
@@ -42,4 +44,4 @@ Inherit CA-P-1959's source boundary, confidence threshold and preservation rules
 
 ### Definition of Done
 
-The Plan is **not** Done if parser, validator and preview disagree, old Subjects are silently reinterpreted, approved syntax has no tests, or authority/runtime/source changes are implied, any direct decomposing Plan is not Done, or own work exceeds 15 minutes without decomposition.
+The Plan is **not** Done if parser, validator and preview disagree, old Subjects are silently reinterpreted, approved syntax has no tests, or authority/runtime/source changes are implied; any direct decomposing Plan is not Done; or own work exceeds 15 minutes without decomposition.

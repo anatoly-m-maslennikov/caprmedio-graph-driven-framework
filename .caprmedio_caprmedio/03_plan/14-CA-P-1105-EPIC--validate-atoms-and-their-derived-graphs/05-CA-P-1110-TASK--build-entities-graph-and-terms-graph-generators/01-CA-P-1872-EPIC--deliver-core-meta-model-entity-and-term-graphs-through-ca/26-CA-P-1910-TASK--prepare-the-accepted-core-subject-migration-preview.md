@@ -14,11 +14,11 @@ status: Active
 subjects:
   governs: Projection
   depends_on: [Entity, Term, Atom, Property, Carrier, Plan]
-version: 1
-updated_at: "2026-10-10 01:17:19 +0400"
+version: 2
+updated_at: "2026-10-10 23:24:00 +0400"
 relations:
   is_decomposition_of: [CA-P-1872]
-  blocks: [CA-P-1911]
+  blocks: [CA-P-1911, CA-P-1968, CA-P-1973]
 ---
 # Summary
 
@@ -31,6 +31,8 @@ Prepare an exact, sealed migration preview for the verified accepted Core graph 
 ## Details
 
 Estimated own work: 15 minutes. Assignee: AI Agent.
+
+CA-P-1967 supplies the sole source-pinned candidate packet and must be Done before final preview acceptance. Reuse that packet, current grammar/profile and post-grammar Tool verification; do not create a second independent approval route.
 
 Readiness condition: CA-P-1909 is Done. Inputs: its verified accepted graph, canonical hash, current source pins, recorded Operator decision and complete occurrence and node ledgers. Candidate or graph approval is not migration approval.
 

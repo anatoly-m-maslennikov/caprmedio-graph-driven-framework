@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 1
-updated_at: "2026-10-10 22:32:47 +0400"
+version: 2
+updated_at: "2026-10-10 23:24:00 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1969]
@@ -37,6 +37,8 @@ Recheck all pins before effects. Apply only approved Subjects, required Version 
 
 Process disjoint approved batches with one integration/Git owner. Failed or uncertain effects stop; inspect actual state before resume. No automatic rollback, retry, runtime activation or release permission is implied. Validate each batch and record actual after pins.
 
+Preparation alone cannot complete this group. Require the prepared effect children, CA-P-1911's actual completed single execution and after-state verification. For each same-ID update, verify exact Version +1, actual Project-time timestamp, new current Active revision and prior Archived history. Git retains exact prior contents/versions. Report actual Journal record references for required effects; an absent/failed required record is incomplete, not a fabricated success.
+
 All other body updates remain blocked until CA-P-1969 passes.
 
 Inherit CA-P-1959's source boundary, confidence threshold and preservation rules. Creating this Plan records work; it does not start or complete it.
@@ -47,4 +49,4 @@ Inherit CA-P-1959's source boundary, confidence threshold and preservation rules
 
 ### Definition of Done
 
-The Plan is **not** Done if a live effect lacks exact approval/current pins, a source is applied twice, ordinary content changes, required history/records are missing, a failure is masked, or an admission guard is bypassed, any direct decomposing Plan is not Done, or own work exceeds 15 minutes without decomposition.
+The Plan is **not** Done if a live effect lacks exact approval/current pins, a source is applied twice, ordinary content changes, required history/records are missing, a failure is masked, or an admission guard is bypassed; any direct decomposing Plan is not Done; or own work exceeds 15 minutes without decomposition.

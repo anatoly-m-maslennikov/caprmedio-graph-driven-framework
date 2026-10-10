@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 1
-updated_at: "2026-10-10 22:32:47 +0400"
+version: 2
+updated_at: "2026-10-10 23:24:00 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1963]
@@ -38,8 +38,10 @@ Use the declared authoring Core root; do not silently select a delivered or Appl
 
 Tests cover field direction, body-text false positives, prefix boundaries, repeated dependency values, role/owner/lifecycle filters and deterministic results. Output is read-only. Do not edit authoritative Atoms. Split work that exceeds 15 minutes.
 
+Allowed roles are Requirement, Method, Evaluation, Delivery and Operations, including O. Exclude and report C/A/P/other roles. Verify `Artifact/Atom` does not match `Artifact/Atomology`; use the selected grammar profile's delimiters, not guessed relation meaning. Test path/owner disagreement and require a diagnostic.
+
 Inherit CA-P-1959's source boundary, confidence threshold and preservation rules. Creating this Plan records work; it does not start or complete it.
 
 ### Definition of Done
 
-The Plan is **not** Done if field-specific lookup is missing, body text creates hits, selection or pins are ambiguous, malformed sources are silently omitted, tests fail, or any authoritative Atom changes, any direct decomposing Plan is not Done, or own work exceeds 15 minutes without decomposition.
+The Plan is **not** Done if field-specific lookup is missing, body text creates hits, selection or pins are ambiguous, malformed sources are silently omitted, tests fail, or any authoritative Atom changes; any direct decomposing Plan is not Done; or own work exceeds 15 minutes without decomposition.

@@ -14,10 +14,11 @@ status: Active
 subjects:
   governs: Projection
   depends_on: [Entity, Term, Atom, Property, Carrier, Plan]
-version: 1
-updated_at: "2026-10-10 01:17:19 +0400"
+version: 2
+updated_at: "2026-10-10 23:24:00 +0400"
 relations:
   is_decomposition_of: [CA-P-1872]
+  blocks: [CA-P-1969]
 ---
 # Summary
 
@@ -30,6 +31,8 @@ Verify that the approved migrated Core Subjects reproduce the separately accepte
 ## Details
 
 Estimated own work: 15 minutes. Assignee: AI Agent.
+
+This Task owns the sole migration reproduction receipt consumed by CA-P-1969. Check the exact approved minimum grammar-body exception allow-list, preserved ordinary content/all unrelated frontmatter, and actual Version/time/status/history/recording effects. Use an independently authored expected ledger rather than the producer as its own oracle; fixture producer corruption must fail.
 
 Readiness condition: CA-P-1911 is Done. Inputs: its exact changed source snapshot and applied-change record, the authorized preview and grammar contracts, CA-P-1909's separately accepted graph and hash, and the complete occurrence and node ledgers.
 

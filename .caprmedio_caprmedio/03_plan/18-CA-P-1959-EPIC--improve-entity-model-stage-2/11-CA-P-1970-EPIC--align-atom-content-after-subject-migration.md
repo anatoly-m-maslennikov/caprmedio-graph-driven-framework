@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 1
-updated_at: "2026-10-10 22:32:47 +0400"
+version: 2
+updated_at: "2026-10-10 23:24:00 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1971]
@@ -37,9 +37,11 @@ Use Substance as the umbrella: RMED contains Claims; O contains Operations. Keep
 
 R describes the entity skeleton and required outcomes; M describes methods; E specifies checks; D specifies carriers/storage/delivery; O specifies repeatable actions and workflows. M/E are views, not new roots. Keep Revision as history, Carrier as a separate root, and general D field policies instead of per-property Carrier edge registries. Preserve internal/external/relational distinctions and meaningful constraints.
 
-Reuse existing authority and update each Atom once per accepted change, with Version +1, updated_at and applicable history/recording. Do not silently adopt broader schema, Scope Unit folder/ID migrations, entity deletion or Terms changes. Those require separately defined work and authority.
+Classify each proposed change before writing under current authority. A changed Summary requires replacement with a new Atom ID and recorded predecessor/successor lineage; do not perform a same-ID Summary update. Same-Summary Substance/Scope/Details changes use the applicable semantic-revision or refinement route. Every accepted same-ID update still uses exact Version +1 and actual updated_at under the Operator's latest rule. Preserve meaning, status/history and actual recording. No schema or YAML heading/key rename, Scope Unit folder/ID migration, entity deletion or Term change is silently authorized.
 
 Output: reviewed and authorized source changes, exact before/after pins and batch receipts.
+
+CA-P-1974's preparation alone cannot complete this group. Require the generated role/batch review, authorized effect and independent verification children and their actual outputs. Record the Summary replacement policy in each affected patch packet before approval.
 
 Inherit CA-P-1959's source boundary, confidence threshold and preservation rules. Creating this Plan records work; it does not start or complete it.
 
@@ -49,4 +51,4 @@ Inherit CA-P-1959's source boundary, confidence threshold and preservation rules
 
 ### Definition of Done
 
-The Plan is **not** Done if work starts before CA-P-1969 passes, content changes lack their required review/authority, meaning or constraints are lost, Scope is confused with ownership, or unrelated migrations enter the batches, any direct decomposing Plan is not Done, or own work exceeds 15 minutes without decomposition.
+The Plan is **not** Done if work starts before CA-P-1969 passes, content changes lack their required review/authority, meaning or constraints are lost, Scope is confused with ownership, or unrelated migrations enter the batches; any direct decomposing Plan is not Done; or own work exceeds 15 minutes without decomposition.

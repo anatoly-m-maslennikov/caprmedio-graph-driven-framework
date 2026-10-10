@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 1
-updated_at: "2026-10-10 22:32:47 +0400"
+version: 2
+updated_at: "2026-10-10 23:24:00 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
 ---
@@ -33,6 +33,8 @@ Estimated own work: 15 minutes. Assignee: AI Agent. Required prerequisite: CA-P-
 
 Independently check final Subjects, Summary, Substance, Scope and Details against the accepted batch decisions and current governing RMED+O. Verify source identities, revisions, history, evidence coverage and affected validation/tests.
 
+Check Summary replacements have new IDs and recorded lineage, not overwritten same-ID history. Use a separately authored expected ledger/oracle without calling the producer's graph builder, and prove altered outputs are rejected.
+
 Rebuild the graph from authoritative Subjects with pinned implementation and compare the final relation semantics with the accepted model. Report unresolved, excluded and deferred matters explicitly. Terms remain a separate graph; same spelling does not authorize a Term edge.
 
 Deliver one final receipt with exact source, implementation and output hashes, actual check results and remaining work. No automatic installed-copy refresh, runtime activation, release, push, PR or native MCP delivery follows from this pass. Split verification if it exceeds 15 minutes.
@@ -41,4 +43,4 @@ Inherit CA-P-1959's source boundary, confidence threshold and preservation rules
 
 ### Definition of Done
 
-The Plan is **not** Done if a required check is failed, missing or stale, final graph reproduction diverges, an accepted decision is unaccounted for, source/body meaning is lost, or completion is overstated, any direct decomposing Plan is not Done, or own work exceeds 15 minutes without decomposition.
+The Plan is **not** Done if a required check is failed, missing or stale, final graph reproduction diverges, an accepted decision is unaccounted for, source/body meaning is lost, or completion is overstated; any direct decomposing Plan is not Done; or own work exceeds 15 minutes without decomposition.

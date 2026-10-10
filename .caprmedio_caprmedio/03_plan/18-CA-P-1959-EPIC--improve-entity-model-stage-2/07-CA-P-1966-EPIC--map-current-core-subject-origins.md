@@ -13,11 +13,11 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 1
-updated_at: "2026-10-10 22:32:47 +0400"
+version: 2
+updated_at: "2026-10-10 23:24:00 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
-  blocks: [CA-P-1967]
+  blocks: [CA-P-1967, CA-P-1909]
 ---
 # Summary
 
@@ -39,6 +39,8 @@ Produce explicit occurrence-level before/after decisions, evidence refs, preserv
 
 Root owns integration of the complete ledger; workers own disjoint review batches.
 
+CA-P-1972's preparation alone cannot complete this group. The generated review/integration children must be present and Done, with complete actual ledger coverage. The current ledger feeds CA-P-1909's separately accepted graph; it does not grant candidate acceptance.
+
 Inherit CA-P-1959's source boundary, confidence threshold and preservation rules. Creating this Plan records work; it does not start or complete it.
 
 ### Decomposing Plans
@@ -47,4 +49,4 @@ Inherit CA-P-1959's source boundary, confidence threshold and preservation rules
 
 ### Definition of Done
 
-The Plan is **not** Done if any selected occurrence is missing or guessed, a mapping lacks current source evidence, unresolved cases are hidden, captured outputs change, or source Atoms are edited, any direct decomposing Plan is not Done, or own work exceeds 15 minutes without decomposition.
+The Plan is **not** Done if any selected occurrence is missing or guessed, a mapping lacks current source evidence, unresolved cases are hidden, captured outputs change, or source Atoms are edited; any direct decomposing Plan is not Done; or own work exceeds 15 minutes without decomposition.

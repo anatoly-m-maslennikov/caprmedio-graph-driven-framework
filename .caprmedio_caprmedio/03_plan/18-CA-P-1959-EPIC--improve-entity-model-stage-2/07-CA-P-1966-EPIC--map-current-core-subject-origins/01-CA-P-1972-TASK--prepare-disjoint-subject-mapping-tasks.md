@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Projection, Plan, Tool, Operator]
-version: 1
-updated_at: "2026-10-10 22:32:47 +0400"
+version: 2
+updated_at: "2026-10-10 23:24:00 +0400"
 relations:
   is_decomposition_of: [CA-P-1966]
 ---
@@ -35,6 +35,8 @@ Required prerequisite: CA-P-1963. Pin the current authoring Core inventory and d
 
 Inherit CA-P-1959's source boundary, confidence threshold and preservation rules. Creating this Plan records work; it does not start or complete it.
 
+Finishing this preparation does not finish CA-P-1966: only its generated evidence-review/integration children and verified complete ledger can do that.
+
 ### Definition of Done
 
-The Plan is **not** Done if batches overlap or omit selected occurrences, source pins or output/check contracts are missing, any child has more than 15 minutes of undecomposed own work, or source mappings/writes are performed, any direct decomposing Plan is not Done, or own work exceeds 15 minutes without decomposition.
+The Plan is **not** Done if batches overlap or omit selected occurrences, source pins or output/check contracts are missing, any child has more than 15 minutes of undecomposed own work, or source mappings/writes are performed; any direct decomposing Plan is not Done; or own work exceeds 15 minutes without decomposition.
