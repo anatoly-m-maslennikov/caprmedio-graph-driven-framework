@@ -1,5 +1,5 @@
 ---
-atom_id: CA-D-610
+atom_id: CA-D-620
 content_role: Delivery
 current_scope_unit: MCP
 local_tier: Standard
@@ -7,7 +7,7 @@ global_tier: 11
 status: Active
 author: Anatoly Maslennikov
 version: 1
-updated_at: "2026-10-10 09:50:52 +0400"
+updated_at: "2026-10-10 06:11:42 +0000"
 subjects:
   governs: "MCP/Direct Framework runtime installation binding"
   depends_on: [MCP, Action, Operator, Framework Package, Runtime, Journal, Project]
