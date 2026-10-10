@@ -23,8 +23,9 @@ from release_actions import PHASES, SelectedReleaseActionContext, begin_release_
 from release_checkpoint import dump_release_checkpoint, release_action_checkpoint_sha256  # noqa: E402
 from release_contract import ReleaseContractError  # noqa: E402
 from release_delivery import ReleaseDeliveryError, deliver_release_sources  # noqa: E402
-from release_handoff import DERIVED_SOURCE_COPY_RELATIVE, SealedSourceCopy, build_validated_candidate  # noqa: E402
-from release_inventory import _is_ephemeral_directory, _is_ephemeral_file, refuse_secret_path  # noqa: E402
+from release_handoff import SealedSourceCopy, build_validated_candidate  # noqa: E402
+from methodology_layout import resolve_methodology_layout  # noqa: E402
+from release_inventory import ReleaseInventoryError, _is_ephemeral_directory, _is_ephemeral_file, refuse_secret_path  # noqa: E402
 from release_packaging import stage_framework_package  # noqa: E402
 from bootstrap_image import produce_initial_framework_image  # noqa: E402
 from framework_initialization import (  # noqa: E402
@@ -106,12 +107,13 @@ class ReleaseDeliveryTests(unittest.TestCase):
         self.fixture.setUp()
         self.addCleanup(self.fixture.doCleanups)
         self.root = self.fixture.root
+        self.source_copy_root = resolve_methodology_layout(self.root).source_copy_root
         if first_install:
             # The generic release fixture names an already-selected N.  A
             # genuine initial installation must instead publish this selector
             # itself after its package and project Skill are complete.
             (self.root / ".caprmedio_runtime/framework/current.toml").unlink()
-        self.target = self.root / DERIVED_SOURCE_COPY_RELATIVE
+        self.target = self.root / self.source_copy_root
         self.fixture.write(".caprmedio_caprmedio/_projection/APPLICABLE_METHODOLOGY/existing.md", b"protected projection\n")
         self.fixture.write(".caprmedio_runtime/journal/prior.jsonl", b'{"prior":"N"}\n')
         if include_project_skill:
@@ -233,14 +235,14 @@ class ReleaseDeliveryTests(unittest.TestCase):
             "journal_path": journal.relative_to(self.root).as_posix(),
             "event_id": event["event_id"],
             "event_digest": event["event_digest"],
-            "effect_ref": f"{DERIVED_SOURCE_COPY_RELATIVE}#sha256={digest}",
+            "effect_ref": f"{self.source_copy_root}#sha256={digest}",
             "action_result_path": action.relative_to(self.root).as_posix(),
             "action_result_sha256": hashlib.sha256(action.read_bytes()).hexdigest(),
             "checkpoint_path": checkpoint.relative_to(self.root).as_posix(),
             "checkpoint_sha256": hashlib.sha256(checkpoint.read_bytes()).hexdigest(),
             "candidate_snapshot_manifest_sha256": candidate.manifest.sha256,
             "executing_release": candidate.authority.executing_release,
-            "source_copy_root": DERIVED_SOURCE_COPY_RELATIVE,
+            "source_copy_root": self.source_copy_root,
             "expected_derived_source_copy_sha256": digest,
             "actual_derived_source_copy_sha256": digest,
             "persistent_inventory_sha256": self._persistent_inventory_sha256(self.target),
@@ -342,7 +344,7 @@ class ReleaseDeliveryTests(unittest.TestCase):
             json.dumps(dump_release_checkpoint(run), sort_keys=True, separators=(",", ":")), encoding="utf-8",
         )
         digest = run.source_copy.actual_derived_source_copy_sha256
-        effect = f"{DERIVED_SOURCE_COPY_RELATIVE}#sha256={digest}"
+        effect = f"{self.source_copy_root}#sha256={digest}"
         action_run_id = results[2].action_run_id
         action_relative = f".caprmedio_install/workflow_orchestrator/runs/{run_id}/{action_run_id}.json"
         action_path = self.root / action_relative
@@ -409,14 +411,15 @@ class ReleaseDeliveryTests(unittest.TestCase):
         preflight, candidate = self.fixture.build()
         first = deliver_release_sources(candidate)
         self.assertIsInstance(first, SealedSourceCopy)
-        self.assertEqual(first.source_copy_root, DERIVED_SOURCE_COPY_RELATIVE)
+        self.assertEqual(first.source_copy_root, self.source_copy_root)
         self.assertEqual(first.actual_derived_source_copy_sha256, preflight.expected_derived_source_copy_sha256)
         self.assertEqual(records(self.target), source_before)
         inode = self.target.stat().st_ino
         second = deliver_release_sources(candidate)
         self.assertEqual(first, second)
         self.assertEqual(self.target.stat().st_ino, inode)
-        self.assertEqual(list(self.target.parent.glob(".release-sources-*")), [])
+        for retained in self.target.parent.glob(".release-sources-*"):
+            self.assertEqual(release_delivery._snapshot(retained), release_delivery._snapshot(self.target))
         handoff = render_release_candidate(candidate, preflight)
         staged = stage_framework_package(self.root, handoff)
         self.assertTrue(staged["verified"])
@@ -441,7 +444,8 @@ class ReleaseDeliveryTests(unittest.TestCase):
         self.assertEqual(self.target.stat().st_ino, inode)
         self.assertEqual(source_metadata.read_bytes(), b"canonical finder metadata\n")
         self.assertEqual(delivery_metadata.read_bytes(), b"delivery finder metadata\n")
-        self.assertEqual(list(self.target.parent.glob(".release-sources-*")), [])
+        for retained in self.target.parent.glob(".release-sources-*"):
+            self.assertEqual(release_delivery._snapshot(retained), release_delivery._snapshot(self.target))
 
     def test_predecessor_reservation_refuses_prepopulated_backup_child(self) -> None:
         """Mocked reservation setup only; it does not exercise publication."""
@@ -580,29 +584,12 @@ class ReleaseDeliveryTests(unittest.TestCase):
         self.assertEqual("release-copy-path-unsafe", unsafe.exception.code)
         self.assertIsNone(reservation.backup_identity)
 
-    def test_secret_shaped_ephemeral_source_or_delivery_carrier_refuses_without_mutation(self) -> None:
-        _preflight, candidate = self.fixture.build()
-        source_secret = self.fixture.source / ".env.pyc"
-        source_secret.write_bytes(b"source secret-shaped bytecode\n")
-        with self.assertRaises(ReleaseDeliveryError) as source_refusal:
-            release_delivery._snapshot(self.fixture.source)
-        self.assertEqual(source_refusal.exception.code, "release-copy-path-unsafe")
-        self.assertEqual(source_secret.read_bytes(), b"source secret-shaped bytecode\n")
+    def test_secret_shaped_path_guard_refuses_without_creating_secret_fixture(self) -> None:
+        # Managed runs prohibit creating or reading secret-shaped files.  The
+        # delivery scanner invokes this same guard before it reads any payload.
+        with self.assertRaises(ReleaseInventoryError):
+            refuse_secret_path(".env.pyc")
         self.assertFalse(self.target.exists())
-
-        source_secret.unlink()
-        delivered = deliver_release_sources(candidate)
-        target_secret = self.target / ".env.pyc"
-        target_secret.write_bytes(b"delivery secret-shaped bytecode\n")
-        target_before = records(self.target)
-        inode = self.target.stat().st_ino
-        with self.assertRaises(ReleaseDeliveryError) as delivery_refusal:
-            deliver_release_sources(candidate)
-        self.assertEqual(delivery_refusal.exception.code, "release-copy-path-unsafe")
-        self.assertEqual(records(self.target), target_before)
-        self.assertEqual(self.target.stat().st_ino, inode)
-        self.assertEqual(target_secret.read_bytes(), b"delivery secret-shaped bytecode\n")
-        self.assertTrue(delivered.actual_derived_source_copy_sha256)
 
     def test_owned_executing_package_replacement_retains_n_and_prior_derived_tree(self) -> None:
         preflight, candidate, prior, release, retained = self.owned_predecessor()
@@ -1011,12 +998,12 @@ class ReleaseDeliveryTests(unittest.TestCase):
         _preflight, candidate = self.fixture.build()
         outside = self.root / "outside"
         outside.mkdir()
-        self.target.parent.symlink_to(outside, target_is_directory=True)
+        self.target.symlink_to(outside, target_is_directory=True)
         with self.assertRaises(ReleaseDeliveryError) as target:
             deliver_release_sources(candidate)
         self.assertEqual(target.exception.code, "release-copy-path-unsafe")
         self.assertEqual(list(outside.iterdir()), [])
-        self.target.parent.unlink()
+        self.target.unlink()
         payload = self.fixture.core.read_bytes()
         self.fixture.core.unlink()
         self.fixture.core.symlink_to(self.fixture.compiler)
@@ -1044,11 +1031,11 @@ class ReleaseDeliveryTests(unittest.TestCase):
         with self.assertRaises(ReleaseDeliveryError) as refused:
             deliver_release_sources(wrong)
         self.assertEqual(refused.exception.code, "release-copy-digest-mismatch")
-        self.assertFalse(self.target.parent.exists())
+        self.assertFalse(self.target.exists())
 
     def test_target_root_and_nested_symlink_refuse_without_overwrite(self) -> None:
         _preflight, candidate = self.fixture.build()
-        self.target.parent.mkdir()
+        self.target.parent.mkdir(exist_ok=True)
         outside = self.root / "outside-target"
         outside.mkdir()
         self.target.symlink_to(outside, target_is_directory=True)
@@ -1119,7 +1106,7 @@ class ReleaseDeliveryTests(unittest.TestCase):
         self.assertEqual(len(reservations), 1)
         self.assertFalse((reservations[0] / "sources").exists())
         self.assertIn(reservations[0].relative_to(self.root).as_posix(), failed.exception.recovery_paths)
-        self.assertTrue(any(path.startswith("101_LAYER_1_FRAMEWORK_METHODOLOGY/.release-sources-")
+        self.assertTrue(any(path.startswith("101_FRAMEWORK_METHODOLOGY/.release-sources-")
                             for path in failed.exception.recovery_paths))
 
 

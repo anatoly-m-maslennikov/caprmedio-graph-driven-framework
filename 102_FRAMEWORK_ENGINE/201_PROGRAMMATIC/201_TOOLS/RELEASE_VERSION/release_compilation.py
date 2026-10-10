@@ -15,9 +15,7 @@ from typing import Any, Mapping
 
 from release_contract import CandidateBuildRequest, ReleaseContractError, ValidatedCandidate, canonical_json
 from release_handoff import (
-    CANONICAL_SOURCE_RELATIVE,
     COMPILER_ENTRYPOINT_RELATIVE,
-    DERIVED_SOURCE_COPY_RELATIVE,
     MATERIALIZED_RELATIVE,
     CompilerEntrypoint,
     CompilerSuccessEvidence,
@@ -30,6 +28,7 @@ from release_handoff import (
     tree_sha256,
     validate_source_copy,
 )
+from methodology_layout import resolve_methodology_layout
 
 
 CHILD_MANIFEST_NAME = "_release_manifest.json"
@@ -60,6 +59,13 @@ def _root(value: Path | str) -> Path:
     if not root.is_dir():
         raise _error("release-project-missing", "release project root is missing")
     return root
+
+
+def _layout(root: Path) -> Any:
+    try:
+        return resolve_methodology_layout(root)
+    except (OSError, ValueError) as error:
+        raise _error("release-methodology-layout-invalid", "current Methodology layout is invalid") from error
 
 
 def _relative(root: Path, path: Path) -> str:
@@ -168,11 +174,13 @@ def _report(root: Path, source_relative: str, output_relative: str) -> tuple[dic
     return report, selected
 
 
-def _canonical_frontier_from_copied_candidates(candidates: list[Any]) -> str:
+def _canonical_frontier_from_copied_candidates(
+    candidates: list[Any], *, canonical_source_root: str, source_copy_root: str,
+) -> str:
     """Map copied-source paths back to their canonical counterparts for D566."""
 
-    copied_root = Path(DERIVED_SOURCE_COPY_RELATIVE)
-    canonical_root = Path(CANONICAL_SOURCE_RELATIVE)
+    copied_root = Path(source_copy_root)
+    canonical_root = Path(canonical_source_root)
     mapped: list[Any] = []
     for candidate in candidates:
         source = Path(candidate.source_path)
@@ -465,18 +473,19 @@ def preflight_release_compilation(project_root: Path | str, *, candidate_release
     framework_version, version_toml_sha256 = read_framework_version_toml(root)
     if framework_version != candidate_release:
         raise _error("release-version-mismatch", "root version.toml [framework].version must equal the candidate release")
-    source_root = root / CANONICAL_SOURCE_RELATIVE
+    layout = _layout(root)
+    source_root = root / layout.source_root
     if source_root.is_symlink() or not source_root.is_dir():
         raise _error("release-source-missing", "canonical Methodology source root is missing")
     placeholder_root = root / MATERIALIZED_RELATIVE / PLACEHOLDER_COMPONENT
-    report, selected = _report(root, CANONICAL_SOURCE_RELATIVE, _relative(root, placeholder_root))
+    report, selected = _report(root, layout.source_root, _relative(root, placeholder_root))
     source_digest = tree_sha256(root, source_root)
-    copied_root = root / DERIVED_SOURCE_COPY_RELATIVE
+    copied_root = root / layout.source_copy_root
     transformed: list[Any] = []
     for candidate in selected:
         source = root / candidate.source_path
         relative = source.relative_to(source_root)
-        transformed.append(replace(candidate, source_path=(Path(DERIVED_SOURCE_COPY_RELATIVE) / relative).as_posix()))
+        transformed.append(replace(candidate, source_path=(Path(layout.source_copy_root) / relative).as_posix()))
     output_files = _render_outputs(root, transformed, copied_root, placeholder_root, content_root=source_root)
     actual_root = root / MATERIALIZED_RELATIVE / ("a" * 64)
     actual_files = _render_outputs(root, transformed, copied_root, actual_root, content_root=source_root)
@@ -562,17 +571,25 @@ def render_release_candidate(
         raise _error("release-currentness-stale", "canonical compiler report or predicted child output changed")
     source_copy = validate_source_copy(candidate)
     root = _root(candidate.project_root)
-    canonical_before = tree_sha256(root, CANONICAL_SOURCE_RELATIVE)
+    layout = _layout(root)
+    canonical_source_root = candidate.manifest.canonical_source_snapshot_ref
+    if canonical_source_root != layout.source_root or source_copy.source_copy_root != layout.source_copy_root:
+        raise _error("release-currentness-stale", "sealed Methodology paths differ from the current Project Structure")
+    canonical_before = tree_sha256(root, canonical_source_root)
     if canonical_before != candidate.authority.nested_source_recursive_sha256_before:
         raise _error("release-currentness-stale", "canonical nested source changed before child render")
     child_relative = f"{MATERIALIZED_RELATIVE}/{candidate.manifest.sha256}"
     child_root = root / child_relative
     if child_root.exists() or child_root.is_symlink():
         raise _error("release-child-collision", "sealed child materialization root already exists")
-    report, selected = _report(root, DERIVED_SOURCE_COPY_RELATIVE, child_relative)
-    if _canonical_frontier_from_copied_candidates(selected) != candidate.manifest.source_frontier_digest:
+    report, selected = _report(root, source_copy.source_copy_root, child_relative)
+    if _canonical_frontier_from_copied_candidates(
+        selected,
+        canonical_source_root=canonical_source_root,
+        source_copy_root=source_copy.source_copy_root,
+    ) != candidate.manifest.source_frontier_digest:
         raise _error("release-copied-frontier-mismatch", "copied compiler selection does not map to sealed canonical frontier")
-    rendered = _render_outputs(root, selected, root / DERIVED_SOURCE_COPY_RELATIVE, child_root)
+    rendered = _render_outputs(root, selected, root / source_copy.source_copy_root, child_root)
     if rendered != preflight.output_files:
         raise _error("release-render-mismatch", "copied-source render differs from preflight projection bytes")
     manifest = _child_manifest_bytes(
@@ -599,13 +616,29 @@ def render_release_candidate(
         observed = tree_sha256(root, staging)
         if observed != preflight.expected_compiled_output_sha256:
             raise _error("release-render-mismatch", "staged child tree differs from preflight digest")
-        os.replace(staging, child_root)
-        canonical_after = tree_sha256(root, CANONICAL_SOURCE_RELATIVE)
+        # Sandbox filesystems can deny a nested directory rename even under
+        # the private candidate tree.  Publish verified regular files, then
+        # make the self-checking manifest the final consumable carrier.
+        child_root.mkdir()
+        for relative, data in sorted(rendered.items()):
+            target = child_root / relative
+            target.parent.mkdir(parents=True, exist_ok=True)
+            next_target = target.with_name(f".{target.name}.next")
+            next_target.write_bytes(data)
+            os.replace(next_target, target)
+        manifest_target = child_root / CHILD_MANIFEST_NAME
+        next_manifest = manifest_target.with_name(f".{manifest_target.name}.next")
+        next_manifest.write_bytes(manifest)
+        os.replace(next_manifest, manifest_target)
+        if tree_sha256(root, child_root) != preflight.expected_compiled_output_sha256:
+            raise _error("release-render-mismatch", "published child tree differs from preflight digest")
+        canonical_after = tree_sha256(root, canonical_source_root)
         if canonical_after != canonical_before:
             raise _error("release-canonical-source-mutated", "child renderer changed canonical source")
     except Exception:
         shutil.rmtree(staging, ignore_errors=True)
         raise
+    shutil.rmtree(staging, ignore_errors=True)
     evidence = CompilerSuccessEvidence(
         candidate_snapshot_manifest_sha256=candidate.manifest.sha256,
         outcome="completed",
