@@ -18,6 +18,13 @@ import tomllib
 from pathlib import Path
 from typing import Any, Mapping
 
+_TOOLS = Path(__file__).resolve().parents[1]
+if str(_TOOLS) not in sys.path:
+    sys.path.insert(0, str(_TOOLS))
+
+from work_journal import resolve_settings_path
+from VALIDATE_ATOMS.validate_atoms_workers.read_io import open_regular
+
 try:
     from query_filter import (
         MISSING,
@@ -50,7 +57,6 @@ class JournalQueryError(ValueError):
         super().__init__(message or code)
 
 
-_SETTINGS = Path("caprmedio_project_settings.toml")
 _DEFAULT_SETTINGS = Path(
     "000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/"
     "000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/"
@@ -125,7 +131,12 @@ def _safe_regular_file(path: Path, code: str) -> None:
 def _read_toml(path: Path, code: str) -> dict[str, Any]:
     _safe_regular_file(path, code)
     try:
-        value = tomllib.loads(path.read_text(encoding="utf-8"))
+        if path.resolve() != path:
+            raise JournalQueryError(code)
+        with os.fdopen(open_regular(path), "rb") as handle:
+            if not stat.S_ISREG(os.fstat(handle.fileno()).st_mode):
+                raise JournalQueryError(code)
+            value = tomllib.loads(handle.read().decode("utf-8"))
     except (OSError, UnicodeDecodeError, tomllib.TOMLDecodeError) as error:
         raise JournalQueryError(code) from error
     if not isinstance(value, dict):
@@ -136,21 +147,13 @@ def _read_toml(path: Path, code: str) -> dict[str, Any]:
 def _control_and_settings(root: Path) -> tuple[Path, dict[str, Any], dict[str, Any]]:
     if root.is_symlink() or not root.is_dir():
         raise JournalQueryError("invalid-project-root")
-    root = root.resolve()
-    settings = _read_toml(root / ".caprmedio_caprmedio" / _SETTINGS, "project-settings-unavailable")
-    paths = settings.get("paths")
-    control_name = paths.get("control_root") if isinstance(paths, dict) else None
-    if not isinstance(control_name, str) or not control_name:
-        raise JournalQueryError("invalid-control-root")
-    control_relative = Path(control_name)
-    if control_relative.is_absolute() or ".." in control_relative.parts or control_relative == Path("."):
-        raise JournalQueryError("invalid-control-root")
-    control = root / control_relative
-    if control.is_symlink() or not control.is_dir():
-        raise JournalQueryError("invalid-control-root")
+    try:
+        control = resolve_settings_path(root).parent
+    except (OSError, RuntimeError) as error:
+        raise JournalQueryError("project-settings-unavailable") from error
     defaults = _read_toml(control / _DEFAULT_SETTINGS, "default-settings-unavailable")
     instance_path = control / _INSTANCE_SETTINGS
-    instance = _read_toml(instance_path, "instance-settings-unavailable") if instance_path.exists() else {}
+    instance = _read_toml(instance_path, "instance-settings-unavailable") if os.path.lexists(instance_path) else {}
     return control, defaults, instance
 
 

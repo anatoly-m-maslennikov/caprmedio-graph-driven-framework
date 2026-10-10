@@ -267,6 +267,8 @@ for example: one prompt for how to write code, built from all M Atoms that apply
 
 Each Project has a `.caprmedio_<project_name>/` folder. Store persistent Journals in `_journal/` and Projections in `_projection/`. Applicable Methodology, graph views and derived Journal views are Projections.
 
+With an explicit Project root, Journal writes and queries use that Project's settings and Journal, not those of a parent or sibling Project. Ambiguous control folders and symlinked settings are rejected.
+
 ### Extension and configuration
 
 **The framework is expandable and configurable.** You can add Types, Workflows, Tools and authoring rules. Put reusable additions in Extensions. Settings choose what to use and with which parameters. Framework rules still apply.
