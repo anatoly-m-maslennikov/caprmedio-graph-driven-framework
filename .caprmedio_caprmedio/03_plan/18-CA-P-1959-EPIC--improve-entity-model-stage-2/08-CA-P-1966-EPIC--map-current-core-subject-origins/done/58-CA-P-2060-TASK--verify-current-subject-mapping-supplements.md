@@ -10,12 +10,12 @@ local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
-status: Active
+status: Done
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Projection, Plan, Operator]
-version: 1
-updated_at: "2026-10-11 03:37:05 +0400"
+version: 2
+updated_at: "2026-10-11 03:53:17 +0400"
 relations:
   is_decomposition_of: [CA-P-1966]
 ---
@@ -34,3 +34,7 @@ Estimated own work: 15 minutes. Prepare a small read-only ad-hoc support/verify_
 ### Definition of Done
 
 Not Done if required checks fail or are missing, source/evidence pins are stale, scope expands beyond the approved changes, unresolved work is hidden, actual effects are overstated, or own work exceeds 15 minutes without decomposition.
+
+### Completion
+
+Read-only checker independently reviewed by subject_review_005. Eight isolated tests passed under offline uv; the current full check passed for nine supplements and 2,163 occurrences. Receipt: `_projection/core-entity-review/stage2/task-2060.receipt.json`. This confirms structural pins, coverage and provenance only. Research and semantic acceptance remain open; no authoritative Atom or Subject was changed. Later grammar adoption makes its five old source pins historical and requires rebinding before migration.

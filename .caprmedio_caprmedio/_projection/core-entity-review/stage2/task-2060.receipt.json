@@ -1,0 +1,34 @@
+{
+  "task": "CA-P-2060",
+  "recorded_at": "2026-10-11 03:53:17 +0400",
+  "result": "PASS: read-only structural supplement verification, not semantic acceptance",
+  "checker_sha256": "da1ba664b4c73a9a247fc4b9cb6385f6c4314151b17ab6f7adb19e17b77af93e",
+  "tests_sha256": "6329669dd14525d12d1099db1d05ec22385b98cbbffb7ff99e4ea8fadb6466cb",
+  "baseline_ledger_sha256": "4d094ce89390e31290ce6ae7248cde78701376085bbe3078e33a228055e2eb39",
+  "checks": {
+    "reports": 9,
+    "occurrences": 2163,
+    "isolated_tests_passed": 8,
+    "current_source_and_span_pins": true,
+    "coverage_and_ownership": true,
+    "origin_and_quarantine_preserved": true,
+    "all_rows_non_executable": true,
+    "independent_review": "PASS: subject_review_005"
+  },
+  "observed_reports": {
+    "history": "5b05dbbd72b4d9f6397b29f37286d71e91749a3515c9e3ec035f5275b0d9c576",
+    "content_roles": "22b7d759ae79f920342c3b355a053cb073c2666cfc6966a526ba2c32a0d4d94e",
+    "operations": "8011bee5709e5ffc8f31e3c1716179fed27926949be2f2c1d463c7563f3fd732",
+    "relations_subjects": "85ff133203ec0f7339bc3c94676bd18234245f298d4521a7bd98c9b208a84fc0",
+    "carriers": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+    "methodology": "4a736167834e49ba7742f488aa57eb5a7f772170b9a50093579d160a525f7480",
+    "other_fields": "d6d972d6e75f23c8a7d5b663d5d4c0c20dd3704c4573feb527a59ae2b42fc928",
+    "substance": "09c1c1aec6e138ff507711254dd5d1cc426e80f967d7aee18ae6e873b74efcad",
+    "actor_types": "ffe7e6d8371243f2261849cbf1c1dc58764d8117f71ce6590b697bd7d9046e2f"
+  },
+  "limits": [
+    "Verification observes the current files; pending research outputs are not semantically accepted by this receipt.",
+    "No Core, original Subjects, captured reviews, baseline ledger, MCP or FPF changes.",
+    "The five approved grammar source changes require new current pins after adoption."
+  ]
+}
