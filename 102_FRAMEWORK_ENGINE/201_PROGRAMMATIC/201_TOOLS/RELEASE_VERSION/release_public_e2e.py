@@ -387,11 +387,11 @@ def _read_fresh_e2e(root: Path, inputs: PublicFreshGateInputs,
         or not isinstance(evidence.settings_snapshot_sha256, str)
     ):
         _refuse("public-fresh-e2e-evidence-untrusted", "fresh E2E settings snapshot is unbound")
-    settings = _regular(root, evidence.settings_snapshot_path, label="fresh E2E settings snapshot").read_bytes()
-    default = _regular(root, f"{evidence.evidence_root}/{_e2e._RETAINED_DEFAULT_SETTINGS_FILENAME}", label="fresh default E2E settings").read_bytes()
-    instance = _regular(root, f"{evidence.evidence_root}/{_e2e._RETAINED_INSTANCE_SETTINGS_FILENAME}", label="fresh instance E2E settings").read_bytes()
-    frozen = _e2e._freeze_release_e2e_settings(default, instance)
-    if _e2e._digest(settings) != evidence.settings_snapshot_sha256 or settings != frozen.snapshot or frozen.limits != limits:
+    try:
+        retained_limits = _e2e._reopen_retained_release_e2e_settings(root, evidence)
+    except ReleaseContractError as error:
+        raise PublicFreshE2EError("public-fresh-e2e-evidence-untrusted", "fresh E2E settings packet is invalid") from error
+    if retained_limits != limits:
         _refuse("public-fresh-e2e-evidence-untrusted", "fresh E2E limits differ from the retained fixed configuration")
     if (
         evidence.host_capability_path != f"{evidence.evidence_root}/host-identities.json"
