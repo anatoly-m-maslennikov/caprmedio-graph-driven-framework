@@ -4,10 +4,10 @@ content_role: Delivery
 current_scope_unit: TOOLS
 local_tier: Standard
 global_tier: 11
-status: Active
+status: Archived
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-11 01:44:36 +0400"
+version: 1
+updated_at: "2026-10-11 01:39:05 +0400"
 subjects:
   governs: "TOOLS/uniform self-description Carrier"
   depends_on: [Tool, Model, Implementation, Action, Admission, Carrier]
@@ -35,7 +35,7 @@ The delivered Tool self-description **must** be one JSON dictionary with exactly
 - `callable` contains `module` and `symbol`. Its factory creates a root-bound Tool invoker exposing `.invoke(request)` with the canonical models. This invoker carries no MCP request or response envelope. MCP names and protocol wrappers belong to the MCP projection.
 - `effect_hints` contains `read_only_hint`, `destructive_hint`, `idempotent_hint`, and `open_world_hint`.
 - `permissions` contains `execution`, `enforcement`, and `metadata_grants_permission`. Declared permission requirements and effect hints describe the canonical invocation boundary; they do not grant permission.
-- `source_pins` contains `delivery_atom_id` and `action_ids`, matching the admitted binding exactly. Consumers retain the observed Delivery source locator and digest in the generated projection. The canonical Tool invocation enforces its Action revision pins; the self-description does not repeat unverified revision metadata.
+- `source_pins` identify the Delivery and bound Actions. Consumers match them to the admitted source records and retain the observed source locators and digests in the generated projection.
 - `admission` contains the validator's stable `module` locator, `symbol`, and Boolean `refresh_after_success` flag.
 - `diagnostics` and `failure_contract` preserve canonical model-readable outcomes.
 
