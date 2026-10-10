@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Projection
   depends_on: [Entity, Term, Atom, Property, Carrier, Plan]
-version: 12
-updated_at: "2026-10-10 04:44:00 +0400"
+version: 13
+updated_at: "2026-10-10 04:48:00 +0400"
 relations:
   is_decomposition_of: [CA-P-1872]
   blocks: [CA-P-1908]
@@ -66,7 +66,7 @@ The 62 explicit Substance/Revision/Projection identities are reviewed separately
 - [CA-P-1934](23-CA-P-1907-TASK--mark-entity-drop-and-consolidation-candidates-without-deleting/done/07-CA-P-1934-TASK--review-sixth-core-node-disposition-batch.md): Review sixth Core node disposition batch (81 nodes); 15 minutes.
 - [CA-P-1935](23-CA-P-1907-TASK--mark-entity-drop-and-consolidation-candidates-without-deleting/done/08-CA-P-1935-TASK--review-seventh-core-node-disposition-batch.md): Review seventh Core node disposition batch (80 nodes); 15 minutes.
 - [CA-P-1936](23-CA-P-1907-TASK--mark-entity-drop-and-consolidation-candidates-without-deleting/done/09-CA-P-1936-TASK--review-eighth-core-node-disposition-batch.md): Review eighth Core node disposition batch (81 nodes); 15 minutes.
-- [CA-P-1937](23-CA-P-1907-TASK--mark-entity-drop-and-consolidation-candidates-without-deleting/10-CA-P-1937-TASK--integrate-the-complete-core-node-disposition-review.md): Integrate the complete Core node disposition review; 15 minutes.
+- [CA-P-1937](23-CA-P-1907-TASK--mark-entity-drop-and-consolidation-candidates-without-deleting/done/10-CA-P-1937-TASK--integrate-the-complete-core-node-disposition-review.md): Integrate the complete Core node disposition review; 15 minutes.
 - [CA-P-1938](23-CA-P-1907-TASK--mark-entity-drop-and-consolidation-candidates-without-deleting/11-CA-P-1938-TASK--verify-the-complete-core-node-disposition-review.md): Verify the complete Core node disposition review; 15 minutes.
 
 Latest content direction: use Substance as the shared primary-content name, with Substance Scope describing applicability and optional general Details. Explicit Substance Scope may be omitted only for the whole governed Subject AND the whole owning Scope Unit; omission resolves that default. Preserve ownership metadata, role-specific labels and type-required content. Review this in the candidate only; do not rewrite Core or treat the new direction as old source evidence.

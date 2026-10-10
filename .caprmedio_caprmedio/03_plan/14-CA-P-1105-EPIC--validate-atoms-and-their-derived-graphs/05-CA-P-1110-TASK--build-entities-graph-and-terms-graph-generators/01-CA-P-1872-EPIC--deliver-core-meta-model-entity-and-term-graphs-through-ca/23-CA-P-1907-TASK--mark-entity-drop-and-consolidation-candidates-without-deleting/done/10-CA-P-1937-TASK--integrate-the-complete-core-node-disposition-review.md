@@ -10,12 +10,12 @@ local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
-status: Active
+status: Done
 subjects:
   governs: Projection
   depends_on: [Entity, Term, Atom, Property, Carrier, Plan]
-version: 5
-updated_at: "2026-10-10 04:34:00 +0400"
+version: 6
+updated_at: "2026-10-10 04:48:00 +0400"
 relations:
   is_decomposition_of: [CA-P-1907]
   blocks: [CA-P-1938]
@@ -41,6 +41,14 @@ Join all nine Done review outputs, covering 706 baseline identities exactly once
 Inputs are under `.caprmedio_caprmedio/_projection/core-entity-review/nodes/`; the complete baseline and design remain under its parent review directory. The Scope-omission decision SHA-256 is `d4ea636d540b0558c1a0fbb8263760947e1f0768840c43b3ed1d05c96b497453`. Scope may be omitted only for full Subject AND full owning Scope Unit; omission retains that resolved default. New names and rules are Operator-backed candidate direction, not retroactive Core evidence or migration approval.
 
 Exclusive scope: assigned derived review output and temporary helper only; root owns Plans, integration receipts and Git. You are not alone; preserve other work. No Core, Subjects, baseline, history, schema, implementation, runtime, MCP or FPF changes. Below 90% confidence, preserve a specific unresolved Operator question instead of deciding. Use uv only and record actual checks; return an incomplete checkpoint if the bounded work cannot be finished. This Task is created before execution and does not accept candidate semantics.
+
+### Completion receipt
+
+Create-only integration completed against final review receipt commit `67d83ebaeeeae6cd2c2e260947c8ffc926d7a329` and captured Core commit `a971d0e00c33c779f485fc8cad63194894d440fb`. All 14 prerequisites were verified by exact current Atom ID, Done status and captured hash; all nine committed review byte identities and all 951 captured source pins passed.
+
+Outputs: `nodes/nodes.dispositions.json` SHA-256 `1b9d751f95aa71486908b53b3d7f3f9825defae137be3d8792d45177587c48f8`; `nodes/relations.marked.ledger.json` SHA-256 `f6efdcaddfbbb4d9f4607084ee77ca83c75de2566fd9506da51dac2493e02371`; `nodes/candidate.structure.marked.json` SHA-256 `04f2b8d3606ac30b74850ab9ff53ebebfcbcffd1cda1e5ad2d948662c085e34b`.
+
+Preserved 706 identities, 4534 occurrences, 3093 original relation segments and every original ledger/candidate field. Added 6186 endpoint annotations. Dispositions: 584 retain, 3 consolidation proposals, 2 generalization proposals and 117 questions, including two unresolved potential-drop marks. Dry-run, persistence and exact read-only reproduction passed; root independently confirmed original-field preservation and counts. Producer SHA-256 `9f53c3bdeb5987522d2345cda2c8441f58b6903af9da8c198f2f91c67355a178`. Core/Subjects/baseline and the user's edited Step 1 tree remain untouched by this work. Independent overall acceptance CA-P-1938 remains a separate gate.
 
 ### Definition of Done
 
