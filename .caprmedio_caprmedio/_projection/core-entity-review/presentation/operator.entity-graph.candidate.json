@@ -10,7 +10,7 @@
     "native_relation_admission": "not performed",
     "source_subject_migration": "not performed",
     "earlier_source_pinned_review": "preserved, not replaced",
-    "complete_706_identity_remapping": "not performed"
+    "complete_706_identity_remapping": "No native remapping performed; the consolidation review is a separate derived artifact."
   },
   "graph_model": "Entities are nodes; typed Relations connect them. Permitted Relation kinds constrain the valid endpoint Entity kinds.",
   "root_entities": [
@@ -182,7 +182,7 @@
       "view_boundary": "Resolve the owner within the selected source or Projection view; copies retaining the same source Atom ID remain separate instances.",
       "notation_boundary": "The Operator's pseudocode example is preserved exactly; it is not an executable API or an adopted parser grammar. Native identifier parsing and Subject grammar adoption are not performed."
     },
-    "unconfirmed_details": "Carrier ID format, assignment and reuse or replacement lifecycle rules remain unspecified; filename and path are not its identity. Individual unnamed Actor distinctions are low priority; their generic reference meaning is confirmed. Scope Unit ID and rename continuity are confirmed.",
+    "unconfirmed_details": "Carrier ID format, assignment and reuse or replacement lifecycle rules require authoring review, not an established new broad Operator choice; filename and path are not its identity. Individual unnamed Actor distinctions are low priority; their generic reference meaning is confirmed. Scope Unit ID and rename continuity are confirmed.",
     "native_adoption": "Not performed."
   },
   "execution_definition_policy": {
@@ -313,7 +313,7 @@
       "deferred_details": "Exact temporal resolution and the reconstruction algorithm remain unspecified; this decision does not claim that exact historical bindings are already recoverable."
     },
     "relation_proposal": {
-      "status": "Proposed — not Operator-confirmed or natively admitted",
+      "status": "Native kind proposals for already selected meanings; lexical names and admission remain review work, not new semantic questions.",
       "connections": [
         "Revision — REVISION_OF → Artifact",
         "Journal.Record — RECORDS → Execution"
@@ -403,13 +403,25 @@
     "alternative_not_selected": "Add separate Method or Evaluation conceptual roots.",
     "additional_roots_added": false
   },
-  "unresolved": [
-    "Journal record serialization and replay, Projection rebuild metadata and Git version recovery remain implementation work. The ordinary version lifecycle is confirmed: older version archived as history, new current version Active. The earlier permanent-ID archive-inheritance question is withdrawn.",
-    "Carrier ID format, assignment and reuse or replacement lifecycle rules remain open; filename and path are not Carrier identity. Scope Unit stable ID and metadata naming are confirmed. Unnamed Actors have generic Type references; individual disambiguation is low priority. Native parsing and migration remain implementation work.",
-    "Remaining semantic links between Operations definitions, Executions, Actors, Journal Records, Revisions and Carriers. Entity-specific Carrier Relation Types are not needed; storage and field mappings belong to D Atoms or D Policies.",
-    "A complete mapping from the captured 706-identity review to this simplified candidate.",
-    "Operator confirmation of the remaining proposed REVISION_OF and RECORDS history links; serialization of historical-reference keys and Subject grammar changes. FROM_REVISION and TO_REVISION are deferred until needed, not pending adoption now."
-  ],
+  "unresolved": [],
+  "review_backlog": {
+    "question_policy": "Ask the Operator only when review exposes a concrete incompatible meaning not already settled by their latest decisions. Missing native proof, a lexical kind name or an unmapped old label is review work, not itself a new design question.",
+    "authoring_and_implementation": [
+      "Specify Carrier ID syntax and assignment, retaining identity separately from filename and path.",
+      "Specify Journal record serialization and replay, Projection rebuild metadata, and Git version recovery.",
+      "Implement identifier and Subject parsing, including relative source-link resolution.",
+      "Review and author the minimal native Relation catalogue for the selected meanings; no per-Property Carrier binding registry.",
+      "Review the 706 captured identities and preserve original identities, source evidence, allowed-value domains and qualified meanings."
+    ],
+    "deliberately_deferred": [
+      "FROM_REVISION and TO_REVISION kinds until needed.",
+      "Exact historical endpoint-version binding; keep it loose now.",
+      "Draft semantic deduplication and individual unnamed Actor disambiguation."
+    ],
+    "later_harness_decision": "Live or resumable Execution-state storage is separate from the confirmed Git preservation of Atom contents and versions; it is not a current entity-model blocker.",
+    "consolidation_artifact_directory": ".caprmedio_caprmedio/_projection/core-entity-review/consolidated",
+    "native_adoption": "Not performed."
+  },
   "earlier_review": {
     "inventory": "candidate.entities.indented.txt",
     "review": "candidate.review.md",
