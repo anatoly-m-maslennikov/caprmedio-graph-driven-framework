@@ -34,6 +34,7 @@ def verify(batch,input_path=None,output_path=None):
   catalogue={e["evidence_ref"]:e for e in catalogue}
  assert isinstance(catalogue,dict)
  for key,e in catalogue.items():
+  assert isinstance(e.get("quote"),str) and e["quote"].strip(),(key,"empty-evidence-quote")
   s,lines=source(e["atom_id"])
   for field in ("atom_revision","carrier_path","carrier_sha256"):assert e[field]==s[field],(key,field)
   start,end=e["start_line"],e["end_line"]

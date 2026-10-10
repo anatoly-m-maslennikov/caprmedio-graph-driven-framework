@@ -2,6 +2,26 @@
   "baseline_inventory_sha256": "23394abaf6e9c18a585cf3146aedd0a80df166c9dd82be6e86ed7c3c56780bdc",
   "batch": 0,
   "evidence_catalogue": {
+    "CA-P-1956::frontier-approval-binding": {
+      "atom_id": "CA-O-155",
+      "atom_revision": 2,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-155-CORE_META_MODEL-STEP--obtain-the-applicable-methodology-correction-decision.md",
+      "carrier_sha256": "895f31fddd18894449f73321bf1fe3a26e4686a2a474a87ad0c2475812fadc12",
+      "end_line": 44,
+      "quote": "bind the exact proposal from CA-O-154, conflict and source-frontier digest from CA-O-153, and the Workflow Run's required Operator approval context and canonical Journal reference.\n\nenforce CA-R-1317 through CA-O-007: obtain **`=1`** unambiguous actual Operator approval **and** record it **in** the Journal, bound **to** the exact proposal, conflict, **and** source-frontier digest. stale, partial, missing, ambiguous, **or** mismatched approval does **not** qualify. do **not** create an approval Atom **in** Project Configuration; approval **must not** itself bypass Core expansion boundaries.",
+      "start_line": 42,
+      "text_sha256": "a5ec4e4a1eacf9155868a8ecf62efbd5e8f1a9cedb5ef5e80b871794d7e77e9d"
+    },
+    "CA-P-1956::frontier-calculation": {
+      "atom_id": "CA-O-153",
+      "atom_revision": 2,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-153-CORE_META_MODEL-STEP--assess-applicable-methodology-source-conflicts.md",
+      "carrier_sha256": "7135b2a6558ea556f3182b538e03cdadd759556d9f4b14546d18db6e3ca87d87",
+      "end_line": 42,
+      "quote": "check Core expansion-boundary conformance under CA-R-1375 **and** the applicable conflict authority, including CA-R-1373; detect **every** boundary violation, duplicate selected Atom identity, unresolved replacement, incompatible retained Candidate, **and** unresolved priority. retain conflicting source Atoms rather than silently discarding them. calculate one deterministic digest of the exact selected frontier **and** report the complete deterministic conflict set **before** changing Applicable Methodology membership.",
+      "start_line": 42,
+      "text_sha256": "8b71011ae1913ca0d65a200a6de885279d646bc900c6e8ecf6cc844f6cf8e2e4"
+    },
     "E-CA-D-253-29": {
       "atom_id": "CA-D-253",
       "atom_revision": 12,
@@ -1989,42 +2009,57 @@
     },
     {
       "checked_source_atom_ids": [
-        "CA-O-011",
         "CA-O-153",
-        "CA-O-155",
-        "CA-O-157",
-        "CA-R-1317"
+        "CA-O-155"
       ],
       "checks": {
         "distinct_meaning": {
-          "evidence_refs": [],
-          "finding": "unresolved",
-          "reason": "Current checked candidates do not define Applicable Methodology/Source Frontier Digest with enough specificity to decide this candidate safely."
+          "evidence_refs": [
+            "CA-P-1956::frontier-calculation",
+            "CA-P-1956::frontier-approval-binding"
+          ],
+          "finding": "selected_frontier_fingerprint",
+          "reason": "This identity has the bounded meaning of a deterministic fingerprint of the exact selected frontier, not the frontier itself or a digest of an arbitrary compiled Projection."
         },
         "duplicates": {
-          "evidence_refs": [],
-          "finding": "not established",
-          "reason": "Current checked candidates do not define Applicable Methodology/Source Frontier Digest with enough specificity to decide this candidate safely."
+          "evidence_refs": [
+            "CA-P-1956::frontier-calculation",
+            "CA-P-1956::frontier-approval-binding"
+          ],
+          "finding": "no_duplicate_proven",
+          "reason": "The digest identifies the selected source frontier; the selected set, conflict set and compiled output are different procedural objects, not evidenced equivalent identities."
         },
         "empty_definition": {
-          "evidence_refs": [],
-          "finding": "not concluded",
-          "reason": "Missing exact definition is not evidence of emptiness or permission to drop."
+          "evidence_refs": [
+            "CA-P-1956::frontier-calculation",
+            "CA-P-1956::frontier-approval-binding"
+          ],
+          "finding": "substantive_procedural_constraints",
+          "reason": "CA-O-153 explicitly requires deterministic calculation before membership changes; CA-O-155 requires bound unambiguous approval, so absence of a dedicated universal definition is not emptiness."
         },
         "generalization": {
-          "evidence_refs": [],
-          "finding": "unresolved",
-          "reason": "No source-backed generalization is adopted from a label or Operator candidate name."
+          "evidence_refs": [
+            "CA-P-1956::frontier-calculation",
+            "CA-P-1956::frontier-approval-binding"
+          ],
+          "finding": "not_proposed",
+          "reason": "A generic digest or Projection mapping could erase the selected-frontier and approval constraints; no replacement, hash algorithm, native owner or parent relation is admitted."
         },
         "redundancy": {
-          "evidence_refs": [],
-          "finding": "not established",
-          "reason": "Current checked candidates do not define Applicable Methodology/Source Frontier Digest with enough specificity to decide this candidate safely."
+          "evidence_refs": [
+            "CA-P-1956::frontier-calculation",
+            "CA-P-1956::frontier-approval-binding"
+          ],
+          "finding": "binding_distinction_required",
+          "reason": "Removing this qualified digest would lose the exact-frontier approval binding and its rejection of stale or mismatched approval."
         }
       },
-      "confidence_percent": 0,
-      "disposition": "question",
-      "evidence_refs": [],
+      "confidence_percent": 95,
+      "disposition": "retain",
+      "evidence_refs": [
+        "CA-P-1956::frontier-calculation",
+        "CA-P-1956::frontier-approval-binding"
+      ],
       "identity": "Applicable Methodology/Source Frontier Digest",
       "input_governing_source_atom_ids": [],
       "input_occurrence_ids": [
@@ -2044,8 +2079,15 @@
       "is_full_target": true,
       "is_syntactic_root": false,
       "proposal": null,
-      "question": "Which captured Core definition establishes Source Frontier Digest as a distinct identity, including its relation to the selected source frontier and compiled Projection?",
-      "reason": "The supplied current sources discuss a source frontier, but none supplies a defining Main Content statement for Source Frontier Digest as its own preserved identity."
+      "question": null,
+      "reason": "Captured Operations require a deterministic digest of the exact selected source frontier and bind actual Operator approval to that digest. Retain this qualified identity with bounded procedural meaning; no independent universal definition, concrete digest, native ownership or display mapping is claimed.",
+      "remaining_display_uncertainty": "Native owner, display placement and any wider Projection mapping remain unresolved; retention does not decide them.",
+      "review_repair_task": "CA-P-1956",
+      "unassessed_source_atom_ids": [
+        "CA-O-011",
+        "CA-O-157",
+        "CA-R-1317"
+      ]
     },
     {
       "checked_source_atom_ids": [
@@ -6174,6 +6216,81 @@
     "current_core_claimed": false,
     "git_commit": "a971d0e00c33c779f485fc8cad63194894d440fb",
     "kind": "captured_snapshot"
+  },
+  "review_repair_provenance": {
+    "captured_core_commit": "a971d0e00c33c779f485fc8cad63194894d440fb",
+    "core_or_subject_change": false,
+    "corrected_identities": [
+      "Applicable Methodology/Source Frontier Digest"
+    ],
+    "prior_review": {
+      "git_commit": "38832d80d288934a351545a5b9e0d71e34239b1a",
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/nodes/nodes.batch-0.review.json",
+      "sha256": "0d8a89fbe51bad29bd9eb0425a957597da06827688ac193a594f9f799290cb21"
+    },
+    "prior_review_row": {
+      "checked_source_atom_ids": [
+        "CA-O-011",
+        "CA-O-153",
+        "CA-O-155",
+        "CA-O-157",
+        "CA-R-1317"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "Current checked candidates do not define Applicable Methodology/Source Frontier Digest with enough specificity to decide this candidate safely."
+        },
+        "duplicates": {
+          "evidence_refs": [],
+          "finding": "not established",
+          "reason": "Current checked candidates do not define Applicable Methodology/Source Frontier Digest with enough specificity to decide this candidate safely."
+        },
+        "empty_definition": {
+          "evidence_refs": [],
+          "finding": "not concluded",
+          "reason": "Missing exact definition is not evidence of emptiness or permission to drop."
+        },
+        "generalization": {
+          "evidence_refs": [],
+          "finding": "unresolved",
+          "reason": "No source-backed generalization is adopted from a label or Operator candidate name."
+        },
+        "redundancy": {
+          "evidence_refs": [],
+          "finding": "not established",
+          "reason": "Current checked candidates do not define Applicable Methodology/Source Frontier Digest with enough specificity to decide this candidate safely."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [],
+      "identity": "Applicable Methodology/Source Frontier Digest",
+      "input_governing_source_atom_ids": [],
+      "input_occurrence_ids": [
+        282,
+        283,
+        284,
+        285,
+        286
+      ],
+      "input_source_atom_ids": [
+        "CA-O-011",
+        "CA-O-153",
+        "CA-O-155",
+        "CA-O-157",
+        "CA-R-1317"
+      ],
+      "is_full_target": true,
+      "is_syntactic_root": false,
+      "proposal": null,
+      "question": "Which captured Core definition establishes Source Frontier Digest as a distinct identity, including its relation to the selected source frontier and compiled Projection?",
+      "reason": "The supplied current sources discuss a source frontier, but none supplies a defining Main Content statement for Source Frontier Digest as its own preserved identity."
+    },
+    "prior_row_canonical_sha256": "862fbb1e92c660927a5bed03a466533a2c495d255bf85e4a833cfc1c2fa1dfb4",
+    "source_task": "CA-P-1956",
+    "unaffected_rows_preserved": true
   },
   "semantic_admission": "not_performed",
   "source_migration": "not_performed",

@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Projection
   depends_on: [Entity, Term, Atom, Property, Carrier, Plan]
-version: 9
-updated_at: "2026-10-10 04:37:00 +0400"
+version: 10
+updated_at: "2026-10-10 04:39:00 +0400"
 relations:
   is_decomposition_of: [CA-P-1872]
   blocks: [CA-P-1908]
@@ -81,7 +81,7 @@ Independent preparation found false missing-meaning questions in captured batche
 
 - [CA-P-1955](23-CA-P-1907-TASK--mark-entity-drop-and-consolidation-candidates-without-deleting/15-CA-P-1955-TASK--repair-qualified-main-content-and-relation-node-review.md): Repair qualified Main Content and Relation node review; 15 minutes. Explicitly BLOCKS CA-P-1937.
 
-- [CA-P-1956](23-CA-P-1907-TASK--mark-entity-drop-and-consolidation-candidates-without-deleting/16-CA-P-1956-TASK--repair-captured-frontier-and-metamodel-meaning.md): Repair captured frontier and Metamodel meaning; 15 minutes. Explicitly BLOCKS CA-P-1937. Batch 3's original joined receipt is preserved in Git; this is a post-join derived review correction.
+- [CA-P-1956](23-CA-P-1907-TASK--mark-entity-drop-and-consolidation-candidates-without-deleting/done/16-CA-P-1956-TASK--repair-captured-frontier-and-metamodel-meaning.md): Repair captured frontier and Metamodel meaning; 15 minutes. Explicitly BLOCKS CA-P-1937. Batch 3's original joined receipt is preserved in Git; this is a post-join derived review correction.
 
 ### Definition of Done
 

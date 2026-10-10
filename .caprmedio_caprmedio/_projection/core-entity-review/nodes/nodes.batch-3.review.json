@@ -6826,6 +6826,16 @@
       "end_line": 30,
       "quote": "a Consumer Scope Unit **must** own a Demand Atom **only** **when** its accepted Goal authorizes an exact dependency on the demanded Producer result.",
       "text_sha256": "faa2a37d3d6d0c2914112b4d7e263af8c1da7c2068e28f40d1f88744463d8b5c"
+    },
+    "CA-P-1956::metamodel-recursive-governance": {
+      "atom_id": "CA-R-917",
+      "atom_revision": 17,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-917-CORE_META_MODEL-CORE-REQUIREMENT--apply-the-same-scope-unit-governance-recursively.md",
+      "carrier_sha256": "07fd52c63b8cf47016fe78c322013592a8e42e8867f862513f8737241ef98c4a",
+      "start_line": 29,
+      "end_line": 29,
+      "quote": "the CAPRMEDIO Metamodel **must** be fractal by applying the same Scope Unit governance pattern recursively at **every** Structural level.",
+      "text_sha256": "3c1c0d597c892dd93b7a4c2cb2b56cc929f1a0c298086b88b66e692887b88d0e"
     }
   },
   "nodes": [
@@ -8177,42 +8187,56 @@
     },
     {
       "identity": "CAPRMEDIO Metamodel",
-      "disposition": "question",
-      "confidence_percent": 82,
-      "reason": "Questioned against the captured snapshot: Which captured Core Main Content defines `CAPRMEDIO Metamodel` itself as a distinct preserved identity? The checked CA-R-917 Claim defines recursive fractality of the Metamodel, but the supplied occurrence is not a dedicated parent definition; the child meaning must not be promoted to the parent.",
+      "disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "Captured CA-R-917 directly constrains the named CAPRMEDIO Metamodel to apply the same Scope Unit governance pattern recursively at every Structural level. Retain the existing parent identity on that bounded meaning; do not turn its Fractality qualification into an independent universal parent definition or native taxonomy fact.",
       "checks": {
         "duplicates": {
-          "finding": "unresolved",
-          "reason": "CAPRMEDIO Metamodel: captured source candidates do not establish a dedicated definition for this exact parent identity. No same-meaning duplicate is concluded from the child occurrence.",
-          "evidence_refs": []
+          "finding": "no_duplicate_proven",
+          "reason": "The named Metamodel is the bearer of the recursive governance constraint; its Fractality qualification expresses that constraint and does not prove identical parent and child meanings.",
+          "evidence_refs": [
+            "CA-P-1956::metamodel-recursive-governance"
+          ]
         },
         "redundancy": {
-          "finding": "unresolved",
-          "reason": "CAPRMEDIO Metamodel: captured source candidates do not establish a dedicated definition for this exact parent identity. No replacement or redundancy is inferred from the qualified child.",
-          "evidence_refs": []
+          "finding": "not_proven_redundant",
+          "reason": "Replacing the Metamodel with one Scope Unit or its Fractality qualification would lose the model-wide, every-Structural-level governance boundary.",
+          "evidence_refs": [
+            "CA-P-1956::metamodel-recursive-governance"
+          ]
         },
         "empty_definition": {
-          "finding": "unresolved_absence_not_empty",
-          "reason": "CAPRMEDIO Metamodel: captured source candidates do not establish a dedicated definition for this exact parent identity. Missing dedicated definition is not permission to drop the parent.",
-          "evidence_refs": []
+          "finding": "parent_constraint_is_substantive",
+          "reason": "The Claim explicitly names and obligates CAPRMEDIO Metamodel. A meaningful parent constraint does not require a separate universal definition merely to retain the unchanged identity.",
+          "evidence_refs": [
+            "CA-P-1956::metamodel-recursive-governance"
+          ]
         },
         "distinct_meaning": {
-          "finding": "unresolved",
-          "reason": "CAPRMEDIO Metamodel: captured source candidates do not establish a dedicated definition for this exact parent identity. Child fractality meaning is not promoted to the parent.",
-          "evidence_refs": []
+          "finding": "model_wide_recursive_governance",
+          "reason": "The Metamodel is the named object required to use the same Scope Unit governance at every Structural level, distinct from one instance or one isolated fractality label.",
+          "evidence_refs": [
+            "CA-P-1956::metamodel-recursive-governance"
+          ]
         },
         "generalization": {
           "finding": "not_proposed",
-          "reason": "CAPRMEDIO Metamodel: no generalization is proposed while its exact parent meaning remains unresolved.",
-          "evidence_refs": []
+          "reason": "No broader model replacement or narrower-than edge is proposed; a generalization could discard the recursive Scope Unit governance obligation.",
+          "evidence_refs": [
+            "CA-P-1956::metamodel-recursive-governance"
+          ]
         }
       },
-      "evidence_refs": [],
+      "evidence_refs": [
+        "CA-P-1956::metamodel-recursive-governance"
+      ],
       "checked_source_atom_ids": [
         "CA-R-917"
       ],
       "proposal": null,
-      "question": "Which captured Core Main Content defines `CAPRMEDIO Metamodel` itself as a distinct preserved identity? The checked CA-R-917 Claim defines recursive fractality of the Metamodel, but the supplied occurrence is not a dedicated parent definition; the child meaning must not be promoted to the parent."
+      "question": null,
+      "remaining_display_uncertainty": "Temporal group, native root classification and any broader model mapping are not decided by this bounded retain.",
+      "review_repair_task": "CA-P-1956"
     },
     {
       "identity": "CAPRMEDIO Metamodel/Fractality",
@@ -11898,5 +11922,72 @@
       },
       "question": null
     }
-  ]
+  ],
+  "post_join_correction": {
+    "kind": "bounded_derived_review_revision",
+    "source_task": "CA-P-1956",
+    "original_join_receipt": {
+      "git_commit": "38832d80d288934a351545a5b9e0d71e34239b1a",
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/nodes/nodes.batch-3.review.json",
+      "sha256": "23fb310b46c8ca11390f51f0f690fbe9610bb1fdf9580c4947347dc734368d81"
+    },
+    "historical_child_rows_and_verifications_preserved": true,
+    "current_packet_is_original_join_verbatim": false,
+    "changed_review_identity": "CAPRMEDIO Metamodel",
+    "reason": "Only the final node decision is corrected; immutable original join and its source child rows remain historical evidence."
+  },
+  "review_repair_provenance": {
+    "source_task": "CA-P-1956",
+    "prior_review": {
+      "git_commit": "38832d80d288934a351545a5b9e0d71e34239b1a",
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/nodes/nodes.batch-3.review.json",
+      "sha256": "23fb310b46c8ca11390f51f0f690fbe9610bb1fdf9580c4947347dc734368d81"
+    },
+    "captured_core_commit": "a971d0e00c33c779f485fc8cad63194894d440fb",
+    "corrected_identities": [
+      "CAPRMEDIO Metamodel"
+    ],
+    "prior_row_canonical_sha256": "ed93197af1f73a8979677d18c7e05dfa798dc05966fc45bee671c2218e7dff27",
+    "prior_review_row": {
+      "identity": "CAPRMEDIO Metamodel",
+      "disposition": "question",
+      "confidence_percent": 82,
+      "reason": "Questioned against the captured snapshot: Which captured Core Main Content defines `CAPRMEDIO Metamodel` itself as a distinct preserved identity? The checked CA-R-917 Claim defines recursive fractality of the Metamodel, but the supplied occurrence is not a dedicated parent definition; the child meaning must not be promoted to the parent.",
+      "checks": {
+        "duplicates": {
+          "finding": "unresolved",
+          "reason": "CAPRMEDIO Metamodel: captured source candidates do not establish a dedicated definition for this exact parent identity. No same-meaning duplicate is concluded from the child occurrence.",
+          "evidence_refs": []
+        },
+        "redundancy": {
+          "finding": "unresolved",
+          "reason": "CAPRMEDIO Metamodel: captured source candidates do not establish a dedicated definition for this exact parent identity. No replacement or redundancy is inferred from the qualified child.",
+          "evidence_refs": []
+        },
+        "empty_definition": {
+          "finding": "unresolved_absence_not_empty",
+          "reason": "CAPRMEDIO Metamodel: captured source candidates do not establish a dedicated definition for this exact parent identity. Missing dedicated definition is not permission to drop the parent.",
+          "evidence_refs": []
+        },
+        "distinct_meaning": {
+          "finding": "unresolved",
+          "reason": "CAPRMEDIO Metamodel: captured source candidates do not establish a dedicated definition for this exact parent identity. Child fractality meaning is not promoted to the parent.",
+          "evidence_refs": []
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "CAPRMEDIO Metamodel: no generalization is proposed while its exact parent meaning remains unresolved.",
+          "evidence_refs": []
+        }
+      },
+      "evidence_refs": [],
+      "checked_source_atom_ids": [
+        "CA-R-917"
+      ],
+      "proposal": null,
+      "question": "Which captured Core Main Content defines `CAPRMEDIO Metamodel` itself as a distinct preserved identity? The checked CA-R-917 Claim defines recursive fractality of the Metamodel, but the supplied occurrence is not a dedicated parent definition; the child meaning must not be promoted to the parent."
+    },
+    "unaffected_rows_preserved": true,
+    "core_or_subject_change": false
+  }
 }

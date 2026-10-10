@@ -10,12 +10,12 @@ local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
-status: Active
+status: Done
 subjects:
   governs: Projection
   depends_on: [Entity, Atom, Plan]
-version: 1
-updated_at: "2026-10-10 04:34:00 +0400"
+version: 2
+updated_at: "2026-10-10 04:39:00 +0400"
 relations:
   is_decomposition_of: [CA-P-1907]
   blocks: [CA-P-1937]
@@ -41,6 +41,14 @@ Own only these two corrected rows and added evidence/provenance in `nodes/nodes.
 All five corrected checks need distinct target-specific findings and exact captured evidence. Reject whitespace-only evidence quotations so a blank source line cannot substantiate a positive decision. Validate the two batches and the corrected guard; root keeps all Git mutations exclusive.
 
 No Core, Subjects, baseline, design, history, runtime, MCP or FPF changes, deletions, adoption or native relation inference. You are not alone; preserve others. Use uv only and apply_patch for authored edits. Below 90% confidence, keep a specific unresolved question rather than deciding.
+
+### Completion receipt
+
+Final review: nodes/nodes.batch-0.review.json; SHA-256: ddf86b359ce07e59966d94d16540b9013fbb303a02420acefa6542b5009d8b7d.
+
+Final review: nodes/nodes.batch-3.review.json; SHA-256: 127d2eccd6477057f251178c73604c9b884c8ae72183cbba4b87c894b40ec800.
+
+Both bounded corrected identities passed independent captured Main Content review by fact_contract. Batch 0: 62 identities, 54 retain, 3 consolidation proposals, 2 generalization proposals, 3 questions and 58 exact evidence spans. Batch 3: 80 identities, 75 retain, 5 questions and 97 spans. All other authored rows and prior evidence remain unchanged. Batch-3 historical child provenance remains exact; its explicit post-join correction does not claim unchanged join reproduction. The new whitespace-only quote guard passed a negative probe, rejecting an empty quotation before source evidence could substantiate a decision. No source, Subject, baseline or native fact change occurred.
 
 ### Definition of Done
 
