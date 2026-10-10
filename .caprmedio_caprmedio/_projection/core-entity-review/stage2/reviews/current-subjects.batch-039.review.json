@@ -1,0 +1,2736 @@
+{
+  "schema_version": 1,
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "task_id": "CA-P-2030",
+  "batch_id": "current-subjects.batch-039",
+  "input_batch_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-039.json",
+  "input_batch_sha256": "f3acfb172cfd6bbb9e16347d6c9351cd501df0973ca24c9c77631100356e4ac2",
+  "input_inventory_sha256": "e284dbe4943568bc75b7f9ba63ebf583372a60813e62eee3d43b5b75b270220a",
+  "evidence_pins": {
+    "operator_candidate": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/presentation/operator.entity-graph.candidate.json",
+      "sha256": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b"
+    },
+    "consolidated_review": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/consolidated/nodes.review.json",
+      "sha256": "e4cb9c76b441c13115e87e141890a9dab58634a7a62fb1b3bc32168dbac261f6",
+      "git_commit": "a971d0e00c33c779f485fc8cad63194894d440fb"
+    },
+    "current_subjects_contract": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.contract.md",
+      "sha256": "5eb0d90022b68a7d1d2cd27cf60a147deaf4161cb9b2e1c8bdf6c4ef8f2a10bf"
+    },
+    "current_subjects_review_contract": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.review.contract.md",
+      "sha256": "b7c9c065f997d5bae1409f5c09b4223d08327a523decab6d26c2e4425fd2c28b"
+    }
+  },
+  "source_reviews": [
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-336-CORE_META_MODEL--resolve-active-atoms-from-canonical-carrier-identities.md",
+      "full_file_sha256": "568a05be96135d288657d09811f49e48746a3dd78c949d3d9dc6a17e7d5b9ae0",
+      "atom_id": "CA-D-336",
+      "version": 12,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-336-CORE_META_MODEL--resolve-active-atoms-from-canonical-carrier-identities.md",
+        "sha256": "568a05be96135d288657d09811f49e48746a3dd78c949d3d9dc6a17e7d5b9ae0",
+        "start_line": 19,
+        "end_line": 35,
+        "span_sha256": "facccc2f6a9ec2363b21e6452a347480382d1b80344227090e2979c588587749",
+        "reason": "Entire current Main Content was read for this source-specific review."
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-338-CORE_META_MODEL-GENERAL-DELIVERY--serialize-completed-projection-rebuild-results.md",
+      "full_file_sha256": "33fe42c9c7fe098894b526d03aa4dfbc562e59506f801c5c9e91782730066602",
+      "atom_id": "CA-D-338",
+      "version": 11,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-338-CORE_META_MODEL-GENERAL-DELIVERY--serialize-completed-projection-rebuild-results.md",
+        "sha256": "33fe42c9c7fe098894b526d03aa4dfbc562e59506f801c5c9e91782730066602",
+        "start_line": 18,
+        "end_line": 30,
+        "span_sha256": "b125811255ed95a3ee20319f6efb8e6d1a93e7dfd56b26299ab4f00b99431a54",
+        "reason": "Entire current Main Content was read for this source-specific review."
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-340-CORE_META_MODEL-GENERAL-DELIVERY--serialize-work-journal-event-properties.md",
+      "full_file_sha256": "f10f4d14cda74263ab6c9ab5cad1f98ffc4f32a843ba4adf5ac01ce349710504",
+      "atom_id": "CA-D-340",
+      "version": 11,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-340-CORE_META_MODEL-GENERAL-DELIVERY--serialize-work-journal-event-properties.md",
+        "sha256": "f10f4d14cda74263ab6c9ab5cad1f98ffc4f32a843ba4adf5ac01ce349710504",
+        "start_line": 26,
+        "end_line": 39,
+        "span_sha256": "c48ef20d968114d2c299f97be2a4503a0e32978ec2e481629ce3e12bed8668cf",
+        "reason": "Entire current Main Content was read for this source-specific review."
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-341-CORE_META_MODEL-CORE--separate-persistent-authority-from-runtime-state.md",
+      "full_file_sha256": "a97b70b64bc8097b7c2f94ff727ed81d7cafc1ed8941fed02cc1d764eaaa36e9",
+      "atom_id": "CA-D-341",
+      "version": 11,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-341-CORE_META_MODEL-CORE--separate-persistent-authority-from-runtime-state.md",
+        "sha256": "a97b70b64bc8097b7c2f94ff727ed81d7cafc1ed8941fed02cc1d764eaaa36e9",
+        "start_line": 20,
+        "end_line": 32,
+        "span_sha256": "0f33d786700e5def80c90cda99da1849769ef842ae2cb37a3230e329cf7dd837",
+        "reason": "Entire current Main Content was read for this source-specific review."
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-342-CORE_META_MODEL--serialize-external-project-goal-references.md",
+      "full_file_sha256": "14977326cdfeba0850c577925433355d7a50d457527b5d30e9bc24cd6ccbfbe4",
+      "atom_id": "CA-D-342",
+      "version": 15,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-342-CORE_META_MODEL--serialize-external-project-goal-references.md",
+        "sha256": "14977326cdfeba0850c577925433355d7a50d457527b5d30e9bc24cd6ccbfbe4",
+        "start_line": 18,
+        "end_line": 30,
+        "span_sha256": "30dcbe5a8129c73a658357c6bdc39693029cb77d1878a5d910a38cf9ed0ec30d",
+        "reason": "Entire current Main Content was read for this source-specific review."
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-346-CORE_META_MODEL--deliver-cce-canonical-signatures-as-external-report-projections.md",
+      "full_file_sha256": "33e2c363b2c3075a45d073eeedff0ee0e3617d1965d689e010406cd512d6312c",
+      "atom_id": "CA-D-346",
+      "version": 12,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-346-CORE_META_MODEL--deliver-cce-canonical-signatures-as-external-report-projections.md",
+        "sha256": "33e2c363b2c3075a45d073eeedff0ee0e3617d1965d689e010406cd512d6312c",
+        "start_line": 26,
+        "end_line": 36,
+        "span_sha256": "1554930b62c4c936d148cef54dfd87f91d02df06cf215a7c1371c42606feae6e",
+        "reason": "Entire current Main Content was read for this source-specific review."
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-347-CORE_META_MODEL--deliver-canonical-scope-signatures-as-external-report-projections.md",
+      "full_file_sha256": "34a984e863c035e1a55a2179f6d12dd83b131bdb44ac7c7faa0ca8462f9d9270",
+      "atom_id": "CA-D-347",
+      "version": 12,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-347-CORE_META_MODEL--deliver-canonical-scope-signatures-as-external-report-projections.md",
+        "sha256": "34a984e863c035e1a55a2179f6d12dd83b131bdb44ac7c7faa0ca8462f9d9270",
+        "start_line": 21,
+        "end_line": 33,
+        "span_sha256": "c53c6040c32b6ba5d92890aec327784b2f509352eb3db40bf5ffc927bf56fdc4",
+        "reason": "Entire current Main Content was read for this source-specific review."
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-352-CORE_META_MODEL-CORE--keep-status-subdirectories-outside-the-directory-carrier-type.md",
+      "full_file_sha256": "7ed53b09f12c8b16705ceaa24917e74fdf9705c60c78dcd764cf5c43a2b71f81",
+      "atom_id": "CA-D-352",
+      "version": 10,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-352-CORE_META_MODEL-CORE--keep-status-subdirectories-outside-the-directory-carrier-type.md",
+        "sha256": "7ed53b09f12c8b16705ceaa24917e74fdf9705c60c78dcd764cf5c43a2b71f81",
+        "start_line": 18,
+        "end_line": 30,
+        "span_sha256": "905e260aad436dddf0fbad846f48f5a2762be9573bd13d5dfdb53bdd8ad2cc2f",
+        "reason": "Entire current Main Content was read for this source-specific review."
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-356-CORE_META_MODEL--structure-markdown-atom-carriers.md",
+      "full_file_sha256": "10b60fb45d52735402e54952c7b3b78170c670fbca890a42ddb1a08de34100e6",
+      "atom_id": "CA-D-356",
+      "version": 9,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-356-CORE_META_MODEL--structure-markdown-atom-carriers.md",
+        "sha256": "10b60fb45d52735402e54952c7b3b78170c670fbca890a42ddb1a08de34100e6",
+        "start_line": 19,
+        "end_line": 31,
+        "span_sha256": "f93b055deb64a0e1a5d5045710a0081d303d254eb88a302ed318da33d1a0c2f8",
+        "reason": "Entire current Main Content was read for this source-specific review."
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-357-CORE_META_MODEL--define-markdown-atom-main-content.md",
+      "full_file_sha256": "0c6bfcce510facf63145fba161ab04307430ceb204b458bc5e4950a8d4db208e",
+      "atom_id": "CA-D-357",
+      "version": 9,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-357-CORE_META_MODEL--define-markdown-atom-main-content.md",
+        "sha256": "0c6bfcce510facf63145fba161ab04307430ceb204b458bc5e4950a8d4db208e",
+        "start_line": 18,
+        "end_line": 30,
+        "span_sha256": "9d68f300952a766d144de1e3d2b9c0fa192b2a208b8dc3e67a0f8b5403394410",
+        "reason": "Entire current Main Content was read for this source-specific review."
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-358-CORE_META_MODEL--identify-framework-settings-artifact.md",
+      "full_file_sha256": "29a20f1d01704bf176e906981daaa5477e50c67068071253b06357ba0c2e8087",
+      "atom_id": "CA-D-358",
+      "version": 10,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-358-CORE_META_MODEL--identify-framework-settings-artifact.md",
+        "sha256": "29a20f1d01704bf176e906981daaa5477e50c67068071253b06357ba0c2e8087",
+        "start_line": 20,
+        "end_line": 32,
+        "span_sha256": "9e0254845b30c4011c8f28f5361f3cb566015d266460d21109967b8bc5944068",
+        "reason": "Entire current Main Content was read for this source-specific review."
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-359-CORE_META_MODEL--bind-framework-settings-to-its-authoritative-toml-carrier.md",
+      "full_file_sha256": "bec9916eb5f080ea22b9a19dd1124d8f66a1dde0ff2fa289ebd08e427becfd6f",
+      "atom_id": "CA-D-359",
+      "version": 10,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-359-CORE_META_MODEL--bind-framework-settings-to-its-authoritative-toml-carrier.md",
+        "sha256": "bec9916eb5f080ea22b9a19dd1124d8f66a1dde0ff2fa289ebd08e427becfd6f",
+        "start_line": 21,
+        "end_line": 33,
+        "span_sha256": "1dcce09ccf86046e5e40d53c270d358d0971341597df9a309dff8b4a05e76405",
+        "reason": "Entire current Main Content was read for this source-specific review."
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-360-CORE_META_MODEL--bind-framework-settings-revisions-to-journal-receipts.md",
+      "full_file_sha256": "5f20b3b9781fa9c8821682dd855a2e5b32be494692842de317b5440735e23c2a",
+      "atom_id": "CA-D-360",
+      "version": 12,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-360-CORE_META_MODEL--bind-framework-settings-revisions-to-journal-receipts.md",
+        "sha256": "5f20b3b9781fa9c8821682dd855a2e5b32be494692842de317b5440735e23c2a",
+        "start_line": 21,
+        "end_line": 33,
+        "span_sha256": "4ded4fd5bf46306c7931f1310934f5b5960f7aa5ae3c63981d1a363a760b26e6",
+        "reason": "Entire current Main Content was read for this source-specific review."
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-361-CORE_META_MODEL--serialize-framework-settings-content-in-toml.md",
+      "full_file_sha256": "08f48988f709e47417ae7d3c01c33c4bd9cfc64066e7d6996133a465afc51d68",
+      "atom_id": "CA-D-361",
+      "version": 10,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-361-CORE_META_MODEL--serialize-framework-settings-content-in-toml.md",
+        "sha256": "08f48988f709e47417ae7d3c01c33c4bd9cfc64066e7d6996133a465afc51d68",
+        "start_line": 26,
+        "end_line": 38,
+        "span_sha256": "4b5bdb8371dadd600c4c985d41552c482b3481fff670e253227589e1c793bc3a",
+        "reason": "Entire current Main Content was read for this source-specific review."
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-362-CORE_META_MODEL--identify-project-settings-artifact.md",
+      "full_file_sha256": "3cf6985a157cfd77e5d084bdc8e3e748eb3aa7c5fededa64a79049717b10ac7a",
+      "atom_id": "CA-D-362",
+      "version": 10,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-362-CORE_META_MODEL--identify-project-settings-artifact.md",
+        "sha256": "3cf6985a157cfd77e5d084bdc8e3e748eb3aa7c5fededa64a79049717b10ac7a",
+        "start_line": 20,
+        "end_line": 32,
+        "span_sha256": "1214709897fc8c28a6ad626ce46fcddc271bab8c381d83a540cba030184f9981",
+        "reason": "Entire current Main Content was read for this source-specific review."
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-363-CORE_META_MODEL-DELIVERY--serialize-project-settings-filename.md",
+      "full_file_sha256": "6ba8b8ddadfa6f10a1f7b0344e16b40fb908016175f9f9e8cd2aa3d13e51b8a0",
+      "atom_id": "CA-D-363",
+      "version": 10,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-363-CORE_META_MODEL-DELIVERY--serialize-project-settings-filename.md",
+        "sha256": "6ba8b8ddadfa6f10a1f7b0344e16b40fb908016175f9f9e8cd2aa3d13e51b8a0",
+        "start_line": 21,
+        "end_line": 33,
+        "span_sha256": "01cb144b7435bd2a9c8ced9e89a7cb9b7b935948d93e0282238854b230e95193",
+        "reason": "Entire current Main Content was read for this source-specific review."
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-364-CORE_META_MODEL-DELIVERY--bind-project-settings-to-its-authoritative-toml-carrier.md",
+      "full_file_sha256": "d3c65961678f87759d0fe6155d1d7ff01c545cd6d93f9593d938241dd4637c1e",
+      "atom_id": "CA-D-364",
+      "version": 9,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-364-CORE_META_MODEL-DELIVERY--bind-project-settings-to-its-authoritative-toml-carrier.md",
+        "sha256": "d3c65961678f87759d0fe6155d1d7ff01c545cd6d93f9593d938241dd4637c1e",
+        "start_line": 20,
+        "end_line": 32,
+        "span_sha256": "d56e7c6f379bd31e0ca23b6b17fed306e9f3303951d088d4c012d3ef55ce2234",
+        "reason": "Entire current Main Content was read for this source-specific review."
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-365-CORE_META_MODEL--bind-project-settings-revisions-to-journal-receipts.md",
+      "full_file_sha256": "24f13ae1d0de4a16bf7be7ff932b36e67f1fd4888c6b2048f9646796c39f11eb",
+      "atom_id": "CA-D-365",
+      "version": 11,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-365-CORE_META_MODEL--bind-project-settings-revisions-to-journal-receipts.md",
+        "sha256": "24f13ae1d0de4a16bf7be7ff932b36e67f1fd4888c6b2048f9646796c39f11eb",
+        "start_line": 21,
+        "end_line": 33,
+        "span_sha256": "e6793be31fa0f9a7cebbb86b52529612e21f3078952aad6995e52dbcfd0b64d0",
+        "reason": "Entire current Main Content was read for this source-specific review."
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-366-CORE_META_MODEL--serialize-project-settings-content-in-toml.md",
+      "full_file_sha256": "bebc1757b70b3d60b1819c4582ea45fe1fe133c18806c64c7cd43d5619c3876c",
+      "atom_id": "CA-D-366",
+      "version": 8,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-366-CORE_META_MODEL--serialize-project-settings-content-in-toml.md",
+        "sha256": "bebc1757b70b3d60b1819c4582ea45fe1fe133c18806c64c7cd43d5619c3876c",
+        "start_line": 23,
+        "end_line": 35,
+        "span_sha256": "ac204ba75340b5cfda43dacbfcb5fb9faba22c65cf39f3e2a68c79dcc72f4987",
+        "reason": "Entire current Main Content was read for this source-specific review."
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-368-CORE_META_MODEL--serialize-the-necessary-information-confidence-default.md",
+      "full_file_sha256": "2e0bef089d6cdb0620db9cd87f912f30d659c3a7145f3e64fa0b5e3904c554c8",
+      "atom_id": "CA-D-368",
+      "version": 9,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-368-CORE_META_MODEL--serialize-the-necessary-information-confidence-default.md",
+        "sha256": "2e0bef089d6cdb0620db9cd87f912f30d659c3a7145f3e64fa0b5e3904c554c8",
+        "start_line": 22,
+        "end_line": 34,
+        "span_sha256": "81ef23b761b82e934caa4a548952806e2bc9f6cf184dc7bb90ca77def35076d7",
+        "reason": "Entire current Main Content was read for this source-specific review."
+      },
+      "finding_dispositions": [],
+      "questions": []
+    }
+  ],
+  "occurrences": [
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-336-CORE_META_MODEL--resolve-active-atoms-from-canonical-carrier-identities.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-336-CORE_META_MODEL--resolve-active-atoms-from-canonical-carrier-identities.md",
+      "source_atom_id": "CA-D-336",
+      "source_version": 12,
+      "source_sha256": "568a05be96135d288657d09811f49e48746a3dd78c949d3d9dc6a17e7d5b9ae0",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Atom/Identity",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content requires discovery of Active Atom Carriers from carried identities and Status within a selected Project-owned Markdown frontier, never from filenames or directories. The candidate does not confirm a canonical owner/field, Claim role-domain, signature Projection, or identifier mapping retaining this complete Atom-qualified meaning. This is a research gap, not an invented Operator question.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-336-CORE_META_MODEL--resolve-active-atoms-from-canonical-carrier-identities.md",
+          "sha256": "568a05be96135d288657d09811f49e48746a3dd78c949d3d9dc6a17e7d5b9ae0",
+          "start_line": 19,
+          "end_line": 35,
+          "span_sha256": "facccc2f6a9ec2363b21e6452a347480382d1b80344227090e2979c588587749",
+          "reason": "Current Main Content for CA-D-336 establishes the reviewed meaning of 'Atom/Identity'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the depends_on role and live meaning of 'Atom/Identity'.",
+        "Retains CA-D-336 version 12 as current evidence.",
+        "Does not adopt native grammar, a Relation kind, migration, or a per-property Carrier registry.",
+        "Keeps the full literal visible rather than flattening it to a root, display path, or topic alias."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-336-CORE_META_MODEL--resolve-active-atoms-from-canonical-carrier-identities.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-336-CORE_META_MODEL--resolve-active-atoms-from-canonical-carrier-identities.md",
+      "source_atom_id": "CA-D-336",
+      "source_version": 12,
+      "source_sha256": "568a05be96135d288657d09811f49e48746a3dd78c949d3d9dc6a17e7d5b9ae0",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Carrier/Canonical Address",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content requires discovery of Active Atom Carriers from carried identities and Status within a selected Project-owned Markdown frontier, never from filenames or directories. The candidate confirms Carrier as a root and general representation boundaries but not this specialized Carrier kind, placement, address, storage field, or document-part identity; a per-property Carrier registry is not admitted. This is a research gap, not an invented Operator question.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-336-CORE_META_MODEL--resolve-active-atoms-from-canonical-carrier-identities.md",
+          "sha256": "568a05be96135d288657d09811f49e48746a3dd78c949d3d9dc6a17e7d5b9ae0",
+          "start_line": 19,
+          "end_line": 35,
+          "span_sha256": "facccc2f6a9ec2363b21e6452a347480382d1b80344227090e2979c588587749",
+          "reason": "Current Main Content for CA-D-336 establishes the reviewed meaning of 'Carrier/Canonical Address'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the depends_on role and live meaning of 'Carrier/Canonical Address'.",
+        "Retains CA-D-336 version 12 as current evidence.",
+        "Does not adopt native grammar, a Relation kind, migration, or a per-property Carrier registry.",
+        "Keeps the full literal visible rather than flattening it to a root, display path, or topic alias."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-336-CORE_META_MODEL--resolve-active-atoms-from-canonical-carrier-identities.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-336-CORE_META_MODEL--resolve-active-atoms-from-canonical-carrier-identities.md",
+      "source_atom_id": "CA-D-336",
+      "source_version": 12,
+      "source_sha256": "568a05be96135d288657d09811f49e48746a3dd78c949d3d9dc6a17e7d5b9ae0",
+      "field": "governs",
+      "index": null,
+      "old_value": "Active Atom Carrier Discovery",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content requires discovery of Active Atom Carriers from carried identities and Status within a selected Project-owned Markdown frontier, never from filenames or directories. The source gives a specific process, projection, term, threshold, source, or Project meaning, but the candidate has no canonical identity retaining its qualifier rather than flattening it to a broad root or topic label. This is a research gap, not an invented Operator question.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-336-CORE_META_MODEL--resolve-active-atoms-from-canonical-carrier-identities.md",
+          "sha256": "568a05be96135d288657d09811f49e48746a3dd78c949d3d9dc6a17e7d5b9ae0",
+          "start_line": 19,
+          "end_line": 35,
+          "span_sha256": "facccc2f6a9ec2363b21e6452a347480382d1b80344227090e2979c588587749",
+          "reason": "Current Main Content for CA-D-336 establishes the reviewed meaning of 'Active Atom Carrier Discovery'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the governs role and live meaning of 'Active Atom Carrier Discovery'.",
+        "Retains CA-D-336 version 12 as current evidence.",
+        "Does not adopt native grammar, a Relation kind, migration, or a per-property Carrier registry.",
+        "Keeps the full literal visible rather than flattening it to a root, display path, or topic alias."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-338-CORE_META_MODEL-GENERAL-DELIVERY--serialize-completed-projection-rebuild-results.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-338-CORE_META_MODEL-GENERAL-DELIVERY--serialize-completed-projection-rebuild-results.md",
+      "source_atom_id": "CA-D-338",
+      "source_version": 11,
+      "source_sha256": "33fe42c9c7fe098894b526d03aa4dfbc562e59506f801c5c9e91782730066602",
+      "field": "governs",
+      "index": null,
+      "old_value": "Work Journal/Projection Rebuild/Completed Event",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content requires a completed Projection Rebuild Event to serialize its Projection Updated At, output Carrier reference, and content digest. The candidate confirms Journal and records but not this qualified Work Journal event/receipt serialization, event type, or completed-rebuild distinction. This is a research gap, not an invented Operator question.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-338-CORE_META_MODEL-GENERAL-DELIVERY--serialize-completed-projection-rebuild-results.md",
+          "sha256": "33fe42c9c7fe098894b526d03aa4dfbc562e59506f801c5c9e91782730066602",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "b125811255ed95a3ee20319f6efb8e6d1a93e7dfd56b26299ab4f00b99431a54",
+          "reason": "Current Main Content for CA-D-338 establishes the reviewed meaning of 'Work Journal/Projection Rebuild/Completed Event'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the governs role and live meaning of 'Work Journal/Projection Rebuild/Completed Event'.",
+        "Retains CA-D-338 version 11 as current evidence.",
+        "Does not adopt native grammar, a Relation kind, migration, or a per-property Carrier registry.",
+        "Keeps the full literal visible rather than flattening it to a root, display path, or topic alias."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-340-CORE_META_MODEL-GENERAL-DELIVERY--serialize-work-journal-event-properties.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-340-CORE_META_MODEL-GENERAL-DELIVERY--serialize-work-journal-event-properties.md",
+      "source_atom_id": "CA-D-340",
+      "source_version": 11,
+      "source_sha256": "f10f4d14cda74263ab6c9ab5cad1f98ffc4f32a843ba4adf5ac01ce349710504",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Work Journal/Event/Type",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content requires Work Journal Event Carrier records to preserve observed event payload fields without admitting current Atom grammar as a payload gate. The candidate confirms Journal and records but not this qualified Work Journal event/receipt serialization, event type, or completed-rebuild distinction. This is a research gap, not an invented Operator question.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-340-CORE_META_MODEL-GENERAL-DELIVERY--serialize-work-journal-event-properties.md",
+          "sha256": "f10f4d14cda74263ab6c9ab5cad1f98ffc4f32a843ba4adf5ac01ce349710504",
+          "start_line": 26,
+          "end_line": 39,
+          "span_sha256": "c48ef20d968114d2c299f97be2a4503a0e32978ec2e481629ce3e12bed8668cf",
+          "reason": "Current Main Content for CA-D-340 establishes the reviewed meaning of 'Work Journal/Event/Type'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the depends_on role and live meaning of 'Work Journal/Event/Type'.",
+        "Retains CA-D-340 version 11 as current evidence.",
+        "Does not adopt native grammar, a Relation kind, migration, or a per-property Carrier registry.",
+        "Keeps the full literal visible rather than flattening it to a root, display path, or topic alias."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-340-CORE_META_MODEL-GENERAL-DELIVERY--serialize-work-journal-event-properties.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-340-CORE_META_MODEL-GENERAL-DELIVERY--serialize-work-journal-event-properties.md",
+      "source_atom_id": "CA-D-340",
+      "source_version": 11,
+      "source_sha256": "f10f4d14cda74263ab6c9ab5cad1f98ffc4f32a843ba4adf5ac01ce349710504",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Journal",
+      "quarantined": false,
+      "decision": "unchanged",
+      "proposed_value": "Journal",
+      "confidence": 0.95,
+      "reason": "Current Main Content requires Work Journal Event Carrier records to preserve observed event payload fields without admitting current Atom grammar as a payload gate. The current source uses an exact candidate identity; retaining the literal does not add a display prefix, native grammar, or migration.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-340-CORE_META_MODEL-GENERAL-DELIVERY--serialize-work-journal-event-properties.md",
+          "sha256": "f10f4d14cda74263ab6c9ab5cad1f98ffc4f32a843ba4adf5ac01ce349710504",
+          "start_line": 26,
+          "end_line": 39,
+          "span_sha256": "c48ef20d968114d2c299f97be2a4503a0e32978ec2e481629ce3e12bed8668cf",
+          "reason": "Current Main Content for CA-D-340 establishes the reviewed meaning of 'Journal'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the depends_on role and live meaning of 'Journal'.",
+        "Retains CA-D-340 version 11 as current evidence.",
+        "Does not adopt native grammar, a Relation kind, migration, or a per-property Carrier registry."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-340-CORE_META_MODEL-GENERAL-DELIVERY--serialize-work-journal-event-properties.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-340-CORE_META_MODEL-GENERAL-DELIVERY--serialize-work-journal-event-properties.md",
+      "source_atom_id": "CA-D-340",
+      "source_version": 11,
+      "source_sha256": "f10f4d14cda74263ab6c9ab5cad1f98ffc4f32a843ba4adf5ac01ce349710504",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Journal/Record",
+      "quarantined": false,
+      "decision": "proposed",
+      "proposed_value": "Journal.Record",
+      "confidence": 0.95,
+      "reason": "Current Main Content requires Work Journal Event Carrier records to preserve observed event payload fields without admitting current Atom grammar as a payload gate. The current source's Work Journal Event Carrier record is a Journal record; dot notation retains the Journal owner and Record distinction without native admission.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-340-CORE_META_MODEL-GENERAL-DELIVERY--serialize-work-journal-event-properties.md",
+          "sha256": "f10f4d14cda74263ab6c9ab5cad1f98ffc4f32a843ba4adf5ac01ce349710504",
+          "start_line": 26,
+          "end_line": 39,
+          "span_sha256": "c48ef20d968114d2c299f97be2a4503a0e32978ec2e481629ce3e12bed8668cf",
+          "reason": "Current Main Content for CA-D-340 establishes the reviewed meaning of 'Journal/Record'."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/history_model/confirmed_parts",
+          "reason": "Journal is a confirmed part of the history model."
+        },
+        {
+          "pointer": "/history_model/relation_proposal/connections/1",
+          "reason": "The candidate explicitly names Journal.Record as the record concept in the confirmed history-model proposal."
+        }
+      ],
+      "preserved_distinctions": [
+        "Retains the depends_on role while mapping 'Journal/Record' to 'Journal.Record'.",
+        "Retains CA-D-340 version 11 as current evidence.",
+        "Does not adopt native grammar, a Relation kind, migration, or a per-property Carrier registry.",
+        "Retains the source-stated history, owner, authority, and Carrier distinctions; it assigns no missing value."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-340-CORE_META_MODEL-GENERAL-DELIVERY--serialize-work-journal-event-properties.md#subjects.depends_on[3]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-340-CORE_META_MODEL-GENERAL-DELIVERY--serialize-work-journal-event-properties.md",
+      "source_atom_id": "CA-D-340",
+      "source_version": 11,
+      "source_sha256": "f10f4d14cda74263ab6c9ab5cad1f98ffc4f32a843ba4adf5ac01ce349710504",
+      "field": "depends_on",
+      "index": 3,
+      "old_value": "Atom",
+      "quarantined": false,
+      "decision": "unchanged",
+      "proposed_value": "Atom",
+      "confidence": 0.95,
+      "reason": "Current Main Content requires Work Journal Event Carrier records to preserve observed event payload fields without admitting current Atom grammar as a payload gate. The current source uses an exact candidate identity; retaining the literal does not add a display prefix, native grammar, or migration.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-340-CORE_META_MODEL-GENERAL-DELIVERY--serialize-work-journal-event-properties.md",
+          "sha256": "f10f4d14cda74263ab6c9ab5cad1f98ffc4f32a843ba4adf5ac01ce349710504",
+          "start_line": 26,
+          "end_line": 39,
+          "span_sha256": "c48ef20d968114d2c299f97be2a4503a0e32978ec2e481629ce3e12bed8668cf",
+          "reason": "Current Main Content for CA-D-340 establishes the reviewed meaning of 'Atom'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the depends_on role and live meaning of 'Atom'.",
+        "Retains CA-D-340 version 11 as current evidence.",
+        "Does not adopt native grammar, a Relation kind, migration, or a per-property Carrier registry."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-340-CORE_META_MODEL-GENERAL-DELIVERY--serialize-work-journal-event-properties.md#subjects.depends_on[4]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-340-CORE_META_MODEL-GENERAL-DELIVERY--serialize-work-journal-event-properties.md",
+      "source_atom_id": "CA-D-340",
+      "source_version": 11,
+      "source_sha256": "f10f4d14cda74263ab6c9ab5cad1f98ffc4f32a843ba4adf5ac01ce349710504",
+      "field": "depends_on",
+      "index": 4,
+      "old_value": "Artifact/Carrier",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content requires Work Journal Event Carrier records to preserve observed event payload fields without admitting current Atom grammar as a payload gate. The candidate confirms Carrier as a root and general representation boundaries but not this specialized Carrier kind, placement, address, storage field, or document-part identity; a per-property Carrier registry is not admitted. This is a research gap, not an invented Operator question.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-340-CORE_META_MODEL-GENERAL-DELIVERY--serialize-work-journal-event-properties.md",
+          "sha256": "f10f4d14cda74263ab6c9ab5cad1f98ffc4f32a843ba4adf5ac01ce349710504",
+          "start_line": 26,
+          "end_line": 39,
+          "span_sha256": "c48ef20d968114d2c299f97be2a4503a0e32978ec2e481629ce3e12bed8668cf",
+          "reason": "Current Main Content for CA-D-340 establishes the reviewed meaning of 'Artifact/Carrier'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the depends_on role and live meaning of 'Artifact/Carrier'.",
+        "Retains CA-D-340 version 11 as current evidence.",
+        "Does not adopt native grammar, a Relation kind, migration, or a per-property Carrier registry.",
+        "Keeps the full literal visible rather than flattening it to a root, display path, or topic alias."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-340-CORE_META_MODEL-GENERAL-DELIVERY--serialize-work-journal-event-properties.md#subjects.depends_on[5]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-340-CORE_META_MODEL-GENERAL-DELIVERY--serialize-work-journal-event-properties.md",
+      "source_atom_id": "CA-D-340",
+      "source_version": 11,
+      "source_sha256": "f10f4d14cda74263ab6c9ab5cad1f98ffc4f32a843ba4adf5ac01ce349710504",
+      "field": "depends_on",
+      "index": 5,
+      "old_value": "Project",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content requires Work Journal Event Carrier records to preserve observed event payload fields without admitting current Atom grammar as a payload gate. The source gives a specific process, projection, term, threshold, source, or Project meaning, but the candidate has no canonical identity retaining its qualifier rather than flattening it to a broad root or topic label. This is a research gap, not an invented Operator question.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-340-CORE_META_MODEL-GENERAL-DELIVERY--serialize-work-journal-event-properties.md",
+          "sha256": "f10f4d14cda74263ab6c9ab5cad1f98ffc4f32a843ba4adf5ac01ce349710504",
+          "start_line": 26,
+          "end_line": 39,
+          "span_sha256": "c48ef20d968114d2c299f97be2a4503a0e32978ec2e481629ce3e12bed8668cf",
+          "reason": "Current Main Content for CA-D-340 establishes the reviewed meaning of 'Project'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the depends_on role and live meaning of 'Project'.",
+        "Retains CA-D-340 version 11 as current evidence.",
+        "Does not adopt native grammar, a Relation kind, migration, or a per-property Carrier registry.",
+        "Keeps the full literal visible rather than flattening it to a root, display path, or topic alias."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-340-CORE_META_MODEL-GENERAL-DELIVERY--serialize-work-journal-event-properties.md#subjects.depends_on[6]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-340-CORE_META_MODEL-GENERAL-DELIVERY--serialize-work-journal-event-properties.md",
+      "source_atom_id": "CA-D-340",
+      "source_version": 11,
+      "source_sha256": "f10f4d14cda74263ab6c9ab5cad1f98ffc4f32a843ba4adf5ac01ce349710504",
+      "field": "depends_on",
+      "index": 6,
+      "old_value": "Applicable Methodology",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content requires Work Journal Event Carrier records to preserve observed event payload fields without admitting current Atom grammar as a payload gate. The source gives a specific process, projection, term, threshold, source, or Project meaning, but the candidate has no canonical identity retaining its qualifier rather than flattening it to a broad root or topic label. This is a research gap, not an invented Operator question.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-340-CORE_META_MODEL-GENERAL-DELIVERY--serialize-work-journal-event-properties.md",
+          "sha256": "f10f4d14cda74263ab6c9ab5cad1f98ffc4f32a843ba4adf5ac01ce349710504",
+          "start_line": 26,
+          "end_line": 39,
+          "span_sha256": "c48ef20d968114d2c299f97be2a4503a0e32978ec2e481629ce3e12bed8668cf",
+          "reason": "Current Main Content for CA-D-340 establishes the reviewed meaning of 'Applicable Methodology'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the depends_on role and live meaning of 'Applicable Methodology'.",
+        "Retains CA-D-340 version 11 as current evidence.",
+        "Does not adopt native grammar, a Relation kind, migration, or a per-property Carrier registry.",
+        "Keeps the full literal visible rather than flattening it to a root, display path, or topic alias."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-340-CORE_META_MODEL-GENERAL-DELIVERY--serialize-work-journal-event-properties.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-340-CORE_META_MODEL-GENERAL-DELIVERY--serialize-work-journal-event-properties.md",
+      "source_atom_id": "CA-D-340",
+      "source_version": 11,
+      "source_sha256": "f10f4d14cda74263ab6c9ab5cad1f98ffc4f32a843ba4adf5ac01ce349710504",
+      "field": "governs",
+      "index": null,
+      "old_value": "Work Journal/Event/Carrier Serialization",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content requires Work Journal Event Carrier records to preserve observed event payload fields without admitting current Atom grammar as a payload gate. The candidate confirms Journal and records but not this qualified Work Journal event/receipt serialization, event type, or completed-rebuild distinction. This is a research gap, not an invented Operator question.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-340-CORE_META_MODEL-GENERAL-DELIVERY--serialize-work-journal-event-properties.md",
+          "sha256": "f10f4d14cda74263ab6c9ab5cad1f98ffc4f32a843ba4adf5ac01ce349710504",
+          "start_line": 26,
+          "end_line": 39,
+          "span_sha256": "c48ef20d968114d2c299f97be2a4503a0e32978ec2e481629ce3e12bed8668cf",
+          "reason": "Current Main Content for CA-D-340 establishes the reviewed meaning of 'Work Journal/Event/Carrier Serialization'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the governs role and live meaning of 'Work Journal/Event/Carrier Serialization'.",
+        "Retains CA-D-340 version 11 as current evidence.",
+        "Does not adopt native grammar, a Relation kind, migration, or a per-property Carrier registry.",
+        "Keeps the full literal visible rather than flattening it to a root, display path, or topic alias."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-341-CORE_META_MODEL-CORE--separate-persistent-authority-from-runtime-state.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-341-CORE_META_MODEL-CORE--separate-persistent-authority-from-runtime-state.md",
+      "source_atom_id": "CA-D-341",
+      "source_version": 11,
+      "source_sha256": "a97b70b64bc8097b7c2f94ff727ed81d7cafc1ed8941fed02cc1d764eaaa36e9",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Framework-Owned Carrier",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content keeps Framework-Owned and Project-Owned persistent Carriers outside Runtime State so cleanup cannot remove authority or Journal history. The candidate confirms Carrier as a root and general representation boundaries but not this specialized Carrier kind, placement, address, storage field, or document-part identity; a per-property Carrier registry is not admitted. This is a research gap, not an invented Operator question.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-341-CORE_META_MODEL-CORE--separate-persistent-authority-from-runtime-state.md",
+          "sha256": "a97b70b64bc8097b7c2f94ff727ed81d7cafc1ed8941fed02cc1d764eaaa36e9",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "0f33d786700e5def80c90cda99da1849769ef842ae2cb37a3230e329cf7dd837",
+          "reason": "Current Main Content for CA-D-341 establishes the reviewed meaning of 'Framework-Owned Carrier'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the depends_on role and live meaning of 'Framework-Owned Carrier'.",
+        "Retains CA-D-341 version 11 as current evidence.",
+        "Does not adopt native grammar, a Relation kind, migration, or a per-property Carrier registry.",
+        "Keeps the full literal visible rather than flattening it to a root, display path, or topic alias."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-341-CORE_META_MODEL-CORE--separate-persistent-authority-from-runtime-state.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-341-CORE_META_MODEL-CORE--separate-persistent-authority-from-runtime-state.md",
+      "source_atom_id": "CA-D-341",
+      "source_version": 11,
+      "source_sha256": "a97b70b64bc8097b7c2f94ff727ed81d7cafc1ed8941fed02cc1d764eaaa36e9",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Project-Owned Carrier",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content keeps Framework-Owned and Project-Owned persistent Carriers outside Runtime State so cleanup cannot remove authority or Journal history. The candidate confirms Carrier as a root and general representation boundaries but not this specialized Carrier kind, placement, address, storage field, or document-part identity; a per-property Carrier registry is not admitted. This is a research gap, not an invented Operator question.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-341-CORE_META_MODEL-CORE--separate-persistent-authority-from-runtime-state.md",
+          "sha256": "a97b70b64bc8097b7c2f94ff727ed81d7cafc1ed8941fed02cc1d764eaaa36e9",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "0f33d786700e5def80c90cda99da1849769ef842ae2cb37a3230e329cf7dd837",
+          "reason": "Current Main Content for CA-D-341 establishes the reviewed meaning of 'Project-Owned Carrier'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the depends_on role and live meaning of 'Project-Owned Carrier'.",
+        "Retains CA-D-341 version 11 as current evidence.",
+        "Does not adopt native grammar, a Relation kind, migration, or a per-property Carrier registry.",
+        "Keeps the full literal visible rather than flattening it to a root, display path, or topic alias."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-341-CORE_META_MODEL-CORE--separate-persistent-authority-from-runtime-state.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-341-CORE_META_MODEL-CORE--separate-persistent-authority-from-runtime-state.md",
+      "source_atom_id": "CA-D-341",
+      "source_version": 11,
+      "source_sha256": "a97b70b64bc8097b7c2f94ff727ed81d7cafc1ed8941fed02cc1d764eaaa36e9",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Runtime State Carrier",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content keeps Framework-Owned and Project-Owned persistent Carriers outside Runtime State so cleanup cannot remove authority or Journal history. The candidate confirms Carrier as a root and general representation boundaries but not this specialized Carrier kind, placement, address, storage field, or document-part identity; a per-property Carrier registry is not admitted. This is a research gap, not an invented Operator question.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-341-CORE_META_MODEL-CORE--separate-persistent-authority-from-runtime-state.md",
+          "sha256": "a97b70b64bc8097b7c2f94ff727ed81d7cafc1ed8941fed02cc1d764eaaa36e9",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "0f33d786700e5def80c90cda99da1849769ef842ae2cb37a3230e329cf7dd837",
+          "reason": "Current Main Content for CA-D-341 establishes the reviewed meaning of 'Runtime State Carrier'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the depends_on role and live meaning of 'Runtime State Carrier'.",
+        "Retains CA-D-341 version 11 as current evidence.",
+        "Does not adopt native grammar, a Relation kind, migration, or a per-property Carrier registry.",
+        "Keeps the full literal visible rather than flattening it to a root, display path, or topic alias."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-341-CORE_META_MODEL-CORE--separate-persistent-authority-from-runtime-state.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-341-CORE_META_MODEL-CORE--separate-persistent-authority-from-runtime-state.md",
+      "source_atom_id": "CA-D-341",
+      "source_version": 11,
+      "source_sha256": "a97b70b64bc8097b7c2f94ff727ed81d7cafc1ed8941fed02cc1d764eaaa36e9",
+      "field": "governs",
+      "index": null,
+      "old_value": "Carrier/Storage Boundary",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content keeps Framework-Owned and Project-Owned persistent Carriers outside Runtime State so cleanup cannot remove authority or Journal history. The candidate confirms Carrier as a root and general representation boundaries but not this specialized Carrier kind, placement, address, storage field, or document-part identity; a per-property Carrier registry is not admitted. This is a research gap, not an invented Operator question.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-341-CORE_META_MODEL-CORE--separate-persistent-authority-from-runtime-state.md",
+          "sha256": "a97b70b64bc8097b7c2f94ff727ed81d7cafc1ed8941fed02cc1d764eaaa36e9",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "0f33d786700e5def80c90cda99da1849769ef842ae2cb37a3230e329cf7dd837",
+          "reason": "Current Main Content for CA-D-341 establishes the reviewed meaning of 'Carrier/Storage Boundary'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the governs role and live meaning of 'Carrier/Storage Boundary'.",
+        "Retains CA-D-341 version 11 as current evidence.",
+        "Does not adopt native grammar, a Relation kind, migration, or a per-property Carrier registry.",
+        "Keeps the full literal visible rather than flattening it to a root, display path, or topic alias."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-342-CORE_META_MODEL--serialize-external-project-goal-references.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-342-CORE_META_MODEL--serialize-external-project-goal-references.md",
+      "source_atom_id": "CA-D-342",
+      "source_version": 15,
+      "source_sha256": "14977326cdfeba0850c577925433355d7a50d457527b5d30e9bc24cd6ccbfbe4",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Atom/Content Role: Requirement/Type: Goal/Filename",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content requires an external Project Goal without an Atom ID to use its complete current Carrier filename stem as Reference. The candidate does not confirm a canonical owner/field, Claim role-domain, signature Projection, or identifier mapping retaining this complete Atom-qualified meaning. This is a research gap, not an invented Operator question.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-342-CORE_META_MODEL--serialize-external-project-goal-references.md",
+          "sha256": "14977326cdfeba0850c577925433355d7a50d457527b5d30e9bc24cd6ccbfbe4",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "30dcbe5a8129c73a658357c6bdc39693029cb77d1878a5d910a38cf9ed0ec30d",
+          "reason": "Current Main Content for CA-D-342 establishes the reviewed meaning of 'Atom/Content Role: Requirement/Type: Goal/Filename'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the depends_on role and live meaning of 'Atom/Content Role: Requirement/Type: Goal/Filename'.",
+        "Retains CA-D-342 version 15 as current evidence.",
+        "Does not adopt native grammar, a Relation kind, migration, or a per-property Carrier registry.",
+        "Keeps the full literal visible rather than flattening it to a root, display path, or topic alias."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-342-CORE_META_MODEL--serialize-external-project-goal-references.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-342-CORE_META_MODEL--serialize-external-project-goal-references.md",
+      "source_atom_id": "CA-D-342",
+      "source_version": 15,
+      "source_sha256": "14977326cdfeba0850c577925433355d7a50d457527b5d30e9bc24cd6ccbfbe4",
+      "field": "governs",
+      "index": null,
+      "old_value": "Atom/Content Role: Requirement/Type: Goal/Reference",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content requires an external Project Goal without an Atom ID to use its complete current Carrier filename stem as Reference. The candidate does not confirm a canonical owner/field, Claim role-domain, signature Projection, or identifier mapping retaining this complete Atom-qualified meaning. This is a research gap, not an invented Operator question.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-342-CORE_META_MODEL--serialize-external-project-goal-references.md",
+          "sha256": "14977326cdfeba0850c577925433355d7a50d457527b5d30e9bc24cd6ccbfbe4",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "30dcbe5a8129c73a658357c6bdc39693029cb77d1878a5d910a38cf9ed0ec30d",
+          "reason": "Current Main Content for CA-D-342 establishes the reviewed meaning of 'Atom/Content Role: Requirement/Type: Goal/Reference'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the governs role and live meaning of 'Atom/Content Role: Requirement/Type: Goal/Reference'.",
+        "Retains CA-D-342 version 15 as current evidence.",
+        "Does not adopt native grammar, a Relation kind, migration, or a per-property Carrier registry.",
+        "Keeps the full literal visible rather than flattening it to a root, display path, or topic alias."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-346-CORE_META_MODEL--deliver-cce-canonical-signatures-as-external-report-projections.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-346-CORE_META_MODEL--deliver-cce-canonical-signatures-as-external-report-projections.md",
+      "source_atom_id": "CA-D-346",
+      "source_version": 12,
+      "source_sha256": "33e2c363b2c3075a45d073eeedff0ee0e3617d1965d689e010406cd512d6312c",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Atom/Claim/Canonical Signature",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content requires a non-authoritative external Canonical Signature Projection with source identities, Revisions, signatures, and diagnostics without becoming an Atom Carrier or Claim equivalence. The candidate does not confirm a canonical owner/field, Claim role-domain, signature Projection, or identifier mapping retaining this complete Atom-qualified meaning. This is a research gap, not an invented Operator question.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-346-CORE_META_MODEL--deliver-cce-canonical-signatures-as-external-report-projections.md",
+          "sha256": "33e2c363b2c3075a45d073eeedff0ee0e3617d1965d689e010406cd512d6312c",
+          "start_line": 26,
+          "end_line": 36,
+          "span_sha256": "1554930b62c4c936d148cef54dfd87f91d02df06cf215a7c1371c42606feae6e",
+          "reason": "Current Main Content for CA-D-346 establishes the reviewed meaning of 'Atom/Claim/Canonical Signature'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the depends_on role and live meaning of 'Atom/Claim/Canonical Signature'.",
+        "Retains CA-D-346 version 12 as current evidence.",
+        "Does not adopt native grammar, a Relation kind, migration, or a per-property Carrier registry.",
+        "Keeps the full literal visible rather than flattening it to a root, display path, or topic alias."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-346-CORE_META_MODEL--deliver-cce-canonical-signatures-as-external-report-projections.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-346-CORE_META_MODEL--deliver-cce-canonical-signatures-as-external-report-projections.md",
+      "source_atom_id": "CA-D-346",
+      "source_version": 12,
+      "source_sha256": "33e2c363b2c3075a45d073eeedff0ee0e3617d1965d689e010406cd512d6312c",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Carrier",
+      "quarantined": false,
+      "decision": "unchanged",
+      "proposed_value": "Carrier",
+      "confidence": 0.95,
+      "reason": "Current Main Content requires a non-authoritative external Canonical Signature Projection with source identities, Revisions, signatures, and diagnostics without becoming an Atom Carrier or Claim equivalence. The current source uses an exact candidate identity; retaining the literal does not add a display prefix, native grammar, or migration.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-346-CORE_META_MODEL--deliver-cce-canonical-signatures-as-external-report-projections.md",
+          "sha256": "33e2c363b2c3075a45d073eeedff0ee0e3617d1965d689e010406cd512d6312c",
+          "start_line": 26,
+          "end_line": 36,
+          "span_sha256": "1554930b62c4c936d148cef54dfd87f91d02df06cf215a7c1371c42606feae6e",
+          "reason": "Current Main Content for CA-D-346 establishes the reviewed meaning of 'Carrier'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the depends_on role and live meaning of 'Carrier'.",
+        "Retains CA-D-346 version 12 as current evidence.",
+        "Does not adopt native grammar, a Relation kind, migration, or a per-property Carrier registry."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-346-CORE_META_MODEL--deliver-cce-canonical-signatures-as-external-report-projections.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-346-CORE_META_MODEL--deliver-cce-canonical-signatures-as-external-report-projections.md",
+      "source_atom_id": "CA-D-346",
+      "source_version": 12,
+      "source_sha256": "33e2c363b2c3075a45d073eeedff0ee0e3617d1965d689e010406cd512d6312c",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Atom/Identity",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content requires a non-authoritative external Canonical Signature Projection with source identities, Revisions, signatures, and diagnostics without becoming an Atom Carrier or Claim equivalence. The candidate does not confirm a canonical owner/field, Claim role-domain, signature Projection, or identifier mapping retaining this complete Atom-qualified meaning. This is a research gap, not an invented Operator question.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-346-CORE_META_MODEL--deliver-cce-canonical-signatures-as-external-report-projections.md",
+          "sha256": "33e2c363b2c3075a45d073eeedff0ee0e3617d1965d689e010406cd512d6312c",
+          "start_line": 26,
+          "end_line": 36,
+          "span_sha256": "1554930b62c4c936d148cef54dfd87f91d02df06cf215a7c1371c42606feae6e",
+          "reason": "Current Main Content for CA-D-346 establishes the reviewed meaning of 'Atom/Identity'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the depends_on role and live meaning of 'Atom/Identity'.",
+        "Retains CA-D-346 version 12 as current evidence.",
+        "Does not adopt native grammar, a Relation kind, migration, or a per-property Carrier registry.",
+        "Keeps the full literal visible rather than flattening it to a root, display path, or topic alias."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-346-CORE_META_MODEL--deliver-cce-canonical-signatures-as-external-report-projections.md#subjects.depends_on[3]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-346-CORE_META_MODEL--deliver-cce-canonical-signatures-as-external-report-projections.md",
+      "source_atom_id": "CA-D-346",
+      "source_version": 12,
+      "source_sha256": "33e2c363b2c3075a45d073eeedff0ee0e3617d1965d689e010406cd512d6312c",
+      "field": "depends_on",
+      "index": 3,
+      "old_value": "Atom/Revision",
+      "quarantined": false,
+      "decision": "proposed",
+      "proposed_value": "Revision",
+      "confidence": 0.95,
+      "reason": "Current Main Content requires a non-authoritative external Canonical Signature Projection with source identities, Revisions, signatures, and diagnostics without becoming an Atom Carrier or Claim equivalence. The current Delivery source requires a checked historical Revision; mapping to the separate Revision root avoids the excluded Artifact/Revision or Atom/Revision display path.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-346-CORE_META_MODEL--deliver-cce-canonical-signatures-as-external-report-projections.md",
+          "sha256": "33e2c363b2c3075a45d073eeedff0ee0e3617d1965d689e010406cd512d6312c",
+          "start_line": 26,
+          "end_line": 36,
+          "span_sha256": "1554930b62c4c936d148cef54dfd87f91d02df06cf215a7c1371c42606feae6e",
+          "reason": "Current Main Content for CA-D-346 establishes the reviewed meaning of 'Atom/Revision'."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/4",
+          "reason": "Revision is the confirmed separate historical root and explicitly excludes Artifact/Revision and Atom/Revision paths."
+        },
+        {
+          "pointer": "/history_model/revision_role",
+          "reason": "The candidate confirms that Revision preserves a historical Artifact state."
+        }
+      ],
+      "preserved_distinctions": [
+        "Retains the depends_on role while mapping 'Atom/Revision' to 'Revision'.",
+        "Retains CA-D-346 version 12 as current evidence.",
+        "Does not adopt native grammar, a Relation kind, migration, or a per-property Carrier registry.",
+        "Retains the source-stated history, owner, authority, and Carrier distinctions; it assigns no missing value."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-346-CORE_META_MODEL--deliver-cce-canonical-signatures-as-external-report-projections.md#subjects.depends_on[4]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-346-CORE_META_MODEL--deliver-cce-canonical-signatures-as-external-report-projections.md",
+      "source_atom_id": "CA-D-346",
+      "source_version": 12,
+      "source_sha256": "33e2c363b2c3075a45d073eeedff0ee0e3617d1965d689e010406cd512d6312c",
+      "field": "depends_on",
+      "index": 4,
+      "old_value": "Atom/Claim",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content requires a non-authoritative external Canonical Signature Projection with source identities, Revisions, signatures, and diagnostics without becoming an Atom Carrier or Claim equivalence. The candidate does not confirm a canonical owner/field, Claim role-domain, signature Projection, or identifier mapping retaining this complete Atom-qualified meaning. This is a research gap, not an invented Operator question.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-346-CORE_META_MODEL--deliver-cce-canonical-signatures-as-external-report-projections.md",
+          "sha256": "33e2c363b2c3075a45d073eeedff0ee0e3617d1965d689e010406cd512d6312c",
+          "start_line": 26,
+          "end_line": 36,
+          "span_sha256": "1554930b62c4c936d148cef54dfd87f91d02df06cf215a7c1371c42606feae6e",
+          "reason": "Current Main Content for CA-D-346 establishes the reviewed meaning of 'Atom/Claim'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the depends_on role and live meaning of 'Atom/Claim'.",
+        "Retains CA-D-346 version 12 as current evidence.",
+        "Does not adopt native grammar, a Relation kind, migration, or a per-property Carrier registry.",
+        "Keeps the full literal visible rather than flattening it to a root, display path, or topic alias."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-346-CORE_META_MODEL--deliver-cce-canonical-signatures-as-external-report-projections.md#subjects.depends_on[5]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-346-CORE_META_MODEL--deliver-cce-canonical-signatures-as-external-report-projections.md",
+      "source_atom_id": "CA-D-346",
+      "source_version": 12,
+      "source_sha256": "33e2c363b2c3075a45d073eeedff0ee0e3617d1965d689e010406cd512d6312c",
+      "field": "depends_on",
+      "index": 5,
+      "old_value": "Atom/Carrier",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content requires a non-authoritative external Canonical Signature Projection with source identities, Revisions, signatures, and diagnostics without becoming an Atom Carrier or Claim equivalence. The candidate does not confirm a canonical owner/field, Claim role-domain, signature Projection, or identifier mapping retaining this complete Atom-qualified meaning. This is a research gap, not an invented Operator question.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-346-CORE_META_MODEL--deliver-cce-canonical-signatures-as-external-report-projections.md",
+          "sha256": "33e2c363b2c3075a45d073eeedff0ee0e3617d1965d689e010406cd512d6312c",
+          "start_line": 26,
+          "end_line": 36,
+          "span_sha256": "1554930b62c4c936d148cef54dfd87f91d02df06cf215a7c1371c42606feae6e",
+          "reason": "Current Main Content for CA-D-346 establishes the reviewed meaning of 'Atom/Carrier'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the depends_on role and live meaning of 'Atom/Carrier'.",
+        "Retains CA-D-346 version 12 as current evidence.",
+        "Does not adopt native grammar, a Relation kind, migration, or a per-property Carrier registry.",
+        "Keeps the full literal visible rather than flattening it to a root, display path, or topic alias."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-346-CORE_META_MODEL--deliver-cce-canonical-signatures-as-external-report-projections.md#subjects.depends_on[6]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-346-CORE_META_MODEL--deliver-cce-canonical-signatures-as-external-report-projections.md",
+      "source_atom_id": "CA-D-346",
+      "source_version": 12,
+      "source_sha256": "33e2c363b2c3075a45d073eeedff0ee0e3617d1965d689e010406cd512d6312c",
+      "field": "depends_on",
+      "index": 6,
+      "old_value": "CCE",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content requires a non-authoritative external Canonical Signature Projection with source identities, Revisions, signatures, and diagnostics without becoming an Atom Carrier or Claim equivalence. The source gives a specific process, projection, term, threshold, source, or Project meaning, but the candidate has no canonical identity retaining its qualifier rather than flattening it to a broad root or topic label. This is a research gap, not an invented Operator question.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-346-CORE_META_MODEL--deliver-cce-canonical-signatures-as-external-report-projections.md",
+          "sha256": "33e2c363b2c3075a45d073eeedff0ee0e3617d1965d689e010406cd512d6312c",
+          "start_line": 26,
+          "end_line": 36,
+          "span_sha256": "1554930b62c4c936d148cef54dfd87f91d02df06cf215a7c1371c42606feae6e",
+          "reason": "Current Main Content for CA-D-346 establishes the reviewed meaning of 'CCE'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the depends_on role and live meaning of 'CCE'.",
+        "Retains CA-D-346 version 12 as current evidence.",
+        "Does not adopt native grammar, a Relation kind, migration, or a per-property Carrier registry.",
+        "Keeps the full literal visible rather than flattening it to a root, display path, or topic alias."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-346-CORE_META_MODEL--deliver-cce-canonical-signatures-as-external-report-projections.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-346-CORE_META_MODEL--deliver-cce-canonical-signatures-as-external-report-projections.md",
+      "source_atom_id": "CA-D-346",
+      "source_version": 12,
+      "source_sha256": "33e2c363b2c3075a45d073eeedff0ee0e3617d1965d689e010406cd512d6312c",
+      "field": "governs",
+      "index": null,
+      "old_value": "Atom/Claim/Canonical Signature/Projection",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content requires a non-authoritative external Canonical Signature Projection with source identities, Revisions, signatures, and diagnostics without becoming an Atom Carrier or Claim equivalence. The candidate does not confirm a canonical owner/field, Claim role-domain, signature Projection, or identifier mapping retaining this complete Atom-qualified meaning. This is a research gap, not an invented Operator question.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-346-CORE_META_MODEL--deliver-cce-canonical-signatures-as-external-report-projections.md",
+          "sha256": "33e2c363b2c3075a45d073eeedff0ee0e3617d1965d689e010406cd512d6312c",
+          "start_line": 26,
+          "end_line": 36,
+          "span_sha256": "1554930b62c4c936d148cef54dfd87f91d02df06cf215a7c1371c42606feae6e",
+          "reason": "Current Main Content for CA-D-346 establishes the reviewed meaning of 'Atom/Claim/Canonical Signature/Projection'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the governs role and live meaning of 'Atom/Claim/Canonical Signature/Projection'.",
+        "Retains CA-D-346 version 12 as current evidence.",
+        "Does not adopt native grammar, a Relation kind, migration, or a per-property Carrier registry.",
+        "Keeps the full literal visible rather than flattening it to a root, display path, or topic alias."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-347-CORE_META_MODEL--deliver-canonical-scope-signatures-as-external-report-projections.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-347-CORE_META_MODEL--deliver-canonical-scope-signatures-as-external-report-projections.md",
+      "source_atom_id": "CA-D-347",
+      "source_version": 12,
+      "source_sha256": "34a984e863c035e1a55a2179f6d12dd83b131bdb44ac7c7faa0ca8462f9d9270",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Scope Expression/Canonical Scope Signature",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content requires a non-authoritative external Canonical Scope Signature Projection with source evidence and no dependency relation or source mutation. The source gives a specific process, projection, term, threshold, source, or Project meaning, but the candidate has no canonical identity retaining its qualifier rather than flattening it to a broad root or topic label. This is a research gap, not an invented Operator question.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-347-CORE_META_MODEL--deliver-canonical-scope-signatures-as-external-report-projections.md",
+          "sha256": "34a984e863c035e1a55a2179f6d12dd83b131bdb44ac7c7faa0ca8462f9d9270",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "c53c6040c32b6ba5d92890aec327784b2f509352eb3db40bf5ffc927bf56fdc4",
+          "reason": "Current Main Content for CA-D-347 establishes the reviewed meaning of 'Scope Expression/Canonical Scope Signature'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the depends_on role and live meaning of 'Scope Expression/Canonical Scope Signature'.",
+        "Retains CA-D-347 version 12 as current evidence.",
+        "Does not adopt native grammar, a Relation kind, migration, or a per-property Carrier registry.",
+        "Keeps the full literal visible rather than flattening it to a root, display path, or topic alias."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-347-CORE_META_MODEL--deliver-canonical-scope-signatures-as-external-report-projections.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-347-CORE_META_MODEL--deliver-canonical-scope-signatures-as-external-report-projections.md",
+      "source_atom_id": "CA-D-347",
+      "source_version": 12,
+      "source_sha256": "34a984e863c035e1a55a2179f6d12dd83b131bdb44ac7c7faa0ca8462f9d9270",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Carrier",
+      "quarantined": false,
+      "decision": "unchanged",
+      "proposed_value": "Carrier",
+      "confidence": 0.95,
+      "reason": "Current Main Content requires a non-authoritative external Canonical Scope Signature Projection with source evidence and no dependency relation or source mutation. The current source uses an exact candidate identity; retaining the literal does not add a display prefix, native grammar, or migration.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-347-CORE_META_MODEL--deliver-canonical-scope-signatures-as-external-report-projections.md",
+          "sha256": "34a984e863c035e1a55a2179f6d12dd83b131bdb44ac7c7faa0ca8462f9d9270",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "c53c6040c32b6ba5d92890aec327784b2f509352eb3db40bf5ffc927bf56fdc4",
+          "reason": "Current Main Content for CA-D-347 establishes the reviewed meaning of 'Carrier'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the depends_on role and live meaning of 'Carrier'.",
+        "Retains CA-D-347 version 12 as current evidence.",
+        "Does not adopt native grammar, a Relation kind, migration, or a per-property Carrier registry."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-347-CORE_META_MODEL--deliver-canonical-scope-signatures-as-external-report-projections.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-347-CORE_META_MODEL--deliver-canonical-scope-signatures-as-external-report-projections.md",
+      "source_atom_id": "CA-D-347",
+      "source_version": 12,
+      "source_sha256": "34a984e863c035e1a55a2179f6d12dd83b131bdb44ac7c7faa0ca8462f9d9270",
+      "field": "governs",
+      "index": null,
+      "old_value": "Scope Expression/Canonical Scope Signature/Projection",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content requires a non-authoritative external Canonical Scope Signature Projection with source evidence and no dependency relation or source mutation. The source gives a specific process, projection, term, threshold, source, or Project meaning, but the candidate has no canonical identity retaining its qualifier rather than flattening it to a broad root or topic label. This is a research gap, not an invented Operator question.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-347-CORE_META_MODEL--deliver-canonical-scope-signatures-as-external-report-projections.md",
+          "sha256": "34a984e863c035e1a55a2179f6d12dd83b131bdb44ac7c7faa0ca8462f9d9270",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "c53c6040c32b6ba5d92890aec327784b2f509352eb3db40bf5ffc927bf56fdc4",
+          "reason": "Current Main Content for CA-D-347 establishes the reviewed meaning of 'Scope Expression/Canonical Scope Signature/Projection'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the governs role and live meaning of 'Scope Expression/Canonical Scope Signature/Projection'.",
+        "Retains CA-D-347 version 12 as current evidence.",
+        "Does not adopt native grammar, a Relation kind, migration, or a per-property Carrier registry.",
+        "Keeps the full literal visible rather than flattening it to a root, display path, or topic alias."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-352-CORE_META_MODEL-CORE--keep-status-subdirectories-outside-the-directory-carrier-type.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-352-CORE_META_MODEL-CORE--keep-status-subdirectories-outside-the-directory-carrier-type.md",
+      "source_atom_id": "CA-D-352",
+      "source_version": 10,
+      "source_sha256": "7ed53b09f12c8b16705ceaa24917e74fdf9705c60c78dcd764cf5c43a2b71f81",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Directory Carrier",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content excludes a placement Status subdirectory from the Directory Carrier Type. The candidate confirms Carrier as a root and general representation boundaries but not this specialized Carrier kind, placement, address, storage field, or document-part identity; a per-property Carrier registry is not admitted. This is a research gap, not an invented Operator question.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-352-CORE_META_MODEL-CORE--keep-status-subdirectories-outside-the-directory-carrier-type.md",
+          "sha256": "7ed53b09f12c8b16705ceaa24917e74fdf9705c60c78dcd764cf5c43a2b71f81",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "905e260aad436dddf0fbad846f48f5a2762be9573bd13d5dfdb53bdd8ad2cc2f",
+          "reason": "Current Main Content for CA-D-352 establishes the reviewed meaning of 'Directory Carrier'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the depends_on role and live meaning of 'Directory Carrier'.",
+        "Retains CA-D-352 version 10 as current evidence.",
+        "Does not adopt native grammar, a Relation kind, migration, or a per-property Carrier registry.",
+        "Keeps the full literal visible rather than flattening it to a root, display path, or topic alias."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-352-CORE_META_MODEL-CORE--keep-status-subdirectories-outside-the-directory-carrier-type.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-352-CORE_META_MODEL-CORE--keep-status-subdirectories-outside-the-directory-carrier-type.md",
+      "source_atom_id": "CA-D-352",
+      "source_version": 10,
+      "source_sha256": "7ed53b09f12c8b16705ceaa24917e74fdf9705c60c78dcd764cf5c43a2b71f81",
+      "field": "governs",
+      "index": null,
+      "old_value": "Artifact/Carrier Placement/Status Subdirectory",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content excludes a placement Status subdirectory from the Directory Carrier Type. The candidate confirms Carrier as a root and general representation boundaries but not this specialized Carrier kind, placement, address, storage field, or document-part identity; a per-property Carrier registry is not admitted. This is a research gap, not an invented Operator question.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-352-CORE_META_MODEL-CORE--keep-status-subdirectories-outside-the-directory-carrier-type.md",
+          "sha256": "7ed53b09f12c8b16705ceaa24917e74fdf9705c60c78dcd764cf5c43a2b71f81",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "905e260aad436dddf0fbad846f48f5a2762be9573bd13d5dfdb53bdd8ad2cc2f",
+          "reason": "Current Main Content for CA-D-352 establishes the reviewed meaning of 'Artifact/Carrier Placement/Status Subdirectory'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the governs role and live meaning of 'Artifact/Carrier Placement/Status Subdirectory'.",
+        "Retains CA-D-352 version 10 as current evidence.",
+        "Does not adopt native grammar, a Relation kind, migration, or a per-property Carrier registry.",
+        "Keeps the full literal visible rather than flattening it to a root, display path, or topic alias."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-356-CORE_META_MODEL--structure-markdown-atom-carriers.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-356-CORE_META_MODEL--structure-markdown-atom-carriers.md",
+      "source_atom_id": "CA-D-356",
+      "source_version": 9,
+      "source_sha256": "10b60fb45d52735402e54952c7b3b78170c670fbca890a42ddb1a08de34100e6",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Markdown Atom Carrier/YAML Frontmatter",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content requires an authoritative Markdown Atom Carrier to contain YAML Frontmatter followed by Main Content. The candidate confirms Carrier as a root and general representation boundaries but not this specialized Carrier kind, placement, address, storage field, or document-part identity; a per-property Carrier registry is not admitted. This is a research gap, not an invented Operator question.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-356-CORE_META_MODEL--structure-markdown-atom-carriers.md",
+          "sha256": "10b60fb45d52735402e54952c7b3b78170c670fbca890a42ddb1a08de34100e6",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "f93b055deb64a0e1a5d5045710a0081d303d254eb88a302ed318da33d1a0c2f8",
+          "reason": "Current Main Content for CA-D-356 establishes the reviewed meaning of 'Markdown Atom Carrier/YAML Frontmatter'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the depends_on role and live meaning of 'Markdown Atom Carrier/YAML Frontmatter'.",
+        "Retains CA-D-356 version 9 as current evidence.",
+        "Does not adopt native grammar, a Relation kind, migration, or a per-property Carrier registry.",
+        "Keeps the full literal visible rather than flattening it to a root, display path, or topic alias."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-356-CORE_META_MODEL--structure-markdown-atom-carriers.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-356-CORE_META_MODEL--structure-markdown-atom-carriers.md",
+      "source_atom_id": "CA-D-356",
+      "source_version": 9,
+      "source_sha256": "10b60fb45d52735402e54952c7b3b78170c670fbca890a42ddb1a08de34100e6",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Markdown Atom Carrier/Main Content",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content requires an authoritative Markdown Atom Carrier to contain YAML Frontmatter followed by Main Content. The candidate confirms Carrier as a root and general representation boundaries but not this specialized Carrier kind, placement, address, storage field, or document-part identity; a per-property Carrier registry is not admitted. This is a research gap, not an invented Operator question.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-356-CORE_META_MODEL--structure-markdown-atom-carriers.md",
+          "sha256": "10b60fb45d52735402e54952c7b3b78170c670fbca890a42ddb1a08de34100e6",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "f93b055deb64a0e1a5d5045710a0081d303d254eb88a302ed318da33d1a0c2f8",
+          "reason": "Current Main Content for CA-D-356 establishes the reviewed meaning of 'Markdown Atom Carrier/Main Content'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the depends_on role and live meaning of 'Markdown Atom Carrier/Main Content'.",
+        "Retains CA-D-356 version 9 as current evidence.",
+        "Does not adopt native grammar, a Relation kind, migration, or a per-property Carrier registry.",
+        "Keeps the full literal visible rather than flattening it to a root, display path, or topic alias."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-356-CORE_META_MODEL--structure-markdown-atom-carriers.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-356-CORE_META_MODEL--structure-markdown-atom-carriers.md",
+      "source_atom_id": "CA-D-356",
+      "source_version": 9,
+      "source_sha256": "10b60fb45d52735402e54952c7b3b78170c670fbca890a42ddb1a08de34100e6",
+      "field": "governs",
+      "index": null,
+      "old_value": "Markdown Atom Carrier/Structure",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content requires an authoritative Markdown Atom Carrier to contain YAML Frontmatter followed by Main Content. The candidate confirms Carrier as a root and general representation boundaries but not this specialized Carrier kind, placement, address, storage field, or document-part identity; a per-property Carrier registry is not admitted. This is a research gap, not an invented Operator question.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-356-CORE_META_MODEL--structure-markdown-atom-carriers.md",
+          "sha256": "10b60fb45d52735402e54952c7b3b78170c670fbca890a42ddb1a08de34100e6",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "f93b055deb64a0e1a5d5045710a0081d303d254eb88a302ed318da33d1a0c2f8",
+          "reason": "Current Main Content for CA-D-356 establishes the reviewed meaning of 'Markdown Atom Carrier/Structure'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the governs role and live meaning of 'Markdown Atom Carrier/Structure'.",
+        "Retains CA-D-356 version 9 as current evidence.",
+        "Does not adopt native grammar, a Relation kind, migration, or a per-property Carrier registry.",
+        "Keeps the full literal visible rather than flattening it to a root, display path, or topic alias."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-357-CORE_META_MODEL--define-markdown-atom-main-content.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-357-CORE_META_MODEL--define-markdown-atom-main-content.md",
+      "source_atom_id": "CA-D-357",
+      "source_version": 9,
+      "source_sha256": "0c6bfcce510facf63145fba161ab04307430ceb204b458bc5e4950a8d4db208e",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Markdown Atom Carrier/YAML Frontmatter",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content defines Markdown Atom Main Content as content after YAML Frontmatter. The candidate confirms Carrier as a root and general representation boundaries but not this specialized Carrier kind, placement, address, storage field, or document-part identity; a per-property Carrier registry is not admitted. This is a research gap, not an invented Operator question.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-357-CORE_META_MODEL--define-markdown-atom-main-content.md",
+          "sha256": "0c6bfcce510facf63145fba161ab04307430ceb204b458bc5e4950a8d4db208e",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "9d68f300952a766d144de1e3d2b9c0fa192b2a208b8dc3e67a0f8b5403394410",
+          "reason": "Current Main Content for CA-D-357 establishes the reviewed meaning of 'Markdown Atom Carrier/YAML Frontmatter'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the depends_on role and live meaning of 'Markdown Atom Carrier/YAML Frontmatter'.",
+        "Retains CA-D-357 version 9 as current evidence.",
+        "Does not adopt native grammar, a Relation kind, migration, or a per-property Carrier registry.",
+        "Keeps the full literal visible rather than flattening it to a root, display path, or topic alias."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-357-CORE_META_MODEL--define-markdown-atom-main-content.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-357-CORE_META_MODEL--define-markdown-atom-main-content.md",
+      "source_atom_id": "CA-D-357",
+      "source_version": 9,
+      "source_sha256": "0c6bfcce510facf63145fba161ab04307430ceb204b458bc5e4950a8d4db208e",
+      "field": "governs",
+      "index": null,
+      "old_value": "Markdown Atom Carrier/Main Content",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content defines Markdown Atom Main Content as content after YAML Frontmatter. The candidate confirms Carrier as a root and general representation boundaries but not this specialized Carrier kind, placement, address, storage field, or document-part identity; a per-property Carrier registry is not admitted. This is a research gap, not an invented Operator question.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-357-CORE_META_MODEL--define-markdown-atom-main-content.md",
+          "sha256": "0c6bfcce510facf63145fba161ab04307430ceb204b458bc5e4950a8d4db208e",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "9d68f300952a766d144de1e3d2b9c0fa192b2a208b8dc3e67a0f8b5403394410",
+          "reason": "Current Main Content for CA-D-357 establishes the reviewed meaning of 'Markdown Atom Carrier/Main Content'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the governs role and live meaning of 'Markdown Atom Carrier/Main Content'.",
+        "Retains CA-D-357 version 9 as current evidence.",
+        "Does not adopt native grammar, a Relation kind, migration, or a per-property Carrier registry.",
+        "Keeps the full literal visible rather than flattening it to a root, display path, or topic alias."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-358-CORE_META_MODEL--identify-framework-settings-artifact.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-358-CORE_META_MODEL--identify-framework-settings-artifact.md",
+      "source_atom_id": "CA-D-358",
+      "source_version": 10,
+      "source_sha256": "29a20f1d01704bf176e906981daaa5477e50c67068071253b06357ba0c2e8087",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Framework Instance Settings",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content sets the exact Identifier of the authoritative Framework Instance Settings Artifact. The source distinguishes this settings Artifact, authority, binding, or field from other settings and structure; the candidate names no canonical identity retaining that settings-specific qualification. This is a research gap, not an invented Operator question.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-358-CORE_META_MODEL--identify-framework-settings-artifact.md",
+          "sha256": "29a20f1d01704bf176e906981daaa5477e50c67068071253b06357ba0c2e8087",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "9e0254845b30c4011c8f28f5361f3cb566015d266460d21109967b8bc5944068",
+          "reason": "Current Main Content for CA-D-358 establishes the reviewed meaning of 'Framework Instance Settings'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the depends_on role and live meaning of 'Framework Instance Settings'.",
+        "Retains CA-D-358 version 10 as current evidence.",
+        "Does not adopt native grammar, a Relation kind, migration, or a per-property Carrier registry.",
+        "Keeps the full literal visible rather than flattening it to a root, display path, or topic alias."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-358-CORE_META_MODEL--identify-framework-settings-artifact.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-358-CORE_META_MODEL--identify-framework-settings-artifact.md",
+      "source_atom_id": "CA-D-358",
+      "source_version": 10,
+      "source_sha256": "29a20f1d01704bf176e906981daaa5477e50c67068071253b06357ba0c2e8087",
+      "field": "governs",
+      "index": null,
+      "old_value": "Framework Instance Settings/Identifier",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content sets the exact Identifier of the authoritative Framework Instance Settings Artifact. The source distinguishes this settings Artifact, authority, binding, or field from other settings and structure; the candidate names no canonical identity retaining that settings-specific qualification. This is a research gap, not an invented Operator question.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-358-CORE_META_MODEL--identify-framework-settings-artifact.md",
+          "sha256": "29a20f1d01704bf176e906981daaa5477e50c67068071253b06357ba0c2e8087",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "9e0254845b30c4011c8f28f5361f3cb566015d266460d21109967b8bc5944068",
+          "reason": "Current Main Content for CA-D-358 establishes the reviewed meaning of 'Framework Instance Settings/Identifier'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the governs role and live meaning of 'Framework Instance Settings/Identifier'.",
+        "Retains CA-D-358 version 10 as current evidence.",
+        "Does not adopt native grammar, a Relation kind, migration, or a per-property Carrier registry.",
+        "Keeps the full literal visible rather than flattening it to a root, display path, or topic alias."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-359-CORE_META_MODEL--bind-framework-settings-to-its-authoritative-toml-carrier.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-359-CORE_META_MODEL--bind-framework-settings-to-its-authoritative-toml-carrier.md",
+      "source_atom_id": "CA-D-359",
+      "source_version": 10,
+      "source_sha256": "bec9916eb5f080ea22b9a19dd1124d8f66a1dde0ff2fa289ebd08e427becfd6f",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "File Carrier",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content binds a Framework Instance Settings Artifact to one authoritative TOML File Carrier. The candidate confirms Carrier as a root and general representation boundaries but not this specialized Carrier kind, placement, address, storage field, or document-part identity; a per-property Carrier registry is not admitted. This is a research gap, not an invented Operator question.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-359-CORE_META_MODEL--bind-framework-settings-to-its-authoritative-toml-carrier.md",
+          "sha256": "bec9916eb5f080ea22b9a19dd1124d8f66a1dde0ff2fa289ebd08e427becfd6f",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "1dcce09ccf86046e5e40d53c270d358d0971341597df9a309dff8b4a05e76405",
+          "reason": "Current Main Content for CA-D-359 establishes the reviewed meaning of 'File Carrier'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the depends_on role and live meaning of 'File Carrier'.",
+        "Retains CA-D-359 version 10 as current evidence.",
+        "Does not adopt native grammar, a Relation kind, migration, or a per-property Carrier registry.",
+        "Keeps the full literal visible rather than flattening it to a root, display path, or topic alias."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-359-CORE_META_MODEL--bind-framework-settings-to-its-authoritative-toml-carrier.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-359-CORE_META_MODEL--bind-framework-settings-to-its-authoritative-toml-carrier.md",
+      "source_atom_id": "CA-D-359",
+      "source_version": 10,
+      "source_sha256": "bec9916eb5f080ea22b9a19dd1124d8f66a1dde0ff2fa289ebd08e427becfd6f",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "File Carrier/Format",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content binds a Framework Instance Settings Artifact to one authoritative TOML File Carrier. The candidate confirms Carrier as a root and general representation boundaries but not this specialized Carrier kind, placement, address, storage field, or document-part identity; a per-property Carrier registry is not admitted. This is a research gap, not an invented Operator question.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-359-CORE_META_MODEL--bind-framework-settings-to-its-authoritative-toml-carrier.md",
+          "sha256": "bec9916eb5f080ea22b9a19dd1124d8f66a1dde0ff2fa289ebd08e427becfd6f",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "1dcce09ccf86046e5e40d53c270d358d0971341597df9a309dff8b4a05e76405",
+          "reason": "Current Main Content for CA-D-359 establishes the reviewed meaning of 'File Carrier/Format'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the depends_on role and live meaning of 'File Carrier/Format'.",
+        "Retains CA-D-359 version 10 as current evidence.",
+        "Does not adopt native grammar, a Relation kind, migration, or a per-property Carrier registry.",
+        "Keeps the full literal visible rather than flattening it to a root, display path, or topic alias."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-359-CORE_META_MODEL--bind-framework-settings-to-its-authoritative-toml-carrier.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-359-CORE_META_MODEL--bind-framework-settings-to-its-authoritative-toml-carrier.md",
+      "source_atom_id": "CA-D-359",
+      "source_version": 10,
+      "source_sha256": "bec9916eb5f080ea22b9a19dd1124d8f66a1dde0ff2fa289ebd08e427becfd6f",
+      "field": "governs",
+      "index": null,
+      "old_value": "Framework Instance Settings/Authoritative Carrier",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content binds a Framework Instance Settings Artifact to one authoritative TOML File Carrier. The source distinguishes this settings Artifact, authority, binding, or field from other settings and structure; the candidate names no canonical identity retaining that settings-specific qualification. This is a research gap, not an invented Operator question.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-359-CORE_META_MODEL--bind-framework-settings-to-its-authoritative-toml-carrier.md",
+          "sha256": "bec9916eb5f080ea22b9a19dd1124d8f66a1dde0ff2fa289ebd08e427becfd6f",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "1dcce09ccf86046e5e40d53c270d358d0971341597df9a309dff8b4a05e76405",
+          "reason": "Current Main Content for CA-D-359 establishes the reviewed meaning of 'Framework Instance Settings/Authoritative Carrier'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the governs role and live meaning of 'Framework Instance Settings/Authoritative Carrier'.",
+        "Retains CA-D-359 version 10 as current evidence.",
+        "Does not adopt native grammar, a Relation kind, migration, or a per-property Carrier registry.",
+        "Keeps the full literal visible rather than flattening it to a root, display path, or topic alias."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-360-CORE_META_MODEL--bind-framework-settings-revisions-to-journal-receipts.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-360-CORE_META_MODEL--bind-framework-settings-revisions-to-journal-receipts.md",
+      "source_atom_id": "CA-D-360",
+      "source_version": 12,
+      "source_sha256": "5f20b3b9781fa9c8821682dd855a2e5b32be494692842de317b5440735e23c2a",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Artifact/Revision",
+      "quarantined": false,
+      "decision": "proposed",
+      "proposed_value": "Revision",
+      "confidence": 0.95,
+      "reason": "Current Main Content binds the current Framework Settings Revision and digest to its authoritative Carrier through a completed governed-change Work Journal receipt. The current Delivery source requires a checked historical Revision; mapping to the separate Revision root avoids the excluded Artifact/Revision or Atom/Revision display path.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-360-CORE_META_MODEL--bind-framework-settings-revisions-to-journal-receipts.md",
+          "sha256": "5f20b3b9781fa9c8821682dd855a2e5b32be494692842de317b5440735e23c2a",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "4ded4fd5bf46306c7931f1310934f5b5960f7aa5ae3c63981d1a363a760b26e6",
+          "reason": "Current Main Content for CA-D-360 establishes the reviewed meaning of 'Artifact/Revision'."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/4",
+          "reason": "Revision is the confirmed separate historical root and explicitly excludes Artifact/Revision and Atom/Revision paths."
+        },
+        {
+          "pointer": "/history_model/revision_role",
+          "reason": "The candidate confirms that Revision preserves a historical Artifact state."
+        }
+      ],
+      "preserved_distinctions": [
+        "Retains the depends_on role while mapping 'Artifact/Revision' to 'Revision'.",
+        "Retains CA-D-360 version 12 as current evidence.",
+        "Does not adopt native grammar, a Relation kind, migration, or a per-property Carrier registry.",
+        "Retains the source-stated history, owner, authority, and Carrier distinctions; it assigns no missing value."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-360-CORE_META_MODEL--bind-framework-settings-revisions-to-journal-receipts.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-360-CORE_META_MODEL--bind-framework-settings-revisions-to-journal-receipts.md",
+      "source_atom_id": "CA-D-360",
+      "source_version": 12,
+      "source_sha256": "5f20b3b9781fa9c8821682dd855a2e5b32be494692842de317b5440735e23c2a",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Work Journal/Record",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content binds the current Framework Settings Revision and digest to its authoritative Carrier through a completed governed-change Work Journal receipt. The candidate confirms Journal and records but not this qualified Work Journal event/receipt serialization, event type, or completed-rebuild distinction. This is a research gap, not an invented Operator question.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-360-CORE_META_MODEL--bind-framework-settings-revisions-to-journal-receipts.md",
+          "sha256": "5f20b3b9781fa9c8821682dd855a2e5b32be494692842de317b5440735e23c2a",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "4ded4fd5bf46306c7931f1310934f5b5960f7aa5ae3c63981d1a363a760b26e6",
+          "reason": "Current Main Content for CA-D-360 establishes the reviewed meaning of 'Work Journal/Record'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the depends_on role and live meaning of 'Work Journal/Record'.",
+        "Retains CA-D-360 version 12 as current evidence.",
+        "Does not adopt native grammar, a Relation kind, migration, or a per-property Carrier registry.",
+        "Keeps the full literal visible rather than flattening it to a root, display path, or topic alias."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-360-CORE_META_MODEL--bind-framework-settings-revisions-to-journal-receipts.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-360-CORE_META_MODEL--bind-framework-settings-revisions-to-journal-receipts.md",
+      "source_atom_id": "CA-D-360",
+      "source_version": 12,
+      "source_sha256": "5f20b3b9781fa9c8821682dd855a2e5b32be494692842de317b5440735e23c2a",
+      "field": "governs",
+      "index": null,
+      "old_value": "Framework Instance Settings/Revision Binding",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content binds the current Framework Settings Revision and digest to its authoritative Carrier through a completed governed-change Work Journal receipt. The source distinguishes this settings Artifact, authority, binding, or field from other settings and structure; the candidate names no canonical identity retaining that settings-specific qualification. This is a research gap, not an invented Operator question.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-360-CORE_META_MODEL--bind-framework-settings-revisions-to-journal-receipts.md",
+          "sha256": "5f20b3b9781fa9c8821682dd855a2e5b32be494692842de317b5440735e23c2a",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "4ded4fd5bf46306c7931f1310934f5b5960f7aa5ae3c63981d1a363a760b26e6",
+          "reason": "Current Main Content for CA-D-360 establishes the reviewed meaning of 'Framework Instance Settings/Revision Binding'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the governs role and live meaning of 'Framework Instance Settings/Revision Binding'.",
+        "Retains CA-D-360 version 12 as current evidence.",
+        "Does not adopt native grammar, a Relation kind, migration, or a per-property Carrier registry.",
+        "Keeps the full literal visible rather than flattening it to a root, display path, or topic alias."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-361-CORE_META_MODEL--serialize-framework-settings-content-in-toml.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-361-CORE_META_MODEL--serialize-framework-settings-content-in-toml.md",
+      "source_atom_id": "CA-D-361",
+      "source_version": 10,
+      "source_sha256": "08f48988f709e47417ae7d3c01c33c4bd9cfc64066e7d6996133a465afc51d68",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Tool",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content limits Framework Instance Settings TOML to explicit Operator-selected instance choices and excludes Project initialization, Project Structure, and derived structural values. The source gives a specific process, projection, term, threshold, source, or Project meaning, but the candidate has no canonical identity retaining its qualifier rather than flattening it to a broad root or topic label. This is a research gap, not an invented Operator question.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-361-CORE_META_MODEL--serialize-framework-settings-content-in-toml.md",
+          "sha256": "08f48988f709e47417ae7d3c01c33c4bd9cfc64066e7d6996133a465afc51d68",
+          "start_line": 26,
+          "end_line": 38,
+          "span_sha256": "4b5bdb8371dadd600c4c985d41552c482b3481fff670e253227589e1c793bc3a",
+          "reason": "Current Main Content for CA-D-361 establishes the reviewed meaning of 'Tool'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the depends_on role and live meaning of 'Tool'.",
+        "Retains CA-D-361 version 10 as current evidence.",
+        "Does not adopt native grammar, a Relation kind, migration, or a per-property Carrier registry.",
+        "Keeps the full literal visible rather than flattening it to a root, display path, or topic alias."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-361-CORE_META_MODEL--serialize-framework-settings-content-in-toml.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-361-CORE_META_MODEL--serialize-framework-settings-content-in-toml.md",
+      "source_atom_id": "CA-D-361",
+      "source_version": 10,
+      "source_sha256": "08f48988f709e47417ae7d3c01c33c4bd9cfc64066e7d6996133a465afc51d68",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Extension",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content limits Framework Instance Settings TOML to explicit Operator-selected instance choices and excludes Project initialization, Project Structure, and derived structural values. The source gives a specific process, projection, term, threshold, source, or Project meaning, but the candidate has no canonical identity retaining its qualifier rather than flattening it to a broad root or topic label. This is a research gap, not an invented Operator question.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-361-CORE_META_MODEL--serialize-framework-settings-content-in-toml.md",
+          "sha256": "08f48988f709e47417ae7d3c01c33c4bd9cfc64066e7d6996133a465afc51d68",
+          "start_line": 26,
+          "end_line": 38,
+          "span_sha256": "4b5bdb8371dadd600c4c985d41552c482b3481fff670e253227589e1c793bc3a",
+          "reason": "Current Main Content for CA-D-361 establishes the reviewed meaning of 'Extension'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the depends_on role and live meaning of 'Extension'.",
+        "Retains CA-D-361 version 10 as current evidence.",
+        "Does not adopt native grammar, a Relation kind, migration, or a per-property Carrier registry.",
+        "Keeps the full literal visible rather than flattening it to a root, display path, or topic alias."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-361-CORE_META_MODEL--serialize-framework-settings-content-in-toml.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-361-CORE_META_MODEL--serialize-framework-settings-content-in-toml.md",
+      "source_atom_id": "CA-D-361",
+      "source_version": 10,
+      "source_sha256": "08f48988f709e47417ae7d3c01c33c4bd9cfc64066e7d6996133a465afc51d68",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Framework Instance Settings",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content limits Framework Instance Settings TOML to explicit Operator-selected instance choices and excludes Project initialization, Project Structure, and derived structural values. The source distinguishes this settings Artifact, authority, binding, or field from other settings and structure; the candidate names no canonical identity retaining that settings-specific qualification. This is a research gap, not an invented Operator question.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-361-CORE_META_MODEL--serialize-framework-settings-content-in-toml.md",
+          "sha256": "08f48988f709e47417ae7d3c01c33c4bd9cfc64066e7d6996133a465afc51d68",
+          "start_line": 26,
+          "end_line": 38,
+          "span_sha256": "4b5bdb8371dadd600c4c985d41552c482b3481fff670e253227589e1c793bc3a",
+          "reason": "Current Main Content for CA-D-361 establishes the reviewed meaning of 'Framework Instance Settings'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the depends_on role and live meaning of 'Framework Instance Settings'.",
+        "Retains CA-D-361 version 10 as current evidence.",
+        "Does not adopt native grammar, a Relation kind, migration, or a per-property Carrier registry.",
+        "Keeps the full literal visible rather than flattening it to a root, display path, or topic alias."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-361-CORE_META_MODEL--serialize-framework-settings-content-in-toml.md#subjects.depends_on[3]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-361-CORE_META_MODEL--serialize-framework-settings-content-in-toml.md",
+      "source_atom_id": "CA-D-361",
+      "source_version": 10,
+      "source_sha256": "08f48988f709e47417ae7d3c01c33c4bd9cfc64066e7d6996133a465afc51d68",
+      "field": "depends_on",
+      "index": 3,
+      "old_value": "Default Settings",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content limits Framework Instance Settings TOML to explicit Operator-selected instance choices and excludes Project initialization, Project Structure, and derived structural values. The source distinguishes this settings Artifact, authority, binding, or field from other settings and structure; the candidate names no canonical identity retaining that settings-specific qualification. This is a research gap, not an invented Operator question.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-361-CORE_META_MODEL--serialize-framework-settings-content-in-toml.md",
+          "sha256": "08f48988f709e47417ae7d3c01c33c4bd9cfc64066e7d6996133a465afc51d68",
+          "start_line": 26,
+          "end_line": 38,
+          "span_sha256": "4b5bdb8371dadd600c4c985d41552c482b3481fff670e253227589e1c793bc3a",
+          "reason": "Current Main Content for CA-D-361 establishes the reviewed meaning of 'Default Settings'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the depends_on role and live meaning of 'Default Settings'.",
+        "Retains CA-D-361 version 10 as current evidence.",
+        "Does not adopt native grammar, a Relation kind, migration, or a per-property Carrier registry.",
+        "Keeps the full literal visible rather than flattening it to a root, display path, or topic alias."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-361-CORE_META_MODEL--serialize-framework-settings-content-in-toml.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-361-CORE_META_MODEL--serialize-framework-settings-content-in-toml.md",
+      "source_atom_id": "CA-D-361",
+      "source_version": 10,
+      "source_sha256": "08f48988f709e47417ae7d3c01c33c4bd9cfc64066e7d6996133a465afc51d68",
+      "field": "governs",
+      "index": null,
+      "old_value": "Framework Instance Settings/Authoritative Carrier/Content",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content limits Framework Instance Settings TOML to explicit Operator-selected instance choices and excludes Project initialization, Project Structure, and derived structural values. The source distinguishes this settings Artifact, authority, binding, or field from other settings and structure; the candidate names no canonical identity retaining that settings-specific qualification. This is a research gap, not an invented Operator question.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-361-CORE_META_MODEL--serialize-framework-settings-content-in-toml.md",
+          "sha256": "08f48988f709e47417ae7d3c01c33c4bd9cfc64066e7d6996133a465afc51d68",
+          "start_line": 26,
+          "end_line": 38,
+          "span_sha256": "4b5bdb8371dadd600c4c985d41552c482b3481fff670e253227589e1c793bc3a",
+          "reason": "Current Main Content for CA-D-361 establishes the reviewed meaning of 'Framework Instance Settings/Authoritative Carrier/Content'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the governs role and live meaning of 'Framework Instance Settings/Authoritative Carrier/Content'.",
+        "Retains CA-D-361 version 10 as current evidence.",
+        "Does not adopt native grammar, a Relation kind, migration, or a per-property Carrier registry.",
+        "Keeps the full literal visible rather than flattening it to a root, display path, or topic alias."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-362-CORE_META_MODEL--identify-project-settings-artifact.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-362-CORE_META_MODEL--identify-project-settings-artifact.md",
+      "source_atom_id": "CA-D-362",
+      "source_version": 10,
+      "source_sha256": "3cf6985a157cfd77e5d084bdc8e3e748eb3aa7c5fededa64a79049717b10ac7a",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Project Settings",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content sets the exact Identifier of Project Settings. The source distinguishes this settings Artifact, authority, binding, or field from other settings and structure; the candidate names no canonical identity retaining that settings-specific qualification. This is a research gap, not an invented Operator question.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-362-CORE_META_MODEL--identify-project-settings-artifact.md",
+          "sha256": "3cf6985a157cfd77e5d084bdc8e3e748eb3aa7c5fededa64a79049717b10ac7a",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "1214709897fc8c28a6ad626ce46fcddc271bab8c381d83a540cba030184f9981",
+          "reason": "Current Main Content for CA-D-362 establishes the reviewed meaning of 'Project Settings'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the depends_on role and live meaning of 'Project Settings'.",
+        "Retains CA-D-362 version 10 as current evidence.",
+        "Does not adopt native grammar, a Relation kind, migration, or a per-property Carrier registry.",
+        "Keeps the full literal visible rather than flattening it to a root, display path, or topic alias."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-362-CORE_META_MODEL--identify-project-settings-artifact.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-362-CORE_META_MODEL--identify-project-settings-artifact.md",
+      "source_atom_id": "CA-D-362",
+      "source_version": 10,
+      "source_sha256": "3cf6985a157cfd77e5d084bdc8e3e748eb3aa7c5fededa64a79049717b10ac7a",
+      "field": "governs",
+      "index": null,
+      "old_value": "Project Settings/Identifier",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content sets the exact Identifier of Project Settings. The source distinguishes this settings Artifact, authority, binding, or field from other settings and structure; the candidate names no canonical identity retaining that settings-specific qualification. This is a research gap, not an invented Operator question.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-362-CORE_META_MODEL--identify-project-settings-artifact.md",
+          "sha256": "3cf6985a157cfd77e5d084bdc8e3e748eb3aa7c5fededa64a79049717b10ac7a",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "1214709897fc8c28a6ad626ce46fcddc271bab8c381d83a540cba030184f9981",
+          "reason": "Current Main Content for CA-D-362 establishes the reviewed meaning of 'Project Settings/Identifier'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the governs role and live meaning of 'Project Settings/Identifier'.",
+        "Retains CA-D-362 version 10 as current evidence.",
+        "Does not adopt native grammar, a Relation kind, migration, or a per-property Carrier registry.",
+        "Keeps the full literal visible rather than flattening it to a root, display path, or topic alias."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-363-CORE_META_MODEL-DELIVERY--serialize-project-settings-filename.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-363-CORE_META_MODEL-DELIVERY--serialize-project-settings-filename.md",
+      "source_atom_id": "CA-D-363",
+      "source_version": 10,
+      "source_sha256": "6ba8b8ddadfa6f10a1f7b0344e16b40fb908016175f9f9e8cd2aa3d13e51b8a0",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "File Carrier",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content sets the exact authoritative Project Settings TOML File Carrier filename using the lowercase Project name. The candidate confirms Carrier as a root and general representation boundaries but not this specialized Carrier kind, placement, address, storage field, or document-part identity; a per-property Carrier registry is not admitted. This is a research gap, not an invented Operator question.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-363-CORE_META_MODEL-DELIVERY--serialize-project-settings-filename.md",
+          "sha256": "6ba8b8ddadfa6f10a1f7b0344e16b40fb908016175f9f9e8cd2aa3d13e51b8a0",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "01cb144b7435bd2a9c8ced9e89a7cb9b7b935948d93e0282238854b230e95193",
+          "reason": "Current Main Content for CA-D-363 establishes the reviewed meaning of 'File Carrier'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the depends_on role and live meaning of 'File Carrier'.",
+        "Retains CA-D-363 version 10 as current evidence.",
+        "Does not adopt native grammar, a Relation kind, migration, or a per-property Carrier registry.",
+        "Keeps the full literal visible rather than flattening it to a root, display path, or topic alias."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-363-CORE_META_MODEL-DELIVERY--serialize-project-settings-filename.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-363-CORE_META_MODEL-DELIVERY--serialize-project-settings-filename.md",
+      "source_atom_id": "CA-D-363",
+      "source_version": 10,
+      "source_sha256": "6ba8b8ddadfa6f10a1f7b0344e16b40fb908016175f9f9e8cd2aa3d13e51b8a0",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "File Carrier/Format",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content sets the exact authoritative Project Settings TOML File Carrier filename using the lowercase Project name. The candidate confirms Carrier as a root and general representation boundaries but not this specialized Carrier kind, placement, address, storage field, or document-part identity; a per-property Carrier registry is not admitted. This is a research gap, not an invented Operator question.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-363-CORE_META_MODEL-DELIVERY--serialize-project-settings-filename.md",
+          "sha256": "6ba8b8ddadfa6f10a1f7b0344e16b40fb908016175f9f9e8cd2aa3d13e51b8a0",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "01cb144b7435bd2a9c8ced9e89a7cb9b7b935948d93e0282238854b230e95193",
+          "reason": "Current Main Content for CA-D-363 establishes the reviewed meaning of 'File Carrier/Format'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the depends_on role and live meaning of 'File Carrier/Format'.",
+        "Retains CA-D-363 version 10 as current evidence.",
+        "Does not adopt native grammar, a Relation kind, migration, or a per-property Carrier registry.",
+        "Keeps the full literal visible rather than flattening it to a root, display path, or topic alias."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-363-CORE_META_MODEL-DELIVERY--serialize-project-settings-filename.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-363-CORE_META_MODEL-DELIVERY--serialize-project-settings-filename.md",
+      "source_atom_id": "CA-D-363",
+      "source_version": 10,
+      "source_sha256": "6ba8b8ddadfa6f10a1f7b0344e16b40fb908016175f9f9e8cd2aa3d13e51b8a0",
+      "field": "governs",
+      "index": null,
+      "old_value": "Project Settings/Authoritative Carrier/Filename",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content sets the exact authoritative Project Settings TOML File Carrier filename using the lowercase Project name. The source distinguishes this settings Artifact, authority, binding, or field from other settings and structure; the candidate names no canonical identity retaining that settings-specific qualification. This is a research gap, not an invented Operator question.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-363-CORE_META_MODEL-DELIVERY--serialize-project-settings-filename.md",
+          "sha256": "6ba8b8ddadfa6f10a1f7b0344e16b40fb908016175f9f9e8cd2aa3d13e51b8a0",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "01cb144b7435bd2a9c8ced9e89a7cb9b7b935948d93e0282238854b230e95193",
+          "reason": "Current Main Content for CA-D-363 establishes the reviewed meaning of 'Project Settings/Authoritative Carrier/Filename'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the governs role and live meaning of 'Project Settings/Authoritative Carrier/Filename'.",
+        "Retains CA-D-363 version 10 as current evidence.",
+        "Does not adopt native grammar, a Relation kind, migration, or a per-property Carrier registry.",
+        "Keeps the full literal visible rather than flattening it to a root, display path, or topic alias."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-364-CORE_META_MODEL-DELIVERY--bind-project-settings-to-its-authoritative-toml-carrier.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-364-CORE_META_MODEL-DELIVERY--bind-project-settings-to-its-authoritative-toml-carrier.md",
+      "source_atom_id": "CA-D-364",
+      "source_version": 9,
+      "source_sha256": "d3c65961678f87759d0fe6155d1d7ff01c545cd6d93f9593d938241dd4637c1e",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Project Settings/Authoritative Carrier/Filename",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content binds Project Settings to one authoritative TOML File Carrier. The source distinguishes this settings Artifact, authority, binding, or field from other settings and structure; the candidate names no canonical identity retaining that settings-specific qualification. This is a research gap, not an invented Operator question.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-364-CORE_META_MODEL-DELIVERY--bind-project-settings-to-its-authoritative-toml-carrier.md",
+          "sha256": "d3c65961678f87759d0fe6155d1d7ff01c545cd6d93f9593d938241dd4637c1e",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "d56e7c6f379bd31e0ca23b6b17fed306e9f3303951d088d4c012d3ef55ce2234",
+          "reason": "Current Main Content for CA-D-364 establishes the reviewed meaning of 'Project Settings/Authoritative Carrier/Filename'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the depends_on role and live meaning of 'Project Settings/Authoritative Carrier/Filename'.",
+        "Retains CA-D-364 version 9 as current evidence.",
+        "Does not adopt native grammar, a Relation kind, migration, or a per-property Carrier registry.",
+        "Keeps the full literal visible rather than flattening it to a root, display path, or topic alias."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-364-CORE_META_MODEL-DELIVERY--bind-project-settings-to-its-authoritative-toml-carrier.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-364-CORE_META_MODEL-DELIVERY--bind-project-settings-to-its-authoritative-toml-carrier.md",
+      "source_atom_id": "CA-D-364",
+      "source_version": 9,
+      "source_sha256": "d3c65961678f87759d0fe6155d1d7ff01c545cd6d93f9593d938241dd4637c1e",
+      "field": "governs",
+      "index": null,
+      "old_value": "Project Settings/Authoritative Carrier",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content binds Project Settings to one authoritative TOML File Carrier. The source distinguishes this settings Artifact, authority, binding, or field from other settings and structure; the candidate names no canonical identity retaining that settings-specific qualification. This is a research gap, not an invented Operator question.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-364-CORE_META_MODEL-DELIVERY--bind-project-settings-to-its-authoritative-toml-carrier.md",
+          "sha256": "d3c65961678f87759d0fe6155d1d7ff01c545cd6d93f9593d938241dd4637c1e",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "d56e7c6f379bd31e0ca23b6b17fed306e9f3303951d088d4c012d3ef55ce2234",
+          "reason": "Current Main Content for CA-D-364 establishes the reviewed meaning of 'Project Settings/Authoritative Carrier'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the governs role and live meaning of 'Project Settings/Authoritative Carrier'.",
+        "Retains CA-D-364 version 9 as current evidence.",
+        "Does not adopt native grammar, a Relation kind, migration, or a per-property Carrier registry.",
+        "Keeps the full literal visible rather than flattening it to a root, display path, or topic alias."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-365-CORE_META_MODEL--bind-project-settings-revisions-to-journal-receipts.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-365-CORE_META_MODEL--bind-project-settings-revisions-to-journal-receipts.md",
+      "source_atom_id": "CA-D-365",
+      "source_version": 11,
+      "source_sha256": "24f13ae1d0de4a16bf7be7ff932b36e67f1fd4888c6b2048f9646796c39f11eb",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Artifact/Revision",
+      "quarantined": false,
+      "decision": "proposed",
+      "proposed_value": "Revision",
+      "confidence": 0.95,
+      "reason": "Current Main Content binds the current Project Settings Revision and digest to its authoritative Carrier through a completed governed-change Work Journal receipt. The current Delivery source requires a checked historical Revision; mapping to the separate Revision root avoids the excluded Artifact/Revision or Atom/Revision display path.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-365-CORE_META_MODEL--bind-project-settings-revisions-to-journal-receipts.md",
+          "sha256": "24f13ae1d0de4a16bf7be7ff932b36e67f1fd4888c6b2048f9646796c39f11eb",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "e6793be31fa0f9a7cebbb86b52529612e21f3078952aad6995e52dbcfd0b64d0",
+          "reason": "Current Main Content for CA-D-365 establishes the reviewed meaning of 'Artifact/Revision'."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/4",
+          "reason": "Revision is the confirmed separate historical root and explicitly excludes Artifact/Revision and Atom/Revision paths."
+        },
+        {
+          "pointer": "/history_model/revision_role",
+          "reason": "The candidate confirms that Revision preserves a historical Artifact state."
+        }
+      ],
+      "preserved_distinctions": [
+        "Retains the depends_on role while mapping 'Artifact/Revision' to 'Revision'.",
+        "Retains CA-D-365 version 11 as current evidence.",
+        "Does not adopt native grammar, a Relation kind, migration, or a per-property Carrier registry.",
+        "Retains the source-stated history, owner, authority, and Carrier distinctions; it assigns no missing value."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-365-CORE_META_MODEL--bind-project-settings-revisions-to-journal-receipts.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-365-CORE_META_MODEL--bind-project-settings-revisions-to-journal-receipts.md",
+      "source_atom_id": "CA-D-365",
+      "source_version": 11,
+      "source_sha256": "24f13ae1d0de4a16bf7be7ff932b36e67f1fd4888c6b2048f9646796c39f11eb",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Work Journal/Record",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content binds the current Project Settings Revision and digest to its authoritative Carrier through a completed governed-change Work Journal receipt. The candidate confirms Journal and records but not this qualified Work Journal event/receipt serialization, event type, or completed-rebuild distinction. This is a research gap, not an invented Operator question.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-365-CORE_META_MODEL--bind-project-settings-revisions-to-journal-receipts.md",
+          "sha256": "24f13ae1d0de4a16bf7be7ff932b36e67f1fd4888c6b2048f9646796c39f11eb",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "e6793be31fa0f9a7cebbb86b52529612e21f3078952aad6995e52dbcfd0b64d0",
+          "reason": "Current Main Content for CA-D-365 establishes the reviewed meaning of 'Work Journal/Record'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the depends_on role and live meaning of 'Work Journal/Record'.",
+        "Retains CA-D-365 version 11 as current evidence.",
+        "Does not adopt native grammar, a Relation kind, migration, or a per-property Carrier registry.",
+        "Keeps the full literal visible rather than flattening it to a root, display path, or topic alias."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-365-CORE_META_MODEL--bind-project-settings-revisions-to-journal-receipts.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-365-CORE_META_MODEL--bind-project-settings-revisions-to-journal-receipts.md",
+      "source_atom_id": "CA-D-365",
+      "source_version": 11,
+      "source_sha256": "24f13ae1d0de4a16bf7be7ff932b36e67f1fd4888c6b2048f9646796c39f11eb",
+      "field": "governs",
+      "index": null,
+      "old_value": "Project Settings/Revision Binding",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content binds the current Project Settings Revision and digest to its authoritative Carrier through a completed governed-change Work Journal receipt. The source distinguishes this settings Artifact, authority, binding, or field from other settings and structure; the candidate names no canonical identity retaining that settings-specific qualification. This is a research gap, not an invented Operator question.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-365-CORE_META_MODEL--bind-project-settings-revisions-to-journal-receipts.md",
+          "sha256": "24f13ae1d0de4a16bf7be7ff932b36e67f1fd4888c6b2048f9646796c39f11eb",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "e6793be31fa0f9a7cebbb86b52529612e21f3078952aad6995e52dbcfd0b64d0",
+          "reason": "Current Main Content for CA-D-365 establishes the reviewed meaning of 'Project Settings/Revision Binding'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the governs role and live meaning of 'Project Settings/Revision Binding'.",
+        "Retains CA-D-365 version 11 as current evidence.",
+        "Does not adopt native grammar, a Relation kind, migration, or a per-property Carrier registry.",
+        "Keeps the full literal visible rather than flattening it to a root, display path, or topic alias."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-366-CORE_META_MODEL--serialize-project-settings-content-in-toml.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-366-CORE_META_MODEL--serialize-project-settings-content-in-toml.md",
+      "source_atom_id": "CA-D-366",
+      "source_version": 8,
+      "source_sha256": "bebc1757b70b3d60b1819c4582ea45fe1fe133c18806c64c7cd43d5619c3876c",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Project",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content limits Project Settings TOML to Operator-editable Project initialization inputs and excludes Framework choices, Project Structure, and derived values. The source gives a specific process, projection, term, threshold, source, or Project meaning, but the candidate has no canonical identity retaining its qualifier rather than flattening it to a broad root or topic label. This is a research gap, not an invented Operator question.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-366-CORE_META_MODEL--serialize-project-settings-content-in-toml.md",
+          "sha256": "bebc1757b70b3d60b1819c4582ea45fe1fe133c18806c64c7cd43d5619c3876c",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "ac204ba75340b5cfda43dacbfcb5fb9faba22c65cf39f3e2a68c79dcc72f4987",
+          "reason": "Current Main Content for CA-D-366 establishes the reviewed meaning of 'Project'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the depends_on role and live meaning of 'Project'.",
+        "Retains CA-D-366 version 8 as current evidence.",
+        "Does not adopt native grammar, a Relation kind, migration, or a per-property Carrier registry.",
+        "Keeps the full literal visible rather than flattening it to a root, display path, or topic alias."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-366-CORE_META_MODEL--serialize-project-settings-content-in-toml.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-366-CORE_META_MODEL--serialize-project-settings-content-in-toml.md",
+      "source_atom_id": "CA-D-366",
+      "source_version": 8,
+      "source_sha256": "bebc1757b70b3d60b1819c4582ea45fe1fe133c18806c64c7cd43d5619c3876c",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Atom/Identifier/Project Prefix",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content limits Project Settings TOML to Operator-editable Project initialization inputs and excludes Framework choices, Project Structure, and derived values. The candidate does not confirm a canonical owner/field, Claim role-domain, signature Projection, or identifier mapping retaining this complete Atom-qualified meaning. This is a research gap, not an invented Operator question.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-366-CORE_META_MODEL--serialize-project-settings-content-in-toml.md",
+          "sha256": "bebc1757b70b3d60b1819c4582ea45fe1fe133c18806c64c7cd43d5619c3876c",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "ac204ba75340b5cfda43dacbfcb5fb9faba22c65cf39f3e2a68c79dcc72f4987",
+          "reason": "Current Main Content for CA-D-366 establishes the reviewed meaning of 'Atom/Identifier/Project Prefix'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the depends_on role and live meaning of 'Atom/Identifier/Project Prefix'.",
+        "Retains CA-D-366 version 8 as current evidence.",
+        "Does not adopt native grammar, a Relation kind, migration, or a per-property Carrier registry.",
+        "Keeps the full literal visible rather than flattening it to a root, display path, or topic alias."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-366-CORE_META_MODEL--serialize-project-settings-content-in-toml.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-366-CORE_META_MODEL--serialize-project-settings-content-in-toml.md",
+      "source_atom_id": "CA-D-366",
+      "source_version": 8,
+      "source_sha256": "bebc1757b70b3d60b1819c4582ea45fe1fe133c18806c64c7cd43d5619c3876c",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Framework Instance Settings",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content limits Project Settings TOML to Operator-editable Project initialization inputs and excludes Framework choices, Project Structure, and derived values. The source distinguishes this settings Artifact, authority, binding, or field from other settings and structure; the candidate names no canonical identity retaining that settings-specific qualification. This is a research gap, not an invented Operator question.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-366-CORE_META_MODEL--serialize-project-settings-content-in-toml.md",
+          "sha256": "bebc1757b70b3d60b1819c4582ea45fe1fe133c18806c64c7cd43d5619c3876c",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "ac204ba75340b5cfda43dacbfcb5fb9faba22c65cf39f3e2a68c79dcc72f4987",
+          "reason": "Current Main Content for CA-D-366 establishes the reviewed meaning of 'Framework Instance Settings'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the depends_on role and live meaning of 'Framework Instance Settings'.",
+        "Retains CA-D-366 version 8 as current evidence.",
+        "Does not adopt native grammar, a Relation kind, migration, or a per-property Carrier registry.",
+        "Keeps the full literal visible rather than flattening it to a root, display path, or topic alias."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-366-CORE_META_MODEL--serialize-project-settings-content-in-toml.md#subjects.depends_on[3]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-366-CORE_META_MODEL--serialize-project-settings-content-in-toml.md",
+      "source_atom_id": "CA-D-366",
+      "source_version": 8,
+      "source_sha256": "bebc1757b70b3d60b1819c4582ea45fe1fe133c18806c64c7cd43d5619c3876c",
+      "field": "depends_on",
+      "index": 3,
+      "old_value": "Projection",
+      "quarantined": false,
+      "decision": "unchanged",
+      "proposed_value": "Projection",
+      "confidence": 0.95,
+      "reason": "Current Main Content limits Project Settings TOML to Operator-editable Project initialization inputs and excludes Framework choices, Project Structure, and derived values. The current source uses an exact candidate identity; retaining the literal does not add a display prefix, native grammar, or migration.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-366-CORE_META_MODEL--serialize-project-settings-content-in-toml.md",
+          "sha256": "bebc1757b70b3d60b1819c4582ea45fe1fe133c18806c64c7cd43d5619c3876c",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "ac204ba75340b5cfda43dacbfcb5fb9faba22c65cf39f3e2a68c79dcc72f4987",
+          "reason": "Current Main Content for CA-D-366 establishes the reviewed meaning of 'Projection'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the depends_on role and live meaning of 'Projection'.",
+        "Retains CA-D-366 version 8 as current evidence.",
+        "Does not adopt native grammar, a Relation kind, migration, or a per-property Carrier registry."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-366-CORE_META_MODEL--serialize-project-settings-content-in-toml.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-366-CORE_META_MODEL--serialize-project-settings-content-in-toml.md",
+      "source_atom_id": "CA-D-366",
+      "source_version": 8,
+      "source_sha256": "bebc1757b70b3d60b1819c4582ea45fe1fe133c18806c64c7cd43d5619c3876c",
+      "field": "governs",
+      "index": null,
+      "old_value": "Project Settings/Authoritative Carrier/Content",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content limits Project Settings TOML to Operator-editable Project initialization inputs and excludes Framework choices, Project Structure, and derived values. The source distinguishes this settings Artifact, authority, binding, or field from other settings and structure; the candidate names no canonical identity retaining that settings-specific qualification. This is a research gap, not an invented Operator question.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-366-CORE_META_MODEL--serialize-project-settings-content-in-toml.md",
+          "sha256": "bebc1757b70b3d60b1819c4582ea45fe1fe133c18806c64c7cd43d5619c3876c",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "ac204ba75340b5cfda43dacbfcb5fb9faba22c65cf39f3e2a68c79dcc72f4987",
+          "reason": "Current Main Content for CA-D-366 establishes the reviewed meaning of 'Project Settings/Authoritative Carrier/Content'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the governs role and live meaning of 'Project Settings/Authoritative Carrier/Content'.",
+        "Retains CA-D-366 version 8 as current evidence.",
+        "Does not adopt native grammar, a Relation kind, migration, or a per-property Carrier registry.",
+        "Keeps the full literal visible rather than flattening it to a root, display path, or topic alias."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-368-CORE_META_MODEL--serialize-the-necessary-information-confidence-default.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-368-CORE_META_MODEL--serialize-the-necessary-information-confidence-default.md",
+      "source_atom_id": "CA-D-368",
+      "source_version": 9,
+      "source_sha256": "2e0bef089d6cdb0620db9cd87f912f30d659c3a7145f3e64fa0b5e3904c554c8",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Framework Instance Settings",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content sets the necessary-information confidence default to one named integer-percentage field in the Framework Instance Settings TOML Carrier. The source distinguishes this settings Artifact, authority, binding, or field from other settings and structure; the candidate names no canonical identity retaining that settings-specific qualification. This is a research gap, not an invented Operator question.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-368-CORE_META_MODEL--serialize-the-necessary-information-confidence-default.md",
+          "sha256": "2e0bef089d6cdb0620db9cd87f912f30d659c3a7145f3e64fa0b5e3904c554c8",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "81ef23b761b82e934caa4a548952806e2bc9f6cf184dc7bb90ca77def35076d7",
+          "reason": "Current Main Content for CA-D-368 establishes the reviewed meaning of 'Framework Instance Settings'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the depends_on role and live meaning of 'Framework Instance Settings'.",
+        "Retains CA-D-368 version 9 as current evidence.",
+        "Does not adopt native grammar, a Relation kind, migration, or a per-property Carrier registry.",
+        "Keeps the full literal visible rather than flattening it to a root, display path, or topic alias."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-368-CORE_META_MODEL--serialize-the-necessary-information-confidence-default.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-368-CORE_META_MODEL--serialize-the-necessary-information-confidence-default.md",
+      "source_atom_id": "CA-D-368",
+      "source_version": 9,
+      "source_sha256": "2e0bef089d6cdb0620db9cd87f912f30d659c3a7145f3e64fa0b5e3904c554c8",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Confidence Threshold",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content sets the necessary-information confidence default to one named integer-percentage field in the Framework Instance Settings TOML Carrier. The source gives a specific process, projection, term, threshold, source, or Project meaning, but the candidate has no canonical identity retaining its qualifier rather than flattening it to a broad root or topic label. This is a research gap, not an invented Operator question.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-368-CORE_META_MODEL--serialize-the-necessary-information-confidence-default.md",
+          "sha256": "2e0bef089d6cdb0620db9cd87f912f30d659c3a7145f3e64fa0b5e3904c554c8",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "81ef23b761b82e934caa4a548952806e2bc9f6cf184dc7bb90ca77def35076d7",
+          "reason": "Current Main Content for CA-D-368 establishes the reviewed meaning of 'Confidence Threshold'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the depends_on role and live meaning of 'Confidence Threshold'.",
+        "Retains CA-D-368 version 9 as current evidence.",
+        "Does not adopt native grammar, a Relation kind, migration, or a per-property Carrier registry.",
+        "Keeps the full literal visible rather than flattening it to a root, display path, or topic alias."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-368-CORE_META_MODEL--serialize-the-necessary-information-confidence-default.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-368-CORE_META_MODEL--serialize-the-necessary-information-confidence-default.md",
+      "source_atom_id": "CA-D-368",
+      "source_version": 9,
+      "source_sha256": "2e0bef089d6cdb0620db9cd87f912f30d659c3a7145f3e64fa0b5e3904c554c8",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Carrier",
+      "quarantined": false,
+      "decision": "unchanged",
+      "proposed_value": "Carrier",
+      "confidence": 0.95,
+      "reason": "Current Main Content sets the necessary-information confidence default to one named integer-percentage field in the Framework Instance Settings TOML Carrier. The current source uses an exact candidate identity; retaining the literal does not add a display prefix, native grammar, or migration.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-368-CORE_META_MODEL--serialize-the-necessary-information-confidence-default.md",
+          "sha256": "2e0bef089d6cdb0620db9cd87f912f30d659c3a7145f3e64fa0b5e3904c554c8",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "81ef23b761b82e934caa4a548952806e2bc9f6cf184dc7bb90ca77def35076d7",
+          "reason": "Current Main Content for CA-D-368 establishes the reviewed meaning of 'Carrier'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the depends_on role and live meaning of 'Carrier'.",
+        "Retains CA-D-368 version 9 as current evidence.",
+        "Does not adopt native grammar, a Relation kind, migration, or a per-property Carrier registry."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-368-CORE_META_MODEL--serialize-the-necessary-information-confidence-default.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-368-CORE_META_MODEL--serialize-the-necessary-information-confidence-default.md",
+      "source_atom_id": "CA-D-368",
+      "source_version": 9,
+      "source_sha256": "2e0bef089d6cdb0620db9cd87f912f30d659c3a7145f3e64fa0b5e3904c554c8",
+      "field": "governs",
+      "index": null,
+      "old_value": "Framework Instance Settings/Confidence/Necessary Information Threshold/Carrier",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content sets the necessary-information confidence default to one named integer-percentage field in the Framework Instance Settings TOML Carrier. The source distinguishes this settings Artifact, authority, binding, or field from other settings and structure; the candidate names no canonical identity retaining that settings-specific qualification. This is a research gap, not an invented Operator question.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-368-CORE_META_MODEL--serialize-the-necessary-information-confidence-default.md",
+          "sha256": "2e0bef089d6cdb0620db9cd87f912f30d659c3a7145f3e64fa0b5e3904c554c8",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "81ef23b761b82e934caa4a548952806e2bc9f6cf184dc7bb90ca77def35076d7",
+          "reason": "Current Main Content for CA-D-368 establishes the reviewed meaning of 'Framework Instance Settings/Confidence/Necessary Information Threshold/Carrier'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the governs role and live meaning of 'Framework Instance Settings/Confidence/Necessary Information Threshold/Carrier'.",
+        "Retains CA-D-368 version 9 as current evidence.",
+        "Does not adopt native grammar, a Relation kind, migration, or a per-property Carrier registry.",
+        "Keeps the full literal visible rather than flattening it to a root, display path, or topic alias."
+      ],
+      "question": null,
+      "executable": false
+    }
+  ]
+}
