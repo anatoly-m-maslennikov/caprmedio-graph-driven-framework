@@ -1,0 +1,28 @@
+{
+  "task": "CA-P-2027",
+  "recorded_at": "2026-10-11 02:36:34 +0400",
+  "result": "PASS: complete candidate review; unresolved mapping research retained",
+  "output": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-036.review.json",
+    "sha256": "63d4cc8ec39671b4470e85a62424488bf2869c3c0947b257a83b01bbf3aa5980"
+  },
+  "input_batch": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-036.json",
+    "sha256": "aa318f2931c1f1905c59107f6d8c055ebe1e5da5cef1aa121b2bc7f3967b1194"
+  },
+  "checks": {
+    "independent_structural_verifier": "PASS",
+    "sources": 20,
+    "occurrences": 98,
+    "proposed": 16,
+    "unchanged": 28,
+    "unresolved": 54,
+    "meaning_review": "Independent meaning review checked all proposals and unchanged values in batches 036–041. Three Actor Type Operator proposals gained exact confirmed type-value pointers; source quarantine findings remain visible.",
+    "all_executable_false": true
+  },
+  "unresolved_work": "54 occurrence-level research rows remain in the pinned report and required CA-P-2045 integration; CA-P-1966 remains Active.",
+  "limits": [
+    "No original Atom, captured candidate, grammar, native or runtime change",
+    "Review completion is not migration approval"
+  ]
+}
