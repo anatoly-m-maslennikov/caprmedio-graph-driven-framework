@@ -1187,7 +1187,7 @@
       "decision": "proposed",
       "proposed_value": "Projection.Type: Reconciled Projection",
       "confidence": 0.95,
-      "reason": "The current Main Content was read and supplies the source-specific meaning for this occurrence. The proposed candidate string follows the cited confirmed candidate rules while retaining the qualified distinctions stated below; it remains non-authoritative and non-executable.",
+      "reason": "Current Main Content (lines 36-38) identifies Applicable Methodology as a non-authoritative Reconciled Projection compiled by direct content-preserving derivation from current Atom Revisions, and keeps that classification separate from Carrier persistence. The candidate confirms the derived Projection owner and its generic dependent owner-field model; the candidate-only dot/colon form preserves the exact Projection Type owner and Reconciled Projection allowed value.",
       "evidence": [
         {
           "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1213-CORE_META_MODEL-CORE-REQUIREMENT--define-applicable-methodology-as-a-compiled-projection.md",
@@ -1200,12 +1200,20 @@
       ],
       "candidate_basis": [
         {
-          "pointer": "/projection_member_model",
+          "pointer": "#/projection_member_model",
           "reason": "The confirmed candidate preserves a Projection as a distinct derived whole-set with source links and its own lifecycle."
         },
         {
-          "pointer": "/entity_vs_syntax_rules/0",
-          "reason": "The candidate keeps compact notation distinct from an Entity, so the retained Type qualification is not promoted to a new root or native relation."
+          "pointer": "#/entity_identity_model/dependent_entity",
+          "reason": "The candidate confirms dependent identity as an owner selector plus a dependent field; current Main Content supplies Projection as the owner and Type as its field."
+        },
+        {
+          "pointer": "#/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate keeps a Property as a dependent Entity node rather than a Relation; current Main Content supplies the Reconciled Projection allowed value without creating a new root or native relation."
+        },
+        {
+          "pointer": "#/dependent_entities/notation_boundary",
+          "reason": "The dot/colon result remains candidate notation only and does not admit a grammar rewrite or source migration."
         }
       ],
       "preserved_distinctions": [
