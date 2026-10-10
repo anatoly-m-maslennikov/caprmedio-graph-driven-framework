@@ -4,19 +4,21 @@ Exposes caller-coordinated **RMED Atoms Base Revise** through
 `rmed_atoms_base_revise`, plus discovery, context, status/results and notification helpers.
 `workflow_orchestrator` enqueues explicitly authorized independent Runs through
 a separately started DBOS worker and Codex CLI adapter.
-The selected-workflow first cut also admits Create Atom, Update Atom, Replace
-Atom, Change Status Atom, Implementation Workflow, and Build Applicable
-Methodology through the current source-bound route manifest.
+The selected-workflow first cut contains implementations for Create Atom, Update
+Atom, Replace Atom, Change Status Atom, Implementation Workflow, and Build
+Applicable Methodology. They are admitted only when the source-bound route
+manifest reopens with current pins.
 It uses the official [MCP Python SDK](https://github.com/modelcontextprotocol/python-sdk).
 
 ## Run
 
-From the repository root, use only the project-local uv environment; no system
-Python or `.env` file is required:
+For development from the repository source checkout, use only the project-local
+uv environment; no system Python or `.env` file is required. This stdio command
+does not activate a selected installed package:
 
 ```sh
 UV_PROJECT_ENVIRONMENT="$PWD/.caprmedio_runtime/launcher-venv" \
-uv run --project "$PWD" --locked --python 3.14 --managed-python --no-env-file \
+uv run --project "$PWD" --locked --no-sync --python 3.14 --managed-python --no-env-file \
   --group rmed-workflow-mcp python \
   102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/server.py --project-root "$PWD"
 ```
@@ -36,10 +38,12 @@ independent of this stdio adapter. The MCP does not start it implicitly.
 
 ## Selected-workflow first cut
 
-The six retained Workflow routes are Create Atom, Update Atom, Replace Atom,
-Change Status Atom, Implementation Workflow, and Build Applicable Methodology.
-Admission remains source-pinned and currentness-checked; it requires the existing
-identity, permission, status-model, and shared-Journal evidence boundaries.
+The six retained Workflow route implementations are Create Atom, Update Atom,
+Replace Atom, Change Status Atom, Implementation Workflow, and Build Applicable
+Methodology. Admission remains source-pinned and currentness-checked: a route is
+not discoverable or executable unless its selected manifest reopens with the
+existing identity, permission, status-model, and shared-Journal evidence
+boundaries.
 Public status is derived from the matching recorded Workflow terminal run, not
 from scheduler completion or a nested Action result. W09 Implementation Workflow
 coverage uses a golden mock Agent and does not establish a live-LLM result.
@@ -160,7 +164,7 @@ while an admitted fix is in progress.
 
 ```sh
 UV_PROJECT_ENVIRONMENT="$PWD/.caprmedio_runtime/launcher-venv" \
-uv run --project "$PWD" --locked --python 3.14 --managed-python --no-env-file \
+uv run --project "$PWD" --locked --no-sync --python 3.14 --managed-python --no-env-file \
   --group rmed-workflow-mcp python -m unittest discover -s 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/tests
 ```
 

@@ -265,7 +265,7 @@ for example: one prompt for how to write code, built from all M Atoms that apply
 
 **Different views, one source.** Rebuild Projections from their sources.
 
-Each Project has a `.caprmedio_<project_name>/` folder. Store persistent Journals in `_journal/` and general Projections in `_projection/`. Applicable Methodology is the exception: its declared installation location remains below `000_CAPRMEDIO_framework/`. Applicable Methodology, graph views and derived Journal views are all non-authoritative Projections.
+Each Project has a `.caprmedio_<project_name>/` folder. Store persistent Journals in `_journal/` and general Projections in `_projection/`. Project-declared Methodology source remains authoritative; the package/root `methodology/` export and Applicable Methodology delivery output below `000_CAPRMEDIO_framework/` are derived deliveries that preserve provenance. They, graph views, and derived Journal views are non-authoritative Projections: none replaces source or grants Action authority.
 
 With an explicit Project root, Journal writes and queries use that Project's settings and Journal, not those of a parent or sibling Project. Ambiguous control folders and symlinked settings are rejected.
 
@@ -275,14 +275,14 @@ With an explicit Project root, Journal writes and queries use that Project's set
 
 ## First usable cut
 
-The current first usable selected-workflow cut is source-bound and deliberately
-small. It supports these six Workflows: Create Atom, Update Atom, Replace Atom,
-Change Status Atom, Implementation Workflow, and Build Applicable Methodology.
-Each admitted Run preserves its identity, source/currentness checks, authorized
-permissions, terminal outcome, and shared-Journal evidence. Status accepts the
-source-admitted model for every supported content role and reports the matching
-canonical Workflow terminal evidence rather than a scheduler or child-Action
-outcome.
+The implementation contains a deliberately small, source-bound first cut with
+six route definitions: Create Atom, Update Atom, Replace Atom, Change Status
+Atom, Implementation Workflow, and Build Applicable Methodology. Discovery and
+execution admission are available only when the selected-route manifest reopens
+with current source pins. An admitted Run preserves its identity,
+source/currentness checks, authorized permissions, terminal outcome, and
+shared-Journal evidence. Status reports matching canonical Workflow terminal
+evidence rather than a scheduler or child-Action outcome.
 
 The MCP remains available over local stdio. The Docker `project-mcp` command
 documented below is a development source launcher: it requires an explicit
@@ -294,7 +294,7 @@ routes](102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/doc
 A reusable Framework package is selected from
 `.caprmedio_install/releases/<package-manifest-sha256>` by
 `.caprmedio_install/current.toml`; Project-owned runtime state remains in
-`.caprmedio_runtime/`. Installation creates `config.toml` from the
+`.caprmedio_runtime/`. Installation creates `.caprmedio_runtime/config.toml` from the
 package-admitted default only when it is absent, and otherwise preserves its
 existing bytes or refuses a configuration migration. The legacy Tool-version
 replacement erases only its managed `.caprmedio_runtime/tools` surface, never
@@ -311,19 +311,32 @@ process query is not proof of quiescence and stops replacement before removal.
 The legacy Framework selector is only a pre-transition binding, not a second
 native execution authority.
 
-A package carries its active Methodology export and `SKILLS/ca` payload. Their
-publication follows the gated installation/promotion path: Methodology output
-is limited to its declared delivery root and never overwrites authoritative
-source, and Skill publication is not automatic host registration. Use the
-package-owned UV CLI documented with Docker only after valid package and runtime
-selections exist; it does not install a package or start a Workflow.
+Under the installation lock, the runtime command stage writes only
+`command.toml`, `environment.toml`, `wrapper`, and `stage-manifest.toml`; their
+reopened final copies live below
+`.caprmedio_runtime/installation/generations/<positive-N>/`. Those carriers
+bind the selected package's locked `uv run --locked --no-sync --no-env-file`
+command and deterministic environment, but are prospective data only. Actual
+invocation additionally requires an installation-specific Operator command
+binding the exact command digest and target context.
+
+A package carries its active Methodology export, non-authoritative
+`methodology/bindings/` projections, and `SKILLS/ca` payload. Only exact
+admitted, selected Methodology active/support rows participate; presence does
+not activate an Extension or Configuration. Publication follows the gated
+installation/promotion path: Methodology output is limited to its declared
+delivery root and never overwrites authoritative source, and Skill publication
+is not automatic host registration. A package-owned CLI is implementation
+capability, not an installation or Workflow-start authority.
 
 This cut has golden mock-Agent evidence for the Implementation Workflow (W09),
 not a live-LLM claim. It is not a formal Release or promotion, does not claim
 full sixteen-route coverage, and leaves Scope mutations, Revert, graph builders,
 and standalone advanced Artifact/Journal queries deferred. This README makes
 no claim that a Project has passed native installation, Full Gate, package
-selection, or release promotion.
+selection, release promotion, public gate, or publication. `RELEASE_VERSION`
+and `PUBLIC_RELEASE` code provides implementation and test capability, not a
+completed public-release receipt.
 
 ## Current boundaries
 
