@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 4
-updated_at: "2026-10-10 23:51:04 +0400"
+version: 5
+updated_at: "2026-10-11 00:10:30 +0400"
 relations: {}
 ---
 # Summary
@@ -83,7 +83,7 @@ Step 2 must classify proposed edits before writing. Current authority requires a
 
 ### Decomposing Plans
 
-- [CA-P-1978 — Review and update RMEDO for Subject Tools](18-CA-P-1959-EPIC--improve-entity-model-stage-2/01-CA-P-1978-TASK--review-and-update-rmedo-for-subject-tools.md)
+- [CA-P-1978 — Review and update RMEDO for Subject Tools](18-CA-P-1959-EPIC--improve-entity-model-stage-2/done/01-CA-P-1978-TASK--review-and-update-rmedo-for-subject-tools.md)
 - [CA-P-1960 — Define safe Subject Tool contracts](18-CA-P-1959-EPIC--improve-entity-model-stage-2/02-CA-P-1960-TASK--define-safe-subject-tool-contracts.md)
 - [CA-P-1961 — Implement field-aware Subject lookup](18-CA-P-1959-EPIC--improve-entity-model-stage-2/03-CA-P-1961-TASK--implement-field-aware-subject-lookup.md)
 - [CA-P-1962 — Implement sealed Subject patch previews](18-CA-P-1959-EPIC--improve-entity-model-stage-2/04-CA-P-1962-TASK--implement-sealed-subject-patch-preview.md)

@@ -9,12 +9,12 @@ claim_target_scope_unit: caprmedio
 local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
-status: Active
+status: Done
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Requirement, Method, Evaluation, Delivery, Operations, Plan, Operator]
-version: 4
-updated_at: "2026-10-11 00:08:45 +0400"
+version: 5
+updated_at: "2026-10-11 00:10:30 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1960]
@@ -48,6 +48,10 @@ Inherit CA-P-1959's confidence, preservation and execution boundaries. Creating 
 - [CA-P-1979 — Review current Subject Tool RMEDO](01-CA-P-1978-TASK--review-and-update-rmedo-for-subject-tools/done/01-CA-P-1979-TASK--review-current-subject-tool-rmedo.md)
 - [CA-P-1980 — Repair Subject Tool RMEDO](01-CA-P-1978-TASK--review-and-update-rmedo-for-subject-tools/done/02-CA-P-1980-TASK--repair-subject-tool-rmedo.md)
 - [CA-P-1981 — Verify repaired Subject Tool RMEDO](01-CA-P-1978-TASK--review-and-update-rmedo-for-subject-tools/done/03-CA-P-1981-TASK--verify-repaired-subject-tool-rmedo.md)
+
+### Local execution receipt
+
+CA-P-1979 inventory, CA-P-1980 actual repairs and CA-P-1981 independent acceptance are Done. The source-pinned twelve-carrier Tool packet and bounded acceptance are recorded under `.caprmedio_caprmedio/_projection/core-entity-review/stage2/`. No field-aware Tool implementation or Core migration has started. This completes the first Tool RMEDO gate and permits CA-P-1960 contract compilation. The incomplete narrow full-validator assessment remains an explicit coverage limitation, not a whole-repository pass.
 
 ### Definition of Done
 
