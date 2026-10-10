@@ -238,7 +238,7 @@ class FrameworkImageRestorationTests(unittest.TestCase):
     def restoration_session(self):
         return DirectActionSession(
             self.root,
-            author="anatoly-m",
+            author="anatoly-m-maslennikov",
             operator_authorization={
                 "operator": "Anatoly Maslennikov",
                 "authorization_ref": "tmp/operator-authorizations/restoration.md",
@@ -555,7 +555,7 @@ class FrameworkImageRestorationTests(unittest.TestCase):
         }
         session = DirectActionSession(
             self.root,
-            author="anatoly-m",
+            author="anatoly-m-maslennikov",
             operator_authorization={
                 "operator": "Anatoly Maslennikov",
                 "authorization_ref": "tmp/operator-authorizations/restoration.md",
@@ -582,7 +582,7 @@ class FrameworkImageRestorationTests(unittest.TestCase):
         self.docker.replacement = OLD_IMAGE
         session = DirectActionSession(
             self.root,
-            author="anatoly-m",
+            author="anatoly-m-maslennikov",
             operator_authorization={
                 "operator": "Anatoly Maslennikov",
                 "authorization_ref": "tmp/operator-authorizations/restoration.md",

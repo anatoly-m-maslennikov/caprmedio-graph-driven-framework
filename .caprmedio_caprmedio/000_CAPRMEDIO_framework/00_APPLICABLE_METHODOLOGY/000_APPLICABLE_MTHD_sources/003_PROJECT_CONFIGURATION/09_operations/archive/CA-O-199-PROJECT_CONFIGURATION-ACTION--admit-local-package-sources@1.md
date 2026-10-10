@@ -5,10 +5,10 @@ type: Action
 current_scope_unit: PROJECT_CONFIGURATION
 local_tier: Standard
 global_tier: 11
-status: Active
+status: Archived
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-10 03:33:44 +0400"
+version: 1
+updated_at: "2026-10-09 22:00:55 +0400"
 subjects:
   governs: "Admit local package sources"
   depends_on: [Action, Operator, Framework Package, Methodology, Catalog, Digest, Journal]
@@ -30,7 +30,7 @@ One selected Project, physically observed source snapshot and verified Operator 
 ## Details
 
 1. Observe the selected source bytes and modes through the sealed candidate and private Methodology export/compilation readers. Compute the source descriptors without requiring an existing catalog.
-2. For a standalone host invocation, retain the prospective input, start a real direct Action Run authored by the registered Journal account, then retain the immutable host-command receipt defined by CA-D-602-TOOLS-DELIVERY--encode-admitted-package-source-catalog. Reopen the actual start event and explicit Operator/account mapping. Bind the exact snapshot to that command through the trusted invocation admission boundary. Missing, rejected or differently bound invocation evidence stops before receipt or catalog publication.
+2. Bind the exact snapshot to the Operator command through the trusted invocation admission boundary. Missing, rejected or differently bound invocation evidence stops before receipt or catalog publication.
 3. Retain one content-addressed admission record and its matching catalog. Reopen both and retain their actual output references as evidence for this Action Run. Preserve an existing different catalog; replacement requires an explicitly admitted replacement request.
 4. Return the snapshot, receipt and catalog identities and actual outcome to the caller. Failed or uncertain publication retains its evidence and does not silently replay an effect.
 

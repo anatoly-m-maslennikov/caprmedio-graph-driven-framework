@@ -13,13 +13,27 @@ import hashlib
 import os
 import re
 import stat
-import tomllib
+import sys
 from collections.abc import Callable, Mapping
 from pathlib import Path, PurePosixPath
 from typing import Any
 
+_RELEASE_ROOT = Path(__file__).resolve().parent / "RELEASE_VERSION"
+if str(_RELEASE_ROOT) not in sys.path:
+    sys.path.insert(0, str(_RELEASE_ROOT))
+
+from direct_action_session import (
+    DirectActionJournalError,
+    DirectActionSession,
+    SOURCE_ADMISSION_ACTION_ID,
+    SOURCE_ADMISSION_ATOM_RELATIVE,
+    SOURCE_ADMISSION_ATOM_SHA256,
+    SOURCE_ADMISSION_ATOM_VERSION,
+)
+from operator_registry import OperatorRegistryError, OperatorRegistryRecord, parse_operators_registry
 from source_catalog_admission import AdmissionInvocationRequest, TrustedSourceAdmissionInvocation
 from workflow_run_support import RecordedActionStartProvenance, RunExecutionSession, SelectedRunError
+import work_journal
 
 
 O199_ACTION_ID = "CA-O-199"
@@ -111,28 +125,37 @@ def _current_action_source(root: Path, relative: PurePosixPath, expected_sha256:
     return payload
 
 
-def _registered_operator(root: Path, registry_ref: PurePosixPath, author: str) -> bytes:
+def _registered_operator(
+    root: Path,
+    registry_ref: PurePosixPath,
+    author: str,
+) -> tuple[OperatorRegistryRecord, bytes]:
     payload = _regular_bytes(
         root, registry_ref,
         code="source-admission-host-operator-invalid",
         label="registered Operator evidence",
     )
     try:
-        document = tomllib.loads(payload.decode("utf-8"))
-    except (UnicodeDecodeError, tomllib.TOMLDecodeError) as error:
+        records = parse_operators_registry(payload)
+    except OperatorRegistryError as error:
         raise SourceAdmissionHostError(
             "source-admission-host-operator-invalid", "registered Operator evidence is invalid",
         ) from error
-    operators = document.get("operators") if isinstance(document, Mapping) else None
     matching = [
-        row for row in operators if isinstance(row, Mapping) and row.get("name") == author
-    ] if isinstance(operators, list) else []
+        record for record in records
+        if record.journal_author == author
+        or (
+            record.journal_author is None
+            and record.name == author
+            and work_journal.AUTHOR_RE.fullmatch(record.name) is not None
+        )
+    ]
     if len(matching) != 1:
         _refuse(
             "source-admission-host-operator-invalid",
-            "reopened Journal author is not one uniquely registered Operator",
+            "reopened Journal author does not resolve to one registered Operator",
         )
-    return payload
+    return matching[0], payload
 
 
 def _provenance(session: RunExecutionSession, action_run_id: str) -> RecordedActionStartProvenance:
@@ -182,7 +205,7 @@ def _actual_action_binding(
     return expected
 
 
-def _binder_result(value: object, *, author: str) -> tuple[str, str]:
+def _binder_result(value: object, *, operator_record: OperatorRegistryRecord) -> tuple[str, str]:
     if type(value) is not tuple or len(value) != 2:
         _refuse("source-admission-host-command-invalid", "trusted command binder must return Operator and command_ref")
     operator, command_ref = value
@@ -196,8 +219,8 @@ def _binder_result(value: object, *, author: str) -> tuple[str, str]:
         or any(character in command_ref for character in "\x00\r\n")
     ):
         _refuse("source-admission-host-command-invalid", "trusted command binder returned invalid command evidence")
-    if operator != author:
-        _refuse("source-admission-host-command-invalid", "trusted command Operator differs from reopened Journal author")
+    if operator != operator_record.name:
+        _refuse("source-admission-host-command-invalid", "trusted command Operator differs from reopened registered identity")
     return operator, command_ref
 
 
@@ -254,7 +277,7 @@ def make_source_admission_invocation_admitter(
             expected=expected_actual_binding,
             code="source-admission-host-context-invalid",
         )
-        before_registry = _registered_operator(root, registry_ref, before_start.author)
+        before_operator, before_registry = _registered_operator(root, registry_ref, before_start.author)
         before_source = _current_action_source(root, source_relative, source_sha256)
         try:
             bound = command_binder(request, before_start)
@@ -264,7 +287,7 @@ def make_source_admission_invocation_admitter(
             raise SourceAdmissionHostError(
                 "source-admission-host-command-rejected", "trusted host command binder rejected the Action invocation",
             ) from error
-        operator, command_ref = _binder_result(bound, author=before_start.author)
+        operator, command_ref = _binder_result(bound, operator_record=before_operator)
         after_actual = _actual_action_binding(
             session,
             root=root,
@@ -274,16 +297,166 @@ def make_source_admission_invocation_admitter(
             code="source-admission-host-context-stale",
         )
         after_start = _provenance(session, action_run_id)
-        after_registry = _registered_operator(root, registry_ref, after_start.author)
+        after_operator, after_registry = _registered_operator(root, registry_ref, after_start.author)
         after_source = _current_action_source(root, source_relative, source_sha256)
         if after_start != before_start:
             _refuse("source-admission-host-start-stale", "recorded Action start changed while binding the command")
         if after_actual != before_actual:
             _refuse("source-admission-host-context-stale", "actual CA-O-199 Run changed while binding the command")
-        if after_registry != before_registry:
+        if after_operator != before_operator or after_registry != before_registry:
             _refuse("source-admission-host-operator-stale", "registered Operator evidence changed while binding the command")
         if after_source != before_source:
             _refuse("source-admission-host-source-stale", "selected CA-O-199 source changed while binding the command")
+        return TrustedSourceAdmissionInvocation(
+            snapshot_sha256=request.snapshot_sha256,
+            operator=operator,
+            command_ref=command_ref,
+            action_run_id=before_start.action_run_id,
+        )
+
+    return admit
+
+
+def _direct_action_binding(
+    session: DirectActionSession,
+    *,
+    root: Path,
+    action_run_id: str,
+    code: str,
+) -> tuple[PurePosixPath, str, tuple[str, int, str, str]]:
+    """Validate the actual O199 direct Session/run without a selected shim."""
+
+    try:
+        same_root = _root(session.root) == root
+    except SourceAdmissionHostError:
+        same_root = False
+    actual = session.actual.get(action_run_id)
+    binding = actual.get("binding") if isinstance(actual, Mapping) else None
+    expected = (
+        SOURCE_ADMISSION_ACTION_ID,
+        SOURCE_ADMISSION_ATOM_VERSION,
+        SOURCE_ADMISSION_ATOM_RELATIVE.as_posix(),
+        SOURCE_ADMISSION_ATOM_SHA256,
+    )
+    observed = (
+        binding.get("atom_id"), binding.get("version"), binding.get("path"), binding.get("digest"),
+    ) if isinstance(binding, Mapping) else None
+    if (
+        not same_root
+        or session.action_id != SOURCE_ADMISSION_ACTION_ID
+        or observed != expected
+        or not isinstance(actual, Mapping)
+        or actual.get("event_id") != f"{action_run_id}:started"
+    ):
+        _refuse(code, "direct Action context is not the actual CA-O-199 Run")
+    return _safe_relative(expected[2], field="direct_action.source_path"), expected[3], expected
+
+
+def _direct_provenance(session: DirectActionSession, action_run_id: str) -> RecordedActionStartProvenance:
+    try:
+        observed = session.read_recorded_action_start(action_run_id)
+    except DirectActionJournalError as error:
+        raise SourceAdmissionHostError(
+            "source-admission-host-start-invalid", "recorded direct CA-O-199 Action start cannot be reopened",
+        ) from error
+    if observed.action_run_id != action_run_id or observed.parent_lineage:
+        _refuse("source-admission-host-start-invalid", "reopened direct Action start has invalid Run lineage")
+    return observed
+
+
+def _direct_intent(session: DirectActionSession, action_run_id: str, *, code: str) -> tuple[str, str]:
+    """Read the O199 input that the reopened direct Journal start seals."""
+
+    actual = session.actual.get(action_run_id)
+    intent = actual.get("intent") if isinstance(actual, Mapping) else None
+    expected = {"action_id", "kind", "snapshot_sha256", "operators_registry_sha256"}
+    if (
+        not isinstance(intent, Mapping)
+        or set(intent) != expected
+        or intent.get("action_id") != SOURCE_ADMISSION_ACTION_ID
+        or intent.get("kind") != "local_package_source_admission"
+        or not isinstance(intent.get("snapshot_sha256"), str)
+        or _SHA256.fullmatch(intent["snapshot_sha256"]) is None
+        or not isinstance(intent.get("operators_registry_sha256"), str)
+        or _SHA256.fullmatch(intent["operators_registry_sha256"]) is None
+    ):
+        _refuse(code, "direct CA-O-199 start does not retain its closed prospective input")
+    return intent["snapshot_sha256"], intent["operators_registry_sha256"]
+
+
+def make_direct_source_admission_invocation_admitter(
+    project_root: str | Path,
+    *,
+    action_session: DirectActionSession,
+    action_run_id: str,
+    operators_registry_ref: str,
+    command_binder: SourceAdmissionCommandBinder,
+) -> Callable[[AdmissionInvocationRequest], TrustedSourceAdmissionInvocation]:
+    """Return a D602 callback for one actual direct CA-O-199 Action start.
+
+    Unlike the selected-run factory, this accepts only the concrete direct
+    Action Session that appended the canonical start.  It deliberately does
+    not manufacture a selected Workflow/Step context or accept caller request
+    authorization mappings.
+    """
+
+    root = _root(project_root)
+    if not isinstance(action_session, DirectActionSession) or not isinstance(action_run_id, str) or not action_run_id:
+        _refuse("source-admission-host-context-invalid", "an actual direct CA-O-199 Session and Run are required")
+    if not callable(command_binder):
+        _refuse("source-admission-host-command-required", "source admission requires a trusted host command binder")
+    registry_ref = _safe_relative(operators_registry_ref, field="operators_registry_ref")
+    source_relative, source_sha256, expected_binding = _direct_action_binding(
+        action_session, root=root, action_run_id=action_run_id,
+        code="source-admission-host-context-invalid",
+    )
+
+    def admit(request: AdmissionInvocationRequest) -> TrustedSourceAdmissionInvocation:
+        if not isinstance(request, AdmissionInvocationRequest) or _SHA256.fullmatch(request.snapshot_sha256) is None:
+            _refuse("source-admission-host-request-invalid", "source admission requires the exact typed snapshot request")
+        before_start = _direct_provenance(action_session, action_run_id)
+        before_binding = _direct_action_binding(
+            action_session, root=root, action_run_id=action_run_id,
+            code="source-admission-host-context-invalid",
+        )
+        if before_binding[2] != expected_binding:
+            _refuse("source-admission-host-context-invalid", "direct CA-O-199 binding differs from its captured source")
+        before_operator, before_registry = _registered_operator(root, registry_ref, before_start.author)
+        before_snapshot, before_registry_digest = _direct_intent(
+            action_session, action_run_id, code="source-admission-host-context-invalid",
+        )
+        if before_snapshot != request.snapshot_sha256 or before_registry_digest != hashlib.sha256(before_registry).hexdigest():
+            _refuse("source-admission-host-context-invalid", "direct CA-O-199 input differs from the command snapshot or registry")
+        before_source = _current_action_source(root, source_relative, source_sha256)
+        try:
+            bound = command_binder(request, before_start)
+        except SourceAdmissionHostError:
+            raise
+        except Exception as error:
+            raise SourceAdmissionHostError(
+                "source-admission-host-command-rejected", "trusted host command binder rejected the Action invocation",
+            ) from error
+        operator, command_ref = _binder_result(bound, operator_record=before_operator)
+        after_binding = _direct_action_binding(
+            action_session, root=root, action_run_id=action_run_id,
+            code="source-admission-host-context-stale",
+        )
+        after_start = _direct_provenance(action_session, action_run_id)
+        after_operator, after_registry = _registered_operator(root, registry_ref, after_start.author)
+        after_snapshot, after_registry_digest = _direct_intent(
+            action_session, action_run_id, code="source-admission-host-context-stale",
+        )
+        after_source = _current_action_source(root, source_relative, source_sha256)
+        if after_start != before_start:
+            _refuse("source-admission-host-start-stale", "recorded direct Action start changed while binding the command")
+        if after_binding != before_binding:
+            _refuse("source-admission-host-context-stale", "actual direct CA-O-199 Run changed while binding the command")
+        if after_operator != before_operator or after_registry != before_registry:
+            _refuse("source-admission-host-operator-stale", "registered Operator evidence changed while binding the command")
+        if (after_snapshot, after_registry_digest) != (before_snapshot, before_registry_digest):
+            _refuse("source-admission-host-context-stale", "direct CA-O-199 prospective input changed while binding the command")
+        if after_source != before_source:
+            _refuse("source-admission-host-source-stale", "direct CA-O-199 source changed while binding the command")
         return TrustedSourceAdmissionInvocation(
             snapshot_sha256=request.snapshot_sha256,
             operator=operator,
@@ -298,5 +471,6 @@ __all__ = [
     "O199_ACTION_ID",
     "SourceAdmissionCommandBinder",
     "SourceAdmissionHostError",
+    "make_direct_source_admission_invocation_admitter",
     "make_source_admission_invocation_admitter",
 ]

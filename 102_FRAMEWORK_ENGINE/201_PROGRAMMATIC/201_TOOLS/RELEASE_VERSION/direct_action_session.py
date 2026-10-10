@@ -1,8 +1,8 @@
-"""Canonical Journal recording for the two explicitly admitted direct Actions.
+"""Canonical Journal recording for explicitly admitted direct Actions.
 
 This deliberately does *not* use the selected-workflow registry, a selected
-route, or :class:`workflow_run_support.RunTracker`.  CA-O-180 and CA-O-187 are
-source-pinned, Operator-authorized direct Actions. Their durable invocation intent is the
+route, or :class:`workflow_run_support.RunTracker`.  Each admitted Action is
+source-pinned and Operator-authorized. Its durable invocation intent is the
 canonical ``started`` Journal event; it is written and reopened before any
 effect is eligible to run.
 
@@ -21,13 +21,14 @@ import datetime as dt
 import hashlib
 import json
 import re
-import tomllib
 from collections.abc import Callable, Mapping, Sequence
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
 import work_journal
+from operator_registry import OperatorRegistryError, parse_operators_registry
+from workflow_run_support import RecordedActionStartProvenance
 
 
 DIRECT_ACTION_APP = "direct-action-session"
@@ -35,7 +36,7 @@ INITIALIZATION_ACTION_ID = "FRAMEWORK_INITIALIZATION"
 RESTORATION_ACTION_ID = "FRAMEWORK_IMAGE_RESTORATION"
 STRUCTURAL_SCOPE = "PROJECT_CONFIGURATION"
 ACTION_ATOM_ID = "CA-O-180"
-ACTION_ATOM_VERSION = 1
+ACTION_ATOM_VERSION = 3
 ACTION_ATOM_RELATIVE = Path(
     ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/"
     "000_APPLICABLE_MTHD_sources/003_PROJECT_CONFIGURATION/09_operations/"
@@ -44,11 +45,15 @@ ACTION_ATOM_RELATIVE = Path(
 # This is an intentional source pin.  A changed O-180 source must be reviewed
 # and rebound here rather than silently changing what a direct bootstrap Run
 # claims to implement.
-ACTION_ATOM_SHA256 = "327f9e9722ed4346251172e36b42e0ad5a322de62ec13ecce21c52f89790a073"
+ACTION_ATOM_SHA256 = "4303a6f35b84b6e36818f3236760173f9216233d881af51f5ac466b5af85bcda"
 RESTORATION_ATOM_ID = "CA-O-187"
 RESTORATION_ATOM_VERSION = 2
 RESTORATION_ATOM_RELATIVE = ACTION_ATOM_RELATIVE.parent / "CA-O-187-PROJECT_CONFIGURATION-ACTION--restore-the-selected-missing-bootstrap-image.md"
 RESTORATION_ATOM_SHA256 = "6e0320a7026f37c6e0e4199051d47a4c597cdbe22bb5fb1bfb7b0626258852c1"
+SOURCE_ADMISSION_ACTION_ID = "CA-O-199"
+SOURCE_ADMISSION_ATOM_VERSION = 2
+SOURCE_ADMISSION_ATOM_RELATIVE = ACTION_ATOM_RELATIVE.parent / "CA-O-199-PROJECT_CONFIGURATION-ACTION--admit-local-package-sources.md"
+SOURCE_ADMISSION_ATOM_SHA256 = "6b4e510bf5d25ac0b01e7262a79ef6b276272ed52ff02780dfd37f5d63402923"
 _SHA256 = re.compile(r"^[0-9a-f]{64}$")
 _RUN_ID = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._:-]{0,159}$")
 _OUTCOMES = frozenset({"completed", "no_op", "failed", "cancelled", "partial"})
@@ -72,14 +77,17 @@ class _ActionDescriptor:
 
 
 def _action_descriptor(action_id: str) -> _ActionDescriptor:
-    """Select only the two reviewed direct Actions; callers supply no pins."""
+    """Select only reviewed direct Actions; callers supply no pins."""
     if action_id == INITIALIZATION_ACTION_ID:
         return _ActionDescriptor(ACTION_ATOM_ID, ACTION_ATOM_VERSION, ACTION_ATOM_RELATIVE,
                                  ACTION_ATOM_SHA256, "first Framework runtime initialization")
     if action_id == RESTORATION_ACTION_ID:
         return _ActionDescriptor(RESTORATION_ATOM_ID, RESTORATION_ATOM_VERSION, RESTORATION_ATOM_RELATIVE,
                                  RESTORATION_ATOM_SHA256, "retained selected Framework image restoration")
-    raise DirectActionJournalError("direct-action-unadmitted", "direct Action is not one of the two admitted Actions")
+    if action_id == SOURCE_ADMISSION_ACTION_ID:
+        return _ActionDescriptor(SOURCE_ADMISSION_ACTION_ID, SOURCE_ADMISSION_ATOM_VERSION, SOURCE_ADMISSION_ATOM_RELATIVE,
+                                 SOURCE_ADMISSION_ATOM_SHA256, "local package source admission")
+    raise DirectActionJournalError("direct-action-unadmitted", "direct Action is not admitted for direct execution")
 
 
 def _sha256(value: bytes) -> str:
@@ -150,7 +158,13 @@ def _source_binding(root: Path, action_id: str = INITIALIZATION_ACTION_ID) -> di
     }
 
 
-def _authorization(root: Path, value: Mapping[str, Any]) -> dict[str, str]:
+def _authorization(
+    root: Path,
+    value: Mapping[str, Any],
+    *,
+    journal_author: str,
+    operators_registry_ref: Path,
+) -> dict[str, str]:
     if not isinstance(value, Mapping) or set(value) != {"operator", "authorization_ref"}:
         raise DirectActionJournalError(
             "direct-action-authorization-required",
@@ -159,27 +173,33 @@ def _authorization(root: Path, value: Mapping[str, Any]) -> dict[str, str]:
     operator = value.get("operator")
     if not isinstance(operator, str) or not operator.strip() or "\n" in operator or "\r" in operator:
         raise DirectActionJournalError("direct-action-authorization-required", "Operator identity must be a non-empty single line")
-    registry_relative = Path(".caprmedio_caprmedio/operators_registry.toml")
     try:
-        entries = tomllib.loads(
-            _read_regular_relative(
-                root,
-                registry_relative,
-                code="direct-action-authorization-required",
-                label="registered Operator evidence",
-            ).decode("utf-8")
-        ).get("operators")
-    except (UnicodeDecodeError, tomllib.TOMLDecodeError) as error:
+        entries = parse_operators_registry(_read_regular_relative(
+            root,
+            operators_registry_ref,
+            code="direct-action-authorization-required",
+            label="registered Operator evidence",
+        ))
+    except OperatorRegistryError as error:
         raise DirectActionJournalError(
             "direct-action-authorization-required",
             "registered Operator evidence is unavailable",
         ) from error
-    if not isinstance(entries, list) or not any(
-        isinstance(entry, Mapping) and entry.get("name") == operator for entry in entries
-    ):
+    matching = [entry for entry in entries if entry.name == operator]
+    if len(matching) != 1:
         raise DirectActionJournalError(
             "direct-action-authorization-required",
             "explicit Operator is not registered for this Project",
+        )
+    registered_author = matching[0].journal_author
+    if registered_author is None:
+        # Legacy registries may use the Journal account itself as the display
+        # name.  A human display name is never inferred as an account alias.
+        registered_author = matching[0].name if work_journal.AUTHOR_RE.fullmatch(matching[0].name) else None
+    if registered_author != journal_author:
+        raise DirectActionJournalError(
+            "direct-action-authorization-required",
+            "registered Operator does not map to this Journal author",
         )
     return {"operator": operator, "authorization_ref": str(_safe_ref(value.get("authorization_ref"), "authorization_ref"))}
 
@@ -206,6 +226,18 @@ def _intent(value: Mapping[str, Any], action_id: str = INITIALIZATION_ACTION_ID)
             **{field: _digest(value.get(field), f"intent.{field}") for field in
                ("manifest_sha256", "source_context_sha256", "selected_selector_sha256",
                 "retained_proof_receipt_sha256", "retained_context_sha256")},
+        }
+    if action_id == SOURCE_ADMISSION_ACTION_ID:
+        expected = {"action_id", "kind", "snapshot_sha256", "operators_registry_sha256"}
+        if not isinstance(value, Mapping) or set(value) != expected:
+            raise DirectActionJournalError("direct-action-invalid-intent", "source-admission intent has unsupported or missing fields")
+        if value.get("action_id") != SOURCE_ADMISSION_ACTION_ID or value.get("kind") != "local_package_source_admission":
+            raise DirectActionJournalError("direct-action-invalid-intent", "intent does not describe the admitted source-admission Action")
+        return {
+            "action_id": SOURCE_ADMISSION_ACTION_ID,
+            "kind": "local_package_source_admission",
+            "snapshot_sha256": _digest(value.get("snapshot_sha256"), "intent.snapshot_sha256"),
+            "operators_registry_sha256": _digest(value.get("operators_registry_sha256"), "intent.operators_registry_sha256"),
         }
     _action_descriptor(action_id)
     expected = {"action_id", "kind", "manifest_sha256", "source_context_sha256", "image_digest"}
@@ -294,19 +326,27 @@ class DirectActionSession:
         author: str,
         operator_authorization: Mapping[str, Any],
         action_id: str = INITIALIZATION_ACTION_ID,
+        operators_registry_ref: str | Path = ".caprmedio_caprmedio/operators_registry.toml",
         timezone: str = "UTC",
         now: Callable[[], dt.datetime] | None = None,
     ) -> None:
         self.descriptor = _action_descriptor(action_id)
         self.action_id = action_id
         self.root = _regular_root(project_root)
+        registry_ref = _safe_ref(str(operators_registry_ref), "operators_registry_ref")
+        self.operators_registry_ref = Path(str(registry_ref))
         try:
             work_journal.validate_partition(author, "2000-01-01", timezone)
         except work_journal.WorkJournalError as error:
             raise DirectActionJournalError("direct-action-journal-context-invalid", str(error)) from error
         self.author = author
         self.timezone = timezone
-        self.authorization = _authorization(self.root, operator_authorization)
+        self.authorization = _authorization(
+            self.root,
+            operator_authorization,
+            journal_author=self.author,
+            operators_registry_ref=self.operators_registry_ref,
+        )
         self._now = now or (lambda: dt.datetime.now(dt.UTC))
         self.actual: dict[str, dict[str, Any]] = {}
         self.terminal: dict[str, dict[str, Any]] = {}
@@ -355,6 +395,15 @@ class DirectActionSession:
             raise DirectActionJournalError("direct-action-unadmitted", f"only {self.action_id} is admitted by this Session")
         if not isinstance(requested_run_id, str) or _RUN_ID.fullmatch(requested_run_id) is None:
             raise DirectActionJournalError("direct-action-invalid-run", "requested_run_id has invalid syntax")
+        # Construction is not a lease on an earlier registry mapping.  The
+        # canonical start must use the Operator/account mapping observable at
+        # the point the Journal event is appended.
+        _authorization(
+            self.root,
+            self.authorization,
+            journal_author=self.author,
+            operators_registry_ref=self.operators_registry_ref,
+        )
         normalized_intent = _intent(intent, self.action_id)
         binding = _source_binding(self.root, self.action_id)
         identity = self._run_identity(requested_run_id, binding)
@@ -421,6 +470,45 @@ class DirectActionSession:
             self._release_invocation_lock()
             raise
 
+    def read_recorded_action_start(self, action_run_id: str) -> RecordedActionStartProvenance:
+        """Reopen one exact direct Action start without creating any evidence.
+
+        This is intentionally the direct-session analogue of the selected-run
+        accessor.  It exposes only the sealed Journal provenance required by
+        host admission code; it neither authorizes a command nor records an
+        outcome.
+        """
+
+        if not isinstance(action_run_id, str) or not action_run_id:
+            raise DirectActionJournalError("direct-action-start-invalid", "Action Run identity is invalid")
+        actual = self.actual.get(action_run_id)
+        if not isinstance(actual, Mapping):
+            raise DirectActionJournalError("direct-action-start-invalid", "direct Action start is not owned by this Session")
+        requested = actual.get("requested_run_id")
+        intent = actual.get("intent")
+        binding = actual.get("binding")
+        event_id = actual.get("event_id")
+        if (
+            not isinstance(requested, str)
+            or not isinstance(intent, Mapping)
+            or not isinstance(binding, Mapping)
+            or not isinstance(event_id, str)
+        ):
+            raise DirectActionJournalError("direct-action-start-invalid", "direct Action start evidence is incomplete")
+        reopened = _reopen_event(self.root, event_id)
+        if reopened is None:
+            raise DirectActionJournalError("direct-action-start-invalid", "direct Action start cannot be reopened")
+        event, receipt = reopened
+        self._validate_started(event, requested, intent, binding, action_run_id)
+        if receipt != actual.get("event_receipt"):
+            raise DirectActionJournalError("direct-action-start-invalid", "reopened direct Action receipt differs from its recorded start")
+        return RecordedActionStartProvenance(
+            author=self.author,
+            event_id=event_id,
+            action_run_id=action_run_id,
+            parent_lineage=(),
+        )
+
     def reopen_restoration_for_recording(
         self,
         requested_run_id: str,
@@ -444,7 +532,12 @@ class DirectActionSession:
         binding = _source_binding(self.root, RESTORATION_ACTION_ID)
         # Constructor admission is not a lease on subsequently removed
         # Operator authority. Reopen the current registry before owning a Run.
-        _authorization(self.root, self.authorization)
+        _authorization(
+            self.root,
+            self.authorization,
+            journal_author=self.author,
+            operators_registry_ref=self.operators_registry_ref,
+        )
         identity = self._run_identity(requested_run_id, binding)
         run_id = f"direct-action:{identity}"
         if run_id in self.actual:
@@ -965,4 +1058,8 @@ __all__ = [
     "RESTORATION_ATOM_RELATIVE",
     "RESTORATION_ATOM_SHA256",
     "RESTORATION_ATOM_VERSION",
+    "SOURCE_ADMISSION_ACTION_ID",
+    "SOURCE_ADMISSION_ATOM_RELATIVE",
+    "SOURCE_ADMISSION_ATOM_SHA256",
+    "SOURCE_ADMISSION_ATOM_VERSION",
 ]

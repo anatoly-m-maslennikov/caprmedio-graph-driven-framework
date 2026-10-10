@@ -148,7 +148,7 @@ class FrameworkInitializationJournalTests(unittest.TestCase):
     def _session(self) -> DirectActionSession:
         return DirectActionSession(
             self.root,
-            author="anatoly-m",
+            author="anatoly-m-maslennikov",
             operator_authorization=AUTHORIZATION,
             now=lambda: dt.datetime(2026, 10, 5, 18, 0, tzinfo=dt.UTC),
         )

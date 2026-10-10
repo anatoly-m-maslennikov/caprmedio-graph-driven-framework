@@ -97,7 +97,7 @@ class DirectActionSessionTests(unittest.TestCase):
         )
         self.session = DirectActionSession(
             self.root,
-            author="anatoly-m",
+            author="anatoly-m-maslennikov",
             operator_authorization=AUTHORIZATION,
             now=lambda: dt.datetime(2026, 10, 5, 18, 0, tzinfo=dt.UTC),
         )
@@ -121,7 +121,7 @@ class DirectActionSessionTests(unittest.TestCase):
         if not target.exists():
             shutil.copyfile(REPOSITORY_ROOT / RESTORATION_ATOM_RELATIVE, target)
         session = DirectActionSession(
-            self.root, author="anatoly-m", operator_authorization=AUTHORIZATION,
+            self.root, author="anatoly-m-maslennikov", operator_authorization=AUTHORIZATION,
             action_id=RESTORATION_ACTION_ID,
             now=lambda: dt.datetime(2026, 10, 5, 18, 0, tzinfo=dt.UTC),
         )
@@ -149,7 +149,7 @@ class DirectActionSessionTests(unittest.TestCase):
 
     def test_restoration_intent_and_session_dispatch_are_closed(self) -> None:
         with self.assertRaises(DirectActionJournalError) as invalid:
-            DirectActionSession(self.root, author="anatoly-m", operator_authorization=AUTHORIZATION,
+            DirectActionSession(self.root, author="anatoly-m-maslennikov", operator_authorization=AUTHORIZATION,
                                 action_id="caller-supplied-action")
         self.assertEqual("direct-action-unadmitted", invalid.exception.code)
         session = self._restoration_session()
@@ -273,7 +273,7 @@ class DirectActionSessionTests(unittest.TestCase):
              "direct-action-intent-conflict"),
         ):
             with self.subTest(expected=expected, requested=requested):
-                resumed = DirectActionSession(self.root, author="anatoly-m", operator_authorization=authorization,
+                resumed = DirectActionSession(self.root, author="anatoly-m-maslennikov", operator_authorization=authorization,
                                                action_id=RESTORATION_ACTION_ID)
                 with resumed, patch.object(work_journal, "append_sealed_events") as append:
                     with self.assertRaises(DirectActionJournalError) as refused:
@@ -448,7 +448,7 @@ class DirectActionSessionTests(unittest.TestCase):
         self.session.close()
         resumed = DirectActionSession(
             self.root,
-            author="anatoly-m",
+            author="anatoly-m-maslennikov",
             operator_authorization=AUTHORIZATION,
             now=lambda: dt.datetime(2026, 10, 5, 18, 1, tzinfo=dt.UTC),
         )
@@ -509,7 +509,7 @@ class DirectActionSessionTests(unittest.TestCase):
         (self.root / ACTION_ATOM_RELATIVE).write_text("O-180 changed after the pending completion", encoding="utf-8")
         inspector = DirectActionSession(
             self.root,
-            author="anatoly-m",
+            author="anatoly-m-maslennikov",
             operator_authorization=AUTHORIZATION,
             now=lambda: dt.datetime(2026, 10, 5, 18, 1, tzinfo=dt.UTC),
         )
@@ -534,7 +534,7 @@ class DirectActionSessionTests(unittest.TestCase):
             )
         self.assertEqual(raised.exception.code, "direct-action-source-stale")
         with self.assertRaises(DirectActionJournalError) as authorization:
-            DirectActionSession(self.root, author="anatoly-m", operator_authorization={})
+            DirectActionSession(self.root, author="anatoly-m-maslennikov", operator_authorization={})
         self.assertEqual(authorization.exception.code, "direct-action-authorization-required")
 
     def test_refuses_a_symlinked_pinned_action_source(self) -> None:
@@ -563,7 +563,7 @@ class DirectActionSessionTests(unittest.TestCase):
         changed = dict(INTENT, image_digest="sha256:" + "d" * 64)
         resumed = DirectActionSession(
             self.root,
-            author="anatoly-m",
+            author="anatoly-m-maslennikov",
             operator_authorization=AUTHORIZATION,
             now=lambda: dt.datetime(2026, 10, 5, 18, 1, tzinfo=dt.UTC),
         )
@@ -592,7 +592,7 @@ class DirectActionSessionTests(unittest.TestCase):
             for requested_run_id in ("bootstrap-008", "bootstrap-009"):
                 competing = DirectActionSession(
                     self.root,
-                    author="anatoly-m",
+                    author="anatoly-m-maslennikov",
                     operator_authorization=AUTHORIZATION,
                     now=lambda: dt.datetime(2026, 10, 5, 18, 1, tzinfo=dt.UTC),
                 )
