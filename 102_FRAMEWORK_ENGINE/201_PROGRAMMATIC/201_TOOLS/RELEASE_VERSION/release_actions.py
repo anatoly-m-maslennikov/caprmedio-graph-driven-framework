@@ -60,7 +60,7 @@ from release_suite import (
     execute_bound_release_suite,
     verify_bound_suite_evidence,
 )
-from release_suite_execution import installed_n_suite_executor
+from release_suite_execution import fresh_unit_suite_executor
 from release_version import ReleaseVersionRequest, _locally_observed_candidate
 
 if TYPE_CHECKING:
@@ -472,6 +472,119 @@ def _selected_local_bindings(run: ReleaseActionRun):
     return factory(root, run=run, context=run.in_progress)
 
 
+def _stage_candidate_selected_session(run: ReleaseActionRun):
+    """Reopen the exact, already-started O167 Action from the injected Session.
+
+    D602 admission is internal to the selected Local Release.  This function
+    deliberately accepts no caller command, authorization flag, or O199
+    adapter: the selected provider is the sole runtime writer of
+    ``selected_action_session`` after it has revalidated the current graph.
+    """
+
+    from workflow_run_support import RunExecutionSession, SelectedRunError
+
+    context = run.in_progress
+    session = run.selected_action_session
+    if not isinstance(context, SelectedReleaseActionContext) or context.step_atom_id != "CA-O-175" or context.action_atom_id != "CA-O-167":
+        raise ReleaseContractError("release-source-admission-context-invalid", "internal source admission requires the current O175/O167 context")
+    if not isinstance(session, RunExecutionSession):
+        raise ReleaseContractError("release-source-admission-session-unavailable", "internal source admission requires the injected selected Session")
+    root = Path(run.project_root).resolve(strict=True)
+    tracker_root = getattr(getattr(session, "tracker", None), "root", None)
+    try:
+        same_root = isinstance(tracker_root, (str, Path)) and Path(tracker_root).resolve(strict=True) == root
+    except (OSError, TypeError, ValueError):
+        same_root = False
+    if not same_root:
+        raise ReleaseContractError("release-source-admission-session-invalid", "selected Session belongs to another Project")
+
+    actual_records = getattr(session, "actual", None)
+    if not isinstance(actual_records, Mapping):
+        raise ReleaseContractError("release-source-admission-session-invalid", "selected Session has no actual Run inventory")
+    records = list(actual_records.values())
+    by_run_id = {
+        record.get("run_id"): record
+        for record in records
+        if isinstance(record, Mapping) and isinstance(record.get("run_id"), str)
+    }
+    workflow = by_run_id.get(context.workflow_run_id)
+    step = by_run_id.get(context.step_run_id)
+    action = by_run_id.get(context.action_run_id)
+    definition = action.get("definition") if isinstance(action, Mapping) else None
+    if (
+        not isinstance(workflow, Mapping) or workflow.get("kind") != "workflow"
+        or not isinstance(step, Mapping) or step.get("kind") != "step" or step.get("parent_run_id") != context.workflow_run_id
+        or not isinstance(action, Mapping) or action.get("kind") != "action" or action.get("parent_run_id") != context.step_run_id
+        or not isinstance(definition, Mapping) or set(definition) != {"atom_id", "version", "path", "digest"}
+        or definition.get("atom_id") != context.action_atom_id or type(definition.get("version")) is not int or definition["version"] < 1
+        or not isinstance(definition.get("path"), str) or not isinstance(definition.get("digest"), str)
+        or SHA256.fullmatch(definition["digest"]) is None
+    ):
+        raise ReleaseContractError("release-source-admission-session-invalid", "selected Session lacks the exact O167 Workflow/Step/Action lineage")
+
+    relative = Path(definition["path"])
+    if ("\\" in definition["path"] or relative.is_absolute() or not relative.parts
+            or any(part in {"", ".", ".."} or part.startswith(".env") or part.endswith(".env") for part in relative.parts)):
+        raise ReleaseContractError("release-source-admission-source-invalid", "selected O167 source path is unsafe")
+    source = root
+    try:
+        for index, part in enumerate(relative.parts):
+            source = source / part
+            mode = source.lstat().st_mode
+            expected = stat.S_ISREG if index == len(relative.parts) - 1 else stat.S_ISDIR
+            if stat.S_ISLNK(mode) or not expected(mode):
+                raise ReleaseContractError("release-source-admission-source-invalid", "selected O167 source path is aliased or malformed")
+        if hashlib.sha256(source.read_bytes()).hexdigest() != definition["digest"]:
+            raise ReleaseContractError("release-source-admission-source-stale", "selected O167 source differs from its admitted binding")
+        provenance = session.read_recorded_action_start(context.action_run_id)
+    except ReleaseContractError:
+        raise
+    except (OSError, SelectedRunError) as error:
+        raise ReleaseContractError("release-source-admission-session-invalid", "selected O167 start cannot be physically reopened") from error
+    if (
+        provenance.action_run_id != context.action_run_id
+        or provenance.parent_lineage != (context.step_run_id, context.workflow_run_id)
+        or not isinstance(provenance.author, str)
+        or not provenance.author
+    ):
+        raise ReleaseContractError("release-source-admission-session-invalid", "selected O167 start provenance differs from the current lineage")
+    return session, context, provenance
+
+
+def _admit_stage_candidate_sources(run: ReleaseActionRun, snapshot: SealedPortableSourceSnapshot):
+    """Write/reopen D602 evidence only through the current O167 Session start."""
+
+    from source_catalog_admission import (
+        SourceCatalogAdmissionError,
+        TrustedSourceAdmissionInvocation,
+        admit_package_sources,
+    )
+
+    _session, context, _provenance = _stage_candidate_selected_session(run)
+
+    def admit(request):
+        # Reopen both source binding and Journal provenance on each writer
+        # callback boundary.  ``admit_package_sources`` separately rechecks
+        # the exact physical source snapshot before its publications.
+        _current_session, current_context, before = _stage_candidate_selected_session(run)
+        if current_context != context:
+            raise ReleaseContractError("release-source-admission-session-stale", "current O167 context changed during source admission")
+        _after_session, after_context, after = _stage_candidate_selected_session(run)
+        if after_context != context or after != before:
+            raise ReleaseContractError("release-source-admission-session-stale", "current O167 Session changed during source admission")
+        return TrustedSourceAdmissionInvocation(
+            request.snapshot_sha256,
+            before.author,
+            f"selected-release/{context.workflow_run_id}/action/{context.action_run_id}",
+            before.action_run_id,
+        )
+
+    try:
+        return admit_package_sources(run.project_root, snapshot, invocation_admitter=admit)
+    except SourceCatalogAdmissionError as error:
+        raise ReleaseContractError(error.code, str(error)) from error
+
+
 def _invoke_native_portable(phase: str, run: ReleaseActionRun, candidate: ValidatedCandidate) -> tuple:
     """Execute O164@9's existing occurrences against the portable frontier.
 
@@ -486,6 +599,7 @@ def _invoke_native_portable(phase: str, run: ReleaseActionRun, candidate: Valida
             raise ReleaseContractError("release-action-result-mismatch", "private Methodology export is not bound to the frozen candidate")
         private = read_sealed_private_methodology_compilation(export)
         snapshot = collect_portable_source_snapshot(candidate, private, candidate_run_id=run.workflow_run_id)
+        admission = _admit_stage_candidate_sources(run, snapshot)
         portable = seal_portable_source_snapshot(snapshot)
         if portable.candidate != candidate or portable.private_compilation != private:
             raise ReleaseContractError("release-action-result-mismatch", "portable compilation differs from the sealed private Methodology frontier")
@@ -502,6 +616,7 @@ def _invoke_native_portable(phase: str, run: ReleaseActionRun, candidate: Valida
         return "completed", "complete private Methodology export, compilation, catalog and package prepared", (
             f"{private.compiled_root}/compiled-delivery-manifest.json#sha256={private.compiled_manifest_sha256}",
             f"catalog.toml#sha256={portable.source_catalog_sha256}",
+            admission.receipt_path.relative_to(Path(run.project_root)).as_posix(),
             f"{package.private_package_root.relative_to(run.project_root).as_posix()}/manifest.toml",
         ), package
     portable = run.portable_compilation
@@ -513,7 +628,7 @@ def _invoke_native_portable(phase: str, run: ReleaseActionRun, candidate: Valida
         suite = execute_bound_release_suite(
             candidate,
             portable,
-            executor=installed_n_suite_executor(
+            executor=fresh_unit_suite_executor(
                 candidate,
                 portable,
                 project_root=run.project_root,
@@ -697,7 +812,7 @@ def _invoke(phase, run):
         suite = execute_bound_release_suite(
             candidate,
             run.compilation,
-            executor=installed_n_suite_executor(
+            executor=fresh_unit_suite_executor(
                 candidate,
                 run.compilation,
                 project_root=run.project_root,

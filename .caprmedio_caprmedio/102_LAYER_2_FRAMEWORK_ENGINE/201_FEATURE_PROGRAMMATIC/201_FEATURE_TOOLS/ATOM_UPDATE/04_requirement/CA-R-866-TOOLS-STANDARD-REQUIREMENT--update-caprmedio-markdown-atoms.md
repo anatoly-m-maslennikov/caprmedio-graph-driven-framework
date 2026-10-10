@@ -10,8 +10,8 @@ status: Active
 subjects:
   governs: "Tool/ATOM_UPDATE"
   depends_on: ["Atom", "Atom/Revision", "Atom/Summary", "Artifact/Carrier", "Atom Change Classification", "Atom/Revision/Updated At"]
-version: 12
-updated_at: "2026-10-04 17:35:27 +0000"
+version: 13
+updated_at: "2026-10-10 23:53:36 +0400"
 relations:
   relates_to: [CA-O-030, CA-E-304, CA-O-067, CA-R-1432, CA-R-1788, CA-R-1464, CA-R-1415, CA-R-1371]
 ---
@@ -34,6 +34,24 @@ the ATOM_UPDATE Tool **must** provide same-identity updates of the frontmatter, 
 - support **`=1`** exact target **or** a frozen bulk set of **`>=2`** targets with expected Revisions **or** digests. apply the complete validated set atomically **and** restore the mutable transaction frontier on apply **or** postcondition failure.
 - permit reuse of generic metadata **or** Relation-patch mechanics while retaining responsibility for Atom authority validation, admitted change class, Revision, transaction, **and** effect semantics.
 - default **to** mutation-free dry run. accept `--apply` **only** through authorized Project-local MCP delegation with a sealed Initiative action envelope.
+
+The Tool **must** also accept the additional
+`{atoms: [{selector, expected: {atom_id, version, sha256}, subject_patches}]}`
+payload shape for an already-valid Atom carrier. Each `subject_patches` entry
+has `field = governs|depends_on`, exact `old` and explicit `new` values, and a
+zero-based `index` when `field = depends_on`. An Atom item using
+`subject_patches` must not also request complete-frontmatter or body
+replacement. The selected files must be unique within the payload.
+
+Subject patches apply only to direct structured `subjects.governs` and
+`subjects.depends_on` fields. They **must** reject a malformed or nested legacy
+Subjects shape, an absent or ambiguous occurrence, a stale pin, an escaped or
+symlink target, or a duplicate resulting dependency. The Tool **must** validate
+the complete resulting carrier and preserve every unrelated byte and line
+ending. A successful Subject value change is a semantic revision with Version
+`N + 1`; a no-op creates no revision. Local use remains preview-only; an
+illustrative preview timestamp is not an execution receipt. This mode does not
+repair, migrate, infer ontology, or adopt a Subject grammar.
 
 CA-O-030 defines the operational Action. CA-E-304 supplies its automated conformance cases **without** duplicating them **in** this capability Requirement.
 

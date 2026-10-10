@@ -1,0 +1,38 @@
+{
+  "task": "CA-P-1984",
+  "checks": "PASS: exact scope, metadata, role sections, Summary and Version rules; full cross-role acceptance remains CA-P-1981",
+  "files": [
+    {
+      "atom_id": "CA-M-370",
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_SEARCH/05_method/CA-M-370-ATOM_SEARCH-METHOD--match-direct-subject-fields.md",
+      "before_version": null,
+      "after_version": 1,
+      "before_sha256": null,
+      "after_sha256": "91ba4ccd580bf24434700ca9150930b182b61dad287d2ec15ef439eae178f238"
+    },
+    {
+      "atom_id": "CA-M-371",
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_UPDATE/05_method/CA-M-371-ATOM_UPDATE-METHOD--preview-exact-subject-patches.md",
+      "before_version": null,
+      "after_version": 1,
+      "before_sha256": null,
+      "after_sha256": "7a97d7278c4e2002b8d48720957106b21312a157c8c129a4c283d3bd86b3e321"
+    },
+    {
+      "atom_id": "CA-R-863",
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_SEARCH/04_requirement/CA-R-863-ATOM_SEARCH-CORE-REQUIREMENT--search-caprmedio-markdown-atoms.md",
+      "before_version": 13,
+      "after_version": 14,
+      "before_sha256": "e8c90ef2b3d13f80c72c0aef8ee26167504f8e4f5136700911a1dcc64379b3c1",
+      "after_sha256": "0b984b73158b066dbe1434ffa2050f42b78d6e620cfd4ad2a5b39cebbc4dbdf0"
+    },
+    {
+      "atom_id": "CA-R-866",
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_UPDATE/04_requirement/CA-R-866-TOOLS-STANDARD-REQUIREMENT--update-caprmedio-markdown-atoms.md",
+      "before_version": 12,
+      "after_version": 13,
+      "before_sha256": "12cb9fccb479b0d6a9d7e6cc1db42d037b678a94b45e9f4dba5c4e3464f9a86d",
+      "after_sha256": "baeca5734a850332d7c77529cb1a7e10639bd9f4dbbc733849fa5ae8d0a9747d"
+    }
+  ]
+}

@@ -3,9 +3,11 @@
 from __future__ import annotations
 
 import copy
+import hashlib
 import sys
 import unittest
 from pathlib import Path
+from types import SimpleNamespace
 from unittest.mock import patch
 
 
@@ -33,6 +35,8 @@ from release_contract import ReleaseContractError, canonical_json  # noqa: E402
 from release_portable_contract import SealedPortableCandidateCompilation  # noqa: E402
 from release_portable_package import PreparedPortableReleasePackage  # noqa: E402
 from release_suite import PortableSuiteGateEvidence  # noqa: E402
+from source_catalog_admission import read_source_admission_receipt  # noqa: E402
+from workflow_run_support import RecordedActionStartProvenance, RunExecutionSession  # noqa: E402
 import test_portable_contract as portable_fixture  # noqa: E402
 
 
@@ -115,6 +119,38 @@ class PortableReleaseActionsTests(unittest.TestCase):
     def execute(self, index: int):
         return execute_release_action(self.request, context=self.context(index), run=self.run)
 
+    def bind_stage_session(self) -> None:
+        """Supply the opaque current O167 Session shape owned by the provider."""
+
+        context = self.context(1)
+        action_source = self.fixture.write(
+            ".caprmedio_caprmedio/09_operations/CA-O-167-ACTION--private-preparation.md",
+            b"# selected O167 fixture\n",
+        )
+        session = object.__new__(RunExecutionSession)
+        session.tracker = SimpleNamespace(root=self.root)
+        session.actual = {
+            "requested-workflow": {"run_id": context.workflow_run_id, "kind": "workflow"},
+            "requested-step": {
+                "run_id": context.step_run_id, "kind": "step",
+                "parent_run_id": context.workflow_run_id,
+            },
+            "requested-action": {
+                "run_id": context.action_run_id, "kind": "action",
+                "parent_run_id": context.step_run_id,
+                "definition": {
+                    "atom_id": "CA-O-167", "version": 1,
+                    "path": action_source.relative_to(self.root).as_posix(),
+                    "digest": hashlib.sha256(action_source.read_bytes()).hexdigest(),
+                },
+            },
+        }
+        session.read_recorded_action_start = lambda action_run_id: RecordedActionStartProvenance(
+            "fixture-operator", "fixture-start-event", action_run_id,
+            (context.step_run_id, context.workflow_run_id),
+        )
+        self.run.selected_action_session = session
+
     def _portable_suite(self) -> PortableSuiteGateEvidence:
         portable = self.run.portable_compilation
         assert portable is not None
@@ -146,17 +182,24 @@ class PortableReleaseActionsTests(unittest.TestCase):
         )
 
     def test_native_private_preparation_precedes_the_full_gate(self) -> None:
-        catalog_before = (self.root / "catalog.toml").read_bytes()
-        for index in range(2):
-            result = self.execute(index)
-            self.assertEqual(result.outcome, "completed")
+        (self.root / "catalog.toml").unlink()
+        self.assertEqual(self.execute(0).outcome, "completed")
+        self.bind_stage_session()
+        result = self.execute(1)
+        self.assertEqual(result.outcome, "completed")
 
         self.assertIsNotNone(self.run.methodology_export)
         self.assertIsNotNone(self.run.local_helper_binding)
         self.assertIsNotNone(self.run.private_compilation)
         self.assertIsNotNone(self.run.portable_source_snapshot)
         self.assertIsInstance(self.run.portable_compilation, SealedPortableCandidateCompilation)
-        self.assertEqual((self.root / "catalog.toml").read_bytes(), catalog_before)
+        self.assertTrue((self.root / "catalog.toml").is_file())
+        current_receipts = [
+            read_source_admission_receipt(path.read_bytes())
+            for path in (self.root / "admissions").glob("*.json")
+        ]
+        self.assertIn(self.context(1).action_run_id, {receipt.action_run_id for receipt in current_receipts})
+        self.assertIn("admissions/", " ".join(result.effect_evidence_refs))
         self.assertEqual(self.run.next_phase, 2)
         self.assertEqual(
             PHASES,
@@ -201,13 +244,15 @@ class PortableReleaseActionsTests(unittest.TestCase):
         self.assertEqual(invalid.exception.code, "release-checkpoint-invalid")
 
     def test_native_private_package_precedes_unit_gate(self) -> None:
-        for index in range(2):
-            self.assertEqual(self.execute(index).outcome, "completed")
+        (self.root / "catalog.toml").unlink()
+        self.assertEqual(self.execute(0).outcome, "completed")
+        self.bind_stage_session()
+        self.assertEqual(self.execute(1).outcome, "completed")
         package_root = self.root / ".caprmedio_tmp/release_candidates/portable-001/package"
         self.assertTrue(package_root.exists())
         suite = self._portable_suite()
         with (
-            patch("release_actions.installed_n_suite_executor", return_value=object()),
+            patch("release_actions.fresh_unit_suite_executor", return_value=object()),
             patch("release_actions.execute_bound_release_suite", return_value=suite),
         ):
             self.assertEqual(self.execute(2).outcome, "completed")
@@ -215,14 +260,15 @@ class PortableReleaseActionsTests(unittest.TestCase):
         self.assertIsInstance(self.run.prepared_portable_package, PreparedPortableReleasePackage)
         self.assertTrue(package_root.exists())
 
-    def test_missing_admitted_catalog_blocks_compile_without_replay(self) -> None:
+    def test_missing_catalog_without_selected_session_blocks_without_o199_fallback(self) -> None:
         self.assertEqual(self.execute(0).outcome, "completed")
         (self.root / "catalog.toml").unlink()
 
         blocked = self.execute(1)
 
         self.assertEqual(blocked.outcome, "blocked")
-        self.assertEqual(blocked.reason, "phase stopped: portable-contract-catalog-missing")
+        self.assertEqual(blocked.reason, "phase stopped: release-source-admission-session-unavailable")
+        self.assertFalse((self.root / "catalog.toml").exists())
         self.assertTrue(self.run.stopped)
         self.assertEqual(self.execute(1), blocked)
 

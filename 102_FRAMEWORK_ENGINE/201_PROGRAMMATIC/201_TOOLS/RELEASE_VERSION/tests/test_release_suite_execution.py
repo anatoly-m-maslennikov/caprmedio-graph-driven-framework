@@ -36,6 +36,8 @@ from release_suite_execution import (
     SelectedNImageBinding,
     _prepare_executor_scratch,
     installed_n_suite_executor,
+    fresh_unit_suite_executor,
+    FreshUnitRunnerDockerExecutor,
 )
 from release_suite_limits import MAX_UNIT_TIMEOUT_SECONDS
 from release_portable_contract import SealedPortableCandidateCompilation
@@ -150,6 +152,96 @@ class FakeDocker:
         if argv[:3] == ("docker", "container", "rm"):
             return DockerCommandResult(0, b"removed\n", b"")
         raise AssertionError(argv)
+
+
+class FreshUnitRunnerFactoryTests(unittest.TestCase):
+    """Physical sealed inputs and simulated Docker; not a real gate pass."""
+
+    def setUp(self):
+        dockerfile = "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/Dockerfile"
+        self.fixture = PortablePackageFixture(extra_engine_members={
+            dockerfile: (RELEASE_ROOT.parents[3] / dockerfile).read_bytes(),
+        })
+        self.binding = SelectedNImageBinding(IMAGE, "N", CONTEXT, False, "e" * 64, "N")
+        self.docker = FakeDocker()
+        original = self.docker.run
+
+        def run(argv, *, cwd, timeout_seconds):
+            if argv[:2] == ("docker", "build"):
+                self.docker.calls.append((argv, cwd, timeout_seconds))
+                Path(argv[argv.index("--iidfile") + 1]).write_text(IMAGE)
+                digest = argv[argv.index("--label") + 1].split("=", 1)[1]
+                self.docker.inspect_payload = [{"Id": IMAGE, "Config": {
+                    "Labels": {"org.caprmedio.unit-runner-inputs": digest},
+                    "Env": ["PATH=/opt/venv/bin:/usr/local/bin:/usr/bin:/bin"],
+                }}]
+                return DockerCommandResult(0, b"simulated build", b"")
+            return original(argv, cwd=cwd, timeout_seconds=timeout_seconds)
+
+        self.docker.run = run
+
+    def factory(self):
+        # Documentary predecessor has separate admission tests. This fixture
+        # has a real portable seal, but no selected runtime or real Docker.
+        with patch("release_suite_execution._active_n_state"), patch(
+            "release_suite_execution._selector_binding", return_value=self.binding,
+        ), patch("release_suite_execution.require_declared_suite_command"):
+            return fresh_unit_suite_executor(self.fixture.candidate, self.fixture.sealed,
+                                             project_root=str(self.fixture.root), docker=self.docker)
+
+    def test_fresh_runner_build_has_no_candidate_payload_or_n_image_inspection(self):
+        executor = self.factory()
+        self.assertIsInstance(executor, FreshUnitRunnerDockerExecutor)
+        self.assertEqual(executor.source_context_sha256, CONTEXT)  # documentary only
+        context = self.fixture.root / executor.runner_binding.context_root
+        self.assertEqual({path.name for path in context.iterdir()}, {"Dockerfile", "pyproject.toml", "uv.lock"})
+        payload = (context / "Dockerfile").read_bytes()
+        self.assertIn(b"uv sync --locked", payload)
+        self.assertNotIn(b"COPY 102_FRAMEWORK_ENGINE", payload)
+        self.assertNotIn(b"entrypoint.py", payload)
+        self.assertEqual([argv[:2] for argv, _, _ in self.docker.calls], [("docker", "build"), ("docker", "image")])
+        receipt = json.loads((self.fixture.root / executor.runner_binding.receipt_ref).read_bytes())
+        self.assertEqual(receipt["input_sha256"], executor.runner_binding.input_sha256)
+        self.assertEqual(receipt["image_digest"], IMAGE)
+
+    def test_stale_lock_refuses_before_any_docker_effect(self):
+        lock = self.fixture.root / "uv.lock"
+        lock.write_bytes(lock.read_bytes() + b"\n# changed\n")
+        with self.assertRaises(ReleaseContractError):
+            self.factory()
+        self.assertEqual(self.docker.calls, [])
+
+    def test_missing_dependency_boundary_refuses_before_docker(self):
+        self.fixture = PortablePackageFixture()  # Its real sealed Dockerfile lacks the dependency boundary.
+        with self.assertRaises(ReleaseContractError) as rejected:
+            self.factory()
+        self.assertEqual(rejected.exception.code, "release-unit-runner-input-invalid")
+        self.assertEqual(self.docker.calls, [])
+
+    def test_tampered_private_runner_receipt_refuses_before_unit_launch(self):
+        executor = self.factory()
+        receipt = self.fixture.root / executor.runner_binding.receipt_ref
+        receipt.write_bytes(receipt.read_bytes() + b"changed")
+        attempt = self.fixture.root / ".caprmedio_runtime/release_suite" / executor.candidate_snapshot_manifest_sha256 / "attempt-test"
+        workspace, output = attempt / "workspace", attempt / "output"
+        workspace.mkdir(parents=True)
+        output.mkdir()
+        environment = {
+            "PATH": executor.image_path,
+            PROJECT_ROOT_ENVIRONMENT_VARIABLE: "/workspace",
+            REPORT_ENVIRONMENT_VARIABLE: "/output/coverage.xml",
+            COMPILED_ROOT_ENVIRONMENT_VARIABLE: executor.compiled_root,
+            CANDIDATE_MANIFEST_ENVIRONMENT_VARIABLE: executor.candidate_snapshot_manifest_sha256,
+            SOURCE_BINDINGS_ENVIRONMENT_VARIABLE: "/workspace/" + SOURCE_BINDINGS_RELATIVE,
+            SOURCE_BINDINGS_SHA256_ENVIRONMENT_VARIABLE: "a" * 64,
+        }
+        before = list(self.docker.calls)
+        with self.assertRaises(ReleaseContractError) as rejected:
+            executor.run(executor.sealed_command, workspace=workspace, output_root=output,
+                         working_directory=executor.sealed_working_directory, environment=environment,
+                         timeout_seconds=10)
+        self.assertEqual(rejected.exception.code, "release-unit-runner-unproven")
+        self.assertEqual(self.docker.calls, before)
 
 
 class InstalledNSuiteDockerExecutorTests(unittest.TestCase):

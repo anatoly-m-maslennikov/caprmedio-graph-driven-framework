@@ -1,10 +1,11 @@
-"""Installed-N immutable-image executor for the sealed Release suite.
+"""Closed immutable-image executors for the sealed Release suite.
 
 This adapter is private to the selected Release Action.  It neither chooses a
 Docker image from request data nor accepts a caller-defined mount, network, or
 environment.  The caller already sealed the candidate; this module derives the
-currently selected N image, verifies its identity labels, and runs the exact
-sealed command with only the disposable suite workspace and output mounted.
+fresh locked-uv dependency-only Unit image for the current Local gate, and
+retains the original installed-N executor for historical/public consumers.
+Both run the exact sealed command with only workspace and output mounted.
 """
 
 from __future__ import annotations
@@ -13,10 +14,11 @@ import json
 import hashlib
 import re
 import tomllib
+import tempfile
 from dataclasses import dataclass, replace
 from pathlib import Path, PurePosixPath
 
-from release_contract import ReleaseContractError, ValidatedCandidate
+from release_contract import ReleaseContractError, ValidatedCandidate, canonical_json
 from release_handoff import (CURRENT_SELECTOR_RELATIVE, NativeInstalledNBinding,
                              SealedCandidateCompilation, reopen_native_installed_n,
                              selected_n_identity)
@@ -125,6 +127,8 @@ _EXPECTED_ENVIRONMENT_KEYS = frozenset({
 })
 _BOOTSTRAP_PACKAGE_LABEL = "org.caprmedio.framework.package_manifest_sha256"
 _BOOTSTRAP_CONTEXT_LABEL = "org.caprmedio.framework.source_context_sha256"
+_UNIT_RUNNER_LABEL = "org.caprmedio.unit-runner-inputs"
+_UNIT_RUNNER_PATH = "/opt/venv/bin:/usr/local/bin:/usr/bin:/bin"
 
 
 @dataclass(frozen=True)
@@ -338,7 +342,7 @@ def _preflight_installed_python(docker: DockerExecutor, root: Path, image: str, 
     if observed.timed_out or observed.exit_code != 0:
         raise ReleaseContractError(
             "release-suite-executor-python-unproven",
-            "installed N Python cannot execute the fixed deadline guard",
+            "admitted image Python cannot execute the fixed deadline guard",
         )
 
 
@@ -380,6 +384,27 @@ def _cleanup_timed_out_container(
         return False
 
 
+def _validate_sandbox_invocation(self, command, workspace, output_root, working_directory, environment, timeout_seconds):
+    _attempt_mounts(self.root, self.candidate_snapshot_manifest_sha256, workspace, output_root)
+    if command != self.sealed_command or working_directory != self.sealed_working_directory:
+        raise ReleaseContractError("release-suite-executor-binding-mismatch", "suite command or working directory differs from sealed selection")
+    if not isinstance(timeout_seconds, (int, float)) or isinstance(timeout_seconds, bool) or not 0 < timeout_seconds <= MAX_UNIT_TIMEOUT_SECONDS:
+        raise ReleaseContractError("release-suite-executor-timeout-invalid", "suite timeout is outside the governed bound")
+    bindings_sha256 = environment.get(SOURCE_BINDINGS_SHA256_ENVIRONMENT_VARIABLE)
+    if not isinstance(bindings_sha256, str) or _SHA256.fullmatch(bindings_sha256) is None:
+        raise ReleaseContractError("release-suite-executor-environment-untrusted", "suite source-bindings digest is invalid")
+    expected = {
+        "PATH": self.image_path,
+        PROJECT_ROOT_ENVIRONMENT_VARIABLE: str(SANDBOX_WORKSPACE_PATH),
+        REPORT_ENVIRONMENT_VARIABLE: str(SANDBOX_OUTPUT_PATH / "coverage.xml"),
+        COMPILED_ROOT_ENVIRONMENT_VARIABLE: self.compiled_root,
+        CANDIDATE_MANIFEST_ENVIRONMENT_VARIABLE: self.candidate_snapshot_manifest_sha256,
+        SOURCE_BINDINGS_ENVIRONMENT_VARIABLE: str(SANDBOX_WORKSPACE_PATH / SOURCE_BINDINGS_RELATIVE),
+        SOURCE_BINDINGS_SHA256_ENVIRONMENT_VARIABLE: bindings_sha256,
+    }
+    if set(environment) != _EXPECTED_ENVIRONMENT_KEYS or environment != expected:
+        raise ReleaseContractError("release-suite-executor-environment-untrusted", "suite environment differs from fixed sandbox values")
+
 @dataclass(frozen=True)
 class InstalledNSuiteDockerExecutor:
     """A closed installed-N Docker boundary derived by the Release Action."""
@@ -406,25 +431,7 @@ class InstalledNSuiteDockerExecutor:
         environment: dict[str, str],
         timeout_seconds: float,
     ) -> None:
-        _attempt_mounts(self.root, self.candidate_snapshot_manifest_sha256, workspace, output_root)
-        if command != self.sealed_command or working_directory != self.sealed_working_directory:
-            raise ReleaseContractError("release-suite-executor-binding-mismatch", "suite command or working directory differs from sealed selection")
-        if not isinstance(timeout_seconds, (int, float)) or isinstance(timeout_seconds, bool) or not 0 < timeout_seconds <= MAX_UNIT_TIMEOUT_SECONDS:
-            raise ReleaseContractError("release-suite-executor-timeout-invalid", "suite timeout is outside the governed bound")
-        bindings_sha256 = environment.get(SOURCE_BINDINGS_SHA256_ENVIRONMENT_VARIABLE)
-        if not isinstance(bindings_sha256, str) or _SHA256.fullmatch(bindings_sha256) is None:
-            raise ReleaseContractError("release-suite-executor-environment-untrusted", "suite source-bindings digest is invalid")
-        expected = {
-            "PATH": self.image_path,
-            PROJECT_ROOT_ENVIRONMENT_VARIABLE: str(SANDBOX_WORKSPACE_PATH),
-            REPORT_ENVIRONMENT_VARIABLE: str(SANDBOX_OUTPUT_PATH / "coverage.xml"),
-            COMPILED_ROOT_ENVIRONMENT_VARIABLE: self.compiled_root,
-            CANDIDATE_MANIFEST_ENVIRONMENT_VARIABLE: self.candidate_snapshot_manifest_sha256,
-            SOURCE_BINDINGS_ENVIRONMENT_VARIABLE: str(SANDBOX_WORKSPACE_PATH / SOURCE_BINDINGS_RELATIVE),
-            SOURCE_BINDINGS_SHA256_ENVIRONMENT_VARIABLE: bindings_sha256,
-        }
-        if set(environment) != _EXPECTED_ENVIRONMENT_KEYS or environment != expected:
-            raise ReleaseContractError("release-suite-executor-environment-untrusted", "suite environment differs from fixed sandbox values")
+        _validate_sandbox_invocation(self, command, workspace, output_root, working_directory, environment, timeout_seconds)
         # Reinspect immediately before execution.  A digest is immutable, but
         # this preserves the N manifest/context binding observed at admission.
         current_selection = _selector_binding(
@@ -535,6 +542,175 @@ def _suite_compiled_root(
             raise ReleaseContractError("release-suite-executor-binding-mismatch", "portable compilation differs from selected suite candidate")
         return current.private_compilation.compiled_root
     raise ReleaseContractError("release-suite-executor-handoff-untrusted", "suite executor requires typed candidate and compilation")
+
+
+@dataclass(frozen=True)
+class UnitRunnerImageBinding:
+    candidate_snapshot_manifest_sha256: str
+    input_sha256: str
+    image_digest: str
+    image_path: str
+    context_root: str
+    receipt_ref: str
+    receipt_sha256: str
+
+
+def _unit_runner_inputs(root: Path, candidate: ValidatedCandidate) -> dict[str, bytes]:
+    paths = ("pyproject.toml", "uv.lock", candidate.manifest.candidate_image.dockerfile_path)
+    payloads = {}
+    for relative in paths:
+        rows = [row for row in candidate.manifest.source_inventory_rows
+                if row.resource == "IMAGE_INPUT" and row.source_path == relative]
+        path = root / relative
+        _safe_directory_chain(root, path.parent, label="Unit runner input")
+        if len(rows) != 1 or path.is_symlink() or not path.is_file():
+            raise ReleaseContractError("release-unit-runner-input-invalid", "Unit runner lacks exact sealed dependency inputs")
+        payload = path.read_bytes()
+        if (hashlib.sha256(payload).hexdigest() != rows[0].source_sha256
+                or path.stat().st_mode & 0o777 != rows[0].source_mode):
+            raise ReleaseContractError("release-currentness-stale", "Unit runner dependency input changed")
+        payloads[relative] = payload
+    dockerfile = payloads.pop(paths[2])
+    marker = b"COPY 102_FRAMEWORK_ENGINE ./102_FRAMEWORK_ENGINE\n"
+    if dockerfile.count(marker) != 1:
+        raise ReleaseContractError("release-unit-runner-input-invalid", "sealed Dockerfile has no unique dependency-only boundary")
+    prefix = dockerfile.split(marker)[0]
+    if (b"COPY pyproject.toml uv.lock ./\n" not in prefix or b"uv sync --locked" not in prefix
+            or b"102_FRAMEWORK_ENGINE" in prefix or b"ENTRYPOINT" in prefix):
+        raise ReleaseContractError("release-unit-runner-input-invalid", "Unit runner dependency prefix is not the locked-uv boundary")
+    payloads["Dockerfile"] = prefix + (
+        f"ENV PATH={_UNIT_RUNNER_PATH} PYTHONDONTWRITEBYTECODE=1\nENTRYPOINT [\"python\"]\n"
+    ).encode()
+    return payloads
+
+
+def _runner_input_sha256(payloads: dict[str, bytes]) -> str:
+    return hashlib.sha256(canonical_json([
+        {"path": path, "sha256": hashlib.sha256(payload).hexdigest(), "mode": 0o644}
+        for path, payload in sorted(payloads.items())
+    ])).hexdigest()
+
+
+def _inspect_unit_runner(docker: DockerExecutor, root: Path, image: str, input_sha256: str) -> None:
+    observed = docker.run(("docker", "image", "inspect", image), cwd=root, timeout_seconds=_INSPECT_TIMEOUT_SECONDS)
+    try:
+        rows = json.loads(observed.stdout)
+        config = rows[0]["Config"]
+        paths = [value.removeprefix("PATH=") for value in config["Env"] if value.startswith("PATH=")]
+        if (observed.exit_code != 0 or observed.timed_out or len(rows) != 1 or rows[0]["Id"] != image
+                or config["Labels"].get(_UNIT_RUNNER_LABEL) != input_sha256
+                or config["Labels"].get(CANDIDATE_LABEL) is not None or paths != [_UNIT_RUNNER_PATH]):
+            raise ValueError
+    except (ValueError, TypeError, KeyError, IndexError, AttributeError) as error:
+        raise ReleaseContractError("release-unit-runner-unproven", "fresh Unit runner identity is unverified") from error
+
+
+@dataclass(frozen=True)
+class FreshUnitRunnerDockerExecutor:
+    root: Path
+    docker: DockerExecutor
+    candidate_snapshot_manifest_sha256: str
+    executing_release: str
+    # Original N's documentary context only, never the executing runner ID.
+    source_context_sha256: str
+    image_digest: str
+    image_path: str
+    sealed_command: tuple[str, ...]
+    sealed_working_directory: str
+    compiled_root: str
+    candidate: ValidatedCandidate
+    runner_binding: UnitRunnerImageBinding
+
+    def _validate_invocation(self, command, workspace, output_root, working_directory, environment, timeout_seconds):
+        _validate_sandbox_invocation(self, command, workspace, output_root, working_directory, environment, timeout_seconds)
+        binding = self.runner_binding
+        payloads = _unit_runner_inputs(self.root, self.candidate)
+        if _runner_input_sha256(payloads) != binding.input_sha256:
+            raise ReleaseContractError("release-currentness-stale", "Unit runner inputs changed before execution")
+        context = self.root / binding.context_root
+        _safe_directory_chain(self.root, context, label="Unit runner context")
+        if {path.name for path in context.iterdir()} != set(payloads):
+            raise ReleaseContractError("release-unit-runner-unproven", "private Unit runner context has unbound inputs")
+        for name, payload in payloads.items():
+            path = context / name
+            if path.is_symlink() or not path.is_file() or path.read_bytes() != payload or path.stat().st_mode & 0o777 != 0o644:
+                raise ReleaseContractError("release-unit-runner-unproven", "private Unit runner context changed")
+        receipt = self.root / binding.receipt_ref
+        _safe_directory_chain(self.root, receipt.parent, label="Unit runner receipt")
+        if (receipt.is_symlink() or not receipt.is_file()
+                or hashlib.sha256(receipt.read_bytes()).hexdigest() != binding.receipt_sha256):
+            raise ReleaseContractError("release-unit-runner-unproven", "Unit runner receipt changed")
+        recorded = json.loads(receipt.read_bytes())
+        if (recorded.get("schema") != "caprmedio.private_unit_runner.v1"
+                or recorded.get("candidate_snapshot_manifest_sha256") != self.candidate_snapshot_manifest_sha256
+                or binding.candidate_snapshot_manifest_sha256 != self.candidate.manifest.sha256
+                or recorded.get("input_sha256") != binding.input_sha256
+                or recorded.get("image_digest") != self.image_digest or binding.image_digest != self.image_digest
+                or recorded.get("image_path") != self.image_path or binding.image_path != self.image_path):
+            raise ReleaseContractError("release-unit-runner-unproven", "Unit runner receipt differs from its admitted execution")
+        _inspect_unit_runner(self.docker, self.root, binding.image_digest, binding.input_sha256)
+
+    # Reuse the same closed mounts, PID1 deadline guard and uncertain cleanup.
+    run = InstalledNSuiteDockerExecutor.run
+
+
+def fresh_unit_suite_executor(candidate, compilation, *, project_root: str, docker: DockerExecutor):
+    if not isinstance(candidate, ValidatedCandidate):
+        raise ReleaseContractError("release-suite-executor-handoff-untrusted", "Unit runner requires a typed sealed candidate")
+    root = Path(project_root).resolve(strict=True)
+    if str(root) != candidate.project_root or not callable(getattr(docker, "run", None)):
+        raise ReleaseContractError("release-suite-executor-unadmitted", "Unit runner belongs to another Project")
+    compiled_root = _suite_compiled_root(candidate, compilation)
+    require_declared_suite_command(candidate.manifest.full_suite_environment)
+    _active_n_state(root, candidate)
+    documentary_n = _selector_binding(root, candidate)
+    payloads = _unit_runner_inputs(root, candidate)
+    input_sha256 = _runner_input_sha256(payloads)
+    parent = root / ".caprmedio_tmp/release_unit_runners"
+    for path in (root / ".caprmedio_tmp", parent):
+        if not path.exists():
+            path.mkdir()
+        _safe_directory_chain(root, path, label="Unit runner staging")
+    attempt = Path(tempfile.mkdtemp(prefix="attempt-", dir=parent))
+    context = attempt / "context"
+    context.mkdir()
+    for name, payload in payloads.items():
+        path = context / name
+        with path.open("xb") as stream:
+            stream.write(payload)
+        path.chmod(0o644)
+    iid = attempt / "image.id"
+    argv = ("docker", "build", "--iidfile", str(iid), "--label", f"{_UNIT_RUNNER_LABEL}={input_sha256}",
+            "--file", str(context / "Dockerfile"), str(context))
+    with (attempt / "intent.json").open("xb") as stream:
+        stream.write(canonical_json({"candidate_snapshot_manifest_sha256": candidate.manifest.sha256,
+                                     "input_sha256": input_sha256, "command": list(argv)}))
+    result = docker.run(argv, cwd=root, timeout_seconds=900)
+    with (attempt / "build-result.json").open("xb") as stream:
+        stream.write(canonical_json({"exit_code": result.exit_code, "timed_out": result.timed_out,
+                                     "stdout_sha256": hashlib.sha256(result.stdout).hexdigest(),
+                                     "stderr_sha256": hashlib.sha256(result.stderr).hexdigest()}))
+    if result.timed_out or result.exit_code is None:
+        raise ReleaseContractError("release-unit-runner-build-uncertain", "Unit runner build outcome is uncertain; do not replay")
+    image = iid.read_text().strip() if iid.is_file() and not iid.is_symlink() else ""
+    if result.exit_code != 0 or IMAGE_ID.fullmatch(image) is None:
+        raise ReleaseContractError("release-unit-runner-build-failed", "fresh locked-uv Unit runner build failed")
+    if _unit_runner_inputs(root, candidate) != payloads:
+        raise ReleaseContractError("release-currentness-stale", "Unit runner inputs changed during build")
+    _inspect_unit_runner(docker, root, image, input_sha256)
+    receipt = attempt / "receipt.json"
+    raw = canonical_json({"schema": "caprmedio.private_unit_runner.v1", "candidate_snapshot_manifest_sha256": candidate.manifest.sha256,
+                          "input_sha256": input_sha256, "image_digest": image, "image_path": _UNIT_RUNNER_PATH,
+                          "command": list(argv), "exit_code": result.exit_code,
+                          "stdout_sha256": hashlib.sha256(result.stdout).hexdigest(), "stderr_sha256": hashlib.sha256(result.stderr).hexdigest()})
+    with receipt.open("xb") as stream:
+        stream.write(raw)
+    binding = UnitRunnerImageBinding(candidate.manifest.sha256, input_sha256, image, _UNIT_RUNNER_PATH,
+                                     context.relative_to(root).as_posix(), receipt.relative_to(root).as_posix(), hashlib.sha256(raw).hexdigest())
+    environment = candidate.manifest.full_suite_environment
+    return FreshUnitRunnerDockerExecutor(root, docker, candidate.manifest.sha256, candidate.authority.executing_release,
+                                        documentary_n.source_context_sha256, image, _UNIT_RUNNER_PATH,
+                                        tuple(environment.command), environment.working_directory, compiled_root, candidate, binding)
 
 
 def installed_n_suite_executor(
