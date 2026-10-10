@@ -13,7 +13,9 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import os
 import re
+import stat
 import sys
 import tomllib
 from dataclasses import dataclass
@@ -26,7 +28,8 @@ TOOLS_ROOT = Path(__file__).resolve().parents[1]
 if str(TOOLS_ROOT) not in sys.path:
     sys.path.insert(0, str(TOOLS_ROOT))
 
-from workflow_run_support import RunTracker, SelectedRunError  # noqa: E402
+import work_journal  # noqa: E402
+from workflow_run_support import RunExecutionSession, RunTracker, SelectedRunError  # noqa: E402
 from retained_full_gate_packet import RetainedNativeFullGatePacket  # noqa: E402
 
 
@@ -244,7 +247,9 @@ def _call(value: object, label: str) -> ToolCallEvidence:
         for row in rows:
             _safe_ref(row, f"{label}.{field}")
     if value.outcome == "interrupted_pending":
-        raise PublicReleaseInterrupted("external-effect-uncertain", f"{label} has no terminal effect proof")
+        error = PublicReleaseInterrupted("external-effect-uncertain", f"{label} has no terminal effect proof")
+        error.call = value
+        raise error
     return value
 
 
@@ -586,8 +591,84 @@ def _append_call(trace: list[dict[str, Any]], *, operation: str, call: ToolCallE
 
 def _finish(session: Any, run: Mapping[str, Any], *, outcome: str, result_ref: str,
             effect_refs: list[str], report_ref: str) -> None:
-    session.finish_run(run["run_id"], outcome=outcome, result_ref=result_ref,
-                       effect_refs=effect_refs, report_ref=report_ref)
+    recorded = session.finish_run(run["run_id"], outcome=outcome, result_ref=result_ref,
+                                  effect_refs=effect_refs, report_ref=report_ref)
+    if recorded.get("disposition") == "recording_pending":
+        raise SelectedRunError("recording-pending", "Run terminal evidence could not be durably recorded")
+
+
+def _is_terminal(session: RunExecutionSession, run: Mapping[str, Any]) -> bool:
+    run_id = run["run_id"]
+    return any(record.get("run_id") == run_id for record in (*session.terminal.values(), *session.interrupted.values()))
+
+
+def _safe_run_evidence_directory(root: Path) -> Path:
+    """Create the selected-Run evidence directory without following aliases."""
+    try:
+        root_status = root.lstat()
+    except OSError as error:
+        raise PublicReleaseError("run-evidence-unavailable", "selected Project root is unavailable") from error
+    if root.is_symlink() or not stat.S_ISDIR(root_status.st_mode):
+        raise PublicReleaseError("run-evidence-unavailable", "selected Project root is aliased")
+    relative = work_journal.configured_runtime_root(root) / "state" / "work_journal" / "selected_runs" / "evidence"
+    current = root
+    for component in relative.parts:
+        current /= component
+        try:
+            current.mkdir(mode=0o700)
+        except FileExistsError:
+            pass
+        try:
+            status = current.lstat()
+        except OSError as error:
+            raise PublicReleaseError("run-evidence-unavailable", "Run evidence directory is unavailable") from error
+        if current.is_symlink() or not stat.S_ISDIR(status.st_mode):
+            raise PublicReleaseError("run-evidence-unavailable", "Run evidence directory is aliased")
+    return current
+
+
+def _run_evidence_ref(session: RunExecutionSession, run: Mapping[str, Any], *, outcome: str) -> str:
+    """Write one immutable terminal payload beside selected-Run dispatch evidence."""
+    root = Path(session.tracker.root)
+    run_id = run.get("run_id")
+    definition = run.get("definition")
+    if not isinstance(run_id, str) or not run_id or not isinstance(definition, Mapping):
+        raise PublicReleaseError("invalid-run-evidence", "started Run lacks a stable identity")
+    payload = {
+        "schema_version": 1,
+        "request_id": session.request["request_id"],
+        "run_id": run_id,
+        "kind": run["kind"],
+        "atom_id": definition["atom_id"],
+        "outcome": outcome,
+    }
+    encoded = json.dumps(payload, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode("utf-8") + b"\n"
+    digest = hashlib.sha256(encoded).hexdigest()
+    directory = _safe_run_evidence_directory(root)
+    path = directory / f"{digest}.json"
+    try:
+        descriptor = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL | getattr(os, "O_NOFOLLOW", 0), 0o600)
+    except FileExistsError:
+        try:
+            status = path.lstat()
+            if path.is_symlink() or not stat.S_ISREG(status.st_mode) or status.st_nlink != 1:
+                raise PublicReleaseError("run-evidence-unavailable", "immutable Run evidence is aliased")
+            descriptor = os.open(path, os.O_RDONLY | getattr(os, "O_NOFOLLOW", 0))
+            with os.fdopen(descriptor, "rb") as handle:
+                existing = handle.read()
+            if existing != encoded:
+                raise PublicReleaseError("run-evidence-conflict", "immutable Run evidence bytes conflict")
+        except OSError as error:
+            raise PublicReleaseError("run-evidence-unavailable", "immutable Run evidence cannot be reopened") from error
+    else:
+        try:
+            with os.fdopen(descriptor, "wb") as handle:
+                handle.write(encoded)
+                handle.flush()
+                os.fsync(handle.fileno())
+        except OSError as error:
+            raise PublicReleaseError("run-evidence-unavailable", "immutable Run evidence cannot be written") from error
+    return path.relative_to(root).as_posix()
 
 
 def _require_prepared_source(expected: Mapping[str, Any], actual: SourceProof, *, pr: PullRequest | None,
@@ -642,32 +723,29 @@ def describe() -> dict[str, Any]:
     }
 
 
-def run(project_root: Path, request: Mapping[str, Any], *, bindings: PublicReleaseBindings,
-        source_observer: Callable[[dict[str, Any]], Mapping[str, Any]],
-        journal_context: Mapping[str, str] | None = None) -> dict[str, Any]:
-    """Run the bound public-release sequence through the shared schema-v5 recorder."""
-
-    if not isinstance(request, Mapping):
-        raise PublicReleaseError("invalid-input", "request must be an object")
-    _expected_runs(request)
-    parsed_parameters = _parameters(request.get("parameters"))
-    trace: list[dict[str, Any]] = []
-
-    def executor(_request: dict[str, Any], session: Any) -> None:
+def _executor(project_root: Path, bindings: PublicReleaseBindings, trace: list[dict[str, Any]],
+              parsed_parameters: Mapping[str, Any]) -> Callable[[dict[str, Any], RunExecutionSession], None]:
+    def execute(_request: dict[str, Any], session: RunExecutionSession) -> None:
         workflow = session.start_run(next(row["requested_run_id"] for row in _request["requested_runs"] if row["definition"]["atom_id"] == WORKFLOW_ID))
         effect_refs: list[str] = []
         report_refs: list[str] = []
         source: SourceProof | None = None
         discovered: PullRequest | None = None
         final_pr: PullRequest | None = None
+        step: Mapping[str, Any] | None = None
+        action: Mapping[str, Any] | None = None
+        action_effects: list[str] = []
+        action_reports: list[str] = []
+        action_result_ref: str | None = None
         try:
             for name, step_id, action_id in STEPS:
                 step_requested = next(row["requested_run_id"] for row in _request["requested_runs"] if row["definition"]["atom_id"] == step_id)
                 action_requested = next(row["requested_run_id"] for row in _request["requested_runs"] if row["definition"]["atom_id"] == action_id)
                 step = session.start_run(step_requested)
                 action = session.start_run(action_requested)
-                action_effects: list[str] = []
-                action_reports: list[str] = []
+                action_effects = []
+                action_reports = []
+                action_result_ref = None
                 if name == "discover_matching_pr":
                     result = bindings.discover_matching_pr(parsed_parameters)
                     call = _call(result.call if isinstance(result, PRDiscovery) else None, name)
@@ -677,6 +755,7 @@ def run(project_root: Path, request: Mapping[str, Any], *, bindings: PublicRelea
                         discovered = _pr(result.matches[0], name, release=parsed_parameters["release"])
                     _append_call(trace, operation=name, call=call, step_run_id=step["run_id"], action_run_id=action["run_id"])
                     action_reports.extend(call.report_refs)
+                    action_result_ref = call.result_ref
                 elif name == "prepare_public_materials":
                     result = bindings.prepare_public_materials(parsed_parameters, discovered.url if discovered else None)
                     if not isinstance(result, PrepareResult):
@@ -689,6 +768,7 @@ def run(project_root: Path, request: Mapping[str, Any], *, bindings: PublicRelea
                     _append_call(trace, operation=name, call=call, step_run_id=step["run_id"], action_run_id=action["run_id"])
                     action_effects.extend(call.effect_refs)
                     action_reports.extend(call.report_refs)
+                    action_result_ref = call.result_ref
                 elif name == "freeze_and_gate":
                     if source is None:
                         raise PublicReleaseError("missing-source-proof", "public materials must be prepared before the full gate")
@@ -696,6 +776,7 @@ def run(project_root: Path, request: Mapping[str, Any], *, bindings: PublicRelea
                                    project_root=Path(project_root), selected_version=parsed_parameters["release"]["selected_version"].removeprefix("v"))
                     _append_call(trace, operation=name, call=result.call, step_run_id=step["run_id"], action_run_id=action["run_id"])
                     action_reports.extend((*result.call.report_refs, _full_gate_receipt_ref(result.binding)))
+                    action_result_ref = result.call.result_ref
                 elif name == "push_and_upsert_pr":
                     if source is None:
                         raise PublicReleaseError("missing-source-proof", "public materials must be prepared before push")
@@ -705,6 +786,7 @@ def run(project_root: Path, request: Mapping[str, Any], *, bindings: PublicRelea
                     _append_call(trace, operation="commit_and_push_initial", call=push_call, step_run_id=step["run_id"], action_run_id=action["run_id"])
                     action_effects.extend(push_call.effect_refs)
                     action_reports.extend(push_call.report_refs)
+                    action_result_ref = push_call.result_ref
                     upserted = bindings.upsert_main_pr(parsed_parameters, source, discovered.url if discovered else None, "initial")
                     if not isinstance(upserted, PRUpsertResult):
                         raise PublicReleaseError("invalid-pr-evidence", "upsert_main_pr must return PRUpsertResult")
@@ -715,6 +797,7 @@ def run(project_root: Path, request: Mapping[str, Any], *, bindings: PublicRelea
                     _append_call(trace, operation="find_create_update_main_pr", call=pr_call, step_run_id=step["run_id"], action_run_id=action["run_id"])
                     action_effects.extend(pr_call.effect_refs)
                     action_reports.extend(pr_call.report_refs)
+                    action_result_ref = pr_call.result_ref
                 else:
                     if final_pr is None:
                         raise PublicReleaseError("missing-pr-proof", "a final PR proof is required before Version History finalization")
@@ -736,16 +819,19 @@ def run(project_root: Path, request: Mapping[str, Any], *, bindings: PublicRelea
                         _append_call(trace, operation="finalize_version_history", call=final_call, step_run_id=step["run_id"], action_run_id=action["run_id"])
                         action_effects.extend(final_call.effect_refs)
                         action_reports.extend(final_call.report_refs)
+                        action_result_ref = final_call.result_ref
                         renewed = _gate(bindings.run_full_gate(parsed_parameters, final_source, "history_link_final"), "renewed full gate", final_source,
                                         project_root=Path(project_root), selected_version=parsed_parameters["release"]["selected_version"].removeprefix("v"))
                         _append_call(trace, operation="renewed_full_gate", call=renewed.call, step_run_id=step["run_id"], action_run_id=action["run_id"])
                         action_reports.extend((*renewed.call.report_refs, _full_gate_receipt_ref(renewed.binding)))
+                        action_result_ref = renewed.call.result_ref
                         pushed = _push(bindings.commit_and_push(parsed_parameters, final_source, "history_link_final"), "final push",
                                        release=parsed_parameters["release"])
                         push_call = pushed.call
                         _append_call(trace, operation="commit_and_push_history_link", call=push_call, step_run_id=step["run_id"], action_run_id=action["run_id"])
                         action_effects.extend(push_call.effect_refs)
                         action_reports.extend(push_call.report_refs)
+                        action_result_ref = push_call.result_ref
                         refreshed = bindings.upsert_main_pr(parsed_parameters, final_source, final_pr.url, "history_link_final")
                         if not isinstance(refreshed, PRUpsertResult):
                             raise PublicReleaseError("invalid-pr-evidence", "final PR refresh must return PRUpsertResult")
@@ -756,6 +842,7 @@ def run(project_root: Path, request: Mapping[str, Any], *, bindings: PublicRelea
                         _append_call(trace, operation="refresh_main_pr", call=refresh_call, step_run_id=step["run_id"], action_run_id=action["run_id"])
                         action_effects.extend(refresh_call.effect_refs)
                         action_reports.extend(refresh_call.report_refs)
+                        action_result_ref = refresh_call.result_ref
                         source = final_source
                     else:
                         _require_prepared_source(parsed_parameters["source"], final_source, pr=final_pr,
@@ -763,33 +850,100 @@ def run(project_root: Path, request: Mapping[str, Any], *, bindings: PublicRelea
                                                  require_selected_candidate=True)
                         _append_call(trace, operation="finalize_version_history", call=final_call, step_run_id=step["run_id"], action_run_id=action["run_id"])
                         action_reports.extend(final_call.report_refs)
-                result_ref = f"results/{action_id}.json"
-                _finish(session, action, outcome="completed", result_ref=result_ref,
-                        effect_refs=action_effects, report_ref=action_reports[0] if action_reports else result_ref)
-                _finish(session, step, outcome="completed", result_ref=result_ref,
-                        effect_refs=action_effects, report_ref=action_reports[0] if action_reports else result_ref)
+                        action_result_ref = final_call.result_ref
+                action_result_ref = _run_evidence_ref(session, action, outcome="completed")
+                step_result_ref = _run_evidence_ref(session, step, outcome="completed")
+                _finish(session, action, outcome="completed", result_ref=action_result_ref,
+                        effect_refs=action_effects, report_ref=action_reports[0] if action_reports else action_result_ref)
+                _finish(session, step, outcome="completed", result_ref=step_result_ref,
+                        effect_refs=action_effects, report_ref=action_reports[0] if action_reports else step_result_ref)
                 effect_refs.extend(action_effects)
                 report_refs.extend(action_reports)
-            _finish(session, workflow, outcome="completed", result_ref="results/CA-O-188.json",
-                    effect_refs=effect_refs, report_ref=report_refs[0] if report_refs else "results/CA-O-188.json")
-        except PublicReleaseInterrupted:
-            _finish(session, action, outcome="interrupted_pending", result_ref=f"results/{action_id}.json",
-                    effect_refs=action_effects, report_ref=action_reports[0] if action_reports else f"results/{action_id}.json")
-            _finish(session, step, outcome="interrupted_pending", result_ref=f"results/{step_id}.json",
-                    effect_refs=action_effects, report_ref=action_reports[0] if action_reports else f"results/{step_id}.json")
-            _finish(session, workflow, outcome="interrupted_pending", result_ref="results/CA-O-188.json",
-                    effect_refs=effect_refs + action_effects, report_ref=report_refs[0] if report_refs else "results/CA-O-188.json")
+            workflow_result_ref = _run_evidence_ref(session, workflow, outcome="completed")
+            _finish(session, workflow, outcome="completed", result_ref=workflow_result_ref,
+                    effect_refs=effect_refs, report_ref=report_refs[0] if report_refs else workflow_result_ref)
+        except PublicReleaseInterrupted as interrupted:
+            call = getattr(interrupted, "call", None)
+            if isinstance(call, ToolCallEvidence):
+                action_effects.extend(call.effect_refs)
+                action_reports.extend(call.report_refs)
+                action_result_ref = call.result_ref
+            action_result_ref = action_result_ref or _run_evidence_ref(session, action, outcome="interrupted_pending")
+            step_result_ref = _run_evidence_ref(session, step, outcome="interrupted_pending")
+            workflow_result_ref = _run_evidence_ref(session, workflow, outcome="interrupted_pending")
+            _finish(session, action, outcome="interrupted_pending", result_ref=action_result_ref,
+                    effect_refs=action_effects, report_ref=action_reports[0] if action_reports else action_result_ref)
+            _finish(session, step, outcome="interrupted_pending", result_ref=step_result_ref,
+                    effect_refs=action_effects, report_ref=action_reports[0] if action_reports else step_result_ref)
+            _finish(session, workflow, outcome="interrupted_pending", result_ref=workflow_result_ref,
+                    effect_refs=effect_refs + action_effects, report_ref=report_refs[0] if report_refs else workflow_result_ref)
         except PublicReleaseError:
-            _finish(session, action, outcome="failed", result_ref=f"results/{action_id}.json",
-                    effect_refs=action_effects, report_ref=action_reports[0] if action_reports else f"results/{action_id}.json")
-            _finish(session, step, outcome="failed", result_ref=f"results/{step_id}.json",
-                    effect_refs=action_effects, report_ref=action_reports[0] if action_reports else f"results/{step_id}.json")
-            _finish(session, workflow, outcome="failed", result_ref="results/CA-O-188.json",
-                    effect_refs=effect_refs + action_effects, report_ref=report_refs[0] if report_refs else "results/CA-O-188.json")
+            action_result_ref = _run_evidence_ref(session, action, outcome="failed")
+            step_result_ref = _run_evidence_ref(session, step, outcome="failed")
+            workflow_result_ref = _run_evidence_ref(session, workflow, outcome="failed")
+            _finish(session, action, outcome="failed", result_ref=action_result_ref,
+                    effect_refs=action_effects, report_ref=action_reports[0] if action_reports else action_result_ref)
+            _finish(session, step, outcome="failed", result_ref=step_result_ref,
+                    effect_refs=action_effects, report_ref=action_reports[0] if action_reports else step_result_ref)
+            _finish(session, workflow, outcome="failed", result_ref=workflow_result_ref,
+                    effect_refs=effect_refs + action_effects, report_ref=report_refs[0] if report_refs else workflow_result_ref)
             # The shared recorder now owns a truthful terminal result.  Do not
             # raise into RunTracker, which correctly treats uncaught failures
             # as uncertain interruption rather than an observed failed action.
             return
+        except BaseException as error:
+            if isinstance(error, SelectedRunError) and error.code == "recording-pending":
+                raise
+            if action is not None and step is not None:
+                interrupted_result_ref = action_result_ref or _run_evidence_ref(session, action, outcome="interrupted_pending")
+                if not _is_terminal(session, action):
+                    _finish(session, action, outcome="interrupted_pending", result_ref=interrupted_result_ref,
+                            effect_refs=action_effects, report_ref=action_reports[0] if action_reports else interrupted_result_ref)
+                if not _is_terminal(session, step):
+                    step_result_ref = _run_evidence_ref(session, step, outcome="interrupted_pending")
+                    _finish(session, step, outcome="interrupted_pending", result_ref=step_result_ref,
+                            effect_refs=action_effects, report_ref=action_reports[0] if action_reports else step_result_ref)
+                workflow_effects = [*effect_refs, *action_effects]
+                if workflow_effects and not _is_terminal(session, workflow):
+                    session.note_effects(workflow["run_id"], result_ref=interrupted_result_ref,
+                                         effect_refs=workflow_effects)
+            raise
+
+    return execute
+
+
+def run_execution_session(project_root: Path, session: RunExecutionSession, *,
+                          bindings: PublicReleaseBindings) -> list[dict[str, Any]]:
+    """Execute public release inside one already-admitted shared Run session."""
+    if not isinstance(session, RunExecutionSession):
+        raise PublicReleaseError("invalid-run-session", "public release requires an admitted RunExecutionSession")
+    try:
+        selected_root = Path(project_root).resolve(strict=True)
+        session_root = Path(session.tracker.root).resolve(strict=True)
+    except OSError as error:
+        raise PublicReleaseError("invalid-run-session", "selected Project root cannot be reopened") from error
+    if selected_root != session_root:
+        raise PublicReleaseError("invalid-run-session", "shared Run session belongs to a different selected Project")
+    _expected_runs(session.request)
+    parsed_parameters = _parameters(session.request.get("parameters"))
+    trace: list[dict[str, Any]] = []
+    _executor(selected_root, bindings, trace, parsed_parameters)(session.request, session)
+    return trace
+
+
+def run(project_root: Path, request: Mapping[str, Any], *, bindings: PublicReleaseBindings,
+        source_observer: Callable[[dict[str, Any]], Mapping[str, Any]],
+        journal_context: Mapping[str, str] | None = None) -> dict[str, Any]:
+    """Compatibility wrapper that admits and runs one public-release session."""
+
+    if not isinstance(request, Mapping):
+        raise PublicReleaseError("invalid-input", "request must be an object")
+    _expected_runs(request)
+    _parameters(request.get("parameters"))
+    trace: list[dict[str, Any]] = []
+
+    def executor(_request: dict[str, Any], session: RunExecutionSession) -> None:
+        trace.extend(run_execution_session(Path(project_root), session, bindings=bindings))
 
     tracker = RunTracker(Path(project_root), source_observer=source_observer, executor=executor,
                          journal_context=journal_context)
