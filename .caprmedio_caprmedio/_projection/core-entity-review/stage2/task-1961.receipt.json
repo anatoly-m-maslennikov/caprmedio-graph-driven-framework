@@ -1,0 +1,36 @@
+{
+  "task": "CA-P-1961",
+  "recorded_at": "2026-10-11 00:29:16 +0400",
+  "result": "PASS: local structured Subject lookup; no Core writes or MCP binding",
+  "implementation": [
+    {"path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", "sha256": "d1d6c46c804ef67cc7a30f9b5369ae3c5385940d3347b23125e6ce9ace25c679"},
+    {"path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_operations.py", "sha256": "d03c487638ba43bf11b34dce5cab208ec7992534960d483f9415a55755933c18"},
+    {"path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_subject_lookup.py", "sha256": "997e69fd06ee2795c8bb96508b22fa8152d07f8c90023a2d75751dd70e4ec3b5"}
+  ],
+  "checks": {
+    "focused_and_existing_atom_operation_tests": {"passed": 34, "failed": 0},
+    "live_cli": {
+      "source_root": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL",
+      "subject": "Atom/Status",
+      "match": "prefix",
+      "fields": "both",
+      "owner": "CORE_META_MODEL",
+      "roles": ["Requirement", "Method", "Evaluation", "Delivery", "Operations"],
+      "default_lifecycle": "active",
+      "limit": 3,
+      "count": 3,
+      "atom_ids": ["CA-M-273", "CA-M-288", "CA-E-447"],
+      "coverage": "limited",
+      "occurrence_hashes_independently_checked": true,
+      "all_core_carrier_hashes_unchanged": true,
+      "existing_invalid_sources": ["CA-R-1873", "CA-D-559"],
+      "diagnostic_reason": "Updated At is not a non-empty text value; these sources were left unchanged"
+    },
+    "git_diff_check": "PASS"
+  },
+  "limits": [
+    "Only current slash/colon lexical boundaries; no proposed dot grammar or native relation admission",
+    "Existing invalid Core timestamps remain findings for a separately scoped repair",
+    "This read-only check does not claim full Core validation, Subject migration or graph adoption"
+  ]
+}

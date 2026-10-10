@@ -743,7 +743,13 @@ def _restore(snapshots: Mapping[Path, bytes | None]) -> None:
 
 def run_search(root: Path, args: argparse.Namespace) -> dict[str, Any]:
     root = root.resolve()
-    atoms = scan_atoms(root, under=args.under, lifecycle=args.lifecycle)
+    if getattr(args, "subject", None) is not None:
+        from atom_subject_lookup import run_subject_search
+
+        return run_subject_search(root, args)
+    if any(getattr(args, field, None) for field in ("subject_field", "subject_match", "content_role", "scope_unit")):
+        raise ToolError("input-invalid", "Subject filters require --subject")
+    atoms = scan_atoms(root, under=args.under, lifecycle=args.lifecycle or "all")
     if args.atom:
         selected = {atom.relative for atom in resolve_selectors(root, args.atom)}
         atoms = [atom for atom in atoms if atom.relative in selected]
@@ -1188,10 +1194,19 @@ def describe(tool_id: str) -> dict[str, Any]:
     kinds = {"ATOM_SEARCH": "finder", "ATOM_READ": "finder", "ATOM_CREATE": "doer",
              "ATOM_UPDATE": "doer", "ATOM_MOVE": "doer", "ATOM_ARCHIVE": "doer",
              "ATOM_PROMOTE": "doer", "ATOM_UPGRADE": "doer"}
-    return {"capability_id": tool_id, "kind": kinds[tool_id],
+    result = {"capability_id": tool_id, "kind": kinds[tool_id],
             "scope": "CAPRMEDIO Markdown Atom carriers under .caprmedio_caprmedio", "singular_and_bulk": True,
             "mutation_default": "dry-run" if kinds[tool_id] == "doer" else "read-only",
             "selector_forms": ["repository-relative path", "full filename", "filename stem", "Atom ID"]}
+    if tool_id == "ATOM_SEARCH":
+        result["subject_lookup"] = {
+            "criterion": "--subject VALUE", "fields": ["governs", "depends_on", "both"],
+            "matches": ["exact", "prefix"], "prefix_boundaries": ["/", ":"],
+            "default_lifecycle": "active", "filters": ["under", "atom", "query", "content_role", "scope_unit", "lifecycle", "limit"],
+            "output": ["source_root", "count", "occurrences", "diagnostics"],
+            "mcp_binding": None,
+        }
+    return result
 
 
 def parser(tool_id: str) -> argparse.ArgumentParser:
@@ -1204,9 +1219,14 @@ def parser(tool_id: str) -> argparse.ArgumentParser:
         run.add_argument("--query", action="append")
         run.add_argument("--atom", action="append")
         run.add_argument("--under")
-        run.add_argument("--lifecycle", choices=("all", "active", "draft", "archived", "done", "resolved", "canceled"), default="all")
+        run.add_argument("--lifecycle", choices=("all", "active", "draft", "archived", "done", "resolved", "canceled"))
         run.add_argument("--limit", type=int)
         run.add_argument("--view", choices=("metadata", "content", "both"), default="metadata")
+        run.add_argument("--subject")
+        run.add_argument("--subject-field", choices=("governs", "depends_on", "both"))
+        run.add_argument("--subject-match", choices=("exact", "prefix"))
+        run.add_argument("--content-role", action="append")
+        run.add_argument("--scope-unit")
     elif tool_id == "ATOM_READ":
         run.add_argument("--atom", action="append", required=True)
         run.add_argument("--view", choices=("metadata", "content", "both"), default="both")
