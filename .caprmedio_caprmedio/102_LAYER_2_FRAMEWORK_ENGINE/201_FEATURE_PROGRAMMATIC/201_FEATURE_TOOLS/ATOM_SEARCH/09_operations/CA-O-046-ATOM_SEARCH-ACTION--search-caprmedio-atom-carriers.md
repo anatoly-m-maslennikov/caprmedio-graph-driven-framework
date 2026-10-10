@@ -1,4 +1,13 @@
 ---
+atom_id: CA-O-046
+content_role: Operations
+type: Action
+current_scope_unit: TOOLS
+claim_target_scope_unit: TOOLS
+local_tier: Standard
+global_tier: 11
+author: Anatoly Maslennikov
+status: Active
 cce_version: cce_1
 cce_form: definition
 subjects:
@@ -9,13 +18,15 @@ subjects:
     - "Atom"
     - "Artifact/Carrier"
     - "Scope Unit"
-version: 2
-updated_at: "2026-09-17 04:11:05 +0000"
+version: 3
+updated_at: "2026-10-10 23:52:06 +0400"
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations: {}
 ---
-# Search CAPRMEDIO Atom carriers
+# Summary
+
+Search CAPRMEDIO Atom carriers
 
 Search Atom Carriers **means** the reusable read-only Action that returns the complete matching set of Atom Carriers for **`=1`** declared search frontier **and** requested output view under CA-R-863. incomplete membership **or** missing attribution is **not** a successful result.
 

@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Requirement, Method, Evaluation, Delivery, Operations, Plan, Operator]
-version: 2
-updated_at: "2026-10-10 23:51:04 +0400"
+version: 3
+updated_at: "2026-10-10 23:52:06 +0400"
 relations:
   is_decomposition_of: [CA-P-1978]
   blocks: [CA-P-1981]
@@ -44,7 +44,7 @@ Inherit CA-P-1959's confidence, preservation and execution boundaries. Creating 
 ### Decomposing Plans
 
 - [CA-P-1982 — Prepare bounded Tool RMEDO repair Tasks](02-CA-P-1980-TASK--repair-subject-tool-rmedo/done/01-CA-P-1982-TASK--prepare-bounded-tool-rmedo-repair-tasks.md)
-- [CA-P-1983 — Normalize legacy definitions](02-CA-P-1980-TASK--repair-subject-tool-rmedo/02-CA-P-1983-TASK--normalize-legacy-subject-tool-definitions.md)
+- [CA-P-1983 — Normalize legacy definitions](02-CA-P-1980-TASK--repair-subject-tool-rmedo/done/02-CA-P-1983-TASK--normalize-legacy-subject-tool-definitions.md)
 - [CA-P-1984 — Repair Requirements and Methods](02-CA-P-1980-TASK--repair-subject-tool-rmedo/03-CA-P-1984-TASK--repair-subject-tool-requirements-and-methods.md)
 - [CA-P-1985 — Repair Evaluations](02-CA-P-1980-TASK--repair-subject-tool-rmedo/04-CA-P-1985-TASK--repair-subject-tool-evaluations.md)
 - [CA-P-1986 — Repair Delivery](02-CA-P-1980-TASK--repair-subject-tool-rmedo/05-CA-P-1986-TASK--repair-subject-tool-delivery.md)

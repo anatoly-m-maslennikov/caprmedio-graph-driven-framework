@@ -1,0 +1,64 @@
+{
+  "task": "CA-P-1983",
+  "applied": true,
+  "updated_at": "2026-10-10 23:52:06 +0400",
+  "timestamp_is_illustrative": false,
+  "files": [
+    {
+      "atom_id": "CA-R-863",
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_SEARCH/04_requirement/CA-R-863-ATOM_SEARCH-CORE-REQUIREMENT--search-caprmedio-markdown-atoms.md",
+      "before_sha256": "b8498bb81cb94953f3d57a6e98e10ce5fda16fe53f54a223edd096c4feb6bd19",
+      "after_sha256": "e8c90ef2b3d13f80c72c0aef8ee26167504f8e4f5136700911a1dcc64379b3c1",
+      "before_version": 12,
+      "after_version": 13
+    },
+    {
+      "atom_id": "CA-E-301",
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_SEARCH/06_evaluation/CA-E-301-ATOM_SEARCH-QA_CASE--verify-search-caprmedio-atom-carriers.md",
+      "before_sha256": "2d15908b86a852b7b45e9b64fc7fa46ac24fe2364e51978c39ae9f6a452a550d",
+      "after_sha256": "68e7953a63b2a92a1692074744fef136e8fbdf9849af6bf5989baa5145ecef72",
+      "before_version": 11,
+      "after_version": 12
+    },
+    {
+      "atom_id": "CA-D-038",
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_SEARCH/07_delivery/CA-D-038-ATOM_SEARCH-DELIVERY--bind-atom-search-delivery-place.md",
+      "before_sha256": "1b704dfb8a0c343c3a4bebf3f9fab2f7480e7224d2d330a957ae45b64075e01e",
+      "after_sha256": "4fea37674741c2ec6dc06d66040f12ba1f7f7caf958ed6453d749dab54e407a3",
+      "before_version": 9,
+      "after_version": 10
+    },
+    {
+      "atom_id": "CA-D-424",
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_SEARCH/07_delivery/CA-D-424-ATOM_SEARCH-DELIVERY--deliver-atom-search-tool.md",
+      "before_sha256": "b121c2e40e1847658bdd758c4cc102b5a978b9738dc9cf7adc4742e078dd0b8a",
+      "after_sha256": "07c26c858fa858b7ee23d972d6b0a2147e33bc0c84c53de32d1bf9460497f553",
+      "before_version": 6,
+      "after_version": 7
+    },
+    {
+      "atom_id": "CA-O-046",
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_SEARCH/09_operations/CA-O-046-ATOM_SEARCH-ACTION--search-caprmedio-atom-carriers.md",
+      "before_sha256": "dc1604d8f5429d70cf908f6eaf063cc6716efdde2bb7c8b7ee47429f1fc73f63",
+      "after_sha256": "66528adfb7b6af7570b10af158a4855f74f0c956650d5cefea81fff067aa21a6",
+      "before_version": 2,
+      "after_version": 3
+    },
+    {
+      "atom_id": "CA-D-041",
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_UPDATE/07_delivery/CA-D-041-ATOM_UPDATE-DELIVERY--bind-atom-update-delivery-place.md",
+      "before_sha256": "336833d93374b4af85e466cc9efaf5bd397bf219949c204a1e84847359ed7900",
+      "after_sha256": "576c0d52fce012f4d52f5335ef713ae592ffd45be62d2f095c1bdf8c8a26dd46",
+      "before_version": 9,
+      "after_version": 10
+    },
+    {
+      "atom_id": "CA-D-425",
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_UPDATE/07_delivery/CA-D-425-ATOM_UPDATE-DELIVERY--deliver-atom-update-tool.md",
+      "before_sha256": "2fcef924444003b0e52fee7c5bdcc0070d96ea7ad1ae7e712e6fbbc2ee56ad66",
+      "after_sha256": "7abca36b81da0e271377776891936b253636d1a605b09ba9a07d798e05b78a04",
+      "before_version": 6,
+      "after_version": 7
+    }
+  ]
+}

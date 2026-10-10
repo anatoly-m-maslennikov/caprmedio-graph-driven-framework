@@ -1,4 +1,12 @@
 ---
+atom_id: CA-E-301
+content_role: Evaluation
+current_scope_unit: TOOLS
+claim_target_scope_unit: TOOLS
+local_tier: Standard
+global_tier: 11
+author: Anatoly Maslennikov
+status: Active
 cce_version: cce_1
 cce_form: evaluation
 subjects:
@@ -8,13 +16,15 @@ subjects:
     - "Artifact/Carrier"
     - "Scope Unit"
     - "Search Atom Carriers"
-version: 11
-updated_at: "2026-09-17 23:13:10 +0000"
+version: 12
+updated_at: "2026-10-10 23:52:06 +0400"
 relations: {"evaluation_for":["CA-R-863","CA-O-046"]}
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
 ---
-# Verify search caprmedio atom carriers
+# Summary
+
+Verify search caprmedio atom carriers
 
 ## Claim checked
 

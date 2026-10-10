@@ -10,12 +10,12 @@ local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
-status: Active
+status: Done
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Requirement, Method, Evaluation, Delivery, Operations, Plan, Operator]
-version: 1
-updated_at: "2026-10-10 23:51:04 +0400"
+version: 2
+updated_at: "2026-10-10 23:52:06 +0400"
 relations:
   is_decomposition_of: [CA-P-1980]
   blocks: [CA-P-1984, CA-P-1985, CA-P-1986, CA-P-1987]
@@ -35,6 +35,10 @@ Estimated own work: 15 minutes. Assignee: AI Agent. Required prerequisites: CA-P
 Exclusive files: Search CA-R-863, CA-E-301, CA-D-038, CA-D-424, CA-O-046; Update CA-D-041 and CA-D-425. Use one small ad-hoc script with exact before hashes from the CA-P-1979 report. Preserve IDs, filenames, titles as Summary, Subjects, relations and original body text. Set declared TOOLS ownership, current role, Active Status, standard tiers and author; increment each Version by one with actual Project-time updated_at. Do not infer separate Tool Scope Units. Default to preview; check every pin before an explicitly authorized authoring repair. Git retains prior contents. Output: corrected carrier metadata, script and before/after receipt. No generic reusable repair API.
 
 Use the shared minimum contract in the CA-P-1979 review. A worker owns only the listed files; root owns integration, commits and Task completion. Recheck source pins after normalization. No unrelated changes, Core entity-model edits, source migration, runtime activation or release work. Ask for a concrete unresolved decision below 90% confidence. Decompose before exceeding 15 minutes.
+
+### Local execution receipt
+
+The one-off script previewed then repaired exactly seven source-pinned Tool carriers. Receipt: `.caprmedio_caprmedio/_projection/core-entity-review/stage2/tool-normalization.receipt.json`. Independent comparison against Git proved preserved titles, all original substantive body text, Subjects, relations and other retained fields; each Version advanced exactly one, actual updated_at and declared TOOLS ownership were recorded, and all after hashes matched. No Core file or reusable Tool code changed. Script refuses stale pins, so this completed one-time repair cannot be rerun against its revised sources. Contract edits and full current-body validation remain in the following Tasks.
 
 ### Definition of Done
 
