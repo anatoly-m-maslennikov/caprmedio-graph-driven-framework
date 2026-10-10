@@ -3,7 +3,7 @@ atom_id: CA-P-1968
 content_role: Plan
 type: Plan
 label: Epic
-work_sequence_number: 9
+work_sequence_number: 10
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
 local_tier: Standard
@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 2
-updated_at: "2026-10-10 23:24:00 +0400"
+version: 3
+updated_at: "2026-10-10 23:34:31 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1969]
@@ -45,7 +45,7 @@ Inherit CA-P-1959's source boundary, confidence threshold and preservation rules
 
 ### Decomposing Plans
 
-- [CA-P-1973 — Prepare approved Subject application Tasks](09-CA-P-1968-EPIC--apply-approved-subject-migration-batches/01-CA-P-1973-TASK--prepare-approved-subject-application-tasks.md)
+- [CA-P-1973 — Prepare approved Subject application Tasks](10-CA-P-1968-EPIC--apply-approved-subject-migration-batches/01-CA-P-1973-TASK--prepare-approved-subject-application-tasks.md)
 
 ### Definition of Done
 
