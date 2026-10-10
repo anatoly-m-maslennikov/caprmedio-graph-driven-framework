@@ -101,6 +101,61 @@
     "A Projection is another Entity instance, not an additional representation of its source Entity instance.",
     "A Projection remains derived and does not become another authority for its source facts."
   ],
+  "representation_composition": {
+    "status": "Confirmed",
+    "meaning": "One Atom representation may combine a folder and a file with different meanings.",
+    "folder_role": "Organizes child Atoms.",
+    "file_role": "Contains the classic Atom content.",
+    "maximum_folder_parts_per_instance": 1,
+    "maximum_file_parts_per_instance": 1,
+    "parts_are_optional": "This permission does not require every Atom to have both parts.",
+    "child_boundary": "Carriers of child Atom instances are not additional representation parts of the parent Atom instance."
+  },
+  "projection_member_model": {
+    "status": "Confirmed",
+    "member_instances": "Derived Atom instances, not merely entries inside a Projection.",
+    "whole_set": "The whole set of derived Atom instances is a Projection.",
+    "lifecycle": "The Projection set has its own lifecycle and is managed as a whole.",
+    "authority_boundary": "Derived instances do not become another authoritative source for the source Atoms' facts."
+  },
+  "draft_duplicate_policy": {
+    "status": "Deferred by Operator",
+    "decision": "No semantic duplicate rules for Drafts for now; their contents do not need to be deduplicated.",
+    "boundary": "This decision adds no Draft duplicate policy and does not change the already confirmed Atom ID rules."
+  },
+  "relation_type_model": {
+    "status": "Confirmed",
+    "name_variants": [
+      "Relation Type",
+      "Relation Kind"
+    ],
+    "same_concept": true,
+    "group_examples": [
+      "Atoms",
+      "Entities",
+      "Terms"
+    ],
+    "grouping": "Relation Types have groups for Atoms, Entities, Terms and other contexts; these are not two separate Type/Kind concepts.",
+    "endpoint_boundary": "Grouping does not remove each Relation Type's permitted endpoint constraints."
+  },
+  "relation_lifecycle_question": {
+    "status": "Open — Operator undecided",
+    "operator_context": "Changing an Atom's Status is simple; checking and fixing dropped Relations can be difficult and is another task.",
+    "question": "Does a Relation instance follow its declaring Entity's lifecycle or have an independently managed representation and lifecycle?",
+    "confirmed_choice": null,
+    "recommendation": {
+      "status": "Proposed — not Operator-confirmed",
+      "direction": "Keep an Atom Status change separate from Relation impact checking and repair.",
+      "rules": [
+        "Prefer one authoritative declaration with the declaring Entity rather than introducing an independent Relation lifecycle solely for repair work.",
+        "A Status change is not deletion and does not itself erase Relations.",
+        "Check affected Relations against their endpoint and applicability rules as a separate task.",
+        "Report unresolved or invalid Relations explicitly rather than silently dropping them.",
+        "Require the necessary validity check before an affected Relation is relied upon."
+      ],
+      "scope": "This workflow separation does not by itself decide Relation ownership or introduce an independent Relation lifecycle."
+    }
+  },
   "entity_vs_syntax_rules": [
     "Syntax used to describe an Entity is not itself that Entity: indentation, headings and compact notation operators /, ., : and @.",
     "A label or alias does not create another Entity.",
@@ -153,7 +208,7 @@
     "details": "General Details are optional; role/type-required content is not silently removed."
   },
   "applicable_methodology": {
-    "form": "A reconciled Projection materialized as projected Atoms, not necessarily one document.",
+    "form": "A reconciled set of derived Atom instances; the whole set is a Projection with its own lifecycle, not necessarily one document.",
     "sources": [
       "Core",
       "Installed Extensions",
@@ -174,7 +229,7 @@
     "additional_roots_added": false
   },
   "unresolved": [
-    "How to identify duplicates among ID-free Drafts.",
+    "Relation instance ownership and lifecycle; Status change versus Relation impact checking and repair.",
     "Exact typed links between Operations definitions, Executions, Actors, Journal Records, Revisions and Carriers.",
     "A complete mapping from the captured 706-identity review to this simplified candidate.",
     "Operator confirmation of the proposed history links and historical reference; accepted Subject grammar changes."
