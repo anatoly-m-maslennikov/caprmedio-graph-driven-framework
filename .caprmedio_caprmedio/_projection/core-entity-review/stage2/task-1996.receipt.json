@@ -1,10 +1,10 @@
 {
   "task": "CA-P-1996",
-  "recorded_at": "2026-10-11 02:31:01 +0400",
+  "recorded_at": "2026-10-11 02:45:39 +0400",
   "result": "PASS: complete candidate review; unresolved mapping research retained",
   "output": {
     "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-005.review.json",
-    "sha256": "d43074c44747e97225acd376beae2e0790a00e7555d56a476da80b5346d498f4"
+    "sha256": "a37a2e7e0db6888bed95b520e2343717eec10b24b6d38f6efaa63de416956405"
   },
   "input_batch": {
     "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-005.json",
@@ -17,8 +17,9 @@
     "proposed": 14,
     "unchanged": 46,
     "unresolved": 25,
-    "meaning_review": "Root inspected the proposed mapping reasons and key current defining bodies. Explicit Subjects fields remain distinct from the governed Subject Relation; Summary, Type, Content Role and Scope Unit Name qualification remain intact. Prior review corrected three historical Status domain losses to unresolved.",
-    "all_executable_false": true
+    "meaning_review": "Independent revalidation accepted all 22 proposed targets across batches 003, 005 and 006, including the Subjects aggregate Property distinct from the Governed Subject Relation. Five Projection Type or Content Role rows gained precise generic owner/field basis using current defining facts. The high-risk unchanged-row audit found no concrete incorrect mapping decision or qualifier loss.",
+    "all_executable_false": true,
+    "evidence_basis_refresh": "PASS: values and counts unchanged; precise owner/field evidence repaired"
   },
   "unresolved_work": "25 occurrence-level research rows remain in the pinned report and required CA-P-2045 integration; CA-P-1966 remains Active.",
   "limits": [

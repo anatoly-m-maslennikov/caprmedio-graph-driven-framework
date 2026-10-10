@@ -1727,7 +1727,7 @@
       "decision": "proposed",
       "proposed_value": "Atom.Content Role",
       "confidence": 0.95,
-      "reason": "The current Claim gives the exact allowed Atom Content Role value domain. The live source identifies Content Role as an Atom's allowed-value Property, and the candidate retains role labels within the Atom content direction. This is a bounded candidate mapping and remains non-executable.",
+      "reason": "Current Main Content (line 27) gives the exact allowed Atom Content Role value domain. The candidate's generic dependent owner-field rules preserve Content Role as the Atom field; no role label is used to replace, narrow, or supply the source value domain. This is a bounded non-executable candidate mapping.",
       "evidence": [
         {
           "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1283-CORE_META_MODEL-CORE-REQUIREMENT--register-content-role-values.md",
@@ -1744,8 +1744,12 @@
           "reason": "The candidate identifies Atom as Artifact's narrower Entity."
         },
         {
-          "pointer": "#/content_direction/role_labels",
-          "reason": "The candidate retains the content-role distinctions as role labels."
+          "pointer": "#/entity_identity_model/dependent_entity",
+          "reason": "The candidate confirms dependent identity as an owner selector plus a dependent field; current Main Content supplies Atom as owner and Content Role as its field."
+        },
+        {
+          "pointer": "#/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate keeps a Property as a dependent Entity node; the current Claim supplies the exact Content Role value domain."
         },
         {
           "pointer": "#/dependent_entities/notation_boundary",
@@ -2782,7 +2786,7 @@
       "decision": "proposed",
       "proposed_value": "Atom.Content Role",
       "confidence": 0.95,
-      "reason": "The current Claim defines Status as an Artifact Revision Property whose domain resolves from the complete qualified Artifact Type or Atom Content Role and Type path. The live source identifies Content Role as an Atom's allowed-value Property, and the candidate retains role labels within the Atom content direction. This is a bounded candidate mapping and remains non-executable.",
+      "reason": "Current Main Content (line 31) resolves Status through the complete Artifact Type or Atom Content Role and Type path. The candidate's generic dependent owner-field rules preserve Content Role as the Atom field; the source's complete qualified Type path and Status-domain constraint remain intact, with no role label supplying a value domain. This is a bounded non-executable candidate mapping.",
       "evidence": [
         {
           "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1306-CORE_META_MODEL-CORE-REQUIREMENT--define-status-as-an-artifact-revision-property.md",
@@ -2799,8 +2803,12 @@
           "reason": "The candidate identifies Atom as Artifact's narrower Entity."
         },
         {
-          "pointer": "#/content_direction/role_labels",
-          "reason": "The candidate retains the content-role distinctions as role labels."
+          "pointer": "#/entity_identity_model/dependent_entity",
+          "reason": "The candidate confirms dependent identity as an owner selector plus a dependent field; current Main Content supplies Atom as owner and Content Role as its field."
+        },
+        {
+          "pointer": "#/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate keeps a Property as a dependent Entity node; the current Claim retains the complete qualified Status-domain path."
         },
         {
           "pointer": "#/dependent_entities/notation_boundary",
@@ -3003,7 +3011,7 @@
       "decision": "proposed",
       "proposed_value": "Atom.Content Role",
       "confidence": 0.95,
-      "reason": "The current Claim forbids a global Status domain from overriding the domain resolved by a complete qualified Artifact Type or Atom Content Role and Type path. The live source identifies Content Role as an Atom's allowed-value Property, and the candidate retains role labels within the Atom content direction. This is a bounded candidate mapping and remains non-executable.",
+      "reason": "Current Main Content (line 30) forbids a global Status domain from overriding the complete Artifact Type or Atom Content Role and Type path. The candidate's generic dependent owner-field rules preserve Content Role as the Atom field; the source's qualified Type path and domain boundary remain intact, with no role label supplying a value domain. This is a bounded non-executable candidate mapping.",
       "evidence": [
         {
           "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1308-CORE_META_MODEL-CORE-REQUIREMENT--resolve-status-domains-from-complete-qualified-paths.md",
@@ -3020,8 +3028,12 @@
           "reason": "The candidate identifies Atom as Artifact's narrower Entity."
         },
         {
-          "pointer": "#/content_direction/role_labels",
-          "reason": "The candidate retains the content-role distinctions as role labels."
+          "pointer": "#/entity_identity_model/dependent_entity",
+          "reason": "The candidate confirms dependent identity as an owner selector plus a dependent field; current Main Content supplies Atom as owner and Content Role as its field."
+        },
+        {
+          "pointer": "#/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate keeps a Property as a dependent Entity node; the current Claim retains the complete qualified Status-domain path."
         },
         {
           "pointer": "#/dependent_entities/notation_boundary",
