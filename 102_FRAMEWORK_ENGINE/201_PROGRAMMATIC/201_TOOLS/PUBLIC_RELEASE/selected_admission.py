@@ -11,20 +11,21 @@ import hashlib
 import json
 from pathlib import Path, PurePosixPath
 import re
+import sys
 from typing import Any, Mapping
 
 
 AUTHORITY_REF = (
     ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/"
-    "201_FEATURE_TOOLS/07_delivery/CA-D-613-TOOLS-DELIVERY--serialize-public-release-workflow-bindings.md"
+    "205_FEATURE_PROJECT_TOOLS/07_delivery/CA-D-613-PROJECT_TOOLS-DELIVERY--serialize-public-release-workflow-bindings.md"
 )
 AUTHORITY_PIN = {
-    "atom_id": "CA-D-613", "version": 4, "source_path": AUTHORITY_REF,
-    "digest": "e34709070c0687946907a0d73457d8d64fe96319a98a4ddaa4aae2233193f091",
+    "atom_id": "CA-D-613", "version": 7, "source_path": AUTHORITY_REF,
+    "digest": "6895cd222da54d0c6bf73482eebf6eb39c9aa5f821b6dc65d47482c9d632e962",
 }
 _PIN_FIELDS = frozenset({"atom_id", "version", "source_path", "digest"})
 _RECORD_FIELDS = frozenset({
-    "route", "acceptance_frontier", "workflow", "ordered_steps", "ordered_actions",
+    "route", "workflow", "ordered_steps", "ordered_actions",
     "rmed_frontier", "mutation_capable", "native_action_calls",
 })
 _RMED_COLLECTIONS = ("requirements", "methods", "evaluations", "deliveries")
@@ -32,6 +33,64 @@ _RMED_CARDINALITIES = (("requirements", 10), ("methods", 5), ("evaluations", 10)
 _ATOM = re.compile(r"CA-[A-Z]+-[0-9]+")
 _DIGEST = re.compile(r"[0-9a-f]{64}")
 _MAX_SOURCE_BYTES = 1024 * 1024
+
+
+def _current_source_resolver(project: Path):
+    """Use the existing Project selector and bounded Carrier reader, not copies."""
+    tools_root = Path(__file__).resolve().parents[1]
+    if str(tools_root) not in sys.path:
+        sys.path.insert(0, str(tools_root))
+    from project_selection import resolve_project
+    from VALIDATE_ATOMS.validate_atoms_workers.parsing import parse_carrier
+    from VALIDATE_ATOMS.validate_atoms_workers.read_io import ReadContext
+    from VALIDATE_ATOMS.validate_atoms_workers.settings import CEILINGS
+
+    try:
+        selection = resolve_project(project)
+        units = [unit for unit in selection.structure["scope_units"]
+                 if unit.get("scope_unit_name") == "PROJECT_TOOLS"]
+        if len(units) != 1:
+            raise ValueError("PROJECT_TOOLS must be registered exactly once")
+        authority = project / units[0]["authority_path"]
+        if (not authority.is_relative_to(selection.control_root)
+                or authority.is_relative_to(selection.control_root / "000_CAPRMEDIO_framework")):
+            raise ValueError("Project Tool authority must be current Project-owned source")
+        reader = ReadContext(roots=[str(project)], limits=dict(CEILINGS))
+        index: dict[str, list[tuple[dict[str, Any], dict[str, Any]]]] = {}
+        roots = ((authority, "PROJECT_TOOLS"),
+                 (selection.control_root / "09_operations", selection.settings["project"]["name"]))
+        for source_root, scope in roots:
+            for path in reader.inventory(source_root):
+                if {"archive", "draft", "drafts", "done", "canceled"}.intersection(path.relative_to(source_root).parts):
+                    continue
+                raw = reader.read(path)
+                metadata = parse_carrier(raw, path).metadata
+                identity = metadata.get("atom_id")
+                if metadata.get("status") != "Active" or not isinstance(identity, str):
+                    continue
+                if metadata.get("current_scope_unit") != scope:
+                    continue
+                pin = _pin_shape({"atom_id": identity, "version": metadata.get("version"),
+                                  "source_path": path.relative_to(project).as_posix(),
+                                  "digest": hashlib.sha256(raw).hexdigest()})
+                index.setdefault(identity, []).append((pin, metadata))
+        if reader.currentness()["state"] != "unchanged":
+            raise ValueError("current registered source changed during discovery")
+    except (OSError, KeyError, TypeError, ValueError, RuntimeError) as error:
+        raise PublicReleaseSourceAdmissionError(
+            "public-release-source-unavailable", "current registered Project sources cannot be resolved"
+        ) from error
+
+    def resolve(identity: str, role: str, operation_type: str | None):
+        matches = index.get(identity, [])
+        if len(matches) != 1:
+            _reject(f"current source must resolve exactly once: {identity}", code="public-release-source-identity-invalid")
+        pin, metadata = matches[0]
+        if metadata.get("content_role") != role or (operation_type is not None and metadata.get("type") != operation_type):
+            _reject(f"current source role/type differs: {identity}", code="public-release-source-identity-invalid")
+        return dict(pin)
+
+    return resolve
 
 
 class PublicReleaseSourceAdmissionError(ValueError):
@@ -151,13 +210,11 @@ def _tables(text: str) -> list[list[list[str]]]:
     if current:
         tables.append(current)
     expected_headers = [
-        ["atom_id", "version", "source_path", "sha256", "required_status"],
-        ["atom_id", "version", "source_path", "sha256"],
-        ["position", "step_atom_id", "step_version", "step_source_path", "step_sha256",
-         "action_atom_id", "action_version", "action_source_path", "action_sha256"],
-        ["collection", "position", "atom_id", "version", "source_path", "sha256"],
+        ["position", "atom_id"],
+        ["position", "step_atom_id", "action_atom_id"],
+        ["collection", "position", "atom_id"],
     ]
-    if len(tables) != 4 or [table[0] for table in tables] != expected_headers:
+    if len(tables) != 3 or [table[0] for table in tables] != expected_headers:
         _reject("D613 pin tables cannot be parsed", code="public-release-authority-invalid")
     for table in tables:
         if len(table) < 3 or any(not re.fullmatch(r":?-{3,}:?", cell) for cell in table[1]):
@@ -165,42 +222,28 @@ def _tables(text: str) -> list[list[list[str]]]:
     return tables
 
 
-def _text_pin(atom_id: str, version: str, source_path: str, digest: str) -> dict[str, Any]:
-    if re.fullmatch(r"[1-9][0-9]*", version) is None:
-        _reject("D613 source pin version is malformed", code="public-release-authority-invalid")
-    return _pin_shape({"atom_id": atom_id, "version": int(version),
-                       "source_path": source_path.strip("`"), "digest": digest.strip("`")})
-
-
-def _single_pin(table: list[list[str]], *, acceptance: bool = False) -> tuple[dict[str, Any], str | None]:
+def _single_pin(table: list[list[str]], resolve) -> dict[str, Any]:
     rows = table[2:]
-    expected_width = 5 if acceptance else 4
-    if len(rows) != 1 or len(rows[0]) != expected_width:
+    if len(rows) != 1 or rows[0] != ["1", "CA-O-188"]:
         _reject("D613 singleton pin table is incomplete or ambiguous", code="public-release-authority-invalid")
-    row = rows[0]
-    pin = _text_pin(*row[:4])
-    if acceptance:
-        if row[4] != "Done":
-            _reject("D613 acceptance status must be exactly Done", code="public-release-authority-invalid")
-        return pin, row[4]
-    return pin, None
+    return resolve("CA-O-188", "Operations", "Workflow")
 
 
-def _paired_pins(table: list[list[str]]) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+def _paired_pins(table: list[list[str]], resolve) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
     rows = table[2:]
     if len(rows) != 5:
         _reject("D613 ordered Step/Action table must have exactly five rows", code="public-release-authority-invalid")
     steps, actions = [], []
     for position, row in enumerate(rows, 1):
-        if len(row) != 9 or row[0] != str(position):
+        if (len(row) != 3 or row != [str(position), f"CA-O-{187 + position * 2}", f"CA-O-{188 + position * 2}"]):
             _reject("D613 Step/Action positions are incomplete or reordered", code="public-release-authority-invalid")
-        steps.append(_text_pin(*row[1:5]))
-        actions.append(_text_pin(*row[5:9]))
+        steps.append(resolve(row[1], "Operations", "Step"))
+        actions.append(resolve(row[2], "Operations", "Action"))
     _unique_pins(steps + actions)
     return steps, actions
 
 
-def _rmed_pins(table: list[list[str]]) -> dict[str, list[dict[str, Any]]]:
+def _rmed_pins(table: list[list[str]], resolve) -> dict[str, list[dict[str, Any]]]:
     expected_occurrences = [
         (collection, position)
         for collection, cardinality in _RMED_CARDINALITIES
@@ -211,9 +254,17 @@ def _rmed_pins(table: list[list[str]]) -> dict[str, list[dict[str, Any]]]:
         _reject("D613 RMED rows are incomplete or contain extra members", code="public-release-authority-invalid")
     result = {key: [] for key in _RMED_COLLECTIONS}
     for row, (collection, position) in zip(rows, expected_occurrences, strict=True):
-        if (len(row) != 6 or row[0] != collection or row[1] != str(position)):
+        if (len(row) != 3 or row[0] != collection or row[1] != str(position)):
             _reject("D613 RMED row is malformed", code="public-release-authority-invalid")
-        result[collection].append(_text_pin(*row[2:]))
+        first, role = {"requirements": (1920, "Requirement"), "methods": (365, "Method"),
+                       "evaluations": (610, "Evaluation"), "deliveries": (610, "Delivery")}[collection]
+        number = first + position - 1
+        if collection == "deliveries" and number >= 613:
+            number += 1
+        prefix = {"requirements": "R", "methods": "M", "evaluations": "E", "deliveries": "D"}[collection]
+        if row[2] != f"CA-{prefix}-{number}":
+            _reject("D613 RMED membership is reordered or unsupported", code="public-release-authority-invalid")
+        result[collection].append(resolve(row[2], role, None))
     _unique_pins([pin for collection in _RMED_COLLECTIONS for pin in result[collection]])
     return result
 
@@ -252,7 +303,6 @@ def _record_shape(record: Any) -> dict[str, Any]:
         _reject("public-release admission record has unknown, shadow, or missing fields")
     if record["route"] != "public.release" or record["mutation_capable"] is not True or record["native_action_calls"] != []:
         _reject("public-release admission record has an invalid closed route declaration")
-    _pin_shape(record["acceptance_frontier"])
     _pin_shape(record["workflow"])
     if not isinstance(record["ordered_steps"], list) or not isinstance(record["ordered_actions"], list):
         _reject("public-release ordered pins must be arrays")
@@ -270,22 +320,19 @@ def _record_shape(record: Any) -> dict[str, Any]:
 
 
 def derive_public_release_source_admission(root: str | Path) -> dict[str, Any]:
-    """Reopen D613 and all 46 current source pins as one closed record."""
+    """Reopen D613 and its 45 active registered definitions, without a Task gate."""
     project = _project_root(root)
     authority_raw, _ = _read_pin(project, AUTHORITY_PIN)
-    acceptance_table, workflow_table, pairs_table, rmed_table = _tables(authority_raw.decode("utf-8"))
-    acceptance, required_status = _single_pin(acceptance_table, acceptance=True)
-    workflow, _ = _single_pin(workflow_table)
-    steps, actions = _paired_pins(pairs_table)
-    rmed = _rmed_pins(rmed_table)
-    all_pins = [acceptance, workflow, *steps, *actions,
+    workflow_table, pairs_table, rmed_table = _tables(authority_raw.decode("utf-8"))
+    resolve = _current_source_resolver(project)
+    workflow = _single_pin(workflow_table, resolve)
+    steps, actions = _paired_pins(pairs_table, resolve)
+    rmed = _rmed_pins(rmed_table, resolve)
+    all_pins = [workflow, *steps, *actions,
                 *(pin for collection in _RMED_COLLECTIONS for pin in rmed[collection])]
     _unique_pins(all_pins)
     if any(pin["atom_id"] == AUTHORITY_PIN["atom_id"] or pin["source_path"] == AUTHORITY_REF for pin in all_pins):
         _reject("D613 cannot admit itself as source evidence", code="public-release-authority-invalid")
-    _, acceptance_metadata = _read_pin(project, acceptance, need_status=True)
-    if acceptance_metadata["status"] != required_status:
-        _reject("acceptance source is not actually Done", code="public-release-source-status-invalid")
     workflow_raw, _ = _read_pin(project, workflow)
     if _workflow_order(workflow_raw) != [(step["atom_id"], action["atom_id"])
                                         for step, action in zip(steps, actions, strict=True)]:
@@ -293,7 +340,7 @@ def derive_public_release_source_admission(root: str | Path) -> dict[str, Any]:
     for pin in [*steps, *actions, *(pin for collection in _RMED_COLLECTIONS for pin in rmed[collection])]:
         _read_pin(project, pin)
     return {
-        "route": "public.release", "acceptance_frontier": acceptance, "workflow": workflow,
+        "route": "public.release", "workflow": workflow,
         "ordered_steps": steps, "ordered_actions": actions, "rmed_frontier": rmed,
         "mutation_capable": True, "native_action_calls": [],
     }
