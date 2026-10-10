@@ -12,13 +12,14 @@ import unittest
 from unittest import mock
 from pathlib import Path
 
-
 TOOL = Path(__file__).resolve().parents[1] / "retrieve_applicable_methodology.py"
 SPEC = importlib.util.spec_from_file_location("retrieve_applicable_methodology", TOOL)
 assert SPEC and SPEC.loader
 module = importlib.util.module_from_spec(SPEC)
 sys.modules[SPEC.name] = module
 SPEC.loader.exec_module(module)
+
+from project_selection import bind_selection, resolve_project
 
 
 def source_carrier(atom_id: str, governs: tuple[str, str], depends_on: tuple[str, str] | None = None) -> bytes:
@@ -60,6 +61,7 @@ class RetrieverTest(unittest.TestCase):
             (self.applicable / role).mkdir(parents=True)
             (self.source_root / role).mkdir(parents=True)
         self.add_project_settings()
+        self.add_project_structure()
 
     def tearDown(self) -> None:
         shutil.rmtree(self.root, ignore_errors=True)
@@ -72,11 +74,29 @@ class RetrieverTest(unittest.TestCase):
         target.write_bytes(projected(data, relative.as_posix()))
 
     def add_project_settings(self, project_name: str = "caprmedio", control_root: str = ".caprmedio_caprmedio") -> None:
-        graph = self.root / module.SETTINGS_PATH
+        graph = self.root / control_root / "caprmedio_project_settings.toml"
         graph.parent.mkdir(parents=True, exist_ok=True)
         graph.write_text(
             f"[project]\nkey = {project_name!r}\nname = {project_name!r}\nrepository_slug = 'test'\n"
             f"[artifacts.identity]\nproject_prefix = 'TEST'\n[paths]\ncontrol_root = {control_root!r}\n",
+            encoding="utf-8",
+        )
+
+    def add_project_structure(
+        self,
+        control_root: str = ".caprmedio_caprmedio",
+        *,
+        authority_path: Path | None = None,
+        delivery_path: Path | None = None,
+    ) -> None:
+        structure = self.root / control_root / "project_structure.toml"
+        source = authority_path or (Path(control_root) / module.FRAMEWORK_RELATIVE / module.SOURCES_WITHIN_FRAMEWORK)
+        delivery = delivery_path or (Path(control_root) / module.FRAMEWORK_RELATIVE / "00_APPLICABLE_METHODOLOGY")
+        structure.write_text(
+            "schema_version = 1\n"
+            "scope_units = [\n"
+            f"  {{ scope_unit_name = 'METHODOLOGY_SOURCES', authority_path = '{source.as_posix()}', delivery_path = '{delivery.as_posix()}' }},\n"
+            "]\n",
             encoding="utf-8",
         )
 
@@ -280,19 +300,55 @@ class RetrieverTest(unittest.TestCase):
         self.assertEqual((first_code, second_code), (0, 0))
         self.assertEqual(first["selected_frontier_digest"], second["selected_frontier_digest"])
 
-    def test_published_output_uses_configured_control_root_while_sources_remain_framework(self) -> None:
+    def test_declared_authoring_and_installed_delivery_are_bound_separately(self) -> None:
         control = ".caprmedio_fixture"
         self.add_project_settings(control_root=control)
-        published = self.root / control / "_projection/APPLICABLE_METHODOLOGY"
+        authoring = Path(control) / "101_AUTHORING/METHODOLOGY_SOURCES"
+        delivery = Path(control) / module.FRAMEWORK_RELATIVE / "00_APPLICABLE_METHODOLOGY"
+        self.add_project_structure(control, authority_path=authoring, delivery_path=delivery)
+        published = self.root / delivery
+        sources = self.root / authoring
         for role in module.ROLES:
             (published / role).mkdir(parents=True, exist_ok=True)
+            (sources / "001_CORE_META_MODEL" / role).mkdir(parents=True, exist_ok=True)
         self.applicable = published
+        self.source_root = sources / "001_CORE_META_MODEL"
         self.add("04_requirement", "CA-R-001--base.md", source_carrier("CA-R-001", ("continuant", "Base")))
+
+        with bind_selection(resolve_project(self.root, control)):
+            code, report = self.invoke("--subject", "Base")
+
+        self.assertEqual(0, code)
+        self.assertTrue(report["complete"])
+
+    def test_legacy_standalone_framework_root_is_not_authority(self) -> None:
+        self.add("04_requirement", "CA-R-001--base.md", source_carrier("CA-R-001", ("continuant", "Base")))
+        legacy = self.root / ".caprmedio_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources"
+        for role in module.ROLES:
+            (legacy / "001_CORE_META_MODEL" / role).mkdir(parents=True, exist_ok=True)
+        (legacy / "001_CORE_META_MODEL/04_requirement/CA-R-999--legacy.md").write_bytes(
+            source_carrier("CA-R-999", ("continuant", "Legacy"))
+        )
 
         code, report = self.invoke("--subject", "Base")
 
         self.assertEqual(0, code)
-        self.assertTrue(report["complete"])
+        self.assertEqual(["CA-R-001"], [item["atom_id"] for item in report["selected_atoms"]])
+
+    def test_undeclared_methodology_source_authority_fails_closed(self) -> None:
+        structure = self.root / ".caprmedio_caprmedio/project_structure.toml"
+        structure.write_text(
+            "schema_version = 1\n"
+            "scope_units = [\n"
+            "  { scope_unit_name = 'METHODOLOGY_SOURCES', authority_path = '.caprmedio_framework/old', delivery_path = '.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY' },\n"
+            "]\n",
+            encoding="utf-8",
+        )
+
+        code, report = self.invoke("--subject", "Base")
+
+        self.assertEqual(2, code)
+        self.assertEqual("methodology-source-authority-invalid", report["diagnostics"][0]["code"])
 
 
 if __name__ == "__main__":

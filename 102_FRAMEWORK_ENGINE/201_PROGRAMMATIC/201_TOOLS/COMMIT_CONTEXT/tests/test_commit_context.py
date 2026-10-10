@@ -143,6 +143,23 @@ class CommitContextTests(unittest.TestCase):
 
         self.assertEqual(control, paths.control_root)
         self.assertEqual(control / "_journal", paths.journal_root)
+        self.assertEqual(control / "000_CAPRMEDIO_framework", paths.framework_root)
+
+    def test_configured_paths_ignores_legacy_framework_root(self) -> None:
+        settings = self.root / ".caprmedio_caprmedio/caprmedio_project_settings.toml"
+        settings.write_text(
+            "[paths]\n"
+            'control_root = ".caprmedio_caprmedio"\n'
+            'framework_root = ".caprmedio_framework"\n',
+            encoding="utf-8",
+        )
+        configured_repository_paths.cache_clear()
+        try:
+            paths = configured_repository_paths(self.root)
+        finally:
+            configured_repository_paths.cache_clear()
+
+        self.assertEqual(Path(".caprmedio_caprmedio/000_CAPRMEDIO_framework"), paths.framework_root)
 
     def test_graph_excludes_non_atom_markdown_lookalikes(self) -> None:
         narrative = self.root / ".caprmedio_caprmedio/README--CA-R-999.md"

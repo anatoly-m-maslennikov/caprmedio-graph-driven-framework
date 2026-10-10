@@ -302,7 +302,10 @@ def configured_repository_paths(root: Path) -> RepositoryPaths:
     if not isinstance(paths, Mapping):
         raise ContextError("project_paths_invalid", "paths must be a TOML table")
     control = _configured_relative_path(paths, "control_root", ".caprmedio_caprmedio")
-    framework = _configured_relative_path(paths, "framework_root", ".caprmedio_framework")
+    # D359 locates Framework settings beneath the selected control root.  The
+    # historical standalone ``framework_root`` setting is intentionally not an
+    # alternate authority.
+    framework = control / "000_CAPRMEDIO_framework"
     # Journal Carriers are Project-local durable evidence.  Keep the default
     # tied to the configured control root instead of a particular Project name.
     journal = _configured_relative_path(paths, "journal_root", (control / "_journal").as_posix())
