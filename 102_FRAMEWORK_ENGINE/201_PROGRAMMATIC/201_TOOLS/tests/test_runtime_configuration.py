@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import errno
 import hashlib
+import json
 import sys
 import tempfile
 import unittest
@@ -35,6 +36,21 @@ def _sha256(value: str) -> str:
     return hashlib.sha256(value.encode("utf-8")).hexdigest()
 
 
+def _tree_sha(path: Path) -> str:
+    rows = [
+        {
+            "path": member.relative_to(path).as_posix(),
+            "sha256": hashlib.sha256(member.read_bytes()).hexdigest(),
+            "mode": member.stat().st_mode & 0o777,
+        }
+        for member in sorted(path.rglob("*"))
+        if member.is_file() and not member.is_symlink()
+    ]
+    return hashlib.sha256(
+        json.dumps(rows, sort_keys=True, separators=(",", ":"), ensure_ascii=False).encode("utf-8")
+    ).hexdigest()
+
+
 class RuntimeConfigurationTests(unittest.TestCase):
     """Every fixture uses a physically assembled, content-addressed package."""
 
@@ -46,8 +62,13 @@ class RuntimeConfigurationTests(unittest.TestCase):
         self.project.mkdir()
         self.default_member = "defaults/runtime-config.toml"
         self.default_bytes = b"# package-supplied default\n[transport]\nendpoint = 'fixture'\n"
+        self._seed_package_compiler_closure()
         self._write("102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/tool.py", b"tool = 'fixture'\n")
-        self._write("methodology/active/CA-R-001--fixture.md", b"# active methodology\n")
+        self._write("methodology/active/001_CORE_META_MODEL/04_requirement/CA-R-001--fixture.md", b"# active methodology\n")
+        self._write(
+            "methodology/active/003_PROJECT_CONFIGURATION/05_method/CA-M-001--fixture.md",
+            b"# configuration methodology\n",
+        )
         self._write("methodology/support/CA-D-001--fixture.md", b"# declared support\n")
         self._write("SKILLS/ca/SKILL.md", b"# ca\n")
         self._write(self.default_member, self.default_bytes)
@@ -57,29 +78,55 @@ class RuntimeConfigurationTests(unittest.TestCase):
         self._write_catalog()
         self.package = assemble_framework_package(self.source, self.releases)
 
-    def _write(self, relative: str, payload: bytes) -> Path:
+    def _write(self, relative: str, payload: bytes, *, mode: int = 0o644) -> Path:
         target = self.source / relative
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_bytes(payload)
+        target.chmod(mode)
         return target
+
+    def _seed_package_compiler_closure(self) -> None:
+        """Seal the actual compiler and every locally imported dependency."""
+
+        for relative in (
+            "COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py",
+            "project_runtime.py",
+            "project_selection.py",
+            "artifact_metadata.py",
+            "VALIDATE_ATOMS/validate_atoms_workers/__init__.py",
+            "VALIDATE_ATOMS/validate_atoms_workers/read_io.py",
+            "VALIDATE_ATOMS/validate_atoms_workers/settings.py",
+        ):
+            canonical = TOOLS_ROOT / relative
+            self._write(
+                f"102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/{relative}",
+                canonical.read_bytes(),
+                mode=canonical.stat().st_mode & 0o777,
+            )
 
     def _write_catalog(self) -> None:
         source_rows = (
-            ("core", "core", "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/tool.py"),
-            ("methodology", "methodology", "methodology/active/CA-R-001--fixture.md"),
-            ("support", "support", "methodology/support/CA-D-001--fixture.md"),
+            ("core-engine", "core", "102_FRAMEWORK_ENGINE"),
+            ("core-methodology", "methodology", "methodology/active/001_CORE_META_MODEL"),
+            ("project-configuration", "configuration", "methodology/active/003_PROJECT_CONFIGURATION"),
+            ("declared-support", "support", "methodology/support"),
         )
         descriptors = tuple(
-            {
-                "identity": identity,
-                "kind": kind,
-                "revision": hashlib.sha256((self.source / relative).read_bytes()).hexdigest(),
-                "sha256": hashlib.sha256((self.source / relative).read_bytes()).hexdigest(),
-                "visibility": "public",
-                "selection_default": False,
-                "path": relative,
-            }
-            for identity, kind, relative in source_rows
+            sorted(
+                (
+                    {
+                        "identity": identity,
+                        "kind": kind,
+                        "revision": _tree_sha(self.source / relative),
+                        "sha256": _tree_sha(self.source / relative),
+                        "visibility": "public",
+                        "selection_default": False,
+                        "path": relative,
+                    }
+                    for identity, kind, relative in source_rows
+                ),
+                key=lambda descriptor: descriptor["identity"],
+            )
         )
         receipt = write_source_admission_receipt(self.source, descriptors)
         lines = ["schema_version = 1", ""]

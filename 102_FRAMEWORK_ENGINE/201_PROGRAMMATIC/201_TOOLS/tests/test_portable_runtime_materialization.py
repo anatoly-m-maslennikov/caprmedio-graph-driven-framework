@@ -39,6 +39,19 @@ def _sha256(payload: bytes) -> str:
     return hashlib.sha256(payload).hexdigest()
 
 
+def _tree_sha(path: Path) -> str:
+    rows = [
+        {
+            "path": member.relative_to(path).as_posix(),
+            "sha256": _sha256(member.read_bytes()),
+            "mode": member.stat().st_mode & 0o777,
+        }
+        for member in sorted(path.rglob("*"))
+        if member.is_file() and not member.is_symlink()
+    ]
+    return _sha256(json.dumps(rows, sort_keys=True, separators=(",", ":"), ensure_ascii=False).encode("utf-8"))
+
+
 def _canonical_digest(value: object) -> str:
     return _sha256(
         json.dumps(value, sort_keys=True, separators=(",", ":"), ensure_ascii=False, allow_nan=False).encode("utf-8")
@@ -48,8 +61,11 @@ def _canonical_digest(value: object) -> str:
 class PortableRuntimeMaterializationTests(unittest.TestCase):
     def setUp(self) -> None:
         self.base = Path(tempfile.mkdtemp(dir=TEST_TEMP_ROOT)).resolve()
-        self.target, self.control = self._target()
+        self.target = self.base / "target"
+        self.target.mkdir()
         self.package = self._package()
+        self.package_evidence = provide_installation_package_evidence(self.package.root)
+        self.target, self.control = self._target()
         self.context = self._context()
         self._write_context()
         self._write_package_selector()
@@ -65,6 +81,26 @@ class PortableRuntimeMaterializationTests(unittest.TestCase):
         path.write_bytes(payload)
         path.chmod(mode)
 
+    def _seed_package_compiler_closure(self, source: Path) -> None:
+        """Seal the actual compiler and every locally imported dependency."""
+
+        for relative in (
+            "COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py",
+            "project_runtime.py",
+            "project_selection.py",
+            "artifact_metadata.py",
+            "VALIDATE_ATOMS/validate_atoms_workers/__init__.py",
+            "VALIDATE_ATOMS/validate_atoms_workers/read_io.py",
+            "VALIDATE_ATOMS/validate_atoms_workers/settings.py",
+        ):
+            canonical = TOOLS / relative
+            self._write(
+                source,
+                f"102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/{relative}",
+                canonical.read_bytes(),
+                mode=canonical.stat().st_mode & 0o777,
+            )
+
     def _target(self) -> tuple[Path, Path]:
         target = self.base / "target"
         control = target / ".caprmedio_target"
@@ -76,18 +112,34 @@ class PortableRuntimeMaterializationTests(unittest.TestCase):
         )
         self._write(control, "project_structure.toml", b"schema_version = 1\nscope_units = []\n")
         self._write(control, "operators_registry.toml", b"operators = []\n")
+        configuration = next(pin for pin in self.package_evidence.source_pins if pin.identity == "project-configuration")
+        self._write(
+            control,
+            "000_CAPRMEDIO_framework/caprmedio_framework_settings.toml",
+            (
+                "[methodology.configuration]\n"
+                "identity = \"project-configuration\"\n"
+                f"revision = \"{configuration.revision}\"\n"
+            ).encode("utf-8"),
+        )
         return target, control
 
     def _package(self):
         source = self.base / "source"
         releases = self.target / ".caprmedio_install" / "releases"
+        self._seed_package_compiler_closure(source)
         self._write(
             source,
             "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/runtime_entry.py",
             b"print('fixture runtime')\n",
             mode=0o755,
         )
-        self._write(source, "methodology/active/CA-R-001--fixture.md", b"# active\n")
+        self._write(source, "methodology/active/001_CORE_META_MODEL/04_requirement/CA-R-001--fixture.md", b"# active\n")
+        self._write(
+            source,
+            "methodology/active/003_PROJECT_CONFIGURATION/05_method/CA-M-001--fixture.md",
+            b"# configuration\n",
+        )
         self._write(source, "methodology/support/CA-D-001--fixture.md", b"# support\n")
         self._write(source, "SKILLS/ca/SKILL.md", b"# ca\n")
         self._write(source, "SKILLS/ca/helper.py", b"print('not an engine entrypoint')\n")
@@ -95,25 +147,29 @@ class PortableRuntimeMaterializationTests(unittest.TestCase):
         self._write(source, "pyproject.toml", b"[project]\nname = 'fixture'\nversion = '0.1.0'\n")
         self._write(source, "uv.lock", b"version = 1\n")
         self._write(source, "version.toml", b"[framework]\nversion = '0.1.0'\n")
-        descriptors = []
-        for identity, kind, relative in (
-            ("core", "core", "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/runtime_entry.py"),
-            ("methodology", "methodology", "methodology/active/CA-R-001--fixture.md"),
-            ("support", "support", "methodology/support/CA-D-001--fixture.md"),
-        ):
-            payload = (source / relative).read_bytes()
-            descriptors.append(
-                {
-                    "identity": identity,
-                    "kind": kind,
-                    "revision": _sha256(payload),
-                    "sha256": _sha256(payload),
-                    "visibility": "public",
-                    "selection_default": False,
-                    "path": relative,
-                }
+        descriptors = tuple(
+            sorted(
+                (
+                    {
+                        "identity": identity,
+                        "kind": kind,
+                        "revision": _tree_sha(source / relative),
+                        "sha256": _tree_sha(source / relative),
+                        "visibility": "public",
+                        "selection_default": False,
+                        "path": relative,
+                    }
+                    for identity, kind, relative in (
+                        ("core-engine", "core", "102_FRAMEWORK_ENGINE"),
+                        ("core-methodology", "methodology", "methodology/active/001_CORE_META_MODEL"),
+                        ("project-configuration", "configuration", "methodology/active/003_PROJECT_CONFIGURATION"),
+                        ("declared-support", "support", "methodology/support"),
+                    )
+                ),
+                key=lambda descriptor: descriptor["identity"],
             )
-        receipt = write_source_admission_receipt(source, tuple(descriptors))
+        )
+        receipt = write_source_admission_receipt(source, descriptors)
         catalog = ["schema_version = 1", ""]
         for descriptor in descriptors:
             catalog.extend(
@@ -133,7 +189,6 @@ class PortableRuntimeMaterializationTests(unittest.TestCase):
         return assemble_framework_package(source, releases)
 
     def _context(self):
-        evidence = provide_installation_package_evidence(self.package.root)
         return bind_target_project_context(
             TargetProjectRequest(
                 target_root=self.target,
@@ -146,7 +201,7 @@ class PortableRuntimeMaterializationTests(unittest.TestCase):
                 repository_identity=False,
                 root_locator="fixtures/target",
                 package_root=self.package.root,
-                package_evidence=evidence,
+                package_evidence=self.package_evidence,
             )
         )
 

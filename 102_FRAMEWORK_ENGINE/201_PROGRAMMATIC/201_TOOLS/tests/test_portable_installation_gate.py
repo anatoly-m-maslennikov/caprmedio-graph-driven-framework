@@ -30,6 +30,7 @@ from framework_installation import (  # noqa: E402
 from framework_package import provide_installation_package_evidence  # noqa: E402
 from installation_context import TargetProjectRequest  # noqa: E402
 from release_retained_candidate import read_retained_candidate_identity  # noqa: E402
+from target_methodology_selection import FRAMEWORK_INSTANCE_SETTINGS_RELATIVE  # noqa: E402
 import test_detached_native_full_gate as _detached_native_full_gate_fixture  # noqa: E402
 
 
@@ -88,6 +89,13 @@ class PortableInstallationGateTests(unittest.TestCase):
         self.control.mkdir()
         for name in ("caprmedio_project_settings.toml", "project_structure.toml", "operators_registry.toml"):
             shutil.copy2(control_source / name, self.control / name)
+        # Preserve the canonical selected instance settings before D600 is
+        # bound.  Its bytes—not catalog presence—determine the selected
+        # configuration roots for this target.
+        framework_settings = control_source.joinpath(*FRAMEWORK_INSTANCE_SETTINGS_RELATIVE.parts)
+        copied_settings = self.control.joinpath(*FRAMEWORK_INSTANCE_SETTINGS_RELATIVE.parts)
+        copied_settings.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(framework_settings, copied_settings)
         self.package_root = self.target_root / ".caprmedio_install" / "releases" / self.identity.package_evidence.view.actual_package_manifest_sha256
         shutil.copytree(retained_package_root, self.package_root)
         selected_evidence = provide_installation_package_evidence(self.package_root)
@@ -127,7 +135,7 @@ class PortableInstallationGateTests(unittest.TestCase):
         target = TargetProjectRequest(
             target_root=self.target_root,
             control_child=self.control.name,
-            mode="bootstrap",
+            mode="adopt",
             target_project_identity=project["name"],
             settings_path=self.control / "caprmedio_project_settings.toml",
             project_structure_path=self.control / "project_structure.toml",

@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from dataclasses import replace
 import hashlib
+import json
 from pathlib import Path
 import sys
 import tempfile
@@ -34,6 +35,19 @@ def _sha256(payload: bytes) -> str:
     return hashlib.sha256(payload).hexdigest()
 
 
+def _tree_sha(path: Path) -> str:
+    rows = [
+        {
+            "path": member.relative_to(path).as_posix(),
+            "sha256": _sha256(member.read_bytes()),
+            "mode": member.stat().st_mode & 0o777,
+        }
+        for member in sorted(path.rglob("*"))
+        if member.is_file() and not member.is_symlink()
+    ]
+    return _sha256(json.dumps(rows, sort_keys=True, separators=(",", ":"), ensure_ascii=False).encode("utf-8"))
+
+
 class PortableInstallationTests(unittest.TestCase):
     def setUp(self) -> None:
         self.temporary = tempfile.TemporaryDirectory(dir=TEST_TEMP_ROOT, ignore_cleanup_errors=True)
@@ -52,6 +66,26 @@ class PortableInstallationTests(unittest.TestCase):
         target.write_bytes(payload)
         target.chmod(mode)
 
+    def _seed_package_compiler_closure(self, source: Path) -> None:
+        """Seal the actual compiler and every locally imported dependency."""
+
+        for relative in (
+            "COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py",
+            "project_runtime.py",
+            "project_selection.py",
+            "artifact_metadata.py",
+            "VALIDATE_ATOMS/validate_atoms_workers/__init__.py",
+            "VALIDATE_ATOMS/validate_atoms_workers/read_io.py",
+            "VALIDATE_ATOMS/validate_atoms_workers/settings.py",
+        ):
+            canonical = TOOLS / relative
+            self._write(
+                source,
+                f"102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/{relative}",
+                canonical.read_bytes(),
+                mode=canonical.stat().st_mode & 0o777,
+            )
+
     def _package(
         self,
         *,
@@ -61,8 +95,14 @@ class PortableInstallationTests(unittest.TestCase):
     ):
         source = self.base / source_name
         releases = self.base / releases_name
+        self._seed_package_compiler_closure(source)
         self._write(source, "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/tool.py", b"tool = 'fixture'\n", mode=0o755)
-        self._write(source, "methodology/active/CA-R-001--fixture.md", b"# active methodology\n")
+        self._write(source, "methodology/active/001_CORE_META_MODEL/04_requirement/CA-R-001--fixture.md", b"# active methodology\n")
+        self._write(
+            source,
+            "methodology/active/003_PROJECT_CONFIGURATION/05_method/CA-M-001--fixture.md",
+            b"# configuration methodology\n",
+        )
         self._write(source, "methodology/support/CA-D-001--fixture.md", b"# declared support\n")
         self._write(source, "SKILLS/ca/SKILL.md", b"# ca\n")
         self._write(
@@ -82,21 +122,27 @@ class PortableInstallationTests(unittest.TestCase):
         self._write(source, "uv.lock", b"version = 1\n")
         self._write(source, "version.toml", b"[framework]\nversion = '0.1.0'\n")
         source_rows = (
-            ("core", "core", "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/tool.py"),
-            ("methodology", "methodology", "methodology/active/CA-R-001--fixture.md"),
-            ("support", "support", "methodology/support/CA-D-001--fixture.md"),
+            ("core-engine", "core", "102_FRAMEWORK_ENGINE"),
+            ("core-methodology", "methodology", "methodology/active/001_CORE_META_MODEL"),
+            ("project-configuration", "configuration", "methodology/active/003_PROJECT_CONFIGURATION"),
+            ("declared-support", "support", "methodology/support"),
         )
         descriptors = tuple(
-            {
-                "identity": identity,
-                "kind": kind,
-                "revision": _sha256((source / relative).read_bytes()),
-                "sha256": _sha256((source / relative).read_bytes()),
-                "visibility": "public",
-                "selection_default": False,
-                "path": relative,
-            }
-            for identity, kind, relative in source_rows
+            sorted(
+                (
+                    {
+                        "identity": identity,
+                        "kind": kind,
+                        "revision": _tree_sha(source / relative),
+                        "sha256": _tree_sha(source / relative),
+                        "visibility": "public",
+                        "selection_default": False,
+                        "path": relative,
+                    }
+                    for identity, kind, relative in source_rows
+                ),
+                key=lambda descriptor: descriptor["identity"],
+            )
         )
         receipt = write_source_admission_receipt(source, descriptors)
         lines = ["schema_version = 1", ""]
@@ -127,6 +173,19 @@ class PortableInstallationTests(unittest.TestCase):
         )
         (control / "project_structure.toml").write_text("schema_version = 1\nscope_units = []\n", encoding="utf-8")
         (control / "operators_registry.toml").write_text("operators = []\n", encoding="utf-8")
+        configuration = next(
+            pin
+            for pin in provide_installation_package_evidence(self.package.root).source_pins
+            if pin.identity == "project-configuration"
+        )
+        framework_settings = control / "000_CAPRMEDIO_framework/caprmedio_framework_settings.toml"
+        framework_settings.parent.mkdir()
+        framework_settings.write_text(
+            "[methodology.configuration]\n"
+            "identity = \"project-configuration\"\n"
+            f"revision = \"{configuration.revision}\"\n",
+            encoding="utf-8",
+        )
         return root, control
 
     def _write_current_selector(self, gate_sha256: str, *, package=None) -> None:
@@ -156,7 +215,10 @@ class PortableInstallationTests(unittest.TestCase):
         target = TargetProjectRequest(
             target_root=self.target,
             control_child=self.control.name,
-            mode="bootstrap",
+            # The fixture intentionally publishes D598 before preparation so
+            # every refusal can exercise the selected-package reader.  That
+            # is an adoption context, not an empty-bootstrap context.
+            mode="adopt",
             target_project_identity="target-project",
             settings_path=self.control / "caprmedio_project_settings.toml",
             project_structure_path=self.control / "project_structure.toml",
