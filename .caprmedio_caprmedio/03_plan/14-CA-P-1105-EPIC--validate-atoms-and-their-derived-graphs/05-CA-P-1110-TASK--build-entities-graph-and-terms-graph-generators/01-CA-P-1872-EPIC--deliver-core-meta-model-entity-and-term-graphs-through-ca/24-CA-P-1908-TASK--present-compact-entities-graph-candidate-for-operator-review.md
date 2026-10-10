@@ -9,13 +9,12 @@ claim_target_scope_unit: caprmedio
 local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
-assignee: AI Agent
 status: Active
 subjects:
   governs: Projection
   depends_on: [Entity, Term, Atom, Property, Carrier, Plan]
-version: 6
-updated_at: "2026-10-10 03:47:57 +0400"
+version: 7
+updated_at: "2026-10-10 05:16:00 +0400"
 relations:
   is_decomposition_of: [CA-P-1872]
   blocks: [CA-P-1909]
@@ -32,7 +31,7 @@ Give the Operator the new marked Entities Graph candidate in a compact, indented
 
 Review context: the Operator chose **Finish against the captured snapshot only**. Use the original CA-P-1905 source pins and immutable Git commit `a971d0e00c33c779f485fc8cad63194894d440fb`; read `nodes/snapshot.context.md` and `nodes/support/snapshot_sources.py`. CA-D-494 revision 2 remains the review input; live revision 3 is outside this snapshot. Preserve originals and label receipts as captured-snapshot checks, not current-Core checks. Any currentness or source-pin requirement below means exact validity against this selected captured snapshot. Do not silently rebind or overwrite live Core.
 
-Estimated own work: 15 minutes. Assignee: AI Agent.
+Child work only; no separately executable own work. The initial producer checkpoint was not accepted or persisted. Finish the remaining presentation and its independent verification in two bounded direct Tasks before handoff.
 
 Required start prerequisite: CA-P-1907. Inputs: the pinned current-graph review, grouped/inherited candidate structure, complete occurrence-to-proposed-relation ledger and complete disposition ledger from CA-P-1905 through CA-P-1907.
 
@@ -55,6 +54,13 @@ Output: the accessible candidate graph and review package, handed to the Operato
 Exclusive scope: derived candidate outputs and their handoff evidence only. Do not implement a new graph frontend, modify Core Atoms or Subjects, overwrite the baseline, delete marked entities, rename YAML keys, activate a runtime, push or create a PR.
 
 Inherit CA-P-1872's explicit 90% confidence threshold and local-without-MCP authorization. Ask the Operator before deciding below that threshold; do not disguise uncertainty as an accepted fact. If the ready workload exceeds 15 minutes, split it into bounded direct child Plans before execution. These Tasks are created now; their work has not started.
+
+### Bounded direct Tasks
+
+- [CA-P-1957](24-CA-P-1908-TASK--present-compact-entities-graph-candidate-for-operator-review/01-CA-P-1957-TASK--finish-the-captured-entity-graph-candidate-presentation.md): Finish the captured Entity graph candidate presentation; 15 minutes. Own the renderer and three candidate outputs, repair the five preparation findings, and keep the accepted inputs fixed. Explicitly BLOCKS CA-P-1958.
+- [CA-P-1958](24-CA-P-1908-TASK--present-compact-entities-graph-candidate-for-operator-review/02-CA-P-1958-TASK--verify-the-captured-entity-graph-candidate-presentation.md): Verify the captured Entity graph candidate presentation; 15 minutes. Independently check the final artifacts, input pins, exact coverage, proposals, unresolved notation, receipt locators and no-overwrite guards. No source or candidate edits by this verifier.
+
+The parent stays Active until both direct Tasks are Done and the candidate is accessible for the Operator. This decomposition does not accept the candidate or open the Subject migration gate.
 
 ### Definition of Done
 
