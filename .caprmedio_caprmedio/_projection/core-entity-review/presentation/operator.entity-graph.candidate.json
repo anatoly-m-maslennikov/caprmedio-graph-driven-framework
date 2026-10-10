@@ -116,6 +116,12 @@
     "member_instances": "Derived Atom instances, not merely entries inside a Projection.",
     "whole_set": "The whole set of derived Atom instances is a Projection.",
     "lifecycle": "The Projection set has its own lifecycle and is managed as a whole.",
+    "atom_id_rule": "Each derived Atom keeps the same Atom ID as its source Atom.",
+    "source_reference": {
+      "required_for_each_derived_atom": true,
+      "form": "Relative link to its source Atom",
+      "serialization_and_relative_base": "Not yet specified."
+    },
     "authority_boundary": "Derived instances do not become another authoritative source for the source Atoms' facts."
   },
   "draft_duplicate_policy": {
@@ -137,6 +143,12 @@
     ],
     "grouping": "Relation Types have groups for Atoms, Entities, Terms and other contexts; these are not two separate Type/Kind concepts.",
     "endpoint_boundary": "Grouping does not remove each Relation Type's permitted endpoint constraints."
+  },
+  "terms_graph_boundary": {
+    "status": "Confirmed",
+    "decision": "Terms belong to another graph, separate from the Entities Graph.",
+    "entity_root_boundary": "This answer does not add Term as an eighth root of the Entities Graph.",
+    "cross_graph_links": "No new cross-graph Relation is admitted by this decision."
   },
   "relation_lifecycle_question": {
     "status": "Resolved — Operator-confirmed",
@@ -165,12 +177,13 @@
   ],
   "snapshot_and_history_rules": [
     "Entities and Properties describe the selected snapshot.",
-    "Across all non-archived folders combined, at most one Atom may carry a given Atom ID.",
+    "Across non-archived authoritative Atom folders combined, at most one source Atom may carry a given Atom ID.",
     "The uniqueness boundary includes Active, Done, Backlog, Canceled and other non-archived status containers.",
+    "Derived Projection Atom instances keep their source Atom IDs and each carry a relative source link; this supersedes the earlier unqualified ban on reused IDs across every non-archived folder.",
     "Archived snapshots may retain the same Atom ID.",
     "Drafts remain without assigned Atom IDs.",
     "Archive preserves previous snapshots; Journal records changes.",
-    "A new Updated At can distinguish a new historical state; no separate Applicable Methodology Revision or Projection Revision kind is formalized here.",
+    "An Atom historical reference is Atom ID + Version Number. For another Artifact without a Version Number, it is Artifact ID + Updated At. No separate Applicable Methodology Revision or Projection Revision kind is formalized here.",
     "Revision is a separate historical root, not an Artifact subtype or an IS_BORNE_BY child of Artifact or Atom."
   ],
   "history_model": {
@@ -191,10 +204,12 @@
       "change_record_scope": "FROM_REVISION and TO_REVISION apply to records of Artifact state changes, not every Journal record. Creation has no previous Revision.",
       "execution_record_scope": "RECORDS points to an Execution when the Journal record describes an actual run."
     },
-    "historical_reference_proposal": {
-      "status": "Proposed — not a required identifier or accepted Subject grammar",
-      "atom_reference": "Atom ID + unique Updated At",
-      "reason": "Version Number alone may not distinguish metadata-only historical states."
+    "historical_reference": {
+      "status": "Confirmed by Operator — not yet adopted as native reference grammar",
+      "atom_reference": "Atom ID + Version Number",
+      "other_unversioned_artifact_reference": "Artifact ID + Updated At",
+      "version_increment_policy": "Not decided by this reference-key choice.",
+      "projection_resolution": "The lookup context distinguishing a source Atom from a same-ID projected instance remains to be specified."
     }
   },
   "content_direction": {
@@ -231,9 +246,12 @@
     "additional_roots_added": false
   },
   "unresolved": [
+    "Source versus Projection lookup context when derived Atom instances preserve the same Atom ID.",
+    "When an Atom Version Number increments, including Status-only or other metadata-only changes, under the Atom ID + Version historical-reference rule.",
+    "Provenance and source-link representation for a derived Atom with multiple contributing sources.",
     "Exact typed links between Operations definitions, Executions, Actors, Journal Records, Revisions and Carriers.",
     "A complete mapping from the captured 706-identity review to this simplified candidate.",
-    "Operator confirmation of the proposed history links and historical reference; accepted Subject grammar changes."
+    "Operator confirmation of the proposed history links; serialization of the confirmed historical-reference keys and accepted Subject grammar changes."
   ],
   "earlier_review": {
     "inventory": "candidate.entities.indented.txt",
