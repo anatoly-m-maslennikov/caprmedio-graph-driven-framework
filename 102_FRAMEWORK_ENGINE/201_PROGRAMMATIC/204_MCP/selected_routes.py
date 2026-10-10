@@ -283,8 +283,11 @@ def _validate_route(
     root: Path, entry: Any, *, allowed_routes: tuple[str, ...] = SELECTED_ROUTE_NAMES,
     verify_source_pins: bool = True,
 ) -> dict[str, Any]:
-    if not verify_source_pins and allowed_routes != (_OPTIONAL_RELEASE_ROUTE_NAME,):
-        raise SelectedRouteError("stale source pin validation is limited to release_version")
+    if not verify_source_pins and allowed_routes not in {
+        (_OPTIONAL_RELEASE_ROUTE_NAME,),
+        (_OPTIONAL_PUBLIC_RELEASE_ROUTE_NAME,),
+    }:
+        raise SelectedRouteError("stale source pin validation is limited to release routes")
     required = {"route", "workflow", "ordered_steps", "ordered_actions", "native_action_calls",
                 "entry_step", "on_result", "mutation_capable"}
     if not isinstance(entry, Mapping) or set(entry) != required:
@@ -448,6 +451,50 @@ def _public_release_workflow_edges(root: Path, admission: Mapping[str, Any]) -> 
     return edges
 
 
+def _derive_current_public_release_graph_admission(root: Path) -> tuple[dict[str, Any], dict[str, Any]]:
+    """Derive D613's one current public route without publishing it.
+
+    The stale-manifest refresh reader needs the same source-owned route that a
+    normal seventeenth-route loader will later validate.  Keep that derivation
+    here so the refresh boundary cannot accept a caller-supplied public graph.
+    """
+    public_release = Path(__file__).resolve().parents[1] / "201_TOOLS" / "PUBLIC_RELEASE"
+    if str(public_release) not in sys.path:
+        sys.path.insert(0, str(public_release))
+    try:
+        from selected_admission import (  # type: ignore[import-not-found]
+            PublicReleaseSourceAdmissionError,
+            derive_public_release_source_admission,
+            validate_public_release_source_admission,
+        )
+        derived = derive_public_release_source_admission(root)
+        admission = validate_public_release_source_admission(root, derived)
+    except PublicReleaseSourceAdmissionError as error:
+        raise SelectedRouteError(str(error)) from error
+    except (ImportError, OSError, TypeError, ValueError) as error:
+        raise SelectedRouteError(f"public Release source admission is unavailable: {error}") from error
+    if not isinstance(admission, Mapping) or admission.get("route") != _OPTIONAL_PUBLIC_RELEASE_ROUTE_NAME:
+        raise SelectedRouteError("public Release source admission returned an invalid contract")
+    steps, actions = admission.get("ordered_steps"), admission.get("ordered_actions")
+    if (not isinstance(steps, list) or not steps or not isinstance(actions, list)
+            or len(steps) != len(actions)):
+        raise SelectedRouteError("public Release source admission has an invalid ordered definition")
+    route = {
+        "route": _OPTIONAL_PUBLIC_RELEASE_ROUTE_NAME,
+        "workflow": copy.deepcopy(admission["workflow"]),
+        "ordered_steps": [
+            {"step": copy.deepcopy(step), "action": copy.deepcopy(action)}
+            for step, action in zip(steps, actions, strict=True)
+        ],
+        "ordered_actions": copy.deepcopy(actions),
+        "native_action_calls": copy.deepcopy(admission["native_action_calls"]),
+        "entry_step": steps[0]["atom_id"],
+        "on_result": _public_release_workflow_edges(root, admission),
+        "mutation_capable": admission["mutation_capable"],
+    }
+    return route, copy.deepcopy(dict(admission))
+
+
 def _unique_manifest_object(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
     """Reject duplicate JSON members before the parser silently collapses them."""
     result: dict[str, Any] = {}
@@ -500,10 +547,10 @@ def _refresh_admission_shape(value: Any) -> dict[str, Any]:
     steps = value["ordered_steps"]
     actions = value["ordered_actions"]
     rmed = value["rmed_frontier"]
-    if not isinstance(steps, list) or len(steps) != 12:
-        raise SelectedRouteError("Release refresh admission must contain twelve ordered Steps")
-    if not isinstance(actions, list) or len(actions) != 12:
-        raise SelectedRouteError("Release refresh admission must contain twelve ordered Actions")
+    if not isinstance(steps, list) or len(steps) != 10:
+        raise SelectedRouteError("Release refresh admission must contain ten ordered Steps")
+    if not isinstance(actions, list) or len(actions) != 10:
+        raise SelectedRouteError("Release refresh admission must contain ten ordered Actions")
     if not isinstance(rmed, list) or not rmed:
         raise SelectedRouteError("Release refresh admission RMED frontier is empty")
     validated_steps: list[dict[str, dict[str, Any]]] = []
@@ -581,8 +628,39 @@ def _compare_refresh_route(old: Mapping[str, Any], current: Mapping[str, Any]) -
         _compare_refresh_pin(old_pin, current_pin, f"native_action_calls[{ordinal}]")
 
 
+def _refresh_public_admission_shape(value: Any, current: Any, *, label: str = "public Release admission") -> Any:
+    """Validate a stale D613 record against its current closed structure.
+
+    Unlike a normal manifest read, the stale record's pin bytes cannot be
+    reopened.  Its complete recursive shape, collection ordering and every
+    non-pin value must still equal the current D613 derivation.  Only a pin's
+    revision and digest may differ.
+    """
+    if isinstance(current, Mapping):
+        if not isinstance(value, Mapping) or set(value) != set(current):
+            raise SelectedRouteError(f"{label} schema differs from current D613")
+        if set(current) == _RELEASE_PIN_FIELDS:
+            stale = _refresh_pin_shape(value)
+            _compare_refresh_pin(stale, current, label)
+            return stale
+        return {
+            key: _refresh_public_admission_shape(value[key], current[key], label=f"{label}.{key}")
+            for key in current
+        }
+    if isinstance(current, list):
+        if not isinstance(value, list) or len(value) != len(current):
+            raise SelectedRouteError(f"{label} occurrence count differs from current D613")
+        return [
+            _refresh_public_admission_shape(stale, fresh, label=f"{label}[{ordinal}]")
+            for ordinal, (stale, fresh) in enumerate(zip(value, current, strict=True), 1)
+        ]
+    if type(value) is not type(current) or value != current:
+        raise SelectedRouteError(f"{label} metadata differs from current D613")
+    return copy.deepcopy(value)
+
+
 def load_release_manifest_refresh_base(root: str | Path) -> dict[str, Any]:
-    """Validate one stale, schema-valid sixteen-route manifest for refresh.
+    """Validate one stale, schema-valid sixteen- or seventeen-route manifest.
 
     This is a private publisher input boundary.  It accepts no route or schema
     drift: only the version/digest values of the explicit D572 pin sites in the
@@ -610,9 +688,10 @@ def load_release_manifest_refresh_base(root: str | Path) -> dict[str, Any]:
         "schema_version", "source_freshness", "query_source_admissions", "routes",
         "canonical_manifest_sha256", "release_source_admissions",
     }
-    if (not isinstance(manifest, Mapping) or set(manifest) != required
+    if (not isinstance(manifest, Mapping) or not required <= set(manifest)
+            or set(manifest) - required - {"public_release_source_admissions"}
             or type(manifest["schema_version"]) is not int or manifest["schema_version"] != 1):
-        raise SelectedRouteError("Release refresh requires the exact sixteen-route manifest schema")
+        raise SelectedRouteError("Release refresh requires the exact selected manifest schema")
     digest = manifest["canonical_manifest_sha256"]
     if not isinstance(digest, str) or not _DIGEST.fullmatch(digest):
         raise SelectedRouteError("selected workflow binding manifest digest is invalid")
@@ -639,18 +718,30 @@ def load_release_manifest_refresh_base(root: str | Path) -> dict[str, Any]:
     if not registry.is_file() or hashlib.sha256(registry.read_bytes()).hexdigest() != freshness["selected_source_registry_digest"]:
         raise SelectedRouteError("selected source registry pin is stale")
     routes = manifest["routes"]
-    expected_names = (*SELECTED_ROUTE_NAMES, _OPTIONAL_RELEASE_ROUTE_NAME)
-    if not isinstance(routes, list) or len(routes) != len(expected_names):
-        raise SelectedRouteError("Release refresh requires exactly sixteen routes")
+    expected_sixteen = (*SELECTED_ROUTE_NAMES, _OPTIONAL_RELEASE_ROUTE_NAME)
+    expected_seventeen = (*expected_sixteen, _OPTIONAL_PUBLIC_RELEASE_ROUTE_NAME)
+    if not isinstance(routes, list) or tuple(row.get("route") for row in routes if isinstance(row, Mapping)) not in {
+        expected_sixteen, expected_seventeen,
+    } or len(routes) not in {len(expected_sixteen), len(expected_seventeen)}:
+        raise SelectedRouteError("Release refresh requires the exact admitted sixteen- or seventeen-route manifest")
+    has_public = len(routes) == len(expected_seventeen)
     validated = [
-        *[_validate_route(project_root, entry) for entry in routes[:-1]],
+        *[_validate_route(project_root, entry) for entry in routes[:len(SELECTED_ROUTE_NAMES)]],
         _validate_route(
             project_root,
-            routes[-1],
+            routes[len(SELECTED_ROUTE_NAMES)],
             allowed_routes=(_OPTIONAL_RELEASE_ROUTE_NAME,),
             verify_source_pins=False,
         ),
     ]
+    if has_public:
+        validated.append(_validate_route(
+            project_root,
+            routes[-1],
+            allowed_routes=(_OPTIONAL_PUBLIC_RELEASE_ROUTE_NAME,),
+            verify_source_pins=False,
+        ))
+    expected_names = expected_seventeen if has_public else expected_sixteen
     if (tuple(entry["route"] for entry in validated) != expected_names
             or len({entry["route"] for entry in validated}) != len(expected_names)):
         raise SelectedRouteError("Release refresh route registry is incomplete, duplicate, or out of order")
@@ -663,13 +754,13 @@ def load_release_manifest_refresh_base(root: str | Path) -> dict[str, Any]:
         current_route, current_admission = derive_release_graph_admission(project_root)
     except (OSError, TypeError, ValueError) as error:
         raise SelectedRouteError(f"current Release source admission is unavailable: {error}") from error
-    _compare_refresh_route(validated[-1], current_route)
+    _compare_refresh_route(validated[len(SELECTED_ROUTE_NAMES)], current_route)
     if not isinstance(manifest["release_source_admissions"], list) or len(manifest["release_source_admissions"]) != 1:
         raise SelectedRouteError("Release refresh requires exactly one source admission")
     stale_admission = _refresh_admission_shape(manifest["release_source_admissions"][0])
     current_admission = _refresh_admission_shape(current_admission)
     _compare_refresh_admission(stale_admission, current_admission)
-    return {
+    result = {
         "manifest_ref": manifest_ref,
         "schema_version": 1,
         "source_freshness": dict(freshness),
@@ -678,6 +769,18 @@ def load_release_manifest_refresh_base(root: str | Path) -> dict[str, Any]:
         "canonical_manifest_sha256": digest,
         "release_source_admissions": [stale_admission],
     }
+    if has_public:
+        admissions = manifest.get("public_release_source_admissions")
+        if not isinstance(admissions, list) or len(admissions) != 1:
+            raise SelectedRouteError("Release refresh requires exactly one public Release source admission")
+        current_public_route, current_public_admission = _derive_current_public_release_graph_admission(project_root)
+        _compare_refresh_route(validated[-1], current_public_route)
+        result["public_release_source_admissions"] = [
+            _refresh_public_admission_shape(admissions[0], current_public_admission)
+        ]
+    elif "public_release_source_admissions" in manifest:
+        raise SelectedRouteError("public Release source admission requires the seventeenth route")
+    return result
 
 
 def validate_selected_manifest_document(root: str | Path, manifest: Any) -> dict[str, Any]:
