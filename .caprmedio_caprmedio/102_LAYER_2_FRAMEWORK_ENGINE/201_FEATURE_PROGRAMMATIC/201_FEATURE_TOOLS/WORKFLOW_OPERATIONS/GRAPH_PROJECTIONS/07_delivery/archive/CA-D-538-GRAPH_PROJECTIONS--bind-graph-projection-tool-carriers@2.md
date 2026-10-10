@@ -7,8 +7,8 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 3
-updated_at: "2026-10-11 02:00:08 +0400"
+version: 2
+updated_at: "2026-10-09 19:23:34 +0400"
 subjects:
   governs: "Tool/WORKFLOW_OPERATIONS/GRAPH_PROJECTIONS/Carrier"
   depends_on: [Tool, Projection, Artifact]
@@ -34,10 +34,9 @@ The bounded packet **must** keep `GENERATE_ENTITY_GRAPH` as the single declared 
 name = "GENERATE_ENTITY_GRAPH"
 entrypoint = "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/GENERATE_ENTITY_GRAPH/generate_entity_graph.py"
 mcp_name = "generate_entity_graph"
-action_ids = ["CA-O-134", "CA-O-137"]
 graph_kinds = ["entities", "terms"]
 ```
 
-The `mcp_name` above is a declared Tool binding, not evidence that that name is registered, exposed or admitted by a connected server. `action_ids` identify the existing projection Actions for the two graph kinds. The existing selected Workflow entrypoints are `build_entities_graph` for CA-O-133/CA-O-135/CA-O-134 and `build_terms_graph` for CA-O-136/CA-O-138/CA-O-137; those Workflow and Step references are context, not Action mappings. Their executable request schemas and exact source bindings come from current admitted discovery/context and the canonical selected manifest. A declared carrier, available source file or listed public route name alone does not establish executable admission; an unavailable binding remains unavailable rather than inviting a guessed call or another graph engine.
+The `mcp_name` above is a declared Tool binding, not evidence that that name is registered, exposed or admitted by a connected server. The existing selected Workflow entrypoints are `build_entities_graph` for CA-O-133/CA-O-135/CA-O-134 and `build_terms_graph` for CA-O-136/CA-O-138/CA-O-137. Their executable request schemas and exact source bindings come from current admitted discovery/context and the canonical selected manifest. A declared carrier, available source file or listed public route name alone does not establish executable admission; an unavailable binding remains unavailable rather than inviting a guessed call or another graph engine.
 
 Both Workflows reuse this single Tool implementation and the CA-D-539 boundary; this carrier does not register a duplicate MCP gateway or prescribe new request/context grammar. Any admitted derived fact context remains source-bound input, not a new source authority. Implementation remains gated on independent corrected RMED review under CA-D-540.
