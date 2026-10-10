@@ -747,18 +747,26 @@ def _context_paths_for(
     except (UnicodeDecodeError, tomllib.TOMLDecodeError) as error:
         raise _error("portable-methodology-context-invalid", "Project Structure is not valid UTF-8 TOML") from error
     units = document.get("scope_units") if isinstance(document, Mapping) else None
-    matching = [unit for unit in units if isinstance(unit, Mapping) and unit.get("scope_unit_name") == "METHODOLOGY_SOURCES"] if isinstance(units, list) else []
-    if len(matching) != 1:
+    source_units = [unit for unit in units if isinstance(unit, Mapping) and unit.get("scope_unit_name") == "METHODOLOGY_SOURCES"] if isinstance(units, list) else []
+    if len(source_units) != 1:
         raise _error("portable-methodology-context-invalid", "Project Structure must declare exactly one METHODOLOGY_SOURCES unit")
-    source_relative = _safe_relative(matching[0].get("authority_path"), label="METHODOLOGY_SOURCES authority_path")
-    delivery_value = matching[0].get("delivery_path")
+    output_units = [unit for unit in units if isinstance(unit, Mapping) and unit.get("scope_unit_name") == "APPLICABLE_METHODOLOGY"] if isinstance(units, list) else []
+    if len(output_units) != 1:
+        raise _error("portable-methodology-context-invalid", "Project Structure must declare exactly one APPLICABLE_METHODOLOGY unit")
+    source_relative = _safe_relative(source_units[0].get("authority_path"), label="METHODOLOGY_SOURCES authority_path")
+    delivery_value = output_units[0].get("delivery_path")
     output_relative = (
-        _safe_relative(delivery_value, label="METHODOLOGY_SOURCES delivery_path")
+        _safe_relative(delivery_value, label="APPLICABLE_METHODOLOGY delivery_path")
         if delivery_value is not None
         else Path(control_name) / _DEFAULT_OUTPUT_SUFFIX
     )
-    if not source_relative.is_relative_to(output_relative) or source_relative.relative_to(output_relative) != _SOURCE_SUFFIX:
-        raise _error("portable-methodology-context-invalid", "Methodology source authority must be the declared Applicable Methodology source subtree")
+    legacy_source_relative = output_relative / _SOURCE_SUFFIX
+    if source_relative != legacy_source_relative and (
+        source_relative == output_relative
+        or source_relative.is_relative_to(output_relative)
+        or output_relative.is_relative_to(source_relative)
+    ):
+        raise _error("portable-methodology-context-invalid", "Methodology source authority and Applicable Methodology delivery must not overlap")
     return root, source_relative, output_relative
 
 

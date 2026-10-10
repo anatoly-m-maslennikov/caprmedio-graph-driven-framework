@@ -62,6 +62,80 @@ class PortableMethodologyInstallationTests(unittest.TestCase):
             prospective_selector=selector,
         )
 
+    def _structure_with_unit_field(
+        self,
+        unit_name: str,
+        field: str,
+        value: str,
+        *,
+        payload: bytes | None = None,
+    ) -> bytes:
+        """Return one exact Project Structure edit without broad TOML rewriting."""
+
+        structure = self.fixture.control / "project_structure.toml"
+        document = (structure.read_bytes() if payload is None else payload).decode("utf-8")
+        unit_start = document.index(f'scope_unit_name = "{unit_name}"')
+        field_start = document.index(f"{field} = ", unit_start)
+        field_end = document.index("\n", field_start)
+        replacement = f'{field} = "{value}"'
+        return (document[:field_start] + replacement + document[field_end:]).encode("utf-8")
+
+    def _context_for_structure(self, payload: bytes):
+        structure = self.fixture.control / "project_structure.toml"
+        structure.write_bytes(payload)
+        return bind_target_project_context(self.request.target)
+
+    def test_context_paths_preserve_legacy_nested_authoring_layout(self) -> None:
+        root, source_relative, output_relative = delivery._context_paths_for(self.request, self.context)
+
+        self.assertEqual(self.fixture.target_root, root)
+        self.assertEqual(
+            Path(".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources"),
+            source_relative,
+        )
+        self.assertEqual(
+            Path(".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY"),
+            output_relative,
+        )
+
+    def test_context_paths_allow_declared_project_owned_authority_outside_output(self) -> None:
+        source_path = ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES"
+        payload = self._structure_with_unit_field("METHODOLOGY_SOURCES", "authority_path", source_path)
+        payload = self._structure_with_unit_field(
+            "METHODOLOGY_SOURCES",
+            "delivery_path",
+            ".caprmedio_caprmedio/ignored-source-delivery",
+            payload=payload,
+        )
+        (self.fixture.target_root / source_path).mkdir(parents=True)
+        context = self._context_for_structure(payload)
+
+        root, source_relative, output_relative = delivery._context_paths_for(self.request, context)
+
+        self.assertEqual(self.fixture.target_root, root)
+        self.assertEqual(Path(source_path), source_relative)
+        self.assertEqual(
+            Path(".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY"),
+            output_relative,
+        )
+
+    def test_context_paths_refuse_unsafe_or_overlapping_declared_metadata(self) -> None:
+        output_path = ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY"
+        cases = (
+            ("unsafe-authority", "../outside-project", "portable-methodology-path-invalid"),
+            ("same-root", output_path, "portable-methodology-context-invalid"),
+            ("nested-nonlegacy", output_path + "/another-source-root", "portable-methodology-context-invalid"),
+        )
+        for label, source_path, expected_code in cases:
+            with self.subTest(label=label):
+                payload = self._structure_with_unit_field("METHODOLOGY_SOURCES", "authority_path", source_path)
+                structure = self.fixture.control / "project_structure.toml"
+                structure.write_bytes(payload)
+                context = replace(self.context, project_structure_sha256=delivery._digest(payload))
+                with self.assertRaises(delivery.PortableMethodologyInstallationError) as rejected:
+                    delivery._context_paths_for(self.request, context)
+                self.assertEqual(expected_code, rejected.exception.code)
+
     def test_candidate_preparation_preserves_authoring_and_has_no_selector_effect(self) -> None:
         source_before = self.source.read_bytes(), stat.S_IMODE(self.source.stat().st_mode)
         result = self._prepared_candidate()
