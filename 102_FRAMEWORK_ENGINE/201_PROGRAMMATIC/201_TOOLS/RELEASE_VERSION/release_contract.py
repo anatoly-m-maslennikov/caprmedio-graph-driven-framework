@@ -276,6 +276,9 @@ class ValidatedCandidate:
     manifest: CandidateSnapshotManifest
     authority: SealedAuthority
     intent: "CandidateBuildRequest"
+    # Private, non-serialized native N transport. Admission reopens its concrete
+    # package and retained Full Gate; a caller object alone grants no authority.
+    native_installed_n: object | None = None
 
 
 class CandidateBuildRequest(StrictModel):

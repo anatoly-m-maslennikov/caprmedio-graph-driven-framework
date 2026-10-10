@@ -23,8 +23,10 @@ for location in (APP, TOOLS, MCP, RELEASE):
     sys.path.insert(0, str(location))
 
 import release_actions
+import release_promotion
 import selected_routes
 from release_image import DockerSubprocessExecutor
+from release_handoff import NativeInstalledNBinding
 from selected_execution import SelectedExecution, SelectedExecutionError, build_requested_runs
 from selected_native_providers import SelectedNativeProviders
 from workflow_run_support import RunExecutionSession
@@ -80,7 +82,7 @@ class ReleaseSourceBindingTests(unittest.TestCase):
         )
         text = source.read_text(encoding="utf-8")
         self.assertIn("atom_id: CA-O-164", text)
-        self.assertIn("version: 6", text)
+        self.assertIn("version: 9", text)
         source_pairs = tuple(re.findall(
             r"^\| (CA-O-\d+) \| (CA-O-\d+) \| ([a-z0-9_]+) \|$", text, flags=re.MULTILINE,
         ))
@@ -96,7 +98,7 @@ class ReleaseNativeProvidersTests(unittest.TestCase):
         self.addCleanup(self.temporary.cleanup)
         self.root = Path(self.temporary.name).resolve()
         self.parameters = {"project_root": str(self.root), "operation": "apply", "fixture": True}
-        self.graph = {"route": "release_version", "workflow": self.binding("CA-O-164", "workflow", 6),
+        self.graph = {"route": "release_version", "workflow": self.binding("CA-O-164", "workflow", 9),
                       "entry_step": "CA-O-170", "steps": []}
         for index, (step, action, _phase) in enumerate(release_actions.PHASES):
             edge = {"result": f"phase_{index}"}
@@ -129,6 +131,7 @@ class ReleaseNativeProvidersTests(unittest.TestCase):
                 checkpoint_callback=checkpoint_callback,
                 contexts={},
                 results={},
+                candidate=None,
             )
             self.private_runs.append(run)
             return run
@@ -209,16 +212,38 @@ class ReleaseNativeProvidersTests(unittest.TestCase):
         self.assertIsInstance(admission, release_actions.AdmittedImageExecutor)
         self.assertIsInstance(admission.executor, DockerSubprocessExecutor)
 
-    def test_current_source_admitted_workflow_six_reaches_private_phase(self):
-        self.assertEqual(self.graph["workflow"]["version"], 6)
+    def test_current_source_admitted_workflow_nine_reaches_private_phase(self):
+        self.assertEqual(self.graph["workflow"]["version"], 9)
         selected = self.providers()
         selected.handlers["CA-O-165"](self.context())
         self.begin.assert_called_once()
         self.execute.assert_called_once()
-        self.assertEqual(self.execute.call_args.kwargs["context"].workflow_version, 6)
+        self.assertEqual(self.execute.call_args.kwargs["context"].workflow_version, 9)
+
+    def test_first_phase_accepts_actual_absence_of_a_selected_native_n(self):
+        with patch(
+            "release_promotion.bind_selected_native_n_from_checkpoint",
+            wraps=release_promotion.bind_selected_native_n_from_checkpoint,
+        ) as bind_native_n:
+            result = self.providers().handlers["CA-O-165"](self.context())
+        self.assertEqual("completed", result["terminal_outcome"], result)
+        bind_native_n.assert_called_once_with(self.root)
+        self.assertIsNone(self.private_runs[0].native_installed_n)
+
+    def test_first_phase_passes_the_exact_typed_selected_native_n_binding(self):
+        binding = NativeInstalledNBinding(
+            SimpleNamespace(kind="verified-package"),
+            SimpleNamespace(kind="retained-full-gate-packet"),
+            SimpleNamespace(kind="native-selected-installation"),
+        )
+        with patch("release_promotion.bind_selected_native_n_from_checkpoint", return_value=binding) as bind_native_n:
+            result = self.providers().handlers["CA-O-165"](self.context())
+        self.assertEqual("completed", result["terminal_outcome"], result)
+        bind_native_n.assert_called_once_with(self.root)
+        self.assertIs(binding, self.private_runs[0].native_installed_n)
 
     def test_noncurrent_workflow_pin_refuses_before_private_checkpoint_or_effects(self):
-        for change in ({"version": 5}, {"version": 99}, {"version": "6"}, {"version": True},
+        for change in ({"version": 6}, {"version": 99}, {"version": "9"}, {"version": True},
                        {"path": "definitions/stale.md"}, {"sha256": "3" * 64}):
             with self.subTest(change=change):
                 graph = copy.deepcopy(self.graph)
@@ -250,7 +275,7 @@ class ReleaseNativeProvidersTests(unittest.TestCase):
         missing_digest = copy.deepcopy(admission)
         missing_digest["workflow"].pop("digest")
         extra_member = copy.deepcopy(admission)
-        extra_member["workflow"]["caller_version"] = 6
+        extra_member["workflow"]["caller_version"] = 9
         wrong_route = {**admission, "route": "caller_release"}
         for admissions in ([admission, admission], [missing_digest], [extra_member], [wrong_route]):
             with self.subTest(admissions=admissions):
@@ -349,9 +374,11 @@ class ReleaseNativeProvidersTests(unittest.TestCase):
             contexts={0: release_actions.SelectedReleaseActionContext(
                 str(self.root), context["workflow_run_id"], context["step_run_id"], action_run_id,
                 context["workflow_run_id"], context["step_run_id"], "CA-O-170", "CA-O-165", "2" * 64,
+                workflow_version=9,
             )},
             results={0: self.execute.return_value},
             in_progress=None,
+            candidate=None,
         )
         recordings = {0: {"terminal_outcome": "completed",
                           "receipt_refs": (terminal["event_receipt"]["event_id"],)}}
@@ -382,14 +409,14 @@ class ReleaseNativeProvidersTests(unittest.TestCase):
     def test_restored_checkpoint_revision_is_not_rebound_to_current_source(self):
         context = self.context()
         context["checkpoint_reader"] = lambda: {"schema": "fixture-release-checkpoint"}
-        for version in (5, 99, "6", True):
+        for version in (6, 99, "9", True):
             with self.subTest(version=version):
                 saved = release_actions.SelectedReleaseActionContext(
                     str(self.root), context["workflow_run_id"], context["step_run_id"], context["action_run_id"],
                     context["workflow_run_id"], context["step_run_id"], "CA-O-170", "CA-O-165", "2" * 64,
                     workflow_version=version,
                 )
-                retained = SimpleNamespace(contexts={0: saved}, results={}, in_progress=None)
+                retained = SimpleNamespace(contexts={0: saved}, results={}, in_progress=None, candidate=None)
                 with patch("release_checkpoint.load_release_checkpoint", return_value=(retained, {})):
                     result = self.providers().handlers["CA-O-165"](context)
                 self.assertEqual(result["terminal_outcome"], "interrupted_pending")

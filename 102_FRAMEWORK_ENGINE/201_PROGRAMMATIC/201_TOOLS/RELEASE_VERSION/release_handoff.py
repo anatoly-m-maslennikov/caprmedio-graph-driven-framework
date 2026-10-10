@@ -14,7 +14,12 @@ import tomllib
 import sys
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, Literal, Mapping
+from typing import TYPE_CHECKING, Any, Literal, Mapping
+
+if TYPE_CHECKING:
+    from framework_package import VerifiedFrameworkPackage
+    from native_selected_installation import NativeSelectedInstallation
+    from retained_full_gate_packet import RetainedNativeFullGatePacket
 
 from pydantic import Field, field_validator, model_validator
 
@@ -44,8 +49,9 @@ CANONICAL_SOURCE_RELATIVE = (
     "000_APPLICABLE_MTHD_sources"
 )
 PROJECT_STRUCTURE_RELATIVE = ".caprmedio_caprmedio/project_structure.toml"
-FRAMEWORK_SETTINGS_RELATIVE = f"{CANONICAL_SOURCE_RELATIVE}/003_PROJECT_CONFIGURATION/caprmedio_framework_settings.toml"
+FRAMEWORK_SETTINGS_RELATIVE = ".caprmedio_caprmedio/000_CAPRMEDIO_framework/caprmedio_framework_settings.toml"
 CURRENT_SELECTOR_RELATIVE = ".caprmedio_runtime/framework/current.toml"
+NATIVE_CURRENT_SELECTOR_RELATIVE = ".caprmedio_runtime/installation/current.toml"
 DERIVED_SOURCE_COPY_RELATIVE = "101_LAYER_1_FRAMEWORK_METHODOLOGY/sources"
 MATERIALIZED_RELATIVE = ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/_release_materialized"
 ENGINE_ROOT_RELATIVE = "102_FRAMEWORK_ENGINE"
@@ -66,6 +72,58 @@ _HOOK_CONFIGURATION_FILE_NAMES = frozenset(
     }
 )
 _METHODOLOGY_EXPORT_PATH = Path(__file__).resolve().parents[1] / "COMPILE_APPLICABLE_METHODOLOGY" / "methodology_export.py"
+
+
+@dataclass(frozen=True)
+class NativeInstalledNBinding:
+    """Actual native N proof inputs and one frozen, physically admitted fact."""
+
+    verified_package: VerifiedFrameworkPackage
+    full_gate_packet: RetainedNativeFullGatePacket
+    selected: NativeSelectedInstallation
+
+
+def bind_native_installed_n(project_root: Path | str, verified_package: Any,
+                            full_gate_packet: Any, *, target_context_sha256: str) -> NativeInstalledNBinding:
+    tools_root = str(Path(__file__).resolve().parents[1])
+    if tools_root not in sys.path:
+        sys.path.insert(0, tools_root)
+    from native_selected_installation import reopen_current_native_installation
+
+    selected = reopen_current_native_installation(
+        project_root, verified_package, full_gate_packet, target_context_sha256=target_context_sha256,
+    )
+    if selected.image_digest.removeprefix("sha256:") != full_gate_packet.evidence.candidate_image_digest.removeprefix("sha256:"):
+        raise _error("release-native-n-image-mismatch", "selected native image differs from the actual retained Full Gate image")
+    return NativeInstalledNBinding(verified_package, full_gate_packet, selected)
+
+
+def reopen_native_installed_n(root: Path | str, binding: object) -> NativeInstalledNBinding:
+    if not isinstance(binding, NativeInstalledNBinding):
+        raise _error("release-native-n-untrusted", "native N requires the concrete admitted package and retained Full Gate packet")
+    try:
+        observed = bind_native_installed_n(
+            root, binding.verified_package, binding.full_gate_packet,
+            target_context_sha256=binding.selected.target_project_context_sha256,
+        )
+    except (RuntimeError, AttributeError, TypeError, ValueError) as error:
+        raise _error("release-native-n-stale", "selected native N cannot be physically reopened") from error
+    if observed != binding:
+        raise _error("release-native-n-stale", "selected native N changed after freezing")
+    return observed
+
+
+def selected_n_selector_relative(candidate: Any) -> str:
+    return NATIVE_CURRENT_SELECTOR_RELATIVE if getattr(candidate, "native_installed_n", None) is not None else CURRENT_SELECTOR_RELATIVE
+
+
+def selected_n_identity(candidate: Any) -> str:
+    binding = getattr(candidate, "native_installed_n", None)
+    if binding is not None:
+        if not isinstance(binding, NativeInstalledNBinding):
+            raise _error("release-native-n-untrusted", "native N binding is not typed")
+        return binding.full_gate_packet.retained_candidate.candidate_snapshot_manifest_sha256
+    return candidate.authority.executing_release
 
 
 def _error(code: str, message: str) -> ReleaseContractError:
@@ -278,6 +336,7 @@ def build_validated_candidate(
     request: CandidateBuildRequest | Mapping[str, Any],
     *,
     observed_source_frontier_digest: str | None = None,
+    native_installed_n: NativeInstalledNBinding | None = None,
 ) -> ValidatedCandidate:
     """Observe local N/currentness and construct one pre-compiler candidate.v2."""
 
@@ -286,7 +345,13 @@ def build_validated_candidate(
     source_root = _directory(root, CANONICAL_SOURCE_RELATIVE)
     structure = _file(root, PROJECT_STRUCTURE_RELATIVE)
     settings = _file(root, FRAMEWORK_SETTINGS_RELATIVE)
-    executing_release = _selector_release(root)
+    if native_installed_n is not None:
+        native_installed_n = reopen_native_installed_n(root, native_installed_n)
+        executing_release = native_installed_n.selected.framework_version
+    else:
+        if (root / NATIVE_CURRENT_SELECTOR_RELATIVE).exists() or (root / NATIVE_CURRENT_SELECTOR_RELATIVE).is_symlink():
+            raise _error("release-native-n-proof-required", "native runtime requires its physically admitted package and retained Full Gate packet")
+        executing_release = _selector_release(root)
     if executing_release == intent.candidate_release:
         raise _error("release-currentness-invalid", "candidate release is already the locally selected release")
     framework_version, version_toml_sha256 = read_framework_version_toml(root)
@@ -328,7 +393,7 @@ def build_validated_candidate(
         nested_source_recursive_sha256_before=snapshot_digest,
         expected_candidate_snapshot_manifest_sha256=manifest.sha256,
     )
-    return ValidatedCandidate(str(root), manifest, authority, intent)
+    return ValidatedCandidate(str(root), manifest, authority, intent, native_installed_n)
 
 
 def _revalidate(candidate: ValidatedCandidate) -> ValidatedCandidate:
@@ -338,6 +403,7 @@ def _revalidate(candidate: ValidatedCandidate) -> ValidatedCandidate:
         candidate.project_root,
         candidate.intent,
         observed_source_frontier_digest=candidate.authority.source_frontier_digest,
+        native_installed_n=candidate.native_installed_n,
     )
     if observed.authority != candidate.authority or observed.manifest != candidate.manifest:
         raise _error("release-currentness-stale", "locally observed selection or sealed candidate inputs changed")
@@ -415,7 +481,7 @@ def _export_seal_sha256(candidate_root: Path, exporter: Any) -> str:
     return value
 
 
-def _assert_export_inventory_bound(candidate: ValidatedCandidate, export: Any) -> None:
+def _assert_export_inventory_bound(candidate: ValidatedCandidate, export: Any, exporter: Any) -> None:
     """Require every frozen/export pin to be one of the candidate source rows."""
 
     source_rows = {
@@ -429,6 +495,19 @@ def _assert_export_inventory_bound(candidate: ValidatedCandidate, export: Any) -
         _root(candidate.project_root) / CANONICAL_SOURCE_RELATIVE
     ):
         raise _error("release-methodology-export-source-mismatch", "sealed export was not frozen from the candidate canonical source root")
+    root = _root(candidate.project_root)
+    if frozen.get("schema") != exporter.FROZEN_SCHEMA:
+        raise _error("release-methodology-export-project-binding-required", "new Project handoff requires the Project-bound frozen export schema")
+    try:
+        expected_binding = exporter.reopen_project_export_binding(root, root / CANONICAL_SOURCE_RELATIVE)
+    except Exception as error:
+        raise _error("release-methodology-export-project-binding-invalid", "Project export controls cannot be physically reopened") from error
+    binding = frozen.get("project_binding")
+    if not isinstance(binding, Mapping) or binding != expected_binding:
+        raise _error("release-methodology-export-project-binding-stale", "frozen export controls differ from the actual Project")
+    if (binding.get("project_structure_sha256") != candidate.authority.project_structure_digest
+            or binding.get("instance_settings_sha256") != candidate.authority.framework_settings_digest):
+        raise _error("release-methodology-export-project-binding-mismatch", "frozen export controls differ from the sealed candidate authority")
     pins: list[Mapping[str, Any]] = []
     for key in ("atoms", "support", "catalog_pins"):
         rows = inventory.get(key)
@@ -462,7 +541,7 @@ def bind_sealed_methodology_export(
     except Exception as error:
         code = getattr(error, "code", "release-methodology-export-invalid")
         raise _error(str(code), "private Methodology export is not sealed and valid") from error
-    _assert_export_inventory_bound(current, export)
+    _assert_export_inventory_bound(current, export, exporter)
     return SealedMethodologyExport(
         candidate=current,
         release_candidate_root=_relative(root, candidate_root, label="private candidate root"),
@@ -561,6 +640,7 @@ class PackageRow(StrictModel):
 
 
 class SealedCandidateCompilation(StrictModel):
+    native_installed_n: Any = Field(default=None, exclude=True)
     candidate_snapshot_manifest_sha256: str = Field(pattern="^[0-9a-f]{64}$")
     authority: SealedAuthority
     framework_version: str
@@ -582,6 +662,8 @@ class SealedCandidateCompilation(StrictModel):
 
     @model_validator(mode="after")
     def complete_package_rows(self) -> "SealedCandidateCompilation":
+        if self.native_installed_n is not None and not isinstance(self.native_installed_n, NativeInstalledNBinding):
+            raise ValueError("native N handoff must carry a concrete admitted binding")
         if (
             self.framework_version != self.authority.framework_version
             or self.version_toml_sha256 != self.authority.version_toml_sha256
@@ -672,6 +754,7 @@ def seal_candidate_compilation(
     if compiler_evidence.actual_compiled_output_sha256 != actual_output:
         raise _error("release-compiler-evidence-mismatch", "compiler evidence does not match materialized bytes")
     return SealedCandidateCompilation(
+        native_installed_n=candidate.native_installed_n,
         candidate_snapshot_manifest_sha256=candidate.manifest.sha256,
         authority=candidate.authority,
         framework_version=candidate.manifest.framework_version,
@@ -692,6 +775,12 @@ __all__ = [
     "CANONICAL_SOURCE_RELATIVE",
     "COMPILER_ENTRYPOINT_RELATIVE",
     "CURRENT_SELECTOR_RELATIVE",
+    "NATIVE_CURRENT_SELECTOR_RELATIVE",
+    "NativeInstalledNBinding",
+    "bind_native_installed_n",
+    "reopen_native_installed_n",
+    "selected_n_selector_relative",
+    "selected_n_identity",
     "DERIVED_SOURCE_COPY_RELATIVE",
     "MATERIALIZED_RELATIVE",
     "VERSION_TOML_RELATIVE",

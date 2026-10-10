@@ -18,10 +18,19 @@ REPOSITORY_ROOT = PROGRAMMATIC_ROOT.parents[1]
 for directory in (MCP_ROOT, TOOLS_ROOT, TOOLS_ROOT / "VALIDATE_ATOMS", TOOLS_ROOT / "RELEASE_VERSION"):
     if str(directory) not in sys.path:
         sys.path.insert(0, str(directory))
+DISCOVERY_TESTS_ROOT = TOOLS_ROOT / "capability_discovery"
+if str(DISCOVERY_TESTS_ROOT) not in sys.path:
+    sys.path.insert(0, str(DISCOVERY_TESTS_ROOT))
 
 from capability_discovery.service import Context, Query, Service as DiscoveryService  # noqa: E402
+from framework_runtime_installation_mcp import (  # noqa: E402
+    MCP_NAME as RUNTIME_INSTALLATION_MCP_NAME,
+    TOOL_NAME as RUNTIME_INSTALLATION_TOOL_NAME,
+    input_schema as runtime_installation_input_schema,
+)
 import implementation_server  # noqa: E402
 from source_admission_mcp import MCP_NAME, TOOL_NAME, input_schema  # noqa: E402
+from test_service import seed_selected_runtime_binding_package  # noqa: E402
 
 
 D602_RELATIVE = Path(
@@ -33,6 +42,16 @@ O199_RELATIVE = Path(
     ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/"
     "000_APPLICABLE_MTHD_sources/003_PROJECT_CONFIGURATION/09_operations/"
     "CA-O-199-PROJECT_CONFIGURATION-ACTION--admit-local-package-sources.md"
+)
+RUNTIME_INSTALLATION_DELIVERY = Path(
+    ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/"
+    "204_FEATURE_MCP/07_delivery/"
+    "CA-D-620-MCP-DELIVERY--expose-direct-framework-runtime-installation.md"
+)
+RUNTIME_INSTALLATION_ACTION = Path(
+    ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/"
+    "000_APPLICABLE_MTHD_sources/003_PROJECT_CONFIGURATION/09_operations/"
+    "CA-O-200-PROJECT_CONFIGURATION-ACTION--install-one-admitted-project-runtime.md"
 )
 
 
@@ -61,7 +80,8 @@ class _CapturingService(DiscoveryService):
 class ImplementationServerTests(unittest.TestCase):
     def setUp(self) -> None:
         self.temporary = tempfile.TemporaryDirectory(ignore_cleanup_errors=True)
-        self.addCleanup(self.temporary.cleanup)
+        self._retain_fixture = False
+        self.addCleanup(self._cleanup_fixture)
         self.root = Path(self.temporary.name)
         control = self.root / ".caprmedio_caprmedio"
         control.mkdir()
@@ -71,6 +91,12 @@ class ImplementationServerTests(unittest.TestCase):
         _Server.instances.clear()
         _CapturingService.instances.clear()
 
+    def _cleanup_fixture(self) -> None:
+        if self._retain_fixture:
+            self.temporary._finalizer.detach()
+            return
+        self.temporary.cleanup()
+
     def _copy(self, relative: Path) -> None:
         destination = self.root / relative
         destination.parent.mkdir(parents=True, exist_ok=True)
@@ -79,6 +105,14 @@ class ImplementationServerTests(unittest.TestCase):
     def _seed_o199_source(self, delivery: bytes | None = None) -> Path:
         self._copy(O199_RELATIVE)
         destination = self.root / D602_RELATIVE
+        if delivery is not None:
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            destination.write_bytes(delivery)
+        return destination
+
+    def _seed_o200_source(self, delivery: bytes | None = None) -> Path:
+        self._copy(RUNTIME_INSTALLATION_ACTION)
+        destination = self.root / RUNTIME_INSTALLATION_DELIVERY
         if delivery is not None:
             destination.parent.mkdir(parents=True, exist_ok=True)
             destination.write_bytes(delivery)
@@ -148,6 +182,86 @@ class ImplementationServerTests(unittest.TestCase):
         self.assertNotIn(MCP_NAME, self._registered_names(server))
         self.assertNotIn(MCP_NAME, discovery.exposed)
         self.assertIsNone(discovery.context(Context(id="CA-O-199"))["input_schema"])
+
+    def test_o200_registers_from_the_exact_current_catalog_binding_and_exposes_its_schema(self):
+        self._seed_o200_source((REPOSITORY_ROOT / RUNTIME_INSTALLATION_DELIVERY).read_bytes())
+
+        server, discovery = self._create_server()
+
+        self.assertIn(RUNTIME_INSTALLATION_MCP_NAME, self._registered_names(server))
+        self.assertIn(RUNTIME_INSTALLATION_MCP_NAME, discovery.exposed)
+        context = discovery.context(Context(id="CA-O-200"))
+        operation = discovery.discover(Query(query="CA-O-200"), operations=True)["matches"]
+        self.assertEqual(runtime_installation_input_schema(), context["input_schema"])
+        self.assertEqual(["mcp"], [row["availability"] for row in operation])
+
+    def test_o200_registers_from_selected_package_binding_without_current_delivery(self):
+        self._retain_fixture = True
+        seed_selected_runtime_binding_package(self.root)
+        self.assertFalse((self.root / RUNTIME_INSTALLATION_DELIVERY).exists())
+
+        server, discovery = self._create_server()
+
+        self.assertIn(RUNTIME_INSTALLATION_MCP_NAME, self._registered_names(server))
+        self.assertIn(RUNTIME_INSTALLATION_MCP_NAME, discovery.exposed)
+        context = discovery.context(Context(id=RUNTIME_INSTALLATION_TOOL_NAME))
+        self.assertEqual(runtime_installation_input_schema(), context["input_schema"])
+
+    def test_o200_selected_package_duplicate_claim_from_other_delivery_is_not_registered(self):
+        self._retain_fixture = True
+        seed_selected_runtime_binding_package(self.root)
+        duplicate = (self.root / RUNTIME_INSTALLATION_DELIVERY).with_name(
+            "CA-D-621-MCP-DELIVERY--duplicate-runtime-installation.md"
+        )
+        duplicate.parent.mkdir(parents=True, exist_ok=True)
+        duplicate.write_bytes(
+            (REPOSITORY_ROOT / RUNTIME_INSTALLATION_DELIVERY).read_bytes().replace(
+                b"atom_id: CA-D-620", b"atom_id: CA-D-621", 1,
+            )
+        )
+
+        server, discovery = self._create_server()
+
+        self.assertNotIn(RUNTIME_INSTALLATION_MCP_NAME, self._registered_names(server))
+        self.assertNotIn(RUNTIME_INSTALLATION_MCP_NAME, discovery.exposed)
+        self.assertIn(
+            "ambiguous package binding: CA-D-620",
+            discovery.discover(Query(query=RUNTIME_INSTALLATION_TOOL_NAME))["coverage_issues"],
+        )
+
+    def test_o200_source_action_without_delivery_binding_is_not_registered_or_exposed(self):
+        self._seed_o200_source()
+
+        server, discovery = self._create_server()
+
+        self.assertNotIn(RUNTIME_INSTALLATION_MCP_NAME, self._registered_names(server))
+        self.assertNotIn(RUNTIME_INSTALLATION_MCP_NAME, discovery.exposed)
+        self.assertIsNone(discovery.context(Context(id="CA-O-200"))["input_schema"])
+
+    def test_o200_mismatched_delivery_binding_is_not_registered_or_exposed(self):
+        delivery = (REPOSITORY_ROOT / RUNTIME_INSTALLATION_DELIVERY).read_bytes().replace(
+            b'entrypoint = "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/framework_runtime_installation_mcp.py"',
+            b'entrypoint = "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/other.py"',
+        )
+        self._seed_o200_source(delivery)
+
+        server, discovery = self._create_server()
+
+        self.assertNotIn(RUNTIME_INSTALLATION_MCP_NAME, self._registered_names(server))
+        self.assertNotIn(RUNTIME_INSTALLATION_MCP_NAME, discovery.exposed)
+        self.assertIsNone(discovery.context(Context(id="CA-O-200"))["input_schema"])
+
+    def test_o200_ambiguous_delivery_bindings_are_not_registered_or_exposed(self):
+        delivery = (REPOSITORY_ROOT / RUNTIME_INSTALLATION_DELIVERY).read_bytes()
+        canonical = self._seed_o200_source(delivery)
+        duplicate = canonical.with_name("CA-D-611-MCP-DELIVERY--ambiguous-runtime-installation.md")
+        duplicate.write_bytes(delivery.replace(b"atom_id: CA-D-620", b"atom_id: CA-D-621"))
+
+        server, discovery = self._create_server()
+
+        self.assertNotIn(RUNTIME_INSTALLATION_MCP_NAME, self._registered_names(server))
+        self.assertNotIn(RUNTIME_INSTALLATION_MCP_NAME, discovery.exposed)
+        self.assertIsNone(discovery.context(Context(id="CA-O-200"))["input_schema"])
 
 
 if __name__ == "__main__":  # pragma: no cover

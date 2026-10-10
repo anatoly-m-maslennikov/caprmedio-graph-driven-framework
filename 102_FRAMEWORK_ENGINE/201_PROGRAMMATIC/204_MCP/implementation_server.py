@@ -14,7 +14,14 @@ sys.path.insert(0, str(TOOLS_ROOT))
 sys.path.insert(0, str(TOOLS_ROOT / 'VALIDATE_ATOMS'))
 sys.path.insert(0, str(TOOLS))
 from rmed_atoms_base_revise import Request, run  # noqa: E402 - repository path bootstrap
-from capability_discovery.service import Service, Query, Context, Observation, Watch  # noqa: E402
+from capability_discovery.service import (  # noqa: E402
+    Context,
+    Observation,
+    Query,
+    Service,
+    Watch,
+    _exact_direct_contract,
+)
 sys.path.insert(0, str(TOOLS_ROOT.parent / '203_APPS/WORKFLOW_ORCHESTRATOR'))
 from orchestrator import Request as OrchestratorRequest, run as orchestrate  # noqa: E402
 from selected_routes import QUERY_ROUTE_NAMES, register_selected_routes  # noqa: E402
@@ -77,6 +84,28 @@ def create_server(root):
         server, root, binding=source_admission_bindings[0],
     ):
         discovery.exposed.add(SOURCE_ADMISSION_MCP_NAME)
+
+    # O200 is another separately source-declared direct Action.  Keep the
+    # optional adapter import inside this admission boundary: a checkout which
+    # lacks the package-owned implementation is not an executable capability.
+    runtime_installation_bindings = [
+        item for item in discovery.catalog()[1]
+        if item.get('name') == 'INSTALL_FRAMEWORK_RUNTIME'
+    ]
+    if (len(runtime_installation_bindings) == 1
+            and _exact_direct_contract(runtime_installation_bindings[0]) is not None):
+        try:
+            from framework_runtime_installation_mcp import (
+                MCP_NAME as RUNTIME_INSTALLATION_MCP_NAME,
+                register_framework_runtime_installation,
+            )
+            admitted = register_framework_runtime_installation(
+                server, root, binding=runtime_installation_bindings[0],
+            )
+        except (ImportError, OSError, ValueError, TypeError):
+            admitted = False
+        if admitted:
+            discovery.exposed.add(RUNTIME_INSTALLATION_MCP_NAME)
 
     @server.tool(name='rmed_atoms_base_revise', structured_output=True, annotations=ToolAnnotations(
         read_only_hint=False, destructive_hint=False, idempotent_hint=False, open_world_hint=False))

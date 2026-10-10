@@ -28,6 +28,8 @@ from release_handoff import (
     PackageRow,
     SealedCandidateCompilation,
     read_framework_version_toml,
+    reopen_native_installed_n,
+    selected_n_selector_relative,
     tree_sha256,
 )
 
@@ -248,9 +250,13 @@ def _complete_rows(root: Path, compilation: SealedCandidateCompilation) -> tuple
     if compilation.expected_compiled_output_sha256 != compilation.actual_compiled_output_sha256:
         raise ReleasePackagingError("release-compiler-output-mismatch", "handoff does not bind accepted compiler output")
 
-    selected, selector_before = _current_release(root)
-    if selected != authority.executing_release:
-        raise ReleasePackagingError("release-currentness-stale", "current selector differs from the sealed executing release")
+    if compilation.native_installed_n is not None:
+        reopen_native_installed_n(root, compilation.native_installed_n)
+        selector_before = _regular_file(root, selected_n_selector_relative(compilation)).read_bytes()
+    else:
+        selected, selector_before = _current_release(root)
+        if selected != authority.executing_release:
+            raise ReleasePackagingError("release-currentness-stale", "current selector differs from the sealed executing release")
     canonical_digest = _tree_digest(root, CANONICAL_SOURCE_RELATIVE)
     if canonical_digest != authority.canonical_source_snapshot_digest or canonical_digest != authority.nested_source_recursive_sha256_before:
         raise ReleasePackagingError("release-currentness-stale", "canonical Methodology frontier changed after sealing")
@@ -428,8 +434,10 @@ def stage_framework_package(project_root: Path | str, sealed_compilation: Sealed
             framework_version=sealed_compilation.framework_version,
             version_toml_sha256=sealed_compilation.version_toml_sha256,
         )
-        if _current_release(root)[1] != selector_before:
+        if _regular_file(root, selected_n_selector_relative(sealed_compilation)).read_bytes() != selector_before:
             raise ReleasePackagingError("release-selection-changed", "N changed while retained package was being verified")
+        if sealed_compilation.native_installed_n is not None:
+            reopen_native_installed_n(root, sealed_compilation.native_installed_n)
         return {"staged": False, "verified": True, "candidate_snapshot_manifest_sha256": candidate, "framework_version": sealed_compilation.framework_version, "version_toml_sha256": sealed_compilation.version_toml_sha256, "release_root": release_root.relative_to(root).as_posix(), "file_count": len(rows)}
 
     staging = Path(tempfile.mkdtemp(prefix=f".staging-{candidate[:12]}-", dir=releases_root))
@@ -455,8 +463,10 @@ def stage_framework_package(project_root: Path | str, sealed_compilation: Sealed
             framework_version=sealed_compilation.framework_version,
             version_toml_sha256=sealed_compilation.version_toml_sha256,
         )
-        if _current_release(root)[1] != selector_before:
+        if _regular_file(root, selected_n_selector_relative(sealed_compilation)).read_bytes() != selector_before:
             raise ReleasePackagingError("release-selection-changed", "N changed while retained package was being staged")
+        if sealed_compilation.native_installed_n is not None:
+            reopen_native_installed_n(root, sealed_compilation.native_installed_n)
         return {"staged": staged, "verified": True, "candidate_snapshot_manifest_sha256": candidate, "framework_version": sealed_compilation.framework_version, "version_toml_sha256": sealed_compilation.version_toml_sha256, "release_root": release_root.relative_to(root).as_posix(), "file_count": len(rows)}
     finally:
         if staging.exists():

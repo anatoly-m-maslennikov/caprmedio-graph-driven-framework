@@ -9,6 +9,7 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
+from types import SimpleNamespace
 from unittest.mock import patch
 
 
@@ -18,8 +19,9 @@ for path in (RELEASE_ROOT, TEST_ROOT):
     if str(path) not in sys.path:
         sys.path.insert(0, str(path))
 
-from release_contract import ReleaseContractError, canonical_json  # noqa: E402
+from release_contract import ReleaseContractError, ValidatedCandidate, canonical_json  # noqa: E402
 import release_full_gate  # noqa: E402
+import release_promotion  # noqa: E402
 from release_full_gate import verify_detached_native_full_gate_evidence  # noqa: E402
 from release_retained_candidate import read_retained_candidate_identity  # noqa: E402
 import test_portable_release_full_gate as packet_fixtures  # noqa: E402
@@ -45,6 +47,23 @@ class DetachedNativeFullGateTests(unittest.TestCase):
         )
         return archive, relocated, suite, build, verification, e2e, full
 
+    @staticmethod
+    def _scrub_predecessor_n(archive: Path, executing_release: str) -> None:
+        predecessor = archive / ".caprmedio_runtime/framework/releases" / executing_release
+        if not predecessor.is_dir():
+            raise AssertionError("fixture has no predecessor N package")
+        # The copied package preserves its sealed file modes.  Scrub every
+        # predecessor byte from this disposable archive.  Some macOS test
+        # filesystems retain empty provenance-marked directories, but those
+        # empty directories cannot serve as a retained N package or backup.
+        for path in sorted((predecessor, *predecessor.rglob("*")), key=lambda item: len(item.parts)):
+            path.chmod(0o700 if path.is_dir() else 0o600)
+        for path in sorted(predecessor.rglob("*"), key=lambda item: len(item.parts), reverse=True):
+            if path.is_file():
+                path.unlink()
+        if any(path.is_file() for path in predecessor.rglob("*")):
+            raise AssertionError("predecessor N bytes remained in the archive")
+
     def test_reopens_relocated_packet_after_checkout_source_drift(self) -> None:
         archive, identity, suite, build, verification, e2e, full = self._packet()
 
@@ -56,24 +75,29 @@ class DetachedNativeFullGateTests(unittest.TestCase):
 
     def test_reopens_historical_packet_after_predecessor_n_is_removed(self) -> None:
         archive, identity, suite, build, verification, e2e, full = self._packet()
-        predecessor = archive / ".caprmedio_runtime/framework/releases" / identity.descriptor.executing_release
-        self.assertTrue(predecessor.is_dir())
-        # The copied package preserves its sealed file modes.  Scrub every
-        # predecessor byte from this disposable archive.  Some macOS test
-        # filesystems retain empty provenance-marked directories, but those
-        # empty directories cannot serve as a retained N package or backup.
-        for path in sorted((predecessor, *predecessor.rglob("*")), key=lambda item: len(item.parts)):
-            path.chmod(0o700 if path.is_dir() else 0o600)
-        for path in sorted(predecessor.rglob("*"), key=lambda item: len(item.parts), reverse=True):
-            if path.is_file():
-                path.unlink()
-        self.assertFalse(any(path.is_file() for path in predecessor.rglob("*")))
+        self._scrub_predecessor_n(archive, identity.descriptor.executing_release)
 
         package = verify_detached_native_full_gate_evidence(
             archive, identity, suite, build, verification, e2e, full,
         )
 
         self.assertEqual(full.package_manifest_sha256, package.view.actual_package_manifest_sha256)
+
+    def test_promotion_recovery_reopens_historical_packet_after_predecessor_n_is_removed(self) -> None:
+        fixture = packet_fixtures._NativeHappyPathFixture()
+        archive, identity, suite, build, verification, e2e, full = self._packet(fixture)
+        self._scrub_predecessor_n(archive, identity.descriptor.executing_release)
+        candidate = ValidatedCandidate(
+            str(archive), fixture.candidate.manifest, fixture.candidate.authority, fixture.candidate.intent,
+        )
+        prepared = SimpleNamespace(private_package_root=identity.package_evidence.view.package_root)
+
+        packet = release_promotion._reopen_historical_native_promotion_packet(
+            candidate, suite, build, verification, e2e, full, prepared,
+        )
+
+        self.assertEqual(full.receipt_sha256, packet.evidence.receipt_sha256)
+        self.assertEqual(identity, packet.retained_candidate)
 
     def test_refuses_tampered_aggregate_and_malformed_typed_evidence(self) -> None:
         archive, identity, suite, build, verification, e2e, full = self._packet()

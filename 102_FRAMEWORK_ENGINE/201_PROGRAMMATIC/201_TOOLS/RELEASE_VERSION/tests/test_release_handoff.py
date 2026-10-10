@@ -7,6 +7,7 @@ import tempfile
 import unittest
 from dataclasses import replace
 from pathlib import Path
+from types import SimpleNamespace
 
 from pydantic import ValidationError
 
@@ -21,6 +22,8 @@ from release_handoff import (  # noqa: E402
     seal_candidate_compilation,
     tree_sha256,
     validate_source_copy,
+    _assert_export_inventory_bound,
+    _exporter_module,
 )
 from release_handoff_fixture import (  # noqa: E402
     CANONICAL_SOURCE,
@@ -35,9 +38,8 @@ from release_handoff_fixture import (  # noqa: E402
 
 class ReleaseHandoffTests(unittest.TestCase):
     def setUp(self) -> None:
-        self.temporary = tempfile.TemporaryDirectory()
-        self.addCleanup(self.temporary.cleanup)
-        self.fixture = ReleaseFixture(Path(self.temporary.name))
+        # Retain the disposable physical fixture for terminal-evidence review.
+        self.fixture = ReleaseFixture(Path(tempfile.mkdtemp(prefix="release-handoff-")))
 
     def candidate(self):
         return build_validated_candidate(self.fixture.root, self.fixture.intent)
@@ -52,6 +54,36 @@ class ReleaseHandoffTests(unittest.TestCase):
             child_materialization_root=f"{MATERIALIZED}/{candidate.manifest.sha256}",
             actual_compiled_output_sha256=candidate.manifest.expected_compiled_output_sha256,
         )
+
+    def test_live_export_control_closure_requires_actual_project_binding(self) -> None:
+        # This exercises only the handoff's additional control closure. The
+        # public handoff still independently requires a real exporter seal.
+        root = self.fixture.root
+        self.fixture.structure.write_text(
+            '[[scope_units]]\nscope_unit_name = "METHODOLOGY_SOURCES"\n'
+            f'authority_path = "{CANONICAL_SOURCE}"\n', encoding="utf-8")
+        (root / ".caprmedio_caprmedio/caprmedio_project_settings.toml").write_bytes(
+            b'[paths]\ncontrol_root = ".caprmedio_caprmedio"\n')
+        candidate = self.candidate()
+        exporter = _exporter_module()
+        actual = exporter.reopen_project_export_binding(root, root / CANONICAL_SOURCE)
+        frozen = {"schema": exporter.FROZEN_SCHEMA, "source_root": str(root / CANONICAL_SOURCE),
+            "project_binding": dict(actual)}
+        export = SimpleNamespace(inventory={"frozen_manifest": frozen, "atoms": [], "support": [], "catalog_pins": []})
+        _assert_export_inventory_bound(candidate, export, exporter)
+        frozen["project_binding"]["instance_settings_sha256"] = "f" * 64
+        with self.assertRaisesRegex(ReleaseContractError, "actual Project"):
+            _assert_export_inventory_bound(candidate, export, exporter)
+
+    def test_live_export_does_not_admit_historical_unbound_frozen_schema(self) -> None:
+        candidate = self.candidate()
+        exporter = _exporter_module()
+        export = SimpleNamespace(inventory={"frozen_manifest": {
+            "schema": "caprmedio.methodology_export.frozen.v1",
+            "source_root": str(self.fixture.root / CANONICAL_SOURCE)},
+            "atoms": [], "support": [], "catalog_pins": []})
+        with self.assertRaisesRegex(ReleaseContractError, "Project-bound"):
+            _assert_export_inventory_bound(candidate, export, exporter)
 
     def test_locally_observed_candidate_equals_independent_manifest_oracle_without_writes(self) -> None:
         before = self.fixture.snapshot()
@@ -98,7 +130,10 @@ class ReleaseHandoffTests(unittest.TestCase):
         core.unlink()
         with self.assertRaises(ReleaseContractError) as raised:
             validate_source_copy(candidate)
-        self.assertEqual(raised.exception.code, "release-copy-digest-mismatch")
+        # Instance settings is external authority, so this source copy has
+        # only one file. Removing it creates an invalid empty copy, not a
+        # non-empty partial tree; both remain refusals before compilation.
+        self.assertEqual(raised.exception.code, "release-input-invalid")
         core.write_bytes(original + b"tampered\n")
         with self.assertRaises(ReleaseContractError) as raised:
             validate_source_copy(candidate)

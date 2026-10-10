@@ -26,6 +26,7 @@ from release_handoff import (
     _revalidate,
     tree_sha256,
     validate_source_copy,
+    reopen_native_installed_n, selected_n_selector_relative, selected_n_identity,
 )
 from release_inventory import _is_ephemeral_file, ReleaseInventoryError, persistent_regular_files, refuse_secret_path
 from release_packaging import (
@@ -215,7 +216,7 @@ def _admit(candidate: ValidatedCandidate) -> ValidatedCandidate:
     if not isinstance(candidate, ValidatedCandidate):
         raise ReleaseDeliveryError("release-candidate-untrusted", "delivery requires a typed locally validated candidate")
     root = Path(candidate.project_root)
-    for relative in (CANONICAL_SOURCE_RELATIVE, CURRENT_SELECTOR_RELATIVE, PROJECT_STRUCTURE_RELATIVE,
+    for relative in (CANONICAL_SOURCE_RELATIVE, selected_n_selector_relative(candidate), PROJECT_STRUCTURE_RELATIVE,
                      *(row.source_path for row in candidate.manifest.source_inventory_rows)):
         _safe_path(root, relative)
     current = _revalidate(candidate)
@@ -227,6 +228,21 @@ def _admit(candidate: ValidatedCandidate) -> ValidatedCandidate:
 def _prove_predecessor(root: Path, candidate: ValidatedCandidate, destination: Path) -> None:
     """Admit replacement only from an exact, complete retained executing N."""
 
+    if candidate.native_installed_n is not None:
+        native = reopen_native_installed_n(root, candidate.native_installed_n)
+        descriptor = native.full_gate_packet.retained_candidate.descriptor
+        expected = {
+            row.source_path.removeprefix(CANONICAL_SOURCE_RELATIVE + "/"): (row.source_mode, row.source_sha256)
+            for row in descriptor.source_inventory_rows
+            if row.resource == "METHODOLOGY" and row.source_path.startswith(CANONICAL_SOURCE_RELATIVE + "/")
+        }
+        if not expected:
+            raise ReleaseDeliveryError("release-copy-ownership-unproven", "native Full Gate descriptor has no canonical source predecessor")
+        observed = {name: (mode, hashlib.sha256(payload).hexdigest())
+                    for name, (mode, payload) in _persistent_file_snapshot(root, destination).items()}
+        if (observed != expected or tree_sha256(root, destination) != descriptor.canonical_source_snapshot_digest):
+            raise ReleaseDeliveryError("release-copy-predecessor-mismatch", "existing delivery differs from the selected native package sources")
+        return
     executing = candidate.authority.executing_release
     relative = (RUNTIME_ROOT / "releases" / executing).as_posix()
     retained = _safe_path(root, relative)
@@ -327,7 +343,7 @@ def _prove_owned_predecessor(root: Path, candidate: ValidatedCandidate, destinat
     except ReleaseDeliveryError as error:
         if error.code != "release-copy-predecessor-mismatch":
             raise
-        if not verify_recorded_source_predecessor(root, candidate.authority.executing_release, destination):
+        if not verify_recorded_source_predecessor(root, selected_n_identity(candidate), destination):
             raise error
 
 

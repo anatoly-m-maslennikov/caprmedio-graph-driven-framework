@@ -102,11 +102,10 @@ class ReleaseFixture:
                 "destination_path": destination,
             })
         self.structure = self.write(".caprmedio_caprmedio/project_structure.toml", b"[paths]\ncontrol_root = '.caprmedio_caprmedio'\n")
-        settings_relative = f"{CANONICAL_SOURCE}/003_PROJECT_CONFIGURATION/caprmedio_framework_settings.toml"
+        settings_relative = ".caprmedio_caprmedio/000_CAPRMEDIO_framework/caprmedio_framework_settings.toml"
         self.settings = self.write(settings_relative, b"release_policy = 'sealed'\n")
         compiler = self.write(COMPILER, b"# declared compiler fixture, never invoked\n", 0o755)
         for resource, path, destination in (
-            ("METHODOLOGY", self.settings, "METHODOLOGY/sources/003_PROJECT_CONFIGURATION/caprmedio_framework_settings.toml"),
             ("FRAMEWORK_ENGINE", compiler, "FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py"),
         ):
             self.rows.append({"resource": resource, "source_path": path.relative_to(root).as_posix(), "source_sha256": digest(path.read_bytes()), "source_mode": path.stat().st_mode & 0o777, "destination_path": destination})

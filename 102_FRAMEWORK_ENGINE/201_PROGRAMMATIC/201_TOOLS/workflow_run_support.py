@@ -1022,12 +1022,26 @@ class RunExecutionSession:
         self._assert_regular_receipt_carrier(root, journal_root, path)
         return self._read_receipted_event(root, path, line, receipt)
 
+    def read_recorded_action_start_receipt(self, action_run_id: str) -> dict[str, Any]:
+        """Return this already-recorded Action's exact, reread start receipt.
+
+        This is an effect-free copy of the existing Work Journal receipt, not
+        a second provenance schema, event or caller-authorized start.
+        """
+
+        self.read_recorded_action_start(action_run_id)
+        requested_id, _record = self._actual_by_id(action_run_id)
+        return dict(self._started_receipts[requested_id])
+
     @staticmethod
     def _assert_regular_journal_control(root: Path) -> None:
         """Reject aliases before Project Settings can redirect the Journal read."""
 
-        control = root / ".caprmedio_caprmedio"
-        settings = control / "caprmedio_project_settings.toml"
+        try:
+            settings = work_journal.resolve_settings_path(root)
+        except (OSError, ValueError, RuntimeError) as error:
+            raise SelectedRunError("action-start-evidence-invalid", "canonical Project Journal settings cannot be safely resolved") from error
+        control = settings.parent
         for path, expected_mode in ((control, stat.S_ISDIR), (settings, stat.S_ISREG)):
             try:
                 metadata = os.lstat(path)

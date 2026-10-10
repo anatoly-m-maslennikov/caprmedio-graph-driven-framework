@@ -24,7 +24,8 @@ from release_contract import (IMAGE_DOCKERFILE, PROJECT_SKILL_TARGET, CandidateS
                               ReleaseContractError, SealedAuthority, ValidatedCandidate, canonical_json)
 from release_handoff import (COMPILER_ENTRYPOINT_RELATIVE, CURRENT_SELECTOR_RELATIVE,
                              DERIVED_SOURCE_COPY_RELATIVE, FRAMEWORK_SETTINGS_RELATIVE, MATERIALIZED_RELATIVE,
-                             SealedCandidateCompilation, _file)
+                             SealedCandidateCompilation, _file, NATIVE_CURRENT_SELECTOR_RELATIVE,
+                             selected_n_identity, reopen_native_installed_n)
 from release_packaging import RUNTIME_ROOT, _complete_rows, _render_manifest, _verify_release
 from release_suite import (EVIDENCE_ROOT as SUITE_ROOT, SUPPORTED_RUNNER, PortableSuiteGateEvidence,
                            SuiteGateEvidence, _observe_report, _safe_path, verify_bound_suite_evidence)
@@ -194,7 +195,9 @@ def _tree(root: Path) -> str:
 
 
 def _freeze(root: Path) -> tuple[bytes, str | None]:
-    selector = _file(root, CURRENT_SELECTOR_RELATIVE).read_bytes()
+    native = root / NATIVE_CURRENT_SELECTOR_RELATIVE
+    relative = NATIVE_CURRENT_SELECTOR_RELATIVE if native.exists() or native.is_symlink() else CURRENT_SELECTOR_RELATIVE
+    selector = _file(root, relative).read_bytes()
     skill = root / PROJECT_SKILL_TARGET
     for ancestor in (root / ".agents", root / ".agents/skills", skill):
         if ancestor.is_symlink():
@@ -1046,7 +1049,7 @@ def _retained_suite_context(payload: bytes, candidate, compilation, suite) -> Re
         if value["compiled_candidate_root"] != compilation.child_materialization_root:
             raise ValueError("context receipt binds a different compilation")
         authority = getattr(candidate, "authority", None)
-        if value["selected_n_identity"] != getattr(authority, "executing_release", None):
+        if value["selected_n_identity"] != selected_n_identity(candidate):
             raise ValueError("context receipt binds a different retained release")
         if _SHA256.fullmatch(value["selected_n_image_context"]) is None:
             raise ValueError("context receipt image context is invalid")
@@ -1134,6 +1137,7 @@ def _artifact_inputs(candidate, compilation):
     except (ValueError, AttributeError) as error:
         raise ReleaseContractError("release-image-handoff-untrusted", "artifact inputs fail canonical typed validation") from error
     if (authority != sealed.authority or authority.expected_candidate_snapshot_manifest_sha256 != manifest.sha256
+        or compilation.native_installed_n != candidate.native_installed_n
         or any(getattr(authority, field) != getattr(manifest, field) for field in (
             "executing_release", "candidate_release", "canonical_source_snapshot_digest", "project_structure_digest",
             "framework_settings_digest", "source_frontier_digest", "nested_source_recursive_sha256_before"))
@@ -1649,7 +1653,8 @@ def _observed_rollback_references(root: Path, prior_image: str) -> tuple[str, ..
     """
     from release_promotion import PROMOTION_ROOT
 
-    paths = [CURRENT_SELECTOR_RELATIVE]
+    native = root / NATIVE_CURRENT_SELECTOR_RELATIVE
+    paths = [NATIVE_CURRENT_SELECTOR_RELATIVE if native.exists() or native.is_symlink() else CURRENT_SELECTOR_RELATIVE]
     parent = _safe_path(root, PROMOTION_ROOT)
     for directory in sorted(parent.iterdir()):
         if _ignored_metadata(directory):
@@ -1666,6 +1671,12 @@ def _observed_rollback_references(root: Path, prior_image: str) -> tuple[str, ..
             parsed = tomllib.loads(_file(root, relative).read_text())
             images = {mapping[key] for mapping in (parsed, parsed.get("selection", {})) if isinstance(mapping, dict)
                       for key in ("candidate_image_digest", "image_digest") if isinstance(mapping.get(key), str)}
+            native_keys = {"schema_version", "package_manifest_sha256", "target_project_context_sha256",
+                           "state_generation", "installation_lock_generation", "image_digest"}
+            if (set(parsed) == native_keys and type(parsed.get("schema_version")) is int
+                    and parsed["schema_version"] == 1 and isinstance(parsed.get("image_digest"), str)
+                    and _SHA256.fullmatch(parsed["image_digest"])):
+                images = {"sha256:" + parsed["image_digest"]}
         except (OSError, ValueError) as error:
             raise ReleaseContractError("release-image-rollback-unknown", "rollback selector evidence cannot be safely observed") from error
         if prior_image in images:
@@ -1762,7 +1773,8 @@ def retire_prior_image(candidate: ValidatedCandidate, compilation: SealedCandida
                        verification: ImageVerificationEvidence, promotion: PromotionEvidence, *,
                        e2e: CandidateE2EGateEvidence, full_gate: FullGateEvidence,
                        executor: DockerExecutor,
-                       timeout_seconds: float = 120) -> ImageRetirementEvidence:
+                       timeout_seconds: float = 120,
+                       prepared_package: PreparedPortableReleasePackage | None = None) -> ImageRetirementEvidence:
     """Retire only exact prior identity under D573's sealed settings condition.
 
     There are no caller image overrides or retention-success flags. The exact
@@ -1774,16 +1786,28 @@ def retire_prior_image(candidate: ValidatedCandidate, compilation: SealedCandida
     requires exact post-removal absence and still-current promotion/settings.
     """
     from release_promotion import PromotionEvidence, verify_bound_promotion_evidence
+    import release_promotion as promotion_module
+
+    native_type = getattr(promotion_module, "NativePromotionEvidence", None)
+    native_promotion = native_type is not None and isinstance(promotion, native_type)
+
+    def verify_promotion() -> Path:
+        if native_promotion:
+            return promotion_module.verify_native_promotion_evidence(
+                candidate, compilation, suite, build, verification, promotion,
+                e2e=e2e, full_gate=full_gate, prepared_package=prepared_package,
+            )
+        return verify_bound_promotion_evidence(
+            candidate, compilation, suite, build, verification, promotion, e2e=e2e, full_gate=full_gate,
+        )
 
     if isinstance(timeout_seconds, bool) or not isinstance(timeout_seconds, (int, float)) or not 0 < timeout_seconds <= 120:
         raise ReleaseContractError("release-image-timeout-invalid", "retirement timeout must be within (0, 120]")
     admission_error = None
     try:
-        root = verify_bound_promotion_evidence(
-            candidate, compilation, suite, build, verification, promotion, e2e=e2e, full_gate=full_gate
-        )
+        root = verify_promotion()
     except ReleaseContractError as error:
-        if not isinstance(promotion, PromotionEvidence) or "stale" not in error.code:
+        if native_promotion or not isinstance(promotion, PromotionEvidence) or "stale" not in error.code:
             raise
         root = _artifact_inputs(candidate, compilation)
         admission_error = error
@@ -1830,10 +1854,7 @@ def retire_prior_image(candidate: ValidatedCandidate, compilation: SealedCandida
                     else:
                         if _retention_settings(root, candidate, prior_image) != (condition, required_images, required):
                             raise ReleaseContractError("release-image-retention-stale", "retention settings changed before removal")
-                        verify_bound_promotion_evidence(
-                            candidate, compilation, suite, build, verification, promotion,
-                            e2e=e2e, full_gate=full_gate,
-                        )
+                        verify_promotion()
                         if _freeze(root) != frozen:
                             raise ReleaseContractError("release-image-retirement-stale", "promotion or retention changed before removal")
                         claim = attempt.parent / f"removal-{prior_image.removeprefix('sha256:')}.json"
@@ -1871,9 +1892,7 @@ def retire_prior_image(candidate: ValidatedCandidate, compilation: SealedCandida
                                     outcome, reason = "failed", "non-forced exact removal failed and the prior image remains"
                                 else:
                                     outcome, reason = "effect_uncertain", "removal effect or exact prior-image absence is unproven"
-        verify_bound_promotion_evidence(
-            candidate, compilation, suite, build, verification, promotion, e2e=e2e, full_gate=full_gate
-        )
+        verify_promotion()
         if _freeze(root) != frozen:
             raise ReleaseContractError("release-image-retirement-stale", "selected N+1 or public Skill changed during retirement observation")
         if condition is not None and _retention_settings(root, candidate, prior_image) != (condition, required_images, required):

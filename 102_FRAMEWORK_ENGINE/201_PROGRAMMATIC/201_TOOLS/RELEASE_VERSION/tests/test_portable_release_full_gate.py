@@ -84,6 +84,16 @@ from release_suite_reference_context import (  # noqa: E402
 
 
 _UNIT_MODULE = "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/tests/test_portable_full_gate_unit.py"
+_MCP_PACKAGE_MEMBERS = (
+    "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/http_server.py",
+    "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/server.py",
+    "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/implementation_server.py",
+    "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/Dockerfile",
+    "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/entrypoint.py",
+    "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/project_mcp_backend.py",
+    "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/project_mcp_launcher.py",
+    "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/project-mcp.compose.yaml",
+)
 PROJECT_ROOT = RELEASE_ROOT.parents[3]
 _PRODUCTION_AUTHORITY_PIN = dict(AUTHORITY_PIN)
 
@@ -345,6 +355,9 @@ class _NativeHappyPathFixture(PortablePackageFixture):
             **{path: _test_member(path) for path in CANDIDATE_E2E_MODULES},
         }
         required_members.update(extra_engine_members)
+        required_members.update({
+            path: (PROJECT_ROOT / path).read_bytes() for path in _MCP_PACKAGE_MEMBERS
+        })
         super()._seed_project(required_members)
         self._copy_pinned_control_closure()
         default_settings = (

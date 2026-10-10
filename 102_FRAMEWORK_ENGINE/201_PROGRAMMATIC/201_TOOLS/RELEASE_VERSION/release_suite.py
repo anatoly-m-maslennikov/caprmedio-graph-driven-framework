@@ -37,6 +37,7 @@ from release_contract import (
 from release_handoff import (
     CURRENT_SELECTOR_RELATIVE, PackageRow, SealedCandidateCompilation, _revalidate,
     tree_sha256,
+    reopen_native_installed_n, selected_n_selector_relative, selected_n_identity as selected_n_physical_identity,
 )
 from release_inventory import ReleaseInventoryError, refuse_secret_path
 from release_portable_contract import SealedPortableCandidateCompilation
@@ -334,8 +335,11 @@ def _validate_bound_inputs(candidate: ValidatedCandidate, compilation: SealedCan
         raise ReleaseContractError("release-suite-handoff-untrusted", "suite requires internal typed candidate and compilation")
     current = _revalidate(candidate)
     # model_copy can bypass validation: reparse every mutable nested model.
-    sealed = SealedCandidateCompilation.model_validate(compilation.model_dump(mode="json"))
-    if sealed.authority != current.authority or sealed.candidate_snapshot_manifest_sha256 != current.manifest.sha256:
+    sealed = SealedCandidateCompilation.model_validate({
+        **compilation.model_dump(mode="json"), "native_installed_n": compilation.native_installed_n,
+    })
+    if (sealed.authority != current.authority or sealed.candidate_snapshot_manifest_sha256 != current.manifest.sha256
+            or sealed.native_installed_n != current.native_installed_n):
         raise ReleaseContractError("release-suite-binding-mismatch", "compilation belongs to a different sealed candidate")
     if (sealed.expected_derived_source_copy_sha256 != current.manifest.expected_derived_source_copy_sha256
             or sealed.expected_compiled_output_sha256 != current.manifest.expected_compiled_output_sha256):
@@ -520,6 +524,22 @@ def _active_n_state(root: Path, candidate: ValidatedCandidate) -> tuple[str, str
     digests become durable suite evidence for all later gates.
     """
 
+    if candidate.native_installed_n is not None:
+        binding = reopen_native_installed_n(root, candidate.native_installed_n)
+        package = binding.verified_package
+        expected_skill = {
+            row.path.removeprefix("SKILLS/ca/"): (row.sha256, row.mode)
+            for row in package.inventory if row.path.startswith("SKILLS/ca/")
+        }
+        expected_directories = {parent.as_posix() for name in expected_skill for parent in Path(name).parents if parent != Path(".")}
+        actual_skill, actual_directories = _active_skill_records(root, PROJECT_SKILL_TARGET)
+        if actual_skill != expected_skill or actual_directories != expected_directories:
+            raise ReleaseContractError("release-active-n-invalid", "project-local ca Skill differs from the selected native package")
+        return (
+            binding.selected.selector_sha256,
+            tree_sha256(root, package.root.relative_to(root).as_posix()),
+            _digest(canonical_json({"files": actual_skill, "directories": sorted(actual_directories)})),
+        )
     _refuse_secret_relative(CURRENT_SELECTOR_RELATIVE)
     selector = root / CURRENT_SELECTOR_RELATIVE
     if selector.is_symlink() or not selector.is_file():
@@ -942,6 +962,8 @@ def _trusted_context_bindings(
     candidate: ValidatedCandidate, compiled_root: object,
     executor: SuiteSandboxExecutor, selected_n_identity: str,
 ) -> dict[str, str]:
+    if candidate.native_installed_n is not None:
+        selected_n_identity = selected_n_physical_identity(candidate)
     image_context = getattr(executor, "source_context_sha256", None)
     if not isinstance(image_context, str) or _SOURCE_CONTEXT.fullmatch(image_context) is None:
         raise ReleaseContractError("release-suite-reference-context-untrusted", "suite executor has no trusted selected-N image context")
@@ -1099,7 +1121,7 @@ def execute_bound_release_suite(
     if Path(environment.command[0]).name.lower() in SHELLS:
         raise ReleaseContractError("release-suite-shell-unsupported", "suite runner does not admit shell interpreters")
     cwd = _safe_path(root, environment.working_directory)
-    selector_before = (root / CURRENT_SELECTOR_RELATIVE).read_bytes()
+    selector_before = (root / selected_n_selector_relative(candidate)).read_bytes()
     active_n_before = _active_n_state(root, candidate)
     parent = _safe_path(root, f"{EVIDENCE_ROOT}/{candidate.manifest.sha256}", create=True)
     attempt = Path(tempfile.mkdtemp(prefix="attempt-", dir=parent))
@@ -1205,7 +1227,7 @@ def execute_bound_release_suite(
             # The legacy path receives the same currentness comparison.
             if _bound_suite_inputs(candidate, compilation) != inputs:
                 raise ReleaseContractError("release-currentness-stale", "sealed suite inputs changed during execution")
-            if (root / CURRENT_SELECTOR_RELATIVE).read_bytes() != selector_before:
+            if (root / selected_n_selector_relative(candidate)).read_bytes() != selector_before:
                 raise ReleaseContractError("release-currentness-stale", "executing N selector bytes changed during suite")
             if _active_n_state(root, candidate) != active_n_before:
                 raise ReleaseContractError("release-currentness-stale", "executing N selector, runtime package or project-local ca Skill changed during suite")

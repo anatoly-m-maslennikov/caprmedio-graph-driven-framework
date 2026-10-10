@@ -148,7 +148,7 @@ def _intent_from_manifest(manifest: CandidateSnapshotManifest) -> CandidateBuild
     )
 
 
-def _locally_observed_candidate(request: ReleaseVersionRequest) -> ValidatedCandidate:
+def _locally_observed_candidate(request: ReleaseVersionRequest, *, native_installed_n: object | None = None) -> ValidatedCandidate:
     """Rebuild D566 from local bytes and require total equality with the request."""
 
     supplied = request.candidate_snapshot_manifest
@@ -157,6 +157,7 @@ def _locally_observed_candidate(request: ReleaseVersionRequest) -> ValidatedCand
             request.project_root,
             _intent_from_manifest(supplied),
             observed_source_frontier_digest=request.expected_source_frontier_digest,
+            native_installed_n=native_installed_n,
         )
     except ReleaseContractError:
         raise

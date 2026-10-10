@@ -533,6 +533,17 @@ class SelectedNativeProviders:
                 else:
                     return self._blocked("Release checkpoint reader returned an invalid checkpoint carrier")
                 private_session = session
+            # Bind only after the frozen graph, actual parent Run identities
+            # and any retained checkpoint have passed this provider's checks.
+            # This runtime authority is deliberately absent from the codec.
+            private_run.selected_action_session = session
+            if index == 0 and private_run.candidate is None and graph["workflow"]["version"] == 9:
+                from release_promotion import bind_selected_native_n_from_checkpoint
+
+                try:
+                    private_run.native_installed_n = bind_selected_native_n_from_checkpoint(self.root)
+                except Exception as error:
+                    return self._blocked(f"Release installed native N packet cannot be reopened: {error}")
             typed = SelectedReleaseActionContext(
                 str(self.root), workflow["run_id"], step["run_id"], action["run_id"],
                 workflow["run_id"], step["run_id"], pairs[index][0], pairs[index][1],

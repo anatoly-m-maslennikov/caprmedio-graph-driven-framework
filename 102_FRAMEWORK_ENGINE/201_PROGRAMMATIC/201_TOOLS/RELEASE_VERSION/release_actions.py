@@ -50,7 +50,7 @@ from release_portable_contract import (
     seal_portable_source_snapshot,
 )
 from release_portable_package import PreparedPortableReleasePackage, prepare_portable_release_package
-from release_promotion import PromotionEvidence, promote_bound_release
+from release_promotion import NativePromotionEvidence, PromotionEvidence, promote_bound_release
 from release_suite import (
     PortableSuiteGateEvidence,
     SuiteGateEvidence,
@@ -62,6 +62,7 @@ from release_version import ReleaseVersionRequest, _locally_observed_candidate
 
 if TYPE_CHECKING:
     from release_full_gate import FullGateEvidence
+    from workflow_run_support import RunExecutionSession
 
 
 PHASES = (
@@ -173,7 +174,7 @@ class ReleaseActionRun:
     # this boundary typed by that model at use/codec time without importing a
     # concurrently authored module during ordinary earlier-phase dispatch.
     full_gate: FullGateEvidence | None = None
-    promotion: PromotionEvidence | None = None
+    promotion: PromotionEvidence | NativePromotionEvidence | None = None
     retirement: ImageRetirementEvidence | None = None
     # The caller supplies the one shared durable checkpoint writer.  This
     # private adapter never opens a carrier or creates a second record; the
@@ -181,6 +182,13 @@ class ReleaseActionRun:
     checkpoint_callback: Callable[["ReleaseActionRun"], None] | None = field(
         default=None, repr=False, compare=False,
     )
+    # Only the selected provider binds this actual shared Session, after its
+    # graph, inputs and actual parent lineage checks.  Recovery must rebind it;
+    # a checkpoint never encodes an executable Session or grants authority.
+    selected_action_session: RunExecutionSession | None = field(
+        default=None, repr=False, compare=False,
+    )
+    native_installed_n: Any | None = field(default=None, repr=False, compare=False)
 
 
 def _request(value: ReleaseVersionRequest | Mapping[str, Any]) -> ReleaseVersionRequest:
@@ -483,27 +491,73 @@ def _invoke_native_portable(phase: str, run: ReleaseActionRun, candidate: Valida
         _bound(full_gate, candidate)
         run.full_gate = full_gate
         if full_gate.passed:
+            from release_retained_package import read_retained_native_package_evidence
+
+            retained_package = read_retained_native_package_evidence(
+                package.private_package_root, Path(run.project_root) / full_gate.package_evidence_relpath,
+                expected_sha256=full_gate.package_evidence_sha256,
+            )
             verify_bound_full_gate_evidence(
                 candidate, portable, suite, run.build, run.verification, run.e2e, full_gate,
-                prepared_package=package,
+                retained_package=retained_package,
             )
+            from release_retained_candidate import retain_retained_candidate_identity
+
+            retain_retained_candidate_identity(candidate, portable, package)
         return ("completed" if full_gate.passed else "pending"), full_gate.reason, (
             (f"{full_gate.evidence_root}/receipt.json",) if full_gate.receipt_sha256 else ()
         ), full_gate
-    if phase in {"promote", "retire"}:
-        return (
-            "blocked",
-            "native portable promotion and retirement publication are not implemented; no selector or image effect was invoked",
-            (),
-            None,
+    if phase == "retire":
+        from release_promotion import admit_selected_native_promotion_start, verify_native_promotion_evidence
+
+        admit_selected_native_promotion_start(run, run.in_progress)
+        if type(run.promotion) is not NativePromotionEvidence:
+            raise ReleaseContractError("release-action-prerequisite-missing", "observed native publication is unavailable")
+        verify_native_promotion_evidence(
+            candidate, portable, suite, run.build, run.verification, run.promotion,
+            e2e=run.e2e, full_gate=run.full_gate, prepared_package=package,
         )
+        retired = retire_prior_image(
+            candidate, portable, suite, run.build, run.verification, run.promotion,
+            e2e=run.e2e, full_gate=run.full_gate, executor=_executor(run), prepared_package=package,
+        )
+        if type(retired) is not ImageRetirementEvidence:
+            raise ReleaseContractError("release-action-result-untrusted", "native prior image disposition is not typed evidence")
+        _bound(retired, candidate)
+        run.retirement = retired
+        recording = _retirement_recording_handoff(retired)
+        reason = "exact prior image retirement awaits canonical shared Action receipt" if recording else retired.reason
+        retained_complete = (
+            retired.outcome == "retained" and retired.execution_kind == "docker-subprocess"
+            and isinstance(retired.receipt_sha256, str) and SHA256.fullmatch(retired.receipt_sha256) is not None
+            and retired.retention_condition == "retain_prior"
+            and retired.framework_settings_digest == candidate.manifest.framework_settings_digest
+            and isinstance(retired.required_rollback_refs, tuple)
+            and f"{FRAMEWORK_SETTINGS_RELATIVE}#release_version.rollback_retention.condition" in retired.required_rollback_refs
+            and retired.retaining_container_refs == () and retired.removal_intent_ref is None
+            and retired.removal_exit_code is None and retired.prior_image_absent is None
+        )
+        return ("completed" if retained_complete else "pending", reason,
+                (f"{retired.evidence_root}/receipt.json",) if retired.receipt_sha256 else (),
+                retired, retired.outcome, recording)
+    if phase == "promote":
+        from release_promotion import prepare_and_publish_selected_native_runtime
+
+        outcome, reason, refs, promoted = prepare_and_publish_selected_native_runtime(run, run.in_progress)
+        if promoted is not None and type(promoted) is not NativePromotionEvidence:
+            raise ReleaseContractError("release-action-result-untrusted", "native publication result is not typed evidence")
+        run.promotion = promoted
+        return outcome, reason, refs, promoted, promoted.outcome if promoted is not None else outcome
     raise ReleaseContractError("release-action-phase-unselected", "unknown selected native portable phase")
 
 
 def _invoke(phase, run):
     candidate = run.candidate
     if phase == "freeze":
-        candidate = _locally_observed_candidate(run.request)
+        candidate = (
+            _locally_observed_candidate(run.request, native_installed_n=run.native_installed_n)
+            if run.native_installed_n is not None else _locally_observed_candidate(run.request)
+        )
         preflight = preflight_release_compilation(run.project_root, candidate_release=candidate.manifest.candidate_release)
         if (preflight.expected_derived_source_copy_sha256 != candidate.manifest.expected_derived_source_copy_sha256
                 or preflight.expected_compiled_output_sha256 != candidate.manifest.expected_compiled_output_sha256
