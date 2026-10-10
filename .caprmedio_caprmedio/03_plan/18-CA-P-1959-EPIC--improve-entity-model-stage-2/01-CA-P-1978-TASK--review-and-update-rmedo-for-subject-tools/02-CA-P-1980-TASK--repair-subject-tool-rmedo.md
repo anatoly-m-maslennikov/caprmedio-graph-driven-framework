@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Requirement, Method, Evaluation, Delivery, Operations, Plan, Operator]
-version: 6
-updated_at: "2026-10-11 00:00:00 +0400"
+version: 7
+updated_at: "2026-10-11 00:00:01 +0400"
 relations:
   is_decomposition_of: [CA-P-1978]
   blocks: [CA-P-1981]
@@ -48,7 +48,7 @@ Inherit CA-P-1959's confidence, preservation and execution boundaries. Creating 
 - [CA-P-1984 — Repair Requirements and Methods](02-CA-P-1980-TASK--repair-subject-tool-rmedo/done/03-CA-P-1984-TASK--repair-subject-tool-requirements-and-methods.md)
 - [CA-P-1985 — Repair Evaluations](02-CA-P-1980-TASK--repair-subject-tool-rmedo/done/04-CA-P-1985-TASK--repair-subject-tool-evaluations.md)
 - [CA-P-1986 — Repair Delivery](02-CA-P-1980-TASK--repair-subject-tool-rmedo/done/05-CA-P-1986-TASK--repair-subject-tool-delivery.md)
-- [CA-P-1987 — Repair Operations](02-CA-P-1980-TASK--repair-subject-tool-rmedo/06-CA-P-1987-TASK--repair-subject-tool-operations.md)
+- [CA-P-1987 — Repair Operations](02-CA-P-1980-TASK--repair-subject-tool-rmedo/done/06-CA-P-1987-TASK--repair-subject-tool-operations.md)
 
 ### Coverage and ownership
 
