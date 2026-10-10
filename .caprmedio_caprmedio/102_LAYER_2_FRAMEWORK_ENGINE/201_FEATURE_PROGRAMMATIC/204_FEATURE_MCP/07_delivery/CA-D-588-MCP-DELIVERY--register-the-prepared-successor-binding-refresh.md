@@ -6,8 +6,8 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 3
-updated_at: "2026-10-10 10:17:48 +0400"
+version: 4
+updated_at: "2026-10-10 22:28:54 +0400"
 subjects:
   governs: "MCP/selected source pin refresh"
   depends_on: [MCP, Projection, Workflow, Action, Operator, Journal, Atom, Source Carrier]
@@ -29,13 +29,13 @@ the selected-source refresh registration **must** use the closed serialization b
 
 ## Details
 
-The only current registration is the JSON object under `### Accepted source revision`. Its keys, replacement rows and nested pin shapes are exact; duplicate or unknown fields are invalid. Versions, occurrence counts and schema version are strict integers. Paths are safe regular Project-relative carriers with no symlink ancestry.
+The only current registration is the JSON object under `### Accepted source revision`. Its keys and nested Pin shapes are exact; duplicate or unknown fields are invalid. Schema version and route counts are strict integers. Paths are safe regular Project-relative carriers with no symlink ancestry.
 
-The exact input binding bytes, both prior Action archives and both current Active Action sources must match their registered identities, versions and raw-byte digests. Each replacement occurs at exactly the two named structural positions in its one named route. The four replacements repair only CA-O-134 and CA-O-137; no other non-Release pin or route field is replaced.
+Schema 3 freezes the exact current 16-route input binding's raw-byte and canonical digests. Its first 15 route records and every source-registry freshness field remain byte-derived from that input; no non-Release route, query admission, registry reference, registry version, or registry digest is replaced. The sole replacement is `release_version` and its sole source admission, each freshly derived from the exact registered current CA-D-572 Pin.
 
-The same candidate includes the current `release_version` route and its sole source admission, freshly derived from current CA-D-572 authority and its actual declared source/private carriers. Missing or stale Release authority stops derivation. A non-Release-only intermediate is never published. After composition, recalculate both derived digests and validate all 16 routes and current source pins before any write.
+Missing, stale, or changed CA-D-572 stops derivation. A stale twelve-Step retained Release route is replaced only by the current ten-Step source-derived route; structural, identity, order, typed-metadata, or non-Release drift is not a pin refresh. After composition, recalculate exactly the selected-binding and canonical-manifest digests and validate all 16 routes and current source Pins before any write.
 
-The private reader is `102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/selected_source_refresh.py`. It feeds the existing `release_manifest_publisher.py` refresh boundary, trusted Operator context, intent, atomic write, readback and Journal receipt. Historical schema-1 fixtures may reopen the archived authority; they do not admit the current Project's different input bytes.
+The private reader is `102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/selected_source_refresh.py`. It feeds the existing `release_manifest_publisher.py` refresh boundary, trusted Operator context, intent, atomic write, readback and Journal receipt. Historical schemas may reopen archived authority revisions; they do not admit the current Project's different input bytes.
 
 ## Private trusted-host refresh command
 
@@ -51,59 +51,24 @@ No new Operation, Requirement, Method, Evaluation or Delivery identifier is clai
 
 ```json
 {
-  "schema_version": 2,
-  "registration_id": "epic1848-graph-successors-release-frontier-20261010",
+  "schema_version": 3,
+  "registration_id": "epic1848-current-local-release-frontier-20261010",
   "authorization_ref": ".caprmedio_caprmedio/03_plan/17-CA-P-1848-EPIC--unify-installation-and-local-public-release-cycles.md",
   "repair_task_id": "CA-P-1866",
   "input_manifest_ref": ".caprmedio_caprmedio/_projection/selected_workflow_bindings.json",
-  "input_manifest_sha256": "dc75baa2d7748ced0683067e5de0047b09bc990b842355334cc877e7f6df4839",
-  "input_canonical_manifest_sha256": "f944ead9f582956a1d74b6cbe07255d09586ddb13cb7ef01687992bc1a23a8f5",
-  "pin_occurrences": 4,
-  "replacements": [
-    {
-      "route": "build_entities_graph",
-      "occurrences": [
-        "ordered_steps[0].action",
-        "ordered_actions[0]"
-      ],
-      "prior_pin": {
-        "atom_id": "CA-O-134",
-        "version": 2,
-        "source_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/CA-O-134-CORE_META_MODEL-ACTION--construct-entities-graph-projection.md",
-        "digest": "b94eebdd85eab9f7080680e85999c68022e82cdfa7945bf0d840b429ebad037a"
-      },
-      "prior_archive_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/archive/CA-O-134-CORE_META_MODEL-ACTION--construct-entities-graph-projection@2.md",
-      "current_pin": {
-        "atom_id": "CA-O-134",
-        "version": 3,
-        "source_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/CA-O-134-CORE_META_MODEL-ACTION--construct-entities-graph-projection.md",
-        "digest": "8a3dcb7cfdb3369ec268726cc54f3f0e0c1bfbc947841792deb87bb844245414"
-      }
-    },
-    {
-      "route": "build_terms_graph",
-      "occurrences": [
-        "ordered_steps[0].action",
-        "ordered_actions[0]"
-      ],
-      "prior_pin": {
-        "atom_id": "CA-O-137",
-        "version": 2,
-        "source_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/CA-O-137-CORE_META_MODEL-ACTION--construct-terms-graph-projection.md",
-        "digest": "6c154852b99df16961fe63c8fd869dbf86f8d75ecc950b25b189e41c3c1c5dad"
-      },
-      "prior_archive_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/archive/CA-O-137-CORE_META_MODEL-ACTION--construct-terms-graph-projection@2.md",
-      "current_pin": {
-        "atom_id": "CA-O-137",
-        "version": 3,
-        "source_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/CA-O-137-CORE_META_MODEL-ACTION--construct-terms-graph-projection.md",
-        "digest": "8ea08ef172a82515db7f145bf642a3943ecc41fc6decf4a86a69bea78ce494fd"
-      }
-    }
-  ],
+  "input_manifest_sha256": "3b8d7c34376b68b964d7713cace6a4aff90166b265ce053c9a699f36934560dc",
+  "input_canonical_manifest_sha256": "0bf0c7000b83af54b25ac4d1729df9858276b8ce2012779dd154a04af80c330e",
+  "input_route_count": 16,
+  "preserved_route_count": 15,
   "release_frontier": {
-    "authority_atom_id": "CA-D-572",
+    "authority_pin": {
+      "atom_id": "CA-D-572",
+      "version": 36,
+      "source_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/205_FEATURE_PROJECT_TOOLS/07_delivery/CA-D-572-PROJECT_TOOLS-DELIVERY--serialize-additive-release-route-source-admission.md",
+      "digest": "f0f114ed0426b00951c5ea0bfa0d15f1fe08178e17023d97477205a82f729911"
+    },
     "route": "release_version",
+    "route_occurrences": 1,
     "admission_occurrences": 1
   }
 }

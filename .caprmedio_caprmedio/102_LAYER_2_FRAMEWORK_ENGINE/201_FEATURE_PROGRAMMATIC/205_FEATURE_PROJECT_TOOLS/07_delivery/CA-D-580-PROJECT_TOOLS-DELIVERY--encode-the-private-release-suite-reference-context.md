@@ -7,7 +7,7 @@ global_tier: 11
 status: Active
 author: Anatoly Maslennikov
 version: 8
-updated_at: "2026-10-10 21:09:14 +0400"
+updated_at: "2026-10-10 22:38:23 +0400"
 subjects:
   governs: "Tool/RELEASE_VERSION/Private suite reference-context encoding"
   depends_on: [Tool, Release Version, Candidate Manifest, Test Suite, Project Structure, Operator, Workflow, Action, Source Carrier, Digest]
@@ -65,7 +65,7 @@ The closed `reference_rows` set also includes **only** the following source-path
 | `CA-R-1894` | 1 | `.caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/204_FEATURE_MCP/04_requirement/CA-R-1894-MCP-REQUIREMENT--refresh-only-accepted-selected-source-pins.md` | `8c757293510088685fa539e22eedb8cea2a4d3cdd14ccc7fadf3f20d0e7ece4b` | `0644` |
 | `CA-M-350` | 1 | `.caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/204_FEATURE_MCP/05_method/CA-M-350-MCP-METHOD--derive-the-registered-selected-pin-refresh.md` | `611f47a31ec786a8ec927e5fcd33a41cff39bf5e0832803220ed4194f3799744` | `0644` |
 | `CA-E-593` | 1 | `.caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/204_FEATURE_MCP/06_evaluation/CA-E-593-MCP-QA_CASE--verify-the-registered-selected-pin-refresh.md` | `562e5840644c75916218a223a4a07b986131f8979501ca73e51ca1e1611119e3` | `0644` |
-| `CA-D-588` | 3 | `.caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/204_FEATURE_MCP/07_delivery/CA-D-588-MCP-DELIVERY--register-the-prepared-successor-binding-refresh.md` | `83b063054d9d92972cfea2fd470c37962c17346972833e773c245612b68eb90c` | `0644` |
+| `CA-D-588` | 4 | `.caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/204_FEATURE_MCP/07_delivery/CA-D-588-MCP-DELIVERY--register-the-prepared-successor-binding-refresh.md` | `36ef0f8d15fd0be0726b1934dcc0302a1226421dd735e63833d5d9db18409485` | `0644` |
 
 Descriptor-capture each exact regular Carrier and validate its Atom ID, Version, Active Status, observed mode and SHA-256 before copy. Union identical shared paths once; missing, conflicting, changed or unsafe Carriers fail closed. Historical input manifests and test controls remain declared test fixtures, not current project-control sources. No folder discovery or additional transitive frontier is admitted.
 

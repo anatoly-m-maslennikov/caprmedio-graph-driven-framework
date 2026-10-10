@@ -91,7 +91,29 @@ _EXPECTED_V2 = {
         "admission_occurrences": 1,
     },
 }
-_EXPECTED_BY_SCHEMA = {1: _EXPECTED_V1, 2: _EXPECTED_V2}
+_EXPECTED_V3 = {
+    "schema_version": 3,
+    "registration_id": "epic1848-current-local-release-frontier-20261010",
+    "authorization_ref": ".caprmedio_caprmedio/03_plan/17-CA-P-1848-EPIC--unify-installation-and-local-public-release-cycles.md",
+    "repair_task_id": "CA-P-1866",
+    "input_manifest_ref": ".caprmedio_caprmedio/_projection/selected_workflow_bindings.json",
+    "input_manifest_sha256": "3b8d7c34376b68b964d7713cace6a4aff90166b265ce053c9a699f36934560dc",
+    "input_canonical_manifest_sha256": "0bf0c7000b83af54b25ac4d1729df9858276b8ce2012779dd154a04af80c330e",
+    "input_route_count": 16,
+    "preserved_route_count": 15,
+    "release_frontier": {
+        "authority_pin": {
+            "atom_id": "CA-D-572",
+            "version": 36,
+            "source_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/205_FEATURE_PROJECT_TOOLS/07_delivery/CA-D-572-PROJECT_TOOLS-DELIVERY--serialize-additive-release-route-source-admission.md",
+            "digest": "f0f114ed0426b00951c5ea0bfa0d15f1fe08178e17023d97477205a82f729911",
+        },
+        "route": "release_version",
+        "route_occurrences": 1,
+        "admission_occurrences": 1,
+    },
+}
+_EXPECTED_BY_SCHEMA = {1: _EXPECTED_V1, 2: _EXPECTED_V2, 3: _EXPECTED_V3}
 
 
 class RegisteredSourceRefreshError(ValueError):
@@ -142,12 +164,12 @@ def _validate_registration(value: Any) -> dict[str, Any]:
     if expected is None or dict(value) != expected:
         raise RegisteredSourceRefreshError("registration is not the one closed CA-D-588 authority revision")
     # Keep these checks explicit so future edits cannot accidentally make bool an integer.
-    if type(value["pin_occurrences"]) is not int:
+    if value["schema_version"] in {1, 2} and type(value["pin_occurrences"]) is not int:
         raise RegisteredSourceRefreshError("registration schema version and occurrence count must be strict integers")
     if value["schema_version"] == 1:
         for field in ("prior_pin", "current_pin", "requirement_pin"):
             _validate_pin_shape(value[field])
-    else:
+    elif value["schema_version"] == 2:
         rows = value["replacements"]
         if not isinstance(rows, list) or len(rows) != 2:
             raise RegisteredSourceRefreshError("schema-2 replacement rows are invalid")
@@ -168,6 +190,22 @@ def _validate_registration(value: Any) -> dict[str, Any]:
                 or not isinstance(frontier["route"], str)
                 or type(frontier["admission_occurrences"]) is not int):
             raise RegisteredSourceRefreshError("schema-2 Release frontier shape is invalid")
+    else:
+        if (type(value["input_route_count"]) is not int
+                or type(value["preserved_route_count"]) is not int
+                or value["input_route_count"] != len(SELECTED_ROUTE_NAMES) + 1
+                or value["preserved_route_count"] != len(SELECTED_ROUTE_NAMES)):
+            raise RegisteredSourceRefreshError("schema-3 route counts are invalid")
+        frontier = value["release_frontier"]
+        if (not isinstance(frontier, Mapping)
+                or set(frontier) != {"authority_pin", "route", "route_occurrences", "admission_occurrences"}
+                or not isinstance(frontier["route"], str)
+                or type(frontier["route_occurrences"]) is not int
+                or type(frontier["admission_occurrences"]) is not int
+                or frontier["route_occurrences"] != 1
+                or frontier["admission_occurrences"] != 1):
+            raise RegisteredSourceRefreshError("schema-3 Release frontier shape is invalid")
+        _validate_pin_shape(frontier["authority_pin"])
     return copy.deepcopy(dict(value))
 
 
@@ -340,6 +378,47 @@ def _derive_schema2_successor(
     return _recompute_manifest_digests(candidate)
 
 
+def _derive_schema3_successor(
+    manifest: Mapping[str, Any], registered: Mapping[str, Any], *,
+    release_route: Mapping[str, Any], release_admission: Mapping[str, Any],
+) -> dict[str, Any]:
+    """Replace only the one current Release route and its sole admission."""
+    if (not isinstance(manifest, Mapping) or not isinstance(manifest.get("routes"), list)
+            or not isinstance(release_route, Mapping) or not isinstance(release_admission, Mapping)):
+        raise RegisteredSourceRefreshError("schema-3 refresh input or Release frontier is malformed")
+    frontier = registered["release_frontier"]
+    if (release_route.get("route") != frontier["route"]
+            or release_admission.get("route") != frontier["route"]):
+        raise RegisteredSourceRefreshError("current Release frontier does not match the registration")
+    candidate = copy.deepcopy(dict(manifest))
+    routes = candidate["routes"]
+    expected_names = [*SELECTED_ROUTE_NAMES, frontier["route"]]
+    if (len(routes) != registered["input_route_count"]
+            or [row.get("route") if isinstance(row, Mapping) else None for row in routes] != expected_names):
+        raise RegisteredSourceRefreshError("schema-3 input route registry differs")
+    admissions = candidate.get("release_source_admissions")
+    if (not isinstance(admissions, list)
+            or len(admissions) != frontier["admission_occurrences"]):
+        raise RegisteredSourceRefreshError("schema-3 Release admission occurrence count differs")
+    release_indexes = [index for index, row in enumerate(routes)
+                       if isinstance(row, Mapping) and row.get("route") == frontier["route"]]
+    if len(release_indexes) != frontier["route_occurrences"]:
+        raise RegisteredSourceRefreshError("schema-3 Release route occurrence count differs")
+    before_preserved = copy.deepcopy(routes[:registered["preserved_route_count"]])
+    before_freshness = copy.deepcopy(candidate.get("source_freshness"))
+    candidate["routes"][release_indexes[0]] = copy.deepcopy(dict(release_route))
+    candidate["release_source_admissions"] = [copy.deepcopy(dict(release_admission))]
+    candidate = _recompute_manifest_digests(candidate)
+    if candidate["routes"][:registered["preserved_route_count"]] != before_preserved:
+        raise RegisteredSourceRefreshError("schema-3 changed a preserved route")
+    if not isinstance(before_freshness, Mapping) or not isinstance(candidate.get("source_freshness"), Mapping):
+        raise RegisteredSourceRefreshError("schema-3 input source freshness is malformed")
+    for field, value in before_freshness.items():
+        if field != "selected_binding_digest" and candidate["source_freshness"].get(field) != value:
+            raise RegisteredSourceRefreshError("schema-3 changed source registry freshness")
+    return candidate
+
+
 def derive_registered_source_successor(
     manifest: Mapping[str, Any], registration: Mapping[str, Any], *,
     release_route: Mapping[str, Any] | None = None,
@@ -347,9 +426,9 @@ def derive_registered_source_successor(
 ) -> dict[str, Any]:
     """Purely derive one closed registered successor without an effect.
 
-    Schema 1 is retained for the archived historical fixture.  Schema 2 needs
-    the caller to supply the already re-derived D572 route and admission; the
-    root-bound reader below is the only production path that obtains them.
+    Schemas 1 and 2 are retained for archived fixtures.  Current schema 3
+    replaces only ``release_version`` and its sole admission using the
+    root-bound D572 derivation below.
     """
     registered = _validate_registration(registration)
     if registered["schema_version"] == 1:
@@ -357,8 +436,14 @@ def derive_registered_source_successor(
             raise RegisteredSourceRefreshError("schema-1 successor does not accept a Release frontier")
         return _derive_schema1_successor(manifest, registered)
     if release_route is None or release_admission is None:
-        raise RegisteredSourceRefreshError("schema-2 successor requires the current Release frontier")
-    return _derive_schema2_successor(
+        raise RegisteredSourceRefreshError(
+            f"schema-{registered['schema_version']} successor requires the current Release frontier"
+        )
+    if registered["schema_version"] == 2:
+        return _derive_schema2_successor(
+            manifest, registered, release_route=release_route, release_admission=release_admission,
+        )
+    return _derive_schema3_successor(
         manifest, registered, release_route=release_route, release_admission=release_admission,
     )
 
@@ -385,7 +470,7 @@ def derive_registered_source_refresh(root: str | Path) -> tuple[dict[str, Any], 
         _validate_current_pin(project_root, registration["current_pin"], label="registered current Action source")
         _validate_current_pin(project_root, registration["requirement_pin"], label="registered current Requirement source")
         candidate = derive_registered_source_successor(manifest, registration)
-    else:
+    elif registration["schema_version"] == 2:
         for row in registration["replacements"]:
             _validate_prior_archive(
                 project_root, row["prior_pin"], row["prior_archive_path"],
@@ -400,6 +485,24 @@ def derive_registered_source_refresh(root: str | Path) -> tuple[dict[str, Any], 
             if (not isinstance(AUTHORITY_PIN, Mapping)
                     or AUTHORITY_PIN.get("atom_id") != registration["release_frontier"]["authority_atom_id"]):
                 raise RegisteredSourceRefreshError("current Release authority differs from the registration")
+            release_route, release_admission = derive_release_graph_admission(project_root)
+        except RegisteredSourceRefreshError:
+            raise
+        except (ImportError, OSError, TypeError, ValueError) as error:
+            raise RegisteredSourceRefreshError("current Release frontier is unavailable") from error
+        candidate = derive_registered_source_successor(
+            manifest, registration, release_route=release_route, release_admission=release_admission,
+        )
+    else:
+        try:
+            from release_source_admission import AUTHORITY_PIN, derive_release_graph_admission
+
+            frontier = registration["release_frontier"]
+            if not isinstance(AUTHORITY_PIN, Mapping) or dict(AUTHORITY_PIN) != frontier["authority_pin"]:
+                raise RegisteredSourceRefreshError("current Release authority differs from the registration")
+            _validate_current_pin(
+                project_root, frontier["authority_pin"], label="registered current Release authority"
+            )
             release_route, release_admission = derive_release_graph_admission(project_root)
         except RegisteredSourceRefreshError:
             raise
