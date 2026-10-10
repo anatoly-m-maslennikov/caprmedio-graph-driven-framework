@@ -1,0 +1,1737 @@
+{
+  "schema_version": 1,
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "task_id": "CA-P-1995",
+  "batch_id": "current-subjects.batch-004",
+  "input_batch_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-004.json",
+  "input_batch_sha256": "01d011400ce95aa53f6bc1cec17ece873a22c4b9062ac537411d84e74ecd138c",
+  "input_inventory_sha256": "e284dbe4943568bc75b7f9ba63ebf583372a60813e62eee3d43b5b75b270220a",
+  "evidence_pins": {
+    "frozen_candidate": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/presentation/operator.entity-graph.candidate.json",
+      "sha256": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b"
+    },
+    "consolidated_review": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/consolidated/nodes.review.json",
+      "sha256": "e4cb9c76b441c13115e87e141890a9dab58634a7a62fb1b3bc32168dbac261f6",
+      "git_commit": "a971d0e00c33c779f485fc8cad63194894d440fb"
+    },
+    "preparation_contract": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.contract.md",
+      "sha256": "5eb0d90022b68a7d1d2cd27cf60a147deaf4161cb9b2e1c8bdf6c4ef8f2a10bf"
+    },
+    "review_contract": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.review.contract.md",
+      "sha256": "b7c9c065f997d5bae1409f5c09b4223d08327a523decab6d26c2e4425fd2c28b"
+    }
+  },
+  "source_reviews": [
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1248-CORE_META_MODEL-CORE-REQUIREMENT--define-entity.md",
+      "full_file_sha256": "7dc7c6805b23dc758fdca38e2d50506b86c2035844b90a78612c1690f664aad5",
+      "atom_id": "CA-R-1248",
+      "version": 12,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1249-CORE_META_MODEL-CORE-REQUIREMENT--classify-artifact-as-a-primary-entity.md",
+      "full_file_sha256": "10aa9ef792dce3b452e4e1957ad5ea6d536f59ce7b6fbf4af1ad9cf753c37e7a",
+      "atom_id": "CA-R-1249",
+      "version": 12,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1250-CORE_META_MODEL-CORE-REQUIREMENT--classify-actor-as-a-primary-entity.md",
+      "full_file_sha256": "8ec002929de017298e9210c61590b78278b61f57bd9d9ed73df488b9c849055e",
+      "atom_id": "CA-R-1250",
+      "version": 12,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1251-CORE_META_MODEL-CORE-REQUIREMENT--classify-property-as-a-dependent-entity.md",
+      "full_file_sha256": "f13449b0ad1a3ffac1b26ae6aef98a9ab7c7458305d7533da754c1ce3ea1b330",
+      "atom_id": "CA-R-1251",
+      "version": 11,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1256-CORE_META_MODEL-CORE-REQUIREMENT--classify-relational-atom-as-an-atom.md",
+      "full_file_sha256": "390f52f06501c8af6e74bf258b88220f366d07c13c998582367ec73c44c505f5",
+      "atom_id": "CA-R-1256",
+      "version": 11,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1257-CORE_META_MODEL-CORE-REQUIREMENT--classify-scope-unit-as-a-structural-entity.md",
+      "full_file_sha256": "86441dc5ed7ff582c64326f3da78061da35f73bd11f91a02db707f17c01de0ee",
+      "atom_id": "CA-R-1257",
+      "version": 12,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1259-CORE_META_MODEL-GENERAL-REQUIREMENT--permit-zero-or-more-properties-on-every-entity.md",
+      "full_file_sha256": "62efb2a82784452cc4c06d9301e9ee25c59beed8755fcba4e99113218d40136c",
+      "atom_id": "CA-R-1259",
+      "version": 11,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-126-CORE_META_MODEL-CORE--give-each-governed-term-one-definition-atom.md",
+      "full_file_sha256": "433949d977649ee9622dffaec028e899ec725a6c9b3edf8b34c3a9537093f562",
+      "atom_id": "CA-R-126",
+      "version": 17,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1260-CORE_META_MODEL-CORE-REQUIREMENT--define-is-borne-by.md",
+      "full_file_sha256": "ea7911f8d3bc88bcba954332193354c80df63005dbf94812960dda162615f54d",
+      "atom_id": "CA-R-1260",
+      "version": 13,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1261-CORE_META_MODEL-CORE-REQUIREMENT--keep-the-core-entity-taxonomy-open.md",
+      "full_file_sha256": "752dc43e7816396c4e6bbc9ac689a5cc32258326e98d04ad9f338307e7b05ca3",
+      "atom_id": "CA-R-1261",
+      "version": 12,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1262-CORE_META_MODEL-CORE-REQUIREMENT--keep-entity-and-artifact-distinct.md",
+      "full_file_sha256": "c97b22deec50c5a2e64c14f27567ac0588e56efa58359388e4ee5aab13168490",
+      "atom_id": "CA-R-1262",
+      "version": 11,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1264-CORE_META_MODEL-CORE-REQUIREMENT--keep-scope-unit-outside-the-atom-taxonomy.md",
+      "full_file_sha256": "904609df2f89d8216859e025697f628b36d553db5189f5d35fbbb5e85e0a40a9",
+      "atom_id": "CA-R-1264",
+      "version": 11,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1265-CORE_META_MODEL-CORE-REQUIREMENT--keep-atom-collection-outside-the-atom-taxonomy.md",
+      "full_file_sha256": "0a591172b3f9b3b954edfc9319c00cf9886f0e12438be1de55b6b60f2c175f41",
+      "atom_id": "CA-R-1265",
+      "version": 12,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1266-CORE_META_MODEL-CORE-REQUIREMENT--classify-primary-entity-as-an-entity.md",
+      "full_file_sha256": "c4b7692619465d85e89357989b727282881fc783df167f01c5d5d85023d4108a",
+      "atom_id": "CA-R-1266",
+      "version": 12,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1267-CORE_META_MODEL-CORE-REQUIREMENT--classify-dependent-entity-as-an-entity.md",
+      "full_file_sha256": "a968ab53716586ac641820bd970a548e9f4119e36fba9f058e0ad1c0cfb2450e",
+      "atom_id": "CA-R-1267",
+      "version": 11,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1268-CORE_META_MODEL-CORE-REQUIREMENT--define-artifact.md",
+      "full_file_sha256": "9cfaecd2519ec038a73a183281030d43266113bcdb037cc9152a8c2039ef88de",
+      "atom_id": "CA-R-1268",
+      "version": 12,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1269-CORE_META_MODEL-CORE-REQUIREMENT--define-claim.md",
+      "full_file_sha256": "5f0d2a2425973d9fe2050cf172122c474633af5e17deb9b9e1327a86d1a564b7",
+      "atom_id": "CA-R-1269",
+      "version": 11,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1270-CORE_META_MODEL-CORE-REQUIREMENT--permit-one-composite-claim-as-one-authority-unit.md",
+      "full_file_sha256": "45357611aae38085ff1382bff1ba7910512ceb9bac2514a6362858a60d9604f2",
+      "atom_id": "CA-R-1270",
+      "version": 11,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1271-CORE_META_MODEL-GENERAL--permit-one-composite-claim-scope.md",
+      "full_file_sha256": "e40e3c7c67da096674fb6f23c534141816ef04a92bb6a4385d3312e0625c0ed6",
+      "atom_id": "CA-R-1271",
+      "version": 13,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": [
+        "Which admitted Subject grammar expression represents the Atom-owned Claim Target Scope Unit while keeping target ownership distinct from applicability and not inventing a candidate path?",
+        "Which admitted Subject grammar expression represents the Atom-owned Claim without converting the legacy slash sequence into a candidate display path?"
+      ]
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1273-CORE_META_MODEL-CORE--keep-summary-source-faithful.md",
+      "full_file_sha256": "23232d955b8025b825cf0d990cf74feac12a0000a8a5af623c0e5893f416441a",
+      "atom_id": "CA-R-1273",
+      "version": 14,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": [
+        "Which admitted Subject grammar expression represents the Atom-owned Claim without converting the legacy slash sequence into a candidate display path?"
+      ]
+    }
+  ],
+  "occurrences": [
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1248-CORE_META_MODEL-CORE-REQUIREMENT--define-entity.md#subjects.depends_on[0]",
+      "old_value": "CAPRMEDIO Graph",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1248",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1248-CORE_META_MODEL-CORE-REQUIREMENT--define-entity.md",
+      "source_sha256": "7dc7c6805b23dc758fdca38e2d50506b86c2035844b90a78612c1690f664aad5",
+      "source_version": 12,
+      "decision": "unchanged",
+      "proposed_value": "CAPRMEDIO Graph",
+      "confidence": 0.95,
+      "reason": "Current Main Content explicitly names or constrains this exact literal. Retaining it unchanged preserves the source meaning and avoids treating a frozen candidate display proposal as an executable replacement.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1248-CORE_META_MODEL-CORE-REQUIREMENT--define-entity.md",
+          "sha256": "7dc7c6805b23dc758fdca38e2d50506b86c2035844b90a78612c1690f664aad5",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "7f829b589a69b01eec8c418b39e013e9b58f1241b7c7779a4c2325f8558b4017",
+          "reason": "The complete current Main Content was read and supports retaining the exact literal without a replacement."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Requirement role and the governs/depends_on field distinction are retained.",
+        "The exact old literal, field, index, and any existing qualification are retained; no native grammar, key, Carrier binding, or relation is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1248-CORE_META_MODEL-CORE-REQUIREMENT--define-entity.md#subjects.governs",
+      "old_value": "Entity",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1248",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1248-CORE_META_MODEL-CORE-REQUIREMENT--define-entity.md",
+      "source_sha256": "7dc7c6805b23dc758fdca38e2d50506b86c2035844b90a78612c1690f664aad5",
+      "source_version": 12,
+      "decision": "unchanged",
+      "proposed_value": "Entity",
+      "confidence": 0.95,
+      "reason": "Current Main Content explicitly names or constrains this exact literal. Retaining it unchanged preserves the source meaning and avoids treating a frozen candidate display proposal as an executable replacement.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1248-CORE_META_MODEL-CORE-REQUIREMENT--define-entity.md",
+          "sha256": "7dc7c6805b23dc758fdca38e2d50506b86c2035844b90a78612c1690f664aad5",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "7f829b589a69b01eec8c418b39e013e9b58f1241b7c7779a4c2325f8558b4017",
+          "reason": "The complete current Main Content was read and supports retaining the exact literal without a replacement."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Requirement role and the governs/depends_on field distinction are retained.",
+        "The exact old literal, field, index, and any existing qualification are retained; no native grammar, key, Carrier binding, or relation is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1249-CORE_META_MODEL-CORE-REQUIREMENT--classify-artifact-as-a-primary-entity.md#subjects.depends_on[0]",
+      "old_value": "Primary Entity",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1249",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1249-CORE_META_MODEL-CORE-REQUIREMENT--classify-artifact-as-a-primary-entity.md",
+      "source_sha256": "10aa9ef792dce3b452e4e1957ad5ea6d536f59ce7b6fbf4af1ad9cf753c37e7a",
+      "source_version": 12,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "Current Main Content uses this literal in a constraint or classification, but does not establish a canonical target identity or a safe replacement; the frozen consolidated review records the corresponding source-evidence gap. No identity, root, owner, or display path is invented.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1249-CORE_META_MODEL-CORE-REQUIREMENT--classify-artifact-as-a-primary-entity.md",
+          "sha256": "10aa9ef792dce3b452e4e1957ad5ea6d536f59ce7b6fbf4af1ad9cf753c37e7a",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "e7ae0eaee16561b982459db1baa1a748ddfc47edca90b1a7140852a78a8b9a82",
+          "reason": "The complete current Main Content was read; it uses this literal but does not resolve its canonical Subject mapping."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Requirement role and the governs/depends_on field distinction are retained.",
+        "The exact old literal, field, index, and any existing qualification are retained; no native grammar, key, Carrier binding, or relation is inferred.",
+        "The unresolved term/category is preserved without assigning it a candidate root, owner, or display path."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1249-CORE_META_MODEL-CORE-REQUIREMENT--classify-artifact-as-a-primary-entity.md#subjects.governs",
+      "old_value": "Artifact",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1249",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1249-CORE_META_MODEL-CORE-REQUIREMENT--classify-artifact-as-a-primary-entity.md",
+      "source_sha256": "10aa9ef792dce3b452e4e1957ad5ea6d536f59ce7b6fbf4af1ad9cf753c37e7a",
+      "source_version": 12,
+      "decision": "unchanged",
+      "proposed_value": "Artifact",
+      "confidence": 0.95,
+      "reason": "Current Main Content explicitly names or constrains this exact literal. Retaining it unchanged preserves the source meaning and avoids treating a frozen candidate display proposal as an executable replacement.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1249-CORE_META_MODEL-CORE-REQUIREMENT--classify-artifact-as-a-primary-entity.md",
+          "sha256": "10aa9ef792dce3b452e4e1957ad5ea6d536f59ce7b6fbf4af1ad9cf753c37e7a",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "e7ae0eaee16561b982459db1baa1a748ddfc47edca90b1a7140852a78a8b9a82",
+          "reason": "The complete current Main Content was read and supports retaining the exact literal without a replacement."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Requirement role and the governs/depends_on field distinction are retained.",
+        "The exact old literal, field, index, and any existing qualification are retained; no native grammar, key, Carrier binding, or relation is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1250-CORE_META_MODEL-CORE-REQUIREMENT--classify-actor-as-a-primary-entity.md#subjects.depends_on[0]",
+      "old_value": "Primary Entity",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1250",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1250-CORE_META_MODEL-CORE-REQUIREMENT--classify-actor-as-a-primary-entity.md",
+      "source_sha256": "8ec002929de017298e9210c61590b78278b61f57bd9d9ed73df488b9c849055e",
+      "source_version": 12,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "Current Main Content uses this literal in a constraint or classification, but does not establish a canonical target identity or a safe replacement; the frozen consolidated review records the corresponding source-evidence gap. No identity, root, owner, or display path is invented.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1250-CORE_META_MODEL-CORE-REQUIREMENT--classify-actor-as-a-primary-entity.md",
+          "sha256": "8ec002929de017298e9210c61590b78278b61f57bd9d9ed73df488b9c849055e",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "52b3ff000a13dafd2d3a0ad788d15b06a59e42d94f6a94b1f74a0858a8a09b6b",
+          "reason": "The complete current Main Content was read; it uses this literal but does not resolve its canonical Subject mapping."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Requirement role and the governs/depends_on field distinction are retained.",
+        "The exact old literal, field, index, and any existing qualification are retained; no native grammar, key, Carrier binding, or relation is inferred.",
+        "The unresolved term/category is preserved without assigning it a candidate root, owner, or display path."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1250-CORE_META_MODEL-CORE-REQUIREMENT--classify-actor-as-a-primary-entity.md#subjects.governs",
+      "old_value": "Actor",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1250",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1250-CORE_META_MODEL-CORE-REQUIREMENT--classify-actor-as-a-primary-entity.md",
+      "source_sha256": "8ec002929de017298e9210c61590b78278b61f57bd9d9ed73df488b9c849055e",
+      "source_version": 12,
+      "decision": "unchanged",
+      "proposed_value": "Actor",
+      "confidence": 0.95,
+      "reason": "Current Main Content explicitly names or constrains this exact literal. Retaining it unchanged preserves the source meaning and avoids treating a frozen candidate display proposal as an executable replacement.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1250-CORE_META_MODEL-CORE-REQUIREMENT--classify-actor-as-a-primary-entity.md",
+          "sha256": "8ec002929de017298e9210c61590b78278b61f57bd9d9ed73df488b9c849055e",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "52b3ff000a13dafd2d3a0ad788d15b06a59e42d94f6a94b1f74a0858a8a09b6b",
+          "reason": "The complete current Main Content was read and supports retaining the exact literal without a replacement."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Requirement role and the governs/depends_on field distinction are retained.",
+        "The exact old literal, field, index, and any existing qualification are retained; no native grammar, key, Carrier binding, or relation is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1251-CORE_META_MODEL-CORE-REQUIREMENT--classify-property-as-a-dependent-entity.md#subjects.depends_on[0]",
+      "old_value": "Dependent Entity",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1251",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1251-CORE_META_MODEL-CORE-REQUIREMENT--classify-property-as-a-dependent-entity.md",
+      "source_sha256": "f13449b0ad1a3ffac1b26ae6aef98a9ab7c7458305d7533da754c1ce3ea1b330",
+      "source_version": 11,
+      "decision": "unchanged",
+      "proposed_value": "Dependent Entity",
+      "confidence": 0.95,
+      "reason": "Current Main Content explicitly names or constrains this exact literal. Retaining it unchanged preserves the source meaning and avoids treating a frozen candidate display proposal as an executable replacement.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1251-CORE_META_MODEL-CORE-REQUIREMENT--classify-property-as-a-dependent-entity.md",
+          "sha256": "f13449b0ad1a3ffac1b26ae6aef98a9ab7c7458305d7533da754c1ce3ea1b330",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "ac6e1297864d4617ff6e8a9db7dd142e9bd2c1375ce4990d71712ebf8237498f",
+          "reason": "The complete current Main Content was read and supports retaining the exact literal without a replacement."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Requirement role and the governs/depends_on field distinction are retained.",
+        "The exact old literal, field, index, and any existing qualification are retained; no native grammar, key, Carrier binding, or relation is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1251-CORE_META_MODEL-CORE-REQUIREMENT--classify-property-as-a-dependent-entity.md#subjects.governs",
+      "old_value": "Property",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1251",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1251-CORE_META_MODEL-CORE-REQUIREMENT--classify-property-as-a-dependent-entity.md",
+      "source_sha256": "f13449b0ad1a3ffac1b26ae6aef98a9ab7c7458305d7533da754c1ce3ea1b330",
+      "source_version": 11,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "Current Main Content uses this literal in a constraint or classification, but does not establish a canonical target identity or a safe replacement; the frozen consolidated review records the corresponding source-evidence gap. No identity, root, owner, or display path is invented.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1251-CORE_META_MODEL-CORE-REQUIREMENT--classify-property-as-a-dependent-entity.md",
+          "sha256": "f13449b0ad1a3ffac1b26ae6aef98a9ab7c7458305d7533da754c1ce3ea1b330",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "ac6e1297864d4617ff6e8a9db7dd142e9bd2c1375ce4990d71712ebf8237498f",
+          "reason": "The complete current Main Content was read; it uses this literal but does not resolve its canonical Subject mapping."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Requirement role and the governs/depends_on field distinction are retained.",
+        "The exact old literal, field, index, and any existing qualification are retained; no native grammar, key, Carrier binding, or relation is inferred.",
+        "The unresolved term/category is preserved without assigning it a candidate root, owner, or display path."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1256-CORE_META_MODEL-CORE-REQUIREMENT--classify-relational-atom-as-an-atom.md#subjects.depends_on[0]",
+      "old_value": "Atom",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1256",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1256-CORE_META_MODEL-CORE-REQUIREMENT--classify-relational-atom-as-an-atom.md",
+      "source_sha256": "390f52f06501c8af6e74bf258b88220f366d07c13c998582367ec73c44c505f5",
+      "source_version": 11,
+      "decision": "unchanged",
+      "proposed_value": "Atom",
+      "confidence": 0.95,
+      "reason": "Current Main Content explicitly names or constrains this exact literal. Retaining it unchanged preserves the source meaning and avoids treating a frozen candidate display proposal as an executable replacement.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1256-CORE_META_MODEL-CORE-REQUIREMENT--classify-relational-atom-as-an-atom.md",
+          "sha256": "390f52f06501c8af6e74bf258b88220f366d07c13c998582367ec73c44c505f5",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "fe31d09ac680b0db0d65f136e7bd8e794a46cecdd6e043ef076ce742371f4b91",
+          "reason": "The complete current Main Content was read and supports retaining the exact literal without a replacement."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Requirement role and the governs/depends_on field distinction are retained.",
+        "The exact old literal, field, index, and any existing qualification are retained; no native grammar, key, Carrier binding, or relation is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1256-CORE_META_MODEL-CORE-REQUIREMENT--classify-relational-atom-as-an-atom.md#subjects.governs",
+      "old_value": "Relational Atom",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1256",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1256-CORE_META_MODEL-CORE-REQUIREMENT--classify-relational-atom-as-an-atom.md",
+      "source_sha256": "390f52f06501c8af6e74bf258b88220f366d07c13c998582367ec73c44c505f5",
+      "source_version": 11,
+      "decision": "unchanged",
+      "proposed_value": "Relational Atom",
+      "confidence": 0.95,
+      "reason": "Current Main Content explicitly names or constrains this exact literal. Retaining it unchanged preserves the source meaning and avoids treating a frozen candidate display proposal as an executable replacement.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1256-CORE_META_MODEL-CORE-REQUIREMENT--classify-relational-atom-as-an-atom.md",
+          "sha256": "390f52f06501c8af6e74bf258b88220f366d07c13c998582367ec73c44c505f5",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "fe31d09ac680b0db0d65f136e7bd8e794a46cecdd6e043ef076ce742371f4b91",
+          "reason": "The complete current Main Content was read and supports retaining the exact literal without a replacement."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Requirement role and the governs/depends_on field distinction are retained.",
+        "The exact old literal, field, index, and any existing qualification are retained; no native grammar, key, Carrier binding, or relation is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1257-CORE_META_MODEL-CORE-REQUIREMENT--classify-scope-unit-as-a-structural-entity.md#subjects.depends_on[0]",
+      "old_value": "Structural Entity",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1257",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1257-CORE_META_MODEL-CORE-REQUIREMENT--classify-scope-unit-as-a-structural-entity.md",
+      "source_sha256": "86441dc5ed7ff582c64326f3da78061da35f73bd11f91a02db707f17c01de0ee",
+      "source_version": 12,
+      "decision": "unchanged",
+      "proposed_value": "Structural Entity",
+      "confidence": 0.95,
+      "reason": "Current Main Content explicitly names or constrains this exact literal. Retaining it unchanged preserves the source meaning and avoids treating a frozen candidate display proposal as an executable replacement.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1257-CORE_META_MODEL-CORE-REQUIREMENT--classify-scope-unit-as-a-structural-entity.md",
+          "sha256": "86441dc5ed7ff582c64326f3da78061da35f73bd11f91a02db707f17c01de0ee",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "858bb1310525e0addd9bbe149d0d1bb341ccdf9314d75db1244a315da6aa269a",
+          "reason": "The complete current Main Content was read and supports retaining the exact literal without a replacement."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Requirement role and the governs/depends_on field distinction are retained.",
+        "The exact old literal, field, index, and any existing qualification are retained; no native grammar, key, Carrier binding, or relation is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1257-CORE_META_MODEL-CORE-REQUIREMENT--classify-scope-unit-as-a-structural-entity.md#subjects.governs",
+      "old_value": "Scope Unit",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1257",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1257-CORE_META_MODEL-CORE-REQUIREMENT--classify-scope-unit-as-a-structural-entity.md",
+      "source_sha256": "86441dc5ed7ff582c64326f3da78061da35f73bd11f91a02db707f17c01de0ee",
+      "source_version": 12,
+      "decision": "unchanged",
+      "proposed_value": "Scope Unit",
+      "confidence": 0.95,
+      "reason": "Current Main Content explicitly names or constrains this exact literal. Retaining it unchanged preserves the source meaning and avoids treating a frozen candidate display proposal as an executable replacement.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1257-CORE_META_MODEL-CORE-REQUIREMENT--classify-scope-unit-as-a-structural-entity.md",
+          "sha256": "86441dc5ed7ff582c64326f3da78061da35f73bd11f91a02db707f17c01de0ee",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "858bb1310525e0addd9bbe149d0d1bb341ccdf9314d75db1244a315da6aa269a",
+          "reason": "The complete current Main Content was read and supports retaining the exact literal without a replacement."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Requirement role and the governs/depends_on field distinction are retained.",
+        "The exact old literal, field, index, and any existing qualification are retained; no native grammar, key, Carrier binding, or relation is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1259-CORE_META_MODEL-GENERAL-REQUIREMENT--permit-zero-or-more-properties-on-every-entity.md#subjects.depends_on[0]",
+      "old_value": "Property",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1259",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1259-CORE_META_MODEL-GENERAL-REQUIREMENT--permit-zero-or-more-properties-on-every-entity.md",
+      "source_sha256": "62efb2a82784452cc4c06d9301e9ee25c59beed8755fcba4e99113218d40136c",
+      "source_version": 11,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "Current Main Content uses this literal in a constraint or classification, but does not establish a canonical target identity or a safe replacement; the frozen consolidated review records the corresponding source-evidence gap. No identity, root, owner, or display path is invented.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1259-CORE_META_MODEL-GENERAL-REQUIREMENT--permit-zero-or-more-properties-on-every-entity.md",
+          "sha256": "62efb2a82784452cc4c06d9301e9ee25c59beed8755fcba4e99113218d40136c",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "7251ff566e489618b6f68091cf1e749e17d42072d7d4d5c59b8ab4e783654a4a",
+          "reason": "The complete current Main Content was read; it uses this literal but does not resolve its canonical Subject mapping."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Requirement role and the governs/depends_on field distinction are retained.",
+        "The exact old literal, field, index, and any existing qualification are retained; no native grammar, key, Carrier binding, or relation is inferred.",
+        "The unresolved term/category is preserved without assigning it a candidate root, owner, or display path."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1259-CORE_META_MODEL-GENERAL-REQUIREMENT--permit-zero-or-more-properties-on-every-entity.md#subjects.governs",
+      "old_value": "Entity",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1259",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1259-CORE_META_MODEL-GENERAL-REQUIREMENT--permit-zero-or-more-properties-on-every-entity.md",
+      "source_sha256": "62efb2a82784452cc4c06d9301e9ee25c59beed8755fcba4e99113218d40136c",
+      "source_version": 11,
+      "decision": "unchanged",
+      "proposed_value": "Entity",
+      "confidence": 0.95,
+      "reason": "Current Main Content explicitly names or constrains this exact literal. Retaining it unchanged preserves the source meaning and avoids treating a frozen candidate display proposal as an executable replacement.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1259-CORE_META_MODEL-GENERAL-REQUIREMENT--permit-zero-or-more-properties-on-every-entity.md",
+          "sha256": "62efb2a82784452cc4c06d9301e9ee25c59beed8755fcba4e99113218d40136c",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "7251ff566e489618b6f68091cf1e749e17d42072d7d4d5c59b8ab4e783654a4a",
+          "reason": "The complete current Main Content was read and supports retaining the exact literal without a replacement."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Requirement role and the governs/depends_on field distinction are retained.",
+        "The exact old literal, field, index, and any existing qualification are retained; no native grammar, key, Carrier binding, or relation is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-126-CORE_META_MODEL-CORE--give-each-governed-term-one-definition-atom.md#subjects.depends_on[0]",
+      "old_value": "Definition Atom",
+      "quarantined": false,
+      "source_atom_id": "CA-R-126",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-126-CORE_META_MODEL-CORE--give-each-governed-term-one-definition-atom.md",
+      "source_sha256": "433949d977649ee9622dffaec028e899ec725a6c9b3edf8b34c3a9537093f562",
+      "source_version": 17,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "Current Main Content uses this literal in a constraint or classification, but does not establish a canonical target identity or a safe replacement; the frozen consolidated review records the corresponding source-evidence gap. No identity, root, owner, or display path is invented.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-126-CORE_META_MODEL-CORE--give-each-governed-term-one-definition-atom.md",
+          "sha256": "433949d977649ee9622dffaec028e899ec725a6c9b3edf8b34c3a9537093f562",
+          "start_line": 21,
+          "end_line": 31,
+          "span_sha256": "f55664aa4003aa3797d879713cd3dafb5cc1874bce575724fbb255e3e0cf8730",
+          "reason": "The complete current Main Content was read; it uses this literal but does not resolve its canonical Subject mapping."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Requirement role and the governs/depends_on field distinction are retained.",
+        "The exact old literal, field, index, and any existing qualification are retained; no native grammar, key, Carrier binding, or relation is inferred.",
+        "The unresolved term/category is preserved without assigning it a candidate root, owner, or display path."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-126-CORE_META_MODEL-CORE--give-each-governed-term-one-definition-atom.md#subjects.governs",
+      "old_value": "Governed Term",
+      "quarantined": false,
+      "source_atom_id": "CA-R-126",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-126-CORE_META_MODEL-CORE--give-each-governed-term-one-definition-atom.md",
+      "source_sha256": "433949d977649ee9622dffaec028e899ec725a6c9b3edf8b34c3a9537093f562",
+      "source_version": 17,
+      "decision": "unchanged",
+      "proposed_value": "Governed Term",
+      "confidence": 0.95,
+      "reason": "Current Main Content explicitly names or constrains this exact literal. Retaining it unchanged preserves the source meaning and avoids treating a frozen candidate display proposal as an executable replacement.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-126-CORE_META_MODEL-CORE--give-each-governed-term-one-definition-atom.md",
+          "sha256": "433949d977649ee9622dffaec028e899ec725a6c9b3edf8b34c3a9537093f562",
+          "start_line": 21,
+          "end_line": 31,
+          "span_sha256": "f55664aa4003aa3797d879713cd3dafb5cc1874bce575724fbb255e3e0cf8730",
+          "reason": "The complete current Main Content was read and supports retaining the exact literal without a replacement."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Requirement role and the governs/depends_on field distinction are retained.",
+        "The exact old literal, field, index, and any existing qualification are retained; no native grammar, key, Carrier binding, or relation is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1260-CORE_META_MODEL-CORE-REQUIREMENT--define-is-borne-by.md#subjects.depends_on[0]",
+      "old_value": "Entity",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1260",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1260-CORE_META_MODEL-CORE-REQUIREMENT--define-is-borne-by.md",
+      "source_sha256": "ea7911f8d3bc88bcba954332193354c80df63005dbf94812960dda162615f54d",
+      "source_version": 13,
+      "decision": "unchanged",
+      "proposed_value": "Entity",
+      "confidence": 0.95,
+      "reason": "Current Main Content explicitly names or constrains this exact literal. Retaining it unchanged preserves the source meaning and avoids treating a frozen candidate display proposal as an executable replacement.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1260-CORE_META_MODEL-CORE-REQUIREMENT--define-is-borne-by.md",
+          "sha256": "ea7911f8d3bc88bcba954332193354c80df63005dbf94812960dda162615f54d",
+          "start_line": 21,
+          "end_line": 37,
+          "span_sha256": "72e7ac3d8d66015a75a6f37acf5e940e30cf097a5649ae10e31f69ace8748dba",
+          "reason": "The complete current Main Content was read and supports retaining the exact literal without a replacement."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Requirement role and the governs/depends_on field distinction are retained.",
+        "The exact old literal, field, index, and any existing qualification are retained; no native grammar, key, Carrier binding, or relation is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1260-CORE_META_MODEL-CORE-REQUIREMENT--define-is-borne-by.md#subjects.depends_on[1]",
+      "old_value": "Dependent Entity",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1260",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1260-CORE_META_MODEL-CORE-REQUIREMENT--define-is-borne-by.md",
+      "source_sha256": "ea7911f8d3bc88bcba954332193354c80df63005dbf94812960dda162615f54d",
+      "source_version": 13,
+      "decision": "unchanged",
+      "proposed_value": "Dependent Entity",
+      "confidence": 0.95,
+      "reason": "Current Main Content explicitly names or constrains this exact literal. Retaining it unchanged preserves the source meaning and avoids treating a frozen candidate display proposal as an executable replacement.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1260-CORE_META_MODEL-CORE-REQUIREMENT--define-is-borne-by.md",
+          "sha256": "ea7911f8d3bc88bcba954332193354c80df63005dbf94812960dda162615f54d",
+          "start_line": 21,
+          "end_line": 37,
+          "span_sha256": "72e7ac3d8d66015a75a6f37acf5e940e30cf097a5649ae10e31f69ace8748dba",
+          "reason": "The complete current Main Content was read and supports retaining the exact literal without a replacement."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Requirement role and the governs/depends_on field distinction are retained.",
+        "The exact old literal, field, index, and any existing qualification are retained; no native grammar, key, Carrier binding, or relation is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1260-CORE_META_MODEL-CORE-REQUIREMENT--define-is-borne-by.md#subjects.depends_on[2]",
+      "old_value": "Entities Graph",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1260",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1260-CORE_META_MODEL-CORE-REQUIREMENT--define-is-borne-by.md",
+      "source_sha256": "ea7911f8d3bc88bcba954332193354c80df63005dbf94812960dda162615f54d",
+      "source_version": 13,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "Current Main Content uses this literal in a constraint or classification, but does not establish a canonical target identity or a safe replacement; the frozen consolidated review records the corresponding source-evidence gap. No identity, root, owner, or display path is invented.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1260-CORE_META_MODEL-CORE-REQUIREMENT--define-is-borne-by.md",
+          "sha256": "ea7911f8d3bc88bcba954332193354c80df63005dbf94812960dda162615f54d",
+          "start_line": 21,
+          "end_line": 37,
+          "span_sha256": "72e7ac3d8d66015a75a6f37acf5e940e30cf097a5649ae10e31f69ace8748dba",
+          "reason": "The complete current Main Content was read; it uses this literal but does not resolve its canonical Subject mapping."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Requirement role and the governs/depends_on field distinction are retained.",
+        "The exact old literal, field, index, and any existing qualification are retained; no native grammar, key, Carrier binding, or relation is inferred.",
+        "The unresolved term/category is preserved without assigning it a candidate root, owner, or display path."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 3,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1260-CORE_META_MODEL-CORE-REQUIREMENT--define-is-borne-by.md#subjects.depends_on[3]",
+      "old_value": "Relation",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1260",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1260-CORE_META_MODEL-CORE-REQUIREMENT--define-is-borne-by.md",
+      "source_sha256": "ea7911f8d3bc88bcba954332193354c80df63005dbf94812960dda162615f54d",
+      "source_version": 13,
+      "decision": "unchanged",
+      "proposed_value": "Relation",
+      "confidence": 0.95,
+      "reason": "Current Main Content explicitly names or constrains this exact literal. Retaining it unchanged preserves the source meaning and avoids treating a frozen candidate display proposal as an executable replacement.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1260-CORE_META_MODEL-CORE-REQUIREMENT--define-is-borne-by.md",
+          "sha256": "ea7911f8d3bc88bcba954332193354c80df63005dbf94812960dda162615f54d",
+          "start_line": 21,
+          "end_line": 37,
+          "span_sha256": "72e7ac3d8d66015a75a6f37acf5e940e30cf097a5649ae10e31f69ace8748dba",
+          "reason": "The complete current Main Content was read and supports retaining the exact literal without a replacement."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Requirement role and the governs/depends_on field distinction are retained.",
+        "The exact old literal, field, index, and any existing qualification are retained; no native grammar, key, Carrier binding, or relation is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1260-CORE_META_MODEL-CORE-REQUIREMENT--define-is-borne-by.md#subjects.governs",
+      "old_value": "IS_BORNE_BY",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1260",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1260-CORE_META_MODEL-CORE-REQUIREMENT--define-is-borne-by.md",
+      "source_sha256": "ea7911f8d3bc88bcba954332193354c80df63005dbf94812960dda162615f54d",
+      "source_version": 13,
+      "decision": "unchanged",
+      "proposed_value": "IS_BORNE_BY",
+      "confidence": 0.95,
+      "reason": "Current Main Content explicitly names or constrains this exact literal. Retaining it unchanged preserves the source meaning and avoids treating a frozen candidate display proposal as an executable replacement.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1260-CORE_META_MODEL-CORE-REQUIREMENT--define-is-borne-by.md",
+          "sha256": "ea7911f8d3bc88bcba954332193354c80df63005dbf94812960dda162615f54d",
+          "start_line": 21,
+          "end_line": 37,
+          "span_sha256": "72e7ac3d8d66015a75a6f37acf5e940e30cf097a5649ae10e31f69ace8748dba",
+          "reason": "The complete current Main Content was read and supports retaining the exact literal without a replacement."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Requirement role and the governs/depends_on field distinction are retained.",
+        "The exact old literal, field, index, and any existing qualification are retained; no native grammar, key, Carrier binding, or relation is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1261-CORE_META_MODEL-CORE-REQUIREMENT--keep-the-core-entity-taxonomy-open.md#subjects.depends_on[0]",
+      "old_value": "Core Meta-Model",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1261",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1261-CORE_META_MODEL-CORE-REQUIREMENT--keep-the-core-entity-taxonomy-open.md",
+      "source_sha256": "752dc43e7816396c4e6bbc9ac689a5cc32258326e98d04ad9f338307e7b05ca3",
+      "source_version": 12,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "Current Main Content uses this literal in a constraint or classification, but does not establish a canonical target identity or a safe replacement; the frozen consolidated review records the corresponding source-evidence gap. No identity, root, owner, or display path is invented.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1261-CORE_META_MODEL-CORE-REQUIREMENT--keep-the-core-entity-taxonomy-open.md",
+          "sha256": "752dc43e7816396c4e6bbc9ac689a5cc32258326e98d04ad9f338307e7b05ca3",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "69e74304bf08d00cd640994dcbe7a4ee4b360f23fde638c56661bdc9869063cd",
+          "reason": "The complete current Main Content was read; it uses this literal but does not resolve its canonical Subject mapping."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Requirement role and the governs/depends_on field distinction are retained.",
+        "The exact old literal, field, index, and any existing qualification are retained; no native grammar, key, Carrier binding, or relation is inferred.",
+        "The unresolved term/category is preserved without assigning it a candidate root, owner, or display path."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1261-CORE_META_MODEL-CORE-REQUIREMENT--keep-the-core-entity-taxonomy-open.md#subjects.governs",
+      "old_value": "Entity Taxonomy",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1261",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1261-CORE_META_MODEL-CORE-REQUIREMENT--keep-the-core-entity-taxonomy-open.md",
+      "source_sha256": "752dc43e7816396c4e6bbc9ac689a5cc32258326e98d04ad9f338307e7b05ca3",
+      "source_version": 12,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "Current Main Content uses this literal in a constraint or classification, but does not establish a canonical target identity or a safe replacement; the frozen consolidated review records the corresponding source-evidence gap. No identity, root, owner, or display path is invented.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1261-CORE_META_MODEL-CORE-REQUIREMENT--keep-the-core-entity-taxonomy-open.md",
+          "sha256": "752dc43e7816396c4e6bbc9ac689a5cc32258326e98d04ad9f338307e7b05ca3",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "69e74304bf08d00cd640994dcbe7a4ee4b360f23fde638c56661bdc9869063cd",
+          "reason": "The complete current Main Content was read; it uses this literal but does not resolve its canonical Subject mapping."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Requirement role and the governs/depends_on field distinction are retained.",
+        "The exact old literal, field, index, and any existing qualification are retained; no native grammar, key, Carrier binding, or relation is inferred.",
+        "The unresolved term/category is preserved without assigning it a candidate root, owner, or display path."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1262-CORE_META_MODEL-CORE-REQUIREMENT--keep-entity-and-artifact-distinct.md#subjects.depends_on[0]",
+      "old_value": "Entity",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1262",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1262-CORE_META_MODEL-CORE-REQUIREMENT--keep-entity-and-artifact-distinct.md",
+      "source_sha256": "c97b22deec50c5a2e64c14f27567ac0588e56efa58359388e4ee5aab13168490",
+      "source_version": 11,
+      "decision": "unchanged",
+      "proposed_value": "Entity",
+      "confidence": 0.95,
+      "reason": "Current Main Content explicitly names or constrains this exact literal. Retaining it unchanged preserves the source meaning and avoids treating a frozen candidate display proposal as an executable replacement.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1262-CORE_META_MODEL-CORE-REQUIREMENT--keep-entity-and-artifact-distinct.md",
+          "sha256": "c97b22deec50c5a2e64c14f27567ac0588e56efa58359388e4ee5aab13168490",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "607e4582c877d9118a3bce7d217d8245d978397bfc204262312b94bd1452b2f5",
+          "reason": "The complete current Main Content was read and supports retaining the exact literal without a replacement."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Requirement role and the governs/depends_on field distinction are retained.",
+        "The exact old literal, field, index, and any existing qualification are retained; no native grammar, key, Carrier binding, or relation is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1262-CORE_META_MODEL-CORE-REQUIREMENT--keep-entity-and-artifact-distinct.md#subjects.governs",
+      "old_value": "Artifact",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1262",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1262-CORE_META_MODEL-CORE-REQUIREMENT--keep-entity-and-artifact-distinct.md",
+      "source_sha256": "c97b22deec50c5a2e64c14f27567ac0588e56efa58359388e4ee5aab13168490",
+      "source_version": 11,
+      "decision": "unchanged",
+      "proposed_value": "Artifact",
+      "confidence": 0.95,
+      "reason": "Current Main Content explicitly names or constrains this exact literal. Retaining it unchanged preserves the source meaning and avoids treating a frozen candidate display proposal as an executable replacement.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1262-CORE_META_MODEL-CORE-REQUIREMENT--keep-entity-and-artifact-distinct.md",
+          "sha256": "c97b22deec50c5a2e64c14f27567ac0588e56efa58359388e4ee5aab13168490",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "607e4582c877d9118a3bce7d217d8245d978397bfc204262312b94bd1452b2f5",
+          "reason": "The complete current Main Content was read and supports retaining the exact literal without a replacement."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Requirement role and the governs/depends_on field distinction are retained.",
+        "The exact old literal, field, index, and any existing qualification are retained; no native grammar, key, Carrier binding, or relation is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1264-CORE_META_MODEL-CORE-REQUIREMENT--keep-scope-unit-outside-the-atom-taxonomy.md#subjects.depends_on[0]",
+      "old_value": "Atom",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1264",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1264-CORE_META_MODEL-CORE-REQUIREMENT--keep-scope-unit-outside-the-atom-taxonomy.md",
+      "source_sha256": "904609df2f89d8216859e025697f628b36d553db5189f5d35fbbb5e85e0a40a9",
+      "source_version": 11,
+      "decision": "unchanged",
+      "proposed_value": "Atom",
+      "confidence": 0.95,
+      "reason": "Current Main Content explicitly names or constrains this exact literal. Retaining it unchanged preserves the source meaning and avoids treating a frozen candidate display proposal as an executable replacement.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1264-CORE_META_MODEL-CORE-REQUIREMENT--keep-scope-unit-outside-the-atom-taxonomy.md",
+          "sha256": "904609df2f89d8216859e025697f628b36d553db5189f5d35fbbb5e85e0a40a9",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "0150b1a14fde9eea86c0f19f5f7bd6f0f1f0a548282ef77584268c2e18d97e7e",
+          "reason": "The complete current Main Content was read and supports retaining the exact literal without a replacement."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Requirement role and the governs/depends_on field distinction are retained.",
+        "The exact old literal, field, index, and any existing qualification are retained; no native grammar, key, Carrier binding, or relation is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1264-CORE_META_MODEL-CORE-REQUIREMENT--keep-scope-unit-outside-the-atom-taxonomy.md#subjects.governs",
+      "old_value": "Scope Unit",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1264",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1264-CORE_META_MODEL-CORE-REQUIREMENT--keep-scope-unit-outside-the-atom-taxonomy.md",
+      "source_sha256": "904609df2f89d8216859e025697f628b36d553db5189f5d35fbbb5e85e0a40a9",
+      "source_version": 11,
+      "decision": "unchanged",
+      "proposed_value": "Scope Unit",
+      "confidence": 0.95,
+      "reason": "Current Main Content explicitly names or constrains this exact literal. Retaining it unchanged preserves the source meaning and avoids treating a frozen candidate display proposal as an executable replacement.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1264-CORE_META_MODEL-CORE-REQUIREMENT--keep-scope-unit-outside-the-atom-taxonomy.md",
+          "sha256": "904609df2f89d8216859e025697f628b36d553db5189f5d35fbbb5e85e0a40a9",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "0150b1a14fde9eea86c0f19f5f7bd6f0f1f0a548282ef77584268c2e18d97e7e",
+          "reason": "The complete current Main Content was read and supports retaining the exact literal without a replacement."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Requirement role and the governs/depends_on field distinction are retained.",
+        "The exact old literal, field, index, and any existing qualification are retained; no native grammar, key, Carrier binding, or relation is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1265-CORE_META_MODEL-CORE-REQUIREMENT--keep-atom-collection-outside-the-atom-taxonomy.md#subjects.depends_on[0]",
+      "old_value": "Atom",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1265",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1265-CORE_META_MODEL-CORE-REQUIREMENT--keep-atom-collection-outside-the-atom-taxonomy.md",
+      "source_sha256": "0a591172b3f9b3b954edfc9319c00cf9886f0e12438be1de55b6b60f2c175f41",
+      "source_version": 12,
+      "decision": "unchanged",
+      "proposed_value": "Atom",
+      "confidence": 0.95,
+      "reason": "Current Main Content explicitly names or constrains this exact literal. Retaining it unchanged preserves the source meaning and avoids treating a frozen candidate display proposal as an executable replacement.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1265-CORE_META_MODEL-CORE-REQUIREMENT--keep-atom-collection-outside-the-atom-taxonomy.md",
+          "sha256": "0a591172b3f9b3b954edfc9319c00cf9886f0e12438be1de55b6b60f2c175f41",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "37815e24752eb1e3847c9b576e5dcebcdea0e7f7fcba15eceb935b2703f49499",
+          "reason": "The complete current Main Content was read and supports retaining the exact literal without a replacement."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Requirement role and the governs/depends_on field distinction are retained.",
+        "The exact old literal, field, index, and any existing qualification are retained; no native grammar, key, Carrier binding, or relation is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1265-CORE_META_MODEL-CORE-REQUIREMENT--keep-atom-collection-outside-the-atom-taxonomy.md#subjects.governs",
+      "old_value": "Atom Collection",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1265",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1265-CORE_META_MODEL-CORE-REQUIREMENT--keep-atom-collection-outside-the-atom-taxonomy.md",
+      "source_sha256": "0a591172b3f9b3b954edfc9319c00cf9886f0e12438be1de55b6b60f2c175f41",
+      "source_version": 12,
+      "decision": "unchanged",
+      "proposed_value": "Atom Collection",
+      "confidence": 0.95,
+      "reason": "Current Main Content explicitly names or constrains this exact literal. Retaining it unchanged preserves the source meaning and avoids treating a frozen candidate display proposal as an executable replacement.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1265-CORE_META_MODEL-CORE-REQUIREMENT--keep-atom-collection-outside-the-atom-taxonomy.md",
+          "sha256": "0a591172b3f9b3b954edfc9319c00cf9886f0e12438be1de55b6b60f2c175f41",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "37815e24752eb1e3847c9b576e5dcebcdea0e7f7fcba15eceb935b2703f49499",
+          "reason": "The complete current Main Content was read and supports retaining the exact literal without a replacement."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Requirement role and the governs/depends_on field distinction are retained.",
+        "The exact old literal, field, index, and any existing qualification are retained; no native grammar, key, Carrier binding, or relation is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1266-CORE_META_MODEL-CORE-REQUIREMENT--classify-primary-entity-as-an-entity.md#subjects.depends_on[0]",
+      "old_value": "Entity",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1266",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1266-CORE_META_MODEL-CORE-REQUIREMENT--classify-primary-entity-as-an-entity.md",
+      "source_sha256": "c4b7692619465d85e89357989b727282881fc783df167f01c5d5d85023d4108a",
+      "source_version": 12,
+      "decision": "unchanged",
+      "proposed_value": "Entity",
+      "confidence": 0.95,
+      "reason": "Current Main Content explicitly names or constrains this exact literal. Retaining it unchanged preserves the source meaning and avoids treating a frozen candidate display proposal as an executable replacement.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1266-CORE_META_MODEL-CORE-REQUIREMENT--classify-primary-entity-as-an-entity.md",
+          "sha256": "c4b7692619465d85e89357989b727282881fc783df167f01c5d5d85023d4108a",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "66e2966fa0d814d935effb1915cd48a620179ea5f734e801ea7c5719cd2b9cd7",
+          "reason": "The complete current Main Content was read and supports retaining the exact literal without a replacement."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Requirement role and the governs/depends_on field distinction are retained.",
+        "The exact old literal, field, index, and any existing qualification are retained; no native grammar, key, Carrier binding, or relation is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1266-CORE_META_MODEL-CORE-REQUIREMENT--classify-primary-entity-as-an-entity.md#subjects.governs",
+      "old_value": "Primary Entity",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1266",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1266-CORE_META_MODEL-CORE-REQUIREMENT--classify-primary-entity-as-an-entity.md",
+      "source_sha256": "c4b7692619465d85e89357989b727282881fc783df167f01c5d5d85023d4108a",
+      "source_version": 12,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "Current Main Content uses this literal in a constraint or classification, but does not establish a canonical target identity or a safe replacement; the frozen consolidated review records the corresponding source-evidence gap. No identity, root, owner, or display path is invented.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1266-CORE_META_MODEL-CORE-REQUIREMENT--classify-primary-entity-as-an-entity.md",
+          "sha256": "c4b7692619465d85e89357989b727282881fc783df167f01c5d5d85023d4108a",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "66e2966fa0d814d935effb1915cd48a620179ea5f734e801ea7c5719cd2b9cd7",
+          "reason": "The complete current Main Content was read; it uses this literal but does not resolve its canonical Subject mapping."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Requirement role and the governs/depends_on field distinction are retained.",
+        "The exact old literal, field, index, and any existing qualification are retained; no native grammar, key, Carrier binding, or relation is inferred.",
+        "The unresolved term/category is preserved without assigning it a candidate root, owner, or display path."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1267-CORE_META_MODEL-CORE-REQUIREMENT--classify-dependent-entity-as-an-entity.md#subjects.depends_on[0]",
+      "old_value": "Entity",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1267",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1267-CORE_META_MODEL-CORE-REQUIREMENT--classify-dependent-entity-as-an-entity.md",
+      "source_sha256": "a968ab53716586ac641820bd970a548e9f4119e36fba9f058e0ad1c0cfb2450e",
+      "source_version": 11,
+      "decision": "unchanged",
+      "proposed_value": "Entity",
+      "confidence": 0.95,
+      "reason": "Current Main Content explicitly names or constrains this exact literal. Retaining it unchanged preserves the source meaning and avoids treating a frozen candidate display proposal as an executable replacement.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1267-CORE_META_MODEL-CORE-REQUIREMENT--classify-dependent-entity-as-an-entity.md",
+          "sha256": "a968ab53716586ac641820bd970a548e9f4119e36fba9f058e0ad1c0cfb2450e",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "b9cc43d215a9edd69d5b407edf2c1b881bfd1190fe04d2f4b8802439b50010ba",
+          "reason": "The complete current Main Content was read and supports retaining the exact literal without a replacement."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Requirement role and the governs/depends_on field distinction are retained.",
+        "The exact old literal, field, index, and any existing qualification are retained; no native grammar, key, Carrier binding, or relation is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1267-CORE_META_MODEL-CORE-REQUIREMENT--classify-dependent-entity-as-an-entity.md#subjects.governs",
+      "old_value": "Dependent Entity",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1267",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1267-CORE_META_MODEL-CORE-REQUIREMENT--classify-dependent-entity-as-an-entity.md",
+      "source_sha256": "a968ab53716586ac641820bd970a548e9f4119e36fba9f058e0ad1c0cfb2450e",
+      "source_version": 11,
+      "decision": "unchanged",
+      "proposed_value": "Dependent Entity",
+      "confidence": 0.95,
+      "reason": "Current Main Content explicitly names or constrains this exact literal. Retaining it unchanged preserves the source meaning and avoids treating a frozen candidate display proposal as an executable replacement.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1267-CORE_META_MODEL-CORE-REQUIREMENT--classify-dependent-entity-as-an-entity.md",
+          "sha256": "a968ab53716586ac641820bd970a548e9f4119e36fba9f058e0ad1c0cfb2450e",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "b9cc43d215a9edd69d5b407edf2c1b881bfd1190fe04d2f4b8802439b50010ba",
+          "reason": "The complete current Main Content was read and supports retaining the exact literal without a replacement."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Requirement role and the governs/depends_on field distinction are retained.",
+        "The exact old literal, field, index, and any existing qualification are retained; no native grammar, key, Carrier binding, or relation is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1268-CORE_META_MODEL-CORE-REQUIREMENT--define-artifact.md#subjects.depends_on[0]",
+      "old_value": "Artifact/Revision",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1268",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1268-CORE_META_MODEL-CORE-REQUIREMENT--define-artifact.md",
+      "source_sha256": "9cfaecd2519ec038a73a183281030d43266113bcdb037cc9152a8c2039ef88de",
+      "source_version": 12,
+      "decision": "proposed",
+      "proposed_value": "Revision",
+      "confidence": 0.95,
+      "reason": "Current Main Content says Artifact identity persists across its Artifact Revisions. The frozen candidate selects Revision as the separate historical-snapshot root of an Artifact and explicitly excludes Artifact/Revision, so Revision is the supported candidate subject without retaining a display-only compound path.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1268-CORE_META_MODEL-CORE-REQUIREMENT--define-artifact.md",
+          "sha256": "9cfaecd2519ec038a73a183281030d43266113bcdb037cc9152a8c2039ef88de",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "735f291aa1a29c8d608ad9694a08d0bf60cd94b32c590528d3a83f475f905082",
+          "reason": "The complete current Main Content was read; it states that the governed Artifact identity persists across Artifact Revisions."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/4/name",
+          "reason": "The candidate names the separate root Revision."
+        },
+        {
+          "pointer": "#/root_entities/4/meaning",
+          "reason": "Revision is defined as a historical snapshot of an Artifact, matching the current Artifact-Revisions meaning."
+        },
+        {
+          "pointer": "#/root_entities/4/excluded_paths/1",
+          "reason": "The candidate explicitly excludes Artifact/Revision, supporting replacement of the legacy compound display path rather than a slash-to-dot conversion."
+        }
+      ],
+      "preserved_distinctions": [
+        "The Requirement role and the governs/depends_on field distinction are retained.",
+        "Artifact history remains qualified: Revision is a historical snapshot of an Artifact and is not an Artifact property or subtype.",
+        "The proposed candidate does not infer a native grammar, key, Carrier binding, or relation."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1268-CORE_META_MODEL-CORE-REQUIREMENT--define-artifact.md#subjects.depends_on[1]",
+      "old_value": "Primary Entity",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1268",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1268-CORE_META_MODEL-CORE-REQUIREMENT--define-artifact.md",
+      "source_sha256": "9cfaecd2519ec038a73a183281030d43266113bcdb037cc9152a8c2039ef88de",
+      "source_version": 12,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "Current Main Content uses this literal in a constraint or classification, but does not establish a canonical target identity or a safe replacement; the frozen consolidated review records the corresponding source-evidence gap. No identity, root, owner, or display path is invented.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1268-CORE_META_MODEL-CORE-REQUIREMENT--define-artifact.md",
+          "sha256": "9cfaecd2519ec038a73a183281030d43266113bcdb037cc9152a8c2039ef88de",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "735f291aa1a29c8d608ad9694a08d0bf60cd94b32c590528d3a83f475f905082",
+          "reason": "The complete current Main Content was read; it uses this literal but does not resolve its canonical Subject mapping."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Requirement role and the governs/depends_on field distinction are retained.",
+        "The exact old literal, field, index, and any existing qualification are retained; no native grammar, key, Carrier binding, or relation is inferred.",
+        "The unresolved term/category is preserved without assigning it a candidate root, owner, or display path."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1268-CORE_META_MODEL-CORE-REQUIREMENT--define-artifact.md#subjects.governs",
+      "old_value": "Artifact",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1268",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1268-CORE_META_MODEL-CORE-REQUIREMENT--define-artifact.md",
+      "source_sha256": "9cfaecd2519ec038a73a183281030d43266113bcdb037cc9152a8c2039ef88de",
+      "source_version": 12,
+      "decision": "unchanged",
+      "proposed_value": "Artifact",
+      "confidence": 0.95,
+      "reason": "Current Main Content explicitly names or constrains this exact literal. Retaining it unchanged preserves the source meaning and avoids treating a frozen candidate display proposal as an executable replacement.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1268-CORE_META_MODEL-CORE-REQUIREMENT--define-artifact.md",
+          "sha256": "9cfaecd2519ec038a73a183281030d43266113bcdb037cc9152a8c2039ef88de",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "735f291aa1a29c8d608ad9694a08d0bf60cd94b32c590528d3a83f475f905082",
+          "reason": "The complete current Main Content was read and supports retaining the exact literal without a replacement."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Requirement role and the governs/depends_on field distinction are retained.",
+        "The exact old literal, field, index, and any existing qualification are retained; no native grammar, key, Carrier binding, or relation is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1269-CORE_META_MODEL-CORE-REQUIREMENT--define-claim.md#subjects.depends_on[0]",
+      "old_value": "Atom",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1269",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1269-CORE_META_MODEL-CORE-REQUIREMENT--define-claim.md",
+      "source_sha256": "5f0d2a2425973d9fe2050cf172122c474633af5e17deb9b9e1327a86d1a564b7",
+      "source_version": 11,
+      "decision": "unchanged",
+      "proposed_value": "Atom",
+      "confidence": 0.95,
+      "reason": "Current Main Content explicitly names or constrains this exact literal. Retaining it unchanged preserves the source meaning and avoids treating a frozen candidate display proposal as an executable replacement.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1269-CORE_META_MODEL-CORE-REQUIREMENT--define-claim.md",
+          "sha256": "5f0d2a2425973d9fe2050cf172122c474633af5e17deb9b9e1327a86d1a564b7",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "b414375c4d5f7129c24b2ebf753846ffc2787f9606f6f7a05298072f13872aa3",
+          "reason": "The complete current Main Content was read and supports retaining the exact literal without a replacement."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Requirement role and the governs/depends_on field distinction are retained.",
+        "The exact old literal, field, index, and any existing qualification are retained; no native grammar, key, Carrier binding, or relation is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1269-CORE_META_MODEL-CORE-REQUIREMENT--define-claim.md#subjects.governs",
+      "old_value": "Claim",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1269",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1269-CORE_META_MODEL-CORE-REQUIREMENT--define-claim.md",
+      "source_sha256": "5f0d2a2425973d9fe2050cf172122c474633af5e17deb9b9e1327a86d1a564b7",
+      "source_version": 11,
+      "decision": "unchanged",
+      "proposed_value": "Claim",
+      "confidence": 0.95,
+      "reason": "Current Main Content explicitly names or constrains this exact literal. Retaining it unchanged preserves the source meaning and avoids treating a frozen candidate display proposal as an executable replacement.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1269-CORE_META_MODEL-CORE-REQUIREMENT--define-claim.md",
+          "sha256": "5f0d2a2425973d9fe2050cf172122c474633af5e17deb9b9e1327a86d1a564b7",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "b414375c4d5f7129c24b2ebf753846ffc2787f9606f6f7a05298072f13872aa3",
+          "reason": "The complete current Main Content was read and supports retaining the exact literal without a replacement."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Requirement role and the governs/depends_on field distinction are retained.",
+        "The exact old literal, field, index, and any existing qualification are retained; no native grammar, key, Carrier binding, or relation is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1270-CORE_META_MODEL-CORE-REQUIREMENT--permit-one-composite-claim-as-one-authority-unit.md#subjects.depends_on[0]",
+      "old_value": "Claim",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1270",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1270-CORE_META_MODEL-CORE-REQUIREMENT--permit-one-composite-claim-as-one-authority-unit.md",
+      "source_sha256": "45357611aae38085ff1382bff1ba7910512ceb9bac2514a6362858a60d9604f2",
+      "source_version": 11,
+      "decision": "unchanged",
+      "proposed_value": "Claim",
+      "confidence": 0.95,
+      "reason": "Current Main Content explicitly names or constrains this exact literal. Retaining it unchanged preserves the source meaning and avoids treating a frozen candidate display proposal as an executable replacement.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1270-CORE_META_MODEL-CORE-REQUIREMENT--permit-one-composite-claim-as-one-authority-unit.md",
+          "sha256": "45357611aae38085ff1382bff1ba7910512ceb9bac2514a6362858a60d9604f2",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "7875346d7c8719c6af1aaa3a76fa06bcaabf4e4009d19e2a2c46c6370e074603",
+          "reason": "The complete current Main Content was read and supports retaining the exact literal without a replacement."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Requirement role and the governs/depends_on field distinction are retained.",
+        "The exact old literal, field, index, and any existing qualification are retained; no native grammar, key, Carrier binding, or relation is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1270-CORE_META_MODEL-CORE-REQUIREMENT--permit-one-composite-claim-as-one-authority-unit.md#subjects.governs",
+      "old_value": "Composite Claim",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1270",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1270-CORE_META_MODEL-CORE-REQUIREMENT--permit-one-composite-claim-as-one-authority-unit.md",
+      "source_sha256": "45357611aae38085ff1382bff1ba7910512ceb9bac2514a6362858a60d9604f2",
+      "source_version": 11,
+      "decision": "unchanged",
+      "proposed_value": "Composite Claim",
+      "confidence": 0.95,
+      "reason": "Current Main Content explicitly names or constrains this exact literal. Retaining it unchanged preserves the source meaning and avoids treating a frozen candidate display proposal as an executable replacement.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1270-CORE_META_MODEL-CORE-REQUIREMENT--permit-one-composite-claim-as-one-authority-unit.md",
+          "sha256": "45357611aae38085ff1382bff1ba7910512ceb9bac2514a6362858a60d9604f2",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "7875346d7c8719c6af1aaa3a76fa06bcaabf4e4009d19e2a2c46c6370e074603",
+          "reason": "The complete current Main Content was read and supports retaining the exact literal without a replacement."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Requirement role and the governs/depends_on field distinction are retained.",
+        "The exact old literal, field, index, and any existing qualification are retained; no native grammar, key, Carrier binding, or relation is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1271-CORE_META_MODEL-GENERAL--permit-one-composite-claim-scope.md#subjects.depends_on[0]",
+      "old_value": "Scope Expression",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1271",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1271-CORE_META_MODEL-GENERAL--permit-one-composite-claim-scope.md",
+      "source_sha256": "e40e3c7c67da096674fb6f23c534141816ef04a92bb6a4385d3312e0625c0ed6",
+      "source_version": 13,
+      "decision": "unchanged",
+      "proposed_value": "Scope Expression",
+      "confidence": 0.95,
+      "reason": "Current Main Content explicitly names or constrains this exact literal. Retaining it unchanged preserves the source meaning and avoids treating a frozen candidate display proposal as an executable replacement.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1271-CORE_META_MODEL-GENERAL--permit-one-composite-claim-scope.md",
+          "sha256": "e40e3c7c67da096674fb6f23c534141816ef04a92bb6a4385d3312e0625c0ed6",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "a45e325675d68db7c9e4ae0db3d51fff3b6d89f360bd882437262f4b35b33948",
+          "reason": "The complete current Main Content was read and supports retaining the exact literal without a replacement."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Requirement role and the governs/depends_on field distinction are retained.",
+        "The exact old literal, field, index, and any existing qualification are retained; no native grammar, key, Carrier binding, or relation is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1271-CORE_META_MODEL-GENERAL--permit-one-composite-claim-scope.md#subjects.depends_on[1]",
+      "old_value": "Atom/Claim/Target Scope Unit",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1271",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1271-CORE_META_MODEL-GENERAL--permit-one-composite-claim-scope.md",
+      "source_sha256": "e40e3c7c67da096674fb6f23c534141816ef04a92bb6a4385d3312e0625c0ed6",
+      "source_version": 13,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "Current Main Content establishes the Atom-specific meaning, but the candidate does not supply a specific string that preserves the Claim or target-Scope qualification without inventing a selector.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1271-CORE_META_MODEL-GENERAL--permit-one-composite-claim-scope.md",
+          "sha256": "e40e3c7c67da096674fb6f23c534141816ef04a92bb6a4385d3312e0625c0ed6",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "a45e325675d68db7c9e4ae0db3d51fff3b6d89f360bd882437262f4b35b33948",
+          "reason": "The complete current Main Content was read; it establishes the current meaning but leaves this target expression unresolved."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Requirement role and the governs/depends_on field distinction are retained.",
+        "The exact old literal, field, index, and any existing qualification are retained; no native grammar, key, Carrier binding, or relation is inferred.",
+        "The legacy slash qualification is preserved as evidence and is not globally converted to dot notation."
+      ],
+      "question": "Which admitted Subject grammar expression represents the Atom-owned Claim Target Scope Unit while keeping target ownership distinct from applicability and not inventing a candidate path?",
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1271-CORE_META_MODEL-GENERAL--permit-one-composite-claim-scope.md#subjects.governs",
+      "old_value": "Atom/Claim",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1271",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1271-CORE_META_MODEL-GENERAL--permit-one-composite-claim-scope.md",
+      "source_sha256": "e40e3c7c67da096674fb6f23c534141816ef04a92bb6a4385d3312e0625c0ed6",
+      "source_version": 13,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "Current Main Content establishes the Atom-specific meaning, but the candidate does not supply a specific string that preserves the Claim or target-Scope qualification without inventing a selector.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1271-CORE_META_MODEL-GENERAL--permit-one-composite-claim-scope.md",
+          "sha256": "e40e3c7c67da096674fb6f23c534141816ef04a92bb6a4385d3312e0625c0ed6",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "a45e325675d68db7c9e4ae0db3d51fff3b6d89f360bd882437262f4b35b33948",
+          "reason": "The complete current Main Content was read; it establishes the current meaning but leaves this target expression unresolved."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Requirement role and the governs/depends_on field distinction are retained.",
+        "The exact old literal, field, index, and any existing qualification are retained; no native grammar, key, Carrier binding, or relation is inferred.",
+        "The legacy slash qualification is preserved as evidence and is not globally converted to dot notation."
+      ],
+      "question": "Which admitted Subject grammar expression represents the Atom-owned Claim without converting the legacy slash sequence into a candidate display path?",
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1273-CORE_META_MODEL-CORE--keep-summary-source-faithful.md#subjects.depends_on[0]",
+      "old_value": "Atom/Claim",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1273",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1273-CORE_META_MODEL-CORE--keep-summary-source-faithful.md",
+      "source_sha256": "23232d955b8025b825cf0d990cf74feac12a0000a8a5af623c0e5893f416441a",
+      "source_version": 14,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "Current Main Content establishes the Atom-specific meaning, but the candidate does not supply a specific string that preserves the Claim or target-Scope qualification without inventing a selector.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1273-CORE_META_MODEL-CORE--keep-summary-source-faithful.md",
+          "sha256": "23232d955b8025b825cf0d990cf74feac12a0000a8a5af623c0e5893f416441a",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "055f052342ecef03d6154adf00710888bf861053090d7d2282fd7ea9c1e1cb14",
+          "reason": "The complete current Main Content was read; it establishes the current meaning but leaves this target expression unresolved."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Requirement role and the governs/depends_on field distinction are retained.",
+        "The exact old literal, field, index, and any existing qualification are retained; no native grammar, key, Carrier binding, or relation is inferred.",
+        "The legacy slash qualification is preserved as evidence and is not globally converted to dot notation."
+      ],
+      "question": "Which admitted Subject grammar expression represents the Atom-owned Claim without converting the legacy slash sequence into a candidate display path?",
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1273-CORE_META_MODEL-CORE--keep-summary-source-faithful.md#subjects.governs",
+      "old_value": "Atom/Summary",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1273",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1273-CORE_META_MODEL-CORE--keep-summary-source-faithful.md",
+      "source_sha256": "23232d955b8025b825cf0d990cf74feac12a0000a8a5af623c0e5893f416441a",
+      "source_version": 14,
+      "decision": "proposed",
+      "proposed_value": "Atom.Summary",
+      "confidence": 0.95,
+      "reason": "Current Main Content states that an Atom’s Summary must remain faithful to that Atom’s finalized primary contribution. The frozen candidate gives Atom.Summary as the compact dependent-entity expression, so this candidate preserves the Atom-to-Summary qualification without a universal slash conversion.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1273-CORE_META_MODEL-CORE--keep-summary-source-faithful.md",
+          "sha256": "23232d955b8025b825cf0d990cf74feac12a0000a8a5af623c0e5893f416441a",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "055f052342ecef03d6154adf00710888bf861053090d7d2282fd7ea9c1e1cb14",
+          "reason": "The complete current Main Content was read; it identifies Summary as belonging to an Atom and constrains its source faithfulness."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "#/dependent_entities/compact_examples/1",
+          "reason": "The candidate explicitly gives Atom.Summary as its compact example."
+        },
+        {
+          "pointer": "#/dependent_entities/meaning",
+          "reason": "The candidate treats named dependent Entities as inside an Artifact, supporting the Atom-qualified Summary distinction."
+        }
+      ],
+      "preserved_distinctions": [
+        "The Requirement role and the governs/depends_on field distinction are retained.",
+        "Summary remains qualified to its Atom and its source-faithfulness constraint is retained.",
+        "The proposed candidate does not infer a native grammar, key, Carrier binding, or relation."
+      ],
+      "question": null,
+      "executable": false
+    }
+  ]
+}
+
