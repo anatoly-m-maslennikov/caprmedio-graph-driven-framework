@@ -6,6 +6,7 @@ import json
 import sys
 import tempfile
 import unittest
+from dataclasses import replace
 from hashlib import sha256
 from pathlib import Path
 from types import SimpleNamespace
@@ -51,7 +52,7 @@ class MockBindings:
         self.owner = "anatoly-m-maslennikov"
         self.repository = "caprmedio-graph-driven-framework"
         self.initial_sha = "a" * 64
-        self.final_sha = "b" * 64
+        self.final_sha = self.initial_sha
         self.interrupt_push = False
         self.bad_gate = False
         self.bad_version = False
@@ -217,11 +218,69 @@ class PublicReleaseTests(unittest.TestCase):
         self.assertIn("gate-history_link_final", self.bindings.calls)
         self.assertIn("push-history_link_final", self.bindings.calls)
         self.assertIn("pr-history_link_final", self.bindings.calls)
+        self.assertEqual(self.bindings.initial_sha, self.bindings.final_sha)
         journal = next((self.root / ".caprmedio_caprmedio/_journal").glob("*.ndjson"))
         events = [json.loads(line) for line in journal.read_text(encoding="utf-8").splitlines()]
         self.assertTrue(all(event["schema_version"] == 5 for event in events))
         self.assertEqual({"workflow", "step", "action"}, {event["run"]["kind"] for event in events})
         self.assertFalse(any(event["run"]["kind"] == "tool" for event in events))
+
+    def _assert_history_tamper_stops_followup(self, field_name: str) -> None:
+        finalize = self.bindings.finalize_history_link
+
+        def tampered(parameters, source, pull_request):
+            result = finalize(parameters, source, pull_request)
+            final_source = result.source
+            if field_name == "candidate":
+                final_source = replace(final_source, candidate_snapshot_manifest_sha256="b" * 64)
+            elif field_name == "readme_ref":
+                alternate = self.root / "other-readme.md"
+                alternate.write_bytes((self.root / final_source.readme_ref).read_bytes())
+                final_source = replace(final_source, readme_ref="other-readme.md")
+            elif field_name in {"readme", "pr_body"}:
+                path = self.root / getattr(final_source, field_name + "_ref")
+                path.write_text(path.read_text(encoding="utf-8") + "\nChanged public material.\n", encoding="utf-8")
+                final_source = replace(final_source, **{field_name + "_sha256": sha256(path.read_bytes()).hexdigest()})
+            elif field_name == "summary":
+                summary = "Substituted summary."
+                path = self.root / final_source.version_history_ref
+                path.write_text(f"- {summary} [PR #{pull_request.number}]({pull_request.url})\n", encoding="utf-8")
+                final_source = replace(final_source, version_history_summary=summary,
+                                       version_history_sha256=sha256(path.read_bytes()).hexdigest())
+            elif field_name == "version":
+                path = self.root / "version.toml"
+                path.write_text('[framework]\nversion = "0.4.2"\n', encoding="utf-8")
+                final_source = replace(final_source, framework_version="0.4.2",
+                                       version_toml_sha256=sha256(path.read_bytes()).hexdigest())
+            return FinalizationResult(result.call, final_source, field_name != "false_no_op")
+
+        self.bindings.finalize_history_link = tampered
+        result = self.execute()
+        self.assertIn("failed", {row["outcome"] for row in result["terminal_runs"]})
+        self.assertTrue(any("effects/finalize.json" in row["effect_refs"] for row in result["terminal_runs"]))
+        for operation in ("gate-history_link_final", "push-history_link_final", "pr-history_link_final"):
+            self.assertNotIn(operation, self.bindings.calls)
+
+    def test_history_fake_changed_candidate_stops_followup(self) -> None:
+        self._assert_history_tamper_stops_followup("candidate")
+
+    def test_history_substituted_readme_ref_stops_followup(self) -> None:
+        self._assert_history_tamper_stops_followup("readme_ref")
+
+    def test_history_changed_readme_bytes_stops_followup(self) -> None:
+        self._assert_history_tamper_stops_followup("readme")
+
+    def test_history_changed_pr_body_bytes_stops_followup(self) -> None:
+        self._assert_history_tamper_stops_followup("pr_body")
+
+    def test_history_substituted_summary_stops_followup(self) -> None:
+        self._assert_history_tamper_stops_followup("summary")
+
+    def test_history_changed_version_stops_followup(self) -> None:
+        self._assert_history_tamper_stops_followup("version")
+
+    def test_history_changed_closure_cannot_claim_no_op(self) -> None:
+        self._assert_history_tamper_stops_followup("false_no_op")
 
     def test_existing_pr_is_discovered_before_freeze_and_does_not_rewrite_history(self) -> None:
         self.bindings = MockBindings(self.root, existing=True)

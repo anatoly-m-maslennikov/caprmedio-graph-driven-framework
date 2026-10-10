@@ -75,7 +75,7 @@ class NativePublicReleaseBindingsTests(unittest.TestCase):
         (self.root / "version.toml").write_text("[framework]\nversion = \"0.4.1\"\n", encoding="utf-8")
         self.runner = FakeRunner(self.root)
         self.recorder = Recorder()
-        self.candidates: dict[str, str] = {"after_history_finalization": FINAL}
+        self.candidates: dict[str, str] = {"after_history_finalization": INITIAL}
         self.admissions: list[str] = []
         self._bind_commands()
         self.bindings = NativePublicReleaseBindings(
@@ -276,7 +276,7 @@ class NativePublicReleaseBindingsTests(unittest.TestCase):
             self.bindings.upsert_main_pr(self.parameters(), prepared.source, None, "initial")
         self.assertEqual(1, self.runner.calls.count(create))
 
-    def test_history_finalization_needs_native_reseal_then_proves_actual_link(self) -> None:
+    def test_history_finalization_keeps_candidate_and_proves_actual_link(self) -> None:
         prepared = self.prepare()
         pr = PullRequest(f"https://github.com/{OWNER}/{REPOSITORY}/pull/42", 42, "amm/dev", "main")
         with self.assertRaisesRegex(NativePublicReleaseError, "history-finalizer-required"):
@@ -285,15 +285,19 @@ class NativePublicReleaseBindingsTests(unittest.TestCase):
 
         def finalize(_parameters, _source, _pr, line):
             (self.root / "VERSION_HISTORY.md").write_text(line + "\n", encoding="utf-8")
-            return FINAL
+            return INITIAL
 
         self.bindings._history_link_finalizer = finalize
         result = self.bindings.finalize_history_link(self.parameters(), prepared.source, pr)
         self.assertTrue(result.changed)
-        self.assertEqual(FINAL, result.source.candidate_snapshot_manifest_sha256)
+        self.assertEqual(INITIAL, result.source.candidate_snapshot_manifest_sha256)
+        self.assertEqual(prepared.source.readme_sha256, result.source.readme_sha256)
+        self.assertEqual(prepared.source.pr_body_sha256, result.source.pr_body_sha256)
+        self.assertNotEqual(prepared.source.version_history_sha256, result.source.version_history_sha256)
+        self.assertNotEqual(prepared.source.public_document_closure_sha256, result.source.public_document_closure_sha256)
         self.assertIn(pr.url, (self.root / "VERSION_HISTORY.md").read_text(encoding="utf-8"))
 
-    def test_history_postmutation_reseal_failure_is_interrupted(self) -> None:
+    def test_history_fake_changed_candidate_is_interrupted_even_when_observer_agrees(self) -> None:
         prepared = self.prepare()
         pr = PullRequest(f"https://github.com/{OWNER}/{REPOSITORY}/pull/42", 42, "amm/dev", "main")
 
@@ -302,10 +306,26 @@ class NativePublicReleaseBindingsTests(unittest.TestCase):
             return FINAL
 
         self.bindings._history_link_finalizer = finalize
-        self.candidates["after_history_finalization"] = INITIAL
-        with self.assertRaises(PublicReleaseInterrupted):
+        self.candidates["after_history_finalization"] = FINAL
+        with self.assertRaises(PublicReleaseInterrupted) as rejected:
             self.bindings.finalize_history_link(self.parameters(), prepared.source, pr)
+        self.assertEqual("new-local-cycle-required", rejected.exception.__cause__.code)
         self.assertIn(pr.url, (self.root / "VERSION_HISTORY.md").read_text(encoding="utf-8"))
+
+    def test_history_callback_cannot_change_readme_bytes(self) -> None:
+        prepared = self.prepare()
+        pr = PullRequest(f"https://github.com/{OWNER}/{REPOSITORY}/pull/42", 42, "amm/dev", "main")
+
+        def finalize(_parameters, _source, _pr, line):
+            (self.root / "VERSION_HISTORY.md").write_text(line + "\n", encoding="utf-8")
+            (self.root / "README.md").write_text("# Changed README\n", encoding="utf-8")
+            return INITIAL
+
+        self.bindings._history_link_finalizer = finalize
+        with self.assertRaises(PublicReleaseInterrupted) as rejected:
+            self.bindings.finalize_history_link(self.parameters(), prepared.source, pr)
+        self.assertEqual("history-link-invalid", rejected.exception.__cause__.code)
+        self.assertFalse(any(row.operation == "finalize_history_link" for row in self.recorder.rows))
 
     def test_full_gate_requires_real_callback_and_admission(self) -> None:
         prepared = self.prepare()

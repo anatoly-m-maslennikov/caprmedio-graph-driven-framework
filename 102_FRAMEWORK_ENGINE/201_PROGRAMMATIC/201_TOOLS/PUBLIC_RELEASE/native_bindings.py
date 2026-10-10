@@ -44,6 +44,7 @@ from public_release import (
     document_closure_record,
     _parameters,
     _read_source_file,
+    _require_history_only_transition,
     _source,
 )
 
@@ -98,11 +99,10 @@ class FullGateRunner(Protocol):
 
 
 class HistoryLinkFinalizer(Protocol):
-    """Atomically write the exact history link and reseal the new candidate.
+    """Atomically write the exact history link and return the unchanged candidate.
 
-    Returning the new digest makes a caller prove that the source mutation was
-    admitted by its existing candidate-sealing capability; this adapter never
-    invents a post-mutation candidate digest.
+    The observer must independently reopen that same local candidate identity.
+    Public document changes derive a new closure, not a new D566 candidate.
     """
 
     def __call__(self, parameters: Mapping[str, Any], source: SourceProof,
@@ -355,7 +355,7 @@ class NativePublicReleaseBindings:
         if self._history_link_finalizer is None:
             raise NativePublicReleaseError(
                 "history-finalizer-required",
-                "native public release needs an admitted history-link and candidate-reseal callback",
+                "native public release needs an admitted history-link callback",
             )
         self._admit("finalize_history_link", parameters, source)
         line = _history_line(source.version_history_summary, pull_request)
@@ -378,7 +378,7 @@ class NativePublicReleaseBindings:
     def _finalize_and_reopen(self, parameters: Mapping[str, Any], release: Mapping[str, Any],
                              source: SourceProof, pull_request: PullRequest,
                              line: str) -> tuple[str, SourceProof]:
-        """Run the admitted source mutation, then prove its new sealed state.
+        """Run the admitted history mutation, then prove its new document closure.
 
         This method is always invoked through ``_post_effect``.  Any failure
         after the finalizer starts is therefore terminally uncertain instead
@@ -389,12 +389,14 @@ class NativePublicReleaseBindings:
             raise NativePublicReleaseError("history-finalizer-required", "history finalizer is unavailable")
         sealed = self._history_link_finalizer(parameters, source, pull_request, line)
         if not isinstance(sealed, str) or _SHA256.fullmatch(sealed) is None:
-            raise NativePublicReleaseError("candidate-reseal-unproven", "history finalizer did not return a sealed candidate SHA-256")
+            raise NativePublicReleaseError("candidate-reseal-unproven", "history finalizer did not return the current candidate SHA-256")
         final_source = self._current_source(parameters, release, "after_history_finalization", pull_request)
         if final_source.candidate_snapshot_manifest_sha256 != sealed:
             raise NativePublicReleaseError("candidate-reseal-unproven", "current candidate observer disagrees with history finalizer")
-        if final_source.candidate_snapshot_manifest_sha256 == source.candidate_snapshot_manifest_sha256:
-            raise NativePublicReleaseError("candidate-reseal-unproven", "history finalization did not create a new sealed candidate")
+        _require_history_only_transition(
+            source, final_source, pull_request=pull_request,
+            project_root=self.root, release=release,
+        )
         return sealed, final_source
 
     def _bound_release(self, parameters: Mapping[str, Any]) -> dict[str, Any]:

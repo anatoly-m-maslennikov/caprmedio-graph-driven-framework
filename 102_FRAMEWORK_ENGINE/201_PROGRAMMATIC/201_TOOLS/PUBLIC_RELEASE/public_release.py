@@ -376,6 +376,32 @@ def _source(value: object, label: str, *, project_root: Path, release: Mapping[s
     return value
 
 
+def _require_history_only_transition(
+    source: SourceProof, final_source: SourceProof, *, pull_request: PullRequest,
+    project_root: Path, release: Mapping[str, Any],
+) -> None:
+    """Reopen a new document closure without inventing another local candidate."""
+
+    _source(final_source, "history-only source", project_root=project_root, release=release)
+    for field_name in ("candidate_snapshot_manifest_sha256", "framework_version", "version_toml_sha256"):
+        if getattr(final_source, field_name) != getattr(source, field_name):
+            raise PublicReleaseError("new-local-cycle-required", "history finalization changed the local candidate or Version")
+    for field_name in (
+        "readme_ref", "readme_sha256", "pr_body_ref", "pr_body_sha256",
+        "version_history_ref", "version_history_summary",
+    ):
+        if getattr(final_source, field_name) != getattr(source, field_name):
+            raise PublicReleaseError("history-link-invalid", "history-only finalization changed another public material binding")
+    if (
+        source.version_history_pr_url is not None or source.version_history_pr_number is not None
+        or final_source.version_history_pr_url != pull_request.url
+        or final_source.version_history_pr_number != pull_request.number
+        or final_source.version_history_sha256 == source.version_history_sha256
+        or final_source.public_document_closure_sha256 == source.public_document_closure_sha256
+    ):
+        raise PublicReleaseError("history-link-invalid", "history-only finalization must add the actual PR link and a new document closure")
+
+
 def _pr(value: object, label: str, *, release: Mapping[str, Any]) -> PullRequest:
     if not isinstance(value, PullRequest):
         raise PublicReleaseError("invalid-pr-evidence", f"{label} must return PullRequest")
@@ -848,21 +874,26 @@ def _executor(project_root: Path, bindings: PublicReleaseBindings, trace: list[d
                     if not isinstance(result, FinalizationResult):
                         raise PublicReleaseError("invalid-tool-evidence", "finalize_history_link must return FinalizationResult")
                     final_call = _call(result.call, name)
+                    # Retain an observed mutation even when its returned source
+                    # fails the history-only admission below.
+                    _append_call(trace, operation="finalize_version_history", call=final_call,
+                                 step_run_id=step["run_id"], action_run_id=action["run_id"])
+                    action_effects.extend(final_call.effect_refs)
+                    action_reports.extend(final_call.report_refs)
+                    action_result_ref = final_call.result_ref
                     if source is None:
                         raise PublicReleaseError("missing-source-proof", "public materials must be prepared before history finalization")
                     final_source = _source(result.source, name, project_root=Path(project_root), release=parsed_parameters["release"])
                     if result.changed:
                         if discovered is not None:
                             raise PublicReleaseError("history-link-invalid", "existing PR history finalization cannot report an unbound source change")
+                        _require_history_only_transition(
+                            source, final_source, pull_request=final_pr,
+                            project_root=Path(project_root), release=parsed_parameters["release"],
+                        )
                         _require_prepared_source(parsed_parameters["source"], final_source, pr=final_pr,
                                                  project_root=Path(project_root), release=parsed_parameters["release"],
-                                                 require_selected_candidate=False)
-                        if final_source.candidate_snapshot_manifest_sha256 == source.candidate_snapshot_manifest_sha256:
-                            raise PublicReleaseError("history-link-invalid", "new PR history finalization needs its actual URL and a new source snapshot")
-                        _append_call(trace, operation="finalize_version_history", call=final_call, step_run_id=step["run_id"], action_run_id=action["run_id"])
-                        action_effects.extend(final_call.effect_refs)
-                        action_reports.extend(final_call.report_refs)
-                        action_result_ref = final_call.result_ref
+                                                 require_selected_candidate=True)
                         renewed = _gate(bindings.run_full_gate(parsed_parameters, final_source, "history_link_final"), "renewed full gate", final_source,
                                         project_root=Path(project_root), selected_version=parsed_parameters["release"]["selected_version"].removeprefix("v"))
                         _append_call(trace, operation="renewed_full_gate", call=renewed.call, step_run_id=step["run_id"], action_run_id=action["run_id"])
@@ -888,12 +919,11 @@ def _executor(project_root: Path, bindings: PublicReleaseBindings, trace: list[d
                         action_result_ref = refresh_call.result_ref
                         source = final_source
                     else:
+                        if final_source != source:
+                            raise PublicReleaseError("history-link-invalid", "unchanged history finalization changed the source closure")
                         _require_prepared_source(parsed_parameters["source"], final_source, pr=final_pr,
                                                  project_root=Path(project_root), release=parsed_parameters["release"],
                                                  require_selected_candidate=True)
-                        _append_call(trace, operation="finalize_version_history", call=final_call, step_run_id=step["run_id"], action_run_id=action["run_id"])
-                        action_reports.extend(final_call.report_refs)
-                        action_result_ref = final_call.result_ref
                 action_result_ref = _run_evidence_ref(session, action, outcome="completed")
                 step_result_ref = _run_evidence_ref(session, step, outcome="completed")
                 _finish(session, action, outcome="completed", result_ref=action_result_ref,
