@@ -26,8 +26,13 @@ import time
 from collections.abc import Callable, Mapping, Sequence
 from typing import Any
 
-from legacy_process_coverage import LegacyProcessCoverageError as OpaqueCoverageError
-from legacy_process_coverage import ProviderCoverageEvidence
+from legacy_process_coverage import (
+    LegacyBootstrapSourceProof,
+    LegacyProcessCoverageError as OpaqueCoverageError,
+    NativeTargetContextProof,
+    PredecessorProof,
+    ProviderCoverageEvidence,
+)
 
 
 PROVIDERS = ("project_mcp", "mcp_hot_reload", "workflow_orchestrator")
@@ -75,10 +80,11 @@ class LegacyProcessAdmission:
     project_root: Path | str
     project_instance_id: str
     target_context_sha256: str
-    prior_target_context_sha256: str
-    prior_selector_bytes: bytes
-    fence: object
+    prior_target_context_sha256: str | None = None
+    prior_selector_bytes: bytes | None = None
+    fence: object | None = None
     selection: object | None = field(default=None, compare=False, repr=False)
+    predecessor_proof: PredecessorProof | None = field(default=None, compare=False, repr=False)
 
     def __post_init__(self) -> None:
         try:
@@ -91,7 +97,27 @@ class LegacyProcessAdmission:
         object.__setattr__(self, "project_root", root)
         _sha256(self.project_instance_id, name="project instance")
         _sha256(self.target_context_sha256, name="target context")
-        _sha256(self.prior_target_context_sha256, name="prior target context")
+        proof = self.predecessor_proof
+        if proof is not None and not isinstance(proof, (NativeTargetContextProof, LegacyBootstrapSourceProof)):
+            raise LegacyProcessCoverageError("predecessor proof must be typed authenticated evidence")
+        if isinstance(proof, NativeTargetContextProof):
+            if (self.prior_target_context_sha256 is not None
+                    and self.prior_target_context_sha256 != proof.prior_target_context_sha256):
+                raise LegacyProcessCoverageError("native predecessor proof contradicts prior context")
+            if (self.prior_selector_bytes is not None
+                    and self.prior_selector_bytes != proof.execution_selector_bytes):
+                raise LegacyProcessCoverageError("native predecessor proof contradicts execution selector")
+            object.__setattr__(self, "prior_target_context_sha256", proof.prior_target_context_sha256)
+            object.__setattr__(self, "prior_selector_bytes", proof.execution_selector_bytes)
+        elif isinstance(proof, LegacyBootstrapSourceProof):
+            if self.prior_target_context_sha256 is not None:
+                raise LegacyProcessCoverageError("bootstrap predecessor must omit prior D600 context")
+            if (self.prior_selector_bytes is not None
+                    and self.prior_selector_bytes != proof.framework_selector_bytes):
+                raise LegacyProcessCoverageError("bootstrap predecessor proof contradicts Framework selector")
+            object.__setattr__(self, "prior_selector_bytes", proof.framework_selector_bytes)
+        else:
+            _sha256(self.prior_target_context_sha256, name="prior target context")
         if not isinstance(self.prior_selector_bytes, bytes) or not self.prior_selector_bytes:
             raise LegacyProcessCoverageError("prior selector must be reopened raw bytes")
         revalidate = getattr(self.fence, "revalidate", None)
@@ -105,18 +131,28 @@ class LegacyProcessAdmission:
 
     @property
     def fingerprint(self) -> str:
-        return _digest({
+        binding: dict[str, object] = {
             "project_root": str(self.project_root),
             "project_instance_id": self.project_instance_id,
             "target_context_sha256": self.target_context_sha256,
-            "prior_target_context_sha256": self.prior_target_context_sha256,
             "prior_selector_sha256": self.prior_selector_sha256,
-        })
+        }
+        if self.prior_target_context_sha256 is not None:
+            binding["prior_target_context_sha256"] = self.prior_target_context_sha256
+        if self.predecessor_proof is not None:
+            binding["predecessor_proof"] = self.predecessor_proof_binding
+        return _digest(binding)
 
     @property
     def prior_selector_sha256(self) -> str:
         """Digest the exact raw predecessor selector admitted under the lock."""
         return hashlib.sha256(self.prior_selector_bytes).hexdigest()
+
+    @property
+    def predecessor_proof_binding(self) -> dict[str, str] | None:
+        if isinstance(self.predecessor_proof, (NativeTargetContextProof, LegacyBootstrapSourceProof)):
+            return self.predecessor_proof.evidence_binding()
+        return None
 
     def revalidate(self) -> None:
         self.fence.revalidate()
@@ -189,8 +225,9 @@ def _nested_observation(
     into this shape.  Such data is useful only to refuse absence.  Should a
     provider later support an observed predecessor, its *own* query must have
     obtained every nested command, release, start, and shutdown fact below.
-    The predecessor release binds the prior context and raw-selector digest;
-    it must never be compared to the prospective replacement context.
+    The predecessor release binds either the native prior context and raw
+    selector, or the complete retained bootstrap proof.  It must never be
+    compared to the prospective replacement context.
     """
 
     if not isinstance(record, Mapping):
@@ -227,26 +264,45 @@ def _nested_observation(
     release = record.get("release")
     if not isinstance(release, Mapping):
         return None
-    release_required = {
+    native_release_required = {
         "package_manifest_sha256", "framework_version", "version_carrier_sha256",
         "source_catalog_sha256", "full_gate_receipt_sha256", "image_digest",
         "target_context_sha256", "selector_sha256",
     }
-    if set(release) != release_required or not all(
-        _is_sha256(release.get(field))
-        for field in (
-            "package_manifest_sha256", "version_carrier_sha256", "source_catalog_sha256",
-            "full_gate_receipt_sha256", "target_context_sha256", "selector_sha256",
-        )
-    ):
-        return None
-    image = release.get("image_digest")
-    if (not isinstance(image, str) or not image.startswith("sha256:")
-            or not _is_sha256(image[7:])
-            or not isinstance(release.get("framework_version"), str) or not release["framework_version"]
-            or release["target_context_sha256"] != admission.prior_target_context_sha256
-            or release["selector_sha256"] != admission.prior_selector_sha256):
-        return None
+    legacy_release_required = {
+        "package_manifest_sha256", "source_context_sha256", "image_digest", "bootstrap_proof_key",
+        "raw_receipt_sha256", "framework_selector_sha256", "tool_selector_sha256",
+    }
+    if isinstance(admission.predecessor_proof, LegacyBootstrapSourceProof):
+        expected_release = {
+            "package_manifest_sha256": admission.predecessor_proof.package_manifest_sha256,
+            "source_context_sha256": admission.predecessor_proof.source_context_sha256,
+            "image_digest": admission.predecessor_proof.image_digest,
+            "bootstrap_proof_key": admission.predecessor_proof.bootstrap_proof_key,
+            "raw_receipt_sha256": admission.predecessor_proof.raw_receipt_sha256,
+            "framework_selector_sha256": admission.predecessor_proof.framework_selector_sha256,
+            "tool_selector_sha256": admission.predecessor_proof.tool_selector_sha256,
+        }
+        if set(release) != legacy_release_required or any(
+            release.get(key) != value for key, value in expected_release.items()
+        ):
+            return None
+    else:
+        if set(release) != native_release_required or not all(
+            _is_sha256(release.get(field))
+            for field in (
+                "package_manifest_sha256", "version_carrier_sha256", "source_catalog_sha256",
+                "full_gate_receipt_sha256", "target_context_sha256", "selector_sha256",
+            )
+        ):
+            return None
+        image = release.get("image_digest")
+        if (not isinstance(image, str) or not image.startswith("sha256:")
+                or not _is_sha256(image[7:])
+                or not isinstance(release.get("framework_version"), str) or not release["framework_version"]
+                or release["target_context_sha256"] != admission.prior_target_context_sha256
+                or release["selector_sha256"] != admission.prior_selector_sha256):
+            return None
     if not _shutdown_is_verified(record.get("shutdown")):
         return None
     return {
@@ -255,7 +311,10 @@ def _nested_observation(
         "state_generation": record["state_generation"],
         "observed_start_token": record["observed_start_token"],
         "command": {field: command[field] for field in sorted(command_required)},
-        "release": {field: release[field] for field in sorted(release_required)},
+        "release": {field: release[field] for field in sorted(
+            legacy_release_required if isinstance(admission.predecessor_proof, LegacyBootstrapSourceProof)
+            else native_release_required,
+        )},
         "shutdown": {
             "requested": True,
             "response": "acknowledged",
@@ -449,15 +508,20 @@ class FencedLegacyProcessProvider:
         observations: tuple[Mapping[str, object], ...],
         reason: str,
     ) -> ProviderCoverageEvidence:
+        evidence: dict[str, object] = {
+            "provider": self.owned_subtree,
+            "admission_sha256": self.admission.fingerprint,
+            "query": "bounded-live-reopen",
+            "reason": reason,
+        }
+        if self.admission.predecessor_proof_binding is not None:
+            # This proof was derived from raw selector/receipt bytes during
+            # admission.  The provider never accepts a caller-rendered map.
+            evidence["predecessor_proof"] = self.admission.predecessor_proof_binding
         return ProviderCoverageEvidence(
             state=state,
             namespace=self.provider_namespace,
-            evidence={
-                "provider": self.owned_subtree,
-                "admission_sha256": self.admission.fingerprint,
-                "query": "bounded-live-reopen",
-                "reason": reason,
-            },
+            evidence=evidence,
             observations=observations,
         )
 
@@ -465,15 +529,20 @@ class FencedLegacyProcessProvider:
         self,
         *,
         target_context_sha256: str,
-        prior_target_context_sha256: str,
+        prior_target_context_sha256: str | None = None,
         prior_selector_sha256: str,
+        predecessor_proof: Mapping[str, str] | None = None,
     ) -> _ProviderHandle:
-        if (
-            target_context_sha256 != self.admission.target_context_sha256
-            or prior_target_context_sha256 != self.admission.prior_target_context_sha256
-            or prior_selector_sha256 != self.admission.prior_selector_sha256
-        ):
+        if target_context_sha256 != self.admission.target_context_sha256 or (
+                prior_selector_sha256 != self.admission.prior_selector_sha256):
             raise OpaqueCoverageError("coverage-binding-stale", "provider admission belongs to another replacement")
+        if self.admission.prior_target_context_sha256 is None:
+            if prior_target_context_sha256 is not None:
+                raise OpaqueCoverageError("coverage-binding-stale", "bootstrap admission has no prior D600 context")
+        elif prior_target_context_sha256 != self.admission.prior_target_context_sha256:
+            raise OpaqueCoverageError("coverage-binding-stale", "provider admission belongs to another replacement")
+        if predecessor_proof != self.admission.predecessor_proof_binding:
+            raise OpaqueCoverageError("coverage-binding-stale", "provider predecessor proof belongs to another replacement")
         self.admission.revalidate()
         deadline = time.monotonic() + _MAX_QUERY_SECONDS
         try:

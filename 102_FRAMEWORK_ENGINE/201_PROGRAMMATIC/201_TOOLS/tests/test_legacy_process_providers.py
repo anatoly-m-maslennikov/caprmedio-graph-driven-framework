@@ -22,7 +22,11 @@ from legacy_process_providers import (  # noqa: E402
     fenced_legacy_process_providers,
     recollect_provider_coverage,
 )
-from legacy_process_coverage import open_legacy_process_coverage  # noqa: E402
+from legacy_process_coverage import (  # noqa: E402
+    LegacyBootstrapSourceProof,
+    NativeTargetContextProof,
+    open_legacy_process_coverage,
+)
 import legacy_process_providers as provider_module  # noqa: E402
 
 
@@ -56,6 +60,21 @@ class LegacyProcessProviderTests(unittest.TestCase):
 
     def providers(self, query=None):
         return {name: query or self.complete_absent for name in PROVIDERS}
+
+    @staticmethod
+    def legacy_proof() -> LegacyBootstrapSourceProof:
+        def digest(value: str) -> str:
+            return hashlib.sha256(value.encode("utf-8")).hexdigest()
+
+        return LegacyBootstrapSourceProof(
+            framework_selector_bytes=b"[framework]\nversion = 'legacy'\n",
+            tool_selector_bytes=b"[tool]\npackage = 'legacy'\n",
+            package_manifest_sha256=digest("retained package manifest"),
+            source_context_sha256=digest("retained source context"),
+            image_digest="sha256:" + digest("retained image"),
+            bootstrap_proof_key=digest("canonical bootstrap proof key"),
+            raw_receipt_bytes=b"canonical bootstrap evidence receipt\n",
+        )
 
     def record(self, provider, **overrides):
         value = {
@@ -203,6 +222,75 @@ class LegacyProcessProviderTests(unittest.TestCase):
             ) as coverage:
                 self.assertEqual(["unknown", "unknown", "unknown"],
                                  [row["state"] for row in coverage.retained_rows()])
+
+    def test_provider_held_completed_queries_bind_legacy_bootstrap_proof(self):
+        class PhysicalFence:
+            def __init__(self):
+                self.closed = False
+
+            def snapshot(self, _deadline):
+                return {"outcome": "complete", "records": []}
+
+            def close(self):
+                self.closed = True
+
+        proof = self.legacy_proof()
+        admission = LegacyProcessAdmission(
+            project_root=self.root,
+            project_instance_id="1" * 64,
+            target_context_sha256="2" * 64,
+            fence=Fence(),
+            predecessor_proof=proof,
+        )
+        opened = []
+
+        def open_test_fence(*_args):
+            physical = PhysicalFence()
+            opened.append(physical)
+            return physical
+
+        with patch.object(provider_module, "_open_provider_fence", side_effect=open_test_fence):
+            with open_legacy_process_coverage(
+                fenced_legacy_process_providers(admission),
+                target_context_sha256=admission.target_context_sha256,
+                predecessor_proof=proof,
+            ) as coverage:
+                rows = coverage.retained_rows()
+                self.assertEqual(["absent", "absent", "absent"], [row["state"] for row in rows])
+                self.assertTrue(all("prior_target_context_sha256" not in row for row in rows))
+                self.assertTrue(all(row["predecessor_kind"] == "legacy_bootstrap_source_proof" for row in rows))
+                coverage.revalidate()
+        self.assertTrue(all(item.closed for item in opened))
+
+    def test_provider_held_completed_queries_allow_equal_native_contexts(self):
+        class PhysicalFence:
+            def snapshot(self, _deadline):
+                return {"outcome": "complete", "records": []}
+
+            def close(self):
+                return None
+
+        context = "2" * 64
+        proof = NativeTargetContextProof(
+            execution_selector_bytes=b"[native]\nselector = 'old-package'\n",
+            prior_target_context_sha256=context,
+        )
+        admission = LegacyProcessAdmission(
+            project_root=self.root,
+            project_instance_id="1" * 64,
+            target_context_sha256=context,
+            fence=Fence(),
+            predecessor_proof=proof,
+        )
+        with patch.object(provider_module, "_open_provider_fence", return_value=PhysicalFence()):
+            with open_legacy_process_coverage(
+                fenced_legacy_process_providers(admission),
+                target_context_sha256=context,
+                predecessor_proof=proof,
+            ) as coverage:
+                rows = coverage.retained_rows()
+                self.assertEqual(["absent", "absent", "absent"], [row["state"] for row in rows])
+                self.assertEqual([context] * 3, [row["prior_target_context_sha256"] for row in rows])
 
 
 if __name__ == "__main__":

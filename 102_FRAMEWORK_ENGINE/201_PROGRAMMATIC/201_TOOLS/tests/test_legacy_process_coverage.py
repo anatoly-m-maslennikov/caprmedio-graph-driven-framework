@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import hashlib
+import json
 from pathlib import Path
 import sys
 import tempfile
@@ -24,9 +25,12 @@ from installation_state import (  # noqa: E402
 )
 from installation_transaction import installation_publication_lock  # noqa: E402
 from legacy_process_coverage import (  # noqa: E402
+    LegacyBootstrapSourceProof,
     LegacyProcessCoverageError,
+    NativeTargetContextProof,
     ProviderCoverageEvidence,
     open_legacy_process_coverage,
+    validate_retained_coverage_rows,
 )
 
 
@@ -108,6 +112,17 @@ class LegacyProcessCoverageTests(unittest.TestCase):
             target_context_sha256=self.target_context,
             prior_target_context_sha256=self.prior_context,
             prior_selector_sha256=self.prior_selector,
+        )
+
+    def _legacy_proof(self) -> LegacyBootstrapSourceProof:
+        return LegacyBootstrapSourceProof(
+            framework_selector_bytes=b"[framework]\nversion = 'legacy'\n",
+            tool_selector_bytes=b"[tool]\npackage = 'legacy'\n",
+            package_manifest_sha256=_sha("retained bootstrap package manifest"),
+            source_context_sha256=_sha("retained bootstrap source context"),
+            image_digest="sha256:" + _sha("retained bootstrap image"),
+            bootstrap_proof_key=_sha("retained bootstrap proof key"),
+            raw_receipt_bytes=b"canonical retained bootstrap receipt\n",
         )
 
     def _lock(self):
@@ -255,6 +270,102 @@ class LegacyProcessCoverageTests(unittest.TestCase):
             providers[0].evidence["matches"] = ["newly-started-runtime"]
             with self.assertRaisesRegex(InstallationStateError, "coverage-changed"):
                 prove_quiescence(inventory, process_coverage=coverage)
+
+    def test_bootstrap_predecessor_retains_two_raw_selectors_without_native_context(self) -> None:
+        proof = self._legacy_proof()
+        providers = self._providers()
+        for provider in providers:
+            provider.evidence["predecessor_proof"] = proof.evidence_binding()
+
+        with open_legacy_process_coverage(
+            providers,
+            target_context_sha256=self.target_context,
+            predecessor_proof=proof,
+        ) as coverage:
+            rows = coverage.retained_rows()
+            self.assertEqual(["legacy_bootstrap_source_proof"] * 3, [row["predecessor_kind"] for row in rows])
+            self.assertTrue(all("prior_target_context_sha256" not in row for row in rows))
+            self.assertEqual(
+                [proof.framework_selector_sha256] * 3,
+                [row["prior_selector_sha256"] for row in rows],
+            )
+            self.assertEqual(
+                proof.evidence_binding(),
+                json.loads(str(rows[0]["evidence_json"]))["predecessor_proof"],
+            )
+            validated = validate_retained_coverage_rows(
+                list(rows),
+                target_context_sha256=self.target_context,
+                predecessor_proof=proof,
+            )
+            self.assertEqual(rows, validated)
+
+    def test_equal_native_context_is_bound_and_tampered_bootstrap_evidence_is_refused(self) -> None:
+        native_proof = NativeTargetContextProof(
+            execution_selector_bytes=b"[native]\nselector = 'prior'\n",
+            prior_target_context_sha256=self.target_context,
+        )
+        native_providers = self._providers()
+        for provider in native_providers:
+            provider.evidence["predecessor_proof"] = native_proof.evidence_binding()
+        with open_legacy_process_coverage(
+            native_providers,
+            target_context_sha256=self.target_context,
+            predecessor_proof=native_proof,
+        ) as coverage:
+            self.assertEqual(
+                [self.target_context] * 3,
+                [row["prior_target_context_sha256"] for row in coverage.retained_rows()],
+            )
+        with self.assertRaisesRegex(LegacyProcessCoverageError, "contradicts caller bindings"):
+            open_legacy_process_coverage(
+                self._providers(),
+                target_context_sha256=self.target_context,
+                prior_selector_sha256=_sha("forged native selector"),
+                predecessor_proof=native_proof,
+            )
+
+        proof = self._legacy_proof()
+        providers = self._providers()
+        for provider in providers:
+            provider.evidence["predecessor_proof"] = {
+                **proof.evidence_binding(),
+                "raw_receipt_sha256": _sha("forged bootstrap receipt"),
+            }
+        with self.assertRaisesRegex(LegacyProcessCoverageError, "coverage-predecessor-proof-invalid"):
+            open_legacy_process_coverage(
+                providers,
+                target_context_sha256=self.target_context,
+                predecessor_proof=proof,
+            )
+
+    def test_rehashed_optional_native_proof_cannot_contradict_outer_bindings(self) -> None:
+        native_proof = NativeTargetContextProof(
+            execution_selector_bytes=b"prior execution selector",
+            prior_target_context_sha256=self.prior_context,
+        )
+        providers = self._providers()
+        for provider in providers:
+            provider.evidence["predecessor_proof"] = native_proof.evidence_binding()
+        with self._coverage(providers) as coverage:
+            rows = [dict(row) for row in coverage.retained_rows()]
+
+        forged = NativeTargetContextProof(
+            execution_selector_bytes=b"different native selector",
+            prior_target_context_sha256=self.prior_context,
+        )
+        for row in rows:
+            evidence = json.loads(str(row["evidence_json"]))
+            evidence["predecessor_proof"] = forged.evidence_binding()
+            row["evidence_json"] = json.dumps(evidence, sort_keys=True, separators=(",", ":"))
+            row["evidence_sha256"] = hashlib.sha256(row["evidence_json"].encode("utf-8")).hexdigest()
+        with self.assertRaisesRegex(LegacyProcessCoverageError, "contradicts coverage bindings"):
+            validate_retained_coverage_rows(
+                rows,
+                target_context_sha256=self.target_context,
+                prior_target_context_sha256=self.prior_context,
+                prior_selector_sha256=self.prior_selector,
+            )
 
 
 if __name__ == "__main__":  # pragma: no cover
