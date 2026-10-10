@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 54
-updated_at: "2026-10-11 02:46:24 +0400"
+version: 55
+updated_at: "2026-10-11 02:46:31 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1909]
@@ -96,7 +96,7 @@ Inherit CA-P-1959's source boundary, confidence threshold and preservation rules
 - [CA-P-2039 — Review current Subject batch 048](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/49-CA-P-2039-TASK--review-current-subject-batch-048.md)
 - [CA-P-2040 — Review current Subject batch 049](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/50-CA-P-2040-TASK--review-current-subject-batch-049.md)
 - [CA-P-2041 — Review current Subject batch 050](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/51-CA-P-2041-TASK--review-current-subject-batch-050.md)
-- [CA-P-2042 — Review current Subject batch 051](08-CA-P-1966-EPIC--map-current-core-subject-origins/52-CA-P-2042-TASK--review-current-subject-batch-051.md)
+- [CA-P-2042 — Review current Subject batch 051](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/52-CA-P-2042-TASK--review-current-subject-batch-051.md)
 - [CA-P-2043 — Integrate current Subject mapping ledger](08-CA-P-1966-EPIC--map-current-core-subject-origins/53-CA-P-2043-TASK--integrate-current-subject-mapping-ledger.md)
 
 ### Definition of Done

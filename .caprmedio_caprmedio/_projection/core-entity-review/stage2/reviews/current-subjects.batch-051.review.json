@@ -1,0 +1,1068 @@
+{
+  "schema_version": 1,
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "task_id": "CA-P-2042",
+  "batch_id": "current-subjects.batch-051",
+  "input_batch_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-051.json",
+  "input_batch_sha256": "ea29fcd03ba2c7af0b0863f0e1148ca686a0e46b42193259d22893ebbc549b65",
+  "input_inventory_sha256": "e284dbe4943568bc75b7f9ba63ebf583372a60813e62eee3d43b5b75b270220a",
+  "evidence_pins": {
+    "frozen_candidate": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/presentation/operator.entity-graph.candidate.json",
+      "sha256": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b"
+    },
+    "consolidated_review": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/consolidated/nodes.review.json",
+      "sha256": "e4cb9c76b441c13115e87e141890a9dab58634a7a62fb1b3bc32168dbac261f6",
+      "captured_core_commit": "a971d0e00c33c779f485fc8cad63194894d440fb"
+    },
+    "preparation_contract": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.contract.md",
+      "sha256": "5eb0d90022b68a7d1d2cd27cf60a147deaf4161cb9b2e1c8bdf6c4ef8f2a10bf"
+    },
+    "review_contract": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.review.contract.md",
+      "sha256": "b7c9c065f997d5bae1409f5c09b4223d08327a523decab6d26c2e4425fd2c28b"
+    }
+  },
+  "source_reviews": [
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-149-CORE_META_MODEL-STEP--obtain-the-reconciliation-source-correction-decision.md",
+      "full_file_sha256": "48f9245598122d2caaa3341720fb69f732771cf456375aefdba3a971b839c103",
+      "atom_id": "CA-O-149",
+      "version": 2,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-150-CORE_META_MODEL-STEP--apply-the-reconciliation-source-corrections.md",
+      "full_file_sha256": "5f5dd94b4e4a453b37c2b5914ec860c508ce75d4f17efcf127740065f100e3be",
+      "atom_id": "CA-O-150",
+      "version": 2,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-151-CORE_META_MODEL-STEP--publish-the-reconciled-source-projection.md",
+      "full_file_sha256": "c0cb676da0a7fad0031bd581b091c6caf3373573535250dc07988f1bbc9fb0f6",
+      "atom_id": "CA-O-151",
+      "version": 2,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_ops/CA-O-077-CORE_META_MODEL-ACTION--reconcile-atom-properties-and-addresses-together.md",
+      "full_file_sha256": "008ff95f303db059c924037da7a5bb29d1784dfb14bd9d3e4f51364011f0e694",
+      "atom_id": "CA-O-077",
+      "version": 4,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    }
+  ],
+  "occurrences": [
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-149-CORE_META_MODEL-STEP--obtain-the-reconciliation-source-correction-decision.md#subjects.depends_on[0]",
+      "old_value": "Step",
+      "quarantined": false,
+      "source_atom_id": "CA-O-149",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-149-CORE_META_MODEL-STEP--obtain-the-reconciliation-source-correction-decision.md",
+      "source_sha256": "48f9245598122d2caaa3341720fb69f732771cf456375aefdba3a971b839c103",
+      "source_version": 2,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Operations Atom defines a Source Reconciliation Decision Step as one Workflow node invoking exactly one Action, and retains the actual effects and returned results with the Step Run. The current value denotes an Operation definition, while the candidate only confirms actual Execution and its Run kinds; it establishes no canonical Operation-definition root or Step/Action definition path.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-149-CORE_META_MODEL-STEP--obtain-the-reconciliation-source-correction-decision.md",
+          "sha256": "48f9245598122d2caaa3341720fb69f732771cf456375aefdba3a971b839c103",
+          "start_line": 30,
+          "end_line": 43,
+          "span_sha256": "a70f51bcc16dcacbf7ff234d8432923314e24390a8dda5740a298d48f13471da",
+          "reason": "The complete live Main Content is the owning source evidence; frozen candidate and consolidation evidence remain separate."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Step' remains distinct from candidate display notation.",
+        "No source rewrite, native grammar admission, Carrier-registry creation or migration is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-149-CORE_META_MODEL-STEP--obtain-the-reconciliation-source-correction-decision.md#subjects.depends_on[1]",
+      "old_value": "Action",
+      "quarantined": false,
+      "source_atom_id": "CA-O-149",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-149-CORE_META_MODEL-STEP--obtain-the-reconciliation-source-correction-decision.md",
+      "source_sha256": "48f9245598122d2caaa3341720fb69f732771cf456375aefdba3a971b839c103",
+      "source_version": 2,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Operations Atom defines a Source Reconciliation Decision Step as one Workflow node invoking exactly one Action, and retains the actual effects and returned results with the Step Run. The current value denotes an Operation definition, while the candidate only confirms actual Execution and its Run kinds; it establishes no canonical Operation-definition root or Step/Action definition path.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-149-CORE_META_MODEL-STEP--obtain-the-reconciliation-source-correction-decision.md",
+          "sha256": "48f9245598122d2caaa3341720fb69f732771cf456375aefdba3a971b839c103",
+          "start_line": 30,
+          "end_line": 43,
+          "span_sha256": "a70f51bcc16dcacbf7ff234d8432923314e24390a8dda5740a298d48f13471da",
+          "reason": "The complete live Main Content is the owning source evidence; frozen candidate and consolidation evidence remain separate."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Action' remains distinct from candidate display notation.",
+        "No source rewrite, native grammar admission, Carrier-registry creation or migration is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-149-CORE_META_MODEL-STEP--obtain-the-reconciliation-source-correction-decision.md#subjects.depends_on[2]",
+      "old_value": "Source Reconciliation",
+      "quarantined": false,
+      "source_atom_id": "CA-O-149",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-149-CORE_META_MODEL-STEP--obtain-the-reconciliation-source-correction-decision.md",
+      "source_sha256": "48f9245598122d2caaa3341720fb69f732771cf456375aefdba3a971b839c103",
+      "source_version": 2,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Operations Atom defines a Source Reconciliation Decision Step as one Workflow node invoking exactly one Action, and retains the actual effects and returned results with the Step Run. The current value is a reconciliation topic/process label. Terms remain a separate graph and the candidate establishes no identity or owner for this topic.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-149-CORE_META_MODEL-STEP--obtain-the-reconciliation-source-correction-decision.md",
+          "sha256": "48f9245598122d2caaa3341720fb69f732771cf456375aefdba3a971b839c103",
+          "start_line": 30,
+          "end_line": 43,
+          "span_sha256": "a70f51bcc16dcacbf7ff234d8432923314e24390a8dda5740a298d48f13471da",
+          "reason": "The complete live Main Content is the owning source evidence; frozen candidate and consolidation evidence remain separate."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Source Reconciliation' remains distinct from candidate display notation.",
+        "No source rewrite, native grammar admission, Carrier-registry creation or migration is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 3,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-149-CORE_META_MODEL-STEP--obtain-the-reconciliation-source-correction-decision.md#subjects.depends_on[3]",
+      "old_value": "Step/Agentic Execution Context",
+      "quarantined": false,
+      "source_atom_id": "CA-O-149",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-149-CORE_META_MODEL-STEP--obtain-the-reconciliation-source-correction-decision.md",
+      "source_sha256": "48f9245598122d2caaa3341720fb69f732771cf456375aefdba3a971b839c103",
+      "source_version": 2,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Operations Atom defines a Source Reconciliation Decision Step as one Workflow node invoking exactly one Action, and retains the actual effects and returned results with the Step Run. The current value selects an Integrated or Isolated context for an Agentic invocation from an admitted runtime parameter. The candidate supplies no definition/run-qualified context identity or allowed-value domain.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-149-CORE_META_MODEL-STEP--obtain-the-reconciliation-source-correction-decision.md",
+          "sha256": "48f9245598122d2caaa3341720fb69f732771cf456375aefdba3a971b839c103",
+          "start_line": 30,
+          "end_line": 43,
+          "span_sha256": "a70f51bcc16dcacbf7ff234d8432923314e24390a8dda5740a298d48f13471da",
+          "reason": "The complete live Main Content is the owning source evidence; frozen candidate and consolidation evidence remain separate."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Step/Agentic Execution Context' remains distinct from candidate display notation.",
+        "No source rewrite, native grammar admission, Carrier-registry creation or migration is inferred.",
+        "Existing qualification is not mechanically rewritten."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 4,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-149-CORE_META_MODEL-STEP--obtain-the-reconciliation-source-correction-decision.md#subjects.depends_on[4]",
+      "old_value": "Workflow Run",
+      "quarantined": false,
+      "source_atom_id": "CA-O-149",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-149-CORE_META_MODEL-STEP--obtain-the-reconciliation-source-correction-decision.md",
+      "source_sha256": "48f9245598122d2caaa3341720fb69f732771cf456375aefdba3a971b839c103",
+      "source_version": 2,
+      "decision": "proposed",
+      "proposed_value": "Execution/Workflow Run",
+      "confidence": 0.95,
+      "reason": "The current Operations Atom defines a Source Reconciliation Decision Step as one Workflow node invoking exactly one Action, and retains the actual effects and returned results with the Step Run. The body names admitted Workflow Run inputs as an actual invocation, and the candidate defines Execution as one actual run and explicitly includes Workflow Run among its proposed kinds. The mapping remains non-executable.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-149-CORE_META_MODEL-STEP--obtain-the-reconciliation-source-correction-decision.md",
+          "sha256": "48f9245598122d2caaa3341720fb69f732771cf456375aefdba3a971b839c103",
+          "start_line": 30,
+          "end_line": 43,
+          "span_sha256": "a70f51bcc16dcacbf7ff234d8432923314e24390a8dda5740a298d48f13471da",
+          "reason": "The complete live Main Content is the owning source evidence; frozen candidate and consolidation evidence remain separate."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/6",
+          "reason": "Execution means one actual run of an Operation and is distinct from its definition."
+        },
+        {
+          "pointer": "#/root_entities/6/proposed_kinds/2",
+          "reason": "Workflow Run is an explicit proposed Execution kind."
+        }
+      ],
+      "preserved_distinctions": [
+        "Workflow Run remains an actual Execution, not the Workflow definition.",
+        "Its admitted inputs and approval boundary are retained without creating a new native relation."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 5,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-149-CORE_META_MODEL-STEP--obtain-the-reconciliation-source-correction-decision.md#subjects.depends_on[5]",
+      "old_value": "Step Run",
+      "quarantined": false,
+      "source_atom_id": "CA-O-149",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-149-CORE_META_MODEL-STEP--obtain-the-reconciliation-source-correction-decision.md",
+      "source_sha256": "48f9245598122d2caaa3341720fb69f732771cf456375aefdba3a971b839c103",
+      "source_version": 2,
+      "decision": "proposed",
+      "proposed_value": "Execution/Step Run",
+      "confidence": 0.95,
+      "reason": "The current Operations Atom defines a Source Reconciliation Decision Step as one Workflow node invoking exactly one Action, and retains the actual effects and returned results with the Step Run. The body retains actual effects and returned results with the Step Run, and the candidate defines Execution as one actual run and explicitly includes Step Run among its proposed kinds. The mapping remains non-executable.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-149-CORE_META_MODEL-STEP--obtain-the-reconciliation-source-correction-decision.md",
+          "sha256": "48f9245598122d2caaa3341720fb69f732771cf456375aefdba3a971b839c103",
+          "start_line": 30,
+          "end_line": 43,
+          "span_sha256": "a70f51bcc16dcacbf7ff234d8432923314e24390a8dda5740a298d48f13471da",
+          "reason": "The complete live Main Content is the owning source evidence; frozen candidate and consolidation evidence remain separate."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/6",
+          "reason": "Execution means one actual run of an Operation and is distinct from its definition."
+        },
+        {
+          "pointer": "#/root_entities/6/proposed_kinds/1",
+          "reason": "Step Run is an explicit proposed Execution kind."
+        }
+      ],
+      "preserved_distinctions": [
+        "Step Run remains an actual Execution, not the Step definition.",
+        "The selected Action/Step revisions, input bindings, effects and results remain distinct run evidence."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-149-CORE_META_MODEL-STEP--obtain-the-reconciliation-source-correction-decision.md#subjects.governs",
+      "old_value": "Source Reconciliation Decision Step",
+      "quarantined": false,
+      "source_atom_id": "CA-O-149",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-149-CORE_META_MODEL-STEP--obtain-the-reconciliation-source-correction-decision.md",
+      "source_sha256": "48f9245598122d2caaa3341720fb69f732771cf456375aefdba3a971b839c103",
+      "source_version": 2,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Operations Atom defines a Source Reconciliation Decision Step as one Workflow node invoking exactly one Action, and retains the actual effects and returned results with the Step Run. The current value names a specific Workflow-node Step definition. The candidate preserves the definition-versus-actual-Execution boundary but establishes no identity for this definition node.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-149-CORE_META_MODEL-STEP--obtain-the-reconciliation-source-correction-decision.md",
+          "sha256": "48f9245598122d2caaa3341720fb69f732771cf456375aefdba3a971b839c103",
+          "start_line": 30,
+          "end_line": 43,
+          "span_sha256": "a70f51bcc16dcacbf7ff234d8432923314e24390a8dda5740a298d48f13471da",
+          "reason": "The complete live Main Content is the owning source evidence; frozen candidate and consolidation evidence remain separate."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Source Reconciliation Decision Step' remains distinct from candidate display notation.",
+        "No source rewrite, native grammar admission, Carrier-registry creation or migration is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-150-CORE_META_MODEL-STEP--apply-the-reconciliation-source-corrections.md#subjects.depends_on[0]",
+      "old_value": "Step",
+      "quarantined": false,
+      "source_atom_id": "CA-O-150",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-150-CORE_META_MODEL-STEP--apply-the-reconciliation-source-corrections.md",
+      "source_sha256": "5f5dd94b4e4a453b37c2b5914ec860c508ce75d4f17efcf127740065f100e3be",
+      "source_version": 2,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Operations Atom defines a Source Reconciliation Correction Step as one Workflow node invoking exactly one Action, and retains the actual effects and returned results with the Step Run. The current value denotes an Operation definition, while the candidate only confirms actual Execution and its Run kinds; it establishes no canonical Operation-definition root or Step/Action definition path.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-150-CORE_META_MODEL-STEP--apply-the-reconciliation-source-corrections.md",
+          "sha256": "5f5dd94b4e4a453b37c2b5914ec860c508ce75d4f17efcf127740065f100e3be",
+          "start_line": 30,
+          "end_line": 43,
+          "span_sha256": "0f79bda9c680e90a559d5e1d432c9fd6276ec82c53de703729c3aaa83ed7f5f6",
+          "reason": "The complete live Main Content is the owning source evidence; frozen candidate and consolidation evidence remain separate."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Step' remains distinct from candidate display notation.",
+        "No source rewrite, native grammar admission, Carrier-registry creation or migration is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-150-CORE_META_MODEL-STEP--apply-the-reconciliation-source-corrections.md#subjects.depends_on[1]",
+      "old_value": "Action",
+      "quarantined": false,
+      "source_atom_id": "CA-O-150",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-150-CORE_META_MODEL-STEP--apply-the-reconciliation-source-corrections.md",
+      "source_sha256": "5f5dd94b4e4a453b37c2b5914ec860c508ce75d4f17efcf127740065f100e3be",
+      "source_version": 2,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Operations Atom defines a Source Reconciliation Correction Step as one Workflow node invoking exactly one Action, and retains the actual effects and returned results with the Step Run. The current value denotes an Operation definition, while the candidate only confirms actual Execution and its Run kinds; it establishes no canonical Operation-definition root or Step/Action definition path.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-150-CORE_META_MODEL-STEP--apply-the-reconciliation-source-corrections.md",
+          "sha256": "5f5dd94b4e4a453b37c2b5914ec860c508ce75d4f17efcf127740065f100e3be",
+          "start_line": 30,
+          "end_line": 43,
+          "span_sha256": "0f79bda9c680e90a559d5e1d432c9fd6276ec82c53de703729c3aaa83ed7f5f6",
+          "reason": "The complete live Main Content is the owning source evidence; frozen candidate and consolidation evidence remain separate."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Action' remains distinct from candidate display notation.",
+        "No source rewrite, native grammar admission, Carrier-registry creation or migration is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-150-CORE_META_MODEL-STEP--apply-the-reconciliation-source-corrections.md#subjects.depends_on[2]",
+      "old_value": "Source Reconciliation",
+      "quarantined": false,
+      "source_atom_id": "CA-O-150",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-150-CORE_META_MODEL-STEP--apply-the-reconciliation-source-corrections.md",
+      "source_sha256": "5f5dd94b4e4a453b37c2b5914ec860c508ce75d4f17efcf127740065f100e3be",
+      "source_version": 2,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Operations Atom defines a Source Reconciliation Correction Step as one Workflow node invoking exactly one Action, and retains the actual effects and returned results with the Step Run. The current value is a reconciliation topic/process label. Terms remain a separate graph and the candidate establishes no identity or owner for this topic.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-150-CORE_META_MODEL-STEP--apply-the-reconciliation-source-corrections.md",
+          "sha256": "5f5dd94b4e4a453b37c2b5914ec860c508ce75d4f17efcf127740065f100e3be",
+          "start_line": 30,
+          "end_line": 43,
+          "span_sha256": "0f79bda9c680e90a559d5e1d432c9fd6276ec82c53de703729c3aaa83ed7f5f6",
+          "reason": "The complete live Main Content is the owning source evidence; frozen candidate and consolidation evidence remain separate."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Source Reconciliation' remains distinct from candidate display notation.",
+        "No source rewrite, native grammar admission, Carrier-registry creation or migration is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 3,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-150-CORE_META_MODEL-STEP--apply-the-reconciliation-source-corrections.md#subjects.depends_on[3]",
+      "old_value": "Step/Agentic Execution Context",
+      "quarantined": false,
+      "source_atom_id": "CA-O-150",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-150-CORE_META_MODEL-STEP--apply-the-reconciliation-source-corrections.md",
+      "source_sha256": "5f5dd94b4e4a453b37c2b5914ec860c508ce75d4f17efcf127740065f100e3be",
+      "source_version": 2,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Operations Atom defines a Source Reconciliation Correction Step as one Workflow node invoking exactly one Action, and retains the actual effects and returned results with the Step Run. The current value selects an Integrated or Isolated context for an Agentic invocation from an admitted runtime parameter. The candidate supplies no definition/run-qualified context identity or allowed-value domain.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-150-CORE_META_MODEL-STEP--apply-the-reconciliation-source-corrections.md",
+          "sha256": "5f5dd94b4e4a453b37c2b5914ec860c508ce75d4f17efcf127740065f100e3be",
+          "start_line": 30,
+          "end_line": 43,
+          "span_sha256": "0f79bda9c680e90a559d5e1d432c9fd6276ec82c53de703729c3aaa83ed7f5f6",
+          "reason": "The complete live Main Content is the owning source evidence; frozen candidate and consolidation evidence remain separate."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Step/Agentic Execution Context' remains distinct from candidate display notation.",
+        "No source rewrite, native grammar admission, Carrier-registry creation or migration is inferred.",
+        "Existing qualification is not mechanically rewritten."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 4,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-150-CORE_META_MODEL-STEP--apply-the-reconciliation-source-corrections.md#subjects.depends_on[4]",
+      "old_value": "Workflow Run",
+      "quarantined": false,
+      "source_atom_id": "CA-O-150",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-150-CORE_META_MODEL-STEP--apply-the-reconciliation-source-corrections.md",
+      "source_sha256": "5f5dd94b4e4a453b37c2b5914ec860c508ce75d4f17efcf127740065f100e3be",
+      "source_version": 2,
+      "decision": "proposed",
+      "proposed_value": "Execution/Workflow Run",
+      "confidence": 0.95,
+      "reason": "The current Operations Atom defines a Source Reconciliation Correction Step as one Workflow node invoking exactly one Action, and retains the actual effects and returned results with the Step Run. The body names admitted Workflow Run inputs as an actual invocation, and the candidate defines Execution as one actual run and explicitly includes Workflow Run among its proposed kinds. The mapping remains non-executable.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-150-CORE_META_MODEL-STEP--apply-the-reconciliation-source-corrections.md",
+          "sha256": "5f5dd94b4e4a453b37c2b5914ec860c508ce75d4f17efcf127740065f100e3be",
+          "start_line": 30,
+          "end_line": 43,
+          "span_sha256": "0f79bda9c680e90a559d5e1d432c9fd6276ec82c53de703729c3aaa83ed7f5f6",
+          "reason": "The complete live Main Content is the owning source evidence; frozen candidate and consolidation evidence remain separate."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/6",
+          "reason": "Execution means one actual run of an Operation and is distinct from its definition."
+        },
+        {
+          "pointer": "#/root_entities/6/proposed_kinds/2",
+          "reason": "Workflow Run is an explicit proposed Execution kind."
+        }
+      ],
+      "preserved_distinctions": [
+        "Workflow Run remains an actual Execution, not the Workflow definition.",
+        "Its admitted inputs and approval boundary are retained without creating a new native relation."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 5,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-150-CORE_META_MODEL-STEP--apply-the-reconciliation-source-corrections.md#subjects.depends_on[5]",
+      "old_value": "Step Run",
+      "quarantined": false,
+      "source_atom_id": "CA-O-150",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-150-CORE_META_MODEL-STEP--apply-the-reconciliation-source-corrections.md",
+      "source_sha256": "5f5dd94b4e4a453b37c2b5914ec860c508ce75d4f17efcf127740065f100e3be",
+      "source_version": 2,
+      "decision": "proposed",
+      "proposed_value": "Execution/Step Run",
+      "confidence": 0.95,
+      "reason": "The current Operations Atom defines a Source Reconciliation Correction Step as one Workflow node invoking exactly one Action, and retains the actual effects and returned results with the Step Run. The body retains actual effects and returned results with the Step Run, and the candidate defines Execution as one actual run and explicitly includes Step Run among its proposed kinds. The mapping remains non-executable.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-150-CORE_META_MODEL-STEP--apply-the-reconciliation-source-corrections.md",
+          "sha256": "5f5dd94b4e4a453b37c2b5914ec860c508ce75d4f17efcf127740065f100e3be",
+          "start_line": 30,
+          "end_line": 43,
+          "span_sha256": "0f79bda9c680e90a559d5e1d432c9fd6276ec82c53de703729c3aaa83ed7f5f6",
+          "reason": "The complete live Main Content is the owning source evidence; frozen candidate and consolidation evidence remain separate."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/6",
+          "reason": "Execution means one actual run of an Operation and is distinct from its definition."
+        },
+        {
+          "pointer": "#/root_entities/6/proposed_kinds/1",
+          "reason": "Step Run is an explicit proposed Execution kind."
+        }
+      ],
+      "preserved_distinctions": [
+        "Step Run remains an actual Execution, not the Step definition.",
+        "The selected Action/Step revisions, input bindings, effects and results remain distinct run evidence."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-150-CORE_META_MODEL-STEP--apply-the-reconciliation-source-corrections.md#subjects.governs",
+      "old_value": "Source Reconciliation Correction Step",
+      "quarantined": false,
+      "source_atom_id": "CA-O-150",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-150-CORE_META_MODEL-STEP--apply-the-reconciliation-source-corrections.md",
+      "source_sha256": "5f5dd94b4e4a453b37c2b5914ec860c508ce75d4f17efcf127740065f100e3be",
+      "source_version": 2,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Operations Atom defines a Source Reconciliation Correction Step as one Workflow node invoking exactly one Action, and retains the actual effects and returned results with the Step Run. The current value names a specific Workflow-node Step definition. The candidate preserves the definition-versus-actual-Execution boundary but establishes no identity for this definition node.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-150-CORE_META_MODEL-STEP--apply-the-reconciliation-source-corrections.md",
+          "sha256": "5f5dd94b4e4a453b37c2b5914ec860c508ce75d4f17efcf127740065f100e3be",
+          "start_line": 30,
+          "end_line": 43,
+          "span_sha256": "0f79bda9c680e90a559d5e1d432c9fd6276ec82c53de703729c3aaa83ed7f5f6",
+          "reason": "The complete live Main Content is the owning source evidence; frozen candidate and consolidation evidence remain separate."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Source Reconciliation Correction Step' remains distinct from candidate display notation.",
+        "No source rewrite, native grammar admission, Carrier-registry creation or migration is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-151-CORE_META_MODEL-STEP--publish-the-reconciled-source-projection.md#subjects.depends_on[0]",
+      "old_value": "Step",
+      "quarantined": false,
+      "source_atom_id": "CA-O-151",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-151-CORE_META_MODEL-STEP--publish-the-reconciled-source-projection.md",
+      "source_sha256": "c0cb676da0a7fad0031bd581b091c6caf3373573535250dc07988f1bbc9fb0f6",
+      "source_version": 2,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Operations Atom defines a Source Reconciliation Publication Step as one Workflow node invoking exactly one Action, and retains the actual effects and returned results with the Step Run. The current value denotes an Operation definition, while the candidate only confirms actual Execution and its Run kinds; it establishes no canonical Operation-definition root or Step/Action definition path.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-151-CORE_META_MODEL-STEP--publish-the-reconciled-source-projection.md",
+          "sha256": "c0cb676da0a7fad0031bd581b091c6caf3373573535250dc07988f1bbc9fb0f6",
+          "start_line": 30,
+          "end_line": 43,
+          "span_sha256": "e9498d486c5a7325135ca6bb0640d979ab26f398aa304f41966e916211abf0d5",
+          "reason": "The complete live Main Content is the owning source evidence; frozen candidate and consolidation evidence remain separate."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Step' remains distinct from candidate display notation.",
+        "No source rewrite, native grammar admission, Carrier-registry creation or migration is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-151-CORE_META_MODEL-STEP--publish-the-reconciled-source-projection.md#subjects.depends_on[1]",
+      "old_value": "Action",
+      "quarantined": false,
+      "source_atom_id": "CA-O-151",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-151-CORE_META_MODEL-STEP--publish-the-reconciled-source-projection.md",
+      "source_sha256": "c0cb676da0a7fad0031bd581b091c6caf3373573535250dc07988f1bbc9fb0f6",
+      "source_version": 2,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Operations Atom defines a Source Reconciliation Publication Step as one Workflow node invoking exactly one Action, and retains the actual effects and returned results with the Step Run. The current value denotes an Operation definition, while the candidate only confirms actual Execution and its Run kinds; it establishes no canonical Operation-definition root or Step/Action definition path.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-151-CORE_META_MODEL-STEP--publish-the-reconciled-source-projection.md",
+          "sha256": "c0cb676da0a7fad0031bd581b091c6caf3373573535250dc07988f1bbc9fb0f6",
+          "start_line": 30,
+          "end_line": 43,
+          "span_sha256": "e9498d486c5a7325135ca6bb0640d979ab26f398aa304f41966e916211abf0d5",
+          "reason": "The complete live Main Content is the owning source evidence; frozen candidate and consolidation evidence remain separate."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Action' remains distinct from candidate display notation.",
+        "No source rewrite, native grammar admission, Carrier-registry creation or migration is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-151-CORE_META_MODEL-STEP--publish-the-reconciled-source-projection.md#subjects.depends_on[2]",
+      "old_value": "Source Reconciliation",
+      "quarantined": false,
+      "source_atom_id": "CA-O-151",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-151-CORE_META_MODEL-STEP--publish-the-reconciled-source-projection.md",
+      "source_sha256": "c0cb676da0a7fad0031bd581b091c6caf3373573535250dc07988f1bbc9fb0f6",
+      "source_version": 2,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Operations Atom defines a Source Reconciliation Publication Step as one Workflow node invoking exactly one Action, and retains the actual effects and returned results with the Step Run. The current value is a reconciliation topic/process label. Terms remain a separate graph and the candidate establishes no identity or owner for this topic.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-151-CORE_META_MODEL-STEP--publish-the-reconciled-source-projection.md",
+          "sha256": "c0cb676da0a7fad0031bd581b091c6caf3373573535250dc07988f1bbc9fb0f6",
+          "start_line": 30,
+          "end_line": 43,
+          "span_sha256": "e9498d486c5a7325135ca6bb0640d979ab26f398aa304f41966e916211abf0d5",
+          "reason": "The complete live Main Content is the owning source evidence; frozen candidate and consolidation evidence remain separate."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Source Reconciliation' remains distinct from candidate display notation.",
+        "No source rewrite, native grammar admission, Carrier-registry creation or migration is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 3,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-151-CORE_META_MODEL-STEP--publish-the-reconciled-source-projection.md#subjects.depends_on[3]",
+      "old_value": "Step/Agentic Execution Context",
+      "quarantined": false,
+      "source_atom_id": "CA-O-151",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-151-CORE_META_MODEL-STEP--publish-the-reconciled-source-projection.md",
+      "source_sha256": "c0cb676da0a7fad0031bd581b091c6caf3373573535250dc07988f1bbc9fb0f6",
+      "source_version": 2,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Operations Atom defines a Source Reconciliation Publication Step as one Workflow node invoking exactly one Action, and retains the actual effects and returned results with the Step Run. The current value selects an Integrated or Isolated context for an Agentic invocation from an admitted runtime parameter. The candidate supplies no definition/run-qualified context identity or allowed-value domain.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-151-CORE_META_MODEL-STEP--publish-the-reconciled-source-projection.md",
+          "sha256": "c0cb676da0a7fad0031bd581b091c6caf3373573535250dc07988f1bbc9fb0f6",
+          "start_line": 30,
+          "end_line": 43,
+          "span_sha256": "e9498d486c5a7325135ca6bb0640d979ab26f398aa304f41966e916211abf0d5",
+          "reason": "The complete live Main Content is the owning source evidence; frozen candidate and consolidation evidence remain separate."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Step/Agentic Execution Context' remains distinct from candidate display notation.",
+        "No source rewrite, native grammar admission, Carrier-registry creation or migration is inferred.",
+        "Existing qualification is not mechanically rewritten."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 4,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-151-CORE_META_MODEL-STEP--publish-the-reconciled-source-projection.md#subjects.depends_on[4]",
+      "old_value": "Workflow Run",
+      "quarantined": false,
+      "source_atom_id": "CA-O-151",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-151-CORE_META_MODEL-STEP--publish-the-reconciled-source-projection.md",
+      "source_sha256": "c0cb676da0a7fad0031bd581b091c6caf3373573535250dc07988f1bbc9fb0f6",
+      "source_version": 2,
+      "decision": "proposed",
+      "proposed_value": "Execution/Workflow Run",
+      "confidence": 0.95,
+      "reason": "The current Operations Atom defines a Source Reconciliation Publication Step as one Workflow node invoking exactly one Action, and retains the actual effects and returned results with the Step Run. The body names admitted Workflow Run inputs as an actual invocation, and the candidate defines Execution as one actual run and explicitly includes Workflow Run among its proposed kinds. The mapping remains non-executable.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-151-CORE_META_MODEL-STEP--publish-the-reconciled-source-projection.md",
+          "sha256": "c0cb676da0a7fad0031bd581b091c6caf3373573535250dc07988f1bbc9fb0f6",
+          "start_line": 30,
+          "end_line": 43,
+          "span_sha256": "e9498d486c5a7325135ca6bb0640d979ab26f398aa304f41966e916211abf0d5",
+          "reason": "The complete live Main Content is the owning source evidence; frozen candidate and consolidation evidence remain separate."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/6",
+          "reason": "Execution means one actual run of an Operation and is distinct from its definition."
+        },
+        {
+          "pointer": "#/root_entities/6/proposed_kinds/2",
+          "reason": "Workflow Run is an explicit proposed Execution kind."
+        }
+      ],
+      "preserved_distinctions": [
+        "Workflow Run remains an actual Execution, not the Workflow definition.",
+        "Its admitted inputs and approval boundary are retained without creating a new native relation."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 5,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-151-CORE_META_MODEL-STEP--publish-the-reconciled-source-projection.md#subjects.depends_on[5]",
+      "old_value": "Step Run",
+      "quarantined": false,
+      "source_atom_id": "CA-O-151",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-151-CORE_META_MODEL-STEP--publish-the-reconciled-source-projection.md",
+      "source_sha256": "c0cb676da0a7fad0031bd581b091c6caf3373573535250dc07988f1bbc9fb0f6",
+      "source_version": 2,
+      "decision": "proposed",
+      "proposed_value": "Execution/Step Run",
+      "confidence": 0.95,
+      "reason": "The current Operations Atom defines a Source Reconciliation Publication Step as one Workflow node invoking exactly one Action, and retains the actual effects and returned results with the Step Run. The body retains actual effects and returned results with the Step Run, and the candidate defines Execution as one actual run and explicitly includes Step Run among its proposed kinds. The mapping remains non-executable.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-151-CORE_META_MODEL-STEP--publish-the-reconciled-source-projection.md",
+          "sha256": "c0cb676da0a7fad0031bd581b091c6caf3373573535250dc07988f1bbc9fb0f6",
+          "start_line": 30,
+          "end_line": 43,
+          "span_sha256": "e9498d486c5a7325135ca6bb0640d979ab26f398aa304f41966e916211abf0d5",
+          "reason": "The complete live Main Content is the owning source evidence; frozen candidate and consolidation evidence remain separate."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/6",
+          "reason": "Execution means one actual run of an Operation and is distinct from its definition."
+        },
+        {
+          "pointer": "#/root_entities/6/proposed_kinds/1",
+          "reason": "Step Run is an explicit proposed Execution kind."
+        }
+      ],
+      "preserved_distinctions": [
+        "Step Run remains an actual Execution, not the Step definition.",
+        "The selected Action/Step revisions, input bindings, effects and results remain distinct run evidence."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-151-CORE_META_MODEL-STEP--publish-the-reconciled-source-projection.md#subjects.governs",
+      "old_value": "Source Reconciliation Publication Step",
+      "quarantined": false,
+      "source_atom_id": "CA-O-151",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-151-CORE_META_MODEL-STEP--publish-the-reconciled-source-projection.md",
+      "source_sha256": "c0cb676da0a7fad0031bd581b091c6caf3373573535250dc07988f1bbc9fb0f6",
+      "source_version": 2,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Operations Atom defines a Source Reconciliation Publication Step as one Workflow node invoking exactly one Action, and retains the actual effects and returned results with the Step Run. The current value names a specific Workflow-node Step definition. The candidate preserves the definition-versus-actual-Execution boundary but establishes no identity for this definition node.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-151-CORE_META_MODEL-STEP--publish-the-reconciled-source-projection.md",
+          "sha256": "c0cb676da0a7fad0031bd581b091c6caf3373573535250dc07988f1bbc9fb0f6",
+          "start_line": 30,
+          "end_line": 43,
+          "span_sha256": "e9498d486c5a7325135ca6bb0640d979ab26f398aa304f41966e916211abf0d5",
+          "reason": "The complete live Main Content is the owning source evidence; frozen candidate and consolidation evidence remain separate."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Source Reconciliation Publication Step' remains distinct from candidate display notation.",
+        "No source rewrite, native grammar admission, Carrier-registry creation or migration is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_ops/CA-O-077-CORE_META_MODEL-ACTION--reconcile-atom-properties-and-addresses-together.md#subjects.depends_on[0]",
+      "old_value": "Atom",
+      "quarantined": false,
+      "source_atom_id": "CA-O-077",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_ops/CA-O-077-CORE_META_MODEL-ACTION--reconcile-atom-properties-and-addresses-together.md",
+      "source_sha256": "008ff95f303db059c924037da7a5bb29d1784dfb14bd9d3e4f51364011f0e694",
+      "source_version": 4,
+      "decision": "unchanged",
+      "proposed_value": "Atom",
+      "confidence": 0.95,
+      "reason": "The current Operations Action reconciles an Atom's carried Properties and address only within authorized change, preserving the current Revision and required history. The candidate confirms this current Entity boundary but does not supply a lossless more-specific value; adding a display-only owner prefix is not justified, so the exact current Subject value is retained.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_ops/CA-O-077-CORE_META_MODEL-ACTION--reconcile-atom-properties-and-addresses-together.md",
+          "sha256": "008ff95f303db059c924037da7a5bb29d1784dfb14bd9d3e4f51364011f0e694",
+          "start_line": 24,
+          "end_line": 39,
+          "span_sha256": "c5463b8a97104176d669db6bfa6bc1786d28c0f74f2315539ec2b08197b6335e",
+          "reason": "The complete live Main Content is the owning source evidence; frozen candidate and consolidation evidence remain separate."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Atom' remains distinct from candidate display notation.",
+        "No source rewrite, native grammar admission, Carrier-registry creation or migration is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_ops/CA-O-077-CORE_META_MODEL-ACTION--reconcile-atom-properties-and-addresses-together.md#subjects.depends_on[1]",
+      "old_value": "Atom/Property",
+      "quarantined": false,
+      "source_atom_id": "CA-O-077",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_ops/CA-O-077-CORE_META_MODEL-ACTION--reconcile-atom-properties-and-addresses-together.md",
+      "source_sha256": "008ff95f303db059c924037da7a5bb29d1784dfb14bd9d3e4f51364011f0e694",
+      "source_version": 4,
+      "decision": "proposed",
+      "proposed_value": "Atom.Property",
+      "confidence": 0.9,
+      "reason": "The current Operations Action reconciles an Atom's carried Properties and address only within authorized change, preserving the current Revision and required history. The Action resolves approved Property values from canonical internal locations, and the candidate confirms Property is a dependent Entity node owned by its bearer rather than a Relation or root. The mapping remains non-executable.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_ops/CA-O-077-CORE_META_MODEL-ACTION--reconcile-atom-properties-and-addresses-together.md",
+          "sha256": "008ff95f303db059c924037da7a5bb29d1784dfb14bd9d3e4f51364011f0e694",
+          "start_line": 24,
+          "end_line": 39,
+          "span_sha256": "c5463b8a97104176d669db6bfa6bc1786d28c0f74f2315539ec2b08197b6335e",
+          "reason": "The complete live Main Content is the owning source evidence; frozen candidate and consolidation evidence remain separate."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "#/dependent_entities/property_node_vs_relation",
+          "reason": "A Property is a dependent Entity node connected to its owning Entity."
+        },
+        {
+          "pointer": "#/root_entities/0/narrower_entities/0",
+          "reason": "Atom is Artifact's narrower Entity."
+        }
+      ],
+      "preserved_distinctions": [
+        "Property remains Atom-borne and without an independent lifecycle.",
+        "Canonical internal location remains representation policy, not a per-Property Carrier registry."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_ops/CA-O-077-CORE_META_MODEL-ACTION--reconcile-atom-properties-and-addresses-together.md#subjects.depends_on[2]",
+      "old_value": "Atom/Revision",
+      "quarantined": false,
+      "source_atom_id": "CA-O-077",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_ops/CA-O-077-CORE_META_MODEL-ACTION--reconcile-atom-properties-and-addresses-together.md",
+      "source_sha256": "008ff95f303db059c924037da7a5bb29d1784dfb14bd9d3e4f51364011f0e694",
+      "source_version": 4,
+      "decision": "proposed",
+      "proposed_value": "Revision",
+      "confidence": 0.9,
+      "reason": "The current Operations Action reconciles an Atom's carried Properties and address only within authorized change, preserving the current Revision and required history. The Action reads the current Revision and preserves required history, while the candidate establishes Revision as a separate historical root rather than Atom/Revision nesting. The mapping remains non-executable.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_ops/CA-O-077-CORE_META_MODEL-ACTION--reconcile-atom-properties-and-addresses-together.md",
+          "sha256": "008ff95f303db059c924037da7a5bb29d1784dfb14bd9d3e4f51364011f0e694",
+          "start_line": 24,
+          "end_line": 39,
+          "span_sha256": "c5463b8a97104176d669db6bfa6bc1786d28c0f74f2315539ec2b08197b6335e",
+          "reason": "The complete live Main Content is the owning source evidence; frozen candidate and consolidation evidence remain separate."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/4",
+          "reason": "Revision is a separate historical root and explicitly excludes Atom/Revision."
+        },
+        {
+          "pointer": "#/history_model/historical_reference/atom_reference",
+          "reason": "An Atom historical reference is Atom ID plus Version Number."
+        }
+      ],
+      "preserved_distinctions": [
+        "The historical Atom reference retains Atom ID and Version Number.",
+        "Revision remains history, not a dependent Atom field."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 3,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_ops/CA-O-077-CORE_META_MODEL-ACTION--reconcile-atom-properties-and-addresses-together.md#subjects.depends_on[3]",
+      "old_value": "Atom/Summary",
+      "quarantined": false,
+      "source_atom_id": "CA-O-077",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_ops/CA-O-077-CORE_META_MODEL-ACTION--reconcile-atom-properties-and-addresses-together.md",
+      "source_sha256": "008ff95f303db059c924037da7a5bb29d1784dfb14bd9d3e4f51364011f0e694",
+      "source_version": 4,
+      "decision": "proposed",
+      "proposed_value": "Atom.Summary",
+      "confidence": 0.95,
+      "reason": "The current Operations Action reconciles an Atom's carried Properties and address only within authorized change, preserving the current Revision and required history. The Action treats a changed Summary as requiring Atom replacement, and the candidate gives Atom.Summary as its exact dependent-Entity example. The mapping remains non-executable.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_ops/CA-O-077-CORE_META_MODEL-ACTION--reconcile-atom-properties-and-addresses-together.md",
+          "sha256": "008ff95f303db059c924037da7a5bb29d1784dfb14bd9d3e4f51364011f0e694",
+          "start_line": 24,
+          "end_line": 39,
+          "span_sha256": "c5463b8a97104176d669db6bfa6bc1786d28c0f74f2315539ec2b08197b6335e",
+          "reason": "The complete live Main Content is the owning source evidence; frozen candidate and consolidation evidence remain separate."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "#/dependent_entities/compact_examples/1",
+          "reason": "The exact candidate example is Atom.Summary."
+        },
+        {
+          "pointer": "#/dependent_entities/notation_boundary",
+          "reason": "Candidate display notation does not admit native grammar or migration."
+        }
+      ],
+      "preserved_distinctions": [
+        "Summary remains a dependent Atom Property distinct from filename or directory representations.",
+        "No Artifact display prefix is added."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 4,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_ops/CA-O-077-CORE_META_MODEL-ACTION--reconcile-atom-properties-and-addresses-together.md#subjects.depends_on[4]",
+      "old_value": "Carrier",
+      "quarantined": false,
+      "source_atom_id": "CA-O-077",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_ops/CA-O-077-CORE_META_MODEL-ACTION--reconcile-atom-properties-and-addresses-together.md",
+      "source_sha256": "008ff95f303db059c924037da7a5bb29d1784dfb14bd9d3e4f51364011f0e694",
+      "source_version": 4,
+      "decision": "unchanged",
+      "proposed_value": "Carrier",
+      "confidence": 0.95,
+      "reason": "The current Operations Action reconciles an Atom's carried Properties and address only within authorized change, preserving the current Revision and required history. The candidate confirms this current Entity boundary but does not supply a lossless more-specific value; adding a display-only owner prefix is not justified, so the exact current Subject value is retained.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_ops/CA-O-077-CORE_META_MODEL-ACTION--reconcile-atom-properties-and-addresses-together.md",
+          "sha256": "008ff95f303db059c924037da7a5bb29d1784dfb14bd9d3e4f51364011f0e694",
+          "start_line": 24,
+          "end_line": 39,
+          "span_sha256": "c5463b8a97104176d669db6bfa6bc1786d28c0f74f2315539ec2b08197b6335e",
+          "reason": "The complete live Main Content is the owning source evidence; frozen candidate and consolidation evidence remain separate."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Carrier' remains distinct from candidate display notation.",
+        "No source rewrite, native grammar admission, Carrier-registry creation or migration is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 5,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_ops/CA-O-077-CORE_META_MODEL-ACTION--reconcile-atom-properties-and-addresses-together.md#subjects.depends_on[5]",
+      "old_value": "Operator",
+      "quarantined": false,
+      "source_atom_id": "CA-O-077",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_ops/CA-O-077-CORE_META_MODEL-ACTION--reconcile-atom-properties-and-addresses-together.md",
+      "source_sha256": "008ff95f303db059c924037da7a5bb29d1784dfb14bd9d3e4f51364011f0e694",
+      "source_version": 4,
+      "decision": "proposed",
+      "proposed_value": "Actor.Type: Operator",
+      "confidence": 0.95,
+      "reason": "The current Operations Action requires an authorized Operator without turning that Actor into an Execution. The candidate defines Actor identity as Actor Type plus optional Name and explicitly lists Operator as a Type value. The mapping remains non-executable.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_ops/CA-O-077-CORE_META_MODEL-ACTION--reconcile-atom-properties-and-addresses-together.md",
+          "sha256": "008ff95f303db059c924037da7a5bb29d1784dfb14bd9d3e4f51364011f0e694",
+          "start_line": 24,
+          "end_line": 39,
+          "span_sha256": "c5463b8a97104176d669db6bfa6bc1786d28c0f74f2315539ec2b08197b6335e",
+          "reason": "The complete live Main Content is the owning source evidence; frozen candidate and consolidation evidence remain separate."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "#/entity_identity_model/actor/identity",
+          "reason": "Actor identity is Actor Type plus optional Name, so Type is the dependent classification rather than a subtype hierarchy."
+        },
+        {
+          "pointer": "#/entity_identity_model/actor/type_examples/1",
+          "reason": "Operator is an explicit Actor Type example."
+        }
+      ],
+      "preserved_distinctions": [
+        "Operator remains the Actor Type value, not an authorization, Action, Execution, or a new Actor subtype.",
+        "The source's authorized-change condition remains a separate constraint."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_ops/CA-O-077-CORE_META_MODEL-ACTION--reconcile-atom-properties-and-addresses-together.md#subjects.governs",
+      "old_value": "Atom/Carrier/Reconciliation",
+      "quarantined": false,
+      "source_atom_id": "CA-O-077",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_ops/CA-O-077-CORE_META_MODEL-ACTION--reconcile-atom-properties-and-addresses-together.md",
+      "source_sha256": "008ff95f303db059c924037da7a5bb29d1784dfb14bd9d3e4f51364011f0e694",
+      "source_version": 4,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Operations Action reconciles an Atom's carried Properties and address only within authorized change, preserving the current Revision and required history. The current Action coordinates an Atom's Properties, address and a Carrier change without making storage a new authority. The candidate establishes no Carrier Reconciliation subtype or Atom-qualified Carrier registry preserving that boundary.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_ops/CA-O-077-CORE_META_MODEL-ACTION--reconcile-atom-properties-and-addresses-together.md",
+          "sha256": "008ff95f303db059c924037da7a5bb29d1784dfb14bd9d3e4f51364011f0e694",
+          "start_line": 24,
+          "end_line": 39,
+          "span_sha256": "c5463b8a97104176d669db6bfa6bc1786d28c0f74f2315539ec2b08197b6335e",
+          "reason": "The complete live Main Content is the owning source evidence; frozen candidate and consolidation evidence remain separate."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Atom/Carrier/Reconciliation' remains distinct from candidate display notation.",
+        "No source rewrite, native grammar admission, Carrier-registry creation or migration is inferred.",
+        "Existing qualification is not mechanically rewritten."
+      ],
+      "question": null,
+      "executable": false
+    }
+  ]
+}
