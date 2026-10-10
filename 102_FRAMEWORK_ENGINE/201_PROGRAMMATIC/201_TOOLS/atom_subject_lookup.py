@@ -249,6 +249,8 @@ def run_subject_search(root: Path, args: Any) -> dict[str, Any]:
     for path, metadata, frontmatter, body, digest in valid:
         if metadata["atom_id"] in duplicate_ids or (lifecycle != "all" and _lifecycle(path, control) != lifecycle):
             continue
+        if lifecycle == "active" and metadata["status"].casefold() != "active":
+            continue
         if roles and metadata["content_role"] not in roles:
             continue
         if requested_owner is not None and metadata["current_scope_unit"] != requested_owner:

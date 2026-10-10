@@ -36,12 +36,13 @@ class SubjectLookupTest(unittest.TestCase):
     def tearDown(self) -> None:
         self.temp.cleanup()
 
-    def _write(self, atom_id: str, governs: str, depends: list[str], *, directory: Path | None = None, role: str = "Requirement") -> Path:
+    def _write(self, atom_id: str, governs: str, depends: list[str], *, directory: Path | None = None,
+               role: str = "Requirement", status: str = "Active") -> Path:
         path = (directory or self.role) / f"{atom_id}-CORE-REQUIREMENT--fixture.md"
         path.parent.mkdir(parents=True, exist_ok=True)
         dependencies = "\n".join(f"    - {value}" for value in depends)
         path.write_text(
-            f"---\natom_id: {atom_id}\nversion: 1\nstatus: Active\ncontent_role: {role}\ncurrent_scope_unit: CORE\nupdated_at: now\nsubjects:\n  governs: {governs}\n"
+            f"---\natom_id: {atom_id}\nversion: 1\nstatus: {status}\ncontent_role: {role}\ncurrent_scope_unit: CORE\nupdated_at: now\nsubjects:\n  governs: {governs}\n"
             + (f"  depends_on:\n{dependencies}\n" if dependencies else "") + "---\nCore/Atom in body only\n",
             encoding="utf-8",
         )
@@ -123,3 +124,11 @@ class SubjectLookupTest(unittest.TestCase):
         self._write("CA-M-8", "Core/Atom", [], role="Requirement")
         result = run_subject_search(self.root, self._args())
         self.assertIn("source-invalid", {item["code"] for item in result["diagnostics"]})
+
+    def test_active_default_excludes_backlog_plan_outside_lifecycle_folder(self) -> None:
+        planning = self.role.parent / "031_planning"
+        self._write("CA-P-9", "Core/Atom", [], directory=planning, role="Plan", status="Backlog")
+        active = run_subject_search(self.root, self._args(content_role=["Plan"]))
+        self.assertEqual(active["count"], 0)
+        all_lifecycles = run_subject_search(self.root, self._args(content_role=["Plan"], lifecycle="all"))
+        self.assertEqual(all_lifecycles["count"], 1)
