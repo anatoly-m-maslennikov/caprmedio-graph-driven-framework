@@ -1,21 +1,97 @@
-"""Canonical discover_operations JSON entrypoint."""
+"""Canonical ``DISCOVER_OPERATIONS`` Tool provider and JSON entrypoint."""
+
+from __future__ import annotations
+
 import argparse
-import asyncio
 import json
 from pathlib import Path
 import sys
+from typing import Any, Mapping
+
+from pydantic import JsonValue, RootModel
+
 
 TOOLS = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(TOOLS))
-sys.path.insert(0, str(TOOLS / 'VALIDATE_ATOMS'))
-from capability_discovery.service import Service, Query
+for path in (TOOLS, TOOLS / "VALIDATE_ATOMS"):
+    if str(path) not in sys.path:
+        sys.path.insert(0, str(path))
 
-if __name__ == '__main__':
+from capability_discovery.service import Query, Service  # noqa: E402
+from tool_description import binding_matches, make_tool_description  # noqa: E402
+
+
+MCP_NAME = "discover_operations"
+TOOL_NAME = "DISCOVER_OPERATIONS"
+ACTION_ID = "CA-O-113"
+DELIVERY_ID = "CA-D-513"
+ENTRYPOINT = "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/DISCOVER_OPERATIONS/discover_operations.py"
+
+
+class DiscoverOperationsResult(RootModel[dict[str, JsonValue]]):
+    """Canonical open result produced by Operation discovery."""
+
+
+class _DescriptorAdapter:
+    """Root-bound invoker that preserves the existing discovery semantics."""
+
+    def __init__(self, root: str | Path) -> None:
+        self._service = Service(root)
+
+    def invoke(self, request: Query) -> dict[str, Any]:
+        return self._service.discover(request, operations=True)
+
+
+def create_adapter(root: str | Path) -> _DescriptorAdapter:
+    """Create the sole root-bound canonical Tool adapter."""
+
+    return _DescriptorAdapter(root)
+
+
+def describe_tool() -> dict[str, object]:
+    """Return descriptor metadata without reading carriers or invoking discovery."""
+
+    return make_tool_description(
+        entrypoint=ENTRYPOINT,
+        name=TOOL_NAME,
+        delivery_atom_id=DELIVERY_ID,
+        action_ids=[ACTION_ID],
+        input_symbol="Query",
+        output_symbol="DiscoverOperationsResult",
+        title="Discover Operations",
+        description="Find declared Workflows and Actions by outcome and availability without invoking them.",
+        purpose="Provide effect-free discovery of current Operation definitions and Tool bindings.",
+        read_only=True,
+        idempotent=True,
+    )
+
+
+def binding_is_admitted(binding: Mapping[str, object] | None) -> bool:
+    """Require the current catalog binding to match this exact provider."""
+
+    return binding_matches(
+        binding,
+        entrypoint=ENTRYPOINT,
+        name=TOOL_NAME,
+        delivery_atom_id=DELIVERY_ID,
+        action_ids=[ACTION_ID],
+    )
+
+
+def _main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--project-root', required=True)
-    parser.add_argument('--input', default='-')
+    parser.add_argument("--project-root", required=True)
+    parser.add_argument("--input", default="-")
     args = parser.parse_args()
-    raw = sys.stdin.read() if args.input == '-' else Path(args.input).read_text()
+    raw = sys.stdin.read() if args.input == "-" else Path(args.input).read_text()
     request = Query.model_validate_json(raw)
-    service = Service(args.project_root)
-    print(json.dumps(service.discover(request, operations=True), default=str))
+    print(json.dumps(create_adapter(args.project_root).invoke(request), default=str))
+
+
+if __name__ == "__main__":
+    _main()
+
+
+__all__ = [
+    "ACTION_ID", "DELIVERY_ID", "DiscoverOperationsResult", "ENTRYPOINT", "MCP_NAME", "Query",
+    "TOOL_NAME", "binding_is_admitted", "create_adapter", "describe_tool",
+]

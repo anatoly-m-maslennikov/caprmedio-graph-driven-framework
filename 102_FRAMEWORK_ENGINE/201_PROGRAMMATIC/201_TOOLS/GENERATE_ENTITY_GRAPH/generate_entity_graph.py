@@ -16,14 +16,22 @@ from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
 from types import MappingProxyType
+from typing import Any, Literal
+
+from pydantic import BaseModel, ConfigDict, JsonValue, RootModel
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from artifact_metadata import atom_identifier
 from project_runtime import atomic_tempfile
+from tool_description import binding_matches, make_tool_description
 
 
 TOOL_ID = "GENERATE_ENTITY_GRAPH"
+TOOL_NAME = TOOL_ID
+DELIVERY_ID = "CA-D-538"
+ENTRYPOINT = "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/GENERATE_ENTITY_GRAPH/generate_entity_graph.py"
+ACTION_IDS = ("CA-O-134", "CA-O-137")
 TOOL_KIND = "finder"
 SCHEMA_VERSION = 6
 INACTIVE_DIRECTORY_NAMES = {"archive", "drafts", "done", "canceled", "cancelled", "solved", "handled"}
@@ -37,6 +45,78 @@ CANONICAL_SUBJECT_KINDS = {"governs": "GOVERNS", "depends_on": "DEPENDS_ON"}
 LEGACY_SUBJECT_KINDS = {"declared": "GOVERNS", "prerequisite": "DEPENDS_ON"}
 TEMPORAL_FORMS = {"continuant": "CONTINUANT", "occurrent": "OCCURRENT"}
 _SECRET_SHAPED = re.compile(r"(?:secret|password|token|credential|api[_-]?key)", re.I)
+
+
+class _GenerateEntityGraphRequestBody(BaseModel):
+    """Public JSON fields only; native validators retain detailed semantics."""
+
+    model_config = ConfigDict(extra="forbid", strict=True)
+
+    graph_kind: Literal["entities", "terms"]
+    source_frontier: dict[str, JsonValue]
+    selection: dict[str, JsonValue]
+    representation_configuration: dict[str, JsonValue]
+    capability_permission_evidence: dict[str, JsonValue]
+    display_selection: dict[str, JsonValue] | None = None
+    output_destination: str | None = None
+    existing_projection_evidence: dict[str, JsonValue] | None = None
+
+
+class GenerateEntityGraphRequest(RootModel[_GenerateEntityGraphRequestBody]):
+    """Canonical descriptor request for the existing D538 graph constructor."""
+
+
+class GenerateEntityGraphResult(RootModel[dict[str, JsonValue]]):
+    """The graph constructor's existing result remains open and source-bound."""
+
+
+class GenerateEntityGraphAdapter:
+    """Root-bound descriptor adapter with no way to forge executor capabilities."""
+
+    def __init__(self, root: str | Path) -> None:
+        self.root = Path(root).resolve()
+
+    def invoke(self, request: GenerateEntityGraphRequest) -> dict[str, object]:
+        if not isinstance(request, GenerateEntityGraphRequest):
+            raise EntityGraphError("descriptor-request-invalid", "Descriptor invocation requires the canonical graph request model")
+        # A descriptor request cannot carry source_fact_context or
+        # run_recording_context: those stay executor-injected capabilities.
+        return run(self.root, request.root.model_dump(mode="json", exclude_unset=True))
+
+
+def create_adapter(root: str | Path) -> GenerateEntityGraphAdapter:
+    """Create the one root-bound descriptor adapter for the graph Tool."""
+
+    return GenerateEntityGraphAdapter(root)
+
+
+def describe_tool() -> dict[str, Any]:
+    """Describe D538 without discovering sources or constructing a graph."""
+
+    return make_tool_description(
+        entrypoint=ENTRYPOINT,
+        name=TOOL_NAME,
+        delivery_atom_id=DELIVERY_ID,
+        action_ids=ACTION_IDS,
+        input_symbol="GenerateEntityGraphRequest",
+        output_symbol="GenerateEntityGraphResult",
+        title="Generate Entity Graph",
+        description="Construct the existing source-bound entities or terms graph through the native projection boundary.",
+        purpose="Expose the governed graph constructor without creating a second graph engine or bypassing its Run and permission gates.",
+        read_only=False,
+    )
+
+
+def binding_is_admitted(binding: Mapping[str, object] | None) -> bool:
+    """Accept only the D538 Tool binding with its existing graph Actions."""
+
+    return binding_matches(
+        binding,
+        entrypoint=ENTRYPOINT,
+        name=TOOL_NAME,
+        delivery_atom_id=DELIVERY_ID,
+        action_ids=ACTION_IDS,
+    )
 
 
 class EntityGraphError(RuntimeError):

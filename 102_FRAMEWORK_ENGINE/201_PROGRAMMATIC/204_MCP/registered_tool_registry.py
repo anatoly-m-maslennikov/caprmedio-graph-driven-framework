@@ -9,6 +9,7 @@ from collections.abc import Callable, Mapping, Sequence
 from dataclasses import dataclass
 import hashlib
 import importlib.util
+import inspect
 import json
 import os
 from pathlib import Path, PurePosixPath
@@ -41,9 +42,7 @@ _PERMISSION_FIELDS = frozenset({"execution", "enforcement", "metadata_grants_per
 _ADMISSION_FIELDS = frozenset({"module", "symbol", "refresh_after_success"})
 _SHA256 = re.compile(r"[0-9a-f]{64}\Z")
 _RESERVED_PUBLIC_NAMES = frozenset({
-    "rmed_atoms_base_revise", "discover_tools", "discover_operations",
-    "get_execution_context", "get_execution_status", "resume_execution_context",
-    "watch_execution", "workflow_orchestrator", "reload_mcp_implementation",
+    "workflow_orchestrator", "reload_mcp_implementation",
     "get_mcp_reload_status",
 })
 
@@ -59,16 +58,24 @@ class RegistrySnapshot:
     tools: tuple[Mapping[str, object], ...]
     quarantined: tuple[Mapping[str, object], ...]
     digest: str
+    registered: tuple[Mapping[str, object], ...] | None = None
+    withheld: tuple[Mapping[str, object], ...] = ()
 
     @property
     def registered_names(self) -> frozenset[str]:
-        return frozenset(str(item["mcp_name"]) for item in self.tools)
+        source = self.tools if self.registered is None else self.registered
+        return frozenset(
+            name for item in source
+            if isinstance((name := item.get("mcp_name")), str) and name
+        )
 
     def projection(self) -> dict[str, object]:
         return {
             "schema_version": 1,
             "tools": [dict(item) for item in self.tools],
             "quarantined": [dict(item) for item in self.quarantined],
+            "withheld": [dict(item) for item in self.withheld],
+            "public_mcp_names": sorted(self.registered_names),
             "digest": self.digest,
         }
 
@@ -163,16 +170,24 @@ def _load_provider(entrypoint: object) -> tuple[str, str, ModuleType]:
         raise RegisteredToolError("entrypoint: implementation is unavailable")
     module = importlib.util.module_from_spec(spec)
     previous = sys.modules.get(module_name)
+    tools_root = str(_PROGRAMMATIC_ROOT / "201_TOOLS")
+    inserted_tools_root = tools_root not in sys.path
     try:
         # Module-level annotations can need their own module while evaluating;
         # never leave the private import key installed afterwards.
         sys.modules[module_name] = module
+        if inserted_tools_root:
+            # Providers may share the trusted descriptor helper.  This is
+            # scoped to the sealed import and is not a caller-selected path.
+            sys.path.insert(0, tools_root)
         # Execute the same bytes that supplied ``code_hash``.  Delegating to
         # ``exec_module`` would reread the path and may select a stale pyc.
         exec(compile(payload, str(candidate), "exec", dont_inherit=True), module.__dict__)
     except Exception as error:
         raise RegisteredToolError("entrypoint: descriptor import failed") from error
     finally:
+        if inserted_tools_root:
+            sys.path.remove(tools_root)
         if previous is None:
             sys.modules.pop(module_name, None)
         else:
@@ -274,7 +289,10 @@ def _validated_descriptor(binding: Mapping[str, object]) -> dict[str, object]:
         or identity["name"] != binding.get("name")
     ):
         raise RegisteredToolError("binding: conflicts with admitted catalog binding")
-    mcp_name = _string(binding.get("mcp_name"), "catalog.mcp_name")
+    raw_mcp_name = binding.get("mcp_name")
+    if raw_mcp_name is not None and not isinstance(raw_mcp_name, str):
+        raise RegisteredToolError("catalog.mcp_name: invalid")
+    mcp_name = raw_mcp_name or None
 
     models = _mapping(descriptor["models"], "models", _MODEL_FIELDS)
     input_model = _model_symbol(module, entrypoint, models["input"], "models.input")
@@ -359,14 +377,29 @@ def _binding_is_fresh(root: str | Path, expected: Mapping[str, object]) -> bool:
     ]) == 1
 
 
-def _snapshot(tools: Sequence[Mapping[str, object]], quarantined: Sequence[Mapping[str, object]]) -> RegistrySnapshot:
+def _snapshot(
+    tools: Sequence[Mapping[str, object]],
+    quarantined: Sequence[Mapping[str, object]],
+    *,
+    registered: Sequence[Mapping[str, object]] | None = None,
+    withheld: Sequence[Mapping[str, object]] = (),
+) -> RegistrySnapshot:
     valid = sorted((dict(item) for item in tools), key=lambda item: (
-        str(item["mcp_name"]), str(item["name"]), _canonical_json(item["source"]),
+        str(item.get("mcp_name") or ""), str(item["name"]), _canonical_json(item["source"]),
     ))
     unavailable = sorted((dict(item) for item in quarantined), key=_canonical_json)
-    semantic = {"schema_version": 1, "tools": valid, "quarantined": unavailable}
+    deferred = sorted((dict(item) for item in withheld), key=_canonical_json)
+    actual = None if registered is None else sorted((dict(item) for item in registered), key=_canonical_json)
+    semantic = {
+        "schema_version": 1,
+        "tools": valid,
+        "quarantined": unavailable,
+        "registered": actual,
+        "withheld": deferred,
+    }
     return RegistrySnapshot(
         tuple(valid), tuple(unavailable), hashlib.sha256(_canonical_json(semantic)).hexdigest(),
+        None if actual is None else tuple(actual), tuple(deferred),
     )
 
 
@@ -386,15 +419,18 @@ def compile_registry(root: str | Path, bindings: Sequence[Mapping[str, Any]]) ->
     names: dict[str, int] = {}
     public_names: dict[str, int] = {}
     for item in tools:
-        name, mcp_name = str(item["name"]), str(item["mcp_name"])
+        name = str(item["name"])
+        mcp_name = item["mcp_name"]
         names[name] = names.get(name, 0) + 1
-        public_names[mcp_name] = public_names.get(mcp_name, 0) + 1
+        if isinstance(mcp_name, str) and mcp_name:
+            public_names[mcp_name] = public_names.get(mcp_name, 0) + 1
     valid: list[dict[str, object]] = []
     for item in tools:
-        name, mcp_name = str(item["name"]), str(item["mcp_name"])
-        if mcp_name in _RESERVED_PUBLIC_NAMES:
+        name = str(item["name"])
+        mcp_name = item["mcp_name"]
+        if mcp_name and mcp_name in _RESERVED_PUBLIC_NAMES:
             quarantined.append({"source": dict(item["source"]), "diagnostics": [_diagnostic("identity.mcp_name", "reserved MCP helper name")]})
-        elif names[name] != 1 or public_names[mcp_name] != 1:
+        elif names[name] != 1 or (mcp_name and public_names[mcp_name] != 1):
             field = "identity.name" if names[name] != 1 else "catalog.mcp_name"
             quarantined.append({"source": dict(item["source"]), "diagnostics": [_diagnostic(field, "ambiguous catalog binding")]})
         else:
@@ -418,11 +454,14 @@ def _invoke_wrapper(
         raise RegisteredToolError("callable.invoke: adapter is unresolved")
     output_adapter = TypeAdapter(output_model)
 
-    def registered_tool(request: object) -> object:
+    async def registered_tool(request: object) -> object:
         try:
             if not _binding_is_fresh(root, catalog_binding):
                 raise ToolError(f"{mcp_name}: source binding is stale or unavailable")
-            return output_adapter.validate_python(invoke(request))
+            result = invoke(request)
+            if inspect.isawaitable(result):
+                result = await result
+            return output_adapter.validate_python(result)
         except ToolError:
             raise
         except Exception as error:
@@ -435,13 +474,40 @@ def _invoke_wrapper(
     return registered_tool
 
 
-def register_catalog_tools(server: Any, root: str | Path, tools: Sequence[Mapping[str, Any]]) -> RegistrySnapshot:
-    """Compile and register every independently valid current descriptor."""
+def register_catalog_tools(
+    server: Any,
+    root: str | Path,
+    tools: Sequence[Mapping[str, Any]],
+    *,
+    occupied_public_names: Sequence[str] = (),
+) -> RegistrySnapshot:
+    """Compile all valid descriptors and register only unoccupied public names.
+
+    A source-only descriptor (no catalog ``mcp_name``) remains valid metadata.
+    Likewise, a selected Workflow route may already own a public MCP name with
+    a different request protocol.  Neither condition makes the canonical Tool
+    descriptor invalid or permits an implicit transport overwrite.
+    """
 
     snapshot = compile_registry(root, tools)
     registered: list[Mapping[str, object]] = []
     quarantined: list[Mapping[str, object]] = list(snapshot.quarantined)
+    withheld: list[Mapping[str, object]] = []
+    occupied = frozenset(name for name in occupied_public_names if isinstance(name, str) and name)
     for record in snapshot.tools:
+        mcp_name = record.get("mcp_name")
+        if not isinstance(mcp_name, str) or not mcp_name:
+            withheld.append({
+                "source": {**dict(record["source"]), "name": record["name"], "mcp_name": None},
+                "reason": "source_only",
+            })
+            continue
+        if mcp_name in occupied:
+            withheld.append({
+                "source": {**dict(record["source"]), "name": record["name"], "mcp_name": mcp_name},
+                "reason": "public_name_owned_by_route",
+            })
+            continue
         try:
             entrypoint, code_hash, module = _load_provider(record["entrypoint"])
             if entrypoint != record["entrypoint"] or code_hash != record["code_sha256"]:
@@ -453,14 +519,14 @@ def register_catalog_tools(server: Any, root: str | Path, tools: Sequence[Mappin
                 adapter=adapter,
                 input_model=_model_symbol(module, entrypoint, models["input"], "models.input"),
                 output_model=_model_symbol(module, entrypoint, models["output"], "models.output"),
-                mcp_name=str(record["mcp_name"]),
+                mcp_name=mcp_name,
                 root=root,
                 catalog_binding=_mapping(record["catalog_binding"], "catalog_binding"),
             )
             identity = _mapping(descriptor["identity"], "identity", _IDENTITY_FIELDS)
             server.add_tool(
                 wrapper,
-                name=str(record["mcp_name"]),
+                name=mcp_name,
                 title=str(identity["title"]),
                 description=str(identity["description"]),
                 annotations=ToolAnnotations(**dict(_mapping(descriptor["effect_hints"], "effect_hints", _EFFECT_HINT_FIELDS))),
@@ -476,7 +542,7 @@ def register_catalog_tools(server: Any, root: str | Path, tools: Sequence[Mappin
                 "source": dict(record["source"]),
                 "diagnostics": [_diagnostic(field, code or "failed")],
             })
-    return _snapshot(registered, quarantined)
+    return _snapshot(snapshot.tools, quarantined, registered=registered, withheld=withheld)
 
 
 __all__ = ["RegisteredToolError", "RegistrySnapshot", "compile_registry", "register_catalog_tools"]

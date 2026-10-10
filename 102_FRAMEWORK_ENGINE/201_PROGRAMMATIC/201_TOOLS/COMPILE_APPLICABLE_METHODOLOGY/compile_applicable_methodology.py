@@ -19,10 +19,13 @@ import tempfile
 import tomllib
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, Iterable, Mapping
+from typing import Any, Iterable, Literal, Mapping
+
+from pydantic import BaseModel, ConfigDict, JsonValue, RootModel
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from artifact_metadata import SETTINGS_PATH, atom_identifier
+from tool_description import binding_matches, make_tool_description
 
 
 DEFAULT_CONTROL_ROOT = SETTINGS_PATH.parent
@@ -51,6 +54,9 @@ RELATION_KINDS = {
     "incompatible": {"incompatible_with", "incompatibility_with"},
 }
 SCHEMA = "caprmedio.compile_applicable_methodology.v2"
+TOOL_NAME = "COMPILE_APPLICABLE_METHODOLOGY"
+DELIVERY_ID = "CA-D-541"
+ENTRYPOINT = "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py"
 WORKFLOW_ID = "CA-O-011"
 ACTION_IDS = ("CA-O-004", "CA-O-005", "CA-O-006", "CA-O-007", "CA-O-008", "CA-O-009")
 OPERATIONS = frozenset({"dry_run", "apply", "recover_publication"})
@@ -64,6 +70,83 @@ FORBIDDEN_REQUEST_FIELDS = frozenset({
 })
 DEFAULT_SETTINGS_RELATIVE = Path("001_CORE_META_MODEL/caprmedio_framework_default_settings.toml")
 INSTANCE_SETTINGS_RELATIVE = Path("000_CAPRMEDIO_framework/caprmedio_framework_settings.toml")
+
+
+class _CompileApplicableMethodologyRequestBody(BaseModel):
+    """Transport-neutral envelope; ``validate_request`` retains semantic authority."""
+
+    model_config = ConfigDict(extra="forbid", strict=True)
+
+    operation: Literal["dry_run", "apply", "recover_publication"]
+    project_root: str
+    governed_bindings: dict[str, str]
+    expected_source_frontier_digest: str | None = None
+    decision_refs: list[dict[str, JsonValue]] | None = None
+    failed_publication_ref: str | None = None
+    run_receipt_refs: list[dict[str, JsonValue]] | None = None
+
+
+class CompileApplicableMethodologyRequest(RootModel[_CompileApplicableMethodologyRequestBody]):
+    """Canonical request for the existing D541 compiler boundary."""
+
+
+class CompileApplicableMethodologyResult(RootModel[dict[str, JsonValue]]):
+    """The compiler keeps its established open structured result contract."""
+
+
+class CompileApplicableMethodologyAdapter:
+    """Root-bound descriptor adapter that cannot redirect the compiler Project."""
+
+    def __init__(self, root: str | Path) -> None:
+        self.root = Path(root).resolve()
+
+    def invoke(self, request: CompileApplicableMethodologyRequest) -> dict[str, object]:
+        if not isinstance(request, CompileApplicableMethodologyRequest):
+            raise CompileError("descriptor-request-invalid", "Descriptor invocation requires the canonical compiler request model")
+        payload = request.root.model_dump(mode="json", exclude_unset=True)
+        requested_root = Path(request.root.project_root).resolve()
+        if requested_root != self.root:
+            raise CompileError(
+                "descriptor-root-mismatch",
+                "Descriptor invocation cannot override its bound Project root",
+                project_root=request.root.project_root,
+            )
+        return run_request(payload)
+
+
+def create_adapter(root: str | Path) -> CompileApplicableMethodologyAdapter:
+    """Create the one root-bound descriptor adapter for the existing compiler."""
+
+    return CompileApplicableMethodologyAdapter(root)
+
+
+def describe_tool() -> dict[str, Any]:
+    """Describe D541 without resolving sources, compiling, or publishing output."""
+
+    return make_tool_description(
+        entrypoint=ENTRYPOINT,
+        name=TOOL_NAME,
+        delivery_atom_id=DELIVERY_ID,
+        action_ids=ACTION_IDS,
+        input_symbol="CompileApplicableMethodologyRequest",
+        output_symbol="CompileApplicableMethodologyResult",
+        title="Compile Applicable Methodology",
+        description="Compile the source-bound Applicable Methodology projection through its existing governed Action boundary.",
+        purpose="Assess or publish Applicable Methodology only with the compiler's current source, preview, and admission gates.",
+        read_only=False,
+    )
+
+
+def binding_is_admitted(binding: Mapping[str, object] | None) -> bool:
+    """Accept only the exact D541 source binding; no MCP name is inferred."""
+
+    return binding_matches(
+        binding,
+        entrypoint=ENTRYPOINT,
+        name=TOOL_NAME,
+        delivery_atom_id=DELIVERY_ID,
+        action_ids=ACTION_IDS,
+    )
 
 
 @dataclass(frozen=True)

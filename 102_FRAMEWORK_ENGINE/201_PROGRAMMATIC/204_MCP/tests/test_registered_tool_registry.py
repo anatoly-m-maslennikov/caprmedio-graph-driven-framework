@@ -1,6 +1,7 @@
 """Focused proofs for the generic descriptor-driven MCP registry."""
 from __future__ import annotations
 
+import asyncio
 import inspect
 import os
 from pathlib import Path, PurePosixPath
@@ -14,8 +15,12 @@ from unittest.mock import patch
 MCP_ROOT = Path(__file__).resolve().parents[1]
 if str(MCP_ROOT) not in sys.path:
     sys.path.insert(0, str(MCP_ROOT))
+TOOLS_ROOT = MCP_ROOT.parent / "201_TOOLS"
+if str(TOOLS_ROOT) not in sys.path:
+    sys.path.insert(0, str(TOOLS_ROOT))
 
 import registered_tool_registry as registry  # noqa: E402
+from tool_description import binding_matches, make_tool_description  # noqa: E402
 
 
 class _Server:
@@ -40,7 +45,7 @@ class Result(BaseModel):
     value: str
 
 class Adapter:
-    def invoke(self, request):
+    {async_prefix} def invoke(self, request):
         global INVOCATIONS
         INVOCATIONS += 1
         return {{"value": request.value}}
@@ -85,15 +90,32 @@ class RegisteredToolRegistryTests(unittest.TestCase):
     def _entrypoint(self, stem: str) -> str:
         return (PurePosixPath("102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP") / f"{stem}.py").as_posix()
 
+    def test_shared_description_helper_matches_the_catalog_binding(self) -> None:
+        entrypoint = self._entrypoint("helper")
+        descriptor = make_tool_description(
+            entrypoint=entrypoint, name="HELPER", delivery_atom_id="CA-D-10", action_ids=["CA-O-10"],
+            input_symbol="Request", output_symbol="Result", title="Helper", description="test",
+            purpose="test", read_only=True,
+        )
+        binding = self._binding("HELPER", "helper_tool", entrypoint, 10, 10)
+
+        self.assertEqual(registry._DESCRIPTOR_FIELDS, frozenset(descriptor))
+        self.assertTrue(binding_matches(
+            binding, entrypoint=entrypoint, name="HELPER", delivery_atom_id="CA-D-10", action_ids=["CA-O-10"],
+        ))
+        self.assertFalse(binding_matches(
+            binding, entrypoint=entrypoint, name="HELPER", delivery_atom_id="CA-D-10", action_ids=["CA-O-11"],
+        ))
+
     def _write_provider(self, stem: str, *, name: str, delivery: int, action: int,
                         description: str = "one", incomplete: bool = False,
-                        source_action: int | None = None) -> tuple[str, Path]:
+                        source_action: int | None = None, async_invoke: bool = False) -> tuple[str, Path]:
         entrypoint = self._entrypoint(stem)
         target = self.programmatic / "204_MCP" / f"{stem}.py"
         target.write_text(textwrap.dedent(_PROVIDER).format(
             name=name, entrypoint=entrypoint, delivery=delivery, action=action,
             source_action=source_action if source_action is not None else action,
-            description=description, incomplete=incomplete,
+            description=description, incomplete=incomplete, async_prefix="async" if async_invoke else "",
         ), encoding="utf-8")
         return entrypoint, target
 
@@ -151,7 +173,7 @@ class RegisteredToolRegistryTests(unittest.TestCase):
         self.assertTrue(metadata["structured_output"])
         request_model = signature.parameters["request"].annotation
         with patch.object(registry, "_binding_is_fresh", return_value=True):
-            self.assertEqual("hello", function(request_model(value="hello")).value)
+            self.assertEqual("hello", asyncio.run(function(request_model(value="hello"))).value)
 
     def test_stale_binding_refuses_before_adapter_invoke(self) -> None:
         entrypoint, target = self._write_provider("stale", name="STALE", delivery=7, action=7)
@@ -167,11 +189,27 @@ class RegisteredToolRegistryTests(unittest.TestCase):
         request_model = inspect.signature(function).parameters["request"].annotation
         with patch.object(registry, "_binding_is_fresh", return_value=False):
             with self.assertRaises(registry.ToolError):
-                function(request_model(value="never"))
+                asyncio.run(function(request_model(value="never")))
 
         module = registry._MODULE_CACHE[target][1]
         self.assertEqual(1, module.CREATIONS)
         self.assertEqual(0, module.INVOCATIONS)
+
+    def test_async_adapter_invocation_validates_the_typed_result(self) -> None:
+        entrypoint, _ = self._write_provider("async_provider", name="ASYNC", delivery=11, action=11, async_invoke=True)
+        server = _Server()
+        with (
+            patch.object(registry, "_PROGRAMMATIC_ROOT", self.programmatic),
+            patch.object(registry, "_binding_is_fresh", return_value=True),
+        ):
+            registry.register_catalog_tools(
+                server, self.temporary.name, [self._binding("ASYNC", "async_tool", entrypoint, 11, 11)],
+            )
+
+        function, _metadata = server.calls[0]
+        request_model = inspect.signature(function).parameters["request"].annotation
+        with patch.object(registry, "_binding_is_fresh", return_value=True):
+            self.assertEqual("awaited", asyncio.run(function(request_model(value="awaited"))).value)
 
     def test_quarantines_source_pin_that_conflicts_with_catalog_binding(self) -> None:
         entrypoint, _ = self._write_provider(
@@ -185,6 +223,37 @@ class RegisteredToolRegistryTests(unittest.TestCase):
 
         self.assertEqual((), snapshot.tools)
         self.assertEqual("source_pins", snapshot.quarantined[0]["diagnostics"][0]["field"])
+
+    def test_source_only_descriptor_remains_valid_without_public_registration(self) -> None:
+        entrypoint, _ = self._write_provider("source_only", name="SOURCE_ONLY", delivery=12, action=12)
+        binding = self._binding("SOURCE_ONLY", "", entrypoint, 12, 12)
+        server = _Server()
+        with patch.object(registry, "_PROGRAMMATIC_ROOT", self.programmatic):
+            compiled = registry.compile_registry(self.temporary.name, [binding])
+            registered = registry.register_catalog_tools(server, self.temporary.name, [binding])
+
+        self.assertEqual(1, len(compiled.tools))
+        self.assertEqual(frozenset(), compiled.registered_names)
+        self.assertEqual([], server.calls)
+        self.assertEqual(frozenset(), registered.registered_names)
+        self.assertEqual("source_only", registered.withheld[0]["reason"])
+
+    def test_route_owned_public_name_is_withheld_without_losing_tool_metadata(self) -> None:
+        entrypoint, _ = self._write_provider("route_owned", name="ROUTE_OWNED", delivery=13, action=13)
+        binding = self._binding("ROUTE_OWNED", "route_owned", entrypoint, 13, 13)
+        server = _Server()
+        with patch.object(registry, "_PROGRAMMATIC_ROOT", self.programmatic):
+            snapshot = registry.register_catalog_tools(
+                server,
+                self.temporary.name,
+                [binding],
+                occupied_public_names=("route_owned",),
+            )
+
+        self.assertEqual(1, len(snapshot.tools))
+        self.assertEqual([], server.calls)
+        self.assertEqual(frozenset(), snapshot.registered_names)
+        self.assertEqual("public_name_owned_by_route", snapshot.withheld[0]["reason"])
 
     def test_cache_is_bound_to_actual_bytes_even_when_mtime_is_preserved(self) -> None:
         entrypoint, target = self._write_provider("mutable", name="MUTABLE", delivery=3, action=3, description="first")

@@ -1,16 +1,27 @@
 """Canonical coordination Tool. No Agent launcher, Atom writer, or recheck loop."""
+from collections.abc import Mapping
 from pathlib import Path
 import json
 import sys
 from typing import Annotated, Any, Literal
 
-from pydantic import BaseModel, ConfigDict, Field, TypeAdapter
+from pydantic import BaseModel, ConfigDict, Field, RootModel, TypeAdapter
 
+TOOLS_ROOT = Path(__file__).resolve().parents[1]
 ENGINE = Path(__file__).resolve().parents[3]
 PROMPTS = ENGINE / '202_AGENTIC/202_PROMPTS/ACTION_PROMPTS/RMED_ATOM_REVIEW'
+if str(TOOLS_ROOT) not in sys.path:
+    sys.path.insert(0, str(TOOLS_ROOT))
 sys.path.insert(0, str(PROMPTS))
+from tool_description import binding_matches, make_tool_description  # noqa: E402
 from workflow_evidence import RunEvidence  # noqa: E402 - repository path bootstrap
 from workflow_progress import CHECKS, report_progress  # noqa: E402
+
+
+TOOL_NAME = 'RMED_ATOMS_BASE_REVISE'
+DELIVERY_ID = 'CA-D-518'
+ACTION_IDS = ['CA-O-105', 'CA-O-106', 'CA-O-111']
+ENTRYPOINT = '102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/RMED_ATOMS_BASE_REVISE/rmed_atoms_base_revise.py'
 
 
 class Input(BaseModel):
@@ -84,6 +95,66 @@ class Finish(Run):
 Request = Annotated[Describe | Start | Gather | Context | Submit | Inspect | Handoff | Finish,
                     Field(discriminator='operation')]
 ADAPTER = TypeAdapter(Request)
+
+
+class RMEDRequest(RootModel[Request]):
+    """Canonical transport-neutral request for the existing RMED coordinator."""
+
+
+class RMEDResult(RootModel[dict[str, Any]]):
+    """Canonical open result emitted by the caller-coordinated RMED boundary."""
+
+
+class _DescriptorAdapter:
+    """Root-bound descriptor adapter that delegates only to the existing coordinator."""
+
+    def __init__(self, root: str | Path) -> None:
+        self.root = Path(root)
+
+    def invoke(self, request: RMEDRequest) -> RMEDResult:
+        """Validate canonical input and preserve the native coordinator result."""
+
+        accepted = RMEDRequest.model_validate(request)
+        return RMEDResult.model_validate(run(self.root, accepted.root))
+
+
+def create_adapter(root: str | Path) -> _DescriptorAdapter:
+    """Create a root-bound RMED invoker without starting a Workflow Run."""
+
+    return _DescriptorAdapter(root)
+
+
+def describe_tool() -> dict[str, Any]:
+    """Describe the RMED Tool without loading evidence or running the workflow."""
+
+    return make_tool_description(
+        entrypoint=ENTRYPOINT,
+        name=TOOL_NAME,
+        delivery_atom_id=DELIVERY_ID,
+        action_ids=ACTION_IDS,
+        input_symbol='RMEDRequest',
+        output_symbol='RMEDResult',
+        title='RMED Atoms Base Revise',
+        description='Coordinate an Operator-authorized bounded RMED Atoms Base Revise workflow.',
+        purpose='Expose the existing caller-coordinated gather, check, fix, and recording boundary.',
+        read_only=False,
+    )
+
+
+def binding_is_admitted(binding: Mapping[str, object] | None) -> bool:
+    """Accept only D518's admitted implementation and bounded Action set."""
+
+    return (
+        isinstance(binding, Mapping)
+        and binding.get('mcp_name') == 'rmed_atoms_base_revise'
+        and binding_matches(
+            binding,
+            entrypoint=ENTRYPOINT,
+            name=TOOL_NAME,
+            delivery_atom_id=DELIVERY_ID,
+            action_ids=ACTION_IDS,
+        )
+    )
 
 
 def validate_report(row):

@@ -92,6 +92,7 @@ class Service:
         self.root = Path(root).resolve(strict=True)
         self.exposed = set(exposed)
         self.registry_quarantined = ()
+        self.registry_withheld = ()
 
     def read(self, path):
         path = Path(path)
@@ -505,6 +506,12 @@ class Service:
                         field, code = diagnostic.get('field'), diagnostic.get('code')
                         if isinstance(field, str) and isinstance(code, str):
                             issues.append(f'registry unavailable: {label}: {field}: {code}')
+        for withheld in self.registry_withheld:
+            source = withheld.get('source') if isinstance(withheld, dict) else None
+            reason = withheld.get('reason') if isinstance(withheld, dict) else None
+            label = source.get('name') if isinstance(source, dict) else None
+            if isinstance(label, str) and label and isinstance(reason, str) and reason:
+                issues.append(f'registry not public: {label}: {reason}')
         return valid, tools, issues
 
     def discover(self, request, operations=False):
