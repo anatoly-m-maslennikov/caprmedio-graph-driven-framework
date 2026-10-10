@@ -10,12 +10,12 @@ local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
-status: Active
+status: Done
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 3
-updated_at: "2026-10-10 23:34:31 +0400"
+version: 4
+updated_at: "2026-10-11 00:12:22 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1961, CA-P-1962, CA-P-1964, CA-P-1976]
@@ -43,6 +43,10 @@ Select only the five allowed RMEDO roles. Specify exact old ID/Version precondit
 Output only the derived contract, current reviewed RMEDO pins and acceptance cases. This Task does not write authoritative Tool RMEDO; CA-P-1978 owns those repairs. Implementation stays blocked on the verified packet. Split larger work before execution.
 
 Inherit CA-P-1959's source boundary, confidence threshold and preservation rules. Creating this Plan records work; it does not start or complete it.
+
+### Local execution receipt
+
+Compiled the accepted source-pinned packet as `.caprmedio_caprmedio/_projection/core-entity-review/stage2/subject-tools.contract.md`: small valid-file lookup and exclusive pinned no-write patch preview, existing wrappers/parsing/complete-carrier validation and guards, actual migrations/history/Journal effects as separately approved ad-hoc scripts. All twelve accepted source pins and Project Structure remained current. No Tool authority, feature code or Core source changed. CA-P-1961/1962 implementation and CA-P-1976 question preparation may proceed.
 
 ### Definition of Done
 
