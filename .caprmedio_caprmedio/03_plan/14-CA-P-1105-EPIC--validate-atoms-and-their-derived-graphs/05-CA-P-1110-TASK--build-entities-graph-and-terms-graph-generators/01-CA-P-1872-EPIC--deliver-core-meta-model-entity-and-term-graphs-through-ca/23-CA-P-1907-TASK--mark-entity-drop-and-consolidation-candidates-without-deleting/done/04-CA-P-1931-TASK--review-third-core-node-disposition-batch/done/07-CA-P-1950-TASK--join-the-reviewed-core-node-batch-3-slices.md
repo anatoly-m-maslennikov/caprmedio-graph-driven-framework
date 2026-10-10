@@ -1,27 +1,27 @@
 ---
-atom_id: CA-P-1951
+atom_id: CA-P-1950
 content_role: Plan
 type: Plan
 label: Task
-work_sequence_number: 6
+work_sequence_number: 7
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
 local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
-status: Active
+status: Done
 subjects:
   governs: Projection
   depends_on: [Entity, Term, Atom, Property, Carrier, Plan]
-version: 2
-updated_at: "2026-10-10 03:47:57 +0400"
+version: 3
+updated_at: "2026-10-10 04:12:09 +0400"
 relations:
-  is_decomposition_of: [CA-P-1935]
+  is_decomposition_of: [CA-P-1931]
 ---
 # Summary
 
-Join the reviewed Core node batch 7 slices
+Join the reviewed Core node batch 3 slices
 
 ## Objective
 
@@ -33,11 +33,15 @@ Review context: the Operator chose **Finish against the captured snapshot only**
 
 Estimated own work: 15 minutes. Assignee: AI Agent.
 
-Required start prerequisites: CA-P-1945, CA-P-1946, CA-P-1947, CA-P-1948, CA-P-1949. Each explicitly BLOCKS this Task.
+Required start prerequisites: CA-P-1939, CA-P-1940, CA-P-1941, CA-P-1942, CA-P-1943, CA-P-1944. Each explicitly BLOCKS this Task.
 
-Verify all child Tasks are Done, union exactly equals the parent 80-identity partition, and each identity appears once. Join evidence catalogues without accidental reference collisions; preserve every check, meaning, replacement, confidence and question. Revalidate current source and input pins. Output `nodes.batch-7.review.json` under the node-review directory; no other batch change or semantic inference. Use the shared contract and record complete source/child completion pins. No generic placeholder rows.
+Verify all child Tasks are Done, union exactly equals the parent 80-identity partition, and each identity appears once. Join evidence catalogues without accidental reference collisions; preserve every check, meaning, replacement, confidence and question. Revalidate current source and input pins. Output `nodes.batch-3.review.json` under the node-review directory; no other batch change or semantic inference. Use the shared contract and record complete source/child completion pins. No generic placeholder rows.
 
 Exclusive scope: this derived join and temporary helper. You are not alone; root owns Plans/Git. No Core, Subjects, baseline, history, schema, implementation, runtime, MCP or FPF writes. Use uv only; unresolved meanings stay questions, not decisions.
+
+### Completion receipt
+
+Captured create-only join verified: six Done slice Tasks, all 80 original child rows preserved verbatim in provenance, collision-safe evidence namespaces and 96 exact spans. `nodes/nodes.batch-3.review.json` SHA-256 `23fb310b46c8ca11390f51f0f690fbe9610bb1fdf9580c4947347dc734368d81`; 74 retain, 6 question. Independent deep comparison and reproduction passed. Captured Task locators from `bdc700939bf417bfb28d091bdcd486c6c5cd80b6` plus live ID/hash/Done validation keep output stable across Carrier moves. Semantic adoption and source migration remain not performed.
 
 ### Definition of Done
 
