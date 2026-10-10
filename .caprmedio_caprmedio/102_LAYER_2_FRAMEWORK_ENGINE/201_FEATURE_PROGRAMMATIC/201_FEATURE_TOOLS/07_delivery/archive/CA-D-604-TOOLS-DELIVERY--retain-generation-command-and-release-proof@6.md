@@ -4,10 +4,10 @@ content_role: Delivery
 current_scope_unit: TOOLS
 local_tier: Standard
 global_tier: 11
-status: Active
+status: Archived
 author: Anatoly Maslennikov
-version: 7
-updated_at: "2026-10-10 05:56:00 +0400"
+version: 6
+updated_at: "2026-10-10 05:24:00 +0400"
 subjects:
   governs: "Framework Installation contribution/Generation and release proof"
   depends_on: [Tool, Runtime, Framework Package, Command, Docker Image, Journal]
@@ -59,12 +59,6 @@ Candidate-aware command, native-proof and MCP readers validate the same complete
 The existing selected CA-O-169 promotion uses its own actual Action Run, not a manufactured CA-O-200 Run. Its immutable command uses the same canonical JSON and digest-addressed `.caprmedio_runtime/installation/commands/<sha256>.json` carrier. This separate closed variant has the direct-command keys above, with `operation = promote_selected_runtime`, an `action_source` pin for the actually selected CA-O-169 revision, and exactly two additional keys: `selected_start_receipt` and `parent_lineage`.
 
 `selected_start_receipt` is the unchanged canonical Work Journal receipt with exactly `event_id`, `action_id`, `event_digest`, `carrier`, `line`, `previous_carrier_digest` and `appended_carrier_digest`. `parent_lineage` is the ordered list of actual parent Run IDs returned by the existing selected Session's recorded-start reader. The selected provider physically reopens that start, its source and frozen selected inputs before retaining the command or acquiring its publication lock. The command's Operator and Journal account resolve through the exact registered mapping. A command, context or lineage assertion alone grants no authority; the selected Session supplies and revalidates its existing authorization. A final-generation reader reopens the same receipt-addressed canonical start and binds its Action, author and lineage to this command.
-
-### Direct installed-generation association
-
-1. A completed direct installation result retains observed effect rows for the exact original gate closure, using these kinds: `full_gate_receipt`, `retained_candidate_descriptor`, `retained_package_sidecar`, `unit_gate_receipt`, `build_receipt`, `verification_receipt` and `e2e_gate_receipt`. Every reference is an actual Project-contained regular carrier with its original raw byte digest. Retain and reopen the unchanged original closure before destructive effects; do not manufacture a replacement receipt, infer a locator from an aggregate digest or select the latest available receipt.
-2. For subsequent-command discovery, reopen the result through the actual canonical direct Action start and its installation command. Its completed outcome, command/context/package/generation bindings, canonical terminal recording and every required effect must agree. The existing typed gate evidence and descriptor/sidecar relations determine the artifact and package roots; references never grant permission for another root or execution. Missing, ambiguous, changed or incompletely recorded association blocks that discovery. The installation's own prepublication and final validation instead uses its already-bound concrete gate; it does not require its future terminal event.
-3. Direct installed-generation discovery decodes that original typed gate closure and independently revalidates its package, proof, selectors and all gate receipt bindings. It creates no selected Workflow, parent lineage, new Action start or replay permission. Historical results without the required original references remain historical evidence, not a guessed current association.
 
 ### Direct installation result
 
