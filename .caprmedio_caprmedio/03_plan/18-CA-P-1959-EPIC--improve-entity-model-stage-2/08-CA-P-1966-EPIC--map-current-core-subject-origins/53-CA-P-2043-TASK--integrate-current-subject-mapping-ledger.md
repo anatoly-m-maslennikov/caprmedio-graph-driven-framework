@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Projection, Plan, Operator]
-version: 3
-updated_at: "2026-10-11 01:49:22 +0400"
+version: 4
+updated_at: "2026-10-11 02:47:18 +0400"
 relations:
   is_decomposition_of: [CA-P-1966]
   depends_on: ["CA-P-1972", "CA-P-1988", "CA-P-1989", "CA-P-1990", "CA-P-1992", "CA-P-1993", "CA-P-1994", "CA-P-1995", "CA-P-1996", "CA-P-1997", "CA-P-1998", "CA-P-1999", "CA-P-2000", "CA-P-2001", "CA-P-2002", "CA-P-2003", "CA-P-2004", "CA-P-2005", "CA-P-2006", "CA-P-2007", "CA-P-2008", "CA-P-2009", "CA-P-2010", "CA-P-2011", "CA-P-2012", "CA-P-2013", "CA-P-2014", "CA-P-2015", "CA-P-2016", "CA-P-2017", "CA-P-2018", "CA-P-2019", "CA-P-2020", "CA-P-2021", "CA-P-2022", "CA-P-2023", "CA-P-2024", "CA-P-2025", "CA-P-2026", "CA-P-2027", "CA-P-2028", "CA-P-2029", "CA-P-2030", "CA-P-2031", "CA-P-2032", "CA-P-2033", "CA-P-2034", "CA-P-2035", "CA-P-2036", "CA-P-2037", "CA-P-2038", "CA-P-2039", "CA-P-2040", "CA-P-2041", "CA-P-2042"]
@@ -39,6 +39,8 @@ Persist only the derived integrated ledger and verification receipt under stage2
 
 - [CA-P-2044 — Prepare independent current Subject review checks](53-CA-P-2043-TASK--integrate-current-subject-mapping-ledger/done/01-CA-P-2044-TASK--prepare-independent-current-subject-review-checks.md)
 - [CA-P-2045 — Integrate reviewed current Subject mappings](53-CA-P-2043-TASK--integrate-current-subject-mapping-ledger/02-CA-P-2045-TASK--integrate-reviewed-current-subject-mappings.md)
+
+- [CA-P-2046 — Prepare the current Subject ledger script](53-CA-P-2043-TASK--integrate-current-subject-mapping-ledger/03-CA-P-2046-TASK--prepare-the-current-subject-ledger-script.md)
 
 ### Definition of Done
 
