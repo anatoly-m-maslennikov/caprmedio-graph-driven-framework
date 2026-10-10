@@ -1,0 +1,46 @@
+# Candidate entity graph display (derived, non-authoritative)
+# Captured snapshot comparison only; indentation is display notation, not native admission.
+
+candidate_graph:
+  non_authoritative: true
+  roots:
+    Artifact:
+      meaning: One governed lifecycle unit containing named dependent Entities.
+      / Atom:
+        kind: Artifact-kind Entity
+        lifecycle: one governed lifecycle; dependent Entities do not have independent lifecycles
+        dependent_entities:
+          .Summary: named dependent Entity example
+          .Status: named dependent Entity example
+          .Substance: named dependent Entity example
+          .Version Number: named dependent Entity example
+          .Updated At: named dependent Entity example
+        notation_boundary: '/' and '.' are display grouping only, not native relations
+    Scope Unit:
+      meaning: Organizes and owns Atoms and other Scope Units; sits outside any individual Atom.
+      owns (candidate descriptive boundary):
+        - Atom
+        - Scope Unit
+    Actor:
+      meaning: Who performs work.
+    Relation:
+      meaning: Typed connections between Entities.
+    Revision:
+      meaning: A historical snapshot of an Artifact.
+    Carrier:
+      meaning: What carries or stores an Entity's representation.
+    Execution:
+      meaning: One actual run of an Operation.
+
+  selected_confirmed_decisions:
+    inheritance: Named Entities inside an Artifact, including Properties.
+    identity.scope_unit: (project prefix)-SU-(number)
+    identity.dependent_entity: atom(atom_id="CA-R-123").status
+    substance: Substance
+    substance_scope_omission: Substance Scope may be omitted only for the whole governed Subject AND the whole owning Scope Unit; either restriction requires explicit Scope.
+    rmed_views: RMED: Claim; Plan: Objective; Analysis: Question; Concern: Issue; Operations: Operation
+    delivery_policy: Use a small set of general Core D Policies for storage and field conventions. Do not register each Status Property as carried by a YAML status field, and do not create a Carrier Relation Type or D Atom for every Property.
+    atom_versioning: Every Atom update, including Status-only and other metadata-only changes, increments Version Number by 1.
+    revision: Preserves a historical Artifact state.
+    journal: Records what happened, including changes, Executions and observed outcomes. A record is not the event itself.
+  boundary: display grouping and paths are not native relations; adoption and migration remain unperformed.

@@ -1,0 +1,2053 @@
+{
+  "schema_version": 1,
+  "batch": 2,
+  "kind": "Captured nodes against Operator candidate",
+  "non_authoritative": true,
+  "native_admission": "not_performed",
+  "source_migration": "not_performed",
+  "captured_core_commit": "a971d0e00c33c779f485fc8cad63194894d440fb",
+  "candidate_sha256": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b",
+  "input_sha256": "6c2fca88b8537bd0259971a2754c978cff1b03181600c9a681ef935b038a6a21",
+  "baseline_sha256": "bc5d99e91fb7dd4dcb42e59ff33cc24cff1d0901c5904764394c769aaa0a9430",
+  "prior_review_sha256": "1b9d751f95aa71486908b53b3d7f3f9825defae137be3d8792d45177587c48f8",
+  "review_method": "Compared all 81 assigned captured identities with the latest Operator candidate; reused the accepted ledger's exact global evidence references only after verifying each referenced captured Main Content quote and span through snapshot_sources.py. This is a bounded captured-snapshot comparison, not a fresh audit of all source candidates or a native admission.",
+  "nodes": [
+    {
+      "identity": "Atom/Content Role: Evaluation/Local Tier",
+      "prior_disposition": "retain",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "E",
+      "confidence_percent": 82,
+      "reason": "The candidate settles the E-view boundary but not this exact qualified field/allowed-value mapping; retain it for authoring review without an Operator escalation.",
+      "operator_rules": [
+        "m_e_root_question.decision",
+        "entity_vs_syntax_rules"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e001"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-794"
+      ],
+      "preserved_distinctions": [
+        "Evaluation view status/type/tier qualifiers remain distinct and are not inferred from the shared label."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Content Role: Evaluation/Status",
+      "prior_disposition": "retain",
+      "action": "inherit",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Status (qualified domain retained)",
+      "content_view": "mixed",
+      "confidence_percent": 93,
+      "reason": "The candidate confirms Status as a named dependent Entity and requires version increments for Status-only changes; the captured qualified domain remains distinct.",
+      "operator_rules": [
+        "dependent_entities.compact_examples",
+        "atom_versioning.trigger",
+        "atom_versioning.version_transition"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e002"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1398"
+      ],
+      "preserved_distinctions": [
+        "Qualified Status fields and allowed-value domains do not collapse merely because their labels repeat.",
+        "An older archived version does not transfer archived Status to the current version."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Content Role: Evaluation/Type",
+      "prior_disposition": "retain",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "E",
+      "confidence_percent": 82,
+      "reason": "The candidate settles the E-view boundary but not this exact qualified field/allowed-value mapping; retain it for authoring review without an Operator escalation.",
+      "operator_rules": [
+        "m_e_root_question.decision",
+        "entity_vs_syntax_rules"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e003"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1506"
+      ],
+      "preserved_distinctions": [
+        "Evaluation view status/type/tier qualifiers remain distinct and are not inferred from the shared label."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Content Role: Evaluation/authoring",
+      "prior_disposition": "retain",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "E",
+      "confidence_percent": 82,
+      "reason": "The candidate settles the E-view boundary but not this exact qualified field/allowed-value mapping; retain it for authoring review without an Operator escalation.",
+      "operator_rules": [
+        "m_e_root_question.decision",
+        "entity_vs_syntax_rules"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e004"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-264"
+      ],
+      "preserved_distinctions": [
+        "Evaluation view status/type/tier qualifiers remain distinct and are not inferred from the shared label."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Content Role: Evaluation/grouping",
+      "prior_disposition": "retain",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "E",
+      "confidence_percent": 82,
+      "reason": "The candidate settles the E-view boundary but not this exact qualified field/allowed-value mapping; retain it for authoring review without an Operator escalation.",
+      "operator_rules": [
+        "m_e_root_question.decision",
+        "entity_vs_syntax_rules"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e005"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-265"
+      ],
+      "preserved_distinctions": [
+        "Evaluation view status/type/tier qualifiers remain distinct and are not inferred from the shared label."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Content Role: Implementation",
+      "prior_disposition": "retain",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "mixed",
+      "confidence_percent": 82,
+      "reason": "The candidate supplies no settled Implementation role label, so a candidate root/path would be speculative.",
+      "operator_rules": [
+        "content_direction.role_labels",
+        "review_backlog.question_policy"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e006"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1343"
+      ],
+      "preserved_distinctions": [
+        "Implementation is not conflated with Operation, Method, or actual Execution."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Content Role: Method",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom (M view specification)",
+      "content_view": "M",
+      "confidence_percent": 94,
+      "reason": "The candidate resolves Method as an M view whose specifications are Atoms, with actual performances represented as Executions.",
+      "operator_rules": [
+        "m_e_root_question.decision"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e007",
+        "CA-P-1930/batch-2/CA-P-1930-b2-e008"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1340",
+        "CA-R-1767"
+      ],
+      "preserved_distinctions": [
+        "Method is a view over shared roots, not an additional root."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Content Role: Method/Status",
+      "prior_disposition": "retain",
+      "action": "inherit",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Status (qualified domain retained)",
+      "content_view": "mixed",
+      "confidence_percent": 93,
+      "reason": "The candidate confirms Status as a named dependent Entity and requires version increments for Status-only changes; the captured qualified domain remains distinct.",
+      "operator_rules": [
+        "dependent_entities.compact_examples",
+        "atom_versioning.trigger",
+        "atom_versioning.version_transition"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e009"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1397"
+      ],
+      "preserved_distinctions": [
+        "Qualified Status fields and allowed-value domains do not collapse merely because their labels repeat.",
+        "An older archived version does not transfer archived Status to the current version."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Content Role: Operations",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance (Operations role; repeatable Operation definition)",
+      "content_view": "O",
+      "confidence_percent": 95,
+      "reason": "The candidate maps Operations content to a repeatable Operation definition while keeping actual runs at the Execution root; the path does not use allowed-value notation.",
+      "operator_rules": [
+        "content_direction.role_labels.Operations",
+        "execution_definition_policy.o_atom_role"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e010"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1530"
+      ],
+      "preserved_distinctions": [
+        "A repeatable Operation definition differs from one actual Execution.",
+        "Ad hoc Executions need no O Atom."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Content Role: Operations/Status",
+      "prior_disposition": "retain",
+      "action": "inherit",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Status (qualified domain retained)",
+      "content_view": "mixed",
+      "confidence_percent": 93,
+      "reason": "The candidate confirms Status as a named dependent Entity and requires version increments for Status-only changes; the captured qualified domain remains distinct.",
+      "operator_rules": [
+        "dependent_entities.compact_examples",
+        "atom_versioning.trigger",
+        "atom_versioning.version_transition"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e011"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1874"
+      ],
+      "preserved_distinctions": [
+        "Qualified Status fields and allowed-value domains do not collapse merely because their labels repeat.",
+        "An older archived version does not transfer archived Status to the current version."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Content Role: Operations/Type",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance (Operations role; qualified operation type)",
+      "content_view": "O",
+      "confidence_percent": 91,
+      "reason": "The candidate's Operation direction supports a qualified repeatable-definition display, without admitting a native subtype.",
+      "operator_rules": [
+        "content_direction.role_labels.Operations",
+        "execution_definition_policy"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e012"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1565"
+      ],
+      "preserved_distinctions": [
+        "Operation type remains qualified and does not become an eighth root."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Content Role: Operations/Type/Filename Token",
+      "prior_disposition": "retain",
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier (general Core D policy; storage field/path is not Carrier ID)",
+      "content_view": "D",
+      "confidence_percent": 94,
+      "reason": "The candidate puts these delivery details under reusable Core D policy rather than per-Property Carrier edges or D Atoms.",
+      "operator_rules": [
+        "carrier_delivery_model.decision",
+        "carrier_delivery_model.carrier_root_boundary",
+        "entity_identity_model.carrier_identity"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e013"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-457"
+      ],
+      "preserved_distinctions": [
+        "The qualified field/filename/placement meaning remains distinct from the Carrier root and Carrier ID.",
+        "General delivery policy does not inherit or create an actual Carrier for another Entity.",
+        "Filename and path remain storage location, not Carrier identity."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Content Role: Operations/Type: Action",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance (Operations role; repeatable Action definition)",
+      "content_view": "O",
+      "confidence_percent": 94,
+      "reason": "The candidate retains repeatable Operation definitions in Atom content and reserves Execution for actual runs.",
+      "operator_rules": [
+        "content_direction.role_labels.Operations",
+        "execution_definition_policy",
+        "root_entities[6].proposed_kinds"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e014"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1562"
+      ],
+      "preserved_distinctions": [
+        "The Action definition is not its Action Run Execution.",
+        "The Operator, not an automatic rule, decides repeatability."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Content Role: Operations/Type: Actor",
+      "prior_disposition": "retain",
+      "action": "rebase",
+      "candidate_root": "Actor",
+      "candidate_path": "Actor (Operation participant type)",
+      "content_view": "O",
+      "confidence_percent": 92,
+      "reason": "The candidate gives Actor a root meaning and keeps repeatable Operation definitions distinct from actual runs.",
+      "operator_rules": [
+        "root_entities[2]",
+        "execution_definition_policy.o_atom_role"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e015"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1564"
+      ],
+      "preserved_distinctions": [
+        "Actor means who performs work; it is not an Operation's Carrier or actual Execution."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Content Role: Operations/Type: Step",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance (Operations role; repeatable Step definition)",
+      "content_view": "O",
+      "confidence_percent": 94,
+      "reason": "The candidate retains repeatable Operation definitions in Atom content and reserves Execution for actual runs.",
+      "operator_rules": [
+        "content_direction.role_labels.Operations",
+        "execution_definition_policy",
+        "root_entities[6].proposed_kinds"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e016"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1569"
+      ],
+      "preserved_distinctions": [
+        "The Step definition is not its Step Run Execution.",
+        "The Operator, not an automatic rule, decides repeatability."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Content Role: Operations/Type: Workflow",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance (Operations role; repeatable Workflow definition)",
+      "content_view": "O",
+      "confidence_percent": 94,
+      "reason": "The candidate retains repeatable Operation definitions in Atom content and reserves Execution for actual runs.",
+      "operator_rules": [
+        "content_direction.role_labels.Operations",
+        "execution_definition_policy",
+        "root_entities[6].proposed_kinds"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e017"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1563"
+      ],
+      "preserved_distinctions": [
+        "The Workflow definition is not its Workflow Run Execution.",
+        "The Operator, not an automatic rule, decides repeatability."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Content Role: Plan",
+      "prior_disposition": "retain",
+      "action": "rebase",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance (Plan role; Objective content)",
+      "content_view": "P",
+      "confidence_percent": 95,
+      "reason": "The candidate explicitly associates Plan with Objective content while preserving role/type-required material; this display path does not misuse allowed-value notation.",
+      "operator_rules": [
+        "content_direction.role_labels.Plan",
+        "content_direction.details"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e018"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1338"
+      ],
+      "preserved_distinctions": [
+        "Plan role content is Objective; general Details optionality does not erase required Plan content."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Content Role: Plan/Authoritative Carrier Bundle",
+      "prior_disposition": "retain",
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier (general Core D policy; storage field/path is not Carrier ID)",
+      "content_view": "D",
+      "confidence_percent": 94,
+      "reason": "The candidate puts these delivery details under reusable Core D policy rather than per-Property Carrier edges or D Atoms.",
+      "operator_rules": [
+        "carrier_delivery_model.decision",
+        "carrier_delivery_model.carrier_root_boundary",
+        "entity_identity_model.carrier_identity"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e019",
+        "CA-P-1930/batch-2/CA-P-1930-b2-e020"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-460",
+        "CA-D-461"
+      ],
+      "preserved_distinctions": [
+        "The qualified field/filename/placement meaning remains distinct from the Carrier root and Carrier ID.",
+        "General delivery policy does not inherit or create an actual Carrier for another Entity.",
+        "Filename and path remain storage location, not Carrier identity."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Content Role: Plan/Backlog",
+      "prior_disposition": "retain",
+      "action": "inherit",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Status: Backlog (Plan-qualified domain)",
+      "content_view": "P",
+      "confidence_percent": 93,
+      "reason": "The candidate retains Backlog among non-archived status containers; the captured Plan Backlog meaning is preserved as a qualified Status domain, not folded into Version labels.",
+      "operator_rules": [
+        "snapshot_and_history_rules[2]",
+        "atom_lookup.default_view"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e021"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1542"
+      ],
+      "preserved_distinctions": [
+        "Plan Backlog remains future work outside current Plan Scope, not a Version Label.",
+        "The qualified Plan Backlog domain remains separate from other Status uses."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Content Role: Plan/Carrier Placement",
+      "prior_disposition": "retain",
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier (general Core D policy; storage field/path is not Carrier ID)",
+      "content_view": "D",
+      "confidence_percent": 94,
+      "reason": "The candidate puts these delivery details under reusable Core D policy rather than per-Property Carrier edges or D Atoms.",
+      "operator_rules": [
+        "carrier_delivery_model.decision",
+        "carrier_delivery_model.carrier_root_boundary",
+        "entity_identity_model.carrier_identity"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e020"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-461"
+      ],
+      "preserved_distinctions": [
+        "The qualified field/filename/placement meaning remains distinct from the Carrier root and Carrier ID.",
+        "General delivery policy does not inherit or create an actual Carrier for another Entity.",
+        "Filename and path remain storage location, not Carrier identity."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Content Role: Plan/Current Scope",
+      "prior_disposition": "retain",
+      "action": "rebase",
+      "candidate_root": "Scope Unit",
+      "candidate_path": "Scope Unit (Plan applicability/ownership qualifier; not an inferred owner)",
+      "content_view": "P",
+      "confidence_percent": 92,
+      "reason": "The candidate preserves Scope Unit and Scope applicability boundaries without converting plan scope into automatic ownership.",
+      "operator_rules": [
+        "content_direction.scope_omission",
+        "root_entities[1]"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e022"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1541"
+      ],
+      "preserved_distinctions": [
+        "Substance Scope is applicability rather than ownership; a restriction stays explicit."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Content Role: Plan/Direct Work Decomposition",
+      "prior_disposition": "retain",
+      "action": "rebase",
+      "candidate_root": "Relation",
+      "candidate_path": "Relation (Plan decomposition; exact native Type remains unadmitted)",
+      "content_view": "P",
+      "confidence_percent": 92,
+      "reason": "The candidate retains typed Relations while leaving the exact native decomposition catalogue to later authoring review.",
+      "operator_rules": [
+        "graph_model",
+        "relation_type_model.endpoint_boundary"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e023"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1537"
+      ],
+      "preserved_distinctions": [
+        "Decomposition semantics and exact endpoint constraints remain explicit; no lexical relation kind is silently admitted."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Content Role: Plan/Identity",
+      "prior_disposition": "retain",
+      "action": "rebase",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Identity (Plan-qualified dependent field)",
+      "content_view": "P",
+      "confidence_percent": 92,
+      "reason": "The candidate keeps named dependent fields inside the Artifact and preserves the Plan Objective role.",
+      "operator_rules": [
+        "dependent_entities",
+        "content_direction.role_labels.Plan"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e024"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1534"
+      ],
+      "preserved_distinctions": [
+        "The Plan-qualified field remains distinct; it has no independent lifecycle."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Content Role: Plan/Status",
+      "prior_disposition": "retain",
+      "action": "inherit",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Status (qualified domain retained)",
+      "content_view": "mixed",
+      "confidence_percent": 93,
+      "reason": "The candidate confirms Status as a named dependent Entity and requires version increments for Status-only changes; the captured qualified domain remains distinct.",
+      "operator_rules": [
+        "dependent_entities.compact_examples",
+        "atom_versioning.trigger",
+        "atom_versioning.version_transition"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e025"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1539"
+      ],
+      "preserved_distinctions": [
+        "Qualified Status fields and allowed-value domains do not collapse merely because their labels repeat.",
+        "An older archived version does not transfer archived Status to the current version."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Content Role: Plan/Status: Active",
+      "prior_disposition": "retain",
+      "action": "inherit",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Status: Active (qualified domain retained)",
+      "content_view": "mixed",
+      "confidence_percent": 93,
+      "reason": "The candidate confirms Status as a named dependent Entity and requires version increments for Status-only changes; the captured qualified domain remains distinct.",
+      "operator_rules": [
+        "dependent_entities.compact_examples",
+        "atom_versioning.trigger",
+        "atom_versioning.version_transition"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e022"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1541"
+      ],
+      "preserved_distinctions": [
+        "Qualified Status fields and allowed-value domains do not collapse merely because their labels repeat.",
+        "An older archived version does not transfer archived Status to the current version."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Content Role: Plan/Status: Backlog",
+      "prior_disposition": "retain",
+      "action": "inherit",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Status: Backlog (qualified domain retained)",
+      "content_view": "mixed",
+      "confidence_percent": 93,
+      "reason": "The candidate confirms Status as a named dependent Entity and requires version increments for Status-only changes; the captured qualified domain remains distinct.",
+      "operator_rules": [
+        "dependent_entities.compact_examples",
+        "atom_versioning.trigger",
+        "atom_versioning.version_transition"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e021"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1542"
+      ],
+      "preserved_distinctions": [
+        "Qualified Status fields and allowed-value domains do not collapse merely because their labels repeat.",
+        "An older archived version does not transfer archived Status to the current version."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Content Role: Plan/Status: Canceled",
+      "prior_disposition": "retain",
+      "action": "inherit",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Status: Canceled (qualified domain retained)",
+      "content_view": "mixed",
+      "confidence_percent": 93,
+      "reason": "The candidate confirms Status as a named dependent Entity and requires version increments for Status-only changes; the captured qualified domain remains distinct.",
+      "operator_rules": [
+        "dependent_entities.compact_examples",
+        "atom_versioning.trigger",
+        "atom_versioning.version_transition"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e026"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1545"
+      ],
+      "preserved_distinctions": [
+        "Qualified Status fields and allowed-value domains do not collapse merely because their labels repeat.",
+        "An older archived version does not transfer archived Status to the current version."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Content Role: Plan/Type",
+      "prior_disposition": "question",
+      "action": "syntax_context",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "P",
+      "confidence_percent": 94,
+      "reason": "The candidate says contextual grouping does not itself create an Entity; no source gap is escalated as an Operator conflict.",
+      "operator_rules": [
+        "entity_vs_syntax_rules",
+        "dependent_entities"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e027"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-378"
+      ],
+      "preserved_distinctions": [
+        "The qualified Plan Type leaves retain their meanings; the parent heading is not independently promoted."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Content Role: Plan/Type: Plan",
+      "prior_disposition": "retain",
+      "action": "rebase",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom (Plan Atom kind; Content Role Plan and Type Plan)",
+      "content_view": "P",
+      "confidence_percent": 90,
+      "reason": "Captured CA-R-1574 defines a Plan Atom by Content Role Plan plus Type Plan; the candidate keeps dependent fields inside the Atom without inventing an Atom.Plan field.",
+      "operator_rules": [
+        "dependent_entities",
+        "content_direction.role_labels.Plan"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e028",
+        "CA-P-1930/batch-2/CA-P-1930-b2-e029"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1574",
+        "CA-M-306"
+      ],
+      "preserved_distinctions": [
+        "Plan Atom kind requires both Content Role Plan and Type Plan.",
+        "Type Plan remains distinct from an Atom.Plan dependent field."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Content Role: Plan/Type: Plan/Assignee",
+      "prior_disposition": "retain",
+      "action": "rebase",
+      "candidate_root": "Actor",
+      "candidate_path": "Actor (Plan assignee)",
+      "content_view": "P",
+      "confidence_percent": 92,
+      "reason": "The candidate has a distinct Actor root for who performs work.",
+      "operator_rules": [
+        "root_entities[2]",
+        "entity_identity_model.actor"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e030"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1584"
+      ],
+      "preserved_distinctions": [
+        "An Actor Type can be generic or named; assignee is not a Carrier."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Content Role: Plan/Type: Plan/Assignee/Carrier",
+      "prior_disposition": "retain",
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier (general Core D policy; storage field/path is not Carrier ID)",
+      "content_view": "D",
+      "confidence_percent": 94,
+      "reason": "The candidate puts these delivery details under reusable Core D policy rather than per-Property Carrier edges or D Atoms.",
+      "operator_rules": [
+        "carrier_delivery_model.decision",
+        "carrier_delivery_model.carrier_root_boundary",
+        "entity_identity_model.carrier_identity"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e031"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-473"
+      ],
+      "preserved_distinctions": [
+        "The qualified field/filename/placement meaning remains distinct from the Carrier root and Carrier ID.",
+        "General delivery policy does not inherit or create an actual Carrier for another Entity.",
+        "Filename and path remain storage location, not Carrier identity."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Content Role: Plan/Type: Plan/Autonomous Confidence Threshold",
+      "prior_disposition": "retain",
+      "action": "rebase",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Autonomous Confidence Threshold (Plan-qualified dependent field)",
+      "content_view": "P",
+      "confidence_percent": 92,
+      "reason": "The candidate keeps named dependent fields inside the Artifact and preserves the Plan Objective role.",
+      "operator_rules": [
+        "dependent_entities",
+        "content_direction.role_labels.Plan"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e032"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1587"
+      ],
+      "preserved_distinctions": [
+        "The Plan-qualified field remains distinct; it has no independent lifecycle."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Content Role: Plan/Type: Plan/Autonomous Confidence Threshold/Carrier",
+      "prior_disposition": "retain",
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier (general Core D policy; storage field/path is not Carrier ID)",
+      "content_view": "D",
+      "confidence_percent": 94,
+      "reason": "The candidate puts these delivery details under reusable Core D policy rather than per-Property Carrier edges or D Atoms.",
+      "operator_rules": [
+        "carrier_delivery_model.decision",
+        "carrier_delivery_model.carrier_root_boundary",
+        "entity_identity_model.carrier_identity"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e033"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-472"
+      ],
+      "preserved_distinctions": [
+        "The qualified field/filename/placement meaning remains distinct from the Carrier root and Carrier ID.",
+        "General delivery policy does not inherit or create an actual Carrier for another Entity.",
+        "Filename and path remain storage location, not Carrier identity."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Content Role: Plan/Type: Plan/Backlog",
+      "prior_disposition": "retain",
+      "action": "inherit",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Status: Backlog (Plan-qualified domain)",
+      "content_view": "P",
+      "confidence_percent": 93,
+      "reason": "The candidate retains Backlog among non-archived status containers; the captured Plan Backlog meaning is preserved as a qualified Status domain, not folded into Version labels.",
+      "operator_rules": [
+        "snapshot_and_history_rules[2]",
+        "atom_lookup.default_view"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e034"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-475"
+      ],
+      "preserved_distinctions": [
+        "Plan Backlog remains future work outside current Plan Scope, not a Version Label.",
+        "The qualified Plan Backlog domain remains separate from other Status uses."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Content Role: Plan/Type: Plan/Backlog/Carrier",
+      "prior_disposition": "retain",
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier (general Core D policy; storage field/path is not Carrier ID)",
+      "content_view": "D",
+      "confidence_percent": 94,
+      "reason": "The candidate puts these delivery details under reusable Core D policy rather than per-Property Carrier edges or D Atoms.",
+      "operator_rules": [
+        "carrier_delivery_model.decision",
+        "carrier_delivery_model.carrier_root_boundary",
+        "entity_identity_model.carrier_identity"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e034"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-475"
+      ],
+      "preserved_distinctions": [
+        "The qualified field/filename/placement meaning remains distinct from the Carrier root and Carrier ID.",
+        "General delivery policy does not inherit or create an actual Carrier for another Entity.",
+        "Filename and path remain storage location, not Carrier identity."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Content Role: Plan/Type: Plan/Blocking",
+      "prior_disposition": "retain",
+      "action": "rebase",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Blocking (Plan-qualified dependent field)",
+      "content_view": "P",
+      "confidence_percent": 92,
+      "reason": "The candidate keeps named dependent fields inside the Artifact and preserves the Plan Objective role.",
+      "operator_rules": [
+        "dependent_entities",
+        "content_direction.role_labels.Plan"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e035",
+        "CA-P-1930/batch-2/CA-P-1930-b2-e036"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1580",
+        "CA-E-504"
+      ],
+      "preserved_distinctions": [
+        "The Plan-qualified field remains distinct; it has no independent lifecycle."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Content Role: Plan/Type: Plan/Blocking/Carrier",
+      "prior_disposition": "retain",
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier (general Core D policy; storage field/path is not Carrier ID)",
+      "content_view": "D",
+      "confidence_percent": 94,
+      "reason": "The candidate puts these delivery details under reusable Core D policy rather than per-Property Carrier edges or D Atoms.",
+      "operator_rules": [
+        "carrier_delivery_model.decision",
+        "carrier_delivery_model.carrier_root_boundary",
+        "entity_identity_model.carrier_identity"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e037"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-471"
+      ],
+      "preserved_distinctions": [
+        "The qualified field/filename/placement meaning remains distinct from the Carrier root and Carrier ID.",
+        "General delivery policy does not inherit or create an actual Carrier for another Entity.",
+        "Filename and path remain storage location, not Carrier identity."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Content Role: Plan/Type: Plan/Carrier",
+      "prior_disposition": "retain",
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier (general Core D policy; storage field/path is not Carrier ID)",
+      "content_view": "D",
+      "confidence_percent": 94,
+      "reason": "The candidate puts these delivery details under reusable Core D policy rather than per-Property Carrier edges or D Atoms.",
+      "operator_rules": [
+        "carrier_delivery_model.decision",
+        "carrier_delivery_model.carrier_root_boundary",
+        "entity_identity_model.carrier_identity"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e038"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-502"
+      ],
+      "preserved_distinctions": [
+        "The qualified field/filename/placement meaning remains distinct from the Carrier root and Carrier ID.",
+        "General delivery policy does not inherit or create an actual Carrier for another Entity.",
+        "Filename and path remain storage location, not Carrier identity."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Content Role: Plan/Type: Plan/Carrier/Content",
+      "prior_disposition": "retain",
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier (general Core D policy; storage field/path is not Carrier ID)",
+      "content_view": "D",
+      "confidence_percent": 94,
+      "reason": "The candidate puts these delivery details under reusable Core D policy rather than per-Property Carrier edges or D Atoms.",
+      "operator_rules": [
+        "carrier_delivery_model.decision",
+        "carrier_delivery_model.carrier_root_boundary",
+        "entity_identity_model.carrier_identity"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e039"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-470"
+      ],
+      "preserved_distinctions": [
+        "The qualified field/filename/placement meaning remains distinct from the Carrier root and Carrier ID.",
+        "General delivery policy does not inherit or create an actual Carrier for another Entity.",
+        "Filename and path remain storage location, not Carrier identity."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Content Role: Plan/Type: Plan/Carrier/Filename",
+      "prior_disposition": "retain",
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier (general Core D policy; storage field/path is not Carrier ID)",
+      "content_view": "D",
+      "confidence_percent": 94,
+      "reason": "The candidate puts these delivery details under reusable Core D policy rather than per-Property Carrier edges or D Atoms.",
+      "operator_rules": [
+        "carrier_delivery_model.decision",
+        "carrier_delivery_model.carrier_root_boundary",
+        "entity_identity_model.carrier_identity"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e040"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-469"
+      ],
+      "preserved_distinctions": [
+        "The qualified field/filename/placement meaning remains distinct from the Carrier root and Carrier ID.",
+        "General delivery policy does not inherit or create an actual Carrier for another Entity.",
+        "Filename and path remain storage location, not Carrier identity."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Content Role: Plan/Type: Plan/Carrier/Stem",
+      "prior_disposition": "retain",
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier (general Core D policy; storage field/path is not Carrier ID)",
+      "content_view": "D",
+      "confidence_percent": 94,
+      "reason": "The candidate puts these delivery details under reusable Core D policy rather than per-Property Carrier edges or D Atoms.",
+      "operator_rules": [
+        "carrier_delivery_model.decision",
+        "carrier_delivery_model.carrier_root_boundary",
+        "entity_identity_model.carrier_identity"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e019"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-460"
+      ],
+      "preserved_distinctions": [
+        "The qualified field/filename/placement meaning remains distinct from the Carrier root and Carrier ID.",
+        "General delivery policy does not inherit or create an actual Carrier for another Entity.",
+        "Filename and path remain storage location, not Carrier identity."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Content Role: Plan/Type: Plan/Decomposition",
+      "prior_disposition": "retain",
+      "action": "rebase",
+      "candidate_root": "Relation",
+      "candidate_path": "Relation (Plan decomposition; exact native Type remains unadmitted)",
+      "content_view": "P",
+      "confidence_percent": 92,
+      "reason": "The candidate retains typed Relations while leaving the exact native decomposition catalogue to later authoring review.",
+      "operator_rules": [
+        "graph_model",
+        "relation_type_model.endpoint_boundary"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e041",
+        "CA-P-1930/batch-2/CA-P-1930-b2-e042"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1536",
+        "CA-E-507"
+      ],
+      "preserved_distinctions": [
+        "Decomposition semantics and exact endpoint constraints remain explicit; no lexical relation kind is silently admitted."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Content Role: Plan/Type: Plan/Decomposition/Carrier",
+      "prior_disposition": "retain",
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier (general Core D policy; storage field/path is not Carrier ID)",
+      "content_view": "D",
+      "confidence_percent": 94,
+      "reason": "The candidate puts these delivery details under reusable Core D policy rather than per-Property Carrier edges or D Atoms.",
+      "operator_rules": [
+        "carrier_delivery_model.decision",
+        "carrier_delivery_model.carrier_root_boundary",
+        "entity_identity_model.carrier_identity"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e043"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-481"
+      ],
+      "preserved_distinctions": [
+        "The qualified field/filename/placement meaning remains distinct from the Carrier root and Carrier ID.",
+        "General delivery policy does not inherit or create an actual Carrier for another Entity.",
+        "Filename and path remain storage location, not Carrier identity."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Content Role: Plan/Type: Plan/Definition of Done",
+      "prior_disposition": "retain",
+      "action": "rebase",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance (Plan role; Objective content; Definition of Done)",
+      "content_view": "P",
+      "confidence_percent": 92,
+      "reason": "The candidate preserves required Plan content despite the general Details optionality rule.",
+      "operator_rules": [
+        "content_direction.role_labels.Plan",
+        "content_direction.details"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e044"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1599"
+      ],
+      "preserved_distinctions": [
+        "Optional general Details does not erase role/type-required Definition of Done or analysis results."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Content Role: Plan/Type: Plan/Details",
+      "prior_disposition": "retain",
+      "action": "rebase",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance (Plan role; Objective content; Details)",
+      "content_view": "P",
+      "confidence_percent": 92,
+      "reason": "The candidate preserves required Plan content despite the general Details optionality rule.",
+      "operator_rules": [
+        "content_direction.role_labels.Plan",
+        "content_direction.details"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e045"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1586"
+      ],
+      "preserved_distinctions": [
+        "Optional general Details does not erase role/type-required Definition of Done or analysis results."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Content Role: Plan/Type: Plan/Identifier",
+      "prior_disposition": "retain",
+      "action": "rebase",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Identifier (Plan-qualified dependent field)",
+      "content_view": "P",
+      "confidence_percent": 92,
+      "reason": "The candidate keeps named dependent fields inside the Artifact and preserves the Plan Objective role.",
+      "operator_rules": [
+        "dependent_entities",
+        "content_direction.role_labels.Plan"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e027"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-378"
+      ],
+      "preserved_distinctions": [
+        "The Plan-qualified field remains distinct; it has no independent lifecycle."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Content Role: Plan/Type: Plan/Label",
+      "prior_disposition": "retain",
+      "action": "rebase",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Label (Plan-qualified dependent field)",
+      "content_view": "P",
+      "confidence_percent": 92,
+      "reason": "The candidate keeps named dependent fields inside the Artifact and preserves the Plan Objective role.",
+      "operator_rules": [
+        "dependent_entities",
+        "content_direction.role_labels.Plan"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e046"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1576"
+      ],
+      "preserved_distinctions": [
+        "The Plan-qualified field remains distinct; it has no independent lifecycle."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Content Role: Plan/Type: Plan/Recursive Decomposition",
+      "prior_disposition": "retain",
+      "action": "rebase",
+      "candidate_root": "Relation",
+      "candidate_path": "Relation (Plan decomposition; exact native Type remains unadmitted)",
+      "content_view": "P",
+      "confidence_percent": 92,
+      "reason": "The candidate retains typed Relations while leaving the exact native decomposition catalogue to later authoring review.",
+      "operator_rules": [
+        "graph_model",
+        "relation_type_model.endpoint_boundary"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e023"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1537"
+      ],
+      "preserved_distinctions": [
+        "Decomposition semantics and exact endpoint constraints remain explicit; no lexical relation kind is silently admitted."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Content Role: Plan/Type: Plan/Status",
+      "prior_disposition": "question",
+      "action": "inherit",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Status (qualified domain retained)",
+      "content_view": "mixed",
+      "confidence_percent": 93,
+      "reason": "The candidate confirms Status as a named dependent Entity and requires version increments for Status-only changes; the captured qualified domain remains distinct.",
+      "operator_rules": [
+        "dependent_entities.compact_examples",
+        "atom_versioning.trigger",
+        "atom_versioning.version_transition"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e034"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-475"
+      ],
+      "preserved_distinctions": [
+        "Qualified Status fields and allowed-value domains do not collapse merely because their labels repeat.",
+        "An older archived version does not transfer archived Status to the current version."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Content Role: Plan/Type: Plan/Status: Done",
+      "prior_disposition": "retain",
+      "action": "inherit",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Status: Done (qualified domain retained)",
+      "content_view": "mixed",
+      "confidence_percent": 93,
+      "reason": "The candidate confirms Status as a named dependent Entity and requires version increments for Status-only changes; the captured qualified domain remains distinct.",
+      "operator_rules": [
+        "dependent_entities.compact_examples",
+        "atom_versioning.trigger",
+        "atom_versioning.version_transition"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e047"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1583"
+      ],
+      "preserved_distinctions": [
+        "Qualified Status fields and allowed-value domains do not collapse merely because their labels repeat.",
+        "An older archived version does not transfer archived Status to the current version."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Content Role: Plan/Type: Plan/Subtype",
+      "prior_disposition": "retain",
+      "action": "rebase",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Subtype (Plan-qualified dependent field)",
+      "content_view": "P",
+      "confidence_percent": 92,
+      "reason": "The candidate keeps named dependent fields inside the Artifact and preserves the Plan Objective role.",
+      "operator_rules": [
+        "dependent_entities",
+        "content_direction.role_labels.Plan"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e048"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1577"
+      ],
+      "preserved_distinctions": [
+        "The Plan-qualified field remains distinct; it has no independent lifecycle."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Content Role: Plan/Type: Plan/Work Sequence Number",
+      "prior_disposition": "retain",
+      "action": "rebase",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Work Sequence Number (Plan-qualified dependent field)",
+      "content_view": "P",
+      "confidence_percent": 92,
+      "reason": "The candidate keeps named dependent fields inside the Artifact and preserves the Plan Objective role.",
+      "operator_rules": [
+        "dependent_entities",
+        "content_direction.role_labels.Plan"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e049"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-991"
+      ],
+      "preserved_distinctions": [
+        "The Plan-qualified field remains distinct; it has no independent lifecycle."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Content Role: Requirement",
+      "prior_disposition": "retain",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "R",
+      "confidence_percent": 82,
+      "reason": "The candidate's role-label table does not select a one-to-one Requirement mapping, so this positive captured meaning remains uncommitted review work.",
+      "operator_rules": [
+        "content_direction.role_labels",
+        "review_backlog.question_policy"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e050",
+        "CA-P-1930/batch-2/CA-P-1930-b2-e051"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1339",
+        "CA-R-1694"
+      ],
+      "preserved_distinctions": [
+        "Requirement, Demand, and Goal meanings remain distinct; none is silently relabelled as a settled candidate role."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Content Role: Requirement/Status",
+      "prior_disposition": "retain",
+      "action": "inherit",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Status (qualified domain retained)",
+      "content_view": "mixed",
+      "confidence_percent": 93,
+      "reason": "The candidate confirms Status as a named dependent Entity and requires version increments for Status-only changes; the captured qualified domain remains distinct.",
+      "operator_rules": [
+        "dependent_entities.compact_examples",
+        "atom_versioning.trigger",
+        "atom_versioning.version_transition"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e052"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1309"
+      ],
+      "preserved_distinctions": [
+        "Qualified Status fields and allowed-value domains do not collapse merely because their labels repeat.",
+        "An older archived version does not transfer archived Status to the current version."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Content Role: Requirement/Type",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "R",
+      "confidence_percent": 82,
+      "reason": "The candidate does not select this Requirement/Demand-qualified role mapping; leave it as review work rather than inventing a new Operator question.",
+      "operator_rules": [
+        "content_direction.role_labels",
+        "review_backlog.question_policy"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e053"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-286"
+      ],
+      "preserved_distinctions": [
+        "Qualified Demand/Requirement fields and allowed values remain distinct."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Content Role: Requirement/Type: Demand",
+      "prior_disposition": "retain",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "R",
+      "confidence_percent": 82,
+      "reason": "The candidate does not select this Requirement/Demand-qualified role mapping; leave it as review work rather than inventing a new Operator question.",
+      "operator_rules": [
+        "content_direction.role_labels",
+        "review_backlog.question_policy"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e054",
+        "CA-P-1930/batch-2/CA-P-1930-b2-e055"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-932",
+        "CA-E-243"
+      ],
+      "preserved_distinctions": [
+        "Qualified Demand/Requirement fields and allowed values remain distinct."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Content Role: Requirement/Type: Demand/Admission",
+      "prior_disposition": "retain",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "R",
+      "confidence_percent": 82,
+      "reason": "The candidate does not select this Requirement/Demand-qualified role mapping; leave it as review work rather than inventing a new Operator question.",
+      "operator_rules": [
+        "content_direction.role_labels",
+        "review_backlog.question_policy"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e056"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-951"
+      ],
+      "preserved_distinctions": [
+        "Qualified Demand/Requirement fields and allowed values remain distinct."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Content Role: Requirement/Type: Demand/Direction",
+      "prior_disposition": "retain",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "R",
+      "confidence_percent": 82,
+      "reason": "The candidate does not select this Requirement/Demand-qualified role mapping; leave it as review work rather than inventing a new Operator question.",
+      "operator_rules": [
+        "content_direction.role_labels",
+        "review_backlog.question_policy"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e057"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1294"
+      ],
+      "preserved_distinctions": [
+        "Qualified Demand/Requirement fields and allowed values remain distinct."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Content Role: Requirement/Type: Demand/Producer Result",
+      "prior_disposition": "retain",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "R",
+      "confidence_percent": 82,
+      "reason": "The candidate does not select this Requirement/Demand-qualified role mapping; leave it as review work rather than inventing a new Operator question.",
+      "operator_rules": [
+        "content_direction.role_labels",
+        "review_backlog.question_policy"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e058"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-933"
+      ],
+      "preserved_distinctions": [
+        "Qualified Demand/Requirement fields and allowed values remain distinct."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Content Role: Requirement/Type: Demand/filename",
+      "prior_disposition": "retain",
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier (general Core D policy; storage field/path is not Carrier ID)",
+      "content_view": "D",
+      "confidence_percent": 94,
+      "reason": "The candidate puts these delivery details under reusable Core D policy rather than per-Property Carrier edges or D Atoms.",
+      "operator_rules": [
+        "carrier_delivery_model.decision",
+        "carrier_delivery_model.carrier_root_boundary",
+        "entity_identity_model.carrier_identity"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e059"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-287"
+      ],
+      "preserved_distinctions": [
+        "The qualified field/filename/placement meaning remains distinct from the Carrier root and Carrier ID.",
+        "General delivery policy does not inherit or create an actual Carrier for another Entity.",
+        "Filename and path remain storage location, not Carrier identity."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Content Role: Requirement/Type: Goal",
+      "prior_disposition": "retain",
+      "action": "rebase",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance (RMED Claim; Goal-qualified Requirement)",
+      "content_view": "R",
+      "confidence_percent": 92,
+      "reason": "Captured CA-R-925 and CA-R-1775 preserve Goal as a Requirement-qualified RMED Claim, not Plan Objective content; the path is prose rather than allowed-value notation.",
+      "operator_rules": [
+        "content_direction.umbrella",
+        "content_direction.role_labels.RMED"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e060",
+        "CA-P-1930/batch-2/CA-P-1930-b2-e061"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-925",
+        "CA-R-1775"
+      ],
+      "preserved_distinctions": [
+        "Goal is a Relational Atom with Content Role Requirement and Type Goal.",
+        "A parent Scope Unit owns child-targeted Goal Atoms without transferring ownership.",
+        "Goal stays distinct from Demand; no type hierarchy is admitted."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Content Role: Requirement/Type: Goal/Filename",
+      "prior_disposition": "retain",
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier (general Core D policy; storage field/path is not Carrier ID)",
+      "content_view": "D",
+      "confidence_percent": 94,
+      "reason": "The candidate puts these delivery details under reusable Core D policy rather than per-Property Carrier edges or D Atoms.",
+      "operator_rules": [
+        "carrier_delivery_model.decision",
+        "carrier_delivery_model.carrier_root_boundary",
+        "entity_identity_model.carrier_identity"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e062"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-292"
+      ],
+      "preserved_distinctions": [
+        "The qualified field/filename/placement meaning remains distinct from the Carrier root and Carrier ID.",
+        "General delivery policy does not inherit or create an actual Carrier for another Entity.",
+        "Filename and path remain storage location, not Carrier identity."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Content Role: Requirement/Type: Goal/Filename Token",
+      "prior_disposition": "retain",
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier (general Core D policy; storage field/path is not Carrier ID)",
+      "content_view": "D",
+      "confidence_percent": 94,
+      "reason": "The candidate puts these delivery details under reusable Core D policy rather than per-Property Carrier edges or D Atoms.",
+      "operator_rules": [
+        "carrier_delivery_model.decision",
+        "carrier_delivery_model.carrier_root_boundary",
+        "entity_identity_model.carrier_identity"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e053"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-286"
+      ],
+      "preserved_distinctions": [
+        "The qualified field/filename/placement meaning remains distinct from the Carrier root and Carrier ID.",
+        "General delivery policy does not inherit or create an actual Carrier for another Entity.",
+        "Filename and path remain storage location, not Carrier identity."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Content Role: Requirement/Type: Goal/Reference",
+      "prior_disposition": "retain",
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier (general Core D policy; storage field/path is not Carrier ID)",
+      "content_view": "D",
+      "confidence_percent": 94,
+      "reason": "Captured CA-D-342 is a carrier-reference convention. The candidate retains general delivery policy and separates filename/path from Carrier identity.",
+      "operator_rules": [
+        "carrier_delivery_model.decision",
+        "carrier_delivery_model.carrier_root_boundary",
+        "entity_identity_model.carrier_identity"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e063"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-342"
+      ],
+      "preserved_distinctions": [
+        "An external Project Goal reference without an Atom ID uses its complete current Carrier filename stem.",
+        "That reference convention does not make the filename stem the Goal's or Carrier's identity.",
+        "General delivery policy does not inherit or create an actual Carrier for another Entity.",
+        "Filename and path remain storage location, not Carrier identity."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Direct Relation",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "C",
+      "confidence_percent": 82,
+      "reason": "The candidate confirms typed Relations but does not make the captured generic Direct Relation heading a settled Relation kind; this is review work, not a new Operator question.",
+      "operator_rules": [
+        "graph_model",
+        "relation_type_model.endpoint_boundary",
+        "review_backlog.question_policy"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e064"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-304"
+      ],
+      "preserved_distinctions": [
+        "Typed Relation endpoint constraints remain required; generic Direct Relation is not inferred from a label."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Direct Relation Serialization",
+      "prior_disposition": "retain",
+      "action": "syntax_context",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "C",
+      "confidence_percent": 94,
+      "reason": "The candidate expressly separates syntax and compact notation from Entity identity; no native relation is proposed from this serialization label.",
+      "operator_rules": [
+        "entity_vs_syntax_rules"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e065"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-268"
+      ],
+      "preserved_distinctions": [
+        "A serialization form is distinct from the Relation it may describe."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Frontmatter",
+      "prior_disposition": "retain",
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier (general Core D policy; storage field/path is not Carrier ID)",
+      "content_view": "D",
+      "confidence_percent": 94,
+      "reason": "The candidate assigns storage and field conventions to general D policies and preserves Carrier as the separate root.",
+      "operator_rules": [
+        "carrier_delivery_model.decision",
+        "carrier_delivery_model.carrier_root_boundary",
+        "entity_identity_model.carrier_identity"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e066"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-478"
+      ],
+      "preserved_distinctions": [
+        "Frontmatter remains carrier/serialization context, not an independent root Entity.",
+        "General delivery policy does not inherit or create an actual Carrier for another Entity.",
+        "Filename and path remain storage location, not Carrier identity."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Global Tier",
+      "prior_disposition": "retain",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "A",
+      "confidence_percent": 82,
+      "reason": "The candidate names no Local/Global Tier model or allowed-value domain, so a candidate path would overstate the available direction.",
+      "operator_rules": [
+        "review_backlog.authoring_and_implementation"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e067",
+        "CA-P-1930/batch-2/CA-P-1930-b2-e068"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1444",
+        "CA-R-1389"
+      ],
+      "preserved_distinctions": [
+        "The captured qualified tier and allowed-value distinctions remain separate; no tier collapse is proposed."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Governed Subject",
+      "prior_disposition": "retain",
+      "action": "rebase",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance Scope (applicability, not ownership)",
+      "content_view": "C",
+      "confidence_percent": 92,
+      "reason": "The candidate settles Scope as applicability rather than ownership; the existing governed-Subject distinction remains explicit when restricted.",
+      "operator_rules": [
+        "content_direction.scope_omission"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e069"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1363"
+      ],
+      "preserved_distinctions": [
+        "A Subject restriction and owning Scope Unit remain distinct.",
+        "Omitted Scope resolves only to whole Subject plus whole owning Scope Unit."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Identifier",
+      "prior_disposition": "retain",
+      "action": "inherit",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom (atom_id owner selector)",
+      "content_view": "A",
+      "confidence_percent": 93,
+      "reason": "The candidate fixes Atom selection by atom_id and keeps dependent identity qualified by its owner.",
+      "operator_rules": [
+        "entity_identity_model.dependent_entity"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e027"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-378"
+      ],
+      "preserved_distinctions": [
+        "The complete dependent ID includes its owner selector and field; it is not merely a display address."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Identifier/Project Prefix",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "A",
+      "confidence_percent": 82,
+      "reason": "The candidate confirms a Scope Unit prefix format, not a semantic mapping for this Atom-qualified identifier component; preserve it pending authoring review.",
+      "operator_rules": [
+        "entity_identity_model.scope_unit",
+        "entity_identity_model.scope_unit_rename"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e070"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-366"
+      ],
+      "preserved_distinctions": [
+        "Scope Unit ID format is stable, but the old Atom-qualified Project Prefix is not silently made a Scope Unit field."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Identity",
+      "prior_disposition": "retain",
+      "action": "inherit",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom (atom_id identity)",
+      "content_view": "A",
+      "confidence_percent": 93,
+      "reason": "The candidate confirms Atom identity and preserves the separate Projection-instance boundary.",
+      "operator_rules": [
+        "entity_identity_model.dependent_entity",
+        "atom_lookup.maximum_active_originals_per_atom_id"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e064"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-304"
+      ],
+      "preserved_distinctions": [
+        "At most one Active original exists per Atom ID; projections remain separate instances."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Identity/collision repair",
+      "prior_disposition": "retain",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "A",
+      "confidence_percent": 82,
+      "reason": "The candidate confirms identity boundaries but does not establish this historical collision-repair procedure as a candidate Entity or policy.",
+      "operator_rules": [
+        "entity_identity_model.unconfirmed_details"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e071"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-276"
+      ],
+      "preserved_distinctions": [
+        "No collision-repair lifecycle or replacement policy is inferred from stable identity."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Local Tier",
+      "prior_disposition": "retain",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "A",
+      "confidence_percent": 82,
+      "reason": "The candidate names no Local/Global Tier model or allowed-value domain, so a candidate path would overstate the available direction.",
+      "operator_rules": [
+        "review_backlog.authoring_and_implementation"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e072"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1287"
+      ],
+      "preserved_distinctions": [
+        "The captured qualified tier and allowed-value distinctions remain separate; no tier collapse is proposed."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Local Tier/Filename Token",
+      "prior_disposition": "retain",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "A",
+      "confidence_percent": 82,
+      "reason": "The candidate names no Local/Global Tier model or allowed-value domain, so a candidate path would overstate the available direction.",
+      "operator_rules": [
+        "review_backlog.authoring_and_implementation"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e073"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-285"
+      ],
+      "preserved_distinctions": [
+        "The captured qualified tier and allowed-value distinctions remain separate; no tier collapse is proposed."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Local Tier/classification",
+      "prior_disposition": "retain",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "A",
+      "confidence_percent": 82,
+      "reason": "The candidate names no Local/Global Tier model or allowed-value domain, so a candidate path would overstate the available direction.",
+      "operator_rules": [
+        "review_backlog.authoring_and_implementation"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e074"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-272"
+      ],
+      "preserved_distinctions": [
+        "The captured qualified tier and allowed-value distinctions remain separate; no tier collapse is proposed."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Local Tier: Core",
+      "prior_disposition": "retain",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "A",
+      "confidence_percent": 82,
+      "reason": "The candidate names no Local/Global Tier model or allowed-value domain, so a candidate path would overstate the available direction.",
+      "operator_rules": [
+        "review_backlog.authoring_and_implementation"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e075"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-659"
+      ],
+      "preserved_distinctions": [
+        "The captured qualified tier and allowed-value distinctions remain separate; no tier collapse is proposed."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Local Tier: General",
+      "prior_disposition": "retain",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "A",
+      "confidence_percent": 82,
+      "reason": "The candidate names no Local/Global Tier model or allowed-value domain, so a candidate path would overstate the available direction.",
+      "operator_rules": [
+        "review_backlog.authoring_and_implementation"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e076"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1431"
+      ],
+      "preserved_distinctions": [
+        "The captured qualified tier and allowed-value distinctions remain separate; no tier collapse is proposed."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Local Tier: Principle",
+      "prior_disposition": "retain",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "A",
+      "confidence_percent": 82,
+      "reason": "The candidate names no Local/Global Tier model or allowed-value domain, so a candidate path would overstate the available direction.",
+      "operator_rules": [
+        "review_backlog.authoring_and_implementation"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e077"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-658"
+      ],
+      "preserved_distinctions": [
+        "The captured qualified tier and allowed-value distinctions remain separate; no tier collapse is proposed."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Local Tier: Standard",
+      "prior_disposition": "retain",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "A",
+      "confidence_percent": 82,
+      "reason": "The candidate names no Local/Global Tier model or allowed-value domain, so a candidate path would overstate the available direction.",
+      "operator_rules": [
+        "review_backlog.authoring_and_implementation"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e078"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-660"
+      ],
+      "preserved_distinctions": [
+        "The captured qualified tier and allowed-value distinctions remain separate; no tier collapse is proposed."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Property",
+      "prior_disposition": "retain",
+      "action": "inherit",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Property",
+      "content_view": "A",
+      "confidence_percent": 93,
+      "reason": "The candidate expressly retains Property as a dependent Entity node inside an Artifact; this display mapping does not admit a native edge.",
+      "operator_rules": [
+        "dependent_entities.property_node_vs_relation",
+        "dependent_entities.compact_examples"
+      ],
+      "evidence_refs": [
+        "CA-P-1930/batch-2/CA-P-1930-b2-e066",
+        "CA-P-1930/batch-2/CA-P-1930-b2-e079"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-478",
+        "CA-R-1598"
+      ],
+      "preserved_distinctions": [
+        "Property remains a named dependent Entity, connected by property-of rather than promoted to a root."
+      ],
+      "question": null
+    }
+  ]
+}

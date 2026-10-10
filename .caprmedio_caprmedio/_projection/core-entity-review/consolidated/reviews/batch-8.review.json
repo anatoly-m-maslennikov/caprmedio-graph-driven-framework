@@ -1,0 +1,2971 @@
+{
+  "schema_version": 1,
+  "batch": 8,
+  "kind": "Captured nodes against Operator candidate",
+  "non_authoritative": true,
+  "native_admission": "not_performed",
+  "source_migration": "not_performed",
+  "captured_core_commit": "a971d0e00c33c779f485fc8cad63194894d440fb",
+  "candidate_sha256": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b",
+  "input_sha256": "c7652bc1108b67b4fa9b9d037c78a9093ee2a78043f71bc244dec18033588b2b",
+  "baseline_sha256": "bc5d99e91fb7dd4dcb42e59ff33cc24cff1d0901c5904764394c769aaa0a9430",
+  "prior_review_sha256": "1b9d751f95aa71486908b53b3d7f3f9825defae137be3d8792d45177587c48f8",
+  "review_method": "Compared all 81 captured identities with the latest Operator candidate using the accepted batch-8 meanings and the global disposition evidence catalogue. Exact captured Main Content spans were rechecked through snapshot_sources.py against the pinned Git snapshot. Operator directions are display/proposal inputs only; this is not a fresh exhaustive audit of all 951 sources or an adoption/remapping operation.",
+  "nodes": [
+    {
+      "identity": "Structural Coordinate",
+      "prior_disposition": "retain",
+      "action": "syntax_context",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "R",
+      "confidence_percent": 90,
+      "reason": "Captured snapshot pins and Claim sections for 1 source Atom(s) were checked; evidence E001 directly defines 'Structural Coordinate'. It is retained unchanged with no new native admission or reduction decision. Candidate comparison: The candidate has no Structural Coordinate root; preserve the captured locator as structural display context without inferring a subtype or edge from coordinate syntax.",
+      "operator_rules": [
+        "$.entity_vs_syntax_rules[0]",
+        "$.entity_vs_syntax_rules[1]",
+        "$.entity_vs_syntax_rules[2]",
+        "$.authority.complete_706_identity_remapping"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E001"
+      ],
+      "checked_source_atom_ids": [
+        "CAPRMEDIO-R-791"
+      ],
+      "preserved_distinctions": [
+        "The defined Structural Coordinate remains a derived locator, not a new candidate root.",
+        "Scope Unit ordering and Local Order qualification remain separate from candidate Entity identity."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Structural Entity",
+      "prior_disposition": "retain",
+      "action": "syntax_context",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "mixed",
+      "confidence_percent": 90,
+      "reason": "Captured snapshot pins and Claim sections for 25 source Atom(s) were checked; evidence E002 directly defines 'Structural Entity'. It is retained unchanged with no new native admission or reduction decision. Candidate comparison: The seven-root candidate does not make Structural Entity a new root; retain the captured term and its provenance without assigning it to Artifact or Scope Unit.",
+      "operator_rules": [
+        "$.entity_vs_syntax_rules[0]",
+        "$.entity_vs_syntax_rules[1]",
+        "$.entity_vs_syntax_rules[2]",
+        "$.authority.complete_706_identity_remapping"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E002"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-264",
+        "CA-D-266",
+        "CA-D-451",
+        "CA-D-464",
+        "CA-D-465",
+        "CA-E-466",
+        "CA-R-1257",
+        "CA-R-1368",
+        "CA-R-1376",
+        "CA-R-1378",
+        "CA-R-1379",
+        "CA-R-1383",
+        "CA-R-1409",
+        "CA-R-1410",
+        "CA-R-1437",
+        "CA-R-1470",
+        "CA-R-1471",
+        "CA-R-1472",
+        "CA-R-1498",
+        "CA-R-1521",
+        "CA-R-1660",
+        "CA-R-1746",
+        "CA-R-1757",
+        "CA-R-834",
+        "CA-R-836"
+      ],
+      "preserved_distinctions": [
+        "Structural Entity remains distinct from its Carrier and from any binding metadata.",
+        "The captured identity is not replaced by a heading-derived candidate subtype."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Structural Entity/Authoritative Carrier",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "D",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot review for 'Structural Entity/Authoritative Carrier' checked 1 source Atom(s) against CA-P-1936/batch-8/E003 but did not establish a positive candidate mapping. Candidate comparison: The slash-qualified structural label may describe a relation, containment, or carrier qualifier, but the captured Main Content does not establish its exact candidate identity, direction, or endpoints. Keep the mapping pathless until targeted review supplies positive meaning evidence; no native admission or replacement is made.",
+      "operator_rules": [
+        "$.entity_vs_syntax_rules[0]",
+        "$.entity_vs_syntax_rules[1]",
+        "$.entity_vs_syntax_rules[2]",
+        "$.authority.complete_706_identity_remapping"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E003"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-465"
+      ],
+      "preserved_distinctions": [
+        "The original identity 'Structural Entity/Authoritative Carrier', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The slash-qualified structural label may describe a relation, containment, or carrier qualifier, but the captured Main Content does not establish its exact candidate identity, direction, or endpoints."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Review task only: captured Main Content for 'Structural Entity/Authoritative Carrier' (CA-P-1936/batch-8/E003) does not establish a positive candidate mapping. The slash-qualified structural label may describe a relation, containment, or carrier qualifier, but the captured Main Content does not establish its exact candidate identity, direction, or endpoints. Do not ask the Operator to choose a design until that meaning evidence is available."
+      }
+    },
+    {
+      "identity": "Structural Entity/Containment",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "D",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot review for 'Structural Entity/Containment' checked 1 source Atom(s) against CA-P-1936/batch-8/E004 but did not establish a positive candidate mapping. Candidate comparison: The slash-qualified structural label may describe a relation, containment, or carrier qualifier, but the captured Main Content does not establish its exact candidate identity, direction, or endpoints. Keep the mapping pathless until targeted review supplies positive meaning evidence; no native admission or replacement is made.",
+      "operator_rules": [
+        "$.entity_vs_syntax_rules[0]",
+        "$.entity_vs_syntax_rules[1]",
+        "$.entity_vs_syntax_rules[2]",
+        "$.authority.complete_706_identity_remapping"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E004"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-266"
+      ],
+      "preserved_distinctions": [
+        "The original identity 'Structural Entity/Containment', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The slash-qualified structural label may describe a relation, containment, or carrier qualifier, but the captured Main Content does not establish its exact candidate identity, direction, or endpoints."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Review task only: captured Main Content for 'Structural Entity/Containment' (CA-P-1936/batch-8/E004) does not establish a positive candidate mapping. The slash-qualified structural label may describe a relation, containment, or carrier qualifier, but the captured Main Content does not establish its exact candidate identity, direction, or endpoints. Do not ask the Operator to choose a design until that meaning evidence is available."
+      }
+    },
+    {
+      "identity": "Structural Entity/Direct Containment",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "mixed",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot review for 'Structural Entity/Direct Containment' checked 5 source Atom(s) against CA-P-1936/batch-8/E005 but did not establish a positive candidate mapping. Candidate comparison: The slash-qualified structural label may describe a relation, containment, or carrier qualifier, but the captured Main Content does not establish its exact candidate identity, direction, or endpoints. Keep the mapping pathless until targeted review supplies positive meaning evidence; no native admission or replacement is made.",
+      "operator_rules": [
+        "$.entity_vs_syntax_rules[0]",
+        "$.entity_vs_syntax_rules[1]",
+        "$.entity_vs_syntax_rules[2]",
+        "$.authority.complete_706_identity_remapping"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E005"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-264",
+        "CA-R-1376",
+        "CA-R-1383",
+        "CA-R-1409",
+        "CA-R-1498"
+      ],
+      "preserved_distinctions": [
+        "The original identity 'Structural Entity/Direct Containment', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The slash-qualified structural label may describe a relation, containment, or carrier qualifier, but the captured Main Content does not establish its exact candidate identity, direction, or endpoints."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Review task only: captured Main Content for 'Structural Entity/Direct Containment' (CA-P-1936/batch-8/E005) does not establish a positive candidate mapping. The slash-qualified structural label may describe a relation, containment, or carrier qualifier, but the captured Main Content does not establish its exact candidate identity, direction, or endpoints. Do not ask the Operator to choose a design until that meaning evidence is available."
+      }
+    },
+    {
+      "identity": "Structural Entity/Recursive Containment",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "R",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot review for 'Structural Entity/Recursive Containment' checked 1 source Atom(s) against CA-P-1936/batch-8/E006 but did not establish a positive candidate mapping. Candidate comparison: The slash-qualified structural label may describe a relation, containment, or carrier qualifier, but the captured Main Content does not establish its exact candidate identity, direction, or endpoints. Keep the mapping pathless until targeted review supplies positive meaning evidence; no native admission or replacement is made.",
+      "operator_rules": [
+        "$.entity_vs_syntax_rules[0]",
+        "$.entity_vs_syntax_rules[1]",
+        "$.entity_vs_syntax_rules[2]",
+        "$.authority.complete_706_identity_remapping"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E006"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1498"
+      ],
+      "preserved_distinctions": [
+        "The original identity 'Structural Entity/Recursive Containment', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The slash-qualified structural label may describe a relation, containment, or carrier qualifier, but the captured Main Content does not establish its exact candidate identity, direction, or endpoints."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Review task only: captured Main Content for 'Structural Entity/Recursive Containment' (CA-P-1936/batch-8/E006) does not establish a positive candidate mapping. The slash-qualified structural label may describe a relation, containment, or carrier qualifier, but the captured Main Content does not establish its exact candidate identity, direction, or endpoints. Do not ask the Operator to choose a design until that meaning evidence is available."
+      }
+    },
+    {
+      "identity": "Structural Level",
+      "prior_disposition": "retain",
+      "action": "syntax_context",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "mixed",
+      "confidence_percent": 90,
+      "reason": "Captured snapshot pins and Claim sections for 11 source Atom(s) were checked; evidence E007 directly defines 'Structural Level'. It is retained unchanged with no new native admission or reduction decision. Candidate comparison: Structural Level remains a captured structural qualifier; the candidate does not define it as a root or native edge.",
+      "operator_rules": [
+        "$.entity_vs_syntax_rules[0]",
+        "$.entity_vs_syntax_rules[1]",
+        "$.entity_vs_syntax_rules[2]",
+        "$.authority.complete_706_identity_remapping"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E007"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-297",
+        "CA-D-299",
+        "CA-D-300",
+        "CA-R-1444",
+        "CA-R-1485",
+        "CA-R-1730",
+        "CA-R-1731",
+        "CA-R-1737",
+        "CA-R-1751",
+        "CA-R-1772",
+        "CA-R-1773"
+      ],
+      "preserved_distinctions": [
+        "Structural level remains distinct from Scope Unit identity and Local Order.",
+        "No hierarchy or endpoint is inferred from the label alone."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Structural Parent Relation",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "R",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot review for 'Structural Parent Relation' checked 12 source Atom(s) against CA-P-1936/batch-8/E008 but did not establish a positive candidate mapping. Candidate comparison: The captured parent-relation occurrence does not establish the exact candidate Relation direction, graph ownership, or permitted endpoints. Keep the mapping pathless until targeted review supplies positive meaning evidence; no native admission or replacement is made.",
+      "operator_rules": [
+        "$.entity_vs_syntax_rules[0]",
+        "$.entity_vs_syntax_rules[1]",
+        "$.entity_vs_syntax_rules[2]",
+        "$.authority.complete_706_identity_remapping"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E008"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1390",
+        "CA-R-1392",
+        "CA-R-1484",
+        "CA-R-1485",
+        "CA-R-1660",
+        "CA-R-1661",
+        "CA-R-1730",
+        "CA-R-1731",
+        "CA-R-1737",
+        "CA-R-1763",
+        "CA-R-1764",
+        "CA-R-926"
+      ],
+      "preserved_distinctions": [
+        "The original identity 'Structural Parent Relation', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The captured parent-relation occurrence does not establish the exact candidate Relation direction, graph ownership, or permitted endpoints."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Review task only: captured Main Content for 'Structural Parent Relation' (CA-P-1936/batch-8/E008) does not establish a positive candidate mapping. The captured parent-relation occurrence does not establish the exact candidate Relation direction, graph ownership, or permitted endpoints. Do not ask the Operator to choose a design until that meaning evidence is available."
+      }
+    },
+    {
+      "identity": "Structural Path",
+      "prior_disposition": "retain",
+      "action": "syntax_context",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "R",
+      "confidence_percent": 90,
+      "reason": "Captured snapshot pins and Claim sections for 2 source Atom(s) were checked; evidence E009 directly defines 'Structural Path'. It is retained unchanged with no new native admission or reduction decision. Candidate comparison: Structural Path remains display/context syntax; the candidate's typed Relations remain canonical and no path string is promoted to a native edge.",
+      "operator_rules": [
+        "$.entity_vs_syntax_rules[0]",
+        "$.entity_vs_syntax_rules[1]",
+        "$.entity_vs_syntax_rules[2]",
+        "$.authority.complete_706_identity_remapping"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E009"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1661",
+        "CA-R-1764"
+      ],
+      "preserved_distinctions": [
+        "A captured structural path remains distinct from a Carrier filename or path.",
+        "Path notation does not replace the original identity or source references."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Subject",
+      "prior_disposition": "retain",
+      "action": "syntax_context",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "mixed",
+      "confidence_percent": 90,
+      "reason": "Captured snapshot pins and Claim sections for 22 source Atom(s) were checked; evidence E010 directly defines 'Subject'. It is retained unchanged with no new native admission or reduction decision. Candidate comparison: Subject remains a captured content and graph-input concept; the candidate adds no eighth Subject root and does not turn Subject notation into a native edge.",
+      "operator_rules": [
+        "$.content_direction",
+        "$.terms_graph_boundary",
+        "$.entity_vs_syntax_rules[0]"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E010"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-269",
+        "CA-E-246",
+        "CA-E-383",
+        "CA-E-444",
+        "CA-M-114",
+        "CA-M-125",
+        "CA-M-228",
+        "CA-M-232",
+        "CA-R-1194",
+        "CA-R-1198",
+        "CA-R-1199",
+        "CA-R-1200",
+        "CA-R-1203",
+        "CA-R-1275",
+        "CA-R-1279",
+        "CA-R-1280",
+        "CA-R-1281",
+        "CA-R-1321",
+        "CA-R-1351",
+        "CA-R-1363",
+        "CA-R-1597",
+        "CA-R-1776"
+      ],
+      "preserved_distinctions": [
+        "Subject identity remains separate from its source Atom and from candidate display syntax.",
+        "Substance and Substance Scope directions do not erase captured Subject meanings."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Subject Assignment",
+      "prior_disposition": "retain",
+      "action": "syntax_context",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "M",
+      "confidence_percent": 95,
+      "reason": "Captured snapshot Main Content supplies the complete-Main-Content inventory, one narrowest GOVERNS target, and direct DEPENDS_ON references for every other mentioned Entity; retain the unchanged qualified identity without native admission, replacement, or spelling-mapping inference. Candidate comparison: Subject Assignment remains a method-level assignment context; the candidate does not introduce an Assignment root or infer a relation from the heading.",
+      "operator_rules": [
+        "$.content_direction",
+        "$.terms_graph_boundary",
+        "$.entity_vs_syntax_rules[0]"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E078"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-125"
+      ],
+      "preserved_distinctions": [
+        "Assignment remains distinct from the Subject it assigns and from a native Relation kind.",
+        "The complete captured Main Content remains the evidence boundary."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Subject Expression",
+      "prior_disposition": "retain",
+      "action": "syntax_context",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "mixed",
+      "confidence_percent": 90,
+      "reason": "Captured snapshot pins and Claim sections for 12 source Atom(s) were checked; evidence E012 directly defines 'Subject Expression'. It is retained unchanged with no new native admission or reduction decision. Candidate comparison: Subject Expression remains canonical display syntax and validation context; /, :, and related notation do not create a native relation or subtype.",
+      "operator_rules": [
+        "$.content_direction",
+        "$.terms_graph_boundary",
+        "$.entity_vs_syntax_rules[0]"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E012"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-383",
+        "CA-E-387",
+        "CA-E-402",
+        "CA-M-237",
+        "CA-R-1194",
+        "CA-R-1245",
+        "CA-R-1321",
+        "CA-R-1324",
+        "CA-R-1325",
+        "CA-R-1348",
+        "CA-R-1349",
+        "CA-R-1350"
+      ],
+      "preserved_distinctions": [
+        "Bearer and allowed-value qualification remain distinct from the expression string.",
+        "Terms and their separate graph boundary remain preserved."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Subject Expression Evaluation",
+      "prior_disposition": "retain",
+      "action": "syntax_context",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "E",
+      "confidence_percent": 95,
+      "reason": "Captured snapshot Main Content supplies the Evaluation rejection boundary for invalid bearer, allowed-value, Term-resolution, and composite-expression handling; retain the unchanged qualified identity without native admission, replacement, or spelling-mapping inference. Candidate comparison: The captured evaluation boundary is retained as a role-centred check context; the candidate does not add an Evaluation root and actual checks remain Executions.",
+      "operator_rules": [
+        "$.content_direction",
+        "$.terms_graph_boundary",
+        "$.entity_vs_syntax_rules[0]"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E075"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-383"
+      ],
+      "preserved_distinctions": [
+        "Invalid bearer, allowed-value, Term-resolution, and composite-expression cases remain qualified.",
+        "Evaluation context is not collapsed into a Property or Relation identity."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Subject Expression Writing",
+      "prior_disposition": "retain",
+      "action": "syntax_context",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "M",
+      "confidence_percent": 95,
+      "reason": "Captured snapshot Main Content supplies the canonical-reference and admitted bearer/allowed-value qualification method, without copying a target Entity; retain the unchanged qualified identity without native admission, replacement, or spelling-mapping inference. Candidate comparison: Subject Expression Writing remains method context for canonical references and qualification; no separate Method root or copied target Entity is inferred.",
+      "operator_rules": [
+        "$.content_direction",
+        "$.terms_graph_boundary",
+        "$.entity_vs_syntax_rules[0]"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E014"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-228"
+      ],
+      "preserved_distinctions": [
+        "Canonical reference writing remains distinct from the referenced bearer or allowed value.",
+        "The notation remains non-authoritative candidate presentation."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Subject Path",
+      "prior_disposition": "retain",
+      "action": "syntax_context",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "mixed",
+      "confidence_percent": 90,
+      "reason": "Captured snapshot pins and Claim sections for 20 source Atom(s) were checked; evidence E015 directly defines 'Subject Path'. It is retained unchanged with no new native admission or reduction decision. Candidate comparison: Subject Path remains a captured path/context identity; the candidate's relation endpoint rules do not make path nesting a native structural relation.",
+      "operator_rules": [
+        "$.content_direction",
+        "$.terms_graph_boundary",
+        "$.entity_vs_syntax_rules[0]"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E015"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-269",
+        "CA-E-246",
+        "CA-E-383",
+        "CA-E-444",
+        "CA-E-449",
+        "CA-M-114",
+        "CA-M-125",
+        "CA-M-228",
+        "CA-M-232",
+        "CA-R-1194",
+        "CA-R-1204",
+        "CA-R-1247",
+        "CA-R-1275",
+        "CA-R-1279",
+        "CA-R-1281",
+        "CA-R-1360",
+        "CA-R-1455",
+        "CA-R-1456",
+        "CA-R-1459",
+        "CA-R-1597"
+      ],
+      "preserved_distinctions": [
+        "Subject Path remains distinct from Structural Path and from Carrier storage paths.",
+        "Original path references remain queryable without a replacement identity."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Subject Projection Derivation",
+      "prior_disposition": "retain",
+      "action": "projection_view",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "M",
+      "confidence_percent": 95,
+      "reason": "Captured snapshot Main Content supplies the derived Atom Subjects Graph reproduction rule for direct source-Atom GOVERNS or DEPENDS_ON links without reauthoring authority; retain the unchanged qualified identity without native admission, replacement, or spelling-mapping inference. Candidate comparison: The captured derivation rule maps to the candidate's Projection view boundary: derived instances keep source Atom IDs and Versions, while rebuild history belongs to the Projection set.",
+      "operator_rules": [
+        "$.content_direction",
+        "$.terms_graph_boundary",
+        "$.entity_vs_syntax_rules[0]"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E016"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-232"
+      ],
+      "preserved_distinctions": [
+        "A derived Atom remains separate from its source authority while retaining source ID and Version.",
+        "Projection rebuild tracking does not increment the source Atom Version Number."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Subject Relation Kind",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "R",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot review for 'Subject Relation Kind' checked 1 source Atom(s) against CA-P-1936/batch-8/E017 but did not establish a positive candidate mapping. Candidate comparison: The candidate groups Relation Type and Relation Kind, but the captured source does not establish the exact Subject relation group or its endpoint domain. Keep the mapping pathless until targeted review supplies positive meaning evidence; no native admission or replacement is made.",
+      "operator_rules": [
+        "$.content_direction",
+        "$.terms_graph_boundary",
+        "$.entity_vs_syntax_rules[0]"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E017"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1580"
+      ],
+      "preserved_distinctions": [
+        "The original identity 'Subject Relation Kind', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The candidate groups Relation Type and Relation Kind, but the captured source does not establish the exact Subject relation group or its endpoint domain."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Review task only: captured Main Content for 'Subject Relation Kind' (CA-P-1936/batch-8/E017) does not establish a positive candidate mapping. The candidate groups Relation Type and Relation Kind, but the captured source does not establish the exact Subject relation group or its endpoint domain. Do not ask the Operator to choose a design until that meaning evidence is available."
+      }
+    },
+    {
+      "identity": "Subject Relation Kind: DEPENDS_ON",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "R",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot review for 'Subject Relation Kind: DEPENDS_ON' checked 1 source Atom(s) against CA-P-1936/batch-8/E017 but did not establish a positive candidate mapping. Candidate comparison: The captured source does not establish whether DEPENDS_ON is an allowed-value domain, its owning Property, or its value direction. Keep the mapping pathless until targeted review supplies positive meaning evidence; no native admission or replacement is made.",
+      "operator_rules": [
+        "$.content_direction",
+        "$.terms_graph_boundary",
+        "$.entity_vs_syntax_rules[0]"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E017"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1580"
+      ],
+      "preserved_distinctions": [
+        "The original identity 'Subject Relation Kind: DEPENDS_ON', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The captured source does not establish whether DEPENDS_ON is an allowed-value domain, its owning Property, or its value direction."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Review task only: captured Main Content for 'Subject Relation Kind: DEPENDS_ON' (CA-P-1936/batch-8/E017) does not establish a positive candidate mapping. The captured source does not establish whether DEPENDS_ON is an allowed-value domain, its owning Property, or its value direction. Do not ask the Operator to choose a design until that meaning evidence is available."
+      }
+    },
+    {
+      "identity": "Subtree-owned Atoms",
+      "prior_disposition": "retain",
+      "action": "syntax_context",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "mixed",
+      "confidence_percent": 90,
+      "reason": "Captured snapshot pins and Claim sections for 4 source Atom(s) were checked; evidence E018 directly defines 'Subtree-owned Atoms'. It is retained unchanged with no new native admission or reduction decision. Candidate comparison: Subtree ownership remains an applicability/ownership context around Scope Units; the candidate does not infer a new child Entity or native edge from the set label.",
+      "operator_rules": [
+        "$.root_entities[1]",
+        "$.entity_identity_model.scope_unit",
+        "$.entity_identity_model.scope_unit_rename",
+        "$.entity_vs_syntax_rules[0]",
+        "$.entity_vs_syntax_rules[1]",
+        "$.entity_vs_syntax_rules[2]"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E018"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-460",
+        "CA-M-273",
+        "CA-O-087",
+        "CA-R-942"
+      ],
+      "preserved_distinctions": [
+        "Owning Scope Unit remains distinct from the owned Atom instances.",
+        "A set of owned Atoms does not create a separate lifecycle root."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Subtree-targeting Atoms",
+      "prior_disposition": "retain",
+      "action": "syntax_context",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "mixed",
+      "confidence_percent": 90,
+      "reason": "Captured snapshot pins and Claim sections for 5 source Atom(s) were checked; evidence E019 directly defines 'Subtree-targeting Atoms'. It is retained unchanged with no new native admission or reduction decision. Candidate comparison: Subtree targeting remains targeting/query context; no Target Set root or native relation is inferred solely from the qualified label.",
+      "operator_rules": [
+        "$.root_entities[1]",
+        "$.entity_identity_model.scope_unit",
+        "$.entity_identity_model.scope_unit_rename",
+        "$.entity_vs_syntax_rules[0]",
+        "$.entity_vs_syntax_rules[1]",
+        "$.entity_vs_syntax_rules[2]"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E019"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-447",
+        "CA-E-460",
+        "CA-M-273",
+        "CA-M-288",
+        "CA-R-1449"
+      ],
+      "preserved_distinctions": [
+        "Targeting meaning remains distinct from Scope Unit ownership.",
+        "The targeted Atom identities and their constraints remain unchanged."
+      ],
+      "question": null
+    },
+    {
+      "identity": "TOML",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "D",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot review for 'TOML' checked 1 source Atom(s) against CA-P-1936/batch-8/E020 but did not establish a positive candidate mapping. Candidate comparison: A format label alone does not establish a Carrier identity or a general D policy mapping. Keep the mapping pathless until targeted review supplies positive meaning evidence; no native admission or replacement is made.",
+      "operator_rules": [
+        "$.carrier_delivery_model",
+        "$.entity_representation_rules[0]"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E020"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-330"
+      ],
+      "preserved_distinctions": [
+        "The original identity 'TOML', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "A format label alone does not establish a Carrier identity or a general D policy mapping."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Review task only: captured Main Content for 'TOML' (CA-P-1936/batch-8/E020) does not establish a positive candidate mapping. A format label alone does not establish a Carrier identity or a general D policy mapping. Do not ask the Operator to choose a design until that meaning evidence is available."
+      }
+    },
+    {
+      "identity": "Target Set",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "R",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot review for 'Target Set' checked 1 source Atom(s) against CA-P-1936/batch-8/E021 but did not establish a positive candidate mapping. Candidate comparison: The captured source does not establish whether Target Set is a dependent field, a query view, or a Relation endpoint set. Keep the mapping pathless until targeted review supplies positive meaning evidence; no native admission or replacement is made.",
+      "operator_rules": [
+        "$.graph_model",
+        "$.root_entities[1]",
+        "$.entity_vs_syntax_rules[2]"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E021"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1554"
+      ],
+      "preserved_distinctions": [
+        "The original identity 'Target Set', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The captured source does not establish whether Target Set is a dependent field, a query view, or a Relation endpoint set."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Review task only: captured Main Content for 'Target Set' (CA-P-1936/batch-8/E021) does not establish a positive candidate mapping. The captured source does not establish whether Target Set is a dependent field, a query view, or a Relation endpoint set. Do not ask the Operator to choose a design until that meaning evidence is available."
+      }
+    },
+    {
+      "identity": "Targeting Atoms",
+      "prior_disposition": "retain",
+      "action": "syntax_context",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "mixed",
+      "confidence_percent": 90,
+      "reason": "Captured snapshot pins and Claim sections for 5 source Atom(s) were checked; evidence E022 directly defines 'Targeting Atoms'. It is retained unchanged with no new native admission or reduction decision. Candidate comparison: Targeting Atoms remains an operation/query context; the candidate does not promote the targeting set to a root or silently choose relation endpoints.",
+      "operator_rules": [
+        "$.root_entities[1]",
+        "$.entity_identity_model.scope_unit",
+        "$.entity_identity_model.scope_unit_rename",
+        "$.entity_vs_syntax_rules[0]",
+        "$.entity_vs_syntax_rules[1]",
+        "$.entity_vs_syntax_rules[2]"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E022"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-460",
+        "CA-M-273",
+        "CA-R-1448",
+        "CA-R-1449",
+        "CA-R-1775"
+      ],
+      "preserved_distinctions": [
+        "Targeting remains distinct from owning or carrying an Atom.",
+        "Existing target-selection queries remain separate from native Relation admission."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Term",
+      "prior_disposition": "retain",
+      "action": "syntax_context",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "mixed",
+      "confidence_percent": 90,
+      "reason": "Captured snapshot pins and Claim sections for 30 source Atom(s) were checked; evidence E023 directly defines 'Term'. It is retained unchanged with no new native admission or reduction decision. Candidate comparison: Term remains in the separate Terms graph; the candidate explicitly does not add Term as an eighth Entities-Graph root or admit a new cross-graph Relation.",
+      "operator_rules": [
+        "$.terms_graph_boundary",
+        "$.entity_vs_syntax_rules[0]",
+        "$.entity_vs_syntax_rules[1]"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E023"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-416",
+        "CA-E-246",
+        "CA-E-382",
+        "CA-E-383",
+        "CA-E-444",
+        "CA-E-449",
+        "CA-M-114",
+        "CA-M-125",
+        "CA-M-228",
+        "CA-M-301",
+        "CA-O-137",
+        "CA-R-1194",
+        "CA-R-1244",
+        "CA-R-1275",
+        "CA-R-1279",
+        "CA-R-1281",
+        "CA-R-1318",
+        "CA-R-1319",
+        "CA-R-1321",
+        "CA-R-1324",
+        "CA-R-1325",
+        "CA-R-1335",
+        "CA-R-1346",
+        "CA-R-1347",
+        "CA-R-1348",
+        "CA-R-1353",
+        "CA-R-1435",
+        "CA-R-1454",
+        "CA-R-1455",
+        "CA-R-1456"
+      ],
+      "preserved_distinctions": [
+        "Term identity remains distinct from Subject Expression and from the Entities Graph roots.",
+        "No cross-graph link is inferred from a term occurrence or slash path."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Term/name",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "R",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot review for 'Term/name' checked 1 source Atom(s) against CA-P-1936/batch-8/E024 but did not establish a positive candidate mapping. Candidate comparison: The qualified name label does not establish its owning Term field or a native property relation. Keep the mapping pathless until targeted review supplies positive meaning evidence; no native admission or replacement is made.",
+      "operator_rules": [
+        "$.terms_graph_boundary",
+        "$.entity_vs_syntax_rules[0]",
+        "$.entity_vs_syntax_rules[1]"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E024"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1324"
+      ],
+      "preserved_distinctions": [
+        "The original identity 'Term/name', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The qualified name label does not establish its owning Term field or a native property relation."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Review task only: captured Main Content for 'Term/name' (CA-P-1936/batch-8/E024) does not establish a positive candidate mapping. The qualified name label does not establish its owning Term field or a native property relation. Do not ask the Operator to choose a design until that meaning evidence is available."
+      }
+    },
+    {
+      "identity": "Terminology Projection Derivation",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "M",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot review for 'Terminology Projection Derivation' checked 1 source Atom(s) against CA-P-1936/batch-8/E025 but did not establish a positive candidate mapping. Candidate comparison: The candidate keeps the Terms graph separate and provides a Projection boundary, but the captured identity is not mapped to either without inventing a cross-graph edge. Keep the mapping pathless until targeted review supplies positive meaning evidence; no native admission or replacement is made.",
+      "operator_rules": [
+        "$.terms_graph_boundary",
+        "$.entity_vs_syntax_rules[0]",
+        "$.entity_vs_syntax_rules[1]"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E025"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-114"
+      ],
+      "preserved_distinctions": [
+        "The original identity 'Terminology Projection Derivation', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The candidate keeps the Terms graph separate and provides a Projection boundary, but the captured identity is not mapped to either without inventing a cross-graph edge."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Review task only: captured Main Content for 'Terminology Projection Derivation' (CA-P-1936/batch-8/E025) does not establish a positive candidate mapping. The candidate keeps the Terms graph separate and provides a Projection boundary, but the captured identity is not mapped to either without inventing a cross-graph edge. Do not ask the Operator to choose a design until that meaning evidence is available."
+      }
+    },
+    {
+      "identity": "Terms Graph",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "R",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot review for 'Terms Graph' checked 4 source Atom(s) against CA-P-1936/batch-8/E026 but did not establish a positive candidate mapping. Candidate comparison: The candidate says Terms belong to a separate graph, but the exact graph identity and any allowed cross-graph binding are not established by the captured sources. Keep the mapping pathless until targeted review supplies positive meaning evidence; no native admission or replacement is made.",
+      "operator_rules": [
+        "$.terms_graph_boundary",
+        "$.entity_vs_syntax_rules[0]",
+        "$.entity_vs_syntax_rules[1]"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E026"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1244",
+        "CA-R-1345",
+        "CA-R-1347",
+        "CA-R-1435"
+      ],
+      "preserved_distinctions": [
+        "The original identity 'Terms Graph', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The candidate says Terms belong to a separate graph, but the exact graph identity and any allowed cross-graph binding are not established by the captured sources."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Review task only: captured Main Content for 'Terms Graph' (CA-P-1936/batch-8/E026) does not establish a positive candidate mapping. The candidate says Terms belong to a separate graph, but the exact graph identity and any allowed cross-graph binding are not established by the captured sources. Do not ask the Operator to choose a design until that meaning evidence is available."
+      }
+    },
+    {
+      "identity": "Terms Graph Construction Step",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "O",
+      "confidence_percent": 90,
+      "reason": "Captured snapshot pins and Claim sections for 1 source Atom(s) were checked; evidence E027 directly defines 'Terms Graph Construction Step'. It is retained unchanged with no new native admission or reduction decision. Candidate comparison: The captured construction step remains an Operation context in the separate Terms graph; it does not create a Method root or an Entities-Graph Term node.",
+      "operator_rules": [
+        "$.terms_graph_boundary",
+        "$.entity_vs_syntax_rules[0]",
+        "$.entity_vs_syntax_rules[1]"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E027"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-138"
+      ],
+      "preserved_distinctions": [
+        "The construction step remains distinct from the resulting Terms graph and its Terms.",
+        "Operation context does not imply an actual Execution or cross-graph Relation."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Tool",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "mixed",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot review for 'Tool' checked 15 source Atom(s) against CA-P-1936/batch-8/E028 but did not establish a positive candidate mapping. Candidate comparison: The captured Tool occurrences span delivery, evaluation, method, and operations; the candidate has no exact Tool root or replacement mapping. Keep the mapping pathless until targeted review supplies positive meaning evidence; no native admission or replacement is made.",
+      "operator_rules": [
+        "$.execution_definition_policy",
+        "$.carrier_delivery_model",
+        "$.graph_model"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E028"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-361",
+        "CA-D-372",
+        "CA-D-568",
+        "CA-E-496",
+        "CA-M-304",
+        "CA-O-158",
+        "CA-O-159",
+        "CA-O-162",
+        "CA-R-1432",
+        "CA-R-1452",
+        "CA-R-1509",
+        "CA-R-1511",
+        "CA-R-1526",
+        "CA-R-1528",
+        "CA-R-1724"
+      ],
+      "preserved_distinctions": [
+        "The original identity 'Tool', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The captured Tool occurrences span delivery, evaluation, method, and operations; the candidate has no exact Tool root or replacement mapping."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Review task only: captured Main Content for 'Tool' (CA-P-1936/batch-8/E028) does not establish a positive candidate mapping. The captured Tool occurrences span delivery, evaluation, method, and operations; the candidate has no exact Tool root or replacement mapping. Do not ask the Operator to choose a design until that meaning evidence is available."
+      }
+    },
+    {
+      "identity": "Tool/Workflow Operations",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "D",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot review for 'Tool/Workflow Operations' checked 1 source Atom(s) against CA-P-1936/batch-8/E029 but did not establish a positive candidate mapping. Candidate comparison: The qualified workflow-tool label does not establish a dependent field, reusable Operation definition, or actual Execution identity. Keep the mapping pathless until targeted review supplies positive meaning evidence; no native admission or replacement is made.",
+      "operator_rules": [
+        "$.authority",
+        "$.entity_vs_syntax_rules[0]",
+        "$.review_backlog.authoring_and_implementation"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E029"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-568"
+      ],
+      "preserved_distinctions": [
+        "The original identity 'Tool/Workflow Operations', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The qualified workflow-tool label does not establish a dependent field, reusable Operation definition, or actual Execution identity."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Review task only: captured Main Content for 'Tool/Workflow Operations' (CA-P-1936/batch-8/E029) does not establish a positive candidate mapping. The qualified workflow-tool label does not establish a dependent field, reusable Operation definition, or actual Execution identity. Do not ask the Operator to choose a design until that meaning evidence is available."
+      }
+    },
+    {
+      "identity": "Tool/Workflow Operations/Atom Lifecycle",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "D",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot review for 'Tool/Workflow Operations/Atom Lifecycle' checked 1 source Atom(s) against CA-P-1936/batch-8/E029 but did not establish a positive candidate mapping. Candidate comparison: The qualified workflow-tool label does not establish a dependent field, reusable Operation definition, or actual Execution identity. Keep the mapping pathless until targeted review supplies positive meaning evidence; no native admission or replacement is made.",
+      "operator_rules": [
+        "$.authority",
+        "$.entity_vs_syntax_rules[0]",
+        "$.review_backlog.authoring_and_implementation"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E029"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-568"
+      ],
+      "preserved_distinctions": [
+        "The original identity 'Tool/Workflow Operations/Atom Lifecycle', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The qualified workflow-tool label does not establish a dependent field, reusable Operation definition, or actual Execution identity."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Review task only: captured Main Content for 'Tool/Workflow Operations/Atom Lifecycle' (CA-P-1936/batch-8/E029) does not establish a positive candidate mapping. The qualified workflow-tool label does not establish a dependent field, reusable Operation definition, or actual Execution identity. Do not ask the Operator to choose a design until that meaning evidence is available."
+      }
+    },
+    {
+      "identity": "Tool/Workflow Operations/Atom Lifecycle/Request Parameters",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "D",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot review for 'Tool/Workflow Operations/Atom Lifecycle/Request Parameters' checked 1 source Atom(s) against CA-P-1936/batch-8/E029 but did not establish a positive candidate mapping. Candidate comparison: The qualified workflow-tool label does not establish a dependent field, reusable Operation definition, or actual Execution identity. Keep the mapping pathless until targeted review supplies positive meaning evidence; no native admission or replacement is made.",
+      "operator_rules": [
+        "$.authority",
+        "$.entity_vs_syntax_rules[0]",
+        "$.review_backlog.authoring_and_implementation"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E029"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-568"
+      ],
+      "preserved_distinctions": [
+        "The original identity 'Tool/Workflow Operations/Atom Lifecycle/Request Parameters', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The qualified workflow-tool label does not establish a dependent field, reusable Operation definition, or actual Execution identity."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Review task only: captured Main Content for 'Tool/Workflow Operations/Atom Lifecycle/Request Parameters' (CA-P-1936/batch-8/E029) does not establish a positive candidate mapping. The qualified workflow-tool label does not establish a dependent field, reusable Operation definition, or actual Execution identity. Do not ask the Operator to choose a design until that meaning evidence is available."
+      }
+    },
+    {
+      "identity": "Translation",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "mixed",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot review for 'Translation' checked 3 source Atom(s) against CA-P-1936/batch-8/E030 but did not establish a positive candidate mapping. Candidate comparison: The captured Translation occurrences span requirement, method, and evaluation contexts; no candidate root or cross-graph mapping is established. Keep the mapping pathless until targeted review supplies positive meaning evidence; no native admission or replacement is made.",
+      "operator_rules": [
+        "$.content_direction",
+        "$.terms_graph_boundary",
+        "$.m_e_root_question"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E030"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-241",
+        "CA-M-116",
+        "CA-R-1274"
+      ],
+      "preserved_distinctions": [
+        "The original identity 'Translation', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The captured Translation occurrences span requirement, method, and evaluation contexts; no candidate root or cross-graph mapping is established."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Review task only: captured Main Content for 'Translation' (CA-P-1936/batch-8/E030) does not establish a positive candidate mapping. The captured Translation occurrences span requirement, method, and evaluation contexts; no candidate root or cross-graph mapping is established. Do not ask the Operator to choose a design until that meaning evidence is available."
+      }
+    },
+    {
+      "identity": "Type",
+      "prior_disposition": "retain",
+      "action": "syntax_context",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "mixed",
+      "confidence_percent": 90,
+      "reason": "Captured snapshot pins and Claim sections for 35 source Atom(s) were checked; evidence E031 directly defines 'Type'. It is retained unchanged with no new native admission or reduction decision. Candidate comparison: The broad captured Type identity is retained without collapsing qualified allowed-value domains; the Type/Kind equivalence applies only to the same Relation concept in its groups.",
+      "operator_rules": [
+        "$.relation_type_model",
+        "$.content_direction",
+        "$.entity_vs_syntax_rules[0]",
+        "$.entity_vs_syntax_rules[1]"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E031"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-393",
+        "CA-E-386",
+        "CA-E-387",
+        "CA-E-490",
+        "CA-M-272",
+        "CA-M-307",
+        "CA-M-308",
+        "CA-M-315",
+        "CA-R-1231",
+        "CA-R-1232",
+        "CA-R-1284",
+        "CA-R-1285",
+        "CA-R-1286",
+        "CA-R-1308",
+        "CA-R-1348",
+        "CA-R-1349",
+        "CA-R-1350",
+        "CA-R-1352",
+        "CA-R-1405",
+        "CA-R-1460",
+        "CA-R-1461",
+        "CA-R-1506",
+        "CA-R-1521",
+        "CA-R-1562",
+        "CA-R-1563",
+        "CA-R-1564",
+        "CA-R-1569",
+        "CA-R-1574",
+        "CA-R-1578",
+        "CA-R-1594",
+        "CA-R-1634",
+        "CA-R-1655",
+        "CA-R-1708",
+        "CA-R-1758",
+        "CA-R-1765"
+      ],
+      "preserved_distinctions": [
+        "General Type meaning remains distinct from Relation Type/Kind grouping.",
+        "Qualified Status fields and allowed-value domains remain separate and constrained."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Type-Qualified Status Validation",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "E",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot review for 'Type-Qualified Status Validation' checked 1 source Atom(s) against CA-P-1936/batch-8/E032 but did not establish a positive candidate mapping. Candidate comparison: The candidate preserves qualified Status and lineage distinctions, but the captured source does not establish the exact dependent field or validation identity. Keep the mapping pathless until targeted review supplies positive meaning evidence; no native admission or replacement is made.",
+      "operator_rules": [
+        "$.relation_type_model",
+        "$.content_direction",
+        "$.entity_vs_syntax_rules[0]",
+        "$.entity_vs_syntax_rules[1]"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E032"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-386"
+      ],
+      "preserved_distinctions": [
+        "The original identity 'Type-Qualified Status Validation', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The candidate preserves qualified Status and lineage distinctions, but the captured source does not establish the exact dependent field or validation identity."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Review task only: captured Main Content for 'Type-Qualified Status Validation' (CA-P-1936/batch-8/E032) does not establish a positive candidate mapping. The candidate preserves qualified Status and lineage distinctions, but the captured source does not establish the exact dependent field or validation identity. Do not ask the Operator to choose a design until that meaning evidence is available."
+      }
+    },
+    {
+      "identity": "Uncertain Lineage Impact Disposition",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "R",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot review for 'Uncertain Lineage Impact Disposition' checked 1 source Atom(s) against CA-P-1936/batch-8/E033 but did not establish a positive candidate mapping. Candidate comparison: The candidate preserves qualified Status and lineage distinctions, but the captured source does not establish the exact dependent field or validation identity. Keep the mapping pathless until targeted review supplies positive meaning evidence; no native admission or replacement is made.",
+      "operator_rules": [
+        "$.history_model",
+        "$.content_direction",
+        "$.entity_vs_syntax_rules[1]"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E033"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1036"
+      ],
+      "preserved_distinctions": [
+        "The original identity 'Uncertain Lineage Impact Disposition', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The candidate preserves qualified Status and lineage distinctions, but the captured source does not establish the exact dependent field or validation identity."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Review task only: captured Main Content for 'Uncertain Lineage Impact Disposition' (CA-P-1936/batch-8/E033) does not establish a positive candidate mapping. The candidate preserves qualified Status and lineage distinctions, but the captured source does not establish the exact dependent field or validation identity. Do not ask the Operator to choose a design until that meaning evidence is available."
+      }
+    },
+    {
+      "identity": "Unit",
+      "prior_disposition": "retain",
+      "action": "inherit",
+      "candidate_root": "Scope Unit",
+      "candidate_path": "Scope Unit",
+      "content_view": "R",
+      "confidence_percent": 90,
+      "reason": "Captured snapshot pins and Claim sections for 1 source Atom(s) were checked; evidence E034 directly defines 'Unit'. It is retained unchanged with no new native admission or reduction decision. Candidate comparison: The captured Unit shorthand inherits the candidate Scope Unit context; stable identity remains (project prefix)-SU-(number), with no folder rename or native migration.",
+      "operator_rules": [
+        "$.root_entities[1]",
+        "$.entity_identity_model.scope_unit",
+        "$.entity_identity_model.scope_unit_rename"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E034"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-964"
+      ],
+      "preserved_distinctions": [
+        "Scope Unit identity is the stable project-prefix SU number, not a changeable name or path.",
+        "Project-root folder names remain outside the metadata naming rule."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Update-Required Lineage Impact Disposition",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "R",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot review for 'Update-Required Lineage Impact Disposition' checked 1 source Atom(s) against CA-P-1936/batch-8/E035 but did not establish a positive candidate mapping. Candidate comparison: The candidate preserves qualified Status and lineage distinctions, but the captured source does not establish the exact dependent field or validation identity. Keep the mapping pathless until targeted review supplies positive meaning evidence; no native admission or replacement is made.",
+      "operator_rules": [
+        "$.history_model",
+        "$.content_direction",
+        "$.entity_vs_syntax_rules[1]"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E035"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1034"
+      ],
+      "preserved_distinctions": [
+        "The original identity 'Update-Required Lineage Impact Disposition', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The candidate preserves qualified Status and lineage distinctions, but the captured source does not establish the exact dependent field or validation identity."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Review task only: captured Main Content for 'Update-Required Lineage Impact Disposition' (CA-P-1936/batch-8/E035) does not establish a positive candidate mapping. The candidate preserves qualified Status and lineage distinctions, but the captured source does not establish the exact dependent field or validation identity. Do not ask the Operator to choose a design until that meaning evidence is available."
+      }
+    },
+    {
+      "identity": "Verification",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "R",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot review for 'Verification' checked 6 source Atom(s) against CA-P-1936/batch-8/E036 but did not establish a positive candidate mapping. Candidate comparison: The captured Verification meanings span several source roles; the candidate permits Execution checks but does not establish this exact identity's path. Keep the mapping pathless until targeted review supplies positive meaning evidence; no native admission or replacement is made.",
+      "operator_rules": [
+        "$.history_model",
+        "$.atom_versioning",
+        "$.review_backlog.deliberately_deferred"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E036"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1505",
+        "CA-R-1633",
+        "CA-R-1638",
+        "CA-R-1683",
+        "CA-R-1695",
+        "CA-R-1703"
+      ],
+      "preserved_distinctions": [
+        "The original identity 'Verification', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The captured Verification meanings span several source roles; the candidate permits Execution checks but does not establish this exact identity's path."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Review task only: captured Main Content for 'Verification' (CA-P-1936/batch-8/E036) does not establish a positive candidate mapping. The captured Verification meanings span several source roles; the candidate permits Execution checks but does not establish this exact identity's path. Do not ask the Operator to choose a design until that meaning evidence is available."
+      }
+    },
+    {
+      "identity": "Work Journal",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "mixed",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot review for 'Work Journal' checked 15 source Atom(s) against CA-P-1936/batch-8/E037 but did not establish a positive candidate mapping. Candidate comparison: The candidate says Journal records what happened while Git preserves Atom contents and versions, but the captured identity does not resolve a reusable definition, actual run, or durable record path. Keep the mapping pathless until targeted review supplies positive meaning evidence; no native admission or replacement is made.",
+      "operator_rules": [
+        "$.history_model",
+        "$.atom_versioning",
+        "$.review_backlog.deliberately_deferred"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E037"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-338",
+        "CA-D-340",
+        "CA-D-360",
+        "CA-D-365",
+        "CA-E-448",
+        "CA-E-462",
+        "CA-E-522",
+        "CA-E-523",
+        "CA-M-276",
+        "CA-R-1463",
+        "CA-R-1467",
+        "CA-R-1643",
+        "CA-R-1649",
+        "CA-R-1695",
+        "CA-R-1720"
+      ],
+      "preserved_distinctions": [
+        "The original identity 'Work Journal', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The candidate says Journal records what happened while Git preserves Atom contents and versions, but the captured identity does not resolve a reusable definition, actual run, or durable record path."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Review task only: captured Main Content for 'Work Journal' (CA-P-1936/batch-8/E037) does not establish a positive candidate mapping. The candidate says Journal records what happened while Git preserves Atom contents and versions, but the captured identity does not resolve a reusable definition, actual run, or durable record path. Do not ask the Operator to choose a design until that meaning evidence is available."
+      }
+    },
+    {
+      "identity": "Work Journal/Action",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "R",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot review for 'Work Journal/Action' checked 1 source Atom(s) against CA-P-1936/batch-8/E038 but did not establish a positive candidate mapping. Candidate comparison: The captured source does not establish the exact candidate mapping for 'Work Journal/Action'; no subtype, edge, or replacement identity is inferred. Keep the mapping pathless until targeted review supplies positive meaning evidence; no native admission or replacement is made.",
+      "operator_rules": [
+        "$.history_model",
+        "$.atom_versioning",
+        "$.review_backlog.deliberately_deferred"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E038"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1649"
+      ],
+      "preserved_distinctions": [
+        "The original identity 'Work Journal/Action', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The captured source does not establish the exact candidate mapping for 'Work Journal/Action'; no subtype, edge, or replacement identity is inferred."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Review task only: captured Main Content for 'Work Journal/Action' (CA-P-1936/batch-8/E038) does not establish a positive candidate mapping. The captured source does not establish the exact candidate mapping for 'Work Journal/Action'; no subtype, edge, or replacement identity is inferred. Do not ask the Operator to choose a design until that meaning evidence is available."
+      }
+    },
+    {
+      "identity": "Work Journal/Event",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "mixed",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot review for 'Work Journal/Event' checked 8 source Atom(s) against CA-P-1936/batch-8/E039 but did not establish a positive candidate mapping. Candidate comparison: The captured event occurrences do not establish whether this is a Journal record, an Execution, or a durable event field. Keep the mapping pathless until targeted review supplies positive meaning evidence; no native admission or replacement is made.",
+      "operator_rules": [
+        "$.history_model",
+        "$.atom_versioning",
+        "$.review_backlog.deliberately_deferred"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E039"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-340",
+        "CA-E-462",
+        "CA-E-522",
+        "CA-E-523",
+        "CA-R-1463",
+        "CA-R-1467",
+        "CA-R-1643",
+        "CA-R-1720"
+      ],
+      "preserved_distinctions": [
+        "The original identity 'Work Journal/Event', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The captured event occurrences do not establish whether this is a Journal record, an Execution, or a durable event field."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Review task only: captured Main Content for 'Work Journal/Event' (CA-P-1936/batch-8/E039) does not establish a positive candidate mapping. The captured event occurrences do not establish whether this is a Journal record, an Execution, or a durable event field. Do not ask the Operator to choose a design until that meaning evidence is available."
+      }
+    },
+    {
+      "identity": "Work Journal/Event/Carrier Serialization",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "D",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot review for 'Work Journal/Event/Carrier Serialization' checked 1 source Atom(s) against CA-P-1936/batch-8/E037 but did not establish a positive candidate mapping. Candidate comparison: The candidate keeps Carrier identity and general D policy separate from Journal records, but the captured identity does not establish the event serialization field or relation. Keep the mapping pathless until targeted review supplies positive meaning evidence; no native admission or replacement is made.",
+      "operator_rules": [
+        "$.history_model",
+        "$.atom_versioning",
+        "$.review_backlog.deliberately_deferred"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E037"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-340"
+      ],
+      "preserved_distinctions": [
+        "The original identity 'Work Journal/Event/Carrier Serialization', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The candidate keeps Carrier identity and general D policy separate from Journal records, but the captured identity does not establish the event serialization field or relation."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Review task only: captured Main Content for 'Work Journal/Event/Carrier Serialization' (CA-P-1936/batch-8/E037) does not establish a positive candidate mapping. The candidate keeps Carrier identity and general D policy separate from Journal records, but the captured identity does not establish the event serialization field or relation. Do not ask the Operator to choose a design until that meaning evidence is available."
+      }
+    },
+    {
+      "identity": "Work Journal/Event/Type",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "mixed",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot review for 'Work Journal/Event/Type' checked 2 source Atom(s) against CA-P-1936/batch-8/E039 but did not establish a positive candidate mapping. Candidate comparison: The candidate keeps Relation Type/Kind grouping and Journal records distinct, but the captured identity does not establish the event Type field or value domain. Keep the mapping pathless until targeted review supplies positive meaning evidence; no native admission or replacement is made.",
+      "operator_rules": [
+        "$.history_model",
+        "$.atom_versioning",
+        "$.review_backlog.deliberately_deferred"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E039"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-340",
+        "CA-R-1643"
+      ],
+      "preserved_distinctions": [
+        "The original identity 'Work Journal/Event/Type', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The candidate keeps Relation Type/Kind grouping and Journal records distinct, but the captured identity does not establish the event Type field or value domain."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Review task only: captured Main Content for 'Work Journal/Event/Type' (CA-P-1936/batch-8/E039) does not establish a positive candidate mapping. The candidate keeps Relation Type/Kind grouping and Journal records distinct, but the captured identity does not establish the event Type field or value domain. Do not ask the Operator to choose a design until that meaning evidence is available."
+      }
+    },
+    {
+      "identity": "Work Journal/Projection Rebuild",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "D",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot review for 'Work Journal/Projection Rebuild' checked 1 source Atom(s) against CA-P-1936/batch-8/E040 but did not establish a positive candidate mapping. Candidate comparison: The candidate tracks Projection rebuilds as a whole and Journal records separately, but the captured identity does not establish the exact rebuild event or completion field. Keep the mapping pathless until targeted review supplies positive meaning evidence; no native admission or replacement is made.",
+      "operator_rules": [
+        "$.history_model",
+        "$.atom_versioning",
+        "$.review_backlog.deliberately_deferred"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E040"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-338"
+      ],
+      "preserved_distinctions": [
+        "The original identity 'Work Journal/Projection Rebuild', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The candidate tracks Projection rebuilds as a whole and Journal records separately, but the captured identity does not establish the exact rebuild event or completion field."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Review task only: captured Main Content for 'Work Journal/Projection Rebuild' (CA-P-1936/batch-8/E040) does not establish a positive candidate mapping. The candidate tracks Projection rebuilds as a whole and Journal records separately, but the captured identity does not establish the exact rebuild event or completion field. Do not ask the Operator to choose a design until that meaning evidence is available."
+      }
+    },
+    {
+      "identity": "Work Journal/Projection Rebuild/Completed Event",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "D",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot review for 'Work Journal/Projection Rebuild/Completed Event' checked 1 source Atom(s) against CA-P-1936/batch-8/E040 but did not establish a positive candidate mapping. Candidate comparison: The candidate tracks Projection rebuilds as a whole and Journal records separately, but the captured identity does not establish the exact rebuild event or completion field. Keep the mapping pathless until targeted review supplies positive meaning evidence; no native admission or replacement is made.",
+      "operator_rules": [
+        "$.history_model",
+        "$.atom_versioning",
+        "$.review_backlog.deliberately_deferred"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E040"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-338"
+      ],
+      "preserved_distinctions": [
+        "The original identity 'Work Journal/Projection Rebuild/Completed Event', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The candidate tracks Projection rebuilds as a whole and Journal records separately, but the captured identity does not establish the exact rebuild event or completion field."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Review task only: captured Main Content for 'Work Journal/Projection Rebuild/Completed Event' (CA-P-1936/batch-8/E040) does not establish a positive candidate mapping. The candidate tracks Projection rebuilds as a whole and Journal records separately, but the captured identity does not establish the exact rebuild event or completion field. Do not ask the Operator to choose a design until that meaning evidence is available."
+      }
+    },
+    {
+      "identity": "Work Journal/Record",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "D",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot review for 'Work Journal/Record' checked 2 source Atom(s) against CA-P-1936/batch-8/E041 but did not establish a positive candidate mapping. Candidate comparison: The candidate distinguishes a Journal record from the event itself, but the captured sources do not establish the record's exact dependent fields or relations. Keep the mapping pathless until targeted review supplies positive meaning evidence; no native admission or replacement is made.",
+      "operator_rules": [
+        "$.history_model",
+        "$.atom_versioning",
+        "$.review_backlog.deliberately_deferred"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E041"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-360",
+        "CA-D-365"
+      ],
+      "preserved_distinctions": [
+        "The original identity 'Work Journal/Record', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The candidate distinguishes a Journal record from the event itself, but the captured sources do not establish the record's exact dependent fields or relations."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Review task only: captured Main Content for 'Work Journal/Record' (CA-P-1936/batch-8/E041) does not establish a positive candidate mapping. The candidate distinguishes a Journal record from the event itself, but the captured sources do not establish the record's exact dependent fields or relations. Do not ask the Operator to choose a design until that meaning evidence is available."
+      }
+    },
+    {
+      "identity": "Work Sequence Number",
+      "prior_disposition": "retain",
+      "action": "syntax_context",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "mixed",
+      "confidence_percent": 95,
+      "reason": "Captured snapshot Main Content supplies the positive-ordinal uniqueness constraint and the separate non-identity boundary; retain the unchanged qualified identity without native admission, replacement, or spelling-mapping inference. Candidate comparison: The captured positive ordinal remains a sequence constraint for direct Plans; the candidate does not establish its owning root or dependent-field path, and it must not be assigned to Atom identity or Version Number.",
+      "operator_rules": [
+        "$.entity_vs_syntax_rules[0]",
+        "$.m_e_root_question",
+        "$.authority.complete_706_identity_remapping"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E076",
+        "CA-P-1936/batch-8/E077"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-381",
+        "CA-R-992",
+        "CA-R-997"
+      ],
+      "preserved_distinctions": [
+        "Work Sequence Number remains a Plan-ordering value, not an Atom ID or source Version.",
+        "Positive ordering and uniqueness constraints remain distinct from lifecycle history."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Workflow",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "mixed",
+      "confidence_percent": 90,
+      "reason": "Captured snapshot pins and Claim sections for 78 source Atom(s) were checked; evidence E043 directly defines 'Workflow'. It is retained unchanged with no new native admission or reduction decision. Candidate comparison: Workflow is retained as reusable Operation-definition context; the candidate keeps definitions distinct from actual Execution and does not add a separate Workflow or Method root.",
+      "operator_rules": [
+        "$.root_entities[6]",
+        "$.execution_definition_policy",
+        "$.m_e_root_question"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E043"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-467",
+        "CA-D-549",
+        "CA-E-246",
+        "CA-E-382",
+        "CA-E-449",
+        "CA-E-482",
+        "CA-E-486",
+        "CA-E-489",
+        "CA-E-490",
+        "CA-E-491",
+        "CA-E-494",
+        "CA-E-495",
+        "CA-E-498",
+        "CA-E-500",
+        "CA-E-513",
+        "CA-E-519",
+        "CA-E-520",
+        "CA-E-522",
+        "CA-E-523",
+        "CA-M-114",
+        "CA-M-301",
+        "CA-M-303",
+        "CA-M-304",
+        "CA-M-305",
+        "CA-O-010",
+        "CA-O-011",
+        "CA-O-015",
+        "CA-O-016",
+        "CA-O-028",
+        "CA-O-067",
+        "CA-O-080",
+        "CA-O-102",
+        "CA-O-104",
+        "CA-O-118",
+        "CA-O-119",
+        "CA-O-120",
+        "CA-O-121",
+        "CA-O-127",
+        "CA-O-130",
+        "CA-O-133",
+        "CA-O-136",
+        "CA-O-139",
+        "CA-O-140",
+        "CA-O-141",
+        "CA-O-142",
+        "CA-O-143",
+        "CA-O-144",
+        "CA-O-152",
+        "CA-O-153",
+        "CA-O-154",
+        "CA-O-155",
+        "CA-O-156",
+        "CA-O-157",
+        "CA-O-158",
+        "CA-O-160",
+        "CA-O-161",
+        "CA-O-163",
+        "CA-R-1200",
+        "CA-R-1312",
+        "CA-R-1340",
+        "CA-R-1463",
+        "CA-R-1468",
+        "CA-R-1508",
+        "CA-R-1509",
+        "CA-R-1510",
+        "CA-R-1513",
+        "CA-R-1519",
+        "CA-R-1520",
+        "CA-R-1521",
+        "CA-R-1525",
+        "CA-R-1527",
+        "CA-R-1530",
+        "CA-R-1563",
+        "CA-R-1567",
+        "CA-R-1570",
+        "CA-R-1683",
+        "CA-R-1702",
+        "CA-R-1720"
+      ],
+      "preserved_distinctions": [
+        "Reusable Workflow definitions remain distinct from Workflow Run instances.",
+        "Repeatability is an Operator choice; no automatic O-Atom or repeatability rule is inferred."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Workflow Run",
+      "prior_disposition": "retain",
+      "action": "retain",
+      "candidate_root": "Execution",
+      "candidate_path": "Execution.Workflow Run",
+      "content_view": "mixed",
+      "confidence_percent": 90,
+      "reason": "Captured snapshot pins and Claim sections for 80 source Atom(s) were checked; evidence E044 directly defines 'Workflow Run'. It is retained unchanged with no new native admission or reduction decision. Candidate comparison: Workflow Run maps to the candidate Execution root as an actual run; the reusable Workflow definition remains separate and Git history is not replaced by Journal body snapshots.",
+      "operator_rules": [
+        "$.root_entities[6]",
+        "$.execution_definition_policy",
+        "$.m_e_root_question"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E044"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-496",
+        "CA-D-497",
+        "CA-E-486",
+        "CA-E-489",
+        "CA-E-491",
+        "CA-E-494",
+        "CA-E-496",
+        "CA-E-497",
+        "CA-M-303",
+        "CA-O-010",
+        "CA-O-011",
+        "CA-O-015",
+        "CA-O-016",
+        "CA-O-024",
+        "CA-O-028",
+        "CA-O-067",
+        "CA-O-079",
+        "CA-O-088",
+        "CA-O-091",
+        "CA-O-092",
+        "CA-O-093",
+        "CA-O-094",
+        "CA-O-095",
+        "CA-O-096",
+        "CA-O-098",
+        "CA-O-099",
+        "CA-O-101",
+        "CA-O-102",
+        "CA-O-104",
+        "CA-O-106",
+        "CA-O-108",
+        "CA-O-109",
+        "CA-O-110",
+        "CA-O-122",
+        "CA-O-127",
+        "CA-O-129",
+        "CA-O-130",
+        "CA-O-131",
+        "CA-O-132",
+        "CA-O-133",
+        "CA-O-135",
+        "CA-O-136",
+        "CA-O-138",
+        "CA-O-139",
+        "CA-O-140",
+        "CA-O-141",
+        "CA-O-142",
+        "CA-O-143",
+        "CA-O-144",
+        "CA-O-145",
+        "CA-O-146",
+        "CA-O-147",
+        "CA-O-148",
+        "CA-O-149",
+        "CA-O-150",
+        "CA-O-151",
+        "CA-O-152",
+        "CA-O-153",
+        "CA-O-154",
+        "CA-O-155",
+        "CA-O-156",
+        "CA-O-157",
+        "CA-O-161",
+        "CA-O-163",
+        "CA-R-1468",
+        "CA-R-1488",
+        "CA-R-1508",
+        "CA-R-1510",
+        "CA-R-1511",
+        "CA-R-1513",
+        "CA-R-1519",
+        "CA-R-1520",
+        "CA-R-1525",
+        "CA-R-1528",
+        "CA-R-1720",
+        "CA-R-1789",
+        "CA-R-1790",
+        "CA-R-1791",
+        "CA-R-1792",
+        "CA-R-1793"
+      ],
+      "preserved_distinctions": [
+        "Actual Workflow Run remains distinct from the reusable Workflow definition.",
+        "An ad hoc Execution need not have an O Atom; repeatability remains an Operator decision."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Workflow/Carrier",
+      "prior_disposition": "retain",
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier",
+      "content_view": "mixed",
+      "confidence_percent": 95,
+      "reason": "Captured snapshot Main Content supplies the folder-backed Workflow carrier layout with one Workflow Atom carrier and separate Step carriers; retain the unchanged qualified identity without native admission, replacement, or spelling-mapping inference. Candidate comparison: The captured Workflow carrier layout is retained as a general Delivery policy under the separate Carrier root; Carrier ID remains separate from filename/path and no per-Property Carrier edge is inferred.",
+      "operator_rules": [
+        "$.root_entities[5]",
+        "$.carrier_delivery_model",
+        "$.entity_identity_model.carrier_identity"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E045"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-467",
+        "CA-E-500"
+      ],
+      "preserved_distinctions": [
+        "Carrier remains a separate root and its identity is Carrier ID, not its storage filename or path.",
+        "General D policy may cover multiple entities without a per-Property Carrier Relation Type or D Atom."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Workflow/Relation Kind",
+      "prior_disposition": "retain",
+      "action": "retain",
+      "candidate_root": "Relation",
+      "candidate_path": "Relation.Relation Type",
+      "content_view": "mixed",
+      "confidence_percent": 95,
+      "reason": "Captured snapshot Main Content supplies typed, directed control-flow Relations owned by the reusable Workflow graph kind; retain the unchanged qualified identity without native admission, replacement, or spelling-mapping inference. Candidate comparison: The captured Workflow control-flow kind is retained under the candidate Relation root; Relation Kind and Relation Type are one grouped concept with directed, endpoint-constrained connections and no new native admission.",
+      "operator_rules": [
+        "$.relation_type_model",
+        "$.relation_type_model.endpoint_boundary",
+        "$.graph_model"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E043"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-486",
+        "CA-E-489",
+        "CA-E-500",
+        "CA-E-513",
+        "CA-M-301",
+        "CA-M-305",
+        "CA-O-010",
+        "CA-O-011",
+        "CA-O-015",
+        "CA-O-016",
+        "CA-O-028",
+        "CA-O-080",
+        "CA-O-102",
+        "CA-O-104",
+        "CA-O-127",
+        "CA-R-1508",
+        "CA-R-1513",
+        "CA-R-1519",
+        "CA-R-1570"
+      ],
+      "preserved_distinctions": [
+        "Relation Type and Relation Kind remain the same concept within the Workflow group.",
+        "Directed endpoints and graph ownership remain constrained; the display heading is not a new edge."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Workflow/Relation Kind: On Result",
+      "prior_disposition": "retain",
+      "action": "retain",
+      "candidate_root": "Relation",
+      "candidate_path": "Relation.Relation Type: On Result",
+      "content_view": "mixed",
+      "confidence_percent": 95,
+      "reason": "Captured snapshot Main Content supplies the directed same-Workflow Step transition qualified by a source Step Run result condition; retain the unchanged qualified identity without native admission, replacement, or spelling-mapping inference. Candidate comparison: The captured On Result condition is retained as a qualified Relation Type in the Workflow group; endpoint direction and the source Step Run result condition remain distinct without a new root.",
+      "operator_rules": [
+        "$.relation_type_model",
+        "$.relation_type_model.endpoint_boundary",
+        "$.graph_model"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E047"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-486",
+        "CA-E-489",
+        "CA-E-500",
+        "CA-E-513",
+        "CA-M-301",
+        "CA-M-305",
+        "CA-O-010",
+        "CA-O-011",
+        "CA-O-015",
+        "CA-O-016",
+        "CA-O-028",
+        "CA-O-080",
+        "CA-O-102",
+        "CA-O-104",
+        "CA-O-127",
+        "CA-R-1508",
+        "CA-R-1513",
+        "CA-R-1519",
+        "CA-R-1570"
+      ],
+      "preserved_distinctions": [
+        "On Result remains a qualified relation-type condition, not a separate Type/Kind ontology.",
+        "Source Step Run, target Step, direction, and endpoint constraints remain distinct."
+      ],
+      "question": null
+    },
+    {
+      "identity": "YAML",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "D",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot review for 'YAML' checked 1 source Atom(s) against CA-P-1936/batch-8/E020 but did not establish a positive candidate mapping. Candidate comparison: A format label alone does not establish a Carrier identity or a general D policy mapping. Keep the mapping pathless until targeted review supplies positive meaning evidence; no native admission or replacement is made.",
+      "operator_rules": [
+        "$.carrier_delivery_model",
+        "$.entity_representation_rules[0]"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E020"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-330"
+      ],
+      "preserved_distinctions": [
+        "The original identity 'YAML', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "A format label alone does not establish a Carrier identity or a general D policy mapping."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Review task only: captured Main Content for 'YAML' (CA-P-1936/batch-8/E020) does not establish a positive candidate mapping. A format label alone does not establish a Carrier identity or a general D policy mapping. Do not ask the Operator to choose a design until that meaning evidence is available."
+      }
+    },
+    {
+      "identity": "applicability",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "R",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot review for 'applicability' checked 2 source Atom(s) against CA-P-1936/batch-8/E048 but did not establish a positive candidate mapping. Candidate comparison: The captured source does not establish the exact candidate mapping for 'applicability'; no subtype, edge, or replacement identity is inferred. Keep the mapping pathless until targeted review supplies positive meaning evidence; no native admission or replacement is made.",
+      "operator_rules": [
+        "$.content_direction.scope_omission",
+        "$.root_entities[1]",
+        "$.authority"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E048"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1669",
+        "CA-R-1670"
+      ],
+      "preserved_distinctions": [
+        "The original identity 'applicability', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The captured source does not establish the exact candidate mapping for 'applicability'; no subtype, edge, or replacement identity is inferred."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Review task only: captured Main Content for 'applicability' (CA-P-1936/batch-8/E048) does not establish a positive candidate mapping. The captured source does not establish the exact candidate mapping for 'applicability'; no subtype, edge, or replacement identity is inferred. Do not ask the Operator to choose a design until that meaning evidence is available."
+      }
+    },
+    {
+      "identity": "artifact-catalog",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "R",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot review for 'artifact-catalog' checked 1 source Atom(s) against CA-P-1936/batch-8/E049 but did not establish a positive candidate mapping. Candidate comparison: The candidate selects Artifact as a root, but the captured source does not establish whether this identity is the root itself, a definition, or a derived catalog/view. Keep the mapping pathless until targeted review supplies positive meaning evidence; no native admission or replacement is made.",
+      "operator_rules": [
+        "$.authority",
+        "$.graph_model",
+        "$.entity_vs_syntax_rules[0]",
+        "$.entity_vs_syntax_rules[1]"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E049"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1664"
+      ],
+      "preserved_distinctions": [
+        "The original identity 'artifact-catalog', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The candidate selects Artifact as a root, but the captured source does not establish whether this identity is the root itself, a definition, or a derived catalog/view."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Review task only: captured Main Content for 'artifact-catalog' (CA-P-1936/batch-8/E049) does not establish a positive candidate mapping. The candidate selects Artifact as a root, but the captured source does not establish whether this identity is the root itself, a definition, or a derived catalog/view. Do not ask the Operator to choose a design until that meaning evidence is available."
+      }
+    },
+    {
+      "identity": "artifact-model",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "mixed",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot review for 'artifact-model' checked 12 source Atom(s) against CA-P-1936/batch-8/E050 but did not establish a positive candidate mapping. Candidate comparison: The candidate selects Artifact as a root, but the captured source does not establish whether this identity is the root itself, a definition, or a derived catalog/view. Keep the mapping pathless until targeted review supplies positive meaning evidence; no native admission or replacement is made.",
+      "operator_rules": [
+        "$.authority",
+        "$.graph_model",
+        "$.entity_vs_syntax_rules[0]",
+        "$.entity_vs_syntax_rules[1]"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E050"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-113",
+        "CA-R-118",
+        "CA-R-151",
+        "CA-R-1700",
+        "CA-R-1705",
+        "CA-R-1717",
+        "CA-R-1747",
+        "CA-R-1756",
+        "CA-R-1766",
+        "CA-R-728",
+        "CA-R-829",
+        "CA-R-941"
+      ],
+      "preserved_distinctions": [
+        "The original identity 'artifact-model', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The candidate selects Artifact as a root, but the captured source does not establish whether this identity is the root itself, a definition, or a derived catalog/view."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Review task only: captured Main Content for 'artifact-model' (CA-P-1936/batch-8/E050) does not establish a positive candidate mapping. The candidate selects Artifact as a root, but the captured source does not establish whether this identity is the root itself, a definition, or a derived catalog/view. Do not ask the Operator to choose a design until that meaning evidence is available."
+      }
+    },
+    {
+      "identity": "atom-boundary",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "R",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot review for 'atom-boundary' checked 39 source Atom(s) against CA-P-1936/batch-8/E051 but did not establish a positive candidate mapping. Candidate comparison: The candidate defines Artifact/Atom as a dependent-entity boundary, but the captured sources do not establish a safe replacement for this qualified identity. Keep the mapping pathless until targeted review supplies positive meaning evidence; no native admission or replacement is made.",
+      "operator_rules": [
+        "$.authority",
+        "$.graph_model",
+        "$.entity_vs_syntax_rules[0]",
+        "$.entity_vs_syntax_rules[1]"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E051"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1016",
+        "CA-R-1017",
+        "CA-R-1019",
+        "CA-R-1020",
+        "CA-R-1021",
+        "CA-R-1022",
+        "CA-R-1023",
+        "CA-R-1024",
+        "CA-R-1025",
+        "CA-R-1026",
+        "CA-R-1027",
+        "CA-R-1029",
+        "CA-R-1030",
+        "CA-R-1032",
+        "CA-R-1033",
+        "CA-R-1034",
+        "CA-R-1035",
+        "CA-R-1036",
+        "CA-R-1037",
+        "CA-R-1038",
+        "CA-R-1039",
+        "CA-R-1040",
+        "CA-R-117",
+        "CA-R-118",
+        "CA-R-121",
+        "CA-R-151",
+        "CA-R-1632",
+        "CA-R-1653",
+        "CA-R-1654",
+        "CA-R-1657",
+        "CA-R-1659",
+        "CA-R-1676",
+        "CA-R-807",
+        "CA-R-808",
+        "CA-R-879",
+        "CA-R-915",
+        "CA-R-934",
+        "CA-R-960",
+        "CA-R-976"
+      ],
+      "preserved_distinctions": [
+        "The original identity 'atom-boundary', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The candidate defines Artifact/Atom as a dependent-entity boundary, but the captured sources do not establish a safe replacement for this qualified identity."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Review task only: captured Main Content for 'atom-boundary' (CA-P-1936/batch-8/E051) does not establish a positive candidate mapping. The candidate defines Artifact/Atom as a dependent-entity boundary, but the captured sources do not establish a safe replacement for this qualified identity. Do not ask the Operator to choose a design until that meaning evidence is available."
+      }
+    },
+    {
+      "identity": "authority",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "R",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot review for 'authority' checked 12 source Atom(s) against CA-P-1936/batch-8/E052 but did not establish a positive candidate mapping. Candidate comparison: The candidate separates source authority, Scope Unit ownership, and derived Projection views, but the captured source does not establish this label's exact owner or relation. Keep the mapping pathless until targeted review supplies positive meaning evidence; no native admission or replacement is made.",
+      "operator_rules": [
+        "$.authority",
+        "$.graph_model",
+        "$.entity_vs_syntax_rules[0]",
+        "$.entity_vs_syntax_rules[1]"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E052"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1656",
+        "CA-R-1658",
+        "CA-R-1681",
+        "CA-R-1682",
+        "CA-R-1683",
+        "CA-R-1689",
+        "CA-R-1710",
+        "CA-R-1713",
+        "CA-R-1744",
+        "CA-R-1756",
+        "CA-R-829",
+        "CA-R-934"
+      ],
+      "preserved_distinctions": [
+        "The original identity 'authority', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The candidate separates source authority, Scope Unit ownership, and derived Projection views, but the captured source does not establish this label's exact owner or relation."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Review task only: captured Main Content for 'authority' (CA-P-1936/batch-8/E052) does not establish a positive candidate mapping. The candidate separates source authority, Scope Unit ownership, and derived Projection views, but the captured source does not establish this label's exact owner or relation. Do not ask the Operator to choose a design until that meaning evidence is available."
+      }
+    },
+    {
+      "identity": "classification",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "R",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot review for 'classification' checked 1 source Atom(s) against CA-P-1936/batch-8/E053 but did not establish a positive candidate mapping. Candidate comparison: The candidate preserves separate classification axes without multiplying types, but the captured source does not establish this identity's exact axis or dependent field. Keep the mapping pathless until targeted review supplies positive meaning evidence; no native admission or replacement is made.",
+      "operator_rules": [
+        "$.authority",
+        "$.graph_model",
+        "$.entity_vs_syntax_rules[0]",
+        "$.entity_vs_syntax_rules[1]"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E053"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1701"
+      ],
+      "preserved_distinctions": [
+        "The original identity 'classification', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The candidate preserves separate classification axes without multiplying types, but the captured source does not establish this identity's exact axis or dependent field."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Review task only: captured Main Content for 'classification' (CA-P-1936/batch-8/E053) does not establish a positive candidate mapping. The candidate preserves separate classification axes without multiplying types, but the captured source does not establish this identity's exact axis or dependent field. Do not ask the Operator to choose a design until that meaning evidence is available."
+      }
+    },
+    {
+      "identity": "continuous-improvement",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "R",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot review for 'continuous-improvement' checked 5 source Atom(s) against CA-P-1936/batch-8/E054 but did not establish a positive candidate mapping. Candidate comparison: The candidate has no dedicated root for this broad contextual label, and the captured source does not establish a dependent field, relation, or view mapping. Keep the mapping pathless until targeted review supplies positive meaning evidence; no native admission or replacement is made.",
+      "operator_rules": [
+        "$.authority",
+        "$.entity_vs_syntax_rules[0]",
+        "$.review_backlog.authoring_and_implementation"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E054"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1734",
+        "CA-R-1735",
+        "CA-R-1741",
+        "CA-R-1742",
+        "CA-R-1743"
+      ],
+      "preserved_distinctions": [
+        "The original identity 'continuous-improvement', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The candidate has no dedicated root for this broad contextual label, and the captured source does not establish a dependent field, relation, or view mapping."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Review task only: captured Main Content for 'continuous-improvement' (CA-P-1936/batch-8/E054) does not establish a positive candidate mapping. The candidate has no dedicated root for this broad contextual label, and the captured source does not establish a dependent field, relation, or view mapping. Do not ask the Operator to choose a design until that meaning evidence is available."
+      }
+    },
+    {
+      "identity": "development-flow",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "R",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot review for 'development-flow' checked 5 source Atom(s) against CA-P-1936/batch-8/E055 but did not establish a positive candidate mapping. Candidate comparison: The candidate has no dedicated root for this broad contextual label, and the captured source does not establish a dependent field, relation, or view mapping. Keep the mapping pathless until targeted review supplies positive meaning evidence; no native admission or replacement is made.",
+      "operator_rules": [
+        "$.authority",
+        "$.entity_vs_syntax_rules[0]",
+        "$.review_backlog.authoring_and_implementation"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E055"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1685",
+        "CA-R-1691",
+        "CA-R-1714",
+        "CA-R-1715",
+        "CA-R-1716"
+      ],
+      "preserved_distinctions": [
+        "The original identity 'development-flow', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The candidate has no dedicated root for this broad contextual label, and the captured source does not establish a dependent field, relation, or view mapping."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Review task only: captured Main Content for 'development-flow' (CA-P-1936/batch-8/E055) does not establish a positive candidate mapping. The candidate has no dedicated root for this broad contextual label, and the captured source does not establish a dependent field, relation, or view mapping. Do not ask the Operator to choose a design until that meaning evidence is available."
+      }
+    },
+    {
+      "identity": "evaluation",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "mixed",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot review for 'evaluation' checked 6 source Atom(s) against CA-P-1936/batch-8/E056 but did not establish a positive candidate mapping. Candidate comparison: The candidate treats Evaluation as a role-centred view and actual checks as Executions, but the captured source does not establish this identity's exact path. Keep the mapping pathless until targeted review supplies positive meaning evidence; no native admission or replacement is made.",
+      "operator_rules": [
+        "$.authority",
+        "$.entity_vs_syntax_rules[0]",
+        "$.review_backlog.authoring_and_implementation"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E056"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1647",
+        "CA-R-1679",
+        "CA-R-1684",
+        "CA-R-1687",
+        "CAPRMEDIO-GOV-EVAL-001",
+        "CAPRMEDIO-GOV-EVAL-009"
+      ],
+      "preserved_distinctions": [
+        "The original identity 'evaluation', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The candidate treats Evaluation as a role-centred view and actual checks as Executions, but the captured source does not establish this identity's exact path."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Review task only: captured Main Content for 'evaluation' (CA-P-1936/batch-8/E056) does not establish a positive candidate mapping. The candidate treats Evaluation as a role-centred view and actual checks as Executions, but the captured source does not establish this identity's exact path. Do not ask the Operator to choose a design until that meaning evidence is available."
+      }
+    },
+    {
+      "identity": "extension-model",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "R",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot review for 'extension-model' checked 5 source Atom(s) against CA-P-1936/batch-8/E057 but did not establish a positive candidate mapping. Candidate comparison: The candidate has no dedicated root for this broad contextual label, and the captured source does not establish a dependent field, relation, or view mapping. Keep the mapping pathless until targeted review supplies positive meaning evidence; no native admission or replacement is made.",
+      "operator_rules": [
+        "$.authority",
+        "$.graph_model",
+        "$.entity_vs_syntax_rules[0]",
+        "$.entity_vs_syntax_rules[1]"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E057"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1733",
+        "CA-R-1752",
+        "CA-R-1753",
+        "CA-R-1754",
+        "CA-R-1755"
+      ],
+      "preserved_distinctions": [
+        "The original identity 'extension-model', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The candidate has no dedicated root for this broad contextual label, and the captured source does not establish a dependent field, relation, or view mapping."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Review task only: captured Main Content for 'extension-model' (CA-P-1936/batch-8/E057) does not establish a positive candidate mapping. The candidate has no dedicated root for this broad contextual label, and the captured source does not establish a dependent field, relation, or view mapping. Do not ask the Operator to choose a design until that meaning evidence is available."
+      }
+    },
+    {
+      "identity": "external-boundary",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "R",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot review for 'external-boundary' checked 2 source Atom(s) against CA-P-1936/batch-8/E058 but did not establish a positive candidate mapping. Candidate comparison: The candidate has no dedicated root for this broad contextual label, and the captured source does not establish a dependent field, relation, or view mapping. Keep the mapping pathless until targeted review supplies positive meaning evidence; no native admission or replacement is made.",
+      "operator_rules": [
+        "$.authority",
+        "$.graph_model",
+        "$.entity_vs_syntax_rules[0]",
+        "$.entity_vs_syntax_rules[1]"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E058"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1627",
+        "CA-R-1648"
+      ],
+      "preserved_distinctions": [
+        "The original identity 'external-boundary', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The candidate has no dedicated root for this broad contextual label, and the captured source does not establish a dependent field, relation, or view mapping."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Review task only: captured Main Content for 'external-boundary' (CA-P-1936/batch-8/E058) does not establish a positive candidate mapping. The candidate has no dedicated root for this broad contextual label, and the captured source does not establish a dependent field, relation, or view mapping. Do not ask the Operator to choose a design until that meaning evidence is available."
+      }
+    },
+    {
+      "identity": "framework-boundary",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "R",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot review for 'framework-boundary' checked 1 source Atom(s) against CA-P-1936/batch-8/E059 but did not establish a positive candidate mapping. Candidate comparison: The candidate has no dedicated root for this broad contextual label, and the captured source does not establish a dependent field, relation, or view mapping. Keep the mapping pathless until targeted review supplies positive meaning evidence; no native admission or replacement is made.",
+      "operator_rules": [
+        "$.authority",
+        "$.graph_model",
+        "$.entity_vs_syntax_rules[0]",
+        "$.entity_vs_syntax_rules[1]"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E059"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1680"
+      ],
+      "preserved_distinctions": [
+        "The original identity 'framework-boundary', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The candidate has no dedicated root for this broad contextual label, and the captured source does not establish a dependent field, relation, or view mapping."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Review task only: captured Main Content for 'framework-boundary' (CA-P-1936/batch-8/E059) does not establish a positive candidate mapping. The candidate has no dedicated root for this broad contextual label, and the captured source does not establish a dependent field, relation, or view mapping. Do not ask the Operator to choose a design until that meaning evidence is available."
+      }
+    },
+    {
+      "identity": "interaction",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "R",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot review for 'interaction' checked 1 source Atom(s) against CA-P-1936/batch-8/E060 but did not establish a positive candidate mapping. Candidate comparison: The captured source does not resolve whether Interaction is an Actor, Relation, Execution, or content context. Keep the mapping pathless until targeted review supplies positive meaning evidence; no native admission or replacement is made.",
+      "operator_rules": [
+        "$.authority",
+        "$.graph_model",
+        "$.entity_vs_syntax_rules[0]",
+        "$.entity_vs_syntax_rules[1]"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E060"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-853"
+      ],
+      "preserved_distinctions": [
+        "The original identity 'interaction', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The captured source does not resolve whether Interaction is an Actor, Relation, Execution, or content context."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Review task only: captured Main Content for 'interaction' (CA-P-1936/batch-8/E060) does not establish a positive candidate mapping. The captured source does not resolve whether Interaction is an Actor, Relation, Execution, or content context. Do not ask the Operator to choose a design until that meaning evidence is available."
+      }
+    },
+    {
+      "identity": "language",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "mixed",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot review for 'language' checked 6 source Atom(s) against CA-P-1936/batch-8/E061 but did not establish a positive candidate mapping. Candidate comparison: The captured language occurrences may be content or delivery context, but the source does not establish a candidate root or D policy mapping. Keep the mapping pathless until targeted review supplies positive meaning evidence; no native admission or replacement is made.",
+      "operator_rules": [
+        "$.authority",
+        "$.graph_model",
+        "$.entity_vs_syntax_rules[0]",
+        "$.entity_vs_syntax_rules[1]"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E061"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-472",
+        "CA-M-112",
+        "CA-M-113",
+        "CA-M-294",
+        "CA-R-940",
+        "CA-R-941"
+      ],
+      "preserved_distinctions": [
+        "The original identity 'language', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The captured language occurrences may be content or delivery context, but the source does not establish a candidate root or D policy mapping."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Review task only: captured Main Content for 'language' (CA-P-1936/batch-8/E061) does not establish a positive candidate mapping. The captured language occurrences may be content or delivery context, but the source does not establish a candidate root or D policy mapping. Do not ask the Operator to choose a design until that meaning evidence is available."
+      }
+    },
+    {
+      "identity": "lifecycle",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "R",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot review for 'lifecycle' checked 1 source Atom(s) against CA-P-1936/batch-8/E062 but did not establish a positive candidate mapping. Candidate comparison: The candidate defines lifecycle boundaries across roots, but the captured source does not establish a standalone Lifecycle identity. Keep the mapping pathless until targeted review supplies positive meaning evidence; no native admission or replacement is made.",
+      "operator_rules": [
+        "$.history_model",
+        "$.atom_versioning",
+        "$.review_backlog.deliberately_deferred"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E062"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1630"
+      ],
+      "preserved_distinctions": [
+        "The original identity 'lifecycle', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The candidate defines lifecycle boundaries across roots, but the captured source does not establish a standalone Lifecycle identity."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Review task only: captured Main Content for 'lifecycle' (CA-P-1936/batch-8/E062) does not establish a positive candidate mapping. The candidate defines lifecycle boundaries across roots, but the captured source does not establish a standalone Lifecycle identity. Do not ask the Operator to choose a design until that meaning evidence is available."
+      }
+    },
+    {
+      "identity": "lifecycle-traceability",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "R",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot review for 'lifecycle-traceability' checked 10 source Atom(s) against CA-P-1936/batch-8/E063 but did not establish a positive candidate mapping. Candidate comparison: The candidate separates active versions, archived history, Journal records, and Projection rebuilds, but the captured source does not establish this label's exact mapping. Keep the mapping pathless until targeted review supplies positive meaning evidence; no native admission or replacement is made.",
+      "operator_rules": [
+        "$.history_model",
+        "$.atom_versioning",
+        "$.review_backlog.deliberately_deferred"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E063"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1032",
+        "CA-R-1051",
+        "CA-R-1697",
+        "CA-R-1698",
+        "CA-R-1699",
+        "CA-R-1706",
+        "CA-R-1726",
+        "CA-R-1727",
+        "CA-R-1728",
+        "CA-R-1729"
+      ],
+      "preserved_distinctions": [
+        "The original identity 'lifecycle-traceability', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The candidate separates active versions, archived history, Journal records, and Projection rebuilds, but the captured source does not establish this label's exact mapping."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Review task only: captured Main Content for 'lifecycle-traceability' (CA-P-1936/batch-8/E063) does not establish a positive candidate mapping. The candidate separates active versions, archived history, Journal records, and Projection rebuilds, but the captured source does not establish this label's exact mapping. Do not ask the Operator to choose a design until that meaning evidence is available."
+      }
+    },
+    {
+      "identity": "principles",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "R",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot review for 'principles' checked 1 source Atom(s) against CA-P-1936/batch-8/E064 but did not establish a positive candidate mapping. Candidate comparison: The candidate has no dedicated root for this broad contextual label, and the captured source does not establish a dependent field, relation, or view mapping. Keep the mapping pathless until targeted review supplies positive meaning evidence; no native admission or replacement is made.",
+      "operator_rules": [
+        "$.authority",
+        "$.graph_model",
+        "$.entity_vs_syntax_rules[0]",
+        "$.entity_vs_syntax_rules[1]"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E064"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1696"
+      ],
+      "preserved_distinctions": [
+        "The original identity 'principles', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The candidate has no dedicated root for this broad contextual label, and the captured source does not establish a dependent field, relation, or view mapping."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Review task only: captured Main Content for 'principles' (CA-P-1936/batch-8/E064) does not establish a positive candidate mapping. The candidate has no dedicated root for this broad contextual label, and the captured source does not establish a dependent field, relation, or view mapping. Do not ask the Operator to choose a design until that meaning evidence is available."
+      }
+    },
+    {
+      "identity": "project-containment graph",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "R",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot review for 'project-containment graph' checked 2 source Atom(s) against CA-P-1936/batch-8/E065 but did not establish a positive candidate mapping. Candidate comparison: The candidate defines Scope Unit ownership and recursive nesting, but the captured graph label does not establish the exact Scope Unit or Relation identity. Keep the mapping pathless until targeted review supplies positive meaning evidence; no native admission or replacement is made.",
+      "operator_rules": [
+        "$.root_entities[1]",
+        "$.entity_identity_model.scope_unit",
+        "$.entity_identity_model.scope_unit_rename"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E065"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-834",
+        "CA-R-836"
+      ],
+      "preserved_distinctions": [
+        "The original identity 'project-containment graph', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The candidate defines Scope Unit ownership and recursive nesting, but the captured graph label does not establish the exact Scope Unit or Relation identity."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Review task only: captured Main Content for 'project-containment graph' (CA-P-1936/batch-8/E065) does not establish a positive candidate mapping. The candidate defines Scope Unit ownership and recursive nesting, but the captured graph label does not establish the exact Scope Unit or Relation identity. Do not ask the Operator to choose a design until that meaning evidence is available."
+      }
+    },
+    {
+      "identity": "provenance",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "M",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot review for 'provenance' checked 1 source Atom(s) against CA-P-1936/batch-8/E066 but did not establish a positive candidate mapping. Candidate comparison: The candidate has source links and rebuild provenance, but the captured source does not establish a standalone Provenance entity or field. Keep the mapping pathless until targeted review supplies positive meaning evidence; no native admission or replacement is made.",
+      "operator_rules": [
+        "$.authority",
+        "$.graph_model",
+        "$.entity_vs_syntax_rules[0]",
+        "$.entity_vs_syntax_rules[1]"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E066"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-135"
+      ],
+      "preserved_distinctions": [
+        "The original identity 'provenance', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The candidate has source links and rebuild provenance, but the captured source does not establish a standalone Provenance entity or field."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Review task only: captured Main Content for 'provenance' (CA-P-1936/batch-8/E066) does not establish a positive candidate mapping. The candidate has source links and rebuild provenance, but the captured source does not establish a standalone Provenance entity or field. Do not ask the Operator to choose a design until that meaning evidence is available."
+      }
+    },
+    {
+      "identity": "relation validation",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "E",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot review for 'relation validation' checked 1 source Atom(s) against CA-P-1936/batch-8/E067 but did not establish a positive candidate mapping. Candidate comparison: The candidate constrains Relation endpoints, but the captured source does not establish a separate Relation Validation entity or operation. Keep the mapping pathless until targeted review supplies positive meaning evidence; no native admission or replacement is made.",
+      "operator_rules": [
+        "$.authority",
+        "$.graph_model",
+        "$.entity_vs_syntax_rules[0]",
+        "$.entity_vs_syntax_rules[1]"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E067"
+      ],
+      "checked_source_atom_ids": [
+        "CAPRMEDIO-GOV-EVAL-005"
+      ],
+      "preserved_distinctions": [
+        "The original identity 'relation validation', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The candidate constrains Relation endpoints, but the captured source does not establish a separate Relation Validation entity or operation."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Review task only: captured Main Content for 'relation validation' (CA-P-1936/batch-8/E067) does not establish a positive candidate mapping. The candidate constrains Relation endpoints, but the captured source does not establish a separate Relation Validation entity or operation. Do not ask the Operator to choose a design until that meaning evidence is available."
+      }
+    },
+    {
+      "identity": "relation-model",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "R",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot review for 'relation-model' checked 41 source Atom(s) against CA-P-1936/batch-8/E068 but did not establish a positive candidate mapping. Candidate comparison: The candidate selects typed Relations with constrained endpoints, but the captured source does not establish this broad label's exact relation catalogue or ownership. Keep the mapping pathless until targeted review supplies positive meaning evidence; no native admission or replacement is made.",
+      "operator_rules": [
+        "$.authority",
+        "$.graph_model",
+        "$.entity_vs_syntax_rules[0]",
+        "$.entity_vs_syntax_rules[1]"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E068"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1016",
+        "CA-R-1017",
+        "CA-R-1019",
+        "CA-R-1020",
+        "CA-R-1021",
+        "CA-R-1022",
+        "CA-R-1023",
+        "CA-R-1024",
+        "CA-R-1025",
+        "CA-R-1026",
+        "CA-R-1027",
+        "CA-R-1029",
+        "CA-R-1030",
+        "CA-R-1032",
+        "CA-R-1033",
+        "CA-R-1034",
+        "CA-R-1035",
+        "CA-R-1036",
+        "CA-R-1037",
+        "CA-R-1038",
+        "CA-R-1039",
+        "CA-R-1040",
+        "CA-R-117",
+        "CA-R-118",
+        "CA-R-121",
+        "CA-R-1632",
+        "CA-R-1653",
+        "CA-R-1654",
+        "CA-R-1657",
+        "CA-R-1659",
+        "CA-R-1676",
+        "CA-R-796",
+        "CA-R-807",
+        "CA-R-808",
+        "CA-R-879",
+        "CA-R-915",
+        "CA-R-916",
+        "CA-R-934",
+        "CA-R-935",
+        "CA-R-960",
+        "CA-R-976"
+      ],
+      "preserved_distinctions": [
+        "The original identity 'relation-model', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The candidate selects typed Relations with constrained endpoints, but the captured source does not establish this broad label's exact relation catalogue or ownership."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Review task only: captured Main Content for 'relation-model' (CA-P-1936/batch-8/E068) does not establish a positive candidate mapping. The candidate selects typed Relations with constrained endpoints, but the captured source does not establish this broad label's exact relation catalogue or ownership. Do not ask the Operator to choose a design until that meaning evidence is available."
+      }
+    },
+    {
+      "identity": "requirement-topology",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "R",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot review for 'requirement-topology' checked 2 source Atom(s) against CA-P-1936/batch-8/E069 but did not establish a positive candidate mapping. Candidate comparison: The candidate keeps R content and Scope Unit topology distinct, but the captured source does not establish this label's exact topology view. Keep the mapping pathless until targeted review supplies positive meaning evidence; no native admission or replacement is made.",
+      "operator_rules": [
+        "$.authority",
+        "$.graph_model",
+        "$.entity_vs_syntax_rules[0]",
+        "$.entity_vs_syntax_rules[1]"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E069"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1671",
+        "CA-R-1672"
+      ],
+      "preserved_distinctions": [
+        "The original identity 'requirement-topology', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The candidate keeps R content and Scope Unit topology distinct, but the captured source does not establish this label's exact topology view."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Review task only: captured Main Content for 'requirement-topology' (CA-P-1936/batch-8/E069) does not establish a positive candidate mapping. The candidate keeps R content and Scope Unit topology distinct, but the captured source does not establish this label's exact topology view. Do not ask the Operator to choose a design until that meaning evidence is available."
+      }
+    },
+    {
+      "identity": "runtime",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "R",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot review for 'runtime' checked 1 source Atom(s) against CA-P-1936/batch-8/E070 but did not establish a positive candidate mapping. Candidate comparison: The candidate defers live or resumable Execution-state storage, but the captured source does not establish a runtime Entity mapping. Keep the mapping pathless until targeted review supplies positive meaning evidence; no native admission or replacement is made.",
+      "operator_rules": [
+        "$.history_model",
+        "$.atom_versioning",
+        "$.review_backlog.deliberately_deferred"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E070"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1650"
+      ],
+      "preserved_distinctions": [
+        "The original identity 'runtime', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The candidate defers live or resumable Execution-state storage, but the captured source does not establish a runtime Entity mapping."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Review task only: captured Main Content for 'runtime' (CA-P-1936/batch-8/E070) does not establish a positive candidate mapping. The candidate defers live or resumable Execution-state storage, but the captured source does not establish a runtime Entity mapping. Do not ask the Operator to choose a design until that meaning evidence is available."
+      }
+    },
+    {
+      "identity": "scope-topology",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "R",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot review for 'scope-topology' checked 23 source Atom(s) against CA-P-1936/batch-8/E071 but did not establish a positive candidate mapping. Candidate comparison: The candidate selects Scope Unit ownership, recursive nesting, and stable IDs, but the captured source does not establish this broad topology identity's exact path. Keep the mapping pathless until targeted review supplies positive meaning evidence; no native admission or replacement is made.",
+      "operator_rules": [
+        "$.root_entities[1]",
+        "$.entity_identity_model.scope_unit",
+        "$.entity_identity_model.scope_unit_rename"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E071"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1656",
+        "CA-R-1658",
+        "CA-R-1677",
+        "CA-R-1678",
+        "CA-R-1686",
+        "CA-R-1688",
+        "CA-R-1690",
+        "CA-R-1719",
+        "CA-R-1721",
+        "CA-R-1732",
+        "CA-R-1749",
+        "CA-R-1751",
+        "CA-R-1756",
+        "CA-R-1771",
+        "CA-R-837",
+        "CA-R-886",
+        "CA-R-913",
+        "CA-R-935",
+        "CA-R-960",
+        "CA-R-961",
+        "CA-R-964",
+        "CA-R-976",
+        "CAPRMEDIO-R-791"
+      ],
+      "preserved_distinctions": [
+        "The original identity 'scope-topology', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The candidate selects Scope Unit ownership, recursive nesting, and stable IDs, but the captured source does not establish this broad topology identity's exact path."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Review task only: captured Main Content for 'scope-topology' (CA-P-1936/batch-8/E071) does not establish a positive candidate mapping. The candidate selects Scope Unit ownership, recursive nesting, and stable IDs, but the captured source does not establish this broad topology identity's exact path. Do not ask the Operator to choose a design until that meaning evidence is available."
+      }
+    },
+    {
+      "identity": "semantics",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "mixed",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot review for 'semantics' checked 11 source Atom(s) against CA-P-1936/batch-8/E072 but did not establish a positive candidate mapping. Candidate comparison: The candidate keeps semantics as content/context rather than a root, but the captured source does not establish a more specific mapping. Keep the mapping pathless until targeted review supplies positive meaning evidence; no native admission or replacement is made.",
+      "operator_rules": [
+        "$.authority",
+        "$.graph_model",
+        "$.entity_vs_syntax_rules[0]",
+        "$.entity_vs_syntax_rules[1]"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E072"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-123",
+        "CA-R-117",
+        "CA-R-121",
+        "CA-R-1702",
+        "CA-R-1707",
+        "CA-R-1709",
+        "CA-R-1712",
+        "CA-R-1718",
+        "CA-R-1725",
+        "CA-R-1736",
+        "CA-R-964"
+      ],
+      "preserved_distinctions": [
+        "The original identity 'semantics', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The candidate keeps semantics as content/context rather than a root, but the captured source does not establish a more specific mapping."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Review task only: captured Main Content for 'semantics' (CA-P-1936/batch-8/E072) does not establish a positive candidate mapping. The candidate keeps semantics as content/context rather than a root, but the captured source does not establish a more specific mapping. Do not ask the Operator to choose a design until that meaning evidence is available."
+      }
+    },
+    {
+      "identity": "settings specification",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "R",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot review for 'settings specification' checked 1 source Atom(s) against CA-P-1936/batch-8/E073 but did not establish a positive candidate mapping. Candidate comparison: The candidate separates settings boundaries from field-level D specifications, but the captured source does not establish an exact Carrier or dependent-field mapping. Keep the mapping pathless until targeted review supplies positive meaning evidence; no native admission or replacement is made.",
+      "operator_rules": [
+        "$.authority",
+        "$.graph_model",
+        "$.entity_vs_syntax_rules[0]",
+        "$.entity_vs_syntax_rules[1]"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E073"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1429"
+      ],
+      "preserved_distinctions": [
+        "The original identity 'settings specification', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The candidate separates settings boundaries from field-level D specifications, but the captured source does not establish an exact Carrier or dependent-field mapping."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Review task only: captured Main Content for 'settings specification' (CA-P-1936/batch-8/E073) does not establish a positive candidate mapping. The candidate separates settings boundaries from field-level D specifications, but the captured source does not establish an exact Carrier or dependent-field mapping. Do not ask the Operator to choose a design until that meaning evidence is available."
+      }
+    },
+    {
+      "identity": "subject",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "R",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot review for 'subject' checked 1 source Atom(s) against CA-P-1936/batch-8/E074 but did not establish a positive candidate mapping. Candidate comparison: The lowercase label is not automatically the retained Subject identity; the candidate does not establish whether it is an alias, context, or distinct source term. Keep the mapping pathless until targeted review supplies positive meaning evidence; no native admission or replacement is made.",
+      "operator_rules": [
+        "$.authority",
+        "$.graph_model",
+        "$.entity_vs_syntax_rules[0]",
+        "$.entity_vs_syntax_rules[1]"
+      ],
+      "evidence_refs": [
+        "CA-P-1936/batch-8/E074"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1770"
+      ],
+      "preserved_distinctions": [
+        "The original identity 'subject', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The lowercase label is not automatically the retained Subject identity; the candidate does not establish whether it is an alias, context, or distinct source term."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Review task only: captured Main Content for 'subject' (CA-P-1936/batch-8/E074) does not establish a positive candidate mapping. The lowercase label is not automatically the retained Subject identity; the candidate does not establish whether it is an alias, context, or distinct source term. Do not ask the Operator to choose a design until that meaning evidence is available."
+      }
+    }
+  ]
+}

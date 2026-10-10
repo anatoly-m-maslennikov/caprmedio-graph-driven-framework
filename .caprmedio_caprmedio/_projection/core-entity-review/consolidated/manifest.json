@@ -1,0 +1,206 @@
+{
+  "baseline_inventory_sha256": "23394abaf6e9c18a585cf3146aedd0a80df166c9dd82be6e86ed7c3c56780bdc",
+  "baseline_sha256": "bc5d99e91fb7dd4dcb42e59ff33cc24cff1d0901c5904764394c769aaa0a9430",
+  "batch_count": 9,
+  "candidate_sha256": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b",
+  "captured_core_commit": "a971d0e00c33c779f485fc8cad63194894d440fb",
+  "identity_count": 706,
+  "inputs": [
+    {
+      "bytes": 3266185,
+      "kind": "accepted_disposition_ledger",
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/nodes/nodes.dispositions.json",
+      "sha256": "1b9d751f95aa71486908b53b3d7f3f9825defae137be3d8792d45177587c48f8"
+    },
+    {
+      "bytes": 9581401,
+      "kind": "captured_baseline_inventory",
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/baseline.inventory.json",
+      "sha256": "bc5d99e91fb7dd4dcb42e59ff33cc24cff1d0901c5904764394c769aaa0a9430"
+    },
+    {
+      "bytes": 4482,
+      "kind": "captured_review_contract",
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/nodes/contract.md",
+      "sha256": "ce80a70bc1e7568e97e4ac8dde5fc17ec06359db7e0d97206c3f81f0fc84c762"
+    },
+    {
+      "bytes": 1102,
+      "kind": "captured_snapshot_context",
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/nodes/snapshot.context.md",
+      "sha256": "bfd6a7d93745d69432111df37ca139ba727a1ad06e821d94d3c059e44169ee23"
+    },
+    {
+      "bytes": 2190,
+      "kind": "captured_snapshot_source_reader",
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/nodes/support/snapshot_sources.py",
+      "sha256": "0a0078a6b8e25f4c2e52216bd78705a2e67537e5a89963ea478379ed35c932ea"
+    },
+    {
+      "bytes": 7545,
+      "kind": "consolidated_review_contract",
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/consolidated/contract.md",
+      "sha256": "1d569b34104bfab56ab372996af5c075e1ee5bec864f0356d03af34e5e9584c8"
+    },
+    {
+      "bytes": 55461,
+      "kind": "consolidator_compiler_recipe",
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/consolidated/support/consolidate.py",
+      "sha256": "216cfbc513b9163847148f8d2c1f28ba822ea1600662f5ccb8d144ba113c376e"
+    },
+    {
+      "bytes": 39750,
+      "kind": "legacy_question_review",
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/consolidated/legacy-questions.review.json",
+      "sha256": "3769366e5c8f2a4f60dc3b06f70addd3cb0a939f52b4de9097c7984108d9b833"
+    },
+    {
+      "bytes": 26445,
+      "kind": "operator_candidate",
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/presentation/operator.entity-graph.candidate.json",
+      "sha256": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b"
+    },
+    {
+      "bytes": 1227,
+      "kind": "operator_scope_direction",
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/nodes/scope.omission.decision.md",
+      "sha256": "d4ea636d540b0558c1a0fbb8263760947e1f0768840c43b3ed1d05c96b497453"
+    },
+    {
+      "bytes": 21245,
+      "kind": "review_input",
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/nodes/inputs/nodes.batch-0.input.json",
+      "sha256": "15963700170634081945d0e5a662bd7e2505ae0236543d9c0f1af52bfc424ea5"
+    },
+    {
+      "bytes": 39848,
+      "kind": "review_input",
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/nodes/inputs/nodes.batch-1.input.json",
+      "sha256": "a27fb1b439ad791fd7d404f385e41166c6a3c143d8cf3b8fea720db4650f398a"
+    },
+    {
+      "bytes": 30514,
+      "kind": "review_input",
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/nodes/inputs/nodes.batch-2.input.json",
+      "sha256": "6c2fca88b8537bd0259971a2754c978cff1b03181600c9a681ef935b038a6a21"
+    },
+    {
+      "bytes": 20528,
+      "kind": "review_input",
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/nodes/inputs/nodes.batch-3.input.json",
+      "sha256": "dd32659d557158390a52c869c87afbc5c28757f7bcb73a0c5f39a2d2d4c4dc3a"
+    },
+    {
+      "bytes": 22375,
+      "kind": "review_input",
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/nodes/inputs/nodes.batch-4.input.json",
+      "sha256": "3ecb4f409fe5f3ebffdd503bb94739541a30f3dd0b2fc75b62f7a2185fc59546"
+    },
+    {
+      "bytes": 21410,
+      "kind": "review_input",
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/nodes/inputs/nodes.batch-5.input.json",
+      "sha256": "b8a78fc221a8954036da22c4a82a3eda461c4d9badda807b9da399b6f13c6e54"
+    },
+    {
+      "bytes": 25416,
+      "kind": "review_input",
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/nodes/inputs/nodes.batch-6.input.json",
+      "sha256": "6ffc7e45c5c647e5c299b98761c74db7f9aca3ed76c80a4d7f32cde9df74e71c"
+    },
+    {
+      "bytes": 24894,
+      "kind": "review_input",
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/nodes/inputs/nodes.batch-7.input.json",
+      "sha256": "9a9188b17a1aca100515a3857e61a7499c07dd840d9672a5589e25739a1be1b6"
+    },
+    {
+      "bytes": 26182,
+      "kind": "review_input",
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/nodes/inputs/nodes.batch-8.input.json",
+      "sha256": "c7652bc1108b67b4fa9b9d037c78a9093ee2a78043f71bc244dec18033588b2b"
+    },
+    {
+      "bytes": 183533,
+      "kind": "review_receipt",
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/consolidated/reviews/batch-0.review.json",
+      "sha256": "24f80e9230f19cd817f5f62a4c2bba357d913625edbbf8767a88f47fd88b91cc"
+    },
+    {
+      "bytes": 113572,
+      "kind": "review_receipt",
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/consolidated/reviews/batch-1.review.json",
+      "sha256": "eec33920d65d586bee0fcc29f73afc4812b07230792c96b19356804b88dc2895"
+    },
+    {
+      "bytes": 79670,
+      "kind": "review_receipt",
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/consolidated/reviews/batch-2.review.json",
+      "sha256": "da9cafdba8203c7e9780617439b5c74fd73844d2487899f555462829c05fd2ca"
+    },
+    {
+      "bytes": 113651,
+      "kind": "review_receipt",
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/consolidated/reviews/batch-3.review.json",
+      "sha256": "f1aebd93fe042b8f8db79674cab9a790e411f548d5e6e07ea08f3d35535a13eb"
+    },
+    {
+      "bytes": 127509,
+      "kind": "review_receipt",
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/consolidated/reviews/batch-4.review.json",
+      "sha256": "3c7e5d0de8ae52c15c0cf9a6e396fdd5f17eb75356bea7383600217be768059b"
+    },
+    {
+      "bytes": 133573,
+      "kind": "review_receipt",
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/consolidated/reviews/batch-5.review.json",
+      "sha256": "123181478e2027e10c65ae07b5d1d5dde6ddf27eba737708e69d13aed4e0c963"
+    },
+    {
+      "bytes": 108205,
+      "kind": "review_receipt",
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/consolidated/reviews/batch-6.review.json",
+      "sha256": "e93da232623a2f0cb7e60729a3b1e51bec396e2c8d58e8505716b9c1b64c9d80"
+    },
+    {
+      "bytes": 122061,
+      "kind": "review_receipt",
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/consolidated/reviews/batch-7.review.json",
+      "sha256": "bcf9360d7ae1c147b7fe19abb55632bff14c419d4ef187f8ad903bd1147daa5e"
+    },
+    {
+      "bytes": 153581,
+      "kind": "review_receipt",
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/consolidated/reviews/batch-8.review.json",
+      "sha256": "ddb1e648f89389524015912d6b523bb8f7b3fe6d23da617157f0117c518a5267"
+    }
+  ],
+  "kind": "Consolidated candidate review manifest",
+  "limits": [
+    "Dry-run by default; --persist is create-only and never overwrites mismatched bytes.",
+    "No fresh exhaustive audit of all 951 sources is claimed; accepted evidence is reused and mechanically rechecked when referenced.",
+    "The manifest excludes its own self-hash to avoid a circular byte dependency."
+  ],
+  "non_authoritative": true,
+  "outputs": {
+    "entity-graph.indented.txt": {
+      "bytes": 2521,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/consolidated/entity-graph.indented.txt",
+      "sha256": "2dcb77f865094fba5828766af383c829f3782d71c881dddac72b1c62abbff21a"
+    },
+    "nodes.review.json": {
+      "bytes": 1164757,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/consolidated/nodes.review.json",
+      "sha256": "e4cb9c76b441c13115e87e141890a9dab58634a7a62fb1b3bc32168dbac261f6"
+    },
+    "review.summary.txt": {
+      "bytes": 56651,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/consolidated/review.summary.txt",
+      "sha256": "a2e5f2ef892d3e784f61796c4a8535d0994d807ff857b1c6cea0ddad7fd1031a"
+    }
+  },
+  "prior_review_sha256": "1b9d751f95aa71486908b53b3d7f3f9825defae137be3d8792d45177587c48f8",
+  "schema_version": 1,
+  "semantic_admission": "not_performed",
+  "source_migration": "not_performed"
+}

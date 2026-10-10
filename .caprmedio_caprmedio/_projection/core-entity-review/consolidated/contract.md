@@ -67,6 +67,20 @@ Each node contains:
   `technical_followup`) and `text`. Only concrete unresolved conflicts go to
   the Operator; missing evidence or primitive names remain review work.
 
+Classification confidence is not confidence in a complete Entity remapping.
+A supported contextual classification may keep root and path null rather than
+invent a bearer or subtype. Count actual display mappings separately. An
+unresolved row may explain its follow-up in `reason` without a question object.
+
+For this comparison, checked sources must belong to the original node input
+candidates or the accepted ledger's checked sources for that same identity.
+The latter preserves already reviewed cross-profile evidence; it does not
+permit arbitrary IDs from the captured catalogue. Six IDs in four old rows
+already use that accepted evidence route: Applicable Methodology (CA-R-1746),
+Artifact/Revision (CA-R-1415, CA-R-1416), Claim (CA-D-479), and Scope Unit/Structural
+Level (CA-D-442, CA-R-1730). Preserve their exact accepted quotes and source pins;
+do not rewrite the original input partitions or imply new native admission.
+
 Do not equate inheritance of an obligation with inheritance of a concrete
 Carrier. Do not collapse qualified Status fields or allowed-value domains just
 because their labels repeat. Do not delete unproved or apparently empty nodes;
