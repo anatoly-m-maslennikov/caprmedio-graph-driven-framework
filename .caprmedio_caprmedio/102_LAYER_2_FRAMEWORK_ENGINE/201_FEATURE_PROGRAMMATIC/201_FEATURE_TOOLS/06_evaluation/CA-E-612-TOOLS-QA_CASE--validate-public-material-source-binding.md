@@ -11,8 +11,8 @@ status: "Active"
 subjects:
   governs: "Public release material source proof"
   depends_on: [README, Pull Request, Version History, Source Proof]
-version: 1
-updated_at: "2026-10-09 12:45:00 +0000"
+version: 2
+updated_at: "2026-10-10 12:49:55 +0400"
 relations:
   evaluation_for: [CA-R-1922, CA-M-366]
 ---
@@ -26,8 +26,8 @@ one selected public documentation closure.
 
 ## Claim
 
-**the Operator** **must** verify that README, full PR body, Version History carrier, selected Version, and candidate snapshot remain the exact submitted source proof and reject substituted carrier or snapshot results.
+**the Operator** **must** verify that README, full PR body, Version History carrier, selected Version, D566 candidate snapshot, and canonical public-document closure remain the exact submitted source proof and reject substituted carrier, closure, or snapshot results.
 
 ## Details
 
-The golden successful case contains distinct What’s new and What’s fixed PR sections.
+The golden successful case contains distinct What’s new and What’s fixed PR sections. It proves that adding an actual Version History PR link changes the public-document-closure digest while retaining the same candidate snapshot, Version, and `version.toml` digest; a substituted raw document byte, summary, PR identity, or closure digest is refused.

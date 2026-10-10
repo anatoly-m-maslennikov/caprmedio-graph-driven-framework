@@ -10,8 +10,8 @@ status: "Active"
 subjects:
   governs: "Public release material source proof"
   depends_on: [README, Pull Request, Version History, Source Proof, Version, Local Release]
-version: 1
-updated_at: "2026-10-09 17:05:28 +0400"
+version: 2
+updated_at: "2026-10-10 12:56:30 +0400"
 relations:
   relates_to: [CA-O-192, CA-O-194, CA-O-198, CA-M-366, CA-E-612, CA-D-614]
 ---
@@ -25,10 +25,12 @@ one selected public documentation closure.
 
 ## Claim
 
-the public-release Tool **must** bind the README, full PR description, concise Version History carrier, selected Version, and candidate snapshot to one source proof before public gating.
+the public-release Tool **must** bind the README, full PR description, concise Version History carrier, selected Version, and D566 candidate snapshot to one source proof with one canonical `public_document_closure_sha256` before public gating.
 
 ## Details
 
-The full PR description separately states What’s new and What’s fixed. A substituted carrier, version, or candidate snapshot invalidates its gate evidence.
+The full PR description separately states What’s new and What’s fixed. The public-document closure is the lowercase SHA-256 of canonical UTF-8 JSON (sorted object keys, compact separators, `ensure_ascii=false`, and `allow_nan=false`) with exactly `schema: "caprmedio.public_release.document_closure.v1"`, `candidate_snapshot_manifest_sha256`, `framework_version`, `version_toml_sha256`, `readme_ref`, `readme_sha256`, `pr_body_ref`, `pr_body_sha256`, `version_history_ref`, `version_history_sha256`, `version_history_summary`, `version_history_pr_url`, and `version_history_pr_number`. The three references are safe Project-relative regular-file carriers whose raw bytes equal their SHA-256 values. URL and number are both `null` before an actual PR exists, or are one exact matching actual PR identity afterward. A substituted carrier, document byte, summary, PR identity, version, candidate snapshot, or closure digest invalidates gate evidence.
 
-The selected Version value and exact root `version.toml` byte digest must agree with the reopened verified local-release Version and its retained gate, promotion and live-verification proof. If public preparation changes the Version, publication requires a fresh local candidate, full local gate, same-bytes promotion and live verification first. A public-only Full Gate cannot substitute for that local release.
+The Tool itself physically rereads the three carriers and canonically re-encodes this exact closed object to derive `public_document_closure_sha256`. It never accepts a caller-supplied closure digest or closure fields as an input or admission parameter. A serialized Source Proof is valid only when its closure field equals that local recomputation.
+
+The selected Version value and exact root `version.toml` byte digest must agree with the reopened verified local-release Version and its retained gate, promotion and live-verification proof. An actual Version History link changes `public_document_closure_sha256`; it does not change the D566 candidate snapshot solely because it changes public documents. If public preparation changes the Version, publication requires a fresh local candidate, full local gate, same-bytes promotion and live verification first. A public-only Full Gate cannot substitute for that local release.

@@ -11,8 +11,8 @@ status: "Active"
 subjects:
   governs: "Public release successful execution"
   depends_on: [Git Commit, Pull Request, Full Gate, Tool]
-version: 1
-updated_at: "2026-10-09 12:45:00 +0000"
+version: 2
+updated_at: "2026-10-10 12:49:55 +0400"
 relations:
   evaluation_for: [CA-R-1925, CA-M-368]
 ---
@@ -26,8 +26,8 @@ the successful path of one public release.
 
 ## Claim
 
-**the Operator** **must** use a disposable end-to-end fixture with mocked remote effects and golden evidence to prove the initial gate, immutable push proof, actual new PR URL, changed history snapshot, renewed gate, follow-up push, and same-PR refresh sequence.
+**the Operator** **must** use a disposable end-to-end fixture with mocked remote effects and golden evidence to prove the initial gate, immutable push proof, actual new PR URL, changed public-document closure with unchanged D566 candidate snapshot, fresh non-promoting gate bridge, follow-up push, and same-PR refresh sequence.
 
 ## Details
 
-The fixture proves the contract and ordering; it is not evidence that GitHub was written.
+The fixture proves the contract and ordering; it is not evidence that GitHub was written. It refuses a history-link follow-up that changes neither closure nor candidate, changes a candidate without a renewed local cycle, or uses the detached original reader as the renewed producer.

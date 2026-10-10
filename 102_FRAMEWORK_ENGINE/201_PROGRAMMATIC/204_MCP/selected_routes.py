@@ -27,6 +27,7 @@ ORIGINAL_SELECTED_ROUTE_NAMES = (
 QUERY_ROUTE_NAMES = ("find_and_fetch_artifacts", "find_and_fetch_journal_events")
 SELECTED_ROUTE_NAMES = (*ORIGINAL_SELECTED_ROUTE_NAMES, *QUERY_ROUTE_NAMES)
 _OPTIONAL_RELEASE_ROUTE_NAME = "release_version"
+_OPTIONAL_PUBLIC_RELEASE_ROUTE_NAME = "public.release"
 _DIGEST = re.compile(r"^[0-9a-f]{64}$")
 _ATOM_ID = re.compile(r"^CA-[A-Z]+-[0-9]+$")
 _REQUEST_ID = re.compile(r"^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}$")
@@ -366,6 +367,87 @@ def _validate_query_source_admissions(
     return validated
 
 
+def _validate_public_release_source_admissions(
+    root: Path, admissions: Any, routes: list[dict[str, Any]],
+) -> list[dict[str, Any]]:
+    """Bind the additive public route to D613's one closed source record."""
+    if not isinstance(admissions, list) or len(admissions) != 1:
+        raise SelectedRouteError("public Release requires exactly one source admission")
+    public_route = next((route for route in routes
+                         if route["route"] == _OPTIONAL_PUBLIC_RELEASE_ROUTE_NAME), None)
+    if public_route is None:
+        raise SelectedRouteError("public Release source admission has no selected route")
+
+    public_release = Path(__file__).resolve().parents[1] / "201_TOOLS" / "PUBLIC_RELEASE"
+    if str(public_release) not in sys.path:
+        sys.path.insert(0, str(public_release))
+    try:
+        from selected_admission import (  # type: ignore[import-not-found]
+            PublicReleaseSourceAdmissionError,
+            validate_public_release_source_admission,
+        )
+    except ImportError as error:
+        raise SelectedRouteError(f"public Release source admission is unavailable: {error}") from error
+    try:
+        admission = validate_public_release_source_admission(root, admissions[0])
+    except PublicReleaseSourceAdmissionError as error:
+        raise SelectedRouteError(str(error)) from error
+    except (OSError, TypeError, ValueError) as error:
+        raise SelectedRouteError(f"public Release source admission is unavailable: {error}") from error
+
+    expected_edges = _public_release_workflow_edges(root, admission)
+    if (public_route["workflow"] != admission["workflow"]
+            or [item["step"] for item in public_route["ordered_steps"]] != admission["ordered_steps"]
+            or [item["action"] for item in public_route["ordered_steps"]] != admission["ordered_actions"]
+            or public_route["ordered_actions"] != admission["ordered_actions"]
+            or public_route["native_action_calls"] != admission["native_action_calls"]
+            or public_route["mutation_capable"] is not admission["mutation_capable"]
+            or public_route["entry_step"] != admission["ordered_steps"][0]["atom_id"]
+            or public_route["on_result"] != expected_edges):
+        raise SelectedRouteError("public Release route definitions differ from the accepted source frontier")
+    return [admission]
+
+
+def _public_release_workflow_edges(root: Path, admission: Mapping[str, Any]) -> list[dict[str, str]]:
+    """Derive O188's five successful Step edges from its currently pinned bytes."""
+    workflow = _validate_pin(root, admission["workflow"])
+    try:
+        text = _safe_path(root, workflow["source_path"]).read_text(encoding="utf-8")
+    except (OSError, UnicodeDecodeError) as error:
+        raise SelectedRouteError("public Release workflow source is unavailable") from error
+
+    tables: list[list[list[str]]] = []
+    current: list[list[str]] = []
+    for line in text.splitlines():
+        if line.startswith("|"):
+            current.append([cell.strip() for cell in line.strip("|").split("|")])
+        elif current:
+            tables.append(current)
+            current = []
+    if current:
+        tables.append(current)
+    step_tables = [table for table in tables if table and table[0] == ["Step", "Action", "Result boundary"]]
+    transition_tables = [table for table in tables if table and table[0] == ["Step result", "Next result"]]
+    if len(step_tables) != 1 or len(transition_tables) != 1:
+        raise SelectedRouteError("public Release workflow graph cannot be parsed")
+    step_rows, transition_rows = step_tables[0][2:], transition_tables[0][2:]
+    pairs = [(step["atom_id"], action["atom_id"])
+             for step, action in zip(admission["ordered_steps"], admission["ordered_actions"], strict=True)]
+    if (len(step_rows) != len(pairs) or len(transition_rows) != len(pairs) + 1
+            or any(len(row) != 3 for row in step_rows)
+            or [(row[0], row[1]) for row in step_rows] != pairs):
+        raise SelectedRouteError("public Release workflow graph differs from its admitted Step/Action frontier")
+    edges: list[dict[str, str]] = []
+    for index, row in enumerate(transition_rows[:-1]):
+        if len(row) != 2 or not row[0] or row[1] != (pairs[index + 1][0] if index + 1 < len(pairs) else "complete"):
+            raise SelectedRouteError("public Release workflow success transitions are invalid")
+        edges.append({"from": pairs[index][0], "condition": row[0], "to": row[1]})
+    stop = transition_rows[-1]
+    if len(stop) != 2 or stop[1] != "stop with actual evidence; do not merge or replay remote effects":
+        raise SelectedRouteError("public Release workflow stop transition is invalid")
+    return edges
+
+
 def _unique_manifest_object(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
     """Reject duplicate JSON members before the parser silently collapses them."""
     result: dict[str, Any] = {}
@@ -604,7 +686,7 @@ def validate_selected_manifest_document(root: str | Path, manifest: Any) -> dict
     manifest_ref = selected_manifest_ref(project_root)
     required = {"schema_version", "source_freshness", "query_source_admissions", "routes", "canonical_manifest_sha256"}
     if (not isinstance(manifest, Mapping) or not required <= set(manifest)
-            or set(manifest) - required - {"release_source_admissions"}
+            or set(manifest) - required - {"release_source_admissions", "public_release_source_admissions"}
             or manifest["schema_version"] != 1):
         raise SelectedRouteError("selected workflow binding manifest schema is invalid")
     if not isinstance(manifest["canonical_manifest_sha256"], str) or not _DIGEST.fullmatch(manifest["canonical_manifest_sha256"]):
@@ -628,10 +710,18 @@ def validate_selected_manifest_document(root: str | Path, manifest: Any) -> dict
     if not registry.is_file() or hashlib.sha256(registry.read_bytes()).hexdigest() != freshness["selected_source_registry_digest"]:
         raise SelectedRouteError("selected source registry pin is stale")
     routes = manifest["routes"]
-    if not isinstance(routes, list) or len(routes) not in {len(SELECTED_ROUTE_NAMES), len(SELECTED_ROUTE_NAMES) + 1}:
-        raise SelectedRouteError("selected workflow binding manifest must contain fifteen routes or their additive Release successor")
-    expected_names = (SELECTED_ROUTE_NAMES if len(routes) == len(SELECTED_ROUTE_NAMES)
-                      else (*SELECTED_ROUTE_NAMES, _OPTIONAL_RELEASE_ROUTE_NAME))
+    if not isinstance(routes, list) or len(routes) not in {
+        len(SELECTED_ROUTE_NAMES), len(SELECTED_ROUTE_NAMES) + 1, len(SELECTED_ROUTE_NAMES) + 2,
+    }:
+        raise SelectedRouteError(
+            "selected workflow binding manifest must contain fifteen routes or its additive Release successors"
+        )
+    expected_names = (
+        SELECTED_ROUTE_NAMES if len(routes) == len(SELECTED_ROUTE_NAMES)
+        else (*SELECTED_ROUTE_NAMES, _OPTIONAL_RELEASE_ROUTE_NAME)
+        if len(routes) == len(SELECTED_ROUTE_NAMES) + 1
+        else (*SELECTED_ROUTE_NAMES, _OPTIONAL_RELEASE_ROUTE_NAME, _OPTIONAL_PUBLIC_RELEASE_ROUTE_NAME)
+    )
     validated = [_validate_route(project_root, entry, allowed_routes=expected_names) for entry in routes]
     if tuple(entry["route"] for entry in validated) != expected_names or len({entry["route"] for entry in validated}) != len(expected_names):
         raise SelectedRouteError("selected workflow route registry is incomplete or duplicate")
@@ -641,7 +731,11 @@ def validate_selected_manifest_document(root: str | Path, manifest: Any) -> dict
     from release_source_admission import ReleaseSourceAdmissionError, validate_release_source_admissions
 
     try:
-        release_admissions = validate_release_source_admissions(project_root, {**manifest, "routes": validated})
+        # D572 deliberately owns only the predecessor additive portfolio.  The
+        # seventeenth D613 route is checked below by its own source reader.
+        release_admissions = validate_release_source_admissions(
+            project_root, {**manifest, "routes": validated[:len(SELECTED_ROUTE_NAMES) + 1]},
+        )
     except ReleaseSourceAdmissionError as error:
         raise SelectedRouteError(str(error)) from error
     result = {"manifest_ref": manifest_ref, "schema_version": 1, "source_freshness": dict(freshness),
@@ -649,14 +743,21 @@ def validate_selected_manifest_document(root: str | Path, manifest: Any) -> dict
               "canonical_manifest_sha256": manifest["canonical_manifest_sha256"]}
     if release_admissions:
         result["release_source_admissions"] = release_admissions
+    if len(validated) == len(SELECTED_ROUTE_NAMES) + 2:
+        public_admissions = _validate_public_release_source_admissions(
+            project_root, manifest.get("public_release_source_admissions"), validated,
+        )
+        result["public_release_source_admissions"] = public_admissions
+    elif "public_release_source_admissions" in manifest:
+        raise SelectedRouteError("public Release source admission requires the additive public.release route")
     return result
 
 
 def load_selected_manifest(root: str | Path) -> dict[str, Any]:
-    """Verify the current15 or source-admitted additive16 file, without dispatch.
+    """Verify the current15 or source-admitted additive Release successor, without dispatch.
 
     Optional Release evidence belongs only to this canonical file. It does not
-    alter D527 request bindings or the public fifteen-route registration set.
+    alter D527 request bindings or ``SELECTED_ROUTE_NAMES``.
     """
     project_root = Path(root).resolve(strict=True)
     try:
@@ -1062,7 +1163,10 @@ class SelectedRouteAdapter(_SelectedRouteAdapterBase):
             routes = tuple(entry.get("route") for entry in manifest.get("routes", []) if isinstance(entry, Mapping))
         except (OSError, ValueError, SelectedRouteError) as error:
             return self._result(request, "blocked", "blocked", f"Release recovery admission is unavailable: {error}")
-        if routes != (*SELECTED_ROUTE_NAMES, _OPTIONAL_RELEASE_ROUTE_NAME):
+        if routes not in {
+            (*SELECTED_ROUTE_NAMES, _OPTIONAL_RELEASE_ROUTE_NAME),
+            (*SELECTED_ROUTE_NAMES, _OPTIONAL_RELEASE_ROUTE_NAME, _OPTIONAL_PUBLIC_RELEASE_ROUTE_NAME),
+        }:
             return self._result(request, "blocked", "blocked", "Release recovery requires the admitted additive Release manifest")
         support = self._support()
         if support is None or not hasattr(support, "recover_selected_release"):
@@ -1085,7 +1189,10 @@ class SelectedRouteAdapter(_SelectedRouteAdapterBase):
             routes = tuple(entry.get("route") for entry in manifest.get("routes", []) if isinstance(entry, Mapping))
         except (OSError, ValueError, SelectedRouteError) as error:
             return self._result(request, "blocked", "blocked", f"Release recovery admission is unavailable: {error}")
-        if routes != (*SELECTED_ROUTE_NAMES, _OPTIONAL_RELEASE_ROUTE_NAME):
+        if routes not in {
+            (*SELECTED_ROUTE_NAMES, _OPTIONAL_RELEASE_ROUTE_NAME),
+            (*SELECTED_ROUTE_NAMES, _OPTIONAL_RELEASE_ROUTE_NAME, _OPTIONAL_PUBLIC_RELEASE_ROUTE_NAME),
+        }:
             return self._result(request, "blocked", "blocked", "Release recovery requires the admitted additive Release manifest")
         support = self._support()
         if support is None or not hasattr(support, "recover_selected_release_status"):
@@ -1119,7 +1226,10 @@ def register_selected_routes(server: Any, root: str | Path) -> SelectedRouteAdap
         )
     except (OSError, ValueError, SelectedRouteError):
         admitted_names = SELECTED_ROUTE_NAMES
-    if admitted_names == (*SELECTED_ROUTE_NAMES, _OPTIONAL_RELEASE_ROUTE_NAME):
+    if admitted_names in {
+        (*SELECTED_ROUTE_NAMES, _OPTIONAL_RELEASE_ROUTE_NAME),
+        (*SELECTED_ROUTE_NAMES, _OPTIONAL_RELEASE_ROUTE_NAME, _OPTIONAL_PUBLIC_RELEASE_ROUTE_NAME),
+    }:
         public_route_names = admitted_names
     else:
         public_route_names = SELECTED_ROUTE_NAMES
@@ -1149,7 +1259,10 @@ def register_selected_routes(server: Any, root: str | Path) -> SelectedRouteAdap
         """Retry one pending shared event append; never replay an Action or Workflow."""
         return adapter.recover_recording(request)
 
-    if public_route_names == (*SELECTED_ROUTE_NAMES, _OPTIONAL_RELEASE_ROUTE_NAME):
+    if public_route_names in {
+        (*SELECTED_ROUTE_NAMES, _OPTIONAL_RELEASE_ROUTE_NAME),
+        (*SELECTED_ROUTE_NAMES, _OPTIONAL_RELEASE_ROUTE_NAME, _OPTIONAL_PUBLIC_RELEASE_ROUTE_NAME),
+    }:
         @server.tool(name="recover_selected_release", structured_output=True, annotations=selected_annotations)
         def recover_selected_release(request: dict[str, Any]) -> dict[str, Any]:
             """Recover only one existing frozen admitted Release Run."""
