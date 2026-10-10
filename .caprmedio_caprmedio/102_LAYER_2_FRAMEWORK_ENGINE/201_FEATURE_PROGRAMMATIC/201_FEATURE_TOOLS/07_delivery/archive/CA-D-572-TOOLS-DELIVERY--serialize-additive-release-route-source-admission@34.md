@@ -6,8 +6,8 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 35
-updated_at: "2026-10-10 10:25:26 +0000"
+version: 34
+updated_at: "2026-10-10 08:15:55 +0400"
 subjects:
   governs: "Tool/RELEASE_VERSION/Additive selected-route source admission"
   depends_on: [Tool, Workflow, Action, Manifest, Operator, Run, Journal]
@@ -89,8 +89,8 @@ This one unique delivery-level object is part of the one Release admission recor
 | CA-E-587 | 3 | `.caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/06_evaluation/CA-E-587-TOOLS-QA_CASE--verify-sealed-release-suite-reference-context-and-currentness.md` | `5d5bb6c6f87428b7dd3b7168a23777e084951292998b4a2149d1ba6be140e7d6` |
 | CA-E-589 | 1 | `.caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/06_evaluation/CA-E-589-TOOLS-QA_CASE--verify-source-pinned-candidate-e2e-and-full-gate-aggregation.md` | `06529f4175781d62fddb61f0fd03a2726b305a978c4fc252a2399ccd2702fe3a` |
 | CA-D-560 | 1 | `.caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/07_delivery/CA-D-560-TOOLS-DELIVERY--bind-release-version-tool-request-and-result-boundary.md` | `df88a519c1676f621e0fbfca66b9ebc63a84a6f0732625f5e652df161df08c10` |
-| CA-D-561 | 6 | `.caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/07_delivery/CA-D-561-TOOLS-DELIVERY--bind-release-source-compilation-and-package-carriers.md` | `cc148a5ed19dd017b88f4b9428e71a4dc9c3145ddd49d491137fb384efeccd97` |
-| CA-D-562 | 6 | `.caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/07_delivery/CA-D-562-TOOLS-DELIVERY--bind-full-framework-runtime-installation-boundary.md` | `9df9d8bc738fe73dac0c6ba1a2242b9d51166a436a70c28066d1e8f4b75292a7` |
+| CA-D-561 | 4 | `.caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/07_delivery/CA-D-561-TOOLS-DELIVERY--bind-release-source-compilation-and-package-carriers.md` | `e89c0e676c80d9dccdabd20e355d836376eecb5f63de2022da6dd658a31e4fc6` |
+| CA-D-562 | 5 | `.caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/07_delivery/CA-D-562-TOOLS-DELIVERY--bind-full-framework-runtime-installation-boundary.md` | `896df33581410955f4ac5a238ea2a5bd74b47b1b20c60b8df6c8d6eff206b0f3` |
 | CA-D-563 | 1 | `.caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/07_delivery/CA-D-563-TOOLS-DELIVERY--bind-project-local-ca-skill-without-hooks.md` | `f73a38dd7b634d654a7044f20c96240a0d1f850c4a71e4eef18f98d074cdbb3d` |
 | CA-D-564 | 2 | `.caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/07_delivery/CA-D-564-TOOLS-DELIVERY--bind-candidate-image-and-safe-retirement-evidence.md` | `6c4acbf3cb4ff8293d9d386b809bcebbc3704adc1061720baeaf9966c9f51993` |
 | CA-D-566 | 2 | `.caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/07_delivery/CA-D-566-TOOLS-DELIVERY--encode-sealed-candidate-snapshot-manifest.md` | `72891771826e3154922d3989ede81d61d16aece9b016be924847817fddc05608` |
@@ -143,7 +143,7 @@ This separate private control-authority block governs only the explicitly approv
 [
   {
     "source_path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/RELEASE_VERSION/release_checkpoint.py",
-    "sha256": "64b6fe498320849b4456b59e63ecd6fa9814ab154b4fea2b374e5aa3b1641d9a"
+    "sha256": "63c45da3669e3fed02386350f3d7f7604bbed6447271b86eab547bfea6d89460"
   },
   {
     "source_path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/RELEASE_VERSION/release_e2e_bindings.json",
@@ -155,11 +155,11 @@ This separate private control-authority block governs only the explicitly approv
   },
   {
     "source_path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/RELEASE_VERSION/release_e2e_gate.py",
-    "sha256": "1fa538813945848c361aef3421d21d634d6c284df6ab740f2747cab939c34709"
+    "sha256": "8ef837ba516d543d01f787db253399569736e5dfbe4a3f767aa4960901a635b6"
   },
   {
     "source_path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/RELEASE_VERSION/release_full_gate.py",
-    "sha256": "19b14eddeb14e5ef0f1c9ad1c158d660f56ad57c39ea3775ffe2396e4c71f0d4"
+    "sha256": "bd5cb8cdfbd683fbb0a37260ec726ec97d814ffca62f4b3d9609a33501a6b2cd"
   },
   {
     "source_path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/RELEASE_VERSION/release_predecessor.py",
@@ -167,7 +167,7 @@ This separate private control-authority block governs only the explicitly approv
   },
   {
     "source_path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/RELEASE_VERSION/release_suite_execution.py",
-    "sha256": "2e2f3858beb8a4d117b1e1d965afc76f5d24c6a03dba0870689ff3f48ebc59f3"
+    "sha256": "5977861903f32c6f51c401bccfc95fe1bc2d46da0426fde5e4227873ee165f7f"
   },
   {
     "source_path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/RELEASE_VERSION/release_suite_limits.py",
@@ -215,7 +215,7 @@ This separate private control-authority block governs only the explicitly approv
   },
   {
     "source_path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/selected_native_providers.py",
-    "sha256": "1d88969d2c924aab94b337175b45d95ec43b508b79e80aeb2d8497855bfdf152"
+    "sha256": "5f1d388bd83927d2bb36ad22be38954c3db3ab892c7d2b39d14377102794edce"
   },
   {
     "source_path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/tests/test_docker_e2e.py",

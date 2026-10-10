@@ -16,11 +16,6 @@ from unittest.mock import patch
 
 MCP = Path(__file__).resolve().parents[1]
 REPOSITORY = MCP.parents[2]
-AUTHORITY_REF = (
-    ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/"
-    "201_FEATURE_TOOLS/07_delivery/CA-D-572-TOOLS-DELIVERY--serialize-additive-release-route-source-admission.md"
-)
-AUTHORITY_SHA = "1f6b2605e4a3f3e1bac17b62d43a78fbcd594affbf80260e42a2dc22e0c9e53e"
 sys.path.insert(0, str(MCP))
 
 import release_source_admission as admission_module  # noqa: E402
@@ -29,6 +24,9 @@ from release_source_admission import (  # noqa: E402
     validate_release_source_admissions,
 )
 from selected_routes import canonical_digest  # noqa: E402
+
+
+AUTHORITY_REF = admission_module.AUTHORITY_REF
 
 
 def reference_record(text: str) -> dict[str, object]:
@@ -84,8 +82,10 @@ class ReleaseSourceAdmissionTest(unittest.TestCase):
     def setUpClass(cls) -> None:
         authority = REPOSITORY / AUTHORITY_REF
         actual = authority.read_bytes()
-        if hashlib.sha256(actual).hexdigest() != AUTHORITY_SHA:
-            raise AssertionError("current D572@32 is not the accepted source pin")
+        pin = admission_module.AUTHORITY_PIN
+        if (hashlib.sha256(actual).hexdigest() != pin["digest"]
+                or admission_module._metadata(actual) != (pin["atom_id"], pin["version"])):
+            raise AssertionError("current D572 does not match the active parser source pin")
         cls.expected = reference_record(actual.decode("utf-8"))
         cls.private_carriers = json.loads(re.search(
             r"^## Private implementation carriers\n+```json\n(.*?)\n```$",
