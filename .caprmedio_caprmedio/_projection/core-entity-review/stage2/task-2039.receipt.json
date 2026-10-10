@@ -1,0 +1,28 @@
+{
+  "task": "CA-P-2039",
+  "recorded_at": "2026-10-11 02:46:24 +0400",
+  "result": "PASS: complete candidate review; unresolved mapping research retained",
+  "output": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-048.review.json",
+    "sha256": "984be1cc495fa6c59b502e091b21536386992de0ccbfd58094d1eff0fa3b1022"
+  },
+  "input_batch": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-048.json",
+    "sha256": "dfa30de3e07116c8bede7cb5690c1762ad9faac02311f3d2e495842853aa0343"
+  },
+  "checks": {
+    "independent_structural_verifier": "PASS",
+    "sources": 16,
+    "occurrences": 117,
+    "proposed": 46,
+    "unchanged": 21,
+    "unresolved": 50,
+    "meaning_review": "Independent meaning review checked all proposals and all unchanged rows. Thirteen Actor subtyping errors became source-supported Actor Type values. Five Projection Type mappings gained pinned current Entities/Terms Graph definitions and generic owner-field evidence; qualified Plan and DoD distinctions remain intact.",
+    "all_executable_false": true
+  },
+  "unresolved_work": "50 occurrence-level research rows remain in the pinned report and required CA-P-2045 integration; CA-P-1966 remains Active.",
+  "limits": [
+    "No original Atom, captured candidate, grammar, native or runtime change",
+    "Review completion is not migration approval"
+  ]
+}
