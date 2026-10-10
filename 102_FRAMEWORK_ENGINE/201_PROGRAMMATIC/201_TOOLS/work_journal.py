@@ -22,6 +22,8 @@ from typing import Any, Iterator, Mapping, Sequence
 from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 
 from project_runtime import atomic_tempfile
+from VALIDATE_ATOMS.validate_atoms_workers.read_io import ReadContext, open_regular, protected
+from VALIDATE_ATOMS.validate_atoms_workers.settings import CEILINGS
 
 
 MODULE_PATH = Path(__file__).resolve()
@@ -57,13 +59,91 @@ REPLACEMENT_FIELDS = frozenset({"predecessor_atom_id", "successor_atom_ids"})
 
 def repository_root(path: Path) -> Path:
     for candidate in (path.resolve(), *path.resolve().parents):
-        if (candidate / SETTINGS_PATH).is_file():
+        if any(control.is_dir() and (control / "caprmedio_project_settings.toml").exists()
+               for control in candidate.glob(".caprmedio_*")):
+            resolve_settings_path(candidate)
             return candidate
-    raise RuntimeError(f"cannot locate {SETTINGS_PATH} from {path}")
+    raise RuntimeError(f"cannot locate Project Settings from {path}")
+
+
+def _settings_control_relative(value: str | Path) -> Path:
+    path = Path(value)
+    if (path.is_absolute() or len(path.parts) != 1 or path.name == ".caprmedio_"
+            or not path.name.startswith(".caprmedio_") or str(value) != path.as_posix()
+            or protected(path)):
+        raise RuntimeError("paths.control_root must name one normalized direct Project child")
+    return path
+
+
+def _read_project_settings(root: Path, control_root: str | Path | None = None) -> tuple[Path, dict[str, Any]]:
+    """Read one Project-local settings carrier without repository fallback."""
+    try:
+        # Canonicalize the supplied boundary (including macOS's /var spelling),
+        # then use non-following I/O for every Project-local path component.
+        supplied = Path(root).expanduser()
+        if ".." in supplied.parts or protected(supplied) or supplied.is_symlink():
+            raise RuntimeError("Project root must not be unsafe or a symlink")
+        project = supplied.resolve(strict=True)
+        if protected(project):
+            raise RuntimeError("Project root is protected")
+        descriptor = open_regular(project, directory=True)
+        try:
+            if control_root is None:
+                candidates = []
+                with os.scandir(descriptor) as entries:
+                    for entry in entries:
+                        if not entry.name.startswith(".caprmedio_"):
+                            continue
+                        if entry.is_symlink():
+                            raise RuntimeError("Project control candidates must not be symlinks")
+                        if entry.is_dir(follow_symlinks=False) and os.path.lexists(
+                            project / entry.name / "caprmedio_project_settings.toml"
+                        ):
+                            candidates.append(_settings_control_relative(entry.name))
+                if len(candidates) != 1:
+                    raise RuntimeError("Project Settings control root is missing or ambiguous")
+                relative = candidates[0]
+            else:
+                relative = _settings_control_relative(control_root)
+        finally:
+            os.close(descriptor)
+        settings_path = project / relative / "caprmedio_project_settings.toml"
+        reader = ReadContext(roots=[str(project)], limits=dict(CEILINGS))
+        settings = tomllib.loads(reader.read(settings_path).decode("utf-8"))
+        paths = settings.get("paths")
+        if not isinstance(paths, dict):
+            raise RuntimeError("Project Settings requires a paths table")
+        declared = paths.get("control_root")
+        if not isinstance(declared, str) or not declared:
+            raise RuntimeError("Project Settings requires paths.control_root")
+        if _settings_control_relative(declared) != relative:
+            raise RuntimeError("paths.control_root must be exactly the selected settings carrier's Project child")
+        if reader.currentness()["state"] != "unchanged":
+            raise RuntimeError("Project Settings changed during resolution")
+        return settings_path, settings
+    except (OSError, UnicodeError, ValueError) as error:
+        raise RuntimeError("Project Settings carrier is unavailable, invalid, or unsafe") from error
+
+
+def resolve_settings_path(root: Path, control_root: str | Path | None = None) -> Path:
+    """Return the safely validated settings path for exactly this Project root.
+
+    The optional control child is an explicit selection; the compatibility
+    form requires a unique root-level ``.caprmedio_*`` settings carrier.
+    Neither form searches parent or sibling Projects.
+    """
+    return _read_project_settings(root, control_root)[0]
+
+
+def _assert_project_relative_path(root: Path, relative: Path, label: str) -> None:
+    project = root.resolve(strict=True)
+    path = project / relative
+    if path.resolve() != path:
+        raise RuntimeError(f"{label} must not contain a symlink or escape the Project root")
 
 
 def current_timestamp(root: Path) -> str:
-    settings = tomllib.loads((root / SETTINGS_PATH).read_text(encoding="utf-8"))
+    _, settings = _read_project_settings(root)
     value = settings.get("artifact_timestamps", {}).get("timezone", "local")
     if value == "local":
         moment = dt.datetime.now().astimezone()
@@ -139,7 +219,7 @@ def _atomic_json(path: Path, value: Mapping[str, Any]) -> None:
 
 
 def configured_journal_root(root: Path) -> Path:
-    settings = tomllib.loads((root / SETTINGS_PATH).read_text(encoding="utf-8"))
+    _, settings = _read_project_settings(root)
     paths = settings.get("paths", {})
     control_value = paths.get("control_root")
     if not isinstance(control_value, str) or not control_value:
@@ -156,6 +236,7 @@ def configured_journal_root(root: Path) -> Path:
         raise RuntimeError("paths.journal_root must be a safe repository-relative path")
     if path != canonical:
         raise RuntimeError("paths.journal_root must be exactly paths.control_root/_journal")
+    _assert_project_relative_path(root, canonical, "paths.journal_root")
     legacy = control / "work_journal"
     if (root / legacy).exists() and not (root / canonical).exists():
         raise RuntimeError(
@@ -184,13 +265,14 @@ def _physical_journal_path(root: Path, reference: str) -> Path:
 
 
 def configured_runtime_root(root: Path) -> Path:
-    settings = tomllib.loads((root / SETTINGS_PATH).read_text(encoding="utf-8"))
+    _, settings = _read_project_settings(root)
     value = settings.get("paths", {}).get("runtime_root", ".caprmedio_runtime")
     if not isinstance(value, str) or not value:
         raise RuntimeError("Project Settings requires paths.runtime_root")
     path = Path(value)
     if path.is_absolute() or ".." in path.parts or path.parts != (".caprmedio_runtime",):
         raise RuntimeError("paths.runtime_root must be .caprmedio_runtime")
+    _assert_project_relative_path(root, path, "paths.runtime_root")
     return path
 
 
