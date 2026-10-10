@@ -9,7 +9,7 @@ import os
 import shutil
 import sys
 import tempfile
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from pathlib import Path
 from typing import Any, Mapping, Sequence
 
@@ -22,7 +22,8 @@ sys.modules[_SPEC.name] = compiler
 _SPEC.loader.exec_module(compiler)
 
 SCHEMA = "caprmedio.methodology_export.v2"
-FROZEN_SCHEMA = "caprmedio.methodology_export.frozen.v1"
+FROZEN_SCHEMA = "caprmedio.methodology_export.frozen.v2"
+LEGACY_FROZEN_SCHEMA = "caprmedio.methodology_export.frozen.v1"
 SEAL_SCHEMA = "caprmedio.methodology_export.seal.v1"
 INVENTORY_NAME = "methodology-export-inventory.json"
 SEAL_NAME = "methodology-export-seal.json"
@@ -180,27 +181,91 @@ def _pin_bytes(root: Path, pin: SourcePin, kind: str) -> bytes:
     return path.read_bytes()
 
 
-def _active(root: Path) -> tuple[Atom, ...]:
-    _guard_source_metadata(root)
-    places = compiler.MethodologyPaths(source=Path("."), output=Path(".export-output"), control_root=Path("."))
+def _project_binding(project_root: Path | str | None, source_root: Path) -> dict[str, object] | None:
+    """Bind a Project export to its resolved places and raw control carriers."""
+    if project_root is None:
+        return None
+    project = Path(project_root)
+    if not project.is_absolute() or ".." in project.parts or project.is_symlink() or not project.is_dir():
+        raise MethodologyExportError("project-root-invalid", "project_root must be an absolute regular Project directory")
+    project = project.resolve(strict=True)
     try:
-        candidates, diagnostics, _ = compiler.discover_candidates(root, places)
+        places = compiler.methodology_paths(project)
+    except compiler.CompileError as error:
+        raise MethodologyExportError(error.code, error.message, **error.details) from error
+    declared_source = project / places.source
+    if declared_source.is_symlink() or not declared_source.is_dir() or declared_source.resolve(strict=True) != source_root:
+        raise MethodologyExportError("project-source-root-mismatch", "source_root is not the Project Structure declared Methodology source root")
+    project_settings = project / compiler.SETTINGS_PATH
+    structure = project / places.control_root / "project_structure.toml"
+    for path, label in ((project_settings, "Project Settings"), (structure, "Project Structure")):
+        if path.is_symlink() or not path.is_file():
+            raise MethodologyExportError("project-binding-invalid", f"{label} must be a regular file", path=path.as_posix())
+    instance = project / places.control_root / compiler.INSTANCE_SETTINGS_RELATIVE
+    try:
+        instance_present = compiler.safe_framework_settings_carrier(project, instance)
+    except compiler.CompileError as error:
+        raise MethodologyExportError(error.code, error.message, **error.details) from error
+    return {
+        "project_root": project.as_posix(),
+        "control_root": (project / places.control_root).resolve(strict=True).as_posix(),
+        "source_root": source_root.as_posix(),
+        "project_settings_path": project_settings.as_posix(),
+        "project_settings_sha256": _digest(project_settings.read_bytes()),
+        "project_structure_path": structure.as_posix(),
+        "project_structure_sha256": _digest(structure.read_bytes()),
+        "instance_settings_path": instance.as_posix(),
+        "instance_settings_sha256": _digest(instance.read_bytes()) if instance_present else None,
+    }
+
+
+def reopen_project_export_binding(project_root: Path | str, source_root: Path | str) -> Mapping[str, object]:
+    """Reopen the current immutable Project export binding for a declared source root."""
+    binding = _project_binding(project_root, _source_root(source_root))
+    if binding is None:
+        raise MethodologyExportError("project-root-invalid", "project_root is required for a Project export binding")
+    return binding
+
+
+def _active(root: Path, project_binding: Mapping[str, object] | None = None) -> tuple[Atom, ...]:
+    _guard_source_metadata(root)
+    if project_binding is None:
+        if any(
+            path.is_file()
+            for layer in ("002_INSTALLED_EXTENSIONS", "003_PROJECT_CONFIGURATION")
+            for path in (root / layer).rglob("*.md")
+        ):
+            raise MethodologyExportError("project-binding-required", "detached export accepts Core Meta-model sources only")
+        discovery_root = root
+        places = compiler.MethodologyPaths(source=Path("."), output=Path(".export-output"), control_root=Path("."))
+    else:
+        discovery_root = Path(str(project_binding["project_root"]))
+        try:
+            places = compiler.methodology_paths(discovery_root)
+        except compiler.CompileError as error:
+            raise MethodologyExportError(error.code, error.message, **error.details) from error
+    try:
+        candidates, diagnostics, _ = compiler.discover_candidates(discovery_root, places)
     except compiler.CompileError as error:
         raise MethodologyExportError(error.code, error.message, **error.details) from error
     blocked = [item for item in diagnostics if item.get("code") not in {"source-excluded", "empty-source-frontier"}]
     if blocked:
         item = blocked[0]
         raise MethodologyExportError(str(item["code"]), str(item.get("message", "active frontier invalid")))
-    atoms = tuple(sorted((Atom(item.source_path, item.atom_id, item.version, item.source_sha256) for item in candidates), key=lambda atom: atom.source_path))
+    if project_binding is None and any(item.layer != "CORE_META_MODEL" for item in candidates):
+        raise MethodologyExportError("project-binding-required", "detached export accepts Core Meta-model sources only")
+    atoms = tuple(sorted((Atom(
+        (discovery_root / item.source_path).relative_to(root).as_posix(), item.atom_id, item.version, item.source_sha256
+    ) for item in candidates), key=lambda atom: atom.source_path))
     if not atoms:
         raise MethodologyExportError("empty-source-frontier", "no eligible current active Methodology source revisions were found")
     return atoms
 
 
-def _stable_active(root: Path) -> tuple[tuple[Atom, ...], str]:
+def _stable_active(root: Path, project_binding: Mapping[str, object] | None = None) -> tuple[tuple[Atom, ...], str]:
     """Bind discovery to an unchanged metadata-guarded source-tree snapshot."""
     before = _source_tree_digest(root)
-    active = _active(root)
+    active = _active(root, project_binding)
     after = _source_tree_digest(root)
     if after != before:
         raise MethodologyExportError("source-tree-changed-during-discovery", "source tree changed while active frontier was discovered")
@@ -239,10 +304,11 @@ def _support_is_atom(pin: SourcePin, data: bytes) -> None:
         raise MethodologyExportError("support-atom-forbidden", "Atom carriers must be in the frozen selected frontier", path=pin.path)
 
 
-def freeze_methodology_manifest(*, source_root: Path | str, selected_atoms: Sequence[Mapping[str, object]], support_inventory: Sequence[Mapping[str, object]], catalog_pins: Sequence[Mapping[str, object]]) -> dict[str, object]:
+def freeze_methodology_manifest(*, source_root: Path | str, selected_atoms: Sequence[Mapping[str, object]], support_inventory: Sequence[Mapping[str, object]], catalog_pins: Sequence[Mapping[str, object]], project_root: Path | str | None = None) -> dict[str, object]:
     """Create data for a separate freeze authority; it performs no output write."""
     root = _source_root(source_root)
-    active, source_tree = _stable_active(root)
+    project_binding = _project_binding(project_root, root)
+    active, source_tree = _stable_active(root, project_binding)
     if not isinstance(selected_atoms, Sequence) or isinstance(selected_atoms, (str, bytes)) or not selected_atoms:
         raise MethodologyExportError("selected-atoms-invalid", "selected_atoms must be non-empty")
     index: dict[tuple[str, int], list[Atom]] = {}
@@ -274,6 +340,7 @@ def freeze_methodology_manifest(*, source_root: Path | str, selected_atoms: Sequ
         "active_frontier_sha256": _frontier_digest(active),
         "catalog_pins": [{"path": pin.path, "sha256": pin.sha256} for pin in catalogs],
         "schema": FROZEN_SCHEMA,
+        "project_binding": project_binding,
         "selected_atoms": [atom.record() for atom in selected],
         "source_root": root.as_posix(),
         "source_tree_sha256": source_tree,
@@ -285,12 +352,12 @@ def freeze_methodology_manifest(*, source_root: Path | str, selected_atoms: Sequ
 
 def frozen_manifest_bytes(manifest: Mapping[str, object]) -> bytes:
     value = dict(manifest)
-    if value.get("schema") != FROZEN_SCHEMA or not _valid_digest(value.get("sha256")) or value["sha256"] != _checksum(value):
+    if value.get("schema") not in {FROZEN_SCHEMA, LEGACY_FROZEN_SCHEMA} or not _valid_digest(value.get("sha256")) or value["sha256"] != _checksum(value):
         raise MethodologyExportError("frozen-manifest-invalid", "frozen manifest checksum is invalid")
     return _json(value) + b"\n"
 
 
-def _frozen(root: Path, value: Path | str) -> FrozenManifest:
+def _frozen(root: Path, value: Path | str, project_root: Path | str | None = None) -> FrozenManifest:
     path = Path(value)
     if not path.is_absolute() or ".." in path.parts or path.is_symlink() or not path.is_file():
         raise MethodologyExportError("frozen-manifest-missing", "frozen_manifest_path must be an absolute regular file")
@@ -298,8 +365,11 @@ def _frozen(root: Path, value: Path | str) -> FrozenManifest:
         raw, payload = path.read_bytes(), json.loads(path.read_text(encoding="utf-8"))
     except (OSError, UnicodeDecodeError, json.JSONDecodeError) as error:
         raise MethodologyExportError("frozen-manifest-invalid", "frozen manifest must be valid JSON") from error
-    required = {"active_frontier", "active_frontier_sha256", "catalog_pins", "schema", "selected_atoms", "sha256", "source_root", "source_tree_sha256", "support_inventory"}
-    if not isinstance(payload, dict) or set(payload) != required or raw != _json(payload) + b"\n" or payload.get("schema") != FROZEN_SCHEMA or not _valid_digest(payload.get("sha256")) or payload["sha256"] != _checksum(payload):
+    legacy_required = {"active_frontier", "active_frontier_sha256", "catalog_pins", "schema", "selected_atoms", "sha256", "source_root", "source_tree_sha256", "support_inventory"}
+    required = legacy_required | {"project_binding"}
+    schema = payload.get("schema") if isinstance(payload, dict) else None
+    expected_fields = legacy_required if schema == LEGACY_FROZEN_SCHEMA else required
+    if not isinstance(payload, dict) or set(payload) != expected_fields or raw != _json(payload) + b"\n" or schema not in {FROZEN_SCHEMA, LEGACY_FROZEN_SCHEMA} or not _valid_digest(payload.get("sha256")) or payload["sha256"] != _checksum(payload):
         raise MethodologyExportError("frozen-manifest-invalid", "frozen manifest bytes or fields are invalid")
     if payload["source_root"] != root.as_posix() or not _valid_digest(payload.get("source_tree_sha256")) or not _valid_digest(payload.get("active_frontier_sha256")):
         raise MethodologyExportError("frozen-manifest-root-mismatch", "frozen manifest does not bind source_root")
@@ -307,7 +377,15 @@ def _frozen(root: Path, value: Path | str) -> FrozenManifest:
     if payload["active_frontier_sha256"] != _frontier_digest(active) or not set(selected).issubset(set(active)):
         raise MethodologyExportError("frozen-manifest-invalid", "frozen selected frontier is not complete")
     supports, catalogs = _pins(payload["support_inventory"], "support_inventory"), _pins(payload["catalog_pins"], "catalog_pins")
-    current_active, current_tree = _stable_active(root)
+    if schema == LEGACY_FROZEN_SCHEMA:
+        if project_root is not None:
+            raise MethodologyExportError("frozen-manifest-legacy-read-only", "historical frozen.v1 manifests cannot become Project-bound exports")
+        project_binding = None
+    else:
+        project_binding = _project_binding(project_root, root)
+        if payload["project_binding"] != project_binding:
+            raise MethodologyExportError("frozen-manifest-project-binding-stale", "frozen manifest Project binding is no longer current")
+    current_active, current_tree = _stable_active(root, project_binding)
     if current_active != active or current_tree != payload["source_tree_sha256"]:
         raise MethodologyExportError("frozen-frontier-stale", "current authoring frontier differs from frozen manifest")
     for pin in supports:
@@ -481,10 +559,12 @@ def read_sealed_export(*, release_candidate_root: Path | str) -> MethodologyExpo
     return _sealed(root)
 
 
-def export_selected_methodology(*, source_root: Path | str, frozen_manifest_path: Path | str, release_candidate_root: Path | str) -> MethodologyExport:
+def export_selected_methodology(*, source_root: Path | str, frozen_manifest_path: Path | str, release_candidate_root: Path | str, project_root: Path | str | None = None) -> MethodologyExport:
     """Write and seal only the physically frozen active source declaration."""
     source = _source_root(source_root)
-    frozen = _frozen(source, frozen_manifest_path)
+    frozen = _frozen(source, frozen_manifest_path, project_root)
+    if frozen.payload.get("schema") != FROZEN_SCHEMA:
+        raise MethodologyExportError("frozen-manifest-legacy-read-only", "historical frozen.v1 manifests cannot create a new export")
     candidate = _candidate_root(release_candidate_root)
     _prepare_candidate(candidate, source)
     descriptor = _lock(candidate)
@@ -498,7 +578,7 @@ def export_selected_methodology(*, source_root: Path | str, frozen_manifest_path
         _write(candidate / UNSEALED_NAME, _json({"frozen_manifest_sha256": frozen.sha256, "schema": SCHEMA, "state": "writing"}) + b"\n")
         payloads = {atom.source_path: _candidate_atom_bytes(source, atom) for atom in frozen.selected}
         payloads.update({pin.path: _pin_bytes(source, pin, "support") for pin in frozen.supports})
-        reread = _frozen(source, frozen_manifest_path)
+        reread = _frozen(source, frozen_manifest_path, project_root)
         if reread != frozen or any(_candidate_atom_bytes(source, atom) != payloads[atom.source_path] for atom in frozen.selected) or any(_pin_bytes(source, pin, "support") != payloads[pin.path] for pin in frozen.supports):
             raise MethodologyExportError("frozen-manifest-stale", "frozen inputs changed during export")
         atom_rows = [{**atom.record(), "destination_path": atom.source_path, "digest": atom.sha256} for atom in frozen.selected]

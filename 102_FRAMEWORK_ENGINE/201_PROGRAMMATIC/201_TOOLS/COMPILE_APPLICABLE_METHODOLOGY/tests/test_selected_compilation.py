@@ -55,7 +55,7 @@ class SelectedCompilationTest(unittest.TestCase):
             'delivery_path = ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY"\n'
         )
         (self.source / "001_CORE_META_MODEL/caprmedio_framework_default_settings.toml").write_text("")
-        (self.source / "003_PROJECT_CONFIGURATION/caprmedio_framework_settings.toml").write_text(
+        (self.control / "000_CAPRMEDIO_framework/caprmedio_framework_settings.toml").write_text(
             "[extensions.example]\nenabled = true\nrevision = \"v2\"\n"
         )
         (self.control / "caprmedio_project_settings.toml").write_text(
@@ -166,7 +166,7 @@ class SelectedCompilationTest(unittest.TestCase):
     def test_exact_canonical_journal_decision_is_required_then_source_change_forces_reassessment(self) -> None:
         self.write("001_CORE_META_MODEL/04_requirement/CA-R-001--core.md", carrier("CA-R-001"))
         selected = self.write("003_PROJECT_CONFIGURATION/04_requirement/CA-R-001--project.md", carrier("CA-R-001", version=2))
-        (self.source / "003_PROJECT_CONFIGURATION/caprmedio_framework_settings.toml").write_text("")
+        (self.control / "000_CAPRMEDIO_framework/caprmedio_framework_settings.toml").write_text("")
         assessed = compiler.run_request(self.request())
         conflict = assessed["conflicts"][0]
         journal = self.control / "_journal/decisions.ndjson"
@@ -200,7 +200,7 @@ class SelectedCompilationTest(unittest.TestCase):
 
     def test_rejected_and_stale_canonical_decisions_preserve_prior_projection(self) -> None:
         core = self.write("001_CORE_META_MODEL/04_requirement/CA-R-001--core.md", carrier("CA-R-001"))
-        (self.source / "003_PROJECT_CONFIGURATION/caprmedio_framework_settings.toml").write_text("")
+        (self.control / "000_CAPRMEDIO_framework/caprmedio_framework_settings.toml").write_text("")
         initial = compiler.run_request(self.request())
         self.assertEqual("pending_recording", compiler.run_request(self.request("apply", expected_source_frontier_digest=initial["source_frontier_digest"]))["outcome"])
         before = self.output_bytes()
@@ -244,7 +244,7 @@ class SelectedCompilationTest(unittest.TestCase):
 
     def test_source_correction_handoff_requires_fresh_selection_and_assessment(self) -> None:
         selected = self.write("001_CORE_META_MODEL/04_requirement/CA-R-001--core.md", carrier("CA-R-001"))
-        (self.source / "003_PROJECT_CONFIGURATION/caprmedio_framework_settings.toml").write_text("")
+        (self.control / "000_CAPRMEDIO_framework/caprmedio_framework_settings.toml").write_text("")
         before = compiler.source_state_snapshot(self.root, compiler.methodology_paths(self.root))
         initial_selection = compiler.select_sources_action(self.request())
         handoff = compiler.apply_corrections_action(self.request())
@@ -264,7 +264,7 @@ class SelectedCompilationTest(unittest.TestCase):
 
     def test_source_change_after_staging_preserves_prior_output_before_publication(self) -> None:
         source = self.write("001_CORE_META_MODEL/04_requirement/CA-R-001--core.md", carrier("CA-R-001"))
-        (self.source / "003_PROJECT_CONFIGURATION/caprmedio_framework_settings.toml").write_text("")
+        (self.control / "000_CAPRMEDIO_framework/caprmedio_framework_settings.toml").write_text("")
         initial = compiler.run_request(self.request())
         self.assertEqual(
             "pending_recording",
@@ -301,7 +301,7 @@ class SelectedCompilationTest(unittest.TestCase):
 
     def test_source_change_after_output_replacement_requires_recovery_without_success_claim(self) -> None:
         source = self.write("001_CORE_META_MODEL/04_requirement/CA-R-001--core.md", carrier("CA-R-001"))
-        (self.source / "003_PROJECT_CONFIGURATION/caprmedio_framework_settings.toml").write_text("")
+        (self.control / "000_CAPRMEDIO_framework/caprmedio_framework_settings.toml").write_text("")
         initial = compiler.run_request(self.request())
         self.assertEqual(
             "pending_recording",
@@ -333,7 +333,7 @@ class SelectedCompilationTest(unittest.TestCase):
     def test_publication_failure_and_uncertainty_report_no_success_receipt(self) -> None:
         requirement = self.write("001_CORE_META_MODEL/04_requirement/CA-R-001--core.md", carrier("CA-R-001"))
         method = self.write("001_CORE_META_MODEL/05_method/CA-M-001--core.md", carrier("CA-M-001"))
-        (self.source / "003_PROJECT_CONFIGURATION/caprmedio_framework_settings.toml").write_text("")
+        (self.control / "000_CAPRMEDIO_framework/caprmedio_framework_settings.toml").write_text("")
         initial = compiler.run_request(self.request())
         self.assertEqual("pending_recording", compiler.run_request(self.request("apply", expected_source_frontier_digest=initial["source_frontier_digest"]))["outcome"])
         before = self.output_bytes()
@@ -377,7 +377,7 @@ class SelectedCompilationTest(unittest.TestCase):
 
     def test_recovery_requires_canonical_failed_publication_evidence_and_preserves_shared_receipt_context(self) -> None:
         self.write("001_CORE_META_MODEL/04_requirement/CA-R-001--core.md", carrier("CA-R-001"))
-        (self.source / "003_PROJECT_CONFIGURATION/caprmedio_framework_settings.toml").write_text("")
+        (self.control / "000_CAPRMEDIO_framework/caprmedio_framework_settings.toml").write_text("")
         assessed = compiler.run_request(self.request())
         missing = compiler.run_request(self.request("recover_publication", expected_source_frontier_digest=assessed["source_frontier_digest"]))
         self.assertEqual("blocked", missing["outcome"])
@@ -438,7 +438,7 @@ class SelectedCompilationTest(unittest.TestCase):
         self.write("002_INSTALLED_EXTENSIONS/example/v2/05_method/CA-M-002--example.md", carrier("CA-M-002"))
         self.write("002_INSTALLED_EXTENSIONS/other/r7/06_evaluation/CA-E-003--other.md", carrier("CA-E-003"))
         self.write("003_PROJECT_CONFIGURATION/07_delivery/CA-D-004--project.md", carrier("CA-D-004"))
-        (self.source / "003_PROJECT_CONFIGURATION/caprmedio_framework_settings.toml").write_text(
+        (self.control / "000_CAPRMEDIO_framework/caprmedio_framework_settings.toml").write_text(
             "[extensions.example]\nenabled = true\nrevision = \"v2\"\n\n"
             "[extensions.other]\nenabled = true\nrevision = \"r7\"\n"
         )
@@ -451,7 +451,7 @@ class SelectedCompilationTest(unittest.TestCase):
 
     def test_cli_remains_a_json_compatibility_wrapper(self) -> None:
         self.write("001_CORE_META_MODEL/04_requirement/CA-R-001--core.md", carrier("CA-R-001"))
-        (self.source / "003_PROJECT_CONFIGURATION/caprmedio_framework_settings.toml").write_text("")
+        (self.control / "000_CAPRMEDIO_framework/caprmedio_framework_settings.toml").write_text("")
         stream = io.StringIO()
         with contextlib.redirect_stdout(stream):
             exit_code = compiler.run(["--root", self.root.as_posix()])

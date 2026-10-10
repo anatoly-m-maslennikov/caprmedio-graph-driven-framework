@@ -62,10 +62,8 @@ FORBIDDEN_REQUEST_FIELDS = frozenset({
     "source_root", "output_path", "edit_source", "source_patch", "selected_candidate",
     "approval_text", "approval", "journal_event", "run_event", "journal_payload",
 })
-SETTINGS_FILENAMES = (
-    Path("001_CORE_META_MODEL/caprmedio_framework_default_settings.toml"),
-    Path("003_PROJECT_CONFIGURATION/caprmedio_framework_settings.toml"),
-)
+DEFAULT_SETTINGS_RELATIVE = Path("001_CORE_META_MODEL/caprmedio_framework_default_settings.toml")
+INSTANCE_SETTINGS_RELATIVE = Path("000_CAPRMEDIO_framework/caprmedio_framework_settings.toml")
 
 
 @dataclass(frozen=True)
@@ -236,16 +234,39 @@ def parse_toml(path: Path, code: str) -> dict[str, object]:
     return value
 
 
+def framework_settings_carriers(root: Path, places: MethodologyPaths) -> tuple[Path, Path]:
+    """Return the default and one D359-authoritative instance Settings Carriers."""
+    return (
+        root / places.source / DEFAULT_SETTINGS_RELATIVE,
+        root / places.control_root / INSTANCE_SETTINGS_RELATIVE,
+    )
+
+
+def safe_framework_settings_carrier(root: Path, path: Path) -> bool:
+    """Return whether an optional carrier is present, refusing symlink escapes."""
+    try:
+        relative = path.relative_to(root)
+    except ValueError as error:
+        raise CompileError("framework-settings-invalid", "Framework Settings Carrier escapes the Project", path=path.as_posix()) from error
+    ancestor = root
+    for part in relative.parts:
+        ancestor /= part
+        if ancestor.is_symlink():
+            raise CompileError("framework-settings-invalid", "Framework Settings Carrier cannot be a symlink or have a symlink ancestor", path=repo_relative(root, path))
+    if not path.exists():
+        return False
+    if not path.is_file():
+        raise CompileError("framework-settings-invalid", "Framework Settings Carrier must be a regular file", path=repo_relative(root, path))
+    return True
+
+
 def framework_settings(root: Path, places: MethodologyPaths) -> tuple[dict[str, object], dict[str, str]]:
     """Read only governed settings Carriers, retaining their byte bindings."""
     merged: dict[str, object] = {}
     bindings: dict[str, str] = {}
-    for relative in SETTINGS_FILENAMES:
-        path = root / places.source / relative
-        if not path.exists():
+    for path in framework_settings_carriers(root, places):
+        if not safe_framework_settings_carrier(root, path):
             continue
-        if not path.is_file() or path.is_symlink():
-            raise CompileError("framework-settings-invalid", "Framework Settings Carrier must be a regular file", path=repo_relative(root, path))
         raw = path.read_bytes()
         parsed = parse_toml(path, "framework-settings-invalid")
         merged.update(parsed)
@@ -303,9 +324,12 @@ def source_state_snapshot(root: Path, places: MethodologyPaths | None = None) ->
     structure = root / places.control_root / "project_structure.toml"
     if structure.is_file() and not structure.is_symlink():
         snapshot[repo_relative(root, structure)] = sha256_bytes(structure.read_bytes())
-    project_settings = root / SETTINGS_PATH
+    project_settings = root / places.control_root / "caprmedio_project_settings.toml"
     if project_settings.is_file() and not project_settings.is_symlink():
-        snapshot[SETTINGS_PATH.as_posix()] = sha256_bytes(project_settings.read_bytes())
+        snapshot[repo_relative(root, project_settings)] = sha256_bytes(project_settings.read_bytes())
+    for settings_carrier in framework_settings_carriers(root, places):
+        if safe_framework_settings_carrier(root, settings_carrier):
+            snapshot[repo_relative(root, settings_carrier)] = sha256_bytes(settings_carrier.read_bytes())
     return snapshot
 
 
@@ -321,7 +345,7 @@ def governed_bindings(root: Path, places: MethodologyPaths | None = None) -> dic
     structure = root / places.control_root / "project_structure.toml"
     if not structure.is_file() or structure.is_symlink():
         raise CompileError("project-structure-missing", "Project Structure is required for governed bindings", path=repo_relative(root, structure))
-    _, settings = framework_settings(root, places)
+    _, settings_bindings = framework_settings(root, places)
     configuration_root = root / places.source / "003_PROJECT_CONFIGURATION"
     configuration_records = {
         repo_relative(root, path): sha256_bytes(path.read_bytes())
@@ -330,7 +354,7 @@ def governed_bindings(root: Path, places: MethodologyPaths | None = None) -> dic
     }
     return {
         "project_structure_sha256": sha256_bytes(structure.read_bytes()),
-        "framework_settings_sha256": sha256_bytes(canonical_json(settings)),
+        "framework_settings_sha256": sha256_bytes(canonical_json(settings_bindings)),
         "project_configuration_sha256": sha256_bytes(canonical_json(configuration_records)),
         "projection_target": places.output.as_posix(),
     }
@@ -832,13 +856,9 @@ def output_plan(candidates: list[Candidate]) -> list[dict[str, object]]:
     return [candidate.report_record() for candidate in sorted(candidates, key=selected_sort_key)]
 
 
-def projection_bytes(source: bytes, source_relative_from_output: str, candidate: Candidate) -> bytes:
-    path = candidate.source_path
-    frontmatter, _ = split_frontmatter(source, path)
-    if re.search(r"(?m)^projection:\s*(?:$|\{)", frontmatter):
-        raise CompileError("source-projection-metadata-present", "Authoritative Source Carrier cannot contain projection metadata", path=path)
-    boundary = source.find(b"\n---\n", 4)
-    addition = (
+def projection_metadata_bytes(source_relative_from_output: str, candidate: Candidate) -> bytes:
+    """Render the one canonical projection metadata insertion verbatim."""
+    return (
         "\nprojection:\n"
         f"  source_carrier_path: {source_relative_from_output}\n"
         f"  source_atom_id: {candidate.atom_id}\n"
@@ -846,7 +866,38 @@ def projection_bytes(source: bytes, source_relative_from_output: str, candidate:
         f"  source_sha256: {candidate.source_sha256}\n"
         f"  original_relations_sha256: {candidate.original_relations_sha256}"
     ).encode("utf-8")
-    return source[:boundary] + addition + source[boundary:]
+
+
+def projection_bytes(source: bytes, source_relative_from_output: str, candidate: Candidate) -> bytes:
+    path = candidate.source_path
+    frontmatter, _ = split_frontmatter(source, path)
+    if re.search(r"(?m)^projection:\s*(?:$|\{)", frontmatter):
+        raise CompileError("source-projection-metadata-present", "Authoritative Source Carrier cannot contain projection metadata", path=path)
+    boundary = source.find(b"\n---\n", 4)
+    return source[:boundary] + projection_metadata_bytes(source_relative_from_output, candidate) + source[boundary:]
+
+
+def validate_projection_source_preservation(
+    source: bytes,
+    projected: bytes,
+    source_relative_from_output: str,
+    candidate: Candidate,
+) -> None:
+    """Require a projection to preserve its source bytes apart from canonical metadata."""
+    path = candidate.source_path
+    frontmatter, _ = split_frontmatter(source, path)
+    if re.search(r"(?m)^projection:\s*(?:$|\{)", frontmatter):
+        raise CompileError("source-projection-metadata-present", "Authoritative Source Carrier cannot contain projection metadata", path=path)
+    boundary = source.find(b"\n---\n", 4)
+    metadata = projection_metadata_bytes(source_relative_from_output, candidate)
+    prefix = source[:boundary]
+    suffix = source[boundary:]
+    if not projected.startswith(prefix + metadata) or projected[len(prefix + metadata):] != suffix:
+        raise CompileError(
+            "projection-source-preservation-invalid",
+            "Projected Carrier must preserve source bytes except for canonical projection metadata",
+            path=path,
+        )
 
 
 def validate_existing_output_ownership(output_root: Path) -> None:
