@@ -1,0 +1,54 @@
+{
+  "task": "CA-P-2057",
+  "recorded_at": "2026-10-11 03:30:00 +0400",
+  "result": "PASS: persisted baseline ledger verification and complete research registration; semantic acceptance not granted",
+  "output": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.mapping-ledger.json",
+    "sha256": "4d094ce89390e31290ce6ae7248cde78701376085bbe3078e33a228055e2eb39"
+  },
+  "checks": {
+    "canonical_bytes_equal_fresh_in_memory_rebuild": true,
+    "all_review_plans_and_receipts_verified": 51,
+    "current_sources": 907,
+    "occurrences": 4534,
+    "quarantined_sources": 8,
+    "quarantined_occurrences": 35,
+    "decisions": {
+      "proposed": 862,
+      "unchanged": 1575,
+      "unresolved": 2097
+    },
+    "research_partition": {
+      "bare_claim_unresolved": 120,
+      "other_unresolved": 1977,
+      "groups": 7,
+      "overlap": 0,
+      "missing": 0,
+      "unexpected": 0
+    },
+    "all_new_followup_plans_valid": 11,
+    "actor_subtype_defects_detected": 43,
+    "actor_defects_tracked_by": "CA-P-2058",
+    "source_and_evidence_pins": "Actual independent inventory and 51 review gates pass in fresh rebuild",
+    "unresolved_work_tracked": [
+      "CA-P-2048",
+      "CA-P-2049",
+      "CA-P-2050",
+      "CA-P-2051",
+      "CA-P-2052",
+      "CA-P-2053",
+      "CA-P-2054",
+      "CA-P-2055",
+      "CA-P-2056"
+    ]
+  },
+  "independent_verification": {
+    "ledger": "subject_review_006: exact fresh canonical rebuild and high-impact semantic review",
+    "ownership": "subject_review_010: exact disjoint occurrence IDs, counts, hashes and Plan relationships"
+  },
+  "limits": [
+    "The baseline exactly compiles frozen reviews; 43 known false Actor proposals remain visible and separately tracked",
+    "No accepted mapping/graph, native admission, live migration approval or source correction",
+    "Core and frozen candidate/review inputs remained unchanged at verification"
+  ]
+}
