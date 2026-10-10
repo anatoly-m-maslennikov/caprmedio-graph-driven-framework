@@ -44,7 +44,6 @@ from release_manifest_publisher import (  # noqa: E402
 from release_source_admission import (  # noqa: E402
     AUTHORITY_REF,
     derive_release_graph_admission,
-    derive_release_private_carriers,
 )
 from selected_routes import SELECTED_ROUTE_NAMES, load_selected_manifest, selected_manifest_ref  # noqa: E402
 from selected_source_refresh import derive_registered_source_refresh, registered_source_refresh  # noqa: E402
@@ -70,20 +69,44 @@ class ReleaseManifestAuthorizationTest(unittest.TestCase):
         self.temp = tempfile.TemporaryDirectory(prefix="context-", dir=temporary, ignore_cleanup_errors=True)
         self.addCleanup(self.temp.cleanup)
         self.root = Path(self.temp.name)
+        # This historical authorization corpus is deliberately the closed
+        # fifteen-route predecessor.  Its fixture helper copies every pin that
+        # predecessor admits; do not reopen the current Release-only private
+        # package inventory while preparing it.
         raw = GoldenProject(REPOSITORY, self.root, GoldenCase("W04", "change_atom_status"))._copy_reviewed_manifest()
         _, admission = derive_release_graph_admission(REPOSITORY)
         manifest_ref = selected_manifest_ref(REPOSITORY)
         source_registry_ref = raw["source_freshness"]["selected_source_registry_ref"]
         operators_registry_ref = ".caprmedio_caprmedio/operators_registry.toml"
         project_settings_ref = ".caprmedio_caprmedio/caprmedio_project_settings.toml"
-        private_carriers = derive_release_private_carriers(REPOSITORY)
-        for relative in _paths(admission) | _paths(private_carriers) | {
+        project_structure_ref = ".caprmedio_caprmedio/project_structure.toml"
+        for relative in _paths(admission) | {
             AUTHORITY_REF, manifest_ref, source_registry_ref, operators_registry_ref, project_settings_ref,
+            project_structure_ref,
         }:
             source, target = REPOSITORY / relative, self.root / relative
             target.parent.mkdir(parents=True, exist_ok=True)
             if not target.exists():
                 shutil.copyfile(source, target)
+        # Preserve the historical authorization contract independently from
+        # the current live Operator record.
+        (self.root / operators_registry_ref).write_text(
+            '[[operators]]\nname = "Anatoly Maslennikov"\nrole = "project owner"\n'
+            'journal_author = "anatoly-m"\n',
+            encoding="utf-8",
+        )
+        # The current-source resolver scans both registered Project and TOOLS
+        # roots for every RMED role.  The frozen predecessor has no source in
+        # every fallback root, but each checked root must still exist.
+        for relative in (
+            ".caprmedio_caprmedio/09_operations",
+            ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/"
+            "205_FEATURE_PROJECT_TOOLS",
+            ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/"
+            "201_FEATURE_TOOLS",
+        ):
+            for role_directory in ("04_requirement", "05_method", "06_evaluation", "07_delivery"):
+                (self.root / relative / role_directory).mkdir(parents=True, exist_ok=True)
         self.path = self.root / manifest_ref
         self.before = self.path.read_bytes()
         self.plan = plan_release_manifest_publish(self.root)

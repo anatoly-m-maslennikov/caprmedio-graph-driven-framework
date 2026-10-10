@@ -922,14 +922,18 @@ class GoldenProject:
             raise GoldenCorpusError("selected workflow manifest does not contain a route list")
         actual_routes = tuple(item.get("route") for item in manifest["routes"] if isinstance(item, dict))
         expected_routes = MANIFEST_ROUTE_NAMES
-        if actual_routes == (*expected_routes, "release_version"):
-            # The live projection has admitted its one additive Release row.
+        if actual_routes in {
+            (*expected_routes, "release_version"),
+            (*expected_routes, "release_version", "public.release"),
+        }:
+            # The live projection can admit Release and Public Release rows.
             # Selected-workflow goldens deliberately retain their historical
             # fifteen-route baseline, reconstructed with fresh digests rather
             # than borrowing mutable live carrier bytes.
             manifest = copy.deepcopy(manifest)
-            manifest["routes"] = manifest["routes"][:-1]
+            manifest["routes"] = manifest["routes"][:len(expected_routes)]
             manifest.pop("release_source_admissions", None)
+            manifest.pop("public_release_source_admissions", None)
             self._refresh_graph_action_fixture_pin(
                 manifest,
                 route_name="build_entities_graph",
